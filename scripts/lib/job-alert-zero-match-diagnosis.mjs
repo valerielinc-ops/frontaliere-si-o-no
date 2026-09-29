@@ -1,7 +1,7 @@
 /**
  * Classifies WHY a job-alert matched zero jobs this run, using only the
  * alert's own HARD filters — buildAlertProfile (services/jobAlertMatching.mjs)
- * documents hardKeywords/hardCategoryKeys, alertLocations/cantons, and
+ * documents hardKeywords/hardCategoryKeys/hardTaxonomyValues, alertLocations/cantons, and
  * specificJobIds/specificCompanyKey as the only HARD eliminators;
  * sectors/contractTypes are soft ranking signals there and never zero out a
  * match on their own. No re-scoring against the job pool — a field-only

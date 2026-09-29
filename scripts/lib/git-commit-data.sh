@@ -1833,12 +1833,67 @@ commit_isolated_from_worktree() {
       else
         # The legacy isolated path still reads its caller's current worktree.
         # Only --group-batch is snapshot-bound by the deferred descriptors.
-        [ -f "$f" ] || continue
+        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+        if [ ! -f "$f" ]; then
+          # --extra-only names its complete ownership surface explicitly. A
+          # missing named file is therefore a requested deletion, not an
+          # unrelated absent path to skip. Delete only the blob this checkout
+          # actually observed; a newer remote value belongs to another writer
+          # and must fail closed instead of being erased.
+          [ "$EXTRA_ONLY" = true ] || continue
+          [ -n "$remote_blob" ] || continue
+          if [ -z "$base_blob" ] || [ "$remote_blob" != "$base_blob" ]; then
+            echo "❌ grouped-isolated: explicit delete conflicts with a newer remote blob for $f"
+            return 1
+          fi
+          if is_job_slice_path "$f"; then
+            integrity_dir="$merge_dir/integrity-delete"
+            mkdir -p "$integrity_dir"
+            if ! git cat-file blob "$remote_blob" > "$integrity_dir/previous.json"; then
+              echo "❌ grouped-isolated: could not materialize crawler slice for delete integrity guard: $f"
+              return 1
+            fi
+            printf '[]\n' > "$integrity_dir/next.json"
+            integrity_args=(
+              "$f"
+              "$integrity_dir/previous.json"
+              "$integrity_dir/next.json"
+            )
+            housekeeping_proof_path="$(housekeeping_proof_path_for_file "$f")"
+            if [ -f "$housekeeping_proof_path" ]; then
+              integrity_args+=(
+                "$housekeeping_proof_path"
+                "$integrity_dir/previous.json"
+                "$integrity_dir/next.json"
+              )
+            fi
+            integrity_exit=0
+            HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}" \
+              || integrity_exit=$?
+            case "$integrity_exit" in
+              0) ;;
+              1)
+                echo "❌ grouped-isolated: refusing catastrophic crawler slice deletion: $f"
+                return 1
+                ;;
+              3)
+                echo "❌ grouped-isolated: catastrophic crawler slice deletion with a rejected housekeeping proof: $f"
+                return 1
+                ;;
+              *)
+                echo "❌ grouped-isolated: crawler slice delete integrity check crashed (exit $integrity_exit) for $f"
+                return 1
+                ;;
+            esac
+          fi
+          GIT_INDEX_FILE="$tmp_index" git update-index --force-remove -- "$f"
+          computed_count=$((computed_count + 1))
+          continue
+        fi
         if git check-ignore -q "$f" 2>/dev/null; then
           continue
         fi
         local_blob="$(git hash-object -w -- "$f")"
-        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
       fi
 
       if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
@@ -2356,16 +2411,32 @@ fi  # end SLICE_ONLY=false validation block
 # don't exist for every crawler (e.g. one that has never had an expired job) —
 # `git add` fails its ENTIRE invocation on any single unmatched pathspec, which
 # would otherwise abort staging of files that DO exist alongside it.
-STAGEABLE_FILES=()
-for _sf in "${ALL_FILES[@]}"; do
-  if [[ ! -e "$_sf" && "$_sf" != */ ]]; then
-    continue
-  elif git check-ignore -q "$_sf" 2>/dev/null; then
-    echo "ℹ️ Skipping gitignored path: $_sf"
-  else
-    STAGEABLE_FILES+=("$_sf")
-  fi
-done
+#
+# A directory path (trailing slash) is kept only when it has at least one
+# child git can act on: a tracked file (a missing directory whose files are
+# still in the index then gets their deletion staged) or an untracked,
+# non-ignored file. A directory that is neither on disk nor in the index (e.g.
+# data/jobs/by-crawler/ in a checkout that has only ever had expired slices)
+# would make `git add` abort the whole invocation with "pathspec did not match
+# any files", exactly like a missing file path; an existing directory with no
+# such child has nothing to stage either, so it is dropped the same way.
+collect_stageable_files() {
+  STAGEABLE_FILES=()
+  local _sf
+  for _sf in "${ALL_FILES[@]}"; do
+    if [[ "$_sf" == */ ]]; then
+      [ -n "$(git ls-files --cached --others --exclude-standard -- "$_sf" | head -n 1)" ] || continue
+    elif [[ ! -e "$_sf" ]]; then
+      continue
+    fi
+    if git check-ignore -q "$_sf" 2>/dev/null; then
+      echo "ℹ️ Skipping gitignored path: $_sf"
+    else
+      STAGEABLE_FILES+=("$_sf")
+    fi
+  done
+}
+collect_stageable_files
 if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
   git add "${STAGEABLE_FILES[@]}"
 fi
@@ -2399,16 +2470,7 @@ if ! git rebase origin/main 2>/dev/null; then
     "  🔀 Resolving stash-pop conflict after last-moment rebase..."
   cleanup_rebase_snapshot "$LAST_MOMENT_SNAPSHOT_DIR"
 
-  STAGEABLE_FILES=()
-  for _sf in "${ALL_FILES[@]}"; do
-    if [[ ! -e "$_sf" && "$_sf" != */ ]]; then
-      continue
-    elif git check-ignore -q "$_sf" 2>/dev/null; then
-      echo "ℹ️ Skipping gitignored path: $_sf"
-    else
-      STAGEABLE_FILES+=("$_sf")
-    fi
-  done
+  collect_stageable_files
   if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
     git add "${STAGEABLE_FILES[@]}"
   fi

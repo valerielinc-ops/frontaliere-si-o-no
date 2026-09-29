@@ -4,6 +4,7 @@ import http from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const SCRIPT_PATH = path.resolve(process.cwd(), 'scripts/cleanup-jobs.mjs');
 
@@ -45,6 +46,8 @@ interface CleanupSliceJob {
   streetAddress?: string;
   addressLocality?: string;
   applyUrl?: string;
+  previousSlugs?: string[];
+  previousSlugsByLocale?: Record<string, string[]>;
 }
 
 interface ExpiredEntry {
@@ -159,6 +162,48 @@ function daysAgo(n: number): string {
 }
 
 describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', () => {
+  it('persists previous-slug decontamination even when no job is removed', async () => {
+    const dir = makeTempDir();
+    const slicePath = path.join(dir, 'decontamination-slice-test.json');
+    const expiredDir = path.join(dir, 'expired');
+    const crawlerKey = `decontamination-slice-${Date.now()}`;
+    const owner = buildJob({
+      id: 'job-owner-001',
+      slug: 'owner-current',
+      title: 'Owner job',
+      crawledAt: daysAgo(1),
+    });
+    const contaminatedSlug = `legacy-owner-route-${stableSlugHash(owner)}`;
+    const claimant = buildJob({
+      id: 'job-claimant-002',
+      slug: 'claimant-current',
+      title: 'Claimant job',
+      crawledAt: daysAgo(1),
+      previousSlugs: [contaminatedSlug],
+      previousSlugsByLocale: { it: [contaminatedSlug], de: [] },
+    });
+    const jobs: CleanupSliceJob[] = [claimant, owner];
+
+    fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey, jobs }, null, 2), 'utf-8');
+
+    const result = await runCleanupSlice(slicePath, expiredDir);
+    const output = result.stdout + result.stderr;
+    expect(result.code, output).toBe(0);
+    expect(output).toContain('Previous-slug decontamination: moved');
+
+    const sliceParsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    const persistedJobs: CleanupSliceJob[] = Array.isArray(sliceParsed?.jobs)
+      ? sliceParsed.jobs
+      : sliceParsed;
+    const persistedOwner = persistedJobs.find((job) => job.id === owner.id);
+    const persistedClaimant = persistedJobs.find((job) => job.id === claimant.id);
+    expect(persistedOwner?.previousSlugs).toContain(contaminatedSlug);
+    expect(persistedOwner?.previousSlugsByLocale?.it).toContain(contaminatedSlug);
+    expect(persistedClaimant?.previousSlugs).not.toContain(contaminatedSlug);
+    expect(persistedClaimant?.previousSlugsByLocale?.it || []).not.toContain(contaminatedSlug);
+    expect(persistedClaimant?.previousSlugsByLocale?.de).toBeUndefined();
+  }, 30000);
+
   it('keeps a job when the canonical URL is dead but applyUrl is live', async () => {
     const server = http.createServer((req, res) => {
       if (req.url === '/apply') {
@@ -628,6 +673,9 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
           JOBS_STALE_DAYS: '60',
           JOBS_EXPIRED_JOBS_PATH: expiredJobsPath,
           JOBS_PUBLIC_EXPIRED_JOBS_PATH: publicExpiredJobsPath,
+          GITHUB_SHA: 'test-housekeeping-sha',
+          GITHUB_RUN_ID: 'test-housekeeping-run',
+          GITHUB_RUN_ATTEMPT: '1',
         },
       });
 

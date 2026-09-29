@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-09-28T04:55:32.639Z",
+  "assembledAt": "2026-09-29T09:18:25.299Z",
   "jobs": [
     {
       "id": "spital-sts-f0250d9be1ad",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c6125f64-2b40-499e-9bc6-2890e9d2ecb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:27.746Z",
+      "crawledAt": "2026-09-29T09:18:21.818Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -84,9 +84,9 @@
     },
     {
       "id": "spital-sts-415591b28a8b",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
         "en": "dipl-nursing-professional-dipl-nursing-professional-temporary-spital-sts-thun",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-temporaires-spital-sts-thun"
@@ -114,7 +114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e3b9ec4f-9c75-49f9-a2ae-95eed3456ca7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:27.285Z",
+      "crawledAt": "2026-09-29T09:18:21.356Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -132,13 +132,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun"
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun"
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun"
@@ -194,7 +194,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1cfaa927-c56f-41d4-98b5-a90c9031cc90/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:26.827Z",
+      "crawledAt": "2026-09-29T09:18:20.875Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -280,7 +280,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:26.371Z",
+      "crawledAt": "2026-09-29T09:18:20.410Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:25.779Z",
+      "crawledAt": "2026-09-29T09:18:19.803Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -394,9 +394,9 @@
     },
     {
       "id": "spital-sts-a2024755541f",
-      "slug": "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "en": "dipl-nursing-specialist-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "dipl-medecine-specialisee-en-soins-infirmiers-spital-sts-thun"
@@ -424,7 +424,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/cd19526d-68be-4e8f-8eb4-801b4e12c98a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:25.162Z",
+      "crawledAt": "2026-09-29T09:18:19.204Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -446,9 +446,9 @@
         "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun",
         "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
         "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
-        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "dipl-nursing-specialist-spital-sts-thun",
-        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun"
+        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -456,9 +456,9 @@
           "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun",
           "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
           "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
-          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
           "dipl-nursing-specialist-spital-sts-thun",
-          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun"
+          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
         ],
         "en": [
           "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun",
@@ -519,7 +519,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5803507c-bc78-4364-a15e-fd5e39a20c8f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:24.668Z",
+      "crawledAt": "2026-09-29T09:18:18.732Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -601,7 +601,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f8aaa339-770b-4789-a160-62d37f28cc96/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:24.235Z",
+      "crawledAt": "2026-09-29T09:18:18.228Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -681,7 +681,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1f53cea8-175e-41d0-96f6-a3b33cc59cb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:23.778Z",
+      "crawledAt": "2026-09-29T09:18:17.758Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -761,7 +761,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/58463804-b58f-4b0e-861b-f49ff9710f89/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:55:23.309Z",
+      "crawledAt": "2026-09-29T09:18:17.302Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",

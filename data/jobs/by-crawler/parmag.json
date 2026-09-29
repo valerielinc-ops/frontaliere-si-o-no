@@ -1,6 +1,6 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-09-28T04:53:47.323Z",
+  "assembledAt": "2026-09-29T10:17:23.408Z",
   "jobs": [
     {
       "id": "parmag-da6a774782e1",
@@ -33,7 +33,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.363Z",
+      "crawledAt": "2026-09-29T10:17:18.634Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.362Z",
+      "crawledAt": "2026-09-29T10:17:18.633Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -149,7 +149,6 @@
           "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.680Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -163,7 +162,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-c826da81c3fb",
@@ -196,7 +196,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.361Z",
+      "crawledAt": "2026-09-29T10:17:18.632Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -222,7 +222,6 @@
           "senior-consulente-sap-fi-co-m-w-d-ref-1242-parmag-ag-bern-oder-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.679Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -236,7 +235,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-ee7718ea35cd",
@@ -269,7 +269,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.360Z",
+      "crawledAt": "2026-09-29T10:17:18.630Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://parmag.ch/stellen/327?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.359Z",
+      "crawledAt": "2026-09-29T10:17:18.630Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.358Z",
+      "crawledAt": "2026-09-29T10:17:18.629Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -466,7 +466,6 @@
           "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.675Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -480,7 +479,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-daeef31b303b",
@@ -513,7 +513,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.357Z",
+      "crawledAt": "2026-09-29T10:17:18.628Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -576,7 +576,7 @@
       "url": "https://parmag.ch/stellen/353?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.356Z",
+      "crawledAt": "2026-09-29T10:17:18.627Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -622,82 +622,6 @@
       }
     },
     {
-      "id": "parmag-065aefb22879",
-      "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
-      "slugByLocale": {
-        "it": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
-        "en": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
-        "de": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
-        "fr": "aine-consultant-ecm-h-f-d-ref-1273-parmag-ag-zurich"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
-      "titleByLocale": {
-        "it": "(Senior) Consulente ECM (m/w/d), Ref. 1273",
-        "en": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
-        "de": "(Senior) Berater ECM (m/w/d), Ref. 1273",
-        "fr": "(Aîné) Consultant ECM (h/f/d), Réf. 1273"
-      },
-      "description": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter. Unsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder Ihre Herausforderung: Du analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine \n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung. Ihre Kompetenz: Nach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein. Unser Angebot: Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
-      "descriptionByLocale": {
-        "it": "Vorresti essere presente alla digitalizzazione dei tuoi clienti dal vivo? Sei già esperto nel campo di ECM resp. soluzioni DMS? Allora si prega di leggere. Il nostro cliente, un fornitore di servizi IT, sta cercando nuovi membri del team motivati: Si analizza, concettualizzare e realizzare progetti nei settori del documento, del dossier e della gestione dei processi. Il tuo\n• Compiti includono anche consulenza, implementazione e supporto delle soluzioni ECM. Potrai anche moderato workshop, creare documentazione e presentazioni e accompagnare i tuoi clienti con l'implementazione della soluzione. La vostra competenza: Dopo la laurea in informatica, si può guardare indietro su diversi anni di esperienza con le soluzioni ECM e DMS. Ti piace la sfida quotidiana nei progetti IT, mantenere una testa fresca e avere un forte orientamento al cliente. Siete abituati a trattare con applicazioni aziendali e interfacce dal business del progetto e sono molto familiari con flussi di lavoro e processi aziendali. Se sei anche esperto in ambienti client/server Microsoft, sistemi di dati e scritping, potresti essere la persona ideale per questo lavoro. La nostra offerta: Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Sono felice e sarò felice di contattarti.",
-        "en": "Would you like to be present at the digitization of your customers live? Are you already experienced in the field of ECM resp. DMS solutions? Then please read on. Our customer, an IT service provider, is looking for new motivated team members: You analyze, conceptualize and realize projects in the areas of document, dossier and process management. Your\n• Tasks also include consulting, implementation and support of ECM solutions. You will also moderate workshops, create documentation and presentations and accompany your customers with the solution implementation. Your competence: After graduating in computer science, you can look back on several years of experience with ECM and DMS solutions. You like the daily challenge in IT projects, keep a cool head and have strong customer orientation. You are used to dealing with business applications and interfaces from the project business and are very familiar with workflows and business processes. If you are also experienced in Microsoft client/server environments, data systems and scritping, you could be the ideal person for this job. Our offer: Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I am happy and will be happy to contact you.",
-        "de": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter. Unsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder Ihre Herausforderung: Du analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine \n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung. Ihre Kompetenz: Nach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein. Unser Angebot: Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
-        "fr": "Aimeriez-vous être présent à la numérisation de vos clients en direct ? Êtes-vous déjà expérimenté dans le domaine de ECM resp. Des solutions DMS ? Alors s'il vous plaît, lisez. Notre client, un fournisseur de services informatiques, recherche de nouveaux membres motivés : Vous analysez, conceptualisez et réalisez des projets dans les domaines de la gestion des documents, des dossiers et des processus. Votre\n• Les tâches comprennent également la consultation, la mise en œuvre et le soutien des solutions ECM. Vous animerez également des ateliers, créerez de la documentation et des présentations et accompagnerez vos clients dans la mise en œuvre de la solution. Votre compétence : Après avoir obtenu votre diplôme en informatique, vous pouvez revenir sur plusieurs années d'expérience avec les solutions ECM et DMS. Vous aimez le défi quotidien dans les projets informatiques, garder une tête cool et avoir une forte orientation client. Vous êtes habitué à traiter des applications et des interfaces d'affaires de l'entreprise du projet et vous connaissez très bien les flux de travail et les processus opérationnels. Si vous êtes également expérimenté dans les environnements client/serveur de Microsoft, les systèmes de données et le scritping, vous pourriez être la personne idéale pour ce travail. Notre offre : Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. Je suis heureux et je serai heureux de vous contacter."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/355?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.356Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://parmag.ch/stellen/355?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
-        "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
-          "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich"
-        ],
-        "fr": [
-          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:38:58.309Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "parmag-a2d94efd9862",
       "slug": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
       "slugByLocale": {
@@ -728,7 +652,7 @@
       "url": "https://parmag.ch/stellen/356?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.355Z",
+      "crawledAt": "2026-09-29T10:17:18.625Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -757,7 +681,6 @@
           "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:38:58.308Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -771,7 +694,84 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "parmag-065aefb22879",
+      "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
+      "slugByLocale": {
+        "it": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
+        "en": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
+        "de": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
+        "fr": "aine-consultant-ecm-h-f-d-ref-1273-parmag-ag-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
+      "titleByLocale": {
+        "it": "(Senior) Consulente ECM (m/w/d), Ref. 1273",
+        "en": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
+        "de": "(Senior) Berater ECM (m/w/d), Ref. 1273",
+        "fr": "(Aîné) Consultant ECM (h/f/d), Réf. 1273"
+      },
+      "description": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter. Unsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder Ihre Herausforderung: Du analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine \n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung. Ihre Kompetenz: Nach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein. Unser Angebot: Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
+      "descriptionByLocale": {
+        "it": "Vorresti essere presente alla digitalizzazione dei tuoi clienti dal vivo? Sei già esperto nel campo di ECM resp. soluzioni DMS? Allora si prega di leggere. Il nostro cliente, un fornitore di servizi IT, sta cercando nuovi membri del team motivati: Si analizza, concettualizzare e realizzare progetti nei settori del documento, del dossier e della gestione dei processi. Il tuo\n• Compiti includono anche consulenza, implementazione e supporto delle soluzioni ECM. Potrai anche moderato workshop, creare documentazione e presentazioni e accompagnare i tuoi clienti con l'implementazione della soluzione. La vostra competenza: Dopo la laurea in informatica, si può guardare indietro su diversi anni di esperienza con le soluzioni ECM e DMS. Ti piace la sfida quotidiana nei progetti IT, mantenere una testa fresca e avere un forte orientamento al cliente. Siete abituati a trattare con applicazioni aziendali e interfacce dal business del progetto e sono molto familiari con flussi di lavoro e processi aziendali. Se sei anche esperto in ambienti client/server Microsoft, sistemi di dati e scritping, potresti essere la persona ideale per questo lavoro. La nostra offerta: Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Sono felice e sarò felice di contattarti.",
+        "en": "Would you like to be present at the digitization of your customers live? Are you already experienced in the field of ECM resp. DMS solutions? Then please read on. Our customer, an IT service provider, is looking for new motivated team members: You analyze, conceptualize and realize projects in the areas of document, dossier and process management. Your\n• Tasks also include consulting, implementation and support of ECM solutions. You will also moderate workshops, create documentation and presentations and accompany your customers with the solution implementation. Your competence: After graduating in computer science, you can look back on several years of experience with ECM and DMS solutions. You like the daily challenge in IT projects, keep a cool head and have strong customer orientation. You are used to dealing with business applications and interfaces from the project business and are very familiar with workflows and business processes. If you are also experienced in Microsoft client/server environments, data systems and scritping, you could be the ideal person for this job. Our offer: Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I am happy and will be happy to contact you.",
+        "de": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter. Unsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder Ihre Herausforderung: Du analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine \n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung. Ihre Kompetenz: Nach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein. Unser Angebot: Sende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
+        "fr": "Aimeriez-vous être présent à la numérisation de vos clients en direct ? Êtes-vous déjà expérimenté dans le domaine de ECM resp. Des solutions DMS ? Alors s'il vous plaît, lisez. Notre client, un fournisseur de services informatiques, recherche de nouveaux membres motivés : Vous analysez, conceptualisez et réalisez des projets dans les domaines de la gestion des documents, des dossiers et des processus. Votre\n• Les tâches comprennent également la consultation, la mise en œuvre et le soutien des solutions ECM. Vous animerez également des ateliers, créerez de la documentation et des présentations et accompagnerez vos clients dans la mise en œuvre de la solution. Votre compétence : Après avoir obtenu votre diplôme en informatique, vous pouvez revenir sur plusieurs années d'expérience avec les solutions ECM et DMS. Vous aimez le défi quotidien dans les projets informatiques, garder une tête cool et avoir une forte orientation client. Vous êtes habitué à traiter des applications et des interfaces d'affaires de l'entreprise du projet et vous connaissez très bien les flux de travail et les processus opérationnels. Si vous êtes également expérimenté dans les environnements client/serveur de Microsoft, les systèmes de données et le scritping, vous pourriez être la personne idéale pour ce travail. Notre offre : Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. Je suis heureux et je serai heureux de vous contacter."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/355?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T10:17:18.626Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://parmag.ch/stellen/355?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
+        "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
+          "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich"
+        ],
+        "fr": [
+          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:38:58.309Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-43009ec898df",
@@ -804,7 +804,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.354Z",
+      "crawledAt": "2026-09-29T10:17:18.625Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -830,7 +830,6 @@
           "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.670Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -844,7 +843,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-0d892d16c31e",
@@ -877,7 +877,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.353Z",
+      "crawledAt": "2026-09-29T10:17:18.624Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -952,7 +952,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.352Z",
+      "crawledAt": "2026-09-29T10:17:18.623Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -981,7 +981,6 @@
           "ict-system-specialist-m-w-d-ref-1288-region-bern-parmag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.668Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -995,7 +994,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-e8ca7aeee784",
@@ -1028,7 +1028,7 @@
       "url": "https://parmag.ch/stellen/371?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.351Z",
+      "crawledAt": "2026-09-29T10:17:18.622Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1054,7 +1054,6 @@
           "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.667Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1068,7 +1067,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-82e65df5cf33",
@@ -1101,7 +1101,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.350Z",
+      "crawledAt": "2026-09-29T10:17:18.621Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1127,7 +1127,6 @@
           "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:57.665Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1141,7 +1140,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-4d45c49d418c",
@@ -1174,7 +1174,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.349Z",
+      "crawledAt": "2026-09-29T10:17:18.620Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1258,7 +1258,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.348Z",
+      "crawledAt": "2026-09-29T10:17:18.619Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1290,7 +1290,6 @@
           "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:38:58.302Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1304,7 +1303,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "parmag-221b51c9536f",
@@ -1337,7 +1337,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.347Z",
+      "crawledAt": "2026-09-29T10:17:18.618Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1415,7 +1415,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.346Z",
+      "crawledAt": "2026-09-29T10:17:18.617Z",
       "addressLocality": "Biel, Neuenburg & Freiburg",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1499,7 +1499,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:53:42.345Z",
+      "crawledAt": "2026-09-29T10:17:18.615Z",
       "addressLocality": "Basel-Stadt, Basellandschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",

@@ -9,6 +9,7 @@ import {
   grantAdsConsent,
   denyAdsConsent,
   onAdsConsentChange,
+  reopenAdsConsentMessage,
   type AdsConsentValue,
 } from '@/services/adsConsent';
 
@@ -33,7 +34,9 @@ const PRIVACY_EMAIL = 'valerie@frontaliereticino.ch';
 // immediato in questa sessione), riaprono il messaggio CMP con
 // `googlefc.showRevocationMessage()` cosi' la nuova risposta finisce nella TC
 // string. Se FC non e' caricato (adblock), resta la sola scrittura locale —
-// e senza FC non si servono comunque annunci.
+// e senza FC non si servono comunque annunci. Dal 28-09 un rifiuto apre
+// comunque AdSense per gli annunci limitati (`isAdSenseAllowed` in
+// services/adsConsent.ts); Ad Manager e header bidding restano sul consenso.
 //
 // Le stringhe sono inline nelle quattro lingue e non nei file di locale: il
 // resto di questa pagina e' in italiano, ma il visitatore de/en/fr ha ricevuto
@@ -55,10 +58,10 @@ type AdsControlsCopy = {
 const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
   it: {
     heading: 'Gestisci il consenso pubblicitario',
-    intro: 'Gli script pubblicitari (Google AdSense, Google Ad Manager) vengono caricati solo se hai dato il consenso. Puoi cambiare idea in qualsiasi momento da qui; la scelta e\' salvata in questo browser.',
+    intro: 'Prima della tua scelta non viene caricato alcuno script pubblicitario. Se acconsenti, Google AdSense e Google Ad Manager possono mostrare annunci anche personalizzati; se rifiuti, solo Google AdSense mostra annunci limitati, senza personalizzazione e senza cookie pubblicitari. Puoi cambiare idea in qualsiasi momento da qui; la scelta e\' salvata in questo browser.',
     statusLabel: 'Stato attuale',
     granted: 'consenso concesso — gli annunci sono attivi',
-    denied: 'consenso rifiutato — nessuno script pubblicitario viene caricato',
+    denied: 'consenso rifiutato — solo annunci limitati di AdSense, senza personalizzazione né cookie pubblicitari',
     undecided: 'nessuna decisione registrata — nessuno script pubblicitario viene caricato',
     reading: 'lettura in corso…',
     accept: 'Attiva gli annunci',
@@ -66,10 +69,10 @@ const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
   },
   en: {
     heading: 'Manage your advertising consent',
-    intro: 'Advertising scripts (Google AdSense, Google Ad Manager) are loaded only if you gave consent. You can change your mind at any time here; the choice is stored in this browser.',
+    intro: 'No advertising script is loaded before you choose. If you consent, Google AdSense and Google Ad Manager may show ads, including personalised ones; if you refuse, only Google AdSense shows limited ads, without personalisation or advertising cookies. You can change your mind at any time here; the choice is stored in this browser.',
     statusLabel: 'Current status',
     granted: 'consent granted — ads are active',
-    denied: 'consent refused — no advertising script is loaded',
+    denied: 'consent refused — limited AdSense ads only, without personalisation or advertising cookies',
     undecided: 'no decision recorded — no advertising script is loaded',
     reading: 'reading…',
     accept: 'Enable ads',
@@ -77,10 +80,10 @@ const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
   },
   de: {
     heading: 'Werbe-Einwilligung verwalten',
-    intro: 'Werbeskripte (Google AdSense, Google Ad Manager) werden nur geladen, wenn Sie eingewilligt haben. Sie können Ihre Entscheidung hier jederzeit ändern; sie wird in diesem Browser gespeichert.',
+    intro: 'Vor Ihrer Entscheidung wird kein Werbeskript geladen. Wenn Sie einwilligen, können Google AdSense und Google Ad Manager auch personalisierte Werbung zeigen; wenn Sie ablehnen, zeigt nur Google AdSense eingeschränkte Werbung, ohne Personalisierung und ohne Werbe-Cookies. Sie können Ihre Entscheidung hier jederzeit ändern; sie wird in diesem Browser gespeichert.',
     statusLabel: 'Aktueller Status',
     granted: 'Einwilligung erteilt — Werbung ist aktiv',
-    denied: 'Einwilligung verweigert — es wird kein Werbeskript geladen',
+    denied: 'Einwilligung verweigert — nur eingeschränkte AdSense-Werbung, ohne Personalisierung und Werbe-Cookies',
     undecided: 'keine Entscheidung gespeichert — es wird kein Werbeskript geladen',
     reading: 'wird gelesen…',
     accept: 'Werbung aktivieren',
@@ -88,10 +91,10 @@ const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
   },
   fr: {
     heading: 'Gérer votre consentement publicitaire',
-    intro: 'Les scripts publicitaires (Google AdSense, Google Ad Manager) ne sont chargés que si vous avez donné votre consentement. Vous pouvez changer d\'avis à tout moment ici ; le choix est enregistré dans ce navigateur.',
+    intro: 'Aucun script publicitaire n\'est chargé avant votre choix. Si vous consentez, Google AdSense et Google Ad Manager peuvent afficher des annonces, y compris personnalisées ; si vous refusez, seul Google AdSense affiche des annonces limitées, sans personnalisation ni cookies publicitaires. Vous pouvez changer d\'avis à tout moment ici ; le choix est enregistré dans ce navigateur.',
     statusLabel: 'Statut actuel',
     granted: 'consentement accordé — les annonces sont actives',
-    denied: 'consentement refusé — aucun script publicitaire n\'est chargé',
+    denied: 'consentement refusé — uniquement des annonces AdSense limitées, sans personnalisation ni cookies publicitaires',
     undecided: 'aucune décision enregistrée — aucun script publicitaire n\'est chargé',
     reading: 'lecture en cours…',
     accept: 'Activer les publicités',
@@ -128,32 +131,13 @@ export const AdsConsentControls: React.FC = () => {
   // Rende la scelta persistente lato CMP: senza questa riapertura la TC string
   // resterebbe quella vecchia e il bridge la ri-applicherebbe al prossimo
   // pageload, annullando il click (vedi il commento in testa al blocco).
-  //
-  // Accodato su googlefc.callbackQueue, NON chiamato diretto: `window.googlefc`
-  // esiste sempre (lo crea il bridge stesso), ma `showRevocationMessage` arriva
-  // solo col loader FC, che e' idle-deferred — una chiamata diretta nei primi
-  // secondi evaporerebbe in silenzio (review round 1). La queue accetta push
-  // prima e dopo il load di FC; se FC non arriva mai (adblock) il push resta
-  // inerte, e per la stessa ragione il bridge non potra' mai sovrascrivere la
-  // scrittura locale qui sotto.
+  // `reopenAdsConsentMessage` chiama FC direttamente quando e' gia' caricato
+  // e accoda la chiamata finche' non lo e' (dettagli in services/adsConsent.ts):
+  // la sola coda non riapriva nulla dopo il caricamento di FC. Se FC non
+  // arriva mai (adblock) non succede nulla, e per la stessa ragione il bridge
+  // non potra' mai sovrascrivere la scrittura locale qui sotto.
   const reopenCmp = React.useCallback(() => {
-    try {
-      const w = window as unknown as {
-        googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void };
-      };
-      const gfc = (w.googlefc = w.googlefc ?? {});
-      (gfc.callbackQueue = gfc.callbackQueue ?? []).push({
-        CONSENT_DATA_READY: () => {
-          try {
-            w.googlefc?.showRevocationMessage?.();
-          } catch {
-            /* fail-soft: resta la scrittura locale */
-          }
-        },
-      });
-    } catch {
-      /* localStorage/queue inaccessibili: resta la sola scrittura locale. */
-    }
+    reopenAdsConsentMessage();
   }, []);
 
   const copy = ADS_CONTROLS_COPY[locale] ?? ADS_CONTROLS_COPY.it;
@@ -541,9 +525,10 @@ export const PrivacyPolicy: React.FC = () => {
               <p className="text-sm">
                 Cookie di Google AdSense e Google Ad Manager per la visualizzazione di annunci, anche personalizzati
                 (vedi sezione «Pubblicità»). Sono <strong>subordinati al tuo consenso esplicito</strong>: finché non
-                lo concedi non viene caricato alcuno script pubblicitario, e quindi nessuno di questi cookie viene
-                scritto. Il consenso ti viene chiesto una volta con un banner dedicato ed è <strong>revocabile in
-                qualsiasi momento</strong> dal riquadro qui sotto.
+                rispondi non viene caricato alcuno script pubblicitario. Se rifiuti, Google AdSense mostra solo
+                annunci limitati, che non usano cookie pubblicitari: Google può usare cookie e storage locale solo
+                per rilevare traffico non valido e frodi. Il consenso ti viene chiesto una volta con un banner
+                dedicato ed è <strong>revocabile in qualsiasi momento</strong> dal riquadro qui sotto.
               </p>
             </div>
             <AdsConsentControls />
@@ -572,9 +557,13 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Consenso e personalizzazione</h3>
               <p className="text-sm">
-                <strong>Gli script pubblicitari sono bloccati finché non ci dai il consenso</strong>: alla prima
-                visita compare un banner dedicato, e fino a quella risposta — o se rispondi di no — nessuno script
-                di AdSense, Google Ad Manager o header bidding viene caricato e nessun annuncio viene mostrato.
+                <strong>Gli script pubblicitari sono bloccati finché non rispondi</strong>: alla prima visita
+                compare un banner dedicato, e fino a quella risposta nessuno script di AdSense, Google Ad Manager o
+                header bidding viene caricato e nessun annuncio viene mostrato. Se rispondi di no, Google Ad Manager
+                e l'header bidding restano bloccati, mentre Google AdSense mostra soltanto{' '}
+                <strong>annunci limitati</strong>: non personalizzati, senza profilazione né cookie pubblicitari
+                (Google usa cookie e storage locale solo per rilevare traffico non valido e frodi; vedi{' '}
+                <a href="https://support.google.com/adsense/answer/14210870" target="_blank" rel="noopener noreferrer" className="text-accent underline">gli annunci limitati di Google</a>).
                 In assenza di una risposta, e in caso di rifiuto, comunichiamo a Google tramite Google Consent
                 Mode v2 un segnale <strong>negato</strong> per <code>ad_storage</code>,{' '}
                 <code>ad_personalization</code> e <code>ad_user_data</code>; il segnale passa a concesso solo

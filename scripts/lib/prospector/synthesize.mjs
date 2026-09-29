@@ -34,9 +34,16 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
  * @property {string} [listingCandidateText]         Normalised text required in a listing candidate
+ * @property {string} [detailCandidateText]          Normalised text required in an enriched detail record
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
+ * @property {'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
+ *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[] }} [pagination]
+ *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
+ *   collect `minCoverage` of the count the source declares, or the run fails closed;
+ *   `pageStateParams` are stripped from detail URLs found on later pages
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]

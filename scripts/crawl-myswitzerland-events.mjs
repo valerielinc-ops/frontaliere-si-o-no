@@ -89,6 +89,7 @@ import {
   eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
+  fillEventPeopleDefaults,
   hasCompleteEventPeopleUrls,
   mergeEventOfferMetadata,
   mergeEventPeopleUrls,
@@ -584,7 +585,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
 
   return {
-    event: {
+    event: fillEventPeopleDefaults({
       id: eventStableId(SOURCE.key, objectID),
       title,
       titleByLocale: Object.keys(titleByLocale).length ? titleByLocale : undefined,
@@ -606,7 +607,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       recurring: dateInfo.recurring,
       ...(organizer ? { organizer } : {}),
       ...(performer ? { performer } : {}),
-    },
+    }, SOURCE),
     imageSourceUrl,
     place: primary.place || undefined,
   };

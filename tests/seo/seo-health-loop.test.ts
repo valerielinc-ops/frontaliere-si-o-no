@@ -59,7 +59,10 @@ describe('SEO health contract', () => {
     ]);
     expect(isJobDetailPath('/cerca-lavoro-ticino/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/en/find-jobs-zurich/software-engineer-acme/')).toBe(true);
+    expect(isJobDetailPath('/de/jobs-im-tessin/software-engineer-acme/')).toBe(true);
     expect(isJobDetailPath('/cerca-lavoro-ticino/')).toBe(false);
+    expect(isJobDetailPath('/de/jobs-im-tessin/alle/')).toBe(false);
+    expect(isJobDetailPath('/de/jobs-im-tessin/alle/page-1022/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/azienda-acme/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/infermieri-in-ticino/')).toBe(false);
   });
@@ -109,6 +112,25 @@ describe('SEO health contract', () => {
       'sitemap-noindex',
       'jobposting-missing',
     ]);
+  });
+
+  it('reports missing JobPosting for German details, not the all-jobs archive', () => {
+    const archiveUrl = `${ORIGIN}/de/jobs-im-tessin/alle/`;
+    const detailUrl = `${ORIGIN}/de/jobs-im-tessin/software-engineer-acme/`;
+    const canonicalOnly = (url: string) => `<link rel="canonical" href="${url}">`;
+
+    expect(findingsForProbe({
+      url: archiveUrl,
+      status: 200,
+      finalUrl: archiveUrl,
+      body: canonicalOnly(archiveUrl),
+    }).map(({ code }) => code)).toEqual([]);
+    expect(findingsForProbe({
+      url: detailUrl,
+      status: 200,
+      finalUrl: detailUrl,
+      body: canonicalOnly(detailUrl),
+    }).map(({ code }) => code)).toEqual(['jobposting-missing']);
   });
 
   it('does not turn an unavailable source into a healthy empty source', () => {
@@ -249,6 +271,49 @@ describe('SEO health live runner', () => {
       expect(readFileSync(join(root, 'reports', 'latest.json'), 'utf8')).toContain('"dryRun": true');
       expect(existsSync(join(root, 'state.json'))).toBe(false);
       expect(existsSync(join(root, 'history.jsonl'))).toBe(false);
+    } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('uses the shared job-detail contract when selecting sampled job URLs', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-job-sample-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
+    const sitemap = `${ORIGIN}/sitemap.xml`;
+    const archiveUrl = `${ORIGIN}/de/jobs-im-tessin/alle/`;
+    const detailUrl = `${ORIGIN}/de/jobs-im-tessin/software-engineer-acme/`;
+    const bodies = new Map<string, string>([
+      [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
+      [sitemap, `<urlset><url><loc>${archiveUrl}</loc></url><url><loc>${detailUrl}</loc></url></urlset>`],
+      [archiveUrl, `<link rel="canonical" href="${archiveUrl}">`],
+      [detailUrl, `<link rel="canonical" href="${detailUrl}"><script type="application/ld+json">{"@type":"JobPosting"}</script>`],
+    ]);
+    const fetchImpl = async (url: string) => response(url, bodies.has(url) ? 200 : 404, bodies.get(url) || '');
+    delete process.env.GITHUB_RUN_ID;
+    try {
+      const report = await runSeoHealthLoop({
+        options: {
+          origin: ORIGIN,
+          sitemap,
+          sample: 10,
+          jobSample: 10,
+          dryRun: true,
+          reportDir: join(root, 'reports'),
+          statePath: join(root, 'state.json'),
+          historyPath: join(root, 'history.jsonl'),
+        },
+        fetchImpl,
+        collectAnalytics: false,
+        root,
+        now: new Date('2026-09-13T00:00:00Z'),
+      });
+      expect(report.pageAudit.jobCandidateCount).toBe(1);
+      expect(report.pageAudit.sampledJobCount).toBe(1);
+      expect(report.findings.observed).not.toEqual(expect.arrayContaining([
+        expect.objectContaining({ code: 'jobposting-missing', url: archiveUrl }),
+      ]));
     } finally {
       if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
       else process.env.GITHUB_RUN_ID = previousRunId;

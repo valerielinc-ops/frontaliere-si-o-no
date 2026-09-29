@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-09-28T05:09:59.760Z",
+  "generatedAt": "2026-09-29T09:40:12.477Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1813,
-  "avgDurationMs": 1813,
+  "durationMs": 4806,
+  "avgDurationMs": 4806,
   "durationHistory": [
-    1813
+    4806
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:09:53.694Z",
+      "crawledAt": "2026-09-29T09:40:05.478Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -71,7 +71,7 @@
       "url": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:09:53.696Z",
+      "crawledAt": "2026-09-29T09:40:05.479Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",

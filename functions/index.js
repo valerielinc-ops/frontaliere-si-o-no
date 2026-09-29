@@ -70,10 +70,19 @@ import { handleAssistedApplicationAdmin } from './src/assistedApplicationAdminCo
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
-import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
+import {
+  handleCreateConsultingCheckout,
+  handleConsultingDetailsSubmitted,
+  handleConsultingOrderPaid,
+  runConsultingPaidNoticeSweep,
+} from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
+import {
+  handleAssistedApplicationOrderWritten,
+  runAssistedApplicationNotificationSweep,
+} from './src/assistedApplicationNotifications.js';
 import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
@@ -99,6 +108,7 @@ import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
 import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
+import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
 ensureAdminApp();
 
@@ -1916,6 +1926,10 @@ export const notifyConsultingDetailsSubmitted = onDocumentWritten(
     const afterData = after.data();
     const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
     try {
+      // Paid → email the customer the intake link and the internal inbox, so a
+      // closed success page no longer strands a paying customer.
+      const paid = await handleConsultingOrderPaid(beforeData, afterData, event.params.orderId, { db: getAdminDb() });
+      if (!paid.ok) console.error('[notifyConsultingDetailsSubmitted] paid notice', paid.error);
       const result = await handleConsultingDetailsSubmitted(beforeData, afterData);
       if (!result.ok) console.error('[notifyConsultingDetailsSubmitted]', result.error);
     } catch (error) {
@@ -1923,6 +1937,20 @@ export const notifyConsultingDetailsSubmitted = onDocumentWritten(
         '[notifyConsultingDetailsSubmitted]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// Backstop for the paid-consultation notice above: retries a notice that
+// failed in the last 72 h (the trigger fires only once per write).
+export const sweepConsultingPaidNotices = onSchedule(
+  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await runConsultingPaidNoticeSweep({ db: getAdminDb() });
+      if (summary.sent > 0 || summary.failed > 0) console.log('[sweepConsultingPaidNotices]', summary);
+    } catch (error) {
+      console.error('[sweepConsultingPaidNotices]', error instanceof Error ? error.message : String(error));
     }
   },
 );
@@ -2196,6 +2224,52 @@ export const purgePublisherApplications = onSchedule(
  },
 );
 
+// Email concierge for the 0,99 € assisted application: on the payment, the
+// materials upload and the "submitted" transition, the customer gets an email
+// from valerie@ (and Valerie an internal notice). Transition-based, so the
+// handler's own `notifications.*` bookkeeping never re-triggers a send.
+export const notifyAssistedApplicationOrder = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return;
+    const before = event.data?.before?.exists ? event.data.before.data() : null;
+    try {
+      const result = await handleAssistedApplicationOrderWritten(
+        before,
+        after.data(),
+        event.params.orderId,
+        { db: getAdminDb() },
+      );
+      if (!result.ok) console.error('[notifyAssistedApplicationOrder]', event.params.orderId, result.error);
+    } catch (error) {
+      console.error(
+        '[notifyAssistedApplicationOrder]',
+        error instanceof Error ? error.message : String(error),
+      );
+    }
+  },
+);
+
+// Backstop for the trigger above (intro missed in the last 72 h) plus the
+// single 48 h "I still need your CV" reminder.
+export const sweepAssistedApplicationNotifications = onSchedule(
+  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationNotificationSweep({ db: getAdminDb() });
+      if (summary.intros > 0 || summary.reminders > 0 || summary.failed > 0) {
+        console.log('[sweepAssistedApplicationNotifications]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[sweepAssistedApplicationNotifications]',
+        error instanceof Error ? error.message : String(error),
+      );
+    }
+  },
+);
+
 // GDPR retention for the paid assisted-application CVs. The 90-day window is
 // the same application-retention window already stated in the site's privacy
 // policy; an explicit future talent-pool consent is preserved by the core job.
@@ -2302,5 +2376,27 @@ export const dispatchTrafficCollection = onSchedule(
  async (event) => {
   const result = await dispatchTrafficScheduler({ scheduledAt: event.scheduleTime });
   console.log('[dispatchTrafficCollection]', JSON.stringify(result));
+ },
+);
+
+// Same move for the crawler wave: GitHub created the `0 9`/`0 21` scheduled
+// runs of orchestrate-crawlers.yml hours late (non-round minutes were just as
+// late, see orchestratorCronDispatch.js). Cloud Scheduler owns the two slots;
+// the workflow keeps workflow_dispatch as its only entrypoint. Two retries
+// cover a transient GitHub 5xx (a failed slot otherwise waits 12 h); they
+// cannot start a second wave, because each slot owns a Firestore claim and a
+// retry first looks up the slot's marked run (see orchestratorCronDispatch.js).
+// minBackoffSeconds (60) must stay above CLAIM_LEASE_MS (45 s).
+export const dispatchCrawlerOrchestrator = onSchedule(
+ {
+  region: 'europe-west6',
+  schedule: ORCHESTRATOR_CLOUD_SCHEDULE,
+  timeZone: 'UTC',
+  retryCount: 2,
+  minBackoffSeconds: 60,
+ },
+ async (event) => {
+  const result = await dispatchOrchestrator({ scheduledAt: event.scheduleTime });
+  console.log('[dispatchCrawlerOrchestrator]', JSON.stringify(result));
  },
 );

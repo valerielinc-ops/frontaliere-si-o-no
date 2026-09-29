@@ -45,6 +45,20 @@ function defaultCopyrightNotice(): string {
     : `© ${COPYRIGHT_YEAR_START}–${year} Frontaliere Ticino. Tutti i diritti riservati.`;
 }
 
+export function resolveHttpUrl(value: unknown, fallback: unknown, field: string): string {
+  const candidate = value === undefined ? fallback : value;
+  if (typeof candidate !== 'string') {
+    throw new Error(`imageObjectLd: ${field} must be an absolute http(s) URL`);
+  }
+  try {
+    const parsed = new URL(candidate);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
+  } catch {
+    // Fall through to the field-specific error below.
+  }
+  throw new Error(`imageObjectLd: ${field} must be an absolute http(s) URL`);
+}
+
 export interface OrganizationCreator {
   '@type': 'Organization';
   name: string;
@@ -75,9 +89,9 @@ export interface ImageObjectInput {
   creator?: ImageCreator;
   /** Override default copyright notice. */
   copyrightNotice?: string;
-  /** Override default license URL (e.g. point to source license page). */
+  /** Override default license URL; must be an absolute HTTP(S) URL. */
   license?: string;
-  /** Override default acquire-license URL. */
+  /** Override default acquire-license URL; must be an absolute HTTP(S) URL. */
   acquireLicensePage?: string;
   /** Optional creditText (e.g. webcam source name). */
   creditText?: string;
@@ -140,9 +154,9 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     '@type': 'ImageObject',
     contentUrl: resolvedUrl,
     url: resolvedUrl,
-    acquireLicensePage: acquireLicensePage ?? SITE_LICENSE_PAGE,
+    acquireLicensePage: resolveHttpUrl(acquireLicensePage, SITE_LICENSE_PAGE, 'acquireLicensePage'),
     copyrightNotice: copyrightNotice ?? defaultCopyrightNotice(),
-    license: license ?? SITE_LICENSE_PAGE,
+    license: resolveHttpUrl(license, SITE_LICENSE_PAGE, 'license'),
     creator: resolvedCreator,
     creditText: creditText ?? resolvedCreator.name,
   };

@@ -1,21 +1,19 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-09-28T04:51:24.698Z",
-  "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "abortKind": null,
-  "written": 0,
+  "generatedAt": "2026-09-29T09:13:36.668Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 10642,
+  "avgDurationMs": 10642,
+  "durationHistory": [
+    10642
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }

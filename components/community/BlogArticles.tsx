@@ -44,7 +44,7 @@ import { PARTNERS, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
-import { useRailGridCollapse, RAIL_GRID_CLASS_X } from '@/components/shared/useRailGridCollapse';
+import { RAIL_GRID_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
@@ -1277,10 +1277,6 @@ function BlogArticles({
  const nav = useNavigation();
  const { t } = useTranslation();
  const [locale] = useLocale();
- // Collapses the 300px xlw rail gutter when ArticleRailAdStack resolves an
- // all-empty verdict per side — shared with JobBoard/JobOrphanView/
- // JobExpiredView (issue 4830).
- const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
  const [blogReady, setBlogReady] = useState(false);
  const [bodyReady, setBodyReady] = useState(false);
  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
@@ -2091,7 +2087,7 @@ function BlogArticles({
  // Wait for article body translations to load
  if (!bodyReady) {
  return (
- <div className="max-w-3xl xl:max-w-6xl mx-auto min-h-[80vh] p-4 space-y-4">
+ <div className="max-w-3xl xlc:max-w-none mx-auto min-h-[80vh] p-4 space-y-4">
  <div className="rounded-2xl bg-surface-raised animate-pulse h-48 sm:h-64 md:h-80" />
  <div className="space-y-3">
  <div className="h-6 bg-surface-raised rounded animate-pulse w-3/4" />
@@ -2216,7 +2212,7 @@ function BlogArticles({
 
 
  return (
- <div className="max-w-3xl xlc:max-w-6xl xlw:max-w-[1440px] mx-auto">
+ <div className="max-w-3xl xlc:max-w-none mx-auto">
  {/* Reading progress bar */}
  <div
  className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover transition-transform duration-150 ease-out origin-left [transform:var(--sx)]"
@@ -2242,8 +2238,11 @@ function BlogArticles({
      compact 160px rail tier at 1200–1279px, keeps the existing 180px tier at
      1280–1399px, and widens to 300px at ≥1400px (`xlw`). Every ad tier uses
      creatives that fit its column, so the reading measure never pays for a
-     300px creative inside a compact gutter. */}
- <div className={BLOG_ARTICLE_RAIL_GRID_CLASS_X} style={railStyle}>
+     300px creative inside a compact gutter. The gutters never collapse on an
+     unfilled rail (unlike the job pages' `useRailGridCollapse`): they also
+     carry the partner cards, TOC and resources, so a 0px track pushed that
+     content underneath the article and reflowed the reading column mid-read. */}
+ <div className={BLOG_ARTICLE_RAIL_GRID_CLASS_X}>
 
  {/* ── Left Rail (desktop only) ── */}
  <aside className={BLOG_ARTICLE_RAIL_ASIDE_CLASS_X}>
@@ -2257,7 +2256,7 @@ function BlogArticles({
  </div>
  {/* Full-length half-page rail-ad chain — compact 160px creatives from
      1200px, then the existing 300px tier from 1400px. */}
- <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} onEmptyResolved={onLeftEmptyResolved} /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} /></Suspense>
  </aside>
 
  <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
@@ -2886,7 +2885,7 @@ function BlogArticles({
  </div>
  {/* Full-length half-page rail-ad chain — compact 160px creatives from
      1200px, then the existing 300px tier from 1400px. */}
- <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} onEmptyResolved={onRightEmptyResolved} /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligibleRail} count={railAdCount} compact={isCompactRail} /></Suspense>
  </aside>
 
  </div>

@@ -6,7 +6,8 @@ export interface AssistedApplicationCheckoutInput {
   jobUrl: string;
   companyName: string;
   jobTitle: string;
-  experimentVariant: 'control' | 'assisted_application';
+  /** `offerwall_fallback`: paid offer opened because the rewarded Offerwall could not load. */
+  experimentVariant: 'control' | 'assisted_application' | 'offerwall_fallback';
   successUrl: string;
   cancelUrl: string;
   requestKey?: string;

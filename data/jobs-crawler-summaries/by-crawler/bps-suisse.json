@@ -1,21 +1,19 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-28T05:09:51.919Z",
+  "generatedAt": "2026-09-29T09:38:16.480Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5431,
-  "avgDurationMs": 5431,
+  "unchangedCount": 0,
+  "durationMs": 5745,
+  "avgDurationMs": 5745,
   "durationHistory": [
-    5431
+    5745
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:42.965Z",
+      "crawledAt": "2026-09-29T09:38:07.876Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -79,9 +77,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:43.987Z",
+      "crawledAt": "2026-09-29T09:38:09.094Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -122,9 +120,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:44.410Z",
+      "crawledAt": "2026-09-29T09:38:09.610Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -164,9 +162,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-28T05:09:44.785Z",
+      "crawledAt": "2026-09-29T09:38:10.092Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -177,7 +175,6 @@
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,5 +183,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

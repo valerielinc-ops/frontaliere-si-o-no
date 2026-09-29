@@ -12,10 +12,10 @@ import type { FirebaseApp } from "firebase/app";
 import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
-import { reportCaughtError } from '@/services/errorReporter';
-import { isIndexedDbError } from '@/services/benignErrorPatterns';
-import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
-import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
+import { reportCaughtError } from './errorReporter';
+import { isIndexedDbError } from './benignErrorPatterns';
+import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
+import { setFirebaseApiKey } from './firebaseAuthPersistence';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
 
 const firebaseConfig = {
@@ -38,6 +38,11 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
  // assisted-application split when no global arm is forced.
  ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
+ // 0,99 € assisted-application offer shown when the job-board Offerwall and
+ // its GPT fallback fail to load (services/assistedApplicationExperiment.ts).
+ // Default 'false' keeps today's direct redirect; flip to 'true' in Remote
+ // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
+ ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
  // jobgate-v3 (services/jobGateExperiment.ts): OFF by default, so a failed
  // public-config fetch keeps every visitor on today's gate.
@@ -334,7 +339,9 @@ const app: FirebaseApp = new Proxy({} as FirebaseApp, {
  if (!_app) {
  // If someone accesses `app` before async init completed, trigger it.
  // This is a fallback — callers should prefer `await getApp()`.
- getAppInstance();
+ void getAppInstance().catch((error) => {
+ reportCaughtError(error, 'firebase.legacyAppProxy');
+ });
  if (!_app) return undefined;
  }
  return Reflect.get(_app, prop, receiver);
@@ -562,7 +569,7 @@ async function initAppCheck(): Promise<void> {
  console.log('✅ reCAPTCHA pronto');
 
  // Passa la site key al recaptchaService per la verifica nelle API
- const { recaptchaService } = await import('@/services/recaptchaService');
+ const { recaptchaService } = await import('./recaptchaService');
  recaptchaService.setSiteKey(recaptchaSiteKey);
  
  const appCheckModule = await import("firebase/app-check");

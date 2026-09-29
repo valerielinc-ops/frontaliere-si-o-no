@@ -26,6 +26,10 @@ let _loading: Promise<void> | null = null;
 
 async function ensurePostHog(): Promise<any> {
  if (_posthog) return _posthog;
+ // Never send local development traffic to the production PostHog project.
+ // Keep this before the bot gate and SDK import so dev work has no network
+ // side effects even when the browser looks like a real user.
+ if (isLocalDevHost()) return null;
  // Bot gate: never init PostHog for bot sessions. Returning before _loading is
  // set means no $pageview / $pageleave / session-replay / explicit captures ever
  // fire for bots — the single biggest lever on event volume against the
@@ -33,9 +37,6 @@ async function ensurePostHog(): Promise<any> {
  // _posthog instance is cached (after which the early `if (_posthog)` returns).
  // captureEvent / capturePageView call through here, so they become no-ops too.
  if (isLikelyBot()) return null;
- // Local dev gate: `vite` / `vite preview` on localhost would otherwise send
- // developer sessions and local-only errors to the production project.
- if (isLocalDevHost()) return null;
  if (_loading) {
  await _loading;
  return _posthog;

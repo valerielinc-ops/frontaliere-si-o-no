@@ -14,6 +14,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { EVENTS_SLICE_DIR } from './events-utils.mjs';
+import { mergeEventHistory, publishedEventRoutes } from './events-retention.mjs';
 
 export const CHECKPOINT_DIR = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints');
 
@@ -61,15 +62,17 @@ export function saveGenericCursor(filePath, cursor) {
 }
 
 /**
- * Upsert `freshEvents` (by stable `id`) into the slice already on disk,
- * drop any id in `goneIds` (events explicitly revisited and confirmed
- * expired/removed this run), and prune anything whose last relevant date
- * (endDate || startDate) is already in the past — a source-agnostic
- * safety net so events that silently drop out of a source's own listing
- * (and are therefore never revisited/explicitly marked gone) don't linger
- * in the slice forever. Returns the resulting total event count.
+ * Upsert `freshEvents` (by stable `id`) into the slice already on disk.
+ *
+ * Event URLs are an SEO archive: an event dropping out of a source listing,
+ * being explicitly reported in `goneIds`, or ending in the past is NOT proof
+ * that its published URL may be deleted. `goneIds` is retained in the API for
+ * crawler diagnostics and forward compatibility, but deliberately has no
+ * destructive effect here. When a record changes its date/title/location,
+ * mergeEventHistory carries the old route into `previousRoutes`.
+ * Returns the resulting total event count.
  */
-export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, freshEvents, goneIds, crawledAt }) {
+export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, canton, freshEvents, goneIds, crawledAt }) {
   let existing = [];
   if (existsSync(slicePath)) {
     try {
@@ -81,17 +84,36 @@ export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, freshEv
   }
 
   const byId = new Map(existing.map((event) => [event.id, event]));
-  for (const id of goneIds || []) byId.delete(id);
-  for (const event of freshEvents) byId.set(event.id, event);
+  const previousRoutes = publishedEventRoutes(
+    existing,
+    typeof crawledAt === 'string' ? crawledAt.slice(0, 10) : undefined,
+  );
+  // Deliberately retain goneIds: source disappearance is a crawl observation,
+  // not authorization to erase a public event URL.
+  for (const event of freshEvents || []) {
+    if (!event?.id) continue;
+    const previous = byId.get(event.id);
+    byId.set(
+      event.id,
+      previous ? mergeEventHistory(previous, event, previousRoutes.get(event.id)) : event,
+    );
+  }
 
-  const todayIso = String(crawledAt).slice(0, 10);
-  const events = [...byId.values()].filter((event) => {
-    const lastRelevant = event.endDate || event.startDate;
-    return !lastRelevant || lastRelevant >= todayIso;
-  });
+  // Keep the parameter part of the explicit contract even though it is now
+  // non-destructive by design; this makes accidental reintroduction of a
+  // delete loop obvious in review.
+  void goneIds;
+  const events = [...byId.values()];
 
   mkdirSync(path.dirname(slicePath), { recursive: true });
-  const slice = { schemaVersion: 1, sourceKey, sourceName, assembledAt: crawledAt, events };
+  const slice = {
+    schemaVersion: 1,
+    sourceKey,
+    sourceName,
+    ...(canton ? { canton } : {}),
+    assembledAt: crawledAt,
+    events,
+  };
   writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
   return events.length;
 }

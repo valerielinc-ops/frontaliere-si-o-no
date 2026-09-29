@@ -186,7 +186,9 @@ import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
 import { getAutoAdOverlayClearance, subscribeToAutoAdOverlay } from '@/services/autoAdOverlay';
+import { installNavOverlayGuard } from '@/services/navOverlayGuard';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
+import { useAdPageDiag } from '@/hooks/useAdPageDiag';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts).
@@ -403,7 +405,14 @@ const App: React.FC = () => {
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
  const [autoAdOverlayClearance, setAutoAdOverlayClearance] = useState(() => getAutoAdOverlayClearance());
  useEffect(() => subscribeToAutoAdOverlay(setAutoAdOverlayClearance), []);
+ // Keeps floating third-party overlays (AdSense ad-intents chip) off the
+ // sticky nav by moving them just below it — never hiding them (#7).
+ const mainNavRef = useRef<HTMLElement>(null);
+ useEffect(() => (mainNavRef.current ? installNavOverlayGuard(mainNavRef.current) : undefined), []);
  useSeoPageTracking();
+ // One GA4 `ad_page_diag` per page view (services/adPageDiag.ts); on static
+ // pages the AdSense loader owns the first one and this takes over on navigation.
+ useAdPageDiag();
  // "This person came back to the site" — the single fact a decayed job alert
  // needs to come back to life (#5705, owner's decision of 2026-08-14). Records
  // only; the sender decides, and refuses on seven grounds. One write per browser
@@ -2466,7 +2475,7 @@ const App: React.FC = () => {
  )}
 
  {/* Navbar */}
- <nav aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
+ <nav ref={mainNavRef} aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
  <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
  <div className="flex justify-between h-14 md:h-20 items-center">
  {/* Logo Section */}
@@ -3016,13 +3025,13 @@ const App: React.FC = () => {
  ) : activeTab === 'stats' ? (
  <StatsTabContent />
  ) : activeTab === 'blog' ? (
- // Widen past max-w-7xl (1280) at ≥1400px so the article view's own
- // 1440px cap can take effect — otherwise the 300px side-rail ad gutters
- // never get room and stay collapsed to 180px. Mutually-exclusive ranges
- // (`max-xlw:` < 1400, `xlw:` ≥ 1400) so the cascade order can't pin it to
- // 7xl. Inner views self-cap (list at max-w-6xl), so only the article
+ // Widen past max-w-7xl (1280) at ≥1400px: the article view fills this
+ // wrapper, so its two 300px side-rail gutters plus a ~800-970px reading
+ // column fit without leaving blank margins around the grid. Mutually-exclusive
+ // ranges (`max-xlw:` < 1400, `xlw:` ≥ 1400) so the cascade order can't pin it
+ // to 7xl. Inner views self-cap (list at max-w-5xl), so only the article
  // detail actually uses the extra width.
- <div className="max-xlw:max-w-7xl xlw:max-w-[1440px] mx-auto">
+ <div className="max-xlw:max-w-7xl xlw:max-w-[1600px] mx-auto">
  <BlogArticles
  section={blogSection}
  selectedArticle={blogSection === 'svizzera' ? (swissArticle as BlogArticleId | null) : blogArticle}

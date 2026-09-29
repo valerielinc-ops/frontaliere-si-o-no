@@ -29,7 +29,7 @@ import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
-import { isExplicitNonFunnelDisposition } from './lib/review-findings.mjs';
+import { isExplicitNonFunnelDisposition, isMalformedReviewBody } from './lib/review-findings.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { ACCEPTANCE_CONDITION, hasEnumeratedItems } from './followup-resolution-match.mjs';
 import { isAggregate, isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
@@ -206,6 +206,12 @@ export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unre
 //     `recurringDespiteRule` → the prose rule isn't working → escalate to a
 //     STRUCTURAL fix (template / CI gate / shared module), not another line.
 //     (These 4 buckets were the harvester's blind spot until 2026-06-04.)
+const ADSENSE_BOT_GATE_AD_SURFACE = String.raw`(?:\badsense\b|\badsbygoogle\b|\bauto[- ]?ads?\b|\bads?\b|\badvertising\b|\badvertisements?\b|\bcta\b)`;
+const ADSENSE_BOT_GATE_SIGNAL = String.raw`(?:\b(?:bot|bots)\b|\banti[- ]?bot\b|\bautomation(?:[- ]?(?:gate|classifier|detector|signature))?\b|\bscreen\s+signature\b|\bfalse\s+positive\b|\b(?:real|legitimate)\s+(?:session|user)\b)`;
+const ADSENSE_BOT_GATE_RE = new RegExp(
+  String.raw`(?:${ADSENSE_BOT_GATE_AD_SURFACE}[\s\S]{0,180}${ADSENSE_BOT_GATE_SIGNAL}|${ADSENSE_BOT_GATE_SIGNAL}[\s\S]{0,180}${ADSENSE_BOT_GATE_AD_SURFACE})`,
+  'i',
+);
 const TAXONOMY = [
   { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
@@ -215,9 +221,26 @@ const TAXONOMY = [
   // #9836, #9835 and #9492 into `auto-ads`, so the harvester escalated a topic
   // even though no single antipattern recurred. Keep the threshold unchanged;
   // improve the measurement by preserving the failure mode in the bucket key.
-  { key: 'adsense-thin-content', re: /(?:(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|ad(?:s)?\b|slot|multiplex)|(?:adsense|manual\s+(?:ad|adsense)|multiplex|slot)[\s\S]{0,220}(?:thin|noindex|indexable|word[- ]?count|below[- ]floor|mfa))/i, docKeys: ['auto ads', 'adsense'] },
+  //
+  // `noindex`/`indexable` alone are deliberately NOT thin-content evidence:
+  // SEO parser and audit findings mention both routinely, while `ad` alone also
+  // appears in ordinary prose such as "metadata"/"head". Require an explicit
+  // content-floor signal and an explicit ad-unit surface in the same finding.
+  // This keeps a real "thin page still carries AdSense" finding countable while
+  // leaving unrelated noindex, missing-ad and generic SEO findings to their own
+  // bucket/fingerprint (measured on #10177, #10037 and #9910).
+  { key: 'adsense-thin-content', re: new RegExp(
+    String.raw`(?:(?:thin(?:[- ]content)?|word[- ]?count|below[- ]floor|mfa)[\s\S]{0,220}(?:adsense|adsbygoogle|auto[- ]?ads|manual\s+(?:ad|adsense)|multiplex|<ins\b|(?:ad|ads)\s+(?:unit|slot|block|snippet|placement)|(?:unit|slot|block|snippet|placement)\s+(?:ad|ads))|(?:adsense|adsbygoogle|auto[- ]?ads|manual\s+(?:ad|adsense)|multiplex|<ins\b|(?:ad|ads)\s+(?:unit|slot|block|snippet|placement)|(?:unit|slot|block|snippet|placement)\s+(?:ad|ads))[\s\S]{0,220}(?:thin(?:[- ]content)?|word[- ]?count|below[- ]floor|mfa))`,
+    'i',
+  ), docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-slot-lifecycle', re: /(?:(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>)[\s\S]{0,180}(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)|(?:collapse|timeout|consent|no[- ]ads|unfilled|watcher)[\s\S]{0,180}(?:static[- ]slot|drive[- ]by|adsbygoogle|<ins>))/i, docKeys: ['auto ads', 'adsense'] },
-  { key: 'adsense-bot-gate', re: /(?:(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta)[\s\S]{0,180}(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)|(?:bot|automation|real\s+(?:session|user)|false\s+positive|screen\s+signature)[\s\S]{0,180}(?:adsense|auto ?ads|ads?\b|advertis(?:e|ing|ements)|cta))/i, docKeys: ['auto ads', 'adsense'] },
+  // Keep both sides explicit and word-bounded. The previous `ads?`/`bot`
+  // fragments matched the tail of ordinary words (`load` + `automation`,
+  // `advertised` + `antiBotChallenge`, `ad` + `both`, `instead` +
+  // `antiBotExhausted`) and turned unrelated funnel findings into this bucket
+  // (#10209). A bot-gate finding must mention an ad surface and a genuine
+  // bot/automation signal; short substrings are not evidence.
+  { key: 'adsense-bot-gate', re: ADSENSE_BOT_GATE_RE, docKeys: ['auto ads', 'adsense'] },
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
@@ -645,6 +668,26 @@ export function detectSeverity(line) {
 // the same way it already filters fix-outcome ones (#5516: without this stamp
 // a bucket re-fires on the SAME pre-fix occurrences forever, indistinguishable
 // from a rule that never worked).
+/**
+ * Le righe di un body di review. Un body malformato (`isMalformedReviewBody`:
+ * tutto su una riga con `\n` LETTERALI, difetto del reviewer del 13-19/09
+ * spento da #9781) si divide solo dopo aver riportato quei `\n` ad a-capo veri:
+ * altrimenti l'intero body e' UNA riga, `detectSeverity` ci trova il primo glifo
+ * di qualunque finding, e la rete fingerprint la battezza con le prime parole
+ * del body (`<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope ...`). Sulla finestra
+ * 14-28/09 del sito queste review generavano il cluster fantasma
+ * `fp:codex-fallback-review-scope` (×18) — riproposto ogni giorno alla proposta
+ * Codex e scartato ogni giorno (#10153, #10212). Un body sano non viene toccato:
+ * un `\n` letterale citato in prosa resta testo.
+ * @param {unknown} body
+ * @returns {string[]}
+ */
+export function reviewBodyLines(body) {
+  const raw = String(body ?? '');
+  const text = isMalformedReviewBody(raw) ? raw.replace(/\\n/gu, '\n') : raw;
+  return text.split('\n');
+}
+
 export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
   const counts = {};
   const examples = {};
@@ -654,7 +697,7 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
       // GraphQL exposes bot logins without the REST [bot] suffix.
       const reviewerLogin = String(r.author?.login || '').replace(/\[bot\]$/i, '') + '[bot]';
       if (!REVIEWER_BOT_LOGIN_RE.test(reviewerLogin)) continue;
-      for (const line of String(r.body || '').split('\n')) {
+      for (const line of reviewBodyLines(r.body)) {
         const sev = detectSeverity(line);
         if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
         const bucket = bucketOf(line);
@@ -1111,6 +1154,115 @@ export function examplesSinceFix(examples, cutoffMs) {
   });
 }
 
+// ---- Registro versionato delle decisioni sui cluster -----------------------
+// `alreadyDocumented` riconosce un bucket della tassonomia dai suoi `docKeys`,
+// ma per un cluster `fp:<...>` (rete fingerprint) o per un codice `fix-outcome`
+// cerca la FRASE DEL FINGERPRINT nei doc, che una regola scritta in italiano
+// non contiene quasi mai. Risultato misurato: ogni giorno la proposta Codex
+// (10-16 min a run) ridecideva gli stessi cluster. `fp:scripts-funnel-treats-every`
+// e' tornato NOVEL il 28-09, il giorno dopo la regola di #10153;
+// `fp:body-not-closing-state` e' stato scartato il 27-09 (#10153) e accettato
+// il 28-09 (#10212) sugli stessi tre esempi.
+//
+// Il registro e' la memoria di quelle decisioni: una voce per cluster
+// (`<source>/<key>`, la stessa forma del titolo di escalation), con l'esito
+// (`added` = regola scritta, `declined` = scartato per scelta), l'istante e il
+// riferimento. Lo scrive la proposta Codex nella stessa PR in cui decide. Un
+// cluster registrato torna NOVEL solo se DOPO la decisione raccoglie di nuovo
+// ≥ soglia esempi (stesso filtro di `examplesSinceFix`); un `added` vale come
+// documentato, quindi puo' ancora escalare se la regola non funziona.
+export const LESSONS_REGISTRY_PATH = 'scripts/ci/lessons-harvester-registry.json';
+export const REGISTRY_OUTCOMES = Object.freeze(['added', 'declined']);
+const REGISTRY_KEY_RE = /^(?:reviewer-finding|fix-outcome|issue-class)\/\S+$/u;
+
+/** Chiave di registro di un cluster: `<source>/<key>`, come `escalationTitle`. */
+export function registryKey(source, key) {
+  return `${source}/${key}`;
+}
+
+/**
+ * Istante della decisione in epoch ms, o null. Una data sola (`YYYY-MM-DD`)
+ * vale fine giornata UTC: gli esempi dello stesso giorno li aveva gia' visti
+ * chi ha deciso, quindi non devono farlo riemergere.
+ * @param {unknown} decidedAt
+ */
+export function registryDecidedAtMs(decidedAt) {
+  const s = String(decidedAt ?? '').trim();
+  if (/^\d{4}-\d{2}-\d{2}$/u.test(s)) return Date.parse(`${s}T23:59:59.999Z`);
+  if (!/^\d{4}-\d{2}-\d{2}T/u.test(s)) return null;
+  const t = Date.parse(s);
+  return Number.isNaN(t) ? null : t;
+}
+
+/**
+ * Valida e indicizza il registro. Una voce non valida NON sopprime niente (il
+ * cluster torna a essere valutato come prima) e finisce in `errors`, che il
+ * main stampa come `::warning::` e il test sul file versionato fa fallire.
+ * Due voci con la stessa chiave: vince la decisione piu' recente.
+ * @param {string | object} raw
+ * @returns {{entries: Map<string, {key: string, outcome: string, decidedAt: string, decidedAtMs: number, ref: string, reason: string}>, errors: string[]}}
+ */
+export function parseLessonsRegistry(raw) {
+  const entries = new Map();
+  const errors = [];
+  let data;
+  try {
+    data = typeof raw === 'string' ? JSON.parse(raw) : raw;
+  } catch (err) {
+    return { entries, errors: [`JSON non valido: ${err.message}`] };
+  }
+  if (!Array.isArray(data?.entries)) return { entries, errors: ['manca l\'array `entries`'] };
+  data.entries.forEach((e, i) => {
+    const where = `entries[${i}]`;
+    const key = String(e?.key ?? '');
+    if (!REGISTRY_KEY_RE.test(key)) { errors.push(`${where}: key "${key}" non e' <source>/<key>`); return; }
+    if (!REGISTRY_OUTCOMES.includes(e?.outcome)) {
+      errors.push(`${where} (${key}): outcome "${e?.outcome}" non in ${REGISTRY_OUTCOMES.join('|')}`);
+      return;
+    }
+    const decidedAtMs = registryDecidedAtMs(e?.decidedAt);
+    if (decidedAtMs === null) { errors.push(`${where} (${key}): decidedAt "${e?.decidedAt}" non e' una data ISO`); return; }
+    const reason = String(e?.reason ?? '').trim();
+    if (!reason) { errors.push(`${where} (${key}): reason vuota`); return; }
+    const prev = entries.get(key);
+    if (prev && prev.decidedAtMs > decidedAtMs) return;
+    entries.set(key, { key, outcome: e.outcome, decidedAt: String(e.decidedAt), decidedAtMs,
+      ref: String(e?.ref ?? ''), reason });
+  });
+  return { entries, errors };
+}
+
+/**
+ * Legge il registro. File assente = registro vuoto (il corpus riceve questo
+ * script per mirror prima di avere un registro suo): nessuna soppressione.
+ * @param {string} [path]
+ * @param {(p: string, enc: string) => string} [readFile]
+ */
+export function loadLessonsRegistry(path = LESSONS_REGISTRY_PATH, readFile = fs.readFileSync) {
+  let raw;
+  try {
+    raw = readFile(path, 'utf-8');
+  } catch (err) {
+    if (err?.code === 'ENOENT') return { entries: new Map(), errors: [], missing: true };
+    return { entries: new Map(), errors: [`registro illeggibile: ${err.message}`] };
+  }
+  return parseLessonsRegistry(raw);
+}
+
+/**
+ * Stato di un cluster rispetto al registro. Senza voce: nessun effetto. Con
+ * voce: contano solo gli esempi successivi alla decisione, e il cluster
+ * «riemerge» solo se sono di nuovo ≥ soglia. Puro → testabile.
+ * @param {{decidedAtMs: number} | null | undefined} entry
+ * @param {Array<{at?: string}>} examples
+ * @param {number} [threshold]
+ */
+export function registryVerdict(entry, examples, threshold = THRESHOLD) {
+  if (!entry) return { registered: false, resurfaced: true, examplesSinceDecision: examples || [] };
+  const since = examplesSinceFix(examples, entry.decidedAtMs);
+  return { registered: true, resurfaced: since.length >= threshold, examplesSinceDecision: since };
+}
+
 function formatExamples(c) {
   return (c.examples || [])
     .map((e) => [e?.pr, e?.issue].find((value) => value !== null && value !== undefined && value !== ''))
@@ -1345,6 +1497,10 @@ async function main() {
     '--search', 'ricorre nonostante regola in:title',
     '--json', 'number,title,closedAt', '--limit', '100']) || [];
 
+  // ---- Registro delle decisioni (vedi parseLessonsRegistry) ----
+  const registryPath = process.env.HARVEST_REGISTRY || LESSONS_REGISTRY_PATH;
+  const registry = loadLessonsRegistry(registryPath);
+
   // ---- Assemble clusters above threshold + novel ----
   const clusters = [];
   // `driver`: clusters that can drive a doc-rule proposal (an agent repeating a
@@ -1357,21 +1513,37 @@ async function main() {
     for (const [key, count] of Object.entries(counts)) {
       if (count < THRESHOLD) continue;
       const driver = isEscalationDriver(source, key);
-      const documented = alreadyDocumented(key, corpus);
+      const regKey = registryKey(source, key);
+      const reg = registry.entries.get(regKey) || null;
+      // Una regola registrata come `added` vale come documentata anche quando
+      // la sua prosa non contiene la frase del fingerprint.
+      const documented = alreadyDocumented(key, corpus) || reg?.outcome === 'added';
       const allExamples = examples[key] || [];
+      const decision = registryVerdict(reg, allExamples);
       // A bucket whose last escalation was already closed via a shipped fix
       // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
       // trailing window — only count what happened AFTER that fix landed.
-      const cutoff = TIMESTAMPED_SOURCES.has(source)
+      // Stesso ragionamento per una regola `added` dal registro: la sua
+      // efficacia si misura sugli esempi successivi alla regola.
+      const escalationCutoff = TIMESTAMPED_SOURCES.has(source)
         ? lastEscalationClosedAt(`${source}/${key}`, closedEscalations)
         : null;
+      const ruleCutoff = TIMESTAMPED_SOURCES.has(source) && reg?.outcome === 'added' ? reg.decidedAtMs : null;
+      const cutoff = escalationCutoff === null ? ruleCutoff
+        : ruleCutoff === null ? escalationCutoff : Math.max(escalationCutoff, ruleCutoff);
       const liveExamples = TIMESTAMPED_SOURCES.has(source) ? examplesSinceFix(allExamples, cutoff) : allExamples;
       const effectiveCount = TIMESTAMPED_SOURCES.has(source) ? liveExamples.length : count;
       // Documented + still recurring hard (post-fix) = the rule exists but isn't working.
       const recurringDespiteRule = driver && documented && effectiveCount >= THRESHOLD * EFFICACY_FACTOR;
-      clusters.push({ source, key, count, driver, novel: driver && !documented,
+      // Un cluster gia' deciso torna NOVEL solo con ≥ soglia esempi nuovi.
+      const novel = driver && !documented && decision.resurfaced;
+      const shown = reg && decision.examplesSinceDecision.length ? decision.examplesSinceDecision
+        : liveExamples.length ? liveExamples : allExamples;
+      clusters.push({ source, key, registryKey: regKey, count, driver, novel,
         recurringDespiteRule, alreadyDocumented: documented,
-        examples: (liveExamples.length ? liveExamples : allExamples).slice(0, 5) });
+        registry: reg ? { outcome: reg.outcome, decidedAt: reg.decidedAt, ref: reg.ref,
+          examplesSinceDecision: decision.examplesSinceDecision.length } : null,
+        examples: shown.slice(0, 5) });
     }
   }
   consider('reviewer-finding', findingCounts, findingExamples);
@@ -1386,19 +1558,27 @@ async function main() {
     efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
     novelClusters: novel.length, escalationClusters: escalations.length, clusters,
     recoverableMaxTurns,
+    registry: { path: registryPath, entries: registry.entries.size, missing: Boolean(registry.missing),
+      errors: registry.errors },
     coverage: { days: days.length, mergedPrs: mergedPrs.length, issues: allIssues.length,
       fixIssues: fixIssues.length, partial: coverage.length > 0, warnings: coverage } };
   fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
 
   // ---- Human summary ----
   console.log(`Lessons harvest — window ${WINDOW_DAYS}d (since ${sinceDay}), threshold ≥${THRESHOLD}`);
+  console.log(`Registro decisioni: ${registry.entries.size} voci (${registryPath}${registry.missing ? ', assente' : ''})`);
+  for (const e of registry.errors) console.log(`::warning::registro ${registryPath}: ${e}`);
   console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}` +
     ` · window: ${days.length} days, ${coverage.length ? 'PARTIAL' : 'complete'}`);
   for (const w of coverage) console.log(w);
   if (!clusters.length) console.log('No recurring clusters above threshold.');
   for (const c of clusters) {
-    const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE' : 'documented';
-    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}` +
+    const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE'
+      : c.registry ? `registered:${c.registry.outcome}` : 'documented';
+    const reg = c.registry
+      ? ` [registro ${c.registry.outcome} ${c.registry.decidedAt} ${c.registry.ref}, +${c.registry.examplesSinceDecision} dopo]`
+      : '';
+    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}${reg}` +
       (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
   }
   console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);

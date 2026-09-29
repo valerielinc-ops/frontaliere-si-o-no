@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildBriefingPrompt, buildBriefingBatchPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
 import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
@@ -88,18 +88,13 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
-// How many cohort briefings to request in a single AI call (same locale only,
-// see buildBriefingBatchPrompt). Keeps total request volume comfortably under
-// the tightest top-of-chain free-tier daily cap (Gemini flash: 1500/day) even
-// on high-subscriber days, so most batches succeed on the first model instead
-// of cascading through the whole chain toward the bottom-of-array tiers
-// (omniroute/claude-cli — see NEWSLETTER_AI_CHAIN comment below for their
-// current tier-0/last-resort status).
-// Kept at 3 (not higher) so the batch's combined maxTokens request stays
-// comfortably under smaller free-tier models' per-request output caps —
-// a bigger batch cuts request volume further but risks silent truncation
-// on the weaker links in the chain.
-const AI_BRIEFING_BATCH_SIZE = 3;
+// Wall-clock budget for each AI phase (briefings, then subjects). The send
+// happens only after both phases, so an unbounded AI phase can take the whole
+// campaign down with it (run 36407582573: 2016 cohorts, still in Phase 2 when
+// the 6h job timeout cancelled it, nothing sent). Past the deadline callLLM
+// stops walking the chain and the Codex broker drops the queued request; the
+// caller falls back to the static template, which the send then uses.
+export const AI_PHASE_BUDGET_MS = 30 * 60_000;
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
@@ -240,7 +235,7 @@ async function initAI() {
 
 // Focused AI chain for newsletter: top-scoring models across multiple providers.
 // Avoids the 115+ model shotgun that causes cascading 429s and slow fallbacks.
-// ~150 cohort briefings + 4 subjects = ~155 calls — well within free tier limits.
+// One briefing per locale + 2 subjects per locale = ≤12 calls per run.
 // Models are still sorted by score at runtime, so the best performer leads.
 // IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs
 // (AI_MODELS.*). When Google renames a model on the Gemini API, fix it there first.
@@ -272,76 +267,159 @@ const NEWSLETTER_AI_CHAIN = [
   'codex-cli/gpt-5.6-luna',
 ];
 
-async function generateAIBriefing(ctx) {
-  if (!callLLM) return null;
-  try {
-    const { system, user } = buildBriefingPrompt(ctx);
-    const result = await callLLM([
-      { role: 'system', content: system },
-      { role: 'user', content: user },
-    ], { temperature: 0.7, maxTokens: 800, chain: NEWSLETTER_AI_CHAIN });
-    let html = sanitizeAIBriefingHtml(result);
-    return html;
-  } catch (e) {
-    console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
-    return null;
-  }
-}
-
 /**
- * Split a batch AI response on "===BRIEFING <id>===" markers into a
- * Map<id, rawHtml>. Missing/unmatched ids simply aren't in the returned map \u2014
- * the caller treats that exactly like a single-item AI failure (null \u2192
- * template fallback), so a partially-truncated batch degrades gracefully
- * instead of losing the whole batch.
+ * The ONE AI briefing a locale's readers share (see buildLocaleBriefingPrompt).
+ * One retry: a single short or garbled answer would otherwise put the whole
+ * locale on the static template. Both attempts share the caller's deadline.
+ * `llm` defaults to the chain loaded by initAI; the benchmark injects its own.
  */
-function parseBriefingBatchResponse(raw) {
-  const map = new Map();
-  const text = String(raw || '');
-  // Tolerant of minor formatting drift models are prone to (extra/missing
-  // spaces around the marker, e.g. "== BRIEFING 0 ==" instead of the exact
-  // "===BRIEFING 0===" requested) — a strict marker match would silently
-  // drop an otherwise-good item to the template fallback over whitespace.
-  const marker = /={2,}\s*BRIEFING\s+(\S+?)\s*={2,}/g;
-  const matches = [...text.matchAll(marker)];
-  for (let i = 0; i < matches.length; i++) {
-    const id = matches[i][1];
-    const start = matches[i].index + matches[i][0].length;
-    const end = i + 1 < matches.length ? matches[i + 1].index : text.length;
-    const content = text.slice(start, end).trim();
-    if (content) map.set(id, content);
-  }
-  return map;
-}
-
-/**
- * Generate up to AI_BRIEFING_BATCH_SIZE cohort briefings in a single AI call.
- * All items MUST share the same locale (see buildBriefingBatchPrompt). Falls
- * back to an empty map (\u2192 every item gets the template fallback downstream)
- * on total failure; individual items that fail the same quality gate as the
- * single-call path (sanitizeAIBriefingHtml) are dropped the same way too.
- */
-async function generateAIBriefingsBatch(items) {
-  if (!callLLM || items.length === 0) return new Map();
-  try {
-    const { system, user } = buildBriefingBatchPrompt(items);
-    const result = await callLLM([
-      { role: 'system', content: system },
-      { role: 'user', content: user },
-    ], { temperature: 0.7, maxTokens: 800 * items.length + 200, chain: NEWSLETTER_AI_CHAIN });
-    const parsed = parseBriefingBatchResponse(result);
-    const out = new Map();
-    for (const item of items) {
-      const block = parsed.get(item.id);
-      if (!block) continue;
-      const html = sanitizeAIBriefingHtml(block);
-      if (html) out.set(item.id, html);
+export async function generateLocaleBriefing(ctx, { deadlineMs, llm = callLLM } = {}) {
+  if (!llm) return null;
+  const { system, user } = buildLocaleBriefingPrompt(ctx);
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    if (deadlineMs && Date.now() >= deadlineMs) break;
+    try {
+      const result = await llm([
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ], { temperature: 0.7, maxTokens: 800, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
+      const html = sanitizeAIBriefingHtml(result);
+      if (html) return html;
+    } catch (e) {
+      console.warn(`\u26a0\ufe0f AI briefing (${ctx.locale}) failed:`, e.message?.slice(0, 200));
     }
-    return out;
-  } catch (e) {
-    console.warn('\u26a0\ufe0f AI briefing batch failed:', e.message?.slice(0, 200));
-    return new Map();
   }
+  return null;
+}
+
+/**
+ * Phase 2 composition: one AI briefing per locale (`generate(locale)` → HTML
+ * or null), then each cohort's own jobs prepended by injectJobAndCompanyLinks.
+ * A locale without an AI briefing uses the static template for its cohorts.
+ * AI calls therefore scale with locales, never with cohorts.
+ */
+export async function composeCohortBriefings(cohorts, { locales, generate, exchangeRate }) {
+  const localeBriefings = new Map();
+  if (generate) {
+    await pMap(locales, async (loc) => {
+      const html = await generate(loc);
+      if (html) localeBriefings.set(loc, html);
+    }, Math.min(locales.length, AI_CONCURRENCY));
+  }
+  const briefingMap = new Map();
+  let aiCohorts = 0;
+  let fallbackCohorts = 0;
+  for (const [key, cohort] of cohorts) {
+    const localeHtml = localeBriefings.get(cohort.locale);
+    if (localeHtml) aiCohorts++;
+    else fallbackCohorts++;
+    briefingMap.set(key, cohortBriefingHtml(localeHtml, cohort, exchangeRate));
+  }
+  return { briefingMap, localeBriefings, aiCohorts, fallbackCohorts };
+}
+
+/**
+ * The briefing one cohort receives: the locale's AI text (or the static
+ * template), its own jobs linked and first, then the tool links. Job links are
+ * injected for both AI and fallback briefings.
+ */
+function cohortBriefingHtml(localeHtml, cohort, exchangeRate) {
+  const html = localeHtml || getFallbackBriefing(cohort.locale, exchangeRate);
+  return injectToolLinks(injectJobAndCompanyLinks(html, cohort.matchedJobs, cohort.locale), cohort.locale);
+}
+
+/** Characters of the cohort briefing a subject receives as its "Theme". */
+export const SUBJECT_THEME_CHARS = 100;
+
+const stripTags = (html) => String(html || '').replace(/<[^>]+>/g, '');
+
+/**
+ * The fixed openings of the jobs paragraph ("Se cerchi qualcosa di concreto,
+ * questa settimana ci sono "), the same words in every email of a locale.
+ */
+function jobsIntroOpenings(locale) {
+  const i18n = JOB_FALLBACK_I18N[locale] || JOB_FALLBACK_I18N.it;
+  const mark = '\u0000';
+  return [i18n.introMulti(mark, mark), i18n.introSingle(mark)].map((s) => s.split(mark)[0]);
+}
+
+/**
+ * The Theme text of a cohort briefing: its first SUBJECT_THEME_CHARS
+ * characters without the jobs paragraph's fixed opening. With the opening,
+ * most of the Theme was those same words every week, and the model copied
+ * them into the subjects of both A/B arms ("💼 Suchst du etwas Konkretes in
+ * Bellinzona?" in the curioso arm).
+ */
+function subjectThemeText(html, locale) {
+  const text = stripTags(html);
+  const opening = jobsIntroOpenings(locale).find((o) => text.startsWith(o));
+  return (opening ? text.slice(opening.length) : text).slice(0, SUBJECT_THEME_CHARS);
+}
+
+/**
+ * The Theme of a locale's subjects: the start of its largest cohort's
+ * briefing (subjectThemeText). With `briefingMap` it is read from the finished
+ * Phase 2. With `briefingFor(locale)` (a promise of the locale's AI text or
+ * null) Phase 3 runs next to Phase 2 and waits for that text only when the
+ * Theme depends on it: injectJobAndCompanyLinks puts the cohort's jobs
+ * paragraph first when the model does not name the jobs, which the briefing
+ * prompt forbids, and when that paragraph alone covers the Theme the briefing
+ * cannot change it.
+ */
+async function localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }) {
+  if (!rep) return '';
+  if (briefingMap) return subjectThemeText(briefingMap.get(rep.key), rep.locale);
+  const jobsTheme = subjectThemeText(injectJobAndCompanyLinks('', rep.matchedJobs, rep.locale), rep.locale);
+  if (jobsTheme.length >= SUBJECT_THEME_CHARS) return jobsTheme;
+  const localeHtml = briefingFor ? await briefingFor(rep.locale) : null;
+  return subjectThemeText(cohortBriefingHtml(localeHtml, rep, exchangeRate), rep.locale);
+}
+
+/** Key of the subject for one (locale, A/B variant) pair. */
+export function newsletterSubjectKey(loc, variant) {
+  return `${loc}::${variant}`;
+}
+
+/**
+ * Phase 3 composition: one AI subject per (locale, variant), written from the
+ * locale's largest cohort; `generate(ctx)` → subject or null, null falling
+ * back to the variant's static subject. At most locales × variants calls.
+ * Pass `briefingMap` (finished Phase 2) or `briefingFor` (Phase 2 running
+ * alongside, see localeSubjectTheme).
+ */
+export async function composeLocaleSubjects(cohorts, { locales, variantIds, briefingMap = null, briefingFor = null, exchangeRate, generate }) {
+  const localeRepresentatives = new Map();
+  for (const [key, cohort] of cohorts) {
+    const loc = cohort.locale;
+    const existing = localeRepresentatives.get(loc);
+    if (!existing || cohort.members.length > existing.members.length) {
+      localeRepresentatives.set(loc, { ...cohort, key });
+    }
+  }
+  const themes = new Map();
+  const themeFor = (loc) => {
+    if (!themes.has(loc)) {
+      themes.set(loc, localeSubjectTheme(localeRepresentatives.get(loc), { briefingMap, briefingFor, exchangeRate }));
+    }
+    return themes.get(loc);
+  };
+
+  const subjectMap = new Map();
+  const localeVariantPairs = [];
+  for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
+  await pMap(localeVariantPairs, async ({ loc, variant }) => {
+    const rep = localeRepresentatives.get(loc);
+    const briefingText = await themeFor(loc);
+    const subject = await generate({
+      subscriber: rep?.subscriber || { locale: loc },
+      exchangeRate,
+      matchedJobs: rep?.matchedJobs || [],
+      briefingSummary: briefingText,
+      variant,
+    });
+    subjectMap.set(newsletterSubjectKey(loc, variant), subject || getVariantFallback(variant, loc));
+  }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
+  return subjectMap;
 }
 
 /**
@@ -659,14 +737,14 @@ function sanitizeAIBriefingHtml(raw) {
   return html;
 }
 
-async function generateAISubject(ctx) {
-  if (!callLLM) return null;
+export async function generateAISubject(ctx, { deadlineMs, llm = callLLM } = {}) {
+  if (!llm) return null;
   try {
     const { system, user } = buildSubjectPrompt(ctx);
-    const result = await callLLM([
+    const result = await llm([
       { role: 'system', content: system },
       { role: 'user', content: user },
-    ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN });
+    ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
     const raw = result.trim().replace(/^["']|["']$/g, '');
     // Reject degenerate AI output (empty, too short, emoji-only) so the caller
     // can fall back to FALLBACK_SUBJECT. Without this guard a 1-char emoji
@@ -2233,10 +2311,9 @@ async function main() {
     );
     let briefing = noAI
       ? getFallbackBriefing(locale, exchangeRate)
-      : (await generateAIBriefing({
-          subscriber: { locale, preferences: { jobs: true, taxUpdates: true } },
-          exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact: getWeeklyFact(locale), featuredTool: previewFeaturedTool,
-        })) || getFallbackBriefing(locale, exchangeRate);
+      : (await generateLocaleBriefing({
+          locale, exchangeRate, exchangeInsight, weeklyFact: getWeeklyFact(locale), featuredTool: previewFeaturedTool,
+        }, { deadlineMs: Date.now() + AI_PHASE_BUDGET_MS })) || getFallbackBriefing(locale, exchangeRate);
     // Always inject job links — applies to both AI and fallback briefings
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
     briefing = injectToolLinks(briefing, locale);
@@ -2414,9 +2491,6 @@ async function main() {
   subscribers = subscribers.map((subscriber) => enrichSubscriberJobContext(subscriber, jobContextIndex));
 
   // ── Build personalized emails (optimized pipeline) ──
-  let aiSuccessCount = 0;
-  let aiFallbackCount = 0;
-
   // Build valid slug index for URL validation in final HTML
   const validJobSlugs = fullNewsletterJobContext.validSlugs;
 
@@ -2481,102 +2555,67 @@ async function main() {
   }
   console.log(`  ${subscribers.length} subscribers → ${cohorts.size} cohorts`);
 
-  // ── Phase 2: Generate AI briefings, batched per locale (parallel) ──
-  console.log(`🧠 Phase 2: AI briefings (batches of ≤${AI_BRIEFING_BATCH_SIZE} cohorts, same locale, parallel)...`);
-  const cohortEntries = [...cohorts.entries()];
-  let briefingResults;
-  if (noAI) {
-    briefingResults = cohortEntries.map(([key, c]) => [key, getFallbackBriefing(c.locale, exchangeRate)]);
-  } else {
-    // Never mix locales in one batch (see buildBriefingBatchPrompt) — group
-    // by locale first, then chunk each locale's cohorts into fixed-size batches.
-    const byLocale = new Map();
-    for (const entry of cohortEntries) {
-      const loc = entry[1].locale;
-      if (!byLocale.has(loc)) byLocale.set(loc, []);
-      byLocale.get(loc).push(entry);
-    }
-    const batches = [];
-    for (const entries of byLocale.values()) {
-      for (let i = 0; i < entries.length; i += AI_BRIEFING_BATCH_SIZE) {
-        batches.push(entries.slice(i, i + AI_BRIEFING_BATCH_SIZE));
-      }
-    }
-    const batchResults = await pMap(batches, async (batch) => {
-      const items = batch.map(([, cohort], idx) => ({
-        id: String(idx),
-        ctx: {
-          subscriber: cohort.subscriber,
-          exchangeRate, exchangeInsight,
-          matchedJobs: cohort.matchedJobs,
-          weeklyFact: getWeeklyFact(cohort.locale),
-          featuredTool: getFeaturedToolForLocale(cohort.locale),
-        },
-      }));
-      const resultMap = await generateAIBriefingsBatch(items);
-      return batch.map(([key], idx) => [key, resultMap.get(String(idx)) || null]);
-    }, AI_CONCURRENCY);
-    briefingResults = batchResults.flat();
-  }
-
-  const briefingMap = new Map();
-  for (const [key, briefing] of briefingResults) {
-    const cohort = cohorts.get(key);
-    let finalBriefing;
-    if (briefing) {
-      finalBriefing = briefing;
-      aiSuccessCount++;
-    } else {
-      finalBriefing = getFallbackBriefing(cohort.locale, exchangeRate);
-      aiFallbackCount++;
-    }
-    // Always inject job links — applies to both AI and fallback briefings
-    finalBriefing = injectJobAndCompanyLinks(finalBriefing, cohort.matchedJobs, cohort.locale);
-    finalBriefing = injectToolLinks(finalBriefing, cohort.locale);
-    briefingMap.set(key, finalBriefing);
-  }
-  console.log(`  ✓ ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);
+  // ── Phase 2: ONE AI briefing per locale, jobs paragraph per cohort ──
+  // The model writes only what a locale's readers share (exchange rate, weekly
+  // fact, featured tool); injectJobAndCompanyLinks then prepends each cohort's
+  // own jobs as a deterministic linked paragraph, as it already did for every
+  // fallback cohort. Cohorts are ~1:1 with subscribers because job sets are
+  // personalised (255 → 217, 109 → 96), so the former batches of ≤3 cohorts
+  // meant one serialized Codex call per ~3 recipients: 73 calls and 2h21 for
+  // 255 recipients (run 36230809455), ~700 calls for the 2119 cohorts of a
+  // fresh Monday campaign (run 35582069095).
+  // From the cohorts, so no locale is asked for without a cohort to use it.
+  const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
 
   // ── Phase 3: Generate 1 AI subject per locale × A/B variant ──
   // Subject-line A/B test: one subject per (locale, variant) so each subscriber
   // gets the subject for their deterministically-assigned variant (Phase 5).
   // Still cohort-cheap: at most locales × variants AI calls (≤8), not per-sub.
+  //
+  // Phases 2 and 3 run together. A subject reads only the first 100 characters
+  // of its locale's largest cohort briefing, and those are that cohort's jobs
+  // paragraph whenever it has jobs, so it waits for the locale's AI text only
+  // when the Theme depends on it (localeSubjectTheme). With parallel broker
+  // lanes the subjects fill the lanes the briefings leave idle.
   const variantIds = listVariantIds();
-  const subjectKey = (loc, variant) => `${loc}::${variant}`;
-  console.log(`✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
-  const locales = [...new Set(subscriberData.map(d => d.locale))];
-  const subjectMap = new Map();
-
-  if (subjectOverride) {
-    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), subjectOverride);
-  } else if (noAI) {
-    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), getVariantFallback(v, loc));
-  } else {
-    // Pick a representative cohort per locale (the one with most members)
-    const localeRepresentatives = new Map();
-    for (const [key, cohort] of cohorts) {
-      const loc = cohort.locale;
-      const existing = localeRepresentatives.get(loc);
-      if (!existing || cohort.members.length > existing.members.length) {
-        localeRepresentatives.set(loc, { ...cohort, briefing: briefingMap.get(key) });
-      }
+  const subjectKey = newsletterSubjectKey;
+  console.log(`🧠 Phase 2: AI briefings (1 per locale: ${locales.join(', ')}), with ✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
+  const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
+  const localeBriefingCalls = new Map();
+  // One AI call per locale, shared by Phase 2 and by the subjects that wait for it.
+  const briefingFor = noAI ? null : (loc) => {
+    if (!localeBriefingCalls.has(loc)) {
+      localeBriefingCalls.set(loc, generateLocaleBriefing({
+        locale: loc,
+        exchangeRate, exchangeInsight,
+        weeklyFact: getWeeklyFact(loc),
+        featuredTool: getFeaturedToolForLocale(loc),
+      }, { deadlineMs: briefingDeadlineMs }));
     }
-
-    const localeVariantPairs = [];
-    for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
-    await pMap(localeVariantPairs, async ({ loc, variant }) => {
-      const rep = localeRepresentatives.get(loc);
-      const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
-      const subject = await generateAISubject({
-        subscriber: rep?.subscriber || { locale: loc },
-        exchangeRate,
-        matchedJobs: rep?.matchedJobs || [],
-        briefingSummary: briefingText,
-        variant,
-      });
-      subjectMap.set(subjectKey(loc, variant), subject || getVariantFallback(variant, loc));
-    }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
-  }
+    return localeBriefingCalls.get(loc);
+  };
+  const phase2 = composeCohortBriefings(cohorts, { locales, exchangeRate, generate: briefingFor });
+  const phase3 = (async () => {
+    const subjects = new Map();
+    if (subjectOverride) {
+      for (const loc of locales) for (const v of variantIds) subjects.set(subjectKey(loc, v), subjectOverride);
+      return subjects;
+    }
+    if (noAI) {
+      for (const loc of locales) for (const v of variantIds) subjects.set(subjectKey(loc, v), getVariantFallback(v, loc));
+      return subjects;
+    }
+    const subjectDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
+    return composeLocaleSubjects(cohorts, {
+      locales,
+      variantIds,
+      briefingFor,
+      exchangeRate,
+      generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs: subjectDeadlineMs }),
+    });
+  })();
+  const [{ briefingMap, localeBriefings, aiCohorts, fallbackCohorts }, subjectMap] = await Promise.all([phase2, phase3]);
+  console.log(`  ✓ ${localeBriefings.size}/${locales.length} locale AI briefings (${aiCohorts} cohorts on AI, ${fallbackCohorts} on the fallback template)`);
   console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
   // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
@@ -2764,8 +2803,7 @@ async function main() {
 
   console.log(`📅 Per-user send-time: ${scheduleTally.personal + scheduleTally.global} scheduled (personal=${scheduleTally.personal}, global=${scheduleTally.global}), ${scheduleTally.immediate} immediate`);
 
-  console.log(`\n🧠 AI stats: ${aiSuccessCount} cohort briefings (${cohorts.size} cohorts), ${aiFallbackCount} fallbacks, ${subjectMap.size} subjects`);
-  console.log(`📊 Savings: ${subscribers.length * 2} AI calls → ${aiSuccessCount + aiFallbackCount + subjectMap.size} (${Math.round((1 - (aiSuccessCount + aiFallbackCount + subjectMap.size) / (subscribers.length * 2)) * 100)}% reduction)`);
+  console.log(`\n🧠 AI stats: ${localeBriefings.size}/${locales.length} locale briefings for ${cohorts.size} cohorts (${fallbackCohorts} on the fallback template), ${subjectMap.size} subjects`);
 
   // ── Inline QA check on first email ──
   if (emails.length > 0) {

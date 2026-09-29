@@ -203,8 +203,10 @@ import {
 } from '@/services/jobGateExperiment';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+ isOfferwallLoadFailure,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
+ useOfferwallPaidFallback,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 import {
@@ -213,6 +215,7 @@ import {
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
+import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -2355,6 +2358,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
+ // Paid 0,99 € offer as the fallback of an Offerwall that could not load
+ // (owner decision 2026-09-29), only on the rewarded job-board surface.
+ const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
+  alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
+ );
  const assistedApplicationVariantReady = shouldBypassAssistedApplicationExperiment
   || alwaysRewardedApplicationSurface
   || configuredAssistedApplicationVariantReady;
@@ -2536,7 +2544,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // responded.
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
+ // Why the paid offer is open: the assisted-application experiment arm, or the
+ // fallback of a rewarded Offerwall that could not load.
+ const [assistedOfferSource, setAssistedOfferSource] = useState<'experiment' | 'offerwall_fallback'>('experiment');
+ const assistedOfferAvailable = assistedApplicationVariant === 'assisted_application'
+  || (assistedApplicationVariant === 'rewarded_ad' && assistedOfferSource === 'offerwall_fallback');
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
+ // The open rewarded offer resumes a click after the Offerwall recovery reload.
+ const [rewardedApplicationResumed, setRewardedApplicationResumed] = useState(false);
  // Synchronous twin of the two application offers' state: a double click on
  // "Candidati" runs handleApply twice before React re-renders, and the second
  // run must not emit a second apply/offer event pair (or a second rewarded
@@ -2545,6 +2560,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
   if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
  }, [assistedApplicationJob, rewardedApplicationJob]);
+ useEffect(() => {
+  if (!rewardedApplicationJob) setRewardedApplicationResumed(false);
+ }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -3732,11 +3750,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  (async () => {
  try {
- const [{ getFirestore, doc, getDoc }, { app }] = await Promise.all([
+ const [{ getFirestore, doc, getDoc }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
- const snap = await getDoc(doc(getFirestore(app), 'newsletter_subscribers', userEmail.toLowerCase()));
+ const snap = await getDoc(doc(getFirestore(await getApp()), 'newsletter_subscribers', userEmail.toLowerCase()));
  if (cancelled || !snap.exists()) return;
  const data = snap.data() as Record<string, unknown>;
  const newsletterSignals = {
@@ -7200,9 +7218,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
   });
  };
 
+ // Only a fresh page load can hold the Offerwall for this click (see
+ // services/offerwallRecovery.ts): the offer has set the resume marker, and
+ // the effect after handleApply reopens the same click once the page is back.
+ // The application intent recorded by the click is given a moment to land
+ // first, as before a same-tab hand-off.
+ const handleRewardedApplicationReload = () => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  const pendingIntent = applicationIntentSyncRef.current;
+  const intentSettled = pendingIntent?.jobId === String(job.id)
+   ? Promise.race([
+    pendingIntent.promise.then(() => undefined, () => undefined),
+    new Promise<void>((resolve) => { window.setTimeout(resolve, 1500); }),
+   ])
+   : Promise.resolve();
+  void intentSettled.then(() => window.location.reload());
+ };
+
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
+  // The Offerwall and its GPT fallback could not LOAD: when enabled, the same
+  // click opens the paid offer, which keeps the free external path one tap
+  // away. A deliberate user choice (closed Offerwall, declined consent) still
+  // goes straight to the employer below.
+  if (offerwallPaidFallbackEnabled && isOfferwallLoadFailure(reason)) {
+   setRewardedApplicationJob(null);
+   setAssistedCheckoutError(null);
+   setAssistedOfferSource('offerwall_fallback');
+   setAssistedApplicationJob(job);
+   trackAssistedApplicationEvent('offerwall_paid_fallback_offered', {
+    ...assistedApplicationJobContext(job, assistedApplicationVariant),
+    reason,
+    price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+   });
+   return;
+  }
   // No Google creative to show (no-fill, timeout, consent, eligibility): the
   // offer has already tracked the technical detail, and the same click goes
   // straight to the employer. No retry, no local video, no second click.
@@ -7215,7 +7267,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
-  if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
+  if (!job || !assistedOfferAvailable || assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
@@ -7236,7 +7288,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
     jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
-    experimentVariant: assistedApplicationVariant,
+    experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
@@ -7363,6 +7415,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // clicks through the detail render, where `assistedApplicationOfferJsx` is
   // mounted, so the treatment CTA never becomes an invisible state update.
   setAssistedCheckoutError(null);
+  setAssistedOfferSource('experiment');
   applicationOfferOpenRef.current = true;
   setAssistedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
@@ -7370,6 +7423,47 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  void redirectExternalApplication(job, surface, false);
  };
+
+ // Resume the click that reloaded the page for the Offerwall, once, when the
+ // same job detail is back with its apply path decided. The click's apply
+ // signals and intent were recorded before the reload; only the offer reopens.
+ const offerwallResumeCheckedRef = useRef(false);
+ useEffect(() => {
+  if (offerwallResumeCheckedRef.current || !selectedJob || !authResolved || !assistedApplicationVariantReady) return;
+  offerwallResumeCheckedRef.current = true;
+  const resume = takeOfferwallResume(String(selectedJob.id));
+  if (!resume) return;
+  if (
+   assistedApplicationVariant !== 'rewarded_ad'
+   || killSwitches.rewardedApplicationAd
+   || !isExternalApplicationJob(selectedJob)
+   || applicationOfferOpenRef.current
+  ) return;
+  // The reload's reason and the gate/consent state at the click travel in the
+  // marker: the event the offer sent just before the reload does not arrive.
+  const context = {
+   ...assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
+   surface: 'rewarded_application_resume',
+   ...resume,
+  };
+  const accessExpiresAt = getRewardedApplicationAccessExpiresAt();
+  if (accessExpiresAt !== null) {
+   trackAssistedApplicationEvent('rewarded_application_access_used', {
+    ...context,
+    access_expires_at: accessExpiresAt,
+    access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
+   });
+   // No click behind this hand-off: a new tab would be blocked.
+   void redirectExternalApplication(selectedJob, 'rewarded_application_entitlement', false, true);
+   return;
+  }
+  trackAssistedApplicationEvent('rewarded_application_offer_resumed', context);
+  applicationOfferOpenRef.current = true;
+  setRewardedApplicationResumed(true);
+  setRewardedApplicationJob(selectedJob);
+  // Checked once per page load, when the detail is ready.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [selectedJob, authResolved, assistedApplicationVariantReady]);
 
  const handleShare = async (job: JobListing) => {
  const url = `${window.location.origin}${buildJobPath(job)}`;
@@ -7715,7 +7809,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const assistedApplicationOfferJsx = assistedApplicationJob && assistedApplicationVariant === 'assisted_application' ? (
+ const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (
   <Suspense fallback={null}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}
@@ -7727,6 +7821,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onChoosePaid={handleAssistedPaid}
     onClose={() => {
      setAssistedApplicationJob(null);
+     setAssistedOfferSource('experiment');
      setAssistedCheckoutBusy(false);
      setAssistedCheckoutError(null);
     }}
@@ -7746,6 +7841,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
+    resumed={rewardedApplicationResumed}
+    onReload={handleRewardedApplicationReload}
    />
   </Suspense>
  ) : null;

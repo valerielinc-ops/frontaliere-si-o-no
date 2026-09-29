@@ -37,6 +37,13 @@ vi.mock('posthog-js', () => ({
 let posthogModule: typeof import('@/services/posthog');
 let consentModule: typeof import('@/services/consentService');
 
+function setProductionHostname(): void {
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: { ...window.location, hostname: 'frontaliereticino.ch' },
+  });
+}
+
 // Poll for the async dynamic import + IIFE inside ensurePostHog() to settle.
 // Uses a real per-tick delay (not setTimeout(0)): under full-suite parallel
 // load a starved event loop can burn 20 zero-delay ticks before the
@@ -56,6 +63,9 @@ beforeAll(async () => {
 
 
 beforeEach(() => {
+  // jsdom defaults to localhost; the smoke tests exercise the production
+  // startup path explicitly because local development must now be inert.
+  setProductionHostname();
   posthogMock.init.mockClear();
   posthogMock.capture.mockClear();
   posthogMock.identify.mockClear();

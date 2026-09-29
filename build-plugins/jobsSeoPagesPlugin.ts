@@ -18,11 +18,11 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT, OFFERWALL_FC_SNIPPET } from './constants';
+import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from './jobBoardGpt';
+import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -39,6 +39,7 @@ import {
  hasCollectorWrittenHtml,
  readCachedOrEmittedHtml,
  releaseDiskBackedHtmlCache,
+ releaseFlushedHtmlCacheChunk,
  jobsSeoHtmlCacheKey,
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
@@ -1468,8 +1469,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `script[src*=".../adsbygoogle.js"]` before injecting, and both only push
  // `<ins>` elements lacking `data-adsbygoogle-status`.
  // Partnerize: fuori dal ternario perche' la doc chiede il tag su OGNI pagina,
- // anche su quelle che caricano il bundle SPA e saltano gtag.
- const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}\n ${GPT_BOOTSTRAP_TAG}`;
+ // anche su quelle che caricano il bundle SPA e saltano gtag. Tutti gli
+ // emitter di questo plugin sono job-board paths: keep GPT and Funding
+ // Choices together or live consent reports fc_not_requested.
+ const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}${JOB_BOARD_HEAD_TAGS}`;
 
  /* ── Per-closeBundle memoization caches ──────────────────────────────
   * Scoped to a single closeBundle invocation so watch-mode rebuilds do not
@@ -3120,8 +3123,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  `\x1b[36m[jobs-seo-pages]\x1b[0m employer hubs available for internal linking: ${emittedEmployerHubs.size}`,
  );
 
+ // #9179: the loop used to keep every page it emitted in `jobHtmlCache` until
+ // the flush after the loop: ~24k two-byte HTML strings plus a collector
+ // backlog of up to 7 × 5000 entries, on a heap already at ~8.4 GB. A full
+ // re-render (any emitter change invalidates reuse) pushed the old generation
+ // past 80 % of the 14 GB ceiling and V8 aborted with "Ineffective
+ // mark-compacts" (runs 36391603234 and 36408996336, legs it/fr/en). Same
+ // chunk boundary as the expired soft-landing loop: flush, then drop the
+ // entries this collector wrote, so the cache holds one chunk at a time.
+ const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512;
+ let releasedActiveHtmlEntries = 0;
+ let activeHtmlCachePeakEntries = 0;
+ let activeHtmlCacheChunks = 0;
+ const releaseActiveHtmlCacheChunk = async (): Promise<void> => {
+  releasedActiveHtmlEntries += await releaseFlushedHtmlCacheChunk(
+   jobHtmlCache,
+   activeHtmlPaths,
+   () => collector.flush(),
+   hasCollectorWrittenHtmlForPath,
+  );
+  activeHtmlCacheChunks++;
+ };
+
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
+  if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
  en: localizedSlug(job, 'en'),
@@ -3231,9 +3257,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
- const jobBoardOfferwallTag = isJobBoardPageUrl(canonicalUrl)
-  ? `\n ${OFFERWALL_FC_SNIPPET}`
-  : '';
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
  // winner URL (company hub) when this slug is in the override map.
  // The page itself is still emitted with its own URL (breadcrumbs,
@@ -3829,7 +3852,7 @@ ${hreflangHtml}
  ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
  ${seedScript}
  ${SPA_ACTION_REDIRECT_SCRIPT}
-${jobBoardOfferwallTag}${staticAnalyticsHtml}
+${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
@@ -4193,6 +4216,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  const activeCacheKey = jobsSeoHtmlCacheKey(locale, canonicalPath);
  jobHtmlCache.set(activeCacheKey, html);
  activeHtmlPaths.set(activeCacheKey, canonicalPath);
+ activeHtmlCachePeakEntries = Math.max(activeHtmlCachePeakEntries, jobHtmlCache.size);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
  // Uses a canonical bridge page instead of a noindex/meta-refresh alias
  const flatPath = canonicalPath.replace(/\/+$/, '');
@@ -4340,21 +4364,18 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  }
  }
 
- // The active pages are all queued by this point. Flush them before releasing
- // their source strings so every bridge can use the exact emitted artifact.
- // Missing files are kept as a tiny fallback for collision/foreign-writer
- // edge cases; the normal path drops the full HTML cache before the marker.
- await collector.flush();
- const activeHtmlDiskBackedKeys = new Set<string>();
- for (const [key, relativePath] of activeHtmlPaths) {
-  if (hasCollectorWrittenHtmlForPath(relativePath)) activeHtmlDiskBackedKeys.add(key);
- }
- const releasedActiveHtmlEntries = releaseDiskBackedHtmlCache(jobHtmlCache, activeHtmlDiskBackedKeys);
- activeHtmlPaths.clear();
+ // The active pages are all queued by this point. Flush the last chunk before
+ // releasing its source strings so every bridge can use the exact emitted
+ // artifact. Missing files are kept as a tiny fallback for
+ // collision/foreign-writer edge cases; the normal path drops the full HTML
+ // cache before the marker.
+ await releaseActiveHtmlCacheChunk();
  logJobsSeoMem('after-active-pages', {
   activeHtmlSource: 'disk',
   releasedActiveHtmlEntries,
   activeHtmlFallbackEntries: jobHtmlCache.size,
+  activeHtmlCachePeakEntries,
+  activeHtmlCacheChunks,
  });
 
  /* ── Company landing pages ────────────────────────────────── */

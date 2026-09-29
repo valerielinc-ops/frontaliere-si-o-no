@@ -13,6 +13,21 @@
  */
 export const POSTHOG_EVENT_SAMPLE_RATE = 0;
 
+/** Hosts used by local development where analytics must never initialize. */
+export const POSTHOG_LOCAL_DEV_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+  '::1',
+  '[::1]',
+] as const;
+
+/** Return true for loopback/local development hostnames only. */
+export function isLocalDevHost(
+  hostname: string = typeof window === 'undefined' ? '' : window.location.hostname,
+): boolean {
+  return POSTHOG_LOCAL_DEV_HOSTS.includes(hostname.trim().toLowerCase() as (typeof POSTHOG_LOCAL_DEV_HOSTS)[number]);
+}
+
 /** Keep one in twenty sessions for Session Replay. */
 export const POSTHOG_SESSION_REPLAY_SAMPLE_RATE = 0.05;
 
@@ -87,21 +102,4 @@ export function createPostHogQuotaFilter(
     if (!event) return null;
     return shouldCapturePostHogEvent(event, sampleRate) ? event : null;
   };
-}
-
-/**
- * Hostnames of the Vite dev server (`:3000`) and `vite preview` (`:4173`).
- * PostHog stays off there: every event from a developer's machine would land
- * in the production project, and local-only failures such as the Firebase
- * Installations 403 (the production API key's referrer allowlist excludes
- * local hosts on purpose) open new error-tracking issues no user ever hit.
- * `location.hostname` keeps the brackets around an IPv6 literal.
- */
-export const LOCAL_DEV_HOSTNAMES: readonly string[] = ['localhost', '127.0.0.1', '[::1]'];
-
-/** True when the page is served from a developer's machine. */
-export function isLocalDevHost(
-  hostname: string = typeof window === 'undefined' ? '' : window.location.hostname,
-): boolean {
-  return LOCAL_DEV_HOSTNAMES.includes(hostname);
 }

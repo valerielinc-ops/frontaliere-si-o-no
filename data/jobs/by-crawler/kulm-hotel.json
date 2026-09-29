@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-09-28T04:59:52.607Z",
+  "assembledAt": "2026-09-29T09:21:34.377Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:47.821Z",
+      "crawledAt": "2026-09-29T09:21:30.707Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -140,7 +140,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-28T04:59:47.678Z",
+      "crawledAt": "2026-09-29T09:21:30.523Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -178,8 +178,8 @@
         "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
         "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:10:40.981Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -225,7 +225,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:46.738Z",
+      "crawledAt": "2026-09-29T09:21:29.550Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -245,10 +245,8 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "previousSlugs": [
-        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
-        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:55:53.442Z",
       "previousSlugsByLocale": {
         "it": [
           "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
@@ -257,8 +255,10 @@
           "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:55:53.442Z",
+      "previousSlugs": [
+        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -304,7 +304,7 @@
       "url": "https://careers.kulm.com/en/vacancies/680",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:59:45.788Z",
+      "crawledAt": "2026-09-29T09:21:28.562Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -339,8 +339,8 @@
         "salle-d-assistance-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina",
         "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:46:19.737Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -386,7 +386,7 @@
       "url": "https://careers.kulm.com/en/vacancies/725",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:59:44.843Z",
+      "crawledAt": "2026-09-29T09:21:27.594Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -422,8 +422,8 @@
           "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:01:11.741Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -469,7 +469,7 @@
       "url": "https://careers.kulm.com/en/vacancies/720",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:43.906Z",
+      "crawledAt": "2026-09-29T09:21:26.611Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -554,7 +554,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:42.956Z",
+      "crawledAt": "2026-09-29T09:21:25.630Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -589,7 +589,6 @@
         "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
         "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:49.645Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -603,7 +602,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-30d9a4628931",
@@ -636,7 +636,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:59:41.988Z",
+      "crawledAt": "2026-09-29T09:21:24.656Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -666,18 +666,16 @@
           "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
         ],
         "de": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-          "waschebetreuer-presse-bugeleisen-turnant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
         "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
         "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c",
-        "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c",
-        "waschebetreuer-presse-bugeleisen-turnant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
+        "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:48.690Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -723,7 +721,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T04:59:41.042Z",
+      "crawledAt": "2026-09-29T09:21:23.682Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -754,12 +752,11 @@
           "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
         ],
         "fr": [
-          "ice-master-ice-technicien-m-w-d-kulm-hotel-st-moritz",
-          "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
+          "ice-master-ice-technicien-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:55:47.743Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -805,7 +802,7 @@
       "url": "https://careers.kulm.com/en/vacancies/729",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:40.087Z",
+      "crawledAt": "2026-09-29T09:21:22.696Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -882,7 +879,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:39.128Z",
+      "crawledAt": "2026-09-29T09:21:21.720Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1007,7 +1004,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-28T04:59:38.184Z",
+      "crawledAt": "2026-09-29T09:21:20.732Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1054,6 +1051,75 @@
       }
     },
     {
+      "id": "kulm-hotel-f8e381be0294",
+      "slug": "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz",
+      "slugByLocale": {
+        "en": "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz",
+        "it": "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz",
+        "de": "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz",
+        "fr": "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz"
+      },
+      "company": "Kulm Hotel St. Moritz",
+      "companyKey": "kulm-hotel",
+      "companyDomain": "kulm.com",
+      "title": "Digital Marketing Executive (m/w/d)",
+      "titleByLocale": {
+        "en": "Digital Marketing Executive (m/w/d)",
+        "it": "Digital Marketing Executive (m/w/d)",
+        "de": "Digital Marketing Executive (m/w/d)",
+        "fr": "Digital Marketing Executive (m/w/d)"
+      },
+      "description": "Digital Marketing Executive (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Shape the digital future of two of the most renowned hotels in the Swiss Alps – the Kulm Hotel St. Moritz and the Grand Hotel Kronenhof Pontresina. As a Digital Marketing Executive, you will support our CRM & Digital Platforms Manager in maintaining, optimizing, and bringing the Kulm Group’s digital ecosystem to life for our guests at the highest level.Your Role & Responsibilities:\n• Website & Platform Management: Maintain and update our websites (front-end & CMS), manage content such as packages and events, support SEO hygiene, and ensure a seamless user journey – from inspiration to the booking engine.\n\n• Online Listings & Reputation: Manage our presence on OTAs, partner platforms, and directories, keep all information consistent, and professionally oversee reputation management on portals such as TrustYou, TripAdvisor, and Google.\n\n• Digital Asset Management: Actively manage our Bynder system, organize and tag visual assets, and coordinate photoshoots from preparation to final asset handover.\n\n• Reporting & Performance: Support the consolidation and preparation of data for monthly performance reports.\n\n• Team Coordination: Provide administrative support to the Brand and Commercial team, prepare meetings, and ensure smooth cross-departmental workflows. | This is you:\n• Education: Successfully completed university degree (Bachelor) with a focus on marketing, digital media, business administration, or a comparable qualification.\n\n• Experience: Initial practical experience in digital marketing, website management, or online platform administration; basic knowledge of CMS systems (and ideally HTML) is an advantage.\n\n• Working Style: A structured, precise, and reliable hands-on mentality with an exceptional eye for detail and brand aesthetics.\n\n• Competencies: Enthusiasm for digital user experiences, strong organizational skills, and the ability to coordinate multiple tasks in parallel and toward clear goals.\n\n• Languages: Excellent written and spoken English skills; German and Italian language skills are a strong asset.\nWhat You Can Expect from Us:\n• An Exclusive Environment: Work at the exciting intersection of luxury hospitality and digital communication across two world-famous top hotels.\n\n• Room to Grow: A diverse range of responsibilities with plenty of room for personal initiative and professional development within the Kulm Group.\n\n• Breathtaking Quality of Life: Live and work in the fascinating Engadin mountain landscape and enjoy attractive employee benefits and perks.\nReady to take our digital presence to the next level? We look forward to receiving your complete application via our career portal. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+      "descriptionByLocale": {
+        "en": "Digital Marketing Executive (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Shape the digital future of two of the most renowned hotels in the Swiss Alps – the Kulm Hotel St. Moritz and the Grand Hotel Kronenhof Pontresina. As a Digital Marketing Executive, you will support our CRM & Digital Platforms Manager in maintaining, optimizing, and bringing the Kulm Group’s digital ecosystem to life for our guests at the highest level.Your Role & Responsibilities:\n• Website & Platform Management: Maintain and update our websites (front-end & CMS), manage content such as packages and events, support SEO hygiene, and ensure a seamless user journey – from inspiration to the booking engine.\n\n• Online Listings & Reputation: Manage our presence on OTAs, partner platforms, and directories, keep all information consistent, and professionally oversee reputation management on portals such as TrustYou, TripAdvisor, and Google.\n\n• Digital Asset Management: Actively manage our Bynder system, organize and tag visual assets, and coordinate photoshoots from preparation to final asset handover.\n\n• Reporting & Performance: Support the consolidation and preparation of data for monthly performance reports.\n\n• Team Coordination: Provide administrative support to the Brand and Commercial team, prepare meetings, and ensure smooth cross-departmental workflows. | This is you:\n• Education: Successfully completed university degree (Bachelor) with a focus on marketing, digital media, business administration, or a comparable qualification.\n\n• Experience: Initial practical experience in digital marketing, website management, or online platform administration; basic knowledge of CMS systems (and ideally HTML) is an advantage.\n\n• Working Style: A structured, precise, and reliable hands-on mentality with an exceptional eye for detail and brand aesthetics.\n\n• Competencies: Enthusiasm for digital user experiences, strong organizational skills, and the ability to coordinate multiple tasks in parallel and toward clear goals.\n\n• Languages: Excellent written and spoken English skills; German and Italian language skills are a strong asset.\nWhat You Can Expect from Us:\n• An Exclusive Environment: Work at the exciting intersection of luxury hospitality and digital communication across two world-famous top hotels.\n\n• Room to Grow: A diverse range of responsibilities with plenty of room for personal initiative and professional development within the Kulm Group.\n\n• Breathtaking Quality of Life: Live and work in the fascinating Engadin mountain landscape and enjoy attractive employee benefits and perks.\nReady to take our digital presence to the next level? We look forward to receiving your complete application via our career portal. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "it": "Digital Marketing Executive (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Shape the digital future of two of the most renowned hotels in the Swiss Alps – the Kulm Hotel St. Moritz and the Grand Hotel Kronenhof Pontresina. As a Digital Marketing Executive, you will support our CRM & Digital Platforms Manager in maintaining, optimizing, and bringing the Kulm Group’s digital ecosystem to life for our guests at the highest level.Your Role & Responsibilities:\n• Website & Platform Management: Maintain and update our websites (front-end & CMS), manage content such as packages and events, support SEO hygiene, and ensure a seamless user journey – from inspiration to the booking engine.\n\n• Online Listings & Reputation: Manage our presence on OTAs, partner platforms, and directories, keep all information consistent, and professionally oversee reputation management on portals such as TrustYou, TripAdvisor, and Google.\n\n• Digital Asset Management: Actively manage our Bynder system, organize and tag visual assets, and coordinate photoshoots from preparation to final asset handover.\n\n• Reporting & Performance: Support the consolidation and preparation of data for monthly performance reports.\n\n• Team Coordination: Provide administrative support to the Brand and Commercial team, prepare meetings, and ensure smooth cross-departmental workflows. | This is you:\n• Education: Successfully completed university degree (Bachelor) with a focus on marketing, digital media, business administration, or a comparable qualification.\n\n• Experience: Initial practical experience in digital marketing, website management, or online platform administration; basic knowledge of CMS systems (and ideally HTML) is an advantage.\n\n• Working Style: A structured, precise, and reliable hands-on mentality with an exceptional eye for detail and brand aesthetics.\n\n• Competencies: Enthusiasm for digital user experiences, strong organizational skills, and the ability to coordinate multiple tasks in parallel and toward clear goals.\n\n• Languages: Excellent written and spoken English skills; German and Italian language skills are a strong asset.\nWhat You Can Expect from Us:\n• An Exclusive Environment: Work at the exciting intersection of luxury hospitality and digital communication across two world-famous top hotels.\n\n• Room to Grow: A diverse range of responsibilities with plenty of room for personal initiative and professional development within the Kulm Group.\n\n• Breathtaking Quality of Life: Live and work in the fascinating Engadin mountain landscape and enjoy attractive employee benefits and perks.\nReady to take our digital presence to the next level? We look forward to receiving your complete application via our career portal. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "de": "Digital Marketing Executive (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Shape the digital future of two of the most renowned hotels in the Swiss Alps – the Kulm Hotel St. Moritz and the Grand Hotel Kronenhof Pontresina. As a Digital Marketing Executive, you will support our CRM & Digital Platforms Manager in maintaining, optimizing, and bringing the Kulm Group’s digital ecosystem to life for our guests at the highest level.Your Role & Responsibilities:\n• Website & Platform Management: Maintain and update our websites (front-end & CMS), manage content such as packages and events, support SEO hygiene, and ensure a seamless user journey – from inspiration to the booking engine.\n\n• Online Listings & Reputation: Manage our presence on OTAs, partner platforms, and directories, keep all information consistent, and professionally oversee reputation management on portals such as TrustYou, TripAdvisor, and Google.\n\n• Digital Asset Management: Actively manage our Bynder system, organize and tag visual assets, and coordinate photoshoots from preparation to final asset handover.\n\n• Reporting & Performance: Support the consolidation and preparation of data for monthly performance reports.\n\n• Team Coordination: Provide administrative support to the Brand and Commercial team, prepare meetings, and ensure smooth cross-departmental workflows. | This is you:\n• Education: Successfully completed university degree (Bachelor) with a focus on marketing, digital media, business administration, or a comparable qualification.\n\n• Experience: Initial practical experience in digital marketing, website management, or online platform administration; basic knowledge of CMS systems (and ideally HTML) is an advantage.\n\n• Working Style: A structured, precise, and reliable hands-on mentality with an exceptional eye for detail and brand aesthetics.\n\n• Competencies: Enthusiasm for digital user experiences, strong organizational skills, and the ability to coordinate multiple tasks in parallel and toward clear goals.\n\n• Languages: Excellent written and spoken English skills; German and Italian language skills are a strong asset.\nWhat You Can Expect from Us:\n• An Exclusive Environment: Work at the exciting intersection of luxury hospitality and digital communication across two world-famous top hotels.\n\n• Room to Grow: A diverse range of responsibilities with plenty of room for personal initiative and professional development within the Kulm Group.\n\n• Breathtaking Quality of Life: Live and work in the fascinating Engadin mountain landscape and enjoy attractive employee benefits and perks.\nReady to take our digital presence to the next level? We look forward to receiving your complete application via our career portal. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "fr": "Digital Marketing Executive (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Shape the digital future of two of the most renowned hotels in the Swiss Alps – the Kulm Hotel St. Moritz and the Grand Hotel Kronenhof Pontresina. As a Digital Marketing Executive, you will support our CRM & Digital Platforms Manager in maintaining, optimizing, and bringing the Kulm Group’s digital ecosystem to life for our guests at the highest level.Your Role & Responsibilities:\n• Website & Platform Management: Maintain and update our websites (front-end & CMS), manage content such as packages and events, support SEO hygiene, and ensure a seamless user journey – from inspiration to the booking engine.\n\n• Online Listings & Reputation: Manage our presence on OTAs, partner platforms, and directories, keep all information consistent, and professionally oversee reputation management on portals such as TrustYou, TripAdvisor, and Google.\n\n• Digital Asset Management: Actively manage our Bynder system, organize and tag visual assets, and coordinate photoshoots from preparation to final asset handover.\n\n• Reporting & Performance: Support the consolidation and preparation of data for monthly performance reports.\n\n• Team Coordination: Provide administrative support to the Brand and Commercial team, prepare meetings, and ensure smooth cross-departmental workflows. | This is you:\n• Education: Successfully completed university degree (Bachelor) with a focus on marketing, digital media, business administration, or a comparable qualification.\n\n• Experience: Initial practical experience in digital marketing, website management, or online platform administration; basic knowledge of CMS systems (and ideally HTML) is an advantage.\n\n• Working Style: A structured, precise, and reliable hands-on mentality with an exceptional eye for detail and brand aesthetics.\n\n• Competencies: Enthusiasm for digital user experiences, strong organizational skills, and the ability to coordinate multiple tasks in parallel and toward clear goals.\n\n• Languages: Excellent written and spoken English skills; German and Italian language skills are a strong asset.\nWhat You Can Expect from Us:\n• An Exclusive Environment: Work at the exciting intersection of luxury hospitality and digital communication across two world-famous top hotels.\n\n• Room to Grow: A diverse range of responsibilities with plenty of room for personal initiative and professional development within the Kulm Group.\n\n• Breathtaking Quality of Life: Live and work in the fascinating Engadin mountain landscape and enjoy attractive employee benefits and perks.\nReady to take our digital presence to the next level? We look forward to receiving your complete application via our career portal. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://careers.kulm.com/en/vacancies/735",
+      "source": "Kulm Hotel St. Moritz Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T09:21:19.742Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing & Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "contractType": "indefinite",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://careers.kulm.com/en/vacancies/735",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Kulm Hotel",
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-29T09:21:19.742Z"
+    },
+    {
       "id": "kulm-hotel-cddf4474345a",
       "slug": "demi-chef-de-partie-avviare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
@@ -1084,7 +1150,7 @@
       "url": "https://careers.kulm.com/en/vacancies/731",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:37.231Z",
+      "crawledAt": "2026-09-29T09:21:18.769Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1165,7 +1231,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-28T04:59:36.294Z",
+      "crawledAt": "2026-09-29T09:21:17.795Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1185,8 +1251,8 @@
       "requirementsByLocale": {},
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:29:25.104Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1232,7 +1298,7 @@
       "url": "https://careers.kulm.com/en/vacancies/682",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:59:35.344Z",
+      "crawledAt": "2026-09-29T09:21:16.813Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1282,8 +1348,8 @@
         "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina",
         "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T22:34:26.552Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1329,7 +1395,7 @@
       "url": "https://careers.kulm.com/en/vacancies/716",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T04:59:34.393Z",
+      "crawledAt": "2026-09-29T09:21:15.833Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1415,7 +1481,7 @@
       "url": "https://careers.kulm.com/en/vacancies/732",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:59:33.445Z",
+      "crawledAt": "2026-09-29T09:21:14.860Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1451,8 +1517,8 @@
           "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:46:07.964Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",

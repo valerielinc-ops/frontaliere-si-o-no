@@ -6,6 +6,13 @@ name: Bing SEO closed loop
 on:
   schedule:
     - cron: '35 4 * * *'
+  # Re-run the complete tree immediately after the publish workflow finishes.
+  # The scheduled run remains the safety net for external/content-only changes;
+  # a failed publish must not create a noisy issue from a half-deployed tree.
+  workflow_run:
+    workflows: ['Publish to GitHub Pages (deploy + validate)']
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       apply_fixes:
@@ -35,6 +42,7 @@ permissions:
 
 jobs:
   audit:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -223,6 +231,7 @@ jobs:
   # every URL is assigned to exactly one deterministic partition, so the
   # matrix below really covers the full published tree rather than a sample.
   tree-inventory:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -261,11 +270,12 @@ jobs:
 
   tree-crawl:
     needs: tree-inventory
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 50
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 2
       matrix:
         # Keep this list explicit: coverage aggregation can fail closed if a
         # partition is ever omitted from a future edit.
@@ -317,7 +327,7 @@ jobs:
 
   tree-report:
     needs: [tree-inventory, tree-crawl]
-    if: ${{ always() && needs.tree-inventory.result == 'success' }}
+    if: ${{ always() && needs.tree-inventory.result == 'success' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -395,6 +405,11 @@ jobs:
           node scripts/seo/bing-site-explorer-report.mjs \
             --reports-dir "$RUNNER_TEMP/bing-site-tree-reports" \
             --manifest "$RUNNER_TEMP/bing-site-tree-manifest/bing-site-tree-manifest.json" \
+            --rescue-transients \
+            --rescue-concurrency 1 \
+            --rescue-retries 4 \
+            --rescue-delay-ms 3000 \
+            --rescue-deadline-ms 480000 \
             --out "$RUNNER_TEMP/bing-site-tree-summary.json" \
             --issue-body "$RUNNER_TEMP/bing-site-tree-issue.md"
 

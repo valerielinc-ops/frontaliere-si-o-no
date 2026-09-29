@@ -1,81 +1,7 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-09-28T05:02:40.728Z",
+  "assembledAt": "2026-09-29T09:26:42.099Z",
   "jobs": [
-    {
-      "id": "spitex-zuerich-922f52622df4",
-      "slug": "modulo-c-dipl-infermieristica-professionale-fh-a-spitex-zurich-zurich",
-      "slugByLocale": {
-        "it": "modulo-c-dipl-infermieristica-professionale-fh-a-spitex-zurich-zurich",
-        "en": "internship-additional-module-c-dipl-nursing-professional-fh-a-spitex-zurich-zurich",
-        "de": "praktikum-zusatzmodul-c-dipl-pflegefachfrau-mann-fh-a-spitex-zuerich-zurich",
-        "fr": "module-de-stage-supplementaire-c-dipl-spitex-zurich-zurich"
-      },
-      "company": "Spitex Zürich",
-      "companyKey": "spitex-zuerich",
-      "companyDomain": "spitex-zuerich.ch",
-      "title": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a)",
-      "titleByLocale": {
-        "it": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a)",
-        "en": "Internship Additional Module C – Dipl. Nursing professional FH (a)",
-        "de": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a)",
-        "fr": "Module de stage supplémentaire C – Dipl."
-      },
-      "description": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Praktikum\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-      "descriptionByLocale": {
-        "it": "Modulo C – Dipl. Specialista infermieristico FH (a) presso Spitex Zurich, Zurigo (ZH), Svizzera.\n\n• Orario di lavoro: stage\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
-        "en": "Internship Additional Module C – Dipl. Nursing specialist FH (a) at Spitex Zurich, Zurich (ZH), Switzerland.\n\n• Working time: internship\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
-        "de": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Praktikum\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-        "fr": "Stage Module supplémentaire C – Dipl. Spécialiste des soins infirmiers FH (a) à Spitex Zurich, Zurich (ZH), Suisse.\n\n• Temps de travail: stage\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls",
-      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:37.468Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikum-zusatzmodul-c-dipl-pflegefachfrau-mann-fh-a-spitex-zuerich-zurich",
-        "modulo-c-dipl-infermieristica-professionale-fh-a-spitex-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-zusatzmodul-c-dipl-pflegefachfrau-mann-fh-a-spitex-zuerich-zurich",
-          "modulo-c-dipl-infermieristica-professionale-fh-a-spitex-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:07:19.856Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "spitex-zuerich-9bcfae89e904",
       "slug": "wiedereinstieg-in-la-pflege-dipl-pflegefachfrau-mann-50-100-a-spitex-zurich",
@@ -108,7 +34,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/nynx0x50jck8ymsizisnbynw0pr33uf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:36.689Z",
+      "crawledAt": "2026-09-29T09:26:36.011Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,80 +63,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:07:18.506Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spitex-zuerich-2f5b89dce70f",
-      "slug": "dipl-pflegefachfrau-mann-con-fallfuhrung-standort-albisrieden-60-100-a-spitex-zurich",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-con-fallfuhrung-standort-albisrieden-60-100-a-spitex-zurich",
-        "en": "dipl-nursing-woman-with-fall-guide-location-albisrieden-60-100-a-spitex-zurich-zurich",
-        "de": "dipl-pflegefachfrau-mann-mit-fallfuhrung-standort-albisrieden-60-100-a-spitex-zuerich",
-        "fr": "dipl-infirmiere-avec-guide-d-automne-emplacement-albisiden-60-100-a-spitex-zurich-zurich"
-      },
-      "company": "Spitex Zürich",
-      "companyKey": "spitex-zuerich",
-      "companyDomain": "spitex-zuerich.ch",
-      "title": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a)",
-      "titleByLocale": {
-        "it": "Dipl. Professionista della cura con la gestione dei casi – Posizione Albisrieden 60-100% (a)",
-        "en": "Dipl. Care professional with case management – Albisrieden location 60-100% (a)",
-        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a)",
-        "fr": "Dipl. Professionnel de soins avec gestion de cas – Albisrieden emplacement 60-100% (a)"
-      },
-      "description": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-      "descriptionByLocale": {
-        "it": "Dipl. Specialista infermieristico con case management – Albisrieden posizione 60-100% (a) vicino Spitex Zurich, Zurigo (ZH), Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
-        "en": "Dipl. Nursing specialist with case management – Albisrieden location 60-100% (a) near Spitex Zurich, Zurich (ZH), Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
-        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-        "fr": "Dipl. Spécialiste des soins infirmiers avec gestion de cas – Albisiden emplacement 60-100% (a) près de Spitex Zurich, Zurich (ZH), Suisse.\n\n• Heures de travail: temps partiel / temps plein\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
-      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:35.866Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-mit-fallfuhrung-standort-albisrieden-60-100-a-spitex-zuerich",
-        "dipl-pflegefachfrau-mann-con-fallfuhrung-standort-albisrieden-60-100-a-spitex-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-mit-fallfuhrung-standort-albisrieden-60-100-a-spitex-zuerich",
-          "dipl-pflegefachfrau-mann-con-fallfuhrung-standort-albisrieden-60-100-a-spitex-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:07:17.123Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -257,7 +109,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/n3ypwiwc2nzn8r2qevxy4iib18t1d7i",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:34.753Z",
+      "crawledAt": "2026-09-29T09:26:34.595Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -331,7 +183,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ioan641fwjqhbsh83ulusl7ok95yfp1",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:33.614Z",
+      "crawledAt": "2026-09-29T09:26:33.643Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -413,7 +265,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/qhzv875aem65xs7acfh0wgj8sz1saui",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:32.456Z",
+      "crawledAt": "2026-09-29T09:26:32.107Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -490,7 +342,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:31.663Z",
+      "crawledAt": "2026-09-29T09:26:30.709Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -524,8 +376,8 @@
           "mitarbeitende-hauswirtschaft-und-betreuung-50-80-a-spitex-zuerich-zurich"
         ],
         "fr": [
-          "personnel-de-menage-et-de-soins-50-70-a-spitex-zurich-zurich",
           "mitarbeitende-hauswirtschaft-und-betreuung-50-80-a-spitex-zurich",
+          "personnel-de-menage-et-de-soins-50-70-a-spitex-zurich-zurich",
           "entretien-et-soutien-des-employes-50-80-a-spitex-zurich"
         ]
       },
@@ -576,7 +428,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:30.510Z",
+      "crawledAt": "2026-09-29T09:26:29.327Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -648,7 +500,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/3z63p0d34rnt62mbsgjnxdzoby4vvsl",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:29.394Z",
+      "crawledAt": "2026-09-29T09:26:28.426Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -720,7 +572,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8py3fp47kmu9qgsundvik7gfkhkkbit",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:02:28.273Z",
+      "crawledAt": "2026-09-29T09:26:27.048Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -766,6 +618,301 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "spitex-zuerich-26799eb4590a",
+      "slug": "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich",
+      "slugByLocale": {
+        "it": "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich",
+        "en": "professional-health-fage-evening-service-in-the-internal-pool-30-60-a-spitex-zurich-zurich",
+        "de": "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
+        "fr": "sante-professionnelle-fage-service-en-soiree-dans-la-piscine-interne-30-60-a-spitex-zurich-zurich"
+      },
+      "company": "Spitex Zürich",
+      "companyKey": "spitex-zuerich",
+      "companyDomain": "spitex-zuerich.ch",
+      "title": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
+      "titleByLocale": {
+        "it": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
+        "en": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
+        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
+        "fr": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)"
+      },
+      "description": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+      "descriptionByLocale": {
+        "it": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "en": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "fr": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
+      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:26:25.677Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8000",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
+        "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zurich",
+        "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
+          "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zurich",
+          "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T13:54:38.538Z",
+      "salaryMin": 54900,
+      "salaryMax": 76800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54900,
+          "maxValue": 76800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spitex-zuerich-fa06da56b8bf",
+      "slug": "berufsbildner-in-per-studierende-pflege-hf-fh-80-100-a-spitex-zurich",
+      "slugByLocale": {
+        "de": "berufsbildner-in-fur-studierende-pflege-hf-fh-80-100-a-spitex-zuerich-zurich",
+        "it": "berufsbildner-in-per-studierende-pflege-hf-fh-80-100-a-spitex-zurich",
+        "en": "vocational-trainer-for-students-care-hf-fh-80-100-a-spitex-zurich-zurich",
+        "fr": "formateur-professionnel-pour-etudiants-care-hf-fh-80-100-a-spitex-zurich-zurich"
+      },
+      "company": "Spitex Zürich",
+      "companyKey": "spitex-zuerich",
+      "companyDomain": "spitex-zuerich.ch",
+      "title": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a)",
+      "titleByLocale": {
+        "de": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a)",
+        "it": "Berufsbildner/-in per Studierende Pflege HF/FH 80-100% (a)",
+        "en": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a)",
+        "fr": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a)"
+      },
+      "description": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+      "descriptionByLocale": {
+        "de": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "it": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "en": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "fr": "Berufsbildner/-in für Studierende Pflege HF/FH 80-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
+      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:26:24.196Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-fur-studierende-pflege-hf-fh-80-100-a-spitex-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-fur-studierende-pflege-hf-fh-80-100-a-spitex-zuerich-zurich"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spitex-zuerich-922f52622df4",
+      "slug": "modulo-c-dipl-infermieristica-professionale-fh-a-spitex-zurich-zurich",
+      "slugByLocale": {
+        "it": "modulo-c-dipl-infermieristica-professionale-fh-a-spitex-zurich-zurich",
+        "en": "internship-additional-module-c-dipl-nursing-professional-fh-a-spitex-zurich-zurich",
+        "de": "praktikum-zusatzmodul-c-dipl-pflegefachfrau-mann-fh-a-spitex-zuerich-zurich",
+        "fr": "module-de-stage-supplementaire-c-dipl-spitex-zurich-zurich"
+      },
+      "company": "Spitex Zürich",
+      "companyKey": "spitex-zuerich",
+      "companyDomain": "spitex-zuerich.ch",
+      "title": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a)",
+      "titleByLocale": {
+        "it": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a)",
+        "en": "Internship Additional Module C – Dipl. Nursing professional FH (a)",
+        "de": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a)",
+        "fr": "Module de stage supplémentaire C – Dipl."
+      },
+      "description": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Praktikum\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+      "descriptionByLocale": {
+        "it": "Modulo C – Dipl. Specialista infermieristico FH (a) presso Spitex Zurich, Zurigo (ZH), Svizzera.\n\n• Orario di lavoro: stage\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
+        "en": "Internship Additional Module C – Dipl. Nursing specialist FH (a) at Spitex Zurich, Zurich (ZH), Switzerland.\n\n• Working time: internship\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
+        "de": "Praktikum Zusatzmodul C – Dipl. Pflegefachfrau/-mann FH (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Praktikum\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "fr": "Stage Module supplémentaire C – Dipl. Spécialiste des soins infirmiers FH (a) à Spitex Zurich, Zurich (ZH), Suisse.\n\n• Temps de travail: stage\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls",
+      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T21:23:27.290Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikum-zusatzmodul-c-dipl-pflegefachfrau-mann-fh-a-spitex-zuerich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-zusatzmodul-c-dipl-pflegefachfrau-mann-fh-a-spitex-zuerich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:07:19.856Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "spitex-zuerich-2f5b89dce70f",
+      "slug": "dipl-pflegefachfrau-mann-con-fallfuhrung-standort-albisrieden-60-100-a-spitex-zurich",
+      "slugByLocale": {
+        "it": "dipl-pflegefachfrau-mann-con-fallfuhrung-standort-albisrieden-60-100-a-spitex-zurich",
+        "en": "dipl-nursing-woman-with-fall-guide-location-albisrieden-60-100-a-spitex-zurich-zurich",
+        "de": "dipl-pflegefachfrau-mann-mit-fallfuhrung-standort-albisrieden-60-100-a-spitex-zuerich",
+        "fr": "dipl-infirmiere-avec-guide-d-automne-emplacement-albisiden-60-100-a-spitex-zurich-zurich"
+      },
+      "company": "Spitex Zürich",
+      "companyKey": "spitex-zuerich",
+      "companyDomain": "spitex-zuerich.ch",
+      "title": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a)",
+      "titleByLocale": {
+        "it": "Dipl. Professionista della cura con la gestione dei casi – Posizione Albisrieden 60-100% (a)",
+        "en": "Dipl. Care professional with case management – Albisrieden location 60-100% (a)",
+        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a)",
+        "fr": "Dipl. Professionnel de soins avec gestion de cas – Albisrieden emplacement 60-100% (a)"
+      },
+      "description": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+      "descriptionByLocale": {
+        "it": "Dipl. Specialista infermieristico con case management – Albisrieden posizione 60-100% (a) vicino Spitex Zurich, Zurigo (ZH), Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
+        "en": "Dipl. Nursing specialist with case management – Albisrieden location 60-100% (a) near Spitex Zurich, Zurich (ZH), Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
+        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Standort Albisrieden 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "fr": "Dipl. Spécialiste des soins infirmiers avec gestion de cas – Albisiden emplacement 60-100% (a) près de Spitex Zurich, Zurich (ZH), Suisse.\n\n• Heures de travail: temps partiel / temps plein\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
+      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T05:02:35.866Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-mit-fallfuhrung-standort-albisrieden-60-100-a-spitex-zuerich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-standort-albisrieden-60-100-a-spitex-zuerich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:07:17.123Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 2
     }
   ]
 }

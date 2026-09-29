@@ -1,21 +1,60 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-09-28T05:03:45.467Z",
-  "total": 0,
-  "authoritativeEmptySnapshot": true,
+  "generatedAt": "2026-09-29T09:22:55.238Z",
+  "total": 1,
+  "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 911,
-  "avgDurationMs": 911,
+  "durationMs": 1303,
+  "avgDurationMs": 1303,
   "durationHistory": [
-    911
+    1303
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Consulente vendita immobiliare (m/w)",
+      "slug": "consulente-vendita-immobiliare-m-w-artisa-group-lugano",
+      "url": "https://artisagroup.com/carriera#consulente-vendita-immobiliare-m-w",
+      "applyUrl": "https://app.smartsheet.com/b/form/019d5244cd6e781289e24c00e583720e",
+      "company": "Artisa Group",
+      "companyKey": "artisa-group",
+      "companyDomain": "artisagroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Immobiliare & Architettura",
+      "source": "artisa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "artisa-group-602dc2ab62a9",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Nassa 5",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-09-28T21:19:59.384Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": []
 }

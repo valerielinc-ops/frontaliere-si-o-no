@@ -23,10 +23,9 @@
  * only the compact event summary; the per-event detail page exposes the
  * source description, address and a "Prezzo:" label (empty/hidden when tio.ch
  * has no price on file). `enrichEventsWithPrice` below fetches each event's
- * detail page once and parses that source metadata with the shared helpers, so `eventLd()`
- * (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields Tio actually
- * supplies — never fabricated: an event with no source signal still omits
- * that field, by design.
+ * detail page once and parses that source metadata with the shared helpers, so
+ * `eventLd()` (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields
+ * Tio supplies and fill the remaining structured-data fields deterministically.
  *
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
@@ -36,7 +35,6 @@
  * Exit code is always 0 unless an unexpected crash occurs (CI-soft).
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
@@ -59,7 +57,13 @@ import {
   saveEventTitleTranslationCache,
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
-import { extractEventPeopleFromText, extractEventPeopleFromTitle, normalizeEventPeople } from './lib/event-metadata.mjs';
+import {
+  extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  fillEventPeopleDefaults,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
+import { mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -306,9 +310,10 @@ export function extractTioDetailMetadata(html) {
 /**
  * Fetch each event's own detail page once and attach a `price` (the day-page
  * card this crawler otherwise parses never carries one — see file header).
- * Populating `price` here is what lets `eventLd()`
- * (build-plugins/eventsSeoPagesPlugin.ts) emit a real schema.org `offers`
- * block for tio-agenda events instead of always omitting it.
+ * Populating `price` here lets `eventLd()` preserve a real source price and
+ * its ticket metadata; when the detail page has no parseable price,
+ * eventLd() supplies the deterministic structured-data fallback while the
+ * visible price line remains hidden by its confidence gate.
  *
  * Not idempotent/cached like `mirrorEventImages` — every event is re-fetched
  * every run since price can change. A fetch failure (network/timeout) just
@@ -336,7 +341,7 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };
-    out.push(next);
+    out.push(fillEventPeopleDefaults(next, SOURCE));
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
   return out;
@@ -378,6 +383,20 @@ export async function enrichEventsWithGeo(events, cache, geocodeFn = geocodeVenu
 
 const TRANSLATE_DELAY_MS = 200;
 const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
+// Wall-clock cap of the title-translation pass, same shape as guidle's
+// GUIDLE_TRANSLATE_BUDGET_MS. One title is up to three sequential cascade
+// calls, and with DeepL out of quota and Azure answering 401 each call walks
+// the whole cascade: the pass took 22.4 min on 2026-09-24 (run 36029589003,
+// then cancelled at the 60-minute timeout) and 32.8 min on 2026-09-25 (run
+// 36124423043, 89.7 of 90 minutes). Titles past the deadline keep their
+// Italian text and are retried on the next run.
+const TRANSLATE_BUDGET_MS = Number(process.env.TIO_TRANSLATE_BUDGET_MS) || 6 * 60_000;
+
+// A cached slot is settled when it holds usable text or the `null`
+// passthrough marker; anything else (absent, empty) is asked again.
+function isSettledTranslation(value) {
+  return value === null || (typeof value === 'string' && value.trim() !== '');
+}
 
 /**
  * Attach `titleByLocale` to every event — tio-agenda cards carry only a
@@ -389,21 +408,46 @@ const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
  * slice from scratch every run (see `main` below), so without this cache the
  * same recurring titles would be re-translated every single day.
  *
+ * Only the locales a cached entry does not settle yet are asked, and a
+ * partial entry is cached too: before, an entry was stored only once all
+ * three locales came back, so a title whose `en` kept failing re-paid its
+ * `de` and `fr` as well on every run. After the 2026-09-28 run 17 of the 237
+ * distinct titles were in that state, each with one or two locales already
+ * translated and thrown away.
+ *
+ * `deadline` (epoch ms, opt-in) caps the pass. It is checked before EVERY
+ * network call, not only before a title: past it, the locales still missing
+ * keep their Italian text (cached locales are still used), including the rest
+ * of a title whose first call crossed the deadline.
+ *
  * Returns a NEW array (does not mutate `events`). `translateFn`/`cache` are
  * injectable so tests can verify the enrichment without a live network call.
  */
-export async function enrichEventsWithTranslations(events, cache, translateFn = freeTranslateWithRetryDetailed) {
+export async function enrichEventsWithTranslations(
+  events,
+  cache,
+  translateFn = freeTranslateWithRetryDetailed,
+  { deadline = null } = {},
+) {
   const out = [];
+  let deferred = 0;
   for (const ev of events) {
     const key = normalizeText(ev.title);
     if (!key) {
       out.push({ ...ev });
       continue;
     }
-    let entry = cache[key];
-    if (!entry || Object.keys(entry).length < TRANSLATE_LOCALES.length) {
-      entry = {};
-      for (const locale of TRANSLATE_LOCALES) {
+    let entry = cache[key] || {};
+    const missing = TRANSLATE_LOCALES.filter((locale) => !isSettledTranslation(entry[locale]));
+    if (missing.length > 0) {
+      entry = { ...entry };
+      let asked = false;
+      for (const locale of missing) {
+        if (deadline !== null && Date.now() >= deadline) {
+          deferred += 1;
+          break;
+        }
+        asked = true;
         const { text: translated, passthrough } = asTranslationResult(
           await translateFn({
             text: ev.title,
@@ -416,25 +460,30 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
         if (translated) entry[locale] = translated;
         // Passthrough = la cascata ha stabilito che il titolo e' gia' identico
         // in quella lingua (un festival, un toponimo): esito deterministico,
-        // memoizzato come `null`. Senza questo slot l'entry non arriva MAI a
-        // tre locale, non viene mai scritta in cache, e questo crawler — che
-        // riscrive la sua slice da zero ogni giorno — ripaga l'intera cascata
-        // sullo stesso titolo ogni singolo run.
+        // memoizzato come `null`. Senza questo slot il locale resterebbe
+        // scoperto, e questo crawler — che riscrive la sua slice da zero ogni
+        // giorno — ripagherebbe la cascata su quel titolo a ogni run.
         else if (passthrough) entry[locale] = null;
         if (translateFn === freeTranslateWithRetryDetailed) await sleep(TRANSLATE_DELAY_MS);
       }
-      if (Object.keys(entry).length === TRANSLATE_LOCALES.length) cache[key] = entry;
+      if (asked && TRANSLATE_LOCALES.some((locale) => isSettledTranslation(entry[locale]))) cache[key] = entry;
     }
     // I marker `null` non sono traduzioni: il locale resta scoperto e legge
     // l'italiano come prima, esattamente come quando la traduzione mancava.
     const usable = Object.fromEntries(
-      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v),
+      Object.entries(entry).filter(([, v]) => typeof v === 'string' && v.trim() !== ''),
     );
     if (Object.keys(usable).length === 0) {
       out.push({ ...ev });
       continue;
     }
     out.push({ ...ev, titleByLocale: { it: ev.title, ...usable } });
+  }
+  if (deferred) {
+    console.log(
+      `[tio-agenda] title translation: budget reached — ${deferred}/${events.length} event(s) keep the Italian title `
+        + 'for the missing locales, retried next run',
+    );
   }
   return out;
 }
@@ -530,7 +579,9 @@ async function main() {
   console.log(`[tio-agenda] geo resolved ${withGeo}/${geoEvents.length}`);
 
   const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache);
+  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache, undefined, {
+    deadline: Date.now() + TRANSLATE_BUDGET_MS,
+  });
   const withTranslation = translatedEvents.filter((e) => e.titleByLocale).length;
   console.log(`[tio-agenda] title translated ${withTranslation}/${translatedEvents.length}`);
 
@@ -545,18 +596,17 @@ async function main() {
   saveGeocodeCache(geocodeCache);
   saveEventTitleTranslationCache(translationCache);
 
-  mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
-  const slice = {
-    schemaVersion: 1,
+  const total = mergeEventsIntoSlice({
+    slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
-    assembledAt: crawledAt,
-    events: translatedEvents,
-  };
-  writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[tio-agenda] wrote ${translatedEvents.length} events → ${path.relative(process.cwd(), slicePath)}`);
+    freshEvents: translatedEvents,
+    goneIds: [],
+    crawledAt,
+  });
+  console.log(`[tio-agenda] merged ${translatedEvents.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so

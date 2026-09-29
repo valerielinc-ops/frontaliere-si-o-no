@@ -41,7 +41,9 @@ import {
   ISO_ALPHA2_COUNTRY_CODES,
   SWISS_COUNTRY_LABELS,
 } from './lib/prospector/country-inventory.mjs';
+import { fetch as undiciFetch } from 'undici';
 import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
@@ -60,6 +62,8 @@ const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-basel
 
 export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/extract.mjs',
+  // Reads the vacancy PDF a detail page links or embeds (fetchVacancyPdfText).
+  'scripts/lib/pdf-job-content.mjs',
   'scripts/lib/prospector/registrable.mjs',
   'scripts/lib/prospector/entities.mjs',
   'scripts/lib/decode-html-entities.mjs',
@@ -833,6 +837,26 @@ function structuredAddressNamesLocality(detail, publishedLocation) {
 }
 
 /**
+ * A structured JobPosting address can use a hamlet, neighbourhood or historical
+ * locality that is not in the current BFS municipality list. When its exact
+ * postal code is also present in the published location, the page still gives
+ * per-vacancy evidence for the same Swiss postal area. Keep this narrower than
+ * a free-text alias: only the structured `jobLocation` candidate is eligible.
+ */
+function structuredAddressSharesPublishedPostalCode(detail, publishedLocation) {
+  const publishedPostalCodes = new Set(
+    plainText(publishedLocation).match(/\b\d{4}\b/g) || [],
+  );
+  if (!publishedPostalCodes.size) return false;
+  const candidates = Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [];
+  return candidates.some((candidate) => {
+    const sourcePostalCode = plainText(candidate?.postalCode || '').match(/\b\d{4}\b/)?.[0];
+    return structuredAddressIsCoherent(candidate)
+      && Boolean(sourcePostalCode && publishedPostalCodes.has(sourcePostalCode));
+  });
+}
+
+/**
  * `jobLocation` in an ATS JSON-LD is not always the workplace: on the postings
  * an organisation publishes on behalf of another one it carries the POSTING
  * organisation's seat, constant across vacancies that are worked in different
@@ -1024,8 +1048,13 @@ export function compareSourceDetail(job, detail, {
   const sourceFieldsAgree = sourceLocationMatches(publishedLocation, sourceLocation);
   const sourceCoarserCanton = !sourceFieldsAgree && !publishedCorroboratedBySource
     && sourceIsCoarserCantonOfPublished(publishedLocation, sourceLocation);
-  const locationMatchesPublished = sourceFieldsAgree || publishedCorroboratedBySource;
+  const structuredPostalCodeAgrees = !sourceFieldsAgree
+    && structuredAddressSharesPublishedPostalCode(detail, publishedLocation);
+  const locationMatchesPublished = sourceFieldsAgree
+    || structuredPostalCodeAgrees
+    || publishedCorroboratedBySource;
   const circularCorroboration = !sourceFieldsAgree
+    && !structuredPostalCodeAgrees
     && !publishedCorroboratedBySource
     && locationEvidence === 'jsonld'
     && locationFromVacancyText
@@ -1060,6 +1089,7 @@ export function compareSourceDetail(job, detail, {
       publishedDescriptionLength: publishedDescription.length,
       sourceDescriptionLength: sourceDescriptionText.length,
       publishedWordCount: publishedWords.size,
+      sourceWordCount: sourceWords.size,
       overlapWordCount: overlap,
     },
   };
@@ -1099,10 +1129,178 @@ function sourceDetailReportReference(value) {
   }
 }
 
+/**
+ * Words with which a page names a PDF as its job advertisement. Vocabulary of
+ * the document, not of any one site: gemeinde-st-moritz links
+ * «Stelleninserat herunterladen» (…/stellenausschreibungen/…pdf) next to two
+ * «Download PDF» links to vote results that are not the vacancy.
+ */
+const VACANCY_DOCUMENT_WORDS = /stelleninserat|inserat|stellenausschreibung|ausschreibung|stellenbeschrieb|stellenbeschreibung|stellenangebot|jobbeschreibung|job[\s_-]*(?:ad|description|offer)|vacanc|annonce|offre[\s_-]+d[’']?emploi|mise[\s_-]+au[\s_-]+concours|bando|concorso|annuncio/i;
+const MAX_VACANCY_PDF_BYTES = 10 * 1024 * 1024;
+
+function isPdfReference(value = '') {
+  return /\.pdf(?:[?#]|$)/i.test(String(value));
+}
+
+/**
+ * The PDF a detail page presents as its vacancy, or null. Either the page
+ * EMBEDS it as its content (`iframe`/`embed` src, `object` data — csvm-mustair
+ * shows the ad in an iframe and nothing else), or a link names it the job ad
+ * in its text, title, aria-label or path. Any other PDF on the page (price
+ * lists, vote results, privacy notices) is not the vacancy and is ignored.
+ *
+ * @returns {{ url: string, embedded: boolean } | null}
+ */
+export function vacancyPdfLink(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const resolve = (reference) => {
+    try {
+      const url = new URL(decodeScrapedHtmlEntities(reference).trim(), pageUrl);
+      return /^https?:$/.test(url.protocol) ? url.href : '';
+    } catch {
+      return '';
+    }
+  };
+  for (const match of source.matchAll(/<(iframe|embed|object)\b[^>]*>/gi)) {
+    const reference = readAttr(match[0], match[1].toLowerCase() === 'object' ? 'data' : 'src');
+    if (reference && isPdfReference(reference)) {
+      const url = resolve(reference);
+      if (url) return { url, embedded: true };
+    }
+  }
+  for (const match of source.matchAll(/<a\b([^>]*)>([\s\S]{0,400}?)<\/a>/gi)) {
+    const opening = `<a${match[1]}>`;
+    const href = readAttr(opening, 'href');
+    if (!href || !isPdfReference(href)) continue;
+    let pathLabel = '';
+    try { pathLabel = decodeURIComponent(new URL(decodeScrapedHtmlEntities(href), pageUrl).pathname); } catch { pathLabel = href; }
+    const label = [plainText(match[2]), readAttr(opening, 'title'), readAttr(opening, 'aria-label'), pathLabel].join(' ');
+    if (VACANCY_DOCUMENT_WORDS.test(label)) {
+      const url = resolve(href);
+      if (url) return { url, embedded: false };
+    }
+  }
+  return null;
+}
+
+const PDF_SIGNATURE = '%PDF-';
+const PDF_BASE64_PREFIX = Buffer.from(PDF_SIGNATURE, 'latin1').toString('base64').slice(0, 6);
+
+/**
+ * `politeFetch` reads every body as text, which mangles PDF bytes. This
+ * transport keeps its URL policy, robots, throttle and redirects (it is the
+ * `fetchImpl` politeFetch calls for each hop) and decides on the BYTES, not
+ * on the headers or the URL: a body that starts with `%PDF-` comes back as
+ * base64, anything else — robots.txt, an HTML error page — as UTF-8 text.
+ * Neither the final Content-Type nor the final path is evidence: a `.pdf`
+ * link that redirects to `/download?id=…` served as
+ * `application/octet-stream` is still the PDF.
+ */
+export function createPdfSafeFetch(baseFetch = undiciFetch) {
+  return async function pdfSafeFetch(url, init) {
+    const response = await baseFetch(url, init);
+    if (response.status >= 300 && response.status < 400) return response;
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const isPdf = bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') === PDF_SIGNATURE;
+    return {
+      ok: response.ok,
+      status: response.status,
+      url: response.url || url,
+      headers: response.headers,
+      body: null,
+      text: async () => (isPdf ? bytes.toString('base64') : bytes.toString('utf8')),
+    };
+  };
+}
+
+/**
+ * Text of the vacancy PDF, fetched through the same politeFetch contract as
+ * the page. `baseFetch` and `extractTextImpl` exist for tests.
+ */
+export async function fetchVacancyPdfText(pdfUrl, {
+  fetchPage = politeFetch,
+  baseFetch = undiciFetch,
+  extractTextImpl,
+} = {}) {
+  const fetched = await fetchPage(pdfUrl, {
+    timeoutMs: 20000,
+    retries: 1,
+    accept: 'application/pdf,*/*;q=0.8',
+    fetchImpl: createPdfSafeFetch(baseFetch),
+  });
+  if (!fetched?.ok || !fetched.body) {
+    const refusal = fetched?.blockedByRobots ? 'robots.txt disallows it' : fetched?.policyBlocked ? 'fetch policy refused it' : `status ${fetched?.status || 0}`;
+    return { text: '', error: refusal };
+  }
+  if (!String(fetched.body).startsWith(PDF_BASE64_PREFIX)) return { text: '', error: 'not a pdf' };
+  const bytes = Buffer.from(fetched.body, 'base64');
+  if (bytes.length > MAX_VACANCY_PDF_BYTES) return { text: '', error: 'pdf too large' };
+  if (bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') !== PDF_SIGNATURE) return { text: '', error: 'not a pdf' };
+  const extracted = await extractPdfJobContentFromUrl(pdfUrl, {
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    }),
+    ...(extractTextImpl ? { extractTextImpl } : {}),
+  });
+  return {
+    text: extracted.text || '',
+    bodySha256: createHash('sha256').update(bytes).digest('hex'),
+    ...(extracted.error ? { error: extracted.error } : {}),
+  };
+}
+
+/**
+ * A page that presents its vacancy as a PDF carries only a teaser in HTML
+ * (gemeinde-st-moritz: 233 chars, «Schalter-Öffnungszeiten» included), so a
+ * parser that publishes the PDF read as «unrelated» to it. The PDF is one
+ * more candidate description of the SAME page and, as for the page's own
+ * blocks in `extractDetailFields`, the longest candidate wins — which also
+ * keeps the check able to fail: a parser that publishes only the teaser is
+ * now compared with the whole ad.
+ *
+ * When the PDF cannot be read, a LINKED one leaves the HTML reading as it was.
+ * An EMBEDDED one is the page's content, so what the HTML still offers is
+ * chrome (csvm-mustair: the news-page frame, «Dein Browser unterstützt kein
+ * PDF»): that reading is dropped and the sample proves nothing, instead of
+ * reporting the published ad as unrelated to the frame around it. csvm's
+ * robots.txt disallows /images/, where its PDFs live, so this is the path the
+ * audit takes there by its own robots rule.
+ */
+async function vacancyPdfDescription(html, pageUrl, detail, fetchVacancyPdf) {
+  const link = vacancyPdfLink(html, pageUrl);
+  if (!link || typeof fetchVacancyPdf !== 'function') return { linkedDocument: null, vacancyPdf: null };
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(link.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  const readable = Boolean(text) && /^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''));
+  if (!readable) {
+    if (link.embedded) detail.description = '';
+    return {
+      linkedDocument: null,
+      vacancyPdf: { outcome: 'unreadable', embedded: link.embedded, reason: String(pdf?.error || 'no text layer').slice(0, 120) },
+    };
+  }
+  if (text.length <= String(detail.description || '').length) {
+    return { linkedDocument: null, vacancyPdf: { outcome: 'shorter-than-page', embedded: link.embedded } };
+  }
+  detail.description = text;
+  return {
+    linkedDocument: { url: link.url, bodySha256: pdf.bodySha256 },
+    vacancyPdf: { outcome: 'read', embedded: link.embedded },
+  };
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
   observeLocation = extractSourceLocationObservation,
+  fetchVacancyPdf = fetchVacancyPdfText,
   evidenceContext = null,
 } = {}) {
   const results = await mapPool(items, concurrency, async (item) => {
@@ -1151,6 +1349,12 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
         { includeDiagnostics: true, recordUrl },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
+      const { linkedDocument, vacancyPdf } = await vacancyPdfDescription(
+        fetched.body,
+        fetched.url || item.url,
+        detail,
+        fetchVacancyPdf,
+      );
       const locationEvidence = locationObservation.evidence;
       const comparison = compareSourceDetail(item.job, detail, {
         locationEvidence,
@@ -1164,11 +1368,13 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           observation: comparison.replayObservation,
           provenance: evidenceContext.provenance,
           versions: evidenceContext.versions,
+          linkedDocument,
         })
         : null;
       return {
         ...item,
         ...comparison,
+        ...(vacancyPdf ? { vacancyPdf } : {}),
         // Attached to the RESULT, deliberately not routed through
         // `comparison.replayObservation`: the replay-evidence schema and its
         // strict validator in `classifySourceDetailObservation` would have to
@@ -1206,6 +1412,21 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
 export function sourceDetailUnobserved(result) {
   return !result.sourceLocation
     && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
+}
+
+/**
+ * What one identical-description bucket sample proved. `matched` is the only
+ * outcome that says "template": the source body was long enough to contradict
+ * the published one and did not. A page with less than
+ * COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS of body proves neither template nor
+ * fallback, so it is counted as `notComparable`, never as a match.
+ */
+export function duplicateBucketSampleOutcome(result) {
+  if (result?.fetchFailed) return 'fetchFailed';
+  if (result?.processingFailed) return 'processingFailed';
+  if (result?.descriptionMismatch) return 'mismatched';
+  if (Number(result?.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS) return 'notComparable';
+  return 'matched';
 }
 
 /**
@@ -1384,6 +1605,22 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     circularCorroborationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
+    // Outcomes of the identical-description bucket samples (see
+    // duplicateBucketSourceSample). Every requested bucket sample lands in
+    // exactly one of the five outcomes, so the hidden signal stays measured
+    // on every run even though it no longer makes a crawler WARNING.
+    duplicateBucketSamples: {
+      requested: 0,
+      matched: 0,
+      mismatched: 0,
+      notComparable: 0,
+      fetchFailed: 0,
+      processingFailed: 0,
+    },
+    // Detail pages that present the vacancy as a PDF (see vacancyPdfLink):
+    // read and used, unreadable (robots, fetch, no text layer), or shorter
+    // than what the page already carried.
+    vacancyPdfPages: { read: 0, unreadable: 0, shorterThanPage: 0 },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1394,10 +1631,26 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       descriptionMismatches: 0, unobserved: 0, unobservedSourceMute: 0,
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
+      bucketVerification: null,
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
     info.checked++;
+    if (result.vacancyPdf) {
+      const pdfOutcome = result.vacancyPdf.outcome === 'shorter-than-page' ? 'shorterThanPage' : result.vacancyPdf.outcome;
+      if (pdfOutcome in sourceDetailSummary.vacancyPdfPages) sourceDetailSummary.vacancyPdfPages[pdfOutcome]++;
+    }
+    const bucketSample = result.sampleReason === DUPLICATE_BUCKET_SAMPLE_REASON;
+    if (bucketSample) {
+      const outcome = duplicateBucketSampleOutcome(result);
+      sourceDetailSummary.duplicateBucketSamples.requested++;
+      sourceDetailSummary.duplicateBucketSamples[outcome]++;
+      info.bucketVerification = {
+        outcome,
+        bucketSize: Number.isInteger(result.bucketSize) ? result.bucketSize : null,
+        source: sourceReference,
+      };
+    }
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
@@ -1477,11 +1730,18 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.descriptionMismatch) {
       info.descriptionMismatches++;
       sourceDetailSummary.descriptionMismatches++;
-      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+      const bucketNote = bucketSample && Number.isInteger(result.bucketSize)
+        ? ` (body shared verbatim by ${result.bucketSize} jobs)`
+        : '';
+      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars${bucketNote}`);
     }
   }
   for (const [key, info] of Object.entries(byKey)) {
     const entry = report[key] || (report[key] = { total: 0, issues: [] });
+    if (info.bucketVerification) {
+      const bucketIssue = entry.issues.find((issue) => issue.type === 'duplicate-descriptions-desc-only');
+      if (bucketIssue) bucketIssue.sourceVerification = info.bucketVerification;
+    }
     if (info.processingFailed > 0) {
       entry.issues.push({
         type: 'parse-error', count: info.processingFailed, total: info.checked,
@@ -1596,6 +1856,17 @@ export function formatSourceDetailObservationLines(summary = {}) {
   if (unobserved > 0) {
     lines.push(`Source detail unobserved split: ${sourceMute} source served no JobPosting structured data (no issue raised), ${unobserved - sourceMute} served one and still read as nothing (parser finding)`);
   }
+  // Same reasoning for the identical-description buckets: the hidden signal
+  // stopped producing WARNINGs, so what the source said about each bucket is
+  // printed here on every run instead of disappearing with the WARNING.
+  const pdfPages = summary.vacancyPdfPages;
+  if (pdfPages && count(pdfPages.read) + count(pdfPages.unreadable) + count(pdfPages.shorterThanPage) > 0) {
+    lines.push(`Source detail pages presenting the vacancy as a PDF: ${count(pdfPages.read)} compared with the PDF, ${count(pdfPages.unreadable)} PDF unreadable (an embedded one leaves the sample unobserved), ${count(pdfPages.shorterThanPage)} PDF shorter than the page body`);
+  }
+  const bucket = summary.duplicateBucketSamples;
+  if (bucket && count(bucket.requested) > 0) {
+    lines.push(`Identical-description buckets checked against the source: ${count(bucket.requested)} sampled — ${count(bucket.matched)} carry their source body (template), ${count(bucket.mismatched)} contradicted by it (source-detail-mismatch), ${count(bucket.notComparable)} source body < ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS} chars (proves nothing), ${count(bucket.fetchFailed)} fetch failed, ${count(bucket.processingFailed)} processing failed`);
+  }
   return lines;
 }
 
@@ -1672,9 +1943,55 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
  * is the rule a reclassification has to be measured against — a source that
  * must stop being a WARNING has to emit NO issue, and a test can only prove
  * that by running the same rule the audit runs, not by reading the chain.
+ *
+ * A `hidden` issue is not a finding: it is an input to a ratchet (today only
+ * `duplicate-descriptions-desc-only`, which feeds the ≥95 % chrome ratchet and
+ * picks the bucket the source-detail pass verifies) and the report never
+ * prints it. Counting it here made 55 crawlers WARNING on run 36528331656 with
+ * no line under their name to say why. What that signal can prove is proved
+ * elsewhere, visibly: the chrome ratchet synthesizes a visible issue, and a
+ * bucket whose body the source contradicts becomes a `source-detail-mismatch`.
  */
 export function issueDrivenSeverity(entry) {
-  return (entry?.issues?.length || 0) > 0 ? 'WARNING' : 'OK';
+  const visible = (entry?.issues || []).filter((issue) => !issue?.hidden);
+  return visible.length > 0 ? 'WARNING' : 'OK';
+}
+
+/**
+ * Severity chain of one crawler entry, before the two ratchets. Exported so a
+ * replay or a test derives severity with the rule the audit runs instead of a
+ * hand-copied subset of it.
+ */
+export function assignSeverity(entry) {
+  const types = new Set(entry.issues.map((i) => i.type));
+  const thin = entry.issues.find((i) => i.type === 'thin-description');
+  const thinRatio = thin ? thin.count / thin.total : 0;
+  const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
+  const urlFail = types.has('stale-urls');
+  const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
+  const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
+  const detailSeverity = sourceDetailSeverity(entry);
+  if (types.has('parse-error')) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
+  // Form-chrome is a hard signal: even one row means the parser is
+  // leaking the surrounding page (form, footer, contact info) into the
+  // job description. There is no benign source of these phrases — never
+  // a false positive — so skip the ratio gate.
+  else if (formChromeCount > 0) entry.severity = 'CRITICAL';
+  else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
+  else entry.severity = issueDrivenSeverity(entry);
+  if (entry.severity === 'CRITICAL') {
+    const h = [];
+    if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
+    if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
+    if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
+    if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
+    if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
+    if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
+    else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
+    entry.action = h.join('. ') + '.';
+  }
 }
 
 export function sourceDetailSeverity(entry) {
@@ -1860,10 +2177,25 @@ function estimateBoilerplateLength(plain) {
  *                           for store-chain feeds. Same role at distinct cities →
  *                           distinct fingerprints → not a duplicate. Same role
  *                           re-posted at the same city → still collides → flagged.
- *   - mode 'desc-only'    : the original desc-only slice. Used at a stricter
- *                           threshold to keep chrome-scraping detection alive
- *                           (chrome makes ALL descriptions identical regardless
- *                           of title).
+ *   - mode 'desc-only'    : the WHOLE normalized body, no slice. Used at a
+ *                           stricter threshold to keep chrome-scraping
+ *                           detection alive (chrome makes ALL descriptions
+ *                           identical regardless of title).
+ *
+ * Why desc-only no longer shares the title-aware slice: the slice starts at a
+ * crawler-wide offset taken from the longest common prefix of ANY adjacent
+ * pair (`estimateBoilerplateLength`), and that offset is then cut from EVERY
+ * job, including the jobs that do not start with it. On run 36528331656 the
+ * offset was 911 chars on klinik-lengg (two variants of one role) and 2 588 on
+ * helvetia, so the 500-char window of the other jobs landed on their shared
+ * closing paragraph: 15 of the 55 crawlers WARNING only for this signal had no
+ * two jobs with the same body at all (the Praktikum Neuropsychologie and the
+ * FaGe apprenticeship "collided" on the clinic's footer). The same offset ran
+ * past the end of shorter bodies and emptied their window, so identical bodies
+ * went unseen: jumbo had 30 byte-identical bodies and a count of 2. "Identical
+ * body regardless of title" is what this signal documents, so it compares the
+ * body — the ≥95 % ratchet sees the same maximum on every crawler of that run
+ * (54 %, new-yorker) and 119 → 99 crawlers carry the hidden issue.
  */
 function jobLocationKey(job) {
   return plainText(job?.location || job?.addressLocality || job?.city || '').toLowerCase();
@@ -1871,18 +2203,16 @@ function jobLocationKey(job) {
 
 export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
+  if (mode === 'desc-only') return plain;
   const boilerLen = estimateBoilerplateLength(plain);
   // Only strip when the boilerplate is long enough to be meaningful and not
   // so long that stripping it leaves no signal.
   const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
   return plain.map((p, i) => {
     const slice = p.slice(stripLen, stripLen + 500);
-    if (mode === 'title-aware') {
-      const title = plainText(jobs[i]?.title || '').toLowerCase();
-      const location = jobLocationKey(jobs[i]);
-      return `${title}||${location}||${slice}`;
-    }
-    return slice;
+    const title = plainText(jobs[i]?.title || '').toLowerCase();
+    const location = jobLocationKey(jobs[i]);
+    return `${title}||${location}||${slice}`;
   });
 }
 
@@ -1893,6 +2223,46 @@ export function countDuplicates(fps) {
     counts.set(fp, (counts.get(fp) || 0) + 1);
   }
   return [...counts.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
+}
+
+function declaredPostalCode(job) {
+  return String(job?.postalCode || '').replace(/\s+/g, '').trim();
+}
+
+/**
+ * Jobs that collide on the title-aware fingerprint AND may be the same
+ * posting. The fingerprint's location is the published locality, so two
+ * branches of one chain in the same town collapse into one key: denner's
+ * «Verkäufer*in» at Basel 4058 and at Basel 4057 (Filiale 524 and 370) were
+ * a "duplicate listing" although each posting names its own shop. Two records
+ * that declare DIFFERENT postal codes are two workplaces by their own
+ * statement, so they are not a re-posting of each other. A record without a
+ * postal code proves nothing either way and still collides with everyone in
+ * its bucket — that keeps a posting ingested twice, once with and once
+ * without an address (banca-cler, interdiscount on run 36528331656), counted.
+ */
+export function countDuplicateListings(jobs, fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let count = 0;
+  for (const members of buckets.values()) {
+    if (members.length < 2) continue;
+    for (const index of members) {
+      const own = declaredPostalCode(jobs[index]);
+      const samePosting = members.some((other) => {
+        if (other === index) return false;
+        const theirs = declaredPostalCode(jobs[other]);
+        return !own || !theirs || own === theirs;
+      });
+      if (samePosting) count++;
+    }
+  }
+  return count;
 }
 
 /**
@@ -1912,16 +2282,59 @@ export function countDuplicates(fps) {
  * but the largest bucket is only 50/55 (91%), correctly below it.
  */
 export function largestDuplicateBucket(fps) {
-  const counts = new Map();
-  for (const fp of fps) {
-    if (fp.length < 20) continue; // skip empty/tiny
-    counts.set(fp, (counts.get(fp) || 0) + 1);
+  return largestDuplicateBucketMembers(fps).length;
+}
+
+/**
+ * Indices of the jobs in the largest fingerprint bucket (the first one in job
+ * order on a tie; a single job when no fingerprint repeats). Same bucket that
+ * largestDuplicateBucket() measures — kept as one function so the bucket the
+ * source-detail pass verifies is by construction the one the ratchet counts.
+ */
+export function largestDuplicateBucketMembers(fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let largest = [];
+  for (const members of buckets.values()) {
+    if (members.length > largest.length) largest = members;
   }
-  let max = 0;
-  for (const c of counts.values()) {
-    if (c > max) max = c;
-  }
-  return max;
+  return largest;
+}
+
+export const DUPLICATE_BUCKET_SAMPLE_REASON = 'identical-description-bucket';
+
+/**
+ * The job of the largest identical-description bucket that the source-detail
+ * pass should fetch, or null when that pass already covers the bucket.
+ *
+ * Identical bodies under different titles are two different things that the
+ * published data alone cannot tell apart: the source publishing one template
+ * for many postings (fachkraft's trades, a retailer's stores, tether's two
+ * research roles that share one Recruitee text) or the parser writing the same
+ * fallback — a company blurb, a listing teaser — for postings whose detail it
+ * did not read (engel-voelkers kept only the Lever intro paragraph and
+ * published it for its Senior and its Junior broker). Only the source decides,
+ * so one member of the bucket goes through the same comparison as the regular
+ * sample: a template matches its own page, a fallback is materially shorter
+ * than or unrelated to it and becomes a `source-detail-mismatch`.
+ *
+ * `jobs.slice(0, sampledCount)` is what the regular sample already fetches:
+ * a bucket member there is verified already, and a URL fetched there is not
+ * fetched twice (the evidence bundle refuses a duplicate request identity).
+ */
+export function duplicateBucketSourceSample(jobs, fps, sampledCount = SOURCE_DETAIL_SAMPLE_SIZE) {
+  const members = largestDuplicateBucketMembers(fps);
+  if (members.length < 2) return null;
+  const regular = jobs.slice(0, sampledCount).filter((job) => job?.url);
+  if (members.some((index) => index < sampledCount && jobs[index]?.url)) return null;
+  const regularUrls = new Set(regular.map((job) => job.url));
+  const index = members.find((candidate) => jobs[candidate]?.url && !regularUrls.has(jobs[candidate].url));
+  return index === undefined ? null : { index, bucketSize: members.length };
 }
 
 /* ── URL checker with concurrency limit ────────────────────── */
@@ -2089,7 +2502,7 @@ async function main() {
     // descriptions are byte-identical regardless of title, the parser is
     // probably grabbing nav/footer chrome instead of the per-job body.
     const fps = fingerprintsForCrawler(jobs, 'title-aware');
-    const dupeCount = countDuplicates(fps);
+    const dupeCount = countDuplicateListings(jobs, fps);
     if (dupeCount > 1) {
       issues.push({
         type: 'duplicate-descriptions',
@@ -2099,7 +2512,7 @@ async function main() {
       });
     }
 
-    // 5b. Chrome-scraping signal — desc-only slice at a stricter threshold.
+    // 5b. Chrome-scraping signal — identical bodies at a stricter threshold.
     // Stored separately so applyChromeScrapingRatchet() can escalate without
     // double-flagging templated content (which the title-aware check above
     // already filters out). Uses the LARGEST single bucket, not the sum
@@ -2113,11 +2526,27 @@ async function main() {
         type: 'duplicate-descriptions-desc-only',
         count: chromeDupes,
         total: jobs.length,
-        // No user-facing message: this issue exists only to feed
-        // applyChromeScrapingRatchet(). We don't render warnings for it.
+        // No user-facing message and no severity (issueDrivenSeverity skips
+        // hidden issues): this issue feeds applyChromeScrapingRatchet() and
+        // chooses the bucket the source-detail pass verifies below. Whether
+        // the shared body is the source's template or the parser's fallback
+        // is decided there, against the source, never from this count.
         message: '',
         hidden: true,
       });
+      if (checkSourceDetails) {
+        const bucketSample = duplicateBucketSourceSample(jobs, fpsDescOnly);
+        if (bucketSample) {
+          const job = jobs[bucketSample.index];
+          sourceDetailsToCheck.push({
+            crawlerKey: key,
+            job,
+            url: job.url,
+            sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
+            bucketSize: bucketSample.bucketSize,
+          });
+        }
+      }
     }
 
     report[key] = { total: jobs.length, population, issues };
@@ -2169,37 +2598,7 @@ async function main() {
   }
 
   // Assign severity + action hints
-  for (const entry of Object.values(report)) {
-    const types = new Set(entry.issues.map((i) => i.type));
-    const thin = entry.issues.find((i) => i.type === 'thin-description');
-    const thinRatio = thin ? thin.count / thin.total : 0;
-    const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
-    const urlFail = types.has('stale-urls');
-    const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
-    const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
-    const detailSeverity = sourceDetailSeverity(entry);
-    if (types.has('parse-error')) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
-    // Form-chrome is a hard signal: even one row means the parser is
-    // leaking the surrounding page (form, footer, contact info) into the
-    // job description. There is no benign source of these phrases — never
-    // a false positive — so skip the ratio gate.
-    else if (formChromeCount > 0) entry.severity = 'CRITICAL';
-    else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
-    else entry.severity = issueDrivenSeverity(entry);
-    if (entry.severity === 'CRITICAL') {
-      const h = [];
-      if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
-      if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
-      if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
-      if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
-      if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
-      if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
-      else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
-      entry.action = h.join('. ') + '.';
-    }
-  }
+  for (const entry of Object.values(report)) assignSeverity(entry);
 
   // ── Ratchet: regression in no-structured-content escalates to CRITICAL ──
   const noStructBaseline = loadNoStructureBaseline();

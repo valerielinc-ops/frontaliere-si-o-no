@@ -91,6 +91,12 @@ import {
 } from './lib/crawler-generation-contract.mjs';
 import { GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT } from './lib/global-data-pipeline-lease.mjs';
 import {
+  QUARANTINE_OUTCOMES_NOTICE_TITLE,
+  assertQuarantineMembership,
+  loadQuarantineRegistry,
+  toleratedQuarantineFailures,
+} from './lib/crawler-quarantine.mjs';
+import {
   CORPUS_OBSERVER_FILES,
   PORTABLE_CORPUS_SITE_PREFIX,
   assertEmittedFamiliesRegistered,
@@ -107,6 +113,9 @@ const MANIFEST_PATH = path.join(REPO_ROOT, 'data/crawler-manifest.json');
 const BASELINE_PATH = path.join(REPO_ROOT, 'data/crawler-workflow-duration-baseline.json');
 const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
+// Quarantine registry (scripts/lib/crawler-quarantine.mjs): which crawlers are
+// in the quarantine group, their known failures and the retired ones.
+export const QUARANTINE_PATH = path.join(REPO_ROOT, 'data/crawler-quarantine.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
 // Both workflow forms use the same token expression as the canonical helper:
@@ -483,7 +492,7 @@ function assignmentsDoc(memberSlugsByGroup) {
  * only: tolerating the duplicate would emit the same crawler twice in one job,
  * i.e. two concurrent `git commit` racers on the same data file.
  */
-export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
+export function assignGroupsStable(crawlers, pinnedGroups, medianMs, { reservedGroupIndexes = [] } = {}) {
   const bySlug = new Map(crawlers.map((c) => [c.slug, c]));
   const groupCount = pinnedGroups.length;
   const memberSlugsByGroup = Array.from({ length: groupCount }, () => []);
@@ -518,9 +527,15 @@ export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
   // A group holding a single genuine duration outlier (Coop's ~160min) is
   // reserved: its whole reason to exist is that nothing else pays that
   // wall-clock. Never grow it by accident.
+  // The quarantine group is reserved too (data/crawler-quarantine.json): a new
+  // crawler is not a known failure, and landing there would hide its first red
+  // behind a group that was red for other reasons. Before the registry existed
+  // group 24 was simply the smallest one, and anicura/fisba/protectas were
+  // placed into it by this very rule.
+  const reserved = new Set(reservedGroupIndexes);
   const isReserved = (i) =>
-    memberSlugsByGroup[i].length === 1 &&
-    (bySlug.get(memberSlugsByGroup[i][0])?.durationMs ?? 0) > medianMs * OUTLIER_MEDIAN_MULTIPLE;
+    reserved.has(i) || (memberSlugsByGroup[i].length === 1 &&
+    (bySlug.get(memberSlugsByGroup[i][0])?.durationMs ?? 0) > medianMs * OUTLIER_MEDIAN_MULTIPLE);
 
   const wallClockOf = (i) =>
     memberSlugsByGroup[i].reduce((max, slug) => Math.max(max, bySlug.get(slug)?.durationMs ?? 0), 0);
@@ -708,6 +723,11 @@ export const TOKEN_BOUND_COMMIT_RETRY_DELAY_SECONDS = 15;
 // terminate every detached worker in the same wave, so exit 143 is not a
 // per-crawler fault and must not create one issue per sibling.
 const RUNNER_SHUTDOWN_EXIT = 143;
+// GNU timeout returns 124 when the bounded command reaches its deadline. Keep
+// that code through nested timeout wrappers: it is an actionable target
+// timeout, not the generic status 1 that used to erase the distinction in the
+// durable crawler status and aggregate summary.
+const TARGET_TIMEOUT_EXIT = 124;
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the four systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
@@ -847,6 +867,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(...globalLeaseBusyNotice(crawler.slug, { propagate: true }));
   work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
   work.push(...runnerShutdownNotice(crawler.slug, { propagate: true }));
+  work.push(`if [ "$crawler_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$git_commit_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then`);
+  work.push(`  echo "::error::${crawler.slug}: nested timeout reached the target deadline (exit ${TARGET_TIMEOUT_EXIT}); preserving timeout classification"`);
+  work.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
+  work.push('fi');
   work.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
   work.push('  exit 1');
   work.push('fi');
@@ -892,6 +916,9 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
 
   outer.push(`if [ "$target_exit" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push(`  exit ${RUNNER_SHUTDOWN_EXIT}`);
+  outer.push('fi');
+  outer.push(`if [ "$target_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then`);
+  outer.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
   outer.push('fi');
   outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push('  exit 1');
@@ -1312,7 +1339,8 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
  * siblings. The terminal manifest remains fail-closed for the central
  * generation barrier when a receipt is missing.
  */
-export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
+export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantine = null } = {}) {
+  if (quarantine) return buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine);
   const nn = String(groupIndex).padStart(2, '0');
   const lines = [
     'set -uo pipefail',
@@ -1339,6 +1367,10 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
       '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
       `    echo "::error::${slug}: invalid terminal status: $status"`,
       `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
+      '    failure_count=$((failure_count + 1))',
+      `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
+      `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
+      `    printf '%s\\n' '| ${slug} | target timeout (124) |' >> "$summary_file"`,
       '    failure_count=$((failure_count + 1))',
       `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
       `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
@@ -1373,8 +1405,114 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
   return lines.join('\n');
 }
 
+/**
+ * The quarantine group's aggregate (data/crawler-quarantine.json).
+ *
+ * Same per-crawler classification as buildCrawlerAggregateShellBody, with two
+ * differences:
+ *
+ *   - the failure of a crawler whose registry entry records a KNOWN failure
+ *     (`failingSince` + issue) is counted as `tolerated` until its deadline
+ *     (inclusive, UTC date) and reported as a warning naming the issue; after
+ *     the deadline it is a real failure again, with an error saying the
+ *     quarantine expired. Every other failure — a new one, or a crawler that
+ *     was green (a regression) — stays a real failure;
+ *   - it emits one machine-readable notice with every member's outcome, the
+ *     observation scripts/crawler-quarantine-review.mjs counts waves on. The
+ *     runner keeps at most 10 error annotations per step, so the per-crawler
+ *     errors alone cannot be the record.
+ *
+ * `wait_outcome` is unchanged: a tolerated crawler still produced no data, so
+ * the generation manifest keeps treating it as incomplete.
+ */
+function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
+  const nn = String(groupIndex).padStart(2, '0');
+  const tolerated = quarantine.tolerated ?? new Map();
+  const lines = [
+    'set -uo pipefail',
+    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    'summary_file="${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    'output_file="${GITHUB_OUTPUT:-/dev/null}"',
+    'success_count=0',
+    'failure_count=0',
+    'missing_count=0',
+    'systemic_count=0',
+    'tolerated_count=0',
+    'quarantine_today="${CRAWLER_QUARANTINE_TODAY:-$(date -u +%F)}"',
+    "outcomes_json=''",
+    `printf '%s\\n' '### Crawler group ${nn} outcome (quarantine group)' >> "$summary_file"`,
+    `printf '%s\\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"`,
+  ];
+  for (const crawler of crawlers) {
+    const slug = crawler.slug;
+    const known = tolerated.get(slug);
+    const failureBranch = known
+      ? [
+          `  elif [[ ! "$quarantine_today" > "${known.deadline}" ]]; then`,
+          `    echo "::warning::${slug}: fallimento noto in quarantena (exit $status), tracciato da #${known.issue} fino al ${known.deadline}; escluso dal verdetto del gruppo"`,
+          `    printf '| ${slug} | failed (%s), noto: #${known.issue} fino al ${known.deadline} |\\n' "$status" >> "$summary_file"`,
+          '    tolerated_count=$((tolerated_count + 1))',
+          '    outcome=failure',
+          '  else',
+          `    echo "::error::${slug}: quarantena scaduta il ${known.deadline} senza recupero (issue #${known.issue}, exit $status); il crawler va riparato o ritirato"`,
+          `    printf '| ${slug} | failed (%s), quarantena scaduta il ${known.deadline} |\\n' "$status" >> "$summary_file"`,
+          '    failure_count=$((failure_count + 1))',
+          '    outcome=failure',
+          '  fi',
+        ]
+      : [
+          '  else',
+          `    echo "::error::${slug}: crawler exited with status $status"`,
+          `    printf '| ${slug} | failed (%s) |\\n' "$status" >> "$summary_file"`,
+          '    failure_count=$((failure_count + 1))',
+          '    outcome=failure',
+          '  fi',
+        ];
+    lines.push(
+      `status_file="$state_dir/${slug}.status"`,
+      'if [ ! -s "$status_file" ]; then',
+      `  echo "::warning::${slug}: no terminal status was published"`,
+      `  printf '%s\\n' '| ${slug} | missing status |' >> "$summary_file"`,
+      '  missing_count=$((missing_count + 1))',
+      '  outcome=missing',
+      'else',
+      '  status="$(cat "$status_file" 2>/dev/null || true)"',
+      '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
+      `    echo "::error::${slug}: invalid terminal status: $status"`,
+      `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
+      '    failure_count=$((failure_count + 1))',
+      '    outcome=failure',
+      `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
+      `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
+      `    printf '%s\\n' '| ${slug} | systemic runner shutdown (143) |' >> "$summary_file"`,
+      '    systemic_count=$((systemic_count + 1))',
+      '    outcome=systemic',
+      '  elif [ "$status" -eq 0 ]; then',
+      `    printf '%s\\n' '| ${slug} | success |' >> "$summary_file"`,
+      '    success_count=$((success_count + 1))',
+      '    outcome=success',
+      ...failureBranch,
+      'fi',
+      `outcomes_json="\${outcomes_json}\${outcomes_json:+,}\\"${slug}\\":\\"$outcome\\""`,
+    );
+  }
+  lines.push(
+    `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $tolerated_count known failures in quarantine, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
+    'if [ "$failure_count" -gt 0 ] || [ "$tolerated_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then',
+    '  wait_outcome=failure',
+    'else',
+    '  wait_outcome=success',
+    'fi',
+    `echo "::notice title=${QUARANTINE_OUTCOMES_NOTICE_TITLE}::{\\"schemaVersion\\":1,\\"group\\":\\"${nn}\\",\\"outcomes\\":{$outcomes_json}}"`,
+    `printf '%s\\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "systemic_count=$systemic_count" "tolerated_count=$tolerated_count" "wait_outcome=$wait_outcome" >> "$output_file"`,
+    'exit 0',
+  );
+  return lines.join('\n');
+}
+
 /** Keep the group visibly failed, but only after every crawler was observed. */
-export function buildCrawlerAggregateFailureGateShellBody() {
+export function buildCrawlerAggregateFailureGateShellBody({ quarantine = false } = {}) {
+  if (quarantine) return buildQuarantineFailureGateShellBody();
   return [
     'set -euo pipefail',
     'aggregate_outcome="${CRAWLER_AGGREGATE_OUTCOME:-failure}"',
@@ -1401,6 +1539,45 @@ export function buildCrawlerAggregateFailureGateShellBody() {
     '  exit 1',
     'fi',
     'echo "✅ all $success_count crawler members completed successfully; $systemic_count systemic outcomes recorded"',
+  ].join('\n');
+}
+
+/**
+ * The quarantine group's gate: identical to the normal one, except that known
+ * failures still inside their deadline (`tolerated_count`) do not fail it. The
+ * aggregate has already turned an expired one into a real failure.
+ */
+function buildQuarantineFailureGateShellBody() {
+  return [
+    'set -euo pipefail',
+    'aggregate_outcome="${CRAWLER_AGGREGATE_OUTCOME:-failure}"',
+    'success_count="${CRAWLER_AGGREGATE_SUCCESS:-invalid}"',
+    'failure_count="${CRAWLER_AGGREGATE_FAILURES:-invalid}"',
+    'missing_count="${CRAWLER_AGGREGATE_MISSING:-invalid}"',
+    'systemic_count="${CRAWLER_AGGREGATE_SYSTEMIC:-0}"',
+    'tolerated_count="${CRAWLER_AGGREGATE_TOLERATED:-invalid}"',
+    'if [ "$aggregate_outcome" != "success" ]; then',
+    '  echo "::error::crawler aggregate step did not complete; group failed after preserving already-running siblings"',
+    '  exit 1',
+    'fi',
+    'for count in "$success_count" "$failure_count" "$missing_count" "$systemic_count" "$tolerated_count"; do',
+    '  if ! [[ "$count" =~ ^[0-9]+$ ]]; then',
+    '    echo "::error::crawler aggregate produced an invalid count: $count"',
+    '    exit 1',
+    '  fi',
+    'done',
+    'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
+    '  echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic; healthy siblings were preserved, $tolerated_count known failures are excluded by the quarantine registry, and the failures counted here are new, regressions or past their deadline"',
+    '  exit 1',
+    'fi',
+    'if [ "$systemic_count" -gt 0 ]; then',
+    '  echo "::error::crawler group interrupted: $systemic_count member(s) stopped by a runner shutdown (exit 143) before completing; $success_count succeeded and were preserved, no per-crawler issue filed (systemic class), and the interrupted crawlers keep their previous data until the next wave"',
+    '  exit 1',
+    'fi',
+    'if [ "$tolerated_count" -gt 0 ]; then',
+    '  echo "::warning::quarantine group: $success_count succeeded, $tolerated_count known failures excluded from the verdict until their deadline (data/crawler-quarantine.json); no new failure"',
+    'fi',
+    'echo "✅ quarantine group: $success_count succeeded, $tolerated_count known failures tolerated, no new failure or regression; $systemic_count systemic outcomes recorded"',
   ].join('\n');
 }
 
@@ -1598,7 +1775,7 @@ function npmScriptsForAnalyzer() {
 }
 
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
-function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand) {
+function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, { quarantine = null } = {}) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
   const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
 
@@ -1757,7 +1934,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
     id: 'crawler_aggregate',
     if: 'always()',
     'continue-on-error': true,
-    run: buildCrawlerAggregateShellBody(group.members, groupIndex),
+    run: buildCrawlerAggregateShellBody(group.members, groupIndex, { quarantine }),
   });
   steps.push({
     name: 'Commit crawler group data atomically',
@@ -1791,8 +1968,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
       CRAWLER_AGGREGATE_FAILURES: "\${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}",
       CRAWLER_AGGREGATE_MISSING: "\${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}",
       CRAWLER_AGGREGATE_SYSTEMIC: "\${{ steps.crawler_aggregate.outputs.systemic_count || '0' }}",
+      ...(quarantine
+        ? { CRAWLER_AGGREGATE_TOLERATED: "\${{ steps.crawler_aggregate.outputs.tolerated_count || '0' }}" }
+        : {}),
     },
-    run: buildCrawlerAggregateFailureGateShellBody(),
+    run: buildCrawlerAggregateFailureGateShellBody({ quarantine: Boolean(quarantine) }),
   });
   steps.push(liveRunLeaseReleaseStep(groupName));
 
@@ -2883,26 +3063,50 @@ export function generate({
   // bin-pack. Rewrites all 24 files by design — a deliberate, reviewed action,
   // never a side effect of adding or removing one crawler (#6482).
   rebalance = false,
+  // The registry belongs to the committed manifest: a synthetic or scratch
+  // manifest (tests, dry runs) has no quarantine unless the caller passes one.
+  quarantinePath = manifestPath === MANIFEST_PATH ? QUARANTINE_PATH : null,
 } = {}) {
   const { manifest } = loadJson(manifestPath);
   const baseline = loadJson(baselinePath);
   const medianMs = baseline.medianDurationMs;
+  const quarantine = loadQuarantineRegistry(quarantinePath, { groupCount: GROUP_COUNT });
+  const retired = new Set(Object.keys(quarantine?.retired ?? {}));
 
-  const crawlers = manifest.map((c) => {
+  // A retired crawler stays in the manifest (re-activating it is removing its
+  // `retired` entry) but is not scheduled: it leaves its group like a removal.
+  const crawlers = manifest.filter((c) => !retired.has(c.slug)).map((c) => {
     const baselineEntry = baseline.crawlers[c.file.replace(/^\.github\/workflows\//, '').replace(/\.yml$/, '')];
     const durationMs = baselineEntry ? baselineEntry.avgDurationMs : medianMs;
     return { ...c, durationMs };
   });
+  const quarantineIndex = quarantine ? quarantine.group - 1 : -1;
 
   // Membership comes from the persisted pins, not from a fresh global
   // bin-pack — see the STABLE ASSIGNMENT block above (#6482). `--rebalance` is
   // the one path that still lets packGroups() decide, and it then overwrites
-  // the pins with its result.
-  const pinned = rebalance
-    ? packGroups(crawlers, GROUP_COUNT, medianMs).map((g) => g.members.map((m) => m.slug))
-    : loadAssignments(assignmentsPath, GROUP_COUNT);
+  // the pins with its result. With a quarantine registry the rebalance packs
+  // everyone else into the other groups and keeps the quarantine group equal
+  // to the registry.
+  let pinned;
+  if (!rebalance) {
+    pinned = loadAssignments(assignmentsPath, GROUP_COUNT);
+  } else if (quarantineIndex < 0) {
+    pinned = packGroups(crawlers, GROUP_COUNT, medianMs).map((g) => g.members.map((m) => m.slug));
+  } else {
+    const quarantined = new Set(Object.keys(quarantine.members));
+    pinned = packGroups(crawlers.filter((c) => !quarantined.has(c.slug)), GROUP_COUNT - 1, medianMs)
+      .map((g) => g.members.map((m) => m.slug));
+    pinned.splice(quarantineIndex, 0, crawlers.filter((c) => quarantined.has(c.slug)).map((c) => c.slug));
+  }
 
-  const { groups, assignments, added, removed, duplicatesDiscarded } = assignGroupsStable(crawlers, pinned, medianMs);
+  const { groups, assignments, added, removed, duplicatesDiscarded } = assignGroupsStable(
+    crawlers,
+    pinned,
+    medianMs,
+    { reservedGroupIndexes: quarantineIndex >= 0 ? [quarantineIndex] : [] },
+  );
+  assertQuarantineMembership(quarantine, assignments, new Set(crawlers.map((c) => c.slug)));
 
   // Sanity: every crawler appears exactly once.
   const seen = new Set();
@@ -2940,7 +3144,11 @@ export function generate({
       const filePath = path.join(outDir, fileName);
       const installCommand = existingCrawlerGroupInstallCommand(filePath)
         ?? (needsIgnoreScripts ? 'npm ci --ignore-scripts' : 'npm ci');
-      const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand);
+      const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, {
+        quarantine: i === quarantineIndex
+          ? { tolerated: toleratedQuarantineFailures(quarantine, group.members.map((m) => m.slug)) }
+          : null,
+      });
       const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
       // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
       // rigenerazione: e' la nota che spiega perche' QUEL file e' speciale (il
@@ -2971,6 +3179,7 @@ export function generate({
   results.assignmentsAdded = added;
   results.assignmentsRemoved = removed;
   results.assignmentsDuplicatesDiscarded = duplicatesDiscarded;
+  results.retired = [...retired].filter((slug) => manifest.some((c) => c.slug === slug));
   results.generationRoster = generationRoster;
   if (write) {
     // Commit phase: render/validation is complete. Every individual replace is

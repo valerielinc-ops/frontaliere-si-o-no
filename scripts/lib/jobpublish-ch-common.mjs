@@ -31,7 +31,7 @@
  *     romande de réadaptation has its own TYPO3 listing).
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
@@ -44,6 +44,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { extractJobPostingLd, jobPostingAddress } from './jsonld-jobposting.mjs';
 
 const FEED_HOST = 'https://jobs.jobpublish.ch';
 const DETAIL_DELAY_MS = 250;
@@ -161,13 +162,47 @@ export function parseWorkload(s = '') {
 /**
  * Extract the "city" line from the JobPublish detail subtitle block. The
  * line typically looks like `<i class="fas fa-map-marker-alt"></i> Bellikon AG`.
+ *
+ * The subtitle nests one `<div>` per column (workload/contract, then
+ * place/start date), so it is read up to the next `wrapper` block rather
+ * than to its first `</div>`: the old non-greedy match stopped after the
+ * workload column, never reached the map marker, and every vacancy fell
+ * back to the default city (the Chur vacancy was published in Bellikon).
  */
 export function extractDetailCity(html = '') {
-  const sub = html.match(/<div\s+class="wrapper subtitle">([\s\S]*?)<\/div>\s*(?=<(?:div|section|main|footer)\b|$)/i);
-  if (!sub) return '';
-  const mapMatch = sub[1].match(/fa-map-marker-alt[^<]*<\/i>([\s\S]*?)<\/div>/i);
+  const start = html.search(/<div\s+class="wrapper subtitle">/i);
+  if (start < 0) return '';
+  const rest = html.slice(start + 1);
+  const end = rest.search(/<(?:div|section)\s+class="wrapper (?!subtitle)|<\/main\b/i);
+  const block = end > 0 ? rest.slice(0, end) : rest.slice(0, 4000);
+  const mapMatch = block.match(/fa-map-marker-alt[^<]*<\/i>([\s\S]*?)<\/div>/i);
   if (!mapMatch) return '';
   return normalizeSpace(decodeEntities(mapMatch[1].replace(/<[^>]+>/g, ' ')));
+}
+
+/**
+ * Workplace address from the detail page's JobPosting JSON-LD
+ * (`jobLocation.address`). Returns `{ locality, postalCode }`, empty strings
+ * when absent or unparsable.
+ */
+export function extractDetailJsonLdAddress(html = '') {
+  const address = jobPostingAddress(extractJobPostingLd(html));
+  return {
+    locality: address.addressLocality,
+    postalCode: /^\d{4}$/.test(address.postalCode) ? address.postalCode : '',
+  };
+}
+
+/**
+ * Standing "spontaneous application" entries of the feed (`Spontanbewerbungen
+ * für Pflegeberufe`, `Spontanbewerbung als Assistenzärztin/-arzt`). They are
+ * not vacancies: no detail page, no contract, no workload — publishing them
+ * produced a one-line synthetic description (`title — company (city).`).
+ */
+const SPONTANEOUS_APPLICATION_RE = /\b(?:spontan|initiativ|blind)bewerbung|candidatura spontanea|candidature spontan|postulation spontan|spontaneous application/i;
+
+export function isJobpublishSpontaneousPlaceholder(item = {}) {
+  return SPONTANEOUS_APPLICATION_RE.test(String(item?.title || ''));
 }
 
 /**
@@ -285,8 +320,13 @@ export function createJobpublishChParser(config) {
     let detailHits = 0;
     let failed = 0;
 
+    let spontaneous = 0;
     for (let i = 0; i < feed.length; i += 1) {
       const item = feed[i];
+      if (isJobpublishSpontaneousPlaceholder(item)) {
+        spontaneous += 1;
+        continue;
+      }
       const detailUrl = item.detail_url || '';
       let detailHtml = '';
       if (detailUrl) {
@@ -299,7 +339,8 @@ export function createJobpublishChParser(config) {
       }
 
       const detailText = detailHtml ? extractJobpublishDetailContent(detailHtml) : '';
-      const cityFromDetail = detailHtml ? extractDetailCity(detailHtml) : '';
+      const detailAddress = detailHtml ? extractDetailJsonLdAddress(detailHtml) : { locality: '', postalCode: '' };
+      const cityFromDetail = (detailHtml ? extractDetailCity(detailHtml) : '') || detailAddress.locality;
       const workload = parseWorkload(item.workload);
 
       // Title from feed (already plain text).
@@ -315,6 +356,12 @@ export function createJobpublishChParser(config) {
       let city = cityFromDetail || defaultCity;
       city = city.replace(/\s+[A-Z]{2}$/, '').trim() || defaultCity;
       const canton = inferSwissTargetCanton(`${city} ${cityFromDetail}`) || defaultCanton;
+      // The vacancy's own postal code when the JSON-LD address is this city;
+      // the HQ one only for an HQ-locality vacancy (hqPostalCodeForLocality).
+      const postalCode = detailAddress.postalCode
+        && normalize(detailAddress.locality) === normalize(city)
+        ? detailAddress.postalCode
+        : hqPostalCodeForLocality(city, defaultCity, defaultPostalCode);
 
       const descParts = [];
       if (detailText) descParts.push(detailText);
@@ -376,7 +423,7 @@ export function createJobpublishChParser(config) {
         addressRegion: canton,
         addressCountry: 'CH',
         country: 'CH',
-        postalCode: defaultPostalCode,
+        postalCode,
         category: detectHealthcareCategory(`${title} ${detailText || ''}`),
         contract,
         employmentType,
@@ -405,7 +452,7 @@ export function createJobpublishChParser(config) {
       if (i < feed.length - 1) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     }
 
-    console.log(`📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${feed.length} with rich detail content, ${failed} skipped)`);
+    console.log(`📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${feed.length} with rich detail content, ${failed} skipped, ${spontaneous} spontaneous-application placeholders skipped)`);
     return jobs;
   }
 

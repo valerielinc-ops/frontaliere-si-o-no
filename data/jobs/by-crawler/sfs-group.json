@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-28T05:09:41.416Z",
+  "assembledAt": "2026-09-29T09:26:28.225Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:37.744Z",
+      "crawledAt": "2026-09-29T09:26:24.305Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -115,7 +115,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:37.587Z",
+      "crawledAt": "2026-09-29T09:26:24.170Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -181,7 +181,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:37.421Z",
+      "crawledAt": "2026-09-29T09:26:24.036Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -218,8 +218,8 @@
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -241,17 +241,17 @@
         "it": "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg",
         "en": "project-manager-m-f-d-sfs-group-heerbrugg",
         "de": "project-manager-m-f-d-sfs-group-heerbrugg",
-        "fr": "project-manager-m-w-d-sfs-group-heerbrugg"
+        "fr": "gestionnaire-de-projet-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
       "companyDomain": "sfs.com",
       "title": "Project Manager (m/f/d)",
       "titleByLocale": {
-        "it": "Project Manager (m/f/d)",
+        "it": "Responsabile del progetto (m/f/d)",
         "en": "Project Manager (m/f/d)",
         "de": "Project Manager (m/f/d)",
-        "fr": "Project Manager (m/f/d)"
+        "fr": "Gestionnaire de projet (h/f/d)"
       },
       "description": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
       "descriptionByLocale": {
@@ -265,7 +265,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:37.260Z",
+      "crawledAt": "2026-09-29T09:26:23.901Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -287,9 +287,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-m-f-d-sfs-group-heerbrugg",
-        "gestionnaire-de-projet-h-f-d-sfs-group-heerbrugg",
-        "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg",
-        "project-manager-m-w-d-sfs-group-heerbrugg"
+        "project-manager-m-w-d-sfs-group-heerbrugg",
+        "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -298,7 +297,6 @@
         ],
         "fr": [
           "project-manager-m-f-d-sfs-group-heerbrugg",
-          "gestionnaire-de-projet-h-f-d-sfs-group-heerbrugg",
           "project-manager-m-w-d-sfs-group-heerbrugg"
         ]
       },
@@ -332,10 +330,10 @@
       "companyDomain": "sfs.com",
       "title": "Product Manager Rainscreen (m/f/d) 80–",
       "titleByLocale": {
-        "it": "Product Manager Rainscreen (m/f/d) 80–",
+        "it": "Responsabile prodotto Parapioggia (m/f/d) 80–",
         "en": "Product Manager Rainscreen (m/f/d) 80–",
         "de": "Product Manager Rainscreen (m/f/d) 80–",
-        "fr": "Product Manager Rainscreen (m/f/d) 80–"
+        "fr": "Gestionnaire de produits Rainscreen (h/f/d) 80–"
       },
       "description": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
       "descriptionByLocale": {
@@ -349,7 +347,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:37.100Z",
+      "crawledAt": "2026-09-29T09:26:23.766Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -429,7 +427,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.942Z",
+      "crawledAt": "2026-09-29T09:26:23.631Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -449,8 +447,8 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -496,7 +494,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.785Z",
+      "crawledAt": "2026-09-29T09:26:23.493Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -563,8 +561,8 @@
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -610,7 +608,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.627Z",
+      "crawledAt": "2026-09-29T09:26:23.355Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -691,7 +689,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.468Z",
+      "crawledAt": "2026-09-29T09:26:23.220Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -743,73 +741,6 @@
       }
     },
     {
-      "id": "sfs-group-ef7c66ad83ea",
-      "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
-      "titleByLocale": {
-        "it": "Marketing Manager. Impiegato Branding & HR (m/f/d) 80.",
-        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
-        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
-        "fr": "Gestionnaire du marketing – Branding de l'employeur et RH (h/f/d) 80–"
-      },
-      "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
-      "descriptionByLocale": {
-        "it": "Progettare il marchio Datori di lavoro di Domani Con noi, avete l'opportunità di formare attivamente un marchio di datore di lavoro internazionale, strategicamente, creativo e con un sacco di ambito creativo. Dall'uso del \"Golden\" diventiamo idee forti, da strategie campagne pertinenti e da diverse prospettive comunicazione che rimane bloccato. Se non si semplicemente implementare le cose, ma vogliono pensare qualcosa di nuovo e davvero spostare, dovremmo conoscere l'altro.\n\nI vostri compiti:\n• Sviluppo globale e implementazione della strategia di marketing per i Datori di lavoro e HR per tutti i marchi e i gruppi target pertinenti\n• Consulenza e supporto comunicativo per i dipartimenti HR e i soggetti interessati, nonché sviluppo di concetti, messaggi e idee guida creative\n• Pianificazione e implementazione di campagne di Datori di lavoro Branding globali e locali, nonché creazione e controllo dei contenuti per i canali digitali e interni\n• Pianificazione, priorità e coordinamento delle attività quotidiane e gestione della cooperazione con i team di entità interne,\n\nNET e Centri Assistenza e partner esterni\n• Assicurare una presenza costante in tutti i paesi e canali, nonché sviluppare soluzioni valide nella configurazione internazionale multi-brand\n• Definizione e valutazione dei KPI pertinenti, nonché creazione, controllo e rilascio di presentazioni Il tuo profilo:\n• Studi completati in marketing, comunicazione, produzione multimediale, marketing digitale o qualifiche comparabili.\n\nIn alternativa, HR Background con ulteriore sviluppo verso il marketing, il marchio dei dipendenti o il branding\n• esperienza in una funzione concettuale strategica, project management ed esperienza solida nel branding dei datori di lavoro, nel marketing delle risorse umane o in un ambiente comparabile\n• tedesco a livello di lingua madre e a livello di lingua inglese monosesso\n• capacità di sviluppare strategie, concetti e campagne e di presentarle e ancorarle in modo convincente in una comunità internazionale di risorse umane, di marchi o di marketing\n• Gestione sovrana di interessi e requisiti diversi nonché\n\nCapacità di sviluppare soluzioni sostenibili in un contesto internazionale multimarca\n• Forza di comunicazione, creatività, lavoro di squadra e iniziativa, nonché metodi di lavoro strutturati e gestione del tempo libero Offriamo:\n• Area di responsabilità e spazio per la proprietà e l'iniziativa\n• Fase di formazione chiaramente strutturata con programma di imbarco trasversale\n• Orario di lavoro flessibile e ufficio\n• Sei settimane di vacanze e acquisto di vacanze supplementari possibili\n• Partecipazione annuale al successo, numerosi eventi sportivi e di personale, ristorante del personale\n\ncon prezzi interessanti\n• Concetto di mobilità flessibile per il viaggio di lavoro",
-        "en": "Design the Employer Brand of Tomorrow With us, you have the opportunity to actively shape an international employer brand, strategically, creatively and with plenty of creative scope. From the use of the \"Golden\" we become strong ideas, from strategies relevant campaigns and from different perspectives communication that remains stuck. If you do not simply implement things, but want to think new and really move something, we should get to know each other.\n\nYour Tasks:\n• Global development and implementation of the Employer Branding and HR marketing strategy for all brands and relevant target groups\n• Consulting and communicative support for HR departments and relevant stakeholders as well as development of concepts, messages and creative guiding ideas\n• Planning and implementation of global and local Employer Branding campaigns as well as creation and control of content for digital and internal channels\n• Planning, prioritization and coordination of daily activities and management of cooperation with internal entity teams,\n\nNET and Service Centers and external partners\n• Ensure consistent presence across all countries and channels, as well as develop viable solutions in the international multi-brand setup\n• Definition and evaluation of relevant KPIs, as well as creation, control and release of presentations Your profile:\n• Completed studies in marketing, communication, multimedia production, digital marketing or comparable qualifications.\n\nAlternatively HR Background with further development towards marketing, employee branding or branding\n• experience in a strategic conceptual function, project management and sound experience in employer branding, HR marketing or a comparable environment\n• German at native language level and at the level of a single-sex English language\n• ability to develop strategies, concepts and campaigns and to present and anchor them convincingly in an international HR, brand or marketing community\n• Sovereign handling of different interests and requirements as well as\n\nAbility to develop sustainable solutions in an international multi-brand setup\n• Strength of communication, creativity, teamwork and initiative, as well as structured working methods and good time management We offer:\n• Varied area of responsibility and room for ownership and initiative\n• Clearly structured training phase with cross-departmental onboarding programme\n• Flexible working hours & home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success, numerous sports and employee events, staff restaurant\n\nwith attractive prices\n• Flexible mobility concept for your work journey",
-        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
-        "fr": "Designer la marque patronale de demain Avec nous, vous avez l'occasion de façonner activement une marque patronale internationale, stratégiquement, de manière créative et avec beaucoup de créativité.L'utilisation de l'or nous devenons des idées fortes, des stratégies des campagnes pertinentes et de la communication de différentes perspectives qui reste bloquée. Si vous ne vous contentez pas de mettre en œuvre des choses, mais voulez penser nouveau et vraiment bouger quelque chose, nous devrions apprendre à nous connaître.\n\nVos tâches:\n• Développement et mise en œuvre à l'échelle mondiale de la stratégie de marketing de l'image de marque et des ressources humaines pour toutes les marques et groupes cibles concernés\n• Conseil et soutien communicatif aux services des ressources humaines et aux parties prenantes concernées ainsi que développement de concepts, de messages et d'idées créatives\n• Planification et mise en œuvre de campagnes de promotion de l'image de marque des employeurs aux niveaux mondial et local ainsi que création et contrôle de contenus pour les canaux numériques et internes\n• Planification, hiérarchisation et coordination des activités quotidiennes et gestion de la coopération avec les équipes internes,\n\nNET et les centres de services et partenaires externes\n• Assurer une présence cohérente dans tous les pays et canaux, ainsi que développer des solutions viables dans la configuration internationale multi-marques\n• Définition et évaluation des ICR pertinents, ainsi que la création, le contrôle et la diffusion des présentations Votre profil:\n• Études terminées dans le marketing, la communication, la production multimédia, le marketing numérique ou des qualifications comparables.\n\nAutre facteur de ressources humaines: développement ultérieur vers le marketing, l'image de marque ou l'image de marque des employés\n• expérience dans une fonction conceptuelle stratégique, gestion de projet et expérience solide dans l'image de marque des employeurs, le marketing des ressources humaines ou un environnement comparable\n• allemand au niveau de la langue maternelle et au niveau d'une langue anglaise monosexuelle\n• capacité à développer des stratégies, des concepts et des campagnes et à les présenter et à les ancrer de manière convaincante dans une communauté internationale des ressources humaines, de la marque ou du marketing\n• gestion souveraine des différents intérêts et exigences ainsi que\n\nCapacité de développer des solutions durables dans un cadre international multimarques\n• Force de communication, créativité, travail d'équipe et initiative, ainsi que méthodes de travail structurées et bonne gestion du temps Nous offrons:\n• domaine de responsabilité varié et espace de propriété et d'initiative\n• phase de formation clairement structurée avec programme interservices d'embarquement\n• horaires de travail flexibles et bureau à domicile\n• Six semaines de vacances et d'achats de vacances supplémentaires possibles\n• participation annuelle au succès, nombreux événements sportifs et d'employés, restaurant du personnel\n\n• Concept de mobilité flexible pour votre voyage de travail"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.310Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3025/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3025",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:44:36.484Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sfs-group-bd01b3142b6e",
       "slug": "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
@@ -840,7 +771,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:36.150Z",
+      "crawledAt": "2026-09-29T09:26:23.082Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -923,7 +854,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.988Z",
+      "crawledAt": "2026-09-29T09:26:22.949Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -1006,7 +937,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.831Z",
+      "crawledAt": "2026-09-29T09:26:22.814Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -1042,8 +973,8 @@
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1089,7 +1020,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.674Z",
+      "crawledAt": "2026-09-29T09:26:22.677Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1208,7 +1139,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.513Z",
+      "crawledAt": "2026-09-29T09:26:22.538Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1291,7 +1222,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.352Z",
+      "crawledAt": "2026-09-29T09:26:22.401Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1321,8 +1252,8 @@
           "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1368,7 +1299,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.191Z",
+      "crawledAt": "2026-09-29T09:26:22.263Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1403,8 +1334,8 @@
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1450,7 +1381,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:35.033Z",
+      "crawledAt": "2026-09-29T09:26:22.126Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1532,7 +1463,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:34.870Z",
+      "crawledAt": "2026-09-29T09:26:21.987Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1599,8 +1530,8 @@
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1646,7 +1577,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T05:09:34.709Z",
+      "crawledAt": "2026-09-29T09:26:21.849Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1727,7 +1658,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:34.551Z",
+      "crawledAt": "2026-09-29T09:26:21.712Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1763,8 +1694,8 @@
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1810,7 +1741,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T05:09:34.373Z",
+      "crawledAt": "2026-09-29T09:26:21.575Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1862,6 +1793,143 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-c9d7f2a8063f",
+      "slug": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "it": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "en": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "fr": "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
+      "titleByLocale": {
+        "de": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
+        "it": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
+        "en": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)",
+        "fr": "Automatiker/in Instandhaltung im Schichtmodell (m/f/d)"
+      },
+      "description": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
+      "descriptionByLocale": {
+        "de": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
+        "it": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
+        "en": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen",
+        "fr": "Aufgrund des starken Wachstums in der Fertigung innovativer Kugelgewindetriebe suchen wir eine engagierte und erfahrene Fachkraft für die Instandhaltung im Schichtbetrieb. Dich erwartet ein kollegiales Team, das technisches Know-how mit lösungsorientiertem Handeln verbindet. Gemeinsam stellt ihr sicher, dass unser moderner Maschinenpark zuverlässig läuft. Du packst gerne an, begeisterst dich für Technik und Automation und findest auch bei anspruchsvollen technischen Aufgaben passende Lösungen? Dann freuen wir uns, dich kennenzulernen. Your Tasks:\n• Identifizieren und Beheben von Störungen an Montagelinien und Zerspanungsanlagen, insbesondere an CNC-Rundtaktautomaten\n• Durchführen von Erstdiagnosen und Einleiten geeigneter Sofortmassnahmen zur Wiederherstellung der Anlagenverfügbarkeit\n• Übergeben komplexer Störungen an interne und externe Fachstellen sowie Koordinieren und Nachverfolgen der weiteren Bearbeitung\n• Durchführen von Wartungs- und Instandhaltungsarbeiten\n• Analysieren von Störungsursachen und nachhaltiges Umsetzen geeigneter Massnahmen\n• Dokumentieren von Störungen, Ursachen und getroffenen Massnahmen im Instandhaltungssystem\n• Durchführen technischer Schulungen für das Bedienpersonal Your profile:\n• Abgeschlossene technische Grundausbildung, beispielsweise als Automatiker, Mechatroniker, Anlagenelektriker oder in einer vergleichbaren Fachrichtung\n• Weiterbildung auf Stufe HF in Automation, Elektrotechnik oder Maschinenbau von Vorteil\n• Bereitschaft zur Arbeit im Schichtmodell mit Früh-, Spät- und Nachtschichten\n• Mehrjährige Erfahrung in der Instandhaltung von Produktionsanlagen\n• Gute Kenntnisse in der elektrischen und/oder mechanischen Instandhaltung\n• Erfahrung in der systematischen Fehlersuche und Störungsbehebung an elektrischen, pneumatischen und hydraulischen Systemen\n• Kenntnisse in Siemens SINUMERIK sowie SIMATIC S7/TIA Portal von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Attraktives Schichtmodell mit entsprechender Vergütung\n• Abwechslungsreiche Aufgaben in einem technisch anspruchsvollen Umfeld\n• Moderne Anlagen und Möglichkeiten, aktiv an deren Weiterentwicklung mitzuwirken\n• Arbeitskleidung inklusive Wäscheservice\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:26:21.420Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3032/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3032",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-29T09:26:21.420Z"
+    },
+    {
+      "id": "sfs-group-ef7c66ad83ea",
+      "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+      "titleByLocale": {
+        "it": "Marketing Manager. Impiegato Branding & HR (m/f/d) 80.",
+        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
+        "fr": "Gestionnaire du marketing – Branding de l'employeur et RH (h/f/d) 80–"
+      },
+      "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+      "descriptionByLocale": {
+        "it": "Progettare il marchio Datori di lavoro di Domani Con noi, avete l'opportunità di formare attivamente un marchio di datore di lavoro internazionale, strategicamente, creativo e con un sacco di ambito creativo. Dall'uso del \"Golden\" diventiamo idee forti, da strategie campagne pertinenti e da diverse prospettive comunicazione che rimane bloccato. Se non si semplicemente implementare le cose, ma vogliono pensare qualcosa di nuovo e davvero spostare, dovremmo conoscere l'altro.\n\nI vostri compiti:\n• Sviluppo globale e implementazione della strategia di marketing per i Datori di lavoro e HR per tutti i marchi e i gruppi target pertinenti\n• Consulenza e supporto comunicativo per i dipartimenti HR e i soggetti interessati, nonché sviluppo di concetti, messaggi e idee guida creative\n• Pianificazione e implementazione di campagne di Datori di lavoro Branding globali e locali, nonché creazione e controllo dei contenuti per i canali digitali e interni\n• Pianificazione, priorità e coordinamento delle attività quotidiane e gestione della cooperazione con i team di entità interne,\n\nNET e Centri Assistenza e partner esterni\n• Assicurare una presenza costante in tutti i paesi e canali, nonché sviluppare soluzioni valide nella configurazione internazionale multi-brand\n• Definizione e valutazione dei KPI pertinenti, nonché creazione, controllo e rilascio di presentazioni Il tuo profilo:\n• Studi completati in marketing, comunicazione, produzione multimediale, marketing digitale o qualifiche comparabili.\n\nIn alternativa, HR Background con ulteriore sviluppo verso il marketing, il marchio dei dipendenti o il branding\n• esperienza in una funzione concettuale strategica, project management ed esperienza solida nel branding dei datori di lavoro, nel marketing delle risorse umane o in un ambiente comparabile\n• tedesco a livello di lingua madre e a livello di lingua inglese monosesso\n• capacità di sviluppare strategie, concetti e campagne e di presentarle e ancorarle in modo convincente in una comunità internazionale di risorse umane, di marchi o di marketing\n• Gestione sovrana di interessi e requisiti diversi nonché\n\nCapacità di sviluppare soluzioni sostenibili in un contesto internazionale multimarca\n• Forza di comunicazione, creatività, lavoro di squadra e iniziativa, nonché metodi di lavoro strutturati e gestione del tempo libero Offriamo:\n• Area di responsabilità e spazio per la proprietà e l'iniziativa\n• Fase di formazione chiaramente strutturata con programma di imbarco trasversale\n• Orario di lavoro flessibile e ufficio\n• Sei settimane di vacanze e acquisto di vacanze supplementari possibili\n• Partecipazione annuale al successo, numerosi eventi sportivi e di personale, ristorante del personale\n\ncon prezzi interessanti\n• Concetto di mobilità flessibile per il viaggio di lavoro",
+        "en": "Design the Employer Brand of Tomorrow With us, you have the opportunity to actively shape an international employer brand, strategically, creatively and with plenty of creative scope. From the use of the \"Golden\" we become strong ideas, from strategies relevant campaigns and from different perspectives communication that remains stuck. If you do not simply implement things, but want to think new and really move something, we should get to know each other.\n\nYour Tasks:\n• Global development and implementation of the Employer Branding and HR marketing strategy for all brands and relevant target groups\n• Consulting and communicative support for HR departments and relevant stakeholders as well as development of concepts, messages and creative guiding ideas\n• Planning and implementation of global and local Employer Branding campaigns as well as creation and control of content for digital and internal channels\n• Planning, prioritization and coordination of daily activities and management of cooperation with internal entity teams,\n\nNET and Service Centers and external partners\n• Ensure consistent presence across all countries and channels, as well as develop viable solutions in the international multi-brand setup\n• Definition and evaluation of relevant KPIs, as well as creation, control and release of presentations Your profile:\n• Completed studies in marketing, communication, multimedia production, digital marketing or comparable qualifications.\n\nAlternatively HR Background with further development towards marketing, employee branding or branding\n• experience in a strategic conceptual function, project management and sound experience in employer branding, HR marketing or a comparable environment\n• German at native language level and at the level of a single-sex English language\n• ability to develop strategies, concepts and campaigns and to present and anchor them convincingly in an international HR, brand or marketing community\n• Sovereign handling of different interests and requirements as well as\n\nAbility to develop sustainable solutions in an international multi-brand setup\n• Strength of communication, creativity, teamwork and initiative, as well as structured working methods and good time management We offer:\n• Varied area of responsibility and room for ownership and initiative\n• Clearly structured training phase with cross-departmental onboarding programme\n• Flexible working hours & home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success, numerous sports and employee events, staff restaurant\n\nwith attractive prices\n• Flexible mobility concept for your work journey",
+        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+        "fr": "Designer la marque patronale de demain Avec nous, vous avez l'occasion de façonner activement une marque patronale internationale, stratégiquement, de manière créative et avec beaucoup de créativité.L'utilisation de l'or nous devenons des idées fortes, des stratégies des campagnes pertinentes et de la communication de différentes perspectives qui reste bloquée. Si vous ne vous contentez pas de mettre en œuvre des choses, mais voulez penser nouveau et vraiment bouger quelque chose, nous devrions apprendre à nous connaître.\n\nVos tâches:\n• Développement et mise en œuvre à l'échelle mondiale de la stratégie de marketing de l'image de marque et des ressources humaines pour toutes les marques et groupes cibles concernés\n• Conseil et soutien communicatif aux services des ressources humaines et aux parties prenantes concernées ainsi que développement de concepts, de messages et d'idées créatives\n• Planification et mise en œuvre de campagnes de promotion de l'image de marque des employeurs aux niveaux mondial et local ainsi que création et contrôle de contenus pour les canaux numériques et internes\n• Planification, hiérarchisation et coordination des activités quotidiennes et gestion de la coopération avec les équipes internes,\n\nNET et les centres de services et partenaires externes\n• Assurer une présence cohérente dans tous les pays et canaux, ainsi que développer des solutions viables dans la configuration internationale multi-marques\n• Définition et évaluation des ICR pertinents, ainsi que la création, le contrôle et la diffusion des présentations Votre profil:\n• Études terminées dans le marketing, la communication, la production multimédia, le marketing numérique ou des qualifications comparables.\n\nAutre facteur de ressources humaines: développement ultérieur vers le marketing, l'image de marque ou l'image de marque des employés\n• expérience dans une fonction conceptuelle stratégique, gestion de projet et expérience solide dans l'image de marque des employeurs, le marketing des ressources humaines ou un environnement comparable\n• allemand au niveau de la langue maternelle et au niveau d'une langue anglaise monosexuelle\n• capacité à développer des stratégies, des concepts et des campagnes et à les présenter et à les ancrer de manière convaincante dans une communauté internationale des ressources humaines, de la marque ou du marketing\n• gestion souveraine des différents intérêts et exigences ainsi que\n\nCapacité de développer des solutions durables dans un cadre international multimarques\n• Force de communication, créativité, travail d'équipe et initiative, ainsi que méthodes de travail structurées et bonne gestion du temps Nous offrons:\n• domaine de responsabilité varié et espace de propriété et d'initiative\n• phase de formation clairement structurée avec programme interservices d'embarquement\n• horaires de travail flexibles et bureau à domicile\n• Six semaines de vacances et d'achats de vacances supplémentaires possibles\n• participation annuelle au succès, nombreux événements sportifs et d'employés, restaurant du personnel\n\n• Concept de mobilité flexible pour votre voyage de travail"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-28T05:09:36.310Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3025/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3025",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:44:36.484Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 2
     }
   ]
 }

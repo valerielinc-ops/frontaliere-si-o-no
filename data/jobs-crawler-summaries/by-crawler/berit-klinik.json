@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-09-28T04:59:17.114Z",
-  "total": 13,
+  "generatedAt": "2026-09-29T09:22:41.877Z",
+  "total": 14,
   "newCount": 0,
-  "updatedCount": 13,
+  "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1745,
-  "avgDurationMs": 1745,
+  "durationMs": 4255,
+  "avgDurationMs": 4255,
   "durationHistory": [
-    1745
+    4255
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -344,6 +344,43 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Praktikant/-in Buchhaltung",
+      "slug": "praktikant-in-buchhaltung-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/praktikant_in_buchhaltung_fce9843ec7.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-28",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "praktikant_in_buchhaltung_fce9843ec7.pdf"
+      },
+      "id": "berit-klinik-c52345e11352",
+      "firstSeenAt": "2026-09-28T21:21:27.485Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 20,
         "completeness": 17
       }
     },

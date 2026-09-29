@@ -1,16 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-09-27T10:07:32.354Z",
-  "findings": {
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-im-tessin/alle/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/alle/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-09-27T10:07:32.354Z",
-      "lastSeenAt": "2026-09-27T10:07:32.354Z",
-      "detail": null
-    }
-  },
-  "cleanRuns": 0,
+  "lastRunAt": "2026-09-29T10:48:56.640Z",
+  "findings": {},
+  "cleanRuns": 1,
   "lastActionable": false
 }

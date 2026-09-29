@@ -68,6 +68,10 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // third-party. Companion to the `standardSelectors` message pattern added
   // to UNIVERSAL_BENIGN_PATTERNS (covers cross-origin, no-frame case).
   /^https:\/\/www\.clarity\.ms\//i,
+  // Google Publisher Tags (GPT) — third-party stack audit.
+  // The library is third-party and can throw errors entirely inside its own
+  // securepubads.g.doubleclick.net frames; no first-party fix is possible.
+  /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
 ];
 
 /**
@@ -129,6 +133,16 @@ function extractStackFrameOrigins(event: PostHogExceptionEvent): string[] {
     }
   }
   return origins;
+}
+
+/**
+ * The capturing browser's user agent: posthog-js stamps `$raw_user_agent` on
+ * every event; fall back to `navigator` when it is absent.
+ */
+function eventUserAgent(event: PostHogExceptionEvent): string {
+  const raw = event.properties?.$raw_user_agent;
+  if (typeof raw === 'string' && raw) return raw;
+  return typeof navigator !== 'undefined' ? navigator.userAgent || '' : '';
 }
 
 /**
@@ -232,7 +246,7 @@ export function createExceptionFilter() {
     if (isGoogleIosAppInjectedStackOverflow(
       blob,
       origins.length > 0 ? origins.join('\n') : rawStack,
-      typeof navigator === 'undefined' ? '' : navigator.userAgent,
+      eventUserAgent(event),
     )) return null;
     // Zero resolved frames → fall back to the raw stack we recorded ahead of
     // PostHog's own handler and classify on its SHAPE (#4173).

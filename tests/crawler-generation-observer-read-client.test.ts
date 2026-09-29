@@ -129,6 +129,33 @@ describe.each([
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
+  it('keeps a copy of every chunk when the reader reuses its buffer (#7483)', async () => {
+    const { createGitHubActionsReadClient } = await load();
+    const reused = new Uint8Array(4);
+    const parts = ['{"ok', '":1}'].map((part) => new TextEncoder().encode(part));
+    const reader = {
+      read: async () => {
+        const part = parts.shift();
+        if (!part) return { done: true, value: undefined };
+        reused.set(part);
+        return { done: false, value: reused };
+      },
+      cancel: async () => {},
+      releaseLock() {},
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: () => reader, cancel: async () => {} },
+    };
+    const readClient = createGitHubActionsReadClient({
+      apiUrl: 'https://api.github.test', token: 't', fetchImpl: vi.fn().mockResolvedValue(response), sleep: vi.fn(), timeoutMs: 1_000,
+    });
+    // Kept by reference, the body read back as '":1}":1}'.
+    await expect(readClient.json('/repos/o/r/actions/runs/1')).resolves.toEqual({ ok: 1 });
+  });
+
   it('keeps the oversize verdict (chunked, no Content-Length) and cancels the stream', async () => {
     const { createGitHubActionsReadClient } = await load();
     const { response, wasCancelled } = responseWithThrowingRelease([[1, 2, 3], [4, 5, 6]]);

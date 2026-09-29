@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-09-28T05:04:17.254Z",
+  "generatedAt": "2026-09-29T09:27:50.802Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 1903,
-  "avgDurationMs": 1903,
+  "durationMs": 2445,
+  "avgDurationMs": 2445,
   "durationHistory": [
-    1903
+    2445
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -81,11 +81,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }
@@ -152,17 +152,17 @@
       "contractType": "full-time",
       "validThrough": "2026-10-18",
       "id": "board-international-549138686b90",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
-      "_qualityScore": 84,
+      "needsRetranslation": true,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 23,
         "completeness": 19
       }
     }

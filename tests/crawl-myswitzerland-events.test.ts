@@ -453,6 +453,12 @@ describe('mapEventRecord', () => {
     expect(event.recurring).toBe(false);
     expect(event.price).toBeUndefined();
     expect(event.address).toBeUndefined();
+    expect(event.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'MySwitzerland',
+      url: 'https://www.myswitzerland.com/',
+    });
+    expect(event.performer).toEqual({ '@type': 'Organization', name: 'Lugano' });
     expect(imageSourceUrl).toBe('https://cdn.myswitzerland.com/images/abc.jpg');
     expect(place).toBe('Lugano');
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');

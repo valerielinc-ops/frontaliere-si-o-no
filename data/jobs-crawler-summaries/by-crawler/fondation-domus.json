@@ -1,24 +1,21 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-09-28T05:25:32.069Z",
+  "generatedAt": "2026-09-29T09:23:32.863Z",
   "total": 0,
-  "discovered": 0,
-  "parsed": 0,
-  "lastFetchOutcome": null,
+  "discovered": null,
+  "parsed": null,
+  "lastFetchOutcome": "connection_error",
+  "abortKind": "connection-level-fetch",
   "written": 0,
-  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1354,
-  "avgDurationMs": 1354,
-  "durationHistory": [
-    1354
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

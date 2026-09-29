@@ -78,7 +78,7 @@ export async function subscribeReaderEntitlement(
 
   const [{ getFirestore, doc, onSnapshot }, { getApp }] = await Promise.all([
     import('firebase/firestore'),
-    import('@/services/firebase'),
+    import('./firebase'),
   ]);
   const firestore = getFirestore(await getApp());
   const ref = doc(firestore, 'reader_subscriptions', uid);

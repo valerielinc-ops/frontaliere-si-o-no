@@ -3,9 +3,9 @@ import { cleanEventText } from './events-utils.mjs';
 /**
  * Small normalizers for optional schema.org Event metadata.
  *
- * They deliberately preserve only named entities and usable HTTP(S) URLs:
- * source JSON-LD is not trusted enough to copy arbitrary objects into the
- * public dataset, and an unnamed organizer/performer is not useful markup.
+ * They preserve named source entities and usable HTTP(S) URLs. When a source
+ * record is incomplete, fillEventPeopleDefaults() adds the configured catalog
+ * and venue fallbacks required by the public Event JSON-LD contract.
  */
 
 function absoluteHttpUrl(value, baseUrl) {
@@ -166,6 +166,33 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
 
   if (!people.length) return undefined;
   return inputWasArray ? people : people[0];
+}
+
+/**
+ * Ensure every crawled event has deterministic people metadata. Source
+ * entities remain authoritative; when a source has no named entity, the
+ * catalog organization and venue are explicit fallbacks so every public
+ * Event record has the fields required by the configured SEO contract.
+ */
+export function fillEventPeopleDefaults(event, source = {}) {
+  const sourceName = sourceText(source?.label) || sourceText(event?.sourceName) || 'Frontaliere Ticino';
+  const baseUrl = absoluteHttpUrl(event?.url, source?.homepage)
+    || absoluteHttpUrl(source?.homepage)
+    || 'https://frontaliereticino.ch';
+  const eventUrl = absoluteHttpUrl(event?.url, baseUrl);
+  const sourceHomepage = absoluteHttpUrl(source?.homepage, baseUrl) || eventUrl;
+  const organizer = normalizeEventPeople(event?.organizer, baseUrl, eventUrl || sourceHomepage)
+    || {
+      '@type': 'Organization',
+      name: sourceName,
+      ...(sourceHomepage ? { url: sourceHomepage } : {}),
+    };
+  const performer = normalizeEventPeople(event?.performer, baseUrl)
+    || {
+      '@type': 'Organization',
+      name: sourceText(event?.venue) || sourceName,
+    };
+  return { ...event, organizer, performer };
 }
 
 /** Return true only when every normalized named entity has a usable URL. */

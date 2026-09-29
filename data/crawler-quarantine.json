@@ -1,0 +1,56 @@
+{
+  "_comment": "Crawler quarantine registry (scripts/lib/crawler-quarantine.mjs). Every member of the quarantine group has an entry; failingSince + issue mark a KNOWN failure, excluded from the group verdict until failingSince + 7 days. scripts/crawler-quarantine-review.mjs moves a crawler back after 4 green waves and retires it after 10 red waves or 7 days. Edit together with data/crawler-group-assignments.json and re-run the generator.",
+  "schemaVersion": 1,
+  "group": 24,
+  "members": {
+    "confederazione": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-25T06:03:58Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "protectas": {
+      "homeGroup": null,
+      "enteredAt": "2026-09-25T17:37:13Z",
+      "failingSince": "2026-09-26T14:06:21Z",
+      "issue": 10084
+    },
+    "lwphr": {
+      "homeGroup": 9,
+      "enteredAt": "2026-09-26T19:26:01Z",
+      "failingSince": null,
+      "issue": 10085
+    },
+    "knowledge-lab": {
+      "homeGroup": 15,
+      "enteredAt": "2026-09-26T19:26:01Z",
+      "failingSince": "2026-09-26T23:46:18Z",
+      "issue": 10083
+    },
+    "convit": {
+      "homeGroup": 19,
+      "enteredAt": "2026-09-27T07:00:46Z",
+      "failingSince": null,
+      "issue": 10087
+    },
+    "afry": {
+      "homeGroup": 13,
+      "enteredAt": "2026-09-27T17:30:51Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "buehler": {
+      "homeGroup": 13,
+      "enteredAt": "2026-09-27T17:30:51Z",
+      "failingSince": null,
+      "issue": null
+    },
+    "postauto": {
+      "homeGroup": 23,
+      "enteredAt": "2026-09-27T17:30:51Z",
+      "failingSince": null,
+      "issue": null
+    }
+  },
+  "retired": {}
+}

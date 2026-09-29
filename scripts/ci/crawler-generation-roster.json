@@ -12,6 +12,7 @@
       "emmi",
       "ems-chemie",
       "endress-hauser",
+      "fondation-domus",
       "hamilton-bonaduz-ag",
       "hilti",
       "hug",
@@ -41,6 +42,7 @@
       "axpo-group",
       "bls",
       "clienia-ag",
+      "cnp",
       "crr-suva-sion",
       "hess-carrosserie",
       "hilcona",
@@ -60,7 +62,8 @@
       "spitex-ch",
       "stellenpartner",
       "swiss-re",
-      "tecan"
+      "tecan",
+      "tpl-lugano"
     ],
     "12": [
       "agie-charmilles",
@@ -394,40 +397,35 @@
     ],
     "23": [
       "albergo-gardenia",
+      "anicura",
       "artificialy",
       "brefispersonal",
+      "capri-holdings",
       "christinavassalli",
       "csd-engineers",
       "ecam",
+      "fachkraft",
+      "fisba",
       "fust",
       "hugo-boss",
       "lidl-svizzera",
+      "mcdonald-s-switzerland",
       "migros-hq",
       "nestle",
       "posta-svizzera-centro-regionale",
-      "premiumpflege24"
+      "postfinance",
+      "premiumpflege24",
+      "tsmg"
     ],
     "24": [
       "afry",
-      "anicura",
       "buehler",
-      "capri-holdings",
-      "cnp",
       "confederazione-ticino",
       "convit-holding",
-      "fachkraft",
-      "fisba",
-      "fondation-domus",
       "knowledge-lab",
       "lwphr",
-      "mcdonald-s-switzerland",
-      "pole-sante-pays-enhaut",
       "postauto",
-      "postfinance",
-      "protectas",
-      "sunrise-sede-ticino",
-      "tpl-lugano",
-      "tsmg"
+      "protectas"
     ],
     "01": [
       "coop-ticino"
@@ -516,6 +514,7 @@
       "nant",
       "parmag",
       "pemsa",
+      "pole-sante-pays-enhaut",
       "puk-zuerich",
       "spital-limmattal",
       "spitex-basel",
@@ -673,6 +672,7 @@
       "spital-muri",
       "spital-oberengadin",
       "spital-sts",
+      "sunrise-sede-ticino",
       "suva",
       "the-living-circle",
       "weisse-arena"
@@ -1306,5 +1306,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:e0115611f9d7eac81d4e2a7ce2ecb1fc9f981c6d9cfe07c95e9661511f9e32fa"
+  "digest": "sha256:f0bc788effb635b763933c21762a9e92407722d5f43acadf2fc4384f7105e120"
 }
