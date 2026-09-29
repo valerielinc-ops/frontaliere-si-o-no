@@ -247,6 +247,87 @@ describe('i due finding della review', () => {
   });
 });
 
+// #7483 item 2, port del corpus FU-2026-09-24-009 (nanakokyobashi-rgb/frontaliere-articles#1785):
+// uno zero si attesta solo con una riga di esito, fuori da codice recintato e
+// citazioni. Prima bastava la formula in QUALUNQUE punto del corpo, e un
+// marker che la citava in prosa o in un esempio risultava «provato vuoto»: la
+// PR usciva dal batch per sempre senza che il suo triage fosse persistito.
+describe('le attestazioni di zero valgono solo come riga di esito (FU-009)', () => {
+  it('la formula in prosa, senza riga di claim, non prova lo zero', () => {
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Nota: il template prevede zero outstanding items solo se non ci sono candidati.',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+    expect(verifyTriageMarkerPersistence(body, 8928, () => null)).not.toBe(true);
+  });
+
+  it('la formula backfill skipped in prosa non prova lo zero', () => {
+    const body = '## Post-merge follow-up triage\n\nLa run di ieri era backfill skipped per errore.\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+  });
+
+  it('un claim a zero o un\'intestazione dentro un blocco recintato non e\' l\'esito', () => {
+    for (const example of [
+      'Created/updated: 0 item; nessun bucket creato.',
+      '## Post-merge follow-up triage: zero outstanding items.',
+      'Created/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.',
+    ]) {
+      const body = `## Post-merge follow-up triage\n\nEsempio del formato:\n\`\`\`md\n${example}\n\`\`\`\n`;
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket, example).toBe(true);
+    }
+  });
+
+  it('un ``` dentro un recinto di ```` e\' contenuto, non la chiusura (review di #10288)', () => {
+    const body = ['````md', 'example', '```', 'Created/updated: 0 item', '```', '````'].join('\n');
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+    // Il recinto si chiude solo con lo stesso carattere e senza testo dopo.
+    const tilde = ['~~~', 'Created/updated: 0 item', '``` ', '~~~ fine', '~~~'].join('\n');
+    expect(triageMarkerPersistenceExpectation(tilde).requiresBucket).toBe(true);
+  });
+
+  it('l\'intestazione vale fino a fine riga: prosa in coda non e\' l\'esito vuoto (review di #10288)', () => {
+    for (const body of [
+      '## Post-merge follow-up triage: zero outstanding items but 1 item remains',
+      '## Post-merge follow-up triage (backfill skipped) but 1 item remains',
+    ]) {
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket, body).toBe(true);
+    }
+  });
+
+  it('una citazione `>` dell\'intestazione vuota non e\' l\'esito', () => {
+    const body = '## Post-merge follow-up triage\n\n> ## Post-merge follow-up triage: zero outstanding items.\n';
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+  });
+
+  it('restano validi: intestazioni H2, prefisso nudo ripetuto, riga storica «Zero outstanding items.»', () => {
+    for (const body of [
+      '## Post-merge follow-up triage: zero outstanding items.',
+      '## Post-merge follow-up triage (backfill skipped): PR not eligible (not merged or different author)',
+      // il modello ripete il prefisso nudo prima dello zero (corpus #1570)
+      '## Post-merge follow-up triage\n\n## Post-merge follow-up triage: zero outstanding items.',
+      // forma storica del marker reale di #3027: intestazione nuda, poi la riga di esito
+      '## Post-merge follow-up triage\n\nDropped: 2 item\n- "x" — reason: non-funnel\n\nZero outstanding items. ',
+    ]) {
+      expect(triageMarkerPersistenceExpectation(body), body).toEqual({ buckets: [], requiresBucket: false });
+    }
+  });
+
+  it('un claim a zero fuori dal recinto resta valido anche se un esempio recintato lo ripete', () => {
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: 0 item; nessun bucket creato.',
+      '',
+      '```md',
+      'Created/updated: 0 item',
+      '```',
+    ].join('\n');
+    expect(triageMarkerPersistenceExpectation(body)).toEqual({ buckets: [], requiresBucket: false });
+  });
+});
+
 describe('lo YAML invoca il predicato unico', () => {
   // Regola #6 di AGENTS.md: un valore condiviso ha UNA sorgente. La copia bash
   // dello step di verifica non conosceva la prova del gate per gli item demoti

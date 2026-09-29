@@ -3,7 +3,7 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
-import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS, OFFERWALL_FC_SNIPPET } from './constants';
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
@@ -29,6 +29,22 @@ export function isJobBoardPageUrl(value: string): boolean {
     pathname = value.split(/[?#]/, 1)[0] ?? value;
   }
   return isJobBoardSectionPathname(pathname);
+}
+
+/** The two parse-time tags required by every statically emitted job-board page. */
+export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${OFFERWALL_FC_SNIPPET}`;
+
+/**
+ * Parse-time head contract for every statically emitted job-board page.
+ *
+ * Keep the GPT bootstrap and Funding Choices loader together: both are
+ * required by the rewarded "Candidati" flow, and emitting only one of them
+ * creates a page that looks healthy while the live consent probe reports
+ * `fc_not_requested`.
+ */
+export function jobBoardHeadTags(value: string): string {
+  if (!isJobBoardPageUrl(value)) return '';
+  return JOB_BOARD_HEAD_TAGS;
 }
 
 const scriptSrc = JSON.stringify(GPT_SCRIPT_SRC);

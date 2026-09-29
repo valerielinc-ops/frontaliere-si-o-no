@@ -6,9 +6,11 @@ import {
   GPT_BOOTSTRAP_TAG,
   GPT_LOADER_CONTENT,
   GPT_SCRIPT_SRC,
+  JOB_BOARD_HEAD_TAGS,
+  jobBoardHeadTags,
   isJobBoardPageUrl,
 } from '@/build-plugins/jobBoardGpt';
-import { FC_JOBBOARD_OFFERWALL_GATE_JS } from '@/build-plugins/constants';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS, OFFERWALL_FC_SNIPPET } from '@/build-plugins/constants';
 import {
   ADS_CONSENT_CHANGE_EVENT,
   ADS_CONSENT_GRANTED,
@@ -64,6 +66,14 @@ describe('job-board GPT bootstrap', () => {
     expect(GPT_LOADER_CONTENT).toContain('collapseDiv');
     expect(GPT_LOADER_CONTENT).not.toContain('adsbygoogle');
     expect(GPT_LOADER_CONTENT).not.toContain('<ins');
+  });
+
+  it('keeps GPT and Funding Choices together for every job-board head', () => {
+    const tags = jobBoardHeadTags('/cerca-lavoro-zurigo/');
+    expect(tags).toBe(JOB_BOARD_HEAD_TAGS);
+    expect(tags).toContain(GPT_BOOTSTRAP_TAG);
+    expect(tags).toContain(OFFERWALL_FC_SNIPPET);
+    expect(jobBoardHeadTags('/')).toBe('');
   });
 
   it('installs the click-only Offerwall gate before it can inject GPT', () => {

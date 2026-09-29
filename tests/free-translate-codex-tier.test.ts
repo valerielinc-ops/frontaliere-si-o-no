@@ -556,3 +556,40 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     }
   });
 });
+
+// Scadenza del processo (corpus nanakokyobashi-rgb/frontaliere-articles#1931,
+// portata con #7483): la sezione Codex e' byte-identica nei due repo. Sul sito
+// nessuno installa una scadenza, quindi la finestra resta quella di prima; il
+// caso che la usa (create-article del corpus) e' coperto dal gemello.
+describe('codexCallDeadlineMs — clamp della deadline di una chiamata Codex', () => {
+  const now = 1_000_000;
+
+  it('senza scadenza del processo resta min(tetto 180 s, budget del tier)', () => {
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000, processDeadlineMs: null })).toBe(now + 180_000);
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 40_000, processDeadlineMs: null })).toBe(now + 40_000);
+  });
+
+  it('la scadenza del processo vince quando e\' la piu\' vicina, e non allunga mai la finestra', () => {
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000, processDeadlineMs: now + 60_000 })).toBe(now + 60_000);
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000, processDeadlineMs: now + 900_000 })).toBe(now + 180_000);
+  });
+
+  it('sotto i 15 s minimi per chiamata la chiamata non si avvia', () => {
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000, processDeadlineMs: now + 14_999 })).toBeNull();
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000, processDeadlineMs: now - 1 })).toBeNull();
+    expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 14_999, processDeadlineMs: null })).toBeNull();
+  });
+
+  it('setCodexTranslateProcessDeadline: un valore non finito o <= 0 toglie la scadenza', () => {
+    try {
+      ft.setCodexTranslateProcessDeadline(now + 60_000);
+      expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000 })).toBe(now + 60_000);
+      for (const off of [null, 0, -5, Number.NaN, 'x']) {
+        ft.setCodexTranslateProcessDeadline(off);
+        expect(ft.codexCallDeadlineMs({ now, budgetRemainingMs: 300_000 })).toBe(now + 180_000);
+      }
+    } finally {
+      ft.setCodexTranslateProcessDeadline(null);
+    }
+  });
+});

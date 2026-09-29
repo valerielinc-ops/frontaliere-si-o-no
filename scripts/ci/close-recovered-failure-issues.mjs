@@ -1210,8 +1210,11 @@ export function crawlerWorkflowReference(group, issueRepo = REPO, runRepo = CRAW
 // scripts/generate-crawler-group-workflows.mjs (buildCrawlerAggregateShellBody) emette
 // per ogni membro NON riuscito. Il prefisso `<slug>: ` e' lo stesso slug dello step
 // `Run <slug>`; un test legge il workflow generato e tiene i due lati allineati.
+// `quarantena scaduta il` e' il failure del gruppo di quarantena per un fallimento noto
+// oltre la scadenza: conta nel `failure_count` e consuma lo stesso tetto di 10 errori
+// dello step, quindi deve contare anche qui.
 export const CRAWLER_MEMBER_FAILURE_ANNOTATION_RE =
-  /^[^\s:]+: (?:crawler exited with status|invalid terminal status)/;
+  /^[^\s:]+: (?:crawler exited with status|invalid terminal status|quarantena scaduta il )/;
 export const CRAWLER_MEMBER_WARNING_ANNOTATION_RE =
   /^[^\s:]+: (?:no terminal status was published|runner shutdown recorded as systemic outcome|fallimento noto in quarantena)/;
 // Il gruppo di quarantena (data/crawler-quarantine.json) esclude dal verdetto il
@@ -1223,6 +1226,41 @@ export const CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE = /^[^\s:]+: fallimento not
 // silenzio. Raggiunto il tetto, l'assenza di una riga non prova piu' nulla.
 export const GITHUB_ANNOTATIONS_PER_STEP_LIMIT = 10;
 export const GITHUB_ANNOTATIONS_PER_JOB_LIMIT = 50;
+// Le righe con cui il gate finale del gruppo (buildCrawlerAggregateFailureGateShellBody e
+// buildQuarantineFailureGateShellBody di scripts/generate-crawler-group-workflows.mjs)
+// chiude rosso PER I MEMBRI. Dichiarano quanti membri non sono verdi: e' l'unica prova
+// che l'elenco per-membro dell'aggregato e' completo. Un job rosso senza una di queste
+// righe (aggregato non concluso, conteggio invalido, runner senza `timeout`, step di
+// commit rosso) non dice nulla dei singoli membri.
+export const CRAWLER_GROUP_COMPLETED_ANNOTATION_RE =
+  /^crawler group completed with \d+ succeeded, (\d+) failed, (\d+) missing, (\d+) systemic;/;
+export const CRAWLER_GROUP_TOLERATED_COUNT_RE = /\b(\d+) known failures are excluded by the quarantine registry\b/;
+export const CRAWLER_GROUP_INTERRUPTED_ANNOTATION_RE =
+  /^crawler group interrupted: (\d+) member\(s\) stopped by a runner shutdown\b/;
+
+/**
+ * Quanti membri il gate del gruppo dichiara non verdi, da UNA sola riga di esito:
+ * `{ nonGreen, tolerated }` (`tolerated` e' `null` quando la riga non lo dichiara), oppure
+ * `null` se la riga manca o ce n'e' piu' d'una.
+ */
+export function declaredNonGreenCrawlerMembers(annotations) {
+  const declarations = [];
+  for (const annotation of annotations) {
+    if (annotation?.annotation_level !== 'failure' || typeof annotation.message !== 'string') continue;
+    const completed = CRAWLER_GROUP_COMPLETED_ANNOTATION_RE.exec(annotation.message);
+    if (completed) {
+      const tolerated = CRAWLER_GROUP_TOLERATED_COUNT_RE.exec(annotation.message);
+      declarations.push({
+        nonGreen: Number(completed[1]) + Number(completed[2]) + Number(completed[3]),
+        tolerated: tolerated ? Number(tolerated[1]) : null,
+      });
+      continue;
+    }
+    const interrupted = CRAWLER_GROUP_INTERRUPTED_ANNOTATION_RE.exec(annotation.message);
+    if (interrupted) declarations.push({ nonGreen: Number(interrupted[1]), tolerated: null });
+  }
+  return declarations.length === 1 ? declarations[0] : null;
+}
 
 /**
  * Esito REALE di un membro crawler dentro la run di gruppo.
@@ -1246,9 +1284,12 @@ export const GITHUB_ANNOTATIONS_PER_JOB_LIMIT = 50;
  *   3. job non `failure` (cancelled, timed_out, …) → non verde;
  *   4. job `failure` → le annotation del job: una riga `<slug>: …` di livello failure, o
  *      un warning dell'aggregato (missing, exit 143) per quello slug, prova che il membro
- *      non e' verde; nessuna riga, con annotation leggibili e sotto i tetti di GitHub,
- *      prova che il rosso era di un fratello.
- * Ritorna `null` quando la prova manca (annotation illeggibili, vuote o troncate): il
+ *      non e' verde; nessuna riga prova che il rosso era di un fratello SOLO se l'elenco
+ *      e' completo: annotation leggibili, sotto i tetti di GitHub, e tanti membri non
+ *      verdi quanti ne dichiara la riga di esito del gate (`crawler group completed
+ *      with …` / `crawler group interrupted: …`).
+ * Ritorna `null` quando la prova manca (annotation illeggibili, vuote o troncate, job
+ * rosso per un errore di gruppo senza riga di esito, conteggio che non torna): il
  * chiamante tiene aperta la issue, come ogni altro fallback di questo file.
  *
  * @param {{ slug: string, stepStatus?: string, stepConclusion?: string,
@@ -1287,16 +1328,23 @@ export function decideCrawlerMemberConclusion({
   const prefix = `${slug}: `;
   let aggregateFailures = 0;
   let aggregateWarnings = 0;
+  const nonGreenMembers = new Set();
+  const toleratedMembers = new Set();
   for (const annotation of annotations) {
     const level = annotation?.annotation_level;
     const message = annotation.message;
     const isAggregateWarning = level === 'warning' && CRAWLER_MEMBER_WARNING_ANNOTATION_RE.test(message);
+    const isAggregateFailure = level === 'failure' && CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(message);
     // Un `::error::<slug>: …` (aggregato, exit 43 dello step, …) o un warning
     // dell'aggregato (missing, exit 143) sono entrambi «non verde». Un warning libero
     // dello stesso crawler no: non deve tenere aperta per sempre una issue guarita.
     if (message.startsWith(prefix) && (level === 'failure' || isAggregateWarning)) return 'failure';
-    if (level === 'failure' && CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(message)) aggregateFailures += 1;
+    if (isAggregateFailure) aggregateFailures += 1;
     if (isAggregateWarning) aggregateWarnings += 1;
+    if (isAggregateFailure || isAggregateWarning) {
+      const member = message.slice(0, message.indexOf(': '));
+      (CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE.test(message) ? toleratedMembers : nonGreenMembers).add(member);
+    }
   }
   if (
     annotations.length >= GITHUB_ANNOTATIONS_PER_JOB_LIMIT
@@ -1305,6 +1353,13 @@ export function decideCrawlerMemberConclusion({
   ) {
     return null;
   }
+  // L'assenza di una riga per questo slug prova il verde solo se l'elenco e' COMPLETO:
+  // il gate dichiara quanti membri non sono verdi, e l'aggregato ne ha elencati
+  // esattamente tanti. Senza la dichiarazione (errore di gruppo, aggregato non concluso)
+  // o con un conteggio che non torna (annotation scartate da GitHub), la prova manca.
+  const declared = declaredNonGreenCrawlerMembers(annotations);
+  if (!declared || nonGreenMembers.size !== declared.nonGreen) return null;
+  if (declared.tolerated !== null && toleratedMembers.size !== declared.tolerated) return null;
   return 'success';
 }
 

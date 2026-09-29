@@ -6998,6 +6998,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-starlink-aereo-internet.title': 'Swiss brings Starlink fast internet on board its aircraft',
     'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss activates Starlink Internet on its first Airbus A320neo, Iseltwald, offering free, high-speed connectivity in all classes.',
     'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Swiss Airbus A320neo airplane with Starlink connection',
+    'blog.article.avvio-impresa-soletta-adempimenti.title': 'Starting a business in Solothurn: registration and costs',
+    'blog.article.avvio-impresa-soletta-adempimenti.excerpt': 'In the Canton of Solothurn, legal form, registration and minimum capital intersect with three levels of taxation and AVS/AI/IPG contributions of 5.3% for the employee.',
+    'blog.article.avvio-impresa-soletta-adempimenti.imageAlt': 'Starting a business in the Swiss canton of Solothurn: commercial register and costs',
+    'blog.article.licenza-estera-soletta-prove.title': 'Foreign driver\'s license in Solothurn: conversion and examinations',
+    'blog.article.licenza-estera-soletta-prove.excerpt': 'The driving licence guide in the Canton of Solothurn covers conversion of a foreign licence, theory and practical tests, compulsory courses, and the responsible office.',
+    'blog.article.licenza-estera-soletta-prove.imageAlt': 'Foreign licence conversion and driving tests in the Canton of Solothurn',
+    'blog.article.svizzera-robotica-crescita-aziende.title': 'Switzerland: 217 robotics companies and 7 thousand jobs',
+    'blog.article.svizzera-robotica-crescita-aziende.excerpt': 'Raiffeisen analysis: 50 new companies since 2020. Zurich and Vaud key hubs, strong link with academic research and spin-offs.',
+    'blog.article.svizzera-robotica-crescita-aziende.imageAlt': 'Robotic technology in a Swiss research center',
 };
 
 export default blogMetaChEn;

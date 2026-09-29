@@ -6998,6 +6998,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swiss-starlink-aereo-internet.title': 'Swiss bringt schnelles Starlink-Internet an Bord seiner Flugzeuge',
     'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss aktiviert Starlink-Internet im ersten Airbus A320neo Iseltwald und bietet in allen Klassen kostenlose Hochgeschwindigkeitskonnektivität.',
     'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Swiss Airbus A320neo Flugzeug mit Starlink-Verbindung',
+    'blog.article.avvio-impresa-soletta-adempimenti.title': 'Ein Unternehmen in Solothurn eröffnen: Register und Kosten',
+    'blog.article.avvio-impresa-soletta-adempimenti.excerpt': 'Im Kanton Solothurn sind Rechtsform, Register und Mindestkapital mit drei Steuerstufen und AHV/IV/EO-Beiträgen von 5.3% für den Arbeitnehmer verflochten.',
+    'blog.article.avvio-impresa-soletta-adempimenti.imageAlt': 'Unternehmensgründung im Kanton Solothurn: Handelsregister und Kosten',
+    'blog.article.licenza-estera-soletta-prove.title': 'Ausländischer Führerausweis in Solothurn: Umtausch und Prüfungen',
+    'blog.article.licenza-estera-soletta-prove.excerpt': 'Der Führerscheinleitfaden im Kanton Solothurn behandelt die Umwandlung des ausländischen Führerscheins, die theoretische und praktische Prüfung, obligatorische Kurse und die zuständige Behörde.',
+    'blog.article.licenza-estera-soletta-prove.imageAlt': 'Umschreibung des ausländischen Führerausweises und Fahrprüfungen im Kanton Solothurn',
+    'blog.article.svizzera-robotica-crescita-aziende.title': 'Schweiz: 217 Roboterfirmen und 7 \'000 Arbeitsplätze',
+    'blog.article.svizzera-robotica-crescita-aziende.excerpt': 'Raiffeisen-Analyse: 50 neue Unternehmen seit 2020. Zürich und Waadt Schlüsselpole, starke Verbindung zur akademischen Forschung und Spin-offs.',
+    'blog.article.svizzera-robotica-crescita-aziende.imageAlt': 'Robotertechnologie in einem Schweizer Forschungszentrum',
 };
 
 export default blogMetaChDe;

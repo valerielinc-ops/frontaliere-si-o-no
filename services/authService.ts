@@ -12,7 +12,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
-import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from './newsletterAutologinSignal';
 import { resilientImport } from '@/services/resilientImport';
 import {
  hasFirebaseAuthPersistence,

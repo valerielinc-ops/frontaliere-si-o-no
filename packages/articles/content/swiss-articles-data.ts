@@ -21022,6 +21022,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avvio-impresa-soletta-adempimenti',
+    category: 'pratico',
+    date: '2026-09-29T05:26:33.332Z',
+    image: '/images/blog/avvio-impresa-soletta-adempimenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'licenza-estera-soletta-prove',
+    category: 'pratico',
+    date: '2026-09-29T05:42:57.002Z',
+    image: '/images/blog/licenza-estera-soletta-prove.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svizzera-robotica-crescita-aziende',
+    category: 'novita',
+    date: '2026-09-29T06:29:40.694Z',
+    image: '/images/blog/svizzera-robotica-crescita-aziende.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
