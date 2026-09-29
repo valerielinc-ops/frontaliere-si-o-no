@@ -7076,6 +7076,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Cassa malati 2027: fino a 10\'000 franchi di differenza',
     'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Nel 2027 la media nazionale sarà 16\'450 franchi, ma tra Ginevra e Zugo la differenza per la stessa famiglia sfiora i 10\'000 franchi.',
     'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famiglia svizzera che esamina la fattura dell\'assicurazione malattia in Ticino',
+    'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: freno legislativo ai premi al 3%',
+    'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'L\'USS chiede al Consiglio degli Stati un limite del 3% ai premi LAMal. In Ticino l\'aumento previsto per il 2027 è del 3,7%.',
+    'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Berna, sede del Parlamento svizzero, con in primo piano una calcolatrice e una tessera assicurativa.',
 };
 
 export default blogMetaChIt;

@@ -21256,6 +21256,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'uss-freno-premi-cassa-malati-3',
+    category: 'novita',
+    date: '2026-09-29T17:51:01.145Z',
+    image: '/images/blog/uss-freno-premi-cassa-malati-3.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
