@@ -7052,6 +7052,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-licenza-estera-esami.title': 'Driving licence in the Canton of Solothurn: conversion and exams',
     'blog.article.soletta-licenza-estera-esami.excerpt': 'Conversion of a foreign driver\'s license, theory and practical exams, mandatory courses, and the competent road traffic office in Solothurn.',
     'blog.article.soletta-licenza-estera-esami.imageAlt': 'Driving licence application in a Swiss canton',
+    'blog.article.accessibilita-mezzi-pubblici-uft.title': 'Public transport accessibility: the Federal Office of Transport\'s update',
+    'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Status of work on railway stations and bus stops in Switzerland updated according to the Federal Office of Transport.',
+    'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Swiss railway station with accessibility features for reduced mobility passengers',
 };
 
 export default blogMetaChEn;

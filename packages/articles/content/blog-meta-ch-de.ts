@@ -7052,6 +7052,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soletta-licenza-estera-esami.title': 'Führerausweis im Kanton Solothurn: Umtausch und Prüfungen',
     'blog.article.soletta-licenza-estera-esami.excerpt': 'Umtausch des ausländischen Führerausweises, theoretische und praktische Prüfungen, obligatorische Kurse und zuständiges Strassenverkehrsamt in Solothurn.',
     'blog.article.soletta-licenza-estera-esami.imageAlt': 'Führerscheinverfahren in einem Schweizer Kanton',
+    'blog.article.accessibilita-mezzi-pubblici-uft.title': 'ÖV-Barrierefreiheit: Die Sicht des UFT',
+    'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Der Stand der Arbeiten an den Bahnhöfen und Bushaltestellen in der Schweiz wurde gemäß dem Bundesamt für Verkehr aktualisiert.',
+    'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Schweizer Bahnhof mit Barrierefreiheit für Reisende mit eingeschränkter Mobilität',
 };
 
 export default blogMetaChDe;
