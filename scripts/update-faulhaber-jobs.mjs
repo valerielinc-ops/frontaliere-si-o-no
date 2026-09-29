@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
 import {
   fetchAllFaulhaberJobs,
   isFaulhaberJob,
@@ -23,7 +24,9 @@ runStandardCrawlerPipeline({
   companyKey: FAULHABER_KEY,
   companyLabel: FAULHABER_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllFaulhaberJobs,
+  // The parser now reads the language from the body (issue 5253); jobs whose
+  // stored sourceLang changed get their stale non-source slots retranslated.
+  fetchJobs: withSourceLangRelabelFlags(fetchAllFaulhaberJobs, FAULHABER_KEY),
   isCompanyJob: isFaulhaberJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
