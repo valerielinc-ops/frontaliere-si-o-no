@@ -9,7 +9,7 @@
         "en": "p-c-solution-architect-all-guidewire-centers-zurich-solutions-m-f-d-zurich-insurance-sede",
         "it": "p-c-solution-architect-all-guidewire-centers-zurich-solutions-m-f-d-zurich-insurance-sede",
         "de": "p-c-solution-architect-all-guidewire-centers-zurich-solutions-m-f-d-zurich-insurance-sede",
-        "fr": "p-c-solution-architect-all-guidewire-centers-zurich-solutions-m-f-d-zurich-insurance-zurich-1373274457"
+        "fr": "p-c-solution-architect-tous-les-centres-de-guidage-et-solutions-de-zurich-h-f-d-zurich-insurance-zurich-1373274457"
       },
       "slugDisambiguator": "1373274457",
       "company": "Zurich Insurance",
@@ -69,7 +69,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:25:40.866Z"
+      "firstSeenAt": "2026-09-28T21:25:40.866Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "p-c-solution-architect-all-guidewire-centers-zurich-solutions-m-f-d-zurich-insurance-zurich-1373274457"
+        ]
+      },
+      "previousSlugs": [
+        "p-c-solution-architect-all-guidewire-centers-zurich-solutions-m-f-d-zurich-insurance-zurich-1373274457"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1373333357",
@@ -146,7 +154,7 @@
       "slugByLocale": {
         "en": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich",
         "it": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich",
-        "de": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich",
+        "de": "ceded-ruckversicherungsmanager-100-zurich-insurance-zurich-1373356957",
         "fr": "ceded-reinsurance-manager-100-zurich-insurance-sede-ticino-zurich"
       },
       "slugDisambiguator": "1373356957",
@@ -215,8 +223,8 @@
       "slugByLocale": {
         "de": "fachspezialist-einzelleben-de-it-oder-fr-m-w-d-zurich-insurance-sede-ticino-zurich",
         "it": "fachspezialist-einzelleben-de-it-o-fr-m-w-d-zurich-insurance-zurich",
-        "en": "fachspezialist-einzelleben-de-it-oder-fr-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "fachspezialist-einzelleben-de-it-oder-fr-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "en": "specialist-individual-lives-de-it-or-fr-m-f-d-zurich-insurance-zurich-1373295057",
+        "fr": "vies-individuelles-de-specialistes-de-it-ou-fr-h-f-d-zurich-insurance-zurich-1373295057"
       },
       "slugDisambiguator": "1373295057",
       "company": "Zurich Insurance",
@@ -266,6 +274,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-einzelleben-de-it-oder-fr-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "en": [
+          "fachspezialist-einzelleben-de-it-oder-fr-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "fachspezialist-einzelleben-de-it-oder-fr-m-w-d-zurich-insurance-sede-ticino-zurich"
         ]
       },
       "previousSlugs": [
@@ -293,7 +307,7 @@
         "fr": "expert-en-vehicules-st-maurice-valais-h-f-d-zurich-insurance-sede-ticino-sion",
         "it": "expert-en-vehicules-st-maurice-valais-h-f-d-zurich-insurance-sede-ticino-sion",
         "en": "expert-en-vehicules-st-maurice-valais-h-f-d-zurich-insurance-sede-ticino-sion",
-        "de": "expert-en-vehicules-st-maurice-valais-h-f-d-zurich-insurance-sede-ticino-sion"
+        "de": "fahrzeugexperte-st-maurice-wallis-m-w-d-zurich-insurance-sion-1373342557"
       },
       "slugDisambiguator": "1373342557",
       "company": "Zurich Insurance",
