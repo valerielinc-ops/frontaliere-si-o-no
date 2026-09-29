@@ -84,7 +84,7 @@ async function fetchDetailContent(url) {
       .replace(/<header[\s\S]*?<\/header>/gi, '')
       .replace(/<footer[\s\S]*?<\/footer>/gi, '');
     const parts = [];
-    const proseRx = /<(p|li|h[2-6])[^>]*>([\s\S]*?)<\/\1>/g;
+    const proseRx = /<(p|li|h[2-6])\b[^>]*>([\s\S]*?)<\/\1>/g;
     let pm;
     while ((pm = proseRx.exec(stripped))) {
       const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
@@ -92,7 +92,7 @@ async function fetchDetailContent(url) {
       if (/cookie|privacy|impressum|datenschutz/i.test(text.slice(0, 40))) continue;
       parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
     }
-    return parts.slice(0, 30).join('\n');
+    return parts.join('\n');
   } catch {
     return '';
   }

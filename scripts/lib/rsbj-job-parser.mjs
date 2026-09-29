@@ -153,6 +153,22 @@ function detectExperienceLevel(title = '') {
   return 'mid';
 }
 
+/** Inner HTML of the page's `div.fullDisplay` offer block, balanced on div. */
+function offerBlock(html) {
+  const open = /<div\b[^>]*class="[^"]*\bfullDisplay\b[^"]*"[^>]*>/i.exec(html);
+  if (!open) return '';
+  const start = open.index + open[0].length;
+  const tagRx = /<(\/?)div\b[^>]*>/gi;
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let m;
+  while ((m = tagRx.exec(html))) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, m.index);
+  }
+  return html.slice(start);
+}
+
 async function fetchDetailContent(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
@@ -163,17 +179,21 @@ async function fetchDetailContent(detailUrl) {
       .replace(/<nav[\s\S]*?<\/nav>/gi, '')
       .replace(/<header[\s\S]*?<\/header>/gi, '')
       .replace(/<footer[\s\S]*?<\/footer>/gi, '');
+    // The ad is the `fullDisplay OffreEmploi` block; reading the whole page
+    // needed a fragment cap to stay clear of the footer (newsletter, legal
+    // links, language switch) and the cap cut long ads (issue 5253).
+    const scope = offerBlock(main) || main;
     const parts = [];
-    const proseRx = /<(p|li|h[1-6])[^>]*>([\s\S]*?)<\/\1>/g;
+    const proseRx = /<(p|li|h[1-6])\b[^>]*>([\s\S]*?)<\/\1>/g;
     let pm;
-    while ((pm = proseRx.exec(main))) {
+    while ((pm = proseRx.exec(scope))) {
       const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
       if (!text || text.length < 8) continue;
       if (/cookie|privacy|impressum|réseaux sociaux/i.test(text.slice(0, 40))) continue;
       if (text.startsWith('.')) continue;
       parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
     }
-    return parts.slice(0, 25).join('\n');
+    return parts.join('\n');
   } catch {
     return '';
   }
