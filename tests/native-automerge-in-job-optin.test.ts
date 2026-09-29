@@ -362,7 +362,7 @@ describe('body edits revoke native auto-merge before a fresh review', () => {
     expect(parsed.on?.pull_request_target).toEqual({ types: ['edited'] });
     expect(parsed.permissions?.['pull-requests']).toBe('write');
     expect(parsed.jobs?.recover?.if).toContain('changes.body');
-    const script = parsed.jobs?.recover?.steps?.find((step) => step.uses === 'actions/github-script@v8')?.with?.script as string;
+    const script = parsed.jobs?.recover?.steps?.find((step) => step.uses === 'actions/github-script@v9')?.with?.script as string;
     expect(script).toContain('disablePullRequestAutoMerge');
     expect(script).toContain('revokeNativeAutoMerge');
     expect(script).toContain('github.graphql');

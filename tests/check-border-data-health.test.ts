@@ -532,7 +532,7 @@ describe('border-live-data-watchdog.yml — state carry outside git (issue #7376
   });
 
   it('saves the state on EVERY run, whatever the push did', () => {
-    expect(YML).toMatch(/actions\/cache\/save@v5/);
+    expect(YML).toMatch(/actions\/cache\/save@v6/);
     // `always()`: a soft-failed push (or a degraded health verdict) must not
     // skip the save — that copy is the whole point of the carry.
     expect(YML).toMatch(/if: always\(\) && hashFiles\('data\/webcam-status\.json'\) != ''/);
