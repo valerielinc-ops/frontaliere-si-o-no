@@ -105,6 +105,75 @@ const TARGETS = [
   { dir: ['images', 'events'], url: '/images/events/' },
 ];
 
+/**
+ * Return the offset immediately after the first complete `<meta>` start tag
+ * in `headContent` that declares `charset`. A small scanner is used instead of
+ * a single regex so attribute order is irrelevant and `>` inside a quoted
+ * attribute value cannot be mistaken for the end of the tag.
+ */
+function findCharsetMetaEnd(headContent) {
+  const lower = headContent.toLowerCase();
+  let searchFrom = 0;
+
+  while (searchFrom < headContent.length) {
+    const start = lower.indexOf('<meta', searchFrom);
+    if (start < 0) return -1;
+    const afterName = lower[start + 5] ?? '';
+    if (afterName && !/[\s/>]/.test(afterName)) {
+      searchFrom = start + 5;
+      continue;
+    }
+
+    let quote = '';
+    let end = -1;
+    for (let i = start + 5; i < headContent.length; i++) {
+      const char = headContent[i];
+      if (quote) {
+        if (char === quote) quote = '';
+      } else if (char === '"' || char === "'") {
+        quote = char;
+      } else if (char === '>') {
+        end = i;
+        break;
+      }
+    }
+    if (end < 0) return -1;
+
+    let i = start + 5;
+    while (i < end) {
+      while (i < end && /[\s/]/.test(headContent[i])) i++;
+      if (i >= end) break;
+
+      const nameStart = i;
+      while (i < end && !/[\s=/>]/.test(headContent[i])) i++;
+      const name = headContent.slice(nameStart, i).toLowerCase();
+      while (i < end && /\s/.test(headContent[i])) i++;
+      if (headContent[i] !== '=') continue;
+      i++;
+      while (i < end && /\s/.test(headContent[i])) i++;
+
+      let value = '';
+      const valueStart = i;
+      const valueQuote = headContent[i];
+      if (valueQuote === '"' || valueQuote === "'") {
+        i++;
+        const contentStart = i;
+        while (i < end && headContent[i] !== valueQuote) i++;
+        value = headContent.slice(contentStart, i);
+        if (i < end) i++;
+      } else {
+        while (i < end && !/\s/.test(headContent[i])) i++;
+        value = headContent.slice(valueStart, i);
+      }
+      if (name === 'charset' && value.length > 0) return end + 1;
+    }
+
+    searchFrom = end + 1;
+  }
+
+  return -1;
+}
+
 function log(msg) {
   console.log(`[offload-generated-cdn] ${msg}`);
 }
@@ -395,12 +464,12 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
           const headContent = headCloseAt >= 0
             ? headRemainder.slice(0, headCloseAt)
             : headRemainder;
-          const charset = headContent.match(/<meta\s+charset\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+)(?:\s+[^>]*?)?\s*\/?\s*>/i);
+          const charsetEnd = findCharsetMetaEnd(headContent);
           // HTML requires the encoding declaration near the start of <head>.
           // Keep the deploy-time hints after it; fall back to the old insertion
           // point for unusual documents that do not declare a charset.
-          const at = charset
-            ? headEnd + charset.index + charset[0].length
+          const at = charsetEnd >= 0
+            ? headEnd + charsetEnd
             : headEnd;
           // The hint comment above assumes the data CDN is a DISTINCT host
           // from the asset CDN; when config points both at the same origin the
