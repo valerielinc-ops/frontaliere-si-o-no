@@ -144,7 +144,6 @@
         "rotation-des-medecins-de-famille-a-station-kantonsspital-baselland-ksbl-liestal",
         "assistant-de-poste-en-medecine-interne-a-kantonsspital-baselland-ksbl-liestal",
         "stationsassistentin-stationsassistent-innere-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict"
       ],
       "previousSlugsByLocale": {
@@ -161,7 +160,6 @@
           "rotation-des-medecins-de-famille-a-station-kantonsspital-baselland-ksbl-liestal",
           "assistant-de-poste-en-medecine-interne-a-kantonsspital-baselland-ksbl-liestal",
           "stationsassistentin-stationsassistent-innere-medizin-a-kantonsspital-baselland-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict"
         ],
         "en": [
@@ -2770,7 +2768,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -2819,8 +2817,7 @@
         "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2830,8 +2827,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "fr": [
           "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
@@ -4077,8 +4073,7 @@
         "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal",
         "dipl-physiotherapist-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-physiotherapeute-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-terapia-a-mano-a-kantonsspital-baselland-ksbl-liestal"
+        "dipl-physiotherapeute-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4095,8 +4090,7 @@
           "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal",
           "dipl-physiotherapist-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-physiotherapeute-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-terapia-a-mano-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-physiotherapeute-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
           "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal",
@@ -5828,10 +5822,10 @@
     },
     {
       "id": "ksbl-2f8df91a6bb4",
-      "slug": "fage-a-ksbl-liestal",
+      "slug": "centro-fage-belly-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "fage-a-ksbl-liestal",
-        "en": "fage-a-ksbl-liestal",
+        "it": "centro-fage-belly-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "fage-centre-belly-a-kantonsspital-baselland-ksbl-liestal",
         "de": "fage-zentrum-bauch-ksbl-liestal",
         "fr": "fage-a-ksbl-liestal"
       },
@@ -5876,14 +5870,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fage-zentrum-bauch-a-ksbl-liestal"
+        "fage-zentrum-bauch-a-ksbl-liestal",
+        "fage-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fage-zentrum-bauch-a-ksbl-liestal"
+          "fage-zentrum-bauch-a-ksbl-liestal",
+          "fage-a-ksbl-liestal"
         ],
         "de": [
           "fage-zentrum-bauch-a-ksbl-liestal"
+        ],
+        "en": [
+          "fage-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:55.565Z",
@@ -6241,10 +6240,10 @@
     },
     {
       "id": "ksbl-ceaa9727b08f",
-      "slug": "stv-station-manager-station-manager-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "direttore-della-stazione-capostazione-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "stv-station-manager-station-manager-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "stv-station-manager-station-manager-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "direttore-della-stazione-capostazione-kantonsspital-baselland-ksbl-liestal",
+        "en": "station-manager-station-manager-women-s-clinic-urology-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-directeur-de-station-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal"
       },
@@ -6289,14 +6288,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal"
+        "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal",
+        "stv-station-manager-station-manager-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal"
+          "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal",
+          "stv-station-manager-station-manager-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal"
+          "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal",
+          "stv-station-manager-station-manager-frauenklinik-urologie-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
           "stv-stationsleiterin-stationsleiter-frauenklinik-urologie-a-ksbl-liestal"

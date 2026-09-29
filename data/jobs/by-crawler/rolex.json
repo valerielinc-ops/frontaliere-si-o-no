@@ -1628,9 +1628,9 @@
     },
     {
       "id": "rolex-60f6f5bc0d70",
-      "slug": "decoller-h-f-rolex-bienne",
+      "slug": "decollatore-m-f-rolex-bienne",
       "slugByLocale": {
-        "it": "decoller-h-f-rolex-bienne",
+        "it": "decollatore-m-f-rolex-bienne",
         "en": "decoller-h-f-rolex-bienne",
         "de": "abscheider-h-f-rolex-bienne-e33cb0",
         "fr": "decolleteur-h-f-rolex-ch"
@@ -1675,11 +1675,13 @@
       "previousSlugs": [
         "decolleteur-h-f-rolex-ch",
         "decolleteur-m-w-d-rolex-bienne",
-        "m-w-d-decoller-rolex-bienne"
+        "m-w-d-decoller-rolex-bienne",
+        "decoller-h-f-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "decolleteur-h-f-rolex-ch"
+          "decolleteur-h-f-rolex-ch",
+          "decoller-h-f-rolex-bienne"
         ],
         "de": [
           "decolleteur-m-w-d-rolex-bienne",
@@ -11251,11 +11253,11 @@
     },
     {
       "id": "rolex-ae084dfef528",
-      "slug": "information-technology-learning-ne-cfc-rolex-bienne",
+      "slug": "swc-it-apprendimento-rolex-bienne",
       "slugByLocale": {
-        "it": "information-technology-learning-ne-cfc-rolex-bienne",
-        "en": "information-technology-learning-ne-cfc-rolex-bienne",
-        "de": "information-technology-learning-ne-cfc-rolex-bienne",
+        "it": "swc-it-apprendimento-rolex-bienne",
+        "en": "swc-it-learning-rolex-bienne",
+        "de": "swc-it-lernen-rolex-bienne",
         "fr": "apprentissage-d-informaticien-ne-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -11296,11 +11298,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-d-informaticien-ne-cfc-rolex-ch"
+        "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+        "information-technology-learning-ne-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-d-informaticien-ne-cfc-rolex-ch"
+          "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+          "information-technology-learning-ne-cfc-rolex-bienne"
+        ],
+        "en": [
+          "information-technology-learning-ne-cfc-rolex-bienne"
+        ],
+        "de": [
+          "information-technology-learning-ne-cfc-rolex-bienne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:15.260Z",

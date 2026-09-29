@@ -53,6 +53,7 @@ import {
   CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
 } from './lib/citta-di-lugano-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   buildPdfBackedDescription,
@@ -261,7 +262,20 @@ async function main() {
 
   const discoveredJobs = await fetchJobs();
   let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
-  if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
+  if (discoveredJobs.length === 0) {
+    console.log('ℹ️  No job listings found — skipping crawl.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: COMPANY_NAME,
+      write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+      assemble: () => assembleJobsDataset(),
+    });
+    return;
+  }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
   const mergeResult = mergeJobs(discoveredJobs);

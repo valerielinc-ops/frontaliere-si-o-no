@@ -347,7 +347,7 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('still builds a job when the detail-page fetch fails (falls back to the listing tile)', async () => {
+    it('does not publish a title-only job when the detail-page fetch fails (issue 5253)', async () => {
       const tile = jobalinoTile({
         id: 'f0f0f0f0f0f0', slug: 'produktionsmitarbeiter',
         title: 'Produktionsmitarbeiter/in 100%', workload: '100%', jobtype: 'Festanstellung',
@@ -359,12 +359,11 @@ describe('Kuhn Rikon crawler parser', () => {
       });
       vi.stubGlobal('fetch', fetchMock);
 
+      // The tile title plus an invented Italian company paragraph used to be
+      // published here; the pipeline now keeps the stored record instead,
+      // with the body an earlier run read from the source.
       const jobs = await fetchAllKuhnRikonJobs();
-      expect(jobs).toHaveLength(1);
-      expect(jobs[0].title).toBe('Produktionsmitarbeiter/in 100%');
-      expect(jobs[0].streetAddress).toBe('Neschwilerstrasse 4');
-      expect(jobs[0].postalCode).toBe('8486');
-      expect(jobs[0].employmentType).toBe('FULL_TIME');
+      expect(jobs).toHaveLength(0);
     });
 
     it('deduplicates tiles sharing the same Jobalino id', async () => {
@@ -454,7 +453,7 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(zhJob?.postalCode).toBe('');
     });
 
-    it('enriches thin (<50 word) descriptions instead of leaving them indexable as-is', async () => {
+    it('leaves a thin (<50 word) source body out instead of padding it with invented company text (issue 5253)', async () => {
       const thinJsonLd = jobPostingJsonLd({ description: '<div>Kurze Stelle.</div>' });
       const tile = jobalinoTile({
         id: 'beef00000001', slug: 'kurze-stelle', title: thinJsonLd.title as string, city: 'Landquart',
@@ -467,9 +466,10 @@ describe('Kuhn Rikon crawler parser', () => {
       vi.stubGlobal('fetch', fetchMock);
 
       const jobs = await fetchAllKuhnRikonJobs();
-      expect(jobs).toHaveLength(1);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
+      // Not published this run: the standard pipeline keeps the stored record
+      // (with the body an earlier run read from the source) under its grace
+      // policy, and a new job without a real body never reaches the site.
+      expect(jobs).toHaveLength(0);
     });
 
     it('never leaks recruiter email/phone PII through the parsed description', async () => {

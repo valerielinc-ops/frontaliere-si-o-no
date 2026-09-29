@@ -30,6 +30,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
@@ -435,7 +436,10 @@ export async function fetchAllSpitalDavosJobs() {
     const location = 'Davos';
     const canton = 'GR';
 
-    const fallbackDesc = `${title} — Spital Davos, Davos`;
+    // Only the posting's own text (issue 5253): no "<title> — Spital Davos, <place>"
+    // line in place of a missing body. A body under the common 50-word floor
+    // gives no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} spital-davos ch`);
@@ -458,8 +462,8 @@ export async function fetchAllSpitalDavosJobs() {
       companyDomain: SPITAL_DAVOS_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       location,
       canton,
       url: listing.detailUrl,

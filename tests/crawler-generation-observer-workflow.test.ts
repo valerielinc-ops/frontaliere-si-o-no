@@ -85,6 +85,9 @@ describe('portable crawler generation observer workflow', () => {
 
   it('sparse-checkout contains the complete observer import closure plus the generated roster', () => {
     const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
+    const observerImportClosure = collectRelativeImportClosure(ROOT, 'scripts/crawler-generation-observer.mjs');
+    expect(observerImportClosure).toContain('scripts/lib/crawler-slice-integrity.mjs');
+    const requiredPaths = [...observerImportClosure, 'scripts/ci/crawler-generation-roster.json'].sort();
     for (const job of [doc.jobs.sentinel, doc.jobs.observe_event, doc.jobs.reconcile_scheduled]) {
       const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v7');
       const sparsePaths = checkout.with['sparse-checkout']
@@ -92,10 +95,7 @@ describe('portable crawler generation observer workflow', () => {
         .map((value: string) => value.trim().replace(/^\//, ''))
         .filter(Boolean)
         .sort();
-      expect(sparsePaths).toEqual([
-        ...collectRelativeImportClosure(ROOT, 'scripts/crawler-generation-observer.mjs'),
-        'scripts/ci/crawler-generation-roster.json',
-      ].sort());
+      expect(sparsePaths).toEqual(requiredPaths);
     }
   });
 });

@@ -9232,12 +9232,12 @@
     },
     {
       "id": "equans-17df274f35fd",
-      "slug": "mandatsleiter-in-facility-management-equans-chur",
+      "slug": "responsabile-mandati-facility-management-equans-switzerland-chur",
       "slugByLocale": {
-        "it": "mandatsleiter-in-facility-management-equans-chur",
+        "it": "responsabile-mandati-facility-management-equans-switzerland-chur",
         "en": "head-of-facility-management-equans-switzerland-chur",
         "de": "mandatsleiter-in-facility-management-equans-chur",
-        "fr": "mandatsleiter-in-facility-management-equans-chur"
+        "fr": "responsable-de-mandats-en-gestion-des-installations-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9292,16 +9292,27 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mandatsleiter-in-facility-management-equans-chur"
+        ],
+        "fr": [
+          "mandatsleiter-in-facility-management-equans-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mandatsleiter-in-facility-management-equans-chur"
+      ]
     },
     {
       "id": "equans-845767bbac50",
       "slug": "teamleiter-in-facility-management-equans-chur",
       "slugByLocale": {
         "it": "teamleiter-in-facility-management-equans-chur",
-        "en": "teamleiter-in-facility-management-equans-chur",
+        "en": "facility-management-team-lead-equans-switzerland-chur",
         "de": "teamleiter-in-facility-management-equans-chur",
-        "fr": "teamleiter-in-facility-management-equans-chur"
+        "fr": "responsable-d-equipe-facility-management-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9424,12 +9435,12 @@
     },
     {
       "id": "equans-eb0734ea800b",
-      "slug": "allrounder-in-equans-chur",
+      "slug": "tuttofare-equans-switzerland-chur",
       "slugByLocale": {
-        "it": "allrounder-in-equans-chur",
-        "en": "allrounder-in-equans-chur",
+        "it": "tuttofare-equans-switzerland-chur",
+        "en": "all-rounder-equans-switzerland-chur",
         "de": "allrounder-in-equans-chur",
-        "fr": "allrounder-in-equans-chur"
+        "fr": "employe-polyvalent-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9484,7 +9495,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-equans-chur"
+        ],
+        "en": [
+          "allrounder-in-equans-chur"
+        ],
+        "fr": [
+          "allrounder-in-equans-chur"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-equans-chur"
+      ]
     },
     {
       "id": "equans-c65e9ac20753",
@@ -9569,9 +9594,9 @@
       "slug": "servicetechniker-in-heizung-luftung-klima-equans-switzerland-bern",
       "slugByLocale": {
         "it": "servicetechniker-in-heizung-luftung-klima-equans-switzerland-bern",
-        "en": "servicetechniker-in-heizung-luftung-klima-equans-bern",
+        "en": "service-technician-heating-ventilation-air-conditioning-equans-switzerland-bern",
         "de": "servicetechniker-in-heizung-luftung-klima-equans-bern",
-        "fr": "servicetechniker-in-heizung-luftung-klima-equans-bern"
+        "fr": "technicien-de-service-chauffage-ventilation-climatisation-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9618,6 +9643,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-heizung-luftung-klima-equans-bern"
+        ],
+        "en": [
+          "servicetechniker-in-heizung-luftung-klima-equans-bern"
+        ],
+        "fr": [
           "servicetechniker-in-heizung-luftung-klima-equans-bern"
         ]
       },
@@ -10437,8 +10468,8 @@
       "slugByLocale": {
         "de": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern",
         "it": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern",
-        "en": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern",
-        "fr": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
+        "en": "service-technician-refrigeration-refrigeration-system-fitter-equans-switzerland-luzern",
+        "fr": "technicien-de-service-en-froid-monteur-de-systemes-de-froid-equans-switzerland-luzern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10500,10 +10531,12 @@
           "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern-b1aa1e"
         ],
         "en": [
-          "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-luzern"
+          "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-luzern",
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
         ],
         "fr": [
-          "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-luzern"
+          "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-luzern",
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
         ]
       },
       "previousSlugs": [

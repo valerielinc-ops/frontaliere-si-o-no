@@ -314,7 +314,7 @@ describe('Sprüngli crawler parser', () => {
       expect(geJob?.postalCode).not.toBe('8001');
     });
 
-    it('enriches thin (<50 word) descriptions instead of leaving them indexable as-is', async () => {
+    it('leaves a thin (<50 word) source body out instead of padding it with invented company text (issue 5253)', async () => {
       const thinJsonLd = jobPostingJsonLd({ description: '<div>Kurze Stelle.</div>' });
       const rows = [listingRow('1300', '1', thinJsonLd.title as string, 'Verkauf', 'Zürich', '100%')];
       const fetchMock = vi.fn(async (url: string) => {
@@ -325,9 +325,10 @@ describe('Sprüngli crawler parser', () => {
       vi.stubGlobal('fetch', fetchMock);
 
       const jobs = await fetchAllSpruengliJobs();
-      expect(jobs).toHaveLength(1);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
+      // Not published this run: the standard pipeline keeps the stored record
+      // (with the body an earlier run read from the source) under its grace
+      // policy, and a new job without a real body never reaches the site.
+      expect(jobs).toHaveLength(0);
     });
 
     it('includes every structured-data field required by Non-Negotiable #3', async () => {

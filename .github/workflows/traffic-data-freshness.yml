@@ -64,7 +64,7 @@ jobs:
           fi
 
           # ISSUE-PAGEABLE window: only ≥11:00 UTC (08:00 before #4229) is a stale
-          # reading GUARANTEED to be a real freeze. Before that the morning ramp (*/30 4-7)
+          # reading GUARANTEED to be a real freeze. Before that the morning ramp (hourly 5-7)
           # may not have LANDED yet (GitHub delivers crons 10-60+ min late), so a
           # stale snapshot is expected lag — NOT a bug. In that window we self-heal
           # silently and never open an issue (the cause of the #2617 false page:
@@ -119,12 +119,12 @@ jobs:
 
           # Threshold follows the collection calendar (issue #9658):
           # dispatchTrafficCollection only triggers traffic-scheduler.yml on the
-          # slots of functions/src/lib/trafficCollectionCalendar.js (every 30min
-          # at weekday peaks, 11:00 midday, 4h on weekends), so a flat threshold
-          # paged on every weekday 07:30→11:00 / 11:00→14:00 / evening gap.
+          # slots of functions/src/lib/trafficCollectionCalendar.js (hourly at
+          # weekday peaks, 11:00 midday, 4h on weekends), so a flat threshold
+          # paged on every weekday 07:00→11:00 / 11:00→14:00 / evening gap.
           # staleThresholdMinutesFor() in scripts/check-border-data-health.mjs =
-          # minutes since the latest slot that must have landed + tolerance for
-          # one missed peak run.
+          # minutes since the latest slot that must have landed + landing grace
+          # and observation tolerance.
           THRESHOLD_MIN=$(node -e "
             import('./scripts/check-border-data-health.mjs').then((m) => {
               const now = Date.now();

@@ -166,6 +166,8 @@ jobs:
           # Pages artifact wraps a single artifact.tar — extract into dist/.
           rm -rf dist && mkdir -p dist
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+          # Release the source archive before any shard rehydration.
+          rm -f /tmp/github-pages-artifact/artifact.tar
           echo "trunk artifact restored: $(find dist -type f | wc -l) files"
 
       # NO shard clone cache restore here — REMOVED, issue #5441. It read the

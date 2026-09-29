@@ -183,6 +183,53 @@ describe('Zermatt Bergbahnen crawler parser', () => {
       expect(jobs[0].title).toBe('Informatiker/in');
     });
 
+    it('files the German detail body under de even when the title reads as English (issue 5253)', async () => {
+      const englishCard = LISTING_CARD.replace(/>Informatiker\/in</, '>Customer Service Agent for the Valley Station<');
+      const germanBody = 'Du empfängst unsere Gäste an der Talstation, berätst sie zu Tickets und Pisten und sorgst für einen reibungslosen Ablauf im Kundendienst. '
+        + 'Wir bieten dir ein engagiertes Team, ein Saisonabonnement und vergünstigte Mahlzeiten in unseren Restaurants.';
+      fetchHtml
+        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${englishCard}</ul>`, success: true }))
+        .mockResolvedValueOnce(`<div class="wysiwyg-usp-area"><p>${germanBody}</p></div>`);
+
+      const [job] = await fetchAllZermattBergbahnenJobs();
+
+      expect(job.title).toBe('Customer Service Agent for the Valley Station');
+      expect(job.sourceLang).toBe('de');
+      expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
+    });
+
+    it('reads only the text sections: no breadcrumbs, no apply button, no application form (issue 5253)', async () => {
+      // Minimized from the live page of job 3001261 (2026-09-29): the old
+      // parser took the whole outer `.content-block`, category and breadcrumbs
+      // included, down to the online application form.
+      const detail = `
+        <div class="content-block js-content-visibility">
+          <div class="hero">Technik Mitarbeitende/r Unterhalt &amp; Revision Gletscherlifte</div>
+          <nav class="breadcrumbs">breadcrumbs.home Über uns Jobs und Karriere</nav>
+          <div class="wysiwyg-usp-area content-block container">
+            <p>Die Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt. Als moderner Arbeitgeber sind wir in Zermatt und im gesamten Mattertal stark verankert.</p>
+            <a class="btn btn-secondary" href="#application-form">Jetzt bewerben</a>
+          </div>
+          <div class="wysiwyg-with-medium content-block container">
+            <h3>Dein Job</h3><ul><li>Revisions- und Instandhaltungsarbeiten an den Gletscherliften</li><li>Störungsanalyse an mechanischen und hydraulischen Systemen</li></ul>
+          </div>
+          <div class="slide bg-white-dark content-block" id="application-form">
+            <form><label>Vorname *</label><input name="firstname"><label>Lebenslauf *</label><input type="file"> Datei hochladen</form>
+          </div>
+        </div>`;
+      fetchHtml
+        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
+        .mockResolvedValueOnce(detail);
+
+      const [job] = await fetchAllZermattBergbahnenJobs();
+
+      expect(job.description).toContain('Die Zermatt Bergbahnen AG betreibt');
+      expect(job.description).toContain('• Revisions- und Instandhaltungsarbeiten');
+      expect(job.description).not.toContain('breadcrumbs.home');
+      expect(job.description).not.toContain('Jetzt bewerben');
+      expect(job.description).not.toContain('Datei hochladen');
+    });
+
     it('returns an empty array when the tab payload has no job cards', async () => {
       fetchHtml.mockResolvedValueOnce(JSON.stringify({ html: '<ul></ul>', success: true }));
 

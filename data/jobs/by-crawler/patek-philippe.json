@@ -1020,11 +1020,11 @@
     },
     {
       "id": "patek-philippe-15f6ed9a1583",
-      "slug": "wand-h-f-patek-philippe-la-chaux-de-fonds",
+      "slug": "incastonatore-baguette-m-f-patek-philippe-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "wand-h-f-patek-philippe-la-chaux-de-fonds",
-        "en": "wand-h-f-patek-philippe-la-chaux-de-fonds",
-        "de": "wand-h-f-patek-philippe-la-chaux-de-fonds",
+        "it": "incastonatore-baguette-m-f-patek-philippe-la-chaux-de-fonds",
+        "en": "baguette-stone-setter-m-f-patek-philippe-la-chaux-de-fonds",
+        "de": "baguette-fasser-m-w-patek-philippe-la-chaux-de-fonds",
         "fr": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
       },
       "company": "Patek Philippe",
@@ -1067,11 +1067,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+        "wand-h-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+          "wand-h-f-patek-philippe-la-chaux-de-fonds"
+        ],
+        "en": [
+          "wand-h-f-patek-philippe-la-chaux-de-fonds"
+        ],
+        "de": [
+          "wand-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:08.354Z",

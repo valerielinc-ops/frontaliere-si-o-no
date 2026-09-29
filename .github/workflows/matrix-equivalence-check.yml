@@ -178,6 +178,8 @@ jobs:
           # checkout `tooling` come cwd: l'artifact va estratto lì.
           mkdir -p tooling/dist
           tar -xf "$TAR_PATH" -C tooling/dist
+          # Release the source archive before rehydrating stripped shards.
+          rm -f "$TAR_PATH"
           find tooling/dist -maxdepth 1 -type d 2>/dev/null | head -20 || true
       # With <SECTION>_SHARD_LIVE=true the deploy STRIPS that section's subtree
       # from the artifact before upload (deploy.yml → strip-section-subtree.sh),

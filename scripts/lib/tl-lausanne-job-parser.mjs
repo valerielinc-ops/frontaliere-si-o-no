@@ -41,13 +41,12 @@
  * "…tl…"-containing employer, e.g. Nestlé) can never be mis-claimed.
  *
  * Also post-processes the factory's hardcoded `sector: 'Sanità / Ospedali'`
- * default and its German-only fallback description boilerplate ("...ist
- * ein etablierter Schweizer Gesundheitsdienstleister...", only used when
- * the real job description text is too thin) — both wrong for a transit
- * operator in a French-speaking canton. Done client-side here rather than
+ * default — wrong for a transit operator. Done client-side here rather than
  * editing the shared factory (used unmodified by 9 other tenants — see
  * measured impact: MEDIUM risk, 9 direct callers — so this stays
- * behavior-identical for them).
+ * behavior-identical for them). A body too thin to publish is left empty
+ * by the factory (issue 5253); this parser writes no French text of its own
+ * in its place.
  *
  * Exports the 4 functions the crawler template expects:
  *   - fetchAllTlLausanneJobs() — Fetch and parse all jobs
@@ -143,23 +142,6 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-/* ── Localized fallback (replaces the factory's German healthcare
- *    boilerplate for the rare case where the real description is too
- *    thin) ────────────────────────────────────────────────────────── */
-
-// Exact marker string the shared factory uses for its fallback boilerplate
-// (successfactors-shared-job-parser-common.mjs) — used to detect and
-// replace it below without editing the shared file.
-const FACTORY_FALLBACK_MARKER = 'ist ein etablierter Schweizer Gesundheitsdienstleister';
-
-function localizedFallbackDescription(title = '', city = '') {
-  const where = city || HQ.city;
-  return `${title} chez ${TL_LAUSANNE_COMPANY_NAME} à ${where}.\n\n` +
-    `${TL_LAUSANNE_COMPANY_NAME} est l'entreprise de transports publics de la région lausannoise ` +
-    `(bus, trolleybus, métro m2 et trains régionaux LEB). Ce poste offre un environnement de travail ` +
-    `moderne, des conditions d'engagement attractives et de réelles perspectives de formation.`;
-}
-
 /* ── SuccessFactors RMK / Career Site Builder factory ─────────────────
  * sfCompanyId is only used by the factory's OWN isCompanyJob (not reused
  * here) and in a log line — the real internal SF tenant code isn't public,
@@ -183,9 +165,9 @@ const parser = createSuccessFactorsParser({
  * Fetch all tl (Lausanne) jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * Wraps the shared factory's fetchAllJobs() to correct two hardcoded
- * defaults that are wrong for this (non-healthcare, French-speaking)
- * tenant — see module docblock.
+ * Wraps the shared factory's fetchAllJobs() to correct the hardcoded
+ * healthcare sector (wrong for this transit operator) and fill the HQ
+ * street address — see module docblock.
  */
 export async function fetchAllTlLausanneJobs() {
   const jobs = await parser.fetchAllJobs();
@@ -198,12 +180,6 @@ export async function fetchAllTlLausanneJobs() {
     // job-page structured-data contract (baseSalary/postalCode/
     // streetAddress/... must never be omitted).
     if (!job.streetAddress) job.streetAddress = HQ.streetAddress;
-
-    if (typeof job.description === 'string' && job.description.includes(FACTORY_FALLBACK_MARKER)) {
-      const desc = localizedFallbackDescription(job.title, job.location);
-      job.description = desc;
-      job.descriptionByLocale = { ...(job.descriptionByLocale || {}), [job.sourceLang || 'fr']: desc };
-    }
   }
 
   return jobs;

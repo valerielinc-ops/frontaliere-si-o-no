@@ -9,6 +9,7 @@
  *
  * Previously used jobopportunity.ch (defunct as of early 2026).
  */
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -19,7 +20,8 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/helsinn-job-parser.mjs';
+import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractHelsinnJobBody } from './lib/helsinn-job-parser.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -66,6 +68,40 @@ async function fetchPage(url, timeoutMs = 20000) {
   finally { clearTimeout(timer); }
 }
 
+const DETAIL_DELAY_MS = 1000;
+
+/**
+ * Build one Helsinn job from its listing row and the vacancy text of its
+ * e-lavoro detail page (issue 5253). The crawler used to be listing-only and
+ * published an invented English sentence ("X position at Helsinn Healthcare
+ * SA in Lugano … a track record of over forty years.") as the whole
+ * description. Only the source text is published now; without at least 50
+ * words of it the job is not published (returns null) — the merge keeps a
+ * stored record.
+ */
+export function buildHelsinnJob(listing, body = '') {
+  const description = String(body || '').trim();
+  if (!meetsSourceBodyFloor(description)) return null;
+  const slug = slugify(listing.title, 'helsinn');
+  const sourceLang = detectLang(description, 'it');
+  return {
+    url: listing.url, applyUrl: listing.url, title: listing.title,
+    company: COMPANY_NAME, companyKey: COMPANY_KEY,
+    location: listing.location || 'Lugano', canton: HQ.canton, country: 'CH',
+    addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+    postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
+    description,
+    titleByLocale: { [sourceLang]: listing.title }, descriptionByLocale: { [sourceLang]: description },
+    slug, slugByLocale: { en: slug, it: slug },
+    category: detectCategory(listing.title),
+    datePosted: new Date().toISOString().split('T')[0],
+    source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, description),
+    sourceLang,
+    experienceLevel: detectExperienceLevel(listing.title),
+    sector: 'Farmaceutica / Biopharma',
+  };
+}
+
 async function fetchJobs() {
   console.log(`🔍 Fetching Helsinn jobs from ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL, 25000);
@@ -75,24 +111,14 @@ async function fetchJobs() {
   if (!listings.length) return [];
 
   const jobs = [];
-  for (const listing of listings) {
-    const slug = slugify(listing.title, 'helsinn');
-    jobs.push({
-      url: listing.url, applyUrl: listing.url, title: listing.title,
-      company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: listing.location || 'Lugano', canton: HQ.canton, country: 'CH',
-      addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
-      postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
-      description: `${listing.title} position at Helsinn Healthcare SA in Lugano, Ticino. Helsinn is a fully integrated biopharma company with a track record of over forty years.`,
-      titleByLocale: { en: listing.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
-      category: detectCategory(listing.title),
-      datePosted: new Date().toISOString().split('T')[0],
-      source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, listing.snippet || ''),
-      sourceLang: detectLang(listing.title, 'it'),
-      experienceLevel: detectExperienceLevel(listing.title),
-      sector: 'Farmaceutica / Biopharma',
-    });
+  for (const [index, listing] of listings.entries()) {
+    if (index > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    const job = buildHelsinnJob(listing, extractHelsinnJobBody(await fetchPage(listing.url)));
+    if (!job) {
+      console.log(`  ⏭️ ${listing.title}: no readable vacancy text on the detail page — not published this run`);
+      continue;
+    }
+    jobs.push(job);
   }
   return jobs;
 }
@@ -154,4 +180,8 @@ async function main() {
   console.log('\n✅ Helsinn crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Helsinn'));
+// Guarded so tests can import the helpers without running a live crawl that
+// writes the slice and the summary under data/.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Helsinn'));
+}

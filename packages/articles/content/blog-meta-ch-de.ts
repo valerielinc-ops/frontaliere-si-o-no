@@ -7091,6 +7091,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.centro-premi-salute-2027.title': 'Krankenkassenprämien 2027, Il Centro fordert mehr Massnahmen',
     'blog.article.centro-premi-salute-2027.excerpt': 'Im Tessin werden die Krankenkassenprämien 2027 um 3,7% steigen, gegenüber dem nationalen Wert von 5%. Il Centro fordert, die kantonalen und eidgenössischen Massnahmen zu verstärken.',
     'blog.article.centro-premi-salute-2027.imageAlt': 'Tessin: Unterlagen zu den Krankenkassenprämien für 2027',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Krankenkassenprämien, der Frust der Leser: «Jedes Jahr dieselben Worte»',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'Im Tessin gehört der Prämienanstieg für 2027 zu den geringsten, doch die Durchschnittsprämie liegt über 500 Franken. Der kumulierte Anstieg über vier Jahre würde 40% übersteigen.',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Person im Tessin prüft Krankenkassenrechnungen mit Blick auf Lugano.',
 };
 
 export default blogMetaChDe;
