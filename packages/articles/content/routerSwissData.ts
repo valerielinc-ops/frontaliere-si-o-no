@@ -2395,6 +2395,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dati-srf-dipendenti-rubati': { it: 'dati-srf-dipendenti-rubati', en: 'srf-hacker-attack-employee-data', de: 'srf-hackerangriff-mitarbeiterdaten', fr: 'attaque-hacker-srf-donnees-salaries' },
  'samedan-aeroporto-rinnovo-2025': { it: 'samedan-aeroporto-rinnovo-2025', en: 'samedan-airport-reneal', de: 'flughafen-samedan-wartet-auf-bundesgerichtsentscheidung', fr: 'la-renovation-de-l-aeroport-de-samedan-attend-la-decision-du-tribunal-federal' },
  'revisione-legge-materiale-bellico': { it: 'revisione-legge-materiale-bellico', en: 'revision-war-material-act', de: 'revision-kriegsmaterialgesetz', fr: 'revision-loi-materiel-de-guerre' },
+ 'revisione-legge-armi-votazione-novembre': { it: 'revisione-legge-armi-votazione-novembre', en: 'switzerland-weapons-exports-law-revision', de: 'schweiz-waffenexporte-gesetzesrevision', fr: 'suisse-loi-export-armes-revision' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

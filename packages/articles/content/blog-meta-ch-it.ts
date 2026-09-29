@@ -7118,6 +7118,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.revisione-legge-materiale-bellico.title': 'Esportazione armi: al voto la revisione della legge',
     'blog.article.revisione-legge-materiale-bellico.excerpt': 'Il Consiglio federale propone di allentare le norme sulle esportazioni di materiale bellico. Votazione prevista per il 29 novembre.',
     'blog.article.revisione-legge-materiale-bellico.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero',
+    'blog.article.revisione-legge-armi-votazione-novembre.title': 'Berna allenta restrizioni esportazioni armi',
+    'blog.article.revisione-legge-armi-votazione-novembre.excerpt': 'Voto popolare il 29 novembre per la revisione della legge sul materiale bellico: più flessibilità per esportazioni e riesportazioni verso 17 Paesi UE e altri Stati',
+    'blog.article.revisione-legge-armi-votazione-novembre.imageAlt': 'Vista di Lugano con bandiera svizzera e documenti sulle esportazioni di armi',
 };
 
 export default blogMetaChIt;
