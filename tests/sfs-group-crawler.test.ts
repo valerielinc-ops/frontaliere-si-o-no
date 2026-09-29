@@ -349,8 +349,8 @@ describe('fetchAllSfsGroupJobs', () => {
     expect(commissioning.location).toBe('Rebstein');
     // Rebstein is NOT Heerbrugg — must NOT inherit the HQ street address.
     expect(commissioning.streetAddress).toBeUndefined();
-    // But postalCode must still get a safe canton-level default (never blank).
-    expect(commissioning.postalCode).toBe('9000');
+    // The ZIP follows the source locality, not the canton capital.
+    expect(commissioning.postalCode).toBe('9445');
     expect(commissioning.employmentType).toBe('PART_TIME');
   });
 

@@ -250,6 +250,21 @@ describe('fetchAllDormakabaJobs (recruiting-solutions.org search API)', () => {
     expect(jobs[0].streetAddress).toBe('Hofwisenstrasse 24');
   });
 
+  it('derives the official ZIP for a source locality without a verified office', async () => {
+    mockSearch([
+      apiRecord({
+        jobId: '30002-de_DE',
+        addresses: [{ city: 'Le Mont-sur-Lausanne', country: 'Schweiz', isPrimary: true }],
+      }),
+    ]);
+    const jobs = await fetchAllDormakabaJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('Le Mont-sur-Lausanne');
+    expect(jobs[0].canton).toBe('VD');
+    expect(jobs[0].postalCode).toBe('1052');
+    expect(jobs[0].streetAddress).toBeUndefined();
+  });
+
   it('skips records whose description is empty instead of synthesising one', async () => {
     mockSearch([apiRecord({ description: '' })]);
     const jobs = await fetchAllDormakabaJobs();
