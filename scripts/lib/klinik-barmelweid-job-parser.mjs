@@ -37,6 +37,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { readClosedElement } from './html-balanced-element.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 // Barmelweid's TYPO3 stack returns HTTP 406 for anything that doesn't look
 // like a real browser User-Agent, so we cannot reuse the shared `fetchHtml`
@@ -203,13 +204,13 @@ export async function fetchAllKlinikBarmelweidJobs() {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const detailDescription = await fetchDetailDescription(r.url);
-    const summary = [r.intro, r.pensumLine].filter(Boolean).join('\n\n');
-    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
-      ? detailDescription
-      : [
-        summary,
-        'Klinik Barmelweid — Akutspital für Psychiatrie, Psychosomatik und somatische Rehabilitation in Erlinsbach (AG).',
-      ].filter(Boolean).join('\n\n');
+    // Only source text (issue 5253): the detail page, else the listing card's
+    // own paragraphs — never the clinic line the crawler used to add. A text
+    // under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const cardText = [r.intro, r.pensumLine].filter(Boolean).join('\n\n');
+    const sourceText = meetsSourceBodyFloor(detailDescription) ? detailDescription : cardText;
+    const description = meetsSourceBodyFloor(sourceText) ? sourceText : '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${KLINIK_BARMELWEID_KEY} barmelweid`);

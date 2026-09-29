@@ -28,6 +28,7 @@ import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mj
 import { slugify, stripHtml, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const KISPI_SG_KEY = 'kispi-sg';
 export const KISPI_SG_COMPANY_NAME = 'Ostschweizer Kinderspital';
@@ -363,15 +364,12 @@ export async function fetchAllKispiSgJobs() {
     // Polite delay between detail page fetches
     await new Promise((r) => setTimeout(r, 300));
 
-    // Synthesise boilerplate if description parsing failed
-    if (!description) {
-      if (snippet) {
-        description = snippet;
-      } else {
-        const intro = `${title} beim ${KISPI_SG_COMPANY_NAME} in ${DEFAULT_CITY} (${DEFAULT_POSTAL_CODE}, ${DEFAULT_CANTON}), Schweiz.`;
-        description = `${intro}\n\n• Standort: ${DEFAULT_CITY} (${DEFAULT_CANTON})\n• Bewerbung über das Karriereportal des Ostschweizer Kinderspitals`;
-      }
-    }
+    // Only source text (issue 5253): the detail body, else the listing
+    // snippet — never an intro and Standort/Bewerbung bullets written by the
+    // crawler. A text under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const sourceText = description || snippet || '';
+    description = meetsSourceBodyFloor(sourceText) ? sourceText : '';
 
     // The vacancy page is the job's identity and what a reader lands on; the
     // Umantis CheckLogin link is the application form, kept as applyUrl.

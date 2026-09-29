@@ -47,6 +47,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const SOLINA_KEY = 'solina';
 export const SOLINA_COMPANY_NAME = 'Stiftung Solina';
@@ -61,7 +62,12 @@ const LISTING_PATHS = [
 ];
 const POLITE_DELAY_MS = 250;
 
-const SOLINA_CONTEXT = 'Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.';
+/**
+ * Fragments only the crawler's former text wrote around the page text (the
+ * "Pensum / Standort:" line and a company sentence), for
+ * `dropFabricatedDescriptions` on the stored jobs (issue 5253).
+ */
+export const SOLINA_FABRICATED_DESCRIPTION_RE = /(?:^|\n)Pensum \/ Standort: |Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte/;
 
 /* ── Matchers ─────────────────────────────────────────────── */
 
@@ -240,14 +246,12 @@ export async function fetchAllSolinaJobs() {
       const canton = inferCantonFromLocation(city);
       const applyUrl = extractApplyUrl(html) || url;
 
+      // Only the page's text (issue 5253): the title and the vacancy body, no
+      // "Pensum / Standort:" line assembled from the meta description and no
+      // company sentence of the crawler's. A body under the common 50-word
+      // floor gives no description (the shared pipeline's thin-source path).
       const body = extractMainContent(html);
-      const headerLine = [pensum, city].filter(Boolean).join(', ');
-      const description = [
-        title,
-        headerLine ? `Pensum / Standort: ${headerLine}` : '',
-        body,
-        SOLINA_CONTEXT,
-      ].filter(Boolean).join('\n\n');
+      const description = meetsSourceBodyFloor(body) ? [title, body].join('\n\n') : '';
 
       const sourceLang = detectLang(description || title, 'de');
       const jobSlug = slugify(`${title} ${SOLINA_KEY} ${city}`);

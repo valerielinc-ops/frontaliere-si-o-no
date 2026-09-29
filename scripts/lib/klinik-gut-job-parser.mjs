@@ -54,6 +54,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -209,16 +210,6 @@ export function parseKlinikGutOpenings(html = '') {
   return out;
 }
 
-/* ── Description fallback ──────────────────────────────────── */
-
-function buildFallbackDescription(title, cityName) {
-  return [
-    `${title} bei der Klinik Gut AG am Standort ${cityName}.`,
-    '',
-    'Die Klinik Gut ist eine etablierte private Klinik-Gruppe für Orthopädie, Unfallchirurgie und Sportmedizin mit Hauptstandorten in St. Moritz und Fläsch (Graubünden) sowie Praxisstandorten in Chur, Buchs SG, Zürich und Ascona. Sie betreut nationale und internationale Patientinnen und Patienten und legt Wert auf ein engagiertes Team und individuelle Versorgung.',
-  ].join('\n');
-}
-
 /* ── Main fetch ────────────────────────────────────────────── */
 
 export async function fetchAllKlinikGutJobs() {
@@ -251,12 +242,11 @@ export async function fetchAllKlinikGutJobs() {
     const loc = opening.location || DEFAULT_LOCATION;
 
     // The full posting body is inline in the accordion item — no detail fetch.
-    let description = opening.body && opening.body.split(/\s+/).length >= 40
-      ? opening.body
-      : buildFallbackDescription(title, loc.city);
-    if (description.split(/\s+/).length < 80) {
-      description = `${description}\n\n${buildFallbackDescription(title, loc.city)}`;
-    }
+    // Only the posting's own text (issue 5253): no title/clinic-group
+    // paragraph in place of a thin body nor appended to one under 80 words; a
+    // body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(opening.body) ? opening.body : '';
 
     const haystack = `${title} ${description}`;
     const sourceLang = detectLang(description || title, 'de');

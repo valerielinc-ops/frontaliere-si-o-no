@@ -47,6 +47,7 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
 import { extractPublicjobsDetailDescription } from './publicjobs-detail-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -308,13 +309,13 @@ export async function fetchAllGzoWetzikonJobs() {
     const postedDate = parseSwissDate(row?.job_booking_start || '')
       || new Date().toISOString().split('T')[0];
 
-    const fallbackDesc = `${title} — ${GZO_WETZIKON_COMPANY_NAME}, ${location}`;
     // publicjobs.ch listings ship only title+city — fetch the public detail
     // page to recover the actual job description. Polite delay 250 ms.
     const detailDescription = await fetchGzoDetailDescription(detailUrl);
-    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
-      ? detailDescription
-      : fallbackDesc;
+    // Only source text (issue 5253): no "<title> — <company>, <place>." stub
+    // in place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
     if (jobs.length > 0) await new Promise((r) => setTimeout(r, 250));
 
     const job = {

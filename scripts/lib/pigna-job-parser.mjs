@@ -31,6 +31,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const PIGNA_KEY = 'pigna';
 export const PIGNA_COMPANY_NAME = 'Stiftung Pigna';
@@ -125,19 +126,6 @@ function pickLocationHints(workplace = '') {
   return { city: cityPart || DEFAULT_CITY, canton: DEFAULT_CANTON, postal: '' };
 }
 
-function buildFallbackDescription(title, workplace) {
-  return [
-    `${title} bei ${PIGNA_COMPANY_NAME}${workplace ? ` in ${workplace}` : ''}.`,
-    '',
-    'Die Stiftung Pigna ist eine Wohn-, Arbeits- und Beschäftigungsstätte für Menschen mit kognitiven und mehrfachen Beeinträchtigungen in Kloten (ZH).',
-    '',
-    'Was Pigna bietet:',
-    '• Sinnstiftende agogische Tätigkeit in einem engagierten Team',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Faire Anstellungsbedingungen und attraktive Sozialleistungen',
-  ].join('\n');
-}
-
 export async function fetchAllPignaJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   console.log(`🏡 Fetching ${PIGNA_COMPANY_NAME} jobs`);
@@ -167,9 +155,10 @@ export async function fetchAllPignaJobs() {
 
     const title = detail.title || it.title;
     const hints = pickLocationHints(it.workplace);
-    const description = detail.description && detail.description.split(/\s+/).length >= 40
-      ? detail.description
-      : buildFallbackDescription(title, it.workplace);
+    // Only the posting's own text (issue 5253): a detail body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path), instead of a company paragraph and benefit list of the crawler's.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const haystack = `${title} ${description}`;
     const sourceLang = detectLang(description || title, 'de');

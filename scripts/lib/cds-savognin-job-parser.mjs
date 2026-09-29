@@ -54,11 +54,19 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const CDS_SAVOGNIN_KEY = 'cds-savognin';
 export const CDS_SAVOGNIN_COMPANY_NAME = 'Center da Sanadad Savognin';
+
+/**
+ * A fragment only the crawler's former paragraph wrote (in place of a thin
+ * body, or appended under 80 words), for `dropFabricatedDescriptions` on the
+ * stored jobs (issue 5253).
+ */
+export const CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE = /ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung\./;
 export const CDS_SAVOGNIN_COMPANY_DOMAIN = 'cds-savognin.ch';
 
 const SITE_ORIGIN = 'https://cds-savognin.ch';
@@ -229,14 +237,6 @@ export function parseCdsSavogninNewsItems(html = '') {
 
 /* ── Description fallback ──────────────────────────────────── */
 
-function buildFallbackDescription(title) {
-  return [
-    `${title} beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.`,
-    '',
-    `Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.`,
-  ].join('\n');
-}
-
 /* ── Listing fetch (AJAX news widget) ──────────────────────── */
 
 /**
@@ -336,14 +336,11 @@ export async function fetchAllCdsSavogninJobs() {
     const title = listing.title;
     const url = `${SITE_ORIGIN}/DE/aktuelles/${listing.id}.html`;
 
-    let description = listing.body && listing.body.split(/\s+/).length >= 30
-      ? listing.body
-      : buildFallbackDescription(title);
-    // Append a corporate-context footer for thinner postings — helps the AI
-    // localisation step produce coherent translations.
-    if (description.split(/\s+/).length < 80) {
-      description = `${description}\n\n${buildFallbackDescription(title)}`;
-    }
+    // Only the posting's own text (issue 5253): no title/centre paragraph in
+    // place of a thin body nor appended to one under 80 words; a body under
+    // the common 50-word floor gives no description (the shared pipeline's
+    // thin-source path).
+    const description = meetsSourceBodyFloor(listing.body) ? listing.body : '';
 
     const haystack = `${title} ${description}`;
     const sourceLang = detectLang(description || title, 'de');

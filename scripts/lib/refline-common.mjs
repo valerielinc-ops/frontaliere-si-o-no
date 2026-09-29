@@ -60,6 +60,7 @@ import {
   fetchHtml,
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const DETAIL_DELAY_MS = 300;
 
@@ -397,6 +398,13 @@ function extractPensum(text = '') {
  *             behaviour: infer canton from workplace text using
  *             inferSwissTargetCanton(); fall back to defaultCity/Canton/Postal.
  */
+/**
+ * A fragment only the factory's former stand-in description wrote
+ * ("<company> bietet eine sinnstiftende Tätigkeit in einem engagierten
+ * Team."), for `dropFabricatedDescriptions` on the stored jobs (issue 5253).
+ */
+export const REFLINE_FABRICATED_DESCRIPTION_RE = / bietet eine sinnstiftende Tätigkeit in einem engagierten Team\.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten/;
+
 export function createReflineParser(config) {
   const {
     reflineTenant,
@@ -476,17 +484,6 @@ export function createReflineParser(config) {
 
   const pickHints = typeof locationHintsFor === 'function' ? locationHintsFor : defaultLocationHints;
 
-  function buildFallbackDescription(title, workplace) {
-    return [
-      `${title} bei ${companyName}${workplace ? ` in ${workplace}` : ` in ${defaultCity}`}.`,
-      '',
-      `${companyName} bietet eine sinnstiftende Tätigkeit in einem engagierten Team.`,
-      '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-      '• Faire Anstellungsbedingungen',
-      '• Moderne Arbeitsumgebung',
-    ].join('\n');
-  }
-
   async function fetchAllJobs() {
     const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
     console.log(`🏥 Fetching ${companyName} jobs`);
@@ -525,9 +522,11 @@ export function createReflineParser(config) {
       const canton = hints.canton;
       const postalCode = hints.postal || defaultPostalCode;
 
-      const description = detail.description && detail.description.split(/\s+/).length >= 40
-        ? detail.description
-        : buildFallbackDescription(title, listing.workplace);
+      // Only the posting's own text (issue 5253): a detail body under the
+      // common 50-word floor gives no description (the shared pipeline's
+      // thin-source path), instead of "<company> bietet eine sinnstiftende
+      // Tätigkeit…" and a benefit list written by the crawler.
+      const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
       const haystack = `${title} ${description}`;
       const sourceLang = detectLang(description || title, defaultSourceLang);
