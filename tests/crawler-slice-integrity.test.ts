@@ -921,6 +921,79 @@ describe('crawler slice integrity guard', () => {
     })).toThrow(/catastrophic truncation avoided/);
   });
 
+  it('keeps locale-only retranslation proof separate from a foreign locale owner', () => {
+    const activeMatch = {
+      url: 'https://example.test/active-a',
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      slugByLocale: { de: 'store-manager-zurich-new' },
+    };
+    const removed = {
+      url: 'https://example.test/expired',
+      title: activeMatch.title,
+      company: activeMatch.company,
+      location: activeMatch.location,
+      slugByLocale: { de: 'store-manager-zurich-old' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      url: 'https://example.test/retained',
+      title: 'Visual Merchandiser',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+      description: 'retained',
+    };
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const validProof = {
+      schemaVersion: 1,
+      type: 'ghost-expired-reconciliation',
+      path: filePath,
+      baseRaw: previous,
+      candidateRaw: next,
+      entries: [{
+        expired: removed,
+        match: activeMatch,
+        overlapSlug: null,
+        overlapJob: null,
+        legacyLocaleFallback: true,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, previous, next, validProof)).toBe(true);
+
+    const foreignOwner = {
+      url: 'https://example.test/active-b',
+      title: 'Different title',
+      company: 'Different company',
+      location: 'Lugano',
+      slugByLocale: { de: 'foreign-owner-slug' },
+    };
+    const foreignRemoved = {
+      ...removed,
+      slugByLocale: { de: 'foreign-owner-slug' },
+    };
+    const foreignPrevious = prettyJson([foreignRemoved, retained]);
+    const foreignNext = prettyJson([retained]);
+    const foreignProof = {
+      ...validProof,
+      baseRaw: foreignPrevious,
+      candidateRaw: foreignNext,
+      entries: [{
+        ...validProof.entries[0],
+        expired: foreignRemoved,
+        overlapSlug: 'foreign-owner-slug',
+        overlapJob: foreignOwner,
+        legacyLocaleFallback: false,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, foreignPrevious, foreignNext, foreignProof)).toBe(false);
+  });
+
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {
     const root = mkdtempSync(join(tmpdir(), 'crawler-slice-source-proof-'));
     const filePath = join(root, 'data/jobs/by-crawler/convit-holding.json');

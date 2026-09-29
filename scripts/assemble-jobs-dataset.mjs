@@ -3446,6 +3446,23 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     ) return false;
     return Object.keys(leftSlugs).some((locale) => Object.prototype.hasOwnProperty.call(rightSlugs, locale));
   };
+  const hasEqualNonEmptyLocaleSlug = (left, right) => {
+    const leftSlugs = left?.slugByLocale;
+    const rightSlugs = right?.slugByLocale;
+    if (
+      !leftSlugs
+      || typeof leftSlugs !== 'object'
+      || Array.isArray(leftSlugs)
+      || !rightSlugs
+      || typeof rightSlugs !== 'object'
+      || Array.isArray(rightSlugs)
+    ) return false;
+    return Object.entries(leftSlugs).some(([locale, value]) => {
+      const leftValue = String(value ?? '').trim();
+      const rightValue = String(rightSlugs[locale] ?? '').trim();
+      return Boolean(leftValue && rightValue && leftValue === rightValue);
+    });
+  };
   const expiredGhostIdentity = (job) => {
     const url = String(job?.url ?? '').trim();
     if (url) return `url:${url}`;
@@ -3481,6 +3498,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
   };
   for (const j of activeJobs) {
+    registerActiveSlug(j.slug, j);
     if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugs) j.previousSlugs.forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
@@ -3506,22 +3524,29 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     const match = overlapJob && jobTclKey(overlapJob) === key
       ? overlapJob
       : activeByTCL[key];
-    const overlapSlug = overlapJob && jobTclKey(overlapJob) === key ? overlapCandidate : null;
-    const hasSlugOverlap = Boolean(overlapSlug);
+    // Keep the first active owner in the proof even when it belongs to a
+    // different TCL. That makes a foreign locale slug an explicit negative
+    // proof instead of allowing the locale-only fallback to hide it.
+    const overlapSlug = overlapCandidate;
+    const hasSlugOverlap = Boolean(overlapSlug && overlapJob && jobTclKey(overlapJob) === key);
 
     // Ghost: slug overlap + title match, or exact same IT slug
     const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
     const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
     const hasSameItSlug = Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
-    // Legacy archives sometimes carry only de/fr/en locale maps. When both
-    // sides lack an Italian slug, the already location-bound TCL match is the
-    // durable same-posting evidence; an entirely identity-less row is still
-    // rejected by expiredGhostIdentity above.
+    // Legacy archives sometimes carry only de/fr/en locale maps. A matching
+    // non-empty locale value is the strongest fallback evidence. A genuine
+    // retranslation may change that value, so retain the old key-only
+    // behaviour only when none of the expired locale slugs is claimed by an
+    // active posting; a foreign active owner must never be hidden by the
+    // fallback.
+    const hasMatchingLocaleSlug = hasEqualNonEmptyLocaleSlug(ej, match);
     const legacySamePosting = Boolean(
       match
       && !expiredItSlug
       && !matchItSlug
-      && hasSharedLocaleKey(ej, match),
+      && !overlapCandidate
+      && (hasMatchingLocaleSlug || hasSharedLocaleKey(ej, match)),
     );
     if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
 
@@ -3533,6 +3558,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       match,
       overlapSlug,
       overlapJob: overlapSlug ? overlapJob : null,
+      legacyLocaleFallback: legacySamePosting && !hasMatchingLocaleSlug,
     });
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
@@ -3602,6 +3628,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
             match: evidence?.match,
             overlapSlug: evidence?.overlapSlug || null,
             overlapJob: evidence?.overlapJob || null,
+            legacyLocaleFallback: evidence?.legacyLocaleFallback === true,
           };
         });
         writeJson(fp, cleaned, {

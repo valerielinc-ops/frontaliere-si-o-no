@@ -1007,6 +1007,24 @@ function hasSharedLocaleKey(left, right) {
   return Object.keys(leftSlugs).some((locale) => Object.prototype.hasOwnProperty.call(rightSlugs, locale));
 }
 
+function hasEqualNonEmptyLocaleSlug(left, right) {
+  const leftSlugs = left?.slugByLocale;
+  const rightSlugs = right?.slugByLocale;
+  if (
+    !leftSlugs
+    || typeof leftSlugs !== 'object'
+    || Array.isArray(leftSlugs)
+    || !rightSlugs
+    || typeof rightSlugs !== 'object'
+    || Array.isArray(rightSlugs)
+  ) return false;
+  return Object.entries(leftSlugs).some(([locale, value]) => {
+    const leftValue = String(value ?? '').trim();
+    const rightValue = String(rightSlugs[locale] ?? '').trim();
+    return Boolean(leftValue && rightValue && leftValue === rightValue);
+  });
+}
+
 function isValidGhostExpiredProofEntry(entry, removedJob) {
   const expired = entry?.expired;
   const match = entry?.match;
@@ -1034,15 +1052,22 @@ function isValidGhostExpiredProofEntry(entry, removedJob) {
   if (expiredItSlug || matchItSlug) {
     return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
   }
-  return hasSharedLocaleKey(expired, match);
+  // The writer records the first active owner of every expired locale slug in
+  // overlapSlug/overlapJob. If that field is absent, an unchanged non-empty
+  // locale value is sufficient; a changed value is accepted only with the
+  // explicit legacy-retranslation marker emitted after the writer confirmed
+  // that no active posting owns the old slug.
+  return hasEqualNonEmptyLocaleSlug(expired, match)
+    || (entry.legacyLocaleFallback === true && hasSharedLocaleKey(expired, match));
 }
 
 /**
  * Prove the narrow expired-slice rewrite performed by reconcileGhostExpired.
  *
  * The assembler removes only archived records that have a title/company/
- * location match with an active record and either share a reachable slug or
- * carry the exact same non-empty Italian slug. Bind the proof to the exact
+ * location match with an active record and either share a reachable slug,
+ * carry the exact same non-empty Italian slug, or carry an explicit
+ * no-overlap legacy locale-retranslation marker. Bind the proof to the exact
  * before/after bytes and require the candidate to be an unchanged subset, so
  * a degraded reader or an unrelated archive rewrite remains fail-closed.
  */
