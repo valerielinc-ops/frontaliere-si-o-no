@@ -253,6 +253,8 @@ describe('payment-time emails', () => {
     expect(results.every((result: any) => result.ok && result.test)).toBe(true);
     expect(payloads().map((payload) => payload.to[0])).toEqual(['owner@example.com', 'owner@example.com']);
     expect(payloads()[0].subject.startsWith('[TEST] ')).toBe(true);
+    // No header of a test copy may point at the real customer.
+    expect(payloads().map((payload) => payload.replyTo)).toEqual([undefined, undefined]);
     expect(store['order-1'].notifications).toBeUndefined();
   });
 });

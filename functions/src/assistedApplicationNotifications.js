@@ -624,7 +624,10 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     html: message.html,
     text: message.text,
     tracking: false,
-    ...(isCustomer ? {} : (customerEmail ? { replyTo: customerEmail } : {})),
+    // Never in test mode: a "Reply" on a [TEST] copy would reach the real
+    // customer as soon as the cascade falls back to Resend (the provider
+    // that honours replyTo).
+    ...(isCustomer || testMode || !customerEmail ? {} : { replyTo: customerEmail }),
   };
 
   const { failed, ambiguous, sent } = await sendEmailCascade(
