@@ -101,6 +101,8 @@ const API_BASE = 'https://api.my-job-shop.com';
 const API_KEY_URL = `${API_BASE}/api/offer/v1/search/api-key?filter=backoffice_vanity:ch`;
 const MULTI_SEARCH_URL = `${API_BASE}/api/typesense/multi_search`;
 const SEARCH_COLLECTION = 'offers';
+const OFFER_REDIRECT_PATH = '/offer-redirect/';
+const OFFER_RESOLVE_DELAY_MS = 100;
 
 const SECTOR = 'Retail / Bricolage e Giardinaggio';
 
@@ -188,6 +190,61 @@ export function isTrustedDomain(rawUrl = '') {
     );
   } catch {
     return false;
+  }
+}
+
+/**
+ * Whether a public URL is the shared redirect shell returned by the Typesense
+ * feed instead of a vacancy-specific Hornbach offer URL.
+ */
+export function isHornbachOfferRedirectUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    return url.hostname.toLowerCase() === 'jobs.hornbach.ch'
+      && url.pathname.replace(/\/+$/, '/') === OFFER_REDIRECT_PATH;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Resolve a Typesense redirect to the vacancy-specific public offer page.
+ * Publishing the redirect itself makes several different jobs share one
+ * document, so an unresolved redirect is returned as an empty URL and the
+ * caller drops that offer for this run rather than emitting a misleading URL.
+ */
+export async function resolveHornbachOfferUrl(rawUrl, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = 15000,
+} = {}) {
+  const sourceUrl = normalizeSpace(rawUrl || '');
+  if (!sourceUrl) return '';
+  if (!isHornbachOfferRedirectUrl(sourceUrl)) return sourceUrl;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let response;
+  try {
+    response = await fetchImpl(sourceUrl, {
+      method: 'GET',
+      redirect: 'follow',
+      headers: { 'User-Agent': 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)' },
+      signal: controller.signal,
+    });
+    if (!response?.ok) return '';
+    const resolved = normalizeSpace(response.url || '');
+    if (!resolved || !isTrustedDomain(resolved) || isHornbachOfferRedirectUrl(resolved)) return '';
+    return resolved;
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+    try {
+      if (response?.body && !response.bodyUsed) await response.body.cancel();
+    } catch {
+      // The redirect URL is already known; a mock or a closed response body
+      // must not turn a successful resolution into a crawler failure.
+    }
   }
 }
 
@@ -438,6 +495,23 @@ export async function fetchOfferDocumentsWithKeyRetry(apiKey) {
   }
 }
 
+async function resolveHornbachOfferDocuments(documents) {
+  const resolved = new Array(documents.length);
+  let next = 0;
+  const worker = async () => {
+    while (next < documents.length) {
+      const index = next++;
+      const document = documents[index];
+      const url = await resolveHornbachOfferUrl(document?.url);
+      if (url) resolved[index] = { ...document, url };
+      await new Promise((resolve) => setTimeout(resolve, OFFER_RESOLVE_DELAY_MS));
+    }
+  };
+  const concurrency = Math.min(4, documents.length);
+  await Promise.all(Array.from({ length: concurrency }, worker));
+  return resolved.filter(Boolean);
+}
+
 /**
  * Fetch all Hornbach jobs (Switzerland only — the scoped API key's
  * `backoffice_vanity:=ch` filter already restricts to the CH tenant, and
@@ -474,11 +548,17 @@ export async function fetchAllHornbachJobs() {
   }
   console.log(`  📋 Switzerland listings found: ${swissDocuments.length}`);
 
+  const documentsWithOwnUrls = await resolveHornbachOfferDocuments(swissDocuments);
+  const unresolvedRedirects = swissDocuments.length - documentsWithOwnUrls.length;
+  if (unresolvedRedirects > 0) {
+    console.warn(`  ⚠️ ${unresolvedRedirects} Hornbach redirect URL(s) did not resolve to a vacancy-specific offer and were withheld.`);
+  }
+
   const jobs = [];
   const seen = new Set();
   let withoutBody = 0;
 
-  for (const document of swissDocuments) {
+  for (const document of documentsWithOwnUrls) {
     const parsed = parseHornbachOffer(document);
     if (!parsed.title || parsed.title.length < 3) continue;
     if (!parsed.url || seen.has(parsed.url)) continue;

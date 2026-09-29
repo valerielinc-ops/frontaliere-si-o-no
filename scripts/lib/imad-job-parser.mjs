@@ -150,6 +150,23 @@ function composeLocationText(loc = {}) {
   return parts.join(', ');
 }
 
+const SPONTANEOUS_APPLICATION_RE = /candidature\s+spontan|candidatura\s+spontan|postulation\s+spontan|spontaneous\s+application/i;
+
+/**
+ * SmartRecruiters can expose a generic application container as a posting.
+ * It has no vacancy body or role-specific qualifications; publishing the
+ * institution blurb as a job description creates a false opening.
+ */
+export function isImadSpontaneousApplication(posting = {}) {
+  const title = String(posting?.name || '').trim();
+  if (SPONTANEOUS_APPLICATION_RE.test(title)) return true;
+  const customFields = Array.isArray(posting?.customField) ? posting.customField : [];
+  return customFields.some((field) => {
+    const label = `${field?.fieldLabel || ''} ${field?.valueLabel || ''}`;
+    return SPONTANEOUS_APPLICATION_RE.test(label) || /offres\s+spontan[eé]es/i.test(label);
+  });
+}
+
 function extractPostingDescription(posting) {
   const sections = posting?.jobAd?.sections;
   if (!sections || typeof sections !== 'object') return '';
@@ -189,6 +206,10 @@ export async function fetchAllImadJobs() {
       const posting = normalized.rawPosting || {};
       const title = normalizeSpace(posting?.name || '');
       if (!title || title.length < 3) continue;
+      if (isImadSpontaneousApplication(posting)) {
+        console.log(`  ⏭️ Skipping generic spontaneous-application container: ${title}`);
+        continue;
+      }
 
       const locationText = composeLocationText(posting?.location) || 'Genève';
       const city = (posting?.location?.city && String(posting.location.city).trim())
