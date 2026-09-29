@@ -159,7 +159,7 @@ describe('fingerprintJob → registry key', () => {
     for (const job of jobs) expect(registry[fingerprintJob(job)].canonicalSlug).toBe(job.slug);
   });
 
-  it('leaves URLs without a text directive, and text fragments behind a query, keyed as before', () => {
+  it('leaves URLs without a text directive, and text fragments behind a meaningful query, keyed as before', () => {
     expect(fingerprintJob({ url: 'https://grischapersonal.ch/stellen/#job-a49cb87c8254' })).toBe('id|grischapersonal.ch|#job-a49cb87c8254');
     expect(fingerprintJob({ url: 'https://grischapersonal.ch/stellen/?jobid=c51cc0441fec#:~:text=CAD%2DZEICHNER' })).toBe('id|grischapersonal.ch|c51cc0441fec');
     expect(fingerprintJob({ url: 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire#:~:text=Stagiaire' }))
