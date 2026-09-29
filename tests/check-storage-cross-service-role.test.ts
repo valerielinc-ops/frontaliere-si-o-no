@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   CROSS_SERVICE_RULES_ROLE,
+  checkStorageCrossServiceRole,
   policyGrantsRole,
   storageRulesUseCrossService,
   storageServiceAgent,
@@ -26,6 +27,34 @@ describe('Storage cross-service rules guard', () => {
     expect(policyGrantsRole({
       bindings: [{ role: CROSS_SERVICE_RULES_ROLE, members: [member], condition: { expression: 'false' } }],
     }, member)).toBe(false);
+  });
+
+  it('fails closed when the IAM policy cannot be read, and passes only with the role', async () => {
+    const member = storageServiceAgent('42');
+    const unreadable = await checkStorageCrossServiceRole({
+      rulesSource: storageRules,
+      project: 'p',
+      loadPolicy: async () => { throw new Error('403 PERMISSION_DENIED'); },
+    });
+    expect(unreadable.code).toBe(1);
+    expect(unreadable.message).toContain('::error::Cannot read the IAM policy');
+
+    const missing = await checkStorageCrossServiceRole({
+      rulesSource: storageRules, project: 'p', loadPolicy: async () => ({ member, policy: { bindings: [] } }),
+    });
+    expect(missing.code).toBe(1);
+
+    const granted = await checkStorageCrossServiceRole({
+      rulesSource: storageRules,
+      project: 'p',
+      loadPolicy: async () => ({ member, policy: { bindings: [{ role: CROSS_SERVICE_RULES_ROLE, members: [member] }] } }),
+    });
+    expect(granted.code).toBe(0);
+
+    const noCrossService = await checkStorageCrossServiceRole({
+      rulesSource: 'allow read: if false;', project: 'p', loadPolicy: async () => { throw new Error('never called'); },
+    });
+    expect(noCrossService.code).toBe(0);
   });
 
   it('ships storage.rules from CI, behind the IAM guard', () => {

@@ -18,11 +18,18 @@ describe('assisted application recovery script', () => {
     expect(parseArgs(['--order', 'a', '--order', 'b', '--apply'])).toMatchObject({ orders: ['a', 'b'], apply: true });
   });
 
-  it('selects paid orders whose intro was never delivered', () => {
+  it('selects paid orders whose intro or owner notice was never delivered', () => {
     expect(needsRecovery({ paymentStatus: 'paid' })).toBe(true);
     expect(needsRecovery({ paymentStatus: 'paid', notifications: { customer_intro: { status: 'failed' } } })).toBe(true);
-    expect(needsRecovery({ paymentStatus: 'paid', notifications: { customer_intro: { status: 'sent' } } })).toBe(false);
-    expect(needsRecovery({ paymentStatus: 'paid', notifications: { customer_intro: { status: 'ambiguous' } } })).toBe(false);
+    expect(needsRecovery({ paymentStatus: 'paid', notifications: { customer_intro: { status: 'sent' } } })).toBe(true);
+    expect(needsRecovery({
+      paymentStatus: 'paid',
+      notifications: { customer_intro: { status: 'sent' }, owner_new_order: { status: 'sent' } },
+    })).toBe(false);
+    expect(needsRecovery({
+      paymentStatus: 'paid',
+      notifications: { customer_intro: { status: 'ambiguous' }, owner_new_order: { status: 'sent' } },
+    })).toBe(false);
     expect(needsRecovery({ paymentStatus: 'pending' })).toBe(false);
   });
 

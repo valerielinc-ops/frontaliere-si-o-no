@@ -70,7 +70,12 @@ import { handleAssistedApplicationAdmin } from './src/assistedApplicationAdminCo
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
-import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted, handleConsultingOrderPaid } from './src/consultingCore.js';
+import {
+  handleCreateConsultingCheckout,
+  handleConsultingDetailsSubmitted,
+  handleConsultingOrderPaid,
+  runConsultingPaidNoticeSweep,
+} from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
@@ -1932,6 +1937,20 @@ export const notifyConsultingDetailsSubmitted = onDocumentWritten(
         '[notifyConsultingDetailsSubmitted]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// Backstop for the paid-consultation notice above: retries a notice that
+// failed in the last 72 h (the trigger fires only once per write).
+export const sweepConsultingPaidNotices = onSchedule(
+  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await runConsultingPaidNoticeSweep({ db: getAdminDb() });
+      if (summary.sent > 0 || summary.failed > 0) console.log('[sweepConsultingPaidNotices]', summary);
+    } catch (error) {
+      console.error('[sweepConsultingPaidNotices]', error instanceof Error ? error.message : String(error));
     }
   },
 );

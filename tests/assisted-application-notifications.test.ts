@@ -210,6 +210,22 @@ describe('payment-time emails', () => {
     expect(store['order-1'].notifications.customer_intro.status).toBe('sent');
   });
 
+  it('retries Valerie’s notice on its own when the customer intro already went out', async () => {
+    store['order-1'] = paidOrder({
+      notifications: {
+        customer_intro: { status: 'sent', sentAt: new Date(NOW - HOUR) },
+        owner_new_order: { status: 'failed', lastError: 'smtp down' },
+      },
+    });
+    const first = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW });
+    const second = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW + HOUR });
+    expect(first.intros).toBe(1);
+    expect(second.intros).toBe(0);
+    expect(payloads().map((payload) => payload.to[0])).toEqual(['valerie@frontaliereticino.ch']);
+    expect(store['order-1'].notifications.owner_new_order.status).toBe('sent');
+    expect(store['order-1'].notifications.customer_intro.status).toBe('sent');
+  });
+
   it('never retries an ambiguous provider acceptance', async () => {
     store['order-1'] = paidOrder();
     sendEmailCascade.mockImplementationOnce(async (emails: any[]) => ({

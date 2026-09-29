@@ -53,11 +53,11 @@ export function parseArgs(argv) {
   return args;
 }
 
-/** Paid orders whose customer intro was never delivered. */
+/** Paid orders whose customer intro or owner notice was never delivered. */
 export function needsRecovery(order) {
   if (order?.paymentStatus !== 'paid') return false;
-  const status = order.notifications?.[NOTIFICATION_KEYS.customerIntro]?.status;
-  return status !== 'sent' && status !== 'ambiguous';
+  const delivered = (key) => ['sent', 'ambiguous'].includes(order.notifications?.[key]?.status);
+  return !delivered(NOTIFICATION_KEYS.customerIntro) || !delivered(NOTIFICATION_KEYS.ownerNewOrder);
 }
 
 export function maskEmail(value) {
@@ -97,7 +97,7 @@ async function main() {
     }
     let order = snapshot.data() || {};
     if (!needsRecovery(order)) {
-      console.log(`· ${snapshot.id}: intro already ${order.notifications?.customer_intro?.status}, skipped`);
+      console.log(`· ${snapshot.id}: intro and owner notice already delivered, skipped`);
       continue;
     }
 

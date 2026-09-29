@@ -304,7 +304,18 @@ describe('handleConsultingOrderPaid', () => {
       docs,
       collection: (name: string) => {
         expect(name).toBe('consulting_orders');
-        return { doc: ref };
+        return {
+          doc: ref,
+          where: (field: string, _op: string, value: unknown) => ({
+            async get() {
+              return {
+                docs: Object.entries(docs)
+                  .filter(([, data]) => data?.[field] === value)
+                  .map(([id, data]) => ({ id, data: () => data })),
+              };
+            },
+          }),
+        };
       },
       runTransaction: async (callback: any) => callback({
         get: (r: any) => r.get(),
@@ -343,6 +354,36 @@ describe('handleConsultingOrderPaid', () => {
 
     expect(result).toEqual({ ok: false, error: 'send_failed:down' });
     expect(db.docs.cs_2.paidNotifiedAt).toBeNull();
+  });
+
+  it('retries a paid notice that failed at transition time from the hourly sweep, once', async () => {
+    const { handleConsultingOrderPaid, runConsultingPaidNoticeSweep } = await load();
+    const now = Date.parse('2026-09-30T10:00:00Z');
+    const order = { ...paid, createdAt: new Date(now - 60 * 60 * 1000) };
+    const db = fakeDb({ cs_4: order });
+
+    providersConfigured = false;
+    const atTransition = await handleConsultingOrderPaid({ ...order, status: 'pending' }, order, 'cs_4', { db, nowMs: now });
+    expect(atTransition).toEqual({ ok: false, error: 'no_email_provider_configured' });
+    expect(db.docs.cs_4.paidNoticeStatus).toBe('failed');
+
+    providersConfigured = true;
+    const first = await runConsultingPaidNoticeSweep({ db, nowMs: now + 60 * 1000 });
+    const second = await runConsultingPaidNoticeSweep({ db, nowMs: now + 2 * 60 * 1000 });
+    expect(first).toEqual({ sent: 1, failed: 0, skipped: 0 });
+    expect(second).toEqual({ sent: 0, failed: 0, skipped: 1 });
+    expect(sendEmailCascadeMock).toHaveBeenCalledTimes(1);
+    expect((sendEmailCascadeMock.mock.calls[0][0] as any[]).map((email) => email.payload.to))
+      .toEqual(['client@example.com', 'consulenza@frontaliereticino.ch']);
+    expect(db.docs.cs_4.paidNoticeStatus).toBe('sent');
+  });
+
+  it('leaves consultations paid more than 72 h ago to a human', async () => {
+    const { runConsultingPaidNoticeSweep } = await load();
+    const now = Date.parse('2026-09-30T10:00:00Z');
+    const db = fakeDb({ old: { ...paid, createdAt: new Date(now - 4 * 24 * 60 * 60 * 1000) } });
+    expect(await runConsultingPaidNoticeSweep({ db, nowMs: now })).toEqual({ sent: 0, failed: 0, skipped: 1 });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
   });
 
   it('does nothing without a paid transition or once the intake form is in', async () => {

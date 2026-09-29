@@ -247,7 +247,29 @@ export function consultingIntakeUrl(orderId, locale) {
   return url.toString();
 }
 
-export async function handleConsultingOrderPaid(before, after, orderId, { db } = {}) {
+const PAID_NOTICE_CLAIM_TTL_MS = 10 * 60 * 1000;
+/** Retries only look this far back: an older paid order needs a human, not an automatic email. */
+export const CONSULTING_PAID_NOTICE_WINDOW_MS = 72 * 60 * 60 * 1000;
+
+function millisOf(value) {
+  if (!value) return null;
+  if (typeof value.toMillis === 'function') return value.toMillis();
+  if (typeof value.toDate === 'function') return value.toDate().getTime();
+  const millis = value instanceof Date ? value.getTime() : Date.parse(String(value));
+  return Number.isFinite(millis) ? millis : null;
+}
+
+/** Not yet sent, failed, or claimed by a process that died mid-send. */
+export function consultingPaidNoticeClaimable(order, nowMs = Date.now()) {
+  if (!order || order.paidNoticeStatus === 'sent') return false;
+  if (order.paidNoticeStatus === 'sending') {
+    const claimedAt = millisOf(order.paidNotifiedAt);
+    return !claimedAt || nowMs - claimedAt >= PAID_NOTICE_CLAIM_TTL_MS;
+  }
+  return !order.paidNotifiedAt || order.paidNoticeStatus === 'failed';
+}
+
+export async function handleConsultingOrderPaid(before, after, orderId, { db, nowMs = Date.now() } = {}) {
   if (!after || after.status !== 'paid' || before?.status === 'paid') return { ok: true, skipped: 'no_paid_transition' };
   if (after.detailsSubmitted === true) return { ok: true, skipped: 'details_already_submitted' };
 
@@ -255,13 +277,14 @@ export async function handleConsultingOrderPaid(before, after, orderId, { db } =
   const claimed = await db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(orderRef);
     const current = snapshot.exists ? snapshot.data() || {} : null;
-    if (!current || current.paidNotifiedAt) return false;
-    transaction.set(orderRef, { paidNotifiedAt: new Date() }, { merge: true });
+    if (!consultingPaidNoticeClaimable(current, nowMs)) return false;
+    transaction.set(orderRef, { paidNotifiedAt: new Date(nowMs), paidNoticeStatus: 'sending' }, { merge: true });
     return true;
   });
   if (!claimed) return { ok: true, skipped: 'already_notified' };
 
-  const release = () => orderRef.set({ paidNotifiedAt: null }, { merge: true });
+  // A failed attempt stays retryable by runConsultingPaidNoticeSweep.
+  const release = () => orderRef.set({ paidNotifiedAt: null, paidNoticeStatus: 'failed' }, { merge: true });
   await bridgeEmailCascadeCredentialsToEnv();
   if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
     await release();
@@ -310,7 +333,37 @@ export async function handleConsultingOrderPaid(before, after, orderId, { db } =
     await release();
     return { ok: false, error: `send_failed:${failed[0].error || 'unknown'}` };
   }
+  await orderRef.set({ paidNoticeStatus: 'sent' }, { merge: true });
   return { ok: true };
+}
+
+/**
+ * Hourly backstop for handleConsultingOrderPaid: the trigger fires once per
+ * write, so a paid notice that failed (provider down, crash mid-send) would
+ * otherwise never be retried. Bounded to orders paid in the last 72 h whose
+ * intake form is still missing.
+ */
+export async function runConsultingPaidNoticeSweep({ db, nowMs = Date.now() } = {}) {
+  const snapshot = await db.collection(CONSULTING_ORDERS_COLLECTION).where('status', '==', 'paid').get();
+  const summary = { sent: 0, failed: 0, skipped: 0 };
+  for (const doc of snapshot.docs || []) {
+    const order = doc.data() || {};
+    const paidAt = millisOf(order.createdAt);
+    if (
+      order.detailsSubmitted === true
+      || !paidAt
+      || nowMs - paidAt > CONSULTING_PAID_NOTICE_WINDOW_MS
+      || !consultingPaidNoticeClaimable(order, nowMs)
+    ) {
+      summary.skipped += 1;
+      continue;
+    }
+    const result = await handleConsultingOrderPaid(null, order, doc.id, { db, nowMs });
+    if (result.ok && !result.skipped) summary.sent += 1;
+    else if (result.ok) summary.skipped += 1;
+    else summary.failed += 1;
+  }
+  return summary;
 }
 
 export { CONSULTING_ORDERS_COLLECTION, CONSULTING_PRODUCT };

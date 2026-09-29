@@ -12,9 +12,11 @@
  * attempt from its launch (2026-09-15) until the role was granted by hand on
  * 2026-09-29.
  *
- * Exit codes: 0 = no cross-service call, or role present; 1 = role missing
- * (the deploy must not proceed silently broken). An IAM read that is itself
- * denied only warns: the guard must not wedge a rules deploy it cannot judge.
+ * Exit codes: 0 = no cross-service call, or role present; 1 = role missing OR
+ * the IAM policy could not be read. Failing closed on a read error is
+ * deliberate: a deploy that cannot prove the role exists would recreate the
+ * silent 403 on every upload while the gate looks green. The rules-deploy
+ * service account (Editor) can read the project IAM policy.
  *
  *   node scripts/ci/check-storage-cross-service-role.mjs [--project <id>] [--rules storage.rules]
  */
@@ -67,39 +69,56 @@ async function getJson(url, token, body) {
   return data;
 }
 
+async function loadPolicyFromGoogle(project) {
+  const token = await accessToken();
+  const projectInfo = await getJson(`https://cloudresourcemanager.googleapis.com/v1/projects/${project}`, token);
+  const policy = await getJson(
+    `https://cloudresourcemanager.googleapis.com/v1/projects/${project}:getIamPolicy`,
+    token,
+    { options: { requestedPolicyVersion: 3 } },
+  );
+  return { member: storageServiceAgent(projectInfo.projectNumber), policy };
+}
+
+/**
+ * Decide the exit code. `loadPolicy(project)` resolves `{ member, policy }`;
+ * any error it throws fails the check (see the header for why).
+ * @returns {Promise<{ code: 0|1, message: string }>}
+ */
+export async function checkStorageCrossServiceRole({ rulesSource, project, loadPolicy = loadPolicyFromGoogle }) {
+  if (!storageRulesUseCrossService(rulesSource)) {
+    return { code: 0, message: '✅ storage.rules has no firestore.get()/exists(): no IAM role needed.' };
+  }
+  let loaded;
+  try {
+    loaded = await loadPolicy(project);
+  } catch (error) {
+    return {
+      code: 1,
+      message: `::error::Cannot read the IAM policy of ${project} (${error instanceof Error ? error.message : String(error)}): `
+        + `refusing to deploy cross-service Storage rules without proof that the Storage service agent holds ${CROSS_SERVICE_RULES_ROLE}.`,
+    };
+  }
+  if (policyGrantsRole(loaded.policy, loaded.member)) {
+    return { code: 0, message: `✅ Storage service agent holds ${CROSS_SERVICE_RULES_ROLE}.` };
+  }
+  return {
+    code: 1,
+    message: `::error::storage.rules calls firestore.get()/exists() but ${String(loaded.member).replace(/\d{6,}/, '<project-number>')} `
+      + `lacks ${CROSS_SERVICE_RULES_ROLE}: every such rule would deny. firebase-tools does not grant it in CI; `
+      + 'grant it once (IAM → add role to the Storage service agent) and re-run.',
+  };
+}
+
 async function main() {
   const project = argValue('--project', 'frontaliere-ticino');
   const rulesPath = resolve(argValue('--rules', 'storage.rules'));
-  if (!storageRulesUseCrossService(readFileSync(rulesPath, 'utf8'))) {
-    console.log(`✅ ${rulesPath} has no firestore.get()/exists(): no IAM role needed.`);
-    return 0;
-  }
-
-  let policy;
-  let member;
-  try {
-    const token = await accessToken();
-    const projectInfo = await getJson(`https://cloudresourcemanager.googleapis.com/v1/projects/${project}`, token);
-    member = storageServiceAgent(projectInfo.projectNumber);
-    policy = await getJson(
-      `https://cloudresourcemanager.googleapis.com/v1/projects/${project}:getIamPolicy`,
-      token,
-      { options: { requestedPolicyVersion: 3 } },
-    );
-  } catch (error) {
-    console.log(`::warning::Cannot read the IAM policy of ${project} (${error.message}); `
-      + `cross-service Storage rules need ${CROSS_SERVICE_RULES_ROLE} on the Storage service agent.`);
-    return 0;
-  }
-
-  if (policyGrantsRole(policy, member)) {
-    console.log(`✅ Storage service agent holds ${CROSS_SERVICE_RULES_ROLE}.`);
-    return 0;
-  }
-  console.log(`::error::storage.rules calls firestore.get()/exists() but ${member.replace(/\d{6,}/, '<project-number>')} `
-    + `lacks ${CROSS_SERVICE_RULES_ROLE}: every such rule would deny. firebase-tools does not grant it in CI; `
-    + 'grant it once (IAM → add role to the Storage service agent) and re-run.');
-  return 1;
+  const { code, message } = await checkStorageCrossServiceRole({
+    rulesSource: readFileSync(rulesPath, 'utf8'),
+    project,
+  });
+  console.log(message);
+  return code;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

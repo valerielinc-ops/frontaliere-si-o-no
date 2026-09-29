@@ -662,6 +662,12 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
 
 // ── Lifecycle wiring ─────────────────────────────────────────────────────
 
+/** Never delivered, failed, or claimed by a process that died mid-send. */
+export function notificationNeedsRetry(entry, nowMs = Date.now()) {
+  if (!entry || entry.status === 'failed') return true;
+  return entry.status === 'sending' && nowMs - (timestampMillis(entry.claimedAt) || 0) >= CLAIM_TTL_MS;
+}
+
 export function isPaid(order) {
   return order?.paymentStatus === 'paid';
 }
@@ -781,9 +787,12 @@ export async function runAssistedApplicationNotificationSweep({ db, nowMs = Date
     const paidAtMs = timestampMillis(order.paidAt);
     const intro = notifications[NOTIFICATION_KEYS.customerIntro];
 
-    const introMissing = !intro || intro.status === 'failed'
-      || (intro.status === 'sending' && nowMs - (timestampMillis(intro.claimedAt) || 0) >= CLAIM_TTL_MS);
-    if (introMissing && paidAtMs && nowMs - paidAtMs <= INTRO_BACKSTOP_WINDOW_MS) {
+    const introMissing = notificationNeedsRetry(intro, nowMs);
+    // Valerie's notice is retried on its own: a delivered customer intro must
+    // not leave the owner without the order (sendPaidOrderNotifications skips
+    // whichever of the two is already sent).
+    const ownerMissing = notificationNeedsRetry(notifications[NOTIFICATION_KEYS.ownerNewOrder], nowMs);
+    if ((introMissing || ownerMissing) && paidAtMs && nowMs - paidAtMs <= INTRO_BACKSTOP_WINDOW_MS) {
       const results = await sendPaidOrderNotifications(db, doc.id, { nowMs });
       if (results.some((result) => !result.ok && !result.skipped)) summary.failed += 1;
       else summary.intros += 1;
