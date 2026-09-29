@@ -13,6 +13,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { inferAnyCanton, isKnownSwissMunicipalityInCanton } from './lib/target-swiss-locations.mjs';
 import { fetchHilconaJobUrls, fetchHilconaDetailPage, slugify, inferEmploymentType } from './lib/hilcona-job-parser.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -51,6 +52,9 @@ function mergeCompanyJobs(parsedJobs) {
   for (const job of parsedJobs) { const key = String(job?.url || '').trim().replace(/\/+$/, ''); if (!key) continue; byUrl.set(key, job); }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   return writeJobsFiles([...others, ...clean]), clean;
 }
@@ -98,13 +102,15 @@ async function main() {
     const company = detail.company || COMPANY_NAME;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
+    // The language the body is written in, not a fixed `de` key.
+    const sourceLang = sourceLangOfBody(description, 'de');
     parsedJobs.push({
       id: `hilcona-${urlHash}`, slug: jobSlug,
-      slugByLocale: { de: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company, companyKey: COMPANY_KEY, companyDomain: 'bellfoodgroup.com',
-      title: raw.title, titleByLocale: { de: raw.title },
-      description, descriptionByLocale: { de: description },
-      requirements: [], requirementsByLocale: { de: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description, descriptionByLocale: { [sourceLang]: description },
+      requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location: loc, canton,
       addressLocality: loc, addressCountry: 'CH',
       postalCode,
@@ -112,7 +118,7 @@ async function main() {
       employmentType: inferEmploymentType(raw.title, description, detail.pensum),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, source: 'Hilcona Dedicated Parser', crawledAt: new Date().toISOString(),
-      sourceLang: detectLang(description || raw.title, 'en'),
+      sourceLang,
     });
     console.log(`  ✅ ${raw.title} — ${loc}`);
   }

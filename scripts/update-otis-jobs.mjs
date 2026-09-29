@@ -36,6 +36,7 @@ import {
   deriveLocalizedSlug,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import {
   fetchOtisJobUrls,
   fetchOtisDetailPage,
@@ -105,6 +106,9 @@ function mergeCompanyJobs(parsedJobs) {
   }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -143,20 +147,22 @@ async function main() {
     // sensitivity of a combined string.
     const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || '';
     const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Switzerland')}`);
+    // The language the body is written in, not a fixed `en` key.
+    const sourceLang = sourceLangOfBody(description, 'en');
     parsedJobs.push({
       id: `otis-${urlHash}`,
       slug: jobSlug,
-      slugByLocale: { en: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: 'otis.com',
       title: raw.title,
-      titleByLocale: { en: raw.title },
+      titleByLocale: { [sourceLang]: raw.title },
       description,
-      descriptionByLocale: { en: description },
-      sourceLang: detectLang(description || raw.title, 'en'),
+      descriptionByLocale: { [sourceLang]: description },
+      sourceLang,
       requirements: [],
-      requirementsByLocale: { en: [] },
+      requirementsByLocale: { [sourceLang]: [] },
       location: city,
       canton,
       addressLocality: city,

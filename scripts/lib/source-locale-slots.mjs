@@ -106,3 +106,28 @@ export function dropStaleLocaleDescriptions(job) {
 export function sourceSlotTitleAndSlug(title, slug, sourceLang) {
   return { titleByLocale: { [sourceLang]: title }, slugByLocale: { [sourceLang]: slug } };
 }
+
+/**
+ * A stored job filed under a fixed source language (`sourceLang: 'de'` for
+ * every posting) whose body is written in another one: its `sourceLang`
+ * becomes the body's language, the body moves to that slot, and the slots not
+ * in their own language — the body left under the old key among them — go
+ * back to the translation pipeline (`dropStaleLocaleDescriptions`). Meant for
+ * the merge input (`prepareExistingJobs`), where the locale-preserving merge
+ * would otherwise keep the mis-keyed body as a translation forever.
+ *
+ * @param {object} job stored job (mutated)
+ * @returns {boolean} true when the job changed
+ */
+export function resyncStoredSourceLang(job) {
+  const current = String(job?.sourceLang || '');
+  const body = String(job?.descriptionByLocale?.[current] || job?.description || '');
+  if (!current || !body.trim()) return false;
+  const lang = sourceLangOfBody(body, current);
+  if (lang === current) return false;
+  job.sourceLang = lang;
+  job.descriptionByLocale = { ...(job.descriptionByLocale || {}), [lang]: body };
+  dropStaleLocaleDescriptions(job);
+  job.needsRetranslation = true;
+  return true;
+}
