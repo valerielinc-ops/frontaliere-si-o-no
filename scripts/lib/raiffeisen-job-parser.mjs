@@ -134,6 +134,9 @@ const parser = createProspectiveChParser({
   filterListing: (listing) => (
     !isVedeggioCassarateListing(listing) && isSwissRaiffeisenListing(listing)
   ),
+  // Listing payload = 37-43 % of the rendered vacancy (audit 2026-09-29):
+  // the bank's offer and benefit blocks exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export async function fetchAllRaiffeisenJobs() {

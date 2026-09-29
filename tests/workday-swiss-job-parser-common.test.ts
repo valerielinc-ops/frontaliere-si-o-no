@@ -12,6 +12,8 @@ import {
   isAuthoritativeEmptySnapshot,
 } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
+const ROLE_BODY = '<p>Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps.</p>';
+
 /**
  * The publish gate reads the req's OWN primary workplace, never the union of
  * `[info.location, ...info.additionalLocations]`, and the HQ
@@ -106,9 +108,10 @@ describe('createWorkdaySwissParser — externalPath location fallback (Eraneos: 
           { status: 200 },
         );
       }
-      // Job detail fetch — fail so the caller falls back to the built-in
-      // description (keeps the mock minimal, unrelated to this test).
-      return new Response('', { status: 404 });
+      // Job detail: a body but no structured location, so the listing's
+      // externalPath is what places the req. (A req without a body is not
+      // published at all, issue 5253.)
+      return new Response(JSON.stringify({ jobPostingInfo: { jobDescription: ROLE_BODY } }), { status: 200 });
     });
   }
 
@@ -196,9 +199,10 @@ describe('createWorkdaySwissParser — externalPath location fallback (Medbase: 
           { status: 200 },
         );
       }
-      // Job detail fetch — fail so the caller falls back to the built-in
-      // description (keeps the mock minimal, unrelated to this test).
-      return new Response('', { status: 404 });
+      // Job detail: a body but no structured location, so the listing's
+      // externalPath is what places the req. (A req without a body is not
+      // published at all, issue 5253.)
+      return new Response(JSON.stringify({ jobPostingInfo: { jobDescription: ROLE_BODY } }), { status: 200 });
     });
   }
 
@@ -422,7 +426,8 @@ describe('createWorkdaySwissParser — detail URL is required for vacancy identi
         }), { status: 200 });
       }
       detailCalls.push(urlStr);
-      return new Response('', { status: 404 });
+      // A real vacancy body: a req without one is not published (issue 5253).
+      return new Response(JSON.stringify({ jobPostingInfo: { jobDescription: ROLE_BODY } }), { status: 200 });
     });
 
     const parser = createWorkdaySwissParser({
@@ -492,7 +497,9 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
           ],
         }), { status: 200 });
       }
-      return new Response('', { status: 404 });
+      // A body without a structured location: the listing's own locality
+      // decides, and a req without a body is not published (issue 5253).
+      return new Response(JSON.stringify({ jobPostingInfo: { jobDescription: ROLE_BODY } }), { status: 200 });
     });
 
     const parser = createWorkdaySwissParser({
@@ -713,7 +720,7 @@ describe('createWorkdaySwissParser — foreign-only Swiss board is a proven empt
         jobPostingInfo: {
           location: 'Zug',
           jobRequisitionLocation: { descriptor: 'Zug', country: { descriptor: 'Switzerland', alpha2Code: 'CH' } },
-          jobDescription: '<p>Swiss role</p>',
+          jobDescription: ROLE_BODY,
         },
       },
     });
@@ -850,7 +857,7 @@ describe('createWorkdaySwissParser — canton-only segments', () => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     mockFacetTenant(
       [{ title: 'Quality Engineer Production', externalPath: '/job/Conters-Graubunden/Quality-Engineer_JR10665', locationsText: 'Conters, Graubunden', bulletFields: ['JR10665'] }],
-      { '/job/Conters-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Conters, Graubunden', country: { descriptor: 'Switzerland' } } },
+      { '/job/Conters-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Conters, Graubunden', country: { descriptor: 'Switzerland' }, jobDescription: ROLE_BODY } },
     );
     const jobs = await makeParser().fetchAllJobs();
     expect(jobs).toHaveLength(1);
@@ -862,9 +869,53 @@ describe('createWorkdaySwissParser — canton-only segments', () => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     mockFacetTenant(
       [{ title: 'Quality Engineer Production', externalPath: '/job/Seewis-Graubunden/Quality-Engineer_JR10665', locationsText: 'Seewis, Graubunden', bulletFields: ['JR10665'] }],
-      { '/job/Seewis-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Seewis, Graubunden', country: { descriptor: 'Switzerland' } } },
+      { '/job/Seewis-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Seewis, Graubunden', country: { descriptor: 'Switzerland' }, jobDescription: ROLE_BODY } },
     );
     const jobs = await makeParser().fetchAllJobs();
     expect(jobs.map((job: any) => [job.location, job.canton])).toEqual([['Seewis', 'GR']]);
+  });
+});
+
+// Only the posting's own text is published (issue 5253). A req whose detail
+// has no body used to go out as a synthetic "Key details" stub (location,
+// employer, "apply on the Workday portal"); it is not published any more.
+describe('createWorkdaySwissParser — req without a vacancy body', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  it('publishes the req with a body and skips the one without, never inventing text', async () => {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            { title: 'Controller 80-100%', externalPath: '/job/Zug/Controller_R1', locationsText: 'Zug', postedOn: 'Posted Today', bulletFields: ['R1'] },
+            { title: 'Buchhalter 80-100%', externalPath: '/job/Zug/Buchhalter_R2', locationsText: 'Zug', postedOn: 'Posted Today', bulletFields: ['R2'] },
+          ],
+        }), { status: 200 });
+      }
+      if (urlStr.endsWith('_R1')) return new Response(JSON.stringify({ jobPostingInfo: { location: 'Zug', jobDescription: ROLE_BODY } }), { status: 200 });
+      if (urlStr.endsWith('_R2')) return new Response(JSON.stringify({ jobPostingInfo: { location: 'Zug', jobDescription: '<p>Jetzt bewerben</p>' } }), { status: 200 });
+      return new Response('', { status: 404 });
+    });
+
+    const jobs = await createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      defaultCanton: 'ZG',
+      defaultCity: 'Zug',
+    }).fetchAllJobs();
+
+    expect(jobs.map((job: any) => job.title)).toEqual(['Controller 80-100%']);
+    expect(jobs[0].description).toMatch(/^Responsibilities and requirements of the role/);
+    for (const job of jobs) expect(job.description).not.toContain('Key details');
   });
 });

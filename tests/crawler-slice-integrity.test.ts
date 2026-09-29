@@ -9,7 +9,10 @@ import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
   clearCrossCrawlerDedupProofFile,
+  isProvenCrossCrawlerDedupRemoval,
   isProvenCrossCrawlerDedupPrune,
+  isProvenGhostExpiredPrune,
+  isProvenGhostExpiredReconciliation,
   isProvenHousekeepingPrune,
   isProvenRetiredScratchArchiveDelete,
   isSafeBuehlerForeignPruneJobs,
@@ -419,6 +422,74 @@ describe('crawler slice integrity guard', () => {
     }
   });
 
+  it('allows only an active-job-proven shrink of an expired ghost slice', () => {
+    const active = {
+      title: 'Stockiste',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Aarau',
+      slugByLocale: { it: 'stockiste-aarau', en: 'stockiste-aarau' },
+      previousSlugs: ['stockiste-legacy'],
+    };
+    const removed = {
+      slug: 'stockiste-legacy',
+      title: active.title,
+      company: active.company,
+      location: active.location,
+      slugByLocale: { it: 'stockiste-legacy', en: 'stockiste-legacy-en' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'unrelated-expired',
+      title: 'Unrelated',
+      company: 'Other company',
+      location: 'Lugano',
+      description: 'y'.repeat(100_000),
+    };
+    const previous = json([removed, retained]);
+    const next = json([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const proof = { activeJobs: [active], ghostEntryIds: [removed.slug] };
+
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, proof)).toBe(true);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { expiredGhostProof: proof }).reason)
+      .toBe('proven-ghost-expired-prune');
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-ghost-expired-'));
+    const absolutePath = join(root, filePath);
+    try {
+      writeJsonAtomic(absolutePath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(absolutePath, JSON.parse(next), { expiredGhostProof: proof })).not.toThrow();
+      expect(JSON.parse(readFileSync(absolutePath, 'utf8'))).toHaveLength(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+
+    const wrongActiveJob = { ...active, location: 'Basel' };
+    const wrongProof = { activeJobs: [wrongActiveJob], ghostEntryIds: [removed.slug] };
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, wrongProof)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next, { expiredGhostProof: wrongProof }))
+      .toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('proves individual duplicate removals but keeps assembly-only omissions unproven', () => {
+    const duplicate = dedupJob('https://buehler.example/duplicate', 'Engineer', 'x'.repeat(20));
+    const retained = dedupJob('https://other-crawler.example/engineer', 'Engineer', 'kept elsewhere');
+    const unrelated = dedupJob('https://buehler.example/unrelated', 'Unique position', 'not a duplicate');
+
+    expect(isProvenCrossCrawlerDedupRemoval(
+      'data/jobs/by-crawler/buehler.json',
+      duplicate,
+      [retained],
+    )).toBe(true);
+    expect(isProvenCrossCrawlerDedupRemoval(
+      'data/jobs/by-crawler/buehler.json',
+      unrelated,
+      [retained],
+    )).toBe(false);
+  });
+
   it('accepts a run-bound dedup decision when the final reference no longer contains the winner', () => {
     const duplicateA = dedupJob('https://buehler.example/a', 'Engineer', 'x'.repeat(700_000));
     const duplicateB = dedupJob('https://buehler.example/b', 'Engineer', 'y'.repeat(700_000));
@@ -720,6 +791,134 @@ describe('crawler slice integrity guard', () => {
       next,
       { ...proof, candidateDigest: sha256('[{}]\n') },
     )).toBe(false);
+  });
+
+  it('allows only a byte-bound ghost cleanup on an expired slice', () => {
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const activeMatch = {
+      url: 'https://rituals.example/active',
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      slugByLocale: { it: 'store-manager-zurich' },
+      previousSlugs: ['store-manager-zurich-old'],
+    };
+    const removed = {
+      slug: 'store-manager-zurich-old',
+      title: activeMatch.title,
+      company: activeMatch.company,
+      location: activeMatch.location,
+      slugByLocale: { it: 'store-manager-zurich-old' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'visual-merchandiser-lugano',
+      title: 'Visual Merchandiser',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+      description: 'retained',
+    };
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const proof = {
+      schemaVersion: 1,
+      type: 'ghost-expired-reconciliation',
+      path: filePath,
+      baseRaw: previous,
+      candidateRaw: next,
+      entries: [{
+        expired: removed,
+        match: activeMatch,
+        overlapSlug: 'store-manager-zurich-old',
+        overlapJob: activeMatch,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, previous, next, proof)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, {
+      housekeepingProof: proof,
+    }).reason).toBe('proven-ghost-expired-reconciliation');
+    expect(isProvenGhostExpiredReconciliation(
+      'data/jobs/by-crawler/rituals-cosmetics.json', previous, next, proof,
+    )).toBe(false);
+    expect(isProvenGhostExpiredReconciliation(
+      filePath, previous.replace('Rituals Cosmetics', 'Other Company'), next, proof,
+    )).toBe(false);
+    expect(isProvenGhostExpiredReconciliation(
+      filePath,
+      previous,
+      next,
+      { ...proof, entries: [{ ...proof.entries[0], overlapSlug: 'unrelated-slug' }] },
+    )).toBe(false);
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-ghost-'));
+    const guardedPath = join(root, filePath);
+    const unprovenPath = join(root, 'data/jobs/expired/by-crawler/other.json');
+    try {
+      writeJsonAtomic(guardedPath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(guardedPath, JSON.parse(next), {
+        housekeepingProof: proof,
+      })).not.toThrow();
+
+      writeJsonAtomic(unprovenPath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(unprovenPath, JSON.parse(next))).toThrow(/catastrophic truncation avoided/);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects ghost evidence whose slug owner is a different posting', () => {
+    const activeMatch = {
+      url: 'https://example.test/active-a',
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      slugByLocale: { it: 'store-manager-zurich-a' },
+    };
+    const unrelatedOwner = {
+      url: 'https://example.test/active-b',
+      title: 'Different title',
+      company: 'Different company',
+      location: 'Lugano',
+      slugByLocale: { it: 'shared-slug' },
+    };
+    const removed = {
+      url: 'https://example.test/expired',
+      title: activeMatch.title,
+      company: activeMatch.company,
+      location: activeMatch.location,
+      slugByLocale: { it: 'shared-slug' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      url: 'https://example.test/retained',
+      title: 'Retained',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      description: 'retained',
+    };
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const proof = {
+      schemaVersion: 1,
+      type: 'ghost-expired-reconciliation',
+      path: 'data/jobs/expired/by-crawler/rituals-cosmetics.json',
+      baseRaw: previous,
+      candidateRaw: next,
+      entries: [{
+        expired: removed,
+        match: activeMatch,
+        overlapSlug: 'shared-slug',
+        overlapJob: unrelatedOwner,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(proof.path, previous, next, proof)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(proof.path, previous, next, {
+      housekeepingProof: proof,
+    })).toThrow(/catastrophic truncation avoided/);
   });
 
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {

@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Only the two network calls are stubbed; every other crawler-template export
@@ -13,6 +15,7 @@ import {
   isKudelskiNagraJob,
   isTrustedDomain,
   fetchAllKudelskiNagraJobs,
+  extractNagraAdvertHtml,
 } from '../scripts/lib/kudelski-nagra-job-parser.mjs';
 import { slugify, fetchJson, fetchHtml } from '../scripts/lib/crawler-template.mjs';
 
@@ -210,5 +213,48 @@ describe('Kudelski NAGRA crawler parser', () => {
       expect(jobs[0].postalCode).not.toBe('6900');
       expect(jobs[0].streetAddress).toBeTruthy();
     });
+  });
+});
+
+// ── #5253: the careers.nagra.com table has no description column ──────────
+describe('careers.nagra.com detail body', () => {
+  // Real page, minimised: `?page=advertisement_display&id=15828`.
+  const ADVERT_15828 = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'crawler-quality-f', 'nagra-advert-15828.html'),
+    'utf8',
+  );
+  const TABLE = '<table><tr class="table-primary "><td>15828</td><td>20-08-2026</td>'
+    + '<td><a href="?page=advertisement_display&id=15828">Security Operations Engineer.</a></td>'
+    + '<td>Permanent CDI</td><td>Switzerland</td><td>Kudelski Security</td><td><a href="#">Apply</a></td></tr></table>';
+
+  it('reads the whole #advert block, nested lists included', () => {
+    const html = extractNagraAdvertHtml(ADVERT_15828);
+    expect(html).toContain('Who We Are');
+    expect(html).toContain('Palo Alto');
+    expect(html).toContain('Why Join Kudelski Security?');
+    expect(html).not.toContain('Publication Date');
+    expect(extractNagraAdvertHtml('<div id="other">x</div>')).toBe('');
+  });
+
+  it('publishes the vacancy body instead of a sentence built from the table columns', async () => {
+    vi.mocked(fetchJson).mockReset();
+    vi.mocked(fetchJson).mockResolvedValue({ jobs: [] } as never);
+    vi.mocked(fetchHtml).mockReset();
+    vi.mocked(fetchHtml).mockImplementation(async (url: string) => (
+      String(url).includes('advertisement_display') ? ADVERT_15828 : TABLE
+    ));
+
+    const jobs = await fetchAllKudelskiNagraJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].url).toBe('https://careers.nagra.com/?page=advertisement_display&id=15828');
+    expect(jobs[0].description).toContain('We are seeking a Security Operations Engineer to support a major client in Zurich');
+    expect(jobs[0].description).toMatch(/^\s*• 3\+ years of experience in Security Operations/m);
+    expect(jobs[0].description).not.toContain('Permanent CDI at Kudelski Security');
+    expect(jobs[0].sourceLang).toBe('en');
+    expect(jobs[0].canton).toBe('ZH');
+    // One listing fetch plus ONE detail fetch: the page serves both the
+    // workplace and the body.
+    expect(vi.mocked(fetchHtml)).toHaveBeenCalledTimes(2);
   });
 });

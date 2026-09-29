@@ -31,8 +31,6 @@ const parser = createBreezyHrParser({
   defaultPostalCode: '1708',
   defaultSourceLang: 'fr',
   sourceLabel: 'HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)',
-  fallbackBrandBlurb:
-    "L'Hôpital fribourgeois (HFR) est le réseau hospitalier public du canton de Fribourg. Il regroupe les sites de Fribourg, Riaz, Tafers, Meyriez-Murten et Billens, et emploie plus de 3'500 collaboratrices et collaborateurs.",
 });
 
 export const fetchAllHfrJobs = parser.fetchAllJobs;

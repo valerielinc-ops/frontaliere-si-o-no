@@ -50,7 +50,9 @@ import {
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -431,7 +433,7 @@ function parseStaticJobs(html) {
 }
 
 /* ── Fetch and parse all Mendrisio jobs ──────────────────── */
-async function fetchMendrisioJobs() {
+export async function fetchMendrisioJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
   console.log(`🔍 Fetching Città di Mendrisio jobs...`);
@@ -520,21 +522,20 @@ async function fetchMendrisioJobs() {
 }
 
 /* ── Description building ──────────────────────────────────── */
+/**
+ * The description of one concorso is the text of its PDF bando or, without
+ * it, the text of the listing entry: the source's own words only. The crawler
+ * used to add lines of its own ("Concorso pubblico presso la Città di
+ * Mendrisio.", "Posizione: <titolo>.", "Termine di iscrizione: …", "Bando
+ * ufficiale disponibile in PDF."); the deadline stays in `validThrough`.
+ */
 function buildDescription(parsed, pdfText = '') {
-  const footerLines = [];
-  if (parsed.deadline) footerLines.push(`Termine di iscrizione: ${parsed.deadline}.`);
-  if (parsed.pdfUrl) footerLines.push('Bando ufficiale disponibile in PDF.');
-
-  return buildPdfBackedDescription({
-    introLines: [
-      'Concorso pubblico presso la Città di Mendrisio.',
-      `Posizione: ${parsed.title}.`,
-    ],
-    pdfText,
-    fallbackText: parsed.descriptionText || '',
-    footerLines,
-  });
+  return buildPdfBackedDescription({ pdfText, fallbackText: parsed.descriptionText || '' });
 }
+
+/** Fragments only the crawler's former intro and footer wrote. */
+export const MENDRISIO_FABRICATED_DESCRIPTION_RE =
+  /Concorso pubblico presso la Città di Mendrisio\.|Bando ufficiale disponibile in PDF\./;
 
 function detectCategory(title = '') {
   const t = normalize(title);
@@ -588,7 +589,11 @@ async function mergeMendrisioJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonMendrisioJobs = allJobs.filter((j) => !isMendrisioJob(j));
-  const existingMendrisioJobs = allJobs.filter(isMendrisioJob);
+  const existingMendrisioJobs = dropFabricatedDescriptions(
+    allJobs.filter(isMendrisioJob),
+    MENDRISIO_FABRICATED_DESCRIPTION_RE,
+    MENDRISIO_COMPANY_NAME,
+  );
 
   const existingBySlug = new Map();
   for (const job of existingMendrisioJobs) {
@@ -905,4 +910,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Città di Mendrisio'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Città di Mendrisio'));
+}

@@ -147,7 +147,7 @@ describe('composeLocaleSubjects next to Phase 2', () => {
       exchangeRate: EXCHANGE,
       generate: async (ctx: { subscriber: { locale: string }; briefingSummary: string }) => {
         seen.set(ctx.subscriber.locale, ctx.briefingSummary);
-        return 'Oggetto';
+        return { concreto: 'Oggetto' };
       },
     });
     return seen;
@@ -157,7 +157,7 @@ describe('composeLocaleSubjects next to Phase 2', () => {
     const seen = new Map<string, string>();
     await composeLocaleSubjects(cohorts, {
       locales: [loc], variantIds: ['concreto'], briefingMap: phase2.briefingMap, exchangeRate: EXCHANGE,
-      generate: async (ctx: { briefingSummary: string }) => { seen.set(loc, ctx.briefingSummary); return 'Oggetto'; },
+      generate: async (ctx: { briefingSummary: string }) => { seen.set(loc, ctx.briefingSummary); return { concreto: 'Oggetto' }; },
     });
     return seen.get(loc);
   }

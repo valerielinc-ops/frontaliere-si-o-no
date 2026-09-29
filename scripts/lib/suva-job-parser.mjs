@@ -339,7 +339,9 @@ export async function fetchAllSuvaJobs() {
       const postalCode = urlPostalCode || officeAddress?.postalCode || '';
       const streetAddress = officeAddress?.streetAddress || '';
 
-      const description = parsed.description || `${parsed.title} — ${SUVA_COMPANY_NAME}`;
+      // The detail's own text only: without it the job gets no description
+      // (thin-source path) instead of "<Titel> — Suva" written by the crawler.
+      const description = parsed.description || '';
       const sourceLang = detectLang(description || parsed.title, 'de');
       const jobSlug = buildJobSlug(parsed.title, `suva ${primaryCity}`);
       const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);

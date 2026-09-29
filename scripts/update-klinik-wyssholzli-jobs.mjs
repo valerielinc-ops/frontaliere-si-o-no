@@ -44,7 +44,9 @@ import {
   KLINIK_WYSSHOLZLI_COMPANY_NAME,
   KLINIK_WYSSHOLZLI_COMPANY_DOMAIN,
   KLINIK_WYSSHOLZLI_CAREERS_URL,
+  KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
 } from './lib/klinik-wyssholzli-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -149,7 +151,9 @@ function jobMatchKey(job = {}) {
 
 function buildJob({ title, pdfUrl, pdfText, filename }) {
   const slug = slugify(`${title}-${COMPANY_KEY}`);
-  const description = buildKlinikWysshholzliDescription({ title, pdfText, pdfUrl }).description;
+  // The PDF text is keyed by its own language.
+  const sourceLang = detectLang(`${title} ${pdfText}`, 'de');
+  const description = buildKlinikWysshholzliDescription({ title, pdfText }).description;
   return {
     title,
     slug,
@@ -170,14 +174,14 @@ function buildJob({ title, pdfUrl, pdfText, filename }) {
     employmentType: 'full-time',
     contractType: 'full-time',
     source: `${COMPANY_KEY}-dedicated-crawler`,
-    sourceLang: detectLang(`${title} ${pdfText}`, 'de'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     validThrough: '',
     needsRetranslation: true,
     description,
-    titleByLocale: { de: title },
-    descriptionByLocale: { de: description },
-    slugByLocale: { de: slug },
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
     _meta: { sourceFilename: filename },
   };
 }
@@ -185,7 +189,11 @@ function buildJob({ title, pdfUrl, pdfText, filename }) {
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = existing.filter(isTargetJob);
+  const existingTarget = dropFabricatedDescriptions(
+    existing.filter(isTargetJob),
+    KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
