@@ -3,6 +3,7 @@ import {
   dropFabricatedDescription,
   dropFabricatedDescriptions,
 } from '../scripts/lib/drop-fabricated-description.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const WRAPPER_RE = /Die Thurklinik in Niederuzwil \(SG\) ist eine Belegspital-Tagesklinik/;
 
@@ -77,5 +78,51 @@ describe('dropFabricatedDescriptions', () => {
 
   it('returns an empty array for a missing input', () => {
     expect(dropFabricatedDescriptions(undefined as any, WRAPPER_RE, 'x')).toEqual([]);
+  });
+});
+
+describe('before the locale-preserving merge (prepareExistingJobs)', () => {
+  // The merge keeps the stored source slot when the fresh text is under 30
+  // characters, and keeps the translations of a source that did not drift:
+  // text the crawler once wrote survives every later crawl unless it is
+  // removed from the stored jobs first.
+  const INVENTED_RE = /bei Stadler Rail in Altenrhein\. Stadler ist ein weltweit tätiger Hersteller/;
+  const stored = () => [{
+    id: 'stadler-1',
+    url: 'https://www.stadlerrail.com/de/karriere/job/12345',
+    slug: 'lehrstelle-anlagen-apparatebauer-in-efz-stadler',
+    sourceLang: 'de',
+    title: 'Lehrstelle Anlagen- und Apparatebauer:in EFZ',
+    titleByLocale: { de: 'Lehrstelle Anlagen- und Apparatebauer:in EFZ' },
+    description: 'Lehrstelle Anlagen- und Apparatebauer:in EFZ bei Stadler Rail in Altenrhein. Stadler ist ein weltweit tätiger Hersteller von Schienenfahrzeugen.',
+    descriptionByLocale: {
+      de: 'Lehrstelle Anlagen- und Apparatebauer:in EFZ bei Stadler Rail in Altenrhein. Stadler ist ein weltweit tätiger Hersteller von Schienenfahrzeugen.',
+      it: 'Apprendistato presso Stadler Rail ad Altenrhein. Stadler è un produttore mondiale di veicoli ferroviari.',
+    },
+  }];
+  const fresh = () => [{
+    id: 'stadler-1',
+    url: 'https://www.stadlerrail.com/de/karriere/job/12345',
+    slug: 'lehrstelle-anlagen-apparatebauer-in-efz-stadler',
+    sourceLang: 'de',
+    title: 'Lehrstelle Anlagen- und Apparatebauer:in EFZ',
+    titleByLocale: { de: 'Lehrstelle Anlagen- und Apparatebauer:in EFZ' },
+    description: 'Lehrstelle EFZ Altenrhein',
+    descriptionByLocale: { de: 'Lehrstelle EFZ Altenrhein' },
+  }];
+
+  it('without the cleanup the merge keeps the stored invented text and its translation', () => {
+    const [job] = mergePreserveLocaleData(stored(), fresh());
+    expect(INVENTED_RE.test(job.descriptionByLocale.de)).toBe(true);
+    expect(job.descriptionByLocale.it).toContain('Stadler Rail');
+  });
+
+  it('with the cleanup the invented text and its translation are gone after the merge', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const [job] = mergePreserveLocaleData(dropFabricatedDescriptions(stored(), INVENTED_RE, 'Stadler'), fresh());
+    log.mockRestore();
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.description).toBe('Lehrstelle EFZ Altenrhein');
+    expect(job.needsRetranslation).toBe(true);
   });
 });
