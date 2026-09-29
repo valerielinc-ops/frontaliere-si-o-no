@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -248,6 +248,79 @@ function buildJobUrl(listing) {
 }
 
 /**
+ * Read the posting record the job page hydrates from
+ * (`window.__staticRouterHydrationData = JSON.parse("…")`,
+ * `loaderData.jobDetails.jobsData`). Returns null when absent/unparseable.
+ *
+ * @param {string} html
+ */
+export function parseAppleJobDetailsData(html = '') {
+  const m = String(html || '').match(/window\.__staticRouterHydrationData\s*=\s*JSON\.parse\(("(?:[^"\\]|\\.)*")\)/);
+  if (!m) return null;
+  try {
+    const data = JSON.parse(JSON.parse(m[1]));
+    return data?.loaderData?.jobDetails?.jobsData || null;
+  } catch {
+    return null;
+  }
+}
+
+function appleListItems(text = '') {
+  return String(text || '')
+    .split(/\n+/)
+    .map((line) => normalizeSpace(stripHtml(line)).replace(/^[-•*]\s*/, ''))
+    .filter(Boolean)
+    .map((line) => `• ${line}`)
+    .join('\n');
+}
+
+/**
+ * Compose the full posting from the job-details record: summary,
+ * description, minimum and preferred qualifications (one bullet per line, as
+ * the page lists them) and the posting footers (Apple's inclusion and
+ * accessibility statements). The search API only returns `jobSummary`, so the
+ * parser used to publish the teaser paragraph as the whole vacancy, as prose
+ * (audit run 36528331656: 15/18 descriptions without any list).
+ *
+ * @param {object|null} jobsData
+ * @returns {string}
+ */
+export function buildAppleJobDescription(jobsData) {
+  if (!jobsData || typeof jobsData !== 'object') return '';
+  const sections = [];
+  const summary = normalizeDescriptionSpace(stripHtml(String(jobsData.jobSummary || '')));
+  if (summary) sections.push(`Summary\n${summary}`);
+  const description = normalizeDescriptionSpace(stripHtml(String(jobsData.description || '')));
+  if (description) sections.push(`Description\n${description}`);
+  const minimum = appleListItems(jobsData.minimumQualifications);
+  if (minimum) sections.push(`Minimum Qualifications\n${minimum}`);
+  const preferred = appleListItems(jobsData.preferredQualifications);
+  if (preferred) sections.push(`Preferred Qualifications\n${preferred}`);
+  const footers = [];
+  for (const footer of Array.isArray(jobsData.postingFooters) ? jobsData.postingFooters : []) {
+    const entries = footer?.localizations?.en_US || [];
+    for (const entry of Array.isArray(entries) ? entries : []) {
+      const text = normalizeDescriptionSpace(stripHtml(String(entry?.content || '')));
+      if (text) footers.push(text);
+    }
+  }
+  if (footers.length) sections.push(footers.join('\n\n'));
+  return sections.join('\n\n');
+}
+
+async function fetchAppleJobDescription(url) {
+  try {
+    const res = await fetchWithTimeout(url, {
+      headers: { 'User-Agent': BROWSER_UA, Accept: 'text/html' },
+    });
+    if (!res.ok) return '';
+    return buildAppleJobDescription(parseAppleJobDetailsData(await res.text()));
+  } catch {
+    return '';
+  }
+}
+
+/**
  * Fetch all Apple Retail Switzerland jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -268,6 +341,7 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
 
   const jobs = [];
   const seenIds = new Set();
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.postingTitle || '');
     const positionId = String(listing.positionId || listing.jobPositionId || '').trim();
@@ -279,10 +353,19 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     const locationEntry = Array.isArray(listing.locations) ? listing.locations[0] : null;
     const location = normalizeSpace(locationEntry?.name || 'Switzerland');
     const canton = resolveAppleRetailSwitzerlandCanton(location);
-    const descriptionSource = listing.jobSummary || '';
-    const descriptionText =
-      stripHtml(descriptionSource) || `${title} — Apple Retail Switzerland`;
     const publicUrl = buildJobUrl(listing);
+    const detailDescription = positionId ? await fetchAppleJobDescription(publicUrl) : '';
+    if (positionId) await new Promise((r) => setTimeout(r, 300)); // polite detail pacing
+    const descriptionSource = listing.jobSummary || '';
+    // Only the posting's own text is published (issue 5253): without the
+    // detail record and without a search summary the posting used to go out
+    // as "{title} — Apple Retail Switzerland"; it is not published any more.
+    const descriptionText = detailDescription || stripHtml(descriptionSource);
+    if (!descriptionText) {
+      console.log(`  ⏭️ no vacancy text on the detail page nor in the search summary, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} apple-retail-switzerland ch`);
@@ -336,6 +419,9 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total Apple Retail Switzerland jobs discovered: ${jobs.length}`);
   return jobs;
 }
