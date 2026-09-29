@@ -15,6 +15,9 @@ import {
   ALDI_SUCCESSFACTORS_BASE,
 } from '@/scripts/lib/aldi-suisse-job-parser.mjs';
 import { buildAldiJobRecord } from '@/scripts/update-aldi-suisse-jobs.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // --- Fixture: live TYPO3 REST job-search response ---
 const SEARCH_JSON = {
@@ -403,5 +406,52 @@ describe('buildAldiJobRecord', () => {
       postedDate: '2026-09-22',
       crawledAt: '2026-09-22T00:00:00.000Z',
     });
+  });
+});
+
+// Pinned fixture minimised from jobs.aldi.ch/job/1389180133 (2026-09-29).
+// The parser published the `<div class="description">` block alone (~1.2k of
+// ~3.5k unique characters on the page), without the workload, the employer
+// intro, the "Unsere Benefits für dich" list and "Über ALDI SUISSE AG", and
+// ran headings into their values ("Arbeitsort6203 Sempach Station").
+describe('parseAldiDetailPage — whole posting', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'aldi-suisse-typo3-detail-sempach.html'),
+    'utf8',
+  );
+
+  it('carries workload, intro, tasks/profile/offer, benefits and the company paragraph in page order', () => {
+    const { body } = parseAldiDetailPage(fixture);
+    const order = ['70 - 80%', 'Bei uns gilt:', 'Aufgaben', 'Profil', 'Unser Angebot', 'UNSERE BENEFITS FÜR DICH', 'Über ALDI SUISSE AG']
+      .map((marker) => body.indexOf(marker));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(body).toMatch(/^• Mehr Mobilität$/m);
+    expect(body).toMatch(/^Arbeitsort\n6203 Sempach Station, Mettenwilstrasse 10$/m);
+  });
+
+  it('leaves out the recruiting-team blurb and page chrome', () => {
+    const { body } = parseAldiDetailPage(fixture);
+    expect(body).not.toContain('Recruiting-Team');
+    expect(body).not.toContain('Diese Stelle teilen');
+  });
+});
+
+describe('buildAldiJobRecord — no invented text', () => {
+  it('returns null when the detail page yielded no posting body', () => {
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body: '' },
+    });
+    expect(job).toBeNull();
+  });
+
+  it('does not cut a long body', () => {
+    const body = `Aufgaben\n${'• Mitarbeit in der Filiale\n'.repeat(400)}`;
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/2', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body },
+    });
+    expect(job.description.length).toBe(body.length);
   });
 });

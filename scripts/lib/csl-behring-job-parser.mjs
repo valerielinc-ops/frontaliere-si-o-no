@@ -345,7 +345,6 @@ export async function fetchAllCslBehringJobs() {
         .replace(/[ \t]*\n[ \t]*/g, '\n')
         .replace(/\n{3,}/g, '\n\n')
         .trim()
-        .slice(0, 4000)
       : '';
     await new Promise((r) => setTimeout(r, 400));
 

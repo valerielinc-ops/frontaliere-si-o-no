@@ -16,6 +16,7 @@ import {
   MAX_DETAIL_FETCHES,
 } from '../scripts/lib/belimo-job-parser.mjs';
 import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
+import { parseCsbStreetAddressLocation } from '../scripts/lib/belimo-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -234,6 +235,27 @@ describe('Belimo crawler parser', () => {
       expect(jobs[0].country).toBe('CH');
       expect(jobs[0].addressCountry).toBe('CH');
     });
+
+    // Only the posting's own text is published (issue 5253): a page without a
+    // description block used to go out as "{title} presso Belimo a {city}.".
+    it('does not publish a Swiss page without vacancy text, never inventing one', async () => {
+      globalThis.fetch = (async (url: any) => {
+        const u = String(url);
+        if (u.startsWith(SITEMAP_URL)) return sitemapResponse();
+        return new Response(
+          `<html><body>
+            <h1 itemprop="title">Montagemitarbeiter/-in (100%)</h1>
+            <span itemprop="addressLocality" content="Hinwil"></span>
+            <span itemprop="postalCode" content="8340"></span>
+            <span itemprop="addressCountry" content="CH"></span>
+          </body></html>`,
+          { status: 200, headers: { 'Content-Type': 'text/html' } },
+        );
+      }) as any;
+
+      const jobs = await fetchAllBelimoJobs();
+      expect(jobs).toHaveLength(0);
+    });
   });
 
   // ── Detail-fetch budget constants ──
@@ -332,5 +354,30 @@ describe('Belimo crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Minimised from jobsredirect.belimo.com (2026-09-29).
+describe('parseBelimoDetailPage — closed and foreign requisitions', () => {
+  it('returns null for a requisition that is already filled (title only, no body, no location)', () => {
+    // .../job/Hinwil-Head-of-District-Energy-&-Metering-(EMEA)-(100)-Züri-8340/1163687855/
+    const filled = '<html><body><h1 itemprop="title">Head of District Energy &amp; Metering (EMEA) (100%)</h1>'
+      + '<p>Datum: 15.08.2026</p><p>Unternehmen: belimoauto</p>'
+      + '<p>Diese Stelle wurde leider bereits besetzt.</p></body></html>';
+    expect(parseBelimoDetailPage(filled)).toBeNull();
+  });
+
+  it('reads the country from a streetAddress-only JobLocation instead of defaulting to Hinwil', () => {
+    // .../job/Vaassen-Manager-Technisch-Advies-8171-MG/1165418855/
+    const vaassen = '<html><body><h1 itemprop="title">Manager Technisch Advies</h1>'
+      + '<span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">'
+      + '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">'
+      + '<meta itemprop="streetAddress" content="Vaassen, NL, 8171 MG"></span></span>'
+      + '<span itemprop="description"><p>Als Manager Technisch Advies ben je verantwoordelijk voor ons team.</p></span>'
+      + '<div class="applylink"></div></body></html>';
+    const parsed = parseBelimoDetailPage(vaassen);
+    expect(parsed).toMatchObject({ city: 'Vaassen', country: 'NL' });
+    expect(parseCsbStreetAddressLocation('New Taipei City, TW, 234')).toEqual({ city: 'New Taipei City', country: 'TW', postalCode: '234' });
+    expect(parseCsbStreetAddressLocation('Brunnenbachstrasse 1')).toBeNull();
   });
 });

@@ -17,6 +17,7 @@ import {
 } from '../scripts/lib/ikea-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { schemaJobLocationCandidates } from '../scripts/lib/prospector/location-evidence.mjs';
+import { parseJobPosting } from '../scripts/lib/ikea-job-parser.mjs';
 
 describe('IKEA crawler parser', () => {
   beforeEach(() => fetchHtml.mockReset());
@@ -190,5 +191,66 @@ describe('IKEA crawler parser', () => {
       const [job] = await fetchAllIkeaJobs();
       expect(job).toMatchObject({ location: 'Pratteln, BL', canton: 'BL', addressLocality: 'Pratteln', postalCode: '4133' });
     });
+  });
+
+  // Only the posting's own text is published (issue 5253): a row whose detail
+  // JSON-LD has no description used to go out as "{title} — IKEA".
+  describe('row without a vacancy body', () => {
+    it('publishes the row with a body and skips the one without, never inventing text', async () => {
+      const anchor = (id: string, slug: string, title: string) => `<a href="/en/job/pratteln/${slug}/${id}" data-job-id="${id}" class="job-list__anchor">`
+        + `<span class="job-list__title">${title}</span><span class="job-list__location">Pratteln</span></a>`;
+      const listing = `${anchor('201', 'verkaufsberater', 'Verkaufsberater/in 80-100%')}${anchor('202', 'logistiker', 'Logistiker/in EFZ')}</section>`;
+      const detail = (description: string) => `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        description,
+        jobLocation: { address: { addressLocality: 'Pratteln', addressRegion: 'BL', addressCountry: 'CH', postalCode: '4133' } },
+      })}</script>`;
+      fetchHtml.mockImplementation(async (url: string) => {
+        const u = String(url || '');
+        if (u.includes('/verkaufsberater/')) return detail('<p>Du berätst unsere Kundinnen und Kunden in der Einrichtungsabteilung und gestaltest Wohnlösungen.</p>');
+        if (u.includes('/logistiker/')) return detail('');
+        return listing;
+      });
+
+      const jobs = await fetchAllIkeaJobs();
+      expect(jobs.map((job) => job.title)).toEqual(['Verkaufsberater/in 80-100%']);
+      expect(jobs[0].description).toContain('Du berätst unsere Kundinnen und Kunden');
+      for (const job of jobs) expect(job.description).not.toMatch(/— IKEA$/);
+    });
+  });
+});
+
+// Minimised from jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-
+// detailhandelsfachfrau-mann-…/24107/98637312688 (2026-09-29): the
+// apprenticeship JSON-LD carries RAW tab characters inside the description
+// string ("<br/>•\tDetailhandelsassistent/in EBA"). Strict JSON.parse
+// rejected the block, the row lost its whole body and went out as
+// "{title} — IKEA" (7 of 38 rows, audit run 36528331656).
+describe('parseJobPosting — raw control characters in JSON-LD', () => {
+  const html = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting",'
+    + '"title":"Lehrstelle Detailhandelsfachfrau/-mann",'
+    + '"description":"<b>Wer du bist</b><br/>Hier bist du am richtigen Ort, wenn du dich auf folgende Lehrstellen bewerben möchtest:<br/>•\tDetailhandelsassistent/in EBA<br/>•\tDetailhandelsfachfrau/-mann EFZ",'
+    + '"datePosted":"2026-6-10","employmentType":"Full time"}</script>';
+
+  it('parses the posting instead of skipping the block', () => {
+    const posting = parseJobPosting(html);
+    expect(posting).not.toBeNull();
+    expect(posting.description).toContain('Detailhandelsassistent/in EBA');
+    expect(posting.description).not.toMatch(/\t/);
+  });
+
+  it('still returns null for a genuinely broken block', () => {
+    expect(parseJobPosting('<script type="application/ld+json">{"@type":"JobPosting",</script>')).toBeNull();
+  });
+
+  it('publishes the detail body, not the title stub, through fetchAllIkeaJobs', async () => {
+    const listing = '<a href="/en/job/dietlikon/lehrstelle/24107/1" data-job-id="1" class="job-list__anchor">'
+      + '<span class="job-list__title">Lehrstelle Detailhandelsfachfrau/-mann</span>'
+      + '<span class="job-list__location">Dietlikon</span></a></section>';
+    const detail = html.replace('"employmentType"', '"jobLocation":{"address":{"addressLocality":"Dietlikon","addressRegion":"ZH","addressCountry":"CH","postalCode":"8305"}},"employmentType"');
+    fetchHtml.mockImplementation(async (url: string) => (String(url || '').includes('/lehrstelle/') ? detail : listing));
+    const [job] = await fetchAllIkeaJobs();
+    expect(job.description).toContain('Detailhandelsassistent/in EBA');
+    expect(job.description).not.toBe('Lehrstelle Detailhandelsfachfrau/-mann — IKEA');
   });
 });

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   APPLE_RETAIL_SWITZERLAND_KEY,
   APPLE_RETAIL_SWITZERLAND_COMPANY_NAME,
@@ -7,6 +7,7 @@ import {
   resolveAppleRetailSwitzerlandCanton,
 } from '../scripts/lib/apple-retail-switzerland-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { parseAppleJobDetailsData, buildAppleJobDescription, fetchAllAppleRetailSwitzerlandJobs } from '../scripts/lib/apple-retail-switzerland-job-parser.mjs';
 
 describe('Apple Retail Switzerland crawler parser', () => {
   // ── Constants ──
@@ -142,4 +143,80 @@ describe('Apple Retail Switzerland crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Shape minimised from the job page of jobs.apple.com/en-us/details/114438017/
+// ch-specialist-m-f-d (2026-09-29): the page hydrates from
+// `window.__staticRouterHydrationData = JSON.parse("…")`. The search API only
+// returns `jobSummary`, so 15/18 postings were published as the teaser
+// paragraph alone, without any list (audit run 36528331656).
+describe('Apple job-details record', () => {
+  const jobsData = {
+    postingTitle: 'CH-Specialist (m/f/d)',
+    jobSummary: 'Apple Retail is where the best of Apple comes together.',
+    description: 'Deliver excellent service to Apple customers by seeking to understand their needs.',
+    minimumQualifications: 'Fluency in German and English.\n\nAvailability to work a flexible schedule.',
+    preferredQualifications: 'Retail experience.\nEnthusiasm for Apple products.',
+    postingFooters: [{ localizations: { en_US: [{ content: '<p>At Apple, we’re not all the same. And that’s our greatest strength.</p>' }] } }],
+  };
+  const html = `<html><body><script nonce="x">window.__staticRouterHydrationData = JSON.parse(${JSON.stringify(JSON.stringify({ loaderData: { jobDetails: { jobsData } } }))});</script></body></html>`;
+
+  it('reads the hydrated posting record', () => {
+    expect(parseAppleJobDetailsData(html)).toMatchObject({ postingTitle: 'CH-Specialist (m/f/d)' });
+    expect(parseAppleJobDetailsData('<html></html>')).toBeNull();
+  });
+
+  it('composes summary, description, qualifications as bullets and the footer', () => {
+    const text = buildAppleJobDescription(parseAppleJobDetailsData(html));
+    const order = ['Summary', 'Description', 'Minimum Qualifications', 'Preferred Qualifications'].map((h) => text.indexOf(`${h}\n`));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(text).toMatch(/^• Fluency in German and English\.$/m);
+    expect(text).toMatch(/^• Enthusiasm for Apple products\.$/m);
+    expect(text).toContain('greatest strength');
+    expect(buildAppleJobDescription(null)).toBe('');
+  });
+});
+
+// Only the posting's own text is published (issue 5253). Without the detail
+// record and without a search summary a posting used to go out as
+// "{title} — Apple Retail Switzerland"; it is not published any more. Shapes
+// of jobs.apple.com (CSRFToken, search API, hydrated detail page) as served on
+// 2026-09-29.
+describe('fetchAllAppleRetailSwitzerlandJobs — posting without any vacancy text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the posting with text and skips the one without, never inventing text', async () => {
+    const jobsData = {
+      postingTitle: 'Specialist',
+      jobSummary: 'Apple Retail is where the best of Apple comes together.',
+      description: 'Deliver excellent service to Apple customers by seeking to understand their needs.',
+    };
+    const detailHtml = `<html><body><script nonce="x">window.__staticRouterHydrationData = JSON.parse(${JSON.stringify(JSON.stringify({ loaderData: { jobDetails: { jobsData } } }))});</script></body></html>`;
+    const listing = (positionId: string, title: string) => ({
+      positionId,
+      postingTitle: title,
+      transformedPostingTitle: title.toLowerCase().replace(/\W+/g, '-'),
+      jobSummary: '',
+      locations: [{ name: 'Zurich' }],
+      postDateInGMT: '2026-09-20T00:00:00Z',
+      team: { teamID: 'teamsAndSubTeams-APPST' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.endsWith('/CSRFToken')) return new Response('{}', { status: 200, headers: { 'x-apple-csrf-token': 'tok', 'set-cookie': 'a=b; Path=/' } });
+      if (u.endsWith('/api/v1/search')) {
+        return new Response(JSON.stringify({ res: { totalRecords: 2, searchResults: [listing('200600001', 'Specialist'), listing('200600002', 'Technical Specialist')] } }), { status: 200 });
+      }
+      if (u.includes('200600001')) return new Response(detailHtml, { status: 200 });
+      return new Response('<html></html>', { status: 200 });
+    }));
+
+    const jobs = await fetchAllAppleRetailSwitzerlandJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Specialist']);
+    expect(jobs[0].description).toContain('Deliver excellent service to Apple customers');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Apple Retail Switzerland$/);
+  }, 20_000);
 });

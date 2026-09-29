@@ -27,6 +27,12 @@ import {
   COMPANY_NAME,
   LOCALES,
 } from '@/scripts/update-ems-chemie-jobs.mjs';
+import {
+  parsePortalCardLocation,
+  parsePortalDetailPage,
+  isForeignPortalListing,
+  isForeignPortalDetail,
+} from '@/scripts/lib/ems-chemie-job-parser.mjs';
 
 // ─── Fixture: Career listing page (legacy table) ──────────────────
 const LISTING_HTML = `
@@ -291,12 +297,15 @@ describe('isSwissJob', () => {
 // buildJob
 // ═══════════════════════════════════════════════════════════════
 
+const EMS_BODY = 'Ihre Aufgaben: Betreuung der Produktionsanlagen im Schichtbetrieb, Qualitätskontrollen und Dokumentation.';
+
 describe('buildJob', () => {
   it('builds complete job object', () => {
     const job = buildJob({
       title: 'Chemist R&D',
       url: 'https://www.ems-group.com/en/career/job-vacancies/chemist',
       location: 'Domat/Ems',
+      description: EMS_BODY,
     });
     expect(job).not.toBeNull();
     expect(job!.company).toBe('EMS-Chemie AG');
@@ -305,25 +314,34 @@ describe('buildJob', () => {
   });
 
   it('includes postalCode and streetAddress', () => {
-    const job = buildJob({ title: 'Test', location: 'Domat/Ems' });
+    const job = buildJob({ title: 'Test', location: 'Domat/Ems', description: EMS_BODY });
     expect(job!.postalCode).toBe('7013');
     expect(job!.streetAddress).toBe('Via Innovativa 1');
     expect(job!.employmentType).toBe('FULL_TIME');
   });
 
   it('sets canton TG for Romanshorn', () => {
-    const job = buildJob({ title: 'Test', location: 'Romanshorn' });
+    const job = buildJob({ title: 'Test', location: 'Romanshorn', description: EMS_BODY });
     expect(job!.canton).toBe('TG');
   });
 
   it('generates slug with company name', () => {
-    const job = buildJob({ title: 'Production Operator' });
+    const job = buildJob({ title: 'Production Operator', description: EMS_BODY });
     expect(job!.slug).toContain('ems-chemie');
   });
 
   it('returns null for empty title', () => {
     expect(buildJob({ title: '' })).toBeNull();
     expect(buildJob(null as any)).toBeNull();
+  });
+
+  // Only the posting's own text is published (issue 5253): without the
+  // careercenter body a listing used to go out with an invented Italian seat
+  // blurb ("… presso EMS-Chemie AG, azienda leader …").
+  it('builds no job without the vacancy text, never inventing one', () => {
+    expect(buildJob({ title: 'Production Operator', location: 'Domat/Ems' })).toBeNull();
+    expect(buildJob({ title: 'Production Operator', location: 'Domat/Ems', description: '   ' })).toBeNull();
+    expect(buildJob({ title: 'Production Operator', description: EMS_BODY })!.sourceLang).toBe('de');
   });
 });
 
@@ -518,5 +536,60 @@ describe('validateDedicatedLocaleCoverage — ems-chemie call site (issue #3797 
     expect(() => runValidation(jobsPath)).not.toThrow();
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
     expect(after).toHaveLength(3);
+  });
+});
+
+// Pinned fixtures minimised from jobs.ems-group.com (2026-09-29). The runner
+// never read the detail page: every job carried an invented Italian seat blurb
+// ("… presso EMS-Chemie AG …", 312-363 published characters against ~3k on
+// the source) and every card defaulted to Domat/Ems, so the German
+// Groß-Umstadt vacancies were published as Swiss ones (audit run 36528331656).
+describe('jobs.ems-group.com careercenter portal', () => {
+  const fixture = (name: string) => fs.readFileSync(path.join(__dirname, 'fixtures', name), 'utf8');
+
+  it('reads each card workplace and flags the non-Swiss sites', () => {
+    const rows = parseListingPage(fixture('ems-chemie-portal-listing.html'));
+    expect(rows).toHaveLength(2);
+    const german = rows.find((row) => row.countryCode === 'DEU');
+    const swiss = rows.find((row) => !row.countryCode);
+    expect(german).toMatchObject({ location: 'Groß-Umstadt' });
+    expect(isForeignPortalListing(german)).toBe(true);
+    expect(swiss).toMatchObject({ location: 'Domat/Ems' });
+    expect(isForeignPortalListing(swiss)).toBe(false);
+    expect(parsePortalCardLocation('<div class="width-15 desktop"><span>Domat/ Ems </span></div>'))
+      .toEqual({ city: 'Domat/Ems', countryCode: '' });
+  });
+
+  it('reads tasks, profile, benefits and "Über uns" as a bulleted body, never the contact block', () => {
+    const detail = parsePortalDetailPage(fixture('ems-chemie-portal-detail-domat-ems.html'));
+    expect(detail).not.toBeNull();
+    expect(detail!.title).toBe('Mitarbeiter Kommunikation & Events (m/w/d)');
+    expect(detail!.description).toMatch(/^Was erwartet Sie$/m);
+    expect(detail!.description).toMatch(/^Was bringen Sie mit$/m);
+    expect(detail!.description).toMatch(/^Darauf können Sie sich freuen$/m);
+    expect(detail!.description).toMatch(/^Über uns$/m);
+    expect(detail!.description).toMatch(/^• /m);
+    expect(detail!.description).not.toMatch(/Ansprechpersonen|example\.invalid|00 000 00 00/);
+    expect(detail!.description.length).toBeGreaterThan(1500);
+    expect(isForeignPortalDetail(detail!)).toBe(false);
+  });
+
+  it('recognises a German-site vacancy from its JobPosting address', () => {
+    const detail = parsePortalDetailPage(fixture('ems-chemie-portal-detail-gross-umstadt.html'));
+    expect(detail).toMatchObject({ locality: 'Groß-Umstadt', country: 'Deutschland' });
+    expect(isForeignPortalDetail(detail!)).toBe(true);
+  });
+
+  it('builds the job from the portal body in its own language', () => {
+    const detail = parsePortalDetailPage(fixture('ems-chemie-portal-detail-domat-ems.html'))!;
+    const job = buildJob({ title: detail.title, url: 'https://jobs.ems-group.com/offene-stellen/x/1', location: 'Domat/Ems', description: detail.description, sourceLang: 'de' });
+    expect(job!.description).toBe(detail.description);
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.descriptionByLocale).toEqual({ de: detail.description });
+    expect(job!.description).not.toContain('presso EMS-Chemie AG');
+  });
+
+  it('returns null for pages that are not careercenter vacancies', () => {
+    expect(parsePortalDetailPage(DETAIL_HTML)).toBeNull();
   });
 });

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   STADT_ZUERICH_KEY,
   STADT_ZUERICH_COMPANY_NAME,
@@ -6,6 +6,10 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseOfficialAdPage, fetchAllStadtZuerichJobs } from '../scripts/lib/stadt-zuerich-job-parser.mjs';
 
 describe('Stadt Zürich crawler parser', () => {
   // ── Constants ──
@@ -155,4 +159,89 @@ describe('Stadt Zürich crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Pinned fixture minimised from the city's official ad page
+// www.stadt-zuerich.ch/…/jobs/job-detailseite.61759.html (2026-09-29). The
+// jobs2web page only carries the title (even after client-side rendering), so
+// every row was published as the tile summary: distinct postings with the same
+// title and unit became identical (19/430 duplicate descriptions, audit run
+// 36528331656), with no tasks, profile or offer at all.
+describe('parseOfficialAdPage', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
+    'utf8',
+  );
+
+  it('reads the Referenz-Nr. that joins the ad to its jobs2web tile', () => {
+    expect(parseOfficialAdPage(fixture)?.ref).toBe('51726');
+  });
+
+  it('reads intro, Aufgaben, Profil, Wir bieten and Über uns with bullets', () => {
+    const { description } = parseOfficialAdPage(fixture)!;
+    const order = ['Sind Sie bereit', 'Aufgaben', 'Profil', 'Wir bieten', 'Über uns'].map((m) => description.indexOf(m));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(description).toMatch(/^• Sie führen selbständig anspruchsvolle Pflege- und Unterhaltsarbeiten/m);
+  });
+
+  it('leaves out the recruiter contact block', () => {
+    const { description } = parseOfficialAdPage(fixture)!;
+    expect(description).not.toContain('Interessiert?');
+    expect(description).not.toMatch(/044 000 00 00|Vorname Nachname/);
+  });
+
+  it('returns null for a page without a reference or a body', () => {
+    expect(parseOfficialAdPage('<html><body><stzh-richtext><p>x</p></stzh-richtext></body></html>')).toBeNull();
+  });
+});
+
+// Only the posting's own text is published (issue 5253). A tile whose
+// Referenz-Nr. has no official ad page used to go out as a synthetic tile
+// summary ("{title} bei der Stadtverwaltung Zürich … Weitere Details … finden
+// Sie auf der offiziellen Stellenplattform"); it is not published any more.
+// Without the portal index no tile has its text, so the run fails instead of
+// emptying the board.
+describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'stadt-zuerich-official-ad-gaertner.html'),
+    'utf8',
+  );
+  const tile = (id: string, title: string, ref: string) => `<li class="job-tile job-id-${id} job-row" data-url="/job/${id}/${id}/">`
+    + `<a class="jobTitle-link" href="/job/${id}/${id}/">${title}</a>`
+    + `<div id="job-${id}-desktop-section-customfield1-value">Tiefbau- und Entsorgungsdepartement</div>`
+    + `<div id="job-${id}-desktop-section-customfield2-value">Grün Stadt Zürich</div>`
+    + `<div id="job-${id}-desktop-section-adcode-value">${ref}</div></li>`;
+  const listing = `<ul>${tile('1101', 'Gärtner*in', '51726')}${tile('1102', 'Werkstattleiter*in', '99999')}</ul>`;
+
+  function mockPortal({ indexOk }: { indexOk: boolean }) {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.startsWith('https://jobs.stadt-zuerich.ch/search/')) return new Response(listing, { status: 200 });
+      if (u.includes('/stzh/jobsearch')) {
+        return indexOk
+          ? new Response(JSON.stringify({ results: [{ href: '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.61759.html' }] }), { status: 200 })
+          : new Response('unavailable', { status: 503 });
+      }
+      if (u.includes('job-detailseite.61759.html')) return new Response(fixture, { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+  }
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the tile with its official ad and skips the one without, never inventing text', async () => {
+    mockPortal({ indexOk: true });
+    const jobs = await fetchAllStadtZuerichJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Gärtner*in']);
+    expect(jobs[0].description).toContain('Aufgaben');
+    for (const job of jobs) expect(job.description).not.toMatch(/bei der Stadtverwaltung Zürich/);
+  }, 20_000);
+
+  it('fails the run when the official index cannot be read', async () => {
+    mockPortal({ indexOk: false });
+    await expect(fetchAllStadtZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
+  }, 20_000);
 });

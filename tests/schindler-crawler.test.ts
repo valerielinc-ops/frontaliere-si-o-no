@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   SCHINDLER_KEY,
   SCHINDLER_COMPANY_NAME,
@@ -6,8 +6,13 @@ import {
   isTrustedDomain,
   parseSearchResults,
   parseDetailPage,
+  fetchAllSchindlerJobs,
 } from '../scripts/lib/schindler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseDetailPage as parseSchindlerDetailPage } from '../scripts/lib/schindler-job-parser.mjs';
 
 describe('Schindler crawler parser', () => {
   // ── Constants ──
@@ -221,4 +226,70 @@ describe('Schindler crawler parser', () => {
       expect(detail.description).toBe('');
     });
   });
+});
+
+// Pinned fixture: a job.schindler.com/SBB_AS apprenticeship (Le Mont-sur-
+// Lausanne). No `h1.job-title`, an unrendered `[[Title]]` token inside the
+// body, and no job-action/footer marker after the description span. The
+// parser used to (a) stop the body at the first inner `</span>` and (b) wipe
+// the whole description on the token, publishing its German company blurb
+// on a French posting (2/99 rows, audit run 36528331656).
+describe('parseDetailPage — SBB_AS apprenticeship body', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'schindler-sbb-as-apprentissage-detail.html'),
+    'utf8',
+  );
+  const listingTitle = "Apprentissage de Polymécanicien-ne CFC / Monteur-euse d'ascenseurs pour 2027";
+
+  it('reads the whole balanced jobdescription element', () => {
+    const { description } = parseSchindlerDetailPage(fixture, { listingTitle });
+    expect(description).toContain('Quelles sont tes tâches?');
+    expect(description).toContain('Tes avantages chez nous');
+    expect(description).toContain('Quels sont les prochains pas pour postuler?');
+    expect(description.length).toBeGreaterThan(1800);
+  });
+
+  it('renders the [[Title]] token with the listing title instead of wiping the body', () => {
+    const { description } = parseSchindlerDetailPage(fixture, { listingTitle });
+    expect(description).not.toContain('[[');
+    expect(description).toContain(`${listingTitle} à Le Mont-sur-Lausanne`);
+    expect(description).not.toContain('Die Schindler-Gruppe ist einer der weltweit führenden');
+  });
+
+  it('drops a token it cannot render rather than the posting', () => {
+    const { description } = parseSchindlerDetailPage(fixture);
+    expect(description).not.toContain('[[');
+    expect(description).toContain('Quelles sont tes tâches?');
+  });
+});
+
+// Only the posting's own text is published (issue 5253). A detail page without
+// a vacancy body used to be published with an invented group summary ("{title}
+// bei Schindler in {city}. Die Schindler-Gruppe ist einer der weltweit
+// führenden Hersteller …"); such a listing is not published any more.
+describe('fetchAllSchindlerJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the posting with a body and skips the one without, never inventing text', async () => {
+    const fixture = fs.readFileSync(
+      path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'schindler-sbb-as-apprentissage-detail.html'),
+      'utf8',
+    );
+    const row = (id: string, title: string) => `<tr><td><a class="jobTitle-link" href="/SBB_AS/job/Le-Mont-sur-Lausanne-${id}/${id}/">${title}</a></td>`
+      + '<td class="colLocation"><span class="jobLocation">Le Mont-sur-Lausanne, VD, CH</span></td><td class="colDate"><span class="jobDate">Sep 20, 2026</span></td></tr>';
+    const searchHtml = `<table>${row('1180000101', 'Apprentissage Automaticien-ne CFC')}${row('1180000102', 'Technicien-ne de service')}</table>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => new Response(
+      String(url).includes('/search/') ? searchHtml
+        : String(url).includes('1180000101') ? fixture
+          : '<html><body><span class="jobdescription"><p>Postulez maintenant</p></span></body></html>',
+      { status: 200, headers: { 'content-type': 'text/html' } },
+    )));
+
+    const jobs = await fetchAllSchindlerJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Apprentissage Automaticien-ne CFC']);
+    expect(jobs[0].description).toContain('Nous sommes AS Ascenseurs');
+    for (const job of jobs) expect(job.description).not.toMatch(/Die Schindler-Gruppe ist einer der weltweit/);
+  }, 20_000);
 });

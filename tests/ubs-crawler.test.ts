@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   UBS_KEY,
   UBS_COMPANY_NAME,
   isUbsJob,
   isTrustedDomain,
   __internals,
+  fetchAllUbsJobs,
 } from '../scripts/lib/ubs-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -197,4 +198,117 @@ describe('UBS crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+});
+
+// Minimised from the Taleo job-details payload
+// (POST /TgNewUI/Search/Ajax/JobDetails) of jobid 348353 on site 5131
+// (2026-09-29). The search rows only carry the first section ("Your role"):
+// UBS postings were published at 6-7 % of their source page.
+describe('Taleo job details', () => {
+  const QUESTIONS = [
+    { QuestionName: '', AnswerValue: '2026 Internship – German language expert / translation specialist – ZH', VerityZone: 'jobtitle', ClassName: 'jobtitleInJobDetails' },
+    { QuestionName: 'City', AnswerValue: 'Zürich ', VerityZone: 'formtext2', ClassName: 'section2RightfieldsInJobDetails' },
+    { QuestionName: 'Your role', AnswerValue: 'We’re looking for ambitious students.<br><br>You’ll get to:<br><br>• craft clear, engaging UX content<br>• translate content from English into German', VerityZone: 'jobdescription', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'Your team', AnswerValue: 'Join the software localization team in Zurich.', VerityZone: 'formtext58', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'Your expertise', AnswerValue: 'We’re looking for a candidate who:<br><br>• has completed at least 4 semesters of a bachelor’s degree', VerityZone: 'formtext59', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'About us', AnswerValue: 'UBS is a leading and truly global wealth manager.', VerityZone: 'formtext60', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: 'Empty', AnswerValue: '', VerityZone: 'formtext61', ClassName: 'section2LeftfieldsInJobDetails jobDetailTextArea' },
+    { QuestionName: '', AnswerValue: '348353', VerityZone: 'reqid', ClassName: null },
+  ];
+
+  it('composes every text section under its own heading, in page order', () => {
+    const text = __internals.composeTaleoJobDetailDescription(QUESTIONS);
+    const order = ['Your role', 'Your team', 'Your expertise', 'About us'].map((heading) => text.indexOf(`${heading}\n`));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(text).toMatch(/^• craft clear, engaging UX content$/m);
+    expect(text).not.toContain('348353');
+    expect(text).not.toContain('Empty');
+    expect(__internals.composeTaleoJobDetailDescription(null)).toBe('');
+  });
+
+  function taleoRow(lang: string, reqid: string) {
+    const q = (name: string, value: string) => ({ QuestionName: name, Value: value });
+    return {
+      Questions: [
+        q('reqid', reqid), q('jobtitle', 'Spécialiste Crédits 80-100%'), q('jobdescription', 'Votre rôle au sein de notre équipe crédit.'),
+        q('formtext23', 'Suisse - Suisse romande'), q('formtext2', 'Lausanne'), q('jobreqlanguage', lang),
+        q('lastupdated', '29-Sep-2026'),
+      ],
+    };
+  }
+
+  it('points every posting to its locale site (main tenant and apprenticeship board)', () => {
+    // Opened through the English site 5012, jobid 350552 rendered the German
+    // "Spezialist/in Hypotheken und Grundbuchwesen" (overlap 0.01 in the audit).
+    const fr = __internals.buildJobFromTaleo(taleoRow('34', '350552'), '5012');
+    expect(fr.url).toContain('siteid=5049&jobid=350552');
+    expect(fr._ubsMeta.detailSiteId).toBe('5049');
+    const de = __internals.buildJobFromTaleo(taleoRow('23', '350553'), '5012');
+    expect(de.url).toContain('siteid=5050&jobid=350553');
+    const en = __internals.buildJobFromTaleo(taleoRow('1', '348000'), '5012');
+    expect(en.url).toContain('siteid=5012&jobid=348000');
+    // The apprenticeship board has its own locale sites (2026-09-29: the
+    // French BEM jobid 348474 returns its body only through 5055).
+    const apprenticeFr = __internals.buildJobFromTaleo(taleoRow('34', '346345'), '5054');
+    expect(apprenticeFr.url).toContain('siteid=5055&jobid=346345');
+    expect(__internals.buildJobFromTaleo(taleoRow('23', '348480'), '5054').url).toContain('siteid=5054&jobid=348480');
+    expect(__internals.buildJobFromTaleo(taleoRow('52', '348468'), '5054').url).toContain('siteid=5056&jobid=348468');
+    // The graduate board serves its (English) postings itself.
+    expect(__internals.buildJobFromTaleo(taleoRow('1', '351839'), '5131').url).toContain('siteid=5131&jobid=351839');
+  });
+});
+
+// Only the whole posting is published (issue 5253). A posting whose search
+// row and job-details both carry no text used to go out as "{title} — UBS",
+// and one whose job-details could not be read went out as its search-row
+// "Your role" teaser alone (6-7 % of the source page); neither is published
+// any more. Taleo TGNewUI shapes
+// (HomeWithPreLoad token, MatchedJobs envelope, JobDetails questions) as
+// served by jobs.ubs.com on 2026-09-29.
+describe('fetchAllUbsJobs — posting without any vacancy text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the whole posting and skips one without job-details text, even with a search-row teaser', async () => {
+    const q = (name: string, value: string) => ({ QuestionName: name, Value: value });
+    const row = (reqid: string, title: string, desc: string) => ({
+      Questions: [q('reqid', reqid), q('jobtitle', title), q('jobdescription', desc), q('formtext23', 'Switzerland - Zurich'), q('formtext2', 'Zürich'), q('jobreqlanguage', '1'), q('lastupdated', '29-Sep-2026')],
+    });
+    const json = (payload: unknown) => new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
+      const u = String(url);
+      if (u.includes('HomeWithPreLoad')) {
+        return new Response('<input name="__RequestVerificationToken" type="hidden" value="tok123" />', { status: 200, headers: { 'set-cookie': 'a=b; Path=/' } });
+      }
+      const body = JSON.parse(init.body || '{}');
+      if (u.includes('MatchedJobs')) {
+        if (!JSON.stringify(body).includes('5012')) return json({ Jobs: { Job: [] }, JobsCount: 0 });
+        return json({
+          Jobs: { Job: [
+            row('350001', 'Client Advisor 80-100%', 'Your role: advise private clients in Zurich.'),
+            row('350002', 'Credit Officer', ''),
+            row('350003', 'Relationship Manager', 'Your role: manage a portfolio of corporate clients in Zurich.'),
+          ] },
+          JobsCount: 3,
+        });
+      }
+      if (u.includes('JobDetails')) {
+        const text = body.jobid === '350001'
+          ? '<p>Your role: advise private clients in Zurich and build lasting relationships with them across the whole wealth-planning cycle.</p>'
+          : '';
+        return json({ ServiceResponse: { Jobdetails: { JobDetailQuestions: text ? [{ ClassName: 'jobDetailTextArea', QuestionName: 'Your role', AnswerValue: text }] : [] } } });
+      }
+      return new Response('', { status: 404 });
+    }));
+
+    expect(__internals.buildJobFromTaleo(row('350002', 'Credit Officer', ''), '5012').description).toBe('');
+    const jobs = await fetchAllUbsJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Client Advisor 80-100%']);
+    expect(jobs[0].description).toContain('across the whole wealth-planning cycle');
+    for (const job of jobs) expect(job.description).not.toMatch(/— UBS$/);
+    // 350003 has a search-row teaser but its JobDetails stub returns '': not published.
+    expect(jobs.map((job) => job.title)).not.toContain('Relationship Manager');
+  }, 20_000);
 });

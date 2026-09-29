@@ -134,28 +134,61 @@ export function hasMorePages(json, { fetchedCount } = {}) {
 }
 
 /**
+ * Inner HTML of the rendered vacancy body,
+ * `<div class="cmp-job-details__description-block">`, read to its own
+ * closing tag (depth walk, so a nested `<div>` cannot cut it short).
+ */
+function descriptionBlockHtml(html = '') {
+  const open = /<div\b[^>]*class="[^"]*\bcmp-job-details__description-block\b[^"]*"[^>]*>/i.exec(html);
+  if (!open) return '';
+  const tagRe = /<(\/?)div\b[^>]*>/gi;
+  tagRe.lastIndex = open.index + open[0].length;
+  let depth = 1;
+  let m;
+  while ((m = tagRe.exec(html)) !== null) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(open.index + open[0].length, m.index);
+  }
+  return '';
+}
+
+/**
  * Extract job description from a detail page HTML.
- * Sources: dataLayer.description > JSON-LD > meta description
+ * Sources: rendered description block > dataLayer.description > JSON-LD >
+ * meta description.
+ *
+ * The rendered block comes first because it is the only source that keeps
+ * the vacancy's structure: the dataLayer string is the same text with every
+ * tag already removed, so the "How you'll make an impact" and "Your
+ * background" lists reached the site as run-on prose. No length cap: the
+ * former 4000-character cut chopped the tail of every long posting (audit run
+ * 36528331656: 4000 published against ~4500 on the source page).
  */
 export function parseHitachiEnergyDetailPage(html = '') {
   let description = '';
 
-  // 1. Try extracting from window.dataLayer push
-  const dataLayerMatch = html.match(/"description"\s*:\s*"((?:[^"\\]|\\.)*)"/);
-  if (dataLayerMatch) {
-    let raw = dataLayerMatch[1];
-    // Unescape JS string escapes
-    raw = raw
-      .replace(/\\x26/g, '&')
-      .replace(/\\u002D/g, '-')
-      .replace(/\\"/g, '"')
-      .replace(/\\n/g, '\n')
-      .replace(/\\t/g, ' ')
-      .replace(/\\r/g, '');
-    description = stripHtml(raw);
+  // 1. Rendered description block (headings, paragraphs and lists).
+  const blockHtml = descriptionBlockHtml(html);
+  if (blockHtml) description = stripHtml(blockHtml);
+
+  // 2. Fallback: window.dataLayer push (flattened text)
+  if (!description) {
+    const dataLayerMatch = html.match(/"description"\s*:\s*"((?:[^"\\]|\\.)*)"/);
+    if (dataLayerMatch) {
+      let raw = dataLayerMatch[1];
+      // Unescape JS string escapes
+      raw = raw
+        .replace(/\\x26/g, '&')
+        .replace(/\\u002D/g, '-')
+        .replace(/\\"/g, '"')
+        .replace(/\\n/g, '\n')
+        .replace(/\\t/g, ' ')
+        .replace(/\\r/g, '');
+      description = stripHtml(raw);
+    }
   }
 
-  // 2. Fallback: JSON-LD JobPosting description
+  // 3. Fallback: JSON-LD JobPosting description
   if (!description) {
     const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
     if (jsonLdMatch) {
@@ -168,7 +201,7 @@ export function parseHitachiEnergyDetailPage(html = '') {
     }
   }
 
-  // 3. Fallback: meta description
+  // 4. Fallback: meta description
   if (!description) {
     const metaRaw = extractMetaDescriptionRaw(html);
     if (metaRaw !== null) {
@@ -176,7 +209,22 @@ export function parseHitachiEnergyDetailPage(html = '') {
     }
   }
 
-  return normalizeDescriptionSpace(description).slice(0, 4000);
+  return normalizeDescriptionSpace(description);
+}
+
+/**
+ * Rows that carry the posting's own text. Only that text is published
+ * (issue 5253): a listing whose detail page yielded no body used to go out
+ * with an invented four-language blurb ("Hitachi Energy is hiring for the
+ * {title} role based in {city}. … Apply through the official Hitachi Energy
+ * careers page."); it is not published any more.
+ *
+ * @param {object[]} rows enriched listings (`description` from the detail page)
+ * @returns {{ rows: object[], withoutBody: number }}
+ */
+export function publishableHitachiEnergyRows(rows = []) {
+  const kept = rows.filter((row) => String(row?.description || '').trim());
+  return { rows: kept, withoutBody: rows.length - kept.length };
 }
 
 /**
@@ -186,21 +234,10 @@ export function buildHitachiEnergyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.primaryLocation || job.location || '').trim() || 'Switzerland';
   const description = String(job.description || '').trim();
-  const jobFunction = String(job.jobFunction || '').trim();
-  const jobType = String(job.jobType || '').trim();
-
-  const itDesc = description
-    || `Hitachi Energy cerca un/a ${title} con sede a ${location}. ${jobFunction ? `Settore: ${jobFunction}.` : ''} ${jobType ? `Tipo: ${jobType}.` : ''} Candidati tramite il sito ufficiale Hitachi Energy.`;
-  const enDesc = description
-    || `Hitachi Energy is hiring for the ${title} role based in ${location}. ${jobFunction ? `Function: ${jobFunction}.` : ''} ${jobType ? `Type: ${jobType}.` : ''} Apply through the official Hitachi Energy careers page.`;
-  const deDesc = description
-    || `Hitachi Energy sucht derzeit für die Position ${title} am Standort ${location}. ${jobFunction ? `Bereich: ${jobFunction}.` : ''} ${jobType ? `Art: ${jobType}.` : ''} Bewirb dich über die offizielle Karriereseite von Hitachi Energy.`;
-  const frDesc = description
-    || `Hitachi Energy recrute actuellement pour le poste ${title} basé à ${location}. ${jobFunction ? `Domaine: ${jobFunction}.` : ''} ${jobType ? `Type: ${jobType}.` : ''} Postulez via la page carrière officielle de Hitachi Energy.`;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: { it: description, en: description, de: description, fr: description },
     slugByLocale: {
       it: slugify(`${title} hitachi-energy ${location}`),
       en: slugify(`${title} hitachi-energy ${location}`),

@@ -359,7 +359,7 @@ export async function fetchAllBernerMontageJobs() {
             .replace(/[ \t]*\n[ \t]*/g, '\n')
             .replace(/\n{3,}/g, '\n\n')
             .trim(),
-        ).slice(0, 4000)
+        )
       : '';
 
     const fallbackDescription = [

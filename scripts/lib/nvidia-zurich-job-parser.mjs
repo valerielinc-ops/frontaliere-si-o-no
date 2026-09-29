@@ -309,7 +309,7 @@ export async function fetchAllNvidiaZurichJobs() {
 
     const html = String(info.jobDescription || '').trim();
     const detailDescription = html
-      ? stripHtml(html).replace(/[ \t]+/g, ' ').replace(/[ \t]*\n[ \t]*/g, '\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 4000)
+      ? stripHtml(html).replace(/[ \t]+/g, ' ').replace(/[ \t]*\n[ \t]*/g, '\n').replace(/\n{3,}/g, '\n\n').trim()
       : await fetchWorkdayJobDescriptionText(WORKDAY_API_BASE, listing.externalPath, stripHtml);
     await new Promise((r) => setTimeout(r, 400));
 

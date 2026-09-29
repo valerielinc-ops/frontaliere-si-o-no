@@ -489,11 +489,16 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
  *
  * Pipeline:
  *   GET {apiBase}{externalPath} → jobPostingInfo.jobDescription (HTML)
- *   → stripHtml (caller-supplied) → newline-preserving compaction → 4000-char cap
+ *   → stripHtml (caller-supplied) → newline-preserving compaction
  *
  * The caller passes `stripHtml` (typically from `crawler-template.mjs`) so this
- * client module has no dependency on the project's stripper. The 4000-char cap
- * keeps downstream AI translation costs predictable.
+ * client module has no dependency on the project's stripper.
+ *
+ * No default length cap: the body is the vacancy, and a cut one is an
+ * incomplete one. The former 4000-character default chopped the tail
+ * (profile, benefits, application notes) of every long Workday posting — the
+ * parser-quality audit reads that as a published description shorter than its
+ * source (issue 5253). A caller that really needs a bound passes `maxChars`.
  *
  * @param {string} apiBase
  * @param {string} externalPath
@@ -501,7 +506,7 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
  * @param {Object} [options]
  * @param {number} [options.timeoutMs]
  * @param {string} [options.userAgent]
- * @param {number} [options.maxChars] Hard cap on returned text. Default 4000.
+ * @param {number} [options.maxChars] Optional hard cap on returned text (no cap by default).
  * @returns {Promise<string>} Plain-text description, or '' on failure.
  */
 export async function fetchWorkdayJobDescriptionText(
@@ -513,7 +518,7 @@ export async function fetchWorkdayJobDescriptionText(
   if (typeof stripHtml !== 'function') {
     throw new TypeError('fetchWorkdayJobDescriptionText: stripHtml function is required');
   }
-  const { maxChars = 4000, ...fetchOptions } = options;
+  const { maxChars = Infinity, ...fetchOptions } = options;
 
   const detail = await fetchWorkdayJobDetail(apiBase, externalPath, fetchOptions);
   const html = String(detail?.jobPostingInfo?.jobDescription || '').trim();
@@ -525,7 +530,64 @@ export async function fetchWorkdayJobDescriptionText(
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim());
-  return normalized.slice(0, maxChars);
+  return Number.isFinite(maxChars) ? normalized.slice(0, maxChars) : normalized;
+}
+
+const workdaySidebarCache = new Map();
+
+/**
+ * Fetch the career site's sidebar text blocks (`GET {apiBase}/sidebar`), e.g.
+ * KSB's "About us" panel. Workday renders them next to every posting on the
+ * site and folds them into each posting's JSON-LD `description`, so they are
+ * part of what the source publishes for a vacancy — but the CXS job payload
+ * (`jobPostingInfo.jobDescription`) never carries them.
+ *
+ * Returned as plain text, one "Title\n\nbody" block per TEXT/IMAGE sidebar
+ * entry with a non-empty body (video captions are skipped); '' on any failure
+ * (the posting body alone is still valid).
+ * Cached per `apiBase` for the process lifetime: the sidebar is site-level,
+ * one request per run is enough.
+ *
+ * @param {string} apiBase Output of `buildWorkdayApiBase`.
+ * @param {(html: string) => string} stripHtml HTML→text stripper.
+ * @param {Object} [options] Same fetch options as `fetchWorkdayJobDetail`.
+ * @returns {Promise<string>}
+ */
+export function fetchWorkdaySidebarText(apiBase, stripHtml, options = {}) {
+  if (!apiBase || typeof stripHtml !== 'function') return Promise.resolve('');
+  const key = String(apiBase).replace(/\/+$/, '');
+  if (!workdaySidebarCache.has(key)) {
+    workdaySidebarCache.set(key, fetchWorkdayJobDetail(key, '/sidebar', options)
+      .then((entries) => formatWorkdaySidebarText(entries, stripHtml))
+      .catch(() => ''));
+  }
+  return workdaySidebarCache.get(key);
+}
+
+/**
+ * Pure formatter for the `/sidebar` payload (exported for tests).
+ *
+ * @param {unknown} entries
+ * @param {(html: string) => string} stripHtml
+ * @returns {string}
+ */
+export function formatWorkdaySidebarText(entries, stripHtml) {
+  if (!Array.isArray(entries)) return '';
+  const blocks = [];
+  for (const entry of entries) {
+    // A VIDEO entry's text is the caption of a player we cannot carry
+    // ("Willkommen auf der Karriereseite …"), not employer content.
+    if (String(entry?.type || '').toUpperCase() === 'VIDEO') continue;
+    const body = String(stripHtml(String(entry?.text || '')) || '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (!body) continue;
+    const title = normalizeSpace(entry?.title || '');
+    blocks.push(title ? `${title}\n\n${body}` : body);
+  }
+  return blocks.join('\n\n');
 }
 
 /* ── Date parsing ──────────────────────────────────────────────────────── */
