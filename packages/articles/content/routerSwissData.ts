@@ -2365,6 +2365,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'compensi-lvamal-camera-bassa': { it: 'compensi-lvamal-camera-bassa', en: 'health-insurer-pay-cap-vote', de: 'krankenkassen-lohnobergrenze', fr: 'plafond-salaires-caisses-maladie' },
  'rincari-auto-abitazione-ticino': { it: 'rincari-auto-abitazione-ticino', en: 'car-housing-price-increases-ticino', de: 'preissteigerungen-auto-wohnen-tessin', fr: 'hausses-prix-auto-logement-tessin' },
  'rincari-abitazione-mobilita-svizzera': { it: 'rincari-abitazione-mobilita-svizzera', en: 'housing-mobility-costs-switzerland', de: 'wohn-mobilitaetskosten-schweiz', fr: 'couts-logement-mobilite-suisse' },
+ 'obbligo-assicurazione-detenuti': { it: 'obbligo-assicurazione-detenuti', en: 'detainees-abroad-lamal-obligation', de: 'gefangene-ausland-krankenversicherung', fr: 'detenus-etranger-assurance-maladie' },
+ 'uova-piccoli-allevamenti-csl': { it: 'uova-piccoli-allevamenti-csl', en: 'swiss-eggs-small-farms-csl', de: 'schweizer-eier-kleine-betriebe-csl', fr: 'oeufs-suisses-petits-elevages-csl' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
