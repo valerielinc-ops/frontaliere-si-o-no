@@ -9,6 +9,7 @@ import {
   fetchAllHopitalLaTourJobs,
   isHopitalLaTourJob,
   isTrustedDomain,
+  prepareHopitalLaTourExistingJobs,
   HOPITAL_LA_TOUR_KEY,
   HOPITAL_LA_TOUR_COMPANY_NAME,
 } from './lib/hopital-la-tour-job-parser.mjs';
@@ -23,6 +24,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllHopitalLaTourJobs,
   isCompanyJob: isHopitalLaTourJob,
   isTrustedDomain,
+  prepareExistingJobs: prepareHopitalLaTourExistingJobs,
   defaultSourceLang: 'fr',
 }).catch((err) => {
   console.error(`❌ Hôpital de La Tour crawler failed: ${err?.message || err}`);

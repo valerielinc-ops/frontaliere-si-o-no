@@ -16,7 +16,8 @@
  * Each offer carries:
  *   - id (number), requisitionId (number)
  *   - title (string)
- *   - slug (string)          → detail URL = `${baseUrl}/nos-offres/${slug}`
+ *   - slug (string)          → NOT unique and NOT the address (see offerDetailUrl)
+ *   - uri (string, optional) → canonical detail URL `${baseUrl}/fr/nos-offres/${slug}-${id}` // locale-segment-ok: portale esterno emploi VD, percorso /fr/nos-offres/<slug>-<id> della fonte
  *   - dateFrom (ISO date)
  *   - content (HTML)
  *   - job: { id, title }     → category
@@ -117,6 +118,100 @@ async function fetchOffersJson(apiUrl) {
   }, { label: `vd-emploi ${apiUrl}` });
 }
 
+/**
+ * Public detail page of one offer. The platform addresses an offer by
+ * `/<locale>/nos-offres/<slug>-<id>` — the `uri` field when the API sends it
+ * (HIB, HRC, La Tour), built from slug + id when it does not (EHC). The bare
+ * `/nos-offres/<slug>` form 301-redirects to `/undefined` on all four hosts
+ * (measured 2026-09-29), and a slug alone is not an identity: HIB reuses one
+ * slug for different offers (ids 95 and 103 are both
+ * `physiotherapeute-de-80-a-100`; id 198, a billing clerk, carries a nurse's
+ * slug). Returns '' when neither form can be built.
+ *
+ * @param {{ id?: number|string, slug?: string, uri?: string }} offer
+ * @param {string} baseUrl
+ * @param {string} [urlLocale='fr']
+ */
+export function offerDetailUrl(offer, baseUrl, urlLocale = 'fr') {
+  const base = String(baseUrl || '').replace(/\/+$/, '');
+  let host = '';
+  try { host = new URL(base).hostname.toLowerCase(); } catch { return ''; }
+  const uri = normalizeSpace(offer?.uri || '');
+  if (uri) {
+    try {
+      const parsed = new URL(uri);
+      if (parsed.hostname.toLowerCase() === host && /\/nos-offres\/[^/]+-\d+\/?$/.test(parsed.pathname)) {
+        parsed.protocol = 'https:';
+        return parsed.toString();
+      }
+    } catch { /* fall through to the built form */ }
+  }
+  const slug = normalizeSpace(offer?.slug || '');
+  const id = String(offer?.id ?? '').trim();
+  if (!slug || !/^\d+$/.test(id)) return '';
+  return `${base}/${urlLocale}/nos-offres/${encodeURIComponent(slug)}-${id}`;
+}
+
+/**
+ * The detail URL every earlier version of this parser published:
+ * `${baseUrl}/nos-offres/${encodeURIComponent(slug)}` — dead (301 to
+ * `/undefined`) and not unique.
+ */
+function legacyOfferUrl(offer, baseUrl) {
+  const slug = normalizeSpace(offer?.slug || '');
+  return slug ? `${String(baseUrl || '').replace(/\/+$/, '')}/nos-offres/${encodeURIComponent(slug)}` : '';
+}
+
+/** A legacy URL has no locale segment: `/nos-offres/<slug>` at the root. */
+function isLegacyOfferUrl(rawUrl = '') {
+  try {
+    return /^\/nos-offres\/[^/]+\/?$/.test(new URL(String(rawUrl || '')).pathname);
+  } catch {
+    return false;
+  }
+}
+
+const titleKey = (value = '') => normalizeSpace(decodeEntities(String(value || ''))).toLowerCase();
+
+/**
+ * The offers of one API response with each source-declared vacancy once. An
+ * offer's identity is its `requisitionId` when the API sends one, its `id`
+ * otherwise; for each identity the offer with the latest `dateFrom` is kept
+ * (API order on a tie), and the result keeps API order. Title, workplace and
+ * text are NOT an identity: two requisitions may advertise the same role in
+ * the same words and are two vacancies.
+ *
+ * @param {Array<{ id?: number|string, requisitionId?: number|string, dateFrom?: string }>} offers
+ */
+export function offersOnePerRequisition(offers = []) {
+  const identityOf = (offer) => {
+    const requisition = String(offer?.requisitionId ?? '').trim();
+    if (requisition) return `requisition:${requisition}`;
+    const id = String(offer?.id ?? '').trim();
+    return id ? `id:${id}` : '';
+  };
+  const time = (offer) => {
+    const t = Date.parse(String(offer?.dateFrom || ''));
+    return Number.isFinite(t) ? t : -Infinity;
+  };
+  const best = new Map();
+  for (const offer of offers) {
+    const key = identityOf(offer);
+    if (!key) continue;
+    const current = best.get(key);
+    if (!current || time(offer) > time(current)) best.set(key, offer);
+  }
+  const seenIds = new Set();
+  return offers.filter((offer) => {
+    const key = identityOf(offer);
+    if (key && best.get(key) !== offer) return false;
+    const id = String(offer?.id ?? '').trim();
+    if (id && seenIds.has(id)) return false;
+    if (id) seenIds.add(id);
+    return true;
+  });
+}
+
 function pickInformationValue(offer, infoId) {
   const list = Array.isArray(offer?.information) ? offer.information : [];
   const entry = list.find((it) => normalize(it?.id) === normalize(infoId));
@@ -170,11 +265,13 @@ function detectEmploymentType(rateText = '') {
  * @param {string} config.defaultCity        Fallback city
  * @param {string} config.defaultPostalCode  Fallback postal code
  * @param {string} [config.defaultSourceLang='fr']
+ * @param {string} [config.urlLocale='fr']   Locale segment of the detail URL
  * @param {string} [config.sourceLabel]      Source string for ParsedJob
  * @returns {{
  *   fetchAllJobs: () => Promise<ParsedJob[]>,
  *   isCompanyJob: (job: any) => boolean,
  *   isTrustedDomain: (url: string) => boolean,
+ *   prepareExistingJobs: (jobs: object[]) => object[],
  * }}
  */
 export function createVdEmploiPlatformParser(config) {
@@ -187,6 +284,7 @@ export function createVdEmploiPlatformParser(config) {
     defaultCity,
     defaultPostalCode,
     defaultSourceLang = 'fr',
+    urlLocale = 'fr',
     sourceLabel,
   } = config;
 
@@ -195,6 +293,8 @@ export function createVdEmploiPlatformParser(config) {
   }
 
   const apiUrl = `${baseUrl.replace(/\/+$/, '')}/api/offers`;
+  // Legacy URL -> offers of the last fetch that published it: [{ url, title }].
+  let legacyUrlOffers = new Map();
   const careerHost = new URL(baseUrl).hostname.toLowerCase();
   const corporateHost = String(companyDomain || '').replace(/^www\./, '').toLowerCase();
 
@@ -231,13 +331,20 @@ export function createVdEmploiPlatformParser(config) {
     console.log(`  ✓ ${offers.length} offers from /api/offers`);
 
     const jobs = [];
-    for (const offer of offers) {
+    legacyUrlOffers = new Map();
+    // One vacancy published twice, as the source itself declares it: the same
+    // offer `id`, or the same `requisitionId` (the HR requisition behind the
+    // ad) on two offers — EHC 3590 and 3626 are both requisition 2165. Only
+    // the most recent offer of that identity is kept (see
+    // offersOnePerRequisition). Two offers with different ids and
+    // requisitions stay two vacancies even when their text is identical.
+    const kept = offersOnePerRequisition(offers);
+    const doublePublications = offers.length - kept.length;
+    for (const offer of kept) {
       const title = normalizeSpace(offer?.title || '');
       if (!title || title.length < 3) continue;
-      const slug = normalizeSpace(offer?.slug || '');
-      if (!slug) continue;
-
-      const publicUrl = `${baseUrl.replace(/\/+$/, '')}/nos-offres/${encodeURIComponent(slug)}`;
+      const publicUrl = offerDetailUrl(offer, baseUrl, urlLocale);
+      if (!publicUrl) continue;
       const descriptionText = decodeEntities(stripHtml(offer?.content || ''));
       const decodedTitle = decodeEntities(title);
       const sourceLang = detectLang(descriptionText || decodedTitle, defaultSourceLang);
@@ -324,11 +431,49 @@ export function createVdEmploiPlatformParser(config) {
       };
 
       jobs.push(job);
+      const legacyUrl = legacyOfferUrl(offer, baseUrl);
+      if (legacyUrl) {
+        const list = legacyUrlOffers.get(legacyUrl) || [];
+        list.push({ url: publicUrl, title: decodedTitle });
+        legacyUrlOffers.set(legacyUrl, list);
+      }
     }
 
+    if (doublePublications) {
+      console.log(`  ⏭️ ${doublePublications} offer(s) republishing the same offer id or requisition — kept once`);
+    }
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
   }
 
-  return { fetchAllJobs, isCompanyJob, isTrustedDomain };
+  /**
+   * `prepareExistingJobs` for the standard pipeline (run after `fetchAllJobs`).
+   * A stored job still on a legacy `/nos-offres/<slug>` URL is moved to the
+   * detail URL of the offer this fetch found for it — same legacy URL and same
+   * title, so offers sharing a slug are told apart — and the merge then keeps
+   * its translations. A legacy row with no such offer is dropped: its URL is
+   * dead, and the miss grace period would otherwise keep publishing it next
+   * to the fresh row. Every other row passes through unchanged; before a
+   * fetch (empty map) nothing is touched.
+   *
+   * @param {object[]} existingJobs
+   * @returns {object[]}
+   */
+  function prepareExistingJobs(existingJobs = []) {
+    if (!legacyUrlOffers.size) return existingJobs;
+    const out = [];
+    for (const job of existingJobs) {
+      const candidates = legacyUrlOffers.get(String(job?.url || '').replace(/\/+$/, ''));
+      if (!candidates) {
+        if (!isLegacyOfferUrl(job?.url)) out.push(job);
+        continue;
+      }
+      const match = candidates.filter((offer) => titleKey(offer.title) === titleKey(job?.title));
+      if (match.length !== 1) continue;
+      out.push({ ...job, url: match[0].url, applyUrl: match[0].url });
+    }
+    return out;
+  }
+
+  return { fetchAllJobs, isCompanyJob, isTrustedDomain, prepareExistingJobs };
 }
