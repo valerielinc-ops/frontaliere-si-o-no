@@ -309,14 +309,12 @@ async function fetchDetailDescription(url) {
 export const CASEIFICIO_INVENTED_RE = /Caseificio dimostrativo del Gottardo SA pubblica il seguente /;
 
 /**
- * Description fields of a posting: the detail page's own text over the shared
- * word floor, keyed by its language; nothing under the floor (the job then
- * keeps its stored source body, or is not published this run).
+ * The detail page's own text when it is over the shared word floor, '' under
+ * it (the job then keeps its stored source body, or is not published this
+ * run): no invented text, no thin page.
  */
-export function caseificioDescriptionFields(detailText = '') {
-  const description = meetsSourceBodyFloor(detailText) ? String(detailText).trim() : '';
-  const sourceLang = description ? detectLang(description, 'it') : 'it';
-  return { description, descriptionByLocale: description ? { [sourceLang]: description } : {}, sourceLang };
+export function caseificioSourceBody(detailText = '') {
+  return meetsSourceBodyFloor(detailText) ? String(detailText).trim() : '';
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -388,7 +386,7 @@ export async function fetchCaseificioJobs() {
       console.warn(`  ⚠️  Could not fetch detail page: ${err?.message || err}`);
     }
 
-    const fields = caseificioDescriptionFields(description);
+    description = caseificioSourceBody(description);
 
     const slug = slugify(listing.title, COMPANY_KEY);
 
@@ -401,7 +399,7 @@ export async function fetchCaseificioJobs() {
       country: 'CH',
       url: listing.detailUrl,
       applyUrl: listing.detailUrl,
-      description: fields.description,
+      description,
       category: detectCategory(listing.title, listing.category),
       sector: 'Industria lattiero-casearia / Alimentare',
       employmentType: detectEmploymentType(listing.title, listing.location),
@@ -409,9 +407,9 @@ export async function fetchCaseificioJobs() {
       source: 'caseificio-gottardo-crawler',
       postedDate: new Date().toISOString().slice(0, 10),
       titleByLocale: { it: listing.title },
-      descriptionByLocale: fields.descriptionByLocale,
+      descriptionByLocale: { it: description },
       slugByLocale: { it: slug },
-      sourceLang: fields.sourceLang,
+      sourceLang: detectLang(description || listing.title, 'it'),
       _targetScope: { canton: HQ.canton, location: 'Airolo' },
     };
 
