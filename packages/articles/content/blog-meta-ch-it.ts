@@ -7067,6 +7067,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Premi cassa malati 2027 in Ticino: +3,7% e EFAS dal 2028',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: il sistema è buono e costa. In Ticino i premi salgono del 3,7%, con EFAS atteso dal 2028.',
     'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Corridoio di un ospedale svizzero a Berna, luce naturale e atmosfera professionale',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlamento svizzero: guida a Curia Vista e Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Dai deputati dal 1848 alle votazioni CN: come usare il portale ufficiale per tracciare atti, commissioni e delegazioni UE/NATO.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Il Palazzo del Parlamento svizzero a Berna, sede del Consiglio nazionale e del Consiglio degli Stati',
 };
 
 export default blogMetaChIt;

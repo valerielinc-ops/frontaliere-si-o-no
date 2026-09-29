@@ -91631,6 +91631,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-svizzero-strumenti-ricerca': {
+    title: 'Parlamento svizzero: guida a Curia Vista e Open Data',
+    description: 'Scopri come usare il portale del Parlamento svizzero: ricerca deputati dal 1848, Curia Vista, votazioni CN, Open Data e delegazioni internazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, svizzero, curia, vista',
+    ogTitle: 'Parlamento svizzero: guida a Curia Vista e Open Data',
+    ogDescription: 'Il portale del Parlamento svizzero riunisce Consiglio nazionale e Stati. Scopri come cercare deputati dal 1848, usare Curia Vista per gli oggetti e scaricare i dati delle votazioni in formato xls. Guida pratica per l\'orientamento.',
+    canonicalPath: '/articoli-svizzera/parlamento-svizzero-strumenti-ricerca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento svizzero: guida a Curia Vista e Open Data",
+      "description": "Scopri come usare il portale del Parlamento svizzero: ricerca deputati dal 1848, Curia Vista, votazioni CN, Open Data e delegazioni internazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parlamento-svizzero-strumenti-ricerca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo del Parlamento svizzero a Berna, sede del Consiglio nazionale e del Consiglio degli Stati"
+      },
+      "datePublished": "2026-09-29T16:36:37+00:00",
+      "dateModified": "2026-09-29T16:36:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-svizzero-strumenti-ricerca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
