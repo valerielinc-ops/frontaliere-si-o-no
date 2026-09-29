@@ -164,6 +164,11 @@ describe('extractEmmiVacancyHtml', () => {
     expect(text).not.toMatch(/\+41/);
   });
 
+  it('reads a bare benefit card without throwing (normalizeSpace is the module-level helper)', () => {
+    expect(extractEmmiVacancyHtml('<section id="benefits"><div class="benefitTitle">A</div><div class="benefitText">B</div></section>'))
+      .toBe('<ul><li>A: B</li></ul>');
+  });
+
   it('returns nothing for a page without the ad sections, so the OHWS blocks are used', () => {
     expect(extractEmmiVacancyHtml('<html><body><section id="contact">x</section></body></html>')).toBe('');
   });
