@@ -52,6 +52,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -287,10 +288,12 @@ export async function fetchAllKsmlJobs() {
       },
       sourceLang,
     );
-    const fallbackDesc = sourceLang === 'fr'
-      ? `${title} — poste auprès de ${organisation}, ${city} (Kanton Bern). Publié sur le marché cantonal de l'emploi pour les enseignant(e)s (KSML).`
-      : `${title} — Stelle bei ${organisation}, ${city} (Kanton Bern). Publiziert auf dem Kantonalen Stellenmarkt für Lehrerinnen und Lehrer (KSML).`;
-    const finalDescription = description.split(/\s+/).filter(Boolean).length >= 30 ? description : fallbackDesc;
+    // Only the posting's own text (issue 5253): no "<title> — Stelle bei
+    // <Schule>, <Ort> (Kanton Bern). Publiziert auf dem Kantonalen
+    // Stellenmarkt …" line (or its French twin) in place of a short body. A
+    // body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const finalDescription = meetsSourceBodyFloor(description) ? description : '';
 
     const jobSlug = appendSlugDisambiguator(
       slugify(`${title} ${organisation} ${city}`),
