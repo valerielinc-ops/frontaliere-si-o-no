@@ -7112,6 +7112,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dati-srf-dipendenti-rubati.title': 'Hackerangriff auf SRF: Daten von etwa 340 Mitarbeitenden gestohlen',
     'blog.article.dati-srf-dipendenti-rubati.excerpt': 'Die SSR meldet einen Angriff auf SRF: Kontakt- und Organisationsdaten von etwa 340 Mitarbeitenden wurden gestohlen. Passwörter und Bankdaten sind offenbar nicht betroffen.',
     'blog.article.dati-srf-dipendenti-rubati.imageAlt': 'Schweizer Redaktion mit Monitoren zu Cyberangriff und gestohlenen Mitarbeiterdaten',
+    'blog.article.samedan-aeroporto-rinnovo-2025.title': 'Flughafen Samedan wartet auf Bundesgerichtsentscheidung',
+    'blog.article.samedan-aeroporto-rinnovo-2025.excerpt': 'Nach dem Ja vom 17. August 2025 (>54% der Berechtigten) wird die Erneuerung des Flughafens Samedan von 68,5 Millionen durch die Inanspruchnahme des TF blockiert; Investitionen 2027 geplant 7,6 Millionen, Laufzeit 2031.',
+    'blog.article.samedan-aeroporto-rinnovo-2025.imageAlt': 'Luftaufnahme der Startbahn des Flughafens Samedan in den Engadiner Bergen, ein Flugzeug bereit zum Abheben bei klarem Himmel',
 };
 
 export default blogMetaChDe;
