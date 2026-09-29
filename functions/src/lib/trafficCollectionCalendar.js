@@ -12,10 +12,10 @@
  * (che tira dentro firebase-admin tramite githubProxy.js).
  */
 
-const SLOT_STEP_MS = 30 * 60 * 1000;
-// Il buco più lungo del calendario è venerdì 17:30 → sabato 06:00 (12h30):
+const SLOT_STEP_MS = 60 * 60 * 1000;
+// Il buco più lungo del calendario è venerdì 17:00 → sabato 06:00 (13h):
 // una settimana di ricerca all'indietro copre ogni caso con ampio margine.
-const MAX_LOOKBACK_SLOTS = 7 * 48;
+const MAX_LOOKBACK_SLOTS = 7 * 24;
 
 export function toValidDate(value) {
   const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
@@ -24,8 +24,8 @@ export function toValidDate(value) {
 }
 
 /**
- * Keep the existing UTC collection calendar while moving its clock from the
- * delayed GitHub scheduler to Cloud Scheduler.
+ * Keep the UTC collection calendar aligned with the routing quota budget while
+ * Cloud Scheduler owns the clock for the existing GitHub workflow.
  */
 export function isTrafficCollectionSlot(scheduledAt) {
   const date = toValidDate(scheduledAt);
@@ -35,9 +35,9 @@ export function isTrafficCollectionSlot(scheduledAt) {
   const weekend = day === 0 || day === 6;
 
   if (weekend) return minute === 0 && [6, 10, 14, 18].includes(hour);
-  if (minute !== 0 && minute !== 30) return false;
-  return (hour >= 4 && hour <= 7)
-    || (hour === 11 && minute === 0)
+  if (minute !== 0) return false;
+  return (hour >= 5 && hour <= 7)
+    || hour === 11
     || (hour >= 14 && hour <= 17);
 }
 
@@ -48,7 +48,7 @@ export function isTrafficCollectionSlot(scheduledAt) {
  */
 export function latestTrafficCollectionSlotAtOrBefore(at) {
   const date = toValidDate(at);
-  // Gli slot cadono sempre su :00/:30 → parti dal mezz'ora pieno ≤ at.
+  // Gli slot cadono sempre allo scoccare dell'ora → parti dall'ora piena ≤ at.
   let slotMs = Math.floor(date.getTime() / SLOT_STEP_MS) * SLOT_STEP_MS;
   for (let i = 0; i <= MAX_LOOKBACK_SLOTS; i++, slotMs -= SLOT_STEP_MS) {
     if (isTrafficCollectionSlot(slotMs)) return new Date(slotMs);
