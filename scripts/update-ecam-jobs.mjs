@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   ECAM_KEY,
   ECAM_COMPANY_NAME,
+  ECAM_FABRICATED_DESCRIPTION_RE,
 } from './lib/ecam-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isEcamJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, ECAM_FABRICATED_DESCRIPTION_RE, ECAM_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Ente Case Anziani Mendrisiotto (ECAM) crawler failed: ${err?.message || err}`);
   process.exit(1);

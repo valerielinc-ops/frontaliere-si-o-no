@@ -7058,6 +7058,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reazioni-partiti-aumento-premi-2027.title': 'Hausse des primes 2027 : réactions du PLR, du PS et des syndicats',
     'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Estimation à 3,7% pour 2027. Le PLR demande un contrôle des coûts, le PS et l\'OCST défendent les familles. Prime moyenne tessinoise à 519,90 francs.',
     'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Bâtiment du Grand Conseil tessinois au crépuscule avec des drapeaux suisses',
+    'blog.article.voto-armi-industria-difesa.title': 'Armes, exportations facilitées : vote le 29 novembre',
+    'blog.article.voto-armi-industria-difesa.excerpt': 'Le Conseil fédéral soutient la révision de la loi sur le matériel de guerre : le vote est prévu le 29 novembre afin de renforcer l\'industrie et de préserver les emplois.',
+    'blog.article.voto-armi-industria-difesa.imageAlt': 'Site industriel suisse avec drapeau national sur le débat des exportations d\'armes.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Investissements immobiliers : bonne confiance, Tessin négatif',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'En 2026, le SRESI affiche 47,5 points, en baisse par rapport aux 69,5 de 2025 ; le Tessin et Lugano sont en territoire négatif, tandis que Zurich, la Suisse centrale et le lac Léman sont en tête des attentes de hausse.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Vue aérienne de Lugano avec lac, montagnes et bâtiments résidentiels modernes, lumière matinale douce',
 };
 
 export default blogMetaChFr;

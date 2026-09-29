@@ -10,14 +10,6 @@ import {
 } from '../scripts/lib/bucherer-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-
-// A vacancy body of at least 50 words: a posting without one is not
-// published (issue 5253).
-const SOURCE_BODY = '<p>In unserer Boutique berätst du internationale Kundinnen und Kunden zu Uhren und Schmuck der führenden Marken, '
-  + 'präsentierst die Kollektionen, betreust Reparaturen und Serviceaufträge und pflegst langfristige Beziehungen. '
-  + 'Du bringst Erfahrung im Luxusdetailhandel, sehr gute Deutsch- und Englischkenntnisse, Freude an Uhrmacherei '
-  + 'und ein gepflegtes Auftreten mit; wir bieten eine fundierte Einarbeitung, Weiterbildungen und ein engagiertes Team.</p>';
-
 describe('Bucherer crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
@@ -172,7 +164,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '900',
         jobTitle: 'Regional Merchandiser',
-        jobDescription: SOURCE_BODY,
+        jobDescription: 'x'.repeat(400),
         postingLocations: [
           { formattedAddress: 'Maximilianstrasse 1, 80539 München, Germany', cityName: 'München', isoCountryCode: 'DE' },
         ],
@@ -184,7 +176,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '901',
         jobTitle: 'Group Buyer',
-        jobDescription: SOURCE_BODY,
+        jobDescription: 'x'.repeat(400),
         postingLocations: [
           { formattedAddress: 'Maximilianstrasse 1, 80539 München, Germany', cityName: 'München', isoCountryCode: 'DE' },
           { formattedAddress: 'Bahnhofstrasse 1, 8001 Zürich, Switzerland', cityName: 'Zürich', stateCode: 'ZH', isoCountryCode: 'CH' },
@@ -196,7 +188,7 @@ describe('Bucherer crawler parser', () => {
     });
 
     it('keeps a posting with no location data at all (falls back to HQ)', () => {
-      const posting = { jobPostingId: '902', jobTitle: 'Corporate Role', jobDescription: SOURCE_BODY };
+      const posting = { jobPostingId: '902', jobTitle: 'Corporate Role', jobDescription: 'x'.repeat(400) };
       const jobs = parsePostings([posting]);
       expect(jobs).toHaveLength(1);
       expect(jobs[0].canton).toBe('LU');
@@ -209,7 +201,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '910',
         jobTitle: 'Boutique Manager',
-        jobDescription: SOURCE_BODY,
+        jobDescription: 'x'.repeat(400),
         postingLocations: [
           {
             formattedAddress: 'Bahnhofstrasse 1, 8001 Zürich, Switzerland',
@@ -233,7 +225,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '911',
         jobTitle: 'Sales Associate Lugano',
-        jobDescription: SOURCE_BODY,
+        jobDescription: 'x'.repeat(400),
         postingLocations: [
           { formattedAddress: 'Via Nassa 5, 6900 Lugano, Switzerland', cityName: 'Lugano', isoCountryCode: 'CH' },
         ],
@@ -246,7 +238,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '912',
         jobTitle: 'Sales Associate Geneva',
-        jobDescription: SOURCE_BODY,
+        jobDescription: 'x'.repeat(400),
         postingLocations: [
           { cityName: 'Genève', stateCode: 'GE', isoCountryCode: 'CH' },
         ],
@@ -261,7 +253,7 @@ describe('Bucherer crawler parser', () => {
       const posting = {
         jobPostingId: '913',
         jobTitle: 'Sales Associate Luzern',
-        jobDescription: SOURCE_BODY,
+        jobDescription: 'x'.repeat(400),
         postingLocations: [
           { cityName: 'Luzern', stateCode: 'LU', isoCountryCode: 'CH' },
         ],
@@ -288,26 +280,33 @@ describe('Bucherer crawler parser', () => {
       expect(jobs[0].description).toContain('Bucherer offre un ambiente');
     });
 
-    // Only the posting's own text is published (issue 5253): a short or
-    // missing body used to be replaced by an invented Italian company summary
-    // ("Bucherer cerca un/una {title} … Bucherer AG, fondata nel 1888 …").
-    it('does not publish a posting whose crawled description is under 50 words', () => {
+    // Issue 5253: these two cases used to assert a >= 50-word fallback ("Bucherer
+    // cerca un/una <title>…" + five sentences about Bucherer written by the
+    // parser) — the ripiego this lot removes. A text under the shared 50-word
+    // floor, or no text, now gives no description (the pipeline's thin-source
+    // path). Text: the opening of the live "Client Advisor mit SAV-Aufgaben –
+    // St. Moritz" posting (2026-09-29).
+    it('gives a too-short crawled description no indexable text, not the old fallback', () => {
       const posting = {
         jobPostingId: '921',
-        jobTitle: 'Trainee Orologeria',
-        jobDescription: '<p>Short desc.</p>',
-        postingLocations: [{ cityName: 'Luzern', stateCode: 'LU', isoCountryCode: 'CH' }],
+        jobTitle: 'Client Advisor mit SAV-Aufgaben 100% (m/w/d) – St. Moritz',
+        jobDescription: '<p>Ihre Rolle bei uns</p><p>Sie betreuen unsere anspruchsvollen nationalen und internationalen Kunden beim Kauf von hochwertigen Uhren und Schmuckstücken.</p>',
+        postingLocations: [{ cityName: 'St. Moritz', stateCode: 'GR', isoCountryCode: 'CH' }],
       };
-      expect(parsePostings([posting])).toEqual([]);
+      const jobs = parsePostings([posting]);
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({});
     });
 
-    it('does not publish a posting without a crawled description', () => {
+    it('gives a posting without a crawled description no description', () => {
       const posting = {
         jobPostingId: '922',
         jobTitle: 'Store Manager',
         postingLocations: [{ cityName: 'Basel', stateCode: 'BS', isoCountryCode: 'CH' }],
       };
-      expect(parsePostings([posting])).toEqual([]);
+      const jobs = parsePostings([posting]);
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({});
     });
   });
 

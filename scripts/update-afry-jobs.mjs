@@ -50,6 +50,7 @@ import {
   inferAfryCanton,
   inferAfryCategory,
   buildAfryLocalizedContent,
+  dropAfryFabricatedText,
 } from './lib/afry-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -207,7 +208,8 @@ async function enrichWithDetails(listings) {
 }
 
 function buildAfryJob(row) {
-  const localized = buildAfryLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, row.language || 'it');
+  const localized = buildAfryLocalizedContent({ ...row, sourceLang });
   const canton = inferAfryCanton(row);
   return {
     title: localized.titleByLocale.it,
@@ -226,12 +228,12 @@ function buildAfryJob(row) {
     category: inferAfryCategory(row.competenceArea, row.title),
     sector: 'Ingegneria & Consulenza',
     source: 'afry-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     validThrough: row.lastApplyDate || '',
     employmentType: 'full-time',
     contractType: 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -246,6 +248,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropAfryFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former header line / copied locale slots from ${fossils} stored AFRY job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

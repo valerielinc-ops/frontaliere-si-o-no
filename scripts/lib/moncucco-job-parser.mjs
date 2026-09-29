@@ -243,15 +243,12 @@ export async function fetchAllMoncuccoJobs() {
       }
     }
 
-    // Build a snippet from listing metadata if description is thin
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      const parts = [listing.title, '— Gruppo Ospedaliero Moncucco, Lugano'];
-      if (listing.percentage) parts.push(listing.percentage);
-      if (listing.availability) parts.push(listing.availability);
-      description = parts.join(' ');
-    }
-
-    const sourceLang = detectLang(listing.title, 'it');
+    // The detail page's text is published whatever its length. Below
+    // MIN_DESC_LENGTH the crawler used to replace it with the listing metadata
+    // ("<titolo> — Gruppo Ospedaliero Moncucco, Lugano <percentuale>
+    // <disponibilità>"); a detail without text now gives no description and
+    // the job takes the pipeline's thin-source path.
+    const sourceLang = detectLang(description || listing.title, 'it');
     const jobSlug = buildJobSlug(`${listing.title} Lugano`, 'moncucco');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.percentage);
@@ -292,3 +289,6 @@ export async function fetchAllMoncuccoJobs() {
   console.log(`  Total Moncucco jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+/** Fragment only the crawler's former metadata description wrote. */
+export const MONCUCCO_FABRICATED_DESCRIPTION_RE = /— Gruppo Ospedaliero Moncucco, Lugano/;

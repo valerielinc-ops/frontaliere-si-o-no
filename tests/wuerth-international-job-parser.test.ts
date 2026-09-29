@@ -12,19 +12,19 @@
  *   - Trusted domain detection
  *   - Fallback description generation
  */
-import { afterEach, describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
   parseDate,
   detectCategory,
   detectEmploymentType,
+  wuerthDescriptionFromDetail,
   isWuerthInternationalJob,
   isTrustedDomain,
   WUERTH_INTERNATIONAL_KEY,
   WUERTH_INTERNATIONAL_COMPANY_NAME,
   WUERTH_INTERNATIONAL_COMPANY_DOMAIN,
-  fetchAllWuerthInternationalJobs,
 } from '../scripts/lib/wuerth-international-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -516,29 +516,32 @@ describe('isTrustedDomain', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════════
-// fetchAllWuerthInternationalJobs — listing without a vacancy body
+// wuerthDescriptionFromDetail (issue 5253)
 // ═══════════════════════════════════════════════════════════════════
+// These cases used to test buildFallbackDescription, which replaced a detail
+// text under 50 words with "<title> bei Würth International AG in <location>…"
+// and a paragraph about the Würth group written by the parser (>= 50 words,
+// title, location, company, entry level). That ripiego is gone: the detail
+// text is published from the shared 50-word floor up, and a shorter text or
+// none gives no description (the pipeline's thin-source path).
 
-// Only the posting's own text is published (issue 5253): a detail page that
-// could not be read, or whose body is under 50 words, used to be replaced by
-// an invented company summary (the former `buildFallbackDescription`).
-describe('fetchAllWuerthInternationalJobs — listing without a vacancy body', () => {
-  afterEach(() => {
-    vi.unstubAllGlobals();
+describe('wuerthDescriptionFromDetail', () => {
+  it('publishes the detail text of the live fixture as it is', () => {
+    const detail = parseDetailPage(DETAIL_HTML);
+    expect(wuerthDescriptionFromDetail(detail)).toBe(detail!.description.trim());
+    expect(wuerthDescriptionFromDetail(detail)).toContain('Beratung');
   });
 
-  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
-    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
-      const u = String(url);
-      if (u.includes('Job-details_17216')) return new Response(DETAIL_HTML, { status: 200 });
-      if (u.includes('Job-details_17088')) return new Response('<html lang="de"><body><h1 class="hyphens">Berufspraktikum Empfang (a)</h1></body></html>', { status: 200 });
-      return new Response(LISTING_HTML, { status: 200 });
-    }));
+  it('gives a detail text under 50 words no indexable text instead of replacing it', () => {
+    // The first task of the fixture posting (Steuerexperte, Chur).
+    const short = '• Beratung der Geschaeftspartner und der Geschaeftsleitungen sowie Unterstuetzung in allen direktsteuerlichen Belangen';
+    expect(wuerthDescriptionFromDetail({ description: short })).toBe('');
+  });
 
-    const jobs = await fetchAllWuerthInternationalJobs();
-    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Steuerexperte (W/M/D) oder sehr erfahrener Steuerspezialist']);
-    for (const job of jobs) expect(job.description).not.toMatch(/Die Würth International AG ist ein Unternehmen der Würth-Gruppe/);
-  }, 20_000);
+  it('gives a posting without detail text no description', () => {
+    expect(wuerthDescriptionFromDetail(null)).toBe('');
+    expect(wuerthDescriptionFromDetail({ description: '' })).toBe('');
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════════

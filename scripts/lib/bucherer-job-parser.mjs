@@ -43,6 +43,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
@@ -51,7 +52,6 @@ import {
   fetchWithRateLimit,
   closeAll,
 } from './ats-clients/playwright-runtime.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -223,17 +223,17 @@ function resolveAddress(rawLoc = {}) {
   return { city, postalCode, streetAddress, region };
 }
 
-/* ── Vacancy text ─────────────────────────────────────────────── */
+/* ── Description: the posting text only ──────────────────────────── */
 
 /**
- * The posting's own text, or '' when the Dayforce payload carries fewer than
- * 50 words (no vacancy body). Only the posting's own text is published
- * (issue 5253): such a posting used to be filled with an invented Italian
- * company summary ("Bucherer cerca un/una {title} per la sede di {city}.
- * Bucherer AG, fondata nel 1888 …") and is not published any more.
+ * The Dayforce text of the posting (issue 5253). Under 50 words it used to
+ * be REPLACED by "Bucherer cerca un/una <title> per la sede di <location>."
+ * and five sentences about Bucherer written by the parser. Now a text under
+ * the shared 50-word floor is not published: the posting gets no description
+ * and takes the thin-source path (quarantine).
  */
 function resolveDescription(rawHtml) {
-  const text = stripHtml(rawHtml || '');
+  const text = stripHtml(rawHtml || '').trim();
   return meetsSourceBodyFloor(text) ? text : '';
 }
 
@@ -361,8 +361,8 @@ async function discoverAllJobPostings() {
  * with fixture postings without spinning up a browser.
  *
  * Filters out: postings with no usable title, postings whose only
- * location(s) are outside Switzerland (foreign-office filtering), postings
- * without vacancy text, and duplicate public URLs.
+ * location(s) are outside Switzerland (foreign-office filtering), and
+ * duplicate public URLs.
  */
 export function parsePostings(postings = []) {
   const jobs = [];
@@ -398,10 +398,6 @@ export function parsePostings(postings = []) {
     seenUrls.add(publicUrl);
 
     const description = resolveDescription(posting.jobDescription);
-    if (!description) {
-      console.log(`  ⏭️ no vacancy text in the posting, not published: ${title}`);
-      continue;
-    }
     const sourceLang = detectLang(description, culture.slice(0, 2).toLowerCase());
     const jobSlug = slugify(`${title} bucherer ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -420,7 +416,7 @@ export function parsePostings(postings = []) {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,

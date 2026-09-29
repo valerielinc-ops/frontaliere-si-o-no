@@ -154,21 +154,17 @@ export function parseClinicaHildebrandListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-function buildHildebrandDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${title} presso ${CLINICA_HILDEBRAND_COMPANY_NAME}, Brissago (Locarnese, Canton Ticino).`,
-      'La Clinica Hildebrand è un centro di riabilitazione neurologica, ortopedica e cardiovascolare situato sul Lago Maggiore. Eroga prestazioni stazionarie e ambulatoriali per pazienti adulti e collabora con il sistema sanitario ticinese e nazionale.',
-    ],
-    pdfText,
-    fallbackText: `Posto vacante ${title} presso ${CLINICA_HILDEBRAND_COMPANY_NAME}. I dettagli completi su requisiti, mansioni e modalità di candidatura sono disponibili nel documento PDF ufficiale.`,
-    footerLines: [
-      `Annuncio ufficiale (PDF): ${pdfUrl}`,
-      `Pagina collaborazione: ${PUBLIC_CAREER_URL}`,
-      'Settore: Sanità / Riabilitazione',
-      'Candidature: candidature@clinica-hildebrand.ch (CV completo via e-mail)',
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own about the clinic ("<titolo>
+ * presso Clinica Hildebrand, Brissago…", a paragraph on the clinic), "Annuncio
+ * ufficiale (PDF): …", "Pagina collaborazione: …", "Settore: …", "Candidature:
+ * …", and to substitute a sentence of its own when the PDF had no text. A PDF
+ * without readable text now gives no description and the job takes the
+ * pipeline's thin-source path.
+ */
+export function buildHildebrandDescription({ title, pdfText = '' }) {
+  const description = buildPdfBackedDescription({ pdfText });
 
   const warnings = [];
   if (pdfText && description.length < MIN_HILDEBRAND_DESC_LENGTH) {
@@ -178,6 +174,10 @@ function buildHildebrandDescription({ title, pdfText = '', pdfUrl = '' }) {
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former intro, fallback and footer wrote (see `buildHildebrandDescription`). */
+export const CLINICA_HILDEBRAND_FABRICATED_DESCRIPTION_RE =
+  /La Clinica Hildebrand è un centro di riabilitazione neurologica|sono disponibili nel documento PDF ufficiale\.|(?:^|\n)Pagina collaborazione: https?:|(?:^|\n)Candidature: candidature@clinica-hildebrand\.ch/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 

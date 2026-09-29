@@ -251,6 +251,23 @@ export function parseDetailPage(html) {
   };
 }
 
+/* ── Description: the posting text only ──────────────────── */
+
+/**
+ * The detail text of a posting (issue 5253). Under 50 words it used to be
+ * REPLACED by buildFallbackDescription: "<title> bei Würth International AG
+ * in <location>, Kanton Graubünden, Schweiz." and a paragraph about the Würth
+ * group written by the parser. Now a text under the shared 50-word floor is
+ * not published: the posting gets no description and takes the thin-source
+ * path (quarantine).
+ *
+ * @param {{ description?: string } | null} detail  parseDetailPage output
+ */
+export function wuerthDescriptionFromDetail(detail) {
+  const text = String(detail?.description || '').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
+}
+
 /* ── Job identification ───────────────────────────────────── */
 
 export function isWuerthInternationalJob(job = {}) {
@@ -337,7 +354,6 @@ export async function fetchAllWuerthInternationalJobs() {
 
   // Step 2: Fetch detail pages
   const jobs = [];
-  let withoutBody = 0;
   for (const listing of listings) {
     try {
       const controller2 = new AbortController();
@@ -364,19 +380,8 @@ export async function fetchAllWuerthInternationalJobs() {
       const employmentTypeRaw = detail?.employmentType || 'FULL_TIME';
       const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
 
-      // Only the posting's own text is published (issue 5253): a detail
-      // page that could not be read, or whose body is under 50 words, used
-      // to be replaced by an invented company summary ("{title} bei Würth
-      // International AG in {city} … Die Würth International AG ist ein
-      // Unternehmen der Würth-Gruppe …"); such a listing is not published
-      // any more.
-      const description = detail?.description || '';
-      if (!meetsSourceBodyFloor(description)) {
-        console.warn(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
-        withoutBody += 1;
-        await new Promise((r) => setTimeout(r, 300));
-        continue;
-      }
+      // Build description: the detail text only (see wuerthDescriptionFromDetail).
+      const description = wuerthDescriptionFromDetail(detail);
 
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} wuerth-international ${location}`);
@@ -391,7 +396,7 @@ export async function fetchAllWuerthInternationalJobs() {
         title,
         titleByLocale: { de: title },
         description,
-        descriptionByLocale: { de: description },
+        descriptionByLocale: description ? { de: description } : {},
         location,
         canton: HQ.canton,
         addressLocality: location,
@@ -434,9 +439,6 @@ export async function fetchAllWuerthInternationalJobs() {
     deduped.push(job);
   }
 
-  if (withoutBody > 0) {
-    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
-  }
   console.log(`\n📋 Total unique Würth International jobs discovered: ${deduped.length}`);
   return deduped;
 }
