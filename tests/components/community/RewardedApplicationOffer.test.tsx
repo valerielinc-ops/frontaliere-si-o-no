@@ -307,6 +307,78 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
   });
 
+  it('tracks the automatic new tab, and keeps the redirect screen once the tab took the foreground', async () => {
+    const onContinue = vi.fn(() => Promise.resolve(true));
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    await act(async () => {});
+
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_application_handoff_auto')).toEqual([expect.objectContaining(adContext)]);
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([]);
+    expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+  });
+
+  it('brings the open card back when no new tab took the foreground despite the activation', async () => {
+    // Safari may block window.open although navigator.userActivation.isActive
+    // is true; with noopener the call returns null, so the parent reports it.
+    const onContinue = vi.fn(() => Promise.resolve(false));
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    await act(async () => {});
+
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_mode: 'auto' }),
+    ]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_reason: 'tab_not_opened' }),
+    ]);
+    const open = screen.getByTestId('rewarded-application-handoff-open');
+    fireEvent.click(open);
+    expect(onContinue).toHaveBeenCalledTimes(2);
+    expect(tracked('rewarded_application_handoff_clicked')).toEqual([expect.objectContaining(adContext)]);
+  });
+
+  it('tracks the open card shown for lack of activation, and its click', () => {
+    setUserActivation(false);
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_reason: 'no_activation' }),
+    ]);
+    expect(tracked('rewarded_application_handoff_auto')).toEqual([]);
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_application_handoff_clicked')).toHaveLength(1);
+  });
+
+  it('starts on the open card for an access already granted, with no ad and no offer view', () => {
+    // A click resumed after the recovery reload whose access is still valid:
+    // no activation survives the reload, so one click opens the new tab.
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} resumed startInHandoff />);
+
+    expect(screen.getByTestId('rewarded-application-handoff')).toHaveTextContent('Candidatura a «Fisioterapista diplomato» sbloccata');
+    expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
+    expect(mocks.props).toBeNull();
+    expect(tracked('rewarded_application_offer_viewed')).toEqual([]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ handoff_reason: 'resume_entitlement', jobId: 'job-1' }),
+    ]);
+    expect(onContinue).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
+  });
+
   it('offers a compact retry when the video is closed before the reward', () => {
     const onContinue = vi.fn();
     const onUnavailable = vi.fn();

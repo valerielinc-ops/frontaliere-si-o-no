@@ -119,6 +119,15 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_consent_decided',
   'rewarded_offerwall_consent_declined',
   'external_apply_redirected',
+  // New-tab hand-off after the reward (RewardedApplicationOffer). Distinct
+  // names instead of a parameter: GA4 reads them without a custom dimension.
+  // `auto`: opened at once inside the click's activation; `shown`: the "open"
+  // card; `clicked`: its button; `unconfirmed`: no new tab took the foreground
+  // (blocked popup), so the card came back.
+  'rewarded_application_handoff_auto',
+  'rewarded_application_handoff_shown',
+  'rewarded_application_handoff_clicked',
+  'rewarded_application_handoff_unconfirmed',
   // The Offerwall/GPT chain failed to load and the paid offer opened instead.
   'offerwall_paid_fallback_offered',
   'checkout_started',

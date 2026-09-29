@@ -156,11 +156,22 @@ export interface RewardedApplicationOfferProps {
   companyId: string;
   companyName: string;
   jobTitle: string;
-  onContinue: () => void;
+  /**
+   * Opens the employer in a new tab. It may resolve `false` when no new tab
+   * took the foreground (a popup the browser blocked): the offer then shows
+   * its "open" card again and waits for a click.
+   */
+  onContinue: () => void | Promise<boolean>;
   onUnavailable: (reason: string) => void;
   onDismiss?: () => void;
   /** This offer reopens a click after the recovery reload: never reload again. */
   resumed?: boolean;
+  /**
+   * The access is already granted and no click activation is left (a click
+   * resumed after the recovery reload): no ad, only the "open" card, whose
+   * click opens the new tab.
+   */
+  startInHandoff?: boolean;
   /**
    * Reload the page to resume this click (the resume marker is already set).
    * Without it the offer never reloads and takes the GPT path instead.
@@ -204,6 +215,7 @@ export default function RewardedApplicationOffer({
   onDismiss,
   resumed = false,
   onReload,
+  startInHandoff = false,
 }: RewardedApplicationOfferProps) {
   const { t } = useTranslation();
   const [retryToken, setRetryToken] = useState(0);
@@ -219,11 +231,15 @@ export default function RewardedApplicationOffer({
   // that Funding Choices has not reached yet is waited for; anything else is
   // decided at once, so a held Offerwall is still released in the click's render.
   const [initialDecision] = useState<GateDecision | null>(() => {
+    if (startInHandoff) return null;
     const status = offerwallGateStatus();
     if (status === 'absent' && offerwallGateWaitMs(resumed) > 0) return null;
     return decideFor(status);
   });
-  const [phase, setPhase] = useState<OfferPhase>(() => (initialDecision ? PHASE_FOR_PLAN[initialDecision.plan] : 'checking'));
+  const [phase, setPhase] = useState<OfferPhase>(() => {
+    if (startInHandoff) return 'handoff';
+    return initialDecision ? PHASE_FOR_PLAN[initialDecision.plan] : 'checking';
+  });
   const decisionRef = useRef<GateDecision | null>(initialDecision);
   const notShownTrackedRef = useRef(false);
   const phaseRef = useRef(phase);
@@ -316,6 +332,14 @@ export default function RewardedApplicationOffer({
   };
 
   useEffect(() => {
+    // An access already granted shows no ad offer, only the "open" card.
+    if (startInHandoff) {
+      trackAssistedApplicationEvent('rewarded_application_handoff_shown', {
+        ...eventContext(),
+        handoff_reason: 'resume_entitlement',
+      });
+      return;
+    }
     trackAssistedApplicationEvent('rewarded_application_offer_viewed', eventContext());
     // The offer is viewed once per mount; the context is read at that moment.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -358,22 +382,40 @@ export default function RewardedApplicationOffer({
 
   // The reward is the end of the step: the employer opens in a new tab. The
   // browser allows it only while the page holds a click's activation, so
-  // without one the `handoff` card asks for that click instead.
+  // without one the `handoff` card asks for that click instead. A browser can
+  // still block the tab with the activation reported (Safari is the doubt):
+  // when the parent sees no new tab take the foreground, the card comes back.
   const handoffDoneRef = useRef(false);
   const handoffPhaseRef = useRef<'offerwall_done' | 'gpt_done'>('gpt_done');
-  const openApplication = () => {
+  const handoffContext = () => (handoffPhaseRef.current === 'offerwall_done' ? offerwallContext() : eventContext());
+  const showHandoff = (reason: 'no_activation' | 'tab_not_opened') => {
+    trackAssistedApplicationEvent('rewarded_application_handoff_shown', { ...handoffContext(), handoff_reason: reason });
+    setPhase('handoff');
+  };
+  const openApplication = (mode: 'auto' | 'click') => {
     if (handoffDoneRef.current) return;
     handoffDoneRef.current = true;
+    trackAssistedApplicationEvent(
+      mode === 'auto' ? 'rewarded_application_handoff_auto' : 'rewarded_application_handoff_clicked',
+      handoffContext(),
+    );
     setPhase(handoffPhaseRef.current);
-    onContinue();
+    const opened = onContinue();
+    if (!(opened instanceof Promise)) return;
+    void opened.then((ok) => {
+      if (ok || !mountedRef.current) return;
+      trackAssistedApplicationEvent('rewarded_application_handoff_unconfirmed', { ...handoffContext(), handoff_mode: mode });
+      handoffDoneRef.current = false;
+      showHandoff('tab_not_opened');
+    });
   };
   const continueAfterReward = (donePhase: 'offerwall_done' | 'gpt_done') => {
     handoffPhaseRef.current = donePhase;
     if (hasTransientUserActivation()) {
-      openApplication();
+      openApplication('auto');
       return;
     }
-    setPhase('handoff');
+    showHandoff('no_activation');
   };
 
   // Only Google's rewardedSlotGranted reaches this handler (directly, or via
@@ -459,6 +501,8 @@ export default function RewardedApplicationOffer({
   };
 
   useEffect(() => {
+    // An access already granted needs no gate decision and no ad.
+    if (startInHandoff) return undefined;
     if (initialDecision) {
       applyDecision(initialDecision);
       return undefined;
@@ -912,7 +956,7 @@ export default function RewardedApplicationOffer({
           </div>
           <button
             type="button"
-            onClick={openApplication}
+            onClick={() => openApplication('click')}
             className={primaryButtonClass}
             data-testid="rewarded-application-handoff-open"
           >

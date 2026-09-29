@@ -110,10 +110,10 @@ describe('assisted application JobBoard handoff', () => {
     // Owner decision 2026-09-29: the visitor keeps the site. The offer calls
     // onContinue only inside a click's activation (see RewardedApplicationOffer).
     expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationContinue = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, false, \{\s*handoff: 'rewarded_granted',\s*\}\);/,
+      /const handleRewardedApplicationContinue = \(\): Promise<boolean> => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, false, \{\s*handoff: 'rewarded_granted',\s*\}\);/,
     );
     const start = jobBoardSource.indexOf('const handleAssistedExternal = () => {');
-    const end = jobBoardSource.indexOf('const handleRewardedApplicationContinue = () => {', start);
+    const end = jobBoardSource.indexOf('const handleRewardedApplicationContinue = (): Promise<boolean> => {', start);
     const handler = jobBoardSource.slice(start, end);
     expect(start).toBeGreaterThan(-1);
     expect(handler).toMatch(
@@ -126,6 +126,35 @@ describe('assisted application JobBoard handoff', () => {
     );
     expect(redirect.indexOf('await ')).toBeGreaterThan(redirect.indexOf('if (sameTab) {'));
     expect(redirect.indexOf('await ')).toBeLessThan(redirect.indexOf('} else {'));
+  });
+
+  it('keeps the offer until the new tab takes the foreground, so a blocked popup brings the open card back', () => {
+    const start = jobBoardSource.indexOf('const handleRewardedApplicationContinue = (): Promise<boolean> => {');
+    const end = jobBoardSource.indexOf('// Only a fresh page load can hold the Offerwall', start);
+    const handler = jobBoardSource.slice(start, end);
+    expect(start).toBeGreaterThan(-1);
+    // Watching starts before window.open: the new tab can hide the page at once.
+    expect(handler.indexOf('const opened = watchNewTabOpened();')).toBeGreaterThan(-1);
+    expect(handler.indexOf('const opened = watchNewTabOpened();')).toBeLessThan(handler.indexOf('redirectExternalApplication('));
+    // The offer unmounts only on a confirmed tab; otherwise it shows its card.
+    expect(handler).toMatch(/return opened\.then\(\(ok\) => \{\s*if \(ok\) setRewardedApplicationJob\(null\);\s*return ok;\s*\}\);/);
+    expect(handler).not.toMatch(/if \(!job\) return Promise\.resolve\(true\);\s*setRewardedApplicationJob\(null\);/);
+  });
+
+  it('resumes a click whose access is already granted on the open card, never in this tab', () => {
+    const start = jobBoardSource.indexOf('const offerwallResumeCheckedRef = useRef(false);');
+    const end = jobBoardSource.indexOf('const handleShare = async', start);
+    const effect = jobBoardSource.slice(start, end);
+    expect(start).toBeGreaterThan(-1);
+    expect(effect).not.toContain("redirectExternalApplication(selectedJob, 'rewarded_application_entitlement', false, true)");
+    expect(effect).toMatch(
+      /'rewarded_application_access_used'[\s\S]*?applicationOfferOpenRef\.current = true;\s*setRewardedApplicationHandoffOnly\(true\);\s*setRewardedApplicationResumed\(true\);\s*setRewardedApplicationJob\(selectedJob\);\s*return;/,
+    );
+    expect(jobBoardSource).toContain('startInHandoff={rewardedApplicationHandoffOnly}');
+    // Its "open" click keeps the entitlement surface and opens a new tab.
+    expect(jobBoardSource).toMatch(
+      /if \(rewardedApplicationHandoffOnly\) \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_entitlement', false, false\);/,
+    );
   });
 
   it('opens the paid offer when the Offerwall chain failed to load or the ad was refused, with the flag on', () => {
