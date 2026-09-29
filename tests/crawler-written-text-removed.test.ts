@@ -18,6 +18,7 @@ import { SOLINA_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/solina-job-pars
 import { KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/klinik-adelheid-job-parser.mjs';
 import { PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/privatklinik-hohenegg-job-parser.mjs';
 import { REFLINE_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/refline-common.mjs';
+import { CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/cds-savognin-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const source = (file: string) => fs.readFileSync(path.join(__dirname, '..', 'scripts', ...file.split('/')), 'utf8');
@@ -57,6 +58,7 @@ describe('stored rows with crawler-written text are cleared before the merge', (
     ['solina (28/28 rows)', SOLINA_FABRICATED_DESCRIPTION_RE, 'Praktikant:in\n\nPensum / Standort: 100%, Standortübergreifend\n\nBei Solina lernst du den Beruf dort, wo er zählt.\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.'],
     ['klinik-adelheid (8/8 rows)', KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, 'Bereich: Offene Lehrstellen.\n\nWir suchen per 1. August 2027 eine / einen\nLernende/n als Köchin / Koch EFZ'],
     ['privatklinik-hohenegg (3/4 rows)', PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, 'Mitarbeiter/-in Hotellerie bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität'],
+    ['cds-savognin (5/5 rows, paragraph appended under 80 words)', CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE, 'Med. Praxisassistentin\n\nMed. Praxisassistentin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld'],
     ['puk-zuerich, Refline factory (2/70 rows)', REFLINE_FABRICATED_DESCRIPTION_RE, 'Unterassistentinnen / Unterassistenten bei Psychiatrische Universitätsklinik Zürich in Zürich.\n\nPsychiatrische Universitätsklinik Zürich bietet eine sinnstiftende Tätigkeit in einem engagierten Team.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten\n• Faire Anstellungsbedingungen'],
   ])('%s', (_label, pattern, text) => {
     const job = { sourceLang: 'de', description: text, descriptionByLocale: { de: text, it: 'Traduzione del testo del crawler' } };
@@ -69,7 +71,7 @@ describe('stored rows with crawler-written text are cleared before the merge', (
   it('leaves a job with the page text alone', () => {
     const text = `Wir suchen per sofort eine Pflegefachperson HF. ${words(60)}`;
     const job = { sourceLang: 'de', description: text, descriptionByLocale: { de: text, it: 'Traduzione' } };
-    for (const pattern of [SOLINA_FABRICATED_DESCRIPTION_RE, KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, REFLINE_FABRICATED_DESCRIPTION_RE, HAS_FABRICATED_DESCRIPTION_RE]) {
+    for (const pattern of [SOLINA_FABRICATED_DESCRIPTION_RE, KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, REFLINE_FABRICATED_DESCRIPTION_RE, HAS_FABRICATED_DESCRIPTION_RE, CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE]) {
       expect(dropFabricatedDescription(job, pattern)).toBe(false);
     }
     expect(job.descriptionByLocale.it).toBe('Traduzione');
@@ -89,6 +91,7 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['lib/klinik-adelheid-job-parser.mjs', /`Bereich: \$\{row\.bereich\}|Unterägeri \(ZG\)\.`/],
     ['lib/solina-job-parser.mjs', /`Pensum \/ Standort: \$\{|SOLINA_CONTEXT/],
     ['update-has-healthcare-jobs.mjs', /`Settore: Farmaceutico|è alla ricerca di: \$\{title\}/],
+    ['lib/cds-savognin-job-parser.mjs', /buildFallbackDescription|beim Center da Sanadad Savognin in Savognin/],
   ])('%s', (file, pattern) => {
     const text = source(file);
     expect(text).not.toMatch(pattern);
