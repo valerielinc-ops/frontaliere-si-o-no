@@ -11,6 +11,8 @@ import {
   parseBpsSuisseDetailPage,
   isTicinoBpsJob,
   MIN_BPS_FULL_DESC,
+  buildBpsSuisseDescriptionFields,
+  dropBpsSuisseFabricatedText,
 } from '@/scripts/lib/bps-suisse-job-parser.mjs';
 
 // ─── Fixture: Listing page ───
@@ -192,5 +194,76 @@ describe('MIN_BPS_FULL_DESC', () => {
   it('is a reasonable minimum description length', () => {
     expect(MIN_BPS_FULL_DESC).toBeGreaterThanOrEqual(100);
     expect(MIN_BPS_FULL_DESC).toBeLessThanOrEqual(500);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// Description = the posting's own text (no wrapper of the runner's)
+// ═══════════════════════════════════════════════════════════════
+
+// Minimized from the PDF call of "Consulente alla clientela commerciale
+// ipotecaria" (slice of 2026-09-29).
+const BPS_CALL = 'Banca Popolare di Sondrio (SUISSE) SA – Ufficio Risorse Umane Via Maggio 1, 6900 Lugano. Lavora con noi. Siamo un istituto bancario svizzero con una solida presenza nazionale e una forte attenzione al territorio.';
+
+describe('buildBpsSuisseDescriptionFields', () => {
+  it('publishes the PDF call alone, keyed by its language', () => {
+    const fields = buildBpsSuisseDescriptionFields({ pdfText: BPS_CALL, bodyText: 'Testo della pagina.' });
+    expect(fields.description).toBe(BPS_CALL);
+    expect(fields.descriptionByLocale).toEqual({ it: BPS_CALL });
+    expect(fields.sourceLang).toBe('it');
+    expect(fields.description).not.toMatch(/posizione aperta|\*\*Settore:\*\*|\*\*Sede:\*\*|Bando ufficiale/);
+  });
+
+  it('falls back to the detail-page body, and to nothing without any text', () => {
+    expect(buildBpsSuisseDescriptionFields({ bodyText: BPS_CALL }).description).toBe(BPS_CALL);
+    expect(buildBpsSuisseDescriptionFields({}).description).toBe('');
+  });
+});
+
+describe('dropBpsSuisseFabricatedText', () => {
+  // Shape of the stored jobs of the 2026-09-29 slice: the wrapper sat in the
+  // top-level description, around the PDF call, with the footers the runner
+  // wrote; some source slots held the same text with the newlines flattened.
+  const WRAPPED = `## Consulente Alla Clientela Commerciale Ipotecaria\n\nBPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a Lugano (TI).\n\n${BPS_CALL}\n\n**Settore:** Bancario / Finanziario\n\n**Sede:** Via Giacomo Bentina 5, 6901 Lugano, TI, Svizzera\n\n[Bando ufficiale (PDF)](https://www.bps-suisse.ch/pdf/annuncio_consulente_it.pdf)`;
+  const WRAPPER = /posizione aperta|\*\*Settore:\*\*|\*\*Sede:\*\*|Bando ufficiale|SUISSE — /;
+
+  it('cleans the top-level description and rebuilds the source slot from it', () => {
+    const job: any = { sourceLang: 'it', description: WRAPPED, descriptionByLocale: {} };
+    expect(dropBpsSuisseFabricatedText(job)).toBe(true);
+    expect(job.description).toBe(BPS_CALL);
+    expect(job.descriptionByLocale).toEqual({ it: BPS_CALL });
+  });
+
+  it('drops the translations made from the wrapped text and replaces a flattened source slot', () => {
+    const job: any = {
+      sourceLang: 'it',
+      description: WRAPPED,
+      descriptionByLocale: {
+        it: WRAPPED.replace(/\s*\n+\s*/g, ' '),
+        en: '## Adviser to the Client Commercial Mortgage\n\nBPS (Banca Popolare di Sondrio) SUISSE — open position in Lugano (TI).',
+      },
+    };
+    expect(dropBpsSuisseFabricatedText(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ it: BPS_CALL });
+    expect(job.needsRetranslation).toBe(true);
+    expect(dropBpsSuisseFabricatedText(job)).toBe(false);
+  });
+
+  it('empties a description that was only the header line or the substituted bank paragraph', () => {
+    for (const description of [
+      'BPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a Lugano (TI).',
+      'Compliance Officer — posizione aperta presso BPS (Banca Popolare di Sondrio) SUISSE, istituto bancario con sede a Lugano, Canton Ticino, Svizzera.',
+    ]) {
+      const job: any = { description, descriptionByLocale: {} };
+      expect(dropBpsSuisseFabricatedText(job)).toBe(true);
+      expect(job.description).toBe('');
+      expect(JSON.stringify(job.descriptionByLocale)).not.toMatch(WRAPPER);
+    }
+  });
+
+  it('leaves a clean job alone', () => {
+    const job: any = { sourceLang: 'it', description: BPS_CALL, descriptionByLocale: { it: BPS_CALL, en: 'Translated.' } };
+    expect(dropBpsSuisseFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('Translated.');
   });
 });

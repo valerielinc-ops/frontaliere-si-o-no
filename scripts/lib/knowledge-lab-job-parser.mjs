@@ -19,6 +19,7 @@ import {
  */
 
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 export const KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL = 'https://klab.freshteam.com/jobs/';
 const FRESHTEAM_ORIGIN = 'https://klab.freshteam.com';
@@ -318,21 +319,19 @@ export function buildKnowledgeLabLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || '').trim() || 'Switzerland';
   const description = String(job.description || '').trim();
-  const department = String(job.department || '').trim();
 
-  const deptClause = department ? ` nel reparto ${department}` : '';
-  const itDesc = description
-    || `Knowledge Lab cerca un/una ${title}${deptClause} con sede a ${location}. Soluzioni IT innovative per il settore bancario e assicurativo. Candidati tramite il portale ufficiale Knowledge Lab.`;
-  const enDesc = description
-    || `Knowledge Lab is hiring for the ${title} role based in ${location}. Innovative IT solutions for banking and insurance. Apply through the official Knowledge Lab careers page.`;
-  const deDesc = description
-    || `Knowledge Lab sucht derzeit für die Position ${title} am Standort ${location}. Innovative IT-Lösungen für Bank- und Versicherungswesen. Bewirb dich über die offizielle Karriereseite.`;
-  const frDesc = description
-    || `Knowledge Lab recrute actuellement pour le poste ${title} basé à ${location}. Solutions IT innovantes pour la banque et l'assurance. Postulez via le portail officiel.`;
+  // The posting's own text, in its own language slot (`job.sourceLang`, set
+  // by the runner); the translation step fills the other locales. Without
+  // a text there is no description: this used to publish a sentence about
+  // Knowledge Lab of its own in four languages ("… is hiring for the <title>
+  // role … Apply through the official … careers page."), which filled every
+  // locale so the translation step never replaced it.
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} knowledge-lab ${location}`),
       en: slugify(`${title} knowledge-lab ${location}`),
@@ -372,4 +371,19 @@ export function inferKnowledgeLabCanton(job = {}) {
   const city = normalizeSpace(job.location);
   if (!isKnowledgeLabSwissRelevant({ ...job, location: city })) return '';
   return inferAnyCanton(city);
+}
+
+// The text this crawler used to write itself: the four sentences the builder wrote without a posting text ("Knowledge Lab cerca un/una…", "…is hiring for the…", "…sucht derzeit…", "…recrute actuellement…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const KNOWLEDGE_LAB_FABRICATED_RE = /Knowledge Lab cerca un\/una |Knowledge Lab is hiring for the |Knowledge Lab sucht derzeit für die Position |Knowledge Lab recrute actuellement pour le poste /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropKnowledgeLabFabricatedText(job) {
+  return dropFabricatedDescription(job, KNOWLEDGE_LAB_FABRICATED_RE);
 }

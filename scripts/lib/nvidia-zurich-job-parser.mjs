@@ -50,6 +50,7 @@ import {
   swissCityFromLocationField,
   swissMunicipalityCantons,
 } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -279,6 +280,7 @@ export async function fetchAllNvidiaZurichJobs() {
   console.log(`  📋 Switzerland-tagged listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -309,20 +311,20 @@ export async function fetchAllNvidiaZurichJobs() {
 
     const html = String(info.jobDescription || '').trim();
     const detailDescription = html
-      ? stripHtml(html).replace(/[ \t]+/g, ' ').replace(/[ \t]*\n[ \t]*/g, '\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 4000)
+      ? stripHtml(html).replace(/[ \t]+/g, ' ').replace(/[ \t]*\n[ \t]*/g, '\n').replace(/\n{3,}/g, '\n\n').trim()
       : await fetchWorkdayJobDescriptionText(WORKDAY_API_BASE, listing.externalPath, stripHtml);
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${NVIDIA_ZURICH_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}, Kanton ${canton}, Schweiz`,
-      '• Employer: NVIDIA — global leader in accelerated computing and AI (GPUs, CUDA, data center + robotics/AI platforms).',
-      '• Swiss footprint: Zurich R&D hub (GPU networking, HPC/AI research, developer relations).',
-      '• Apply: NVIDIA Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${NVIDIA_ZURICH_KEY} ch`);
@@ -372,6 +374,9 @@ export async function fetchAllNvidiaZurichJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${NVIDIA_ZURICH_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

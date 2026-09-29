@@ -37,6 +37,8 @@ import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
 import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -374,8 +376,8 @@ export function parseDetailPage(html) {
   // Prefer the typed body <span> and exclude void <meta>/<link> microdata nodes.
   // An unscoped `[itemprop="description"]` would match a `<meta itemprop=
   // "description">` shipped in <head> first (document order), whose `.innerHTML`
-  // is empty → every description collapses to buildFallbackDescription → the
-  // duplicate-listings audit critical reappears (#1885, follow-up of #1884).
+  // is empty → every listing lost its body (it collapsed to an invented
+  // fallback then, it is skipped now) (#1885, follow-up of #1884).
   let description = '';
   const descEl =
     doc.querySelector('span[itemprop="description"]') ||
@@ -421,12 +423,6 @@ export function parseDetailPage(html) {
     postalCode: structuredLocation?.postalCode || '',
     applyUrl,
   };
-}
-
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei der Hirslanden-Klinik in ${location || 'der Schweiz'}.\n\nDie Hirslanden-Gruppe ist mit 17 Privatkliniken und mehreren Tageskliniken die führende Privatklinik-Gruppe der Schweiz. Sie beschäftigt rund 11'000 Mitarbeitende und arbeitet mit über 2'500 Belegärztinnen und Belegärzten zusammen. Hirslanden gehört zur internationalen Mediclinic-Gruppe (Südafrika / Vereinigtes Königreich / Schweiz / Vereinigte Arabische Emirate). Wir bieten ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem führenden Schweizer Gesundheitsunternehmen.`;
 }
 
 /* ── Job identification ───────────────────────────────────── */
@@ -570,6 +566,7 @@ export async function fetchAllHirslandenJobs() {
 
   // Step 2 — detail pages
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
     try {
       let detail = null;
@@ -598,11 +595,15 @@ export async function fetchAllHirslandenJobs() {
       // 8008 is the Zürich fallback of parseLocation: only for a Zürich vacancy (#9841).
       const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
 
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location);
+      // Only the posting's own text is published (issue 5253). A detail page
+      // that could not be read, or whose body is under the shared 50-word
+      // floor, used to be replaced by an invented group summary; such a
+      // listing is not published any more.
+      const description = detail?.description || '';
+      if (!meetsSourceBodyFloor(description)) {
+        console.warn(`  ⏭️ Hirslanden: no vacancy text on the detail page, not published (${title})`);
+        withoutBody += 1;
+        continue;
       }
 
       const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
@@ -654,6 +655,10 @@ export async function fetchAllHirslandenJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
+  }
+
   // Deduplicate by URL
   const seen = new Set();
   const deduped = [];
@@ -664,6 +669,15 @@ export async function fetchAllHirslandenJobs() {
     deduped.push(job);
   }
 
-  console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${deduped.length}`);
-  return deduped;
+  // The same requisition (same Referenznummer, same text, same clinic) is
+  // occasionally re-posted under a second SuccessFactors job id: 5 such pairs
+  // on 2026-09-29 (e.g. 1124147801/1123876301, Referenznummer 43018). One
+  // vacancy, one page.
+  const { jobs: unique, dropped } = dropIdenticalPostings(deduped);
+  if (dropped.length > 0) {
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, clinic and text under another job id).`);
+  }
+
+  console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

@@ -2,10 +2,12 @@
  * Casale SA — Recruitee API parser tests
  */
 import { describe, it, expect } from 'vitest';
+import { dropCasaleFabricatedText } from '../scripts/update-casale-jobs.mjs';
 
 import {
   parseApiResponse,
   buildJobFromApi,
+  buildCasaleDescriptionFields,
   combineDescriptionSections,
   isCasaleSwissOffer,
   isGenericOffer,
@@ -407,5 +409,56 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for Electrical Engineer', () => {
     expect(detectExperienceLevel('Electrical Engineer')).toBe('MID');
+  });
+});
+
+// Issue 5253: an offer under 220 characters used to be REPLACED by
+// "<title> — posizione aperta presso Casale SA a Lugano…" and a paragraph
+// about Casale written by the runner. Now an offer under the shared 50-word
+// floor gives no description (thin-source path) instead of an indexable thin
+// page. Text: the opening of the live "Expediter" offer
+// (recruit.casale.ch/o/expediter-1, 2026-09-29).
+describe('buildCasaleDescriptionFields — the offer text only', () => {
+  const SHORT_OFFER = 'Casale SA is a leading firm that specializes in the design and implementation of innovative plants to produce green ammonia, ammonia, nitrates, phosphates, urea, methanol, melamine, and syngas.';
+
+  it('gives an offer under 50 words no indexable text, not the old replacement', () => {
+    expect(SHORT_OFFER.split(/\s+/).length).toBeLessThan(50);
+    const fields = buildCasaleDescriptionFields({ title: 'Expediter', description: SHORT_OFFER });
+    expect(fields.description).toBe('');
+    expect(fields.descriptionByLocale).toEqual({});
+  });
+
+  it('gives an offer without text no description', () => {
+    const fields = buildCasaleDescriptionFields({ title: 'Expediter', description: '' });
+    expect(fields.description).toBe('');
+    expect(fields.descriptionByLocale).toEqual({});
+  });
+
+  it('publishes the Recruitee text of a full offer unchanged, in the slot of its language', () => {
+    const built = buildJobFromApi(FIXTURE_API_RESPONSE.offers[0]);
+    expect(built.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    const fields = buildCasaleDescriptionFields(built);
+    expect(fields.description).toBe(built.description.trim());
+    expect(Object.values(fields.descriptionByLocale)).toEqual([built.description.trim()]);
+    expect(fields.description).not.toMatch(/posizione aperta presso Casale SA/);
+  });
+});
+
+// Stored records of the former replacement text (issue 5253): dropped before
+// the merge with the translations made from it.
+describe('dropCasaleFabricatedText', () => {
+  const INVENTED = "Expediter — posizione aperta presso Casale SA a Lugano, Canton Ticino, Svizzera. Casale SA è un'azienda globale di ingegneria con sede a Lugano, specializzata nella progettazione e costruzione di impianti per la produzione di fertilizzanti e prodotti chimici.";
+
+  it('leaves no invented entry in a stored job', () => {
+    const job: any = { sourceLang: 'it', description: INVENTED, descriptionByLocale: { it: INVENTED, en: 'Expediter — open position at Casale SA in Lugano…' } };
+    expect(dropCasaleFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+  });
+
+  it('leaves a stored job with the offer text alone', () => {
+    const offer = buildJobFromApi(FIXTURE_API_RESPONSE.offers[0]).description;
+    const job: any = { sourceLang: 'en', description: offer, descriptionByLocale: { en: offer, it: 'Traduzione.' } };
+    expect(dropCasaleFabricatedText(job)).toBe(false);
   });
 });

@@ -1,64 +1,41 @@
 #!/usr/bin/env node
 /**
- * Kanton Aargau (cantonal administration) job parser — Umantis ATS
- * (tenant 12705).
+ * Kanton Aargau (cantonal administration) job parser — official stellenmarkt.
  *
- * Discovery correction (2026-07-03): the original orchestrator brief
- * pointed at `ohws.prospective.ch` (Prospective ATS, ~69 roles estimate).
- * Live verification found every "Kanton Aargau" listing on Prospective is a
- * stale, closed vacancy (404 "diese Vakanz wurde bereits wieder
- * geschlossen") — Prospective is a dead lead. The canton's own public
- * stellenmarkt (`https://www.ag.ch/de/ueber-uns/jobs-karriere/offene-stellen/stellenmarkt`)
- * embeds a widget (`data-api="/io/jobs-proxy"`) whose config attributes
- * reveal the real backend: `https://recruitingapp-12705.umantis.com`
- * (Umantis ATS). Confirmed by the single-employer logo (`logo_kag.jpg`) and
- * company label ("Kanton Aargau") on every listing row.
+ * Source (2026-09): the canton's public job market
+ * https://www.ag.ch/de/ueber-uns/jobs-karriere/offene-stellen/stellenmarkt
+ * renders a widget whose data API is `https://www.ag.ch/io/jobs-proxy/jobs`:
+ * a JSON list in Prospective format (`id`, `title`, `attributes`, `szas`,
+ * `links.directlink`, `startDate`/`endDate`), 64 open vacancies on
+ * 2026-09-29. Each `directlink` is a server-rendered page on jobs.ag.ch whose
+ * JSON-LD JobPosting carries the ad (tasks, profile, working environment,
+ * workplace address) and whose `#benefits` block lists the canton's benefits.
  *
- * Public career site: https://www.ag.ch/de/ueber-uns/jobs-karriere/offene-stellen/stellenmarkt
- *   "Im Stellenmarkt finden Sie alle offenen Stellen der Verwaltung, Gerichte,
- *   Kantonspolizei und der Lehrerschaft des Kantons Aargau" — i.e. this
- *   tenant covers the WHOLE cantonal administration + courts + cantonal
- *   police + teaching staff, not just central administration. That is why
- *   the real listing count (~440+, paginated 10/page) is an order of
- *   magnitude above the ~69 discovery estimate.
- *
- * Listing page (server-rendered "older UI", 10 rows/page, pagination via
- * `tc1152481=pN&_search_token1152481=TOKEN`, same mechanism as
- * ksa-job-parser.mjs / inselspital-job-parser.mjs):
- *   https://recruitingapp-12705.umantis.com/Jobs/All?lang=ger
- *
- * Detail pages are DEAD: `/Vacancies/{id}/Description/1` 302-redirects
- * cross-host to a generic `www.ag.ch` careers landing page (not job-specific
- * — confirmed by direct fetch, issue #1245 pattern). `/Vacancies/{id}/Application/CheckLogin/1`
- * stays same-host (redirects to `/Vacancies/{id}/Application/New/1`), so
- * that is used as the canonical job URL instead.
- *
- * The listing rows themselves carry almost no metadata beyond title +
- * "Online seit" date + internal "Planstelle" reference number (no
- * department/pensum/Befristung/city columns are populated for this
- * tenant — verified empty across every `tableaslist_element_*` span).
- * Employment type is therefore derived from the `NN%`/`NN-MM%` pattern
- * embedded in the title itself (the only per-job pensum signal available),
- * and the description is a structured synthesised paragraph (title +
- * canton-employer blurb + reference/date bullets) rather than scraped
- * body text, since no real per-job body is reachable from either ATS.
- *
- * Reuses shared Umantis helpers from `umantis-listing-common.mjs`
- * (`parseUmantisListing`, `decodeEntities`, `parseSwissDate`) — the
- * `createUmantisListingParser()` factory in that module does not paginate,
- * so (like ksa/inselspital) this file implements its own pagination walk
- * on top of the shared row-parsing helpers rather than the single-page
- * factory.
+ * Until 2026-09 this parser walked the Umantis tenant 12705 (`/Jobs/All`)
+ * and synthesised a blurb for every row, on the belief (2026-07) that the
+ * Prospective leads were dead and no body was reachable. That listing is the
+ * canton's application back office, not its job market: 423 rows against 64
+ * published, ~110 of them posted 2020-2022, and the same title under several
+ * ids (e.g. «Vollzugsangestellter Bezirksgefängnis 100%» ×3), which is where
+ * the duplicate-description findings of issue 5253 came from. Every row also
+ * got the canton HQ (Aarau) as location.
  *
  * Exports 4 functions crawler template:
- * - fetchAllKantonAargauJobs() — Fetch + parse all jobs across pages
+ * - fetchAllKantonAargauJobs() — Fetch + parse all jobs from the job market
  * - isKantonAargauJob()        — Match jobs belonging to Kanton Aargau
- * - isTrustedDomain()          — Validate URLs belong to ag.ch / Umantis tenant 12705
+ * - isTrustedDomain()          — Validate URLs belong to ag.ch
  * - KANTON_AARGAU_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { parseUmantisListing, decodeEntities, parseSwissDate } from './umantis-listing-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import {
+  slugify,
+  stripHtml,
+  normalizeSpace,
+  normalizeDescriptionSpace,
+  normalizeDescriptionBullets,
+} from './crawler-template.mjs';
+import { decodeHtmlEntities as decodeNamedEntities, decodeNumericEntities } from './dedicated-crawler-common.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -66,20 +43,11 @@ export const KANTON_AARGAU_KEY = 'kanton-aargau';
 export const KANTON_AARGAU_COMPANY_NAME = 'Kanton Aargau';
 export const KANTON_AARGAU_COMPANY_DOMAIN = 'ag.ch';
 
-const UMANTIS_TENANT = '12705';
-const BASE_URL = `https://recruitingapp-${UMANTIS_TENANT}.umantis.com`;
-const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
+const JOBS_API_URL = 'https://www.ag.ch/io/jobs-proxy/jobs';
 const PUBLIC_CAREER_URL = 'https://www.ag.ch/de/ueber-uns/jobs-karriere/offene-stellen/stellenmarkt';
-
-// HQ defaults — cantonal administration headquarters (Regierungsgebäude).
-const HQ_STREET = 'Bahnhofstrasse 2';
-const HQ_POSTAL_CODE = '5000';
-const HQ_CITY = 'Aarau';
 const HQ_CANTON = 'AG';
-
-// Hard cap on pagination walk (10 rows/page → 600 vacancies max). Live
-// count observed 2026-07-03 was ~442 across 45 pages.
-const MAX_PAGES = 60;
+/** Pause between detail requests. */
+const DETAIL_DELAY_MS = 300;
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -90,14 +58,14 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-/**
- * Skip QA/placeholder listings that aren't real vacancies (e.g. "Test HRAG
- * ELM" observed live in the tenant's listing — an integration-test entry
- * left in the ATS, not a job).
- */
-function isTestOrPlaceholderListing(title = '') {
-  return /^test\b/i.test(title.trim())
-    || /(^|\b)(initiativbewerbung|spontanbewerbung|blindbewerbung)\b/i.test(title);
+function decodeText(value = '') {
+  return decodeNamedEntities(decodeNumericEntities(String(value || '')));
+}
+
+/** HTML fragment → plain text with `• ` list items. */
+function htmlToText(html = '') {
+  return normalizeDescriptionSpace(stripHtml(decodeText(String(html || '').replace(/\s*[\r\n]+\s*/g, ' '))))
+    .replace(/\n{2,}(?=• )/g, '\n');
 }
 
 /* ── Company Matchers ─────────────────────────────────────── */
@@ -111,7 +79,7 @@ export function isKantonAargauJob(job) {
     key === KANTON_AARGAU_KEY
     || company === normalize(KANTON_AARGAU_COMPANY_NAME)
     || url.includes('ag.ch')
-    || url.includes(`recruitingapp-${UMANTIS_TENANT}.umantis.com`)
+    || url.includes('recruitingapp-12705.umantis.com')
   );
 }
 
@@ -119,7 +87,7 @@ export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
     if (host === 'ag.ch' || host.endsWith('.ag.ch')) return true;
-    if (host === `recruitingapp-${UMANTIS_TENANT}.umantis.com`) return true;
+    if (host === 'ohws.prospective.ch') return true;
     return false;
   } catch {
     return false;
@@ -163,152 +131,175 @@ function detectEmploymentType(title = '') {
   return 'OTHER';
 }
 
-/* ── Description synthesis ───────────────────────────────────
- * No per-job body content is reachable from either ATS (Umantis detail
- * pages dead-redirect to a generic careers page; Prospective listings are
- * all stale/closed — see file header). The description is therefore a
- * structured paragraph built from the one real per-job signal we have
- * (title) plus a factual employer blurb + reference bullets, always
- * comfortably above the 50-word thin-content floor. */
-function buildDescription(title, postedIso, planstelle) {
-  const intro = `${title} — offene Stelle beim Kanton Aargau, direkt auf dem offiziellen Stellenportal der Kantonalen Verwaltung ausgeschrieben.`;
-  const blurb = `Der Kanton Aargau zählt mit rund 700'000 Einwohnerinnen und Einwohnern zu den bevölkerungsreichsten Kantonen der Schweiz und ist einer der grössten Arbeitgeber der Region. Als öffentliche Verwaltung beschäftigt er Mitarbeitende in der kantonalen Verwaltung, den Gerichten, der Kantonspolizei und im Bildungswesen und bietet vielfältige, sinnstiftende Karrieremöglichkeiten in unterschiedlichen Fachbereichen.`;
-  const bullets = [
-    `• Arbeitgeber: ${KANTON_AARGAU_COMPANY_NAME}`,
-    `• Standort: ${HQ_CITY} (Kanton ${HQ_CANTON})`,
-  ];
-  if (planstelle) bullets.push(`• Referenznummer: ${planstelle}`);
-  if (postedIso) bullets.push(`• Online seit: ${postedIso}`);
-  bullets.push(`• Bewerbung über das offizielle Stellenportal des Kantons Aargau (${PUBLIC_CAREER_URL})`);
-  return [intro, blurb, bullets.join('\n')].join('\n\n');
+/* ── Listing ───────────────────────────────────────────────── */
+
+/**
+ * The job-market API payload → one entry per open vacancy.
+ *
+ * Attribute ids as the stellenmarkt widget labels them: 10 Fachbereich,
+ * 15 Themenbereich, 20 Arbeitsort, 30 Abteilung, 40 Pensum, 50 Stellenart,
+ * 70 Anstellung (befristet/unbefristet).
+ *
+ * @param {{ jobs?: object[] }} payload
+ * @returns {Array<{ id: string, title: string, url: string, location: string, department: string,
+ *   pensum: string, kind: string, field: string, term: string, startDate: string, endDate: string }>}
+ */
+export function parseAgJobsApi(payload) {
+  const jobs = Array.isArray(payload?.jobs) ? payload.jobs : [];
+  const first = (attrs, id) => normalizeSpace(decodeText((attrs?.[id] || [])[0] || ''));
+  const out = [];
+  const seen = new Set();
+  for (const job of jobs) {
+    const id = String(job?.id || '').trim();
+    const url = String(job?.links?.directlink || '').trim();
+    const title = normalizeSpace(decodeText(job?.title || ''));
+    if (!id || !url || !title || seen.has(id)) continue;
+    seen.add(id);
+    out.push({
+      id,
+      title,
+      url,
+      location: first(job.attributes, '20'),
+      department: first(job.attributes, '30'),
+      pensum: first(job.attributes, '40'),
+      kind: first(job.attributes, '50'),
+      field: first(job.attributes, '10'),
+      term: first(job.attributes, '70'),
+      startDate: String(job?.startDate || ''),
+      endDate: String(job?.endDate || ''),
+    });
+  }
+  return out;
+}
+
+/* ── Detail page ──────────────────────────────────────────── */
+
+/**
+ * The ad on a jobs.ag.ch vacancy page: the JSON-LD JobPosting description
+ * (tasks, profile, working environment, as the page shows them), the page's
+ * `#benefits` block, and the structured workplace address.
+ *
+ * @param {string} html
+ * @returns {{ description: string, streetAddress: string, postalCode: string,
+ *   addressLocality: string, datePosted: string, validThrough: string, employmentType: string }}
+ */
+export function extractAgJobPosting(html = '') {
+  const empty = { description: '', streetAddress: '', postalCode: '', addressLocality: '', datePosted: '', validThrough: '', employmentType: '' };
+  let posting = null;
+  for (const m of String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    let data;
+    try { data = JSON.parse(m[1]); } catch { continue; }
+    const nodes = Array.isArray(data) ? data : (data?.['@graph'] || [data]);
+    posting = nodes.find((node) => node?.['@type'] === 'JobPosting') || posting;
+    if (posting) break;
+  }
+  if (!posting) return empty;
+  const sections = [];
+  const body = htmlToText(String(posting.description || '').replace(/<div\b[^>]*>([\s\S]*?)<\/div>/gi, '<p>$1</p>'));
+  if (body) sections.push(body);
+  const benefitsStart = html.search(/<div\b[^>]*id="benefits"[^>]*>/i);
+  if (benefitsStart >= 0) {
+    const fragment = html.slice(benefitsStart);
+    const perks = [...fragment.matchAll(/<div\s+class="benefitText"[^>]*>([\s\S]*?)<\/div>/gi)]
+      .slice(0, 20)
+      .map((m) => htmlToText(m[1].replace(/<b>([\s\S]*?)<\/b>/i, '<p>$1</p>')))
+      .filter(Boolean);
+    const unique = [...new Set(perks)];
+    if (unique.length) sections.push(`Benefits\n${unique.join('\n')}`);
+  }
+  const address = (Array.isArray(posting.jobLocation) ? posting.jobLocation[0] : posting.jobLocation)?.address || {};
+  return {
+    description: normalizeDescriptionBullets(sections.join('\n\n')),
+    streetAddress: normalizeSpace(address.streetAddress || ''),
+    postalCode: normalizeSpace(String(address.postalCode || '')),
+    addressLocality: normalizeSpace(address.addressLocality || ''),
+    datePosted: String(posting.datePosted || ''),
+    validThrough: String(posting.validThrough || ''),
+    employmentType: String(posting.employmentType || ''),
+  };
 }
 
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
-async function fetchPage(url) {
+async function fetchText(url, accept) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
+      headers: { Accept: accept, 'User-Agent': USER_AGENT, 'Accept-Language': 'de-CH,de;q=0.9' },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
+    if (!res.ok) {
+      // Tag the status: the pipeline treats an error WITH a status as a real
+      // source break (exit non-zero), never as a connection-level soft exit.
+      const err = new Error(`HTTP ${res.status} from ${url}`);
+      err.status = res.status;
+      throw err;
+    }
     return await res.text();
   } finally {
     clearTimeout(timer);
   }
 }
 
-function extractPagingToken(html = '') {
-  const m = html.match(
-    /data-pagination-next-href="\?tc1152481=p\d+&amp;_search_token1152481=(\d+)/,
-  );
-  return m ? m[1] : null;
-}
-
-/** Extract the "Planstelle: NNNNN" reference number for a listing, if present. */
-function extractPlanstelle(html = '', vacancyId = '') {
-  const rx = new RegExp(`href="/Vacancies/${vacancyId}/Description/\\d+"[\\s\\S]{0,600}?Planstelle:\\s*(\\d+)`);
-  const m = html.match(rx);
-  return m ? m[1] : '';
-}
-
-/** Extract the "Online seit: DD.MM.YYYY" date for a listing, if present. */
-function extractOnlineSeit(html = '', vacancyId = '') {
-  const rx = new RegExp(`href="/Vacancies/${vacancyId}/Description/\\d+"[\\s\\S]{0,900}?Online seit:\\s*(\\d{1,2}\\.\\d{1,2}\\.\\d{4})`);
-  const m = html.match(rx);
-  if (m) return m[1];
-  // "Online seit" can also appear just before the title anchor (older UI order varies).
-  const before = new RegExp(`Online seit:\\s*(\\d{1,2}\\.\\d{1,2}\\.\\d{4})[\\s\\S]{0,900}?href="/Vacancies/${vacancyId}/Description/\\d+"`);
-  const m2 = html.match(before);
-  return m2 ? m2[1] : '';
-}
-
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 export async function fetchAllKantonAargauJobs() {
   console.log(`🏛️  Fetching ${KANTON_AARGAU_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${LISTING_URL}`);
+  console.log(`   Source: ${JOBS_API_URL}`);
   console.log(`   Public: ${PUBLIC_CAREER_URL}\n`);
 
-  const seenIds = new Set();
-  const allEntries = [];
-
-  let html;
+  // A failed read is not an empty board: the error propagates unchanged, so
+  // the pipeline keeps the prior slice (connection-level: soft exit; HTTP
+  // status: exit non-zero) instead of retiring every job.
+  const body = await fetchText(JOBS_API_URL, 'application/json');
+  let payload;
   try {
-    html = await fetchPage(LISTING_URL);
+    payload = JSON.parse(body);
   } catch (err) {
-    console.warn(`  ⚠️  Kanton Aargau listing fetch failed: ${err?.message || err}. Returning 0 jobs.`);
-    return [];
+    throw new Error(`Kanton Aargau job-market API returned invalid JSON: ${err?.message || err}`);
   }
-
-  const collectPage = (pageHtml) => {
-    const { entries } = parseUmantisListing(pageHtml);
-    let added = 0;
-    for (const entry of entries) {
-      if (seenIds.has(entry.id)) continue;
-      if (isTestOrPlaceholderListing(entry.title)) continue;
-      seenIds.add(entry.id);
-      allEntries.push({
-        id: entry.id,
-        title: entry.title,
-        planstelle: extractPlanstelle(pageHtml, entry.id),
-        onlineSeit: extractOnlineSeit(pageHtml, entry.id),
-      });
-      added++;
-    }
-    return added;
-  };
-
-  collectPage(html);
-  console.log(`  📄 page 1: ${allEntries.length} jobs`);
-
-  const searchToken = extractPagingToken(html);
-  if (searchToken) {
-    for (let pageNum = 2; pageNum <= MAX_PAGES; pageNum++) {
-      const pageUrl = `${LISTING_URL}&tc1152481=p${pageNum}&_search_token1152481=${searchToken}`;
-      let pageHtml;
-      try {
-        pageHtml = await fetchPage(pageUrl);
-      } catch (err) {
-        console.warn(`  ⚠️  Page ${pageNum} fetch failed: ${err?.message || err}`);
-        break;
-      }
-      const added = collectPage(pageHtml);
-      if (added === 0) break;
-      if (pageNum % 10 === 0) console.log(`  📄 page ${pageNum}: ${allEntries.length} jobs so far`);
-      await new Promise((r) => setTimeout(r, 250));
-    }
+  const entries = parseAgJobsApi(payload);
+  const total = Number(payload?.total);
+  console.log(`  ✓ ${entries.length} vacancies in the job market${Number.isFinite(total) ? ` (API total ${total})` : ''}\n`);
+  // The board is published whole or not at all: a partial snapshot would
+  // retire vacancies that are still open.
+  if (Number.isFinite(total) && total > entries.length) {
+    throw new Error(`Kanton Aargau job-market API reports ${total} vacancies but returned ${entries.length} usable ones; keeping the existing slice.`);
   }
-
-  console.log(`  ✓ ${allEntries.length} unique jobs across pagination\n`);
-  if (!allEntries.length) return [];
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
-  for (const entry of allEntries) {
-    const { id: vacancyId, title, planstelle, onlineSeit } = entry;
-    if (!title || title.length < 3) continue;
+  let detailHits = 0;
+  for (const entry of entries) {
+    // The vacancy text exists only on its own page. A page that cannot be read
+    // (the fetch error propagates) or that carries no ad body is fatal: a
+    // title-and-metadata stand-in would publish a JobPosting below the content
+    // floor in place of the ad the slice already holds.
+    const detail = extractAgJobPosting(await fetchText(entry.url, 'text/html,application/xhtml+xml'));
+    if (!detail.description) {
+      throw new Error(`Kanton Aargau vacancy ${entry.id} has no ad body at ${entry.url}; keeping the existing slice.`);
+    }
+    await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
 
-    const decodedTitle = decodeEntities(title);
-    const detailUrl = `${BASE_URL}/Vacancies/${vacancyId}/Description/1`;
-    // Detail pages dead-redirect cross-host (see file header) — use the
-    // same-host Application URL as the stable canonical job URL instead.
-    const applyUrl = `${BASE_URL}/Vacancies/${vacancyId}/Application/CheckLogin/1`;
-    const jobUrl = applyUrl;
-
-    const postedDate = parseSwissDate(onlineSeit) || todayIso;
-    const description = buildDescription(decodedTitle, postedDate, planstelle);
+    const location = detail?.addressLocality || entry.location || 'Aarau';
+    const canton = inferSwissTargetCanton(location) || HQ_CANTON;
+    const meta = [
+      entry.pensum && `• Pensum: ${entry.pensum}`,
+      entry.term && `• Anstellung: ${entry.term}`,
+      entry.department && `• Abteilung: ${entry.department}`,
+      `• Arbeitsort: ${location}`,
+    ].filter(Boolean).join('\n');
+    detailHits += 1;
+    const description = `${detail.description}\n\n${meta}`;
 
     const sourceLang = 'de';
-    const jobSlug = slugify(`${decodedTitle} kanton-aargau ch`);
-    const urlHash = createHash('sha1').update(`kanton-aargau-vacancy-${vacancyId}`).digest('hex').slice(0, 12);
+    const jobSlug = slugify(`${entry.title} kanton-aargau ch`);
+    const urlHash = createHash('sha1').update(`kanton-aargau-job-${entry.id}`).digest('hex').slice(0, 12);
+    const postedDate = (detail?.datePosted || entry.startDate || '').slice(0, 10) || todayIso;
+    const employmentType = /teilzeit|part/i.test(detail?.employmentType || '') ? 'PART_TIME'
+      : (/full|voll/i.test(detail?.employmentType || '') ? 'FULL_TIME' : detectEmploymentType(`${entry.title} ${entry.pensum}`));
 
     const job = {
       id: `${KANTON_AARGAU_KEY}-${urlHash}`,
@@ -317,46 +308,41 @@ export async function fetchAllKantonAargauJobs() {
       company: KANTON_AARGAU_COMPANY_NAME,
       companyKey: KANTON_AARGAU_KEY,
       companyDomain: KANTON_AARGAU_COMPANY_DOMAIN,
-      title: decodedTitle,
-      titleByLocale: { [sourceLang]: decodedTitle },
+      title: entry.title,
+      titleByLocale: { [sourceLang]: entry.title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      // Newly-discovered jobs ship with source-locale-only fields. The shared
-      // AI-localization step clears this flag when it fills the remaining 3
-      // locales; if it can't (cache miss + AI quota), the flag stays and
-      // `translate-pending.yml` picks the job up out-of-band.
       needsRetranslation: true,
-      location: HQ_CITY,
-      canton: HQ_CANTON,
-      url: jobUrl,
-      source: `${KANTON_AARGAU_COMPANY_NAME} Dedicated Parser (Umantis tenant ${UMANTIS_TENANT})`,
+      location,
+      canton,
+      url: entry.url,
+      source: `${KANTON_AARGAU_COMPANY_NAME} Dedicated Parser (ag.ch job market)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
-      addressLocality: HQ_CITY,
-      addressRegion: HQ_CANTON,
-      streetAddress: HQ_STREET,
-      postalCode: HQ_POSTAL_CODE,
+      addressLocality: location,
+      addressRegion: canton,
+      ...(detail?.streetAddress ? { streetAddress: detail.streetAddress } : {}),
+      ...(detail?.postalCode ? { postalCode: detail.postalCode } : {}),
       addressCountry: 'CH',
       country: 'CH',
-      category: detectCategory(decodedTitle),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(decodedTitle),
-      experienceLevel: detectExperienceLevel(decodedTitle),
+      category: detectCategory(entry.title),
+      contract: /befristet/i.test(entry.term) && !/unbefristet/i.test(entry.term) ? 'temporary' : 'full-time',
+      employmentType,
+      experienceLevel: detectExperienceLevel(entry.title),
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
       postedDate,
-      applyUrl,
+      ...(detail?.validThrough || entry.endDate ? { validThrough: (detail?.validThrough || entry.endDate) } : {}),
+      applyUrl: entry.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
-
-    if (planstelle) job.referenceNumber = planstelle;
-
+    if (entry.department) job.department = entry.department;
     jobs.push(job);
   }
 
-  console.log(`📋 Total ${KANTON_AARGAU_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`📋 Total ${KANTON_AARGAU_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with the detail-page body)`);
   return jobs;
 }

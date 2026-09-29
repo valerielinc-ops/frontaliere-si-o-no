@@ -134,7 +134,7 @@ describe('pagination source identity contract', () => {
     expect(tracker.scannedRows).toBe(1);
   });
 
-  it('is wired into every Post Group pagination loop', () => {
+  it('is wired into every mutable national pagination loop', () => {
     const postch = readFileSync(new URL('../scripts/update-postch-jobs.mjs', import.meta.url), 'utf8');
     const postauto = readFileSync(new URL('../scripts/lib/postauto-job-parser.mjs', import.meta.url), 'utf8');
     const confederazione = readFileSync(new URL('../scripts/update-confederazione-jobs.mjs', import.meta.url), 'utf8');
@@ -145,8 +145,12 @@ describe('pagination source identity contract', () => {
     expect(postauto).toContain('createMutableFeedPaginationTracker({');
     expect(postauto).toContain('recordMutableFeedPageWithRetry({');
     expect(postauto).toContain('progress.hasReached(totalJobs)');
-    expect(confederazione).toContain('recordUniquePageProgress(sourceIdentities, items');
-    expect(confederazione).toContain('sourceIdentities.size >= declaredTotal');
+    expect(confederazione).toContain('createMutableFeedPaginationTracker({');
+    expect(confederazione).toContain('recordMutableFeedPageWithRetry({');
+    expect(confederazione).toContain('progress.hasReached(declaredTotal)');
+    expect(confederazione).toContain('progress.scannedRows < declaredTotal');
+    expect(confederazione).not.toContain('recordUniquePageProgress(sourceIdentities, items');
+    expect(confederazione).not.toContain('sourceIdentities.size >= declaredTotal');
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
     expect(postfinance).toContain('createMutableFeedPaginationTracker({');
     expect(postfinance).toContain('recordMutableFeedPageWithRetry({');

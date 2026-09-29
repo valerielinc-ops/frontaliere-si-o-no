@@ -88,6 +88,7 @@ import { createHash } from 'node:crypto';
 import { fetchJson, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -273,6 +274,9 @@ export function buildHornbachDescription(document = {}) {
     const text = cleanText(document?.[key]);
     if (text && text.length > 3) parts.push(text);
   }
+  // The department facet is metadata, not vacancy text: an offer whose text
+  // sections are all empty has no description (issue 5253).
+  if (parts.length === 0) return '';
   const departments = Array.isArray(document?.department) ? document.department.filter(Boolean) : [];
   if (departments.length) parts.push(`Bereich: ${departments.join(', ')}`);
   return parts.join('\n\n');
@@ -472,6 +476,7 @@ export async function fetchAllHornbachJobs() {
 
   const jobs = [];
   const seen = new Set();
+  let withoutBody = 0;
 
   for (const document of swissDocuments) {
     const parsed = parseHornbachOffer(document);
@@ -487,7 +492,15 @@ export async function fetchAllHornbachJobs() {
     const location = parsed.city || city;
     const canton = normalizeCantonCode(parsed.cantonCode) || inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
 
-    const description = parsed.description || `${parsed.title} — ${HORNBACH_COMPANY_NAME} (${location}).`;
+    // Only the posting's own text is published (issue 5253): an offer
+    // without text used to go out as "{title} — Hornbach ({city})."; it is
+    // not published any more.
+    const description = parsed.description;
+    if (!meetsSourceBodyFloor(description)) {
+      console.log(`  ⏭️ no vacancy text in the offer, not published: ${parsed.title}`);
+      withoutBody += 1;
+      continue;
+    }
     const sourceLang = detectLang(description || parsed.title, 'de');
     const jobSlug = slugify(`${parsed.title} hornbach ${location}`);
     const urlHash = createHash('sha1').update(parsed.url).digest('hex').slice(0, 12);
@@ -534,6 +547,9 @@ export async function fetchAllHornbachJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} offer(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${HORNBACH_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

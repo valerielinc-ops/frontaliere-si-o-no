@@ -31,8 +31,7 @@
  *     microdata (`itemprop="jobLocation"` etc., no `location` propertyid
  *     block) — the factory falls back to listing-cell location parsing via
  *     the dedicated `colLocation` `<td>` (same fallback path as Bachem).
- *   - `sector`/`descriptionFallbackTagline` overrides keep the (rare,
- *     thin-description-only) boilerplate text and category-adjacent sector
+ *   - `sector`/`fallbackCategory` overrides keep the category-adjacent sector
  *     label accurate for an industrial-instrumentation tenant instead of the
  *     factory's healthcare-tenant-origin defaults.
  */
@@ -55,8 +54,6 @@ const parser = createSuccessFactorsParser({
   searchParams: { locationsearch: 'Switzerland' },
   sector: 'Strumentazione industriale / Automazione',
   fallbackCategory: 'Strumentazione industriale / Automazione',
-  descriptionFallbackTagline:
-    'ist ein globaler Marktführer für Messtechnik und Automatisierungslösungen für die Prozessindustrie',
   sourceLabel: 'Endress+Hauser Dedicated Parser (SuccessFactors CSB)',
 });
 

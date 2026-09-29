@@ -12284,6 +12284,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stangata-premi-cassa-malati-ticino.title': 'Ticino health insurance premiums 2027: 3,7% increase',
     'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'In 2027, health insurance premiums in Ticino increase by 3,7%, bringing the average premium to 520 francs per month, the highest in Switzerland.',
     'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Health insurance premiums in Ticino for 2027',
+    'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 years of increases: premiums have tripled',
+    'blog.article.lamal-premi-ticino-triplicati.excerpt': 'LAMal, introduced in 1996, has seen the average premium triple. For 2027, the DFI indicates +5% in Switzerland and +3.7% in Ticino.',
+    'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Lugano and Ticino viewed for an article on LAMal premiums',
+    'blog.article.mobilita-lombardia-ticino-2026.title': 'Green light for the Lombardy-Ticino Agreement',
+    'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Ratified Draft Law No. 197 on cross-border mobility. Five-year agreement for trains, buses, and fares between Italy and Switzerland.',
+    'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Cross-border train between Lombardy and Ticino',
 };
 
 export default blogMetaEn;

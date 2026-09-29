@@ -14,6 +14,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -267,18 +268,13 @@ export async function fetchAllBcvJobs() {
       }
 
       const address = resolveAddress(urlCity);
-      let description = parsed.description || `${parsed.title} — ${BCV_COMPANY_NAME}, ${address.city}.`;
-
-      // Non-Negotiable #4: never index thin content <50 words. Pad with a
-      // guaranteed-rich company blurb + CTA so every job clears the guard.
-      const wordCount = description.split(/\s+/).filter(Boolean).length;
-      if (wordCount < 50) {
-        description = [
-          description,
-          `La Banque Cantonale Vaudoise (BCV) est la première banque universelle du canton de Vaud et l'une des banques les plus solides au monde, notée AA par Standard & Poor's depuis 2011. Avec ses quelque 2000 collaboratrices et collaborateurs répartis entre le siège de Lausanne et son réseau d'agences régionales (Aigle, Yverdon, Pully, Payerne notamment), la BCV accompagne particuliers, entreprises et institutions dans leurs projets financiers tout en contribuant activement à l'essor du tissu économique vaudois.`,
-          `Postulez en ligne directement sur le portail carrière jobs.bcv.ch.`,
-        ].join('\n\n');
-      }
+      // The detail text only (issue 5253). Under 50 words it used to get
+      // "<title> — BCV, <city>.", a paragraph about the BCV and "Postulez en
+      // ligne…", all written by the parser. Now a text under the shared
+      // 50-word floor is not published: the job gets no description and
+      // takes the thin-source path (quarantine).
+      const body = String(parsed.description || '').trim();
+      const description = meetsSourceBodyFloor(body) ? body : '';
 
       const sourceLang = detectLang(description || parsed.title, 'fr');
       const jobSlug = slugify(`${parsed.title} bcv ${address.city || 'lausanne'}`);
@@ -296,7 +292,7 @@ export async function fetchAllBcvJobs() {
         title: parsed.title,
         titleByLocale: { [sourceLang]: parsed.title },
         description,
-        descriptionByLocale: { [sourceLang]: description },
+        descriptionByLocale: description ? { [sourceLang]: description } : {},
         location: address.city,
         canton: address.canton,
         url: jobUrl,

@@ -39,6 +39,7 @@ import {
 } from './target-swiss-locations.mjs';
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -164,7 +165,8 @@ async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
   const xml = await fetchPage(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
 
-  const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim());
+  // <loc> is XML text: decode `&amp;` so the stored URL is the page's own.
+  const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => decodeEntities(m[1].trim()));
   const jobUrls = [...new Set(allUrls.filter((url) => url.includes(COMPANY_PATH_SEGMENT) && JOB_URL_RE.test(url)))];
 
   console.log(`  📦 Migros HQ (migros-genossenschafts-bund) job URLs in sitemap: ${jobUrls.length}`);

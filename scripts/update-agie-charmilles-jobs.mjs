@@ -52,6 +52,7 @@ import {
   inferAgieCharmillesCanton,
   inferAgieCharmillesCategory,
   buildAgieCharmillesLocalizedContent,
+  dropAgieCharmillesFabricatedText,
 } from './lib/agie-charmilles-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -170,13 +171,13 @@ function buildAgieCharmillesJob(row) {
     category: inferAgieCharmillesCategory(row.title),
     sector: 'Macchine utensili',
     source: 'agie-charmilles-dedicated-crawler',
-    sourceLang: row.language || detectLang(row.title, 'en'),
+    sourceLang: localized.sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: row.isTemporary ? 'temporary' : 'full-time',
     contractType: row.isTemporary ? 'temporary' : 'full-time',
     validThrough: '',
     workload: row.workload || '100%',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -191,6 +192,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropAgieCharmillesFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former header line / copied locale slots from ${fossils} stored AGIE Charmilles job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

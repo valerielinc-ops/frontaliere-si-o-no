@@ -18,6 +18,7 @@ import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
 
 const BASE_URL = 'https://afry.com';
 
@@ -261,43 +262,29 @@ export function inferAfryCategory(competenceArea = '', title = '') {
 }
 
 /**
- * Build localized content for an AFRY job.
+ * Build localized content for an AFRY job. The description is the
+ * SmartRecruiters posting text, whatever its length, published in its own
+ * language slot only (`job.sourceLang`, set by the runner); the translation
+ * step fills the other locales.
+ *
+ * This used to put a line of its own in front of the text ("<title> — AFRY,
+ * <location>.") and copy the result — German for most Swiss postings — into
+ * all four slots, so the Italian/English/French pages showed the German
+ * posting and were never translated; under 50 words it published a paragraph
+ * about AFRY of its own instead. A posting without text now gets no
+ * description and takes the pipeline's thin-source path.
  */
 export function buildAfryLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || 'Switzerland').trim();
-  const description = String(job.description || '').trim();
-  const competence = String(job.competenceArea || '').trim();
-
-  // Use the crawled description only if it has enough content (>= 50 words)
-  const descWordCount = description ? description.split(/\s+/).length : 0;
-  const hasRichDescription = descWordCount >= 50;
-
-  // Build a rich fallback that includes job-specific context (always >= 50 words)
-  const competenceLine = competence ? ` nell'area ${competence}` : '';
-  const fallbackDesc = [
-    `AFRY cerca ${title} con sede a ${location}${competenceLine}.`,
-    `AFRY è un'azienda internazionale leader nel settore dell'ingegneria, della progettazione e della consulenza, con oltre 19.000 collaboratori in tutto il mondo.`,
-    `L'azienda offre servizi di ingegneria, gestione di progetti e consulenza a supporto della transizione energetica e industriale.`,
-    `AFRY combina una presenza internazionale con competenze locali specializzate nei settori dell'energia, delle infrastrutture, dell'industria e della digitalizzazione.`,
-    `In Svizzera, AFRY è attiva in progetti complessi per mobilità, opere civili, impianti tecnici, tunnel e transizione energetica, con sedi a Zurigo, Bellinzona e Airolo.`,
-    `Offriamo un contesto tecnico multidisciplinare, clienti di primo piano, formazione continua e percorsi di crescita professionale.`,
-    `Candidati online su afry.com.`,
-  ].join(' ');
-
-  // If the crawled description is rich enough, prepend a meta line; otherwise use fallback
-  const finalDesc = hasRichDescription
-    ? `${title} — AFRY, ${location}.\n\n${description}`
-    : fallbackDesc;
+  const source = sourceLocaleDescription(job.description, { defaultLang: 'de' });
+  const sourceLang = String(job.sourceLang || '').trim() || source.sourceLang;
 
   return {
+    description: source.description,
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: finalDesc,
-      en: finalDesc,
-      de: finalDesc,
-      fr: finalDesc,
-    },
+    descriptionByLocale: source.description ? { [sourceLang]: source.description } : {},
     slugByLocale: {
       it: slugify(`${title} afry ${location}`),
       en: slugify(`${title} afry ${location}`),
@@ -305,4 +292,31 @@ export function buildAfryLocalizedContent(job = {}) {
       fr: slugify(`${title} afry ${location}`),
     },
   };
+}
+
+// Fossils of the former builder in stored jobs: the header line in front of
+// the posting, or the substituted paragraph.
+const AFRY_HEADER_RE = /^[^\n]{1,300}? — AFRY, [^\n]{1,80}?\.\s*\n/;
+const AFRY_FALLBACK_RE = /^AFRY cerca /;
+
+/**
+ * Remove the former builder's text from a stored job: every slot held the
+ * prefixed source (a copy, not a translation) or the substituted paragraph,
+ * and the runner's merge keeps existing non-source slots, so all slots are
+ * dropped and rebuilt by the translation step; the description keeps only the
+ * posting text (nothing, when it was the substituted paragraph).
+ *
+ * @returns {boolean} true when the job carried the former text.
+ */
+export function dropAfryFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const texts = [job.description, ...Object.values(job.descriptionByLocale || {})].map((t) => String(t || '').trim());
+  if (!texts.some((t) => AFRY_HEADER_RE.test(t) || AFRY_FALLBACK_RE.test(t))) return false;
+  const description = String(job.description || '').trim();
+  const body = AFRY_FALLBACK_RE.test(description) ? '' : description.replace(AFRY_HEADER_RE, '').trim();
+  const sourceLang = String(job.sourceLang || '').trim() || sourceLocaleDescription(body, { defaultLang: 'de' }).sourceLang;
+  job.description = body;
+  job.descriptionByLocale = body ? { [sourceLang]: body } : {};
+  job.needsRetranslation = true;
+  return true;
 }

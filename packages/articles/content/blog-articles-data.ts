@@ -36862,6 +36862,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lamal-premi-ticino-triplicati',
+ category: 'novita',
+ date: '2026-09-29T14:13:39.946Z',
+ image: '/images/blog/lamal-premi-ticino-triplicati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'mobilita-lombardia-ticino-2026',
+ category: 'novita',
+ date: '2026-09-29T15:04:17.294Z',
+ image: '/images/blog/mobilita-lombardia-ticino-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
