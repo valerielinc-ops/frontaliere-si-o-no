@@ -57,6 +57,8 @@
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -325,8 +327,18 @@ export function parseOfficialAdPage(html = '') {
  * One search call lists every page; each page is then fetched politely.
  * Throws when the portal's index cannot be read: without it no posting has
  * its text, and publishing none would empty the whole board.
+ *
+ * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
+ * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
+ * index entry's first meta value) matches, so that crawler reads its own
+ * ~90 pages instead of the whole city index.
+ *
+ * @param {Set<string>} wantedRefs Referenz-Nr. of the tiles to fill
+ * @param {number} delayMs pause between two ad pages
+ * @param {{ unit?: RegExp }} [options]
+ * @returns {Promise<Map<string, string>>}
  */
-async function fetchOfficialAdTexts(wantedRefs, delayMs) {
+export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit } = {}) {
   const byRef = new Map();
   let index;
   try {
@@ -343,6 +355,7 @@ async function fetchOfficialAdTexts(wantedRefs, delayMs) {
     throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
   }
   const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
+    .filter((r) => !unit || unit.test(String(Array.isArray(r?.meta) ? r.meta[0] || '' : '')))
     .map((r) => String(r?.href || ''))
     .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
   console.log(`  📰 Official ad pages listed: ${hrefs.length}`);
@@ -434,7 +447,7 @@ export async function fetchAllStadtZuerichJobs() {
     // carried no tasks/profile/offer (audit run 36528331656); a tile the
     // portal does not publish is not published here either (issue 5253).
     const officialText = row.ref ? officialTexts.get(String(row.ref)) : '';
-    if (!officialText) {
+    if (!officialText || !meetsSourceBodyFloor(officialText)) {
       withoutText += 1;
       continue;
     }
@@ -492,8 +505,15 @@ export async function fetchAllStadtZuerichJobs() {
   if (withoutText > 0) {
     console.log(`  ⏭️ ${withoutText} tile(s) whose Referenz-Nr. has no official ad page — not published.`);
   }
-  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length} (all with the official ad text)`);
-  return jobs;
+  // The same ad re-posted under a second Referenz-Nr. (same title, service
+  // and official text: Gastro-Allrounder*in 51367/51788, Heizwerkführer*in
+  // 50406/51591 on 2026-09-29) is one vacancy: one page.
+  const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
+  if (dropped.length > 0) {
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, service and official text under another Referenz-Nr.).`);
+  }
+  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${unique.length} (all with the official ad text)`);
+  return unique;
 }
 
 export { slugify, stripHtml };

@@ -7064,6 +7064,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Investissements immobiliers : bonne confiance, Tessin négatif',
     'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'En 2026, le SRESI affiche 47,5 points, en baisse par rapport aux 69,5 de 2025 ; le Tessin et Lugano sont en territoire négatif, tandis que Zurich, la Suisse centrale et le lac Léman sont en tête des attentes de hausse.',
     'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Vue aérienne de Lugano avec lac, montagnes et bâtiments résidentiels modernes, lumière matinale douce',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Primes d\'assurance-maladie 2027 au Tessin : +3,7% et EFAS à partir de 2028',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger : le système est bon et coûte cher. Au Tessin, les primes augmentent de 3,7%, avec EFAS attendu à partir de 2028.',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Couloir d\'un hôpital suisse à Berne, lumière naturelle et atmosphère professionnelle',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlement suisse : guide Curia Vista et Open Data',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Des députés de 1848 aux votes CN : comment utiliser le portail officiel pour suivre les actes, les commissions et les délégations UE/OTAN.',
+    'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Le Palais fédéral suisse à Berne, siège du Conseil national et du Conseil des États',
+    'blog.article.percorsi-impiego-pubblico.title': 'Travailler au sein de l\'Administration fédérale : opportunités et formation',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Administration fédérale offre 50 formations professionnelles, des stages pour les étudiants récemment diplômés et sept semaines de vacances.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Équipe au travail dans un bureau de l\'administration fédérale suisse',
 };
 
 export default blogMetaChFr;

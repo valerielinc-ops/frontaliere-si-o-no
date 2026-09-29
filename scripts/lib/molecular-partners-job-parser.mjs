@@ -23,6 +23,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -197,16 +198,20 @@ export function parseMolecularPartnersListing(html) {
   return out;
 }
 
+/**
+ * Vacancy text of a Talentsoft detail page: the whole `#contenu-ficheoffre`
+ * container (these pages have no `<footer>`/`</main>` marker after it).
+ */
+export function extractMolecularPartnersDetailDescription(html = '') {
+  return normalizeSpace(stripHtml(extractTalentsoftOfferHtml(html)));
+}
+
 async function fetchDetail(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return { description: '', location: '' };
 
-    const startMatch = html.match(/id="contenu-ficheoffre"[^>]*>([\s\S]+)/);
-    const block = startMatch ? startMatch[1].slice(0, 16000) : '';
-    const cutMatch = block.match(/[\s\S]+?(?=<footer|<\/main)/);
-    const trimmed = cutMatch ? cutMatch[0] : block;
-    const description = normalizeSpace(stripHtml(trimmed)).slice(0, 6000);
+    const description = extractMolecularPartnersDetailDescription(html);
 
     const locMatch = html.match(/id="fldlocation_location_geographicalareacollection"[^>]*>([\s\S]*?)<\/p>/);
     const location = locMatch

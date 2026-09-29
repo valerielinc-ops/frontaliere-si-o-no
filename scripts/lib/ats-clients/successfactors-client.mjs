@@ -698,6 +698,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     // SBB v2 detail pages have JSON-LD. The listing index for jobreqcareer
     // is a SPA — we accept a single page and parse what we can.
     const seenJobIds = new Set();
+    let declaredTotal = null;
     for (let page = 0; page < maxPages; page++) {
       const pageUrl = buildJobs2WebPageUrl(careerUrl, page);
       const res = await fetchOnce(pageUrl, {
@@ -720,19 +721,45 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
       let rows = parseJobs2WebSearchRows(html, pageUrl);
       if (rows.length === 0) rows = parseJobTeaserListCards(html, pageUrl);
       if (rows.length === 0) return;
+      if (page === 0) declaredTotal = extractJobs2WebDeclaredTotal(html);
+      let newRows = 0;
       for (const row of rows) {
         const job = extractSuccessFactorsJobIdentity(row, { company });
-        if (job.jobReqId && seenJobIds.has(job.jobReqId)) continue;
-        if (job.jobReqId) seenJobIds.add(job.jobReqId);
+        if (!admitJobs2WebRow(job, seenJobIds)) continue;
+        newRows += 1;
         if (matchesLocation(job.location)) {
           yield job;
         }
       }
       if (rows.length < 10) return;
+      // Past the declared total some tenants keep serving a full page of
+      // unrelated results (jobdetails.nestle.com: 110 Swiss results, then the
+      // same Qiryat Gat page at startrow=5000 and 50000). A page that adds no
+      // new requisition, or a next offset past "Results … of N", is the end;
+      // otherwise the loop ran until maxPages (100000 for Nestlé).
+      if (page > 0 && newRows === 0) return;
+      if (declaredTotal && buildJobs2WebNextStartrow(page) >= declaredTotal) return;
       if (page < maxPages - 1 && minDelayMs > 0) await sleep(minDelayMs);
     }
     return;
   }
+}
+
+/**
+ * Record a jobs2web search row in `seen` and say whether it is new. The row's
+ * identity is its requisition id, or its URL when the template carries none;
+ * a row without either cannot prove it is new. Counting such rows as new kept
+ * the pagination loop alive on a repeated full page until `maxPages`.
+ *
+ * @param {{ jobReqId?: string, applyUrl?: string, url?: string }} job
+ * @param {Set<string>} seen
+ * @returns {boolean}
+ */
+export function admitJobs2WebRow(job, seen) {
+  const identity = String(job?.jobReqId || job?.applyUrl || job?.url || '').trim();
+  if (!identity || seen.has(identity)) return false;
+  seen.add(identity);
+  return true;
 }
 
 /* ── Internal HTML helpers ─────────────────────────────────────────────── */
@@ -747,15 +774,35 @@ function extractTenantFromHost(url) {
   }
 }
 
+function buildJobs2WebNextStartrow(page) {
+  return (page + 1) * 10;
+}
+
 function buildJobs2WebPageUrl(url, page) {
   if (page <= 0) return url;
   try {
     const parsed = new URL(url);
-    parsed.searchParams.set('startrow', String(page * 10));
+    parsed.searchParams.set('startrow', String(buildJobs2WebNextStartrow(page - 1)));
     return parsed.toString();
   } catch {
     return url;
   }
+}
+
+/**
+ * Total result count a jobs2web search page declares
+ * ("Results <b>1 – 10</b> of <b>110</b>", "Ergebnisse 1 – 25 von 93", …).
+ * null when the page does not state it.
+ *
+ * @param {string} html
+ * @returns {number|null}
+ */
+export function extractJobs2WebDeclaredTotal(html = '') {
+  const flat = String(html || '').replace(/<\/?(?:b|strong|span)[^>]*>/gi, '');
+  const m = flat.match(/(?:Results|Ergebnisse|Résultats|Risultati)\s+\d+\s*[–-]\s*\d+\s+(?:of|von|sur|de|di)\s+([\d'’.,]+)/i);
+  if (!m) return null;
+  const total = Number(m[1].replace(/[^\d]/g, ''));
+  return Number.isFinite(total) && total > 0 ? total : null;
 }
 
 /**

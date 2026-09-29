@@ -42,6 +42,7 @@ import {
   isLocationExplicitlyForeign,
 } from './dedicated-crawler-common.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   inferSwissTargetCanton,
@@ -506,10 +507,6 @@ export function parseCsbDetailPage(html) {
  * @param {string} [config.sector]           Job-category sector label (default
  *   `'Sanità / Ospedali'` — this factory originated with hospital tenants; pass
  *   an explicit sector for non-healthcare tenants, e.g. industrial/finance).
- * @param {string} [config.descriptionFallbackTagline] One-sentence company
- *   tagline used only inside the thin-description boilerplate guard (default
- *   `'ist ein etablierter Schweizer Gesundheitsdienstleister'` — override for
- *   non-healthcare tenants so the rare fallback text stays factually correct).
  * @param {string} [config.fallbackCategory] Category label substituted when
  *   `detectHealthcareCategory()` (hospital-tuned, see
  *   `hospital-custom-html-helpers.mjs`) falls through to its generic
@@ -546,16 +543,6 @@ export function parseCsbDetailPage(html) {
  *   the healthcare fallback otherwise mislabels any title that doesn't match
  *   a healthcare keyword (e.g. "Chemist", "Automation Technician") as
  *   healthcare.
- * @param {(title: string, companyName: string, city: string, canton?: string) => string}
- *   [config.boilerplateFallback] Thin-description fallback text builder,
- *   invoked when the detail page's real description has fewer than
- *   `MIN_DESCRIPTION_UNIQUE_WORDS` unique words. Defaults to the shared
- *   German "etablierter Schweizer Gesundheitsdienstleister" (healthcare)
- *   summary. Override for non-healthcare / non-German-primary tenants so the
- *   fallback text isn't wrong-industry and/or wrong-language, or for tenants
- *   whose thin fallback fires on (almost) every job (e.g. Helsana — see
- *   helsana-job-parser.mjs) so the fallback carries real per-job structure
- *   (bulleted, title/location-first) instead of a near-identical paragraph.
  * @returns {{
  *   fetchAllJobs: () => Promise<ParsedJob[]>,
  *   isCompanyJob: (job: any) => boolean,
@@ -575,13 +562,11 @@ export function createSuccessFactorsParser(config) {
     defaultSourceLang = 'de',
     sourceLabel,
     sector = 'Sanità / Ospedali',
-    descriptionFallbackTagline = 'ist ein etablierter Schweizer Gesundheitsdienstleister',
     fallbackCategory = 'Sanità / Ospedali',
     searchParams = null,
     acceptJob = null,
     trustPageLangAttr = true,
     detectCategory = detectCategoryForSf,
-    boilerplateFallback = null,
   } = config;
 
   if (!companyKey || !companyName || !sfCompanyId || !publicCareerUrl || !defaultCanton) {
@@ -692,6 +677,7 @@ export function createSuccessFactorsParser(config) {
 
     // Step 2 — fetch detail pages
     const jobs = [];
+    let withoutBody = 0;
     for (const listing of listings) {
       const fullUrl = `${baseUrl}${listing.relUrl}`;
       let detail = null;
@@ -794,15 +780,16 @@ export function createSuccessFactorsParser(config) {
         ? detail.language
         : detectLang(detail?.descriptionText || title, defaultSourceLang);
 
-      let description = detail?.descriptionText || '';
-      // Boilerplate guard: require ≥MIN_DESCRIPTION_UNIQUE_WORDS unique words
-      // (same threshold `parseCsbDetailPage` uses to decide whether to fall
-      // back to the microdata `itemprop="description"` read) — otherwise
-      // fall back to a brand summary.
-      if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
-        description = typeof boilerplateFallback === 'function'
-          ? boilerplateFallback(title, companyName, city || defaultCity, canton)
-          : `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ${descriptionFallbackTagline}. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
+      const description = detail?.descriptionText || '';
+      // Only the posting's own text is published. Under the shared source
+      // body floor (50 words, `source-body-floor.mjs`) the detail page
+      // carried no vacancy body — a closed or broken page — and the row is
+      // not published: no invented brand summary, no thin page. Measured on
+      // main (2026-09-29): 1 such row over the 14 tenants (helsana 1/54).
+      if (!meetsSourceBodyFloor(description)) {
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+        continue;
       }
 
       const postedDate = detail?.postedDate
@@ -880,6 +867,9 @@ export function createSuccessFactorsParser(config) {
       if (seen.has(k)) continue;
       seen.add(k);
       deduped.push(job);
+    }
+    if (withoutBody > 0) {
+      console.log(`  ⏭️  ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
     }
     console.log(`\n📋 Total unique ${companyName} jobs: ${deduped.length}`);
     return deduped;
