@@ -22,10 +22,13 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  locateTagByAttribute,
+  extractBalancedTagBlock,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const KLINIK_SCHLOSS_MAMMERN_KEY = 'klinik-schloss-mammern';
 export const KLINIK_SCHLOSS_MAMMERN_COMPANY_NAME = 'Klinik Schloss Mammern';
@@ -104,17 +107,48 @@ export function parseJobsSitemap(xml = '') {
 }
 
 /**
+ * The posting's own text: the text-editor widgets of the Elementor post
+ * content (clinic paragraph, tasks, profile, offer, application documents),
+ * lists kept. The benefit icons, the contact person and the apply button of
+ * the same template are other widgets and stay out.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function extractKsmPostContent(html = '') {
+  const widget = locateTagByAttribute(html, 'class="[^"]*elementor-widget-theme-post-content[^"]*"', { skipVoidTags: true });
+  if (!widget) return '';
+  const block = extractBalancedTagBlock(widget.rest, widget.tagName, 200000);
+  const parts = [];
+  const editorRe = /<div[^>]*class="[^"]*elementor-widget-text-editor[^"]*"[^>]*>/g;
+  let m;
+  while ((m = editorRe.exec(block))) {
+    const text = htmlToTextLines(extractBalancedTagBlock(block.slice(m.index + m[0].length), 'div', 100000));
+    if (text) parts.push(text);
+  }
+  return parts.join('\n\n').trim();
+}
+
+/**
  * Extract title + description from a KSM detail page.
  * Title = first `<h1 class="elementor-heading-title">…</h1>`.
- * Description = text between "Aufgabengebiet" intro and the benefits/footer
- * sections ("Deine Benefits", "Job-Newsletter", "Impressum").
+ * Description = the text of the Elementor post content
+ * (`extractKsmPostContent`). Pages without it fall back to the text between
+ * the "Aufgabengebiet" intro and the benefits/footer sections; a page with
+ * neither gives no description. The crawler used to take the first 30 lines
+ * of the page then — the site menu, published as a column of empty bullets
+ * on the apprenticeship pages.
  */
 export function extractKsmDetail(html = '') {
   if (!html) return { title: '', description: '' };
 
+  const cleanHtml = stripScriptsAndStyles(html);
   // Title from the first elementor heading
-  const h1 = stripScriptsAndStyles(html).match(/<h1\s+class="elementor-heading-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/);
+  const h1 = cleanHtml.match(/<h1\s+class="elementor-heading-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/);
   const title = h1 ? normalizeSpace(decodeEntities(h1[1].replace(/<[^>]+>/g, ' '))) : '';
+
+  const postContent = extractKsmPostContent(cleanHtml);
+  if (postContent) return { title, description: postContent };
 
   // Convert body to lines
   const txt = html
@@ -135,10 +169,7 @@ export function extractKsmDetail(html = '') {
   const stopMarkers = /^Deine Benefits$|^Unser Job-Newsletter|^Impressum\s*\||^Datenschutz\s*\||^Bewerbungsschluss|^Jetzt bewerben$|^Du hast Fragen/i;
 
   const startIdx = lines.findIndex((l) => startMarkers.test(l));
-  if (startIdx < 0) {
-    // Fallback: just take the first 30 non-empty lines after the H1.
-    return { title, description: lines.slice(0, 30).join('\n') };
-  }
+  if (startIdx < 0) return { title, description: '' };
   const stopIdx = lines.findIndex((l, i) => i > startIdx && stopMarkers.test(l));
   const slice = lines.slice(startIdx, stopIdx > 0 ? stopIdx : Math.min(lines.length, startIdx + 80));
   const description = slice.join('\n')
@@ -197,9 +228,9 @@ export async function fetchAllKlinikSchlossMammernJobs() {
       const slugFromUrl = detailUrl.replace(/\/$/, '').split('/').pop() || '';
       title = slugFromUrl.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
     }
-    if (!description) {
-      description = `${title} — ${KLINIK_SCHLOSS_MAMMERN_COMPANY_NAME}, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.`;
-    }
+    // A page without text gives no description (thin-source path). The
+    // crawler used to write "<Titel> — Klinik Schloss Mammern, Mammern (TG).
+    // Privatklinik für Rehabilitation…" instead.
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${KLINIK_SCHLOSS_MAMMERN_KEY} mammern`);
@@ -253,3 +284,11 @@ export async function fetchAllKlinikSchlossMammernJobs() {
 }
 
 export { PUBLIC_CAREER_URL, SITEMAP_URL };
+
+/**
+ * Fragments only the crawler once wrote: its substitute sentence, and the
+ * column of empty bullets it took from the site menu when a page had no
+ * "Aufgabengebiet" marker.
+ */
+export const KLINIK_SCHLOSS_MAMMERN_FABRICATED_DESCRIPTION_RE =
+  /— Klinik Schloss Mammern, Mammern \(TG\)\. Privatklinik für Rehabilitation|(?:^|\n)•\n•\n•\n•\n•/;

@@ -197,10 +197,21 @@ describe('buildJob', () => {
     expect(job!.slug).toContain('cerbios-pharma');
   });
 
-  it('sets default pharma description', () => {
+  it('writes no description of its own when the listing has none', () => {
     const job = buildJob({ title: 'Chimico di processo' });
-    expect(job!.description).toContain('CDMO');
-    expect(job!.description).toContain('Barbengo');
+    expect(job!.description).toBe('');
+    expect(job!.description).not.toContain('CDMO');
+  });
+
+  it('keys the listing text, title and slug by the source language only', () => {
+    const job = buildJob({
+      title: 'Chimico di processo',
+      description: 'Cerchiamo un chimico di processo per il reparto di produzione di principi attivi a Barbengo.',
+    });
+    expect(job!.sourceLang).toBe('it');
+    expect(job!.descriptionByLocale).toEqual({ it: job!.description });
+    expect(job!.titleByLocale).toEqual({ it: 'Chimico di processo' });
+    expect(Object.keys(job!.slugByLocale)).toEqual(['it']);
   });
 
   it('returns null for empty title', () => {

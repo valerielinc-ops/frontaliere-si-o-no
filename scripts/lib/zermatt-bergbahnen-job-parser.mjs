@@ -160,45 +160,37 @@ function parseListingPage(html = '') {
 
 /**
  * Parse a Zermatt Bergbahnen job detail page for full description.
+ *
+ * The posting's text lives in the page's text sections — the introduction
+ * (`.wysiwyg-usp-area`) and one `.wysiwyg-with-medium` section per block
+ * ("Dein Job", "Dein Profil", …) — read in page order, without the apply
+ * button. The former generic selectors matched the whole `<main>` instead,
+ * whose hero carries the department, the title and the breadcrumbs
+ * ("breadcrumbs.home Über uns Jobs und Karriere …"). A page without those
+ * sections gives no description.
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   if (!html) return '';
 
   const { document } = new JSDOM(html).window;
 
-  const BODY_SELECTORS = [
-    '.content-block',
-    '.ce-bodytext',
-    '.frame-type-text',
-    'article',
-    '.content-main',
-    '#content',
-    'main',
-  ];
-
-  let body = '';
-  for (const sel of BODY_SELECTORS) {
-    const els = document.querySelectorAll(sel);
-    for (const el of els) {
-      const candidate = stripHtml(el.innerHTML || '');
-      if (candidate.length > body.length) body = candidate;
-    }
-    if (body.length >= MIN_DESC_LENGTH) break;
+  const sections = [...document.querySelectorAll('.wysiwyg-usp-area, .wysiwyg-with-medium')];
+  const parts = [];
+  for (const section of sections) {
+    for (const button of section.querySelectorAll('a.btn, .btn, button')) button.remove();
+    const text = stripHtml(section.innerHTML || '')
+      .split('\n')
+      .map((line) => line.trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (text) parts.push(text);
   }
-
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
-  }
-
-  return body;
+  // Without those sections the posting's text was not found: no description
+  // (the job takes the pipeline's thin-source path). The former fallback to
+  // `.content-block` / `article` / `main` / the largest `div` published the
+  // hero and the breadcrumbs instead.
+  return parts.join('\n\n').trim();
 }
 
 /* ── Category / Employment helpers ────────────────────────── */
@@ -291,15 +283,12 @@ export async function fetchAllZermattBergbahnenJobs() {
       }
     }
 
-    // Fallback description
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      const parts = [listing.title, '— Zermatt Bergbahnen, Zermatt'];
-      if (listing.department) parts.push(`Abteilung: ${listing.department}`);
-      if (listing.tags.length) parts.push(listing.tags.join(', '));
-      description = parts.join('. ');
-    }
-
-    const sourceLang = detectLang(listing.title, 'de');
+    // The detail page's text is published whatever its length. Below
+    // MIN_DESC_LENGTH the crawler used to replace it with the listing metadata
+    // ("<Titel>. — Zermatt Bergbahnen, Zermatt. Abteilung: …. <Tags>"); a
+    // detail without text now gives no description and the job takes the
+    // pipeline's thin-source path.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} Zermatt`, 'zermatt-bergbahnen');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.tags);
@@ -340,3 +329,9 @@ export async function fetchAllZermattBergbahnenJobs() {
   console.log(`  Total Zermatt Bergbahnen jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+/**
+ * Fragments only the crawler once wrote: its metadata description, and the
+ * page hero (breadcrumbs) it used to take as part of the posting.
+ */
+export const ZERMATT_BERGBAHNEN_FABRICATED_DESCRIPTION_RE = /— Zermatt Bergbahnen, Zermatt\.|breadcrumbs\.home/;

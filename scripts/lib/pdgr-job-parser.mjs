@@ -332,7 +332,7 @@ export function parseDetailPage(html = '') {
     }
   }
 
-  result.description = sections.join('\n\n');
+  result.description = sections.join('\n\n') || parsePdgrPageElements(html);
 
   // Extract employmentType from hidden div
   const empMatch = html.match(/<div[^>]*id="acf_jobs_employment"[^>]*>([\s\S]*?)<\/div>/i);
@@ -359,6 +359,59 @@ export function parseDetailPage(html = '') {
 
   return result;
 }
+
+/**
+ * Text of a PDGR posting built from page elements instead of the ACF job
+ * fields: the apprenticeship pages ("Lehrstelle") have no ACF fields and put
+ * the posting in a sequence of `left-space` blocks — text blocks, section
+ * titles and accordions ("Eckpunkte deiner Ausbildung", "Deine Vorteile auf
+ * einen Blick"). Their text is read in page order, lists kept, up to the
+ * contact persons and the application form; the contact block itself is left
+ * out.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function parsePdgrPageElements(html = '') {
+  const source = String(html || '').replace(/<script[\s\S]*?<\/script>/gi, '');
+  const starts = [];
+  const blockRe = /<div class="left-space ([^"]*)">/g;
+  let m;
+  while ((m = blockRe.exec(source))) starts.push({ index: m.index, type: m[1] });
+  // Link-only lines ("→ Entdecke unsere Werte") are page navigation.
+  const toText = (fragment) => htmlToStructuredText(
+    String(fragment || '').replace(/<\/?h[1-6][^>]*>/gi, '\n'),
+  ).split('\n').filter((line) => !/^\s*→/.test(line)).join('\n').trim();
+  const parts = [];
+  for (let i = 0; i < starts.length; i += 1) {
+    const { type } = starts[i];
+    const segment = source.slice(starts[i].index, i + 1 < starts.length ? starts[i + 1].index : source.length);
+    if (/directory-spacer|jobform/.test(type)) break;
+    if (/titleblock-spacer/.test(type)) {
+      const heading = normalizeSpace(stripHtml(segment));
+      if (/Kontaktperson|Deine Bewerbung/i.test(heading)) break;
+      if (heading) parts.push(heading);
+    } else if (/textblock-spacer/.test(type)) {
+      if (/data-customname-content="[^"]*Kontakt/i.test(segment)) continue;
+      const text = toText(segment);
+      if (text) parts.push(text);
+    } else if (/acccordion-spacer/.test(type)) {
+      const cardRe = /<span class="accordion-title">([\s\S]*?)<\/span>[\s\S]*?<div class="card-body[^"]*">([\s\S]*?)(?=<div class="card"|$)/g;
+      let card;
+      while ((card = cardRe.exec(segment))) {
+        const title = normalizeSpace(stripHtml(card[1]));
+        const body = toText(card[2].replace(/<span class="close-accordion[\s\S]*?<\/span>/gi, ''));
+        const item = [title, body].filter(Boolean).join('\n');
+        if (item) parts.push(item);
+      }
+    }
+  }
+  return parts.join('\n\n').trim();
+}
+
+/** Fragment only the crawler's former substitute description wrote. */
+export const PDGR_FABRICATED_DESCRIPTION_RE =
+  /Die Psychiatrischen Dienste Graubünden \(PDGR\) sind der führende Anbieter/;
 
 /* ── Main Fetch Function ──────────────────────────────────── */
 
@@ -410,21 +463,13 @@ export async function fetchAllPdgrJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} pdgr ch`);
 
-    // Build description: prefer detail page content, fall back to card metadata + boilerplate
-    let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 200) {
-      const parts = [`${title} — Psychiatrische Dienste Graubünden (PDGR)`];
-      if (card.department) parts.push(`Fachgebiet: ${card.department}`);
-      if (card.facility) parts.push(`Bereich: ${card.facility}`);
-      parts.push(`Arbeitsort: ${location} (${canton})`);
-      if (card.pensumFrom === card.pensumTo) {
-        parts.push(`Pensum: ${card.pensumFrom}%`);
-      } else {
-        parts.push(`Pensum: ${card.pensumFrom} - ${card.pensumTo}%`);
-      }
-      parts.push('Die Psychiatrischen Dienste Graubünden (PDGR) sind der führende Anbieter psychiatrischer Versorgung im Kanton Graubünden mit Standorten in Chur, Cazis und weiteren Gemeinden. Als öffentlich-rechtliche Anstalt bieten wir ein breites Spektrum an stationären, ambulanten und tagesklinischen Leistungen in der Erwachsenen-, Kinder- und Jugendpsychiatrie sowie der Forensik. Wir bieten attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und ein engagiertes, interdisziplinäres Team');
-      descriptionText = parts.join('. ');
-    }
+    // The description is the posting's own text on its detail page. Below
+    // 200 characters the crawler used to substitute a description of its own
+    // ("<Titel> — Psychiatrische Dienste Graubünden (PDGR). Bereich: …
+    // Arbeitsort: … Die Psychiatrischen Dienste Graubünden (PDGR) sind der
+    // führende Anbieter…"); a detail without text now gives no description and
+    // the job takes the pipeline's thin-source path.
+    const descriptionText = detail.description;
 
     // Determine employment type
     let employmentType = detail.employmentType;
@@ -432,7 +477,7 @@ export async function fetchAllPdgrJobs() {
       employmentType = card.pensumTo < 80 ? 'PART_TIME' : 'FULL_TIME';
     }
 
-    const sourceLang = 'de';
+    const sourceLang = detectLang(descriptionText || title, 'de');
 
     const job = {
       // ── Required fields ──

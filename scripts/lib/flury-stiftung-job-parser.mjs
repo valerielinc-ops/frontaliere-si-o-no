@@ -21,6 +21,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -262,6 +263,42 @@ export function parseJobListings(html = '') {
   return listings;
 }
 
+/* ── Description ──────────────────────────────────────────── */
+
+/**
+ * The description of one Flury posting is the text of its PDF and nothing
+ * else: the listing publishes only a title and a PDF link. The crawler used to
+ * never read the PDF and to write a description of its own instead ("<Titel>
+ * — Flury Stiftung. Bereich: … Arbeitsort: … Die Flury Stiftung ist ein
+ * regionaler Gesundheitsversorger im Prättigau…"). A PDF without readable text
+ * now gives no description and the job takes the pipeline's thin-source path.
+ */
+export function buildFluryStiftungDescription(pdfText = '') {
+  return buildPdfBackedDescription({ pdfText: restoreFluryPdfLists(pdfText) });
+}
+
+/**
+ * The Flury PDFs come out of the text extractor as one line, with their list
+ * items marked by "›" ("Ihr Profil: › Ausbildung … › Gutes Verständnis …").
+ * Put each item back on its own line, and the heading that opens a list
+ * ("Zu Ihrem Aufgabenbereich gehören:", "Ihr Profil:", "Wir bieten:") on its
+ * own paragraph, so the published text keeps the posting's lists.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+export function restoreFluryPdfLists(text = '') {
+  return String(text || '')
+    .replace(/\s+((?:Zu Ihrem|Ihre?|Unsere?|Wir|Was|Das|Sie)\s[^.:!?›\n]{2,60}:)\s*›\s*/g, '\n\n$1\n- ')
+    .replace(/\s*›\s*/g, '\n- ');
+}
+
+/** Fragment only the crawler's former description wrote. */
+export const FLURY_STIFTUNG_FABRICATED_DESCRIPTION_RE =
+  /Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau/;
+
+const PDF_DELAY_MS = 300;
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -271,9 +308,13 @@ export function parseJobListings(html = '') {
  * Flow:
  *   1. Fetch listing page HTML
  *   2. Parse all PDF links grouped by section/category
- *   3. Build ParsedJob objects with location + category inference
+ *   3. Read each PDF: its text is the description
+ *   4. Build ParsedJob objects with location + category inference
  */
-export async function fetchAllFluryStiftungJobs() {
+export async function fetchAllFluryStiftungJobs({
+  extractPdf = extractPdfJobContentFromUrl,
+  delayMs = PDF_DELAY_MS,
+} = {}) {
   console.log(`🔍 Fetching Flury Stiftung jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
@@ -289,7 +330,7 @@ export async function fetchAllFluryStiftungJobs() {
 
   const jobs = [];
 
-  for (const listing of listings) {
+  for (const [index, listing] of listings.entries()) {
     const title = listing.title;
     const section = listing.section;
     const pdfUrl = listing.pdfUrl;
@@ -300,18 +341,15 @@ export async function fetchAllFluryStiftungJobs() {
     const postalCode = locationInfo.postalCode;
 
     const urlHash = createHash('sha1').update(pdfUrl).digest('hex').slice(0, 12);
-    const sourceLang = 'de';
     const jobSlug = slugify(`${title} flury-stiftung ch`);
 
-    // Build description from title + section + company + location + company boilerplate.
-    // The boilerplate must be rich enough that AI translations into IT/EN/FR stay above 150 chars.
-    const descParts = [`${title} — Flury Stiftung`];
-    if (section && section !== 'Flury Stiftung') {
-      descParts.push(`Bereich: ${section}`);
-    }
-    descParts.push(`Arbeitsort: ${location} (${canton})`);
-    descParts.push('Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten');
-    const descriptionText = descParts.join('. ');
+    if (index > 0 && delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
+    const pdf = await extractPdf(pdfUrl);
+    if (pdf?.error) console.warn(`  ⚠️ PDF error for "${title}": ${pdf.error}`);
+    if (pdf?.warning) console.warn(`  ⚠️ ${pdf.warning}`);
+    const descriptionText = buildFluryStiftungDescription(pdf?.thin ? '' : (pdf?.rawText || pdf?.text || ''));
+    // The PDF text is keyed by its own language.
+    const sourceLang = detectLang(descriptionText || title, 'de');
 
     const pensum = extractPensum(title);
     const employmentType = pensum.max < 80 ? 'PART_TIME' : 'FULL_TIME';
