@@ -104,6 +104,19 @@ describe('parseVacancyLanguage', () => {
     expect(parsed.translatedRoutes.de).toBe(`/de/stellenangebote/detail/${UUID}/`);
   });
 
+  it('does not depend on the order of the keys in the vacancy state', () => {
+    const parsed = parseVacancyLanguage('<script>window.__INIT__={"requestedLang":"en","originalLanguage":"de","translatedRoutes":{"de":"/de/stellenangebote/detail/12345678/"}}</script>');
+    expect(parsed.originalLanguage).toBe('de');
+    expect(parsed.requestedLang).toBe('en');
+    expect(parsed.translatedRoutes.de).toBe('/de/stellenangebote/detail/12345678/');
+  });
+
+  it('reads the pair from the vacancy object, not from another object that also has originalLanguage', () => {
+    const page = '<script>window.__INIT__={"reviews":[{"originalLanguage":"fr","title":"Top"}],'
+      + '"vacancy":{"title":"a { brace } in a string","requestedLang":"en","company":{"name":"X"},"originalLanguage":"de"}}</script>';
+    expect(parseVacancyLanguage(page)).toMatchObject({ originalLanguage: 'de', requestedLang: 'en' });
+  });
+
   it('returns nulls on a page without the vacancy state', () => {
     expect(parseVacancyLanguage('<html><body>maintenance</body></html>')).toEqual({
       originalLanguage: null,
@@ -136,6 +149,19 @@ describe('fetchJobsChVacancyInOriginalLanguage', () => {
     const { fetchPage } = sourceStub({ [DE_URL]: () => { throw new Error('fetch failed'); } });
     const vacancy = await fetchJobsChVacancyInOriginalLanguage(EN_URL, { fetchPage });
     expect(vacancy).toMatchObject({ url: EN_URL, sourceLang: null, translated: true });
+  });
+
+  it.each([
+    ['an empty page', () => ''],
+    ['a generic page without JobPosting', () => '<!doctype html><html><body><h1>Jobs</h1><p>Find your next job</p></body></html>'],
+    ['a JobPosting without description', () => DE_PAGE.replace(/"description":"[^"]*"/, '"description":""')],
+    ['another vacancy', () => DE_PAGE.replace(`"value":"${UUID}"`, '"value":"aaaaaaaa-0000-0000-0000-000000000000"')],
+  ])('keeps the /en/ vacancy (as a labelled translation) when the original route answers %s', async (_label, original) => {
+    const { fetchPage, fetched } = sourceStub({ [DE_URL]: original });
+    const vacancy = await fetchJobsChVacancyInOriginalLanguage(EN_URL, { fetchPage });
+    expect(fetched).toEqual([EN_URL, DE_URL]);
+    expect(vacancy).toMatchObject({ url: EN_URL, sourceLang: null, translated: true });
+    expect(vacancy.html).toBe(EN_PAGE);
   });
 
   it('refuses an original-language route that points at another vacancy', async () => {
