@@ -611,12 +611,16 @@ export function findNextListingPageUrl(html, pageUrl) {
     let next;
     try { next = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
     if (next.origin !== origin) continue;
+    const samePageFragment = /^\s*#/.test(hrefValue)
+      && next.pathname === current.pathname
+      && next.search === current.search;
     next.hash = '';
     // A few sources leave a placeholder `rel=next href="#"` on their last
-    // page. It is a same-page fragment, not a continuation; ignoring it lets
-    // the existing visited-page guard keep its fail-closed behavior for real
-    // pagination loops.
-    if (next.href === current.href) continue;
+    // page. It is a same-page fragment, not a continuation. Do not generalize
+    // this to every URL equal to the current page: a real pagination loop can
+    // expose the current page as an absolute or query-bearing URL and must
+    // still reach the fail-closed visited-page guard.
+    if (samePageFragment) continue;
     return next.href;
   }
   return null;
