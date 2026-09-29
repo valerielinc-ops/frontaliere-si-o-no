@@ -11617,3 +11617,5 @@
 {"key":"tip-tel-services@zurich","from":"synthesized","to":"validated","at":"2026-09-29T05:44:42.006Z"}
 {"key":"walker-bedachungen@zug","from":"synthesized","to":"validated","at":"2026-09-29T05:44:47.195Z"}
 {"key":"domino-rh@rolle","from":"validated","to":"promoted","at":"2026-09-29T05:47:24.686Z"}
+{"key":"bellevue-parkhotel.ch","from":"production","to":"rejected","at":"2026-09-29T09:27:20.443Z","reason":"retired: the my crawler (key shared by 6 my.jobalino.ch candidates) published another tenant's Initiativbewerbung under this name; the Bellevue page itself is a Spontanbewerbung, not a vacancy (issue 5253)"}
+{"key":"fanzun.swiss","from":"promoted","to":"rejected","at":"2026-09-29T09:27:20.444Z","reason":"not a vacancy: the spec reads an Initiativbewerbung (spontaneous application) under the shared crawlerKey my (issue 5253)"}

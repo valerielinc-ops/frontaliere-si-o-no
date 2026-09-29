@@ -4,20 +4,20 @@
   "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "c80390966c75ab63f58e3ebf552518cf95fcdf52",
+  "sourceCommit": "6342c91207b3ce8df3fc2fb7de659dbf91659112",
   "artifactObservation": {
     "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
     "sourceRef": "main",
-    "sourceCommit": "c80390966c75ab63f58e3ebf552518cf95fcdf52"
+    "sourceCommit": "6342c91207b3ce8df3fc2fb7de659dbf91659112"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 626,
+  "crawlerCount": 625,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f0bc788effb635b763933c21762a9e92407722d5f43acadf2fc4384f7105e120",
+    "rosterDigest": "sha256:c93baeaf49bf2ea48a59fe8e37f65d0562b75e6e142896f32cd5462ecd0a5760",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -376,7 +376,6 @@
     "scripts/update-moncucco-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
     "scripts/update-mueller-steinmaur-jobs.mjs",
-    "scripts/update-my-jobs.mjs",
     "scripts/update-nant-jobs.mjs",
     "scripts/update-neoproconseils-jobs.mjs",
     "scripts/update-nestle-jobs.mjs",
@@ -1148,8 +1147,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "a282086b476ba5f6faa2e8d5edd9e4da5f6afab7070e64a94aa3ef573dd44d01",
-      "artifactSha256": "dcde973fcf33bf5049fce2b6910437f4ed0874e0f462716b4c681666e18dd3dd",
+      "sourceSha256": "c7313187e7a03f3ef6583b190ba97d9ac626e6ff4f31db128256af023de2a50b",
+      "artifactSha256": "d342e62d49fdbd224578ae055b94ee1e43224dd52ec5ca512c8167231d5ecbf6",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "kronenhof",
@@ -1178,8 +1177,7 @@
         "ail",
         "sta",
         "elprom",
-        "sonarsource",
-        "my"
+        "sonarsource"
       ]
     },
     {
