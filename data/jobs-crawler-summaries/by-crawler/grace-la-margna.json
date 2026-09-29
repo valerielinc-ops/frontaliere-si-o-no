@@ -1,18 +1,51 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-09-29T09:29:58.716Z",
-  "total": 11,
-  "newCount": 0,
+  "generatedAt": "2026-09-29T21:37:52.350Z",
+  "total": 12,
+  "newCount": 1,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 87189,
-  "avgDurationMs": 87189,
+  "durationMs": 430297,
+  "avgDurationMs": 430297,
   "durationHistory": [
-    87189
+    430297
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Floor Supervisor (m/w) - be the eagle eye of housekeeping",
+      "slug": "floor-supervisor-m-w-be-the-eagle-eye-of-housekeeping",
+      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/floor-supervisor-be-the-eagle-eye-of-housekeeping-3116635",
+      "applyUrl": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/floor-supervisor-be-the-eagle-eye-of-housekeeping-3116635",
+      "company": "Grace La Margna St. Moritz",
+      "companyKey": "grace-la-margna",
+      "companyDomain": "gracehotels.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "servizio",
+      "sector": "Turismo & Ospitalità",
+      "department": "servizio",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "sourceLang": "en",
+      "postedDate": "2026-09-29",
+      "validThrough": "",
+      "source": "dedicated-crawler",
+      "crawledAt": "2026-09-29T21:31:42.383Z",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Bartender - be the alchemist of unforgettable moments",
@@ -37,7 +70,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:10.153Z",
+      "crawledAt": "2026-09-29T21:31:21.779Z",
       "id": "grace-la-margna-018dee2207e1",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -46,10 +79,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-07T15:19:11.359Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -74,10 +107,10 @@
       "employmentType": "full_time",
       "contractType": "permanent",
       "sourceLang": "en",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:14.457Z",
+      "crawledAt": "2026-09-29T21:31:27.814Z",
       "id": "grace-la-margna-ed3bad146cb6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -86,10 +119,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-07T15:19:21.494Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -117,7 +150,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:18.500Z",
+      "crawledAt": "2026-09-29T21:31:32.429Z",
       "id": "grace-la-margna-904ca01fa2ea",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -126,10 +159,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:54.488Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -157,7 +190,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:23.045Z",
+      "crawledAt": "2026-09-29T21:31:37.382Z",
       "id": "grace-la-margna-37be54b5c05d",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -166,10 +199,10 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-28T05:37:35.526Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -197,7 +230,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:27.324Z",
+      "crawledAt": "2026-09-29T21:31:46.909Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -206,10 +239,10 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-25T22:00:43.593Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -237,7 +270,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:31.353Z",
+      "crawledAt": "2026-09-29T21:31:51.985Z",
       "id": "grace-la-margna-64964a3aeda8",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -246,10 +279,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-07T15:19:47.567Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -277,7 +310,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:35.569Z",
+      "crawledAt": "2026-09-29T21:31:56.823Z",
       "id": "grace-la-margna-4d684ca82ff1",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -286,10 +319,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-18T14:13:46.314Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -317,7 +350,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:39.660Z",
+      "crawledAt": "2026-09-29T21:32:01.709Z",
       "id": "grace-la-margna-ba221949eef3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -326,10 +359,10 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-25T22:00:59.563Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -357,7 +390,7 @@
       "postedDate": "2026-09-15",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:43.718Z",
+      "crawledAt": "2026-09-29T21:32:06.659Z",
       "id": "grace-la-margna-e4f2b02066fe",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -366,10 +399,10 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-25T22:01:04.046Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -397,7 +430,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:47.744Z",
+      "crawledAt": "2026-09-29T21:32:10.991Z",
       "id": "grace-la-margna-cc1efb3e11f3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -406,10 +439,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-07T15:20:06.017Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -437,7 +470,7 @@
       "postedDate": "2026-09-18",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-29T09:29:52.322Z",
+      "crawledAt": "2026-09-29T21:32:15.429Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -446,10 +479,10 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-07T15:20:10.551Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
