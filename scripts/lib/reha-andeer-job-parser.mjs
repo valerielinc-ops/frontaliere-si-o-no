@@ -180,7 +180,7 @@ export async function fetchRehaAndeerListingHtml({ timeoutMs } = {}) {
   } catch (err) {
     if (Number(err?.status) !== 404) throw err;
     const rescuedHtml = await fetchHtmlViaJinaWithRetry(PUBLIC_CAREER_URL, { timeoutMs });
-    if (rescuedHtml != null) {
+    if (rescuedHtml != null && parseRehaAndeerListing(rescuedHtml).length > 0) {
       console.warn(
         `⚠️ Reha Andeer seed returned HTTP 404; using verified clean-egress HTML rescue.`,
       );

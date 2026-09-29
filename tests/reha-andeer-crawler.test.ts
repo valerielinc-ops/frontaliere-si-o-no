@@ -27,7 +27,9 @@ describe('Reha Andeer listing fetch', () => {
   it('rescues a source-specific HTTP 404 through verified clean-egress HTML', async () => {
     const error = Object.assign(new Error('HTTP 404 from https://reha-andeer.ch/offene-stellen/'), { status: 404 });
     mocks.fetchHtml.mockRejectedValueOnce(error);
-    mocks.fetchHtmlViaJinaWithRetry.mockResolvedValueOnce('<html><body>Offene Stellen</body></html>');
+    mocks.fetchHtmlViaJinaWithRetry.mockResolvedValueOnce(
+      '<html><body><h1>Offene Stellen Reha Andeer</h1><a href="/wp-content/uploads/2026/07/Stelleninserat-Pflegehelferin.pdf">PDF</a></body></html>',
+    );
 
     await expect(fetchRehaAndeerListingHtml({ timeoutMs: 1234 })).resolves.toContain('Offene Stellen');
     expect(mocks.fetchHtmlViaJinaWithRetry).toHaveBeenCalledWith(
