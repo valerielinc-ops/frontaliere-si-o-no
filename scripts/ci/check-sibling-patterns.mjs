@@ -119,7 +119,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 import {
@@ -227,6 +227,7 @@ const CHECK_CACHE_WAIT_MS = 240_000;
 const CHECK_CACHE_STALE_MS = 600_000;
 const CHECK_CACHE_POLL_MS = 100;
 const CHECK_CACHE_DISABLED = process.env.CHECK_SIBLING_PATTERNS_CACHE === '0';
+const HEAD_SNAPSHOT_TIMEOUT_MS = 60_000;
 const SLEEP_CELL = new Int32Array(new SharedArrayBuffer(4));
 let HEAD_SNAPSHOT_ROOT = null;
 
@@ -407,6 +408,95 @@ function cleanupHeadSnapshot() {
 }
 
 /**
+ * Materializza il tree con una sola richiesta batch al object database. È il
+ * fallback per i clone parziali in cui `git archive` può restare bloccato
+ * mentre Git risolve i pack promisor: una `git grep` per ogni token sarebbe
+ * molto più lenta e ripeterebbe la stessa scansione dell'albero.
+ */
+function createHeadSnapshotFromObjects() {
+  let root;
+  try {
+    root = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-patterns-'));
+    const treeResult = spawnSync(
+      'git',
+      ['ls-tree', '-r', '-z', '--full-tree', HEAD_REF, '--', ...CODE_DIRS],
+      {
+        encoding: 'buffer',
+        maxBuffer: 16 * 1024 * 1024,
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
+    );
+    if (treeResult.error || treeResult.status !== 0) {
+      throw treeResult.error ?? new Error('git ls-tree failed');
+    }
+    const tree = treeResult.stdout;
+    const files = tree
+      .toString('utf8')
+      .split('\0')
+      .filter(Boolean)
+      .map((entry) => {
+        const tab = entry.indexOf('\t');
+        if (tab < 0) return null;
+        const metadata = entry.slice(0, tab).split(' ');
+        const file = entry.slice(tab + 1);
+        if (metadata[1] !== 'blob' || !metadata[2] || !isCodeFile(file)) return null;
+        return { oid: metadata[2], file };
+      })
+      .filter(Boolean);
+    if (files.length === 0) throw new Error('git tree contains no code blobs');
+
+    const requests = Buffer.from(files.map(({ oid }) => `${oid}\n`).join(''));
+    const packedResult = spawnSync('git', ['cat-file', '--batch'], {
+      input: requests,
+      encoding: 'buffer',
+      maxBuffer: 256 * 1024 * 1024,
+      timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+      killSignal: 'SIGTERM',
+    });
+    if (packedResult.error || packedResult.status !== 0) {
+      throw packedResult.error ?? new Error('git cat-file failed');
+    }
+    const packed = packedResult.stdout;
+    let offset = 0;
+    for (const { oid, file } of files) {
+      const headerEnd = packed.indexOf(0x0a, offset);
+      if (headerEnd < 0) throw new Error('git cat-file returned an incomplete header');
+      const [returnedOid, type, sizeText] = packed
+        .subarray(offset, headerEnd)
+        .toString('ascii')
+        .split(' ');
+      const size = Number.parseInt(sizeText, 10);
+      if (returnedOid !== oid || type !== 'blob' || !Number.isSafeInteger(size) || size < 0) {
+        throw new Error(`git cat-file returned an invalid blob header for ${file}`);
+      }
+      const contentStart = headerEnd + 1;
+      const contentEnd = contentStart + size;
+      if (contentEnd >= packed.length || packed[contentEnd] !== 0x0a) {
+        throw new Error(`git cat-file returned an incomplete blob for ${file}`);
+      }
+      const target = join(root, file);
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, packed.subarray(contentStart, contentEnd));
+      offset = contentEnd + 1;
+    }
+
+    HEAD_SNAPSHOT_ROOT = root;
+    process.once('exit', cleanupHeadSnapshot);
+    return root;
+  } catch {
+    if (root) {
+      try {
+        rmSync(root, { recursive: true, force: true });
+      } catch {
+        // Optional optimization only; Git fallback remains available.
+      }
+    }
+    return null;
+  }
+}
+
+/**
  * Materializza il solo albero di codice del ref in un file temporaneo.
  * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
  * token; un archive estratto una volta permette al pass lessicale di leggere
@@ -418,6 +508,9 @@ function cleanupHeadSnapshot() {
  */
 function createHeadSnapshot() {
   if (!HEAD_REF) return null;
+  if (git(['rev-parse', '--is-partial-clone'], { allowFail: true }).trim() === 'true') {
+    return createHeadSnapshotFromObjects();
+  }
   let root;
   let archiveFd;
   try {
@@ -427,7 +520,11 @@ function createHeadSnapshot() {
     const archive = spawnSync(
       'git',
       ['archive', '--format=tar', HEAD_REF, '--', ...CODE_DIRS],
-      { stdio: ['ignore', archiveFd, 'ignore'] },
+      {
+        stdio: ['ignore', archiveFd, 'ignore'],
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
     );
     closeSync(archiveFd);
     archiveFd = undefined;
@@ -438,7 +535,11 @@ function createHeadSnapshot() {
     const extracted = spawnSync(
       'tar',
       ['-xf', archivePath, '-C', root],
-      { stdio: ['ignore', 'ignore', 'ignore'] },
+      {
+        stdio: ['ignore', 'ignore', 'ignore'],
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
     );
     if (extracted.error || extracted.status !== 0) {
       throw extracted.error ?? new Error('tar failed');
@@ -462,7 +563,7 @@ function createHeadSnapshot() {
         // Optional optimization only; Git fallback remains available.
       }
     }
-    return null;
+    return createHeadSnapshotFromObjects();
   }
 }
 
