@@ -57,6 +57,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -319,6 +320,18 @@ function validateLocales() {
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropBaronieFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   // `counts.discovered` (issue #5945) lets the summary-guard exit fallback
@@ -345,6 +358,7 @@ async function main() {
   console.log(`📋 Found ${jobUrls.length} job URLs`);
   if (jobUrls.length === 0) {
     console.log('⚠️ No job URLs found — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -369,6 +383,7 @@ async function main() {
   counts.parsed = parsed.length;
   if (parsed.length === 0) {
     console.log('⚠️ No Swiss jobs found — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
