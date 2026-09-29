@@ -55,8 +55,10 @@ describe('fetchAllRehaBellikonJobs', () => {
     expect(job.location).toBe('Chur');
     expect(job.canton).toBe('GR');
     expect(job.postalCode).toBe('7000');
-    expect(job.description).toContain('Aufgaben\n• Personelle und operative Führung des Standortes Chur');
-    expect(job.description).toContain('Profil\n• Führungserfahrung');
+    // Section heading, then its bullets (the shared extractor leaves a blank
+    // line between them, as on every published Reha Bellikon job).
+    expect(job.description).toMatch(/Aufgaben\n+• Personelle und operative Führung des Standortes Chur\n• Steuerung/);
+    expect(job.description).toMatch(/Profil\n+• Führungserfahrung/);
     expect(jobs.some((j) => /Spontanbewerbung/i.test(j.title))).toBe(false);
   });
 });
