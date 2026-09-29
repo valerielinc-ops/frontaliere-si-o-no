@@ -143,6 +143,52 @@ describe('parseAplusJobDetail (JSON-LD preferred)', () => {
   });
 });
 
+/* ── parseAplusJobDetail — title-only JSON-LD (live A++ page, minimised) ── */
+
+// Live shape of inrecruiting.intervieweb.it/a2plus/jobs/…-724674/en/: the
+// JobPosting JSON-LD `description` repeats only the bolded title while the
+// visible `#description__body` carries the whole vacancy. Publishing the
+// JSON-LD alone left a 49-char description (source-detail-mismatch, #5253).
+const DETAIL_HTML_TITLE_ONLY_JSONLD = `
+<html><head>
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"JobPosting",
+ "description":"<p><strong>Booking &amp; Revenue Specialist – Luxury Hospitality</strong></p>",
+ "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Massagno","postalCode":"6900","addressCountry":"CH"}},
+ "title":"Booking & Revenue Specialist – Luxury Hospitality"}
+</script></head><body>
+<div id="description__body">
+  <h3 class="body__headings">Company Description</h3>
+  <div class="body__text"><p>A++ Group, realtà internazionale con sede centrale a Massagno, è alla ricerca di un <strong>Booking &amp; Revenue Specialist</strong> da inserire nel proprio team Hospitality.</p></div>
+  <h3 class="body__headings">Requirements</h3>
+  <div class="body__text"><br><p><strong>Responsabilità principali</strong></p><ul><li>Gestione e ottimizzazione dei sistemi di prenotazione (Booking Engine, PMS, Channel Manager, OTA).</li><li>Definizione e implementazione di strategie di Revenue Management.</li></ul><br><p><strong>Profilo</strong></p><ul><li>Esperienza in hotel, resort, luxury villa.</li></ul></div>
+  <h3 class="body__headings">Other information</h3>
+  <div class="body__text"><p><strong>Offriamo</strong></p><ul><li>Contratto a tempo indeterminato</li></ul></div>
+</div>
+<div class="geolocation-description text-danger" style="display: none">Select a data item from the drop-down list</div>
+</body></html>
+`;
+
+describe('parseAplusJobDetail (title-only JSON-LD)', () => {
+  it('publishes the visible vacancy body when the JSON-LD description is only the title', () => {
+    const detail = parseAplusJobDetail(DETAIL_HTML_TITLE_ONLY_JSONLD, 'https://inrecruiting.intervieweb.it/a2plus/jobs/x-724674/en/');
+    expect(detail.title).toBe('Booking & Revenue Specialist – Luxury Hospitality');
+    expect(detail.location).toBe('Massagno');
+    expect(detail.description).toContain('## Company Description');
+    expect(detail.description).toContain('Booking & Revenue Specialist da inserire');
+    expect(detail.description).toContain('- Definizione e implementazione di strategie di Revenue Management.');
+    expect(detail.description).toContain('## Other information');
+    expect(detail.description).toContain('- Contratto a tempo indeterminato');
+    expect(detail.description).not.toContain('&amp;');
+    expect(detail.description).not.toContain('Select a data item');
+  });
+
+  it('keeps a JSON-LD description that is richer than the HTML body', () => {
+    const detail = parseAplusJobDetail(DETAIL_HTML_WITH_JSONLD, 'https://fallback.example.com');
+    expect(detail.description).toContain('- Geometra o ingegnere edile');
+  });
+});
+
 /* ── isAplusSwissLocation ─────────────────────────────────── */
 
 describe('isAplusSwissLocation', () => {
@@ -198,6 +244,12 @@ describe('buildAplusLocalizedContent', () => {
     expect(localized.slugByLocale.it).toContain('real-estate-project-manager');
     expect(localized.slugByLocale.it).toContain('a-plus-plus-group');
     expect(localized.slugByLocale.en).toBe(localized.slugByLocale.it);
+  });
+
+  it('files the description under the detected source language', () => {
+    const localized = buildAplusLocalizedContent({ title: 'Architect', description: 'We are looking for an architect.' }, 'en');
+    expect(localized.descriptionByLocale.en).toBe('We are looking for an architect.');
+    expect(localized.descriptionByLocale.it).toBeUndefined();
   });
 
   it('handles empty inputs without throwing', () => {

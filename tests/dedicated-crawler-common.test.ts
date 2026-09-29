@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
@@ -295,11 +295,18 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[1].slug).toBe('venditrice-venditore-landi-contratto-a-termine-da-aprile-ad-agosto-2026-m-w-d-landi-rhone-lavaux-sa-saxon');
   });
 
-  it('enriches thin italian descriptions with company boilerplate for recurring crawler outputs', () => {
+  // Issue 5253: this case used to assert that hardening padded the thin
+  // Italian slot to >= 300 characters with the AGIE company paragraph of
+  // COMPANY_BOILERPLATE_IT — text the source never published. Hardening now
+  // adds nothing, and removes that paragraph (with its "## title / **company**
+  // — place" header) from a slot stored before the change.
+  it('adds no company paragraph to a thin italian description and removes a stored one', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');
-    const jobs = [{
-      slug: 'mechanical-simulation-engineer-agie-losone',
+    const thinIt = 'AGIE Charmilles SA cerca Mechanical Simulation Engineer a Losone.';
+    const paragraph = getCompanyBoilerplateIT('AGIE Charmilles SA');
+    expect(paragraph).toContain('Georg Fischer');
+    const base = {
       title: 'Mechanical Simulation Engineer',
       company: 'AGIE Charmilles SA',
       location: 'Losone',
@@ -308,22 +315,34 @@ describe('dedicated-crawler-common locale hardening', () => {
         en: 'Mechanical Simulation Engineer',
         it: 'Ingegnere di simulazione meccanica',
       },
-      descriptionByLocale: {
-        it: 'AGIE Charmilles SA cerca Mechanical Simulation Engineer a Losone.',
+    };
+    const jobs = [
+      {
+        ...base,
+        slug: 'mechanical-simulation-engineer-agie-losone',
+        url: 'https://example.test/agie/1/',
+        descriptionByLocale: { it: thinIt },
+        slugByLocale: { it: 'ingegnere-di-simulazione-meccanica-agie-charmilles-sa-losone' },
       },
-      slugByLocale: {
-        it: 'ingegnere-di-simulazione-meccanica-agie-charmilles-sa-losone',
+      {
+        ...base,
+        slug: 'mechanical-simulation-engineer-agie-losone-2',
+        url: 'https://example.test/agie/2/',
+        descriptionByLocale: {
+          it: `## Ingegnere di simulazione meccanica\n\n**AGIE Charmilles SA** — Losone (TI)\n\n${thinIt}\n\n${paragraph}`,
+        },
+        slugByLocale: { it: 'ingegnere-di-simulazione-meccanica-agie-charmilles-sa-losone-2' },
       },
-    }];
+    ];
     fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
 
     hardenJobLocaleFields({ dataJobsPath: jobsPath });
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
-    const itDescription = after[0].descriptionByLocale.it;
 
-    expect(itDescription.length).toBeGreaterThanOrEqual(300);
-    expect(itDescription).toContain('AGIE Charmilles SA');
-    expect(itDescription).toContain('Georg Fischer');
+    for (const job of after) {
+      expect(job.descriptionByLocale.it).toBe(thinIt);
+      expect(job.descriptionByLocale.it).not.toContain('Georg Fischer');
+    }
   });
 
   it('repairs remaining german and french italian slugs from recurring live regressions', () => {
@@ -454,38 +473,50 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[4].slug).toBe('venditrice-venditore-m-w-d-volg-vissoie');
   });
 
-  it('enriches thin italian descriptions and localizes german real-estate roles for ticino premium properties', () => {
+  // Issue 5253: this case also asserted that the thin Italian slot was padded
+  // to >= 300 characters with the Ticino Premium Properties paragraph of
+  // COMPANY_BOILERPLATE_IT. The localization of the German title and slug
+  // stays; the padding is gone, and a stored one is removed.
+  it('localizes german real-estate roles for ticino premium properties without padding the italian description', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');
-    const jobs = [{
-      slug: 'engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona',
+    const thinIt = 'Engel & Völkers cerca una figura commerciale ad Ascona.';
+    const paragraph = getCompanyBoilerplateIT('Ticino Premium Properties SA');
+    expect(paragraph).toContain('Engel & Völkers attiva nel mercato immobiliare di pregio');
+    const deDescription = 'Deutschsprachige Immobilienbeschreibung mit ausreichend Text, damit die italienische Lokalisierung aus der Heuristik erfolgt und gleichzeitig die dünne Beschreibung mit Boilerplate ergänzt wird.';
+    const jobs = [false, true].map((stored) => ({
+      slug: `engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona${stored ? '-2' : ''}`,
+      url: `https://example.test/tpp/${stored ? 2 : 1}/`,
       title: 'Engel & Völkers | Immobilienberater/in 100 % | Ascona',
       company: 'Ticino Premium Properties SA',
       location: 'Ascona',
-      description: 'Deutschsprachige Immobilienbeschreibung mit ausreichend Text, damit die italienische Lokalisierung aus der Heuristik erfolgt und gleichzeitig die dünne Beschreibung mit Boilerplate ergänzt wird.',
+      description: deDescription,
       titleByLocale: {
         de: 'Engel & Völkers | Immobilienberater/in 100 % | Ascona',
         it: 'Engel & Völkers | Immobilienberater/in 100 % | Ascona',
       },
       descriptionByLocale: {
-        de: 'Deutschsprachige Immobilienbeschreibung mit ausreichend Text, damit die italienische Lokalisierung aus der Heuristik erfolgt und gleichzeitig die dünne Beschreibung mit Boilerplate ergänzt wird.',
-        it: 'Engel & Völkers cerca una figura commerciale ad Ascona.',
+        de: deDescription,
+        it: stored
+          ? `## Engel & Völkers | Consulente immobiliare 100 % | Ascona\n\n**Ticino Premium Properties SA** — Ascona (TI)\n\n${thinIt}\n\n${paragraph}`
+          : thinIt,
       },
       slugByLocale: {
         de: 'engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona',
         it: 'engel-volkers-immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona',
       },
-    }];
+    }));
     fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
 
     hardenJobLocaleFields({ dataJobsPath: jobsPath });
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
-    const itDescription = after[0].descriptionByLocale.it;
 
-    expect(after[0].titleByLocale.it).toBe('Engel & Völkers | Consulente immobiliare 100 % | Ascona');
-    expect(after[0].slugByLocale.it).toBe('engel-volkers-consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona');
-    expect(itDescription.length).toBeGreaterThanOrEqual(300);
-    expect(itDescription).toContain('Ticino Premium Properties SA');
+    for (const job of after) {
+      expect(job.titleByLocale.it).toBe('Engel & Völkers | Consulente immobiliare 100 % | Ascona');
+      expect(job.slugByLocale.it).toBe('engel-volkers-consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona');
+      expect(job.descriptionByLocale.it).toBe(thinIt);
+      expect(job.descriptionByLocale.de).toBe(deDescription);
+    }
   });
 
   it('repairs recurring VTG and Hamilton italian slug regressions from localized titles', () => {

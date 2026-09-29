@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
-import { fetchJobListings } from '../scripts/update-cler-jobs.mjs';
+import { buildDescription, fetchJobListings } from '../scripts/update-cler-jobs.mjs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
-import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
+import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear, collapseClerDuplicateRequisitions, isClerPlaceholderDescription, resolveClerJobBody, clearClerPlaceholderSlots } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 
 const clerCrawlerSource = fs.readFileSync(
@@ -541,5 +541,91 @@ describe('extractJobMeta — JobPosting location source of truth', () => {
     const meta = extractJobMeta(html);
     expect(meta.arbeitsort).toBe('Lugano');
     expect(meta.pensum).toBe('100%');
+  });
+});
+
+describe('collapseClerDuplicateRequisitions — stored slice after the base crawler (dup 4/12)', () => {
+  // The two pairs the committed slice carried on 2026-09-29 (same id, title, body).
+  const B = 'https://www.cler.ch';
+  const slice = [
+    { id: 'company-ldhd7j', url: `${B}/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-vermoegende-privatkunden-biel-w-m-2740` },
+    { id: 'company-mcp9v4', slug: 'a', url: `${B}/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/conseillre-en-succession-neuchtel-f-m-2743` },
+    { id: 'company-mcp9v4', slug: 'b', url: `${B}/fr/banque-cler/jobs-und-karriere/chercher-et-postuler/offene-stellen/conseillre-en-succession-neuchtel-f-m-2743` },
+    { id: 'company-kadqag', url: `${B}/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-privatkunden-individual-basel-w-m-2719` },
+    { id: 'company-kadqag', url: `${B}/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/kundenberaterin-privatkunden-individual-basel-w-m-2719` },
+  ];
+
+  it('keeps one record per requisition, preferring the URL this run discovered', () => {
+    const preferred = new Set([slice[1].url, slice[3].url]);
+    const { jobs, dropped } = collapseClerDuplicateRequisitions(slice, preferred);
+    expect(jobs.map((j) => j.url)).toEqual([slice[0].url, slice[1].url, slice[3].url]);
+    expect(dropped.map((d) => [d.dropped.url, d.kept.url])).toEqual([
+      [slice[2].url, slice[1].url],
+      [slice[4].url, slice[3].url],
+    ]);
+  });
+
+  it('falls back to the newest career section when the run published neither variant', () => {
+    const { jobs } = collapseClerDuplicateRequisitions(slice.slice(3));
+    expect(jobs.map((j) => j.url)).toEqual([slice[4].url]);
+  });
+
+  it('leaves distinct requisitions alone', () => {
+    const { jobs, dropped } = collapseClerDuplicateRequisitions([slice[0], slice[1]]);
+    expect(jobs).toHaveLength(2);
+    expect(dropped).toHaveLength(0);
+  });
+});
+
+describe('Cler source-only rule (no "per i dettagli consultare la pagina" stand-in)', () => {
+  const PLACEHOLDER = "## Kundenberater/in Privatkunden\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.";
+  const PLACEHOLDER_EN = '## Client advisor private clients\n\nBanca Cler — for details please see the job offer page.';
+
+  it('builds no stand-in when the detail page gives no body', () => {
+    expect(buildDescription('Kundenberater/in Privatkunden', null)).toBe('');
+    expect(buildDescription('Kundenberater/in Privatkunden', '<html><body><p>Kurz.</p></body></html>')).toBe('');
+    expect(buildDescription('Geschäftsstellenleiter/in', FIXTURE_JOB1_HTML).length).toBeGreaterThanOrEqual(200);
+  });
+
+  it('recognises the legacy stand-in and its translations', () => {
+    expect(isClerPlaceholderDescription(PLACEHOLDER)).toBe(true);
+    expect(isClerPlaceholderDescription(PLACEHOLDER_EN)).toBe(true);
+    expect(isClerPlaceholderDescription(htmlToMarkdown(FIXTURE_JOB1_HTML))).toBe(false);
+  });
+
+  it('keeps the stored source text, or does not publish', () => {
+    const source = htmlToMarkdown(FIXTURE_JOB1_HTML);
+    const job = { url: 'u', description: '', sourceLang: 'de', descriptionByLocale: {} };
+    expect(resolveClerJobBody(job, { sourceLang: 'de', description: source, descriptionByLocale: { de: source } })?.description).toBe(source);
+    expect(resolveClerJobBody(job, { sourceLang: 'de', description: PLACEHOLDER, descriptionByLocale: { de: PLACEHOLDER } })).toBeNull();
+    expect(resolveClerJobBody(job, undefined)).toBeNull();
+  });
+
+  it('clears stale stand-in copies from the locale slots', () => {
+    const merged = { descriptionByLocale: { de: 'Echter Text\nmit Inhalt', en: PLACEHOLDER_EN } };
+    expect(clearClerPlaceholderSlots(merged)).toBe(1);
+    expect(Object.keys(merged.descriptionByLocale)).toEqual(['de']);
+  });
+});
+
+describe('Cler word floor (review #10348: characters are not words)', () => {
+  // 49 long German compounds: well over 200 characters, still a thin page.
+  const LONG = 'Kundenbetreuungsverantwortung';
+  const page = (words: number) => `<html><body><div class="m-richtext__content"><p>${Array(words).fill(LONG).join(' ')}</p></div></body></html>`;
+
+  it('rejects a 49-word body stretched past 200 characters', () => {
+    expect(htmlToMarkdown(page(49)).length).toBeGreaterThan(200);
+    expect(buildDescription('Kundenberater/in', page(49))).toBe('');
+  });
+
+  it('accepts the same body at 50 words', () => {
+    expect(buildDescription('Kundenberater/in', page(50))).toBe(htmlToMarkdown(page(50)));
+  });
+
+  it('does not reuse a stored text under the floor', () => {
+    const thin = htmlToMarkdown(page(49));
+    const job = { url: 'u', description: '', sourceLang: 'de', descriptionByLocale: {} };
+    expect(resolveClerJobBody(job, { sourceLang: 'de', description: thin, descriptionByLocale: { de: thin } })).toBeNull();
+    expect(resolveClerJobBody({ ...job, description: thin }, undefined)).toBeNull();
   });
 });

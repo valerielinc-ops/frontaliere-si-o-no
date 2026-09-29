@@ -9,9 +9,9 @@
  *   Same JSON shape as USZ / KSGR / Agroscope / Jumbo:
  *     { medium_id, total, jobs: [{ id, hk_id, viewkey, title, attributes, szas, links }] }
  *
- * Detail page: `links.directlink` returns an HTTPS URL on `jobs.spitaluster.ch/...`
- * that hydrates client-side. We don't fetch detail pages (the API ships
- * the full description in `szas.*`).
+ * Detail page: `links.directlink` returns an HTTPS URL on `jobs.spitaluster.ch/...`,
+ * server-rendered. It is the description source: the `szas.*` listing text is
+ * only part of the rendered vacancy (see the end of `fetchAllSpitalUsterJobs`).
  *
  * Spital Uster HQ: Brunnenstrasse 42, 8610 Uster, ZH.
  *
@@ -24,6 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -282,6 +283,11 @@ export async function fetchAllSpitalUsterJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${SPITAL_USTER_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing payload is 42-56 % of the rendered vacancy (audit 2026-09-29):
+  // the "7 Gründe, bei uns zu arbeiten" block and the welcome paragraph exist only on the directlink page, which becomes the description
+  // source; the listing text stays the per-job fallback.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: SPITAL_USTER_COMPANY_NAME });
+  const unique = dropRepostedListings(jobs, SPITAL_USTER_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${SPITAL_USTER_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

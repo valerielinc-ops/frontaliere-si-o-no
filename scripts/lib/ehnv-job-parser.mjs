@@ -42,8 +42,6 @@ const parser = createJohdiSuiteParser({
   defaultCity: 'Yverdon-les-Bains',
   defaultPostalCode: '1400',
   sourceLabel: 'eHnv Dedicated Parser (Johdi Suite)',
-  fallbackBrandBlurb:
-    "Les eHnv (Établissements hospitaliers du Nord vaudois) sont le premier employeur du Nord vaudois avec plus de 1'600 collaboratrices et collaborateurs, répartis sur les sites d'Yverdon, Chamblon, Orbe et Saint-Loup.",
 });
 
 export const fetchAllEhnvJobs = parser.fetchAllJobs;

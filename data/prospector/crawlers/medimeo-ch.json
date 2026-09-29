@@ -1,0 +1,24 @@
+{
+  "companyKey": "medimeo-ch",
+  "companyName": "Medimeo AG",
+  "companyHost": "medimeo.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://medimeo.ch/offene-jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Fachärztin / Facharzt Dermatologie 60–100 % – zentrale Lage",
+    "Facharzt / Fachärztin Allgemeine Innere Medizin | Strukturierte Einarbeitung",
+    "Praktischer Arzt / Allgemeinmediziner – attraktive Lage in schöner Kleinstadt",
+    "Oberarzt / Oberärztin interdisziplinärer Notfall – In einem eingespielten Team mit kurzen Wegen",
+    "Teilzeit oder Vollzeit: Hausärztin / Hausarzt – moderne Gruppenpraxis mit guter Anbindung an Zürich"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-29T13:43:13.570Z"
+}
