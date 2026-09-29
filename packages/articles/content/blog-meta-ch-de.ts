@@ -7013,6 +7013,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stadler-nomina-nuovo-ceo.title': 'Stadler Rail: Philipp Brunner wird ab 2027 der neue CEO sein',
     'blog.article.stadler-nomina-nuovo-ceo.excerpt': 'Wechsel an der Spitze des Schweizer Eisenbahnkonzerns: Philipp Brunner folgt Markus Bernsteiner ab dem 1° gennaio 2027 nach. Halbjahresumsatz bei 2 Milliarden.',
     'blog.article.stadler-nomina-nuovo-ceo.imageAlt': 'Moderner Stadler-Zug in einer Schweizer Landschaft',
+    'blog.article.zugo-cybersecurity-de-escalation.title': 'Zug setzt auf Cybersicherheit: Deeskalation und Resilienz',
+    'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'Der Kanton Zug startet eine Initiative für Cybersicherheit mit dem Schwerpunkt auf präventiver Diplomatie, Mediation und Zusammenarbeit zwischen Staat und Privatsektor.',
+    'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Kompetenzzentrum für Cybersicherheit in Zug',
 };
 
 export default blogMetaChDe;
