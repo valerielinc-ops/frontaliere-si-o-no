@@ -376,6 +376,7 @@ function buildGhostActiveIndex(activeJobs) {
   for (const job of activeJobs) {
     const key = `${(job?.title || '').toLowerCase().trim()}||${(job?.company || '').toLowerCase().trim()}||${(job?.location || '').toLowerCase().trim()}`;
     if (!activeByTCL.has(key)) activeByTCL.set(key, job);
+    if (typeof job?.slug === 'string') activeSlugSet.add(job.slug);
     if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
       for (const slug of Object.values(job.slugByLocale)) activeSlugSet.add(slug);
     }
@@ -390,9 +391,12 @@ function buildGhostActiveIndex(activeJobs) {
 }
 
 function isGhostExpiredEntry(entry, activeIndex) {
-  const expiredSlugs = entry?.slugByLocale && typeof entry.slugByLocale === 'object'
-    ? Object.values(entry.slugByLocale)
-    : [];
+  const expiredSlugs = [
+    entry?.slug,
+    ...(entry?.slugByLocale && typeof entry.slugByLocale === 'object'
+      ? Object.values(entry.slugByLocale)
+      : []),
+  ];
   const hasSlugOverlap = expiredSlugs.some((slug) => activeIndex.activeSlugSet.has(slug));
   const key = `${(entry?.title || '').toLowerCase().trim()}||${(entry?.company || '').toLowerCase().trim()}||${(entry?.location || '').toLowerCase().trim()}`;
   const match = activeIndex.activeByTCL.get(key);
@@ -976,6 +980,7 @@ function pathMatchesProofTarget(filePath, proofPath) {
 
 function activeGhostReachableSlugs(job) {
   const values = [
+    job?.slug,
     ...Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
     ...(Array.isArray(job?.previousSlugs) ? job.previousSlugs : []),
     ...Object.values(
@@ -988,9 +993,10 @@ function activeGhostReachableSlugs(job) {
 }
 
 function expiredGhostOverlapSlugs(job) {
-  return new Set(nonEmptyStrings(
-    Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
-  ));
+  return new Set(nonEmptyStrings([
+    job?.slug,
+    ...Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
+  ]));
 }
 
 function hasEqualNonEmptyLocaleSlug(left, right) {

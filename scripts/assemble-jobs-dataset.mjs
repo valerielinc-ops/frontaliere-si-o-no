@@ -3501,7 +3501,10 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
   let mergedSlugs = 0;
 
   for (const ej of expiredJobs) {
-    const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
+    const expSlugs = [
+      ej.slug,
+      ...(ej.slugByLocale ? Object.values(ej.slugByLocale) : []),
+    ];
     const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
     const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
     const key = jobTclKey(ej);
