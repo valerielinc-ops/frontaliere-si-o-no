@@ -86,8 +86,9 @@ Giura, Basilea Città, Soletta e Zurigo (`scripts/import-pharmacy-duties-swiss-c
 verificano rispettivamente i PDF di Delémont, Ajoie e Moutier, compreso il
 calendario colorato scansionato, la dichiarazione cantonale di apertura
 24h/365 giorni della 24 Stunden Apotheke Basel AG, il calendario AVSO delle
-tre regioni di Soletta con intervalli verificati sui riferimenti ufficiali
-regionali e la dichiarazione AVKZ per la Bellevue Apotheke di Zurigo, prima di
+tre regioni di Soletta con intervalli verificati sul Gesundheitsamt SO e sulla
+pagina corrente della farmacia di Dornach e la dichiarazione AVKZ per la
+Bellevue Apotheke di Zurigo, prima di
 produrre lo snapshot atomico consumato da `buildDutyCoverageMatrix()`.
 La hub
 `/farmacie/` può quindi mostrare il link, il tipo e lo stato della fonte, ma

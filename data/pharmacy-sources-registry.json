@@ -223,7 +223,7 @@
       "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "SO",
-      "notes": "La fonte associativa AVSO pubblica il calendario corrente con identità, indirizzi e date per tutte le tre regioni del cantone; l'adattatore verifica le identità allowlistate e usa le fasce ufficiali domenicali/festive (Dorneck-Thierstein 09:00-12:00, Olten e Solothurn 10:00-12:00) per il calendario aggiornabile.",
+      "notes": "La fonte associativa AVSO pubblica il calendario corrente con identità, indirizzi e date per tutte le tre regioni del cantone; l'adattatore verifica le identità allowlistate. Le fasce correnti sono verificate sulla pagina ufficiale del Gesundheitsamt SO (Olten/Solothurn 10:00-12:00) e sulla pagina corrente Saner Dornach (Dorneck-Thierstein 09:00-12:00).",
       "sourceFetchedAt": "2026-09-29T16:00:00.000Z"
     },
     "schwyz": {

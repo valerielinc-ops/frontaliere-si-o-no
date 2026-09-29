@@ -64,6 +64,9 @@ const GERMAN_MONTHS = new Map([
   ['dezember', 12],
 ]);
 const SOLOTHURN_REGIONS = Object.freeze({
+  // AVSO supplies the date/identity assignment. The current cantonal health
+  // page confirms the 10:00–12:00 interval for Olten/Solothurn, while Saner
+  // Dornach publishes the current 09:00–12:00 Dorneck-Thierstein interval.
   'DORNECK-THIERSTEIN': Object.freeze({ key: 'dorneck-thierstein', coverageName: 'Dorneck-Thierstein', startsAt: '09:00', endsAt: '12:00' }),
   OLTEN: Object.freeze({ key: 'olten', coverageName: 'Olten', startsAt: '10:00', endsAt: '12:00' }),
   SOLOTHURN: Object.freeze({ key: 'solothurn', coverageName: 'Solothurn', startsAt: '10:00', endsAt: '12:00' }),
