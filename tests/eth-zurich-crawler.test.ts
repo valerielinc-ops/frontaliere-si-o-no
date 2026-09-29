@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  extractEthZurichDetailDescription,
   ETH_ZURICH_KEY,
   ETH_ZURICH_COMPANY_NAME,
   isEthZurichJob,
@@ -124,6 +127,31 @@ describe('ETH Zürich crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // Issue 5253: a `.slice(0, 4000)` cut long postings mid-list, and only the
+  // first `section.description` was read, so the application block and the
+  // «About ETH Zürich» paragraph never reached the published description.
+  describe('extractEthZurichDetailDescription — whole posting (real page, minimised)', () => {
+    const html = readFileSync(resolve(__dirname, 'fixtures', 'eth-zurich', 'detail-doctoral-position.html'), 'utf8');
+    const text = extractEthZurichDetailDescription(html);
+
+    it('keeps the task list to its last item instead of cutting at 4000 chars', () => {
+      expect(text.length).toBeGreaterThan(4000);
+      expect(text).toContain('• Support grant applications for the team and support related activities from Singapore-ETH Centre, Bezos Centre for Sustainable Protein at NUS, ETH World Food System Center WFSC, and ETH for Development ETH4D competence center');
+      expect(text).toContain('Profile\n• A MSc in Nutrition and Health');
+    });
+
+    it('reads the application block and the employer paragraph', () => {
+      expect(text).toContain('Curious? So are we.');
+      expect(text).toContain('• Motivation letter (max. 1 page)');
+      expect(text).toContain('About ETH Zürich');
+    });
+
+    it('drops page furniture and decodes entities', () => {
+      expect(text).not.toMatch(/Drucken|chevron_right|\bWorkplace\b/);
+      expect(text).not.toMatch(/&[a-zA-Z]+;/);
     });
   });
 });
