@@ -611,7 +611,7 @@ export function findNextListingPageUrl(html, pageUrl) {
     let next;
     try { next = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
     if (next.origin !== origin) continue;
-    const samePageFragment = /^\s*#/.test(hrefValue)
+    const samePageFragment = hrefValue.trim() === '#'
       && next.pathname === current.pathname
       && next.search === current.search;
     next.hash = '';
