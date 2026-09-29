@@ -5,6 +5,8 @@ import { sourceLangOfBody, sourceLangOfPosting, sourceSlotTitleAndSlug } from '.
 import { buildDelvitechLocalizedContent } from '../scripts/lib/delvitech-job-parser.mjs';
 import { guessPostingSourceLang } from '../scripts/lib/guess-job-parser.mjs';
 import { buildJobFromApi as buildSwissMedicalNetworkJob } from '../scripts/update-swiss-medical-network-jobs.mjs';
+import { postProcessPostJobs } from '../scripts/update-postch-jobs.mjs';
+import { postProcessPostFinanceJobs } from '../scripts/update-postfinance-jobs.mjs';
 
 // Pinned: published jobs of the runners that filed title and slug under a
 // fixed `en`/`it` key (main slice, 2026-09-29), #5253.
@@ -27,6 +29,29 @@ describe('title and slug in the source slot (#5253)', () => {
       titleByLocale: { de: 'Teamleiter Logistik' },
       slugByLocale: { de: 'teamleiter-logistik-post' },
     });
+  });
+
+  it.each([
+    ['Post.ch', postProcessPostJobs, 'posta-svizzera-centro-regionale', 'La Posta Svizzera', 'https://job.post.ch/default/job/x/1-de_DE'],
+    ['PostFinance', postProcessPostFinanceJobs, 'postfinance', 'PostFinance', 'https://job.post.ch/PostFinance/job/x/1/'],
+  ])('%s post-process adds a missing source slug slot without dropping the legacy key', (_label, postProcess, companyKey, company, url) => {
+    const job = {
+      url,
+      title: 'Teamleiter Logistik',
+      company,
+      companyKey,
+      location: 'Lugano',
+      canton: 'TI',
+      sourceLang: 'de',
+      description: 'Das ist eine deutsche Stellenbeschreibung fuer die Akzeptanzpruefung.',
+      descriptionByLocale: { de: 'Das ist eine deutsche Stellenbeschreibung fuer die Akzeptanzpruefung.' },
+      titleByLocale: { de: 'Teamleiter Logistik' },
+      slug: 'x',
+      slugByLocale: { it: 'x' },
+    };
+
+    const [processed] = postProcess([job]);
+    expect(processed.slugByLocale).toEqual({ it: 'x', de: 'x' });
   });
 
   // Main slice: 30 German and 31 French postings, every one with its title

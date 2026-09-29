@@ -810,9 +810,11 @@ function runBaseCrawler() {
 // Post-processing
 // ──────────────────────────────────────────────────────────────
 
-function postProcessPostJobs() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+export function postProcessPostJobs(jobsOverride = null) {
+  if (jobsOverride === null && !fs.existsSync(DATA_JOBS)) return;
+  const raw = jobsOverride === null
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : jobsOverride;
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -864,11 +866,12 @@ function postProcessPostJobs() {
     }
   }
 
-  if (fixed > 0) {
+  if (fixed > 0 && jobsOverride === null) {
     writeJsonAtomic(DATA_JOBS, jobs);
     writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} Post.ch jobs (fixed company/location/canton).`);
   }
+  return jobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1015,4 +1018,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Post.ch'));
+const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (_isMain) {
+  main().catch((err) => exitCrawlerOnError(err, 'Post.ch'));
+}

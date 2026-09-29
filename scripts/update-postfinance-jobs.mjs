@@ -1126,9 +1126,11 @@ function runBaseCrawler() {
 // Post-processing
 // ──────────────────────────────────────────────────────────────
 
-function postProcessPostFinanceJobs() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+export function postProcessPostFinanceJobs(jobsOverride = null) {
+  if (jobsOverride === null && !fs.existsSync(DATA_JOBS)) return;
+  const raw = jobsOverride === null
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : jobsOverride;
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1184,11 +1186,12 @@ function postProcessPostFinanceJobs() {
     }
   }
 
-  if (fixed > 0) {
+  if (fixed > 0 && jobsOverride === null) {
     writeJsonAtomic(DATA_JOBS, jobs);
     writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} PostFinance jobs (fixed company/location/canton).`);
   }
+  return jobs;
 }
 
 // ──────────────────────────────────────────────────────────────
