@@ -12257,6 +12257,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-rapina-mediaworld-varese.title': 'Varese, il vole chez MediaWorld et bouscule l’agent de sécurité : arrêté',
     'blog.article.arresto-rapina-mediaworld-varese.excerpt': 'Jeune homme arrêté pour vol avec violences au MediaWorld de Varese après avoir volé un téléphone et bousculé un agent de sécurité.',
     'blog.article.arresto-rapina-mediaworld-varese.imageAlt': 'Magasin MediaWorld à Varèse (Varese)',
+    'blog.article.pasture-chiusura-garanzie.title': 'Fermeture de Chiasso, inquiétudes parmi le personnel de Pasture',
+    'blog.article.pasture-chiusura-garanzie.excerpt': 'La SEM garantit la réouverture de la structure de Chiasso ; le front syndical défend les emplois et signale des licenciements à venir, sans certitudes.',
+    'blog.article.pasture-chiusura-garanzie.imageAlt': 'Vue de Chiasso liée aux inquiétudes du personnel de Pasture',
 };
 
 export default blogMetaFr;

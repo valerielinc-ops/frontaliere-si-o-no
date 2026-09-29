@@ -96793,6 +96793,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pasture-chiusura-garanzie': {
+    title: 'Chiusura di Chiasso, timori tra il personale di Pasture',
+    description: 'La SEM garantisce la riapertura della struttura di Chiasso; il fronte sindacale difende i posti di lavoro e segnala licenziamenti in vista, senza certezze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, chiasso, timori, personale',
+    ogTitle: 'Pasture, preoccupazione per la chiusura di Chiasso',
+    ogDescription: 'Il personale di Pasture vive con grande preoccupazione la chiusura di Chiasso. La SEM dà garanzie sulla riapertura della struttura, mentre il fronte sindacale intende lottare per la tutela dei posti di lavoro e segnala l\'incertezza sui licenziamenti.',
+    canonicalPath: '/articoli-frontaliere/pasture-chiusura-garanzie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura di Chiasso, timori tra il personale di Pasture",
+      "description": "La SEM garantisce la riapertura della struttura di Chiasso; il fronte sindacale difende i posti di lavoro e segnala licenziamenti in vista, senza certezze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pasture-chiusura-garanzie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scorcio di Chiasso legato alla preoccupazione del personale di Pasture"
+      },
+      "datePublished": "2026-09-29T03:52:08+00:00",
+      "dateModified": "2026-09-29T03:52:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasture-chiusura-garanzie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
