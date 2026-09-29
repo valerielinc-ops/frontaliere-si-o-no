@@ -145,6 +145,10 @@ const VERDICTS: Record<string, Verdict> = {
     verdict: 'terms-based',
     why: 'saving a job activates this additional channel; delivery still respects the central hard/global stop',
   },
+  'scripts/send-application-intent-reminders.mjs': {
+    verdict: 'not-a-broadcast',
+    why: 'one-shot reminder recipients come from authenticated application-intent records created by an explicit Apply action, not from the newsletter subscriber population; the sender still checks the central cross-channel stop',
+  },
   'scripts/send-cold-emails.mjs': {
     verdict: 'not-a-broadcast',
     why: 'employer outreach over employer_contacts — never touches the subscriber collections',

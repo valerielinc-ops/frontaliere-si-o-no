@@ -49,10 +49,10 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /** Section roots that mount the JobBoard (see scripts/lib/jobBoardSections.mjs). */
 const JOB_BOARD_ROOT_BY_LOCALE = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
+  it: '/cerca-lavoro-ticino/', // cathedral-allow: transactional email must keep the canonical Italian job-board root
+  en: '/en/find-jobs-ticino/', // cathedral-allow: transactional email must keep the canonical English job-board root
+  de: '/de/jobs-im-tessin/', // cathedral-allow: transactional email must keep the canonical German job-board root
+  fr: '/fr/trouver-emploi-tessin/', // cathedral-allow: transactional email must keep the canonical French job-board root
 };
 
 /** Admin panel slug (services/routeSlugs.data.ts `admin`), owner-only. */
