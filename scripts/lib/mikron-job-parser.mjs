@@ -14,6 +14,7 @@
 import { isSwissLocationText } from './target-swiss-locations.mjs';
 import { normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { dropFabricatedLocaleText } from './source-locale-description.mjs';
 
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
 export const MIKRON_HOST = 'www.mikron.com';
@@ -296,11 +297,7 @@ function mikronJobContentText(html = '') {
 const MIKRON_IT_FALLBACK_RE = /^Posizione aperta: [\s\S]*? presso Mikron Group [\s\S]*Mikron Group è un leader globale/;
 
 export function dropMikronItalianFallback(job) {
-  const it = job?.descriptionByLocale?.it;
-  if (typeof it !== 'string' || !MIKRON_IT_FALLBACK_RE.test(it.trim())) return false;
-  delete job.descriptionByLocale.it;
-  job.needsRetranslation = true;
-  return true;
+  return dropFabricatedLocaleText(job, 'it', MIKRON_IT_FALLBACK_RE);
 }
 
 /**

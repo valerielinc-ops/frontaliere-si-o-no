@@ -32,10 +32,16 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
 import {
   isSwissLocationText,
   isTargetSwissLocation,
@@ -322,13 +328,29 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
-function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at Bracco Suisse S.A. in ${location}, Switzerland.`;
-  return `${base}\n\nBracco Suisse S.A. is part of the Bracco Group, an international leader in diagnostic imaging and healthcare. Its Swiss vacancies are published from the complete Swiss source feed; Cadempino (Ticino) and Plan-les-Ouates (Geneva) are among its known offices, while the location on each vacancy is authoritative.`.trim();
+/**
+ * Description fields of one posting: the Workday `jobDescription` text in its
+ * own language. The runner used to append an English paragraph about Bracco
+ * Suisse to it and to write an Italian company blurb of its own into
+ * `descriptionByLocale.it` ("Posizione aperta presso Bracco Suisse S.A. a …");
+ * neither was published by the source. The title-only sentence is kept as the
+ * last resort for a posting without any text.
+ */
+export function buildBraccoDescriptionFields(title, descriptionText, location) {
+  return sourceLocaleDescription(descriptionText, {
+    fallback: `${title} position at Bracco Suisse S.A. in ${location}, Switzerland.`,
+  });
 }
 
-function buildDescriptionIt(title, location) {
-  return `Posizione aperta presso Bracco Suisse S.A. a ${location}.\nRuolo: ${title}.\n\nBracco Suisse S.A. fa parte del Gruppo Bracco, leader internazionale nell'imaging diagnostico e nella sanità. Le offerte svizzere provengono dall'intero feed nazionale; Cadempino (Ticino) e Plan-les-Ouates (Ginevra) sono tra le sedi note, mentre la località indicata nell'annuncio resta il riferimento autorevole.`.trim();
+// Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
+const BRACCO_IT_BLURB_RE = /^Posizione aperta presso Bracco Suisse S\.A\. a [\s\S]*Gruppo Bracco/;
+const BRACCO_APPENDED_BLURB_RE = /Bracco Suisse S\.A\. is part of the Bracco Group, an international leader in diagnostic imaging and healthcare\./;
+
+/** Remove the fabricated text of the former builders from a stored job. */
+export function dropBraccoFabricatedText(job) {
+  const it = dropFabricatedLocaleText(job, 'it', BRACCO_IT_BLURB_RE);
+  const derived = dropTranslationsOfFabricatedSource(job, BRACCO_APPENDED_BLURB_RE);
+  return it || derived;
 }
 
 /**
@@ -344,7 +366,7 @@ function buildPublicUrl(externalPath) {
 // Fetch and build all Bracco Swiss jobs
 // ─────────────────────────────────────────────────────────────
 
-async function fetchBraccoJobs() {
+export async function fetchBraccoJobs() {
   console.log(`🔍 Fetching Bracco Suisse S.A. jobs from Workday API`);
   console.log(`   API: ${BRACCO_API_BASE}/jobs`);
   console.log(`   Keeping concrete Swiss locations across all 26 cantons by location text\n`);
@@ -409,8 +431,7 @@ async function fetchBraccoJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
-    const descEn = buildDescription(title, descriptionText, city);
-    const descIt = buildDescriptionIt(title, city);
+    const { description, descriptionByLocale, sourceLang } = buildBraccoDescriptionFields(title, descriptionText, city);
 
     const slug = slugify(title, 'bracco-suisse');
     const employmentType = detectEmploymentType(info.timeType || '');
@@ -425,11 +446,8 @@ async function fetchBraccoJobs() {
       location: city,
       canton,
       country,
-      description: descEn,
-      descriptionByLocale: {
-        en: descEn,
-        it: descIt,
-      },
+      description,
+      descriptionByLocale,
       titleByLocale: {
         en: title,
       },
@@ -443,7 +461,7 @@ async function fetchBraccoJobs() {
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       sector: 'Healthcare / Imaging diagnostico',
       _targetScope: { canton, location: city },
     };
@@ -478,6 +496,8 @@ async function mergeBraccoJobs(discoveredJobs) {
 
   const nonBraccoJobs = allJobs.filter((j) => !isBraccoJob(j));
   const existingBraccoJobs = allJobs.filter(isBraccoJob);
+  const fossils = existingBraccoJobs.filter((job) => dropBraccoFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped fabricated Bracco text from ${fossils} stored job(s); they will be retranslated`);
 
   const existingKeys = new Set(
     existingBraccoJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -728,4 +748,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Bracco Suisse'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Bracco Suisse'));
+}

@@ -45,8 +45,12 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -338,13 +342,29 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
-function buildDescription(title, descriptionText, location) {
-  const base = descriptionText || `${title} position at FNZ${location ? ` in ${location}` : ' in Switzerland'}.`;
-  return `${base}\n\nFNZ is a global fintech platform provider that partners with financial institutions, wealth managers, and asset managers. The company operates from multiple locations in Switzerland.`.trim();
+/**
+ * Description fields of one posting: the Workday `jobDescription` text in its
+ * own language. The runner used to append an English paragraph about FNZ to
+ * it and to write an Italian company blurb of its own into
+ * `descriptionByLocale.it` ("Posizione aperta presso FNZ a …"); neither was
+ * published by the source. The title-only sentence is kept as the last resort
+ * for a posting without any text.
+ */
+export function buildFnzDescriptionFields(title, descriptionText, location) {
+  return sourceLocaleDescription(descriptionText, {
+    fallback: `${title} position at FNZ${location ? ` in ${location}` : ' in Switzerland'}.`,
+  });
 }
 
-function buildDescriptionIt(title, location) {
-  return `Posizione aperta presso FNZ${location ? ` a ${location}` : ' in Svizzera'}.\nRuolo: ${title}.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie, gestori patrimoniali e asset manager. L'azienda opera da più sedi in Svizzera.`.trim();
+// Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
+const FNZ_IT_BLURB_RE = /^Posizione aperta presso FNZ\b[\s\S]*provider globale di piattaforme fintech/;
+const FNZ_APPENDED_BLURB_RE = /FNZ is a global fintech platform provider that partners with financial institutions/;
+
+/** Remove the fabricated text of the former builders from a stored job. */
+export function dropFnzFabricatedText(job) {
+  const it = dropFabricatedLocaleText(job, 'it', FNZ_IT_BLURB_RE);
+  const derived = dropTranslationsOfFabricatedSource(job, FNZ_APPENDED_BLURB_RE);
+  return it || derived;
 }
 
 /** Resolve a Workday location list while preserving national fallback data. */
@@ -371,7 +391,7 @@ function buildPublicUrl(externalPath) {
 
 /* ── Fetch and build all FNZ Swiss jobs ────────────────────── */
 
-async function fetchFnzJobs() {
+export async function fetchFnzJobs() {
   console.log(`🔍 Fetching FNZ jobs from Workday API`);
   console.log(`   API: ${FNZ_API_BASE}/jobs`);
   console.log(`   Keeping Swiss locations across all 26 cantons by location text\n`);
@@ -446,8 +466,7 @@ async function fetchFnzJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
-    const descEn = buildDescription(title, descriptionText, location);
-    const descIt = buildDescriptionIt(title, location);
+    const { description, descriptionByLocale, sourceLang } = buildFnzDescriptionFields(title, descriptionText, location);
 
     const slug = slugify(title, 'fnz');
     const employmentType = detectEmploymentType(info.timeType || '');
@@ -465,11 +484,8 @@ async function fetchFnzJobs() {
       addressCountry: 'CH',
       canton,
       country: 'CH',
-      description: descEn,
-      descriptionByLocale: {
-        en: descEn,
-        it: descIt,
-      },
+      description,
+      descriptionByLocale,
       titleByLocale: {
         en: title,
       },
@@ -481,7 +497,7 @@ async function fetchFnzJobs() {
       category: detectCategory(title),
       datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'fnz-workday-crawler',
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Fintech / Servizi finanziari',
@@ -520,6 +536,8 @@ async function mergeFnzJobs(discoveredJobs) {
 
   const nonFnzJobs = allJobs.filter((j) => !isFnzJob(j));
   const existingFnzJobs = allJobs.filter(isFnzJob);
+  const fossils = existingFnzJobs.filter((job) => dropFnzFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped fabricated FNZ text from ${fossils} stored job(s); they will be retranslated`);
 
   const existingKeys = new Set(
     existingFnzJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

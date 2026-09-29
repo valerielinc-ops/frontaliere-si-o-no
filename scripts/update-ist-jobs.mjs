@@ -53,9 +53,13 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
   isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -406,22 +410,35 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-function buildDescription(title, descriptionText, location, canton) {
-  const region = getCantonDisplayName(canton, 'en') || 'Switzerland';
-  const place = location || region;
-  const base = descriptionText || `${title} position at the International School of Ticino in ${place}, Switzerland.`;
-  return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${place}, IST offers a stimulating international learning environment in ${region}.`.trim();
+/**
+ * Description fields of one posting: the detail page's own text in its own
+ * language. The runner used to append an English paragraph about IST and
+ * Inspired Education to it and to write an Italian company blurb of its own
+ * into `descriptionByLocale.it` ("Posizione aperta presso la International
+ * School of Ticino a …"); neither was published by the source. The title-only
+ * sentence is kept as the last resort for a posting without any text.
+ */
+export function buildIstDescriptionFields(title, descriptionText, location, canton) {
+  const place = location || getCantonDisplayName(canton, 'en') || 'Switzerland';
+  return sourceLocaleDescription(descriptionText, {
+    fallback: `${title} position at the International School of Ticino in ${place}, Switzerland.`,
+  });
 }
 
-function buildDescriptionIt(title, location, canton) {
-  const region = getCantonDisplayName(canton, 'it') || 'Svizzera';
-  const place = location || region;
-  return `Posizione aperta presso la International School of Ticino a ${place}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${place}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
+// Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
+const IST_IT_BLURB_RE = /^Posizione aperta presso la International School of Ticino\b[\s\S]*Inspired Education Group/;
+const IST_APPENDED_BLURB_RE = /The International School of Ticino \(IST\) is part of the Inspired Education Group/;
+
+/** Remove the fabricated text of the former builders from a stored job. */
+export function dropIstFabricatedText(job) {
+  const it = dropFabricatedLocaleText(job, 'it', IST_IT_BLURB_RE);
+  const derived = dropTranslationsOfFabricatedSource(job, IST_APPENDED_BLURB_RE);
+  return it || derived;
 }
 
 /* ── Fetch and build all IST jobs ──────────────────────────── */
 
-async function fetchIstJobs() {
+export async function fetchIstJobs() {
   console.log(`🏫 Fetching International School of Ticino jobs`);
   console.log(`   Portal: ${IST_COMPANY_HOST}\n`);
 
@@ -473,8 +490,7 @@ async function fetchIstJobs() {
     }
     const publicUrl = detail.canonicalUrl || url;
 
-    const descEn = buildDescription(title, detail.description, city, canton);
-    const descIt = buildDescriptionIt(title, city, canton);
+    const { description, descriptionByLocale, sourceLang } = buildIstDescriptionFields(title, detail.description, city, canton);
 
     const slug = slugify(title, 'ist');
 
@@ -487,11 +503,8 @@ async function fetchIstJobs() {
       location: city,
       canton,
       country: 'CH',
-      description: descEn,
-      descriptionByLocale: {
-        en: descEn,
-        it: descIt,
-      },
+      description,
+      descriptionByLocale,
       titleByLocale: {
         en: title,
       },
@@ -505,7 +518,7 @@ async function fetchIstJobs() {
         ? new Date(detail.datePosted).toISOString().split('T')[0]
         : new Date().toISOString().split('T')[0],
       source: 'ist-inspirededu-crawler',
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(title),
       sector: 'Istruzione / Scuola internazionale',
@@ -538,6 +551,8 @@ async function mergeIstJobs(discoveredJobs) {
 
   const nonIstJobs = allJobs.filter((j) => !isLegacyIstJob(j));
   const existingIstJobs = allJobs.filter(isLegacyIstJob);
+  const fossils = existingIstJobs.filter((job) => dropIstFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped fabricated IST text from ${fossils} stored job(s); they will be retranslated`);
 
   const existingKeys = new Set(
     existingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

@@ -411,6 +411,17 @@ export function parseDetailPage(html = '') {
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
+ * Language of the published description. Titles are mixed German/English
+ * and too short for detectLang, so the former title-based detection could key
+ * a German body under `en` (or the reverse) — the same defect kulm-hotel had.
+ * The description is what `descriptionByLocale[sourceLang]` holds, so its own
+ * text decides; the title only when there is no description at all.
+ */
+export function integraSourceLang(descriptionText = '', title = '') {
+  return detectLang(String(descriptionText || '').trim() || title, 'en');
+}
+
+/**
  * Fetch all INTEGRA Biosciences Swiss jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -497,8 +508,7 @@ export async function fetchAllIntegraBiosciencesJobs() {
     }
     const contract = (pensumMax && pensumMax < 90) ? 'part-time' : 'full-time';
 
-    // Source language: titles are often German or English (mixed)
-    const sourceLang = detectLang(title, 'en');
+    const sourceLang = integraSourceLang(descriptionText, title);
 
     const job = {
       // ── Required fields ──
