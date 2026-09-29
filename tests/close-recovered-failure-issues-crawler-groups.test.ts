@@ -31,6 +31,7 @@ import {
   CRAWLER_GROUP_COMPLETED_ANNOTATION_RE,
   CRAWLER_GROUP_INTERRUPTED_ANNOTATION_RE,
   CRAWLER_GROUP_TOLERATED_COUNT_RE,
+  CRAWLER_QUARANTINE_OUTCOMES_NOTICE_TITLE,
   crawlerRunToken,
   crawlerWorkflowReference,
   checkRunApiPath,
@@ -42,6 +43,7 @@ import {
   isCrawlerRecoveryBranch,
   sortCrawlerRecoveryRuns,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
+import { QUARANTINE_OUTCOMES_NOTICE_TITLE } from '../scripts/lib/crawler-quarantine.mjs';
 
 describe('TITLE_RE — parses the three auto-generated failure-title prefixes', () => {
   it('parses a Crawler Failure title (post-consolidation: "Run <slug>" identifier)', () => {
@@ -178,7 +180,16 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     expect(findCrawlerGroupWorkflow('roche', tmpDir)).toEqual({
       filename: 'crawler-group-01.yml',
       name: 'Crawler Group 01 (2 crawlers)',
+      quarantine: false,
     });
+  });
+
+  it('marks the quarantine group from the outcomes notice its aggregate emits', () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'close-recovered-test-'));
+    writeGroupFile(tmpDir, 'crawler-group-24.yml', 'Crawler Group 24 (quarantine)', ['protectas']);
+    fs.appendFileSync(path.join(tmpDir, 'crawler-group-24.yml'),
+      `      - name: Aggregate\n        run: echo "::notice title=${CRAWLER_QUARANTINE_OUTCOMES_NOTICE_TITLE}::{}"\n`);
+    expect(findCrawlerGroupWorkflow('protectas', tmpDir)?.quarantine).toBe(true);
   });
 
   it('uses the filename when crawler runs live in a different repository', () => {
@@ -237,6 +248,9 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     const name = findCrawlerGroupWorkflowName('roche', realWorkflowsDir);
     expect(name).not.toBeNull();
     expect(name).toMatch(/^Crawler Group \d+/);
+    // Il gruppo di quarantena reale si riconosce, gli altri no.
+    expect(findCrawlerGroupWorkflow('protectas', realWorkflowsDir)?.quarantine).toBe(true);
+    expect(findCrawlerGroupWorkflow('roche', realWorkflowsDir)?.quarantine).toBe(false);
   });
 
   it('wires the site reconciler to the repository that now hosts crawler runs', () => {
@@ -480,6 +494,58 @@ describe('decideCrawlerMemberConclusion — a missing line proves green only aga
       { annotation_level: 'failure', message: 'lwphr: crawler exited with status 1' },
     ]];
     expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: pages })).toBeNull();
+  });
+});
+
+// #7483, secondo 🔴 della review di nanakokyobashi-rgb/frontaliere-articles#1973: il gruppo di
+// quarantena chiude verde anche con fallimenti noti, e il warning che li segnala può
+// essere scartato dai tetti di GitHub. Il verdetto per membro si legge dal notice.
+describe('decideCrawlerMemberConclusion — the quarantine group reads the outcomes notice', () => {
+  const quarantineJob = (jobConclusion: string) => ({
+    stepStatus: 'completed', stepConclusion: 'success', jobConclusion, quarantineGroup: true,
+  });
+  const notice = (outcomes: Record<string, string>) => ({
+    annotation_level: 'notice',
+    title: CRAWLER_QUARANTINE_OUTCOMES_NOTICE_TITLE,
+    message: JSON.stringify({ schemaVersion: 1, group: '24', outcomes }),
+  });
+  const outcomes = { anicura: 'success', protectas: 'failure', lidl: 'missing', fust: 'systemic' };
+
+  it('keeps the title in sync with the quarantine module that generates the notice', () => {
+    expect(CRAWLER_QUARANTINE_OUTCOMES_NOTICE_TITLE).toBe(QUARANTINE_OUTCOMES_NOTICE_TITLE);
+  });
+
+  it('a known failure stays non-green on a green job even when its warning was dropped', () => {
+    // Nessun warning `protectas: fallimento noto in quarantena`: prima bastava a dire verde.
+    const pages = [[notice(outcomes)]];
+    expect(decideCrawlerMemberConclusion({ ...quarantineJob('success'), slug: 'protectas', annotationPages: pages })).toBe('failure');
+    expect(decideCrawlerMemberConclusion({ ...quarantineJob('success'), slug: 'anicura', annotationPages: pages })).toBe('success');
+  });
+
+  it('missing and systemic members are not green, on a green or red job', () => {
+    for (const jobConclusion of ['success', 'failure']) {
+      for (const slug of ['lidl', 'fust']) {
+        expect(decideCrawlerMemberConclusion({ ...quarantineJob(jobConclusion), slug, annotationPages: [[notice(outcomes)]] })).toBe('failure');
+      }
+    }
+  });
+
+  it('returns null without a single readable notice naming the member', () => {
+    for (const annotationPages of [
+      undefined, null, [], [[]],
+      [[{ annotation_level: 'warning', message: 'quarantine group: 16 succeeded, 1 known failures excluded' }]],
+      [[{ ...notice(outcomes), message: '{not json' }]],
+      [[notice(outcomes), notice(outcomes)]],
+      [[notice({ protectas: 'failure' })]],
+    ]) {
+      expect(decideCrawlerMemberConclusion({ ...quarantineJob('success'), slug: 'anicura', annotationPages })).toBeNull();
+    }
+  });
+
+  it('a cancelled or timed-out quarantine job keeps its own conclusion', () => {
+    for (const jobConclusion of ['cancelled', 'timed_out']) {
+      expect(decideCrawlerMemberConclusion({ ...quarantineJob(jobConclusion), slug: 'anicura', annotationPages: [[notice(outcomes)]] })).toBe(jobConclusion);
+    }
   });
 });
 
