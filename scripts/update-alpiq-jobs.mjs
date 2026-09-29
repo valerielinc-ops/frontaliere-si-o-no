@@ -23,13 +23,14 @@ import {
   repairThinAlpiqLocaleDescriptions,
   dropAlpiqFabricatedText,
 } from './lib/alpiq-job-parser.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, normalizeSpace } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCantonPostalFallback } from './lib/canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -53,8 +54,10 @@ const ALPIQ_SAFE_DEFAULT_ADDRESS = {
   postalCode: '1003',
   streetAddress: 'Chemin de Mornex 10',
 };
-function resolveAlpiqPostalCode(location = '', canton = '') {
-  return officialLocalityPostalCode(location, canton) || getCantonPostalFallback(canton)
+export function resolveAlpiqPostalCode(location = '', canton = '', sourcePostalCode = '') {
+  return normalizeSpace(sourcePostalCode)
+    || officialLocalityPostalCode(location, canton)
+    || getCantonPostalFallback(canton)
     || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode;
 }
 
@@ -124,10 +127,16 @@ async function main() {
     // company sentence that used to stand in for a missing description, and
     // the copy of a non-Italian description in the `it` slot, are gone.
     const { description: desc, descriptionByLocale, sourceLang } = sourceLocaleDescription(raw.description);
-    const sourceLocation = String(raw.location || '').trim();
+    const sourceLocation = normalizeSpace(raw.location || '');
+    const sourcePostalCode = normalizeSpace(
+      raw.postalCode || raw.zipCode || raw.zip || sourceLocation.match(/\b(\d{4})\b/)?.[1] || '',
+    );
+    const sourceStreetAddress = normalizeSpace(raw.streetAddress || raw.street || '');
     const hasConcreteLocation = Boolean(sourceLocation && !/^switzerland$/i.test(sourceLocation));
-    const location = hasConcreteLocation ? sourceLocation : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
-    const canton = inferAnyCanton(sourceLocation) || ALPIQ_SAFE_DEFAULT_ADDRESS.canton;
+    const location = hasConcreteLocation
+      ? sourceLocation.replace(/^\d{4}\s+/u, '').trim()
+      : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
+    const canton = inferAnyCanton(location) || ALPIQ_SAFE_DEFAULT_ADDRESS.canton;
     return {
       // Title, slug and requirements are keyed by the same source-language
       // slot as the description (4 of 5 Alpiq postings are English), not a
@@ -140,9 +149,11 @@ async function main() {
       location,
       canton,
       postalCode: hasConcreteLocation
-        ? resolveAlpiqPostalCode(location, canton)
-        : ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode,
-      streetAddress: hasConcreteLocation ? '' : ALPIQ_SAFE_DEFAULT_ADDRESS.streetAddress,
+        ? resolveAlpiqPostalCode(location, canton, sourcePostalCode)
+        : sourcePostalCode || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode,
+      streetAddress: hasConcreteLocation
+        ? sourceStreetAddress || location
+        : sourceStreetAddress || ALPIQ_SAFE_DEFAULT_ADDRESS.streetAddress,
       addressLocality: location,
       addressRegion: canton,
       addressCountry: 'CH',
@@ -172,4 +183,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Alpiq'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Alpiq'));
+}

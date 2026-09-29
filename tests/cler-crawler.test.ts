@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
-import { buildDescription, fetchJobListings } from '../scripts/update-cler-jobs.mjs';
+import { buildDescription, fetchJobListings, resolveBranchAddress } from '../scripts/update-cler-jobs.mjs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
 import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear, collapseClerDuplicateRequisitions, isClerPlaceholderDescription, resolveClerJobBody, clearClerPlaceholderSlots } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
@@ -541,6 +541,24 @@ describe('extractJobMeta — JobPosting location source of truth', () => {
     const meta = extractJobMeta(html);
     expect(meta.arbeitsort).toBe('Lugano');
     expect(meta.pensum).toBe('100%');
+  });
+});
+
+describe('resolveBranchAddress — source precedence and non-empty street fallback', () => {
+  it('keeps the source ZIP and uses the source locality when no street is supplied', () => {
+    expect(resolveBranchAddress('6500 Biel')).toMatchObject({
+      city: 'Biel',
+      postalCode: '6500',
+      street: 'Biel',
+    });
+  });
+
+  it('keeps a source street when the detail page supplies one', () => {
+    expect(resolveBranchAddress('Biel', 'Nidaugasse 35')).toMatchObject({
+      city: 'Biel',
+      postalCode: '2502',
+      street: 'Nidaugasse 35',
+    });
   });
 });
 

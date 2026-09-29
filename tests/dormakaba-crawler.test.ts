@@ -205,7 +205,8 @@ describe('fetchAllDormakabaJobs (recruiting-solutions.org search API)', () => {
     const j = jobs[0];
     expect(j.title).toBe('Servicetechniker Zutrittskontrolle (a) 100%');
     expect(j.location).toBe('Wetzikon');
-    expect(j.postalCode).toBe('8623');
+    // The official locality directory wins over the verified office fallback.
+    expect(j.postalCode).toBe('8620');
     expect(j.streetAddress).toBe('Mühlebühlstrasse 23');
     expect(j.canton).toBe('ZH');
     expect(j.employmentType).toBe('FULL_TIME');
@@ -262,7 +263,21 @@ describe('fetchAllDormakabaJobs (recruiting-solutions.org search API)', () => {
     expect(jobs[0].location).toBe('Le Mont-sur-Lausanne');
     expect(jobs[0].canton).toBe('VD');
     expect(jobs[0].postalCode).toBe('1052');
-    expect(jobs[0].streetAddress).toBeUndefined();
+    expect(jobs[0].streetAddress).toBe('Le Mont-sur-Lausanne');
+  });
+
+  it('uses the canton postal fallback for a concrete locality absent from the directory', async () => {
+    mockSearch([
+      apiRecord({
+        jobId: '30003-de_DE',
+        addresses: [{ city: 'Neuchâtel et Vallées', country: 'Schweiz', isPrimary: true }],
+      }),
+    ]);
+    const jobs = await fetchAllDormakabaJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('Neuchâtel et Vallées');
+    expect(jobs[0].postalCode).toBe('2000');
+    expect(jobs[0].streetAddress).toBe('Neuchâtel et Vallées');
   });
 
   it('skips records whose description is empty instead of synthesising one', async () => {

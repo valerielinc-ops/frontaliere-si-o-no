@@ -150,6 +150,7 @@ describe('Raiffeisen (national) crawler parser', () => {
           szas: {
             sza_title: 'Kundenberater/in',
             'sza_location.city': 'Reiden',
+            'sza_location.zip': '6500',
             'sza_location.country': 'Schweiz',
             'sza_location.street': 'Dorfstrasse 7',
             sza_introduction: 'Beratung und Betreuung von Kundinnen und Kunden in einem regionalen Raiffeisen-Team.',
@@ -165,7 +166,7 @@ describe('Raiffeisen (national) crawler parser', () => {
         addressLocality: 'Reiden',
         canton: 'LU',
         addressRegion: 'LU',
-        postalCode: '6260',
+        postalCode: '6500',
         streetAddress: 'Dorfstrasse 7',
       });
     });
@@ -191,6 +192,7 @@ describe('Raiffeisen (national) crawler parser', () => {
       expect(jobs[0].location).toBe('Neuchâtel et Vallées');
       expect(jobs[0].canton).toBe('NE');
       expect(jobs[0].postalCode).toBe('2000');
+      expect(jobs[0].streetAddress).toBe('Neuchâtel et Vallées');
     });
 
     it('fails loudly when the API total is not fully read', async () => {

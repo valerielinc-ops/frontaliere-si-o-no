@@ -321,11 +321,11 @@ describe('fetchAllSfsGroupJobs', () => {
     const href2 = '/ch/en/vacancies/mitarbeiter-in-kommissionierung-50-(m-f-d).html';
     const listingHtml = buildListingHtml([
       listingRow(href1, 'Digital Process Manager (m/f/d) 100%', 'Heerbrugg, Schweiz', 'SFS Group Schweiz AG'),
-      listingRow(href2, 'Mitarbeiter/in Kommissionierung 50 % (m/f/d) 50%', 'Rebstein, Schweiz', 'SFS Group Schweiz AG'),
+      listingRow(href2, 'Mitarbeiter/in Kommissionierung 50 % (m/f/d) 50%', 'Neuchâtel et Vallées, Schweiz', 'SFS Group Schweiz AG'),
     ]);
     stubFetch(listingHtml, {
       [href1]: buildDetailHtml({ vacancyId: '2956' }),
-      [href2]: buildDetailHtml({ vacancyId: '3010', intro: 'Kommissionierung am Standort Rebstein.' }),
+      [href2]: buildDetailHtml({ vacancyId: '3010', intro: 'Kommissionierung am Standort Neuchâtel et Vallées.' }),
     });
 
     const jobs = await fetchAllSfsGroupJobs();
@@ -346,11 +346,11 @@ describe('fetchAllSfsGroupJobs', () => {
 
     const commissioning = jobs.find((j) => j.url.includes(href2));
     expect(commissioning).toBeTruthy();
-    expect(commissioning.location).toBe('Rebstein');
-    // Rebstein is NOT Heerbrugg — must NOT inherit the HQ street address.
-    expect(commissioning.streetAddress).toBeUndefined();
-    // The ZIP follows the source locality, not the canton capital.
-    expect(commissioning.postalCode).toBe('9445');
+    expect(commissioning.location).toBe('Neuchâtel et Vallées');
+    // An unresolved source locality keeps its own name as street fallback and
+    // receives the verified canton representative ZIP.
+    expect(commissioning.streetAddress).toBe('Neuchâtel et Vallées');
+    expect(commissioning.postalCode).toBe('2000');
     expect(commissioning.employmentType).toBe('PART_TIME');
   });
 

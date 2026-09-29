@@ -131,11 +131,11 @@ describe('migrolino crawler parser', () => {
 
   // ── resolveAddress (source-backed fields + safe structured-data fallbacks) ──
   describe('resolveAddress', () => {
-    it('derives Suhr ZIP and a source-city street label when the source omits the street', () => {
+    it('derives Suhr ZIP and uses the source locality when the source omits the street', () => {
       const resolved = resolveAddress({ city: 'Suhr' });
       expect(resolved.city).toBe('Suhr');
       expect(resolved.postalCode).toBe('5034');
-      expect(resolved.streetAddress).toBe('Suhr city centre');
+      expect(resolved.streetAddress).toBe('Suhr');
     });
 
     it('derives a locality ZIP and source-city street label for Baden AG', () => {
@@ -143,20 +143,26 @@ describe('migrolino crawler parser', () => {
       expect(resolved.city).toBe('Baden');
       expect(resolved.canton).toBe('AG');
       expect(resolved.postalCode).toBe('5400');
-      expect(resolved.streetAddress).toBe('Baden city centre');
+      expect(resolved.streetAddress).toBe('Baden');
     });
 
     it('uses the source city for another locality ZIP (Wohlen AG)', () => {
       const resolved = resolveAddress({ city: 'Wohlen' }, 'AG');
       expect(resolved.city).toBe('Wohlen');
       expect(resolved.postalCode).toBe('5610');
-      expect(resolved.streetAddress).toBe('Wohlen city centre');
+      expect(resolved.streetAddress).toBe('Wohlen');
     });
 
     it('preserves a source postal code even when the source omits its locality', () => {
       const resolved = resolveAddress({ postalCode: '6500' }, 'TI');
       expect(resolved.postalCode).toBe('6500');
       expect(resolved.city).toBe('');
+    });
+
+    it('keeps a source postal code ahead of the official locality lookup', () => {
+      const resolved = resolveAddress({ city: 'Suhr', postalCode: '6500' }, 'AG');
+      expect(resolved.postalCode).toBe('6500');
+      expect(resolved.streetAddress).toBe('Suhr');
     });
 
     it('preserves a real per-store street address when the source already provides one', () => {
@@ -173,12 +179,12 @@ describe('migrolino crawler parser', () => {
       });
     });
 
-    it('leaves address fields empty when the source gives no locality', () => {
+    it('uses the verified default postal code when the source gives no locality', () => {
       const resolved = resolveAddress({});
       expect(resolved).toEqual({
         city: '',
         canton: '',
-        postalCode: '',
+        postalCode: '3000',
         streetAddress: '',
       });
     });
@@ -187,7 +193,7 @@ describe('migrolino crawler parser', () => {
       const resolved = resolveAddress({ city: '  SUHR  ' });
       expect(resolved.city).toBe('SUHR');
       expect(resolved.postalCode).toBe('5034');
-      expect(resolved.streetAddress).toBe('SUHR city centre');
+      expect(resolved.streetAddress).toBe('SUHR');
     });
 
     it('keeps the source locality and uses a canton representative when its ZIP is unknown', () => {
@@ -195,7 +201,7 @@ describe('migrolino crawler parser', () => {
       expect(resolved.city).toBe('Suhrau');
       expect(resolved.canton).toBe('AG');
       expect(resolved.postalCode).toBe('5000');
-      expect(resolved.streetAddress).toBe('Suhrau city centre');
+      expect(resolved.streetAddress).toBe('Suhrau');
     });
   });
 
@@ -325,11 +331,11 @@ describe('migrolino crawler parser', () => {
       expect(parsed.city).toBe('Baden');
       expect(parsed.canton).toBe('AG');
       expect(parsed.postalCode).toBe('5400');
-      expect(parsed.streetAddress).toBe('Baden city centre');
+      expect(parsed.streetAddress).toBe('Baden');
       expect(parsed.streetAddress).not.toBe('Wynenfeldstrasse 3');
     });
 
-    it('does not emit an explicit unresolved source city through the fallback', () => {
+    it('keeps an explicit unresolved source city as the street label', () => {
       const html = `<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org/',
         '@type': 'JobPosting',
@@ -337,7 +343,12 @@ describe('migrolino crawler parser', () => {
         description: 'Eine Stelle im migrolino-Shop mit Aufgaben im Verkauf und direktem Kundenkontakt.',
         jobLocation: {
           '@type': 'Place',
-          address: { '@type': 'PostalAddress', addressLocality: 'Suhrau', addressCountry: 'CH' },
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Loc. non risolta',
+            postalCode: '6500',
+            addressCountry: 'CH',
+          },
         },
       })}</script>`;
       const parsed = parseMigrolinoDetail(html);
@@ -345,7 +356,8 @@ describe('migrolino crawler parser', () => {
       expect(parsed.city).toBe('');
       expect(parsed.canton).toBe('');
       expect(parsed.postalCode).toBe('');
-      expect(parsed.streetAddress).toBe('');
+      expect(parsed.streetAddress).toBe('Loc. non risolta');
+      expect(parsed.streetAddress).not.toContain('city centre');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {
