@@ -7016,6 +7016,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zugo-cybersecurity-de-escalation.title': 'Zug setzt auf Cybersicherheit: Deeskalation und Resilienz',
     'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'Der Kanton Zug startet eine Initiative für Cybersicherheit mit dem Schwerpunkt auf präventiver Diplomatie, Mediation und Zusammenarbeit zwischen Staat und Privatsektor.',
     'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Kompetenzzentrum für Cybersicherheit in Zug',
+    'blog.article.lindt-prungli-stime-2026.title': 'Lindt und Sprüngli senkt die Wachstumsschätzungen für 2026',
+    'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt und Sprüngli korrigiert das organische Umsatzwachstum für 2026 aufgrund der Hitze und der Preise nach unten auf 0 bis 2%.',
+    'blog.article.lindt-prungli-stime-2026.imageAlt': 'Lindt und Sprüngli Hauptsitz in Kilchberg',
 };
 
 export default blogMetaChDe;
