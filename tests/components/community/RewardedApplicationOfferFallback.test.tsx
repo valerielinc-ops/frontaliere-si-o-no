@@ -70,6 +70,7 @@ vi.mock('@/services/offerwallClickGate', () => ({
 }));
 
 import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
+import { setUserActivation } from '../../helpers/userActivation';
 import { itReady } from '@/services/i18n';
 
 const tracked = (name: string) => mocks.trackAssistedApplicationEvent.mock.calls
@@ -133,6 +134,9 @@ beforeAll(async () => {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  // A reward inside a click's activation opens the employer at once; the
+  // `handoff` card without one is covered in RewardedApplicationOffer.test.tsx.
+  setUserActivation(true);
   // The Offerwall is released only with ad consent (services/offerwallRecovery.ts).
   window.localStorage.setItem('frontaliere_ads_consent', 'granted');
   mocks.eligible = true;
@@ -153,6 +157,7 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  setUserActivation(null);
   vi.useRealTimers();
   document.body.style.overflow = '';
 });

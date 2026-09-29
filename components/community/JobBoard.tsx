@@ -203,12 +203,13 @@ import {
 } from '@/services/jobGateExperiment';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
- isOfferwallLoadFailure,
+ shouldOfferPaidFallback,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
  useOfferwallPaidFallback,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
+import { hasTransientUserActivation } from '@/services/userActivation';
 import {
  getRewardedApplicationAccessExpiresAt,
  REWARDED_APPLICATION_ACCESS_TTL_HOURS,
@@ -7210,10 +7211,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const job = rewardedApplicationJob;
   if (!job) return;
   setRewardedApplicationJob(null);
-  // This callback fires on Google's reward (the Offerwall entitlement or the
-  // GPT grant), with no further click, so use the current tab: a late
-  // window.open is commonly blocked by the browser.
-  void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
+  // The offer calls this after Google's reward only while the page holds a
+  // click's activation (at once, or from its "open" button), so the employer
+  // opens in a new tab and the visitor keeps the site (owner decision
+  // 2026-09-29).
+  void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, false, {
    handoff: 'rewarded_granted',
   });
  };
@@ -7239,11 +7241,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // The Offerwall and its GPT fallback could not LOAD: when enabled, the same
-  // click opens the paid offer, which keeps the free external path one tap
-  // away. A deliberate user choice (closed Offerwall, declined consent) still
-  // goes straight to the employer below.
-  if (offerwallPaidFallbackEnabled && isOfferwallLoadFailure(reason)) {
+  // The Offerwall and its GPT fallback could not LOAD, or the visitor refused
+  // the ad (ads refused in the CMP, consent card declined, Offerwall closed
+  // without its reward): when enabled, the same click opens the paid offer,
+  // whose free external button opens the employer in a new tab.
+  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason)) {
    setRewardedApplicationJob(null);
    setAssistedCheckoutError(null);
    setAssistedOfferSource('offerwall_fallback');
@@ -7255,11 +7257,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
    });
    return;
   }
-  // No Google creative to show (no-fill, timeout, consent, eligibility): the
+  // Paid fallback off, or an ineligible run (bots, non-production hosts): the
   // offer has already tracked the technical detail, and the same click goes
-  // straight to the employer. No retry, no local video, no second click.
+  // straight to the employer. No retry, no local video, no second click. A
+  // new tab needs a click's activation; without one (a late asynchronous
+  // outcome) the browser would block it, so the current tab is used.
   setRewardedApplicationJob(null);
-  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, !hasTransientUserActivation(), {
    handoff: 'direct_external',
    reason,
   });

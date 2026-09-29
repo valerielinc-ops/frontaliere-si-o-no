@@ -5,7 +5,8 @@
  * screen that never mentions a video, so the GPT rewarded ad must not start
  * by itself: the visitor opts in explicitly once the slot is ready, a slot
  * that is not ready in time hands the click to the employer, and the reward
- * continues to the application with no further click.
+ * opens the application in a new tab: with no further click while the page
+ * holds a click's activation, otherwise from one click (2026-09-29).
  */
 
 import { readFileSync } from 'node:fs';
@@ -43,6 +44,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 }));
 
 import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
+import { setUserActivation } from '../../helpers/userActivation';
 import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 import { itReady } from '@/services/i18n';
 
@@ -81,10 +83,14 @@ beforeAll(async () => {
 beforeEach(() => {
   mocks.props = null;
   vi.clearAllMocks();
+  // A reward inside a click's activation opens the employer at once; the
+  // `handoff` card without one is covered in RewardedApplicationOffer.test.tsx.
+  setUserActivation(true);
 });
 
 afterEach(() => {
   cleanup();
+  setUserActivation(null);
   vi.restoreAllMocks();
   document.body.style.overflow = '';
 });
@@ -235,7 +241,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     if (detail) expect(event).toEqual(expect.objectContaining({ detail }));
   });
 
-  it('continues to the employer on the authoritative Google reward, with no further click', () => {
+  it('continues to the employer on the authoritative Google reward, with no further click inside a click activation', () => {
     const onContinue = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
     callProp('onReady', { requestId: 9 } satisfies Info);
@@ -254,6 +260,51 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     // The close that follows the grant does not continue twice.
     callProp('onClosed', true, { requestId: 9 } satisfies Info);
     expect(onContinue).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    ['no click activation left', false],
+    ['a browser without navigator.userActivation', null],
+  ])('with %s, asks for one click that opens the employer in a new tab', (_label, activation) => {
+    // A new tab opened without a click's activation is blocked by the browser:
+    // the reward asks for that click instead of leaving the site in this tab.
+    setUserActivation(activation);
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
+    expect(onContinue).not.toHaveBeenCalled();
+    expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
+    const card = screen.getByTestId('rewarded-application-handoff');
+    expect(card).toHaveTextContent('Candidatura a «Fisioterapista diplomato» sbloccata');
+    expect(card).toHaveTextContent('L’offerta si apre in una nuova scheda e questa pagina resta aperta.');
+
+    const open = screen.getByTestId('rewarded-application-handoff-open');
+    expect(open).toHaveTextContent('Apri l’offerta');
+    fireEvent.click(open);
+    fireEvent.click(open);
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+
+    callProp('onClosed', true, { requestId: 9 } satisfies Info);
+    expect(onContinue).toHaveBeenCalledTimes(1);
+  });
+
+  it('lets the visitor close the click card after the reward, with the access kept', () => {
+    setUserActivation(false);
+    const onContinue = vi.fn();
+    const onDismiss = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} onDismiss={onDismiss} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+
+    expect(onDismiss).toHaveBeenCalledTimes(1);
+    expect(onContinue).not.toHaveBeenCalled();
+    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
   });
 
   it('offers a compact retry when the video is closed before the reward', () => {

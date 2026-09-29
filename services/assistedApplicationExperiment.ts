@@ -42,6 +42,27 @@ export function isOfferwallLoadFailure(reason: unknown): boolean {
   return typeof reason === 'string' && OFFERWALL_LOAD_FAILURE_REASONS.has(reason);
 }
 
+/**
+ * `onUnavailable` reasons of a visitor who refused the ad (owner decision
+ * 2026-09-29: they get the paid offer too): ads refused in the CMP, the
+ * consent card declined, or the Offerwall closed without its reward.
+ */
+export const OFFERWALL_AD_REFUSAL_REASONS: ReadonlySet<string> = new Set([
+  'consent_denied',
+  'ad_consent_missing',
+  'offerwall_closed_without_reward',
+]);
+
+/**
+ * The paid offer replaces the direct hand-off when no ad could be loaded or
+ * the visitor refused it. Ineligible and non-production runs (bots, dev
+ * hosts) keep the direct hand-off.
+ */
+export function shouldOfferPaidFallback(reason: unknown): boolean {
+  return isOfferwallLoadFailure(reason)
+    || (typeof reason === 'string' && OFFERWALL_AD_REFUSAL_REASONS.has(reason));
+}
+
 export function parseOfferwallFallbackFlag(value: unknown): boolean {
   return String(value ?? '').trim().toLowerCase() === 'true';
 }

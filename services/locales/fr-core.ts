@@ -4210,6 +4210,10 @@ Règles :
   'jobBoard.rewardedOffer.consentText': 'La courte vidéo qui ouvre la candidature est une annonce Google, qui ne peut s’afficher qu’après votre choix de consentement, quel qu’il soit. Vous pouvez le faire maintenant, ou accéder à l’offre sans la vidéo.',
   'jobBoard.rewardedOffer.consentReview': 'Choisir mes paramètres de consentement',
   'jobBoard.rewardedOffer.consentContinue': 'Accéder à l’offre sans la vidéo',
+  'jobBoard.rewardedOffer.handoffTitle': 'Offre débloquée',
+  'jobBoard.rewardedOffer.handoffTitleJob': 'Candidature à « {jobTitle} » débloquée',
+  'jobBoard.rewardedOffer.handoffText': 'Merci ! L’offre s’ouvre dans un nouvel onglet et cette page reste ouverte.',
+  'jobBoard.rewardedOffer.handoffOpen': 'Ouvrir l’offre',
   'whatsNew.v3966.rewardedApply.title': 'Une vidéo débloque les redirections directes pendant 1 heure',
   'whatsNew.v3966.rewardedApply.desc': 'Pour certains clics vers des offres externes, vous pouvez regarder une courte vidéo une seule fois, puis ouvrir directement le site de l’entreprise pendant l’heure suivante, sans revoir l’Offerwall.',
 };

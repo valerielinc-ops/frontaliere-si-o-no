@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Loader2, RefreshCw, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Loader2, RefreshCw, ShieldCheck } from 'lucide-react';
 import GptRewardedAd, { type GptRewardedAdCallbackInfo } from '@/components/shared/GptRewardedAd';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
@@ -35,6 +35,7 @@ import {
 } from '@/services/assistedApplicationExperiment';
 import { useTranslation } from '@/services/i18n';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { hasTransientUserActivation } from '@/services/userActivation';
 import { usePopupSlot } from '@/hooks/usePopupSlot';
 
 const SURFACE = 'job_detail_rewarded_inline';
@@ -85,11 +86,13 @@ export function shortenRewardedOfferJobTitle(title: string | null | undefined): 
  * or `gpt_ready` while a late Offerwall is still followed.
  * `offerwall_visible`: it is on screen, so this overlay steps out of its way.
  * `offerwall_verifying`: it closed; waiting for Google's entitlement.
- * `offerwall_done`: reward granted, the visitor is on the way to the employer.
+ * `offerwall_done`: reward granted, the employer is opening in a new tab.
  * `gpt`: no Offerwall was released for this click; the GPT slot is loading.
  * `gpt_ready`: the GPT slot is ready; the visitor is asked to opt in.
  * `gpt_retry`: the GPT video was closed before its reward.
- * `gpt_done`: GPT reward granted, the visitor is on the way to the employer.
+ * `gpt_done`: GPT reward granted, the employer is opening in a new tab.
+ * `handoff`: reward granted without a click's activation left on the page,
+ * so the new tab waits for the visitor's click on the "open" button.
  */
 type OfferPhase =
   | 'checking'
@@ -102,10 +105,15 @@ type OfferPhase =
   | 'gpt'
   | 'gpt_ready'
   | 'gpt_retry'
-  | 'gpt_done';
+  | 'gpt_done'
+  | 'handoff';
 
-/** Phases in which Escape or the backdrop may dismiss: nothing irrevocable is in flight. */
-const DISMISSIBLE_PHASES: ReadonlySet<OfferPhase> = new Set(['consent', 'gpt', 'gpt_ready', 'gpt_retry']);
+/**
+ * Phases in which Escape or the backdrop may dismiss: nothing irrevocable is
+ * in flight. In `handoff` the access is already granted, so a later
+ * "Candidati" click goes straight to the employer.
+ */
+const DISMISSIBLE_PHASES: ReadonlySet<OfferPhase> = new Set(['consent', 'gpt', 'gpt_ready', 'gpt_retry', 'handoff']);
 
 /** Why no Offerwall was waiting for this click (tracked before the GPT path). */
 const NOT_HELD_REASON: Record<Exclude<OfferwallGateStatus, 'held'>, string> = {
@@ -164,7 +172,10 @@ export interface RewardedApplicationOfferProps {
  * Same-page rewarded application step, presented as a loading screen
  * (owner decision 2026-09-26): the "Candidati" click opens a neutral overlay,
  * the AdSense Offerwall (whose own text explains the video) takes the screen,
- * and the reward sends the visitor on to the employer with no further click.
+ * and the reward opens the employer in a new tab, so the visitor keeps the
+ * site (owner decision 2026-09-29): at once while the page still holds a
+ * click's activation, otherwise from one "open" click, since a browser blocks
+ * a new tab opened without one.
  * Only the GPT fallback shows copy of its own: a GPT rewarded ad needs an
  * explicit opt-in with a clear value exchange, so it never starts by itself.
  * The GPT path runs when no Offerwall was held for the page view, and as the
@@ -335,7 +346,7 @@ export default function RewardedApplicationOffer({
   // line while loading, onto the card when it asks for a choice.
   useEffect(() => {
     if (phase === 'offerwall_visible') return;
-    const target = phase === 'gpt_ready' || phase === 'gpt_retry' || phase === 'consent'
+    const target = phase === 'gpt_ready' || phase === 'gpt_retry' || phase === 'consent' || phase === 'handoff'
       ? cardRef.current
       : loadingRef.current;
     target?.focus({ preventScroll: true });
@@ -345,14 +356,32 @@ export default function RewardedApplicationOffer({
     if (canDismissNow()) dismissFromBackdrop(event);
   };
 
+  // The reward is the end of the step: the employer opens in a new tab. The
+  // browser allows it only while the page holds a click's activation, so
+  // without one the `handoff` card asks for that click instead.
+  const handoffDoneRef = useRef(false);
+  const handoffPhaseRef = useRef<'offerwall_done' | 'gpt_done'>('gpt_done');
+  const openApplication = () => {
+    if (handoffDoneRef.current) return;
+    handoffDoneRef.current = true;
+    setPhase(handoffPhaseRef.current);
+    onContinue();
+  };
+  const continueAfterReward = (donePhase: 'offerwall_done' | 'gpt_done') => {
+    handoffPhaseRef.current = donePhase;
+    if (hasTransientUserActivation()) {
+      openApplication();
+      return;
+    }
+    setPhase('handoff');
+  };
+
   // Only Google's rewardedSlotGranted reaches this handler (directly, or via
-  // the granted bit of the close event that follows it). The reward is the
-  // end of the step: the visitor goes on to the employer with no further click.
+  // the granted bit of the close event that follows it).
   const handleGranted = (info?: GptRewardedAdCallbackInfo) => {
     if (grantedRef.current || gptSettledRef.current || fallbackDiscarded()) return;
     grantedRef.current = true;
     const accessExpiresAt = grantRewardedApplicationAccess();
-    setPhase('gpt_done');
     trackAssistedApplicationEvent('rewarded_ad_granted', eventContext(info));
     if (fallbackActive()) {
       trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_granted', eventContext(info));
@@ -362,19 +391,17 @@ export default function RewardedApplicationOffer({
       access_expires_at: accessExpiresAt,
       access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
     });
-    onContinue();
+    continueAfterReward('gpt_done');
   };
 
   // `completed` means Funding Choices granted the Offerwall's reward
   // (entitlement cookie, usually while its thank-you screen is still up):
-  // grant the access like a GPT grant and go on to the application at once.
-  // The rewarded choice inside Google's dialog was the visitor's action; no
-  // further click is asked here.
+  // grant the access like a GPT grant and go on to the application, in a new
+  // tab (continueAfterReward).
   const handleOfferwallCompleted = (result: Extract<OfferwallReleaseResult, { outcome: 'completed' }>) => {
     if (grantedRef.current) return;
     grantedRef.current = true;
     const accessExpiresAt = grantRewardedApplicationAccess();
-    setPhase('offerwall_done');
     trackAssistedApplicationEvent('rewarded_offerwall_completed', {
       ...offerwallContext(),
       shown_ms: result.shownMs,
@@ -388,7 +415,7 @@ export default function RewardedApplicationOffer({
       access_expires_at: accessExpiresAt,
       access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
     });
-    onContinue();
+    continueAfterReward('offerwall_done');
   };
 
   // The pre-release `not_shown` is reported once per offer, however the
@@ -572,7 +599,8 @@ export default function RewardedApplicationOffer({
       if (result.outcome === 'not_shown' && result.reason === 'aborted') return;
       if (result.outcome === 'closed_without_reward') {
         // Closed with no entitlement from Google: nothing to unlock, and no
-        // second ad after this one. Direct employer hand-off.
+        // second ad after this one. The parent offers the paid application
+        // (or, with that fallback off, hands off to the employer).
         trackAssistedApplicationEvent('rewarded_offerwall_closed_without_reward', {
           ...offerwallContext(),
           shown_ms: result.shownMs,
@@ -591,8 +619,8 @@ export default function RewardedApplicationOffer({
       if (result.reason === 'appear_timeout') {
         // Released but not rendered in time (Google's frequency, experiment
         // group, or access already granted) and no GPT fallback to offer
-        // (ineligible, or its slot already failed): direct employer hand-off,
-        // which leaves this page.
+        // (ineligible, or its slot already failed): the parent offers the
+        // paid application, or hands off to the employer.
         onUnavailable('offerwall_not_shown');
         return;
       }
@@ -626,8 +654,8 @@ export default function RewardedApplicationOffer({
     });
     // There is no monetizable impression when Google returns no-fill or the
     // request is ineligible. Do not ask the visitor to reload the same empty
-    // auction: report the reason and let the parent perform the direct,
-    // same-tab employer hand-off.
+    // auction: report the reason and let the parent offer the paid
+    // application or hand off to the employer.
     onUnavailable(reason);
   };
 
@@ -715,8 +743,9 @@ export default function RewardedApplicationOffer({
   );
   const closeLabel = t('jobBoard.rewardedOffer.close');
   const consentTitle = titled('jobBoard.rewardedOffer.consentTitleJob', 'jobBoard.rewardedOffer.consentTitle');
+  const handoffTitle = titled('jobBoard.rewardedOffer.handoffTitleJob', 'jobBoard.rewardedOffer.handoffTitle');
   const loadingText = phase === 'offerwall_done' || phase === 'gpt_done' ? redirectLabel : loadingLabel;
-  const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'consent';
+  const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'consent' && phase !== 'handoff';
 
   const cardClass = 'w-full max-w-sm space-y-4 rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
   const primaryButtonClass = 'inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
@@ -857,6 +886,46 @@ export default function RewardedApplicationOffer({
             data-testid="rewarded-application-consent-continue"
           >
             {t('jobBoard.rewardedOffer.consentContinue')}
+          </button>
+        </div>
+      )}
+
+      {phase === 'handoff' && (
+        <div
+          ref={cardRef}
+          tabIndex={-1}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="rewarded-application-handoff-title"
+          aria-describedby="rewarded-application-handoff-text"
+          className={cardClass}
+          data-testid="rewarded-application-handoff"
+        >
+          <div>
+            <p className="text-xs font-semibold text-accent">{companyName}</p>
+            <h2 id="rewarded-application-handoff-title" className="mt-1 text-base font-semibold font-display text-heading">
+              {handoffTitle}
+            </h2>
+            <p id="rewarded-application-handoff-text" className="mt-1 text-sm leading-relaxed text-body">
+              {t('jobBoard.rewardedOffer.handoffText')}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={openApplication}
+            className={primaryButtonClass}
+            data-testid="rewarded-application-handoff-open"
+          >
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            {t('jobBoard.rewardedOffer.handoffOpen')}
+          </button>
+          <button
+            type="button"
+            onClick={onDismiss}
+            className={secondaryButtonClass}
+            data-testid="rewarded-application-offer-close"
+          >
+            {closeLabel}
           </button>
         </div>
       )}
