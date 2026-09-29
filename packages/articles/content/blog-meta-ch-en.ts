@@ -7070,6 +7070,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Swiss Parliament: guide to Curia Vista and Open Data',
     'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'From deputies dating back to 1848 to CN votes: how to use the official portal to track acts, committees, and EU/NATO delegations.',
     'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Swiss Federal Palace in Bern, home of the National Council and the Council of States',
+    'blog.article.percorsi-impiego-pubblico.title': 'Working in the Federal Administration: opportunities and training',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'The Federal Administration offers 50 vocational training programs, internships for recent graduates, and seven weeks of vacation.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team working in a Swiss federal administration office',
 };
 
 export default blogMetaChEn;

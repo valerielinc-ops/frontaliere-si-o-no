@@ -2379,6 +2379,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'investimenti-immobiliari-fiducia-ticino': { it: 'investimenti-immobiliari-fiducia-ticino', en: 'real-estate-investment-confidence-ticino', de: 'immobilieninvestition-vertrauen-ticino', fr: 'investissement-immobilier-confiance-ticino' },
  'lucas-engelberger-premi-cassa-malati-2027': { it: 'lucas-engelberger-premi-cassa-malati-2027', en: 'lucas-engelberger-2027-health-insurance-premiums', de: 'lucas-engelberger-2027-krankenversicherungspramien', fr: 'lucas-engelberger-premiums-assurance-maladie-2027' },
  'parlamento-svizzero-strumenti-ricerca': { it: 'parlamento-svizzero-strumenti-ricerca', en: 'swiss-parliament-search-tools', de: 'schweizer-parlament-suchwerkzeuge', fr: 'parlement-suisse-outils-recherche' },
+ 'percorsi-impiego-pubblico': { it: 'percorsi-impiego-pubblico', en: 'public-service-paths', de: 'wege-oeffentlicher-dienst', fr: 'parcours-service-public' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
