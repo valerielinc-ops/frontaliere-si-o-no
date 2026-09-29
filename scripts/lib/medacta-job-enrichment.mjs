@@ -1,4 +1,5 @@
 import { workloadPercent } from './dedicated-crawler-common.mjs';
+import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
 
 const CATEGORY_BY_KEY = {
   production: 'engineering',
@@ -573,4 +574,103 @@ export function buildMedactaLocalizedDescriptions(payload = {}) {
 export function buildMedactaBaseDescription(payload = {}) {
   const all = buildMedactaLocalizedDescriptions(payload);
   return all.it;
+}
+
+/**
+ * The role text of an Allibo detail page lives in the schema.org microdata
+ * block `<div itemprop="description">` (tasks, profile, offer, EEO note).
+ * The crawler used to read only `og:description` — the one-line teaser
+ * "Lavora con noi! Medacta International SA sta cercando <title> su Ticino" —
+ * and then published a category TEMPLATE (identical maintenance tasks for a
+ * Demand Planner and for an electromechanic) instead of the vacancy. Probed
+ * 2026-09-29: the page is served to our fetcher without any CAPTCHA.
+ *
+ * A paragraph that holds only a short bold label (`<p><b>Hard Skills</b></p>`,
+ * `<p><strong>What we offer:</strong></p>`) is the source's section title and
+ * becomes a markdown heading; list items become `- ` bullets.
+ *
+ * @param {string} html detail page
+ * @returns {string} markdown, '' when the block is absent
+ */
+export function extractMedactaDetailMarkdown(html = '') {
+  const located = locateTagByAttribute(String(html || ''), `itemprop=["']description["']`, { skipVoidTags: true });
+  if (!located) return '';
+  const inner = extractBalancedTagBlock(located.rest, located.tagName, 80000);
+  const text = inner
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(
+      /<p[^>]*>(?:\s|&nbsp;|<span[^>]*>|<\/span>)*<(b|strong)[^>]*>([\s\S]{2,80}?)<\/\1>(?:\s|&nbsp;|<span[^>]*>|<\/span>|<br\s*\/?>)*<\/p>/gi,
+      (_m, _tag, label) => `\n\n## ${label.replace(/<[^>]+>/g, ' ').replace(/[\s:]+$/, '')}\n\n`,
+    )
+    .replace(/<h[1-6][^>]*>/gi, '\n\n## ')
+    .replace(/<\/h[1-6]>/gi, '\n\n')
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/?(?:p|div|ul|ol)[^>]*>/gi, '\n\n')
+    .replace(/<[^>]+>/g, '');
+  const lines = decodeHtmlEntities(text)
+    .replace(/\u00a0/g, ' ')
+    .split('\n')
+    .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+    .filter((line) => line !== '-' && !/^##\s*$/.test(line));
+  // One blank line between blocks, none between the items of one list.
+  const out = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (line) {
+      out.push(line);
+      continue;
+    }
+    const prev = out[out.length - 1] || '';
+    const next = lines.slice(i + 1).find(Boolean) || '';
+    if (!prev || prev === '' || (prev.startsWith('- ') && next.startsWith('- '))) continue;
+    out.push('');
+  }
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+const TEMPLATE_OVERVIEW_HEADINGS = ['it', 'en', 'de', 'fr'].map((locale) => `## ${localeConfig(locale).overview}`);
+
+/**
+ * True for a description produced by buildMedactaLocalizedDescriptions() —
+ * the category template the crawler falls back to when the vacancy body could
+ * not be read. Such text is never a source for translation: it would carry
+ * made-up tasks into every locale.
+ */
+export function isMedactaTemplateDescription(text = '') {
+  const head = String(text || '').trimStart();
+  return TEMPLATE_OVERVIEW_HEADINGS.some((heading) => head.startsWith(heading));
+}
+
+/** `source` of a job whose description is the vacancy body of the detail page. */
+export const MEDACTA_DETAIL_SOURCE = 'Allibo ATS detail page';
+/** Below this the detail block is a teaser, not a vacancy body. */
+export const MEDACTA_MIN_DETAIL_CHARS = 150;
+
+/**
+ * True when the job carries the real vacancy body read from the detail page
+ * (as opposed to the category template of buildMedactaLocalizedDescriptions).
+ */
+export function isMedactaDetailBacked(job = {}, clean = (text) => text) {
+  if (job?.source !== MEDACTA_DETAIL_SOURCE) return false;
+  const base = String(clean(String(job?.description || '')) || '').trim();
+  return base.length >= MEDACTA_MIN_DETAIL_CHARS && !isMedactaTemplateDescription(base);
+}
+
+/**
+ * Locale slots of a detail-backed job: the template text written by earlier
+ * runs is dropped (so the translation step regenerates the locale from the
+ * real body) and the source-language slot is the body itself.
+ */
+export function detailBackedMedactaLocales(job = {}, clean = (text) => text) {
+  const base = String(clean(String(job?.description || '')) || '').trim();
+  const out = {};
+  for (const [locale, value] of Object.entries(job?.descriptionByLocale || {})) {
+    const text = String(clean(String(value || '')) || '').trim();
+    if (text && !isMedactaTemplateDescription(text)) out[locale] = text;
+  }
+  if (job?.sourceLang) out[job.sourceLang] = base;
+  return out;
 }

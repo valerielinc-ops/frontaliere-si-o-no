@@ -235,3 +235,27 @@ describe('grace shrink-guard probe classification (#5200)', () => {
     expect(isGraceJobDetailUrl('https://www.hotelcareer.com/jobs/barkeeper-st-moritz')).toBe(false);
   });
 });
+
+describe('selectGraceDescription keeps the list structure (flat 9/11)', () => {
+  it('collapses whitespace per line, not across lines', () => {
+    // Section texts as the detail extractor emits them for
+    // hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/bartender-…-4026698 (2026-09-29).
+    const description = selectGraceDescription({
+      sectionTexts: [
+        'WHO WE NEED\nWe are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world.',
+        'WHAT WILL YOU DO?\n- Rock the drinks at our bars\n- You share your passion about Drinks  &  Food with our guests\n- Make sure our Bar always look perfect for our guests',
+        'YOUR +sides\n- Your german level is on fire\n- You are a team player and enjoy helping others',
+      ],
+    });
+    expect(description).toContain('WHAT WILL YOU DO?\n- Rock the drinks at our bars\n- You share your passion about Drinks & Food with our guests');
+    expect(description).toContain('\n\nYOUR +sides\n- Your german level is on fire');
+  });
+
+  it('still trims the application chrome after the posting', () => {
+    const description = selectGraceDescription({
+      sectionTexts: ['WHAT WILL YOU DO?\n- Rock the drinks at our bars\n- Take ownership and provide personalised services to every single guest of the hotel, every day of the season\nStart application\ncompany profile'],
+    });
+    expect(description).not.toMatch(/Start application|company profile/);
+    expect(description).toMatch(/^WHAT WILL YOU DO\?\n- Rock the drinks/);
+  });
+});

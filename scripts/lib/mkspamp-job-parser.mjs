@@ -33,16 +33,70 @@ function slugify(value = '') {
     .replace(/-{2,}/g, '-'), 180);
 }
 
-function stripHtml(html = '') {
-  return String(html || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#\d+;/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+const NAMED_ENTITIES = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  ndash: '–', mdash: '—', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', hellip: '…',
+};
+
+function decodeEntities(value = '') {
+  return String(value || '').replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (entity, body) => {
+    if (body[0] === '#') {
+      const code = body[1] === 'x' || body[1] === 'X' ? parseInt(body.slice(2), 16) : parseInt(body.slice(1), 10);
+      return Number.isFinite(code) && code > 0 ? String.fromCodePoint(code) : entity;
+    }
+    const named = NAMED_ENTITIES[body.toLowerCase()];
+    return named === undefined ? entity : named;
+  });
+}
+
+/**
+ * Teamtailor description HTML (JSON-LD `description`, entity-encoded, or the
+ * RSS `<description>`) as markdown: `<h2>` → `## `, `<li>` → `- `, paragraphs
+ * kept apart. A tag-stripping helper used to flatten it into one line, so 5/5 stored
+ * jobs published their MISSION / RESPONSIBILITIES / PROFILE lists as prose,
+ * and it deleted every numeric entity (`Manager&#39;s` → `Managers`).
+ */
+export function teamtailorHtmlToMarkdown(html = '') {
+  let source = String(html || '');
+  // JSON-LD carries the markup entity-encoded (`&lt;h2&gt;MISSION&lt;/h2&gt;`).
+  if (!/<[a-z][^>]*>/i.test(source) && /&lt;[a-z]/i.test(source)) source = decodeEntities(source);
+  const text = source
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => `\n\n## ${heading}\n\n`)
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/?(?:p|div|ul|ol|section|blockquote)(?:\s[^>]*)?>/gi, '\n\n')
+    .replace(/<[^>]+>/g, '');
+  const lines = decodeEntities(text)
+    .split('\n')
+    .map((line) => line.replace(/\u00a0/g, ' ').replace(/[ \t]+/g, ' ').trim());
+  const out = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (line === '-' || line === '##') {
+      // `<li><p>text</p></li>`: the bullet and its text land on two lines.
+      const next = lines.slice(i + 1).findIndex(Boolean);
+      if (line === '-' && next >= 0 && !lines[i + 1 + next].startsWith('- ')) {
+        lines[i + 1 + next] = `- ${lines[i + 1 + next]}`;
+      }
+      continue;
+    }
+    if (!line) {
+      const prev = out[out.length - 1] || '';
+      const nextLine = lines.slice(i + 1).find(Boolean) || '';
+      if (prev.startsWith('- ') && (nextLine.startsWith('- ') || nextLine === '-')) continue;
+      if (prev !== '') out.push('');
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function wordCountOf(markdown = '') {
+  return String(markdown || '').replace(/[#*-]/g, ' ').split(/\s+/).filter(Boolean).length;
 }
 
 /**
@@ -122,8 +176,8 @@ export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
 
           // Extract description from JSON-LD — this is the full job description
           if (data.description) {
-            const desc = stripHtml(data.description);
-            if (desc.split(/\s+/).length >= 50) {
+            const desc = teamtailorHtmlToMarkdown(data.description);
+            if (wordCountOf(desc) >= 50) {
               result.description = desc;
             }
           }
@@ -181,15 +235,16 @@ export function buildMksPampLocalizedContent(job = {}) {
 
   // Prefer full detail description from JSON-LD, then RSS excerpt, then fallback
   // Safety: always strip HTML in case raw tags leak through
-  const detailDesc = stripHtml(normalizeSpace(job.detailDescription || ''));
-  const rssDesc = stripHtml(job.descriptionHtml || '');
+  // Markdown (lists and paragraphs), not a flattened line.
+  const detailDesc = teamtailorHtmlToMarkdown(job.detailDescription || '');
+  const rssDesc = teamtailorHtmlToMarkdown(job.descriptionHtml || '');
 
   const MIN_WORDS = 50;
 
   let description = '';
-  if (detailDesc && detailDesc.split(/\s+/).length >= MIN_WORDS) {
+  if (detailDesc && wordCountOf(detailDesc) >= MIN_WORDS) {
     description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${detailDesc}`;
-  } else if (rssDesc && rssDesc.split(/\s+/).length >= MIN_WORDS) {
+  } else if (rssDesc && wordCountOf(rssDesc) >= MIN_WORDS) {
     description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${rssDesc}`;
   } else {
     // Rich fallback with job-specific and company context (always >= 50 words)

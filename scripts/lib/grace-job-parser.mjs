@@ -5,8 +5,22 @@ function compact(text = '') {
   return String(text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// Whitespace is collapsed per LINE, not across lines: the detail extractor
+// emits one line per paragraph and `- ` per list item, and collapsing `\n`
+// here turned hotelcareer's WHAT WILL YOU DO / YOUR +sides / benefits lists
+// into one run-on sentence (9/11 stored jobs without a single list).
+function compactLines(text = '') {
+  return String(text || '')
+    .replace(/\u00a0/g, ' ')
+    .split(/\r?\n/)
+    .map((line) => line.replace(/[ \t\f\v]+/g, ' ').trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 function trimNoise(text = '') {
-  return compact(text)
+  return compactLines(text)
     .replace(/\bStart application\b[\s\S]*$/i, '')
     .replace(/\bMatching jobs by mail\b[\s\S]*$/i, '')
     .replace(/\bcompany profile\s+Jobs:\s*\d+[\s\S]*$/i, '')

@@ -48,6 +48,7 @@ import {
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
   detectLang,
+  repairRelabeledSourceLocale,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
@@ -55,6 +56,7 @@ import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-locati
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { JSDOM } from 'jsdom';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,6 +81,10 @@ const HESSO_LOCALES = {
   en: 'https://www.hevs.ch/en/job-offers/',
 };
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// Detail pages are read one at a time with a pause (polite to hevs.ch).
+const DETAIL_DELAY_MS = Number(process.env.JOBS_HESSO_DETAIL_DELAY_MS) || 600;
+// Below this the detail parse is treated as not found (excerpt fallback).
+const MIN_DETAIL_CHARS = 200;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -358,6 +364,69 @@ export function detectEmploymentType(rate = '', title = '') {
   return 'FULL_TIME';
 }
 
+/* ── Detail page parsing ───────────────────────────────────── */
+
+const RECRUITEE_APPLY_LINK = 'a[href*="recruitee.com/o/"]';
+
+function blockText(node) {
+  return normalizeSpace(String(node?.textContent || '').replace(/\u00a0/g, ' '));
+}
+
+/**
+ * Read the vacancy body of a hevs.ch/<locale>/recruitee/<slug> detail page.
+ *
+ * The listing's `__NUXT__` blob only carries a ~150-char excerpt; the whole
+ * ad (intro, missions, profile, conditions, contact, deadline) lives on the
+ * detail page, in the `.row` that sits between the header row and the
+ * "POSTULER / BEWERBEN" button row of the same container. HES-SO publishes
+ * one bilingual ad: the French text, a `<p>***</p>` separator, then the
+ * German text — returned separately so each lands in its own locale.
+ *
+ * @returns {{ fr: string, de: string }} markdown (empty strings when absent)
+ */
+export function parseHessoDetailPage(html = '') {
+  const empty = { fr: '', de: '' };
+  if (!html) return empty;
+  const document = new JSDOM(html).window.document;
+  const applyRow = document.querySelector(RECRUITEE_APPLY_LINK)?.closest('.row');
+  const rows = applyRow?.parentElement ? [...applyRow.parentElement.children] : [];
+  const bodyRow = rows
+    .filter((row) => row.classList.contains('row') && !row.querySelector(RECRUITEE_APPLY_LINK))
+    .sort((a, b) => blockText(b).length - blockText(a).length)[0];
+  if (!bodyRow) return empty;
+
+  const parts = { fr: [], de: [] };
+  let bucket = 'fr';
+  const blocks = bodyRow.querySelectorAll('p, li, h2, h3, h4, h5');
+  for (const node of blocks) {
+    // A <p> inside an <li> is read through its list item.
+    if (node.tagName !== 'LI' && node.closest('li')) continue;
+    const text = blockText(node);
+    if (!text) continue;
+    if (/^\*{3,}$/.test(text)) {
+      bucket = 'de';
+      continue;
+    }
+    const tag = node.tagName.toLowerCase();
+    const strongOnly = tag === 'p' && node.querySelector('strong, b')
+      && blockText(node.querySelector('strong, b')) === text;
+    if (tag === 'li') parts[bucket].push(`- ${text}`);
+    else if (/^h[2-5]$/.test(tag) || (strongOnly && text.length <= 120)) parts[bucket].push(`## ${text}`);
+    else parts[bucket].push(text);
+  }
+  // Paragraphs and headings are blocks; consecutive list items form one list.
+  const toMarkdown = (lines) => {
+    const blocksOut = [];
+    for (const line of lines) {
+      const previous = blocksOut[blocksOut.length - 1];
+      if (line.startsWith('- ') && previous?.startsWith('- ')) blocksOut[blocksOut.length - 1] = `${previous}\n${line}`;
+      else blocksOut.push(line);
+    }
+    return blocksOut.join('\n\n').trim();
+  };
+  return { fr: toMarkdown(parts.fr), de: toMarkdown(parts.de) };
+}
+
 /* ── Description building ──────────────────────────────────── */
 
 function buildDescriptionFr(title, descriptionRaw, location) {
@@ -377,7 +446,7 @@ function buildDescriptionEn(title, location) {
 
 /* ── Fetch and build all HES-SO jobs ─────────────────────────── */
 
-async function fetchHessoJobs() {
+export async function fetchHessoJobs() {
   console.log(`🔍 Fetching HES-SO Valais-Wallis jobs`);
   console.log(`   FR page: ${HESSO_LOCALES.fr}`);
   console.log(`   DE page: ${HESSO_LOCALES.de}`);
@@ -431,6 +500,12 @@ async function fetchHessoJobs() {
     if (!title || title.length < 5) continue;
     if (!frUrl) continue;
 
+    // The listing only carries an excerpt: read the ad from its detail page.
+    // A failed or unrecognised page keeps the job on the excerpt fallback.
+    const detail = parseHessoDetailPage(await fetchHtml(frUrl));
+    if (!detail.fr) console.warn(`  ⚠️ No vacancy body read from ${frUrl} — using the listing excerpt`);
+    await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+
     // Extract employment rate from title
     const rate = extractEmploymentRate(title);
 
@@ -439,12 +514,17 @@ async function fetchHessoJobs() {
     const city = locationInfo.city;
     const postalCode = locationInfo.postal;
 
-    const descFr = buildDescriptionFr(title, descriptionRaw, city);
-    const descDe = buildDescriptionDe(title, city);
+    const hasDetailFr = detail.fr.length >= MIN_DETAIL_CHARS;
+    const hasDetailDe = detail.de.length >= MIN_DETAIL_CHARS;
+    const descFr = hasDetailFr ? detail.fr : buildDescriptionFr(title, descriptionRaw, city);
+    const descDe = hasDetailDe ? detail.de : buildDescriptionDe(title, city);
     const descEn = buildDescriptionEn(title, city);
 
     const slug = slugify(title, HESSO_KEY);
-    const sourceLang = detectLang(title, 'fr');
+    // Detected on the published body, not on the bilingual title
+    // ("Collaboratrice ou collaborateur technique *** Technischer Mitarbeiter")
+    // which read as Italian and filed the French text under the wrong locale.
+    const sourceLang = detectLang(descFr, 'fr');
 
     const job = {
       url: frUrl,
@@ -480,6 +560,7 @@ async function fetchHessoJobs() {
     };
 
     if (rate) job.employmentRate = rate;
+    if (hasDetailDe && sourceLang !== 'de') OFFICIAL_DESCRIPTIONS.set(job, { de: descDe });
 
     // Add DE/EN URLs if available
     if (deUrl) {
@@ -492,6 +573,59 @@ async function fetchHessoJobs() {
 
   console.log(`\n📋 Total unique HES-SO jobs built: ${jobs.length}`);
   return jobs;
+}
+
+// Built job → the German half of HES-SO's bilingual ad. Kept beside the job
+// (not on it) so it never reaches the persisted slice.
+const OFFICIAL_DESCRIPTIONS = new WeakMap();
+
+/**
+ * `mergePreserveLocaleData` keeps the stored text of every non-source locale,
+ * which for German is the generic "Offene Stelle an der HES-SO Wallis…"
+ * placeholder of earlier runs. The German half of the ad is written by
+ * HES-SO itself, so it replaces whatever is stored.
+ */
+export function applyOfficialHessoDescriptions(mergedJobs, freshJobs) {
+  const officialByKey = new Map();
+  for (const job of freshJobs) {
+    const official = OFFICIAL_DESCRIPTIONS.get(job);
+    const key = extractStableJobId(job?.url) || job?.url;
+    if (key && official) officialByKey.set(key, official);
+  }
+  for (const job of mergedJobs) {
+    const official = officialByKey.get(extractStableJobId(job?.url) || job?.url);
+    if (official) job.descriptionByLocale = { ...(job.descriptionByLocale || {}), ...official };
+  }
+  return mergedJobs;
+}
+
+/**
+ * Earlier runs detected sourceLang on the bilingual title and stored the
+ * French text as `it` (then machine-"translated" it from that mislabel).
+ * When the fresh crawl derives a different sourceLang, drop the verbatim
+ * mislabeled copy and let the pipeline retranslate from the right source —
+ * the same repair ferrovia-retica applies (#3802).
+ */
+export function repairHessoRelabeledSource(mergedJobs, existingJobs, freshJobs) {
+  const keyOf = (job) => extractStableJobId(job?.url) || job?.url;
+  const previousByKey = new Map(existingJobs.map((job) => [keyOf(job), job]));
+  const freshByKey = new Map(freshJobs.map((job) => [keyOf(job), job]));
+  for (const job of mergedJobs) {
+    const previous = previousByKey.get(keyOf(job));
+    const fresh = freshByKey.get(keyOf(job));
+    if (!previous || !fresh || !previous.sourceLang || previous.sourceLang === fresh.sourceLang) continue;
+    const relabel = { prevLang: previous.sourceLang, nextLang: fresh.sourceLang };
+    job.titleByLocale = repairRelabeledSourceLocale(job.titleByLocale, {
+      ...relabel,
+      sourceTexts: [fresh.title, previous.title],
+    }).map;
+    job.descriptionByLocale = repairRelabeledSourceLocale(job.descriptionByLocale, {
+      ...relabel,
+      sourceTexts: [fresh.description, previous.description],
+    }).map;
+    job.needsRetranslation = true;
+  }
+  return mergedJobs;
 }
 
 /* ── Merge into data/jobs.json ─────────────────────────────── */
@@ -521,7 +655,14 @@ async function mergeHessoJobs(discoveredJobs) {
   // country/canton force-normalization and the location default are
   // handled independently by postProcessHessoJobs() right after this
   // function runs, so no constant-field overrides need to be reapplied here.
-  const mergedHessoJobs = mergePreserveLocaleData(existingHessoJobs, discoveredJobs);
+  const mergedHessoJobs = applyOfficialHessoDescriptions(
+    repairHessoRelabeledSource(
+      mergePreserveLocaleData(existingHessoJobs, discoveredJobs),
+      existingHessoJobs,
+      discoveredJobs,
+    ),
+    discoveredJobs,
+  );
 
   const final = [...nonHessoJobs, ...mergedHessoJobs];
 

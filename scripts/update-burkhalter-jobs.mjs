@@ -56,6 +56,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { repairBurkhalterBoundarySlugs } from './lib/burkhalter-slug-boundary-repair.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { extractBurkhalterDetailDescription } from './lib/burkhalter-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -77,6 +78,14 @@ const UA =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const CONCURRENCY = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 4);
+// burkhalter.ch answers HTTP 429 after ~17 requests in a burst and keeps the
+// window closed for ~10 s (measured 2026-09-29: 3 workers without a pause →
+// 429 from request 18; one request every 2.5 s → 226/226 × 200). The detail
+// pages are therefore spaced globally, whatever the pool size, so the shared
+// 3-retry backoff (~7 s) is no longer the only thing between a job and the
+// title-only placeholder.
+const DETAIL_MIN_INTERVAL_MS = positiveIntFromEnv('BURKHALTER_DETAIL_MIN_INTERVAL_MS', 2000);
+const DETAIL_RETRY_COOLDOWN_MS = 20000;
 
 // Burkhalter spans all 26 Swiss cantons — accept any target canton. Canton scope
 // is governed by TARGET_CANTONS in scripts/lib/crawler-location-config.mjs.
@@ -141,51 +150,24 @@ function extractJobsJson(html) {
 }
 
 /**
- * Scrape a job detail page for description text.
+ * Scrape a job detail page for description text: the page's JSON-LD
+ * `JobPosting.description` (structured, no breadcrumb/contact chrome), with
+ * the visible content block as fallback — see burkhalter-job-parser.mjs.
  */
+let nextDetailSlotMs = 0;
+async function paceDetailFetch() {
+  const now = Date.now();
+  const slot = Math.max(now, nextDetailSlotMs);
+  nextDetailSlotMs = slot + DETAIL_MIN_INTERVAL_MS;
+  if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
+}
+
 async function scrapeDetailPage(relativeUrl) {
   const url = relativeUrl.startsWith('http') ? relativeUrl : `${BASE_URL}${relativeUrl}`;
+  await paceDetailFetch();
   try {
     const html = await fetchPage(url);
-    // Extract main content — detail pages have structured sections
-    // Remove HTML tags but preserve paragraph breaks
-    const contentMatch = html.match(/<div class="content">([\s\S]*?)<footer/i)
-      || html.match(/<div data-addsearch="include">([\s\S]*?)<footer/i);
-    if (!contentMatch) return '';
-
-    let text = contentMatch[1]
-      // Strip script/style content entirely — tag-only stripping below leaves JSON-LD
-      // payload visible as raw text (the Burkhalter pages embed schema.org JobPosting
-      // JSON-LD inside the content div, which was leaking into descriptionByLocale).
-      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-      .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
-      .replace(/<br\s*\/?>/gi, '\n')
-      .replace(/<\/p>/gi, '\n\n')
-      // Open each <li> as a line-start bullet so list structure survives the strip (#2476).
-      .replace(/<li[^>]*>/gi, '\n• ')
-      .replace(/<\/li>/gi, '\n')
-      .replace(/<\/h[1-6]>/gi, '\n\n')
-      .replace(/<[^>]+>/g, '') // strip remaining HTML tags
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'")
-      .replace(/&nbsp;/g, ' ')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
-
-    // Remove breadcrumb and header noise
-    const lines = text.split('\n').filter(l => l.trim().length > 0);
-    const contentStart = lines.findIndex(l =>
-      l.includes('Ihr Profil') || l.includes('Your Profile') ||
-      l.includes('Votre profil') || l.includes('Il tuo profilo') ||
-      l.includes('Unser Angebot') || l.includes('suchen wir') ||
-      l.includes('looking for') || l.includes('recherchons') ||
-      lines.indexOf(l) > 3
-    );
-    const relevantLines = contentStart > 0 ? lines.slice(Math.max(0, contentStart - 2)) : lines.slice(3);
-    return relevantLines.join('\n').trim().slice(0, 3000);
+    return extractBurkhalterDetailDescription(html);
   } catch (err) {
     console.warn(`   ⚠️ Could not scrape detail: ${url} — ${err.message}`);
     return '';
@@ -253,7 +235,10 @@ function buildJob(raw, description = '') {
     contractType: employmentType,
     description: description || `${title} presso ${company}, ${city}`,
     titleByLocale: {},
-    descriptionByLocale: {},
+    // The detail text is the source-locale slot: with `{}` the merge kept the
+    // stored slot forever, whatever this run read. The placeholder never
+    // enters it.
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
   };
@@ -267,7 +252,7 @@ function buildJob(raw, description = '') {
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
-function mergeJobs(discoveredJobs) {
+function mergeJobs(discoveredJobs, { missingDetailKeys = new Set() } = {}) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
@@ -284,11 +269,17 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
+    // A detail page that could not be read this run yields only the
+    // `<title> presso <company>, <city>` placeholder: never let it overwrite
+    // the description a previous run did read.
+    const keepPrevDescription = missingDetailKeys.has(jobMatchKey(job))
+      && String(prev.description || '').trim().length > String(job.description || '').trim().length;
     const merged = {
       ...prev,
       ...job,
+      ...(keepPrevDescription ? { description: prev.description, sourceLang: prev.sourceLang || job.sourceLang } : {}),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, keepPrevDescription ? (prev.sourceLang || job.sourceLang) : job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
@@ -390,12 +381,30 @@ async function main() {
     CONCURRENCY,
   );
 
+  // Step 4b: one sequential, paced retry for the pages the pool could not
+  // read (rate limit / transient egress failure). Without it those jobs were
+  // published with the title-only placeholder, which is also too short for
+  // the translation step (9/245 thin, 6/245 missing locales).
+  const failedIndexes = relevantJobs
+    .map((raw, i) => (raw.url && !descriptions[i] ? i : -1))
+    .filter((i) => i >= 0);
+  if (failedIndexes.length > 0) {
+    console.log(`🔁 Retrying ${failedIndexes.length} detail page(s) sequentially after a ${DETAIL_RETRY_COOLDOWN_MS / 1000}s cool-down...`);
+    await new Promise((resolve) => setTimeout(resolve, DETAIL_RETRY_COOLDOWN_MS));
+    for (const i of failedIndexes) {
+      descriptions[i] = await scrapeDetailPage(relevantJobs[i].url);
+    }
+  }
+
   // Step 5: Build standardized job objects
   const jobs = relevantJobs.map((raw, i) => buildJob(raw, descriptions[i]));
-  console.log(`✅ Built ${jobs.length} job objects`);
+  const missingDetailKeys = new Set(
+    jobs.filter((job, i) => !descriptions[i]).map((job) => jobMatchKey(job)),
+  );
+  console.log(`✅ Built ${jobs.length} job objects (${missingDetailKeys.size} without a readable detail page)`);
 
   // Step 6: Merge into jobs.json
-  const { total, added, updated, repairedSlugs, diff} = mergeJobs(jobs);
+  const { total, added, updated, repairedSlugs, diff} = mergeJobs(jobs, { missingDetailKeys });
   console.log(`\n📦 Merge complete: ${total} total, ${added} added, ${updated} updated`);
   if (repairedSlugs > 0) console.log(`   🔗 Repaired ${repairedSlugs} legacy boundary-truncated slug fields`);
 

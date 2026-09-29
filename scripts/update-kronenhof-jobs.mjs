@@ -52,6 +52,7 @@ import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -158,7 +159,7 @@ function stripHtml(html = '') {
  *   - Requirements / qualifications
  *   - Benefits / what we offer
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   // Extract the main job content area first to avoid contamination from
   // sidebar "other vacancies" sections that share the same page.
   const mainAreaMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
@@ -167,15 +168,33 @@ function parseDetailPage(html = '') {
     || html.match(/<div[^>]*class="[^"]*job[^"]*detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
   // Restrict search to the main area; fall back to full page only if nothing found.
-  const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
+  // Call-to-action buttons ("Apply now") are page chrome, not vacancy text.
+  const searchArea = (mainAreaMatch ? mainAreaMatch[1] : html)
+    .replace(/<a\b[^>]*class="[^"]*\bbtn\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '');
 
   const sections = [];
+  // The vacancy body (`div.content-page`) opens with the company paragraph
+  // BEFORE its first heading ("People at 1800m above sea level…"): the
+  // heading-driven loop below never saw it.
+  const bodyOpen = /<div[^>]*class="[^"]*\bcontent-page\b[^"]*"[^>]*>/i.exec(searchArea);
+  if (bodyOpen) {
+    const afterOpen = searchArea.slice(bodyOpen.index + bodyOpen[0].length);
+    const firstHeading = afterOpen.search(/<h[2-4][^>]*>/i);
+    const intro = firstHeading > 0 ? stripHtml(afterOpen.slice(0, firstHeading)).trim() : '';
+    if (intro.length >= 20) sections.push(intro);
+  }
   const sectionRegex = /<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>\s*([\s\S]*?)(?=<h[2-4][^>]*>|<footer|<\/main|<\/article|$)/gi;
   const skipHeadings = /cookie|privacy|navigation|menu|footer|header|breadcrumb|vacancy overview|share this|andere stellen|other positions|weitere stellen|offene stellen|weitere vakanz/i;
+  // The vacancy body ends where the page starts listing OTHER vacancies: the
+  // live /en/vacancies/{id} page closes <main> with a "Similar jobs" section
+  // whose <h3> cards (title + teaser of three other openings) used to be
+  // appended to every description as if they were sections of this role.
+  const otherVacanciesHeading = /^(?:similar jobs|similar vacancies|ähnliche (?:jobs|stellen)|offerte simili|posizioni simili|offres similaires|postes similaires)$/i;
 
   let match;
   while ((match = sectionRegex.exec(searchArea)) !== null) {
     const heading = stripHtml(match[1]).trim();
+    if (otherVacanciesHeading.test(heading)) break;
     if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
 
     const content = stripHtml(match[2]).trim();
@@ -184,7 +203,7 @@ function parseDetailPage(html = '') {
     sections.push(`## ${heading}\n${content}`);
   }
 
-  if (sections.length > 0) {
+  if (sections.some((section) => section.startsWith('## '))) {
     return sections.join('\n\n');
   }
 
@@ -252,7 +271,13 @@ function mapContractType(duration = '') {
   }
 }
 
-function buildJob(raw, detailDescription = '') {
+/** Labels of the synthesized facts line, in the language of the ad body. */
+const META_LABELS = {
+  en: { workload: 'Workload', contract: 'Contract', start: 'Start' },
+  de: { workload: 'Pensum', contract: 'Vertrag', start: 'Stellenantritt' },
+};
+
+export function buildJob(raw, detailDescription = '') {
   const title = String(raw.title || '').trim();
   const { city, company } = mapLocation(raw.location);
   const { employmentType, contractType } = mapContractType(raw.contract_duration);
@@ -266,7 +291,6 @@ function buildJob(raw, detailDescription = '') {
   const postedDate = raw.contract_starts_at
     ? raw.contract_starts_at.slice(0, 10)
     : new Date().toISOString().slice(0, 10);
-  const sourceLang = detectLang(title, 'de');
   const workload = raw.workload ? `${raw.workload}%` : '100%';
 
   // Build a description from available data
@@ -277,15 +301,25 @@ function buildJob(raw, detailDescription = '') {
     '6-months': '6-Monats-Stelle / 6-month contract',
   }[raw.contract_duration] || raw.contract_duration || 'Seasonal';
 
-  const metaLine = [
-    `${title} — ${company}, ${city} (Engadin, Graubünden).`,
-    `Pensum: ${workload}. Vertrag: ${durationLabel}.`,
-    raw.contract_starts_at ? `Stellenantritt: ${raw.contract_starts_at.slice(0, 10)}.` : '',
-  ].filter(Boolean).join(' ');
-
   // Prefer detail page description if rich enough (>= 50 words), otherwise use fallback
   const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
   const hasRichDetail = detailWordCount >= 50;
+
+  // The language is read from the body we publish, not from the title: the
+  // detail page is the /en/ portal, while titles are brigade terms ("Chef de
+  // Rang", "Commis de Rang", "Zimmerdame") that detected as fr/de and filed a
+  // machine translation as the source text (source-detail overlap 10 %, #5253).
+  // The synthesized German fallback below is German by construction.
+  const sourceLang = hasRichDetail ? detectLang(detailDescription, 'en') : 'de';
+  // The facts line is prepended to the body, so its labels speak the body's
+  // language: fixed German labels on an English ad left the source slot mixed
+  // (same fix as the sibling kulm-hotel parser, same Kulm Gruppe portal).
+  const labels = META_LABELS[sourceLang] || META_LABELS.en;
+  const metaLine = [
+    `${title} — ${company}, ${city} (Engadin, Graubünden).`,
+    `${labels.workload}: ${workload}. ${labels.contract}: ${durationLabel}.`,
+    raw.contract_starts_at ? `${labels.start}: ${raw.contract_starts_at.slice(0, 10)}.` : '',
+  ].filter(Boolean).join(' ');
 
   const fallbackDescription = [
     metaLine,
@@ -325,7 +359,9 @@ function buildJob(raw, detailDescription = '') {
     contractType,
     description,
     titleByLocale: {},
-    descriptionByLocale: {},
+    // The freshly crawled body is the source-locale text: without it the merge
+    // kept whatever the previous run (or the translator) left in that slot.
+    descriptionByLocale: { [sourceLang]: description },
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
   };
@@ -506,4 +542,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Kronenhof'));
+// Only run main() when invoked as a script, not when imported by tests.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Kronenhof'));
+}

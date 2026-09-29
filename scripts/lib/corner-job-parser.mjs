@@ -167,8 +167,31 @@ export function parseCornerOfferFull(offer) {
     frTrans.requirements || ''
   );
 
-  // Primary description for guards
-  const description = descIt || descEn || '';
+  // Primary-language description. Recruitee's top-level `title`/`description`
+  // /`requirements` carry the offer's PRIMARY language — the one the public
+  // page jobs.corner.ch/o/<slug> renders — while `translations.<locale>` are
+  // the company's own alternates. Cornèr's primary language is English on
+  // every current offer, so preferring the Italian alternate here published a
+  // description in a language the source page does not show (and labelled it
+  // as the source language), which the source-detail audit reads as an
+  // unrelated body (word overlap 2-12 %, #5253).
+  const descPrimary = buildFullDescription(
+    offer.description || '',
+    offer.offer_sections || offer.sections || [],
+    offer.requirements || ''
+  );
+  const description = descPrimary || descIt || descEn || '';
+
+  // Locales the company wrote itself (not filled from another locale), so the
+  // runner can keep them authoritative over machine translations.
+  const officialLocales = [
+    ['it', itTrans, descIt],
+    ['en', enTrans, descEn],
+    ['de', deTrans, descDe],
+    ['fr', frTrans, descFr],
+  ]
+    .filter(([, trans, text]) => text && String(trans?.description || '').trim())
+    .map(([locale]) => locale);
 
   if (description.length < MIN_CORNER_DESC_LENGTH) {
     console.warn(
@@ -187,6 +210,7 @@ export function parseCornerOfferFull(offer) {
       de: descDe || descEn || description,
       fr: descFr || descEn || description,
     },
+    officialLocales,
     requirements: parseBullets(itTrans.requirements || enTrans.requirements || offer.requirements || ''),
     titleByLocale: {
       it: itTrans.title || title,

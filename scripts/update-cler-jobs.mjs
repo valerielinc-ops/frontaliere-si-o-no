@@ -38,6 +38,7 @@ import {
   validateClerDescription,
   extractJobMeta,
   dedupeClerJobsByStableId,
+  collapseClerDuplicateRequisitions,
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -585,6 +586,29 @@ function mergeJobs(discoveredJobs) {
 // Post-processing
 // ─────────────────────────────────────────────────────────────
 
+/**
+ * The shared base crawler re-adds requisitions that mergeJobs() had already
+ * collapsed (same id under another locale / career-section path — see
+ * collapseClerDuplicateRequisitions). Collapse them again after it ran, and
+ * keep the dropped record's slugs as redirects of the survivor.
+ */
+function collapseDuplicateRequisitionsInSlice(preferredUrls) {
+  const all = readJson(DATA_JOBS, []);
+  if (!Array.isArray(all)) return 0;
+  const target = all.filter(isTargetJob);
+  const { jobs: survivors, dropped } = collapseClerDuplicateRequisitions(target, preferredUrls);
+  if (dropped.length === 0) return 0;
+  for (const { dropped: gone, kept } of dropped) {
+    captureLostSlugs(kept, gone.slugByLocale || {}, gone.slug || '', 20);
+  }
+  const survivorSet = new Set(survivors);
+  const next = all.filter((job) => !isTargetJob(job) || survivorSet.has(job));
+  writeJson(DATA_JOBS, next);
+  if (fs.existsSync(path.dirname(PUBLIC_JOBS))) writeJson(PUBLIC_JOBS, next);
+  console.log(`  ↺ Post-base-crawler dedup: ${target.length} → ${survivors.length} Cler records (same requisition under another path)`);
+  return dropped.length;
+}
+
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
     root: ROOT,
@@ -652,6 +676,7 @@ async function main() {
   // Phase 3: Run base crawler for AI localization
   console.log('\n🌐 Phase 3: AI localization...');
   await runBaseCrawler();
+  collapseDuplicateRequisitionsInSlice(new Set(discoveredJobs.map((job) => job.url)));
 
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,

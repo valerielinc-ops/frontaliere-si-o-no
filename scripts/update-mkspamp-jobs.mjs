@@ -180,7 +180,10 @@ function buildMksPampJob(rssItem, location) {
     category: inferCategory(rssItem.title),
     sector: 'Metalli preziosi',
     source: 'mkspamp-dedicated-crawler',
-    sourceLang: detectLang(rssItem.title, 'it'),
+    // The language of the posting, not of its title: English titles such as
+    // "Precious Metal Control Manager" were detected as `fr`, which pinned an
+    // English description to the French slot.
+    sourceLang: detectLang(localized.descriptionByLocale.it, 'it'),
     postedDate: parseDate(rssItem.pubDate),
     employmentType: 'full-time',
     contractType: 'permanent',

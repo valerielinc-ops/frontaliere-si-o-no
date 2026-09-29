@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import { fetchJobListings } from '../scripts/update-cler-jobs.mjs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
-import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear } from '../scripts/lib/cler-job-parser.mjs';
+import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear, collapseClerDuplicateRequisitions } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 
 const clerCrawlerSource = fs.readFileSync(
@@ -541,5 +541,38 @@ describe('extractJobMeta — JobPosting location source of truth', () => {
     const meta = extractJobMeta(html);
     expect(meta.arbeitsort).toBe('Lugano');
     expect(meta.pensum).toBe('100%');
+  });
+});
+
+describe('collapseClerDuplicateRequisitions — stored slice after the base crawler (dup 4/12)', () => {
+  // The two pairs the committed slice carried on 2026-09-29 (same id, title, body).
+  const B = 'https://www.cler.ch';
+  const slice = [
+    { id: 'company-ldhd7j', url: `${B}/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-vermoegende-privatkunden-biel-w-m-2740` },
+    { id: 'company-mcp9v4', slug: 'a', url: `${B}/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/conseillre-en-succession-neuchtel-f-m-2743` },
+    { id: 'company-mcp9v4', slug: 'b', url: `${B}/fr/banque-cler/jobs-und-karriere/chercher-et-postuler/offene-stellen/conseillre-en-succession-neuchtel-f-m-2743` },
+    { id: 'company-kadqag', url: `${B}/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-privatkunden-individual-basel-w-m-2719` },
+    { id: 'company-kadqag', url: `${B}/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/kundenberaterin-privatkunden-individual-basel-w-m-2719` },
+  ];
+
+  it('keeps one record per requisition, preferring the URL this run discovered', () => {
+    const preferred = new Set([slice[1].url, slice[3].url]);
+    const { jobs, dropped } = collapseClerDuplicateRequisitions(slice, preferred);
+    expect(jobs.map((j) => j.url)).toEqual([slice[0].url, slice[1].url, slice[3].url]);
+    expect(dropped.map((d) => [d.dropped.url, d.kept.url])).toEqual([
+      [slice[2].url, slice[1].url],
+      [slice[4].url, slice[3].url],
+    ]);
+  });
+
+  it('falls back to the newest career section when the run published neither variant', () => {
+    const { jobs } = collapseClerDuplicateRequisitions(slice.slice(3));
+    expect(jobs.map((j) => j.url)).toEqual([slice[4].url]);
+  });
+
+  it('leaves distinct requisitions alone', () => {
+    const { jobs, dropped } = collapseClerDuplicateRequisitions([slice[0], slice[1]]);
+    expect(jobs).toHaveLength(2);
+    expect(dropped).toHaveLength(0);
   });
 });

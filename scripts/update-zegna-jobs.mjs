@@ -203,7 +203,7 @@ export function parseJobLinks(html = '') {
  * Parse a job detail page to extract structured data.
  * Tries JSON-LD first (most reliable), falls back to HTML parsing.
  */
-function parseJobDetail(html = '', url = '') {
+export function parseJobDetail(html = '', url = '') {
   const result = { title: '', location: '', city: '', region: '', brand: '', contractType: '', jobFunction: '', description: '' };
 
   // --- JSON-LD extraction (most reliable) ---
@@ -320,7 +320,7 @@ function detectSector(jobFunction = '') {
 // Main discovery flow
 // ──────────────────────────────────────────────────────────────
 
-async function fetchZegnaJobs() {
+export async function fetchZegnaJobs() {
   console.log('🔍 Fetching Zegna Group job listings from careers portal...');
   console.log(`  📄 Listing URL: ${LISTING_URL}`);
 
@@ -361,9 +361,13 @@ async function fetchZegnaJobs() {
     }
     const slug = slugify(title, 'zegna');
 
-    const descriptionIt = detail.description
-      ? detail.description
-      : `Posizione aperta presso ${ZEGNA_COMPANY_NAME}. Ruolo: ${title}. Sede: ${city}, Svizzera.`;
+    // Only the source's own vacancy body is published. A detail page without
+    // one yields an empty description: the merge keeps the job's previous
+    // body, or leaves a brand-new job unpublished (see mergeZegnaJobLists) —
+    // never the invented "Posizione aperta presso … Ruolo … Sede …" line.
+    const body = zegnaVacancyBody(detail);
+    if (!body) console.warn(`     ↳ No vacancy body on the detail page: ${title}`);
+    const sourceLang = body ? detectLang(body, 'en') : '';
 
     const job = {
       url: link.url,
@@ -377,10 +381,8 @@ async function fetchZegnaJobs() {
       addressLocality: city,
       addressRegion: canton,
       addressCountry: 'CH',
-      description: descriptionIt,
-      descriptionByLocale: {
-        en: detail.description || '',
-      },
+      description: body,
+      descriptionByLocale: body ? { [sourceLang]: body } : {},
       titleByLocale: {
         en: title,
       },
@@ -398,7 +400,7 @@ async function fetchZegnaJobs() {
       brand: detail.brand || 'Zegna',
       contractType: detail.contractType || '',
       _targetScope: { canton, location: city },
-      sourceLang: detectLang(detail.description || title, 'en'),
+      sourceLang,
     };
 
     jobs.push(job);
@@ -434,6 +436,16 @@ function extractJobId(url = '') {
   return match ? match[1] : '';
 }
 
+// Below this many words a detail body is not a vacancy description (#5253:
+// the fallback it replaced was a one-line, 15-word stub).
+const MIN_BODY_WORDS = 50;
+
+/** The vacancy body read from the detail page, or '' when it has none. */
+export function zegnaVacancyBody(detail = {}) {
+  const body = String(detail?.description || '').trim();
+  return body.split(/\s+/).filter(Boolean).length >= MIN_BODY_WORDS ? body : '';
+}
+
 function filterEmpty(obj = {}) {
   if (!obj || typeof obj !== 'object') return {};
   const out = {};
@@ -443,13 +455,12 @@ function filterEmpty(obj = {}) {
   return out;
 }
 
-async function mergeZegnaJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(ZEGNA_KEY, DATA_JOBS);
-  const allJobs = Array.isArray(existing) ? [...existing] : [];
-
-  const nonZegnaJobs = allJobs.filter((j) => !isZegnaJob(j));
-  const existingZegnaJobs = allJobs.filter(isZegnaJob);
-
+/**
+ * Reconcile stored and freshly discovered Zegna jobs (pure; no I/O).
+ * A discovered job without a vacancy body keeps the stored body of the same
+ * JobID; a NEW job without one is not published.
+ */
+export function mergeZegnaJobLists(existingZegnaJobs = [], discoveredJobs = []) {
   // Build lookup by JobID (more stable than full URL)
   const existingByJobId = new Map();
   for (const job of existingZegnaJobs) {
@@ -477,11 +488,18 @@ async function mergeZegnaJobs(discoveredJobs) {
   let added = 0;
   let updated = 0;
   let removed = 0;
+  let skipped = 0;
   const merged = [];
 
   for (const discovered of dedupedDiscovered) {
     const jid = extractJobId(discovered.url);
     const existing = jid ? existingByJobId.get(jid) : null;
+
+    if (!existing && !discovered.description) {
+      console.log(`  ⏭️  Not publishing ${discovered.title || discovered.url}: no vacancy body and no stored one`);
+      skipped++;
+      continue;
+    }
 
     if (existing) {
       const updatedJob = {
@@ -523,6 +541,17 @@ async function mergeZegnaJobs(discoveredJobs) {
     if (!discoveredByJobId.has(jid)) removed++;
   }
 
+  return { merged, added, updated, removed, skipped };
+}
+
+async function mergeZegnaJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(ZEGNA_KEY, DATA_JOBS);
+  const allJobs = Array.isArray(existing) ? [...existing] : [];
+
+  const nonZegnaJobs = allJobs.filter((j) => !isZegnaJob(j));
+  const existingZegnaJobs = allJobs.filter(isZegnaJob);
+  const { merged, added, updated, removed, skipped } = mergeZegnaJobLists(existingZegnaJobs, discoveredJobs);
+
   const final = [...nonZegnaJobs, ...merged];
 
   writeJsonAtomic(DATA_JOBS, final);
@@ -533,9 +562,10 @@ async function mergeZegnaJobs(discoveredJobs) {
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
+  if (skipped) console.log(`  ⏭️  Not published (no vacancy body): ${skipped}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, skipped, total: final.length };
 }
 
 // ──────────────────────────────────────────────────────────────

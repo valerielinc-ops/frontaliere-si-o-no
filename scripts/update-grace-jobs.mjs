@@ -387,10 +387,24 @@ async function fetchJobDetails(listings) {
 
           const title = compact(document.querySelector('h1, h2.job-title, .offer-title')?.textContent || '');
 
+          // One line per paragraph, `- ` per list item: the lists are the
+          // role (tasks, profile, benefits) and must survive as lists. A <p>
+          // inside an <li> is the item's own text, not a second paragraph.
           const selectTextFrom = (el) => {
             if (!el) return '';
-            const nodes = Array.from(el.querySelectorAll('p, li'));
-            if (nodes.length) return nodes.map(n => n.textContent || '').filter(Boolean).join('\n').trim();
+            const nodes = Array.from(el.querySelectorAll('p, li'))
+              .filter((n) => !(n.tagName === 'P' && n.closest('li')));
+            if (nodes.length) {
+              return nodes
+                .map((n) => {
+                  const text = compact(n.textContent || '');
+                  if (!text) return '';
+                  return n.tagName === 'LI' ? `- ${text}` : text;
+                })
+                .filter(Boolean)
+                .join('\n')
+                .trim();
+            }
             return (el.textContent || '').trim();
           };
 
