@@ -21,7 +21,7 @@
  * Source: https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Jobs.php
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { classifyMalformedRowDrift } from './malformed-row-observability.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -317,20 +317,14 @@ export async function fetchAllWuerthInternationalJobs() {
   console.log(`   Listing: ${LISTING_URL}\n`);
 
   // Step 1: Fetch listing page
-  const controller1 = new AbortController();
-  const timer1 = setTimeout(() => controller1.abort(), timeoutMs);
   let listingHtml;
   try {
-    const res = await fetch(LISTING_URL, {
+    listingHtml = await fetchHtml(LISTING_URL, {
+      timeoutMs,
       headers: { 'User-Agent': userAgent },
-      signal: controller1.signal,
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
-    listingHtml = await res.text();
   } catch (err) {
     throw new Error(`Failed to fetch listing page: ${err?.message || err}`);
-  } finally {
-    clearTimeout(timer1);
   }
 
   const { jobs: listings, skippedMalformedRows } = parseListingPage(listingHtml);
@@ -356,22 +350,18 @@ export async function fetchAllWuerthInternationalJobs() {
   const jobs = [];
   for (const listing of listings) {
     try {
-      const controller2 = new AbortController();
-      const timer2 = setTimeout(() => controller2.abort(), timeoutMs);
-
       let detail = null;
       try {
-        const res = await fetch(listing.url, {
+        const detailHtml = await fetchHtml(listing.url, {
+          timeoutMs,
           headers: { 'User-Agent': userAgent },
-          signal: controller2.signal,
         });
-
-        if (res.ok) {
-          const detailHtml = await res.text();
-          detail = parseDetailPage(detailHtml);
-        }
-      } finally {
-        clearTimeout(timer2);
+        detail = parseDetailPage(detailHtml);
+      } catch (err) {
+        // Preserve the old listing-only fallback for an HTTP detail response,
+        // while letting connection failures reach the outer guard so a missing
+        // detail cannot silently turn into a published partial job.
+        if (!Number.isFinite(err?.status)) throw err;
       }
 
       // Build job object

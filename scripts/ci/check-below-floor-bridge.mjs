@@ -275,7 +275,13 @@ if (HELP) {
 
 function git(args, { allowFail = false } = {}) {
   try {
-    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 128 * 1024 * 1024 });
+    return execFileSync('git', args, {
+      encoding: 'utf8',
+      maxBuffer: 128 * 1024 * 1024,
+      // Keep Git's streams detached from the managed agent runtime. This
+      // runtime can report EPERM after an inherited-stdio child exits cleanly.
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
   } catch (e) {
     if (allowFail) return '';
     throw e;
