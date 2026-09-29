@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-basel-landschaft",
-  "assembledAt": "2026-09-29T09:13:18.449Z",
+  "assembledAt": "2026-09-29T09:52:36.903Z",
   "jobs": [
     {
       "id": "kanton-basel-landschaft-f65f18a09463",
@@ -34,7 +34,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/ausbildung-zur-polizistin-zum-polizisten-mit-eidg-fachausweis/6d8f62c8-3749-4fb8-bad8-10b55d6f884c",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.189Z",
+      "crawledAt": "2026-09-29T09:51:54.840Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/behoerden-und-gerichtsdolmetschende-auf-abruf/4b23b98d-2dbd-4890-9def-0e720ff872bd",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.187Z",
+      "crawledAt": "2026-09-29T09:51:54.839Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/bbf-lehrperson-begabten-und-begabungsfoerderung/95605492-4c71-4bf0-93e5-58316030cdb4",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.185Z",
+      "crawledAt": "2026-09-29T09:51:54.838Z",
       "addressLocality": "Bottmingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -265,13 +265,12 @@
         "de": "Aufgaben:\n• aktive Mitwirkung und Vorbereitung von Gerichtsfällen\n\n• Protokollführung anlässlich von Gerichtsverhandlungen\n\n• Beteiligung an der Urteilsberatung mit Antragsrecht\n\n• Ausarbeitung von schriftlichen Urteilsbegründungen\n\n• Juristische Abklärungen und Korrespondenz\n\n• an den Zivilkreisgerichten: Erteilen von Rechtsauskunft an Private\n\nAnforderungen:\n• Abgeschlossenes juristisches Studium (lic.iur./MLaw)\n\n• Interesse am Gerichtswesen\n\n• gute redaktionelle Fähigkeiten\n\n• Bachelor- und Masternoten oder Masterleistungsauszüge, Arbeitszeugnisse sind Bestandteile der Bewerbung\n\nDie Gerichte des Kantons Basel-Landschaft sind für die Rechtsprechung des Kantons verantwortlich. Sie bestehen auf der Ebene der ersten Instanz aus zwei Zivilkreisgerichten, dem Strafgericht, Jugendgericht und Zwangsmassnahmengericht sowie dem Steuer- und Enteignungsgericht. Die zweite Instanz bildet das Kantonsgericht mit vier Abteilungen. Dem Kantonsgericht angegliedert ist die Gerichtsverwaltung.",
         "fr": "Tâches :\n• Participation active et préparation des affaires judiciaires\n\n• Procès-verbaux des procès-verbaux\n\n• Participation à l'avis de jugement avec droit de recours\n\n• Préparation des motifs écrits du jugement\n\n• Précisions juridiques et correspondance\n\n• dans les tribunaux civils de district: octroi d'informations juridiques aux particuliers\n\nExigences\n• Diplôme de droit (lic.iur./MLaw)\n\n• Intérêts dans le système judiciaire\n\n• Bonnes compétences rédactionnelles\n\n• Baccalauréat et maîtrise ou réalisations de maîtrise, certificats d'emploi sont des composantes de la demande\n\nLes tribunaux du canton de Bâle-Landschaft sont responsables de la compétence du canton. Au niveau de la première instance, il s ' agit de deux tribunaux de district civil, le tribunal pénal, le tribunal pour mineurs et le tribunal des mesures coercitives, ainsi que le tribunal des impôts et des expropriations. La deuxième instance est le tribunal cantonal qui compte quatre départements. L'administration judiciaire est rattachée au tribunal cantonal."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/juristische-volontariate/77474d5c-715e-4372-bc07-da4471e407e1",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.183Z",
+      "crawledAt": "2026-09-29T09:51:54.836Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -330,7 +329,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-35fd273e65c0",
@@ -358,13 +358,12 @@
         "de": "Aufgaben:\n• Als Konrektorin / Konrektor führen Sie in Zusammenarbeit mit den beiden Co-Rektoren und drei Konrektorinnen / Konrektoren die Schule operativ sowie in pädagogischer, personeller und organisatorischer Hinsicht.\n\n• Sie tragen die Mitverantwortung für die gesamtschulische Entwicklung und übernehmen Führungsaufgaben (z.B. durch MAGs).\n\n• Sie sind für die ICT der Schule verantwortlich.\n\n• Sie übernehmen die Klassenbetreuung zweier Jahrgänge in der Maturitätsabteilung (Absenzen, Urlaube, Disziplinarisches, individuelle Massnahmen) und sorgen dabei für gelingende Beziehungen zwischen den Schülerinnen und Schülern und den Klassen- und Fachlehrpersonen.\n\n• Sie planen und organisieren die Maturitätsprüfungen.\n\nAnforderungen:\n• Sie übernehmen Führungsverantwortung und sind gleichzeitig ein Teamplayer. Sie sind flexibel und belastbar.\n\n• Sie verfügen über eine hohe Auftrittskompetenz, pflegen eine wertschätzende Kommunikation und begegnen Menschen mit Offenheit und Empathie.\n\n• Sie arbeiten lösungsorientiert und stellen sich gerne komplexen organisatorischen Aufgaben.\n\n• Sie verfügen über eine pädagogische Ausbildung und Unterrichtserfahrung auf der Sekundarstufe II.\n\n• Sie sind mit zeitgemässen pädagogischen Entwicklungen im Bereich der Gymnasien vertraut und setzen sich für eine innovative Bildung ein.\n\n• Sie bringen Erfahrung im Leiten von Projekten mit und verfügen idealerweise bereits über Führungserfahrung. Sie verfügen über eine abgeschlossene Schulleitungsausbildung oder sind bereit, diese zu absolvieren.\n\nAm Gymnasium Liestal (Maturitätsabteilung und FMS) unterrichten ca. 190 Lehrpersonen. Ziel des anspruchsvollen Unterrichts ist es, die rund 1250 Schülerinnen und Schüler zur Hochschulreife zu bringen oder ihnen eine anspruchsvolle Berufsausbildung zu ermöglichen. Die Schulleitung setzt sich für einen hohen Qualitätsstandard ein. Unser schulisches Handeln wird von den Werten Vertrauen, Verantwortung, Offenheit und Ambition geleitet.",
         "fr": "Tâches :\n• En tant que principal / principal en collaboration avec les deux co-recteurs et trois principal / principal, vous dirigez l'école sur le plan opérationnel ainsi que sur le plan pédagogique, personnel et organisationnel.\n\n• Ils partagent la responsabilité du développement général de l'école et assument des tâches de gestion (par exemple par l'intermédiaire des MAG).\n\n• Ils sont responsables des TIC de l'école.\n\n• Ils prennent en charge la supervision de classe de deux ans dans le département de maturité (absentés, jours fériés, questions disciplinaires, mesures individuelles) et assurent des relations réussies entre les élèves et les enseignants de classe et les enseignants spécialisés.\n\n• Ils organisent et organisent les examens de maturité.\n\nExigences\n• Vous assumez la responsabilité de leadership et êtes en même temps un joueur d'équipe. Ils sont flexibles et résistants.\n\n• Ils ont un haut niveau de compétence en performance, cultivent la communication reconnaissante et rencontrent les gens avec ouverture et empathie.\n\n• Ils travaillent sur la solution et aiment faire face à des tâches organisationnelles complexes.\n\n• Ils ont une formation et une expérience pédagogique au niveau secondaire II.\n\n• Ils connaissent les développements éducatifs contemporains dans le domaine des lycées et sont attachés à une éducation innovante.\n\n• Ils apportent de l'expérience dans la gestion de projets et idéalement ont déjà une expérience de leadership. Vous avez suivi une formation de gestion scolaire ou êtes prêt à la terminer.\n\nAu lycée Liestal (Département de maturité et FMS) environ 190 enseignants enseignent. L'objectif de l'enseignement difficile est d'amener les quelque 1250 étudiants à la maturité universitaire ou de leur fournir une formation professionnelle exigeante. La direction de l'école est attachée à un niveau de qualité élevé. Nos activités éducatives sont guidées par les valeurs de confiance, de responsabilité, d'ouverture et d'ambition."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/konrektorin-konrektor/cda8a45c-a583-40b2-a055-8210c37e47bd",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.181Z",
+      "crawledAt": "2026-09-29T09:51:54.834Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -416,7 +415,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-0f1e6a844b9d",
@@ -444,13 +444,12 @@
         "de": "Aufgaben:\n• Prüf-, Wartungs-, Austausch- und Reparatur-Arbeiten an Fahrzeugsystemen unterschiedlicher Marken und Modelvarianten\n\n• Reparaturen von Fahrwerk, Motor, Antrieb sowie Elektrik-, Elektronik-, Komfort- und Sicherheitssystemen\n\n• Funktions- und Systemprüfungen bei Fahrzeugen mit Verbrennungsmotoren und alternativen Antrieben\n\n• Diagnosearbeiten an mechatronischen Systemen\n\nAnforderungen:\n• Sekundarschulabschluss Niveau E oder P\n\n• Eignungstest AGVS\n\n• handwerkliches Geschick und gute Auffassungsgabe\n\n• technisches Verständnis\n\n• Zuverlässigkeit, Einsatzwille und Freude an Fahrzeugen\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Essai, entretien, remplacement et réparation de systèmes de véhicules de différentes marques et variantes de modèles\n\n• Réparation de châssis, moteur, entraînement et systèmes électriques, électroniques, de confort et de sécurité\n\n• Essais fonctionnels et systèmes pour les véhicules équipés de moteurs à combustion interne et de trains d'entraînement alternatifs\n\n• Travaux de diagnostic sur les systèmes mécatroniques\n\nExigences\n• Niveau E ou P de l ' enseignement secondaire\n\n• Essai d'aptitude AGVS\n\n• artisanat et bonne compréhension\n\n• Compréhension technique\n\n• Fiabilité, engagement et jouissance des véhicules\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, ils contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous !"
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-automobil-mechatronikerin-automobil-mechatroniker-efz/cd549223-5032-46ab-9b3f-db7d65672699",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.180Z",
+      "crawledAt": "2026-09-29T09:51:54.832Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -507,7 +506,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-5be9446c8849",
@@ -541,7 +541,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-eba/e5bdfc08-6ed9-47b1-bfe4-bb741354c3d4",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.178Z",
+      "crawledAt": "2026-09-29T09:51:54.830Z",
       "addressLocality": "Birsfelden",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -628,7 +628,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/c7cf778e-2511-4b21-a623-8ba3e9faf12d",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.177Z",
+      "crawledAt": "2026-09-29T09:51:54.828Z",
       "addressLocality": "Füllinsdorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -703,13 +703,12 @@
         "de": "Aufgaben:\nStehst Du vor der Entscheidung, wie es nach der Schulzeit weitergehen soll?\n• Das Schweizer Bildungssystem gehört zu den besten der Welt. Die Berufslehre in der Schweiz ist hervorragend und führt zu sehr guten Zukunftschancen.\n\n• Wir bieten für interessierte Schulabgänger eine kaufmännische Lehre bei der Finanz- und Kirchendirektion des Kantons Basel-Landschaft an. Was bedeutet das für Dich?\n\n• in der öffentlichen Verwaltung durchläufst Du im Rotationsprinzip zwei Dienststellen und lernst die vielfältigen Aufgabenbereiche einer öffentlichen Verwaltung kennen.\n\n• Die Lehre ist abwechslungsreich; die Aufgaben reichen von der Postbearbeitung bis zur Kundenberatung am Schalter oder zu Aufgaben zur Unterstützung der Teams.\n\n• Unsere professionellen, engagierten Berufsbildungsfachpersonen unterstützen Dich beim Erreichen der Lernziele, damit Du die Lehre nach drei Jahren erfolgreich abschliesst.\n\nAnforderungen:\n• Freude am Kontakt mit Kunden und Mitarbeiterinnen und Mitarbeitern\n\n• Interesse an digitalen Aufgaben und am wirtschaftlichen Geschehen\n\n• Verantwortungsbewusste, selbständige und teamfähige Persönlichkeit mit guten Umgangsformen\n\n• Grosse Lernbereitschaft\n\n• Abgeschlossene Sekundarschule Niveau E oder P\n\n• Guter bis sehr guter Notenschnitt in Deutsch, Englisch, Französisch und Mathematik\n\nWir benötigen von Dir folgende Unterlagen:\n• Vollständige Bewerbung mit Motivationsschreiben, Lebenslauf mit Foto\n\n• Zeugniskopien der letzten zwei Schuljahre sowie vorhandene Diplome (Tastaturschreiben, Informatik, Sprachen)\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\nÊtes-vous confronté à la décision de continuer après l'école?\n• Le système éducatif suisse est parmi les meilleurs au monde. L'apprentissage professionnel en Suisse est excellent et offre de très bonnes perspectives d'avenir.\n\n• Nous offrons un apprentissage commercial aux jeunes qui quittent l'école à la Direction des finances et de l'Église du canton de Bâle-Landschaft. Qu'est-ce que ça signifie pour toi ?\n\n• Dans l'administration publique, vous passez par deux départements en rotation et vous apprenez à connaître les différentes tâches d'une administration publique.\n\n• L'enseignement est varié; les tâches vont du traitement postal aux conseils à la clientèle au comptoir ou aux tâches de soutien aux équipes.\n\n• Nos spécialistes de la formation professionnelle spécialisée vous aident à atteindre les objectifs d'apprentissage afin que vous puissiez réussir l'apprentissage après trois ans.\n\nExigences\n• Profitez du contact avec les clients et les employés\n\n• Intérêt pour les tâches numériques et les événements économiques\n\n• Personnalité responsable, indépendante et capable d'équipe avec de bonnes manières\n\n• Grande volonté d'apprendre\n\n• Niveau E ou P du secondaire\n\n• Bon à très bon classement en allemand, anglais, français et mathématiques\n\nNous avons besoin des documents suivants de votre part:\n• Demande complète avec lettre de motivation, CV avec photo\n\n• Copies des certificats des trois dernières années scolaires ainsi que des diplômes existants (écriture de clavier, informatique, langues)\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, ils contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous !"
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-kauffrau-oder-kaufmann-efz/acbe419f-2d61-44ff-aac9-c10a7314acc0",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.175Z",
+      "crawledAt": "2026-09-29T09:51:54.825Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -756,7 +755,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-237df42f4dee",
@@ -790,7 +790,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-kauffrau-oder-kaufmann-eba/d89865a3-3fcb-4382-8a95-7bcced93bfa2",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.174Z",
+      "crawledAt": "2026-09-29T09:51:54.823Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -865,13 +865,12 @@
         "de": "Aufgaben:\n• Bauen und Unterhalten von Strassen, Plätzen, Trottoirs, Rad- und Fusswegen, Mauern und Treppen sowie Verkehrsinseln\n\n• Verlegen von Leitungen und Setzen von Schächten\n\n• Verrichten aller damit zusammenhängenden Arbeiten, von der Baustelleninstallation über den Werkleitungsbau bis hin zu Belagsarbeiten\n\n• Lesen und Verstehen von Plänen über das Einbringen der Strassenbeläge\n\n• Pflege und Wartung der Maschinen und Werkzeuge\n\nAnforderungen:\n• Sekundarschulabschluss Niveau A oder E\n\n• handwerkliche Geschicklichkeit\n\n• Freude am Arbeiten im Freien und am Umgang mit Geräten und Maschinen\n\n• Zuverlässigkeit, Einsatzbereitschaft und Wetterfestigkeit sowie körperliche Belastbarkeit\n\n• ausgeprägte Teamfähigkeit\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Construction et entretien de routes, de places, de chaussées, de pistes cyclables et piétonnes, de murs et d'escaliers et d'îles de circulation\n\n• Pose de tuyaux et d'arbres\n\n• Réalisation de tous les travaux connexes, de l'installation du chantier à la construction de la gestion de l'usine aux travaux de surface\n\n• Plans de lecture et de compréhension pour l'introduction de surfaces routières\n\n• Entretien et entretien des machines et des outils\n\nExigences\n• Niveau A ou E de l ' enseignement secondaire\n\n• Compétence artisanale\n\n• Joy de travailler à l'extérieur et de traiter avec des équipements et des machines\n\n• Fiabilité, disponibilité opérationnelle, résistance aux intempéries et force physique\n\n• Travail d ' équipe\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, ils contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous !"
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-strassenbauerin-strassenbauer-efz-oder-strassenbaupraktikerin-strassenbaupraktiker-eba/33fb7931-9f0f-412d-81e3-fd105ab238ff",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.172Z",
+      "crawledAt": "2026-09-29T09:51:54.821Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -918,7 +917,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-885d79414732",
@@ -946,13 +946,12 @@
         "de": "Aufgaben:\n• Eine fundierte dreijährige kaufmännische Grundbildung mit hohem Praxisbezug im Betreibungs- und Konkursamt in Liestal. Optimal ergänzt durch die Theorie in der Kaufmännische Berufsfachschule und überbetrieblichen Kursen.\n\n• Gemeinsames Entwickeln deiner Persönlichkeit, damit du Verantwortung am Arbeitsplatz übernehmen kannst und Selbstsicherheit im Berufsalltag gewinnst.\n\n• Bestmögliche Berufschancen für deinen weiteren beruflichen Weg bei der Kantonalen Verwaltung Basel-Landschaft oder ausserhalb.\n\n• Eine abwechslungsreiche Lehre: die Aufgaben reichen von der Postbearbeitung über die Kundenberatung am Schalter bis hin zur eigenen Fallbearbeitung und Aufgaben zur Unterstützung der Teams.\n\n• Unsere professionellen, engagierten Berufsbildungsfachpersonen unterstützen Dich beim Erreichen der Lernziele, damit Du die Lehre nach drei Jahren erfolgreich abschliesst.\n\nAnforderungen:\n• Freude am Kontakt mit der Kundschaft und anderen Mitarbeitenden\n\n• Sehr gute Umgangsformen und Ausdrucksweise in Deutsch\n\n• Interesse an digitalen Aufgaben und am wirtschaftlichen Geschehen\n\n• Motivation, Lernbereitschaft und eine positive Grundeinstellung\n\n• Abgeschlossene Sekundarschule Niveau P oder guter Abschluss Niveau E\n\n• Guter bis sehr guter Notenschnitt in Deutsch, Englisch, Französisch und Mathematik\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Une éducation commerciale de base de trois ans bien fondée, avec une grande pertinence pratique au Bureau des affaires et de la faillite de Liestal. En complément optimal de la théorie de l'école professionnelle commerciale et des cours interentreprises.\n\n• Développez votre personnalité ensemble afin que vous puissiez assumer vos responsabilités en milieu de travail et acquérir confiance en vous dans le travail quotidien.\n\n• Meilleures opportunités de carrière pour votre future carrière à l'Administration cantonale Basel-Landschaft ou à l'extérieur.\n\n• Un apprentissage varié : les tâches vont du traitement postal au conseil client au comptoir, à la gestion de votre cas et aux tâches de soutien aux équipes.\n\n• Nos spécialistes de la formation professionnelle spécialisée vous aident à atteindre les objectifs d'apprentissage afin que vous puissiez réussir l'apprentissage après trois ans.\n\nExigences\n• Joy de contact avec les clients et les autres employés\n\n• Très bonnes manières et expression en allemand\n\n• Intérêt pour les tâches numériques et les événements économiques\n\n• Motivation, volonté d'apprendre et attitude de base positive\n\n• Niveau d ' enseignement secondaire complet\n\n• Bon à très bon classement en allemand, anglais, français et mathématiques\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, ils contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous !"
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz/51f2ac70-13df-442d-84fc-87c666fe8312",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.171Z",
+      "crawledAt": "2026-09-29T09:51:54.819Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1001,7 +1000,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-6a80837855e2",
@@ -1035,7 +1035,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-fuer-deutsch/fbcf1320-44e0-4818-a2c5-1f15466adfa3",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.170Z",
+      "crawledAt": "2026-09-29T09:51:54.817Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1122,7 +1122,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-fuer-musik/4318bc58-4593-4d0a-82f5-130fcd0e07df",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.169Z",
+      "crawledAt": "2026-09-29T09:51:54.815Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1214,13 +1214,12 @@
         "de": "Aufgaben:\n• Kundenempfang und Kundenbetreuung\n\n• Postverarbeitung und Sekretariatsaufgaben\n\n• Abteilungsübergreifende Administration\n\n• Organisation und Koordination von Anlässen\n\n• Protokollführung und Sitzungsorganisation\n\nAnforderungen:\n• Abgeschlossene obligatorische Schule\n\n• Interesse an kaufmännischen Tätigkeiten sowie an den Themen Landwirtschaft, Natur und Ernährung\n\n• Freude am Organisieren und am Kontakt mit Menschen\n\n• Zuverlässige, selbstständige und sorgfältige Arbeitsweise\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Hohe Lernbereitschaft und Freude daran, Verantwortung zu übernehmen\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Réception client et assistance client\n\n• Traitement postal et secrétariat\n\n• Administration interministérielle\n\n• Organisation et coordination des manifestations\n\n• Procès-verbal et organisation des réunions\n\nExigences\n• Enseignement obligatoire terminé\n\n• Intérêt pour les activités commerciales ainsi que pour l'agriculture, la nature et l'alimentation\n\n• Joy d'organisation et de contact avec les gens\n\n• Méthodes de travail fiables, indépendantes et prudentes\n\n• L'allemand styliste dans la parole et l'écriture\n\n• Une grande volonté d'apprendre et de la joie d'assumer la responsabilité\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, ils contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous !"
       },
-      "needsRetranslation": true,
       "location": "Sissach",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehre-kauffrau-kaufmann-efz/220005e1-55b0-4520-9f46-50826fb49d22",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.168Z",
+      "crawledAt": "2026-09-29T09:51:54.814Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1267,7 +1266,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-931f21173de5",
@@ -1301,7 +1301,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/musikschulleitung/4de74867-0252-4036-9743-933c05a57b8d",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.167Z",
+      "crawledAt": "2026-09-29T09:51:54.811Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1414,7 +1414,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/mitglied-der-schulleitung/38c23912-67c1-48a3-9c97-3239ea74650d",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.166Z",
+      "crawledAt": "2026-09-29T09:51:54.810Z",
       "addressLocality": "Lausen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1489,13 +1489,12 @@
         "de": "Aufgaben:\n• Während Ihrer Ausbildung in unserer Direktion wechseln Sie die Abteilungen und sind an verschiedenen Praxisorten im Einsatz. Dadurch erhalten Sie einen umfassenden Einblick in die verschiedenen Bereiche der Verwaltung und Administration, können sich ein breites Fach- und Branchenwissen aneignen und lernen die spannenden Aufgaben des kaufmännischen Berufes kennen.\n\n• Ausgebildete Berufsbildnerinnen und Berufsbildner begleiten und unterstützen Sie während Ihrer Ausbildungszeit und führen Sie systematisch und gezielt in Ihr Aufgabengebiet ein. Zusammen legen Sie die Basis für Ihren positiven Start ins Berufsleben.\n\nAnforderungen:\n• Freude an administrativen Aufgaben und der Kontakt mit Menschen\n\n• gute bis sehr gute mündliche und schriftliche Ausdrucksweise auf Deutsch\n\n• eine gute Auffassungsgabe, Lernbereitschaft, sind offen für Neues und denken mit\n\n• eine verantwortungsbewusste, selbständige und teamfähige Persönlichkeit mit guten Umgangsformen\n\n• eine abgeschlossene Sekundarschule Niveau E oder P\n\n• guter bis sehr guter Notenschnitt in Deutsch, Englisch, Französisch und Mathematik\n\nDie Bildungs-, Kultur- und Sportdirektion (BKSD) ist zuständig für den Bildungsbereich auf allen Schulstufen, die Förderung von Kultur und Sport sowie die Behinderten- und die Kinder- und Jugendhilfe.",
         "fr": "Tâches :\n• Au cours de votre formation à notre direction, vous changerez de département et serez déployé dans différents lieux de pratique. Cela vous donne un aperçu complet des différents domaines de l'administration et de l'administration, vous permet d'acquérir un large éventail de connaissances spécialisées et de l'industrie et de connaître les tâches passionnantes de la profession commerciale.\n\n• Les stagiaires professionnels formés vous accompagnent et vous soutiennent pendant votre période de formation et vous présentent systématiquement et spécifiquement votre domaine de responsabilité. Ensemble, vous posez les bases de votre départ positif dans la vie professionnelle.\n\nExigences\n• Profitez des tâches administratives et des contacts avec les personnes\n\n• bonne à très bonne expression orale et écrite en allemand\n\n• une bonne compréhension, la volonté d'apprendre, sont ouverts à de nouvelles choses et penser avec\n\n• une personnalité responsable, indépendante et capable d'équipe avec de bonnes manières\n\n• un niveau E ou P du secondaire\n\n• bon à très bon classement en allemand, anglais, français et mathématiques\n\nLa Direction de l'éducation, de la culture et des sports (BKSD) est responsable du secteur de l'éducation à tous les niveaux de l'école, de la promotion de la culture et du sport ainsi que de la protection des handicapés et des enfants et des jeunes."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrstelle-als-kauffrau-efz-kaufmann-efz/80bb1839-2f79-490c-800e-65b4ae3d6a4b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.164Z",
+      "crawledAt": "2026-09-29T09:51:54.807Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1542,7 +1541,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-ca47a436666a",
@@ -1570,13 +1570,12 @@
         "de": "Aufgaben:\n• Du berätst und begleitest Jugendliche und junge Erwachsene individuell und ganzheitlich auf ihrem Weg in eine berufliche Erstausbildung\n\n• Du unterstützt sie dabei, passende Perspektiven zu entwickeln und nachhaltig in die Arbeitswelt einzusteigen\n\n• Du koordinierst fallbezogen verschiedene Fachstellen und arbeitest interdisziplinär zusammen – beispielsweise mit Stellen aus dem Sozialbereich, dem Bildungssystem oder dem Gesundheitsbereich\n\n• Du erhältst Einblick in die Arbeitsweise des Case Managements und unterstützt bei der Organisation bedarfsgerechter Lösungen\n\n• Du übernimmst administrative Aufgaben wie Falldokumentation und Protokollführung\n\nAnforderungen:\n• Du studierst Soziale Arbeit an der Hochschule für Soziale Arbeit FHNW im Vollzeit- oder Teilzeitstudium und suchst einen Praktikumsplatz für dein zweites Praxismodul.\n\n• Du interessierst dich für die Themen Jugend, Berufsintegration und Übergang Schule – Beruf.\n\n• Du bist eine offene und engagierte Persönlichkeit und gehst gerne auf junge Menschen zu.\n\n• Du arbeitest selbstständig, zuverlässig und gut organisiert.\n\n• Du kommunizierst gerne und verfügst über eine hohe Sozialkompetenz.\n\n• Du kannst dich mündlich und schriftlich sicher und verständlich ausdrücken.\n\nWir sind die kantonale Fachstelle für Berufsintegration für Jugendliche und junge Erwachsene zwischen 15 und 25 Jahren. Wir stehen als Drehscheibe und Dienstleister für junge Menschen, Eltern, Fachstellen und Lehrpersonen, die Fragen zu diesem Thema haben, zur Verfügung. Im Rahmen der kantonalen Gesamtstrategie leisten wir einen wichtigen Beitrag bei der Prävention und Reduzierung der Jugendarbeitslosigkeit.\nUnsere Angebote sind kostenlos und freiwillig.",
         "fr": "Tâches :\n• Vous conseillez et accompagnez les jeunes et les jeunes adultes individuellement et globalement sur la voie de la formation professionnelle initiale\n\n• Vous les aidez à développer des perspectives appropriées et à entrer durablement dans le monde du travail.\n\n• Vous coordonnez au cas par cas différents postes de spécialiste et vous travaillez de concert interdisciplinaire, par exemple dans le secteur social, le système éducatif ou le secteur de la santé.\n\n• Vous aurez un aperçu du fonctionnement de la gestion de cas et soutien à l'organisation de solutions basées sur les besoins\n\n• Vous assumez des tâches administratives telles que la documentation de cas et la gestion des protocoles\n\nExigences\n• Vous étudiez le travail social à l'Université de travail social FHNW dans des études à temps plein ou à temps partiel et êtes à la recherche d'un stage pour votre deuxième module pratique.\n\n• Vous êtes intéressé par les thèmes jeunesse, intégration professionnelle et école de transition – profession.\n\n• Vous êtes une personnalité ouverte et engagée et aimez approcher les jeunes.\n\n• Vous travaillez de façon indépendante, fiable et bien organisée.\n\n• Vous aimez communiquer et avoir un niveau élevé de compétences sociales.\n\n• Vous pouvez vous exprimer verbalement et par écrit de façon sûre et compréhensible.\n\nNous sommes le centre cantonal spécialisé pour l'insertion professionnelle des jeunes et des jeunes adultes âgés de 15 à 25 ans. Nous sommes à la disposition des jeunes, des parents, des spécialistes et des enseignants qui ont des questions à ce sujet. Dans le cadre de la stratégie générale cantonale, nous apportons une contribution importante à la prévention et à la réduction du chômage des jeunes.\nNos offres sont gratuites et volontaires."
       },
-      "needsRetranslation": true,
       "location": "Birsfelden",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/praktikum-soziale-arbeit-berufsintegration-2-praxismodul/af9301e6-fefe-44c0-b6d7-97d1ae24caf8",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.163Z",
+      "crawledAt": "2026-09-29T09:51:54.806Z",
       "addressLocality": "Birsfelden",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1625,7 +1624,8 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-5024e72e9912",
@@ -1653,13 +1653,12 @@
         "de": "Aufgaben:\n• Fachgerechte Pflege und Unterhalt des Kursgartens nach den Richtlinien von Bio Suisse\n\n• Weiterentwicklung der Anlage als praxisnahen Lern- und Erlebnisort\n\n• Planung, Organisation und Durchführung von Kursen und Weiterbildungen\n\n• Planung und Umsetzung von Projekten\n\n• Durchführung der Blockwoche Brücke Ebenrain und Zusammenarbeit mit Jugendlichen\n\n• Bekanntmachung des Kursgarten und Kommunikationsmassnahmen für Printmedien und Social Media\n\nAnforderungen:\n• Gärtner/in oder adäquate Ausbildung\n\n• Erfahrung im gärtnerischen Unterhalt und fundierte Pflanzenkenntnisse\n\n• Gute Kenntnisse im biologischen Gärtnern\n\n• Erfahrung und Freue im Bereich Erwachsenenbildung\n\n• Teamfähigkeit, Selbständigkeit und Flexibilität\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Soins professionnels et entretien du jardin selon les directives de Bio Suisse\n\n• Poursuite du développement de l'installation en tant que lieu d'apprentissage et d'expérience pratiques\n\n• Planification, organisation et mise en œuvre de cours et de formations\n\n• Planification et exécution des projets\n\n• Mise en œuvre de la semaine de blocage Pont Ebenrain et coopération avec les jeunes\n\n• Publication du cours et mesures de communication pour la presse écrite et les médias sociaux\n\nExigences\n• Jardinier ou formation adéquate\n\n• Expérience dans l'entretien du jardin et connaissance approfondie des plantes\n\n• Bonne connaissance des jardiniers biologiques\n\n• Expérience et plaisir dans l'éducation des adultes\n\n• Travail d'équipe, indépendance et flexibilité\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, ils contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous !"
       },
-      "needsRetranslation": true,
       "location": "Sissach",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/beraterin-berater-biogartenbau/b8c89acf-d973-49ef-9b71-1b7a37c99455",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.162Z",
+      "crawledAt": "2026-09-29T09:51:54.803Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1706,7 +1705,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-94c3f864300b",
@@ -1734,13 +1734,12 @@
         "de": "Aufgaben:\n• Mitverantwortung im Schulleitungsteam für Gestaltung, Entwicklung und Qualität der gesamten Sekundarschule Liestal\n\n• strategische und operative Schulentwicklung\n\n• Führungsverantwortung, Mitarbeit im Schulleitungsteam\n\n• Pflege konstruktiver Beziehungen zu Schüler/innen, Eltern, Lehrpersonen und Anspruchsgruppen\n\n• Personalführung als Schwerpunkt\n\n• weitere gemeinsame Definition der Ressort- und Aufgabenverteilung im Schulleitungssteam\n\nAnforderungen:\n• mehrjährige Berufserfahrung als Lehrperson Sek I, anerkannte pädagogische Ausbildung\n\n• Anerkannte Schulleitungsausbildung oder Bereitschaft, diese berufsbegleitend zu absolvieren\n\n• starke Kommunikationsfähigkeit, Interesse an strukturierter und nachhaltiger Schulentwicklung\n\n• Teamfähigkeit, Verantwortungsbewusstsein, lösungsorientierte Kommunikation, gute ICT-Kenntnisse\n\n• Interesse an einer offenen, partizipativen Führungskultur\n\nDie Sekundarschule Liestal ist die grösste Sekundarschule im Kanton Baselland und besteht aus den beiden Schulhäusern Burg und Frenke. Zurzeit unterrichten wir 47 Schulklassen aus den Leistungszügen A, E und P, mit über 850 Schüler:innen aus acht Gemeinden. Unser interprofessionelles Team besteht aus 145 Lehrpersonen, schulischen Heilpädagog:innen und Sozialpädagog:innen. Wir pflegen Kollegialität, einen offenen Umgang und an Humor fehlt es uns auch nicht - ganz gemäss unserem Motto: \"zämme lehre, zämme wachse, zämme si\". Die Schulleitung begleitet und unterstützt Sie gerne beim Einstieg.",
         "fr": "Tâches :\n• Coresponsabilité au sein de l'équipe de direction de l'école pour la conception, le développement et la qualité de l'ensemble de l'école secondaire de Liestal\n\n• Développement scolaire stratégique et opérationnel\n\n• Responsabilité en matière de leadership, participation à l'équipe de direction de l'école\n\n• Maintenir des relations constructives avec les élèves, les parents, les enseignants et les parties prenantes\n\n• La gestion du personnel en priorité\n\n• définition commune de la division des départements et des tâches dans l'équipe de gestion de l'école\n\nExigences\n• Plusieurs années d'expérience professionnelle en tant qu'enseignant Sek I, formation éducative reconnue\n\n• Formation reconnue en gestion scolaire ou volonté de participer à cette formation\n\n• Fortes compétences en communication, intérêt pour le développement scolaire structuré et durable\n\n• Travail d'équipe, responsabilité, communication orientée vers la solution, bonnes compétences en TIC\n\n• Intérêt pour une culture de leadership ouverte et participative\n\nL'école secondaire de Liestal est la plus grande école secondaire du canton de Bâle et comprend les deux bâtiments scolaires Burg et Frenke. Nous enseignons actuellement 47 classes scolaires des classes A, E et P, avec plus de 850 élèves de huit municipalités. Notre équipe interprofessionnelle se compose de 145 enseignants, professeurs d'écoles curatives et enseignants sociaux. Nous cultivons la collégialité, une approche ouverte et de l'humour que nous ne manquons pas - selon notre devise: \"tame lehre, dompter grandir, dompter si\". La direction de l'école vous accompagnera volontiers et vous soutiendra lorsque vous commencerez."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/konrektorin-konrektor/718700da-85c9-4c7e-b136-9eac1de4b33f",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.161Z",
+      "crawledAt": "2026-09-29T09:51:54.801Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1787,7 +1786,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-a66114aaf0e0",
@@ -1821,7 +1821,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/bau-oder-landmaschinenmechanikerin-bau-oder-landmaschinenmechaniker/d0439708-374b-416e-86e8-7b58b9ccc3ba",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.160Z",
+      "crawledAt": "2026-09-29T09:51:54.799Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1899,13 +1899,12 @@
         "de": "Aufgaben:\n• Sie unterrichten als Klassenlehrperson eine 3. Primarklasse mit 14 Schülerinnen und Schülern.\n\n• In enger Zusammenarbeit mit der Heilpädagogin gestalten sie den Unterricht und begleiten die Schülerinnen und Schüler in ihrem Lernprozess.\n\n• Ihre Aufgaben erfüllen Sie mit Freude und Verantwortung. Herausforderungen begegnen Sie mit Gelassenheit und Humor.\n\nAnforderungen:\n• Sie besitzen ein Lehrdiplom für die Primarstufe oder sind dazu in Ausbildung.\n\n• Sie legen Wert auf eine konstruktive Zusammenarbeit im Klassenteam.\n\n• Sie schätzen die Arbeit in einer Dorfschule und einem kleinen, engagierten und aufgestellten Team.\n\n• Sie pflegen eine wertschätzende Zusammenarbeit mit den SchülerInnen und den Erziehungsberechtigten\n\nWir sind eine kleine, überschaubare Dorfschule mit einem Kindergarten und vier Primarklassen. Unsere Schule zeichnet sich aus durch ein engagiertes Team, welches erfolgreich und wertschätzend zusammenarbeitet.",
         "fr": "Tâches :\n• En tant qu'enseignant, vous enseignez une troisième classe primaire avec 14 élèves.\n\n• En étroite collaboration avec la pédagogie curative, ils façonnent les leçons et accompagnent les élèves dans leur processus d'apprentissage.\n\n• Vous accomplissez vos tâches avec joie et responsabilité. Les défis sont relevés avec sérénité et humour.\n\nExigences\n• Vous avez un diplôme d'enseignement pour le niveau primaire ou êtes en formation.\n\n• Ils attachent de l'importance à une coopération constructive au sein de l'équipe de classe.\n\n• Ils apprécient de travailler dans une école de village et une petite équipe dévouée et établie.\n\n• Ils entretiennent une coopération reconnaissante avec les élèves et les tuteurs\n\nNous sommes une petite école de village gérable avec une maternelle et quatre classes primaires. Notre école se caractérise par une équipe dévouée qui travaille ensemble avec succès et avec reconnaissance."
       },
-      "needsRetranslation": true,
       "location": "Waldenburg",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-3-klasse/77b894bd-b151-4bab-8fec-76b9f76b95ea",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.159Z",
+      "crawledAt": "2026-09-29T09:51:54.798Z",
       "addressLocality": "Waldenburg",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1956,7 +1955,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-dc68f79c3c67",
@@ -1984,13 +1984,12 @@
         "de": "Aufgaben:\n• Sie unterrichten als Klassenlehrperson an einer 4.-6. Mehrjahrgangsklasse mit 17 Schülerinnen und Schülern. (zehn 4. Klässler/innen, sechs 5. Klässler/innen, ein 6. Klässler)\n\n• In enger Zusammenarbeit mit der Heilpädagogin gestalten sie den Unterricht und begleiten die Schülerinnen und Schüler in ihrem Lernprozess.\n\n• Ihre Aufgaben erfüllen Sie mit Freude und Verantwortung. Herausforderungen begegnen Sie mit Gelassenheit und Humor.\n\nAnforderungen:\n• Sie besitzen ein Lehrdiplom für die Primarstufe oder sind dazu in Ausbildung.\n\n• Sie legen Wert auf eine konstruktive Zusammenarbeit im Klassenteam.\n\n• Sie schätzen die Arbeit in einer Dorfschule und einem kleinen, engagierten und aufgestellten Team.\n\n• Sie pflegen eine wertschätzende Zusammenarbeit mit den SchülerInnen und den Erziehungsberechtigten\n\nWir sind eine kleine, überschaubare Dorfschule mit einem Kindergarten und vier Primarklassen. Unsere Schule zeichnet sich aus durch ein engagiertes Team, welches erfolgreich und wertschätzend zusammenarbeitet.",
         "fr": "Tâches :\n• Vous enseignez comme professeur dans une 4e-6e classe multi-année avec 17 étudiants. (dix 4e année, six 5e année, un 6e année)\n\n• En étroite collaboration avec la pédagogie curative, ils façonnent les leçons et accompagnent les élèves dans leur processus d'apprentissage.\n\n• Vous accomplissez vos tâches avec joie et responsabilité. Les défis sont relevés avec sérénité et humour.\n\nExigences\n• Vous avez un diplôme d'enseignement pour le niveau primaire ou êtes en formation.\n\n• Ils attachent de l'importance à une coopération constructive au sein de l'équipe de classe.\n\n• Ils apprécient de travailler dans une école de village et une petite équipe dévouée et établie.\n\n• Ils entretiennent une coopération reconnaissante avec les élèves et les tuteurs\n\nNous sommes une petite école de village gérable avec une maternelle et quatre classes primaires. Notre école se caractérise par une équipe dévouée qui travaille ensemble avec succès et avec reconnaissance."
       },
-      "needsRetranslation": true,
       "location": "Waldenburg",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-4-6-mehrjahrgangsklasse/d05b5dc9-1c1b-43d6-a40b-2149546190ae",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.157Z",
+      "crawledAt": "2026-09-29T09:51:54.795Z",
       "addressLocality": "Waldenburg",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2043,7 +2042,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-768499e5083a",
@@ -2077,7 +2077,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/amtliche-tieraerztin-amtlicher-tierarzt/2da681ac-ae48-4d46-ac7e-04f6fc13eff0",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.155Z",
+      "crawledAt": "2026-09-29T09:51:54.792Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2158,7 +2158,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/schulsozialarbeiter-schulsozialarbeiterin/67afdbc7-8785-41bd-af49-d01974a58902",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.154Z",
+      "crawledAt": "2026-09-29T09:51:54.790Z",
       "addressLocality": "Grellingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2235,13 +2235,12 @@
         "de": "Aufgaben:\n• Sie sind als Klassenlehrperson für eine 5. Klasse zuständig.\n\n• Die konstruktive Zusammenarbeit mit allen Schulbeteiligten ist Ihnen wichtig und die Arbeit im Team eine Selbstverständlichkeit.\n\nAnforderungen:\n• Idealerweise verfügen Sie über eine abgeschlossene Ausbildung als Primarlehrperson mit Französisch und Sport und bringen Erfahrung in Klassenführung mit.\n\n• Sie legen Wert auf einen binnendifferenzierten und kompetenzorientierten Unterricht und bringen sich gerne in einem multikulturellen schulischen Umfeld ein.\n\nPratteln ist eine moderne und innovative Agglomerationsgemeinde mit einem breiten Angebot für Familien. Die Primarstufe umfasst 6 Schulhausstandorte und 19 Kindergärten mit motivierten und unterstützenden Lehrpersonenteams.Wir bieten eine verantwortungsvolle, vielseitige und abwechslungsreiche Tätigkeit in einem lebendigen Umfeld.",
         "fr": "Tâches :\n• En tant que professeur de classe, vous êtes responsable d'une cinquième année.\n\n• La coopération constructive avec tous les participants à l'école est importante pour vous et travailler en équipe est une question bien sûr.\n\nExigences\n• Idéalement, vous aurez terminé votre formation en tant qu'enseignant principal en français et en sport et vous aurez acquis de l'expérience en leadership de classe.\n\n• Ils attachent de l'importance à l'enseignement différencié et axé sur les compétences et sont heureux de participer à un environnement scolaire multiculturel.\n\nPratteln est une communauté d'agglomération moderne et innovante avec une large gamme de services pour les familles. Le niveau primaire comprend 6 établissements scolaires et 19 jardins d'enfants dotés d'équipes pédagogiques motivées et solidaires. Nous offrons une activité responsable, polyvalente et variée dans un environnement animé."
       },
-      "needsRetranslation": true,
       "location": "Pratteln",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson/8b29dc1a-d952-4fb5-bd9e-b749206db52e",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.153Z",
+      "crawledAt": "2026-09-29T09:51:54.788Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2307,7 +2306,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-444072b0c275",
@@ -2341,7 +2341,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/instruktorin-instruktor-bevoelkerungsschutz/7a98a2dc-c95d-41a5-9876-b3e904d5e23b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.152Z",
+      "crawledAt": "2026-09-29T09:51:54.786Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2418,13 +2418,12 @@
         "de": "Aufgaben:\n• Es erwarten Sie eine erfahrene, konstruktive und kooperative Stellenpartnerinnen und ein engagiertes Kollegium.\n\n• Wir legen Wert auf ausgewiesene Unterrichtsqualität, auf konstruktie Teamarbeit, transparente Kommunikation und eine gute Zusammenarbeit mit den Erziehungsberechtigten.\n\n• Es handelt sich um die Einführungsklasse am Standort Mühleboden.\n\n• Individuelle Förderung und Begleitung der Schülerinnen und Schüler\n\n• Förderplanung und Dokumentation der Lernentwicklung\n\n• Gestaltung eines unterstützenden und wertschätzenden Lernumfelds\n\nAnforderungen:\n• Sie verfügen über ein Diplom in schulischer Heilpädagogik oder einen Bachelor für die Primarstufe (1.-6. Klasse) oder sind dran, dieses zu erwerben.\n\n• Sie legen Wert auf wertschätzende und offene Kommunikation und schätzen die konstruktive Zusammenarbeit mit Ihren Kolleg:innen.\n\n• Eine gute Lernatmosphäre steht für Sie im Zentrum Ihres pädagogischen Handelns.\n\nDie Primarstufe Therwil umfasst 41 Klassen mit rund 760 Schülerinnen und Schülern, die von gut 110 Lehrpersonen unterrichtet werden.Unsere Schule wird über 3 Schulstandorte und 8 Kindergärten organisiert und führt Einführungsklassen, Kleinklassen und Integrationsklassen.Die Primarstufe Therwil steht für eine partizipative, integrative Schule mit einer Kultur, die Lehren und Lernen sichtbar macht (LLSM).",
         "fr": "Tâches :\n• Vous pouvez vous attendre à un partenaire professionnel expérimenté, constructif et coopératif et à un collège engagé.\n\n• Nous attachons de l'importance à une qualité d'enseignement éprouvée, à un travail d'équipe constructif, à une communication transparente et à une bonne coopération avec les gardiens.\n\n• C'est la classe d'introduction sur le site de Mühleboden.\n\n• Soutien individuel et soutien aux étudiants\n\n• Planification du financement et documentation du développement de l'apprentissage\n\n• Concevoir un environnement d'apprentissage favorable et apprécié\n\nExigences\n• Vous avez un diplôme en éducation curative ou un baccalauréat pour l'enseignement primaire (1er-6e année) ou êtes en train de l'obtenir.\n\n• Vous appréciez la communication ouverte et reconnaissante et appréciez la coopération constructive avec vos collègues.\n\n• Une bonne ambiance d'apprentissage est au centre de votre action pédagogique.\n\nNiveau primaire Therwil comprend 41 classes avec environ 760 élèves, qui sont enseignés par plus de 110 enseignants. Notre école est organisée sur 3 sites scolaires et 8 jardins d'enfants et dirige des classes d'initiation, des petites classes et des classes d'intégration. Therwil niveau primaire représente une école participative et intégrative avec une culture qui rend l'enseignement et l'apprentissage visible (LLSM)."
       },
-      "needsRetranslation": true,
       "location": "Therwil",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-fuer-die-einfuehrungsklasse/a6dcba82-a687-4a13-b21d-fe8745ec11ba",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.151Z",
+      "crawledAt": "2026-09-29T09:51:54.784Z",
       "addressLocality": "Therwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2442,6 +2441,12 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/lehrperson-fuer-die-einfuehrungsklasse/a6dcba82-a687-4a13-b21d-fe8745ec11ba",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrperson-fur-die-einfuhrungsklasse-kanton-basel-landschaft-therwil",
+        "lehrperson-per-la-einfuhrungsklasse-kantonale-verwaltung-basel-landschaft-therwil",
+        "lehrperson-fur-die-einfuhrungsklasse-kantonale-verwaltung-basel-landschaft-therwil",
+        "istruttore-di-classe-introduttiva-kantonale-verwaltung-basel-landschaft-therwil"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "lehrperson-fur-die-einfuhrungsklasse-kantonale-verwaltung-basel-landschaft-therwil",
@@ -2459,12 +2464,6 @@
           "lehrperson-fur-die-einfuhrungsklasse-kantonale-verwaltung-basel-landschaft-therwil"
         ]
       },
-      "previousSlugs": [
-        "lehrperson-fur-die-einfuhrungsklasse-kanton-basel-landschaft-therwil",
-        "lehrperson-per-la-einfuhrungsklasse-kantonale-verwaltung-basel-landschaft-therwil",
-        "lehrperson-fur-die-einfuhrungsklasse-kantonale-verwaltung-basel-landschaft-therwil",
-        "istruttore-di-classe-introduttiva-kantonale-verwaltung-basel-landschaft-therwil"
-      ],
       "firstSeenAt": "2026-09-19T22:50:38.131Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2478,7 +2477,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-620c85bbd30b",
@@ -2506,13 +2506,12 @@
         "de": "Aufgaben:\n• Begleitung und Unterstützung von Kindern im schulischen Alltag\n\n• Förderung der sozialen und emotionalen Kompetenzen der Kinder\n\n• Unterstützung einzelner Kinder oder Kleingruppen bei Herausforderungen im Verhalten oder im sozialen Miteinander\n\n• Zusammenarbeit mit Lehrpersonen, schulischen Heilpädagogen und Heilpädagoginnen und weiteren Fachpersonen\n\n• Mitwirkung bei präventiven und integrativen Massnahmen im Schulalltag\n\nAnforderungen:\n• Eine abgeschlossen Ausbildung Sozialpädagogik (FH/HF) oder vergleichbare Qualifikation\n\n• Erfahrung in der Arbeit mit Kindern im Primarschulalter von Vorteil\n\n• Freude an der Zusammenarbeit im interdisziplinären Team\n\n• Einfühlungsvermögen, Geduld und eine wertschätzende Grundhaltung\n\n• Selbständige, lösungsorientierte Arbeitsweise sowie Flexibiliät im Schulalltag\n\nKinder stärken, Beziehungen gestalten, Schule mitprägen. Die Primarschule Arlesheim ist ein lebendiger Lern- und Begegnungsort. Wir begleiten Kinder auf dem Weg mit Wertschätzung, Neugier und Vertrauen in ihre Fähigkeiten. Ein respektvolles Miteinander, enge Zusammenarbeit im Team sowie eine fördernde Lernumgebung stehen bei uns im Mittelpunkt.",
         "fr": "Tâches :\n• Accompagnement et soutien des enfants dans la vie quotidienne scolaire\n\n• Promouvoir les compétences sociales et émotionnelles des enfants\n\n• Aider les enfants ou les petits groupes à faire face à des problèmes de comportement ou d'interaction sociale\n\n• Coopération avec les enseignants, les enseignants et les autres spécialistes\n\n• Participation aux mesures de prévention et d ' intégration dans la vie scolaire quotidienne\n\nExigences\n• Formation complète en pédagogie sociale (FH/HF) ou qualification comparable\n\n• L'expérience de travail avec les enfants d'âge scolaire primaire est bénéfique\n\n• Profitez de travailler dans une équipe interdisciplinaire\n\n• Empathie, patience et attitude reconnaissante\n\n• Méthodes de travail indépendantes orientées vers la solution et flexibilité dans la vie scolaire quotidienne\n\nRenforcer les enfants, façonner les relations, façonner les écoles. L'école primaire d'Arlesheim est un lieu d'apprentissage et de rencontre animé. Nous accompagnons les enfants en chemin avec reconnaissance, curiosité et confiance dans leurs capacités. Une coopération respectueuse, une coopération étroite au sein de l'équipe et un environnement d'apprentissage favorable sont au centre de nos préoccupations."
       },
-      "needsRetranslation": true,
       "location": "Arlesheim",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/c2e88945-d115-4c52-b8cf-76460acdc79d",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.147Z",
+      "crawledAt": "2026-09-29T09:51:54.780Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2530,6 +2529,20 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/c2e88945-d115-4c52-b8cf-76460acdc79d",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-arlesheim",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-arlesheim",
+        "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-oberwil",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil",
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil",
+        "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-oberwil",
+        "housekeeper-kantonale-verwaltung-basel-landschaft-oberwil",
+        "hauswartin-hauswart-kanton-basel-landschaft-oberwil",
+        "menage-kantonale-verwaltung-basel-landschaft-oberwil",
+        "hauswartin-hauswart-kantonale-verwaltung-basel-landschaft-oberwil",
+        "social-pedagogue-kantonale-verwaltung-basel-landschaft-oberwil",
+        "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-arlesheim"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil",
@@ -2559,20 +2572,6 @@
           "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-oberwil"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-arlesheim",
-        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-arlesheim",
-        "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-oberwil",
-        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil",
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil",
-        "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-oberwil",
-        "housekeeper-kantonale-verwaltung-basel-landschaft-oberwil",
-        "hauswartin-hauswart-kanton-basel-landschaft-oberwil",
-        "menage-kantonale-verwaltung-basel-landschaft-oberwil",
-        "hauswartin-hauswart-kantonale-verwaltung-basel-landschaft-oberwil",
-        "social-pedagogue-kantonale-verwaltung-basel-landschaft-oberwil",
-        "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-arlesheim"
-      ],
       "firstSeenAt": "2026-09-19T22:50:38.128Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2586,7 +2585,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-9e1efc9e9f86",
@@ -2620,7 +2620,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/fachlehrperson-deutsch-musik-spezielle-foerderung/993b8638-0cc3-402a-a211-03650ffc89ce",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.145Z",
+      "crawledAt": "2026-09-29T09:51:54.778Z",
       "addressLocality": "Gelterkinden",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2695,13 +2695,12 @@
         "de": "Aufgaben:\n• Sie behandeln Kinder und Jugendliche im Einzel- und Gruppenset-ting und führen die dazugehörige Dokumentation\n\n• Sie arbeiten eng mit Heilpädagog:innen, Sozialpädagog:innen, der Pflege, Eltern sowie externen Ärzt:innen und Kliniken zusammen\n\n• Sie planen und führen physiotherapeutische Behandlungen für Schüler und Schülerinnen im Alter von Kindergartenstufe bis Abschlussklassen (Alter 4 - 20 Jahre)\n\n• Sie verfassen Berichte und dokumentieren den Therapieverlauf professionell in unserem Schulsystem Escola\n\n• Sie beraten bei der Auswahl, Anpassung und dem Einsatz von orthopädischen Hilfsmitteln und Rollstühlen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Physiotherapeut:in FH oder mit SRK-Anerkennung (bei ausländischen Diplomen)\n\n• Idealerweise bringen Sie Erfahrung in der Pädiatrie (Kinderphysiotherapie) oder der Neurologie mit\n\n• Sie sind geduldig, einfühlsam, kreativ in der Therapiegestaltung und behalten auch in lebhaften Situationen den Überblick\n\n• Sie schätzen die interdisziplinäre Zusammenarbeit und kommunizieren klar und wertschätzend\n\n• gute Anwenderkenntnisse im Betriessystem Microsoft (Outlook, Word, Excel etc.) und von Vorteil Kenntnisse in anderen Softwarelösungen wie Abacus und Escola\n\nDas KPTF Kompetenzzentrum Pädagogik | Therapie | Förderung ist ein Fachzentrum des Kantons Baselland für körper-, seh- und mehrfachbehinderte Kinder und Jugendliche in der Nordwestschweiz. Unser Schulzentrum bietet Kindern und Jugendlichen ein umfassendes Schulungsangebot mit Tagesstrukturen und diversen Therapieangeboten im separativen und integrativen Bereich, sowie in der heilpädagogischen Früherziehung.",
         "fr": "Tâches :\n• Ils traitent les enfants et les adolescents dans le cadre individuel et en groupe et effectuent la documentation correspondante.\n\n• Ils travaillent en étroite collaboration avec des pédagogues curatifs : à l'intérieur, des pédagogues sociaux : à l'intérieur, des infirmières, des parents et des médecins externes : à l'intérieur et des cliniques\n\n• Ils planifient et organisent des traitements physiothérapeutiques pour les élèves âgés de la maternelle à l'obtention du diplôme (de 4 à 20 ans)\n\n• Vous écrivez des rapports et documentez le cours de thérapie professionnellement dans notre système scolaire Escola\n\n• Ils conseillent sur la sélection, l'adaptation et l'utilisation des outils orthopédiques et des fauteuils roulants\n\nExigences\n• Formation complétée en tant que physiothérapeute : en FH ou avec reconnaissance SRK (pour les diplômes étrangers)\n\n• Idéalement, apportez de l'expérience en pédiatrie (physiothérapie pédiatrique) ou en neurologie\n\n• Vous êtes patient, empathique, créatif dans la conception de la thérapie et suivre même dans des situations animées\n\n• Ils valorisent la coopération interdisciplinaire et communiquent clairement et avec satisfaction\n\n• Bonne connaissance utilisateur dans le système de trading Microsoft (Outlook, Word, Excel, etc.) et connaissance avantageuse dans d'autres solutions logicielles comme Abacus et Escola\n\nLe KPTF Competence Center Pédagogie est un centre spécialisé du canton de Bâle pour les enfants et les adolescents handicapés physiques, visuels et multiples dans le nord-ouest de la Suisse. Notre centre scolaire offre aux enfants et aux adolescents une offre de formation complète avec des structures quotidiennes et diverses offres thérapeutiques dans le domaine de la séparation et de l'intégration, ainsi que dans l'éducation précoce curative."
       },
-      "needsRetranslation": true,
       "location": "Münchenstein",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/dipl-physiotherapeutin-dipl-physiotherapeut/0937cc2e-d9c8-4d2a-b454-1c0b374e3e41",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.144Z",
+      "crawledAt": "2026-09-29T09:51:54.776Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2750,7 +2749,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-f27b23259aec",
@@ -2784,7 +2784,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/leiterin-leiter-kantonales-sozialamt/58ad5503-cd8b-4fc5-8066-4174dab4d079",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.142Z",
+      "crawledAt": "2026-09-29T09:51:54.775Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2867,7 +2867,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/juristische-volontaerin-juristischer-volontaer-in-der-steuerverwaltung/8fcd6c19-6d56-4b6f-9a45-a434752925e1",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.140Z",
+      "crawledAt": "2026-09-29T09:51:54.773Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2885,6 +2885,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/juristische-volontaerin-juristischer-volontaer-in-der-steuerverwaltung/8fcd6c19-6d56-4b6f-9a45-a434752925e1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "juristische-volontarin-juristischer-volontar-in-der-steuerverwaltung-kanton-basel",
+        "juristische-volontarin-juristischer-volontar-in-der-steuerverwaltung-kantonale-verwaltung-basel-landschaft-liestal",
+        "volontariato-legale-nell-amministrazione-fiscale-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "juristische-volontarin-juristischer-volontar-in-der-steuerverwaltung-kantonale-verwaltung-basel-landschaft-liestal",
@@ -2902,11 +2907,6 @@
           "juristische-volontarin-juristischer-volontar-in-der-steuerverwaltung-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "juristische-volontarin-juristischer-volontar-in-der-steuerverwaltung-kanton-basel",
-        "juristische-volontarin-juristischer-volontar-in-der-steuerverwaltung-kantonale-verwaltung-basel-landschaft-liestal",
-        "volontariato-legale-nell-amministrazione-fiscale-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-19T22:50:38.079Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2954,7 +2954,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-unterstufe/c88531b6-e9fc-42f3-a5fe-dbb37036c46b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.138Z",
+      "crawledAt": "2026-09-29T09:51:54.772Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2972,6 +2972,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-unterstufe/c88531b6-e9fc-42f3-a5fe-dbb37036c46b",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-unterstufe-kanton-basel-landschaft-laufen",
+        "sozialpadagogin-sozialpadagoge-unterstufe-kantonale-verwaltung-basel-landschaft-laufen",
+        "pedagoga-sociale-pedagoga-sociale-livello-inferiore-kantonale-verwaltung-basel-landschaft-laufen"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "sozialpadagogin-sozialpadagoge-unterstufe-kantonale-verwaltung-basel-landschaft-laufen",
@@ -2989,11 +2994,6 @@
           "sozialpadagogin-sozialpadagoge-unterstufe-kantonale-verwaltung-basel-landschaft-laufen"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-unterstufe-kanton-basel-landschaft-laufen",
-        "sozialpadagogin-sozialpadagoge-unterstufe-kantonale-verwaltung-basel-landschaft-laufen",
-        "pedagoga-sociale-pedagoga-sociale-livello-inferiore-kantonale-verwaltung-basel-landschaft-laufen"
-      ],
       "firstSeenAt": "2026-09-19T22:50:38.077Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3041,7 +3041,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/hauptabteilungsleiterin-hauptabteilungsleiter-operationen/28b5d6a8-29c9-4549-b683-0b136bac9344",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.136Z",
+      "crawledAt": "2026-09-29T09:51:54.771Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3059,6 +3059,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/hauptabteilungsleiterin-hauptabteilungsleiter-operationen/28b5d6a8-29c9-4549-b683-0b136bac9344",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "hauptabteilungsleiterin-hauptabteilungsleiter-operationen-kanton-basel-landschaft-liestal",
+        "hauptabteilungsleiterin-hauptabteilungsleiter-operationen-kantonale-verwaltung-basel-landschaft-liestal",
+        "capo-reparto-capo-delle-operazioni-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "hauptabteilungsleiterin-hauptabteilungsleiter-operationen-kantonale-verwaltung-basel-landschaft-liestal",
@@ -3076,11 +3081,6 @@
           "hauptabteilungsleiterin-hauptabteilungsleiter-operationen-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "hauptabteilungsleiterin-hauptabteilungsleiter-operationen-kanton-basel-landschaft-liestal",
-        "hauptabteilungsleiterin-hauptabteilungsleiter-operationen-kantonale-verwaltung-basel-landschaft-liestal",
-        "capo-reparto-capo-delle-operazioni-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-19T22:50:38.060Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -3122,13 +3122,12 @@
         "de": "Aufgaben:\n• Planen und Durchführen des Unterrichts zur schulischen Grundausbildung der Primarschülerinnen und -schüler\n\n• Einholen von Feedbacks zum eigenen Handeln bei allen Anspruchsgruppen\n\nAnforderungen:\n• Lehrbefähigung für die Primarstufe gemäss kantonalen Richtlinien\n\n• Die Zusammenarbeit im Pädagogischen Team ist für Sie eine Selbstverständlichkeit\n\nDie Stadt Liestal, Hauptstadt des Kantons Basel-Landschaft, gehört mit rund 16'000 Einwohnerinnen und Einwohnern und rund 16'500 Arbeitsplätzen zu den wichtigsten Arbeitsplatz- und Wirtschaftsstandorten im Kanton Basel-Landschaft. Die Primarstufe Liestal ist eine innovative Schule und ist in 5 Schulkreisen organisiert. Wir legen Wert auf gute Qualität, die wir auch regelmässig unabhängig überprüfen lassen und sind Q2E zertifiziert. Die integrative Beschulung bildet einen wichtigen Schwerpunkt unserer pädagogischen Ausrichtung. Engagierte Lehrpersonen und circa 1200 Kinder erleben einen vielfältigen und pädagogisch motivierten Schulalltag.",
         "fr": "Tâches :\n• Planification et mise en œuvre du cours d ' enseignement primaire de base\n\n• Obtenir des commentaires sur vos propres actions de toutes les parties prenantes\n\nExigences\n• Formation au niveau primaire selon les directives cantonales\n\n• La coopération au sein de l'équipe pédagogique est bien sûr une question pour vous\n\nLa ville de Liestal, capitale du canton de Bâle-Landschaft, est l'un des lieux de travail et d'économie les plus importants du canton de Bâle-Landschaft avec environ 16 000 habitants et 16 500 emplois. Le niveau primaire de Liestal est une école innovante et est organisé en 5 cercles scolaires. Nous attachons de l'importance à la bonne qualité, que nous avons régulièrement vérifiée indépendamment et qui est certifiée Q2E. La formation intégrative est un élément important de notre orientation pédagogique. Des enseignants dévoués et environ 1200 enfants vivent une journée scolaire diversifiée et pédagogiquement motivée."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-kindergarten/0276df05-d790-446e-ab05-af08fb21c368",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.135Z",
+      "crawledAt": "2026-09-29T09:51:54.770Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3146,6 +3145,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-kindergarten/0276df05-d790-446e-ab05-af08fb21c368",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "klassenlehrperson-kindergarten-kanton-basel-landschaft-liestal",
+        "klassenlehrperson-kindergarten-kantonale-verwaltung-basel-landschaft-liestal",
+        "scuola-di-insegnante-di-classe-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "klassenlehrperson-kindergarten-kantonale-verwaltung-basel-landschaft-liestal",
@@ -3163,11 +3167,6 @@
           "klassenlehrperson-kindergarten-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "klassenlehrperson-kindergarten-kanton-basel-landschaft-liestal",
-        "klassenlehrperson-kindergarten-kantonale-verwaltung-basel-landschaft-liestal",
-        "scuola-di-insegnante-di-classe-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-21T15:56:13.340Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3181,7 +3180,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-6d1ecd53b1ae",
@@ -3209,13 +3209,12 @@
         "de": "Aufgaben:\n• du planst, erstellst und veröffentlichst spannende Inhalte für unsere Social-Media-Kanäle\n\n• du sorgst für abwechslungsreiche Content Creation – von Texten über Bilder bis hin zu Videos.\n\n• du bewirtschaftest unsere Webseite und hältst sie aktuell\n\n• du betreust externe Plattformen und pflegst unseren Veranstaltungskalender\n\n• du wirkst aktiv an diversen Kommunikationsmassnahmen rund um das Vermittlungsprogramm, die Forschung und Ausgrabungen mit.\n\n• du unterstützt uns am Römerfest (Sa, 28.8. & So, 29.8.2027).\n\n• du übernimmst administrative und organisatorische Tätigkeiten\n\nAnforderungen:\n• du verfügst über eine abgeschlossene, fachspezifische oder verwandte Ausbildung (Studium oder Berufsausbildung)\n\n• du schreibst sprachgewandt und präzise in Deutsch, weitere Sprachen sind von Vorteil\n\n• du bewegst dich sicher im Umgang mit Social Media, Content-Management-Systemen und dem MS Office-Paket\n\n• du arbeitest selbstständig, strukturiert und zuverlässig\n\n• du hast Freude daran, komplexe Inhalte verständlich und zielgruppengerecht aufzubereiten\n\n• du verfügst über ein gutes Gespür für (Bild-)Gestaltung\n\nDas Amt für Kultur bewahrt und vermittelt das kulturelle Erbe des Kantons, fördert das zeitgenössische Kunstschaffen, bringt Kulturthemen in die aktuelle politische Diskussion ein und engagiert sich für die Kultur in der Region.\nDie Römerstadt Augusta Raurica bewahrt, erforscht und vermittelt ihr reiches archäologisches Erbe - mit über 2 Mio. Fundobjekten und mehr als 20 Monumenten.",
         "fr": "Tâches :\n• vous planifiez, créez et publiez des contenus passionnants pour nos réseaux sociaux\n\n• Vous fournissez des contenus variés – des textes aux images aux vidéos.\n\n• Vous gérez notre site Web et le tenez à jour\n\n• Vous gérez des plateformes externes et maintenez notre calendrier d'événements\n\n• Vous participez activement à diverses mesures de communication concernant le programme de médiation, la recherche et les fouilles.\n\n• vous nous soutenez au Festival romain (Sa, 28.8. & So, 29.8.2027).\n\n• Vous assumez des activités administratives et organisationnelles\n\nExigences\n• vous avez suivi une formation spécifique ou connexe (études ou formation professionnelle)\n\n• Vous écrivez de manière linguistique et précise en allemand, d'autres langues sont un avantage\n\n• Vous déménagez en toute sécurité avec les médias sociaux, les systèmes de gestion de contenu et le paquet MS Office\n\n• Vous travaillez de manière indépendante, structurée et fiable\n\n• Vous aimez préparer des contenus complexes d'une manière compréhensible et orientée vers le groupe cible\n\n• Vous avez un bon sens du but.\n\nL'Office de la culture préserve et transmet le patrimoine culturel du canton, promeut l'art contemporain, introduit des sujets culturels dans le débat politique actuel et est attaché à la culture de la région.\nLa ville romaine d'Augusta Raurica conserve, explore et transmet son riche patrimoine archéologique - avec plus de 2 millions. Objets trouvés et plus de 20 monuments."
       },
-      "needsRetranslation": true,
       "location": "Augst",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/praktikantin-praktikant-kommunikation-marketing/540598c8-7abd-4c3a-b045-ffd377cb3714",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.134Z",
+      "crawledAt": "2026-09-29T09:51:54.768Z",
       "addressLocality": "Augst",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3265,7 +3264,8 @@
           "maxValue": 92500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-b3a5abbe741f",
@@ -3293,13 +3293,12 @@
         "de": "Aufgaben:\n• Durchführung deliktpräventiver, psychotherapeutischer Behandlungen bei Jugendlichen und jungen Erwachsenen sowohl stationär wie auch ambulant (inkl. Diagnostik, Prognostik, Berichtswesen, Dokumentation und ggf. Krisenintervention)\n\n• Aktive Kooperation und interdisziplinäre Vernetzung, insbesondere im interdisziplinären Kernbehandlungsteam (Sozialpädagogik und Berufsbildung)\n\n• Beratung und Unterstützung des sozialpädagogischen und arbeitsagogischen Bereichs in risikobezogenen sowie diagnostischen Fragestellungen und bei vorhandenen psychischen Störungen\n\n• (Co-)Leitung von Gruppentherapien\n\n• Mitarbeit bei Platzierungsabklärungen\n\nAnforderungen:\n• Abgeschlossenes Psychologiestudium\n\n• Begonnene oder bereits abgeschlossene psychotherapeutische Zusatzausbildung\n\n• Klinische oder forensische Vorerfahrung\n\n• Interesse an forensischen Fragestellungen und modernen forensischen Behandlungsprinzipien sowie an langfristigen und komplexen Behandlungsprozessen\n\n• Risikoorientierte Arbeitsweise bei gleichzeitig fördernd-wertschätzender Haltung gegenüber den Eingewiesenen\n\n• Ausgeprägte Kommunikationsfähigkeit und Freude an interdisziplinärer Arbeitsweise\n\n• Besitz des Führerausweis B und einwandfreier Leumund\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Mise en œuvre de traitements préventifs de la torture et psychothérapeutiques chez les adolescents et les jeunes adultes hospitalisés et externes (y compris diagnostics, pronostics, rapports, documentation et, si nécessaire, intervention en cas de crise)\n\n• Coopération active et mise en réseau interdisciplinaire, en particulier dans l'équipe interdisciplinaire de traitement de base (éducation sociale et formation professionnelle)\n\n• Conseils et appui au domaine sociopédagogique et professionnel en matière de risques et de diagnostic et dans le cas de troubles mentaux existants\n\n• (Co-) gestion des thérapies de groupe\n\n• Coopération dans les enquêtes de placement\n\nExigences\n• Diplôme de psychologie\n\n• Formation supplémentaire psychothérapeutique commencée ou déjà terminée\n\n• Expérience clinique ou scientifique antérieure\n\n• Intérêt pour les questions médico-légales et les principes modernes de traitement médico-légal ainsi que pour les processus de traitement à long terme et complexes\n\n• Les méthodes de travail axées sur les risques tout en encourageant et en appréciant les inscriptions\n\n• Compétences solides en matière de communication et jouissance des méthodes de travail interdisciplinaires\n\n• Possession du permis de conduire B et bonne réputation\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines spécialisés, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, elles contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous!"
       },
-      "needsRetranslation": true,
       "location": "Niederdorf",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/forensische-psychotherapeutin-forensischer-psychotherapeut/733e0183-cdf3-45a5-8fa6-1e50a040e46a",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.132Z",
+      "crawledAt": "2026-09-29T09:51:54.766Z",
       "addressLocality": "Niederdorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3317,6 +3316,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/forensische-psychotherapeutin-forensischer-psychotherapeut/733e0183-cdf3-45a5-8fa6-1e50a040e46a",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "forensische-psychotherapeutin-forensischer-psychotherapeut-kanton-basel-landschaft",
+        "forensische-psychotherapeutin-forensischer-psychotherapeut-kantonale-verwaltung-basel-landschaft-niederdorf",
+        "psicoterapeuta-forense-psicoterapeuta-forense-kantonale-verwaltung-basel-landschaft-niederdorf"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "forensische-psychotherapeutin-forensischer-psychotherapeut-kantonale-verwaltung-basel-landschaft-niederdorf",
@@ -3334,11 +3338,6 @@
           "forensische-psychotherapeutin-forensischer-psychotherapeut-kantonale-verwaltung-basel-landschaft-niederdorf"
         ]
       },
-      "previousSlugs": [
-        "forensische-psychotherapeutin-forensischer-psychotherapeut-kanton-basel-landschaft",
-        "forensische-psychotherapeutin-forensischer-psychotherapeut-kantonale-verwaltung-basel-landschaft-niederdorf",
-        "psicoterapeuta-forense-psicoterapeuta-forense-kantonale-verwaltung-basel-landschaft-niederdorf"
-      ],
       "firstSeenAt": "2026-09-21T15:56:13.327Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3352,7 +3351,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-5029500e0952",
@@ -3386,7 +3386,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/leiterin-leiter-fachbereich-unterhalt/d533225d-458c-4fc4-ae34-f2a7f32dd1da",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.130Z",
+      "crawledAt": "2026-09-29T09:51:54.764Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3463,13 +3463,12 @@
         "de": "Aufgaben:\n• Sie unterrichten als Klassenlehrperson an einer 4.-6. Mehrjahrgangsklasse mit 18 Schülerinnen und Schülern. (zehn 4. Klässler/innen, sechs 5. Klässler/innen, zwei 6. Klässler)\n\n• In enger Zusammenarbeit mit der Heilpädagogin und Stellenpartnerin gestalten sie den Unterricht und begleiten die Schülerinnen und Schüler in ihrem Lernprozess.\n\n• Ihre Aufgaben erfüllen Sie mit Freude und Verantwortung. Herausforderungen begegnen Sie mit Gelassenheit und Humor.\n\nAnforderungen:\n• Sie besitzen ein Lehrdiplom für die Primarstufe oder sind dazu in Ausbildung.\n\n• Sie legen Wert auf eine konstruktive Zusammenarbeit im Klassenteam.\n\n• Sie schätzen die Arbeit in einer Dorfschule und einem kleinen, engagierten und aufgestellten Team.\n\n• Sie pflegen eine wertschätzende Zusammenarbeit mit den SchülerInnen und den Erziehungsberechtigten\n\nWir sind eine kleine, überschaubare Dorfschule mit einem Kindergarten und vier Primarklassen. Unsere Schule zeichnet sich aus durch ein engagiertes Team, welches erfolgreich und wertschätzend zusammenarbeitet.",
         "fr": "Tâches :\n• Vous enseignez comme professeur dans une 4e-6e classe multi-année avec 18 étudiants. (dix 4e, six 5e, deux 6e)\n\n• En étroite collaboration avec la pédagogie curative et le partenaire professionnel, ils façonnent les leçons et accompagnent les étudiants dans leur processus d'apprentissage.\n\n• Vous accomplissez vos tâches avec joie et responsabilité. Les défis sont relevés avec sérénité et humour.\n\nExigences\n• Vous avez un diplôme d'enseignement pour le niveau primaire ou êtes en formation.\n\n• Ils attachent de l'importance à une coopération constructive au sein de l'équipe de classe.\n\n• Ils apprécient de travailler dans une école de village et une petite équipe dévouée et établie.\n\n• Ils entretiennent une coopération reconnaissante avec les étudiants et les tuteurs\n\nNous sommes une petite école de village gérable avec un jardin d'enfants et quatre classes primaires. Notre école se caractérise par une équipe dévouée qui travaille ensemble avec succès et avec reconnaissance."
       },
-      "needsRetranslation": true,
       "location": "Waldenburg",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-4-6-mehrjahrgangsklasse/087b9240-7c9c-4c65-8367-778f0a5ba05e",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.128Z",
+      "crawledAt": "2026-09-29T09:51:54.761Z",
       "addressLocality": "Waldenburg",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3520,7 +3519,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-8231b148ceac",
@@ -3554,7 +3554,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/assistenz/12ee70c9-3bbd-403c-847e-9bb8c36f6d02",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.127Z",
+      "crawledAt": "2026-09-29T09:51:54.759Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3572,6 +3572,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/assistenz/12ee70c9-3bbd-403c-847e-9bb8c36f6d02",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenz-kanton-basel-landschaft-pratteln",
+        "assistenz-kantonale-verwaltung-basel-landschaft-pratteln",
+        "assistenza-kantonale-verwaltung-basel-landschaft-pratteln"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "assistenz-kantonale-verwaltung-basel-landschaft-pratteln",
@@ -3588,11 +3593,6 @@
           "assistenz-kanton-basel-landschaft-pratteln"
         ]
       },
-      "previousSlugs": [
-        "assistenz-kanton-basel-landschaft-pratteln",
-        "assistenz-kantonale-verwaltung-basel-landschaft-pratteln",
-        "assistenza-kantonale-verwaltung-basel-landschaft-pratteln"
-      ],
       "firstSeenAt": "2026-09-23T23:37:51.041Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3634,13 +3634,12 @@
         "de": "Aufgaben:\n• Begleitung und Unterstützung von Schülerinnen/Schülern mit verhaltensauffälligen Störungsbildern\n\n• Enge Zusammenarbeit mit Klassenlehrpersonen, Erziehungsberechtigten und Fachstellen\n\n• Integratives Arbeiten im Klassenunterricht\n\nAnforderungen:\n• Sie schätzen die pädagogische Kooperation mit allen Schulbeteiligten\n\n• Sie fördern mit Begeisterung die Lernenden im Rahmen ihrer Möglichkeiten\n\n• Bachelor Soziale Arbeit / Sozialpädagog/in HF\n\nAllschwil gehört zu den grössten Gemeinden der Nordwestschweiz und ist eine im Wachstum begriffene Vorortsgemeinde von Basel. Als finanzstarke Gemeinde ist sie ein attraktiver und innovativer Arbeitgeber. Die PS Allschwil als grösste Schule im Kanton teilt sich auf in 24 Kindergarten- und 80 Primarschulklassen. Die rund 1800 Schülerinnen und Schüler werden von 250 Lehrpersonen unterrichtet. Es werden sämtliche Angebote der speziellen Förderung angeboten.",
         "fr": "Tâches :\n• Accompagnement et soutien des élèves souffrant de troubles du comportement\n\n• Coopération étroite avec les enseignants de classe, les tuteurs et les organismes spécialisés\n\n• Travail intégratif dans l'enseignement en classe\n\nExigences\n• Ils apprécient la coopération éducative avec tous les participants à l'école\n\n• Ils encouragent avec enthousiasme les apprenants dans leurs possibilités\n\n• Baccalauréat en travail social / éducation sociale / en HF\n\nAllschwil est l'une des plus grandes municipalités du nord-ouest de la Suisse et est une communauté suburbaine croissante de Bâle. En tant que collectivité financièrement forte, il s'agit d'un employeur attrayant et innovateur. Le PS Allschwil, la plus grande école du canton, est divisé en 24 classes maternelles et 80 classes primaires. Les quelque 1800 élèves sont enseignés par 250 enseignants. Toutes les offres promotionnelles spéciales sont offertes."
       },
-      "needsRetranslation": true,
       "location": "Allschwil",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/d4b31816-33ba-457d-bf1b-cc152da83efa",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.126Z",
+      "crawledAt": "2026-09-29T09:51:54.757Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3658,6 +3657,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/d4b31816-33ba-457d-bf1b-cc152da83efa",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil",
+        "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-allschwil"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil",
@@ -3675,11 +3679,6 @@
           "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil",
-        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil",
-        "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-allschwil"
-      ],
       "firstSeenAt": "2026-09-23T23:37:51.040Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3693,7 +3692,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-d2607c9716f3",
@@ -3721,13 +3721,12 @@
         "de": "Aufgaben:\n• Die Kooperation im Klassen- und pädagogischen Team ist Ihnen wichtig.\n\n• Die Zusammenarbeit mit allen Schulbeteiligten ist eine Selbstverständlichkeit für Sie.\n\nAnforderungen:\n• Sie haben eine Ausbildung für die Primarstufe.\n\n• Sie sind eine initiative, engagierte, teamorientierte und kommunikative Lehrperson. Sie unterrichten differenziert und kompentenzorientiert und sind an einem multikulturellen Umfeld interessiert.\n\nDie Gemeinde Münchenstein ist eine naturnahe Agglomerationsgemeinde im Kanton Baselland. Obwohl die Gemeinde heute fast nahtlos in die Stadt Basel übergeht, hat sie ihre Selbständigkeit und ihren eigenen Charme und Charakter bewahrt. Die Primarstufe Münchenstein setzt sich aus 14 Kindergärten und 47 Schulklassen zusammen. Die über 1'000 Schülerinnen und Schüler werden von 150 Lehrpersonen an fünf Schulstandorten unterrichtet. Die Schule wird durch drei Schulsozialarbeiterinnen, Praktikant*innen im Kindergarten sowie vier Zivildienstleistenden unterstützt.",
         "fr": "Tâches :\n• La coopération dans les classes et l'équipe éducative est importante pour vous.\n\n• La coopération avec tous les participants à l'école est une question bien sûr pour vous.\n\nExigences\n• Ils ont un enseignement primaire.\n\n• Vous êtes une initiative, un enseignant engagé, orienté vers l'équipe et communicatif. Ils enseignent des disciplines différenciées et axées sur les compétences et s'intéressent à un environnement multiculturel.\n\nLa commune de Münchenstein est une commune du canton de Bâle. Bien qu'aujourd'hui la commune passe presque parfaitement dans la ville de Bâle, elle a conservé son indépendance, son charme et son caractère. Le niveau primaire Münchenstein comprend 14 jardins d'enfants et 47 classes scolaires. Plus de 1 000 élèves sont formés par 150 enseignants dans cinq établissements scolaires. L'école est soutenue par trois travailleurs sociaux, des stagiaires à la maternelle et quatre prestataires de services publics."
       },
-      "needsRetranslation": true,
       "location": "Münchenstein",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-2-klasse/b94df1e5-0bf0-4afb-be48-7ded99148301",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.125Z",
+      "crawledAt": "2026-09-29T09:51:54.756Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3777,7 +3776,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-d14ff1336b3c",
@@ -3805,13 +3805,12 @@
         "de": "Aufgaben:\n• Sie unterrichten in zwei verschiedenen Schulhäusern jeweils in einer 3. Klasse. Es gibt die Möglichkeit das ganze Pensum oder nur das Pensum in einer Klasse zu übernehmen (12L).\n\n• Die Kooperation im Klassen- und pädagogischen Team ist Ihnen wichtig.\n\n• Die Zusammenarbeit mit allen Schulbeteiligten ist eine Selbstverständlichkeit für Sie.\n\nAnforderungen:\n• Sie haben eine Ausbildung für die Primarstufe.\n\n• Sie sind eine initiative, engagierte, teamorientierte und kommunikative Lehrperson. Sie unterrichten differenziert und kompentenzorientiert und sind an einem multikulturellen Umfeld interessiert.\n\nDie Gemeinde Münchenstein ist eine naturnahe Agglomerationsgemeinde im Kanton Baselland. Obwohl die Gemeinde heute fast nahtlos in die Stadt Basel übergeht, hat sie ihre Selbständigkeit und ihren eigenen Charme und Charakter bewahrt. Die Primarstufe Münchenstein setzt sich aus 14 Kindergärten und 47 Schulklassen zusammen. Die über 1'000 Schülerinnen und Schüler werden von 150 Lehrpersonen an fünf Schulstandorten unterrichtet. Die Schule wird durch drei Schulsozialarbeiterinnen, Praktikant*innen im Kindergarten sowie vier Zivildienstleistenden unterstützt.",
         "fr": "Tâches :\n• Ils enseignent dans deux bâtiments scolaires différents en troisième année. Il est possible de prendre le montant entier ou seulement le montant dans une catégorie (12L).\n\n• La coopération dans les classes et l'équipe éducative est importante pour vous.\n\n• La coopération avec tous les participants à l'école est une question bien sûr pour vous.\n\nExigences\n• Ils ont un enseignement primaire.\n\n• Vous êtes une initiative, un enseignant engagé, orienté vers l'équipe et communicatif. Ils enseignent des disciplines différenciées et axées sur les compétences et s'intéressent à un environnement multiculturel.\n\nLa commune de Münchenstein est une commune du canton de Bâle. Bien qu'aujourd'hui la commune passe presque parfaitement dans la ville de Bâle, elle a conservé son indépendance, son charme et son caractère. Le niveau primaire Münchenstein comprend 14 jardins d'enfants et 47 classes scolaires. Plus de 1 000 élèves sont formés par 150 enseignants dans cinq établissements scolaires. L'école est soutenue par trois travailleurs sociaux, des stagiaires à la maternelle et quatre prestataires de services publics."
       },
-      "needsRetranslation": true,
       "location": "Münchenstein",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-3-klasse/67c2dd52-8479-4f88-99c3-00c236d41d9c",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.124Z",
+      "crawledAt": "2026-09-29T09:51:54.753Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3861,7 +3860,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-45f157e0a423",
@@ -3895,7 +3895,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl/8c2335fc-41f3-4234-9960-562faecd045b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.121Z",
+      "crawledAt": "2026-09-29T09:51:54.750Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3913,6 +3913,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl/8c2335fc-41f3-4234-9960-562faecd045b",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl-kanton-basel-landschaft",
+        "hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl-kantonale-verwaltung-basel-landschaft-pratteln",
+        "centro-di-carriera-di-tirocinio-universitario-bl-kantonale-verwaltung-basel-landschaft-pratteln"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl-kantonale-verwaltung-basel-landschaft-pratteln",
@@ -3930,11 +3935,6 @@
           "hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl-kantonale-verwaltung-basel-landschaft-pratteln"
         ]
       },
-      "previousSlugs": [
-        "hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl-kanton-basel-landschaft",
-        "hochschulpraktikantin-hochschulpraktikant-laufbahnzentrum-bl-kantonale-verwaltung-basel-landschaft-pratteln",
-        "centro-di-carriera-di-tirocinio-universitario-bl-kantonale-verwaltung-basel-landschaft-pratteln"
-      ],
       "firstSeenAt": "2026-09-23T23:37:51.034Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
@@ -3982,7 +3982,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/leitung-payroll-und-sozialversicherungen/4eaa06ae-2046-418c-ad0d-e3c8d5595df0",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.120Z",
+      "crawledAt": "2026-09-29T09:51:54.749Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4000,6 +4000,12 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/leitung-payroll-und-sozialversicherungen/4eaa06ae-2046-418c-ad0d-e3c8d5595df0",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "leitung-payroll-und-sozialversicherungen-kanton-basel-landschaft-liestal",
+        "leitung-payroll-e-sozialversicherungen-kantonale-verwaltung-basel-landschaft-liestal",
+        "leitung-payroll-und-sozialversicherungen-kantonale-verwaltung-basel-landschaft-liestal",
+        "responsabile-del-payroll-e-della-previdenza-sociale-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "leitung-payroll-und-sozialversicherungen-kantonale-verwaltung-basel-landschaft-liestal",
@@ -4017,12 +4023,6 @@
           "leitung-payroll-und-sozialversicherungen-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "leitung-payroll-und-sozialversicherungen-kanton-basel-landschaft-liestal",
-        "leitung-payroll-e-sozialversicherungen-kantonale-verwaltung-basel-landschaft-liestal",
-        "leitung-payroll-und-sozialversicherungen-kantonale-verwaltung-basel-landschaft-liestal",
-        "responsabile-del-payroll-e-della-previdenza-sociale-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-23T23:37:51.033Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -4064,13 +4064,12 @@
         "de": "Aufgaben:\n• Die Kooperation im Klassen- und pädagogischen Team ist Ihnen wichtig.\n\n• Die Zusammenarbeit mit allen Schulbeteiligten ist eine Selbstverständlichkeit für Sie.\n\nAnforderungen:\n• Sie haben eine Ausbildung für die Primarstufe.\n\n• Sie sind eine initiative, engagierte, teamorientierte und kommunikative Lehrperson. Sie unterrichten differenziert und kompentenzorientiert und sind an einem multikulturellen Umfeld interessiert.\n\nDie Gemeinde Münchenstein ist eine naturnahe Agglomerationsgemeinde im Kanton Baselland. Obwohl die Gemeinde heute fast nahtlos in die Stadt Basel übergeht, hat sie ihre Selbständigkeit und ihren eigenen Charme und Charakter bewahrt. Die Primarstufe Münchenstein setzt sich aus 14 Kindergärten und 47 Schulklassen zusammen. Die über 1'000 Schülerinnen und Schüler werden von 150 Lehrpersonen an fünf Schulstandorten unterrichtet. Die Schule wird durch drei Schulsozialarbeiterinnen, Praktikant*innen im Kindergarten sowie vier Zivildienstleistenden unterstützt.",
         "fr": "Tâches :\n• La coopération dans les classes et l'équipe éducative est importante pour vous.\n\n• La coopération avec tous les participants à l'école est une question bien sûr pour vous.\n\nExigences\n• Ils ont un enseignement primaire.\n\n• Vous êtes une initiative, un enseignant engagé, orienté vers l'équipe et communicatif. Ils enseignent des disciplines différenciées et axées sur les compétences et s'intéressent à un environnement multiculturel.\n\nLa commune de Münchenstein est une commune du canton de Bâle. Bien qu'aujourd'hui la commune passe presque parfaitement dans la ville de Bâle, elle a conservé son indépendance, son charme et son caractère. Le niveau primaire Münchenstein comprend 14 jardins d'enfants et 47 classes scolaires. Plus de 1 000 élèves sont formés par 150 enseignants dans cinq établissements scolaires. L'école est soutenue par trois travailleurs sociaux, des stagiaires à la maternelle et quatre prestataires de services publics."
       },
-      "needsRetranslation": true,
       "location": "Münchenstein",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/stellvertretungslehrperson-3-4-klasse/aea8bf2a-0f6c-457c-a342-7689925164ae",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.118Z",
+      "crawledAt": "2026-09-29T09:51:54.747Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4088,6 +4087,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/stellvertretungslehrperson-3-4-klasse/aea8bf2a-0f6c-457c-a342-7689925164ae",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stellvertretungslehrperson-3-4-klasse-kanton-basel-landschaft-munchenstein",
+        "stellvertretungslehrperson-3-4-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "istruttore-aggiunto-3-4-categoria-kantonale-verwaltung-basel-landschaft-munchenstein"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "stellvertretungslehrperson-3-4-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
@@ -4105,11 +4109,6 @@
           "stellvertretungslehrperson-3-4-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
         ]
       },
-      "previousSlugs": [
-        "stellvertretungslehrperson-3-4-klasse-kanton-basel-landschaft-munchenstein",
-        "stellvertretungslehrperson-3-4-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "istruttore-aggiunto-3-4-categoria-kantonale-verwaltung-basel-landschaft-munchenstein"
-      ],
       "firstSeenAt": "2026-09-23T23:37:51.032Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4123,7 +4122,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-35325c99be39",
@@ -4151,13 +4151,12 @@
         "de": "Aufgaben:\n• Die Kooperation im Klassen- und pädagogischen Team ist Ihnen wichtig.\n\n• Die Zusammenarbeit mit allen Schulbeteiligten ist eine Selbstverständlichkeit für Sie.\n\nAnforderungen:\n• Sie haben eine Ausbildung für die Primarstufe.\n\n• Sie sind eine initiative, engagierte, teamorientierte und kommunikative Lehrperson. Sie unterrichten differenziert und kompentenzorientiert und sind an einem multikulturellen Umfeld interessiert.\n\nDie Gemeinde Münchenstein ist eine naturnahe Agglomerationsgemeinde im Kanton Baselland. Obwohl die Gemeinde heute fast nahtlos in die Stadt Basel übergeht, hat sie ihre Selbständigkeit und ihren eigenen Charme und Charakter bewahrt. Die Primarstufe Münchenstein setzt sich aus 14 Kindergärten und 47 Schulklassen zusammen. Die über 1'000 Schülerinnen und Schüler werden von 150 Lehrpersonen an fünf Schulstandorten unterrichtet. Die Schule wird durch drei Schulsozialarbeiterinnen, Praktikant*innen im Kindergarten sowie vier Zivildienstleistenden unterstützt.",
         "fr": "Tâches :\n• La coopération dans les classes et l'équipe éducative est importante pour vous.\n\n• La coopération avec tous les participants à l'école est une question bien sûr pour vous.\n\nExigences\n• Ils ont un enseignement primaire.\n\n• Vous êtes une initiative, un enseignant engagé, orienté vers l'équipe et communicatif. Ils enseignent des disciplines différenciées et axées sur les compétences et s'intéressent à un environnement multiculturel.\n\nLa commune de Münchenstein est une commune du canton de Bâle. Bien qu'aujourd'hui la commune passe presque parfaitement dans la ville de Bâle, elle a conservé son indépendance, son charme et son caractère. Le niveau primaire Münchenstein comprend 14 jardins d'enfants et 47 classes scolaires. Plus de 1 000 élèves sont formés par 150 enseignants dans cinq établissements scolaires. L'école est soutenue par trois travailleurs sociaux, des stagiaires à la maternelle et quatre prestataires de services publics."
       },
-      "needsRetranslation": true,
       "location": "Münchenstein",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-5-klasse/5e518cea-14e5-4d4d-a1b8-a19e459af733",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.117Z",
+      "crawledAt": "2026-09-29T09:51:54.746Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4207,7 +4206,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-cd1a3817133d",
@@ -4241,7 +4241,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/praktikantinnen-praktikanten-kindergarten/ac7401b7-27d4-4bdf-90a3-3d829f8c0392",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.115Z",
+      "crawledAt": "2026-09-29T09:51:54.744Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4259,6 +4259,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/praktikantinnen-praktikanten-kindergarten/ac7401b7-27d4-4bdf-90a3-3d829f8c0392",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikantinnen-praktikanten-kindergarten-kanton-basel-landschaft-munchenstein",
+        "praktikantinnen-praktikanten-kindergarten-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "stage-asilo-di-stage-kantonale-verwaltung-basel-landschaft-munchenstein"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "praktikantinnen-praktikanten-kindergarten-kantonale-verwaltung-basel-landschaft-munchenstein",
@@ -4276,11 +4281,6 @@
           "praktikantinnen-praktikanten-kindergarten-kantonale-verwaltung-basel-landschaft-munchenstein"
         ]
       },
-      "previousSlugs": [
-        "praktikantinnen-praktikanten-kindergarten-kanton-basel-landschaft-munchenstein",
-        "praktikantinnen-praktikanten-kindergarten-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "stage-asilo-di-stage-kantonale-verwaltung-basel-landschaft-munchenstein"
-      ],
       "firstSeenAt": "2026-09-23T23:37:51.020Z",
       "salaryMin": 44500,
       "salaryMax": 82500,
@@ -4328,7 +4328,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-empfang/3c2be9fe-8389-495f-bcb6-fef8064995e7",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.113Z",
+      "crawledAt": "2026-09-29T09:51:54.742Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4346,6 +4346,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-empfang/3c2be9fe-8389-495f-bcb6-fef8064995e7",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-empfang-kanton-basel-landschaft-liestal",
+        "sachbearbeiterin-sachbearbeiter-empfang-kantonale-verwaltung-basel-landschaft-liestal",
+        "case-handler-reception-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "sachbearbeiterin-sachbearbeiter-empfang-kantonale-verwaltung-basel-landschaft-liestal",
@@ -4363,11 +4368,6 @@
           "sachbearbeiterin-sachbearbeiter-empfang-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-empfang-kanton-basel-landschaft-liestal",
-        "sachbearbeiterin-sachbearbeiter-empfang-kantonale-verwaltung-basel-landschaft-liestal",
-        "case-handler-reception-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-24T14:19:28.171Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4415,7 +4415,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/klaerwaerterin-klaerwaerter/7061dcd9-79f0-4fe9-8617-982bfe640ec0",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.111Z",
+      "crawledAt": "2026-09-29T09:51:54.740Z",
       "addressLocality": "Füllinsdorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4433,6 +4433,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/klaerwaerterin-klaerwaerter/7061dcd9-79f0-4fe9-8617-982bfe640ec0",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "klarwarterin-klarwarter-kanton-basel-landschaft-fullinsdorf",
+        "klarwarterin-klarwarter-kantonale-verwaltung-basel-landschaft-fullinsdorf",
+        "conservatore-del-certificato-kantonale-verwaltung-basel-landschaft-fullinsdorf"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "klarwarterin-klarwarter-kantonale-verwaltung-basel-landschaft-fullinsdorf",
@@ -4449,11 +4454,6 @@
           "klarwarterin-klarwarter-kanton-basel-landschaft-fullinsdorf"
         ]
       },
-      "previousSlugs": [
-        "klarwarterin-klarwarter-kanton-basel-landschaft-fullinsdorf",
-        "klarwarterin-klarwarter-kantonale-verwaltung-basel-landschaft-fullinsdorf",
-        "conservatore-del-certificato-kantonale-verwaltung-basel-landschaft-fullinsdorf"
-      ],
       "firstSeenAt": "2026-09-24T14:19:28.169Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4495,13 +4495,12 @@
         "de": "Aufgaben:\n• Koordination und Sicherstellung des Betriebs der kantonalen SOC-Services, Implementierung proaktiver Massnahmen (z.B. Planung von Threat Hunts) sowie Erstellung regelmässiger Reports und Mitwirkung bei Audits\n\n• Koordination zwischen den Mitgliedern der SOC-Organisation/des IT-Betriebs, des externen MSSP (Managed Security Service Provider), der IT-Sicherheit und des IT-Managements\n\n• Steuerung, Qualitätssicherung, Eskalation und kontinuierliche Weiterentwicklung der SOC-Services, Optimierung von Betriebsabläufen\n\n• Führende Mitwirkung in Projekten, die den Weiterausbau und die Optimierung der SOC-Services zur Zielsetzung haben\n\n• Sicherstellung der Überwachung und Koordination von Sicherheitsvorfällen (Incident Response)\n\n• Mitwirkung bei der kontinuierlichen Optimierung der operativen IT-Sicherheit in enger Zusammenarbeit mit internen und externen Stellen\n\n• Verantwortung für die Budget- und Kostenplanung sowie das Vertrags- und Lieferantenmanagement\n\n• Übernahme von Aufgaben im operativen Betrieb in der Aufbauphase des SOC (z.B. Analyse, Bewertung und Bearbeitung potenzieller Sicherheitsvorfälle)\n\nAnforderungen:\n• Abschluss (Master Uni/FH) in Informatik / Wirtschaftsinformatik / IT-Security oder eine gleichwertige Qualifikation\n\n• Relevante Zertifizierungen im Bereich der IT-Sicherheit (z.B. CISSP, CISM, GCIH/GCIA etc.) sowie im Projektmanagement (HERMES 2022, IPMA oder vergleichbar)\n\n• Fundierte, ausgewiesene Kenntnisse und Berufserfahrung im Bereich Informationssicherheit, insbesondere in den Bereichen SOC, Vulnerability Management, Threat Intelligence/Hunting\n\n• Ausgewiesene Erfahrung im Windows- und Linux-Umfeld sowie Erfahrungen im Umgang mit SOC-Werkzeugen (z.B. SIEM, SOAR, XDR etc.)\n\n• Mehrjährige und fundierte Erfahrung im Bereich des Managements / der Koordination eines SOCs sind von Vorteil\n\n• Ausgeprägte Dienstleistungsorientierung gepaart mit Kommunikationsstärke, Durchsetzungsvermögen und hohem Verantwortungsbewusstsein\n\n• Systematische, zielgerichtete und effiziente Arbeitsweise sowie ausgezeichnete analytische und problemlösende Fähigkeiten\n\n• Neugierde an aktuellen Trends und Entwicklungen in den Bereichen Cyber Security sowie neuen Angriffstechniken und Schutzmassnahmen; sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Coordonner et assurer le fonctionnement des services cantonaux de la SOC, mettre en œuvre des mesures volontaristes (par exemple planifier la chasse aux menaces) et établir des rapports réguliers et participer à des audits\n\n• Coordination entre les membres de l'organisation SOC/IT, le MSSP externe (fournisseur de services de sécurité géré), la sécurité informatique et la gestion informatique\n\n• Gestion, assurance qualité, escalade et développement continu des services SOC, optimisation des processus opérationnels\n\n• Diriger la participation à des projets visant à développer et optimiser les services SOC\n\n• Assurer le suivi et la coordination des interventions en cas d ' incident\n\n• Participation à l'optimisation continue de la sécurité informatique opérationnelle en étroite coopération avec les organismes internes et externes\n\n• Responsabilité de la planification du budget et des coûts ainsi que de la gestion des contrats et des fournisseurs\n\n• Assomption des tâches opérationnelles pendant la phase de développement du COS (par exemple analyse, évaluation et traitement des éventuels incidents de sécurité)\n\nExigences\n• Diplôme (Master Uni/FH) en informatique / informatique d'affaires / sécurité informatique ou une qualification équivalente\n\n• Certifications pertinentes dans le domaine de la sécurité informatique (p. ex. CISSP, CISM, GCIH/GCIA, etc.) ainsi que dans la gestion de projet (HERMES 2022, IPMA ou comparable)\n\n• Connaissances solides, éprouvées et expérience professionnelle dans le domaine de la sécurité de l'information, en particulier dans les domaines de la COS, de la gestion de la vulnérabilité, du renseignement et de la chasse aux menaces\n\n• Expérience éprouvée dans l'environnement Windows et Linux ainsi que dans le traitement des outils SOC (par exemple SIEM, SOAR, XDR, etc.)\n\n• Plusieurs années et une expérience approfondie dans le domaine de la gestion / coordination d'une SOC sont avantageuses\n\n• Une forte orientation du service associée à la force de communication, à l'affirmation de soi et à un haut sens des responsabilités\n\n• Méthodes de travail systématiques, ciblées et efficaces ainsi que d'excellentes compétences en analyse et en résolution de problèmes\n\n• Curiosité au sujet des tendances actuelles et de l'évolution de la cybersécurité ainsi que des nouvelles techniques d'attaque et des mesures de protection; très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines spécialisés, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, elles contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous!"
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/soc-managerin-manager/5d607b4a-1a5c-4513-b6a1-6e1842bc0f48",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.109Z",
+      "crawledAt": "2026-09-29T09:51:54.738Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4545,7 +4544,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-c9dfe7f81b20",
@@ -4579,7 +4579,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/hochschulpraktikum-gesundheitsfoerderung/35b0d3f0-8313-49d1-abea-728734806712",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.107Z",
+      "crawledAt": "2026-09-29T09:51:54.736Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4597,6 +4597,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/hochschulpraktikum-gesundheitsfoerderung/35b0d3f0-8313-49d1-abea-728734806712",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "hochschulpraktikum-gesundheitsforderung-kanton-basel-landschaft-liestal",
+        "hochschulpraktikum-gesundheitsforderung-kantonale-verwaltung-basel-landschaft-liestal",
+        "promozione-della-salute-dell-universita-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "hochschulpraktikum-gesundheitsforderung-kantonale-verwaltung-basel-landschaft-liestal",
@@ -4614,11 +4619,6 @@
           "hochschulpraktikum-gesundheitsforderung-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "hochschulpraktikum-gesundheitsforderung-kanton-basel-landschaft-liestal",
-        "hochschulpraktikum-gesundheitsforderung-kantonale-verwaltung-basel-landschaft-liestal",
-        "promozione-della-salute-dell-universita-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-25T14:40:46.397Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4660,13 +4660,12 @@
         "de": "Aufgaben:\n• Vor- und Nachbereitung von Gerichtsverhandlungen\n\n• Teilnahme und Protokollführung an Gerichtsverhandlungen mit beratender Stimme\n\n• selbständige Redaktion und Begründung von Entscheiden\n\n• Publikationsarbeiten\n\n• Erteilen von Rechtsauskünften in konkreten Fällen\n\n• Mitwirkung bei der Prozessinstruktion sowie fachliche Betreuung von Volontärinnen und Volontären\n\nAnforderungen:\n• juristischer Studienabschluss (Masterstufe) mit Interesse und Praxiserfahrung im Straf- und Strafprozessrecht, vorzugsweise mit Anwaltspatent oder Doktortitel\n\n• eigenverantwortlicher, effizienter und sorgfältiger Arbeitsstil\n\n• präzise mündliche und schriftliche Ausdrucksweise\n\n• hervorragende redaktionelle Fähigkeiten\n\n• rasche Auffassungsgabe und erforderliche Fachkenntnisse\n\n• Belastbarkeit, Teamfähigkeit und Loyalität\n\nDie Gerichte des Kantons Basel-Landschaft sind für die Rechtsprechung des Kantons verantwortlich. Sie bestehen auf der Ebene der ersten Instanz aus zwei Zivilkreisgerichten, dem Strafgericht, Jugendgericht und Zwangsmassnahmengericht sowie dem Steuer- und Enteignungsgericht. Die zweite Instanz bildet das Kantonsgericht mit vier Abteilungen. Dem Kantonsgericht angegliedert ist die Gerichtsverwaltung.",
         "fr": "Tâches :\n• Préparation et suivi des audiences\n\n• Participation et procès-verbal des audiences avec voix consultative\n\n• édition indépendante et raisonnement des décisions\n\n• Travaux de publication\n\n• Octroi de renseignements juridiques dans des cas particuliers\n\n• Participation à l'instruction des processus et soutien professionnel des bénévoles\n\nExigences\n• Diplôme juridique (maîtrise) avec intérêt et expérience pratique en droit pénal et de procédure pénale, de préférence avec un brevet d'avocat ou un doctorat\n\n• Style de travail auto-responsable, efficace et prudent\n\n• Langue orale et écrite précise\n\n• Excellentes compétences rédactionnelles\n\n• compréhension rapide et expertise requise\n\n• Résilience, travail d'équipe et loyauté\n\nLes tribunaux du canton de Bâle-Landschaft sont responsables de la compétence du canton. Au niveau de la première instance, il s ' agit de deux tribunaux de district civil, le tribunal pénal, le tribunal pour mineurs et le tribunal des mesures coercitives, ainsi que le tribunal des impôts et des expropriations. La deuxième instance est le tribunal cantonal qui compte quatre départements. L'administration judiciaire est rattachée au tribunal cantonal."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/gerichtsschreiberin-gerichtsschreiber/b54d0d38-98d1-482d-aa66-807ef4d4b19b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.106Z",
+      "crawledAt": "2026-09-29T09:51:54.735Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4684,6 +4683,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/gerichtsschreiberin-gerichtsschreiber/b54d0d38-98d1-482d-aa66-807ef4d4b19b",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "gerichtsschreiberin-gerichtsschreiber-kanton-basel-landschaft-liestal",
+        "gerichtsschreiberin-gerichtsschreiber-kantonale-verwaltung-basel-landschaft-liestal",
+        "corte-di-giustizia-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "gerichtsschreiberin-gerichtsschreiber-kantonale-verwaltung-basel-landschaft-liestal",
@@ -4701,11 +4705,6 @@
           "gerichtsschreiberin-gerichtsschreiber-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "gerichtsschreiberin-gerichtsschreiber-kanton-basel-landschaft-liestal",
-        "gerichtsschreiberin-gerichtsschreiber-kantonale-verwaltung-basel-landschaft-liestal",
-        "corte-di-giustizia-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-08-26T09:53:46.541Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4719,7 +4718,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-66be903856d8",
@@ -4747,13 +4747,12 @@
         "de": "Aufgaben:\n• Sie übernehmen mit 8–12 Wochenstunden die Verantwortung für die sozialpädagogische Unterstützung in Klassen der Unterstufe (1./2. Klasse).\n\n• Sie sind Teil des pädagogischen Klassenteams. Die Kooperation mit allen Beteiligten soll die bestmöglichen Entwicklungsbedingungen für alle Schülerinnen und Schüler schaffen.\n\nAnforderungen:\n• Für diese Stelle bringen Sie ein Diplom in Sozialpädagogik mit oder sind daran, dieses zu erwerben.\n\n• Sie sind es gewohnt, mit Kindern und Erwachsenen eine offene, wertschätzende und vertrauensvolle Kommunikation zu pflegen.\n\nAn der Schule Ormalingen werden rund 220 Kinder in 12 Klassen unterrichtet. Wir sind ein interdisziplinäres Team von ca. 40 Personen. Zurzeit führen wir drei Klassen auf jeder Stufe: Kindergarten, 1./2. Klasse, 3./4. Klasse, 5./6. Klasse. An der Schule Ormalingen arbeiten motivierte Menschen miteinander und füreinander!",
         "fr": "Tâches :\n• Avec 8-12 heures par semaine, vous assumez la responsabilité du soutien socio-éducatif dans les classes de niveau inférieur (1ère et 2ème année).\n\n• Ils font partie de l'équipe pédagogique. La coopération avec tous les participants devrait créer les meilleures conditions de développement possibles pour tous les étudiants.\n\nExigences\n• Pour ce poste, vous apportez un diplôme en éducation sociale ou êtes sur le point de l'acquérir.\n\n• Ils sont utilisés pour maintenir une communication ouverte, reconnaissante et confiante avec les enfants et les adultes.\n\nÀ l'école Ormalingen, environ 220 enfants sont enseignés en 12 classes. Nous sommes une équipe interdisciplinaire d'environ 40 personnes. Nous avons actuellement trois classes à chaque niveau: maternelle, première et deuxième année, troisième et quatrième années, cinquième et sixième années. À l'école Ormalingen, des gens motivés travaillent ensemble et pour l'autre!"
       },
-      "needsRetranslation": true,
       "location": "Ormalingen",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/cb2c1fa2-49ff-4a8f-a9ed-63396d2855f6",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.104Z",
+      "crawledAt": "2026-09-29T09:51:54.733Z",
       "addressLocality": "Ormalingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4771,6 +4770,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge/cb2c1fa2-49ff-4a8f-a9ed-63396d2855f6",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "pedagoga-sociale-pedagoga-sociale-kantonale-verwaltung-basel-landschaft-ormalingen"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
@@ -4788,11 +4792,6 @@
           "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
-        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "pedagoga-sociale-pedagoga-sociale-kantonale-verwaltung-basel-landschaft-ormalingen"
-      ],
       "firstSeenAt": "2026-08-31T17:02:40.850Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4806,7 +4805,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-71bcb496e07b",
@@ -4840,7 +4840,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/verantwortliche-verantwortlicher-kommunikation-digitale-transformation/eb584c36-15fe-4ef2-928c-e31f41420e2f",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.101Z",
+      "crawledAt": "2026-09-29T09:51:54.729Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4858,6 +4858,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/verantwortliche-verantwortlicher-kommunikation-digitale-transformation/eb584c36-15fe-4ef2-928c-e31f41420e2f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "verantwortliche-verantwortlicher-kommunikation-digitale-transformation-kanton-basel",
+        "verantwortliche-verantwortlicher-kommunikation-digitale-transformation-kantonale-verwaltung-basel-landschaft-liestal",
+        "trasformazione-digitale-di-comunicazione-responsabile-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "verantwortliche-verantwortlicher-kommunikation-digitale-transformation-kantonale-verwaltung-basel-landschaft-liestal",
@@ -4875,11 +4880,6 @@
           "verantwortliche-verantwortlicher-kommunikation-digitale-transformation-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "previousSlugs": [
-        "verantwortliche-verantwortlicher-kommunikation-digitale-transformation-kanton-basel",
-        "verantwortliche-verantwortlicher-kommunikation-digitale-transformation-kantonale-verwaltung-basel-landschaft-liestal",
-        "trasformazione-digitale-di-comunicazione-responsabile-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "firstSeenAt": "2026-09-25T14:40:46.389Z",
       "salaryMin": 94500,
       "salaryMax": 167000,
@@ -4927,7 +4927,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/mitarbeiterin-mitarbeiter-support-online-service-plattform/ba1ed8f2-323a-4c0d-a534-b3169d7c735b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.098Z",
+      "crawledAt": "2026-09-29T09:51:54.727Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5002,13 +5002,12 @@
         "de": "Aufgaben:\n• Gesamtverantwortung für die Führung, Gestaltung, Entwicklung und Qualität der Sekundarschule Arlesheim-Münchenstein sowie Führung und Koordination des Schulleitungsteams\n\n• Verantwortung für pädagogische Schulführung und -entwicklung\n\n• Führen von Mitarbeitenden\n\n• Kommunikation, Beratung und Konfliktmanagement mit allen Schulbeteiligten\n\nAnforderungen:\n• Unterrichtsberechtigung für die Sekundarstufe I und mehrjährige Unterrichtserfahrung auf der Zielstufe\n\n• Anerkannte Schulleitungsausbildung und mehrjährige Führungserfahrung in einer Schulleitungsfunktion\n\n• Geschick im Umgang mit Menschen und Fähigkeit mit Schülerinnen und Schülern, Eltern, Lehrpersonen und Behörden lösungsorientiert zu interagieren\n\n• starke Kommunikationsfähigkeit, Interesse an strukturierter und nachhaltiger Schulentwicklung\n\nAn der Sekundarschule Arlesheim-Münchenstein werden 30 Klassen mit rund 650 Schülerinnen und Schülern von ca. 100 Lehr- und Fachpersonen an zwei Standorten unterrichtet und betreut.\nSie treffen auf ein engagiertes und gut eingespieltes Schulleitungsteam, das die Schule kennt, Verantwortung übernimmt und sich auf die gemeinsame Weiterentwicklung mit Ihnen freut.",
         "fr": "Tâches :\n• Responsabilité globale de la gestion, de la conception, du développement et de la qualité de l'école secondaire Arlesheim-Münchenstein ainsi que de la gestion et de la coordination de l'équipe de gestion de l'école\n\n• Responsabilité en matière de gestion et de développement de l ' enseignement scolaire\n\n• Gestion des salariés\n\n• Communication, conseil et gestion des conflits avec tous les participants à l'école\n\nExigences\n• Droit à l'enseignement secondaire supérieur et expérience pédagogique pluriannuelle au niveau cible\n\n• Formation reconnue en gestion scolaire et plusieurs années d'expérience en gestion dans une fonction de gestion scolaire\n\n• Compétences pour traiter les personnes et capacité d'interagir avec les élèves, les parents, les enseignants et les autorités d'une manière orientée vers la solution\n\n• Fortes compétences en communication, intérêt pour le développement scolaire structuré et durable\n\nL'école secondaire d'Arlesheim-Munichstein enseigne et supervise 30 classes avec environ 650 élèves d'une centaine d'enseignants et de spécialistes sur deux sites.\nVous rencontrerez une équipe de gestion de l'école engagée et bien établie qui connaît l'école, assume ses responsabilités et attend avec impatience un développement conjoint avec vous."
       },
-      "needsRetranslation": true,
       "location": "Münchenstein",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/rektorin-rektor/f34d4d84-ff56-4f0e-a95e-597d1d164ee5",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.097Z",
+      "crawledAt": "2026-09-29T09:51:54.725Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5058,7 +5057,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-d443ee909fe4",
@@ -5086,13 +5086,12 @@
         "de": "Aufgaben:\n• Bewirtschaftung des Medien- und Informationsangebots der Infothek, einschliesslich Recherche, Beschaffung, Erfassung und Aktualisierung relevanter Informationsmittel.\n\n• Erstellung und Aktualisierung von Merkblättern, Texten und weiteren analogen und digitalen Informationsmitteln sowie zielgruppengerechte Aufbereitung und Vermittlung der Inhalte.\n\n• Mitarbeit bei der Entwicklung neuer Informationsformate und der Weiterentwicklung bestehender Informationsangebote.\n\n• Mitarbeit bei der Weiterentwicklung und Bewirtschaftung von LBZ Link sowie weiterer digitaler Informationsplattformen und CMS-Systeme.\n\n• Mitarbeit bei der Weiterentwicklung der Infothek und in weiteren Teilprojekten sowie Optimierung der Informationsangebote und Abläufe.\n\n• Übernahme von Infotheksdiensten und Informationsgesprächen mit der Kundschaft.\n\n• Unterstützung der Berufs-, Studien- und Laufbahnberatenden bei fachlichen Fragen und Recherchen sowie Mitarbeit bei Informations- und Unterrichtseinheiten mit Gruppen und Schulklassen und bei der Einführung in den Berufswahl Trail.\n\n• Mitarbeit bei der Organisation und Durchführung von Anlässen sowie Pflege der Zusammenarbeit mit externen Institutionen und Fachstellen.\n\nAnforderungen:\n• Sie verfügen über einen Abschluss als Fachfrau/-mann Information und Dokumentation EFZ, als Buchhändlerin/Buchhändler EFZ oder über eine vergleichbare Ausbildung im Bibliotheks- oder Informationsbereich.\n\n• Sie bringen gute Informatikkenntnisse und Interesse an der Weiterentwicklung digitaler Informationsangebote mit.\n\n• Sie sind offen für neue Entwicklungen im Bereich Wissens- und Medienmanagement und verfügen über eine vernetzte Denkweise.\n\n• Sie bringen sich kreativ in die zielgruppengerechte Erstellung und Aktualisierung unserer Informationsprodukte ein.\n\n• Sie verfügen über ausgezeichnete Deutschkenntnisse in Wort und Schrift.\n\n• Sie überzeugen durch eine hohe Auftrittskompetenz und gute Kommunikationsfähigkeit.\n\n• Sie sind eine selbstständige, teamfähige und dienstleistungsorientierte Persönlichkeit mit sorgfältiger, flexibler und belastbarer Arbeitsweise.\n\nDas Laufbahnzentrum (LBZ BL) in Pratteln, inkl. Mentoring und allgemeine Weiterbildung, ist eine Hauptabteilung der Dienststelle Berufsbildung, Mittelschulen und Hochschulen (BMH). Das LBZ BL berät und informiert Jugendliche und Erwachsene zu allen Fragen der Berufs-, Schul- und Studienwahl sowie der Laufbahnplanung und führt eine öffentliche Infothek. Das Laufbahnzentrum arbeitet mit Schulen, öffentlichen Ausbildungs- und Partnerinstitutionen zusammen und führt Beratungen und Kurse durch im Auftrag Dritter.",
         "fr": "Tâches :\n• Gestion des services de médias et d'information d'Infothek, y compris la recherche, l'approvisionnement, la collecte et la mise à jour des ressources d'information pertinentes.\n\n• Préparation et mise à jour de dépliants, de textes et d'autres supports d'information analogiques et numériques ainsi que préparation et médiation du contenu orientée vers les groupes cibles.\n\n• Coopération à l'élaboration de nouveaux formats d'information et au développement des offres d'information existantes.\n\n• Coopération pour le développement et la gestion de LBZ Link ainsi que d'autres plateformes d'information numérique et systèmes CMS.\n\n• Participation à la poursuite du développement de l'Infothek et d'autres sous-projets ainsi qu'à l'optimisation des offres et des processus d'information.\n\n• Prise en charge des services de bibliothèque d'information et discussions d'information avec les clients.\n\n• Soutien de consultants professionnels, d'études et de carrière dans les questions techniques et la recherche ainsi que la coopération dans les unités d'information et d'enseignement avec les groupes et les classes scolaires et dans l'introduction au choix de carrière Trail.\n\n• Coopération dans l'organisation et la mise en œuvre de manifestations ainsi que coopération avec des institutions extérieures et des organismes spécialisés.\n\nExigences\n• Vous avez un diplôme en information spécialisée et documentation EFZ, en tant que libraire EFZ ou une formation comparable dans le secteur de la bibliothèque ou de l'information.\n\n• Ils apportent de bonnes connaissances en informatique et de l'intérêt pour le développement des offres d'information numérique.\n\n• Ils sont ouverts aux nouveaux développements en matière de gestion des connaissances et des médias et ont une mentalité en réseau.\n\n• Ils participent de manière créative à la création et à la mise à jour de nos produits d'information axés sur les groupes cibles.\n\n• Ils ont une excellente connaissance de l'allemand en paroles et en écriture.\n\n• Ils convainquent avec un haut niveau de compétence en performance et de bonnes compétences en communication.\n\n• Vous êtes une personnalité indépendante, capable d'équipe et orientée vers le service avec une façon de travailler prudente, flexible et résistante.\n\nLe centre de carrière (LBZ BL) de Pratteln, y compris le mentorat et l'enseignement complémentaire général, est un département principal du Département de l'enseignement professionnel, des écoles secondaires et de l'enseignement supérieur (BMH). La LBZ BL conseille et informe les jeunes et les adultes sur toutes les questions de choix professionnel, scolaire et d'études ainsi que sur la planification de carrière et gère une bibliothèque d'information publique. Le centre de carrières coopère avec les écoles, la formation publique et les institutions partenaires et organise des consultations et des cours pour le compte de tiers."
       },
-      "needsRetranslation": true,
       "location": "Pratteln",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/fachperson-information-dokumentation/7003e2c2-c36a-4871-a563-13ce67e41137",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.094Z",
+      "crawledAt": "2026-09-29T09:51:54.723Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5110,6 +5109,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/fachperson-information-dokumentation/7003e2c2-c36a-4871-a563-13ce67e41137",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-information-amp-dokumentation-kanton-basel-landschaft-pratteln",
+        "fachperson-information-dokumentation-kantonale-verwaltung-basel-landschaft-pratteln",
+        "informazioni-e-documentazione-professionali-kantonale-verwaltung-basel-landschaft-pratteln"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "fachperson-information-dokumentation-kantonale-verwaltung-basel-landschaft-pratteln",
@@ -5126,11 +5130,6 @@
           "fachperson-information-amp-dokumentation-kanton-basel-landschaft-pratteln"
         ]
       },
-      "previousSlugs": [
-        "fachperson-information-amp-dokumentation-kanton-basel-landschaft-pratteln",
-        "fachperson-information-dokumentation-kantonale-verwaltung-basel-landschaft-pratteln",
-        "informazioni-e-documentazione-professionali-kantonale-verwaltung-basel-landschaft-pratteln"
-      ],
       "firstSeenAt": "2026-09-25T14:40:46.382Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5144,7 +5143,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-15c3e45d4b6c",
@@ -5178,7 +5178,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/lehrperson-violoncello/aa96f5f0-225f-4417-8556-9263f24c9eee",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.091Z",
+      "crawledAt": "2026-09-29T09:51:54.720Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5196,6 +5196,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/lehrperson-violoncello/aa96f5f0-225f-4417-8556-9263f24c9eee",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrperson-violoncello-kanton-basel-landschaft-reinach",
+        "lehrperson-violoncello-kantonale-verwaltung-basel-landschaft-reinach",
+        "maestro-violoncello-kantonale-verwaltung-basel-landschaft-reinach"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "lehrperson-violoncello-kantonale-verwaltung-basel-landschaft-reinach",
@@ -5212,11 +5217,6 @@
           "lehrperson-violoncello-kanton-basel-landschaft-reinach"
         ]
       },
-      "previousSlugs": [
-        "lehrperson-violoncello-kanton-basel-landschaft-reinach",
-        "lehrperson-violoncello-kantonale-verwaltung-basel-landschaft-reinach",
-        "maestro-violoncello-kantonale-verwaltung-basel-landschaft-reinach"
-      ],
       "firstSeenAt": "2026-09-25T14:40:46.379Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5264,7 +5264,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-fuer-einzelintegration-kindergarten/3faef52d-7c24-4d03-a3f6-3c388184a2fb",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.089Z",
+      "crawledAt": "2026-09-29T09:51:54.718Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5282,6 +5282,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-fuer-einzelintegration-kindergarten/3faef52d-7c24-4d03-a3f6-3c388184a2fb",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kanton-basel-landschaft",
+        "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
+        "sozialpadagogin-sozialpadagoge-per-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
@@ -5298,11 +5303,6 @@
           "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kanton-basel-landschaft",
-        "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
-        "sozialpadagogin-sozialpadagoge-per-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"
-      ],
       "firstSeenAt": "2026-09-25T14:40:46.378Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5350,7 +5350,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/praktikantin-praktikant/85509c6e-1d65-4f44-a45a-1abed208c075",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.086Z",
+      "crawledAt": "2026-09-29T09:51:54.715Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5368,6 +5368,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/praktikantin-praktikant/85509c6e-1d65-4f44-a45a-1abed208c075",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikantin-praktikant-kanton-basel-landschaft-munchenstein",
+        "praktikantin-praktikant-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "interno-interno-kantonale-verwaltung-basel-landschaft-munchenstein"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "praktikantin-praktikant-kantonale-verwaltung-basel-landschaft-munchenstein",
@@ -5384,11 +5389,6 @@
           "praktikantin-praktikant-kanton-basel-landschaft-munchenstein"
         ]
       },
-      "previousSlugs": [
-        "praktikantin-praktikant-kanton-basel-landschaft-munchenstein",
-        "praktikantin-praktikant-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "interno-interno-kantonale-verwaltung-basel-landschaft-munchenstein"
-      ],
       "firstSeenAt": "2026-09-25T14:40:46.376Z",
       "salaryMin": 44500,
       "salaryMax": 82500,
@@ -5436,7 +5436,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/fachspezialistin-fachspezialist-fachbereich-schutzbauten/7186894a-7e27-42a5-addc-d16daa96a160",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.082Z",
+      "crawledAt": "2026-09-29T09:51:54.713Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5517,7 +5517,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-fachbereich-schutzbauten/8fbb5280-9c64-4a34-8c4e-2faf1b0516b1",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.080Z",
+      "crawledAt": "2026-09-29T09:51:54.710Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5598,7 +5598,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/ressortleiterin-ressortleiter-fachbereich-schutzbauten/7d075967-7de7-44bd-9cb3-3717203be58f",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.077Z",
+      "crawledAt": "2026-09-29T09:51:54.708Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5679,7 +5679,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/mitglied-der-schulleitung/2273b770-6b81-4176-85b6-39deb6cd754d",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.074Z",
+      "crawledAt": "2026-09-29T09:51:54.707Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5697,6 +5697,11 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/mitglied-der-schulleitung/2273b770-6b81-4176-85b6-39deb6cd754d",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitglied-der-schulleitung-kanton-basel-landschaft-allschwil",
+        "mitglied-der-schulleitung-kantonale-verwaltung-basel-landschaft-allschwil",
+        "membro-della-direzione-scolastica-kantonale-verwaltung-basel-landschaft-allschwil"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "mitglied-der-schulleitung-kantonale-verwaltung-basel-landschaft-allschwil",
@@ -5713,11 +5718,6 @@
           "mitglied-der-schulleitung-kanton-basel-landschaft-allschwil"
         ]
       },
-      "previousSlugs": [
-        "mitglied-der-schulleitung-kanton-basel-landschaft-allschwil",
-        "mitglied-der-schulleitung-kantonale-verwaltung-basel-landschaft-allschwil",
-        "membro-della-direzione-scolastica-kantonale-verwaltung-basel-landschaft-allschwil"
-      ],
       "firstSeenAt": "2026-09-28T04:55:46.873Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5759,13 +5759,12 @@
         "de": "Aufgaben:\n• Sie übernehmen eine reduziert geführte 1. Primarklasse mit 10 Schülerinnen und Schülern. Dabei werden sie während einiger Lektionen von einer Förderlehrperson sowie von einer Klassenassistenz unterstützt.\n\n• Die Entwicklung sozialer und emotionaler Kompetenzen ist Ihnen in der Arbeit mit Kindern wichtig. Der Einsatz von spielerischen Lernformen ist für Sie eine Selbstverständlichkeit.\n\n• Ihre Aufgaben erfüllen Sie mit Freude und Verantwortung. Herausforderungen begegnen Sie mit Gelassenheit und Humor.\n\n• Sie haben über die Unterrichtstätigkeit hinaus Interesse an Schulentwicklungs- und Teamprozessen.\n\nAnforderungen:\n• Sie besitzen ein Lehrdiplom für die Primarstufe.\n\n• Ihnen ist die pädagogische Kooperation und ein wertschätzender Umgang mit Kolleginnen und Kollegen wichtig.\n\n• Sie schätzen die Arbeit in einer Dorfschule und einem kleinen, engagierten und aufgestellten Team.\n\n• Sie pflegen eine wertschätzende Zusammenarbeit mit den SchülerInnen und den Erziehungsberechtigten\n\n• Im Bereich Medien und Informatik bringen Sie gute Kenntnisse mit.\n\nWir sind eine kleine, überschaubare Dorfschule mit einem Kindergarten und vier Primarklassen. Unsere Schule zeichnet sich aus durch ein engagiertes Team, welches erfolgreich und wertschätzend zusammenarbeitet.",
         "fr": "Tâches :\n• Ils suivent une première classe primaire réduite avec 10 élèves. Ils sont soutenus pendant certaines leçons par un enseignant de soutien et un assistant de classe.\n\n• Le développement de compétences sociales et émotionnelles est important pour vous lorsque vous travaillez avec des enfants. L'utilisation de formes ludiques d'apprentissage est bien sûr une question pour vous.\n\n• Vous accomplissez vos tâches avec joie et responsabilité. Les défis sont relevés avec sérénité et humour.\n\n• En plus des activités d'enseignement, ils s'intéressent au développement scolaire et aux processus d'équipe.\n\nExigences\n• Vous avez un diplôme d'enseignement primaire.\n\n• Pour eux, la coopération pédagogique et un traitement apprécié des collègues sont importants.\n\n• Ils apprécient de travailler dans une école de village et une petite équipe dévouée et établie.\n\n• Ils entretiennent une coopération reconnaissante avec les étudiants et les tuteurs\n\n• Dans le domaine des médias et de l'informatique, vous avez de bonnes connaissances.\n\nNous sommes une petite école de village gérable avec un jardin d'enfants et quatre classes primaires. Notre école se caractérise par une équipe dévouée qui travaille ensemble avec succès et avec reconnaissance."
       },
-      "needsRetranslation": true,
       "location": "Waldenburg",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-1-klasse/7dc39834-5d95-4574-a817-b01b380293b9",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.071Z",
+      "crawledAt": "2026-09-29T09:51:54.705Z",
       "addressLocality": "Waldenburg",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5783,12 +5782,6 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/klassenlehrperson-1-klasse/7dc39834-5d95-4574-a817-b01b380293b9",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "klassenlehrperson-1-klasse-kanton-basel-landschaft-waldenburg",
-        "klassenlehrperson-1-klasse-kantonale-verwaltung-basel-landschaft-waldenburg",
-        "class-instructor-1st-class-kantonale-verwaltung-basel-landschaft-waldenburg",
-        "istruttore-di-classe-1a-classe-kantonale-verwaltung-basel-landschaft-waldenburg"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "klassenlehrperson-1-klasse-kanton-basel-landschaft-waldenburg",
@@ -5803,7 +5796,12 @@
           "klassenlehrperson-1-klasse-kantonale-verwaltung-basel-landschaft-waldenburg"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:12:22.292Z",
+      "previousSlugs": [
+        "klassenlehrperson-1-klasse-kanton-basel-landschaft-waldenburg",
+        "klassenlehrperson-1-klasse-kantonale-verwaltung-basel-landschaft-waldenburg",
+        "class-instructor-1st-class-kantonale-verwaltung-basel-landschaft-waldenburg",
+        "istruttore-di-classe-1a-classe-kantonale-verwaltung-basel-landschaft-waldenburg"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5816,7 +5814,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:22.292Z",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-1f26adbf6105",
@@ -5844,13 +5844,12 @@
         "de": "Aufgaben:\n• Sie führen rund 35 Lehrpersonen im Zyklus 1, begleiten sie in ihrer professionellen Entwicklung und geben Impulse für die pädagogische Weiterentwicklung.\n\n• Sie verantworten die jährliche Klassen- und Pensenplanung im Zyklus 1 und stellen gemeinsam mit dem Schulleitungsteam eine vorausschauende personelle und organisatorische Planung sicher.\n\n• Sie koordinieren zentrale Abläufe und Übergänge im Zyklus 1 und sorgen für klare Rahmenbedingungen im Schulalltag.\n\n• Sie gestalten die Weiterentwicklung der Primarstufe aktiv mit und übernehmen Verantwortung für ausgewählte Qualitäts- und Entwicklungsprozesse.\n\n• Sie sind Ansprechperson für Lehrpersonen, Eltern und Fachstellen und begleiten anspruchsvolle Situationen lösungsorientiert.\n\n• Sie arbeiten eng mit dem Schulleitungsteam zusammen und übernehmen gemeinsam Führungsverantwortung für den Zyklus 1.\n\nAnforderungen:\n• Sie verfügen über ein Lehrdiplom für die Primarstufe und mehrjährige Unterrichtserfahrung\n\n• Sie verfügen über die Ausbildung CAS Schulleitung oder sind bereit, diese Ausbildung zu absolvieren.\n\n• Sie bringen Führungserfahrung sowie Interesse und Erfahrung in der Schul- und Unterrichtsentwicklung mit.\n\n• Sie verfügen über ausgeprägte Kommunikations- und Sozialkompetenz, treten sicher auf und können Entscheidungen klar und nachvollziehbar vertreten.\n\n• Sie arbeiten lösungsorientiert, proaktiv und verbindlich und bewahren auch in anspruchsvollen Situationen den Überblick und die nötige Ruhe.\n\n• Sie arbeiten kooperativ, sind flexibel und bereit, bei Bedarf auch ausserhalb der üblichen Arbeitszeiten Termine wahrzunehmen.\n\n• Sie verfügen über gute IT- und Digitalkompetenzen und sind offen für neue Entwicklungen im Schul- und Arbeitsumfeld.\n\nDie Primarstufe Therwil beschäftigt rund 110 Lehrpersonen, die an drei Standorten rund 750 Kinder unterrichten. Wir bieten Ihnen eine vielseitige Kaderstelle mit weitreichenden Kompetenzen in einer innovativen und zukunftsorientierten Schule. Als Teil eines engagierten Schulleitungsteams gestalten Sie die Weiterentwicklung der Primarstufe aktiv mit. Das Rektoratsmodell bietet klare Strukturen und Raum für eigenverantwortliches Handeln. Wir pflegen eine offene Führungskultur und unterstützen Ihre persönliche und fachliche Weiterentwicklung.Nähere Informationen zur Stelle finden Sie auf unserer Website.",
         "fr": "Tâches :\n• Ils dirigent environ 35 enseignants dans le cycle 1, les accompagnent dans leur développement professionnel et fournissent des impulsions pour le développement de l'éducation.\n\n• Ils sont responsables de la planification annuelle de la classe et du rendement du cycle 1 et, en collaboration avec l'équipe de gestion de l'école, ils assurent l'avenir du personnel et de la planification organisationnelle.\n\n• Ils coordonnent les processus centraux et les transitions du cycle 1 et assurent des conditions-cadres claires dans la vie scolaire quotidienne.\n\n• Ils façonnent activement le développement du niveau primaire et assument la responsabilité de certains processus de qualité et de développement.\n\n• Ils sont la personne de contact pour les enseignants, les parents et les départements spécialisés et accompagnent les situations exigeantes d'une manière orientée vers la solution.\n\n• Ils travaillent en étroite collaboration avec l'équipe de gestion de l'école et assument conjointement la responsabilité de la direction du cycle 1.\n\nExigences\n• Vous avez un diplôme d'enseignement pour le niveau primaire et plusieurs années d'expérience d'enseignement\n\n• Vous avez la formation de gestion de l'école CAS ou êtes prêt à terminer cette formation.\n\n• Ils apportent une expérience de leadership ainsi que l'intérêt et l'expérience en matière de développement scolaire et d'enseignement.\n\n• Ils ont une forte capacité de communication et de socialisation, exercent des fonctions sûres et peuvent représenter les décisions de façon claire et compréhensible.\n\n• Ils travaillent sur la solution, proactif et contraignant et maintiennent une vue d'ensemble et le calme nécessaire même dans des situations exigeantes.\n\n• Ils travaillent en coopération, sont flexibles et disposés à prendre des rendez-vous en dehors des heures de travail habituelles si nécessaire.\n\n• Ils possèdent de bonnes compétences informatiques et numériques et sont ouverts aux nouveaux développements dans l'école et l'environnement de travail.\n\nNiveau primaire Therwil emploie environ 110 enseignants qui enseignent environ 750 enfants à trois endroits. Nous vous proposons un poste de cadre polyvalent avec de vastes compétences dans une école innovante et orientée vers l'avenir. Dans le cadre d'une équipe de gestion scolaire dédiée, vous participez activement au développement du niveau primaire. Le modèle Rectorate offre des structures claires et un espace pour une action auto-responsable. Nous maintenons une culture de leadership ouverte et soutenons votre perfectionnement personnel et professionnel. Vous trouverez plus d'informations sur ce travail sur notre site Web."
       },
-      "needsRetranslation": true,
       "location": "Therwil",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/konrektorin-konrektor/12089fca-689a-4c18-a609-dbf31f66fd3b",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.068Z",
+      "crawledAt": "2026-09-29T09:51:54.702Z",
       "addressLocality": "Therwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5868,12 +5867,20 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/konrektorin-konrektor/12089fca-689a-4c18-a609-dbf31f66fd3b",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "vice-president-kantonale-verwaltung-basel-landschaft-therwil",
-        "konrektorin-konrektor-kanton-basel-landschaft-therwil",
-        "vicepresidente-kantonale-verwaltung-basel-landschaft-therwil",
-        "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-therwil"
-      ],
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:35:01.380Z",
       "previousSlugsByLocale": {
         "it": [
           "vice-president-kantonale-verwaltung-basel-landschaft-therwil",
@@ -5888,20 +5895,13 @@
           "vice-president-kantonale-verwaltung-basel-landschaft-therwil"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:35:01.380Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "vice-president-kantonale-verwaltung-basel-landschaft-therwil",
+        "konrektorin-konrektor-kanton-basel-landschaft-therwil",
+        "vicepresidente-kantonale-verwaltung-basel-landschaft-therwil",
+        "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-therwil"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-c76f8f0d57ae",
@@ -5929,13 +5929,12 @@
         "de": "Aufgaben:\n• Sie unterrichten mit Freude.\n\n• Sie pflegen eine offene, transparente und wertschätzende Kommunikation mit allen Beteiligten.\n\n• Teamarbeit ist Ihnen genauso wichtig wie uns – Sie bringen sich aktiv ein und erleben ein Team, das sich gegenseitig unterstützt und gemeinsam Verantwortung trägt.\n\nAnforderungen:\n• Sie unterrichten mit Freude und Einfühlungsvermögen.\n\n• Sie verfügen über eine pädagogische Unterrichtsberechtigung für die Primarstufe oder stehen kurz vor dem Abschluss.\n\n• Die Zusammenarbeit mit Eltern und im Team ist für Sie selbstverständlich und basiert auf gegenseitigem Respekt und Vertrauen.\n\nDie Primarstufe Augst befindet sich in einer wachsenden Agglomerationsgemeinde mit rund 1'100 Einwohner:innen. Im kommenden Schuljahr umfasst Augst zwei Kindergartenklassen sowie drei Doppelklassen mit insgesamt 82 Kindern. Die überschaubare Grösse ermöglicht ein persönliches Miteinander – hier kennt jede und jeder jeden. Ein engagiertes, humorvolles Team aus 16 Lehr- und Fachpersonen, einem Schulsozialarbeiter, dem Schulsekretariat sowie der Schulleitung legt grossen Wert auf Zusammenarbeit, gegenseitige Unterstützung und einen offenen Austausch im Schulalltag. Fühlen Sie sich angesprochen? Wir freuen uns auf Ihre Bewerbung!",
         "fr": "Tâches :\n• Ils enseignent avec joie.\n\n• Ils maintiennent une communication ouverte, transparente et reconnaissante avec toutes les parties concernées.\n\n• Le travail d'équipe est aussi important pour vous que pour nous – Ils participent activement et vivent une équipe qui se soutient mutuellement et partage ses responsabilités.\n\nExigences\n• Ils enseignent avec joie et empathie.\n\n• Vous avez une qualification de niveau primaire ou vous êtes sur le point d'obtenir votre diplôme.\n\n• Travailler avec les parents et en équipe est une question bien sûr pour vous et est basé sur le respect mutuel et la confiance.\n\nLe niveau primaire d'Augst est situé dans une communauté d'agglomération en croissance avec environ 1100 habitants:innen. Au cours de la prochaine année scolaire, Augst comprend deux classes maternelles et trois classes doubles avec un total de 82 enfants. La taille gérable permet une rencontre personnelle – tout le monde connaît tout le monde ici. Une équipe dévouée et humoristique de 16 enseignants et spécialistes, un travailleur social scolaire, le secrétariat de l'école et la direction de l'école attachent une grande importance à la coopération, au soutien mutuel et à un échange ouvert dans la vie scolaire quotidienne. Vous sentez-vous adressé ? Nous attendons avec impatience votre candidature!"
       },
-      "needsRetranslation": true,
       "location": "Augst",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/musiklehrperson/43b8a56b-3d57-4f09-996d-d5d1a9f241b5",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.064Z",
+      "crawledAt": "2026-09-29T09:51:54.699Z",
       "addressLocality": "Augst",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5953,12 +5952,6 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/musiklehrperson/43b8a56b-3d57-4f09-996d-d5d1a9f241b5",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "musiklehrperson-kanton-basel-landschaft-augst",
-        "musiklehrperson-kantonale-verwaltung-basel-landschaft-augst",
-        "music-teacher-kantonale-verwaltung-basel-landschaft-augst",
-        "maestro-di-musica-kantonale-verwaltung-basel-landschaft-augst"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "musiklehrperson-kanton-basel-landschaft-augst",
@@ -5973,7 +5966,12 @@
           "musiklehrperson-kantonale-verwaltung-basel-landschaft-augst"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:12:22.287Z",
+      "previousSlugs": [
+        "musiklehrperson-kanton-basel-landschaft-augst",
+        "musiklehrperson-kantonale-verwaltung-basel-landschaft-augst",
+        "music-teacher-kantonale-verwaltung-basel-landschaft-augst",
+        "maestro-di-musica-kantonale-verwaltung-basel-landschaft-augst"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5986,7 +5984,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:22.287Z",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-daec4d9cbc3e",
@@ -6020,7 +6020,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen/7f2ce293-a192-482e-82d8-3751ff8386c0",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.061Z",
+      "crawledAt": "2026-09-29T09:51:54.697Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6038,23 +6038,6 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen/7f2ce293-a192-482e-82d8-3751ff8386c0",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
-        "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
-          "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
-        ],
-        "en": [
-          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
-        ],
-        "fr": [
-          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:12:22.284Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6067,7 +6050,24 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:22.284Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
+          "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
+        ],
+        "en": [
+          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
+        "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-f20ca79e8a90",
@@ -6095,13 +6095,12 @@
         "de": "Aufgaben:\n• Projektleitung für verkehrstechnische Optimierung, Verkehrsflusssimulationen und Analysen zur Verbesserung der Leistungsfähigkeit der Strasseninfrastruktur unter Berücksichtigung der Bedürfnisse aller Verkehrsteilnehmenden\n\n• Aktive Mitwirkung bei der Weiterentwicklung der bestehenden und künftigen Strasseninfrastruktur für eine konfliktfreie, sichere und siedlungsverträgliche Abwicklung des Gesamtverkehrs\n\n• Verantwortung für verkehrstechnische Machbarkeitsstudien und Gutachten, sowie für die Analyse von Unfallschwerpunkten und Gefahrenstellen und die Erarbeitung geeigneter Massnahmen\n\n• Zuständig für die Erarbeitung von zukunftsfähigen verkehrstechnischen Lösungen im Bereich der Verkehrserhebung und Verkehrsauswertung sowie für Regelungs- und Sicherungsanlagen\n\nAnforderungen:\n• Hochschulabschluss in Verkehrstechnik, Verkehrsingenieurwesen oder einer vergleichbaren Fachrichtung und entsprechende Weiterbildung wie CAS in Strassenverkehrssicherheit\n\n• Berufs- und Projektleitererfahrung im Bereich Verkehrsingenieurwesen\n\n• Kenntnisse und Erfahrung mit Infrastruktursicherheitsinstrumenten (ISSI) des Bundes\n\n• Ausgeprägte analytische Fähigkeiten\n\n• Freude mit unterschiedlichen Interessengruppen zu verhandeln und zu kooperieren\n\n• digital affin\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
         "fr": "Tâches :\n• Gestion de projet pour l'optimisation du trafic, simulations de flux de trafic et analyses visant à améliorer les performances des infrastructures routières en tenant compte des besoins de tous les participants au transport\n\n• Participation active à la poursuite du développement de l ' infrastructure routière actuelle et future en vue d ' une gestion intégrée des transports sans conflit, sûre et compatible avec les règlements\n\n• Responsabilité des études de faisabilité des transports et des avis d'experts, ainsi que de l'analyse des centres d'accidents et des points de danger et de l'élaboration de mesures appropriées\n\n• Responsable du développement de solutions de transport durables dans le domaine de l ' étude et de l ' évaluation du trafic ainsi que des systèmes de contrôle et de sécurité\n\nExigences\n• Diplôme universitaire en ingénierie des transports, en ingénierie des transports ou dans une discipline comparable et enseignement complémentaire correspondant tel que le CAS en sécurité routière\n\n• Expérience professionnelle et gestionnaire de projet en ingénierie des transports\n\n• Connaissance et expérience des instruments fédéraux de sécurité de l'infrastructure (ISSI)\n\n• Fortes compétences analytiques\n\n• Joy de négocier et de coopérer avec les différentes parties prenantes\n\n• affinité numérique\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines spécialisés, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, elles contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous!"
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://jobs.baselland.ch/offene-stellen/expertin-experte-verkehrstechnik/e35376ce-0a4c-43b2-baea-b2f357185d7e",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.059Z",
+      "crawledAt": "2026-09-29T09:51:54.694Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6119,12 +6118,6 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/expertin-experte-verkehrstechnik/e35376ce-0a4c-43b2-baea-b2f357185d7e",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "expertin-experte-verkehrstechnik-kanton-basel-landschaft-liestal",
-        "expertin-experte-verkehrstechnik-kantonale-verwaltung-basel-landschaft-liestal",
-        "expert-transport-technology-kantonale-verwaltung-basel-landschaft-liestal",
-        "tecnologia-di-trasporto-esperto-kantonale-verwaltung-basel-landschaft-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "expertin-experte-verkehrstechnik-kanton-basel-landschaft-liestal",
@@ -6139,7 +6132,12 @@
           "expertin-experte-verkehrstechnik-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:12:22.266Z",
+      "previousSlugs": [
+        "expertin-experte-verkehrstechnik-kanton-basel-landschaft-liestal",
+        "expertin-experte-verkehrstechnik-kantonale-verwaltung-basel-landschaft-liestal",
+        "expert-transport-technology-kantonale-verwaltung-basel-landschaft-liestal",
+        "tecnologia-di-trasporto-esperto-kantonale-verwaltung-basel-landschaft-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6152,7 +6150,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:12:22.266Z",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-basel-landschaft-43054c290556",
@@ -6186,7 +6186,7 @@
       "url": "https://jobs.baselland.ch/offene-stellen/rektorin-rektor-gymnasium-muenchenstein/0c74a7eb-4955-47c2-b3d2-4f6eda68c617",
       "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:12:35.053Z",
+      "crawledAt": "2026-09-29T09:51:54.688Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6219,7 +6219,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T09:12:35.053Z"
+      "firstSeenAt": "2026-09-29T09:51:54.688Z"
     }
   ]
 }
