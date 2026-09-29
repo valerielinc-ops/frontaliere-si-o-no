@@ -12251,6 +12251,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.collaudo-ponte-comerio.title': 'Comerio, essai du pont piétonnier de via Giardini',
     'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio : le lundi 28 septembre, le pont piétonnier de via Giardini sera testé de 19h à 7h du 29. À partir de 17 heures, interdiction de stationner dans la rue Sacconaghi.',
     'blog.article.collaudo-ponte-comerio.imageAlt': 'Nouvelle passerelle piétonne de la Via Giardini à Comerio pendant les travaux',
+    'blog.article.luino-convegno-incidenti-stradali.title': 'Luino : conférence sur les accidents de la route au Palazzo Verbania',
+    'blog.article.luino-convegno-incidenti-stradali.excerpt': 'Vendredi 25 septembre, une centaine de carabiniers et de policiers se sont réunis à Luino pour approfondir les procédures opérationnelles.',
+    'blog.article.luino-convegno-incidenti-stradali.imageAlt': 'Conférence sur la constatation des accidents de la route au Palazzo Verbania, Luino',
 };
 
 export default blogMetaFr;

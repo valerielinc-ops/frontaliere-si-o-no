@@ -12250,6 +12250,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.collaudo-ponte-comerio.title': 'Comerio, collaudo per il ponte pedonale di via Giardini',
     'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio: lunedì 28 settembre il ponte pedonale di via Giardini sarà collaudato dalle 19 alle 7 del 29. Dalle 17 divieto di sosta in via Sacconaghi.',
     'blog.article.collaudo-ponte-comerio.imageAlt': 'Nuovo ponte pedonale di via Giardini a Comerio durante i lavori',
+    'blog.article.luino-convegno-incidenti-stradali.title': 'Luino: convegno su incidenti stradali a Palazzo Verbania',
+    'blog.article.luino-convegno-incidenti-stradali.excerpt': 'Venerdì 25 settembre un centinaio di carabinieri e poliziotti si sono riuniti a Luino per approfondire le procedure operative.',
+    'blog.article.luino-convegno-incidenti-stradali.imageAlt': 'Convegno sul rilevamento degli incidenti stradali a Palazzo Verbania, Luino',
 };
 
 export default blogMetaIt;
