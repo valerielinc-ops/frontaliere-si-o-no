@@ -7040,6 +7040,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoratori-svizzeri-ia-benefici.title': 'I lavoratori svizzeri usano l\'IA, ma pochi ne vedono i benefici',
     'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': 'Il 28% dei lavoratori svizzeri usa ogni giorno l\'IA generativa ma solo il 10% vede una qualità del lavoro migliore. I dati della ricerca PwC.',
     'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Lavoratori svizzeri e intelligenza artificiale',
+    'blog.article.cioccolato-mercato-svizzera.title': 'Lindt rivede al ribasso le previsioni di vendita per il 2026',
+    'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt prevede crescita fatturato 0%-2% (contro 4-6% precedente), BP -8% in mattinata, performance YTD -30%, -35% 12 mesi, -24% 5 anni; sede Kilchberg ZH, 15\'500 dipendenti.',
+    'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Barrette di cioccolato svizzero su tavolo di legno con sfondo delle Alpi',
 };
 
 export default blogMetaChIt;

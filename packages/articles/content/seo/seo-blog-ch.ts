@@ -91280,6 +91280,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cioccolato-mercato-svizzera': {
+    title: 'Lindt rivede al ribasso le previsioni di vendita per il 2026',
+    description: 'Lindt taglia le stime di crescita del fatturato al 0%-2%, il BP perde l\'8% in borsa e le azioni segnano -30% YTD, -35% su 12 mesi e -24% su 5 anni. Sede',
+    keywords: 'frontalieri, ticino, svizzera, italia, lindt, rivede, ribasso, previsioni',
+    ogTitle: 'Lindt rivede al ribasso le previsioni di vendita per il 2026',
+    ogDescription: 'Il gruppo Lindt & Sprüngli ha ridotto le previsioni di crescita del giro d\'affari dal 4-6% allo 0%-2% dopo aumenti di prezzo dovuti al cacao. Il buono di partecipazione è sceso dell\'8% in mattinata, mentre le azioni mostrano un calo del 30% da inizio',
+    canonicalPath: '/articoli-svizzera/cioccolato-mercato-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lindt rivede al ribasso le previsioni di vendita per il 2026",
+      "description": "Lindt taglia le stime di crescita del fatturato al 0%-2%, il BP perde l'8% in borsa e le azioni segnano -30% YTD, -35% su 12 mesi e -24% su 5 anni. Sede",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cioccolato-mercato-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barrette di cioccolato svizzero su tavolo di legno con sfondo delle Alpi"
+      },
+      "datePublished": "2026-09-29T11:25:37+00:00",
+      "dateModified": "2026-09-29T11:25:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cioccolato-mercato-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

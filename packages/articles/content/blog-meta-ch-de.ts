@@ -7040,6 +7040,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoratori-svizzeri-ia-benefici.title': 'Schweizer Arbeitnehmer nutzen KI, aber nur wenige sehen darin Vorteile',
     'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% der Schweizer Arbeitnehmer nutzen täglich generative KI, aber nur 10% sehen eine bessere Arbeitsqualität. Die Daten der Studie von PwC.',
     'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Schweizer Arbeitnehmer und künstliche Intelligenz',
+    'blog.article.cioccolato-mercato-svizzera.title': 'Lindt korrigiert die Verkaufsprognosen für 2026 nach unten',
+    'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt erwartet ein Umsatzwachstum von 0%-2% (gegenüber zuvor 4-6%), BP -8% am Vormittag, YTD-Performance -30%, -35% in 12 Monaten, -24% in 5 Jahren; Sitz in Kilchberg ZH, 15\'500 Mitarbeitende.',
+    'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Schweizer Schokoriegel auf Holztafel mit Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;
