@@ -7109,6 +7109,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.progetto-ia-medicina-bellinzona.title': 'IA et médicaments : Bellinzone dans le projet SWIT-DREAMS',
     'blog.article.progetto-ia-medicina-bellinzona.excerpt': 'Lancement de SWIT-DREAMS : 1,37 million d’euros d’Interreg pour la recherche entre Novare et Bellinzone sur les nanocorps et l’intelligence artificielle appliquée à la médecine.',
     'blog.article.progetto-ia-medicina-bellinzona.imageAlt': 'Recherche médicale et IA à Bellinzona',
+    'blog.article.dati-srf-dipendenti-rubati.title': 'Cyberattaque contre SRF : données volées à environ 340 employés',
+    'blog.article.dati-srf-dipendenti-rubati.excerpt': 'La SSR signale une attaque contre SRF : les données de contact et d\'organisation d\'environ 340 collaborateurs ont été dérobées. Les mots de passe et les données bancaires ne semblent pas concernés.',
+    'blog.article.dati-srf-dipendenti-rubati.imageAlt': 'Rédaction suisse avec écrans illustrant une cyberattaque et des données volées',
 };
 
 export default blogMetaChFr;
