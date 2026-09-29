@@ -6998,6 +6998,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-starlink-aereo-internet.title': 'Swiss brings Starlink fast internet on board its aircraft',
     'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss activates Starlink Internet on its first Airbus A320neo, Iseltwald, offering free, high-speed connectivity in all classes.',
     'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Swiss Airbus A320neo airplane with Starlink connection',
+    'blog.article.avvio-impresa-soletta-adempimenti.title': 'Starting a business in Solothurn: registration and costs',
+    'blog.article.avvio-impresa-soletta-adempimenti.excerpt': 'In the Canton of Solothurn, legal form, registration and minimum capital intersect with three levels of taxation and AVS/AI/IPG contributions of 5.3% for the employee.',
+    'blog.article.avvio-impresa-soletta-adempimenti.imageAlt': 'Starting a business in the Swiss canton of Solothurn: commercial register and costs',
 };
 
 export default blogMetaChEn;

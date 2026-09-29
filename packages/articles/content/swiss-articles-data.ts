@@ -21022,6 +21022,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avvio-impresa-soletta-adempimenti',
+    category: 'pratico',
+    date: '2026-09-29T05:26:33.332Z',
+    image: '/images/blog/avvio-impresa-soletta-adempimenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
