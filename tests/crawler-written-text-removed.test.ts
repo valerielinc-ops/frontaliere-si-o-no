@@ -133,6 +133,8 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['lib/privatklinik-wyss-job-parser.mjs', /fallbackDesc/],
     ['lib/suedhang-job-parser.mjs', /fallbackDesc|Klinik für Suchttherapien\./],
     ['lib/sonnweid-job-parser.mjs', /\[fallback, detail\.body\]|` Eintritt: \$\{r\.eintritt\}\.`/],
+    ['lib/arsante-clinique-de-carouge-job-parser.mjs', /\[fallback, detail\.body\]|\(groupe Arsanté\), \$\{loc\.city\} \(GE\)/],
+    ['lib/crr-suva-sion-job-parser.mjs', /\[fallback, detail\.body\]|Institution de référence en réadaptation et réinsertion/],
   ])('%s', (file, pattern) => {
     const text = source(file);
     expect(text).not.toMatch(pattern);
