@@ -296,7 +296,7 @@ describe('fetchAllUbsJobs — posting without any vacancy text', () => {
       }
       if (u.includes('JobDetails')) {
         const text = body.jobid === '350001'
-          ? '<p>Your role: advise private clients in Zurich and build lasting relationships with them across the whole wealth-planning cycle.</p>'
+          ? '<p>Your role: advise private clients in Zurich and build lasting relationships with them across the whole wealth-planning cycle. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.</p>'
           : '';
         return json({ ServiceResponse: { Jobdetails: { JobDetailQuestions: text ? [{ ClassName: 'jobDetailTextArea', QuestionName: 'Your role', AnswerValue: text }] : [] } } });
       }

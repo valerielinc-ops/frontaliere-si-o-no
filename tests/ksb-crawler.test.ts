@@ -12,7 +12,7 @@ afterEach(() => {
 // ksb-careers (2026-09-29): listing, `/sidebar` "About us", job detail.
 describe('fetchAllKsbJobs — req without a vacancy body', () => {
   it('publishes the req with a body (plus the About-us sidebar) and skips the one without', async () => {
-    const body = '<p>Für unsere Intensivstation suchen wir per sofort oder nach Vereinbarung eine engagierte Pflegefachperson.</p>'
+    const body = '<p>Für unsere Intensivstation suchen wir per sofort oder nach Vereinbarung eine engagierte Pflegefachperson. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.</p>'
       + '<ul><li>Betreuung von kritisch kranken Patientinnen und Patienten</li><li>Enge Zusammenarbeit im interprofessionellen Team</li></ul>';
     const json = (payload: unknown) => new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {

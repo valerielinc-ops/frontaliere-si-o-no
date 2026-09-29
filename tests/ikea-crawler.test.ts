@@ -181,7 +181,7 @@ describe('IKEA crawler parser', () => {
         '<span class="job-list__location">Remote / Multiple locations</span></a></section>';
       const detail = `<script type="application/ld+json">${JSON.stringify({
         '@type': 'JobPosting',
-        description: 'Build and operate the data platform for IKEA Switzerland.',
+        description: 'Build and operate the data platform for IKEA Switzerland, from ingestion pipelines to the reporting layer used by the stores. You bring relevant experience, good English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly and international team.',
         jobLocation: { address: {
           addressLocality: 'Pratteln', addressRegion: 'BL', addressCountry: 'CH', postalCode: '4133',
         } },
@@ -207,7 +207,7 @@ describe('IKEA crawler parser', () => {
       })}</script>`;
       fetchHtml.mockImplementation(async (url: string) => {
         const u = String(url || '');
-        if (u.includes('/verkaufsberater/')) return detail('<p>Du berätst unsere Kundinnen und Kunden in der Einrichtungsabteilung und gestaltest Wohnlösungen.</p>');
+        if (u.includes('/verkaufsberater/')) return detail('<p>Du berätst unsere Kundinnen und Kunden in der Einrichtungsabteilung und gestaltest Wohnlösungen. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentierst deine Arbeit sorgfältig und bringst Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p>');
         if (u.includes('/logistiker/')) return detail('');
         return listing;
       });
