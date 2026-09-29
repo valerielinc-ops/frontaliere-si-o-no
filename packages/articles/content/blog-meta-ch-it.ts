@@ -7073,6 +7073,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.percorsi-impiego-pubblico.title': 'Lavorare nell\'Amministrazione federale: opportunità e formazione',
     'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Amministrazione federale offre 50 formazioni professionali, praticantati per neolaureati e sette settimane di vacanze.',
     'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team al lavoro in un ufficio svizzero per l\'Amministrazione federale',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Cassa malati 2027: fino a 10\'000 franchi di differenza',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Nel 2027 la media nazionale sarà 16\'450 franchi, ma tra Ginevra e Zugo la differenza per la stessa famiglia sfiora i 10\'000 franchi.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famiglia svizzera che esamina la fattura dell\'assicurazione malattia in Ticino',
+    'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: freno legislativo ai premi al 3%',
+    'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'L\'USS chiede al Consiglio degli Stati un limite del 3% ai premi LAMal. In Ticino l\'aumento previsto per il 2027 è del 3,7%.',
+    'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Berna, sede del Parlamento svizzero, con in primo piano una calcolatrice e una tessera assicurativa.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Lavoratori svizzeri e IA: il 28% la usa ma non convince',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': 'Il 28% dei lavoratori in Svizzera usa l\'IA ogni giorno ma manca la convinzione. I dati della ricerca PwC \'Hopes and Fears\' 2026 sui dipendenti.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Lavoratore svizzero in ufficio alle prese con l\'intelligenza artificiale generativa',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 mln per 26 progetti di ricerca',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'L\'UFC stanzia circa 1,95 milioni di franchi per 26 progetti di ricerca sulla provenienza di musei e collezioni in Svizzera per il 2027-2028.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Vista di Bellinzona con musei sullo sfondo, luce mattutina',
 };
 
 export default blogMetaChIt;

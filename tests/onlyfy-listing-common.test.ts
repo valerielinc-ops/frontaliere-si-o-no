@@ -5,8 +5,9 @@ import {
   parseOnlyfyListing,
   onlyfyFullAdUrl,
   extractOnlyfyJobAdText,
+  isOnlyfyJobAdText,
 } from '../scripts/lib/onlyfy-listing-common.mjs';
-import { fetchAllSpitexZuerichJobs } from '../scripts/lib/spitex-zuerich-job-parser.mjs';
+import { fetchAllSpitexZuerichJobs, SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/spitex-zuerich-job-parser.mjs';
 
 // Redesigned onlyfy.jobs card markup (2026). Both spitex-zuerich and
 // vitrea-gesundheit sit on this portal; the old `<strong class="job-title">`
@@ -154,5 +155,58 @@ describe('fetchAllSpitexZuerichJobs', () => {
     expect(jobs[0].description.startsWith('Es freut uns, dass du dich')).toBe(true);
     expect(jobs[0].description).toContain('• Arbeitszeit: Teilzeit / Vollzeit');
     expect(jobs[0].description).not.toMatch(/Bewerbung über das softgarden|gemeinnützige Non-Profit-Organisation/);
+  }, 20000);
+
+  it('writes no stub of its own when the ad document has no text (thin-source path)', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const body = String(url).includes('/job/show/') ? '<html><body><main>Alle Jobs</main></body></html>' : NEW_MARKUP;
+      return new Response(body, { status: 200, headers: { 'content-type': 'text/html' } });
+    }));
+    const jobs = await fetchAllSpitexZuerichJobs();
+    // Both vacancies are kept, with no description: the former stub
+    // ("<Titel> bei Spitex Zürich, … Schweiz." with Standort/Bereich/Bewerbung
+    // bullets) is gone and the pipeline quarantines the empty description.
+    expect(jobs).toHaveLength(2);
+    for (const job of jobs) {
+      expect(job.description).toBe('');
+      expect(job.description).not.toMatch(SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE);
+    }
+  }, 20000);
+});
+
+describe('isOnlyfyJobAdText (what the ad URL answered is the ad)', () => {
+  it('accepts the ad of both templates', () => {
+    expect(isOnlyfyJobAdText(extractOnlyfyJobAdText(readFixture('spitex-zuerich')))).toBe(true);
+    expect(isOnlyfyJobAdText(extractOnlyfyJobAdText(readFixture('vitrea-gesundheit')))).toBe(true);
+  });
+
+  it('rejects a consent or cookie page, an error page and a body under the 50-word floor', () => {
+    expect(isOnlyfyJobAdText('Cookie-Einstellungen')).toBe(false);
+    const consentWall = `Cookie-Einstellungen\n${'Wir verwenden Cookies, um die Nutzung der Website zu analysieren und Inhalte zu personalisieren. '.repeat(6)}`;
+    expect(isOnlyfyJobAdText(consentWall)).toBe(false);
+    expect(isOnlyfyJobAdText(`Seite nicht gefunden\n${'Die angeforderte Seite existiert nicht mehr auf diesem Portal. '.repeat(8)}`)).toBe(false);
+    expect(isOnlyfyJobAdText('Dipl. Pflegefachfrau/-mann 60-100%')).toBe(false);
+    expect(isOnlyfyJobAdText('')).toBe(false);
+  });
+});
+
+describe('fetchAllSpitexZuerichJobs with an ad URL that answers something else', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes no description when the ad document holds a consent page', async () => {
+    const consentDocument = '<html><body class="job-ad-component"><main><p>Cookie-Einstellungen</p></main></body></html>';
+    expect(extractOnlyfyJobAdText(consentDocument)).toBe('Cookie-Einstellungen');
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const body = String(url).includes('/job/show/') ? consentDocument : NEW_MARKUP;
+      return new Response(body, { status: 200, headers: { 'content-type': 'text/html' } });
+    }));
+    const jobs = await fetchAllSpitexZuerichJobs();
+    expect(jobs).toHaveLength(2);
+    for (const job of jobs) {
+      expect(job.description).toBe('');
+      expect(job.description).not.toContain('Cookie');
+    }
   }, 20000);
 });

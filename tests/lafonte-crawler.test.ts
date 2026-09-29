@@ -7,7 +7,9 @@ import {
   stripLaFonteLegacyFrame,
   scrubLaFonteLegacyFrame,
   laFonteHasSourceBody,
+  laFonteRoleUrl,
 } from '../scripts/lib/lafonte-job-parser.mjs';
+import { checkSourceDetailsBatch, sourceDetailSamplesForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
 
 // ──────────────────────────────────────────────────────────────
@@ -346,5 +348,39 @@ describe('La Fonte source body word floor', () => {
   it('keeps a stored body only at 50 words or more', () => {
     expect(laFonteHasSourceBody({ sourceLang: 'it', description: body49, descriptionByLocale: { it: body49 } })).toBe(false);
     expect(laFonteHasSourceBody({ sourceLang: 'it', description: body50, descriptionByLocale: { it: body50 } })).toBe(true);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// The published URL leads to the role card (#5253, run 36571839273)
+// ──────────────────────────────────────────────────────────────
+// The careers page ignores `?role=`: each value serves the same page,
+// canonical /inizia-con-noi, where every role is a card under its <h4>.
+describe('laFonteRoleUrl', () => {
+  const CAREERS = 'https://www.lafonte.ch/inizia-con-noi';
+  const card = (title: string, body: string) => `<div class="pwr-simple-list-item pwr-simple-list-item--text-style-1"><div>Regione del Luganese</div><h4><strong>${title}</strong></h4><span class="pwr-rich-text pwr-simple-list-item__desc"><p>${body}</p></span></div>`;
+  const stage = 'È possibile svolgere uno stage presso una struttura abitativa della fondazione, accompagnando i residenti nella vita quotidiana insieme all\'équipe educativa. '.repeat(3);
+  const afc = 'La formazione di operatore/trice socioassistenziale AFC dura tre anni e alterna la pratica nei foyer della fondazione alla scuola professionale. '.repeat(3);
+  const page = `<html><head><link rel="canonical" href="${CAREERS}"></head><body><h1>Inizia con noi</h1><p>${'La Fonte vuol essere un luogo di apprendimento e di sviluppo. '.repeat(10)}</p>${card('Stagiaire', stage)}${card('Apprendisti/e operatori/trici socioassistenziali AFC', afc)}<footer><h2>Contatti</h2></footer></body></html>`;
+
+  it('keeps the ?role= identity and adds the text fragment of the card title', () => {
+    expect(laFonteRoleUrl(CAREERS, 'stagiaire-la-fonte-lugano', 'Stagiaire'))
+      .toBe('https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-lugano#:~:text=Stagiaire');
+    expect(laFonteRoleUrl(CAREERS, 'apprendisti-afc', 'Apprendisti/e operatori/trici socioassistenziali AFC'))
+      .toBe('https://www.lafonte.ch/inizia-con-noi?role=apprendisti-afc#:~:text=Apprendisti%2Fe%20operatori%2Ftrici%20socioassistenziali%20AFC');
+  });
+
+  it('lets the parser-quality audit read each card as its posting, with a URL that leads there', async () => {
+    const jobs = [
+      { title: 'Stagiaire', url: laFonteRoleUrl(CAREERS, 'stagiaire-la-fonte-lugano', 'Stagiaire'), location: 'Lugano', sourceLang: 'it', description: stage },
+      { title: 'Apprendisti/e operatori/trici socioassistenziali AFC', url: laFonteRoleUrl(CAREERS, 'apprendisti-afc', 'Apprendisti/e operatori/trici socioassistenziali AFC'), location: 'Lugano', sourceLang: 'it', description: afc },
+    ];
+    const results = await checkSourceDetailsBatch(sourceDetailSamplesForCrawler('la-fonte', jobs), 1, {
+      fetchPage: async (url: string) => ({ ok: true, status: 200, url: url.split('#')[0], body: page, host: 'www.lafonte.ch' }),
+    });
+    for (const result of results) {
+      expect(result).toMatchObject({ sourceScope: 'fragment-anchor', sharedBy: 'query', descriptionMismatch: false });
+      expect(result.urlAddressesPosting).toBeUndefined();
+    }
   });
 });

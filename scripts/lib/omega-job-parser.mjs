@@ -106,6 +106,9 @@ function htmlToText(html = '') {
     // location parser and requirements splitting.
     .replace(/[ \t]+$/gm, '')
     .replace(/^[ \t]+/gm, '')
+    // `<li><div>text</div></li>` leaves the bullet alone on its line: join it
+    // with the item text it introduces.
+    .replace(/^•\n+(?=[^\n•])/gm, '• ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -344,6 +347,25 @@ export function parseListPage(html = '') {
 /* ── Detail Page Parser ───────────────────────────────────── */
 
 /**
+ * Index of the `</div>` that closes a div whose opening tag ends at `from`
+ * (nested divs counted). Falls back to the end of the document when the
+ * markup never closes, so a truncated page yields its whole remainder rather
+ * than nothing.
+ */
+function balancedDivEnd(src, from) {
+  const tagPattern = /<\/?div\b[^>]*>/gi;
+  tagPattern.lastIndex = from;
+  let depth = 1;
+  let tag;
+  while ((tag = tagPattern.exec(src)) !== null) {
+    if (tag[0][1] === '/') depth -= 1;
+    else if (!tag[0].endsWith('/>')) depth += 1;
+    if (depth === 0) return tag.index;
+  }
+  return src.length;
+}
+
+/**
  * Parse a job detail page (language-independent CSS hooks).
  */
 export function parseDetailPage(html = '') {
@@ -351,12 +373,17 @@ export function parseDetailPage(html = '') {
   const sections = {};
 
   // Named field sections: <div class="field f-n-<name> ..."><h2>Heading</h2>content</div>
-  // (field bodies are flat h2/p/ul markup — no nested divs on this portal).
-  const sectionPattern = /<div class="field f-n-((?:field-job-)?[\w-]+?) f-t-[\w-]+">([\s\S]*?)<\/div>/g;
+  // The body is read to its BALANCED closing tag: some vacancies wrap each
+  // list item in `<li><div><span>…</span></div></li>`, and the former
+  // non-greedy `…</div>` stopped at the first inner close — job 33260 kept
+  // one of its seven task bullets (source-detail audit 2026-09-29).
+  const sectionPattern = /<div class="field f-n-((?:field-job-)?[\w-]+?) f-t-[\w-]+">/g;
   let secMatch;
   while ((secMatch = sectionPattern.exec(src)) !== null) {
     const rawName = secMatch[1].replace(/^field-job-/, '');
-    let content = secMatch[2];
+    const contentEnd = balancedDivEnd(src, sectionPattern.lastIndex);
+    let content = src.slice(sectionPattern.lastIndex, contentEnd);
+    sectionPattern.lastIndex = contentEnd;
     const headingMatch = content.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
     const heading = headingMatch ? normalizeSpace(htmlToText(headingMatch[1])) : '';
     if (headingMatch) content = content.replace(headingMatch[0], '');

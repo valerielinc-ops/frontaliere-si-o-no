@@ -36880,6 +36880,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'premi-lamal-ticino-de-rosa',
+ category: 'pratico',
+ date: '2026-09-29T17:15:34.636Z',
+ image: '/images/blog/premi-lamal-ticino-de-rosa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

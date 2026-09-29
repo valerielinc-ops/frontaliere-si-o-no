@@ -28,6 +28,8 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   fetchMcdoJobs,
+  resolveMcdoJobBodies,
+  stripMcdoFallbackSlots,
   MCDO_KEY,
   COMPANY_NAME,
   COMPANY_DOMAIN,
@@ -80,17 +82,33 @@ async function fetchAndParseMcdoJobs() {
   console.log(`🍟 Fetching ${COMPANY_NAME} jobs from ${COMPANY_DOMAIN} (vacancies listing)...`);
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
-  const rawJobs = await fetchMcdoJobs({ timeoutMs, detailConcurrency: 8 });
+  const builtJobs = await fetchMcdoJobs({ timeoutMs, detailConcurrency: 8 });
+  // A row whose detail page failed has no body: carry the text a previous run
+  // read from the same vacancy, or keep it out of this run (never a blurb).
+  const previousJobs = readExistingCrawlerJobs(MCDO_KEY, DATA_JOBS).filter(isMcdoJob);
+  const { jobs: rawJobs, carried, withheld } = resolveMcdoJobBodies(builtJobs, previousJobs);
+  if (carried.length > 0) {
+    console.warn(`  ⚠️  Detail body unavailable, previous source text kept: ${carried.length} (${carried.join(', ')})`);
+  }
+  if (withheld.length > 0) {
+    console.warn(`  ⚠️  Detail body unavailable and never read before — not published this run: ${withheld.length} (${withheld.join(', ')})`);
+  }
   console.log(`✅ Parsed ${COMPANY_NAME} jobs: ${rawJobs.length}`);
 
-  const jobs = rawJobs.map((job) => ({
-    ...job,
-    sourceLang: detectLang(job.description || job.title, 'de'),
-    crawledAt: new Date().toISOString(),
-    titleByLocale: { de: job.title },
-    slugByLocale: { de: job.slug },
-    descriptionByLocale: { de: job.description },
-  }));
+  const jobs = rawJobs.map((job) => {
+    // The portal serves French (fr-ch) and German bodies: key the source
+    // text by ITS language. Keyed as `de`, a French body never refreshed the
+    // `fr` slot the merge treats as the source, and landed in `de` for new rows.
+    const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'de');
+    return {
+      ...job,
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+      titleByLocale: { [sourceLang]: job.title },
+      slugByLocale: { de: job.slug },
+      descriptionByLocale: { [sourceLang]: job.description },
+    };
+  });
   for (const job of jobs) {
     console.log(`  ✅ ${job.title} — ${job.location} (${job.canton})`);
   }
@@ -126,9 +144,11 @@ function mergeParsedMcdoJobs(parsedJobs) {
   // declared source total before returning, so a missing old URL is a genuine
   // removal (including stale foreign records such as Liechtenstein's Vaduz),
   // not a transient partial crawl.
-  const cleanMcdoJobs = mergePreserveLocaleData(mcdoExisting, deduped, { retainMissingJobs: false }).sort(
-    (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
-  );
+  const cleanMcdoJobs = mergePreserveLocaleData(mcdoExisting, deduped, { retainMissingJobs: false })
+    // The merge keeps non-source translations; drop the invented blurb (and
+    // its translations) that earlier runs stored there.
+    .map(stripMcdoFallbackSlots)
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   const merged = [...nonMcdo, ...cleanMcdoJobs];
   writeJobsFiles(merged);
   return cleanMcdoJobs;

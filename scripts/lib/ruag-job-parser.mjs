@@ -78,13 +78,155 @@ function extractLocationFromInlineScript(html = '') {
   return normalizeSpace(match?.[1] || '');
 }
 
-function extractTextByHeading(document, headingText) {
-  const headings = [...document.querySelectorAll('h2, h3')];
-  const heading = headings.find((node) => normalizeSpace(node.textContent || '').toLowerCase() === headingText.toLowerCase());
-  if (!heading) return '';
-  const wrapper = heading.closest('.contentTextWrapper, .jobInfoList, .benefitIntroduction, .sectionWrapper, .sectionBackgroundCorner');
-  if (!wrapper) return '';
-  return htmlFragmentToMarkdown(wrapper.innerHTML || '');
+// Chrome that lives INSIDE role sections on jobs.ruag.ch: cookie-consent
+// placeholders for the embedded YouTube/Maps players and the media nodes
+// themselves. Everything else in the selected sections is vacancy content.
+const RUAG_SKIP_SELECTOR = '.cookiemeldung, iframe, img, svg, script, style, noscript, button, .jobInfoVideoWrapper';
+
+/**
+ * Render a DOM subtree as the pipeline's markdown: `- ` bullets for list
+ * items, blank-line separated paragraphs for block elements, headings left to
+ * the caller. Language-agnostic by construction — it never matches on the
+ * visible heading text, which differs per locale (DE/IT/FR/EN pages).
+ */
+function elementToMarkdown(root) {
+  if (!root) return '';
+  const blocks = [];
+  let inline = '';
+  const flush = () => {
+    const text = normalizeSpace(inline);
+    if (text) blocks.push(text);
+    inline = '';
+  };
+  const walk = (node) => {
+    for (const child of [...node.childNodes]) {
+      if (child.nodeType === 3) {
+        inline += child.textContent || '';
+        continue;
+      }
+      if (child.nodeType !== 1) continue;
+      if (child.matches?.(RUAG_SKIP_SELECTOR)) continue;
+      const tag = child.nodeName.toLowerCase();
+      if (tag === 'br') {
+        flush();
+        continue;
+      }
+      if (tag === 'ul' || tag === 'ol') {
+        flush();
+        const items = [...child.querySelectorAll(':scope > li')]
+          .map((li) => normalizeSpace(li.textContent || ''))
+          .filter(Boolean)
+          .map((text) => `- ${text}`);
+        if (items.length) blocks.push(items.join('\n'));
+        continue;
+      }
+      if (/^(?:p|div|section|h[1-6]|li|table|tr)$/.test(tag)) {
+        flush();
+        walk(child);
+        flush();
+        continue;
+      }
+      walk(child);
+    }
+  };
+  walk(root);
+  flush();
+  return blocks.join('\n\n').trim();
+}
+
+function sectionHeading(root, selector = 'h2') {
+  return normalizeSpace(root?.querySelector(selector)?.textContent || '').replace(/:$/, '');
+}
+
+/**
+ * Body of a section without its own heading element (rendered separately as
+ * a `## ` markdown heading so the page's section titles survive verbatim).
+ */
+function sectionBody(root, headingSelector = 'h2') {
+  if (!root) return '';
+  const clone = root.cloneNode(true);
+  clone.querySelector(headingSelector)?.remove();
+  return elementToMarkdown(clone);
+}
+
+function withHeading(heading, body) {
+  if (!body) return '';
+  return heading ? `## ${heading}\n\n${body}` : body;
+}
+
+/**
+ * The vacancy's role content on the current jobs.ruag.ch detail template, in
+ * page order: introduction, every visible `.jobInfoList` (tasks, profile),
+ * the encouragement/diversity note, the workplace address, the division
+ * blurb ("Über den Bereich"), the benefit cards, the application notes and
+ * the contact. The contact form, awards, map and "Weitere Stellen" teasers
+ * are page chrome and stay out.
+ *
+ * Before this, the parser kept only the JSON-LD responsibilities and
+ * qualifications plus two sections matched by Italian heading text — on the
+ * German pages (66/68 jobs) that meant the intro, the division blurb and the
+ * benefit cards were dropped, and the published text was 21-35 % of the
+ * detail page (audit run 36528331656).
+ */
+function extractRuagRoleSections(document) {
+  const sections = [];
+  const push = (value) => {
+    const text = String(value || '').trim();
+    if (text && !sections.includes(text)) sections.push(text);
+  };
+
+  push(elementToMarkdown(document.querySelector('section#introduction')));
+
+  const wrapper = document.querySelector('#jobInfoWrapper');
+  const contactName = normalizeSpace(document.querySelector('.contactInfoName')?.textContent || '');
+  if (wrapper) {
+    for (const child of [...wrapper.children]) {
+      if (child.matches('.jobInfoList')) {
+        const heading = sectionHeading(child, '.jobInfoListTitle');
+        const body = elementToMarkdown(child.querySelector('.jobInfoListText'));
+        // The print-only contact card repeats section#contact below.
+        if (child.matches('.hiddenScreen') && contactName && body.includes(contactName)) continue;
+        push(withHeading(heading, body));
+        continue;
+      }
+      push(elementToMarkdown(child));
+    }
+  }
+
+  const about = document.querySelector('section#about .contentTextWrapper');
+  push(withHeading(sectionHeading(about), sectionBody(about)));
+
+  const benefits = document.querySelector('section#benefits');
+  if (benefits) {
+    const intro = benefits.querySelector('.benefitIntroduction');
+    const cards = [...benefits.querySelectorAll('.expectationInfos')]
+      .map((card) => {
+        const title = normalizeSpace(card.querySelector('h3, h4')?.textContent || '');
+        const text = normalizeSpace(card.querySelector('p')?.textContent || '');
+        if (!title && !text) return '';
+        return `- ${[title, text].filter(Boolean).join(': ')}`;
+      })
+      .filter(Boolean);
+    const body = [sectionBody(intro), cards.join('\n')].filter(Boolean).join('\n\n');
+    push(withHeading(sectionHeading(intro), body));
+  }
+
+  const process = document.querySelector('section#applicationProcess .contentTextWrapper');
+  if (process) {
+    push(withHeading(sectionHeading(process), elementToMarkdown(process.querySelector('#applicationProcessText'))));
+  }
+
+  const contact = document.querySelector('section#contact');
+  if (contact) {
+    const lines = [
+      contactName,
+      ...[...contact.querySelectorAll('.contactInfoText p')].map((p) => normalizeSpace(p.textContent || '')),
+      normalizeSpace(contact.querySelector('.contactInfoText a[href^="tel:"]')?.textContent || ''),
+    ].filter(Boolean);
+    if (lines.length) push(withHeading(sectionHeading(contact), [...new Set(lines)].join('\n')));
+  }
+
+  return sections;
 }
 
 function extractSimilarLinks(html = '') {
@@ -127,30 +269,18 @@ export function parseRuagJobDetail(html = '', url = '') {
     normalizeSpace(jobPosting?.hiringOrganization?.name || '') ||
     normalizeSpace(document.querySelector('meta[name="author"]')?.getAttribute('content') || '') ||
     'RUAG AG';
-  const summary = extractTextByHeading(document, 'Il tuo ambito di lavoro')
-    || extractTextByHeading(document, 'Dein Aufgabenbereich')
-    || '';
+  const roleSections = extractRuagRoleSections(document);
+  const hasRoleLists = Boolean(document.querySelector('#jobInfoWrapper .jobInfoList'));
   const responsibilities = htmlFragmentToMarkdown(jobPosting?.responsibilities || '');
   const qualifications = htmlFragmentToMarkdown(jobPosting?.qualifications || '');
-  const benefits = extractTextByHeading(document, 'I tuoi vantaggi')
-    || extractTextByHeading(document, 'Deine Vorteile')
-    || '';
-  const process = extractTextByHeading(document, 'Ecco come funziona il nostro processo di candidatura')
-    || extractTextByHeading(document, 'So funktioniert unser Bewerbungsprozess')
-    || '';
-  const contactName = normalizeSpace(document.querySelector('.contactInfoName')?.textContent || '');
-  const contactRole = normalizeSpace(document.querySelector('.contactInfoText p')?.textContent || '');
-  const contactPhone = normalizeSpace(document.querySelector('.contactInfoText a[href^="tel:"]')?.textContent || '');
-  const sections = [];
-  if (summary) sections.push(`## Ambito di lavoro\n\n${summary}`);
-  if (responsibilities) sections.push(`## Responsabilita\n\n${responsibilities}`);
-  if (qualifications) sections.push(`## Requisiti\n\n${qualifications}`);
-  if (benefits) sections.push(`## Vantaggi\n\n${benefits}`);
-  if (process) sections.push(`## Processo di candidatura\n\n${process}`);
-  if (contactName || contactRole || contactPhone) {
-    sections.push(
-      `## Contatto\n\n${[contactName, contactRole, contactPhone].filter(Boolean).join('\n')}`
-    );
+  if (!hasRoleLists) {
+    // Older template without the `.jobInfoList` blocks: the JSON-LD
+    // responsibilities/qualifications are the only per-vacancy lists. The
+    // JSON-LD carries no headings for them, and none is invented (the old
+    // "## Responsabilita"/"## Requisiti" labels sat in Italian over German
+    // bodies on 61/68 jobs of slice 995a6583431).
+    const fallback = [responsibilities, qualifications].filter(Boolean);
+    roleSections.splice(Math.min(1, roleSections.length), 0, ...fallback);
   }
 
   return {
@@ -160,7 +290,11 @@ export function parseRuagJobDetail(html = '', url = '') {
     company,
     location,
     canton: inferAnyCanton(location),
-    description: sections.join('\n\n').trim(),
+    description: roleSections.join('\n\n').trim(),
+    // Role-only text for keyword classification: the full description now
+    // carries the benefit cards ("Homeoffice-Optionen" on every page), which
+    // must not turn every vacancy into an office job.
+    roleText: [responsibilities, qualifications].filter(Boolean).join('\n'),
     postedDate: normalizeSpace(jobPosting?.datePosted || ''),
     validThrough: normalizeSpace(jobPosting?.validThrough || ''),
     employmentType: normalizeSpace(jobPosting?.employmentType || ''),

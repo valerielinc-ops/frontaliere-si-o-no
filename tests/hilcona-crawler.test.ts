@@ -462,4 +462,43 @@ describe('Hilcona job parser', () => {
       expect(inferEmploymentType('Mitarbeiter 80-100%', '')).toBe('FULL_TIME');
     });
   });
+
+  // ── full vacancy body (#5253: facts and benefits were dropped) ──
+  describe('parseHilconaDetailHtml — full vacancy body', () => {
+    const html = fs.readFileSync(path.join(__dirname, 'fixtures', 'hilcona-detail.html'), 'utf8');
+
+    it('keeps lead, application conditions, facts, tasks, profile and benefits in order', () => {
+      const { description } = parseHilconaDetailHtml(html)!;
+      const order = [
+        'Lust, die digitale Zukunft',
+        'in der Schweiz arbeitsberechtigt sind (EU/EFTA)',
+        '• Vertragsart: Unbefristet',
+        '• Pensum: 100%',
+        '• Stellenantritt: ab Sofort',
+        '• Sprache: Deutsch',
+        '• Arbeitsort: Bell Schweiz AG, Elsässerstrasse 174 4056 Basel',
+        'Aufgaben:',
+        'Anforderungen:',
+        'Das bieten wir:',
+      ];
+      const positions = order.map((marker) => description.indexOf(marker));
+      expect(positions.every((index) => index >= 0)).toBe(true);
+      expect([...positions].sort((a, b) => a - b)).toEqual(positions);
+    });
+
+    it('keeps one bullet per line and decodes the named entities of the benefit cards', () => {
+      const { description } = parseHilconaDetailHtml(html)!;
+      expect(description).toMatch(/^• Mitarbeit in IT-Logistikprojekten der Bell Food Group\.$/m);
+      expect(description).toContain('• Work-Life-Balance: Du profitierst von mindestens 25 Ferientagen. So kannst du allfällige Überstunden flexibel kompensieren.');
+      expect(description).toContain('• Mobilität: Profitiere von bequemer Anbindung an den ÖV');
+      expect(description).not.toMatch(/&[a-z]+;/i);
+    });
+
+    it('leaves the recruiter contact, the apply button and the "Mehr anzeigen" toggle out', () => {
+      const { description } = parseHilconaDetailHtml(html)!;
+      for (const chrome of ['Hast du noch Fragen', 'Max Muster', '+41', 'Jetzt bewerben', 'Mehr anzeigen', 'Route berechnen']) {
+        expect(description).not.toContain(chrome);
+      }
+    });
+  });
 });

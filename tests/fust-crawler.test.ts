@@ -130,6 +130,21 @@ describe('Fust authoritative discovery', () => {
     })).toThrow(/source-detail invariant failed/);
   });
 
+  it('publishes a source body only from the shared 50-word floor, not from its length in characters', () => {
+    const url = fixture.details[0].url;
+    // "Aufgaben" + long tokens; "##", "-" and "•" are not words.
+    const bodyOf = (words: number) => `## Aufgaben\n${Array.from({ length: words - 1 }, (_, index) => `- Verantwortungsbereich${index + 1}`).join('\n')}\n•`;
+    const jobWith = (words: number) => ({
+      url, title: 'Detailhandelsfachfrau:mann EFZ', company: 'Fust', location: 'Zuchwil', canton: 'SO',
+      description: bodyOf(words),
+    });
+    const discovery = { urls: [url], seedMetaByUrl: { [url]: { location: 'Zuchwil', canton: 'SO', company: 'Fust' } } };
+
+    expect(bodyOf(49).length).toBeGreaterThan(1000);
+    expect(() => reconcileFustJobsWithDiscovery([jobWith(49)], discovery)).toThrow(/source-detail invariant failed/);
+    expect(reconcileFustJobsWithDiscovery([jobWith(50)], discovery)).toHaveLength(1);
+  });
+
   it('accepts only canonical branded detail URLs with UUID identity', () => {
     for (const detail of fixture.details) expect(isCanonicalFustDetailUrl(detail.url)).toBe(true);
     expect(isCanonicalFustDetailUrl('https://jobs.coopjobs.ch/offene-stellen/foo/56db6b36-264e-4f25-bdf5-40a42e764b6b')).toBe(false);

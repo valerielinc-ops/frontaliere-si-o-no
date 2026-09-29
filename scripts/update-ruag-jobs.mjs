@@ -121,7 +121,7 @@ function isTargetJob(job = {}) {
 }
 
 function inferCategory(detail = {}) {
-  const haystack = normalize([detail.title, detail.description, detail.location].filter(Boolean).join(' '));
+  const haystack = normalize([detail.title, detail.roleText ?? detail.description, detail.location].filter(Boolean).join(' '));
   if (haystack.includes('apprend') || haystack.includes('learn')) return 'apprenticeship';
   if (haystack.includes('architect')) return 'engineering';
   if (haystack.includes('facility') || haystack.includes('office')) return 'admin';

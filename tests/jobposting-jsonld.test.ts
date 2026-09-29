@@ -60,6 +60,27 @@ describe('extractMicrodataDescription (itemprop)', () => {
     expect(out).not.toContain('jobDisplay');
   });
 
+  it('reads every sibling description element in page order (jobs2web split layout)', () => {
+    const html = `<div itemscope itemtype="http://schema.org/JobPosting">
+      <span itemprop="description"><p>Intro</p></span>
+      <div class="other">Vertragsart</div>
+      <span itemprop="description"><h3>Aufgaben</h3><ul><li>A</li></ul></span>
+      <span itemprop="description"><h3>Angebot</h3><ul><li>B</li></ul></span>
+    </div>`;
+    const out = extractMicrodataDescription(html);
+    expect(out.indexOf('<p>Intro</p>')).toBeGreaterThanOrEqual(0);
+    expect(out.indexOf('<li>A</li>')).toBeGreaterThan(out.indexOf('<p>Intro</p>'));
+    expect(out.indexOf('<li>B</li>')).toBeGreaterThan(out.indexOf('<li>A</li>'));
+    expect(out).not.toContain('Vertragsart');
+  });
+
+  it('does not read a description nested inside one already read twice', () => {
+    const html = `<div itemprop="description"><p>Outer</p><div itemprop="description"><p>Inner</p></div></div>`;
+    const out = extractMicrodataDescription(html);
+    expect(out.match(/Inner/g)).toHaveLength(1);
+    expect(out).toContain('<p>Outer</p>');
+  });
+
   it('returns empty string when there is no itemprop=description', () => {
     expect(extractMicrodataDescription('<div>JS shell only</div>')).toBe('');
     expect(extractMicrodataDescription('')).toBe('');

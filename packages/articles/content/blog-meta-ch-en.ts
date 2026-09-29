@@ -7073,6 +7073,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.percorsi-impiego-pubblico.title': 'Working in the Federal Administration: opportunities and training',
     'blog.article.percorsi-impiego-pubblico.excerpt': 'The Federal Administration offers 50 vocational training programs, internships for recent graduates, and seven weeks of vacation.',
     'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team working in a Swiss federal administration office',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Health insurance 2027: a difference of up to 10\'000 francs',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'In 2027, the national average will be 16\'450 francs, but the difference between Geneva and Zug for the same family is close to 10\'000 francs.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Swiss family reviewing health insurance bill in Ticino',
+    'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: legislative brake on premiums at 3%',
+    'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'The USS is calling on the Council of States to impose a 3% cap on LAMal premiums. In Ticino, the increase expected for 2027 is 3,7%.',
+    'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Bern, seat of the Swiss Parliament, with a calculator and insurance card in the foreground.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Swiss workers and AI: 28% use it but it does not convince them',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% of workers in Switzerland use AI every day, but confidence is lacking. Data from PwC\'s 2026 \'Hopes and Fears\' research on employees.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Swiss worker in an office dealing with generative artificial intelligence',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 million for 26 research projects',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'The UFC is allocating around 1,95 million francs for 26 research projects on the provenance of museums and collections in Switzerland for 2027-2028.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'View of Bellinzona with museums in the background, morning light',
 };
 
 export default blogMetaChEn;
