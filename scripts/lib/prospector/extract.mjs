@@ -119,6 +119,7 @@ export function bodyTextOf(html = '') {
     // An item whose text sits in a nested block (`<li><p>…</p></li>`) starts
     // on the next line: join it back to its marker.
     .replace(/\n- ?\n+/g, '\n- ')
+    .replace(/\n- (?:- ?)+/g, '\n- ')
     .replace(/\n(?:- ?)?(?=\n)/g, '')
     .replace(/\n{2,}/g, '\n')
     .trim();
@@ -593,6 +594,26 @@ function isVacancyBodyClass(classValue = '') {
   // The vocabulary can span two tokens (`class="job description"`): no single
   // token carries it, so there is no component caption to reject either.
   return vocabularyTokens === 0;
+}
+
+/**
+ * Whether an element id names a vacancy body: an id with `description` as a
+ * word of its own (`description__body`, `jobDescription`,
+ * `job-description`) and no UI component name. Never the word inside another
+ * one — the SAP cookie manager's `<div id="reqdescription">` («Ces cookies
+ * sont obligatoires…») is not an ad — and not the `…details` spellings, which
+ * ids use for the contact and metadata boxes around an ad (iPersonal's
+ * `VacancyDetails`: «Schriftliche Bewerbung», address and phone).
+ *
+ * @param {string} id
+ * @returns {boolean}
+ */
+function isVacancyBodyId(id = '') {
+  const value = String(id || '').trim();
+  if (!value || /\s/.test(value)) return false;
+  const parts = value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().split(/[-_]+/).filter(Boolean);
+  if (parts.some((part) => UI_COMPONENT_CLASS_PARTS.has(part))) return false;
+  return parts.includes('description');
 }
 
 /**
@@ -1145,10 +1166,14 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     // vacancy container that happens to wrap it.
     // A hidden candidate (`class="job-description hidden"`) is not the
     // rendered page either.
-    const bodyNames = [readAttr(match[0], 'class'), readAttr(match[0], 'id')]
-      .filter((value) => DETAIL_BODY_CLASS_VOCABULARY.test(value));
+    const classValue = readAttr(match[0], 'class');
+    const classNamed = DETAIL_BODY_CLASS_VOCABULARY.test(classValue);
+    const idNamed = isVacancyBodyId(readAttr(match[0], 'id'));
+    // An id spelling that names no body (`VacancyDetails`) makes the element
+    // neither a candidate nor chrome: it is read, or cut, as before.
+    if (!classNamed && !idNamed) continue;
     if (/\b(?:cookie|cmplz|consent|meta)\b/i.test(detailClassAttr)
-      || !bodyNames.some((value) => isVacancyBodyClass(value))
+      || (!idNamed && !isVacancyBodyClass(classValue))
       || isHiddenElement(match[0])
       || isStyleHidden(match[0])) {
       chromeRanges.push({ start: match.index, end });
