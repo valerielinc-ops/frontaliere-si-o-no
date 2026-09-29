@@ -1,7 +1,7 @@
 {
   "key": "clinica-holistica-engiadina",
   "label": "Clinica Holistica Engiadina",
-  "generatedAt": "2026-09-29T09:35:22.103Z",
+  "generatedAt": "2026-09-29T21:38:43.189Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -12,10 +12,10 @@
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 46908,
-  "avgDurationMs": 46908,
+  "durationMs": 30222,
+  "avgDurationMs": 30222,
   "durationHistory": [
-    46908
+    30222
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/tanz-und-bewegungstherapeutin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:34:51.177Z",
+      "crawledAt": "2026-09-29T21:38:16.748Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:43:36.062Z",
       "_qualityScore": 85,
@@ -82,7 +82,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/kunsttherapeutin-fachrichtung-gestaltungs-und-maltherapie-oder-intermediale-therapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:34:54.676Z",
+      "crawledAt": "2026-09-29T21:38:20.270Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:43:39.529Z",
       "_qualityScore": 85,
@@ -119,7 +119,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/sekretaerin-sekretaer-80-100",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:34:59.002Z",
+      "crawledAt": "2026-09-29T21:38:24.423Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T23:39:56.666Z",
       "_qualityScore": 85,
@@ -156,7 +156,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:34:56.439Z",
+      "crawledAt": "2026-09-29T21:38:22.016Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T13:10:25.665Z",
       "_qualityScore": 85,
@@ -193,7 +193,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/raumpflegerin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:01.557Z",
+      "crawledAt": "2026-09-29T21:38:26.664Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-29T22:12:41.672Z",
       "_qualityScore": 85,
@@ -230,7 +230,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:04.395Z",
+      "crawledAt": "2026-09-29T21:38:29.240Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:24.218Z",
       "_qualityScore": 85,
@@ -267,14 +267,14 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:06.995Z",
+      "crawledAt": "2026-09-29T21:38:31.646Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:26.552Z",
-      "_qualityScore": 85,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -304,14 +304,14 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:09.416Z",
+      "crawledAt": "2026-09-29T21:38:33.904Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:28.785Z",
-      "_qualityScore": 85,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -341,14 +341,14 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:35:12.258Z",
+      "crawledAt": "2026-09-29T21:38:36.735Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:31.365Z",
-      "_qualityScore": 85,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 15,
         "completeness": 17
       }
     }

@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-09-29T09:33:30.669Z",
+  "generatedAt": "2026-09-29T21:36:04.077Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14234,
-  "avgDurationMs": 14234,
+  "durationMs": 12469,
+  "avgDurationMs": 12469,
   "durationHistory": [
-    14234
+    12469
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,11 +47,11 @@
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -88,11 +88,12 @@
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1341,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 13,
         "completeness": 25
       }
     },
@@ -126,11 +127,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
+        "richness": 24,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -164,11 +166,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -202,11 +205,12 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -240,11 +244,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
       "salarySource": "reported",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -278,11 +283,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:29:24.869Z",
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -316,7 +322,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -356,11 +361,12 @@
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
+        "richness": 24,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -394,11 +400,12 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -432,11 +439,12 @@
       "id": "rittmeyer-ag-e474959dc11f",
       "firstSeenAt": "2026-04-13T22:18:55.902Z",
       "salarySource": "reported",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 13,
         "completeness": 25
       }
     }
