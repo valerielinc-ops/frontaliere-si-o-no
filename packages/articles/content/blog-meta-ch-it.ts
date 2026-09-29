@@ -7031,6 +7031,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.obbligo-assicurazione-detenuti.title': 'Detenuti domiciliati all\'estero: nessun obbligo LAMal',
     'blog.article.obbligo-assicurazione-detenuti.excerpt': 'Dopo il voto degli Stati in giugno, il Nazionale ha respinto la modifica LAMal senza voti favorevoli: i costi dei detenuti restano ai Cantoni.',
     'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Parlamento svizzero a Berna e dossier sull\'assicurazione malattie dei detenuti',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Uova svizzere: «fuorviante» parlare di piccoli allevamenti',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'La Commissione svizzera per la lealtà giudica fuorviante una pubblicità di Suisse Garantie: il 65% delle ovaiole vive in allevamenti oltre 4000 esemplari.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Uova svizzere e galline ovaiole in un allevamento',
 };
 
 export default blogMetaChIt;
