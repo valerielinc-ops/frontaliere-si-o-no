@@ -12283,6 +12283,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stangata-premi-cassa-malati-ticino.title': 'Krankenkassenprämien im Tessin 2027: Anstieg um 3,7%',
     'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'Im Jahr 2027 steigen die Krankenkassenprämien im Tessin um 3,7%, wodurch die durchschnittliche Prämie auf 520 Franken pro Monat steigt, die höchste in der Schweiz.',
     'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Krankenkassenprämien im Tessin für 2027',
+    'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 Jahre Beitragserhöhungen: Die Prämien haben sich verdreifacht',
+    'blog.article.lamal-premi-ticino-triplicati.excerpt': 'Seit der Einführung der LAMal im Jahr 1996 hat sich die Durchschnittsprämie verdreifacht. Für 2027 gibt das DFI +5% in der Schweiz und +3,7% im Ticino an.',
+    'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Blick auf Lugano und das Tessin für einen Artikel über LAMal-Prämien',
 };
 
 export default blogMetaDe;

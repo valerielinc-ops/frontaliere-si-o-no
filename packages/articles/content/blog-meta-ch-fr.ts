@@ -7049,6 +7049,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.classifica-ompi-alta-tecnologia.title': 'La Suisse, première au monde pour l\'innovation',
     'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'La Suisse est première depuis 2011 dans le classement de l\'OMPI ; la Suède et les États-Unis suivent, tandis que la Chine entre pour la première fois dans le top dix.',
     'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Des chercheurs devant un centre suisse de recherche et d\'innovation',
+    'blog.article.soletta-licenza-estera-esami.title': 'Permis de conduire dans le canton de Soleure : conversion et examens',
+    'blog.article.soletta-licenza-estera-esami.excerpt': 'Conversion du permis étranger, examens théorique et pratique, cours obligatoires et office de la circulation compétent à Soleure.',
+    'blog.article.soletta-licenza-estera-esami.imageAlt': 'Démarche de permis de conduire dans un canton suisse',
+    'blog.article.accessibilita-mezzi-pubblici-uft.title': 'Accessibilité transports en commun : le point de l\'OFT',
+    'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Mise à jour de l\'état des travaux pour les gares ferroviaires et les arrêts de bus en Suisse selon l\'Office fédéral des transports.',
+    'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Gare ferroviaire suisse avec aménagements pour voyageurs à mobilité réduite',
 };
 
 export default blogMetaChFr;
