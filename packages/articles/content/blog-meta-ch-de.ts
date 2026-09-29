@@ -7115,6 +7115,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.samedan-aeroporto-rinnovo-2025.title': 'Flughafen Samedan wartet auf Bundesgerichtsentscheidung',
     'blog.article.samedan-aeroporto-rinnovo-2025.excerpt': 'Nach dem Ja vom 17. August 2025 (>54% der Berechtigten) wird die Erneuerung des Flughafens Samedan von 68,5 Millionen durch die Inanspruchnahme des TF blockiert; Investitionen 2027 geplant 7,6 Millionen, Laufzeit 2031.',
     'blog.article.samedan-aeroporto-rinnovo-2025.imageAlt': 'Luftaufnahme der Startbahn des Flughafens Samedan in den Engadiner Bergen, ein Flugzeug bereit zum Abheben bei klarem Himmel',
+    'blog.article.revisione-legge-materiale-bellico.title': 'Waffenexport: Gesetzesrevision zur Abstimmung',
+    'blog.article.revisione-legge-materiale-bellico.excerpt': 'Der Bundesrat schlägt vor, die Vorschriften für die Ausfuhr von Kriegsmaterial zu lockern. Abstimmung am 29. November vorgesehen.',
+    'blog.article.revisione-legge-materiale-bellico.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
 };
 
 export default blogMetaChDe;

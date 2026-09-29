@@ -92255,6 +92255,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-revisione-legge-materiale-bellico': {
+    title: 'Esportazione armi: al voto la revisione della legge',
+    description: 'Berna propone di allentare le regole sull\'esportazione di materiale bellico per difesa e occupazione. Votazione popolare il 29 novembre. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, esportazione, armi, voto, revisione',
+    ogTitle: 'Armi svizzere: Berna vuole facilitare l\'esportazione',
+    ogDescription: 'Il Consiglio federale invita ad approvare la revisione della legge sul materiale bellico il 29 novembre per tutelare l\'industria e la sicurezza nazionale.',
+    canonicalPath: '/articoli-svizzera/revisione-legge-materiale-bellico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esportazione armi: al voto la revisione della legge",
+      "description": "Berna propone di allentare le regole sull'esportazione di materiale bellico per difesa e occupazione. Votazione popolare il 29 novembre. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/revisione-legge-materiale-bellico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del governo svizzero"
+      },
+      "datePublished": "2026-09-29T22:44:38+00:00",
+      "dateModified": "2026-09-29T22:44:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revisione-legge-materiale-bellico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

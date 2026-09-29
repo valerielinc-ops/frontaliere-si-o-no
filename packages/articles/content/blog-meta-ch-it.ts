@@ -7115,6 +7115,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.samedan-aeroporto-rinnovo-2025.title': 'Samedan airport renewal awaits federal court decision',
     'blog.article.samedan-aeroporto-rinnovo-2025.excerpt': 'Dopo il sì del 17 agosto 2025 (>54% degli aventi diritto), il rinnovo dell\'aeroporto di Samedan da 68,5 milioni rimane bloccato dal ricorso al TF; investimenti 2027 previsti 7,6 milioni, termine 2031.',
     'blog.article.samedan-aeroporto-rinnovo-2025.imageAlt': 'Vista aerea della pista dell\'aeroporto di Samedan tra le montagne dell\'Engadin, con un aereo in attesa di decollo sotto cielo sereno',
+    'blog.article.revisione-legge-materiale-bellico.title': 'Esportazione armi: al voto la revisione della legge',
+    'blog.article.revisione-legge-materiale-bellico.excerpt': 'Il Consiglio federale propone di allentare le norme sulle esportazioni di materiale bellico. Votazione prevista per il 29 novembre.',
+    'blog.article.revisione-legge-materiale-bellico.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero',
 };
 
 export default blogMetaChIt;
