@@ -14,9 +14,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -253,7 +253,6 @@ export async function fetchAllBcvJobs() {
   console.log(`\n  📋 Fetching ${entries.length} detail pages...\n`);
 
   const jobs = [];
-  let withoutBody = 0;
   for (const entry of entries) {
     const jobUrl = entry.url;
     const jobId = extractJobId(jobUrl);
@@ -269,18 +268,13 @@ export async function fetchAllBcvJobs() {
       }
 
       const address = resolveAddress(urlCity);
-      // Only the posting's own text is published (issue 5253): a page
-      // without a description used to go out as "{title} — BCV, {city}.",
-      // and a short one was padded with a bank summary and a call to
-      // apply. Neither is vacancy text: a page whose body is under the
-      // shared 50-word floor (source-body-floor.mjs) is not published.
-      const description = parsed.description;
-      if (!meetsSourceBodyFloor(description)) {
-        console.log(`  ⏭️ ${jobId || '—'} — no vacancy text on the detail page, not published`);
-        withoutBody += 1;
-        await new Promise((r) => setTimeout(r, 300));
-        continue;
-      }
+      // The detail text only (issue 5253). Under 50 words it used to get
+      // "<title> — BCV, <city>.", a paragraph about the BCV and "Postulez en
+      // ligne…", all written by the parser. Now a text under the shared
+      // 50-word floor is not published: the job gets no description and
+      // takes the thin-source path (quarantine).
+      const body = String(parsed.description || '').trim();
+      const description = meetsSourceBodyFloor(body) ? body : '';
 
       const sourceLang = detectLang(description || parsed.title, 'fr');
       const jobSlug = slugify(`${parsed.title} bcv ${address.city || 'lausanne'}`);
@@ -298,7 +292,7 @@ export async function fetchAllBcvJobs() {
         title: parsed.title,
         titleByLocale: { [sourceLang]: parsed.title },
         description,
-        descriptionByLocale: { [sourceLang]: description },
+        descriptionByLocale: description ? { [sourceLang]: description } : {},
         location: address.city,
         canton: address.canton,
         url: jobUrl,
@@ -341,9 +335,6 @@ export async function fetchAllBcvJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
-  if (withoutBody > 0) {
-    console.log(`  ⏭️ ${withoutBody} page(s) without vacancy text — not published.`);
-  }
   console.log(`\n📋 Total Banque Cantonale Vaudoise jobs discovered: ${jobs.length}`);
   return jobs;
 }

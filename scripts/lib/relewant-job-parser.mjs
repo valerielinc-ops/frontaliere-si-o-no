@@ -327,44 +327,28 @@ export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
 }
 
 /**
- * Build localized content for a ReleWant job.
- * If the job was enriched with detail page data, uses the full description.
- * Falls back to a generic template if not enriched.
+ * Build localized content for a ReleWant job: the Zoho Recruit description as
+ * the source wrote it, in the slot of its language (`job.sourceLang`, set by
+ * the runner); the translation step fills the other locales.
+ *
+ * This used to copy that Italian text into the en/de/fr slots too, to wrap it
+ * in lines of its own — a "## <title> / **ReleWant** — <city>, Svizzera"
+ * header and "**Esperienza richiesta/Settore/Sede/Tipo:**" footers — and, for
+ * a posting whose detail yielded under 100 characters, to publish a paragraph
+ * of its own in four languages ("ReleWant, an IT consulting firm based in …,
+ * is looking for a … Apply through the official portal."). A posting without
+ * text now gets no description and takes the pipeline's thin-source path.
  */
 export function buildRelewantLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || '').trim() || 'Switzerland';
-  const markdown = String(job.description || '').trim();
-
-  let itDesc;
-  if (markdown && markdown.length > 100) {
-    const introLine = `## ${title}\n\n**ReleWant** — ${city}, Svizzera`;
-    const footerLines = [];
-    if (job.workExperience) footerLines.push(`**Esperienza richiesta:** ${job.workExperience}`);
-    if (job.industry) footerLines.push(`**Settore:** ${job.industry}`);
-    footerLines.push(`**Sede:** ${city}, Svizzera`);
-    footerLines.push(`**Tipo:** ${job.jobType || 'A tempo pieno'}`);
-
-    itDesc = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
-  } else {
-    itDesc = `ReleWant, società di consulenza IT con sede a ${city}, cerca un profilo ${title}. ReleWant è specializzata in soluzioni informatiche innovative per il settore bancario e finanziario in Svizzera. Candidati tramite il portale ufficiale.`;
-  }
-
-  // For enriched jobs, set the Italian description on all locales
-  // (AI translation will fill the correct locale later)
-  const enDesc = job.enriched
-    ? itDesc
-    : `ReleWant, an IT consulting firm based in ${city}, is looking for a ${title}. ReleWant specialises in innovative IT solutions for the banking and financial sector in Switzerland. Apply through the official portal.`;
-  const deDesc = job.enriched
-    ? itDesc
-    : `ReleWant, ein IT-Beratungsunternehmen mit Sitz in ${city}, sucht ein Profil als ${title}. ReleWant ist auf innovative IT-Lösungen für den Bank- und Finanzsektor in der Schweiz spezialisiert. Bewirb dich über das offizielle Portal.`;
-  const frDesc = job.enriched
-    ? itDesc
-    : `ReleWant, société de conseil IT basée à ${city}, recherche un profil ${title}. ReleWant est spécialisée dans les solutions informatiques innovantes pour le secteur bancaire et financier en Suisse. Postulez via le portail officiel.`;
+  const description = String(job.description || '').trim();
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} relewant ${city}`),
       en: slugify(`${title} relewant ${city}`),
@@ -372,6 +356,81 @@ export function buildRelewantLocalizedContent(job = {}) {
       fr: slugify(`${title} relewant ${city}`),
     },
   };
+}
+
+// The header the builder used to put above the Zoho text in stored jobs
+// ("## <title>\n\n**ReleWant** — <city>, Svizzera"), also translated
+// (Switzerland/Schweiz/Suisse) and in the flattened form some slots were
+// saved in ("<title> ReleWant — <city>, Ticino, Svizzera …").
+const RELEWANT_COUNTRY = '(?:Svizzera|Switzerland|Schweiz|Suisse)';
+const RELEWANT_HEADER_RE = new RegExp(
+  String.raw`^\s*(?:##\s+)?(?:[^\n]{0,200}?\s+)?(?:\*\*)?ReleWant(?:\*\*)? — [^\n]{0,80}?${RELEWANT_COUNTRY}\b[ \t]*\n*`,
+);
+// Its footers: a trailing block of "**Label:** value" lines (Esperienza
+// richiesta/Settore/Sede/Tipo and their translations), optionally after
+// "---"; flattened, the same fields on one line ending with the location.
+const RELEWANT_FOOTER_RE = /(?:\s*\n\s*---\s*)?(?:\s*\n[ \t]*\*\*[^*\n:]{2,40}\s?:\*\*[^\n]*)+\s*$/;
+const RELEWANT_FLAT_FOOTER_RE = new RegExp(
+  String.raw`\s*(?:---\s*)?(?:(?:Esperienza richiesta|Required experience|Erforderliche Erfahrung|Expérience requise)\s?:[^\n]*?)?(?:(?:Settore|Sector|Bereich|Secteur)\s?:[^\n]*?)?(?:Sede|Location|Standort|Lieu)\s?:\s*[^\n]{0,60}?${RELEWANT_COUNTRY}(?:\s+(?:Tipo|Type|Typ)\s?:[^\n]{0,40})?\s*$`,
+);
+
+/**
+ * The Zoho text inside a stored wrapped description, or null when `text`
+ * does not start with the former header.
+ */
+function stripRelewantWrapper(text) {
+  const value = String(text || '');
+  if (!RELEWANT_HEADER_RE.test(value)) return null;
+  return value
+    .replace(RELEWANT_HEADER_RE, '')
+    .replace(RELEWANT_FOOTER_RE, '')
+    .replace(RELEWANT_FLAT_FOOTER_RE, '')
+    .trim();
+}
+
+/**
+ * Remove the former header and footers from a stored job, before the merge:
+ *
+ * - from `description` and from EVERY locale slot (a job whose language is
+ *   now detected differently must not keep the wrapper in its old source
+ *   slot); a slot left empty is dropped;
+ * - when the stored source text was wrapped, the other slots were translated
+ *   from it: they are dropped and the job is flagged for retranslation (the
+ *   fresh crawl replaces the source slot with the bare Zoho text).
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropRelewantFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  let changed = false;
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : null;
+  const sourceWrapped = [job.description, byLocale?.[sourceLang]]
+    .some((text) => RELEWANT_HEADER_RE.test(String(text || '')));
+
+  const cleanDescription = stripRelewantWrapper(job.description);
+  if (cleanDescription !== null) {
+    job.description = cleanDescription;
+    changed = true;
+  }
+  if (!byLocale) return changed;
+
+  for (const locale of Object.keys(byLocale)) {
+    if (sourceWrapped && locale !== sourceLang) {
+      delete byLocale[locale];
+      job.needsRetranslation = true;
+      changed = true;
+      continue;
+    }
+    const clean = stripRelewantWrapper(byLocale[locale]);
+    if (clean === null) continue;
+    if (clean) byLocale[locale] = clean;
+    else delete byLocale[locale];
+    changed = true;
+  }
+  return changed;
 }
 
 /**

@@ -27,6 +27,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -53,13 +54,6 @@ const SITE_ADDRESS = {
 };
 
 const SECTOR = 'Farmaceutico / CDMO';
-
-const COMPANY_BOILERPLATE = {
-  it: `CordenPharma è un'organizzazione leader nello sviluppo e nella produzione conto terzi (CDMO) di principi attivi farmaceutici (API), eccipienti, prodotti finiti (drug product) e packaging. Con circa 3'000 dipendenti nel mondo, CordenPharma supporta aziende farmaceutiche e biotech nella produzione di farmaci su sei piattaforme tecnologiche: peptidi, lipidi e carboidrati, iniettabili, molecole altamente potenti e oncologiche, piccole molecole e oligonucleotidi. I siti svizzeri di Liestal ed Ettingen, entrambi nel canton Basel-Landschaft, operano in ambiente GMP certificato.`,
-  en: `CordenPharma is a leading full-service Contract Development and Manufacturing Organization (CDMO) specializing in active pharmaceutical ingredients (APIs), excipients, drug products, and packaging. With around 3,000 employees worldwide, CordenPharma helps pharmaceutical and biotech companies manufacture medicines across six technology platforms: peptides, lipids & carbohydrates, injectables, highly potent & oncology, small molecules, and oligonucleotides. The Swiss sites in Liestal and Ettingen, both in canton Basel-Landschaft, operate under certified GMP conditions.`,
-  de: `CordenPharma ist eine führende Full-Service-Auftragsentwicklungs- und -herstellungsorganisation (CDMO), spezialisiert auf pharmazeutische Wirkstoffe (APIs), Hilfsstoffe, Arzneimittel (Drug Products) und Verpackung. Mit rund 3'000 Mitarbeitenden weltweit unterstützt CordenPharma Pharma- und Biotech-Unternehmen bei der Herstellung von Arzneimitteln über sechs Technologieplattformen: Peptide, Lipide & Kohlenhydrate, Injektabilia, hochpotente & onkologische Wirkstoffe, kleine Moleküle und Oligonukleotide. Die Schweizer Standorte Liestal und Ettingen, beide im Kanton Basel-Landschaft, arbeiten unter zertifizierten GMP-Bedingungen.`,
-  fr: `CordenPharma est une organisation leader de développement et de fabrication sous contrat (CDMO) spécialisée dans les principes actifs pharmaceutiques (API), les excipients, les produits finis (drug products) et le conditionnement. Avec environ 3'000 employés dans le monde, CordenPharma aide les entreprises pharmaceutiques et biotech à fabriquer des médicaments sur six plateformes technologiques : peptides, lipides et glucides, injectables, molécules hautement actives et oncologie, petites molécules et oligonucléotides. Les sites suisses de Liestal et Ettingen, tous deux dans le canton de Bâle-Campagne, opèrent dans des conditions GMP certifiées.`,
-};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -302,22 +296,14 @@ export async function fetchAllCordenpharmaJobs() {
     }
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
 
-    // Non-Negotiable #4: never index thin content (<50 words). Enrich with
-    // the company boilerplate paragraph when the scraped detail is too thin
-    // or the detail fetch failed outright — this always pushes the job over
-    // the guard threshold regardless of upstream fetch success.
+    // The detail text only (issue 5253). Under 50 words it used to get
+    // "<title> — CordenPharma, <location>." and a CordenPharma paragraph we
+    // wrote. Now a text under the shared 50-word floor is not published: the
+    // job gets no description and takes the thin-source path (quarantine).
     const sourceLang = ['it', 'en', 'de', 'fr'].includes(listing.language)
       ? listing.language
       : detectLang(descriptionText || title, 'de');
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    let description = descriptionText;
-    if (wordCount < 50) {
-      const boilerplate = COMPANY_BOILERPLATE[sourceLang] || COMPANY_BOILERPLATE.en;
-      description = [
-        descriptionText || `${title} — ${CORDENPHARMA_COMPANY_NAME}, ${location}.`,
-        boilerplate,
-      ].join('\n\n');
-    }
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const jobSlug = slugify(`${title} cordenpharma ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -337,7 +323,7 @@ export async function fetchAllCordenpharmaJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,

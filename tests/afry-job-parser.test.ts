@@ -7,6 +7,7 @@ import {
   inferAfryCanton,
   inferAfryCategory,
   buildAfryLocalizedContent,
+  dropAfryFabricatedText,
 } from '../scripts/lib/afry-job-parser.mjs';
 
 describe('afry-job-parser', () => {
@@ -120,26 +121,40 @@ describe('afry-job-parser', () => {
   });
 
   describe('buildAfryLocalizedContent', () => {
-    it('uses crawled description when rich enough', () => {
-      const richDesc = Array(60).fill('word').join(' ');
+    // Minimized from the stored "Mitarbeiter:in Facility Management 80-100% -
+    // Zürich" posting (slice of 2026-09-29), which carried the former header
+    // line "… — AFRY, Zürich." and the same German text in all four slots.
+    const POSTING = 'Werden Sie Teil unseres Teams FACILITY MANAGEMENT. Als zentrale Anlaufstelle koordinieren Sie Unterhalt und Betrieb unserer Standorte.';
+
+    it('publishes the posting alone, in the slot of its language', () => {
       const result = buildAfryLocalizedContent({
-        title: 'Test Job',
-        location: 'Airolo',
-        description: richDesc,
-        competenceArea: 'Engineering',
+        title: 'Mitarbeiter:in Facility Management 80-100% - Zürich',
+        location: 'Zürich',
+        description: POSTING,
+        sourceLang: 'de',
       });
-      expect(result.descriptionByLocale.it).toContain(richDesc);
+      expect(result.description).toBe(POSTING);
+      expect(result.descriptionByLocale).toEqual({ de: POSTING });
     });
 
-    it('generates fallback when description is thin', () => {
-      const result = buildAfryLocalizedContent({
-        title: 'Test Job',
-        location: 'Airolo',
-        description: 'Short desc',
-        competenceArea: 'Engineering',
-      });
-      expect(result.descriptionByLocale.it).toContain('AFRY cerca Test Job');
-      expect(result.descriptionByLocale.it).toContain("19.000 collaboratori");
+    it('keeps a short posting instead of replacing it, and invents nothing without one', () => {
+      const short = buildAfryLocalizedContent({ title: 'Test Job', location: 'Airolo', description: 'Short desc', competenceArea: 'Engineering' });
+      expect(short.description).toBe('Short desc');
+      expect(JSON.stringify(short)).not.toMatch(/AFRY cerca|19\.000 collaboratori/);
+      const empty = buildAfryLocalizedContent({ title: 'Test Job', location: 'Airolo', description: '' });
+      expect(empty.description).toBe('');
+      expect(empty.descriptionByLocale).toEqual({});
+    });
+
+    it('removes the former header line and the copied slots from a stored job', () => {
+      const wrapped = `Mitarbeiter:in Facility Management 80-100% - Zürich — AFRY, Zürich.\n\n${POSTING}`;
+      const job: any = { sourceLang: 'de', description: wrapped, descriptionByLocale: { it: wrapped, en: wrapped, de: wrapped, fr: wrapped } };
+      expect(dropAfryFabricatedText(job)).toBe(true);
+      expect(job.description).toBe(POSTING);
+      expect(job.descriptionByLocale).toEqual({ de: POSTING });
+      expect(job.needsRetranslation).toBe(true);
+      const clean: any = { sourceLang: 'de', description: POSTING, descriptionByLocale: { de: POSTING, it: 'Traduzione.' } };
+      expect(dropAfryFabricatedText(clean)).toBe(false);
     });
   });
 });

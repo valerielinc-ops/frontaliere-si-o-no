@@ -7058,6 +7058,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reazioni-partiti-aumento-premi-2027.title': 'Prämienerhöhung 2027: Reaktionen von PLR, PS und Gewerkschaften',
     'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Für 2027 wird ein Anstieg auf 3,7 % geschätzt. Die PLR fordert Kostenkontrolle, während SP und OCST Familien schützen. Die durchschnittliche Prämie im Tessin beträgt 519,90 Franken.',
     'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Tessinischer Grossratsgebäude bei Dämmerung mit Schweizerflaggen',
+    'blog.article.voto-armi-industria-difesa.title': 'Waffen, einfachere Exporte: Abstimmung am 29. November',
+    'blog.article.voto-armi-industria-difesa.excerpt': 'Der Bundesrat unterstützt die Revision des Kriegsmaterialgesetzes: Die Abstimmung ist für den 29 novembre vorgesehen, um Industrie und Arbeitsplätze zu stärken.',
+    'blog.article.voto-armi-industria-difesa.imageAlt': 'Schweizer Industriegelände mit Nationalflagge zum politischen Streit über Waffenexporte.',
 };
 
 export default blogMetaChDe;

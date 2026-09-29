@@ -371,6 +371,82 @@ function extractBalancedDivByClass(html, className) {
   return html.slice(start);
 }
 
+/** Plain text of a detail-page fragment, list items as `• ` lines. */
+function soliqueBlockText(fragment = '') {
+  let body = String(fragment)
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/li\s*>/gi, '')
+    .replace(/<br\s*\/?>(?!\s*<)/gi, ' ')
+    .replace(/<[^>]+>/g, ' ');
+  body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+  return body.trim();
+}
+
+/**
+ * Template (vii), opt-in per tenant (`tasksProfileBoard`): the board used by
+ * Spital Muri (2026-09). The whole ad sits in plain class blocks:
+ * `div.introduction` (lead paragraph), `div.tasks` / `div.profile` (an `<h3>`
+ * and a `<ul>` each), `div.offer` (`<h3>` + prose) and `div.benefits-wrapper`
+ * (an `<h3>` and one `div.benefit-box` per perk, its text in a hidden
+ * `tippy-content` tooltip). Templates (v)/(vi) expect `<h4 class=
+ * "sub-subtitle">` / `<h3 class="subtitle">` and never fire here, while (ii)
+ * and the `introduction` rule do: without this template the published
+ * description was the lead paragraph and «Ihre Chance» only, with tasks,
+ * profile and perks missing (issue 5253).
+ *
+ * @param {string} cleaned  detail HTML with scripts/styles/comments removed
+ * @returns {string} '' when the layout is not there
+ */
+function extractTasksProfileBoard(cleaned) {
+  // Whole class TOKEN, not a prefix: `tasks` must not match the enclosing
+  // `tasks-profile-wrapper`, which also holds the profile block.
+  const block = (token) => {
+    const open = new RegExp(`<div\\b[^>]*\\bclass=["'](?:[^"']*\\s)?${token}(?:\\s[^"']*)?["'][^>]*>`, 'i').exec(cleaned);
+    if (!open) return '';
+    const start = open.index + open[0].length;
+    const tagRx = /<(\/?)div\b[^>]*>/gi;
+    tagRx.lastIndex = start;
+    let depth = 1;
+    let m;
+    while ((m = tagRx.exec(cleaned))) {
+      depth += m[1] ? -1 : 1;
+      if (depth === 0) return cleaned.slice(start, m.index);
+    }
+    return cleaned.slice(start);
+  };
+  const sections = [];
+  const headed = (inner) => {
+    const heading = sanitizeField(normalizeSpace(decodeEntities(stripHtml(inner.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || ''))));
+    const body = soliqueBlockText(inner.replace(/<h3[^>]*>[\s\S]*?<\/h3>/i, ' '));
+    if (!body) return '';
+    return heading ? `${heading}\n${body}` : body;
+  };
+  const intro = soliqueBlockText(block('introduction'));
+  const tasks = headed(block('tasks'));
+  const profile = headed(block('profile'));
+  if (!tasks && !profile) return '';
+  if (intro) sections.push(intro);
+  if (tasks) sections.push(tasks);
+  if (profile) sections.push(profile);
+  const offer = headed(block('offer'));
+  if (offer) sections.push(offer);
+  const benefitsInner = block('benefits-wrapper');
+  if (benefitsInner) {
+    const heading = sanitizeField(normalizeSpace(decodeEntities(stripHtml(benefitsInner.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || ''))));
+    const perks = [];
+    const boxRx = /<div\s+class="benefit-box[^"]*"[^>]*>([\s\S]*?)<div\s+class="tippy-content"[^>]*>([\s\S]*?)<\/div>/gi;
+    let bm;
+    while ((bm = boxRx.exec(benefitsInner))) {
+      const name = normalizeSpace(decodeEntities(stripHtml((bm[1].match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || '').replace(/-\s*<br\s*\/?>\s*/gi, ''))));
+      const text = soliqueBlockText(bm[2]);
+      if (name && text) perks.push(`• ${name}: ${text}`);
+      else if (text) perks.push(`• ${text}`);
+    }
+    if (perks.length) sections.push(heading ? `${heading}\n${perks.join('\n')}` : perks.join('\n'));
+  }
+  return sections.join('\n\n');
+}
+
 /**
  * Pull a substantive description text from a Solique detail page. Covers the
  * "intro+title-green" template (Spital Emmental), the "offer-section" template
@@ -498,6 +574,10 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   // `content` class on the shared HTML, it is opt-in per tenant via
   // `opts.migratedBoard` (set only by adullam + ipw configs). Default off → the
   // established tenants' extraction is byte-identical to before.
+  if (opts.tasksProfileBoard) {
+    const viiDescription = extractTasksProfileBoard(cleaned);
+    if (viiDescription) return viiDescription;
+  }
   if (opts.migratedBoard) {
     const ivSections = [];
     // Stop at the NEXT intro/content block or page chrome. The intro/content
@@ -636,6 +716,8 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
  * @param {function(string):string} [config.categoryFn]  Overridable category
  *   classifier, defaults to `detectHealthcareCategory` (whose catch-all
  *   default is also "Sanità / Ospedali") — same rationale as `sector`.
+ * @param {boolean} [config.tasksProfileBoard=false]  Opt-in detail Template
+ *   (vii) — see `extractTasksProfileBoard`.
  * @param {boolean} [config.paginate=false]  Opt-in: follow `?page=N` SSR
  *   pagination (see `parseSoliqueCounterTotal`) when the tenant's job-counter
  *   badge reports more jobs than fit on page 1. Established tenants' whole
@@ -670,6 +752,10 @@ export function createSoliqueParser(config) {
     categoryFn = detectHealthcareCategory,
     // Opt-in SSR pagination — see JSDoc above. Off by default.
     paginate = false,
+    // Opt-in detail Template (vii) — `introduction` + `tasks`/`profile`/`offer`
+    // + `benefits-wrapper` blocks (Spital Muri board). Off for every other
+    // tenant, whose extraction stays byte-identical.
+    tasksProfileBoard = false,
   } = config;
 
   if (!soliqueTenant || !companyKey || !companyName || !defaultCanton) {
@@ -784,7 +870,7 @@ export function createSoliqueParser(config) {
       let detailContent = '';
       try {
         const detailHtml = await fetchHtml(detailUrl);
-        detailContent = extractSoliqueDetailContent(detailHtml, { migratedBoard });
+        detailContent = extractSoliqueDetailContent(detailHtml, { migratedBoard, tasksProfileBoard });
         if (detailContent) detailHits += 1;
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);
