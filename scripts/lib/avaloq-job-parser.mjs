@@ -6,6 +6,7 @@ import {
   isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
@@ -351,13 +352,38 @@ export function inferAvaloqCanton(raw = '') {
   return inferAnyCanton(raw) || '';
 }
 
+/**
+ * Source-locale fields of one Avaloq posting.
+ *
+ * The text goes in the slot of the language it is WRITTEN in, read from the
+ * body (a title such as "Solution Manager - Architect" says nothing about
+ * it). This builder used to key everything under `it`: every Avaloq posting
+ * is in English (34/34 on 2026-09-29), so a new job started with English in
+ * the Italian slot — the Italian page showed English and the translation
+ * pipeline saw nothing to translate — while existing jobs never refreshed
+ * their `en` slot, because the locale-preserving merge only lets the
+ * SOURCE slot (`en`) take fresh text.
+ *
+ * The slug keeps its formula (title + company + location), so the value is
+ * the one already published under `slugByLocale.it/en` for existing jobs.
+ *
+ * @param {{ title?: string, location?: string, description?: string }} detail
+ * @param {string} [companyName]
+ * @returns {{ sourceLang: string, slug: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object }}
+ */
 export function buildAvaloqLocalizedContent(detail = {}, companyName = 'Avaloq') {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || '').trim() || 'Bioggio';
   const description = String(detail.description || '').trim();
+  const sourceLang = sourceLangOfBody(description, 'en');
+  const slug = slugify(`${title} ${companyName} ${location}`);
   return {
-    titleByLocale: { it: title },
-    descriptionByLocale: { it: description },
-    slugByLocale: { it: slugify(`${title} ${companyName} ${location}`) },
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
   };
 }
+
+export { dropStaleLocaleDescriptions } from './source-locale-slots.mjs';

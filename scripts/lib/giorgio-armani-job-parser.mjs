@@ -25,6 +25,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -316,9 +317,14 @@ export function buildGiorgioArmaniLocalizedContent(detail = {}, companyName = ''
   const sourceTitle = String(detail.title || '').trim();
   const location = String(detail.location || '').trim();
   const slug = slugify(`${sourceTitle} ${companyName} ${location}`.trim());
+  // Keyed by the language the ad is written in (read from the body: the
+  // Armani SuccessFactors ads are English), not a fixed `it` (#5253).
+  const sourceLang = sourceLangOfBody(detail.description, 'en');
   return {
-    titleByLocale: { it: sourceTitle },
-    descriptionByLocale: { it: detail.description || '' },
-    slugByLocale: { it: slug },
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: sourceTitle },
+    descriptionByLocale: { [sourceLang]: detail.description || '' },
+    slugByLocale: { [sourceLang]: slug },
   };
 }

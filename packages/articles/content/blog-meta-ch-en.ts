@@ -7115,6 +7115,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.samedan-aeroporto-rinnovo-2025.title': 'Samedan airport reneal',
     'blog.article.samedan-aeroporto-rinnovo-2025.excerpt': 'Following the yes vote of 17 August 2025 (>54% of those entitled to vote), the 68,5 million renovation of Samedan Airport remains blocked by the appeal to the Federal Supreme Court; investments planned for 2027 amount to 7,6 million, deadline 2031.',
     'blog.article.samedan-aeroporto-rinnovo-2025.imageAlt': 'Aerial view of Samedan airport runway amid Engadin mountains, a small aircraft ready for takeoff under a clear sky',
+    'blog.article.revisione-legge-materiale-bellico.title': 'Arms exports: law revision put to a vote',
+    'blog.article.revisione-legge-materiale-bellico.excerpt': 'The Federal Council proposes relaxing the rules on exports of war materiel. Vote scheduled for 29 novembre.',
+    'blog.article.revisione-legge-materiale-bellico.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.revisione-legge-armi-votazione-novembre.title': 'Bern eases arms export restrictions',
+    'blog.article.revisione-legge-armi-votazione-novembre.excerpt': 'Popular vote on 29 novembre on the revision of the law on war materiel: more flexibility for exports and re-exports to 17 EU countries and other states',
+    'blog.article.revisione-legge-armi-votazione-novembre.imageAlt': 'View of Lugano with Swiss flag and weapons export documents',
 };
 
 export default blogMetaChEn;

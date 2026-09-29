@@ -27,6 +27,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { JSDOM } from 'jsdom';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
@@ -279,7 +280,7 @@ async function buildBoardJob(listing) {
   return {
     title,
     slug:
-      localized.slugByLocale.en ||
+      localized.slug ||
       normalizeKey(`${title} ${COMPANY_NAME} ${location}`),
     url: sourceUrl,
     applyUrl: sourceUrl,
@@ -295,7 +296,7 @@ async function buildBoardJob(listing) {
     category: inferBoardCategory(title, detail),
     sector: 'Tecnologia & IT',
     source: 'board-dedicated-crawler',
-    sourceLang: detectLang(detail.description || '', 'en'),
+    sourceLang: localized.sourceLang,
     postedDate: toIsoDate(detail.postedDate),
     employmentType: normalize(detail.employmentType).replace(/_/g, '-') || 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
@@ -330,10 +331,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

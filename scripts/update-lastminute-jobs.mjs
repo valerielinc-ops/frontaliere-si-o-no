@@ -34,7 +34,6 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
-  detectLang,
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
@@ -48,8 +47,10 @@ import {
   fetchSmartRecruitersDetail,
   parseSmartRecruitersDetail,
   validateLastminuteDescription,
-  buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -76,10 +77,22 @@ const LASTMINUTE_SOURCE = {
     'https://corporate.lastminute.com/careers/jobs/?search=&department=&contract=',
 };
 
-const LASTMINUTE_LOCALES = ['it', 'en', 'de', 'fr'];
 const SWISS_COUNTRY_TOKENS = new Set(['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse']);
 const LASTMINUTE_BAD_FOOTER_LOCATION_RE =
   /\b(?:rokin\s+92\s*-\s*96|1012\s*kz\s+amsterdam|amsterdam,\s*netherlands|amsterdam)\b/i;
+
+// The retired runner wrote this complete intro (and sometimes appended the
+// English body below the separator) instead of publishing the SmartRecruiters
+// source. Keep the matcher anchored to the whole template: a real posting that
+// merely mentions lastminute.com must never be purged.
+export const LASTMINUTE_FABRICATED_DESCRIPTION_RE = new RegExp(
+  '^(?:'
+    + 'lastminute\\.com cerca per la sede di .+? un/a .+?\\. Scopri i dettagli della posizione e candidati online tramite il portale aziendale\\.'
+    + '|lastminute\\.com sucht am Standort .+? eine/n .+?\\. Entdecken Sie die Details der Stelle und bewerben Sie sich online über das Unternehmensportal\\.'
+    + '|lastminute\\.com recherche pour son site de .+? un/e .+?\\. Découvrez les détails du poste et postulez en ligne via le portail de l\\\'entreprise\\.'
+    + ')(?:\\n\\n---\\n\\n[\\s\\S]*)?$',
+  'i',
+);
 
 function decodeHtmlEntities(value = '') {
   return String(value || '')
@@ -536,7 +549,10 @@ function scoreLastminuteCandidate(job) {
       return '';
     }
   })();
-  const lang = detectLang(`${job?.title || ''} ${job?.description || ''}`, 'it');
+  const lang = sourceLangOfBody(
+    job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '',
+    job?.sourceLang || 'en',
+  );
   const descLen = String(job?.description || '').trim().length;
   const titleLen = String(job?.title || '').trim().length;
 
@@ -549,9 +565,9 @@ function scoreLastminuteCandidate(job) {
   else if (lang === 'fr') score += 900;
   score += Math.min(8000, descLen);
   score += Math.min(2000, titleLen * 20);
-  if (job?.titleByLocale?.it) score += 500;
-  if (job?.descriptionByLocale?.it) score += 500;
-  if (job?.slugByLocale?.it) score += 500;
+  if (job?.titleByLocale?.[lang]) score += 500;
+  if (job?.descriptionByLocale?.[lang]) score += 500;
+  if (job?.slugByLocale?.[lang]) score += 500;
   return score;
 }
 
@@ -567,28 +583,54 @@ function buildLastminuteDedupeKey(job) {
   return `title:${title}`;
 }
 
-function ensureLocaleFields(job) {
-  const title = String(job?.title || '').trim();
-  const description = String(job?.description || '').trim();
+/**
+ * Return the saved source body, if one exists above the shared word floor.
+ * Prefer the declared source slot, then the flat field, then a locale slot
+ * whose text is not the retired lastminute template. This lets the cleanup
+ * recover a real EN body even from the old shape where `sourceLang` was `en`
+ * but the flat/IT field carried the fabricated intro.
+ */
+export function lastminuteSourceBody(job = {}) {
+  const byLocale = job?.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  const ordered = [
+    [job?.sourceLang || 'en', byLocale?.[job?.sourceLang || 'en']],
+    ['', job?.description],
+    ...Object.entries(byLocale),
+  ];
+  const seen = new Set();
+  for (const [declared, raw] of ordered) {
+    const text = String(raw || '').trim();
+    if (!text || seen.has(text)) continue;
+    seen.add(text);
+    if (LASTMINUTE_FABRICATED_DESCRIPTION_RE.test(text)) continue;
+    if (!meetsSourceBodyFloor(text)) continue;
+    const sourceLang = sourceLangOfBody(text, declared || job?.sourceLang || 'en');
+    return { body: text, sourceLang };
+  }
+  return null;
+}
 
-  const titleByLocale = { ...(job?.titleByLocale || {}) };
-  const descriptionByLocale = { ...(job?.descriptionByLocale || {}) };
-  const slugByLocale = { ...(job?.slugByLocale || {}) };
-
-  for (const locale of LASTMINUTE_LOCALES) {
-    if (!String(titleByLocale[locale] || '').trim() && title) {
-      titleByLocale[locale] = title;
-    }
-    if (!String(descriptionByLocale[locale] || '').trim() && description) {
-      descriptionByLocale[locale] = description;
-    }
-    if (!String(slugByLocale[locale] || '').trim()) {
-      const candidate = deriveLocalizedSlug(job, locale) || job?.slug || '';
-      if (candidate) slugByLocale[locale] = candidate;
+/** Purge only this crawler's stored template before locale-preserving merge. */
+export function prepareExistingJobs(jobs = []) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  for (const job of list.filter(isLastminuteJob)) {
+    // Re-home a saved real source body before the fossil purge. In the old
+    // shape the source label can point at the Italian fallback while EN still
+    // contains the actual SmartRecruiters body.
+    const saved = lastminuteSourceBody(job);
+    if (saved) {
+      job.sourceLang = saved.sourceLang;
+      job.description = saved.body;
+      job.descriptionByLocale = {
+        ...(job.descriptionByLocale || {}),
+        [saved.sourceLang]: saved.body,
+      };
     }
   }
-
-  return { titleByLocale, descriptionByLocale, slugByLocale };
+  dropFabricatedDescriptions(list.filter(isLastminuteJob), LASTMINUTE_FABRICATED_DESCRIPTION_RE, LASTMINUTE_COMPANY_NAME);
+  return list;
 }
 
 export function extractLastminuteLocationFromContent(input = '') {
@@ -662,21 +704,60 @@ export function buildLastminuteSlug(title = '', location = '') {
   return slugifyLastminute([title, location].filter(Boolean).join(' '));
 }
 
-function refreshLastminuteSlugs(job, location) {
-  const nextSlugByLocale = { ...(job?.slugByLocale || {}) };
-  for (const locale of LASTMINUTE_LOCALES) {
-    const localizedTitle = String(job?.titleByLocale?.[locale] || job?.title || '').trim();
-    const nextSlug = buildLastminuteSlug(localizedTitle, location);
-    if (nextSlug) nextSlugByLocale[locale] = nextSlug;
-  }
-  const baseSlug = buildLastminuteSlug(job?.title || '', location) || String(job?.slug || '').trim();
-  return { slug: baseSlug, slugByLocale: nextSlugByLocale };
+export function buildLastminuteSourceJob(detail = {}, corpUrl = '') {
+  const sourceBody = String(detail.description || '').trim();
+  if (!meetsSourceBodyFloor(sourceBody)) return null;
+  const sourceLang = sourceLangOfBody(sourceBody, 'en');
+  const title = String(detail.title || '').trim();
+  const location = String(detail.location || '').trim();
+  const slug = buildLastminuteSlug(title, location);
+  return {
+    title,
+    slug,
+    url: corpUrl,
+    applyUrl: detail.applyUrl || corpUrl,
+    company: LASTMINUTE_COMPANY_NAME,
+    companyKey: LASTMINUTE_KEY,
+    companyDomain: LASTMINUTE_COMPANY_DOMAIN,
+    location,
+    addressLocality: location,
+    canton: detail.canton,
+    country: 'CH',
+    source: 'Company Careers Crawler',
+    description: sourceBody,
+    descriptionByLocale: { [sourceLang]: sourceBody },
+    ...sourceSlotTitleAndSlug(title, slug, sourceLang),
+    sourceLang,
+    category: 'tech',
+    sector: 'Tecnologia & IT',
+    postedDate: detail.postedDate,
+    employmentType: 'full-time',
+    contractType: 'full-time',
+  };
 }
 
 export function normalizeLastminuteRow(job) {
   const canonicalUrl = canonicalizeLastminuteUrl(job?.url || '', job?.title || '');
-  const localeFields = ensureLocaleFields(job);
-  const location = inferLastminuteLocation({ ...job, ...localeFields });
+  const source = lastminuteSourceBody(job);
+  if (!source) return null;
+  const sourceLang = source.sourceLang;
+  const sourceTitle = String(job?.title || job?.titleByLocale?.[sourceLang] || '').trim();
+  const existingSourceSlug = String(job?.slugByLocale?.[sourceLang] || '').trim();
+  const slug = String(job?.slug || existingSourceSlug || buildLastminuteSlug(sourceTitle, job?.location || '')).trim();
+  const titleAndSlug = sourceSlotTitleAndSlug(sourceTitle, existingSourceSlug || slug, sourceLang);
+  const titleByLocale = { ...(job?.titleByLocale || {}), ...titleAndSlug.titleByLocale };
+  const descriptionByLocale = { ...(job?.descriptionByLocale || {}), [sourceLang]: source.body };
+  const slugByLocale = { ...(job?.slugByLocale || {}), ...titleAndSlug.slugByLocale };
+  const localized = {
+    ...job,
+    titleByLocale,
+    descriptionByLocale,
+    slugByLocale,
+    description: source.body,
+    sourceLang,
+  };
+  dropStaleLocaleDescriptions(localized);
+  const location = inferLastminuteLocation(localized);
   const canton = inferAnyCanton(location);
   const country = normalizeCountry(job?.country);
   if (
@@ -688,8 +769,7 @@ export function normalizeLastminuteRow(job) {
   ) {
     return null;
   }
-  const refreshedSlugs = refreshLastminuteSlugs({ ...job, ...localeFields }, location);
-  const contract = inferLastminuteContract({ ...job, ...localeFields });
+  const contract = inferLastminuteContract(localized);
   const address = resolveSwissStructuredAddress({
     city: location,
     canton,
@@ -713,10 +793,12 @@ export function normalizeLastminuteRow(job) {
     canton: address.canton,
     country: 'CH',
     contract,
-    slug: refreshedSlugs.slug,
-    ...localeFields,
-    slugByLocale: refreshedSlugs.slugByLocale,
-    sourceLang: detectLang((job?.description || '') + ' ' + (job?.title || ''), 'en'),
+    slug,
+    titleByLocale,
+    descriptionByLocale: localized.descriptionByLocale,
+    slugByLocale,
+    description: source.body,
+    sourceLang,
   };
 }
 
@@ -730,6 +812,7 @@ export function postProcessLastminuteJobs() {
 
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   if (!Array.isArray(raw)) return { total: 0, lastminute: 0, deduped: 0 };
+  prepareExistingJobs(raw);
 
   const bestByKey = new Map();
   for (const job of raw) {
@@ -780,6 +863,16 @@ function loadLastminuteJobs() {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   if (!Array.isArray(raw)) return [];
   return raw.filter(isLastminuteJob);
+}
+
+function prepareStoredLastminuteJobs() {
+  const raw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : readExistingCrawlerJobs(LASTMINUTE_KEY, DATA_JOBS);
+  if (!Array.isArray(raw)) return [];
+  const prepared = prepareExistingJobs(raw);
+  writeJobsFiles(prepared);
+  return prepared.filter(isLastminuteJob);
 }
 
 async function runDedicatedLastminuteCrawler() {
@@ -876,17 +969,23 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
       }
     }
 
-    if (!detail.description || detail.description.length < 100) {
-      console.warn(`  ⚠️ Skipping "${detail.title}" — SR API returned thin content`);
-      continue;
-    }
-
     // Find the matching job in data/jobs.json
     const existing = allJobs.find((j) => {
       if (!isLastminuteJob(j)) return false;
       const jId = extractSrIdFromUrl(j.url);
       return jId === srId;
     });
+
+    const freshBody = String(detail.description || '').trim();
+    const source = meetsSourceBodyFloor(freshBody)
+      ? { body: freshBody, sourceLang: sourceLangOfBody(freshBody, 'en') }
+      : lastminuteSourceBody(existing || {});
+    if (!source) {
+      console.warn(`  ⚠️ Skipping "${detail.title}" — no SmartRecruiters body meets the 50-word floor and no saved source body is available`);
+      continue;
+    }
+    const sourceLang = source.sourceLang;
+    const sourceBody = source.body;
 
     if (existing) {
       // Snapshot BEFORE mergeLocaleTextMap below mutates descriptionByLocale
@@ -897,14 +996,15 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
       // with MT non-determinism churning slugByLocale) every time the SR API
       // returns a description within 20% of the current length — which is
       // most re-crawls, not just genuine content changes.
-      const priorDescription = existing.description || '';
+      const priorSource = lastminuteSourceBody(existing);
+      const priorDescription = priorSource?.body || '';
       // Compare BEFORE the richer-content gate below (review #3454/completeness
       // gap): coverage alone freezes the flag forever once a job reaches full
       // 4-locale coverage, even if the live SR posting is later rewritten to a
       // similar-or-shorter length — the >80%-length gate alone would silently
       // skip this whole block (and this comparison) for that case, exactly
       // reproducing the bug this guard exists to fix.
-      const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
+      const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(sourceBody);
       // Only replace if SR API content is richer, or the source text itself drifted
       let existingChanged = false;
       const locationChanged = syncLastminuteExistingLocation(existing, detail);
@@ -913,67 +1013,46 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
         console.log(`  📍 Updated location for "${detail.title}" (${detail.location}, ${detail.canton})`);
       }
 
-      if (sourceContentChanged || detail.description.length > priorDescription.length * 0.8) {
+      if (sourceContentChanged || sourceLang !== existing.sourceLang || sourceBody.length > priorDescription.length * 0.8) {
         // hasCorrectLocaleCoverage (not hasFullLocaleCoverage) is deliberate
         // (issue #4788 sibling): presence-only coverage would call a job
         // "already fully localized" even if a non-source title slot still
         // holds source-language (EN) text, permanently suppressing the
         // retranslation flag once the SR API source title stops changing.
-        const wasFullyLocalized = hasCorrectLocaleCoverage(existing, 'en');
-        existing.description = detail.description;
+        const wasFullyLocalized = hasCorrectLocaleCoverage(existing, sourceLang);
+        const nextTitle = detail.title || existing.title;
+        const nextSlug = existing.slug || buildLastminuteSlug(nextTitle, detail.location);
+        const sourceFields = sourceSlotTitleAndSlug(nextTitle, nextSlug, sourceLang);
+        existing.sourceLang = sourceLang;
+        existing.description = sourceBody;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = mergeLocaleTextMap(
           existing.descriptionByLocale,
-          { en: detail.description },
+          { [sourceLang]: sourceBody },
           30,
-          'en',
+          sourceLang,
         );
+        existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, sourceFields.titleByLocale, 3, sourceLang);
+        existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, sourceFields.slugByLocale, 3);
         // Mark for re-translation so AI refreshes IT/DE/FR from the richer
         // English — either the job wasn't fully localized yet, or the SR
         // content genuinely changed since the last sync.
         if (!wasFullyLocalized || sourceContentChanged) {
           existing.needsRetranslation = true;
         }
-        existing.title = detail.title || existing.title;
+        existing.title = nextTitle;
+        existing.slug = nextSlug;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
+        dropStaleLocaleDescriptions(existing);
         existingChanged = true;
-        console.log(`  ✅ Enriched "${detail.title}" (${detail.description.length} chars, ${detail.sectionCount} sections)`);
+        console.log(`  ✅ Enriched "${detail.title}" (${sourceBody.length} chars, ${detail.sectionCount} sections)`);
       }
       if (existingChanged) enriched++;
     } else {
-      // New job from SR API — build and add with locale boilerplate
-      const location = detail.location;
-      const slug = slugifyLastminute(`${detail.title} ${location}`);
-      const fallbackOpts = { title: detail.title, location, enDescription: detail.description };
-      allJobs.push({
-        title: detail.title,
-        slug,
-        url: corpUrl,
-        applyUrl: detail.applyUrl || corpUrl,
-        company: LASTMINUTE_COMPANY_NAME,
-        companyKey: LASTMINUTE_KEY,
-        companyDomain: LASTMINUTE_COMPANY_DOMAIN,
-        location,
-        addressLocality: location,
-        canton: detail.canton,
-        country: 'CH',
-        source: 'Company Careers Crawler',
-        description: buildLastminuteLocaleFallback(fallbackOpts, 'it') || detail.description,
-        descriptionByLocale: {
-          en: detail.description,
-          it: buildLastminuteLocaleFallback(fallbackOpts, 'it'),
-          de: buildLastminuteLocaleFallback(fallbackOpts, 'de'),
-          fr: buildLastminuteLocaleFallback(fallbackOpts, 'fr'),
-        },
-        titleByLocale: { en: detail.title },
-        slugByLocale: { en: slug },
-        sourceLang: detectLang(detail.description || detail.title, 'en'),
-        category: 'tech',
-        sector: 'Tecnologia & IT',
-        postedDate: detail.postedDate,
-        employmentType: 'full-time',
-        contractType: 'full-time',
-      });
+      // New job from SR API — publish only the source body.
+      const freshJob = buildLastminuteSourceJob({ ...detail, description: sourceBody }, corpUrl);
+      if (!freshJob) continue;
+      allJobs.push(freshJob);
       enriched++;
       console.log(`  ✅ Added new "${detail.title}" (${detail.description.length} chars)`);
     }
@@ -987,54 +1066,6 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
   }
 }
 
-/**
- * Fill any lastminute.com jobs that still have missing locale descriptions
- * after AI translation. Uses locale-specific boilerplate wrapping the EN
- * content as a deterministic fallback.
- */
-function fillMissingLastminuteDescriptions() {
-  if (!fs.existsSync(DATA_JOBS)) return 0;
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  if (!Array.isArray(allJobs)) return 0;
-
-  const MIN_DESC_CHARS = 120;
-  const FALLBACK_LOCALES = ['it', 'de', 'fr'];
-  let filled = 0;
-
-  for (const job of allJobs) {
-    if (!isLastminuteJob(job)) continue;
-    if (!job.descriptionByLocale) job.descriptionByLocale = {};
-
-    const enDesc = String(job.descriptionByLocale.en || job.description || '').trim();
-    const title = String(job.title || '').trim();
-    const location = String(job.location || '').trim();
-    if (!location) continue;
-
-    for (const locale of FALLBACK_LOCALES) {
-      const current = String(job.descriptionByLocale[locale] || '').trim();
-      if (current.length >= MIN_DESC_CHARS) continue;
-
-      const fallback = buildLastminuteLocaleFallback(
-        { title, location, enDescription: enDesc },
-        locale,
-      );
-      if (fallback && fallback.length >= MIN_DESC_CHARS) {
-        job.descriptionByLocale[locale] = fallback;
-        if (locale === 'it' && (!job.description || job.description.length < MIN_DESC_CHARS)) {
-          job.description = fallback;
-        }
-        filled++;
-      }
-    }
-  }
-
-  if (filled > 0) {
-    writeJobsFiles(allJobs);
-    console.log(`🛡️ Locale fallback: filled ${filled} missing description(s) with boilerplate.`);
-  }
-  return filled;
-}
-
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(LASTMINUTE_KEY, 'lastminute.com');
@@ -1043,6 +1074,7 @@ async function main() {
 
   const { seedUrls, seedMetaByUrl, detailsByUrl } = await fetchLastminuteJobDetailUrls();
   updateLastminuteAdapter({ seedUrls, seedMetaByUrl });
+  prepareStoredLastminuteJobs();
 
   // Phase 1: Enrich descriptions directly from SmartRecruiters API
   await enrichFromSmartRecruitersApi(seedUrls, detailsByUrl);
@@ -1061,15 +1093,12 @@ async function main() {
     `🧹 Post-process lastminute: ${post.lastminute} active, ${post.deduped} duplicate(s) removed.`
   );
 
-  // Phase 3: Fill any remaining gaps with locale-specific boilerplate
-  fillMissingLastminuteDescriptions();
-
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_LASTMINUTE_STRICT',
     label: 'lastminute.com',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isLastminuteJob,
-    detectSourceLang: (text) => detectLang(text, 'it'),
+    detectSourceLang: (text) => sourceLangOfBody(text, 'en'),
     deriveSlug: deriveLocalizedSlug,
     isTrustedDomain: isTrustedLastminuteDomain,
     untrustedDomainReason: 'untrusted_lastminute_domain',

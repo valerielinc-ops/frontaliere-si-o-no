@@ -463,3 +463,24 @@ describe('buildAldiJobRecord — no invented text', () => {
     expect(job.description.length).toBe(body.length);
   });
 });
+
+// ── #5253: every field keyed by the language the ad is written in ─────────
+describe('buildAldiJobRecord — source-language slots', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'aldi-suisse-typo3-detail-sempach.html'),
+    'utf8',
+  );
+
+  it('files the German posting under de, not under a fixed it', () => {
+    const parsed = parseAldiDetailPage(fixture);
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1389180133', title: 'Filialleiter/in Stv. (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed,
+    });
+    expect(job.sourceLang).toBe('de');
+    expect(job.descriptionByLocale).toEqual({ de: parsed.body });
+    expect(Object.keys(job.titleByLocale)).toEqual(['de']);
+    expect(job.slugByLocale).toEqual({ de: job.slug });
+    expect(Object.keys(job.requirementsByLocale)).toEqual(['de']);
+  });
+});

@@ -22,6 +22,7 @@ import {
   mergeLocaleTextMap,
   repairRelabeledSourceLocale,
 } from './dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './source-locale-slots.mjs';
 import { fetchHtml } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
@@ -279,15 +280,11 @@ export function buildPemsaLocalizedContent(job = {}) {
   }
 
   const sourceLang = detectLang(desc || title, 'it');
+  const slug = slugify(`${title} pemsa ${city}`);
   return {
     sourceLang,
-    titleByLocale: { [sourceLang]: title },
+    ...sourceSlotTitleAndSlug(title, slug, sourceLang),
     descriptionByLocale: desc ? { [sourceLang]: desc } : {},
-    // Slug key unchanged: the published PEMSA slugs live under `it`, and the
-    // runner merges slugs existing-wins, so no public URL moves.
-    slugByLocale: {
-      it: slugify(`${title} pemsa ${city}`),
-    },
   };
 }
 
@@ -373,5 +370,6 @@ export function mergePemsaJobRecord(prev, job) {
     }).map;
   }
   if (relabeled) merged.needsRetranslation = true;
+  dropStaleLocaleDescriptions(merged);
   return merged;
 }

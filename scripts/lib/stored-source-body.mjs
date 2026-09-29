@@ -51,12 +51,22 @@ export function keepStoredSourceBodiesByKey(
     const previousLang = String(previous?.sourceLang || '').trim();
     const previousBody = sourceBodyForJob(previous);
     if (!previousLang || !meetsSourceBodyFloor(previousBody)) return [];
-    return [{
+    const kept = {
       ...job,
       description: previousBody,
       descriptionByLocale: { [previousLang]: previousBody },
       sourceLang: previousLang,
-    }];
+    };
+    // A title or slug the runner keyed by the fallback language of the empty
+    // body moves with the source language to the stored body's slot.
+    for (const field of ['titleByLocale', 'slugByLocale']) {
+      const map = job?.[field];
+      const keys = map && typeof map === 'object' ? Object.keys(map) : [];
+      if (keys.length === 1 && keys[0] === job.sourceLang && keys[0] !== previousLang) {
+        kept[field] = { [previousLang]: map[keys[0]] };
+      }
+    }
+    return [kept];
   });
 }
 

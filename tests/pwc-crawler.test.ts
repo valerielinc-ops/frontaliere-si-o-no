@@ -396,10 +396,11 @@ describe('source address fields', () => {
 // ─── buildPwcLocalizedContent ─────────────────────────────────────────────
 
 describe('buildPwcLocalizedContent', () => {
-  it('creates locale maps for all 4 locales', () => {
-    const content = buildPwcLocalizedContent({ title: 'Tax Advisor', city: 'Lugano', description: 'A tax role in Lugano.' });
+  it('keeps the body in the source-language slot only; titles and slugs stay in all 4 locales (#5253)', () => {
+    const content = buildPwcLocalizedContent({ title: 'Tax Advisor', city: 'Lugano', description: 'A tax role in Lugano for an experienced advisor who works with our clients.' });
+    expect(content.sourceLang).toBe('en');
     expect(Object.keys(content.titleByLocale)).toEqual(['it', 'en', 'de', 'fr']);
-    expect(Object.keys(content.descriptionByLocale)).toEqual(['it', 'en', 'de', 'fr']);
+    expect(Object.keys(content.descriptionByLocale)).toEqual(['en']);
     expect(Object.keys(content.slugByLocale)).toEqual(['it', 'en', 'de', 'fr']);
   });
 
@@ -410,8 +411,9 @@ describe('buildPwcLocalizedContent', () => {
     expect(content.slugByLocale.it).toContain('lugano');
   });
 
-  it('uses fallback description when description is empty', () => {
+  it('uses fallback description when description is empty (Italian text, under it)', () => {
     const content = buildPwcLocalizedContent({ title: 'Analyst', city: 'Bern', description: '' });
+    expect(content.sourceLang).toBe('it');
     expect(content.descriptionByLocale.it).toContain('PwC Switzerland');
     expect(content.descriptionByLocale.it).toContain('Analyst');
     expect(content.descriptionByLocale.it).toContain('Bern');
@@ -419,6 +421,7 @@ describe('buildPwcLocalizedContent', () => {
 
   it('uses provided description when available', () => {
     const content = buildPwcLocalizedContent({ title: 'Analyst', city: 'Bern', description: 'A detailed job description for the role.' });
-    expect(content.descriptionByLocale.it).toBe('A detailed job description for the role.');
+    expect(content.descriptionByLocale.en).toBe('A detailed job description for the role.');
+    expect(content.descriptionByLocale.it).toBeUndefined();
   });
 });

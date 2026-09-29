@@ -369,7 +369,14 @@ export async function fetchAllDormakabaJobs() {
     // HQ.city (matches the ruemlang known-office pattern) and silently
     // fabricate the HQ canton for a job that isn't positively there (AGENTS.md
     // Non-Negotiable #3). No text at all still defaults to HQ.
-    const realCity = normalizeSpace(addr.city || '');
+    const sourceCity = normalizeSpace(addr.city || '');
+    const sourcePostalCode = normalizeSpace(
+      addr.postalCode || addr.zipCode || addr.zip || sourceCity.match(/\b(\d{4})\b/)?.[1] || '',
+    );
+    const sourceStreetAddress = normalizeSpace(
+      addr.streetAddress || addr.street || addr.address1 || addr.addressLine1 || '',
+    );
+    const realCity = sourceCity.replace(/^\d{4}\s+/u, '').trim();
     const resolved = resolveAddress(realCity);
     const inferredCanton = resolved?.canton || getCantonForLocation(realCity) || null;
     if (realCity && !inferredCanton) {
@@ -378,12 +385,14 @@ export async function fetchAllDormakabaJobs() {
     }
     const location = realCity || HQ.city;
     const canton = inferredCanton || HQ.canton;
-    const postalCode = resolved?.postalCode
-      || (realCity
-        ? officialLocalityPostalCode(realCity, canton) || getCantonPostalFallback(canton) || HQ.postalCode
-        : HQ.postalCode);
-    const streetAddress = resolved?.streetAddress
-      || (location === HQ.city ? KNOWN_OFFICES.ruemlang.streetAddress : undefined);
+    const postalCode = sourcePostalCode
+      || (realCity ? officialLocalityPostalCode(realCity, canton) : '')
+      || resolved?.postalCode
+      || (realCity ? getCantonPostalFallback(canton) : '')
+      || HQ.postalCode;
+    const streetAddress = sourceStreetAddress
+      || resolved?.streetAddress
+      || (location === HQ.city ? KNOWN_OFFICES.ruemlang.streetAddress : location);
 
     const description = htmlToMarkdown(rec.description || '');
     if (!description || description.length < 30) continue; // skip empties → never synthesise
