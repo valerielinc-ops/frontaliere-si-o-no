@@ -151,9 +151,19 @@ export function createSourceDetailEvidence({
   observation,
   provenance,
   versions,
+  linkedDocument = null,
 }) {
   requiredString(body, 'body');
   const immutableObservation = JSON.parse(stableStringify(observation));
+  // When the vacancy text came from a document the page links (the PDF of the
+  // job ad), the observation derives from TWO responses: both are bound, the
+  // page by `bodySha256` and the document here, by digest only like the page.
+  const linked = linkedDocument
+    ? {
+      urlSha256: sha256(requiredString(linkedDocument.url, 'linkedDocument.url')),
+      bodySha256: requiredSha256(linkedDocument.bodySha256, 'linkedDocument.bodySha256'),
+    }
+    : null;
   const record = {
     format: SOURCE_DETAIL_EVIDENCE_FORMAT,
     crawlerKey: requiredString(crawlerKey, 'crawlerKey'),
@@ -164,6 +174,7 @@ export function createSourceDetailEvidence({
     },
     sourceUrlSha256: sha256(requiredString(sourceUrl, 'sourceUrl')),
     bodySha256: sha256(body),
+    ...(linked ? { linkedDocument: linked } : {}),
     observation: immutableObservation,
     observationSha256: documentSha256(immutableObservation),
   };

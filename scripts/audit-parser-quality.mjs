@@ -41,7 +41,9 @@ import {
   ISO_ALPHA2_COUNTRY_CODES,
   SWISS_COUNTRY_LABELS,
 } from './lib/prospector/country-inventory.mjs';
+import { fetch as undiciFetch } from 'undici';
 import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
@@ -1125,10 +1127,161 @@ function sourceDetailReportReference(value) {
   }
 }
 
+/**
+ * Words with which a page names a PDF as its job advertisement. Vocabulary of
+ * the document, not of any one site: gemeinde-st-moritz links
+ * «Stelleninserat herunterladen» (…/stellenausschreibungen/…pdf) next to two
+ * «Download PDF» links to vote results that are not the vacancy.
+ */
+const VACANCY_DOCUMENT_WORDS = /stelleninserat|inserat|stellenausschreibung|ausschreibung|stellenbeschrieb|stellenbeschreibung|stellenangebot|jobbeschreibung|job[\s_-]*(?:ad|description|offer)|vacanc|annonce|offre[\s_-]+d[’']?emploi|mise[\s_-]+au[\s_-]+concours|bando|concorso|annuncio/i;
+const MAX_VACANCY_PDF_BYTES = 10 * 1024 * 1024;
+
+function isPdfReference(value = '') {
+  return /\.pdf(?:[?#]|$)/i.test(String(value));
+}
+
+/**
+ * The PDF a detail page presents as its vacancy, or null. Either the page
+ * EMBEDS it as its content (`iframe`/`embed` src, `object` data — csvm-mustair
+ * shows the ad in an iframe and nothing else), or a link names it the job ad
+ * in its text, title, aria-label or path. Any other PDF on the page (price
+ * lists, vote results, privacy notices) is not the vacancy and is ignored.
+ *
+ * @returns {{ url: string, embedded: boolean } | null}
+ */
+export function vacancyPdfLink(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const resolve = (reference) => {
+    try {
+      const url = new URL(decodeScrapedHtmlEntities(reference).trim(), pageUrl);
+      return /^https?:$/.test(url.protocol) ? url.href : '';
+    } catch {
+      return '';
+    }
+  };
+  for (const match of source.matchAll(/<(iframe|embed|object)\b[^>]*>/gi)) {
+    const reference = readAttr(match[0], match[1].toLowerCase() === 'object' ? 'data' : 'src');
+    if (reference && isPdfReference(reference)) {
+      const url = resolve(reference);
+      if (url) return { url, embedded: true };
+    }
+  }
+  for (const match of source.matchAll(/<a\b([^>]*)>([\s\S]{0,400}?)<\/a>/gi)) {
+    const opening = `<a${match[1]}>`;
+    const href = readAttr(opening, 'href');
+    if (!href || !isPdfReference(href)) continue;
+    let pathLabel = '';
+    try { pathLabel = decodeURIComponent(new URL(decodeScrapedHtmlEntities(href), pageUrl).pathname); } catch { pathLabel = href; }
+    const label = [plainText(match[2]), readAttr(opening, 'title'), readAttr(opening, 'aria-label'), pathLabel].join(' ');
+    if (VACANCY_DOCUMENT_WORDS.test(label)) {
+      const url = resolve(href);
+      if (url) return { url, embedded: false };
+    }
+  }
+  return null;
+}
+
+/**
+ * `politeFetch` reads every body as text, which mangles PDF bytes. This
+ * transport keeps its URL policy, robots, throttle and redirects (it is the
+ * `fetchImpl` politeFetch calls for each hop) and hands back a PDF as base64
+ * text; any other response — robots.txt included — passes through untouched.
+ */
+async function pdfSafeFetch(url, init) {
+  const response = await undiciFetch(url, init);
+  const contentType = response.headers?.get?.('content-type') || '';
+  let pathname = '';
+  try { pathname = new URL(response.url || url).pathname; } catch { pathname = ''; }
+  if (!/application\/pdf/i.test(contentType) && !isPdfReference(pathname)) return response;
+  return {
+    ok: response.ok,
+    status: response.status,
+    url: response.url,
+    headers: response.headers,
+    body: response.body,
+    text: async () => Buffer.from(await response.arrayBuffer()).toString('base64'),
+  };
+}
+
+/** Text of the vacancy PDF, fetched through the same politeFetch contract as the page. */
+export async function fetchVacancyPdfText(pdfUrl, { fetchPage = politeFetch } = {}) {
+  const fetched = await fetchPage(pdfUrl, {
+    timeoutMs: 20000,
+    retries: 1,
+    accept: 'application/pdf,*/*;q=0.8',
+    fetchImpl: pdfSafeFetch,
+  });
+  if (!fetched?.ok || !fetched.body) {
+    const refusal = fetched?.blockedByRobots ? 'robots.txt disallows it' : fetched?.policyBlocked ? 'fetch policy refused it' : `status ${fetched?.status || 0}`;
+    return { text: '', error: refusal };
+  }
+  const bytes = Buffer.from(fetched.body, 'base64');
+  if (bytes.length > MAX_VACANCY_PDF_BYTES) return { text: '', error: 'pdf too large' };
+  if (bytes.subarray(0, 5).toString('latin1') !== '%PDF-') return { text: '', error: 'not a pdf' };
+  const extracted = await extractPdfJobContentFromUrl(pdfUrl, {
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    }),
+  });
+  return {
+    text: extracted.text || '',
+    bodySha256: createHash('sha256').update(bytes).digest('hex'),
+    ...(extracted.error ? { error: extracted.error } : {}),
+  };
+}
+
+/**
+ * A page that presents its vacancy as a PDF carries only a teaser in HTML
+ * (gemeinde-st-moritz: 233 chars, «Schalter-Öffnungszeiten» included), so a
+ * parser that publishes the PDF read as «unrelated» to it. The PDF is one
+ * more candidate description of the SAME page and, as for the page's own
+ * blocks in `extractDetailFields`, the longest candidate wins — which also
+ * keeps the check able to fail: a parser that publishes only the teaser is
+ * now compared with the whole ad.
+ *
+ * When the PDF cannot be read, a LINKED one leaves the HTML reading as it was.
+ * An EMBEDDED one is the page's content, so what the HTML still offers is
+ * chrome (csvm-mustair: the news-page frame, «Dein Browser unterstützt kein
+ * PDF»): that reading is dropped and the sample proves nothing, instead of
+ * reporting the published ad as unrelated to the frame around it. csvm's
+ * robots.txt disallows /images/, where its PDFs live, so this is the path the
+ * audit takes there by its own robots rule.
+ */
+async function vacancyPdfDescription(html, pageUrl, detail, fetchVacancyPdf) {
+  const link = vacancyPdfLink(html, pageUrl);
+  if (!link || typeof fetchVacancyPdf !== 'function') return { linkedDocument: null, vacancyPdf: null };
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(link.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  const readable = Boolean(text) && /^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''));
+  if (!readable) {
+    if (link.embedded) detail.description = '';
+    return {
+      linkedDocument: null,
+      vacancyPdf: { outcome: 'unreadable', embedded: link.embedded, reason: String(pdf?.error || 'no text layer').slice(0, 120) },
+    };
+  }
+  if (text.length <= String(detail.description || '').length) {
+    return { linkedDocument: null, vacancyPdf: { outcome: 'shorter-than-page', embedded: link.embedded } };
+  }
+  detail.description = text;
+  return {
+    linkedDocument: { url: link.url, bodySha256: pdf.bodySha256 },
+    vacancyPdf: { outcome: 'read', embedded: link.embedded },
+  };
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
   observeLocation = extractSourceLocationObservation,
+  fetchVacancyPdf = fetchVacancyPdfText,
   evidenceContext = null,
 } = {}) {
   const results = await mapPool(items, concurrency, async (item) => {
@@ -1177,6 +1330,12 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
         { includeDiagnostics: true, recordUrl },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
+      const { linkedDocument, vacancyPdf } = await vacancyPdfDescription(
+        fetched.body,
+        fetched.url || item.url,
+        detail,
+        fetchVacancyPdf,
+      );
       const locationEvidence = locationObservation.evidence;
       const comparison = compareSourceDetail(item.job, detail, {
         locationEvidence,
@@ -1190,11 +1349,13 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           observation: comparison.replayObservation,
           provenance: evidenceContext.provenance,
           versions: evidenceContext.versions,
+          linkedDocument,
         })
         : null;
       return {
         ...item,
         ...comparison,
+        ...(vacancyPdf ? { vacancyPdf } : {}),
         // Attached to the RESULT, deliberately not routed through
         // `comparison.replayObservation`: the replay-evidence schema and its
         // strict validator in `classifySourceDetailObservation` would have to
@@ -1437,6 +1598,10 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       fetchFailed: 0,
       processingFailed: 0,
     },
+    // Detail pages that present the vacancy as a PDF (see vacancyPdfLink):
+    // read and used, unreadable (robots, fetch, no text layer), or shorter
+    // than what the page already carried.
+    vacancyPdfPages: { read: 0, unreadable: 0, shorterThanPage: 0 },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1452,6 +1617,10 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
     info.checked++;
+    if (result.vacancyPdf) {
+      const pdfOutcome = result.vacancyPdf.outcome === 'shorter-than-page' ? 'shorterThanPage' : result.vacancyPdf.outcome;
+      if (pdfOutcome in sourceDetailSummary.vacancyPdfPages) sourceDetailSummary.vacancyPdfPages[pdfOutcome]++;
+    }
     const bucketSample = result.sampleReason === DUPLICATE_BUCKET_SAMPLE_REASON;
     if (bucketSample) {
       const outcome = duplicateBucketSampleOutcome(result);
@@ -1671,6 +1840,10 @@ export function formatSourceDetailObservationLines(summary = {}) {
   // Same reasoning for the identical-description buckets: the hidden signal
   // stopped producing WARNINGs, so what the source said about each bucket is
   // printed here on every run instead of disappearing with the WARNING.
+  const pdfPages = summary.vacancyPdfPages;
+  if (pdfPages && count(pdfPages.read) + count(pdfPages.unreadable) + count(pdfPages.shorterThanPage) > 0) {
+    lines.push(`Source detail pages presenting the vacancy as a PDF: ${count(pdfPages.read)} compared with the PDF, ${count(pdfPages.unreadable)} PDF unreadable (an embedded one leaves the sample unobserved), ${count(pdfPages.shorterThanPage)} PDF shorter than the page body`);
+  }
   const bucket = summary.duplicateBucketSamples;
   if (bucket && count(bucket.requested) > 0) {
     lines.push(`Identical-description buckets checked against the source: ${count(bucket.requested)} sampled — ${count(bucket.matched)} carry their source body (template), ${count(bucket.mismatched)} contradicted by it (source-detail-mismatch), ${count(bucket.notComparable)} source body < ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS} chars (proves nothing), ${count(bucket.fetchFailed)} fetch failed, ${count(bucket.processingFailed)} processing failed`);
@@ -2033,6 +2206,46 @@ export function countDuplicates(fps) {
   return [...counts.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
 }
 
+function declaredPostalCode(job) {
+  return String(job?.postalCode || '').replace(/\s+/g, '').trim();
+}
+
+/**
+ * Jobs that collide on the title-aware fingerprint AND may be the same
+ * posting. The fingerprint's location is the published locality, so two
+ * branches of one chain in the same town collapse into one key: denner's
+ * «Verkäufer*in» at Basel 4058 and at Basel 4057 (Filiale 524 and 370) were
+ * a "duplicate listing" although each posting names its own shop. Two records
+ * that declare DIFFERENT postal codes are two workplaces by their own
+ * statement, so they are not a re-posting of each other. A record without a
+ * postal code proves nothing either way and still collides with everyone in
+ * its bucket — that keeps a posting ingested twice, once with and once
+ * without an address (banca-cler, interdiscount on run 36528331656), counted.
+ */
+export function countDuplicateListings(jobs, fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let count = 0;
+  for (const members of buckets.values()) {
+    if (members.length < 2) continue;
+    for (const index of members) {
+      const own = declaredPostalCode(jobs[index]);
+      const samePosting = members.some((other) => {
+        if (other === index) return false;
+        const theirs = declaredPostalCode(jobs[other]);
+        return !own || !theirs || own === theirs;
+      });
+      if (samePosting) count++;
+    }
+  }
+  return count;
+}
+
 /**
  * Size of the largest single fingerprint bucket (most jobs sharing one exact
  * fingerprint). Used by the desc-only chrome-scraping signal instead of
@@ -2270,7 +2483,7 @@ async function main() {
     // descriptions are byte-identical regardless of title, the parser is
     // probably grabbing nav/footer chrome instead of the per-job body.
     const fps = fingerprintsForCrawler(jobs, 'title-aware');
-    const dupeCount = countDuplicates(fps);
+    const dupeCount = countDuplicateListings(jobs, fps);
     if (dupeCount > 1) {
       issues.push({
         type: 'duplicate-descriptions',

@@ -51,6 +51,8 @@ import {
   duplicateBucketSampleOutcome,
   largestDuplicateBucketMembers,
   DUPLICATE_BUCKET_SAMPLE_REASON,
+  countDuplicateListings,
+  vacancyPdfLink,
 } from '../../scripts/audit-parser-quality.mjs';
 import { extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
@@ -2466,6 +2468,124 @@ describe('desc-only fingerprint compares the whole body (issue 5253, run 3652833
     const fps = fingerprintsForCrawler(clinicJobs, 'title-aware');
     expect(fps.every((fp) => fp.split('||').length === 3)).toBe(true);
     expect(fps[0].split('||')[2].length).toBeLessThanOrEqual(500);
+  });
+});
+
+describe('duplicate listings: two declared postal codes are two workplaces (denner, issue 5253)', () => {
+  // denner on run 36528331656: «Verkäufer*in» in Basel 4058 and Basel 4057 —
+  // two shops, one locality key, and a 500-char window that never reaches the
+  // part of the body naming the shop.
+  const body = 'Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden.';
+  const posting = (postalCode: string) => ({ title: 'Verkäufer*in', location: 'Basel', postalCode, description: body });
+  const listings = (codes: string[]) => {
+    const jobs = codes.map(posting);
+    return countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'));
+  };
+
+  it('does not count two branches of one town that declare different postal codes', () => {
+    expect(listings(['4058', '4057'])).toBe(0);
+  });
+
+  it('still counts the same posting published twice at the same postal code', () => {
+    expect(listings(['4058', '4058'])).toBe(2);
+  });
+
+  it('still counts a re-posting that carries no postal code', () => {
+    expect(listings(['4058', ''])).toBe(2);
+    expect(listings(['4058', '4057', ''])).toBe(3);
+  });
+});
+
+describe('source detail that presents the vacancy as a PDF (gemeinde-st-moritz, csvm-mustair)', () => {
+  const pageUrl = 'https://www.gemeinde.example/offene-stellen/detail/gemeindeschreiber-100';
+  const teaserPage = [
+    '<html><body><main><p>Schalter-Öffnungszeiten OFFENE STELLEN 17. August 2026</p>',
+    '<p>Für die Gemeinde suchen wir einen Gemeindeschreiber 100% (m/w).</p>',
+    '<a href="/fileadmin/dokumente/abstimmungsresultate/Wahl_2026.pdf">Download PDF</a>',
+    '<a href="/fileadmin/dokumente/stellenausschreibungen/Gemeindeschreiber_2026.pdf">Stelleninserat herunterladen</a>',
+    '</main></body></html>',
+  ].join('');
+  const fullAd = [
+    'Verantwortung übernehmen, Wirkung entfalten – für eine moderne und dienstleistungsorientierte Gemeinde. Für die Gemeinde suchen wir einen Gemeindeschreiber 100% (m/w).',
+    'Ihre Aufgaben: Leitung der Gemeindekanzlei und Führung der Mitarbeitenden, Protokollführung im Gemeindevorstand und im Gemeinderat, Vorbereitung der Geschäfte und Umsetzung der Beschlüsse, Beratung der Behörden in rechtlichen und organisatorischen Fragen.',
+    'Ihr Profil: abgeschlossene Ausbildung als Gemeindeschreiber oder gleichwertige Weiterbildung in der öffentlichen Verwaltung, mehrjährige Führungserfahrung, stilsicheres Deutsch sowie gute Italienischkenntnisse.',
+    'Wir bieten: eine vielseitige Kaderfunktion, fortschrittliche Anstellungsbedingungen und ein motiviertes Team.',
+  ].join(' ');
+  const pdfSha = 'c'.repeat(64);
+  const check = (published: string, fetchVacancyPdf: (url: string) => Promise<Record<string, unknown>>, body = teaserPage) => checkSourceDetailsBatch([{
+    crawlerKey: 'pdf-fixture',
+    url: pageUrl,
+    job: { url: pageUrl, location: 'St. Moritz', sourceLang: 'de', description: published },
+  }], 1, {
+    fetchPage: async () => ({ ok: true, status: 200, url: pageUrl, body, host: 'www.gemeinde.example' }),
+    fetchVacancyPdf,
+  });
+
+  it('finds the PDF the page names as its job ad, not the other PDFs on it', () => {
+    expect(vacancyPdfLink(teaserPage, pageUrl)).toEqual({
+      url: 'https://www.gemeinde.example/fileadmin/dokumente/stellenausschreibungen/Gemeindeschreiber_2026.pdf',
+      embedded: false,
+    });
+    expect(vacancyPdfLink('<iframe src="/images/easyblog_articles/319/Pflegehelferin.pdf"></iframe>', pageUrl)).toEqual({
+      url: 'https://www.gemeinde.example/images/easyblog_articles/319/Pflegehelferin.pdf',
+      embedded: true,
+    });
+    expect(vacancyPdfLink('<a href="/datenschutz.pdf">Datenschutzerklärung</a>', pageUrl)).toBeNull();
+  });
+
+  it('compares a published PDF ad with the PDF instead of the HTML teaser', async () => {
+    const fetched: string[] = [];
+    const [result] = await check(fullAd, async (url) => { fetched.push(url); return { text: fullAd, bodySha256: pdfSha }; });
+    expect(fetched).toEqual(['https://www.gemeinde.example/fileadmin/dokumente/stellenausschreibungen/Gemeindeschreiber_2026.pdf']);
+    expect(result).toMatchObject({ descriptionMismatch: false, vacancyPdf: { outcome: 'read', embedded: false } });
+    expect(result.sourceDescriptionLength).toBe(fullAd.length);
+  });
+
+  it('still flags a parser that publishes only the teaser of a PDF ad', async () => {
+    const [result] = await check(
+      'Für die Gemeinde suchen wir einen Gemeindeschreiber 100% (m/w). Ab sofort oder nach Vereinbarung, Bewerbung per E-Mail an die Gemeindekanzlei.',
+      async () => ({ text: fullAd, bodySha256: pdfSha }),
+    );
+    expect(result.descriptionMismatch).toBe(true);
+  });
+
+  it('keeps the HTML reading when a linked PDF cannot be read, and drops it for an embedded one', async () => {
+    const [linked] = await check(fullAd, async () => ({ text: '', error: 'robots.txt disallows it' }));
+    expect(linked.vacancyPdf).toMatchObject({ outcome: 'unreadable', embedded: false, reason: 'robots.txt disallows it' });
+    expect(linked.sourceDescriptionLength).toBeGreaterThan(0);
+
+    // The frame around the embedded PDF is long enough to be compared: read as
+    // the vacancy, it would call the published ad unrelated.
+    const frame = 'Neues aus dem CSVM Drucken Donnerstag, 21. Mai 2026 Aktuelles Jobs 2633 Aufrufe Dein Browser unterstützt kein PDF PDF Datei herunterladen Gib deinen Text hier ein Markiert in: job arbeit Agüdanta da chüra Sanitar da salvamaint sün la Val Müstair. ';
+    const framePage = `<html><body><main><p>${frame.repeat(2)}</p><iframe src="/images/easyblog_articles/319/Pflegehelferin.pdf"></iframe></main></body></html>`;
+    const [withoutRule] = await check(fullAd, null as never, framePage);
+    expect(withoutRule.sourceDescriptionLength).toBeGreaterThanOrEqual(200);
+    expect(withoutRule.descriptionMismatch).toBe(true);
+    const [embedded] = await check(fullAd, async () => ({ text: '', error: 'robots.txt disallows it' }), framePage);
+    expect(embedded.vacancyPdf).toMatchObject({ outcome: 'unreadable', embedded: true });
+    expect(embedded.sourceDescriptionLength).toBe(0);
+    expect(embedded.descriptionMismatch).toBe(false);
+    const summary = applySourceDetailResults({ 'pdf-fixture': { total: 1, issues: [] } }, [linked, embedded], 2);
+    expect(summary.vacancyPdfPages).toEqual({ read: 0, unreadable: 2, shorterThanPage: 0 });
+  });
+
+  it('binds the PDF it read into the replayable evidence', async () => {
+    const provenance = { repoHeadSha: 'a'.repeat(40), datasetLastCommit: { sha: 'b'.repeat(40), committedAt: '2026-09-29T05:50:47Z' } };
+    const versions = getSourceDetailImplementationVersions();
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'pdf-fixture',
+      url: pageUrl,
+      job: { url: pageUrl, location: 'St. Moritz', sourceLang: 'de', description: fullAd },
+    }], 1, {
+      fetchPage: async () => ({ ok: true, status: 200, url: pageUrl, body: teaserPage, host: 'www.gemeinde.example' }),
+      fetchVacancyPdf: async () => ({ text: fullAd, bodySha256: pdfSha }),
+      evidenceContext: { provenance, versions },
+    });
+    expect(result.sourceDetailEvidence.linkedDocument).toEqual({
+      urlSha256: expect.stringMatching(/^[a-f0-9]{64}$/),
+      bodySha256: pdfSha,
+    });
+    expect(replaySourceDetailEvidence(result.sourceDetailEvidence, { provenance, versions })).toMatchObject({ descriptionMismatch: false });
   });
 });
 
