@@ -44,6 +44,17 @@ const DETAIL_HTML = `<html><body>
     },
   })}</script>
 </body></html>`;
+const SEMANTIC_HTML_DETAIL = `<html><body>
+  <div class="js-job-page job-page design-system" itemscope itemtype="https://schema.org/JobPosting">
+    <h1>Agente di sicurezza ausiliario - Luganese - contratto orario - Ronde &amp; Sorveglianza</h1>
+    <div class="job-description" itemprop="description">
+      <p>${DETAIL_DESCRIPTION}</p>
+      <ul><li>Essere in possesso della patente B ed essere automunito.</li></ul>
+    </div>
+    <div class="value" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">Lugano</div>
+    <div class="value" itemprop="employmentType">Part-time</div>
+  </div>
+</body></html>`;
 const LISTING_HTML = `<a href="${DETAIL_URL}">Agente di sicurezza ausiliario</a>
   <a href="https://jobup.ch/offerte/123">Unrelated aggregate result</a>`;
 const ESCAPED_WIDGET_HTML = `<script type="application/json">{"url":"\\/en-ch\\/careers\\/job-offers\\/744000147063419\\/"}</script>`;
@@ -121,6 +132,22 @@ describe('Protectas SA crawler parser', () => {
       expect(location).toMatchObject({ locality: 'Lugano', postalCode: '6900', country: 'CH' });
       const parsed = parseProtectasJobDetail(DETAIL_HTML, DETAIL_URL);
       expect(parsed).toMatchObject({ canton: 'TI', addressLocality: 'Lugano', sourceLang: 'it' });
+    });
+
+    it('falls back to semantic itemprop HTML when the detail has no JSON-LD', () => {
+      expect(parseProtectasJobPostingJsonLd(SEMANTIC_HTML_DETAIL)).toBeNull();
+
+      const parsed = parseProtectasJobDetail(SEMANTIC_HTML_DETAIL, DETAIL_URL);
+
+      expect(parsed).toMatchObject({
+        title: expect.stringContaining('Agente di sicurezza'),
+        description: expect.stringContaining('sorveglianza fisica'),
+        location: 'Lugano',
+        canton: 'TI',
+        employmentType: 'PART_TIME',
+        publicUrl: DETAIL_URL,
+      });
+      expect(parsed?.requirements).toContain('Essere in possesso della patente B ed essere automunito.');
     });
 
     it('rejects cyber or descriptive security mentions', () => {
