@@ -1,6 +1,6 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-09-29T09:16:36.195Z",
+  "assembledAt": "2026-09-29T21:20:44.680Z",
   "jobs": [
     {
       "id": "patek-philippe-8be17aee3404",
@@ -33,7 +33,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Technicien-Contr%C3%B4le-3D-%28HF%29/1367011355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:30.878Z",
+      "crawledAt": "2026-09-29T21:20:40.318Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-controle-3d-h-f-patek-philippe-saint-imier"
+        "technicien-controle-3d-h-f-patek-philippe-saint-imier",
+        "tecnologia-di-controllo-3d-m-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-controle-3d-h-f-patek-philippe-saint-imier"
+          "technicien-controle-3d-h-f-patek-philippe-saint-imier",
+          "tecnologia-di-controllo-3d-m-f-patek-philippe-saint-imier"
         ],
         "en": [
           "technicien-controle-3d-h-f-patek-philippe-saint-imier"
@@ -65,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:11:25.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -84,8 +87,8 @@
       "slug": "abbozzo-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "it": "abbozzo-h-f-patek-philippe-plan-les-ouates",
-        "en": "drafter-h-f-patek-philippe-plan-les-ouates",
-        "de": "zeichner-h-f-patek-philippe-plan-les-ouates",
+        "en": "drawer-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "schublade-m-w-d-patek-philippe-plan-les-ouates",
         "fr": "dessinateur-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -110,7 +113,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:30.401Z",
+      "crawledAt": "2026-09-29T21:20:39.833Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -132,19 +135,25 @@
       "previousSlugs": [
         "dessinateur-h-f-patek-philippe-plan-les-ouates",
         "dessinateur-m-w-d-patek-philippe-plan-les-ouates",
+        "drafter-h-f-patek-philippe-plan-les-ouates",
+        "zeichner-h-f-patek-philippe-plan-les-ouates",
+        "abbozzo-h-f-patek-philippe-plan-les-ouates",
         "drawer-m-w-d-patek-philippe-plan-les-ouates",
         "schublade-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-h-f-patek-philippe-plan-les-ouates"
+          "dessinateur-h-f-patek-philippe-plan-les-ouates",
+          "abbozzo-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "dessinateur-m-w-d-patek-philippe-plan-les-ouates",
+          "drafter-h-f-patek-philippe-plan-les-ouates",
           "drawer-m-w-d-patek-philippe-plan-les-ouates"
         ],
         "de": [
           "dessinateur-m-w-d-patek-philippe-plan-les-ouates",
+          "zeichner-h-f-patek-philippe-plan-les-ouates",
           "schublade-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
@@ -194,7 +203,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Contr%C3%B4le-Qualit%C3%A9-%28HF%29/1367187155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:29.907Z",
+      "crawledAt": "2026-09-29T21:20:39.330Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -214,6 +223,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-03T13:35:00.365Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -259,7 +269,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-de-Sp%C3%A9cialit%C3%A9-Organe-R%C3%A9glant-%28HF%29/1363272155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:29.438Z",
+      "crawledAt": "2026-09-29T21:20:38.688Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -280,12 +290,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
-        "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
+        "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
+        "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
-          "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
+          "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
+          "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates"
@@ -315,7 +327,7 @@
       "slugByLocale": {
         "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
         "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
-        "de": "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
+        "de": "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates",
         "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -340,7 +352,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:28.978Z",
+      "crawledAt": "2026-09-29T21:20:38.197Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -362,17 +374,21 @@
       "previousSlugs": [
         "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
         "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
+        "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
+        "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
         "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
+          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
+          "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates"
         ],
         "de": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
+          "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
           "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
@@ -422,7 +438,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:28.486Z",
+      "crawledAt": "2026-09-29T21:20:37.706Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -442,11 +458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
+        "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
+          "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
@@ -501,7 +519,7 @@
       "url": "https://careers.patek.com/job/Alle-Horloger-Rhabilleur-%28HF%29/1367491655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:27.902Z",
+      "crawledAt": "2026-09-29T21:20:37.213Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Alle",
       "addressRegion": "JU",
@@ -519,11 +537,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "horloger-rhabilleur-h-f-patek-philippe-alle"
+        "horloger-rhabilleur-h-f-patek-philippe-alle",
+        "abbigliamento-dresser-m-f-patek-philippe-alle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "horloger-rhabilleur-h-f-patek-philippe-alle"
+          "horloger-rhabilleur-h-f-patek-philippe-alle",
+          "abbigliamento-dresser-m-f-patek-philippe-alle"
         ],
         "en": [
           "horloger-rhabilleur-h-f-patek-philippe-alle"
@@ -578,7 +598,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Am%C3%A9lioration-Qualit%C3%A9-Produit-%28HF%29/1367761655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:27.428Z",
+      "crawledAt": "2026-09-29T21:20:36.717Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -600,13 +620,15 @@
       "previousSlugs": [
         "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
         "hr-operations-manager-h-f-patek-philippe-plan-les-ouates",
-        "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates"
+        "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
+        "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
           "hr-operations-manager-h-f-patek-philippe-plan-les-ouates",
-          "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates"
+          "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
+          "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates"
@@ -619,6 +641,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:06:51.259Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -664,7 +687,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:26.971Z",
+      "crawledAt": "2026-09-29T21:20:36.089Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -682,11 +705,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
+        "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
+        "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
+          "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
+          "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds"
         ],
         "en": [
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
@@ -725,7 +750,7 @@
       "title": "Chargé de Process Performance Industrielle (H/F)",
       "titleByLocale": {
         "it": "Gestione delle prestazioni di processo industriale (M/F)",
-        "en": "Industrial Process Performance Manager (M/F)",
+        "en": "Chargé de Process Performance Industrielle (H/F)",
         "de": "Industrial Process Performance Manager (M/W)",
         "fr": "Chargé de Process Performance Industrielle (H/F)"
       },
@@ -741,7 +766,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:26.487Z",
+      "crawledAt": "2026-09-29T21:20:35.593Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -761,11 +786,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
+        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates",
+        "gestione-delle-prestazioni-di-processo-industriale-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
+          "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates",
+          "gestione-delle-prestazioni-di-processo-industriale-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
@@ -775,6 +802,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:20.874Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -820,7 +848,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-UAP-%28Unit%C3%A9-Autonome-de-Production%29-en-Haute-Horlogerie-%28HF%29/1368823355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:26.023Z",
+      "crawledAt": "2026-09-29T21:20:35.106Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -840,11 +868,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
+        "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek",
+        "capo-di-uap-unit-autonome-de-production-in-alta-orologeria-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
+          "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek",
+          "capo-di-uap-unit-autonome-de-production-in-alta-orologeria-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
@@ -899,7 +929,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1368883255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:25.558Z",
+      "crawledAt": "2026-09-29T21:20:34.465Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -918,15 +948,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-en-traitement-de-surface-patek-philippe-saint-imier",
-        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
+        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "assistente-per-la-lavorazione-delle-superfici-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-en-traitement-de-surface-patek-philippe-saint-imier",
-          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier"
+          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+          "assistente-per-la-lavorazione-delle-superfici-patek-philippe-saint-imier"
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:19.860Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -972,7 +1005,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:16:25.077Z",
+      "crawledAt": "2026-09-29T21:20:33.837Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -990,11 +1023,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+        "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
+        "applichi-di-posizionamento-dell-operatore-m-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+          "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
+          "applichi-di-posizionamento-dell-operatore-m-f-patek-philippe-saint-imier"
         ],
         "en": [
           "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
@@ -1019,70 +1054,58 @@
       }
     },
     {
-      "id": "patek-philippe-15f6ed9a1583",
-      "slug": "incastonatore-baguette-m-f-patek-philippe-la-chaux-de-fonds",
+      "id": "patek-philippe-130a850567bf",
+      "slug": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "incastonatore-baguette-m-f-patek-philippe-la-chaux-de-fonds",
-        "en": "baguette-stone-setter-m-f-patek-philippe-la-chaux-de-fonds",
-        "de": "baguette-fasser-m-w-patek-philippe-la-chaux-de-fonds",
-        "fr": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+        "fr": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates",
+        "it": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates",
+        "en": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates",
+        "de": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
-      "title": "Sertisseur baguette (H/F)",
+      "title": "Chargé de Sûreté et Sécurité (H/F)",
       "titleByLocale": {
-        "it": "Incastonatore baguette (M/F)",
-        "en": "Baguette Stone Setter (M/F)",
-        "de": "Baguette-Fasser (M/W)",
-        "fr": "Sertisseur baguette (H/F)"
+        "fr": "Chargé de Sûreté et Sécurité (H/F)",
+        "de": "Chargé de Sûreté et Sécurité (H/F)",
+        "it": "Chargé de Sûreté et Sécurité (H/F)",
+        "en": "Chargé de Sûreté et Sécurité (H/F)"
       },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Habillement, pour notre site SHG de la Chaux de Fonds, vous serez en charge de réaliser les travaux de sertissage baguette et invisible selon les critères de qualité Patek Philippe.\n\nResponsabilités\n\n• Effectuer principalement du sertissage baguette et « invisible » de différents types de pierres et sur tout type de matière (or, platine, acier).\n\n• Maîtriser les différentes techniques de sertissage : traditionnel, neige, clos, mécanique.\n\n• Assurer des travaux de réparation.\n\n• Garantir la qualité, précision et finition des pièces réalisées.\n\nProfil recherché\n\n• CFC ou BMA de Bijoutier orientation sertissage ou formation jugée équivalente\n\n• 3 ans d’expérience minimum sur du sertissage traditionnel\n\n• 1 an d’expérience minimum sur du sertissage baguette et invisible\n\n• Maîtrise des techniques de sertissage baguette, invisible et neige\n\n• Connaissance des techniques de griffes et descendu représentent un plus\n\n• Excellente acuité visuelle et très bonne habileté manuelle\n\n• Vous travaillez de façon minutieuse, précise, rigoureuse et autonome\n\n• Vous êtes patient, calme et vous avez une excellente capacité de concentration\n\n• Forte orientation qualité\n\n• Esprit d’équipe\n\nRéférence du poste\n\n3688",
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Administration et Finances, vous réaliserez les activités conceptuelles et opérationnelles en matière de sûreté et de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine. Vous participerez à l’intégration de la sûreté au sein de l’entreprise et de ses filiales.\n\nResponsabilités\n\n• Participer à l’intégration de la culture sûreté au sein de Patek Philippe et la transmettre.\n\n• Collaborer à la cartographie des risques en collaboration avec l’équipe et nos partenaires externes en effectuant des analyses de risques régulières.\n\n• Conceptualiser, mettre en place et améliorer les processus et procédures opérationnels avec les partenaires sûreté.\n\n• Anticiper et fixer les priorités en matière de sûreté.\n\n• Fixer des directives y relatives, tenir à jour la documentation et veiller à l’application des mesures de sûreté.\n\n• Être en mesure de réaliser des audits sûreté au sein d’une entité ou pour un événement et définir les concepts de sûreté associés.\n\n• S'assurer de former les collaborateurs en matière sûreté.\n\n• Participer aux activités opérationnelles en matière de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine de l’entreprise.\n\n• Collaborer à l’établissement des projets sécurité et protection incendie.\n\n• Faire respecter les procédures feu et contrôler les rapports d’évènements.\n\nProfil recherché\n\n• Expérience préalable de mininum 10 ans dans le domaine opérationnel de la sûreté, idéalement en milieu industriel ou tertiaire.\n\n• Expérience dans un domaine internationnal est un atout majeur.\n\n• Expérience en tant que responsable de la sûreté d’un site est un atout.\n\n• CAS en sûreté et sécurité ou Brevet Fédéral d’agent de sécurité privée, un plus.\n\n• Diplôme AEAI de chargé de sécurité en protection incendie obtenu, ou ouvert à se former afin d’obtenir le diplôme.\n\n• Expérience confirmée de gestion d’équipe et/ou d’un prestataire.\n\n• Bonnes capacités à élaborer et animer une formation en matière de sûreté et sécurité.\n\n• Engagement personnel, disponibilité horaire, rigueur.\n\n• Personnalité orientée terrain, aisance relationnelle, diplomatie, force de proposition.\n\n• Maitrîse de l’anglais, niveau B2 (oral et écrit).\n\n• Maîtrise des outils bureautiques (MS Office).\n\nRéférence du poste\n\n3765",
       "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, allegata alla nostra Divisione Abbigliamento, sarete incaricati di svolgere il lavoro di crimping baguette e invisibile secondo i criteri di qualità Patek Philippe.\n\nresponsabilità\n\n- Condurre principalmente baguette e crimpaggio \"invisibile\" di diversi tipi di pietre e su qualsiasi tipo di materiale (oro, platino, acciaio).\n- Padroneggiare le diverse tecniche di crimping: tradizionale, neve, chiuso, meccanico.\n- Fornire riparazioni.\n- Assicurare la qualità, la precisione e la finitura delle parti completate.\n\nProfilo ricercato\n\n- SWC o BMA di orientamento della gioielleria crimping o formazione considerata equivalente\n- 3 anni di esperienza minima sul crimping tradizionale\n- 1 anno di esperienza minima su baguette e crimping invisibile\n- Padronanza delle tecniche della bacchetta, invisibile e neve\n- La conoscenza delle tecniche di artiglio e la discesa sono un plus\n- Eccellente acutezza visiva e ottima manualità\n- Lei lavora meticolosamente, con precisione, rigorosamente e autonomamente\n- Sei paziente, tranquillo e hai un'ottima capacità di concentrarti\n- orientamento di alta qualità\n- Spirito di squadra\n\nRiferimenti\n\n3688",
-        "en": "Mission\n\nAs part of this function, attached to our Clothing Division, you will be in charge of carrying out the work of crimping baguette and invisible according to the Patek Philippe quality criteria.\n\nResponsibilities\n\n- Perform mainly of the rod and \"invisible\" crimping of different types of stones and on all types of material (gold, platinum, steel). - Master the different techniques of crimping: traditional, snow, enclosed, mechanical. - Ensure repair work. - Guarantee the quality, precision and finish of the parts performed.\n\nProfile sought\n\n- SWC or BMA of Jewellery orientation crimping or training deemed equivalent - 3 years d, minimum experience on traditional crimping - 1 year d, minimum experience on baguette and invisible crimping - Mastering of techniques of crimping baguette, invisible and snow - Knowledge of claws and down techniques represent a plus - Excellent visual acuity and very good manual skill - You work in a careful, precise, rigorous and autonomous way - You are patient, calm and you have excellent ability to concentrate - Strong quality orientation - Spirit\n\nd,team\n\nReference of the post\n\n3688",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, die an unsere Bekleidungsabteilung angeschlossen ist, sind Sie für die Durchführung der Arbeiten zum Verpressen von Baguette und unsichtbar nach den Qualitätskriterien von Patek Philippe verantwortlich.\n\nZuständigkeiten\n\n- Führen Sie hauptsächlich Baguette und \"unsichtbare\" Crimpen von verschiedenen Arten von Steinen und auf jeder Art von Material (Gold, Platin, Stahl).\n- Meistern Sie die verschiedenen Techniken des Crimpens: traditionell, Schnee, geschlossen, mechanisch.\n- Reparaturen durchführen.\n- Sicherstellen der Qualität, Genauigkeit und Endbearbeitung der fertigen Teile.\n\nProfil gesucht\n\n- SWC oder BMA von Schmuck Orientierung Crimpen oder Ausbildung als gleichwertig angesehen\n- 3 Jahre Mindesterfahrung im traditionellen Crimpen\n- 1 Jahr Mindesterfahrung auf Baguette und unsichtbare Crimpen\n- Beherrschung der Techniken des Crimpens Zauberstab, unsichtbar und Schnee\n- Kenntnisse über Krallentechniken und Downhill sind ein Plus\n- Ausgezeichnete Sehschärfe und sehr gutes handwerkliches Können\n- Sie arbeiten akribisch, präzise, streng und autonom\n- Sie sind geduldig, ruhig und Sie haben eine ausgezeichnete Fähigkeit, sich zu konzentrieren\n- Hohe Qualitätsorientierung\n- Teamgeist\n\nPostleitzahl\n\n3688",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Habillement, pour notre site SHG de la Chaux de Fonds, vous serez en charge de réaliser les travaux de sertissage baguette et invisible selon les critères de qualité Patek Philippe.\n\nResponsabilités\n\n• Effectuer principalement du sertissage baguette et « invisible » de différents types de pierres et sur tout type de matière (or, platine, acier).\n\n• Maîtriser les différentes techniques de sertissage : traditionnel, neige, clos, mécanique.\n\n• Assurer des travaux de réparation.\n\n• Garantir la qualité, précision et finition des pièces réalisées.\n\nProfil recherché\n\n• CFC ou BMA de Bijoutier orientation sertissage ou formation jugée équivalente\n\n• 3 ans d’expérience minimum sur du sertissage traditionnel\n\n• 1 an d’expérience minimum sur du sertissage baguette et invisible\n\n• Maîtrise des techniques de sertissage baguette, invisible et neige\n\n• Connaissance des techniques de griffes et descendu représentent un plus\n\n• Excellente acuité visuelle et très bonne habileté manuelle\n\n• Vous travaillez de façon minutieuse, précise, rigoureuse et autonome\n\n• Vous êtes patient, calme et vous avez une excellente capacité de concentration\n\n• Forte orientation qualité\n\n• Esprit d’équipe\n\nRéférence du poste\n\n3688"
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Administration et Finances, vous réaliserez les activités conceptuelles et opérationnelles en matière de sûreté et de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine. Vous participerez à l’intégration de la sûreté au sein de l’entreprise et de ses filiales.\n\nResponsabilités\n\n• Participer à l’intégration de la culture sûreté au sein de Patek Philippe et la transmettre.\n\n• Collaborer à la cartographie des risques en collaboration avec l’équipe et nos partenaires externes en effectuant des analyses de risques régulières.\n\n• Conceptualiser, mettre en place et améliorer les processus et procédures opérationnels avec les partenaires sûreté.\n\n• Anticiper et fixer les priorités en matière de sûreté.\n\n• Fixer des directives y relatives, tenir à jour la documentation et veiller à l’application des mesures de sûreté.\n\n• Être en mesure de réaliser des audits sûreté au sein d’une entité ou pour un événement et définir les concepts de sûreté associés.\n\n• S'assurer de former les collaborateurs en matière sûreté.\n\n• Participer aux activités opérationnelles en matière de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine de l’entreprise.\n\n• Collaborer à l’établissement des projets sécurité et protection incendie.\n\n• Faire respecter les procédures feu et contrôler les rapports d’évènements.\n\nProfil recherché\n\n• Expérience préalable de mininum 10 ans dans le domaine opérationnel de la sûreté, idéalement en milieu industriel ou tertiaire.\n\n• Expérience dans un domaine internationnal est un atout majeur.\n\n• Expérience en tant que responsable de la sûreté d’un site est un atout.\n\n• CAS en sûreté et sécurité ou Brevet Fédéral d’agent de sécurité privée, un plus.\n\n• Diplôme AEAI de chargé de sécurité en protection incendie obtenu, ou ouvert à se former afin d’obtenir le diplôme.\n\n• Expérience confirmée de gestion d’équipe et/ou d’un prestataire.\n\n• Bonnes capacités à élaborer et animer une formation en matière de sûreté et sécurité.\n\n• Engagement personnel, disponibilité horaire, rigueur.\n\n• Personnalité orientée terrain, aisance relationnelle, diplomatie, force de proposition.\n\n• Maitrîse de l’anglais, niveau B2 (oral et écrit).\n\n• Maîtrise des outils bureautiques (MS Office).\n\nRéférence du poste\n\n3765",
+        "it": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Administration et Finances, vous réaliserez les activités conceptuelles et opérationnelles en matière de sûreté et de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine. Vous participerez à l’intégration de la sûreté au sein de l’entreprise et de ses filiales.\n\nResponsabilités\n\n• Participer à l’intégration de la culture sûreté au sein de Patek Philippe et la transmettre.\n\n• Collaborer à la cartographie des risques en collaboration avec l’équipe et nos partenaires externes en effectuant des analyses de risques régulières.\n\n• Conceptualiser, mettre en place et améliorer les processus et procédures opérationnels avec les partenaires sûreté.\n\n• Anticiper et fixer les priorités en matière de sûreté.\n\n• Fixer des directives y relatives, tenir à jour la documentation et veiller à l’application des mesures de sûreté.\n\n• Être en mesure de réaliser des audits sûreté au sein d’une entité ou pour un événement et définir les concepts de sûreté associés.\n\n• S'assurer de former les collaborateurs en matière sûreté.\n\n• Participer aux activités opérationnelles en matière de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine de l’entreprise.\n\n• Collaborer à l’établissement des projets sécurité et protection incendie.\n\n• Faire respecter les procédures feu et contrôler les rapports d’évènements.\n\nProfil recherché\n\n• Expérience préalable de mininum 10 ans dans le domaine opérationnel de la sûreté, idéalement en milieu industriel ou tertiaire.\n\n• Expérience dans un domaine internationnal est un atout majeur.\n\n• Expérience en tant que responsable de la sûreté d’un site est un atout.\n\n• CAS en sûreté et sécurité ou Brevet Fédéral d’agent de sécurité privée, un plus.\n\n• Diplôme AEAI de chargé de sécurité en protection incendie obtenu, ou ouvert à se former afin d’obtenir le diplôme.\n\n• Expérience confirmée de gestion d’équipe et/ou d’un prestataire.\n\n• Bonnes capacités à élaborer et animer une formation en matière de sûreté et sécurité.\n\n• Engagement personnel, disponibilité horaire, rigueur.\n\n• Personnalité orientée terrain, aisance relationnelle, diplomatie, force de proposition.\n\n• Maitrîse de l’anglais, niveau B2 (oral et écrit).\n\n• Maîtrise des outils bureautiques (MS Office).\n\nRéférence du poste\n\n3765",
+        "en": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Administration et Finances, vous réaliserez les activités conceptuelles et opérationnelles en matière de sûreté et de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine. Vous participerez à l’intégration de la sûreté au sein de l’entreprise et de ses filiales.\n\nResponsabilités\n\n• Participer à l’intégration de la culture sûreté au sein de Patek Philippe et la transmettre.\n\n• Collaborer à la cartographie des risques en collaboration avec l’équipe et nos partenaires externes en effectuant des analyses de risques régulières.\n\n• Conceptualiser, mettre en place et améliorer les processus et procédures opérationnels avec les partenaires sûreté.\n\n• Anticiper et fixer les priorités en matière de sûreté.\n\n• Fixer des directives y relatives, tenir à jour la documentation et veiller à l’application des mesures de sûreté.\n\n• Être en mesure de réaliser des audits sûreté au sein d’une entité ou pour un événement et définir les concepts de sûreté associés.\n\n• S'assurer de former les collaborateurs en matière sûreté.\n\n• Participer aux activités opérationnelles en matière de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine de l’entreprise.\n\n• Collaborer à l’établissement des projets sécurité et protection incendie.\n\n• Faire respecter les procédures feu et contrôler les rapports d’évènements.\n\nProfil recherché\n\n• Expérience préalable de mininum 10 ans dans le domaine opérationnel de la sûreté, idéalement en milieu industriel ou tertiaire.\n\n• Expérience dans un domaine internationnal est un atout majeur.\n\n• Expérience en tant que responsable de la sûreté d’un site est un atout.\n\n• CAS en sûreté et sécurité ou Brevet Fédéral d’agent de sécurité privée, un plus.\n\n• Diplôme AEAI de chargé de sécurité en protection incendie obtenu, ou ouvert à se former afin d’obtenir le diplôme.\n\n• Expérience confirmée de gestion d’équipe et/ou d’un prestataire.\n\n• Bonnes capacités à élaborer et animer une formation en matière de sûreté et sécurité.\n\n• Engagement personnel, disponibilité horaire, rigueur.\n\n• Personnalité orientée terrain, aisance relationnelle, diplomatie, force de proposition.\n\n• Maitrîse de l’anglais, niveau B2 (oral et écrit).\n\n• Maîtrise des outils bureautiques (MS Office).\n\nRéférence du poste\n\n3765",
+        "de": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Administration et Finances, vous réaliserez les activités conceptuelles et opérationnelles en matière de sûreté et de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine. Vous participerez à l’intégration de la sûreté au sein de l’entreprise et de ses filiales.\n\nResponsabilités\n\n• Participer à l’intégration de la culture sûreté au sein de Patek Philippe et la transmettre.\n\n• Collaborer à la cartographie des risques en collaboration avec l’équipe et nos partenaires externes en effectuant des analyses de risques régulières.\n\n• Conceptualiser, mettre en place et améliorer les processus et procédures opérationnels avec les partenaires sûreté.\n\n• Anticiper et fixer les priorités en matière de sûreté.\n\n• Fixer des directives y relatives, tenir à jour la documentation et veiller à l’application des mesures de sûreté.\n\n• Être en mesure de réaliser des audits sûreté au sein d’une entité ou pour un événement et définir les concepts de sûreté associés.\n\n• S'assurer de former les collaborateurs en matière sûreté.\n\n• Participer aux activités opérationnelles en matière de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine de l’entreprise.\n\n• Collaborer à l’établissement des projets sécurité et protection incendie.\n\n• Faire respecter les procédures feu et contrôler les rapports d’évènements.\n\nProfil recherché\n\n• Expérience préalable de mininum 10 ans dans le domaine opérationnel de la sûreté, idéalement en milieu industriel ou tertiaire.\n\n• Expérience dans un domaine internationnal est un atout majeur.\n\n• Expérience en tant que responsable de la sûreté d’un site est un atout.\n\n• CAS en sûreté et sécurité ou Brevet Fédéral d’agent de sécurité privée, un plus.\n\n• Diplôme AEAI de chargé de sécurité en protection incendie obtenu, ou ouvert à se former afin d’obtenir le diplôme.\n\n• Expérience confirmée de gestion d’équipe et/ou d’un prestataire.\n\n• Bonnes capacités à élaborer et animer une formation en matière de sûreté et sécurité.\n\n• Engagement personnel, disponibilité horaire, rigueur.\n\n• Personnalité orientée terrain, aisance relationnelle, diplomatie, force de proposition.\n\n• Maitrîse de l’anglais, niveau B2 (oral et écrit).\n\n• Maîtrise des outils bureautiques (MS Office).\n\nRéférence du poste\n\n3765"
       },
-      "location": "La Chaux-de-Fonds",
-      "canton": "NE",
-      "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-S%C3%BBret%C3%A9-et-S%C3%A9curit%C3%A9-%28HF%29/1369899255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T04:57:38.902Z",
+      "crawledAt": "2026-09-29T21:20:33.207Z",
       "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "La Chaux-de-Fonds",
-      "addressRegion": "NE",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Artigianato / Orologeria",
+      "category": "Amministrazione",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Luxury / Watchmaking (Manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
-      "jobReqId": "1359382355",
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-S%C3%BBret%C3%A9-et-S%C3%A9curit%C3%A9-%28HF%29/1369899255/",
+      "jobReqId": "1369899255",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
-        "wand-h-f-patek-philippe-la-chaux-de-fonds"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
-          "wand-h-f-patek-philippe-la-chaux-de-fonds"
-        ],
-        "en": [
-          "wand-h-f-patek-philippe-la-chaux-de-fonds"
-        ],
-        "de": [
-          "wand-h-f-patek-philippe-la-chaux-de-fonds"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-07-04T12:12:08.354Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1096,7 +1119,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-29T21:20:33.207Z"
     }
   ]
 }
