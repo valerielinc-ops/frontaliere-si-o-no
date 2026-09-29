@@ -123,6 +123,12 @@ describe('client del broker Codex', () => {
     expect(requests[0]).toMatchObject({ op: 'exec', notifyStart: true });
   });
 
+  it('chiede il profilo function: callLLM non usa mai i tool dell\'agente', async () => {
+    behavior = (client) => client.end(`${JSON.stringify({ ok: true, result: 'PONG' })}\n`);
+    await expect(callCodex()).resolves.toBe('PONG');
+    expect(requests[0]).toMatchObject({ op: 'exec', profile: 'function' });
+  });
+
   it('una richiesta mai partita scade come attesa in coda, senza toccare lo score', async () => {
     const log = warnings();
     // Il broker accetta e tiene la richiesta in coda: nessun \x01, nessuna risposta.

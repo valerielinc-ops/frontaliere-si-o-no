@@ -79,6 +79,11 @@ jobs:
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # L'unica chiamata Codex (suggerimenti UX) arriva dopo PageSpeed, che
+          # da solo dura fino a ~28 min: col TTL di 30 min il broker era gia'
+          # scaduto (run 36437510390, broker pronto alle 14:44:12, ENOENT alle
+          # 15:15:55). Un'ora copre il timeout del job; il cleanup lo chiude.
+          broker_idle_ttl_ms: '3600000'
 
       - name: Run Analytics Report
         env:

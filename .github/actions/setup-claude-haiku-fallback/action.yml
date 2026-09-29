@@ -37,6 +37,17 @@ inputs:
       60000..21600000 fall back to the default.
     required: false
     default: '1800000'
+  broker_max_concurrency:
+    description: >-
+      Codex requests the broker may run at once (1..6). The first request of
+      the job always runs alone, and the broker drops back to one at a time
+      whenever the login could need a refresh, because its refresh token is
+      single-use. At effort max a request is almost all reasoning time, so
+      parallel lanes cut the wall time of a job with several Codex calls
+      without changing the quota each call uses. Values outside 1..6 fall
+      back to the default.
+    required: false
+    default: '3'
 outputs:
   codex_auth_broker_socket:
     description: >-
@@ -482,6 +493,7 @@ runs:
       env:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
         BROKER_IDLE_TTL_MS: ${{ inputs.broker_idle_ttl_ms }}
+        BROKER_MAX_CONCURRENCY: ${{ inputs.broker_max_concurrency }}
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
@@ -580,11 +592,18 @@ runs:
         if [ "${#broker_ttl_ms}" -gt 8 ] || [ "$broker_ttl_ms" -lt 60000 ] || [ "$broker_ttl_ms" -gt 21600000 ]; then
           broker_ttl_ms=1800000
         fi
+        # One digit, 1..6; anything else keeps the default of 3 lanes.
+        broker_max_concurrency="$BROKER_MAX_CONCURRENCY"
+        case "$broker_max_concurrency" in
+          [1-6]) ;;
+          *) broker_max_concurrency=3 ;;
+        esac
         # The broker receives the credential only through the FIFO. Start it
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
         nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
           --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
+          --max-concurrency "$broker_max_concurrency" \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &
