@@ -1543,10 +1543,10 @@ ${rawText}`;
 //  • Only runs if additional structured data is available
 //  • Returns original description on any failure
 //  • Rate-limited to ENRICH_THIN_MAX_PER_RUN per crawler run
-//  • Accepts an answer — fresh or cached — only without a reasoning preamble
-//    and with every sentence/bullet anchored in the data it was given
-//    (assessComposedFromInputs in ai-output-fidelity.mjs): the prompt forbids
-//    inventing information, and nothing else enforced it.
+//  • Accepts an answer — fresh or cached — only without a reasoning preamble,
+//    without a repetition loop, and with every sentence/bullet anchored in the
+//    data it was given (assessComposedFromInputs in ai-output-fidelity.mjs):
+//    the prompt forbids inventing information, and nothing else enforced it.
 
 /** @type {number} */
 let enrichThinCalls = 0;
@@ -1584,6 +1584,7 @@ async function aiEnrichThinDescription(job, sourceLangHint) {
   ].map((x) => String(x || ''));
   const assessComposed = (answer) => assessComposedFromInputs(composeInputs, answer, {
     allowedWords: _SECTION_HEADING_VOCABULARY,
+    references: [desc],
   });
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {

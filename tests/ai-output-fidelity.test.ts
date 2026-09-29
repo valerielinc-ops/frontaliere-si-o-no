@@ -278,3 +278,43 @@ describe('detectDegenerateRepetition — translator loops (pkb-private-bank «Ri
     expect(isIncomplete({ ...job, descriptionByLocale: { ...job.descriptionByLocale, en: pkbEn.text } })).toBe(true);
   });
 });
+
+describe('review #10339 — numbered openers, and loops the token invariants miss', () => {
+  const input = 'Wir suchen eine Pflegefachperson HF mit Freude an der Arbeit im Team. Sie betreuen Patientinnen und Patienten auf der Station, arbeiten eng mit der Ärzteschaft zusammen und übernehmen Verantwortung für die Pflegeplanung, die Dokumentation und die Anleitung von Lernenden in einem modernen Spital.';
+
+  it('rejects a numbered/chatty opener in front of a verbatim body («1. Let\'s think:»)', () => {
+    expect(input.split(/\s+/).length).toBeGreaterThanOrEqual(40);
+    const verdict = assess(input, `1. Let's think:\n${input}`);
+    expect(verdict.ok).toBe(false);
+    expect(verdict.reason).toMatch(/^reasoning-leak/);
+    for (const opener of ["1) Let me analyze the text.", '2. Lass uns überlegen, wie', 'Ragioniamo:', '- Let us break it down:']) {
+      expect(detectAiReasoningLeak(`${opener}\n${input}`), opener).not.toBeNull();
+    }
+    // Real openers that share the words stay clean.
+    for (const opener of ['1. Deine Aufgaben', 'Pensiamo in grande: entra nel nostro team.', 'Let us welcome you to our team in Lugano.']) {
+      expect(detectAiReasoningLeak(`${opener}\n${input}`), opener).toBeNull();
+    }
+  });
+
+  it('rejects a formatter answer that is verbatim except for a short loop', () => {
+    // A real faithful answer (ETA) plus five repeats of one word: the token
+    // invariants alone would pass it.
+    const eta = pairs.accepted.find((p: { crawler: string }) => p.crawler === 'eta-sa-swatch-group');
+    const verdict = assess(eta.input, `${eta.output}\nLights Lights Lights Lights Lights`);
+    expect(verdict.precision).toBeGreaterThanOrEqual(0.9);
+    expect(verdict.recall).toBeGreaterThanOrEqual(0.9);
+    expect(verdict.reason).toBe('degenerate-repetition:loop');
+  });
+
+  it('rejects a composition made of one anchored sentence repeated five times', () => {
+    const sentence = 'Sachgerechte Handhabung und Entsorgung von Sonderabfällen.';
+    const looped = Array.from({ length: 5 }, () => sentence).join(' ');
+    expect(looped.length).toBeGreaterThanOrEqual(200);
+    const verdict = assessComposedFromInputs(
+      ['Fachkraft für Entsorgung & Recycling (w/m/d)', 'Galaxus', 'Neuenburg am Rhein', 'Für unser Entsorgungs-Team suchen wir Verstärkung.', sentence],
+      looped,
+      { allowedWords: HEADINGS, references: ['Für unser Entsorgungs-Team suchen wir Verstärkung.'] },
+    );
+    expect(verdict.reason).toBe('degenerate-repetition:loop');
+  });
+});

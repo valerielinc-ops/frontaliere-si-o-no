@@ -97,6 +97,13 @@ const LEADING_REASONING_PATTERNS = [
   // «I notice the text provided is in German and Italian …»
   /^(?:i notice|i noticed|i see that|i can see that|noto che|ho notato|ich bemerke|mir fällt auf|je remarque|je constate)\b/i,
   /^(?:okay|ok|alright|sure|certainly|certo|va bene|gerne|alles klar|bien sûr|d['’]accord)[,.!:]?\s+(?:let me|let['’]s|here|i(?:['’]ll| will| need)|the user|so\b|ecco|hier|voici)/i,
+  // «Let's think:», «Let me analyze the text», «Ragioniamo:», «Lass uns
+  // überlegen», «Réfléchissons» — also behind a list number (leadingWindow
+  // strips «1.»/«1)»), which is how a step-by-step answer opens.
+  /^(?:let(?:['’]s| me| us)|lass(?:t)? uns|lasciami)\s+(?:think|analy[sz]e|break (?:it|this) down|reason|consider|start by|go through|look at (?:the|this)|überlegen|nachdenken|analysieren|ragionare|analizzare|pensare)\b/i,
+  // Only verbs of deliberation: «Pensiamo in grande» or «Denken wir weiter»
+  // can open a real ad.
+  /^(?:ragioniamo|analizziamo|überlegen wir|analysieren wir|réfléchissons|analysons|raisonnons)\b/i,
 ];
 
 const LEADING_ANYWHERE_IN_WINDOW_PATTERNS = [
@@ -106,8 +113,10 @@ const LEADING_ANYWHERE_IN_WINDOW_PATTERNS = [
 ];
 
 function leadingWindow(text) {
+  // Markdown markers and list numbering («1. Let's think:», «1) …») are not
+  // content: the opener is judged after them.
   return String(text || '')
-    .replace(/^[\s#>*_`\-•]+/u, '')
+    .replace(/^(?:[\s#>*_`\-•]+|\(?\d{1,2}[.)]\s*)+/u, '')
     .slice(0, LEADING_WINDOW_CHARS);
 }
 
@@ -215,7 +224,11 @@ export function assessVerbatimRestructure(input, output, opts = {}) {
   const precision = body.length ? matchedBody / body.length : 0;
   const recall = inTotal ? (matchedBody + matchedHeading) / inTotal : 0;
   let reason = null;
+  // A few repeats of one word barely move precision in a long answer
+  // («… Lights Lights Lights Lights Lights …»), so the loop is judged on its own.
+  const degenerate = leak ? null : detectDegenerateRepetition(output, { references: [input] });
   if (leak) reason = `reasoning-leak:${leak.marker}`;
+  else if (degenerate) reason = `degenerate-repetition:${degenerate.kind}`;
   else if (!body.length) reason = 'empty-output';
   else if (precision < minPrecision) reason = `added-content:precision=${precision.toFixed(3)}`;
   else if (recall < minRecall) reason = `dropped-content:recall=${recall.toFixed(3)}`;
@@ -282,7 +295,8 @@ function composedUnits(output) {
  * stimolante" for an ad that lists no benefit).
  * @param {string[]} inputs        every text the prompt carried (title, company, description, bullets…)
  * @param {string} output
- * @param {{ allowedWords?: string[], minSupport?: number, minWords?: number }} [opts]
+ * @param {{ allowedWords?: string[], minSupport?: number, minWords?: number, references?: string[] }} [opts]
+ *   references: the text(s) the composition expands (the thin description), for the repetition check
  * @returns {{ ok: boolean, reason: string | null, unsupported: string[], leak: object | null }}
  */
 export function assessComposedFromInputs(inputs, output, opts = {}) {
@@ -290,6 +304,10 @@ export function assessComposedFromInputs(inputs, output, opts = {}) {
   const minWords = opts.minWords ?? COMPOSED_UNIT_MIN_WORDS;
   const leak = detectAiReasoningLeak(output);
   if (leak) return { ok: false, reason: `reasoning-leak:${leak.marker}`, unsupported: [], leak };
+  // Anchoring alone accepts one well-anchored sentence repeated in a loop, so
+  // the composition is also judged against the text it expands.
+  const degenerate = detectDegenerateRepetition(output, { references: opts.references || [] });
+  if (degenerate) return { ok: false, reason: `degenerate-repetition:${degenerate.kind}`, unsupported: [], leak: null };
   const known = new Set();
   const addKnown = (text) => {
     for (const t of fidelityTokens(text)) for (const p of inflectionPrefixes(t)) known.add(p);

@@ -52,7 +52,7 @@ vi.mock('../../scripts/lib/free-translate.mjs', async (importOriginal) => {
 });
 
 const { __testables } = await import('../../scripts/lib/shared-jobs-crawler.mjs');
-const { detectAiReasoningLeak } = await import('../../scripts/lib/ai-output-fidelity.mjs');
+const { detectAiReasoningLeak, detectDegenerateRepetition } = await import('../../scripts/lib/ai-output-fidelity.mjs');
 const { aiTranslateJobDescriptionDCC } = await import('../../scripts/lib/dedicated-crawler-common.mjs');
 const {
   structureJobDescription,
@@ -297,6 +297,74 @@ describe('aiTranslateJobDescriptionDCC — leaked translations are neither accep
   it('does not accept a leaked LLM answer', async () => {
     const { cache, ctx } = makeCtx();
     aiModelsMock.callLLM.mockResolvedValueOnce(leakedEn);
+    expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'en', sourceLang: 'it', minChars: 120 }, ctx)).toBe('');
+    expect(cache.get(key)).toBe('__RAW__');
+  });
+});
+
+describe('review #10339 — repetition loops are neither returned nor cached', () => {
+  const enrichJob = {
+    title: 'Fachkraft für Entsorgung & Recycling (w/m/d)',
+    company: 'Galaxus',
+    location: 'Neuenburg am Rhein',
+    sourceLang: 'de',
+    description: 'Für unser Entsorgungs- und Recycling-Team am Standort Neuenburg am Rhein suchen wir Verstärkung. Du packst gerne mit an und arbeitest zuverlässig.',
+    requirements: ['Technisches Verständnis und ein sicherer Umgang mit Maschinen und Arbeitsmitteln'],
+    _migrosResponsibilities: ['Sachgerechte Handhabung und Entsorgung von Sonderabfällen'],
+    _migrosBenefits: [] as string[],
+    _migrosWorkPercentage: '100%',
+  };
+  // Every word is in the data, so anchoring alone accepts it.
+  const looped = Array.from({ length: 5 }, () => 'Sachgerechte Handhabung und Entsorgung von Sonderabfällen.').join(' ');
+  const enrichKey = () => buildAiCacheKey('enrich-thin-v2', [
+    enrichJob.title, enrichJob.company, enrichJob.location, '', enrichJob.description,
+    enrichJob._migrosResponsibilities.join('\n'), enrichJob.requirements.join('\n'), enrichJob._migrosBenefits.join('\n'),
+    enrichJob._migrosWorkPercentage, 'de',
+  ]);
+
+  it('aiEnrichThinDescription: a looping composition, cached or fresh, is not returned and not cached', async () => {
+    expect(looped.length).toBeGreaterThanOrEqual(200);
+    seedAiCacheForTests([{ key: enrichKey(), touchedAt: Date.now(), value: looped }]);
+    aiModelsMock.callLLM.mockResolvedValueOnce(looped);
+    expect(await aiEnrichThinDescription({ ...enrichJob }, 'de')).toBe(enrichJob.description);
+    expect(aiModelsMock.callLLM).toHaveBeenCalledTimes(1);
+    expect(getCachedAiResponse(enrichKey())).toBe(AI_CACHE_RAW_SENTINEL);
+  });
+
+  const source = pairs.rejected.find((p: { crawler: string }) => p.crawler === 'ems-chemie').input as string;
+  const loopingEn = `Laboratory manager for fibre and yarn quality control at EMS-Chemie AG in Domat/Ems, a Risk-${'Lights-'.repeat(5)}Lights company with about 3000 employees worldwide.`;
+  function makeCtx() {
+    const cache = new Map<string, unknown>();
+    return {
+      cache,
+      ctx: {
+        cleanDescription: (x: string) => String(x || '').trim(),
+        stripCodeFenceJson: (x: string) => x,
+        buildAiCacheKey: (prefix: string, parts: string[]) => [prefix, ...parts].join('|'),
+        getCachedAiResponse: (k: string) => (cache.has(k) ? cache.get(k) : null),
+        setCachedAiResponse: (k: string, v: unknown) => { cache.set(k, v); },
+        deleteCachedAiResponse: (k: string) => cache.delete(k),
+        AI_CACHE_RAW_SENTINEL: '__RAW__',
+        callLLM: aiModelsMock.callLLM,
+        getPreferredModel: () => 'mock/model',
+      },
+    };
+  }
+  const key = ['translate-desc-v2', source.trim(), 'en', 'it'].join('|');
+
+  it('aiTranslateJobDescriptionDCC: a looping cache hit is dropped and a looping fresh answer is refused', async () => {
+    expect(loopingEn.length).toBeGreaterThanOrEqual(120);
+    expect(detectDegenerateRepetition(source, { references: [] })).toBeNull();
+    const { cache, ctx } = makeCtx();
+    cache.set(key, loopingEn);
+    aiModelsMock.callLLM.mockResolvedValue(loopingEn);
+    expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'en', sourceLang: 'it', minChars: 120 }, ctx)).toBe('');
+    expect(cache.get(key)).toBe('__RAW__');
+  });
+
+  it('aiTranslateJobDescriptionDCC: a looping fresh answer is refused on a cold cache', async () => {
+    const { cache, ctx } = makeCtx();
+    aiModelsMock.callLLM.mockResolvedValue(loopingEn);
     expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'en', sourceLang: 'it', minChars: 120 }, ctx)).toBe('');
     expect(cache.get(key)).toBe('__RAW__');
   });
