@@ -108,7 +108,7 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
             // compatible with its legacy `month` field via the read fallback.
             documentId: 'hereTransactionBudget',
             budgetEnv: 'HERE_MONTHLY_BUDGET',
-            defaultBudget: 4_000,
+            defaultBudget: HERE_MONTHLY_FREE_TIER_BUDGET,
             safeMaximum: HERE_MONTHLY_FREE_TIER_BUDGET,
           }),
         ],
