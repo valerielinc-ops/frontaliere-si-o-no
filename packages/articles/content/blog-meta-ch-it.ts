@@ -6989,6 +6989,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dibattito-stati-bilaterali-iii.title': 'Consiglio degli Stati: al via il dibattito sui Bilaterali III',
     'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'Il Consiglio degli Stati discute il pacchetto di accordi con l\'Ue. Tra i temi caldi: libera circolazione, ripresa del diritto e clausola di salvaguardia.',
     'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Palazzo federale a Berna sede del Consiglio degli Stati',
+    'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Iniziativa neutralità: come hanno votato i Grigioni',
+    'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Quindici Comuni Grigioni hanno approvato l\'iniziativa sulla neutralità. In controtendenza rispetto al 70,2% di no nazionale, il sì ha raggiunto il 67% a Santa Maria.',
+    'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Bandiera svizzera che sventola con paesaggio montano sullo sfondo',
 };
 
 export default blogMetaChIt;

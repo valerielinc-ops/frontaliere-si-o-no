@@ -6989,6 +6989,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dibattito-stati-bilaterali-iii.title': 'Council of States: debate on Bilaterals III begins',
     'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'The Council of States discusses the package of agreements with the EU. Among the hot topics: free movement, recovery of law and safeguard clause.',
     'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Federal Palace in Bern seat of the Council of States',
+    'blog.article.voto-iniziativa-neutralita-grigioni.title': 'Neutrality initiative: how the Grisons voted',
+    'blog.article.voto-iniziativa-neutralita-grigioni.excerpt': 'Fifteen municipalities in Graubünden approved the neutrality initiative. Contrary to the national 70,2% no vote, the yes vote reached 67% in Santa Maria.',
+    'blog.article.voto-iniziativa-neutralita-grigioni.imageAlt': 'Swiss flag waving with mountain landscape in the background',
 };
 
 export default blogMetaChEn;

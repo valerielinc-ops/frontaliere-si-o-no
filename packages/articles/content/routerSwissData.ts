@@ -2352,6 +2352,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sviluppo-rapido-rete-elettrica': { it: 'sviluppo-rapido-rete-elettrica', en: 'rapid-power-grid-development', de: 'schnellerer-stromnetzausbau', fr: 'developpement-rapide-reseau-electrique' },
  'voto-iniziativa-neutralita': { it: 'voto-iniziativa-neutralita', en: 'neutrality-initiative-vote', de: 'neutralitaetsinitiative-abstimmung', fr: 'vote-initiative-neutralite' },
  'dibattito-stati-bilaterali-iii': { it: 'dibattito-stati-bilaterali-iii', en: 'states-debate-bilaterals-iii', de: 'staenderat-debatte-bilaterale-iii', fr: 'debat-etats-bilaterales-iii' },
+ 'voto-iniziativa-neutralita-grigioni': { it: 'voto-iniziativa-neutralita-grigioni', en: 'neutrality-initiative-vote-grisons', de: 'neutralitaetsinitiative-abstimmung-graubuenden', fr: 'vote-initiative-neutralite-grisons' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
