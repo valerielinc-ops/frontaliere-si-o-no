@@ -56,6 +56,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, decodeHtmlEntities, decodeNumericEntities, normalizeSpace as normalizeSpaceDCC } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ────────────────────────────────────────────── */
 
@@ -344,7 +345,7 @@ export function extractRicolaDetailContent(html) {
 
 /**
  * Fetch one Umantis detail page and return validated prose content, or ''
- * on any failure (caller falls back to listing-derived boilerplate).
+ * on any failure (the caller then leaves the job out of this run).
  */
 async function fetchDetailContent(detailUrl, options = {}) {
   const fetchPage = options._fetchHtml || fetchHtml;
@@ -406,15 +407,18 @@ export async function fetchAllRicolaJobs(options = {}) {
     if (listing.contractTerm) meta.push(`Employment period: ${listing.contractTerm}`);
     const metaLine = meta.length > 0 ? `\n\n${meta.join('. ')}.` : '';
 
-    const descriptionText = detailContent
-      ? `${detailContent}${metaLine}`
-      : [
-          `${title} at ${RICOLA_COMPANY_NAME}, ${city}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
-          `${RICOLA_COMPANY_NAME} is a Swiss herbal-candy manufacturer headquartered in Laufen (BL).`,
-          `Apply via the Ricola careers portal.${metaLine}`,
-        ].join(' ');
+    // Source text only (issue 5253): without a detail body over the 50-word
+    // floor the job is left out of this run (the standard pipeline keeps the
+    // stored record in grace) instead of getting a company paragraph written
+    // here ("… is a Swiss herbal-candy manufacturer … Apply via the Ricola
+    // careers portal.").
+    if (!meetsSourceBodyFloor(detailContent)) {
+      console.warn(`  ⏭️ ${title}: no vacancy text on the detail page — not published this run`);
+      continue;
+    }
+    const descriptionText = `${detailContent}${metaLine}`;
 
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const sourceLang = detectLang(detailContent, 'en');
     const jobSlug = slugify(`${title} ricola ch`);
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentType || title);
