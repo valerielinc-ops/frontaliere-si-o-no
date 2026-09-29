@@ -7280,9 +7280,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // new tab needs a click's activation; without one (a late asynchronous
   // outcome) the browser would block it, so the current tab is used.
   setRewardedApplicationJob(null);
-  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, !hasTransientUserActivation(), {
+  const sameTab = !hasTransientUserActivation();
+  // Watch before window.open: the new tab can hide the page at once.
+  const opened = sameTab ? null : watchNewTabOpened();
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, sameTab, {
    handoff: 'direct_external',
    reason,
+  });
+  // A popup blocked despite the activation falls back to this tab's
+  // hand-off, so the visitor never silently loses the employer.
+  void opened?.then((ok) => {
+   if (ok) return;
+   trackAssistedApplicationEvent('rewarded_application_handoff_unconfirmed', {
+    ...assistedApplicationJobContext(job, assistedApplicationVariant),
+    handoff_mode: 'direct_external',
+    reason,
+   });
+   const destination = buildReferralUrl(job);
+   if (destination) window.location.assign(destination);
   });
  };
 
