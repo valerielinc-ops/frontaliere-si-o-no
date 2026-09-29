@@ -120,7 +120,11 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
+import {
+  createGithubIssue,
+  commentOnGithubIssue,
+  occurrencePredatesClose,
+} from '../lib/github-issue-creator.mjs';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
@@ -220,6 +224,9 @@ const MAX_ISSUES = intFromEnv('UNREPORTED_SCAN_MAX_ISSUES', 20);
 
 /** Cap di sicurezza sul listing delle issue aperte, con warning se raggiunto. */
 const OPEN_ISSUE_LISTING_CAP = 1000;
+
+/** Cap di sicurezza sul listing delle issue chiuse usato per lo storico. */
+const CLOSED_ISSUE_LISTING_CAP = 1000;
 
 /**
  * Dopo quante ore di SILENZIO su una issue già aperta il guasto che continua a
@@ -857,6 +864,47 @@ export function openFailureIssueWorkflows() {
 }
 
 /**
+ * Issue di failure chiuse che possono avere già coperto una run riletta dalla
+ * finestra di lookback.
+ *
+ * Il listing delle aperte basta finché la canonica resta aperta. Un fix può
+ * però chiuderla prima del run verde successivo: la passata seguente rilegge
+ * ancora il rosso storico e, senza questo secondo registro, apre un duplicato
+ * generico. È successo con `user-value-canary`: la issue di dominio #10260 è
+ * stata chiusa dal merge della fix prima della prima esecuzione giornaliera
+ * successiva, poi lo scanner ha creato #10374 sulla stessa run.
+ *
+ * La chiusura non copre indiscriminatamente il futuro: chi chiama confronta
+ * `closedAt` con l'inizio della run, usando la stessa guardia temporale del
+ * creator (`occurrencePredatesClose`).
+ */
+function closedFailureIssueWorkflows() {
+  const raw = gh(
+    ['issue', 'list', '--state', 'closed', '--limit', String(CLOSED_ISSUE_LISTING_CAP),
+      '--json', 'number,title,closedAt,body', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (raw === null) return null;
+  let issues;
+  try {
+    issues = JSON.parse(raw || '[]');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(issues)) return null;
+  // Come per le aperte: un listing troncato non prova l'assenza della
+  // canonica. Meglio rinviare la passata che aprire un duplicato.
+  if (issues.length >= CLOSED_ISSUE_LISTING_CAP) {
+    console.error(
+      `::error::[scan-unreported-failures] cap di ${CLOSED_ISSUE_LISTING_CAP} raggiunto sul listing `
+        + 'delle issue chiuse: lo storico delle canoniche è incompleto e non si aprono duplicati.',
+    );
+    return null;
+  }
+  return latestClosedIssuePerWorkflow(issues);
+}
+
+/**
  * Risolve il workflow associato a una issue già aperta.
  *
  * I fallimenti generici usano un titolo nella famiglia di `TITLE_RE`, mentre i
@@ -903,6 +951,47 @@ export function latestIssuePerWorkflow(issues) {
     }
   }
   return byWorkflow;
+}
+
+/**
+ * Sceglie la chiusura più recente fra le issue che dichiarano lo stesso
+ * workflow. Il confronto è sulla chiusura, non sul numero: un issue più
+ * vecchio può essere chiuso dopo una issue nuova e rappresenta la copertura
+ * temporale più recente.
+ */
+export function latestClosedIssuePerWorkflow(issues) {
+  const byWorkflow = new Map();
+  for (const issue of issues || []) {
+    const workflowName = workflowNameFromIssue(issue);
+    const closedAt = issue?.closedAt ?? null;
+    if (!workflowName || !Number.isFinite(Date.parse(String(closedAt ?? '')))) continue;
+
+    const candidate = { number: issue.number, closedAt };
+    const previous = byWorkflow.get(workflowName);
+    if (!previous) {
+      byWorkflow.set(workflowName, candidate);
+      continue;
+    }
+
+    const candidateTime = Date.parse(String(candidate.closedAt));
+    const previousTime = Date.parse(String(previous.closedAt));
+    if (
+      candidateTime > previousTime
+      || (candidateTime === previousTime && Number(candidate.number) > Number(previous.number))
+    ) {
+      byWorkflow.set(workflowName, candidate);
+    }
+  }
+  return byWorkflow;
+}
+
+/**
+ * True only when the observed failure started before the closed issue. An
+ * unknown timestamp fails open so a new failure is never hidden by an
+ * unverifiable historical record.
+ */
+export function closedIssueCoversRun(closedIssue, occurredAt) {
+  return Boolean(closedIssue && occurrencePredatesClose(occurredAt, closedIssue.closedAt));
 }
 
 /* ── modalità failure ───────────────────────────────────────────────── */
@@ -1080,6 +1169,15 @@ export async function scanFailures() {
   // divergere dai conteggi che stampa.
   const tally = { delivered: 0, active: 0, recovered: 0, historical: 0, deferred: [], undelivered: [] };
   const pending = [...byWorkflow.entries()];
+  let closedIssues = null;
+  let closedIssuesLoaded = false;
+  const loadClosedIssues = () => {
+    if (!closedIssuesLoaded) {
+      closedIssues = closedFailureIssueWorkflows();
+      closedIssuesLoaded = true;
+    }
+    return closedIssues;
+  };
 
   for (let i = 0; i < pending.length; i += 1) {
     const [workflowName, run] = pending[i];
@@ -1210,6 +1308,23 @@ export async function scanFailures() {
       );
     }
 
+    const closedFailureIssues = loadClosedIssues();
+    if (closedFailureIssues === null) {
+      tally.undelivered.push(`${workflowName} (storico delle issue chiuse illeggibile)`);
+      continue;
+    }
+    const closedIssue = closedFailureIssues.get(workflowName);
+    const occurredAt = newestRunStart(runsByWorkflow.get(workflowName));
+    if (closedIssueCoversRun(closedIssue, occurredAt)) {
+      tally.historical += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: la run rossa è iniziata alle ${occurredAt} `
+          + `prima della chiusura di #${closedIssue.number} (${closedIssue.closedAt}) `
+          + '→ storia già coperta, nessun duplicato.',
+      );
+      continue;
+    }
+
     const title = `CI Failure: ${workflowName}`;
     if (DRY_RUN) {
       tally.delivered += 1;
@@ -1238,7 +1353,7 @@ export async function scanFailures() {
       priority: 2,
       labels: ['automation', 'ci-failure'],
       workflow: workflowName,
-      occurredAt: newestRunStart(runsByWorkflow.get(workflowName)),
+      occurredAt,
     });
     if (issue?.predatesClose === true) {
       tally.historical += 1;
