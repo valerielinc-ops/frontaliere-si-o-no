@@ -7013,6 +7013,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stadler-nomina-nuovo-ceo.title': 'Stadler Rail : Philipp Brunner sera le nouveau CEO à partir de 2027',
     'blog.article.stadler-nomina-nuovo-ceo.excerpt': 'Changement à la tête du groupe ferroviaire suisse : Philipp Brunner succède à Markus Bernsteiner à compter du 1° gennaio 2027. Chiffre d\'affaires semestriel à 2 milliards.',
     'blog.article.stadler-nomina-nuovo-ceo.imageAlt': 'Train moderne Stadler dans un paysage suisse',
+    'blog.article.zugo-cybersecurity-de-escalation.title': 'Zoug mise sur la cybersécurité : désescalade et résilience',
+    'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'Le canton de Zoug lance une initiative pour la cybersécurité, misant sur la diplomatie préventive, la médiation et la collaboration entre l\'État et le secteur privé.',
+    'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Centre de compétence pour la cybersécurité à Zoug',
 };
 
 export default blogMetaChFr;
