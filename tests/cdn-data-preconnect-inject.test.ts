@@ -93,6 +93,15 @@ describe('data/image CDN preconnect injection', () => {
     expect(charsetAt).toBeLessThan(hintAt);
   });
 
+  it('keeps an unquoted charset declaration before deploy-time head injections', () => {
+    const unquoted = BASE_HTML.replace('<meta charset="utf-8">', '<meta charset=utf-8>');
+    const { html } = runOffload(unquoted);
+    const charsetAt = html.indexOf('<meta charset=utf-8>');
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(charsetAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(charsetAt).toBeLessThan(hintAt);
+  });
+
   it('skips the hint when the page already preconnects to the same origin (#3530)', () => {
     // When the data CDN origin coincides with the asset CDN origin, the build
     // already ships this exact preconnect (asyncCssPlugin / template heads) —
