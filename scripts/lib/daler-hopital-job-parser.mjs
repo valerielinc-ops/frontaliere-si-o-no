@@ -40,8 +40,6 @@ const parser = createJohdiSuiteParser({
   defaultCity: 'Fribourg',
   defaultPostalCode: '1700',
   sourceLabel: 'Hôpital Daler Dedicated Parser (Johdi Suite)',
-  fallbackBrandBlurb:
-    "L'Hôpital Daler, fondé en 1929 à Fribourg, est un hôpital privé reconnu d'intérêt public, spécialisé en gynécologie, obstétrique, chirurgie ambulatoire et soins de proximité. Au cœur de Fribourg, il accueille chaque année plus de 1'500 naissances et compte plus de 350 collaboratrices et collaborateurs.",
 });
 
 export const fetchAllDalerJobs = parser.fetchAllJobs;

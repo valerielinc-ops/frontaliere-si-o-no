@@ -112,7 +112,6 @@ async function fetchJson(url, { timeoutMs } = {}) {
  * @param {string} config.defaultCity     Fallback city.
  * @param {string} [config.defaultPostalCode]
  * @param {string} [config.sourceLabel]
- * @param {string} [config.fallbackBrandBlurb]
  */
 export function createJohdiSuiteParser(config) {
   const {
@@ -127,7 +126,6 @@ export function createJohdiSuiteParser(config) {
     defaultCity,
     defaultPostalCode = '',
     sourceLabel,
-    fallbackBrandBlurb = '',
   } = config;
 
   if (!companyKey || !companyName || !companyHashKey || !defaultCanton) {
@@ -215,15 +213,11 @@ export function createJohdiSuiteParser(config) {
       const introHtml = String(detail?.introduction || item.introduction || '');
       const descHtml = String(detail?.description || '');
       const richHtml = [introHtml, descHtml].filter(Boolean).join('\n\n');
-      let descriptionRaw = htmlToText(richHtml);
-      const uniqueWords = new Set(
-        descriptionRaw.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-      );
-      if (uniqueWords.size < 30) {
-        descriptionRaw = fallbackBrandBlurb
-          ? `${title} chez ${companyName} à ${detail?.work_place || item.work_place || defaultCity}.\n\n${fallbackBrandBlurb}`
-          : `${title} chez ${companyName} à ${detail?.work_place || item.work_place || defaultCity}.`;
-      }
+      // The posting's own text, whatever its length. Under 30 distinct words
+      // the parser used to replace it with "<titre> chez <entreprise> à
+      // <lieu>." and the tenant's brand paragraph; a posting without text now
+      // gets no description and takes the pipeline's thin-source path.
+      const descriptionRaw = htmlToText(richHtml);
 
       const city = String(detail?.city || item.city || detail?.work_place || item.work_place || defaultCity).trim();
       const cantonInferred = inferSwissTargetCanton(`${city} ${detail?.canton || item.canton || ''}`) || defaultCanton;

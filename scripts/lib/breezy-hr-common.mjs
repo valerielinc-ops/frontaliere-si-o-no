@@ -170,7 +170,6 @@ export function parseBreezyDetail(html) {
  * @param {string} [config.defaultPostalCode]
  * @param {string} [config.defaultSourceLang='fr']
  * @param {string} [config.sourceLabel]
- * @param {string} [config.fallbackBrandBlurb]  Boilerplate description when detail fetch fails.
  */
 export function createBreezyHrParser(config) {
   const {
@@ -183,7 +182,6 @@ export function createBreezyHrParser(config) {
     defaultPostalCode = '',
     defaultSourceLang = 'fr',
     sourceLabel,
-    fallbackBrandBlurb = '',
   } = config;
 
   if (!companyKey || !companyName || !breezyTenant || !defaultCanton) {
@@ -272,16 +270,11 @@ export function createBreezyHrParser(config) {
       const cantonInferred = inferSwissTargetCanton(`${city} ${detail?.region || ''}`) || defaultCanton;
       const postalCode = detail?.postalCode || defaultPostalCode;
 
-      let descriptionRaw = detail?.descriptionText || '';
-      // Boilerplate guard
-      const uniqueWords = new Set(
-        descriptionRaw.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-      );
-      if (uniqueWords.size < 30) {
-        descriptionRaw = fallbackBrandBlurb
-          ? `${title} chez ${companyName} à ${city}.\n\n${fallbackBrandBlurb}`
-          : `${title} chez ${companyName} à ${city}.`;
-      }
+      // The posting's own text, whatever its length. Under 30 distinct words
+      // the parser used to replace it with "<titre> chez <entreprise> à
+      // <lieu>." and the tenant's brand paragraph; a posting without text now
+      // gets no description and takes the pipeline's thin-source path.
+      const descriptionRaw = detail?.descriptionText || '';
 
       const sourceLang = detectLang(descriptionRaw || title, defaultSourceLang);
       const postedDate = detail?.postedDate

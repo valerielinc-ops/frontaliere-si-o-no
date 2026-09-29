@@ -340,15 +340,11 @@ export async function fetchAllSenevitaJobs() {
     if (posting?.responsibilities) descParts.push(`Aufgaben\n${htmlToText(posting.responsibilities)}`);
     if (posting?.qualifications) descParts.push(`Anforderungen\n${htmlToText(posting.qualifications)}`);
     if (posting?.jobBenefits) descParts.push(`Wir bieten\n${htmlToText(posting.jobBenefits)}`);
-    let description = descParts.filter(Boolean).join('\n\n').trim();
-
-    // Boilerplate guard
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
-    if (uniqueWords.size < 30) {
-      description = `${title} bei ${SENEVITA_COMPANY_NAME} in ${city}.\n\n${SENEVITA_COMPANY_NAME} ist einer der grössten Schweizer Anbieter von betreutem Wohnen und Langzeitpflege mit rund 30 Standorten. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
-    }
+    // The posting's own text, whatever its length. Under 30 distinct words the
+    // crawler used to replace it with a paragraph of its own on Senevita; a
+    // posting without text now gets no description and takes the pipeline's
+    // thin-source path.
+    const description = descParts.filter(Boolean).join('\n\n').trim();
 
     const sourceLang = detectLang(description || title, 'de');
     const postedDate = (() => {

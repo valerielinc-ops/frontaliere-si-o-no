@@ -323,8 +323,10 @@ export async function fetchAllSfsGroupJobs() {
       || HQ.postalCode;
     const streetAddress = resolvedHq?.streetAddress
       || (location === HQ.city ? HQ.streetAddress : undefined);
-    const description_ = description
-      || `${title} bei ${legalEntity} (${SFS_GROUP_COMPANY_NAME}) in ${location}.`;
+    // The detail's own text only: without it the job gets no description
+    // (thin-source path) instead of "<Titel> bei <Gesellschaft> (SFS Group) in
+    // <Ort>." written by the crawler.
+    const description_ = description || '';
     const sourceLang = detectLang(description_ || title, 'de');
     const jobSlug = slugify(`${title} sfs group ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);

@@ -358,14 +358,11 @@ export async function fetchAllHuberSuhnerJobs() {
       description = sections.join('\n\n');
       detailHits += 1;
     } else {
-      // Fallback: synthesise a structured description from listing + header
-      // metadata so we never ship thin/boilerplate content when the detail
-      // page extraction misses (network hiccup, unexpected markup change).
-      const bullets = [`• Standort: ${entry.rawLocation || city} (${canton})`];
-      if (workload) bullets.push(`• Pensum: ${workload.min === workload.max ? `${workload.min}%` : `${workload.min}-${workload.max}%`}`);
-      if (contractText) bullets.push(`• Anstellung: ${contractText}`);
-      bullets.push(`• Bewerbung über das Umantis-Karriereportal von ${HUBER_SUHNER_COMPANY_NAME}`);
-      description = `${entry.title} bei ${HUBER_SUHNER_COMPANY_NAME} in ${entry.rawLocation || city}, Schweiz.\n\n${bullets.join('\n')}`;
+      // No detail text: no description. The crawler used to write one of its
+      // own from the listing metadata ("<Titel> bei HUBER+SUHNER in <Ort>,
+      // Schweiz." with Standort/Pensum/Anstellung/Bewerbung bullets); the job
+      // now takes the pipeline's thin-source path.
+      description = '';
     }
 
     const sourceLang = detectLang(description || entry.title, 'de');

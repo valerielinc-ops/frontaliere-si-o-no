@@ -325,13 +325,11 @@ export async function fetchAllSohJobs() {
     const postalCode = detail.postalCode || DEFAULT_POSTAL;
     const sourceLang = detectLang(detail.descriptionText || title, 'de');
 
-    let description = detail.descriptionText || '';
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
-    if (uniqueWords.size < 30) {
-      description = `${title} bei ${SOH_COMPANY_NAME} in ${city}.\n\nDie Solothurner Spitäler AG (soH) ist die Spitalgruppe des Kantons Solothurn mit den Standorten Bürgerspital Solothurn, Kantonsspital Olten, Spital Dornach und weiteren Aussenstandorten. Über 4'500 Mitarbeitende betreuen jährlich rund 35'000 stationäre Patientinnen und Patienten.`;
-    }
+    // The detail's own text, whatever its length. Under 30 distinct words the
+    // crawler used to replace it with a paragraph of its own on the soH; a
+    // detail without text now gives no description and the job takes the
+    // pipeline's thin-source path.
+    const description = detail.descriptionText || '';
 
     const postedDate = detail.postedDate || todayIso;
     const urlHash = createHash('sha1').update(fullUrl).digest('hex').slice(0, 12);
