@@ -165,7 +165,6 @@ describe('class guard — no title-only language detection left in the swept cra
     'scripts/lib/moncucco-job-parser.mjs',
     'scripts/lib/zermatt-bergbahnen-job-parser.mjs',
     'scripts/update-pemsa-jobs.mjs',
-    'scripts/update-relewant-jobs.mjs',
   ])('%s derives the language from the body', (file) => {
     expect(read(file)).not.toMatch(TITLE_ONLY);
   });

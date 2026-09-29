@@ -14,8 +14,6 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { createHash } from 'node:crypto';
-import { detectLang, mergeLocaleTextMap } from './dedicated-crawler-common.mjs';
 
 const API_URL = 'https://relewant.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Careers';
 
@@ -329,111 +327,51 @@ export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
 }
 
 /**
- * Build localized content for a ReleWant job: the source slot only.
- *
- * Issue 5253: the builder used to write an invented paragraph ("ReleWant,
- * società di consulenza IT con sede a X, cerca un profilo Y … Candidati
- * tramite il portale ufficiale.", and its en/de/fr twins) whenever the detail
- * page was not read, and to copy the Italian text into en/de/fr for the
- * enriched jobs. Only the detail text is published now, keyed by its own
- * language; the other locales are left to the translation step. Without a
- * detail body the description is empty: `mergeRelewantJob` keeps the body an
- * earlier run read, or the job is not published.
+ * Build localized content for a ReleWant job.
+ * If the job was enriched with detail page data, uses the full description.
+ * Falls back to a generic template if not enriched.
  */
 export function buildRelewantLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || '').trim() || 'Switzerland';
   const markdown = String(job.description || '').trim();
-  const sourceLang = detectLang(markdown || title, 'it');
-  const slug = slugify(`${title} relewant ${city}`);
 
-  let description = '';
+  let itDesc;
   if (markdown && markdown.length > 100) {
     const introLine = `## ${title}\n\n**ReleWant** — ${city}, Svizzera`;
     const footerLines = [];
     if (job.workExperience) footerLines.push(`**Esperienza richiesta:** ${job.workExperience}`);
     if (job.industry) footerLines.push(`**Settore:** ${job.industry}`);
     footerLines.push(`**Sede:** ${city}, Svizzera`);
-    if (job.jobType) footerLines.push(`**Tipo:** ${job.jobType}`);
-    description = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
+    footerLines.push(`**Tipo:** ${job.jobType || 'A tempo pieno'}`);
+
+    itDesc = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
+  } else {
+    itDesc = `ReleWant, società di consulenza IT con sede a ${city}, cerca un profilo ${title}. ReleWant è specializzata in soluzioni informatiche innovative per il settore bancario e finanziario in Svizzera. Candidati tramite il portale ufficiale.`;
   }
+
+  // For enriched jobs, set the Italian description on all locales
+  // (AI translation will fill the correct locale later)
+  const enDesc = job.enriched
+    ? itDesc
+    : `ReleWant, an IT consulting firm based in ${city}, is looking for a ${title}. ReleWant specialises in innovative IT solutions for the banking and financial sector in Switzerland. Apply through the official portal.`;
+  const deDesc = job.enriched
+    ? itDesc
+    : `ReleWant, ein IT-Beratungsunternehmen mit Sitz in ${city}, sucht ein Profil als ${title}. ReleWant ist auf innovative IT-Lösungen für den Bank- und Finanzsektor in der Schweiz spezialisiert. Bewirb dich über das offizielle Portal.`;
+  const frDesc = job.enriched
+    ? itDesc
+    : `ReleWant, société de conseil IT basée à ${city}, recherche un profil ${title}. ReleWant est spécialisée dans les solutions informatiques innovantes pour le secteur bancaire et financier en Suisse. Postulez via le portail officiel.`;
 
   return {
-    sourceLang,
-    titleByLocale: { [sourceLang]: title },
-    descriptionByLocale: description ? { [sourceLang]: description } : {},
-    // Slugs unchanged: the runner merges them existing-wins.
-    slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
+    titleByLocale: { it: title, en: title, de: title, fr: title },
+    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    slugByLocale: {
+      it: slugify(`${title} relewant ${city}`),
+      en: slugify(`${title} relewant ${city}`),
+      de: slugify(`${title} relewant ${city}`),
+      fr: slugify(`${title} relewant ${city}`),
+    },
   };
-}
-
-// The paragraph the builder used to invent, in its four languages. Only ever
-// recognised to be removed from stored records.
-const RELEWANT_INVENTED_DESCRIPTION_RE = /^ReleWant, (?:società di consulenza IT con sede a|an IT consulting firm based in|ein IT-Beratungsunternehmen mit Sitz in|société de conseil IT basée à)/;
-const RELEWANT_MIN_SOURCE_WORDS = 50;
-
-export function isRelewantInventedDescription(text = '') {
-  return RELEWANT_INVENTED_DESCRIPTION_RE.test(String(text || '').trim());
-}
-
-function relewantSourceBody(job = {}) {
-  const text = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
-  if (!text || isRelewantInventedDescription(text)) return '';
-  return text.split(/\s+/).filter(Boolean).length >= RELEWANT_MIN_SOURCE_WORDS ? text : '';
-}
-
-/** Short content hash of the source text the translations must derive from. */
-export function relewantSourceHash(text = '') {
-  return createHash('sha1').update(String(text || '').trim()).digest('hex').slice(0, 12);
-}
-
-/**
- * Merge a freshly built ReleWant job with its stored record (pure).
- *
- * - No detail body this run: keep the body an earlier run read from the
- *   source; without one the job is not published (returns null).
- * - The other locales are kept only while they derive from the CURRENT
- *   source text, recorded as `translationsSourceHash`. Records without that
- *   hash carry slots of unknown origin: the old builder's invented paragraph
- *   or its verbatim Italian copies, and translations misaligned onto the
- *   wrong posting (3/15 `en` slots in the 2026-09-29 slice, e.g. "BI
- *   Specialist" carrying "## Front End React Developer", plus titles such as
- *   "Sviluppatore Front end React" → en "Business Solutions Specialist"). Those
- *   slots, and any slot after a source change, are dropped once and rebuilt
- *   by the translation step from the real source.
- * - Slugs are never touched here (merged existing-wins).
- *
- * @param {object|null} prev
- * @param {object} job
- * @returns {object|null}
- */
-export function mergeRelewantJob(prev, job) {
-  let fresh = job;
-  if (!relewantSourceBody(fresh)) {
-    const storedBody = prev ? relewantSourceBody(prev) : '';
-    if (!storedBody) return null;
-    const storedLang = detectLang(storedBody, prev.sourceLang || 'it');
-    fresh = { ...fresh, sourceLang: storedLang, description: storedBody, descriptionByLocale: { [storedLang]: storedBody } };
-  }
-  const sourceLang = fresh.sourceLang || prev?.sourceLang || 'it';
-  const sourceHash = relewantSourceHash(fresh.descriptionByLocale?.[sourceLang] || fresh.description);
-  if (!prev) return { ...fresh, translationsSourceHash: sourceHash };
-
-  const merged = {
-    ...prev,
-    ...fresh,
-    sourceLang,
-    titleByLocale: mergeLocaleTextMap(prev.titleByLocale, fresh.titleByLocale || {}, 3, sourceLang),
-    descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, fresh.descriptionByLocale || {}, 30, sourceLang),
-    slugByLocale: mergeLocaleTextMap(prev.slugByLocale, fresh.slugByLocale || {}, 3),
-    translationsSourceHash: sourceHash,
-  };
-  if (prev.translationsSourceHash !== sourceHash) {
-    merged.titleByLocale = { [sourceLang]: merged.titleByLocale[sourceLang] || fresh.title };
-    merged.descriptionByLocale = { [sourceLang]: merged.descriptionByLocale[sourceLang] };
-    merged.needsRetranslation = true;
-  }
-  return merged;
 }
 
 /**
