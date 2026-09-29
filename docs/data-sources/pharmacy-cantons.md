@@ -1,7 +1,7 @@
 # Fonti farmacie per cantone
 
 Mappa delle fonti di ingresso per tutti i 26 cantoni svizzeri, aggiornata il
-29 settembre 2026. Per Ticino, Ginevra, Giura e Basilea Città sono documentati anche i
+29 settembre 2026. Per Ticino, Ginevra, Giura, Basilea Città e Zurigo sono documentati anche i
 connettori e gli snapshot operativi; gli altri cantoni restano fonti di
 orientamento finché non superano lo stesso contratto.
 
@@ -13,7 +13,7 @@ recente o che una farmacia sia di turno in questo momento.
 ## Registro al 29 settembre 2026
 
 `active` è riservato alle fonti che hanno un connettore e uno snapshot completo
-e fresco: Ticino, Ginevra, Giura e Basilea Città. Le altre 22 entry sono `unverified`: l'URL è
+e fresco: Ticino, Ginevra, Giura, Basilea Città e Zurigo. Le altre 21 entry sono `unverified`: l'URL è
 registrato, ma non esiste ancora un release operativo collegato a questa
 applicazione. La colonna `accessMethod` descrive il percorso del connettore;
 non è una prova di fetch riuscito se lo stato non è `active`.
@@ -45,7 +45,7 @@ non è una prova di fetch riuscito se lo stato non è `active`.
 | VD | `vaud` | Vaud | association | html-scrape | unverified | 2026-09-15 | [SVPH — pharmacies de garde](https://garde.svph.ch/) |
 | VS | `valais` | Vallese | association | html-scrape | unverified | 2026-09-15 | [PharmaValais — pharmacie de garde](https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html) |
 | ZG | `zug` | Zugo | official | manual | unverified | 2026-09-15 | [Zugo — comportamento in emergenza](https://zg.ch/de/gesundheit/notfall-und-rettungsdienst/verhalten-im-notfall) |
-| ZH | `zurich` | Zurigo | association | html-scrape | unverified | 2026-09-15 | [Notfall-Apotheken Zürich](https://www.notfall-apotheken-zh.ch/) |
+| ZH | `zurich` | Zurigo | association | html-scrape | active | 2026-09-29 | [AVKZ — Notfalldienst](https://www.avkz.ch/notfalldienst) |
 
 Le fonti associative sono AG, BE, FR, GE, GR, LU, NE, SO, TG, VD, VS e ZH.
 Le pagine istituzionali per AI, AR, BL, GL, JU, NW, OW, SG, SH, SZ, UR e ZG
@@ -57,10 +57,10 @@ calendario di farmacie.
 
 - La mappa geografica è completa: ogni codice e ogni chiave di
   `SWISS_CANTONS` ha una entry e un URL HTTPS di ingresso.
-- La copertura dei turni non è completa: Ticino, Ginevra, Giura e Basilea Città hanno un
-  connettore/dataset operativo verificato; le altre 22 entry restano
+- La copertura dei turni non è completa: Ticino, Ginevra, Giura, Basilea Città e Zurigo hanno un
+  connettore/dataset operativo verificato; le altre 21 entry restano
   `unverified` e source-only nella matrice.
-- L'assenza di `sourceFetchedAt` per le 22 fonti `unverified` non è uno zero
+- L'assenza di `sourceFetchedAt` per le 21 fonti `unverified` non è uno zero
   turni: indica che questa applicazione non ha ancora registrato un fetch
   riuscito da un connettore per quelle fonti.
 - `degraded` è riservato a una fonte raggiungibile ma non sufficientemente
@@ -82,10 +82,11 @@ solo valore non autorizza a pubblicare:
 Un `PharmacyDuty` potrà essere pubblicato soltanto dopo che un connettore
 collegato alla fonte avrà estratto una finestra temporale esplicita e il dato
 avrà superato i validator e i controlli di freschezza del dominio. I connettori
-Giura e Basilea Città (`scripts/import-pharmacy-duties-swiss-cantons.mjs`)
+Giura, Basilea Città e Zurigo (`scripts/import-pharmacy-duties-swiss-cantons.mjs`)
 verificano rispettivamente i PDF di Delémont, Ajoie e Moutier, compreso il
-calendario colorato scansionato, e la dichiarazione cantonale di apertura
-24h/365 giorni della 24 Stunden Apotheke Basel AG, prima di produrre lo
+calendario colorato scansionato, la dichiarazione cantonale di apertura
+24h/365 giorni della 24 Stunden Apotheke Basel AG e la dichiarazione AVKZ
+per la Bellevue Apotheke di Zurigo, prima di produrre lo
 snapshot atomico consumato da `buildDutyCoverageMatrix()`.
 La hub
 `/farmacie/` può quindi mostrare il link, il tipo e lo stato della fonte, ma

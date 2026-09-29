@@ -325,15 +325,18 @@
     },
     "zurich": {
       "canton": "Zurigo",
-      "officialSourceUrl": "https://www.notfall-apotheken-zh.ch/",
+      "officialSourceUrl": "https://www.avkz.ch/notfalldienst",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
       "sourceType": "association",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
+      "dutiesKey": "ZH",
+      "notes": "La pagina dell'Apothekerverband des Kantons Zürich e della Notfalldienst-Kommission identifica la Bellevue Apotheke (Theaterstrasse 14, Zürich) come aperta ogni giorno 24 ore e dichiara la disponibilità delle farmacie di emergenza per l'intero cantone; l'adattatore verifica identità, indirizzo e dichiarazioni 24h/365 prima di generare il calendario annuale.",
+      "sourceFetchedAt": "2026-09-29T12:00:00.000Z"
     }
   }
 }

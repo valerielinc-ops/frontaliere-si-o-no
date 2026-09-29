@@ -12,12 +12,15 @@ import {
   extractDelemontRows,
   parseBaselStadtDutyPage,
   parseMoutierCalendar,
+  parseZurichDutyPage,
 } from '../scripts/lib/pharmacy-swiss-canton-parser.mjs';
 
 const SOURCE_URL = 'https://www.jura.ch/official.pdf';
 const FETCHED_AT = '2026-09-29T12:00:00.000Z';
 const BASEL_SOURCE_URL = 'https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt';
 const BASEL_SOURCE_HTML = readFileSync(new URL('./fixtures/pharmacy-duties/basel-stadt/source.html', import.meta.url), 'utf8');
+const ZURICH_SOURCE_URL = 'https://www.avkz.ch/notfalldienst';
+const ZURICH_SOURCE_HTML = readFileSync(new URL('./fixtures/pharmacy-duties/zurich/source.html', import.meta.url), 'utf8');
 
 describe('Swiss canton pharmacy calendar parser', () => {
   it('builds a year of Basel-Stadt 24-hour duties from the official identity and opening declaration', () => {
@@ -65,6 +68,47 @@ describe('Swiss canton pharmacy calendar parser', () => {
       fetchedAt: FETCHED_AT,
       calendarYear: 2026,
     })).toThrow('Basel-Stadt page no longer declares year-round opening');
+  });
+
+  it('builds a year of Zürich 24-hour duties from the official association declaration', () => {
+    const parsed = parseZurichDutyPage({
+      html: ZURICH_SOURCE_HTML,
+      sourceUrl: ZURICH_SOURCE_URL,
+      fetchedAt: FETCHED_AT,
+      calendarYear: 2026,
+    });
+
+    expect(parsed.coverageName).toBe('Zurigo');
+    expect(parsed.pharmacies).toEqual([expect.objectContaining({
+      id: 'zh-bellevue-apotheke',
+      name: 'Bellevue Apotheke',
+      city: 'Zürich',
+      cantonCode: 'ZH',
+      sourceType: 'association',
+    })]);
+    expect(parsed.rows).toHaveLength(365);
+    expect(parsed.rows[0]).toEqual(expect.objectContaining({
+      id: 'zh-bellevue-2026-01-01',
+      startsAt: '2025-12-31T23:00:00.000Z',
+      endsAt: '2026-01-01T23:00:00.000Z',
+      dutyType: '24h',
+      sourceType: 'association',
+      status: 'expired',
+    }));
+    expect(parsed.rows.at(-1)).toEqual(expect.objectContaining({
+      id: 'zh-bellevue-2026-12-31',
+      status: 'verified',
+    }));
+  });
+
+  it('rejects a Zürich page when the 24-hour declaration disappears', () => {
+    const html = '<p>Bellevue Apotheke, Theaterstrasse 14, Zürich, 365 Tage im Jahr geöffnet</p>';
+    expect(() => parseZurichDutyPage({
+      html,
+      sourceUrl: ZURICH_SOURCE_URL,
+      fetchedAt: FETCHED_AT,
+      calendarYear: 2026,
+    })).toThrow('Zürich page no longer declares daily 24-hour opening');
   });
 
   it('rejects a Delémont row whose pharmacy is not allowlisted', () => {

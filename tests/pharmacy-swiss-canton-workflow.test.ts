@@ -28,4 +28,11 @@ describe('Swiss canton pharmacy duty release', () => {
     expect(importer).toContain('failedBaselStadtSnapshot');
     expect(parser).toContain('Basel-Stadt page no longer declares year-round opening');
   });
+
+  it('keeps Zürich on the same atomic snapshot and release path', () => {
+    expect(importer).toContain('parseZurichDutyPage');
+    expect(importer).toContain('ZURICH_SOURCE_KEY');
+    expect(importer).toContain('failedZurichSnapshot');
+    expect(parser).toContain('Zürich page no longer declares year-round opening');
+  });
 });

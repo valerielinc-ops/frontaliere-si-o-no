@@ -186,15 +186,15 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     // cron-count-ok: le cinque regioni ticinesi sono DUTY_WEEK_REGIONS, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
-    // cron-count-ok: BS, GE e JU sono operativi quando i rispettivi release sono freschi; gli altri 22 restano source-only.
-    expect(page.html.match(/data-coverage-kind=(?:"swiss-canton"|swiss-canton)/g) || []).toHaveLength(3);
-    // cron-count-ok: i 26 cantoni meno TI, BS, GE e JU restano source-only.
-    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(22);
+    // cron-count-ok: BS, GE, JU e ZH sono operativi quando i rispettivi release sono freschi; gli altri 21 restano source-only.
+    expect(page.html.match(/data-coverage-kind=(?:"swiss-canton"|swiss-canton)/g) || []).toHaveLength(4);
+    // cron-count-ok: i 26 cantoni meno TI, BS, GE, JU e ZH restano source-only.
+    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(21);
     // Main may promote a source-only canton to a valid non-unverified state.
     // The matrix contract requires one status attribute per source-only
     // canton, not that every source remains `unverified` forever.
-    // cron-count-ok: un attributo di stato per ciascuno dei 22 cantoni solo-fonte, costante del codice.
-    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(22);
+    // cron-count-ok: un attributo di stato per ciascuno dei 21 cantoni solo-fonte, costante del codice.
+    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(21);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
     // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);

@@ -32,12 +32,19 @@ const MONTHS = new Map([
 
 const JURA_SOURCE_URL = 'https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html';
 const BASEL_STADT_SOURCE_URL = 'https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt';
+const ZURICH_SOURCE_URL = 'https://www.avkz.ch/notfalldienst';
 const JURA_COVERAGE_NAME = 'Giura';
 const BASEL_STADT_COVERAGE_NAME = 'Basilea Città';
+const ZURICH_COVERAGE_NAME = 'Zurigo';
 const BASEL_STADT_PHARMACY = Object.freeze({
   id: 'bs-24-stunden-apotheke-basel',
   name: '24 Stunden Apotheke Basel AG',
   city: 'Basel',
+});
+const ZURICH_PHARMACY = Object.freeze({
+  id: 'zh-bellevue-apotheke',
+  name: 'Bellevue Apotheke',
+  city: 'Zürich',
 });
 const MOUTIER_SOURCE_NAME_BY_COLOUR = Object.freeze({
   blue: { id: 'ju-moutier-centre-migros', name: 'Centre Migros', city: 'Moutier' },
@@ -141,7 +148,7 @@ function localIso(dateKey, time) {
   return new Date(`${dateKey}T${time}:00${offset}`).toISOString();
 }
 
-function identity(id, name, city, sourceUrl, fetchedAt, cantonCode = 'JU') {
+function identity(id, name, city, sourceUrl, fetchedAt, cantonCode = 'JU', sourceType = 'official') {
   return {
     id,
     name,
@@ -149,12 +156,12 @@ function identity(id, name, city, sourceUrl, fetchedAt, cantonCode = 'JU') {
     cantonCode,
     country: 'CH',
     sourceUrl,
-    sourceType: 'official',
+    sourceType,
     lastVerifiedAt: fetchedAt,
   };
 }
 
-function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weekend', sourceUrl, fetchedAt }) {
+function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weekend', sourceUrl, fetchedAt, sourceType = 'official' }) {
   const expired = Date.parse(endsAt) <= Date.parse(fetchedAt);
   return {
     id,
@@ -167,7 +174,7 @@ function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weeken
     dutyType,
     status: expired ? 'expired' : 'verified',
     sourceUrl,
-    sourceType: 'official',
+    sourceType,
     fetchedAt,
     verifiedAt: fetchedAt,
   };
@@ -296,6 +303,51 @@ export function parseBaselStadtDutyPage({ html, sourceUrl, fetchedAt, calendarYe
     }));
   }
   return { rows, pharmacies: [pharmacy], coverageName: BASEL_STADT_COVERAGE_NAME };
+}
+
+export function parseZurichDutyPage({ html, sourceUrl, fetchedAt, calendarYear = new Date().getUTCFullYear() } = {}) {
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Zürich calendar year: ${calendarYear}`);
+  const pageText = stripHtml(String(html || ''));
+  if (!/Bellevue\s+Apotheke/i.test(pageText)) {
+    throw new Error('Zürich page did not expose the allowlisted Bellevue Apotheke identity');
+  }
+  if (!/Theaterstrasse\s+14\b/i.test(pageText) || !/Bellevue\s+Apotheke[\s\S]*?Zürich/i.test(pageText)) {
+    throw new Error('Zürich Bellevue Apotheke address or city changed or is unresolved');
+  }
+  if (!/täglich\s+24\s+Stunden\s+geöffnet/i.test(pageText)) {
+    throw new Error('Zürich page no longer declares daily 24-hour opening');
+  }
+  if (!/365\s+Tage\s+im\s+Jahr\s+geöffnet/i.test(pageText)) {
+    throw new Error('Zürich page no longer declares year-round opening');
+  }
+
+  const pharmacy = identity(
+    ZURICH_PHARMACY.id,
+    ZURICH_PHARMACY.name,
+    ZURICH_PHARMACY.city,
+    sourceUrl,
+    fetchedAt,
+    'ZH',
+    'association',
+  );
+  const rows = [];
+  const firstDate = `${calendarYear}-01-01`;
+  const lastDate = `${calendarYear}-12-31`;
+  for (let date = firstDate; date <= lastDate; date = nextDate(date)) {
+    const next = nextDate(date);
+    rows.push(duty({
+      id: `zh-bellevue-${date}`,
+      pharmacy,
+      coverageName: ZURICH_COVERAGE_NAME,
+      startsAt: localIso(date, '00:00'),
+      endsAt: localIso(next, '00:00'),
+      dutyType: '24h',
+      sourceUrl,
+      fetchedAt,
+      sourceType: 'association',
+    }));
+  }
+  return { rows, pharmacies: [pharmacy], coverageName: ZURICH_COVERAGE_NAME };
 }
 
 function numericWordMatches(bboxHtml) {
@@ -446,6 +498,9 @@ export {
   BASEL_STADT_SOURCE_URL,
   JURA_COVERAGE_NAME,
   JURA_SOURCE_URL,
+  ZURICH_COVERAGE_NAME,
+  ZURICH_PHARMACY,
+  ZURICH_SOURCE_URL,
   classifyColour,
   extractAjoieRows,
   extractDelemontRows,

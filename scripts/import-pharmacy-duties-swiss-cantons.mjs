@@ -10,9 +10,11 @@ import { fileURLToPath } from 'node:url';
 import {
   BASEL_STADT_SOURCE_URL,
   JURA_SOURCE_URL,
+  ZURICH_SOURCE_URL,
   parseBaselStadtDutyPage,
   parseJuraCalendars,
   parseMoutierCalendar,
+  parseZurichDutyPage,
 } from './lib/pharmacy-swiss-canton-parser.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
@@ -26,6 +28,8 @@ const JURA_SCOPE = 'JU';
 const JURA_PAGE_HOST = 'www.jura.ch';
 const BASEL_STADT_SOURCE_KEY = 'basel-stadt';
 const BASEL_STADT_SCOPE = 'BS';
+const ZURICH_SOURCE_KEY = 'zurich';
+const ZURICH_SCOPE = 'ZH';
 
 function argumentValue(prefix) {
   const argument = process.argv.find((value) => value.startsWith(prefix));
@@ -174,6 +178,18 @@ async function parseBaselStadtSource({ source, fetchedAt }) {
   });
 }
 
+async function parseZurichSource({ source, fetchedAt }) {
+  const calendarYear = new Date(fetchedAt).getUTCFullYear();
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid fetch timestamp for Zürich calendar: ${fetchedAt}`);
+  const html = await fetchResponse(source.officialSourceUrl);
+  return parseZurichDutyPage({
+    html,
+    sourceUrl: source.officialSourceUrl,
+    fetchedAt,
+    calendarYear,
+  });
+}
+
 function isoDate(value) {
   const match = /^(\d{4}-\d{2}-\d{2})T/.exec(String(value || ''));
   return match ? match[1] : null;
@@ -273,6 +289,47 @@ function buildBaselStadtSnapshot({ source, fetchedAt, parsed }) {
   return { ...payload, _release: release };
 }
 
+function buildZurichSnapshot({ source, fetchedAt, parsed }) {
+  const calendarYear = new Date(fetchedAt).getUTCFullYear();
+  if (!Number.isInteger(calendarYear) || parsed.rows.length !== calendarDays(calendarYear)) {
+    throw new Error(`Zürich parsed rows do not cover the full ${calendarYear} calendar`);
+  }
+  const payload = {
+    _schemaVersion: 1,
+    _source: source.officialSourceUrl,
+    _sourceKey: ZURICH_SOURCE_KEY,
+    _fetchedAt: fetchedAt,
+    _attemptedAt: fetchedAt,
+    _timezone: 'Europe/Zurich',
+    _scope: { country: 'CH', canton: ZURICH_SCOPE, coverageType: 'canton' },
+    _coverage: {
+      validFrom: `${calendarYear}-01-01`,
+      validTo: `${calendarYear}-12-31`,
+      observedCalendarDays: calendarDays(calendarYear),
+      uncoveredCalendarDays: 0,
+      coverage: 'covered',
+    },
+    _releaseReady: true,
+    _state: 'fresh',
+    _errors: [],
+    _warnings: [],
+    _unresolvedIdentities: [],
+    coverageName: parsed.coverageName,
+    pharmacies: parsed.pharmacies,
+    duties: parsed.rows,
+  };
+  const release = {
+    version: 1,
+    releaseId: `pharmacy-swiss-canton-v1-${sha256(payload)}`,
+    evaluatedAt: fetchedAt,
+    state: 'fresh',
+    source: { key: ZURICH_SOURCE_KEY, url: source.officialSourceUrl },
+    scope: payload._scope,
+    coverage: payload._coverage,
+  };
+  return { ...payload, _release: release };
+}
+
 function failedSnapshot(previous, attemptedAt, error) {
   const message = `jura-duty: ${error instanceof Error ? error.message : String(error)}`;
   const calendarYear = new Date(attemptedAt).getUTCFullYear();
@@ -351,6 +408,45 @@ function failedBaselStadtSnapshot(previous, attemptedAt, error) {
   };
 }
 
+function failedZurichSnapshot(previous, attemptedAt, error) {
+  const message = `zurich-duty: ${error instanceof Error ? error.message : String(error)}`;
+  const calendarYear = new Date(attemptedAt).getUTCFullYear();
+  const validYear = Number.isInteger(calendarYear) ? calendarYear : new Date().getUTCFullYear();
+  const base = previous && typeof previous === 'object' ? previous : {
+    _schemaVersion: 1,
+    _source: ZURICH_SOURCE_URL,
+    _sourceKey: ZURICH_SOURCE_KEY,
+    _fetchedAt: null,
+    _timezone: 'Europe/Zurich',
+    _scope: { country: 'CH', canton: ZURICH_SCOPE, coverageType: 'canton' },
+    _coverage: { validFrom: `${validYear}-01-01`, validTo: `${validYear}-12-31`, observedCalendarDays: 0, uncoveredCalendarDays: calendarDays(validYear), coverage: 'not_published' },
+    _errors: [],
+    _warnings: [],
+    _unresolvedIdentities: [],
+    coverageName: 'Zurigo',
+    pharmacies: [],
+    duties: [],
+  };
+  const release = {
+    ...(base._release || {}),
+    version: 1,
+    releaseId: typeof base._release?.releaseId === 'string' ? base._release.releaseId : `pharmacy-swiss-canton-failed-${sha256({ attemptedAt, message })}`,
+    evaluatedAt: attemptedAt,
+    state: 'stale',
+    source: { key: ZURICH_SOURCE_KEY, url: ZURICH_SOURCE_URL },
+    scope: base._scope,
+    coverage: base._coverage,
+  };
+  return {
+    ...base,
+    _attemptedAt: attemptedAt,
+    _releaseReady: false,
+    _state: 'stale',
+    _errors: [...(Array.isArray(base._errors) ? base._errors : []), message],
+    _release: release,
+  };
+}
+
 async function writeJson(filePath, value) {
   await mkdir(dirname(filePath), { recursive: true });
   const temporaryPath = `${filePath}.${process.pid}.tmp`;
@@ -368,16 +464,21 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
   }
   const includeJura = !only || only === 'all' || only === JURA_SOURCE_KEY || only === JURA_SCOPE;
   const includeBaselStadt = !only || only === 'all' || only === BASEL_STADT_SOURCE_KEY || only === BASEL_STADT_SCOPE;
-  if (!includeJura && !includeBaselStadt) throw new Error(`Unknown Swiss canton importer target: ${only}`);
+  const includeZurich = !only || only === 'all' || only === ZURICH_SOURCE_KEY || only === ZURICH_SCOPE;
+  if (!includeJura && !includeBaselStadt && !includeZurich) throw new Error(`Unknown Swiss canton importer target: ${only}`);
 
   const previousJura = previousOutput?.snapshots?.[JURA_SCOPE] || null;
   const previousBaselStadt = previousOutput?.snapshots?.[BASEL_STADT_SCOPE] || null;
+  const previousZurich = previousOutput?.snapshots?.[ZURICH_SCOPE] || null;
   let source = null;
   let baselStadtSource = null;
+  let zurichSource = null;
   let snapshot = previousJura;
   let baselStadtSnapshot = previousBaselStadt;
+  let zurichSnapshot = previousZurich;
   let juraError = null;
   let baselStadtError = null;
+  let zurichError = null;
 
   if (includeJura) {
     source = sourceFromRegistry(registry, JURA_SOURCE_KEY, JURA_SOURCE_URL, 'Jura');
@@ -401,10 +502,22 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
     }
   }
 
+  if (includeZurich) {
+    zurichSource = sourceFromRegistry(registry, ZURICH_SOURCE_KEY, ZURICH_SOURCE_URL, 'Zürich');
+    try {
+      const parsed = await parseZurichSource({ source: zurichSource, fetchedAt: attemptedAt });
+      zurichSnapshot = buildZurichSnapshot({ source: zurichSource, fetchedAt: attemptedAt, parsed });
+    } catch (error) {
+      zurichError = error;
+      zurichSnapshot = failedZurichSnapshot(previousZurich, attemptedAt, error);
+    }
+  }
+
   const snapshots = {
     ...(previousOutput?.snapshots || {}),
     ...(snapshot ? { [JURA_SCOPE]: snapshot } : {}),
     ...(baselStadtSnapshot ? { [BASEL_STADT_SCOPE]: baselStadtSnapshot } : {}),
+    ...(zurichSnapshot ? { [ZURICH_SCOPE]: zurichSnapshot } : {}),
   };
   const output = {
     schemaVersion: 1,
@@ -414,6 +527,7 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
   const successfulSources = {
     ...(includeJura && !juraError && source ? { [JURA_SOURCE_KEY]: { ...source, sourceFetchedAt: attemptedAt } } : {}),
     ...(includeBaselStadt && !baselStadtError && baselStadtSource ? { [BASEL_STADT_SOURCE_KEY]: { ...baselStadtSource, sourceFetchedAt: attemptedAt } } : {}),
+    ...(includeZurich && !zurichError && zurichSource ? { [ZURICH_SOURCE_KEY]: { ...zurichSource, sourceFetchedAt: attemptedAt } } : {}),
   };
   const updatedRegistry = Object.keys(successfulSources).length > 0
     ? {
@@ -422,8 +536,8 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
       sources: { ...registry.sources, ...successfulSources },
     }
     : registry;
-  const fetchErrors = { jura: juraError, baselStadt: baselStadtError };
-  const fetchError = juraError || baselStadtError || null;
+  const fetchErrors = { jura: juraError, baselStadt: baselStadtError, zurich: zurichError };
+  const fetchError = juraError || baselStadtError || zurichError || null;
   if (write) {
     await writeJson(OUTPUT_PATH, output);
     if (Object.keys(successfulSources).length > 0) await writeJson(REGISTRY_PATH, updatedRegistry);
@@ -432,8 +546,10 @@ export async function importSwissCantonPharmacyDuties({ attemptedAt = new Date()
     output,
     snapshot,
     baselStadtSnapshot,
+    zurichSnapshot,
     source,
     baselStadtSource,
+    zurichSource,
     fetchError,
     fetchErrors,
     registry: updatedRegistry,
