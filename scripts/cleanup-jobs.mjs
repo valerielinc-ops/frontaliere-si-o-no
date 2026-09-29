@@ -25,6 +25,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
@@ -432,6 +433,15 @@ async function main() {
         if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
       }
       const hardenedJobs = readJson(tempPath);
+      const decontamination = decontaminateJobs(hardenedJobs);
+      const decontaminationChanged = decontamination.moved > 0
+        || decontamination.emptyLocaleBucketsPruned > 0;
+      if (decontaminationChanged) {
+        console.log(
+          `🧼 Previous-slug decontamination: moved ${decontamination.moved} claim(s), `
+          + `pruned ${decontamination.emptyLocaleBucketsPruned} empty locale bucket(s).`,
+        );
+      }
 
       // Age-based pruning
       const now = Date.now();
@@ -557,7 +567,7 @@ async function main() {
 
       // Write back to slice file (preserve envelope)
       const totalRemoved = hardenedJobs.length - kept.length;
-      if (totalRemoved > 0) {
+      if (totalRemoved > 0 || decontaminationChanged) {
         const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;

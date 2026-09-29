@@ -7004,6 +7004,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.licenza-estera-soletta-prove.title': 'Permis de conduire étranger à Soleure : conversion et examens',
     'blog.article.licenza-estera-soletta-prove.excerpt': 'Le guide du permis de conduire dans le canton de Soleure couvre la conversion du permis étranger, les examens théorique et pratique, les cours obligatoires et l’office compétent.',
     'blog.article.licenza-estera-soletta-prove.imageAlt': 'Conversion du permis étranger et examens de conduite dans le canton de Soleure',
+    'blog.article.svizzera-robotica-crescita-aziende.title': 'Suisse : 217 entreprises de robotique et 7 000 emplois',
+    'blog.article.svizzera-robotica-crescita-aziende.excerpt': 'Analyse Raiffeisen : 50 nouvelles entreprises à partir de 2020. Zurich et Vaud pôles clés, lien fort avec la recherche académique et spin-off.',
+    'blog.article.svizzera-robotica-crescita-aziende.imageAlt': 'Technologie robotique dans un centre de recherche suisse',
+    'blog.article.finma-conclude-julius-baer.title': 'Affaire Signa, la FINMA clôt la procédure concernant Julius Bär',
+    'blog.article.finma-conclude-julius-baer.excerpt': 'L\'autorité de surveillance clôt le dossier lié au groupe immobilier Signa. 250 millions de francs de capital supplémentaire et de nouveaux rapports sur les risques sont requis.',
+    'blog.article.finma-conclude-julius-baer.imageAlt': 'Siège d\'une institution bancaire dans le quartier financier de Zurich',
+    'blog.article.stadler-nomina-nuovo-ceo.title': 'Stadler Rail : Philipp Brunner sera le nouveau CEO à partir de 2027',
+    'blog.article.stadler-nomina-nuovo-ceo.excerpt': 'Changement à la tête du groupe ferroviaire suisse : Philipp Brunner succède à Markus Bernsteiner à compter du 1° gennaio 2027. Chiffre d\'affaires semestriel à 2 milliards.',
+    'blog.article.stadler-nomina-nuovo-ceo.imageAlt': 'Train moderne Stadler dans un paysage suisse',
 };
 
 export default blogMetaChFr;

@@ -21040,6 +21040,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-robotica-crescita-aziende',
+    category: 'novita',
+    date: '2026-09-29T06:29:40.694Z',
+    image: '/images/blog/svizzera-robotica-crescita-aziende.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'finma-conclude-julius-baer',
+    category: 'novita',
+    date: '2026-09-29T06:44:48.465Z',
+    image: '/images/blog/finma-conclude-julius-baer.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'stadler-nomina-nuovo-ceo',
+    category: 'novita',
+    date: '2026-09-29T07:01:35.851Z',
+    image: '/images/blog/stadler-nomina-nuovo-ceo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
