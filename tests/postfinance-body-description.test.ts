@@ -121,9 +121,9 @@ describe('PostFinance vacancy without a readable body', () => {
   `;
   const url = 'https://jobs.postfinance.ch/job/Senior-Process-Specialist-Third-Party-Management-%28wmd%29/74779-de_DE';
 
-  it('reads no vacancy body from the placeholder page', () => {
+  it('reads no vacancy body from the placeholder page, and the meta snippet does not stand in for one', () => {
     expect(extractPostFinanceBodyDescription(placeholderHtml)).toBe('');
-    expect(parsePostFinanceMetaPage(placeholderHtml, url).description.length).toBeLessThan(150);
+    expect(parsePostFinanceMetaPage(placeholderHtml, url).description).toBe('');
   });
 
   it('keeps the previous source body or withholds the vacancy — nothing is composed', () => {
@@ -131,9 +131,38 @@ describe('PostFinance vacancy without a readable body', () => {
     const previous = {
       url,
       sourceLang: 'de',
-      description: 'Bei PostFinance gestaltest du die Zukunft des Third Party Managements aktiv mit.\n\nDas kannst du bewirken\n\n- Du entwickelst Rahmenwerke weiter',
+      // Live body of jobs.postfinance.ch/…/74128-de_DE (2026-09-29): a previous
+      // body is carried only when it clears the 50-word floor.
+      description: 'Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software & Specification Engineer. Du bist technisch versiert, ein erfahrener Developer mit DevOps-Mindset, der Spass hat, Toolchains und Standards aufzubauen.',
     };
     expect(carryPostSourceBody(fresh, previous).job?.description).toBe(previous.description);
     expect(carryPostSourceBody(fresh, null).job).toBeNull();
+  });
+});
+
+describe('PostFinance 50-word source-body floor', () => {
+  // Live body of jobs.postfinance.ch/…/74128-de_DE (2026-09-29), cut to N words.
+  const BODY = 'Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software & Specification Engineer. Du bist technisch versiert, ein erfahrener Developer mit DevOps-Mindset, der Spass hat, Toolchains und Standards aufzubauen, Anforderungen nachhaltig als Code zu führen und den nutzenden Teams in der Transition hin zu moderner Arbeitsweise zu unterstützen.';
+  // Counted like sourceBodyWordCount(): tokens carrying a letter or a digit
+  // (the bare "&" of the title is not a word).
+  const words = (count: number) => BODY.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).slice(0, count).join(' ');
+  const page = (body: string) => `
+    <html><head>
+      <title>Senior DevOps Software &amp; Specification Engineer Stellendetails | Post | PostFinance | PostAuto</title>
+      <meta name="description" content="Senior DevOps Software &amp; Specification Engineer (w/m/d)" />
+    </head><body>
+      <div class="joblayouttoken"><span xml:lang="de-DE" lang="de-DE" class="rtltextaligneligible"><p>${body}</p></span></div>
+    </body></html>
+  `;
+  const url = 'https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE';
+
+  it('does not publish a 49-word body that clears the old 150-character gate, nor its meta snippet', () => {
+    const html = page(words(49));
+    expect(extractPostFinanceBodyDescription(html).length).toBeGreaterThan(150);
+    expect(parsePostFinanceMetaPage(html, url).description).toBe('');
+  });
+
+  it('publishes a body of 50 words', () => {
+    expect(parsePostFinanceMetaPage(page(words(50)), url).description).toBe(words(50));
   });
 });

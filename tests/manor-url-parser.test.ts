@@ -337,6 +337,23 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(reposts).toEqual([{ url: expect.stringContaining('1363511255'), keptUrl: expect.stringContaining('1363511155') }]);
   });
 
+  it('keeps same-title openings at one store separate when neither has a source body', () => {
+    const opening = (id: string, body: string) => ({
+      url: `https://positions.manor.ch/job/Hochdorf-Logistikerin-EFZEBA-100/${id}/`,
+      title: 'Logistiker*in EFZ/EBA 100%',
+      location: 'Hochdorf',
+      description: '## Über Manor\n\nManor ist die grösste Warenhausgruppe der Schweiz.',
+      _manorVacancyBody: body,
+    });
+    const empty = dedupeManorReposts([opening('1365430055', ''), opening('1365430255', '')]);
+    expect(empty.jobs).toHaveLength(2);
+    expect(empty.reposts).toEqual([]);
+
+    const identical = dedupeManorReposts([opening('1365430055', 'Körperlich fit'), opening('1365430255', 'Körperlich fit')]);
+    expect(identical.jobs).toHaveLength(1);
+    expect(identical.reposts).toHaveLength(1);
+  });
+
   it('collapses one vacancy re-posted under several requisition ids, keeping the lowest id', () => {
     const repost = (id: string, description: string) => ({
       url: `https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/${id}/`,

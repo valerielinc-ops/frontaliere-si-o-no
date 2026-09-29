@@ -35,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -70,6 +71,7 @@ import {
   parseFederalJobDetailExtras,
 } from './lib/federal-job-detail.mjs';
 import { preferEnrichedDescription } from './lib/enriched-description-fallback.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
@@ -519,6 +521,42 @@ function buildJob(row) {
 
 /* ── Merge ─────────────────────────────────────────────────── */
 
+// Sentences of the padding the crawler used to add under 50 words (removed in
+// issue 5253). A stored body that still carries them is not source text.
+const RETIRED_FEDERAL_FILLER_RE = /Posizione nell'Amministrazione federale svizzera|Stelle in der Schweizerischen Bundesverwaltung|Candidati online su jobs\.admin\.ch|Bewerben Sie sich online auf jobs\.admin\.ch/;
+
+export function isRetiredFederalFiller(text = '') {
+  return RETIRED_FEDERAL_FILLER_RE.test(String(text || ''));
+}
+
+/**
+ * The source body a Confederation job may be published with, or null.
+ *
+ * The publish boundary enforces the 50-word floor on SOURCE text only (the
+ * padding that used to lift a short body over 50 words is gone): this run's
+ * body when it clears the floor; otherwise the body an earlier run read from
+ * the source, when that one clears it and is not the retired filler;
+ * otherwise nothing — the job is not published this run.
+ *
+ * @param {object} job   freshly built job (`sourceLang`, `descriptionByLocale`)
+ * @param {object|null} prev  stored record for the same stable id, if any
+ * @returns {{ sourceLang: string, body: string } | null}
+ */
+export function confederazionePublishableBody(job, prev) {
+  const freshLang = job?.sourceLang || '';
+  const fresh = String(job?.descriptionByLocale?.[freshLang] || '');
+  if (freshLang && meetsSourceBodyFloor(fresh) && !isRetiredFederalFiller(fresh)) {
+    return { sourceLang: freshLang, body: fresh };
+  }
+  const storedLang = prev?.sourceLang || freshLang;
+  const stored = String(prev?.descriptionByLocale?.[storedLang] || '');
+  if (storedLang && meetsSourceBodyFloor(stored) && !isRetiredFederalFiller(stored)) {
+    return { sourceLang: storedLang, body: stored };
+  }
+  return null;
+}
+
+
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
 
@@ -560,8 +598,9 @@ function mergeJobs(discoveredJobs) {
     const key = extractStableJobId(job?.url);
     const prev = key ? existingByUrl.get(key) : null;
     if (!prev) {
-      if (!String(job.descriptionByLocale?.[job.sourceLang] || '').trim()) {
-        // No body from the API or the page, and none stored: not published.
+      if (!confederazionePublishableBody(job, null)) {
+        // Under 50 words of source text (or none) and nothing stored: not
+        // published — no padding is ever counted (NN #4, issue 5253).
         unpublished += 1;
         return null;
       }
@@ -580,10 +619,19 @@ function mergeJobs(discoveredJobs) {
         if (job.sourceLang === 'it' || !job.descriptionByLocale.it) job.description = kept;
       }
     }
-    if (!String(job.descriptionByLocale?.[job.sourceLang] || '').trim()) {
-      // No body this run and none stored from the source: not published.
+    const publishable = confederazionePublishableBody(job, prev);
+    if (!publishable) {
+      // Under 50 words of source text this run and no stored source body that
+      // clears the floor: not published this run.
       unpublished += 1;
       return null;
+    }
+    if (publishable.sourceLang !== job.sourceLang
+      || publishable.body !== job.descriptionByLocale?.[job.sourceLang]) {
+      // The short body of this run is dropped, not kept next to the stored one.
+      job.sourceLang = publishable.sourceLang;
+      job.descriptionByLocale = { [publishable.sourceLang]: publishable.body };
+      job.description = publishable.body;
     }
     updated += 1;
     // When merging slugByLocale, discard any pre-existing IT slug that contains German words
@@ -790,4 +838,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Confederazione'));
+// Importable by tests (mergeJobs) without running the crawl.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'Confederazione'));
+}

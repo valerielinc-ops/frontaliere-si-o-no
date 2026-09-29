@@ -1,4 +1,4 @@
-import { inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissMunicipality, normalizeCantonCode } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -94,9 +94,14 @@ export function resolveFederalWorkplaceLocality(rawLocation = '') {
     .replace(/&nbsp;/gi, ' ');
   const display = normalizeFederalLocationDisplay(normalizeSpace(decoded))
     .replace(FEDERAL_LEADING_QUALIFIER_RE, '');
-  for (const segment of display.split(FEDERAL_LOCALITY_SEPARATOR_RE)) {
-    const candidate = normalizeSpace(segment)
-      .replace(/\)+$/, '')
+  const segments = display.split(FEDERAL_LOCALITY_SEPARATOR_RE);
+  // A posting abroad ("Pristina, Kosovo") names a foreign city first; only a
+  // place we can place in Switzerland survives next to a foreign marker
+  // ("Stans-Oberdorf / Kosovo" is the Swiss base of a KFOR role).
+  const mentionsAbroad = segments.some((part) => FEDERAL_NON_LOCALITY_RE.test(normalizeSpace(part)));
+  for (const segment of segments) {
+    const trimmed = normalizeSpace(segment).replace(/\)+$/, '');
+    const candidate = trimmed
       .replace(/^\d{4}(?:\s+|-(?=\p{L}))/u, '')
       .replace(/\s+[A-Z]{2}$/, '')
       .trim();
@@ -105,13 +110,29 @@ export function resolveFederalWorkplaceLocality(rawLocation = '') {
     // Street lines ("Stauffacherstrasse 65") and other non-place fragments.
     if (!/^\p{L}[\p{L}'’. -]{1,60}$/u.test(candidate)) continue;
     const locality = titleCaseIfShouting(candidate);
-    // A posting abroad ("Pristina, Kosovo") names a foreign city first; only
-    // a place we can place in Switzerland survives next to a foreign marker
-    // ("Stans-Oberdorf / Kosovo" is the Swiss base of a KFOR role).
-    const mentionsAbroad = display.split(FEDERAL_LOCALITY_SEPARATOR_RE)
-      .some((part) => FEDERAL_NON_LOCALITY_RE.test(normalizeSpace(part)));
-    if (mentionsAbroad && !isKnownSwissMunicipality(locality) && !inferAnyCanton(locality)) return '';
-    return locality;
+    // The first segment is not always the place: "Places d'armes, 1436
+    // Chamblon" opens with the kind of site. A candidate is the workplace
+    // only when it is a Swiss locality — a known municipality, a place we can
+    // put in a canton, or one the source itself pins with a canton marker
+    // ("Grolley (FR)", "Zimmerwald BE", former municipalities missing from
+    // the BFS list). Anything else is skipped for the next segment.
+    const placedInSwitzerland = isKnownSwissMunicipality(locality) || Boolean(inferAnyCanton(locality));
+    if (placedInSwitzerland) return locality;
+    if (mentionsAbroad) continue;
+    if (federalCantonMarkerAfter(display, trimmed, candidate)) return locality;
   }
   return '';
+}
+
+/**
+ * The explicit canton marker the source writes next to a locality: "Zimmerwald
+ * BE" (same segment) or "Grolley (FR)" (the parenthesis is split off as the
+ * next segment, so it is read from the display text right after the name).
+ */
+function federalCantonMarkerAfter(display, segment, candidate) {
+  const sameSegment = segment.match(/\s([A-Z]{2})$/)?.[1];
+  if (sameSegment && normalizeCantonCode(sameSegment)) return normalizeCantonCode(sameSegment);
+  const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const following = display.match(new RegExp(`${escaped}\\s*\\(\\s*([A-Z]{2})\\s*\\)`, 'u'))?.[1];
+  return following ? normalizeCantonCode(following) : '';
 }

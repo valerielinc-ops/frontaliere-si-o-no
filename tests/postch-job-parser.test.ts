@@ -6,6 +6,7 @@ import {
   carryPostSourceBody,
   isPostFallbackDescription,
   keyPostDescriptionBySourceLocale,
+  isPublishablePostDetail,
   keyPostTitleBySourceLocale,
   parsePostJobDetail,
   previousPostSourceBody,
@@ -204,5 +205,40 @@ describe('keyPostTitleBySourceLocale', () => {
     const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale({}, 'Postino/a lettere e pacchi', 'it');
     expect(droppedStaleItalian).toBe(false);
     expect(titleByLocale).toEqual({ it: 'Postino/a lettere e pacchi' });
+  });
+});
+
+describe('Post-platform 50-word source-body floor', () => {
+  // Live body of job.post.ch/…/74695-de_DE (2026-09-29), cut to N words.
+  const BODY = 'Du möchtest Planung, Daten und fachliche Koordination miteinander verbinden und die Weiterentwicklung unserer Personalplanung aktiv mitgestalten? Dann bist du bei uns richtig. Mit dir schaffen wir die Grundlage für eine vorausschauende und verlässliche Personalplanung. Als fachliche Ansprechperson bringst du das Team zusammen, verantwortest den Aufbau und die laufende Weiterentwicklung des Fachbereichs Personalplanung. Aus Mengen-, Leistungs- und Planstunden leitest du zusammen mit unseren Betrieben belastbare Personalbedarfe ab.';
+  // Counted like sourceBodyWordCount(): tokens carrying a letter or a digit.
+  const words = (count: number) => BODY.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).slice(0, count).join(' ');
+  const page = (body: string) => buildPage({
+    0: 'Senior Prozessmanager:in Personalplanung',
+    1: '80',
+    2: '100',
+    3: 'Bern|Bern|BE|Schweiz|CHE',
+    18: `<p>${body}</p>`,
+  }, 19);
+  const url = 'https://job.post.ch/default/job/post/74695-de_DE';
+
+  it('does not publish a 49-word body even though it is far longer than the old 80-character gate', () => {
+    const parsed = parsePostJobDetail(page(words(49)), url);
+    expect(parsed.description.length).toBeGreaterThan(80);
+    expect(isPublishablePostDetail(parsed)).toBe(false);
+  });
+
+  it('publishes a body of 50 words', () => {
+    expect(isPublishablePostDetail(parsePostJobDetail(page(words(50)), url))).toBe(true);
+  });
+
+  it('never publishes the "Stellendetails" placeholder of an untranslated locale', () => {
+    expect(isPublishablePostDetail({ title: 'Stellendetails', description: words(60) })).toBe(false);
+  });
+
+  it('does not carry a previous body under the floor either', () => {
+    const fresh = { url, title: 'Senior Prozessmanager:in Personalplanung', description: '' };
+    expect(carryPostSourceBody(fresh, { url, sourceLang: 'de', description: words(49) }).job).toBeNull();
+    expect(carryPostSourceBody(fresh, { url, sourceLang: 'de', description: words(50) }).job?.description).toBe(words(50));
   });
 });

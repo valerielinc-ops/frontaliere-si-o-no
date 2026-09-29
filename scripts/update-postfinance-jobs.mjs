@@ -68,6 +68,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import {
   carryPostSourceBody,
   extractRtlTextAlignEligibleSpans,
@@ -539,7 +540,12 @@ function parsePostFinanceMetaPage(html, url) {
 
   const bodyDescription = extractPostFinanceBodyDescription(html);
   const metaDescription = ogDesc || metaDesc || '';
-  const description = bodyDescription.length >= 150 ? bodyDescription : metaDescription;
+  // Word floor, not characters (source-body-floor.mjs): a body under 50 words
+  // is a thin page, and the SEO meta snippet (usually just the title) never
+  // becomes the published body unless it clears the same floor itself.
+  const description = meetsSourceBodyFloor(bodyDescription)
+    ? bodyDescription
+    : (meetsSourceBodyFloor(metaDescription) ? metaDescription : '');
 
   return {
     title,
@@ -742,10 +748,9 @@ async function buildJobFromRecruitingApiEntry(entry) {
   const workloadMin = entry.cust_WorkingTimeMin;
   const workloadMax = entry.cust_WorkingTimeMax;
 
-  // 150 chars mirrors parsePostFinanceMetaPage's own bar for "real body
-  // content vs SEO meta-tag snippet" (see its extractPostFinanceBodyDescription
-  // call) — anything shorter is not a vacancy body.
-  const description = scraped?.description && scraped.description.length >= 150
+  // The shared 50-word floor (source-body-floor.mjs): anything shorter is not
+  // a vacancy body.
+  const description = meetsSourceBodyFloor(scraped?.description)
     ? scraped.description
     : '';
   const sourceLang = description ? detectLang(description, 'en') : '';
@@ -895,13 +900,16 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
 
     // Source text only; without it mergePostFinanceJobs() keeps the previous
     // source body or withholds the vacancy from this run.
-    const description = detail.description && detail.description.length > 30
+    const description = meetsSourceBodyFloor(detail.description)
       ? detail.description
       : '';
     const sourceLang = description ? detectLang(description, 'en') : '';
 
-    // Mark as needsRetranslation if description came from meta tags (thin content)
-    const needsRetranslation = !detail.hasJsonLd || detail.description?.length < 100;
+    // Neither page kind parsed here carries a JobPosting JSON-LD, so this is
+    // true for every vacancy of this path: its translations come from the
+    // retranslation pass. (The former `< 100` characters clause is moot: a body
+    // under the 50-word floor is never published.)
+    const needsRetranslation = !detail.hasJsonLd;
 
     const job = {
       url: sourceUrl,

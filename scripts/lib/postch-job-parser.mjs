@@ -29,6 +29,7 @@
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -395,11 +396,15 @@ export function isPostFallbackDescription(text = '') {
   return Boolean(value) && POST_FALLBACK_DESCRIPTION_RX.some((rx) => rx.test(value));
 }
 
-/** The source-language body a previous run read from this vacancy, or ''. */
+/**
+ * The source-language body a previous run read from this vacancy, or ''.
+ * Only a body that clears the shared 50-word floor (source-body-floor.mjs)
+ * counts: a shorter one would be a thin page, so it is not carried either.
+ */
 export function previousPostSourceBody(job) {
   for (const candidate of [job?.descriptionByLocale?.[job?.sourceLang], job?.description]) {
     const text = String(candidate || '').trim();
-    if (text && !isPostFallbackDescription(text)) return text;
+    if (text && !isPostFallbackDescription(text) && meetsSourceBodyFloor(text)) return text;
   }
   return '';
 }
@@ -462,6 +467,21 @@ export function stripPostFallbackSlots(job) {
     descriptionByLocale: sourceLang ? { [sourceLang]: body } : {},
     needsRetranslation: true,
   };
+}
+
+/**
+ * True when a parsed Post-platform detail page can be published as it is: a
+ * real title (a locale the vacancy was not translated to renders the generic
+ * "Stellendetails" placeholder) and a body that clears the shared 50-word
+ * floor of source-body-floor.mjs. The former `> 80` characters gate let a
+ * 13-49-word body through as a thin page.
+ *
+ * @param {{ title?: string, description?: string } | null} parsed  parsePostJobDetail() output
+ */
+export function isPublishablePostDetail(parsed) {
+  const title = String(parsed?.title || '').trim();
+  if (!title || /^stellendetails$/i.test(title)) return false;
+  return meetsSourceBodyFloor(parsed?.description);
 }
 
 /**

@@ -187,6 +187,23 @@ describe('Volg publishes only source text', () => {
     for (const job of jobs) expect(isVolgInventedText(job.description)).toBe(false);
   });
 
+  it('carries a previous source body only when it meets the shared word floor', () => {
+    const fresh = buildJob({
+      url: staleRecords[0].url, title: staleRecords[0].title, company: staleRecords[0].company,
+      city: staleRecords[0].location, workload: '', contractTerms: '', canton: staleRecords[0].canton,
+    });
+    // "Aufgaben" + long tokens: 49 words are far past any former character
+    // threshold; "##", "-" and a stray "•" are not words.
+    const bodyOf = (words: number) => `## Aufgaben\n${Array.from({ length: words - 1 }, (_, index) => `- Verantwortungsbereich${index + 1}`).join('\n')}\n•`;
+    const previousWith = (words: number) => ({ ...staleRecords[0], description: bodyOf(words), descriptionByLocale: { de: bodyOf(words) } });
+
+    expect(bodyOf(49).length).toBeGreaterThan(1000);
+    expect(resolveVolgJobBodies([fresh], [previousWith(49)]).withheld).toEqual([fresh.url]);
+    const carried = resolveVolgJobBodies([fresh], [previousWith(50)]);
+    expect(carried.carried).toEqual([fresh.url]);
+    expect(carried.jobs[0].description).toBe(bodyOf(50));
+  });
+
   it('drops invented slots and their translations, keeping only a real source slot', () => {
     const stale = staleByTail('82dfafe3b264');
     const cleaned = stripVolgInventedSlots(stale);

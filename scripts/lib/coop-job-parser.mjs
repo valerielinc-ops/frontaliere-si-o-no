@@ -11,6 +11,7 @@ import { fetch as undiciFetch } from 'undici';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { inferAnyCanton, isCantonOnlyLabel, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
 import { SWISS_CANTONS } from './crawler-location-config.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { preferLocationEncodedCanton } from './job-location-display.mjs';
 import {
   createSpecUrlPolicy,
@@ -704,12 +705,21 @@ export function applyCoopJsonLdToJob(job, jsonLd) {
 // Validation
 // ─────────────────────────────────────────────────────────────
 
+/**
+ * Whether a converted source body may be published. The length floor is the
+ * shared word floor (`source-body-floor.mjs`, Non-Negotiable #4): the former
+ * 200-character minimum and the 400-character rule for unstructured text let
+ * bodies of 20-49 words through or stopped longer ones, depending on word
+ * length. The coverage ratio stays: it compares the converted text with the
+ * source HTML to catch a conversion that lost most of the markup's content.
+ */
 export function validateCoopDescription(markdown = '', sourceHtmlLength = 0) {
   const warnings = [];
   const textLength = markdown.replace(/[#\-*>\n]/g, ' ').replace(/\s+/g, ' ').trim().length;
+  const wordCount = sourceBodyWordCount(markdown);
 
-  if (textLength < 200) {
-    warnings.push(`Description too short: ${textLength} chars (minimum 200)`);
+  if (!meetsSourceBodyFloor(markdown)) {
+    warnings.push(`Description too short: ${wordCount} words (minimum ${MIN_SOURCE_BODY_WORDS})`);
   }
 
   if (sourceHtmlLength > 0) {
@@ -719,14 +729,7 @@ export function validateCoopDescription(markdown = '', sourceHtmlLength = 0) {
     }
   }
 
-  // Count content blocks
-  const headings = (markdown.match(/^#{2,4}\s+/gm) || []).length;
-  const listItems = (markdown.match(/^- /gm) || []).length;
-  if (headings === 0 && listItems === 0 && textLength < 400) {
-    warnings.push('No structured sections found (no headings or lists)');
-  }
-
-  return { ok: warnings.length === 0, warnings, textLength };
+  return { ok: warnings.length === 0, warnings, textLength, wordCount };
 }
 
 function jsonLdAddressCandidates(jsonLd = {}) {
@@ -753,10 +756,6 @@ function jsonLdAddressCandidates(jsonLd = {}) {
       streetAddress: String(address.streetAddress || '').trim(),
     };
   });
-}
-
-function wordCount(value = '') {
-  return String(value || '').trim().split(/\s+/).filter(Boolean).length;
 }
 
 function resolveCoopJsonLdGeography(candidate) {
@@ -896,11 +895,9 @@ export function applyCoopSourceDetailToJob(job, jsonLd, page = null) {
   // outside the JSON-LD description; without it the JSON-LD alone is used.
   const description = composeCoopFamilyDescription(coopDescHtmlToMarkdown(sourceHtml), page);
   const validation = validateCoopDescription(description, sourceHtml.length);
-  const descriptionWordCount = wordCount(description);
-  if (!validation.ok || descriptionWordCount < 50) {
-    const warningText = validation.warnings.join('; ') || 'Description below minimum 50 words';
+  if (!validation.ok) {
     throw detailRejection(
-      `Coop-family detail description rejected (${descriptionWordCount} words, ${validation.textLength} chars): ${warningText}`,
+      `Coop-family detail description rejected (${validation.wordCount} words, ${validation.textLength} chars): ${validation.warnings.join('; ')}`,
     );
   }
 

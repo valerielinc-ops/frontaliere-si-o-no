@@ -64,6 +64,7 @@ import {
   extractLidlApiHitFields,
 } from './lib/lidl-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -307,7 +308,9 @@ function buildJobFromApiFields(fields, detailUrl) {
   // The LiCa API bundles the whole job body (intro + tasks + profile + offer)
   // into descResponsibilities (mapped to fields.descriptionHtml).
   const body = stripHtmlToPlain(fields?.descriptionHtml || '');
-  if (!body || body.length < 50) return null;
+  // Shared 50-word floor (source-body-floor.mjs), not a character count:
+  // discovery withholds a thinner vacancy before it gets here.
+  if (!meetsSourceBodyFloor(body)) return null;
 
   const meta = buildSeedMetaFromFields(fields);
   // Reject jobs whose location does not resolve to a Swiss canton. Discovery
@@ -587,7 +590,16 @@ export async function fetchLidlJobDetailUrls(options = {}) {
 
   const detailUrls = [];
   const jobsFromApi = [];
+  // A vacancy whose LiCa body is under the shared 50-word floor would be a
+  // thin page: it is not seeded, so it is not published in this run (the
+  // next run whose body clears the floor publishes it). It is accounted for,
+  // not a discovery failure.
+  let withheldThinBody = 0;
   for (const item of selectedByKey.values()) {
+    if (!meetsSourceBodyFloor(stripHtmlToPlain(item.fields?.descriptionHtml || ''))) {
+      withheldThinBody += 1;
+      continue;
+    }
     detailUrls.push(item.detailUrl);
     seedMetaByUrl[item.detailUrl] = buildSeedMetaFromFields(item.fields);
     // Build job directly from API fields (rich description available)
@@ -601,17 +613,20 @@ export async function fetchLidlJobDetailUrls(options = {}) {
   detailUrls.sort((a, b) => a.localeCompare(b));
   // Source-declared foreign hits are valid drops and stay visible separately;
   // unresolved CH geography has already failed closed above.
-  const accounted = detailUrls.length + duplicateIdentity + droppedForeign + droppedMalformed;
+  const accounted = detailUrls.length + duplicateIdentity + droppedForeign + droppedMalformed + withheldThinBody;
   if (accounted !== rawFetched
       || droppedMalformed !== 0
       || jobsFromApi.length !== detailUrls.length
       || Object.keys(seedMetaByUrl).length !== detailUrls.length) {
     throw new Error(
-      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, foreign=${droppedForeign}, unresolved-CH=0, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
+      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, foreign=${droppedForeign}, unresolved-CH=0, malformed=${droppedMalformed}, thin-body=${withheldThinBody}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
     );
   }
   if (droppedForeign > 0) {
     console.log(`  🌍 Dropped ${droppedForeign} source-declared foreign Lidl hit(s).`);
+  }
+  if (withheldThinBody > 0) {
+    console.log(`  ⏸️ Withheld ${withheldThinBody} Lidl hit(s) whose body is under the 50-word floor.`);
   }
   console.log(`✅ Total unique Lidl detail URLs discovered: ${detailUrls.length}`);
   console.log(`✅ Jobs built from API data: ${jobsFromApi.length}`);
@@ -625,6 +640,7 @@ export async function fetchLidlJobDetailUrls(options = {}) {
     droppedForeign,
     unresolvedSwiss: 0,
     droppedMalformed,
+    withheldThinBody,
     sourceZero: totalCount === 0,
   };
 }

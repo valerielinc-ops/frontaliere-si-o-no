@@ -52,6 +52,12 @@ describe('federal job normalization', () => {
       ['Pristina, Kosovo', ''],
       ['Schweiz und Ausland (abhängig von Funktion und Einsatzort)', ''],
       ['', ''],
+      // The first segment is a site label, not a place: the workplace is the
+      // first segment that is a Swiss locality (or carries a canton marker).
+      ["Places d'armes, 1436 Chamblon", 'Chamblon'],
+      ['Waffenplatz, Bronschhofen SG', 'Bronschhofen'],
+      // A former municipality with no marker is not placed at all.
+      ['Bronschhofen', ''],
     ];
     for (const [raw, expected] of cases) {
       expect(resolveFederalWorkplaceLocality(raw), raw).toBe(expected);

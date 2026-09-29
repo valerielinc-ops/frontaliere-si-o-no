@@ -41,6 +41,7 @@ import {
   extractPostJobIdFromUrl,
   keyPostDescriptionBySourceLocale,
   keyPostTitleBySourceLocale,
+  isPublishablePostDetail,
   previousPostSourceBody,
   stripPostFallbackSlots,
 } from './lib/postch-job-parser.mjs';
@@ -517,12 +518,9 @@ async function fetchPostJobs() {
       await delay(400);
       if (!html) continue;
       const parsed = parsePostJobDetail(html, url);
-      // Require a meaningful title (locale-untranslated jobs render the
-      // generic "Stellendetails" placeholder — discard it) AND a non-trivial
-      // description.
-      const looksLikePlaceholder = /^stellendetails$/i.test(String(parsed?.title || '').trim());
-      const hasBody = (parsed?.description || '').length > 80;
-      if (parsed?.title && !looksLikePlaceholder && hasBody) {
+      // A real title (not the "Stellendetails" placeholder of an untranslated
+      // locale) AND a body that clears the shared 50-word floor.
+      if (isPublishablePostDetail(parsed)) {
         detail = parsed;
         sourceUrl = url;
         break;
@@ -568,7 +566,7 @@ async function fetchPostJobs() {
       : '';
 
     // Only the source's own text: the detail loop above already requires a
-    // body of more than 80 characters (the former Italian one-liner
+    // body that clears the 50-word floor (the former Italian one-liner
     // "Posizione aperta presso …" was never source text).
     const description = String(detail.description || '').trim();
     const sourceLang = detectLang(description || title, 'it');

@@ -205,4 +205,12 @@ describe('VTG workplace location', () => {
     expect((await seedMetaFor('Bronschhofen')).workplaceLocation).toBeUndefined();
     expect((await seedMetaFor('Ausland / Kosovo')).workplaceLocation).toBeUndefined();
   });
+
+  it('skips a leading site label that is not a place: "Places d\'armes, 1436 Chamblon" is Chamblon', async () => {
+    const seedMeta = await seedMetaFor("Places d'armes, 1436 Chamblon");
+    expect(seedMeta).toMatchObject({ workplaceLocation: 'Chamblon' });
+    expect(seedMeta.workplaceLocation).not.toBe("Places d'armes");
+    expect(sharedCrawlerTestables.toJobFromJsonLd(jsonLd, 'Swiss Armed Forces (VTG)', url, { seedMeta, isSeedDetail: true }))
+      .toMatchObject({ reason: null, job: { location: 'Chamblon', canton: 'VD' } });
+  });
 });

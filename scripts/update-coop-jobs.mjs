@@ -70,6 +70,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -786,6 +787,22 @@ function runBaseCrawler() {
 
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 
+/**
+ * The source body of a stored Coop description, without the scaffold this
+ * runner writes around it (`## <title>`, `**<company>** — <place>, Svizzera`,
+ * and the `---` / `**Tipo:**` / `**Sede:**` footer), so the source-body word
+ * floor measures the vacancy text and not our own labels.
+ */
+export function coopStoredBody(description = '') {
+  const lines = String(description || '').split('\n');
+  const footer = lines.lastIndexOf('---');
+  const body = footer >= 0 ? lines.slice(0, footer) : lines;
+  if (/^##\s/.test(body[0] || '')) body.shift();
+  while (body.length > 0 && !body[0].trim()) body.shift();
+  if (/^\*\*[^*]+\*\* — .*Svizzera$/.test(body[0] || '')) body.shift();
+  return body.join('\n').trim();
+}
+
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
 
@@ -905,10 +922,14 @@ async function postProcessCoopJobs() {
       // needsRetranslation exactly like the bug this guard exists to fix).
       // The incoming markdown still appearing verbatim in the prior stored
       // text means no real drift; anything else means the source changed.
+      // Both floors are the shared source-body word floor: the stored text
+      // (its generated title/company/"Tipo"/"Sede" scaffold aside) and the
+      // fresh body are judged in words, never in characters.
+      const bodyPublishable = meetsSourceBodyFloor(markdown);
       const sourceDrifted =
-        markdown.length > 200 && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
-      if (markdown.length > descLen || descLen < 350 || sourceDrifted) {
-        if (markdown.length > 200) {
+        bodyPublishable && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
+      if (markdown.length > descLen || !meetsSourceBodyFloor(coopStoredBody(priorDescriptionText)) || sourceDrifted) {
+        if (bodyPublishable) {
           // Build structured description with metadata
           const lines = [`## ${job.title || ldTitle}`, ''];
           // Add company from OG or hiringOrganization
@@ -990,13 +1011,13 @@ async function postProcessCoopJobs() {
 
   // Fetch + repair one job. Quarantines jobs that resolve no real description.
   async function processOne(job) {
-    const descLen = (job.description || '').length;
     const detail = await fetchCoopDetailResilient(job.url);
     const jsonLd = detail?.jsonLd || null;
-    if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
+    if (!jsonLd || !meetsSourceBodyFloor(jsonLd.description)) {
       // No real source description available → quarantine (don't publish a
-      // boilerplate-padded thin page).
-      if (descLen < 250) quarantineUrls.add(job.url);
+      // boilerplate-padded thin page) unless the stored body already meets
+      // the source-body floor.
+      if (!meetsSourceBodyFloor(coopStoredBody(job.description))) quarantineUrls.add(job.url);
       if (!jsonLd) return;
     }
     if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;

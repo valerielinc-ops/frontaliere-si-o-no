@@ -811,8 +811,11 @@ export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = [], 
     const meta = source.meta || {};
     const location = String(job.location || '').trim();
     const canton = String(job.canton || '').trim().toUpperCase();
+    // One floor for a published source body: the shared word floor, which
+    // `validateCoopDescription` applies (the separate whitespace-split count
+    // it duplicated also counted markdown markers as words).
     const detailDescription = validateCoopDescription(job.description || '', 0);
-    if (!location || !canton || !detailDescription.ok || String(job.description || '').trim().split(/\s+/).length < 50) {
+    if (!location || !canton || !detailDescription.ok) {
       throw new Error(`Fust source-detail invariant failed for ${source.url}`);
     }
     const title = String(job.title || meta.title || '').trim();

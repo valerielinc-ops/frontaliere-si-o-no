@@ -1135,21 +1135,27 @@ describe('Coop-family source-detail contract (#5253)', () => {
     );
   });
 
-  it('includes word and text counts when only the 50-word floor rejects (#7884)', () => {
+  // The floor is the shared source-body WORD floor (source-body-floor.mjs):
+  // 49 long words clear the former 200-character minimum by far and are still
+  // not published; 50 are. Markdown markers ("##", "-") are not words.
+  it('rejects a 49-word body however many characters it has, and publishes 50 words (#7884)', () => {
     const [companyKey, url, locality, region] = cases[0];
     const listing = {
       id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
       description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
     };
-    const longTokens = Array.from({ length: 46 }, (_, index) => `Verantwortung${index + 1}`).join(' ');
-    const detail = {
+    const detailWith = (words: number) => ({
       ...jsonLd(listing.title, locality, region),
-      description: `<h2>Aufgaben</h2><ul><li>${longTokens}</li></ul>`,
-    };
+      // "Aufgaben" + (words - 1) long tokens.
+      description: `<h2>Aufgaben</h2><ul><li>${Array.from({ length: words - 1 }, (_, index) => `Verantwortungsbereich${index + 1}`).join(' ')}</li></ul>`,
+    });
+    const fortyNine = detailWith(49);
+    expect(coopDescHtmlToMarkdown(fortyNine.description).length).toBeGreaterThan(1000);
 
-    expect(() => applyCoopSourceDetailToJob(listing, detail)).toThrow(
-      /49 words, \d+ chars\): Description below minimum 50 words/,
+    expect(() => applyCoopSourceDetailToJob(listing, fortyNine)).toThrow(
+      /49 words, \d+ chars\): Description too short: 49 words \(minimum 50\)/,
     );
+    expect(applyCoopSourceDetailToJob(listing, detailWith(50))).toMatchObject({ _enrichedFromDetail: true });
   });
 
   it.each(cases)('%s replaces listing fallbacks without changing identity or route history', (companyKey, url, locality, region, canton) => {

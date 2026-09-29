@@ -64,6 +64,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -558,7 +559,6 @@ const VOLG_INVENTED_TEXT_MARKERS = [
   'VOLG è il marchio di prossimità della cooperativa fenaco',
 ];
 const VOLG_LISTING_LINE_RX = /\b(?:Bewerbung über|Postulez sur|Candidati su) https:\/\/jobs\.fenaco\.com\b/;
-const MIN_BODY_WORDS = 50;
 
 /** True when `text` carries the invented listing line or company paragraph. */
 export function isVolgInventedText(text = '') {
@@ -566,14 +566,10 @@ export function isVolgInventedText(text = '') {
   return VOLG_LISTING_LINE_RX.test(value) || VOLG_INVENTED_TEXT_MARKERS.some((marker) => value.includes(marker));
 }
 
-function wordCount(text = '') {
-  return String(text || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
-}
-
 function previousSourceBody(job) {
   for (const candidate of [job?.descriptionByLocale?.[job?.sourceLang], job?.description]) {
     const text = String(candidate || '').trim();
-    if (text && !isVolgInventedText(text) && wordCount(text) >= MIN_BODY_WORDS) return text;
+    if (text && !isVolgInventedText(text) && meetsSourceBodyFloor(text)) return text;
   }
   return '';
 }
@@ -931,10 +927,11 @@ async function main() {
     isTargetJob,
   });
 
-  // No thin-description padding step: every body here is source text of at
-  // least 50 words (the detail enricher rejects shorter ones and
-  // resolveVolgJobBodies() carries only such text); the shared padding helper
-  // would append the invented "VOLG è il marchio di prossimità…" paragraph.
+  // No thin-description padding step: every body here is source text that
+  // meets the shared source-body word floor (the detail enricher rejects
+  // shorter ones and resolveVolgJobBodies() carries only such text); the
+  // shared padding helper would append the invented "VOLG è il marchio di
+  // prossimità…" paragraph.
 
   // Step 5: Stats + validation
   logStats();

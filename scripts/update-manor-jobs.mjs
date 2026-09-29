@@ -21,6 +21,7 @@
  * is isTargetSwissLocation across all 26 Swiss cantons.
  */
 import fs from 'node:fs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -289,11 +290,7 @@ export function resolveManorBodyLang(body = '', pageLang = '') {
   if (!body) return declared;
   const { lang, confidence } = detectLanguageWithConfidence(body, declared);
   if (lang === declared || !MANOR_LOCALES.includes(lang)) return declared;
-  return wordCount(body) >= 12 && confidence >= 0.4 ? lang : declared;
-}
-
-function wordCount(text) {
-  return (String(text || '').match(/\p{L}[\p{L}\p{N}'’-]*/gu) || []).length;
+  return sourceBodyWordCount(body) >= 12 && confidence >= 0.4 ? lang : declared;
 }
 
 /**
@@ -305,7 +302,7 @@ function wordCount(text) {
  * - Only the source-language slot is filled: the other slots belong to the
  *   translation step. The old builder copied a German/French body into `it`
  *   and put the generic paragraph into every other slot.
- * - A body under 50 words (or 300 characters) is followed by the company
+ * - A body under the 50-word source floor is followed by the company
  *   context, a separate block: Manor's own careers text in that language
  *   (`companyContexts[lang]`), else the generic paragraph under its own
  *   heading.
@@ -323,7 +320,7 @@ export function buildManorJobDescriptions({
   const sourceLang = resolveManorBodyLang(body, pageLang);
   let context = '';
   let companyContext = 'none';
-  if (wordCount(body) < 50 || body.length < 300) {
+  if (!meetsSourceBodyFloor(body)) {
     context = String(companyContexts?.[sourceLang] || '').trim();
     companyContext = context ? 'careers' : 'fallback';
     if (!context) {
@@ -376,6 +373,8 @@ export function stripStaleManorLocaleSlots(job) {
  * description: two reposts tagged in different portal languages get the
  * company context in different languages but are still one vacancy
  * ("Boucher/ère 70%", Marin-Epagnier, 1363511155 fr / 1363511255 de).
+ * Without a source body there is no evidence of a repost: those records are
+ * always kept separately.
  */
 export function dedupeManorReposts(jobs = []) {
   const normalized = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -383,9 +382,17 @@ export function dedupeManorReposts(jobs = []) {
   const bodyOf = (job) => (job && '_manorVacancyBody' in job ? job._manorVacancyBody : job?.description);
   const sorted = [...jobs].sort((a, b) => idOf(a) - idOf(b));
   const keptByKey = new Map();
+  const keptWithoutBody = [];
   const reposts = [];
   for (const job of sorted) {
-    const key = [normalized(job.title), normalized(job.location), normalized(bodyOf(job))].join('\u0000');
+    const body = normalized(bodyOf(job));
+    if (!body) {
+      // No source body (portal placeholder "-", "Voir JD"): nothing proves two
+      // same-title openings at one store are the same vacancy, so both stay.
+      keptWithoutBody.push(job);
+      continue;
+    }
+    const key = [normalized(job.title), normalized(job.location), body].join('\u0000');
     const kept = keptByKey.get(key);
     if (kept) {
       reposts.push({ url: job.url, keptUrl: kept.url });
@@ -393,7 +400,7 @@ export function dedupeManorReposts(jobs = []) {
     }
     keptByKey.set(key, job);
   }
-  const keptSet = new Set(keptByKey.values());
+  const keptSet = new Set([...keptByKey.values(), ...keptWithoutBody]);
   const unique = jobs.filter((job) => keptSet.has(job)).map((job) => {
     if (!job || !('_manorVacancyBody' in job)) return job;
     const { _manorVacancyBody, ...rest } = job;
