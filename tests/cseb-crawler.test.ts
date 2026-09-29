@@ -204,7 +204,7 @@ describe('Center da Sanadad Engiadina Bassa crawler parser', () => {
       expect(job.description).not.toContain('<p>');
     });
 
-    it('uses fallback description when all sections empty', () => {
+    it('writes no text of its own when all sections are empty (issue 5253)', () => {
       const pub = {
         ...basePub,
         Tasks: '',
@@ -215,8 +215,10 @@ describe('Center da Sanadad Engiadina Bassa crawler parser', () => {
         Closure: '',
       };
       const job = parseCsebPublication(pub);
-      expect(job.description).toContain(job.title);
-      expect(job.description).toContain('Center da Sanadad Engiadina Bassa');
+      // No "<title> — Center da Sanadad Engiadina Bassa, <place>" line: the
+      // posting keeps its stored source body or takes the thin-source path.
+      expect(job.description).toBe('');
+      expect(job.descriptionByLocale).toEqual({ [job.sourceLang]: '' });
     });
 
     it('sets correct URLs', () => {

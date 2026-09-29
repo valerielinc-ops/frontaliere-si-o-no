@@ -291,7 +291,7 @@ describe('Amstein + Walthert AG crawler parser', () => {
       expect(words).toBeGreaterThanOrEqual(50);
     });
 
-    it('description clears the 50-word floor even via the safe-default fallback', async () => {
+    it('writes no text of its own when the detail has no body (issue 5253)', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
         if (u.startsWith(JSON_ENDPOINT)) return listingJsonResponse();
@@ -299,9 +299,12 @@ describe('Amstein + Walthert AG crawler parser', () => {
         return new Response('<html><body><p>n/a</p></body></html>', { status: 200 });
       }) as any;
 
+      // The posting is still emitted (same slug), with no description: the
+      // shared pipeline keeps the stored source body or quarantines it.
       const jobs = await fetchAllAmsteinWalthertJobs();
-      const words = String(jobs[0].description || '').split(/\s+/).filter(Boolean).length;
-      expect(words).toBeGreaterThanOrEqual(50);
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({ [jobs[0].sourceLang]: '' });
+      expect(jobs[0].slug).toMatch(/amstein-walthert/);
     });
   });
 });

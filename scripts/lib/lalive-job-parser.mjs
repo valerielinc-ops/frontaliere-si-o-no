@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -163,10 +164,11 @@ function buildParsedJob(rec) {
   const jobSlug = slugify(`${title} lalive ${loc.city}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  const fallbackDesc = `${title} — Offerta di lavoro presso LALIVE a ${loc.city} (${loc.canton}), Svizzera. `
-    + 'LALIVE è uno studio legale internazionale specializzato in arbitrato internazionale '
-    + 'e risoluzione di controversie, con uffici a Ginevra, Zurigo e Londra.';
-  const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no Italian "<title> — Offerta di
+  // lavoro presso LALIVE …" line and firm summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
   const employmentBasis = `${rec?.schedule || ''} ${rec?.employment_type || ''}`;
 
