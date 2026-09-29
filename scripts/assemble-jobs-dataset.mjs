@@ -3486,7 +3486,13 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
     const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
     const key = jobTclKey(ej);
-    const match = activeByTCL[key];
+    // When a shared title/company/location key has multiple active jobs, the
+    // overlapping slug is the evidence that identifies the actual owner.
+    // Prefer that owner for both the proof and the previous-slug merge;
+    // otherwise the first active job can inherit another job's route history.
+    const match = overlapJob && jobTclKey(overlapJob) === key
+      ? overlapJob
+      : activeByTCL[key];
     const overlapSlug = overlapJob && jobTclKey(overlapJob) === key ? overlapCandidate : null;
     const hasSlugOverlap = Boolean(overlapSlug);
 

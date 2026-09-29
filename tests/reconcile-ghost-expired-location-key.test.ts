@@ -72,6 +72,40 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     expect(activeJobs[0].previousSlugs).toContain('verkaeufer-in-food-baetterkinden-old');
   });
 
+  it('merges onto the overlapping slug owner when active jobs share the same match key', () => {
+    const shared = {
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+    };
+    const activeJobs = [
+      {
+        ...shared,
+        slugByLocale: { it: 'store-manager-zurich-a' },
+      },
+      {
+        ...shared,
+        slugByLocale: { it: 'store-manager-zurich-b' },
+      },
+    ];
+    const expiredJobs = [{
+      url: 'https://example.test/store-manager-zurich-legacy',
+      ...shared,
+      slugByLocale: {
+        it: 'store-manager-zurich-legacy',
+        de: 'store-manager-zurich-b',
+      },
+    }];
+
+    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(ghostCount).toBe(1);
+    expect(mergedSlugs).toBe(1);
+    expect(cleanedExpired).toHaveLength(0);
+    expect(activeJobs[0].previousSlugs || []).not.toContain('store-manager-zurich-legacy');
+    expect(activeJobs[1].previousSlugs).toContain('store-manager-zurich-legacy');
+  });
+
   it('retains a distinct URL when two expired records share a top-level slug', () => {
     const activeJobs = [{
       title: 'Store Manager',
