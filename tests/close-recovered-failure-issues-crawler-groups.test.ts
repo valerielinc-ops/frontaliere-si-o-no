@@ -28,6 +28,9 @@ import {
   CRAWLER_MEMBER_FAILURE_ANNOTATION_RE,
   CRAWLER_MEMBER_WARNING_ANNOTATION_RE,
   CRAWLER_MEMBER_QUARANTINE_ANNOTATION_RE,
+  CRAWLER_GROUP_COMPLETED_ANNOTATION_RE,
+  CRAWLER_GROUP_INTERRUPTED_ANNOTATION_RE,
+  CRAWLER_GROUP_TOLERATED_COUNT_RE,
   crawlerRunToken,
   crawlerWorkflowReference,
   checkRunApiPath,
@@ -266,6 +269,16 @@ const GROUP_24_RED_ANNOTATIONS = [[
 
 const redMemberStep = { stepStatus: 'completed', stepConclusion: 'success', jobConclusion: 'failure' };
 
+/** The gate's outcome line, in the exact form the generated workflows echo. */
+function groupCompleted({ succeeded = 16, failed = 0, missing = 0, systemic = 0, tolerated }: {
+  succeeded?: number; failed?: number; missing?: number; systemic?: number; tolerated?: number;
+}) {
+  const head = `crawler group completed with ${succeeded} succeeded, ${failed} failed, ${missing} missing, ${systemic} systemic; healthy siblings were preserved`;
+  return tolerated === undefined
+    ? `${head}, but the group remains failed until incomplete crawlers are recovered`
+    : `${head}, ${tolerated} known failures are excluded by the quarantine registry, and the failures counted here are new, regressions or past their deadline`;
+}
+
 describe('decideCrawlerMemberConclusion — the Run <slug> step conclusion is not the member outcome', () => {
   it('keeps a failed member red although its continue-on-error step reports success', () => {
     expect(decideCrawlerMemberConclusion({
@@ -354,6 +367,7 @@ describe('decideCrawlerMemberConclusion — the Run <slug> step conclusion is no
 
   it('ignores a free-form warning of the same crawler', () => {
     const pages = [[
+      { annotation_level: 'failure', message: groupCompleted({ failed: 1 }) },
       { annotation_level: 'failure', message: 'lwphr: crawler exited with status 1' },
       { annotation_level: 'warning', message: 'lidl: detail page fell back to listing description' },
     ]];
@@ -383,6 +397,89 @@ describe('decideCrawlerMemberConclusion — the Run <slug> step conclusion is no
 
     const fiftyNotices = Array.from({ length: 50 }, () => ({ annotation_level: 'notice', message: 'noise' }));
     expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [fiftyNotices] })).toBeNull();
+  });
+});
+
+// #7483, review 🔴 della discesa nel corpus (nanakokyobashi-rgb/frontaliere-articles#1973):
+// «nessuna riga per questo slug» prova il verde solo se l'elenco dell'aggregato e' completo.
+describe('decideCrawlerMemberConclusion — a missing line proves green only against the gate outcome', () => {
+  const exit1 = { annotation_level: 'failure', message: 'Process completed with exit code 1.' };
+
+  it('returns null when the job is red for a group error that names no member', () => {
+    for (const message of [
+      'crawler aggregate step did not complete; group failed after preserving already-running siblings',
+      'crawler aggregate produced an invalid count: invalid',
+      'timeout command unavailable; refusing to run an unbounded crawler worker',
+    ]) {
+      const pages = [[{ annotation_level: 'failure', message }, exit1]];
+      expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: pages }), message).toBeNull();
+    }
+  });
+
+  it('returns null when the job is red with no gate outcome line at all (e.g. a commit step)', () => {
+    const pages = [[{ annotation_level: 'failure', message: 'crawler group 24 failed (exit 1); token-bound output was not published' }, exit1]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: pages })).toBeNull();
+  });
+
+  it('returns null when fewer members are listed than the gate declares (dropped annotations)', () => {
+    // Tre `quarantena scaduta` e sette `crawler exited` riempiono i 10 errori dello step:
+    // l'undicesimo fallito sparisce, e il vecchio contatore ne vedeva solo 7.
+    const expired = ['a1', 'a2', 'a3'].map((slug) => ({
+      annotation_level: 'failure',
+      message: `${slug}: quarantena scaduta il 2026-09-20 senza recupero (issue #1, exit 1); il crawler va riparato o ritirato`,
+    }));
+    const exited = Array.from({ length: 7 }, (_, index) => ({
+      annotation_level: 'failure',
+      message: `b${index}: crawler exited with status 1`,
+    }));
+    const pages = [[{ annotation_level: 'failure', message: groupCompleted({ failed: 11, tolerated: 0 }) }, ...expired, ...exited, exit1]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: pages })).toBeNull();
+    // Stesso elenco, ma il gate ne dichiara 10: completo, il membro assente e' verde...
+    const complete = [[{ annotation_level: 'failure', message: groupCompleted({ failed: 9, missing: 1 }) }, ...expired, ...exited.slice(0, 6),
+      { annotation_level: 'warning', message: 'c1: no terminal status was published' }, exit1]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: complete })).toBe('success');
+    // ...e la riga `quarantena scaduta` rende rosso il suo membro.
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'a2', annotationPages: complete })).toBe('failure');
+  });
+
+  it('counts errors and warnings on their own GitHub limits: 6 failures + 4 missing is a complete list', () => {
+    const failures = Array.from({ length: 6 }, (_, index) => ({ annotation_level: 'failure', message: `f${index}: crawler exited with status 2` }));
+    const missing = Array.from({ length: 4 }, (_, index) => ({ annotation_level: 'warning', message: `m${index}: no terminal status was published` }));
+    const pages = [[{ annotation_level: 'failure', message: groupCompleted({ failed: 6, missing: 4 }) }, ...failures, ...missing, exit1]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: pages })).toBe('success');
+  });
+
+  it('checks the systemic-only outcome line against the systemic warnings', () => {
+    const shutdown = (slug: string) => ({
+      annotation_level: 'warning',
+      message: `${slug}: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed`,
+    });
+    const interrupted = (count: number) => ({
+      annotation_level: 'failure',
+      message: `crawler group interrupted: ${count} member(s) stopped by a runner shutdown (exit 143) before completing; 15 succeeded and were preserved, no per-crawler issue filed (systemic class), and the interrupted crawlers keep their previous data until the next wave`,
+    });
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [[interrupted(2), shutdown('s1'), shutdown('s2'), exit1]] })).toBe('success');
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [[interrupted(2), shutdown('s1'), exit1]] })).toBeNull();
+  });
+
+  it('checks the quarantine group\'s tolerated count as well', () => {
+    const tolerated = (slug: string) => ({
+      annotation_level: 'warning',
+      message: `${slug}: fallimento noto in quarantena (exit 1), tracciato da #10084 fino al 2026-10-03; escluso dal verdetto del gruppo`,
+    });
+    const failed = { annotation_level: 'failure', message: 'n1: crawler exited with status 1' };
+    const outcome = (count: number) => ({ annotation_level: 'failure', message: groupCompleted({ failed: 1, tolerated: count }) });
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [[outcome(2), failed, tolerated('t1'), tolerated('t2'), exit1]] })).toBe('success');
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: [[outcome(3), failed, tolerated('t1'), tolerated('t2'), exit1]] })).toBeNull();
+  });
+
+  it('returns null when two outcome lines disagree', () => {
+    const pages = [[
+      { annotation_level: 'failure', message: groupCompleted({ failed: 1 }) },
+      { annotation_level: 'failure', message: groupCompleted({ failed: 2 }) },
+      { annotation_level: 'failure', message: 'lwphr: crawler exited with status 1' },
+    ]];
+    expect(decideCrawlerMemberConclusion({ ...redMemberStep, slug: 'anicura', annotationPages: pages })).toBeNull();
   });
 });
 
@@ -436,7 +533,23 @@ describe('crawler member annotations stay aligned with the generated group workf
       }
       expect(content).toContain(missingLine);
       expect(CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(`${slug}: crawler exited with status 1`)).toBe(true);
+      expect(CRAWLER_MEMBER_FAILURE_ANNOTATION_RE.test(`${slug}: quarantena scaduta il 2026-10-03 senza recupero`)).toBe(true);
       expect(CRAWLER_MEMBER_WARNING_ANNOTATION_RE.test(`${slug}: no terminal status was published`)).toBe(true);
+    }
+  });
+
+  it.each(groupFiles)('%s gate emits the outcome lines whose counts prove the member list complete', (file) => {
+    const content = fs.readFileSync(path.join(corpusWorkflowsDir, file), 'utf8');
+    const completed = /echo "::error::(crawler group completed with \$success_count succeeded, \$failure_count failed, \$missing_count missing, \$systemic_count systemic;[^"]*)"/.exec(content);
+    const interrupted = /echo "::error::(crawler group interrupted: \$systemic_count member\(s\) stopped by a runner shutdown[^"]*)"/.exec(content);
+    expect(completed).not.toBeNull();
+    expect(interrupted).not.toBeNull();
+    // I numeri al posto delle variabili: la riga reale deve leggere come la leggiamo qui.
+    const render = (line: string) => line.replace(/\$(success|failure|missing|systemic|tolerated)_count/g, '3');
+    expect(CRAWLER_GROUP_COMPLETED_ANNOTATION_RE.test(render(completed![1]))).toBe(true);
+    expect(CRAWLER_GROUP_INTERRUPTED_ANNOTATION_RE.test(render(interrupted![1]))).toBe(true);
+    if (content.includes('fallimento noto in quarantena')) {
+      expect(CRAWLER_GROUP_TOLERATED_COUNT_RE.test(render(completed![1]))).toBe(true);
     }
   });
 });
