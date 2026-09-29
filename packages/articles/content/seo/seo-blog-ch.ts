@@ -92060,6 +92060,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-groupe-e-riorganizzazione-friburgo': {
+    title: 'Groupe E taglia 12 posti: colpiti soprattutto i dirigenti',
+    description: 'Groupe E conferma 12 licenziamenti a Friburgo, nove tra i quadri. Dal prossimo anno la ristrutturazione punta a snellire strutture e processi decisionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, groupe, taglia, posti, colpiti',
+    ogTitle: 'Groupe E, 12 licenziamenti a Friburgo',
+    ogDescription: 'A Friburgo l\'azienda energetica Groupe E rende definitivi 12 licenziamenti, nove tra i quadri. La riorganizzazione scatterà dall\'anno prossimo: previste prestazioni del piano sociale e sostegno per trovare un nuovo impiego.',
+    canonicalPath: '/articoli-svizzera/groupe-e-riorganizzazione-friburgo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Groupe E taglia 12 posti: colpiti soprattutto i dirigenti",
+      "description": "Groupe E conferma 12 licenziamenti a Friburgo, nove tra i quadri. Dal prossimo anno la ristrutturazione punta a snellire strutture e processi decisionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/groupe-e-riorganizzazione-friburgo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande, immagine simbolica della Svizzera per una notizia sul lavoro nell'energia"
+      },
+      "datePublished": "2026-09-29T20:27:30+00:00",
+      "dateModified": "2026-09-29T20:27:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/groupe-e-riorganizzazione-friburgo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

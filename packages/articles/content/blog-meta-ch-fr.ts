@@ -7100,6 +7100,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sresi-prezzi-lugano-2026.title': 'Investissements immobiliers : le Tessin va à contre-courant',
     'blog.article.sresi-prezzi-lugano-2026.excerpt': 'L\'indice SRESI descend à 47,5 points en 2026, contre 69,5 en 2025. Lugano est le seul centre où les prix sont attendus à la baisse.',
     'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama de Lugano avec des immeubles résidentiels et le lac en arrière-plan',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E supprime 12 postes : les cadres sont principalement touchés',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E confirme 12 licenciements à Fribourg : neuf concernent des cadres. Le plan social prévoit des prestations et un soutien pour un nouvel emploi.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande, symbole suisse pour un article sur l\'emploi dans l\'énergie',
 };
 
 export default blogMetaChFr;

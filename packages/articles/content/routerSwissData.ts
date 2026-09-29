@@ -2389,6 +2389,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-ticino-rincaro-lettori': { it: 'premi-cassa-malati-ticino-rincaro-lettori', en: 'health-insurance-premiums-ticino-increase-readers', de: 'krankenkassenpraemien-tessin-erhoehung-leser', fr: 'primes-assurance-maladie-tessin-augmentation-lecteurs' },
  'soletta-successione-donazione-aliquote': { it: 'soletta-successione-donazione-aliquote', en: 'solothurn-inheritance-donation-rates', de: 'solothurn-erbschaft-schenkung-saetze', fr: 'soleure-heritage-donation-taux' },
  'sresi-prezzi-lugano-2026': { it: 'sresi-prezzi-lugano-2026', en: 'swiss-real-estate-confidence-lugano', de: 'immobilien-vertrauen-lugano-schweiz', fr: 'confiance-immobiliere-lugano-suisse' },
+ 'groupe-e-riorganizzazione-friburgo': { it: 'groupe-e-riorganizzazione-friburgo', en: 'groupe-e-restructuring-fribourg', de: 'groupe-e-umstrukturierung-freiburg', fr: 'groupe-e-reorganisation-fribourg' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
