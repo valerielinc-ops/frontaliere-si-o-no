@@ -2,11 +2,24 @@ import { describe, it, expect, vi } from 'vitest';
 import {
   VEREINAKLOSTERS_KEY,
   VEREINAKLOSTERS_COMPANY_NAME,
+  VEREINAKLOSTERS_SECONDARY_SPEC,
   fetchAllVereinaklostersJobs,
   isVereinaklostersJob,
   isTrustedDomain,
 } from '../scripts/lib/vereinaklosters-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+
+function response(url: string, status: number, body = '') {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    url,
+    headers: { get: () => null },
+    body: { cancel: vi.fn() },
+    text: async () => body,
+  } as any;
+}
 
 describe('Vereina crawler parser', () => {
   // ── Constants ──
@@ -54,7 +67,7 @@ describe('Vereina crawler parser', () => {
       expect(isTrustedDomain('https://careers.hotelcareer.ch/job/456')).toBe(true);
     });
 
-    it('trusts the reviewed secondary public job board', () => {
+  it('trusts the reviewed secondary public job board', () => {
       expect(isTrustedDomain('https://local-job.ch/job/chef-de-rang-m-w-3795033/')).toBe(true);
     });
 
@@ -66,6 +79,53 @@ describe('Vereina crawler parser', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
     });
+  });
+
+  it('filters the secondary multi-employer board on detail evidence, not link text', async () => {
+    const seed = 'https://local-job.ch/berufsgruppe/gastronomie-tourismus/graubuenden/serneus/';
+    const wanted = 'https://local-job.ch/job/chef-de-partie-m-w-3795033/';
+    const unrelated = 'https://local-job.ch/job/chef-de-rang-m-w-3795000/';
+    const description = 'Zur Ergänzung unseres Küchenteams suchen wir eine erfahrene Persönlichkeit. '
+      + 'Sie führen Ihren eigenen Posten, arbeiten mit dem Küchenteam zusammen und sorgen für Qualität. '
+      + 'Wir bieten ein angenehmes Arbeitsklima, Verpflegung und eine moderne Unterkunft.';
+    const detail = (url: string, company: string) => `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: url === wanted ? 'Chef de partie (m/w)' : 'Chef de Rang (m/w)',
+      url,
+      description,
+      hiringOrganization: { '@type': 'Organization', name: company },
+      jobLocation: { '@type': 'Place', address: {
+        addressLocality: 'Serneus', addressRegion: 'GR', addressCountry: 'CH',
+      } },
+    })}</script>`;
+    const listing = `<a href="${new URL(wanted).pathname}">Chef de partie (m/w)</a>`
+      + `<a href="${new URL(unrelated).pathname}">Chef de Rang (m/w)</a>`;
+    const pages = new Map([
+      ['https://local-job.ch/robots.txt', response('https://local-job.ch/robots.txt', 200, 'User-agent: *\nAllow: /')],
+      [seed, response(seed, 200, listing)],
+      [wanted, response(wanted, 200, detail(wanted, 'Hotel Vereina'))],
+      [unrelated, response(unrelated, 200, detail(unrelated, 'Silvretta Parkhotel Klosters'))],
+    ]);
+    const fetchImpl = vi.fn(async (url: string) => pages.get(url) || response(url, 404));
+
+    const rows = await runSpecInProduction(
+      { ...VEREINAKLOSTERS_SECONDARY_SPEC, seedUrls: [seed] } as any,
+      {
+        fetchImpl,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        retries: 0,
+        jinaRetries: 0,
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      },
+    );
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Chef de partie (m/w)',
+      url: wanted,
+      location: 'Serneus, GR',
+    })]);
+    expect(fetchImpl).toHaveBeenCalledWith(unrelated, expect.objectContaining({ redirect: 'manual' }));
   });
 
   it('falls back to a source-backed secondary listing after a primary anti-bot zero', async () => {
