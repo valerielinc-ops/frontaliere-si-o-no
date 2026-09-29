@@ -6977,6 +6977,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilatérales III : Le Conseil des Etats entre en matière',
     'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'L\'entrée en matière a été approuvée par 29 voix contre 15. Une nouvelle autorité sur les aides d\'État est prévue et la TVA hôtelière est portée à 3,8 %.',
     'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilatérales III : le Conseil des États ouvre le débat',
+    'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'Le Conseil des Etats a approuvé l\'entrée en matière sur le paquet de stabilisation Suisse-UE par 29 voix contre 15.',
+    'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'Le Palais fédéral à Berne lors des débats parlementaires',
 };
 
 export default blogMetaChFr;

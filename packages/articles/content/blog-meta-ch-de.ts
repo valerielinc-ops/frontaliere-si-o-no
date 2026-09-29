@@ -6977,6 +6977,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilaterale III: Ständerat greift das Thema auf',
     'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'Das Eintreten wurde mit 29 gegen 15 Stimmen angenommen. Vorgesehen sind eine neue Behörde für staatliche Beihilfen und eine Verlängerung der Hotel-Mehrwertsteuer auf 3,8%.',
     'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
+    'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilaterale III: Der Ständerat eröffnet die Debatte',
+    'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'Der Ständerat hat mit 29 zu 15 Stimmen Eintreten auf das Stabilisierungspaket Schweiz-EU beschlossen.',
+    'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'Das Bundeshaus in Bern während der parlamentarischen Debatten',
 };
 
 export default blogMetaChDe;

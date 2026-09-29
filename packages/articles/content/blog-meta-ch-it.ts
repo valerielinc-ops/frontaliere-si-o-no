@@ -6977,6 +6977,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilaterali III: Consiglio degli Stati entra in materia',
     'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'Approvata l\'entrata in materia con 29 voti contro 15. Prevista una nuova autorità sugli aiuti di Stato e proroga IVA alberghiera al 3,8%.',
     'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Palazzo Federale a Berna, sede del governo svizzero',
+    'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilaterali III: il Consiglio degli Stati apre il dibattito',
+    'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'Il Consiglio degli Stati ha approvato l\'entrata in materia sul pacchetto di stabilizzazione Svizzera-Ue con 29 voti contro 15.',
+    'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'Il Palazzo federale a Berna durante i dibattiti parlamentari sui Bilaterali III',
 };
 
 export default blogMetaChIt;
