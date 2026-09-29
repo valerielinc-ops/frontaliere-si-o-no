@@ -20,7 +20,7 @@ interface AssistedApplicationOrder {
   companyId?: string;
   companyName?: string;
   jobTitle?: string;
-  experimentVariant?: AssistedApplicationVariant;
+  experimentVariant?: AssistedApplicationVariant | 'offerwall_fallback';
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
   consentVersion?: string | null;
@@ -66,9 +66,17 @@ function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
+/** Orders opened as the Offerwall fallback belong to the rewarded arm. */
+function variantForOrder(order: AssistedApplicationOrder | null): AssistedApplicationVariant {
+  const variant = String(order?.experimentVariant || '');
+  if (variant === 'assisted_application') return 'assisted_application';
+  if (variant === 'offerwall_fallback') return 'rewarded_ad';
+  return 'control';
+}
+
 function orderEventContext(order: AssistedApplicationOrder | null) {
   return {
-    variant: order?.experimentVariant === 'assisted_application' ? 'assisted_application' as const : 'control' as const,
+    variant: variantForOrder(order),
     jobId: order?.jobId || 'unknown',
     companyId: order?.companyId || order?.companyName || 'unknown',
   };
@@ -138,7 +146,7 @@ export default function AssistedApplicationUpload({
         if (!paymentCompletionTracked.current) {
           paymentCompletionTracked.current = true;
           trackAssistedApplicationEvent('checkout_completed', {
-            variant: data.experimentVariant === 'assisted_application' ? 'assisted_application' : 'control',
+            variant: variantForOrder(data),
             jobId: data.jobId || 'unknown',
             companyId: data.companyId || data.companyName || 'unknown',
             price_eur_cents: Number(data.amountTotal ?? ASSISTED_APPLICATION_PRICE_EUR_CENTS),
@@ -410,6 +418,9 @@ export default function AssistedApplicationUpload({
                   </p>
                   {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
                 </div>
+                <p className="text-xs leading-relaxed text-subtle" data-testid="assisted-application-email-alternative">
+                  {t('jobBoard.assisted.emailAlternative')}
+                </p>
 
                 <button
                   type="submit"

@@ -38,6 +38,11 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
  // assisted-application split when no global arm is forced.
  ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
+ // 0,99 € assisted-application offer shown when the job-board Offerwall and
+ // its GPT fallback fail to load (services/assistedApplicationExperiment.ts).
+ // Default 'false' keeps today's direct redirect; flip to 'true' in Remote
+ // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
+ ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
  // jobgate-v3 (services/jobGateExperiment.ts): OFF by default, so a failed
  // public-config fetch keeps every visitor on today's gate.
