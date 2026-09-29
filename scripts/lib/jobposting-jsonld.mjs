@@ -116,39 +116,55 @@ export function extractJobPostingAddress(html = '') {
 }
 
 /**
- * Balance-scan the `itemprop="description"` element of a microdata
- * schema.org/JobPosting page and return its inner HTML. Used by the
+ * Balance-scan the `itemprop="description"` elements of a microdata
+ * schema.org/JobPosting page and return their inner HTML. Used by the
  * SuccessFactors jobs2web / RMK detail pages (Implenia, Liebherr) which embed
  * the body as microdata rather than a JSON-LD script.
  *
  * Depth-balanced on the element's own tag name so nested same-tag children
  * (the body is typically a `<div>` full of nested `<div>`/`<ul>`) are captured
- * whole. Returns '' when no such element exists (e.g. JS-rendered shells).
+ * whole. Every top-level element is read, in page order: the jobs2web layout
+ * can split ONE vacancy into sibling `itemprop="description"` spans — intro,
+ * «Das bewegst du»/«Das bringst du mit», «Das bieten wir dir» on
+ * jobs.implenia.com — and reading only the first published the company
+ * blurb as the whole ad (…/Gesamtplanungsleiter-(wmd)/13518-de_DE: 1'096 of
+ * 4'124 characters, issue 5253). An element nested inside one already read is
+ * part of it and is not read twice. Returns '' when no such element exists
+ * (e.g. JS-rendered shells).
  *
  * @param {string} html
- * @returns {string} inner HTML of the description element, or ''.
+ * @returns {string} inner HTML of the description element(s), joined by a newline, or ''.
  */
 export function extractMicrodataDescription(html = '') {
   if (!html || typeof html !== 'string') return '';
-  const startTag = html.match(/<(\w+)[^>]*itemprop="description"[^>]*>/i);
-  if (!startTag) return '';
-  const tag = startTag[1];
-  const start = startTag.index + startTag[0].length;
-  const openNeedle = `<${tag}`;
-  const closeNeedle = `</${tag}>`;
-  let pos = start;
-  let depth = 1;
-  while (depth > 0 && pos < html.length) {
-    const nextOpen = html.indexOf(openNeedle, pos);
-    const nextClose = html.indexOf(closeNeedle, pos);
-    if (nextClose === -1) break; // unbalanced — bail
-    if (nextOpen !== -1 && nextOpen < nextClose) {
-      depth += 1;
-      pos = nextOpen + openNeedle.length;
-    } else {
-      depth -= 1;
-      pos = nextClose + closeNeedle.length;
+  const startRx = /<(\w+)[^>]*itemprop="description"[^>]*>/gi;
+  const parts = [];
+  let consumedUntil = 0;
+  let startTag;
+  while ((startTag = startRx.exec(html))) {
+    if (startTag.index < consumedUntil) continue;
+    const tag = startTag[1];
+    const start = startTag.index + startTag[0].length;
+    const openNeedle = `<${tag}`;
+    const closeNeedle = `</${tag}>`;
+    let pos = start;
+    let depth = 1;
+    while (depth > 0 && pos < html.length) {
+      const nextOpen = html.indexOf(openNeedle, pos);
+      const nextClose = html.indexOf(closeNeedle, pos);
+      if (nextClose === -1) break; // unbalanced — bail
+      if (nextOpen !== -1 && nextOpen < nextClose) {
+        depth += 1;
+        pos = nextOpen + openNeedle.length;
+      } else {
+        depth -= 1;
+        pos = nextClose + closeNeedle.length;
+      }
     }
+    parts.push(html.slice(start, pos - closeNeedle.length));
+    if (depth > 0) break; // unbalanced — nothing after it can be delimited
+    consumedUntil = pos;
+    startRx.lastIndex = pos;
   }
-  return html.slice(start, pos - closeNeedle.length);
+  return parts.join('\n');
 }

@@ -1,10 +1,14 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import {
   IMPLENIA_KEY,
   IMPLENIA_COMPANY_NAME,
   isImpleniaJob,
   isTrustedDomain,
+  impleniaDetailText,
 } from '../scripts/lib/implenia-job-parser.mjs';
+import { extractMicrodataDescription } from '../scripts/lib/jobposting-jsonld.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Implenia crawler parser', () => {
@@ -125,5 +129,28 @@ describe('Implenia crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('Implenia detail body (issue 5253)', () => {
+  // Minimised jobs2web detail page (contact redacted): the vacancy is three
+  // sibling itemprop="description" spans — company intro, tasks/profile,
+  // offer.
+  const html = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'implenia', 'detail-gesamtplanungsleiter.html'),
+    'utf8',
+  );
+  const text = impleniaDetailText(extractMicrodataDescription(html));
+
+  it('publishes all three description spans, not the company intro alone', () => {
+    expect(text).toMatch(/^Als führender Schweizer Bau- und Immobiliendienstleister/);
+    expect(text).toContain('## Das bewegst du');
+    expect(text).toContain('## Deshalb gelingt es dir');
+    expect(text).toContain('## Das bieten wir dir');
+    expect(text).toContain('• 5 Wochen Ferien und 9 bezahlte Brückentage');
+  });
+
+  it('keeps list items on their own lines instead of one flat paragraph', () => {
+    expect(text.match(/^• /gm)?.length).toBeGreaterThanOrEqual(20);
   });
 });

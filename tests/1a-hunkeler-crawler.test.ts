@@ -1,9 +1,13 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import {
   A1_HUNKELER_KEY,
   A1_HUNKELER_COMPANY_NAME,
   isC1aHunkelerJob,
   isTrustedDomain,
+  extract1aHunkelerDetailFields,
+  descriptionTextOf,
 } from '../scripts/lib/1a-hunkeler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -125,5 +129,41 @@ describe('1a-hunkeler crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('1a-hunkeler detail page (issue 5253)', () => {
+  // Minimised vacancy page (contact card redacted): JSON-LD with the glued
+  // `responsibilities`/`skills`, the `div.jobBody`, a contact card and the
+  // application form.
+  const pageUrl = 'https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur';
+  const html = fs.readFileSync(
+    path.join(__dirname, 'fixtures', '1a-hunkeler', 'detail-fenster-monteur.html'),
+    'utf8',
+  );
+  const detail = extract1aHunkelerDetailFields(html, pageUrl, { recordUrl: pageUrl });
+  const text = descriptionTextOf(detail.description);
+
+  it('reads the whole vacancy body with its sections', () => {
+    expect(text).toMatch(/^## Seit 250 Jahren bauen wir 1a Qualität für Generationen\./);
+    for (const heading of ['Darum solltest du dich bei uns bewerben', 'Das erwartet dich', 'Deine Aufgaben', 'Das bringst du mit']) {
+      expect(text).toContain(`## ${heading}`);
+    }
+    expect(text).toContain('• Vertragen des Einbaumaterials\n\n• Demontage und Montage der Fenster bei Sanierungen');
+  });
+
+  it('carries neither the glued JSON-LD lists nor the contact card and form', () => {
+    expect(text).not.toContain('EinbaumaterialsDemontage');
+    expect(text).not.toMatch(/Kontaktperson|Anrede|Vorname|Absenden/);
+  });
+
+  it('keeps the generic title and workplace', () => {
+    expect(detail.title).toBe('Fenster Monteur:in');
+    expect(detail.location).toBe('Ebikon');
+  });
+
+  it('returns an empty description when the page has no job body', () => {
+    const bare = extract1aHunkelerDetailFields('<html><body><h1>Fenster Monteur:in</h1></body></html>', pageUrl);
+    expect(bare.description).toBe('');
   });
 });

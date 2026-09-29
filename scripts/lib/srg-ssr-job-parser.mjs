@@ -270,6 +270,47 @@ function extractJsonLd(html = '') {
 }
 
 /**
+ * Inner HTML of the detail template's `<section id="…">`, or ''. The
+ * Prospective template does not nest sections, so the first closing tag ends it.
+ */
+function templateSectionHtml(html = '', id = '') {
+  const match = new RegExp(`<section\\b[^>]*\\bid=["']${id}["'][^>]*>([\\s\\S]*?)<\\/section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+/**
+ * The vacancy as the detail page renders it: `#introduction` (the unit's
+ * paragraph) and `#specifications` (tasks, profile, and the `.enthusiasm`
+ * block), headings kept as `##` lines and `<li>`/`<br>` as line breaks.
+ *
+ * The JSON-LD `description` is not the whole ad on every unit: on RTR it
+ * carries only tasks + profile + a contact stub, and misses the introduction
+ * and the «Per infurmaziun» block the page shows
+ * (…/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-…:
+ * 476 published characters, issue 5253). Contact, benefits carousel, slogan
+ * quote and «similar jobs» live in other sections and stay out.
+ *
+ * @param {string} html
+ * @returns {string} '' when the template sections are absent
+ */
+export function extractSrgSsrRenderedDescription(html = '') {
+  const parts = ['introduction', 'specifications']
+    .map((id) => templateSectionHtml(html, id))
+    .filter(Boolean)
+    .map((section) => decodeEntities(stripHtml(
+      section.replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => {
+        const text = normalizeSpace(heading.replace(/<[^>]+>/g, ' '));
+        return text ? `\n\n## ${text}\n` : '';
+      }),
+    )))
+    .map((text) => text.split('\n').map((line) => line.replace(/[ \t]+/g, ' ').trim()).join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim())
+    .filter(Boolean);
+  return parts.join('\n\n').trim();
+}
+
+/**
  * Build a structured description from JSON-LD fields.
  */
 function buildDescription(jsonLd) {
@@ -359,8 +400,11 @@ export async function fetchAllSrgSsrJobs() {
       const postalCode = String(jlAddress.postalCode || '').trim() || '';
       const streetAddress = normalizeSpace(jlAddress.streetAddress || '');
 
-      // Description from JSON-LD
-      const description = buildDescription(jsonLd || {}) || listing.snippet || `${title} — SRG SSR`;
+      // Description: the rendered ad (introduction + specifications); the
+      // JSON-LD body only when the template sections are missing.
+      const rendered = extractSrgSsrRenderedDescription(detailHtml);
+      const description = (rendered.split(/\s+/).length >= 30 ? rendered : '')
+        || buildDescription(jsonLd || {}) || listing.snippet || `${title} — SRG SSR`;
 
       // Employment type from JSON-LD or percentage parsing
       const pct = parseEmploymentPct(listing.infoLine);
