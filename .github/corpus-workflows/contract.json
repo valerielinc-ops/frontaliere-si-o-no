@@ -4,11 +4,11 @@
   "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "227750166bf7adb031afd78bdeedb20901d9f76d",
+  "sourceCommit": "eeda416d234dee0385d7eca6af86006c563f4741",
   "artifactObservation": {
     "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
     "sourceRef": "main",
-    "sourceCommit": "227750166bf7adb031afd78bdeedb20901d9f76d"
+    "sourceCommit": "eeda416d234dee0385d7eca6af86006c563f4741"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:de72bda8c0b65f8c964a24d971576560909183441031b93675ba51e51f22977d",
+    "rosterDigest": "sha256:f0bc788effb635b763933c21762a9e92407722d5f43acadf2fc4384f7105e120",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -923,8 +923,8 @@
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "7c1f4e30f3a39733e9a03df547737553c66a7374abc3d7aa1e17e7f8e7abe7fe",
-      "artifactSha256": "2c1e0018cc77d1e33a26126965bad7f530cec573b55384ecef33103665f605dc",
+      "sourceSha256": "c196641f7aa5d28eea05fa516c32e99a8d86f686873b2e28a5c4ad1ea76f3ae2",
+      "artifactSha256": "81a5428d3ab1d0e7768e877a6b1199bf39bc1dc50ac4d4825902d5efbec1f2be",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "solina",
@@ -953,7 +953,8 @@
         "bethesda-spital",
         "air-zermatt",
         "benu",
-        "bitfinex"
+        "bitfinex",
+        "sunrise"
       ]
     },
     {
@@ -1471,14 +1472,13 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "d2b3f450e65cbc66029e2d1e475e9efae71d984b524bfde11cd1952a24079fd9",
-      "artifactSha256": "c6f1d883172970344802d0ca8bfead312dc07741eb9f144b390aebdd35aecebe",
+      "sourceSha256": "751ae8c6b91b498bfb559acce66c14f57deacda1638add00de81c540deb1f78d",
+      "artifactSha256": "9909fda3b562d615170cef55bb3e79d34f3ca8b0a559c1ba6d091689a60c2a6e",
       "generatorSha256": "c8891ceb4af171de8e5a0a9ab256638113187d5676c9d5e213be9ce47e3b71bc",
       "members": [
         "confederazione",
         "protectas",
         "lwphr",
-        "sunrise",
         "knowledge-lab",
         "convit",
         "afry",
