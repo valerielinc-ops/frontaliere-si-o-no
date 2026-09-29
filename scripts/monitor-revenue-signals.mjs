@@ -30,9 +30,9 @@ import { appendFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 import { GA4_READONLY_SCOPE, getServiceAccountToken, runGa4Report } from './lib/ga4-service-account.mjs';
+import { buildTargetMarketCountryFilter, TARGET_MARKET_COUNTRIES } from './lib/ga4-target-market.mjs';
 import { DEFAULT_CONFIG, buildIssueBody, dateHourInZone, formatDateHour, monitorDecision, parseDateHour, shiftDateHour } from './lib/revenue-signals.mjs';
 
-const HUMAN_COUNTRIES = ['Italy', 'Switzerland'];
 const AD_EVENTS = ['ad_filled', 'ad_consent_granted', 'ad_consent_denied'];
 const ROW_LIMIT = 10_000;
 
@@ -60,7 +60,7 @@ export function earliestHourNeeded(currentHour, config = DEFAULT_CONFIG) {
  */
 export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_CONFIG, fetchImpl = fetch }) {
   const dateRanges = [{ startDate: isoDate(earliestHourNeeded(currentHour, config)), endDate: isoDate(currentHour) }];
-  const human = { filter: { fieldName: 'country', inListFilter: { values: HUMAN_COUNTRIES } } };
+  const targetMarket = buildTargetMarketCountryFilter();
   const [metrics, events] = await Promise.all([
     runGa4Report({
       token,
@@ -69,7 +69,7 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
         dateRanges,
         dimensions: [{ name: 'dateHour' }],
         metrics: [{ name: 'sessions' }, { name: 'screenPageViews' }, { name: 'publisherAdImpressions' }, { name: 'totalAdRevenue' }],
-        dimensionFilter: human,
+        dimensionFilter: targetMarket,
         limit: ROW_LIMIT,
       },
     }),
@@ -80,7 +80,7 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
         dateRanges,
         dimensions: [{ name: 'dateHour' }, { name: 'eventName' }],
         metrics: [{ name: 'eventCount' }],
-        dimensionFilter: { andGroup: { expressions: [human, { filter: { fieldName: 'eventName', inListFilter: { values: AD_EVENTS } } }] } },
+        dimensionFilter: { andGroup: { expressions: [targetMarket, { filter: { fieldName: 'eventName', inListFilter: { values: AD_EVENTS } } }] } },
         limit: ROW_LIMIT,
       },
     }),
@@ -91,7 +91,7 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
     // Three weeks of Italy+Switzerland traffic never come back empty: an empty
     // report is a telemetry or query failure, and read as "nothing measured"
     // it would let the monitor stay silent or close the issue.
-    if (rows === 0) throw new Error(`GA4 ${name} report returned no rows for ${HUMAN_COUNTRIES.join('+')} since ${dateRanges[0].startDate}`);
+    if (rows === 0) throw new Error(`GA4 ${name} report returned no rows for ${TARGET_MARKET_COUNTRIES.join('+')} since ${dateRanges[0].startDate}`);
   }
   const hours = {};
   for (const row of metrics.rows || []) {
