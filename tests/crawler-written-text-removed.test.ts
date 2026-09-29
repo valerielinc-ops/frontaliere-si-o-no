@@ -19,6 +19,7 @@ import { KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/klinik
 import { PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/privatklinik-hohenegg-job-parser.mjs';
 import { REFLINE_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/refline-common.mjs';
 import { CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/cds-savognin-job-parser.mjs';
+import { extractPlanzerDetailContent, PLANZER_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/planzer-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const source = (file: string) => fs.readFileSync(path.join(__dirname, '..', 'scripts', ...file.split('/')), 'utf8');
@@ -53,12 +54,38 @@ describe('HAS Healthcare (e-lavoro.ch) description', () => {
   });
 });
 
+describe('Planzer (Solique) detail', () => {
+  // Minimised live page, contact replaced.
+  const html = fs.readFileSync(path.join(__dirname, 'fixtures', 'planzer-solique-detail.html'), 'utf8');
+  const { description, locationText } = extractPlanzerDetailContent(html);
+
+  it('keeps the page headings and benefit titles instead of the crawler labels', () => {
+    expect(description.startsWith('Als fest verwurzeltes Unternehmen im Seeland')).toBe(true);
+    expect(description).toContain('\n\nWas du bewegst\n• Du sorgst für eine clevere Planung');
+    expect(description).toContain('\n\nWeshalb es dir gelingt\n');
+    expect(description).toContain('\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln');
+    expect(description).toContain('\n\nWer wir sind\nFür uns als Unternehmen');
+    expect(description).not.toMatch(/^(Aufgaben|Profil|Benefits):$|Marke der Planzer-Gruppe/m);
+    expect(locationText).toBe('Brühlgasse 9\n3283 Kallnach');
+  });
+
+  it('never reads the HR contact block', () => {
+    expect(description).not.toMatch(/Beispiel Person|Personalabteilung|\+41 00/);
+  });
+
+  it('is not taken for the old builder text by the stored-row purge', () => {
+    expect(PLANZER_FABRICATED_DESCRIPTION_RE.test(description)).toBe(false);
+  });
+});
+
 describe('stored rows with crawler-written text are cleared before the merge', () => {
   it.each([
     ['solina (28/28 rows)', SOLINA_FABRICATED_DESCRIPTION_RE, 'Praktikant:in\n\nPensum / Standort: 100%, Standortübergreifend\n\nBei Solina lernst du den Beruf dort, wo er zählt.\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.'],
     ['klinik-adelheid (8/8 rows)', KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, 'Bereich: Offene Lehrstellen.\n\nWir suchen per 1. August 2027 eine / einen\nLernende/n als Köchin / Koch EFZ'],
     ['privatklinik-hohenegg (3/4 rows)', PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, 'Mitarbeiter/-in Hotellerie bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität'],
     ['cds-savognin (5/5 rows, paragraph appended under 80 words)', CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE, 'Med. Praxisassistentin\n\nMed. Praxisassistentin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld'],
+    ['planzer, brand line (6/12 rows)', PLANZER_FABRICATED_DESCRIPTION_RE, 'Marke der Planzer-Gruppe: Schönholzer.\n\nAls fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen.\n\nAufgaben:\n• Du sorgst für eine clevere Planung\n\nProfil:\n• Erste Erfahrung als Disponent'],
+    ['planzer, crawler section labels (12/12 rows)', PLANZER_FABRICATED_DESCRIPTION_RE, 'Wir sind ein Familienunternehmen.\n\nAufgaben:\n• Du belädst Fahrzeuge\n\nProfil:\n• Führerausweis Kat. C\n\nBenefits:\n• 5 Wochen Ferien'],
     ['puk-zuerich, Refline factory (2/70 rows)', REFLINE_FABRICATED_DESCRIPTION_RE, 'Unterassistentinnen / Unterassistenten bei Psychiatrische Universitätsklinik Zürich in Zürich.\n\nPsychiatrische Universitätsklinik Zürich bietet eine sinnstiftende Tätigkeit in einem engagierten Team.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten\n• Faire Anstellungsbedingungen'],
   ])('%s', (_label, pattern, text) => {
     const job = { sourceLang: 'de', description: text, descriptionByLocale: { de: text, it: 'Traduzione del testo del crawler' } };
@@ -71,7 +98,7 @@ describe('stored rows with crawler-written text are cleared before the merge', (
   it('leaves a job with the page text alone', () => {
     const text = `Wir suchen per sofort eine Pflegefachperson HF. ${words(60)}`;
     const job = { sourceLang: 'de', description: text, descriptionByLocale: { de: text, it: 'Traduzione' } };
-    for (const pattern of [SOLINA_FABRICATED_DESCRIPTION_RE, KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, REFLINE_FABRICATED_DESCRIPTION_RE, HAS_FABRICATED_DESCRIPTION_RE, CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE]) {
+    for (const pattern of [SOLINA_FABRICATED_DESCRIPTION_RE, KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, PRIVATKLINIK_HOHENEGG_FABRICATED_DESCRIPTION_RE, REFLINE_FABRICATED_DESCRIPTION_RE, HAS_FABRICATED_DESCRIPTION_RE, CDS_SAVOGNIN_FABRICATED_DESCRIPTION_RE, PLANZER_FABRICATED_DESCRIPTION_RE]) {
       expect(dropFabricatedDescription(job, pattern)).toBe(false);
     }
     expect(job.descriptionByLocale.it).toBe('Traduzione');
@@ -94,6 +121,16 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['lib/cds-savognin-job-parser.mjs', /buildFallbackDescription|beim Center da Sanadad Savognin in Savognin/],
     ['lib/klinik-gut-job-parser.mjs', /buildFallbackDescription|bei der Klinik Gut AG am Standort/],
     ['lib/canton-ticino-osc-job-parser.mjs', /buildFallbackDescription|Il concorso è pubblicato dalla Sezione delle risorse umane/],
+    ['lib/aarreha-schinznach-job-parser.mjs', /summaryPieces|Zentrum für interdisziplinäre Rehabilitation in Schinznach-Bad/],
+    ['lib/victorinox-job-parser.mjs', /summaryPieces|Hersteller des Original Schweizer Offiziersmessers/],
+    ['lib/kispi-job-parser.mjs', /`\$\{title\} — \$\{KISPI_COMPANY_NAME\}/],
+    ['lib/kispi-sg-job-parser.mjs', /Synthesise boilerplate|Bewerbung über das Karriereportal des Ostschweizer Kinderspitals/],
+    ['lib/planzer-job-parser.mjs', /`Marke der Planzer-Gruppe: |`(Aufgaben|Profil|Benefits):\\n|summaryPieces/],
+    ['lib/klinik-barmelweid-job-parser.mjs', /Akutspital für Psychiatrie, Psychosomatik und somatische Rehabilitation/],
+    ['lib/gzo-wetzikon-job-parser.mjs', /fallbackDesc/],
+    ['lib/igs-bern-job-parser.mjs', /fallbackDesc|Soteria Bern und weitere Angebote/],
+    ['lib/privatklinik-wyss-job-parser.mjs', /fallbackDesc/],
+    ['lib/suedhang-job-parser.mjs', /fallbackDesc|Klinik für Suchttherapien\./],
   ])('%s', (file, pattern) => {
     const text = source(file);
     expect(text).not.toMatch(pattern);

@@ -25,6 +25,7 @@ import {
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,10 +225,10 @@ export async function fetchAllSuedhangJobs() {
     const employmentType = detectHealthcareEmploymentType(pensumSource);
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
-    const fallbackDesc = `${title} — ${SUEDHANG_COMPANY_NAME}, ${location}. Klinik für Suchttherapien.`;
-    const description = detail.description && detail.description.split(/\s+/).length >= 30
-      ? detail.description
-      : fallbackDesc;
+    // Only source text (issue 5253): no "<title> — <company>, <place>." stub
+    // in place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const job = {
       id: `${SUEDHANG_KEY}-${urlHash}`,
