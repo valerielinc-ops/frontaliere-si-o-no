@@ -29,6 +29,7 @@ import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-lo
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
+  smartRecruitersPostingUrls,
 } from './ats-clients/smartrecruiters-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -208,13 +209,9 @@ export function extractPostingDescription(posting) {
  * @returns {{ publicUrl: string, applyUrl: string }}
  */
 export function hugPostingUrls(posting) {
-  const postingId = String(posting?.id || '').trim();
-  const apply = typeof posting?.applyUrl === 'string' ? posting.applyUrl.trim() : '';
-  const publicUrl = (typeof posting?.postingUrl === 'string' && posting.postingUrl.trim())
-    || (postingId ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${postingId}` : '')
-    || apply
-    || CAREER_URL;
-  return { publicUrl, applyUrl: apply || publicUrl };
+  const { pageUrl, applyUrl } = smartRecruitersPostingUrls(posting, SR_TENANT);
+  const publicUrl = pageUrl || CAREER_URL;
+  return { publicUrl, applyUrl: applyUrl || publicUrl };
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
