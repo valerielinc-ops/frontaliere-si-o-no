@@ -340,24 +340,25 @@ function detectEmploymentType(art = '', title = '') {
 }
 
 /**
- * The job's `contract` from the listing's «Befristung» column and the
- * employment type the factory already reads from «Art» (and the title).
+ * The job's `contract` from the listing's «Befristung» column (English
+ * boards: «Employment period») and the employment type the parser already
+ * reads from «Art»/«Type» (and the title).
  *
  * These values used to reach the site also as «• Befristung: …» / «• Art: …»
  * lines the crawler appended to the description, where the job board read
  * «Teilzeit» and «befristet» out of the text. With the lines gone the
  * structured field carries them, in the job board's own order
- * (`normalizeJobContract`: part-time before temporary). «Unbefristet» (a
- * permanent position) contains «befristet»: the previous test matched it and
- * marked every permanent position of these tenants as temporary.
+ * (`normalizeJobContract`: part-time before temporary). «Unbefristet» and
+ * «unlimited» (a permanent position) contain «befristet» and «limited»: the
+ * previous tests matched them and marked permanent positions as temporary.
  *
- * @param {string} befristung      e.g. «Befristet», «Unbefristet»
- * @param {string} employmentType  `detectEmploymentType(art, title)`
+ * @param {string} befristung      e.g. «Befristet», «Unbefristet», «unlimited»
+ * @param {string} employmentType  e.g. `detectEmploymentType(art, title)`
  * @returns {'part-time'|'temporary'|'full-time'}
  */
 export function umantisListingContract(befristung = '', employmentType = '') {
   if (employmentType === 'PART_TIME') return 'part-time';
-  if (/(?:^|[^\p{L}])(?:befristet|temporär|temporair)/u.test(normalize(befristung))) return 'temporary';
+  if (/(?:^|[^\p{L}])(?:befristet|temporär|temporair|limited|temporary)/u.test(normalize(befristung))) return 'temporary';
   return 'full-time';
 }
 
@@ -877,8 +878,11 @@ export function createUmantisListingParser(config) {
       const description = sourceText ? normalizeDescriptionBullets(sourceText) : '';
       if (!description) withoutSourceText++;
 
-      // The source language comes from the body; without one, from the
-      // listing language the tenant is crawled in (not from the title).
+      // The source language comes from the body. Without one it is the
+      // language the listing is crawled in, not a guess from the title: on
+      // the tenants' German titles that guess said «en»/«fr» (kispi-zurich,
+      // 3 of 3 jobs without text), and the merge reads the stored source
+      // slot under this language.
       const sourceLang = description ? detectLang(description, defaultSourceLang) : defaultSourceLang;
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);

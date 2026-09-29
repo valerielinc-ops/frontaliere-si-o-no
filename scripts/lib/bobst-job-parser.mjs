@@ -547,9 +547,7 @@ export async function fetchAllBobstJobs(options = {}) {
     // description and takes the pipeline's thin-source path.
     if (!meetsSourceBodyFloor(descriptionText)) descriptionText = '';
 
-    // The source language comes from the body; without one, from the
-    // runner's default (not from the title).
-    const sourceLang = descriptionText ? detectLang(descriptionText, 'en') : 'en';
+    const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} bobst ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 

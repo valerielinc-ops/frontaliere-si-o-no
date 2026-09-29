@@ -12,7 +12,9 @@ import {
   matchKispiSgJob,
   KISPI_SG_KEY,
   KISPI_SG_COMPANY_NAME,
+  KISPI_SG_FABRICATED_DESCRIPTION_RE,
 } from './lib/kispi-sg-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -26,6 +28,7 @@ runStandardCrawlerPipeline({
   isTrustedDomain,
   matchKey: matchKispiSgJob,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, KISPI_SG_FABRICATED_DESCRIPTION_RE, KISPI_SG_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ ${KISPI_SG_COMPANY_NAME} crawler failed: ${err?.message || err}`);
   process.exit(1);
