@@ -2372,6 +2372,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cioccolato-mercato-svizzera': { it: 'cioccolato-mercato-svizzera', en: 'chocolate-market-switzerland', de: 'schokolade-markt-schweiz', fr: 'chocolat-marche-suisse' },
  'lindt-prezzi-cacao-2026': { it: 'lindt-prezzi-cacao-2026', en: 'lindt-prices-cocoa-2026', de: 'lindt-preise-kakao-2026', fr: 'lindt-prix-cacao-2026' },
  'classifica-ompi-alta-tecnologia': { it: 'classifica-ompi-alta-tecnologia', en: 'switzerland-innovation-ranking', de: 'schweiz-innovationsranking', fr: 'classement-innovation-suisse' },
+ 'soletta-licenza-estera-esami': { it: 'soletta-licenza-estera-esami', en: 'solothurn-driving-licence-conversion', de: 'solothurn-fuehrerausweis-umtausch', fr: 'soleure-permis-conduire-conversion' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7049,6 +7049,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.classifica-ompi-alta-tecnologia.title': 'Svizzera prima al mondo per l\'innovazione',
     'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'La Svizzera è prima dal 2011 nella graduatoria OMPI; Svezia e Stati Uniti seguono, mentre la Cina entra per la prima volta nella top ten.',
     'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Ricercatori davanti a un centro svizzero dedicato alla ricerca e all\'innovazione',
+    'blog.article.soletta-licenza-estera-esami.title': 'Patente di guida nel Canton Soletta: conversione ed esami',
+    'blog.article.soletta-licenza-estera-esami.excerpt': 'Conversione della licenza estera, esami teorico e pratico, corsi obbligatori e ufficio della circolazione competente a Soletta.',
+    'blog.article.soletta-licenza-estera-esami.imageAlt': 'Pratica per la patente di guida in un cantone svizzero',
 };
 
 export default blogMetaChIt;

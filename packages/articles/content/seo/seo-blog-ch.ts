@@ -91397,6 +91397,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soletta-licenza-estera-esami': {
+    title: 'Patente di guida nel Canton Soletta: conversione ed esami',
+    description: 'Canton Soletta: conversione della licenza estera, esami teorico e pratico, corsi obbligatori e riferimento all\'ufficio della circolazione competente',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, canton, soletta, conversione',
+    ogTitle: 'Patente di guida nel Canton Soletta: conversione ed esami',
+    ogDescription: 'La procedura nel Canton Soletta distingue conversione della licenza estera, esame teorico, esame pratico e corsi obbligatori. Il riferimento è l\'ufficio della circolazione competente. Una guida pratica aiuta a formulare la richiesta senza confondere',
+    canonicalPath: '/articoli-svizzera/soletta-licenza-estera-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida nel Canton Soletta: conversione ed esami",
+      "description": "Canton Soletta: conversione della licenza estera, esami teorico e pratico, corsi obbligatori e riferimento all'ufficio della circolazione competente",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-licenza-estera-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pratica per la patente di guida in un cantone svizzero"
+      },
+      "datePublished": "2026-09-29T13:19:30+00:00",
+      "dateModified": "2026-09-29T13:19:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-licenza-estera-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
