@@ -1,23 +1,99 @@
 {
   "key": "unibe",
   "label": "Universität Bern",
-  "generatedAt": "2026-09-29T09:31:21.843Z",
-  "total": 72,
+  "generatedAt": "2026-09-29T21:32:14.227Z",
+  "total": 71,
   "discovered": null,
   "parsed": 71,
   "lastFetchOutcome": null,
-  "written": 72,
+  "written": 71,
   "authoritativeEmptySnapshot": false,
   "newCount": 2,
   "updatedCount": 69,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3905,
-  "avgDurationMs": 3905,
+  "unchangedCount": 0,
+  "durationMs": 34078,
+  "avgDurationMs": 34078,
   "durationHistory": [
-    3905
+    34078
   ],
   "newJobs": [
+    {
+      "id": "unibe-fc9c6f4f8abb",
+      "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
+      "company": "Universität Bern",
+      "companyKey": "unibe",
+      "companyDomain": "unibe.ch",
+      "title": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Mitarbeiter",
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/c5023cce-bc9c-4562-8384-eff975607487",
+      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:31:37.764Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3012",
+      "streetAddress": "",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/c5023cce-bc9c-4562-8384-eff975607487",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "unibe-0df969b32bda",
+      "slug": "phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured",
+      "company": "Universität Bern",
+      "companyKey": "unibe",
+      "companyDomain": "unibe.ch",
+      "title": "PhD on Conditional Generative Modelling of Local High-Impact Events under Structured Scenarios",
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/35d91b0a-298f-4f5b-9230-91c4bb5fae9e",
+      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:31:37.780Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3012",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-09",
+      "applyUrl": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/35d91b0a-298f-4f5b-9230-91c4bb5fae9e",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "unibe-640a13844ecb",
       "slug": "hilfsassistenz-20-50-unibe-bern",
@@ -25,13 +101,13 @@
       "companyKey": "unibe",
       "companyDomain": "unibe.ch",
       "title": "Hilfsassistenz (20-50%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz/9c26cc94-c223-4667-8d36-3dee86d25cd3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.059Z",
+      "crawledAt": "2026-09-29T21:31:37.753Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -47,11 +123,12 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz/9c26cc94-c223-4667-8d36-3dee86d25cd3",
-      "_qualityScore": 53,
+      "firstSeenAt": "2026-09-29T09:31:13.059Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
-        "translation": 4,
+        "cleanliness": 17,
+        "richness": 24,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,13 +139,13 @@
       "companyKey": "unibe",
       "companyDomain": "unibe.ch",
       "title": "SEM lab-manager with teaching responsibilities",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/job-vacancies/sem-lab-manager-with-teaching-responsibilities/5056d134-52bf-4b5a-91d2-1b392cba47ce",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.066Z",
+      "crawledAt": "2026-09-29T21:31:37.757Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -84,16 +161,15 @@
       "featured": false,
       "postedDate": "2026-09-28",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/sem-lab-manager-with-teaching-responsibilities/5056d134-52bf-4b5a-91d2-1b392cba47ce",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-09-24T00:02:05.744Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
-        "translation": 4,
+        "richness": 22,
+        "translation": 18,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "unibe-873b60b17d07",
       "slug": "specialty-internships-innere-medizin-e-chirurgie-an-der-kleintierklinik-universitat-bern",
@@ -107,7 +183,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/specialty-internships-innere-medizin-und-chirurgie-an-der-kleintierklinik/eeeccaf7-bd9a-40e9-ad2a-5c7d54f432c8",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.067Z",
+      "crawledAt": "2026-09-29T21:31:37.758Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -124,10 +200,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/specialty-internships-innere-medizin-und-chirurgie-an-der-kleintierklinik/eeeccaf7-bd9a-40e9-ad2a-5c7d54f432c8",
       "firstSeenAt": "2026-09-28T21:25:17.966Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -145,7 +221,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/kommunikationsbeauftragten/f70eada7-2d61-4296-ae0c-0200d2a3ac9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.068Z",
+      "crawledAt": "2026-09-29T21:31:37.759Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -162,10 +238,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/kommunikationsbeauftragten/f70eada7-2d61-4296-ae0c-0200d2a3ac9e",
       "firstSeenAt": "2026-09-28T21:25:17.974Z",
-      "_qualityScore": 74,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
+        "cleanliness": 17,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -183,7 +259,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/dozentur-fuer-innovative-anatomische-lehre/69f08921-1ab4-45c0-9531-1452e1b62d87",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.069Z",
+      "crawledAt": "2026-09-29T21:31:37.760Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -200,10 +276,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/dozentur-fuer-innovative-anatomische-lehre/69f08921-1ab4-45c0-9531-1452e1b62d87",
       "firstSeenAt": "2026-09-28T21:25:17.976Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -221,7 +297,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/communication-officer/c890dc16-def4-4eb5-a917-3798bd6c17d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.070Z",
+      "crawledAt": "2026-09-29T21:31:37.760Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -238,10 +314,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/communication-officer/c890dc16-def4-4eb5-a917-3798bd6c17d3",
       "firstSeenAt": "2026-09-28T21:25:17.977Z",
-      "_qualityScore": 74,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
+        "cleanliness": 17,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -259,7 +335,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-befristet-bis-31-12-2028-mit-option-zur-verlaengerung/fc9d2e32-0a00-4af8-8734-e2251c787580",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.071Z",
+      "crawledAt": "2026-09-29T21:31:37.761Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -276,10 +352,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-befristet-bis-31-12-2028-mit-option-zur-verlaengerung/fc9d2e32-0a00-4af8-8734-e2251c787580",
       "firstSeenAt": "2026-09-27T11:25:00.870Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -297,7 +373,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/it-systemadministrator-in/47fc7ff0-6645-4659-9cc2-7d7c64320128",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.072Z",
+      "crawledAt": "2026-09-29T21:31:37.761Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -314,10 +390,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/it-systemadministrator-in/47fc7ff0-6645-4659-9cc2-7d7c64320128",
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
-      "_qualityScore": 74,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 20,
         "completeness": 17
       }
@@ -335,7 +411,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sekretaer-in/a65030ab-a871-45b7-92f6-06bcb721623e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.074Z",
+      "crawledAt": "2026-09-29T21:31:37.762Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -352,10 +428,10 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/sekretaer-in/a65030ab-a871-45b7-92f6-06bcb721623e",
       "firstSeenAt": "2026-09-25T14:57:34.455Z",
-      "_qualityScore": 74,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 20,
         "completeness": 17
       }
@@ -373,7 +449,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/af0e41af-16a9-4d55-9cce-959b60141050",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.075Z",
+      "crawledAt": "2026-09-29T21:31:37.763Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -390,10 +466,10 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/af0e41af-16a9-4d55-9cce-959b60141050",
       "firstSeenAt": "2026-09-25T14:57:34.457Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -411,7 +487,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/early-postdoc-position-on-the-governance-of-climate-extremes/6bc2f305-92d1-449a-b9e0-ecb994dffc82",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.077Z",
+      "crawledAt": "2026-09-29T21:31:37.763Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -428,10 +504,10 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/early-postdoc-position-on-the-governance-of-climate-extremes/6bc2f305-92d1-449a-b9e0-ecb994dffc82",
       "firstSeenAt": "2026-09-24T14:42:38.879Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -449,7 +525,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-neuropsychologie-neuropaediatrie-entwicklung-und-rehabilitation/6f878792-9e73-4111-945b-f17efbe24b56",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.079Z",
+      "crawledAt": "2026-09-29T21:31:37.764Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -469,48 +545,10 @@
       "localeMismatchSuppressedLen": 2041,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-24T14:42:38.883Z",
-      "_qualityScore": 79,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "unibe-fc9c6f4f8abb",
-      "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Mitarbeiter",
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/c5023cce-bc9c-4562-8384-eff975607487",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.081Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/c5023cce-bc9c-4562-8384-eff975607487",
-      "firstSeenAt": "2026-09-19T23:13:09.254Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -528,7 +566,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-80/fac13cf6-4b70-4ae2-8a98-145090f06c88",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.083Z",
+      "crawledAt": "2026-09-29T21:31:37.765Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -545,10 +583,10 @@
       "postedDate": "2026-09-22",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-80/fac13cf6-4b70-4ae2-8a98-145090f06c88",
       "firstSeenAt": "2026-09-24T00:02:05.726Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -566,7 +604,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-werner-and-hedy-berger-janser-foundation-endowed-professorship/54f98e0e-b406-41a2-ad87-37a7d06823c1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.085Z",
+      "crawledAt": "2026-09-29T21:31:37.766Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -583,10 +621,10 @@
       "postedDate": "2026-09-22",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-werner-and-hedy-berger-janser-foundation-endowed-professorship/54f98e0e-b406-41a2-ad87-37a7d06823c1",
       "firstSeenAt": "2026-09-24T00:02:05.730Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -604,7 +642,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/data-science-officer/7771b117-8d60-4cee-b56d-21ad863eab1f",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.087Z",
+      "crawledAt": "2026-09-29T21:31:37.767Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -621,10 +659,10 @@
       "postedDate": "2026-09-22",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/data-science-officer/7771b117-8d60-4cee-b56d-21ad863eab1f",
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
-      "_qualityScore": 79,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -642,7 +680,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/teamleiter-in-administration-management/208a0a97-9576-4c1f-86fb-38a1bb8e30ee",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.092Z",
+      "crawledAt": "2026-09-29T21:31:37.767Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -659,10 +697,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/teamleiter-in-administration-management/208a0a97-9576-4c1f-86fb-38a1bb8e30ee",
       "firstSeenAt": "2026-09-24T00:02:05.733Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -680,7 +718,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sachbearbeiterin-administration/0d62deed-f215-4b54-9cb3-f2727b6bdbe1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.093Z",
+      "crawledAt": "2026-09-29T21:31:37.768Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -697,10 +735,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/sachbearbeiterin-administration/0d62deed-f215-4b54-9cb3-f2727b6bdbe1",
       "firstSeenAt": "2026-09-24T00:02:05.734Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -718,7 +756,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/project-manager-for-enlight-joint-master-s-degree-development/df355ec3-2194-49e8-a709-8be8490e810e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.094Z",
+      "crawledAt": "2026-09-29T21:31:37.768Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -735,10 +773,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/project-manager-for-enlight-joint-master-s-degree-development/df355ec3-2194-49e8-a709-8be8490e810e",
       "firstSeenAt": "2026-09-24T00:02:05.735Z",
-      "_qualityScore": 74,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 12,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -756,7 +794,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/assistant-position-in-climate-archaeology-prehistoric-archaeology/8bc76567-a0ce-4ca2-95cf-0eb4b52b84fe",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.096Z",
+      "crawledAt": "2026-09-29T21:31:37.768Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -773,10 +811,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/assistant-position-in-climate-archaeology-prehistoric-archaeology/8bc76567-a0ce-4ca2-95cf-0eb4b52b84fe",
       "firstSeenAt": "2026-09-24T00:02:05.737Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -794,7 +832,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/postdoctoral-researcher-multimodal-ai-for-whole-body-pet-ct/1a455bb2-9285-437b-aad8-57db26fcd011",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:31:13.099Z",
+      "crawledAt": "2026-09-29T21:31:37.770Z",
       "addressLocality": "Bern University Hospital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -811,10 +849,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/postdoctoral-researcher-multimodal-ai-for-whole-body-pet-ct/1a455bb2-9285-437b-aad8-57db26fcd011",
       "firstSeenAt": "2026-09-24T00:02:05.738Z",
-      "_qualityScore": 74,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
+        "cleanliness": 17,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -832,7 +870,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research/61fd4f87-47a4-44f9-a811-755f4909b76c",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.100Z",
+      "crawledAt": "2026-09-29T21:31:37.770Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -849,10 +887,10 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research/61fd4f87-47a4-44f9-a811-755f4909b76c",
       "firstSeenAt": "2026-09-24T00:02:05.739Z",
-      "_qualityScore": 79,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -870,7 +908,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/842c787c-2098-41fd-9b65-4330241a05f3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.102Z",
+      "crawledAt": "2026-09-29T21:31:37.771Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -887,10 +925,10 @@
       "postedDate": "2026-09-20",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/842c787c-2098-41fd-9b65-4330241a05f3",
       "firstSeenAt": "2026-09-24T00:02:05.741Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -908,7 +946,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/assistenzstelle-fuer-klimaarchaeologie-praehistorische-archaeologie/6333eae8-656e-44ca-b7b8-62f61984b840",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.104Z",
+      "crawledAt": "2026-09-29T21:31:37.771Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -925,10 +963,10 @@
       "postedDate": "2026-09-20",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/assistenzstelle-fuer-klimaarchaeologie-praehistorische-archaeologie/6333eae8-656e-44ca-b7b8-62f61984b840",
       "firstSeenAt": "2026-09-24T00:02:05.743Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -946,7 +984,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/spezialhandwerker-in-ii/fa8cc917-7f34-47bf-8ba2-9299981876e1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.105Z",
+      "crawledAt": "2026-09-29T21:31:37.771Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -963,10 +1001,10 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/spezialhandwerker-in-ii/fa8cc917-7f34-47bf-8ba2-9299981876e1",
       "firstSeenAt": "2026-09-19T23:13:09.247Z",
-      "_qualityScore": 74,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 20,
         "completeness": 17
       }
@@ -984,7 +1022,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-klinische-paediatrische-adipositasforschung-kardiovaskulaere-phaenotypisierung/aff1a4f4-eb9b-4677-85bd-ce24bd7d01d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.109Z",
+      "crawledAt": "2026-09-29T21:31:37.772Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1001,10 +1039,10 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/phd-stelle-klinische-paediatrische-adipositasforschung-kardiovaskulaere-phaenotypisierung/aff1a4f4-eb9b-4677-85bd-ce24bd7d01d3",
       "firstSeenAt": "2026-09-19T23:13:09.251Z",
-      "_qualityScore": 74,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 12,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1022,7 +1060,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/4dfe01c5-ece3-4a0c-b789-903eb27ca4f2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.112Z",
+      "crawledAt": "2026-09-29T21:31:37.772Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1039,10 +1077,10 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/4dfe01c5-ece3-4a0c-b789-903eb27ca4f2",
       "firstSeenAt": "2026-09-19T23:13:09.252Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -1060,7 +1098,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/805efe85-1b48-42b8-989c-023e945beb69",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.113Z",
+      "crawledAt": "2026-09-29T21:31:37.773Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1077,10 +1115,10 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/805efe85-1b48-42b8-989c-023e945beb69",
       "firstSeenAt": "2026-09-19T23:13:09.254Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -1098,7 +1136,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/mitarbeiter-mitarbeiterin-medienlogistik/4ee558ad-cecf-4a84-9bab-cd30f48b220e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.121Z",
+      "crawledAt": "2026-09-29T21:31:37.773Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1115,10 +1153,10 @@
       "postedDate": "2026-09-15",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/mitarbeiter-mitarbeiterin-medienlogistik/4ee558ad-cecf-4a84-9bab-cd30f48b220e",
       "firstSeenAt": "2026-09-19T23:13:09.255Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1136,7 +1174,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/studentische-hilfsassistenz/831a8b70-308c-4f0a-9ee6-e360d30067f4",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.123Z",
+      "crawledAt": "2026-09-29T21:31:37.775Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1153,10 +1191,10 @@
       "postedDate": "2026-09-15",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/studentische-hilfsassistenz/831a8b70-308c-4f0a-9ee6-e360d30067f4",
       "firstSeenAt": "2026-09-19T23:13:09.256Z",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1174,7 +1212,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/managing-director-administrativer-direktor-administrative-direktorin/39836d63-ec97-4a60-a006-9f443ce58b42",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.125Z",
+      "crawledAt": "2026-09-29T21:31:37.776Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1191,95 +1229,15 @@
       "postedDate": "2026-09-14",
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/managing-director-administrativer-direktor-administrative-direktorin/39836d63-ec97-4a60-a006-9f443ce58b42",
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
-      "_qualityScore": 79,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "unibe-3a75b80bab62",
-      "slug": "ict-systemadministrator-in-unibe-bern",
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "ICT-Systemadministrator/in",
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/ict-systemadministrator-in/fc65114c-373d-45e0-a09a-a65f17e61556",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:31:13.127Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-14",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/ict-systemadministrator-in/fc65114c-373d-45e0-a09a-a65f17e61556",
-      "firstSeenAt": "2026-09-19T23:13:09.258Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "unibe-5a7c9fed24e5",
-      "slug": "sem-laboratorio-manager-con-responsabilita-didattiche-universitat-bern-bern",
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "SEM lab-manager with teaching responsibilities",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/job-vacancies/sem-lab-manager-with-teaching-responsibilities/d397a8d8-6815-4425-b04f-f511fd0b6198",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:25:18.005Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-20",
-      "applyUrl": "https://jobs.unibe.ch/job-vacancies/sem-lab-manager-with-teaching-responsibilities/d397a8d8-6815-4425-b04f-f511fd0b6198",
-      "firstSeenAt": "2026-09-24T00:02:05.744Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
