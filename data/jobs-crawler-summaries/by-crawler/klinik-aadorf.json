@@ -1,7 +1,7 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-09-29T09:11:20.599Z",
+  "generatedAt": "2026-09-29T21:11:16.220Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,10 +12,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6158,
-  "avgDurationMs": 6158,
+  "durationMs": 5631,
+  "avgDurationMs": 5631,
   "durationHistory": [
-    6158
+    5631
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:11:11.128Z",
+      "crawledAt": "2026-09-29T21:11:06.806Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -47,11 +47,11 @@
       "featured": false,
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -68,7 +68,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:11:13.457Z",
+      "crawledAt": "2026-09-29T21:11:08.331Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -84,11 +84,11 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=DE",
       "firstSeenAt": "2026-09-03T13:30:32.646Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -105,7 +105,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:11:10.636Z",
+      "crawledAt": "2026-09-29T21:11:06.303Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -121,11 +121,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=DE",
       "firstSeenAt": "2026-08-27T00:36:09.790Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -142,7 +142,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:11:12.949Z",
+      "crawledAt": "2026-09-29T21:11:07.821Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -158,11 +158,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=DE",
       "firstSeenAt": "2026-08-27T00:36:11.384Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -179,7 +179,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:11:11.635Z",
+      "crawledAt": "2026-09-29T21:11:07.317Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -195,11 +195,11 @@
       "postedDate": "2026-06-11",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "firstSeenAt": "2026-06-11T22:55:30.957Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     }
