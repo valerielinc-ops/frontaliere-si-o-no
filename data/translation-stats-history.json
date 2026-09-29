@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-10T00:16:10.829Z",
-    "label": "after",
-    "total": 32508,
-    "needsRetranslation": 9006,
-    "suppressed": 158,
-    "incomplete": 9554,
-    "complete": 22954,
-    "slotsPresent": 22954,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 22954,
-    "sourceCopyExcused": 716,
-    "slotsPresentByLength": 32308,
-    "languageVerified": 23852,
-    "missingByLocale": {
-      "it": 1131,
-      "en": 877,
-      "de": 197,
-      "fr": 860
-    },
-    "queueAge": {
-      "count": 9006,
-      "withTimestamp": 9006,
-      "oldestAgeDays": 149.6,
-      "p50AgeDays": 14,
-      "p90AgeDays": 82.1,
-      "buckets": {
-        "0-1d": 533,
-        "1-2d": 1601,
-        "2-7d": 840,
-        "0-7d": 2974,
-        "7-30d": 3060,
-        "30-90d": 2182,
-        "90-180d": 790,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 0,
-      "withTimestamp": 0,
-      "oldestAgeDays": null,
-      "p50AgeDays": null,
-      "p90AgeDays": null,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 0,
-        "2-7d": 0,
-        "0-7d": 0,
-        "7-30d": 0,
-        "30-90d": 0,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1359
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 580
-      },
-      {
-        "company": "Roche",
-        "pending": 553
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 549
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 303
-      },
-      {
-        "company": "Sulzer",
-        "pending": 196
-      },
-      {
-        "company": "Anker Swiss Ticino AG",
-        "pending": 183
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 176
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 173
-      },
-      {
-        "company": "PEMSA",
-        "pending": 164
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-10T05:16:39.027Z",
     "label": "before",
     "total": 32499,
@@ -19743,6 +19642,100 @@
       {
         "company": "Manor AG",
         "pending": 138
+      },
+      {
+        "company": "Richemont",
+        "pending": 108
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-29T16:55:44.130Z",
+    "label": "before",
+    "total": 29690,
+    "needsRetranslation": 10996,
+    "suppressed": 204,
+    "incomplete": 11274,
+    "complete": 18416,
+    "slotsPresent": 18416,
+    "flaggedAmongSlotsPresent": 386,
+    "verifiedTranslated": 18030,
+    "sourceCopyExcused": 635,
+    "slotsPresentByLength": 29567,
+    "languageVerified": 19000,
+    "missingByLocale": {
+      "it": 650,
+      "en": 567,
+      "de": 98,
+      "fr": 593
+    },
+    "queueAge": {
+      "count": 10996,
+      "withTimestamp": 10996,
+      "oldestAgeDays": 504.7,
+      "p50AgeDays": 3.1,
+      "p90AgeDays": 33.7,
+      "buckets": {
+        "0-1d": 2113,
+        "1-2d": 2533,
+        "2-7d": 2146,
+        "0-7d": 6792,
+        "7-30d": 2264,
+        "30-90d": 1641,
+        "90-180d": 294,
+        "180d+": 5
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 7934,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2939
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1698
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 964
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 761
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 623
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 377
+      },
+      {
+        "company": "PEMSA",
+        "pending": 267
+      },
+      {
+        "company": "Galaxus",
+        "pending": 186
+      },
+      {
+        "company": "Manor AG",
+        "pending": 130
       },
       {
         "company": "Richemont",
