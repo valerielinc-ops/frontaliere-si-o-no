@@ -53,6 +53,7 @@ import {
   hasUsableTitle,
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
+import { detectAiReasoningLeak } from './ai-output-fidelity.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
@@ -2239,7 +2240,12 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-desc-v2', [cleanDesc, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored answer that carries the model's reasoning or echoes the prompt
+    // is dropped and recomputed, never replayed (ai-output-fidelity.mjs).
+    const cachedLeak = typeof fromCache === 'string' && fromCache !== AI_CACHE_RAW_SENTINEL
+      && Boolean(detectAiReasoningLeak(fromCache));
+    if (cachedLeak && ctx.deleteCachedAiResponse) ctx.deleteCachedAiResponse(cacheKey);
+    if (typeof fromCache === 'string' && !cachedLeak) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
       if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()) {
@@ -2296,7 +2302,8 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
         const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
-        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()) {
+        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()
+            && !detectAiReasoningLeak(translated)) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
         }

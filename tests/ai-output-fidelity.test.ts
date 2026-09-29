@@ -9,7 +9,7 @@
  *
  * Every fixture here is pinned real data from origin/main (2026-09-29), not
  * data/**: the formatter pairs are (record description, source-locale slot)
- * and the leaked slots are all 29 found by the census over 151,987 slots.
+ * and the leaked slots are all 31 found by the census over 153,199 slots.
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
@@ -22,6 +22,8 @@ import {
   VERBATIM_RESTRUCTURE_MIN_RECALL,
 } from '../scripts/lib/ai-output-fidelity.mjs';
 import { resolveLocalePromptContext } from '../scripts/lib/shared-jobs-crawler.mjs';
+import { isAcceptableTranslation } from '../scripts/lib/translation-quality.mjs';
+import { isIncomplete } from '../scripts/relocalize-pending-jobs.mjs';
 
 const FIXTURES = path.join(__dirname, 'fixtures', 'ai-output-fidelity');
 const pairs = JSON.parse(fs.readFileSync(path.join(FIXTURES, 'formatter-pairs.json'), 'utf8'));
@@ -32,8 +34,11 @@ const HEADINGS = [...new Set(['it', 'de', 'fr', 'en'].flatMap((l) => Object.valu
 const assess = (input: string, output: string) => assessVerbatimRestructure(input, output, { headingVocabulary: HEADINGS });
 
 describe('detectAiReasoningLeak', () => {
-  it('flags every leaked slot published on origin/main (29 slots, 6 crawlers, 4 languages, MT-garbled variants included)', () => {
-    expect(leaked.slots).toHaveLength(29);
+  it('flags every leaked slot published on origin/main (31 slots, 6 crawlers, 4 languages, MT-garbled variants included)', () => {
+    // 29 are the formatter's leak and its translations; 2 (ems-chemie `en`)
+    // were born in the translation step itself («I'll translate this job
+    // description from Italian to English. Let me first read … [{"tool_name": …»).
+    expect(leaked.slots).toHaveLength(31);
     const missed = leaked.slots.filter((s: { text: string }) => !detectAiReasoningLeak(s.text));
     expect(missed.map((s: { crawler: string; slot: string }) => `${s.crawler}:${s.slot}`)).toEqual([]);
   });
@@ -147,5 +152,63 @@ describe('assessComposedFromInputs — the thin-description composer', () => {
   it('rejects a reasoning/chatter preamble', () => {
     const verdict = assessComposedFromInputs(inputs, `Here is the composed job description based on the data provided:\n\n${good}`, opts);
     expect(verdict.reason).toMatch(/^reasoning-leak/);
+  });
+});
+
+const slotText = (crawler: string, slot: string) =>
+  leaked.slots.find((s: { crawler: string; slot: string }) => s.crawler === crawler && s.slot === slot).text as string;
+
+describe('translation steps reject a leaked answer (isAcceptableTranslation)', () => {
+  const emsSource = pairs.rejected.find((p: { crawler: string }) => p.crawler === 'ems-chemie').input as string;
+
+  it('rejects a translation-born leak that length and structure alone would accept', () => {
+    // ems-chemie `en`: the translator narrated its own tool calls. Long enough,
+    // no bullets to lose — only the leak check stops it.
+    const leakedEn = leaked.slots.find((s: { crawler: string; slot: string; text: string }) => s.crawler === 'ems-chemie'
+      && s.slot === 'dbl.en' && /translate this job description/i.test(s.text)).text;
+    expect(leakedEn.length).toBeGreaterThan(emsSource.length * 0.6);
+    expect(isAcceptableTranslation(emsSource, leakedEn)).toBe(false);
+  });
+
+  it('still accepts a real translation', () => {
+    const english = 'Laboratory manager for fibre and yarn quality control (m/f/d) 100% at EMS-Chemie AG, a leading company in specialty polymers and fine chemicals based in Domat/Ems (Grisons). EMS-Chemie is the world\'s largest producer of high-performance polyamides, with about 3000 employees worldwide. Place of work: Domat/Ems.';
+    expect(isAcceptableTranslation(emsSource, english)).toBe(true);
+  });
+});
+
+describe('relocalize-pending isIncomplete — the repair queue sees leaked slots', () => {
+  // pfister: source `de` clean, `en` a machine translation of a leaked source.
+  // Long, English, not a copy: before the leak check the job counted as complete
+  // and was never selected (needsRetranslation=false on main).
+  const de = 'Du berätst unsere Kundinnen und Kunden bei der Auswahl von Vorhängen direkt bei ihnen zu Hause, nimmst Masse und erstellst Offerten. Du arbeitest selbständig und planst deine Termine im Aussendienst.';
+  const job = {
+    title: 'Verkäuferin für Vorhänge im Aussendienst (m/w/d)',
+    sourceLang: 'de',
+    description: de,
+    titleByLocale: {
+      de: 'Verkäuferin für Vorhänge im Aussendienst (m/w/d)',
+      it: 'Venditrice di tende nel servizio esterno (m/f/d)',
+      en: 'Curtain sales consultant, field service (m/f/d)',
+      fr: 'Vendeuse de rideaux en service externe (h/f/d)',
+    },
+    descriptionByLocale: {
+      de,
+      it: 'Consigli le nostre clienti e i nostri clienti nella scelta delle tende direttamente a casa loro, prendi le misure e prepari le offerte. Lavori in modo autonomo e pianifichi i tuoi appuntamenti nel servizio esterno.',
+      en: 'You advise our customers on choosing curtains directly in their homes, take measurements and prepare quotes. You work independently and plan your own appointments in the field service.',
+      fr: 'Tu conseilles nos clientes et nos clients dans le choix des rideaux directement à leur domicile, tu prends les mesures et tu prépares les offres. Tu travailles de manière autonome et tu planifies tes rendez-vous.',
+    },
+  };
+
+  it('a clean, fully translated job is complete', () => {
+    expect(isIncomplete(job)).toBe(false);
+  });
+
+  it('a leaked translation slot makes it incomplete', () => {
+    expect(isIncomplete({ ...job, descriptionByLocale: { ...job.descriptionByLocale, en: slotText('pfister', 'dbl.en') } })).toBe(true);
+  });
+
+  it('a leaked SOURCE slot makes it incomplete too (the forced relocalization resets it from the description)', () => {
+    const leakedSource = `${slotText('burkhalter-group', 'dbl.de')} ${de}`;
+    expect(isIncomplete({ ...job, descriptionByLocale: { ...job.descriptionByLocale, de: leakedSource } })).toBe(true);
   });
 });

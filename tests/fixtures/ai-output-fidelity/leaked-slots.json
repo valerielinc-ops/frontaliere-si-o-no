@@ -1,5 +1,5 @@
 {
-  "_about": "Every description slot with a leaked AI reasoning/prompt echo found on origin/main 2026-09-29 (30,433 jobs, 151,987 slots): first 600 characters. Includes the garbled machine translations of leaked sources.",
+  "_about": "Every description slot with a leaked AI reasoning/prompt echo found on origin/main 2026-09-29 (30,676 jobs, 153,199 slots): first 600 characters. Includes the garbled machine translations of leaked sources and 2 leaks born in the translation step.",
   "slots": [
     {
       "crawler": "burkhalter-group",
@@ -101,10 +101,24 @@
     },
     {
       "crawler": "ems-chemie",
+      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+      "sourceLang": "it",
+      "slot": "dbl.en",
+      "text": "I'll translate this job description from German/Italian to English.\n\nDescrizione in English:\n\nDescription\n- Project Manager Plastic Applications Automotive (m/f/d) 100% at EMS-Chemie AG, a leading company in the field of specialty polymers and fine chemicals based in Domat/Ems (Graubünden).\n- EMS-Chemie is the world's largest producer of high-performance polyamides, with approximately 3000 employees worldwide.\n- Work location: Domat/Ems."
+    },
+    {
+      "crawler": "ems-chemie",
       "slug": "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn",
       "sourceLang": "it",
       "slot": "dbl.it",
       "text": "I notice this text is in German and Italian mixed together, not purely Italian. However, following your instructions to keep ALL original content verbatim and only add markdown structure, here's the formatted version:\n\n## Descrizione\n- Entwicklungschemiker / Entwicklungsingenieur m/w/d 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni).\n- EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo.\n\n## Sede di lavoro\n- Romanshorn"
+    },
+    {
+      "crawler": "ems-chemie",
+      "slug": "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn",
+      "sourceLang": "it",
+      "slot": "dbl.en",
+      "text": "I'll translate this job description from Italian to English. Let me first read the full content from the file.\n\n[{\"tool_name\": \"bash\", \"tool_command\": \"find data/jobs/by-crawler/ems-chemie.json -type f\"}}]\n\n[{\"tool_name\": \"bash\", \"tool_command\": \"cat data/jobs/by-crawler/ems-chemie.json | head -200\"}]\n\nLet me read the Italian job description file properly.\n\n[{\"tool_name\": \"read\", \"file_path\": \"data/jobs/by-crawler/ems-chemie.json\"}]\n\nI need to find the Italian version of this job. Let me check if there's a specific Italian description in the file.\n\n[{\"tool_name\": \"bash\", \"tool_command\": \"cat d"
     },
     {
       "crawler": "ems-chemie",

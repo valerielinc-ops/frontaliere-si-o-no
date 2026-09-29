@@ -53,6 +53,7 @@ vi.mock('../../scripts/lib/free-translate.mjs', async (importOriginal) => {
 
 const { __testables } = await import('../../scripts/lib/shared-jobs-crawler.mjs');
 const { detectAiReasoningLeak } = await import('../../scripts/lib/ai-output-fidelity.mjs');
+const { aiTranslateJobDescriptionDCC } = await import('../../scripts/lib/dedicated-crawler-common.mjs');
 const {
   structureJobDescription,
   aiEnrichThinDescription,
@@ -254,5 +255,49 @@ describe('repair of the published swiss-medical-network record at its next force
     // The replayed answer was dropped, recomputed once, rejected again.
     expect(aiModelsMock.callLLM.mock.calls.filter(([m]) => isFormatterPrompt(m))).toHaveLength(1);
     expect(getCachedAiResponse(structureKey(RAW_FR, 'fr'))).toBe(AI_CACHE_RAW_SENTINEL);
+  });
+});
+
+describe('aiTranslateJobDescriptionDCC — leaked translations are neither accepted nor replayed', () => {
+  // ems-chemie `en` on main: the translation step itself leaked («I'll
+  // translate this job description from Italian to English. Let me first read
+  // the full content from the file. [{"tool_name": …»).
+  const source = pairs.rejected.find((p: { crawler: string }) => p.crawler === 'ems-chemie').input as string;
+  const leakedEn = leaked.slots.find((s: { crawler: string; slot: string; text: string }) => s.crawler === 'ems-chemie'
+    && s.slot === 'dbl.en' && /translate this job description/i.test(s.text)).text as string;
+  const english = 'Laboratory manager for fibre and yarn quality control (m/f/d) 100% at EMS-Chemie AG, a leading company in specialty polymers and fine chemicals based in Domat/Ems (Grisons). EMS-Chemie is the world\'s largest producer of high-performance polyamides, with about 3000 employees worldwide. Place of work: Domat/Ems.';
+
+  function makeCtx() {
+    const cache = new Map<string, unknown>();
+    return {
+      cache,
+      ctx: {
+        cleanDescription: (x: string) => String(x || '').trim(),
+        stripCodeFenceJson: (x: string) => x,
+        buildAiCacheKey: (prefix: string, parts: string[]) => [prefix, ...parts].join('|'),
+        getCachedAiResponse: (k: string) => (cache.has(k) ? cache.get(k) : null),
+        setCachedAiResponse: (k: string, v: unknown) => { cache.set(k, v); },
+        deleteCachedAiResponse: (k: string) => cache.delete(k),
+        AI_CACHE_RAW_SENTINEL: '__RAW__',
+        callLLM: aiModelsMock.callLLM,
+        getPreferredModel: () => 'mock/model',
+      },
+    };
+  }
+  const key = ['translate-desc-v2', source.trim(), 'en', 'it'].join('|');
+
+  it('drops a leaked cache hit and recomputes', async () => {
+    const { cache, ctx } = makeCtx();
+    cache.set(key, leakedEn);
+    aiModelsMock.callLLM.mockResolvedValueOnce(english);
+    expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'en', sourceLang: 'it', minChars: 120 }, ctx)).toBe(english);
+    expect(cache.get(key)).toBe(english);
+  });
+
+  it('does not accept a leaked LLM answer', async () => {
+    const { cache, ctx } = makeCtx();
+    aiModelsMock.callLLM.mockResolvedValueOnce(leakedEn);
+    expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'en', sourceLang: 'it', minChars: 120 }, ctx)).toBe('');
+    expect(cache.get(key)).toBe('__RAW__');
   });
 });

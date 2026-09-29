@@ -54,6 +54,7 @@ import {
 import { legacyTruncatedCompanyKey, normalizeCompanyKeyAlias } from './lib/company-key.mjs';
 import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import { detectAiReasoningLeak } from './lib/ai-output-fidelity.mjs';
 import {
   assertTrafficPriorityUsable,
   buildTrafficPriority,
@@ -885,6 +886,15 @@ export function isIncomplete(job) {
 
     // Missing or too short
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
+
+    // A slot holding an AI model's reasoning or an echo of its prompt instead
+    // of the ad (formatter leak, then translated into every locale — 11 jobs /
+    // 29 slots on 2026-09-29). Long, not a copy and in a plausible language, so
+    // no check below sees it; without this the job is never selected for
+    // repair and a flagged one is un-flagged by reconcileRetranslationState.
+    // Checked on every slot, source included: the forced relocalization resets
+    // the source slot from the crawled description and retranslates from it.
+    if (detectAiReasoningLeak(desc)) return true;
 
     // Title still in a language that is not `locale`.
     //

@@ -27,6 +27,14 @@
  * assessComposedFromInputs() is the weaker contract of the composer step, which
  * legitimately writes new connective prose: every sentence/bullet it writes must
  * be anchored in the data it was given.
+ *
+ * detectAiReasoningLeak() is also the leak check of the translation steps
+ * (translation-quality isAcceptableTranslation, dedicated-crawler-common
+ * aiTranslateJobDescriptionDCC, re-localize-jobs) — two published slots were
+ * born there («I'll translate this job description from Italian to English. Let
+ * me first read the full content from the file. [{"tool_name": …») — and of the
+ * repair selector (relocalize-pending-jobs isIncomplete), so a slot that already
+ * leaked is queued for retranslation instead of counting as complete.
  */
 
 // Measured on tests/fixtures/ai-output-fidelity/formatter-pairs.json (real
@@ -68,6 +76,12 @@ const PROMPT_ECHO_PATTERNS = [
   new RegExp(`\\banalisi dei dati forniti dall${APOS}utente\\b`, 'i'),
   /\bbenutzereingaben? analysieren\b/i,
   new RegExp(`\\banalyser (?:l${APOS}entrée|les entrées) de l${APOS}utilisateur`, 'i'),
+  // The translation prompts (dedicated-crawler-common aiTranslateJobDescriptionDCC /
+  // aiLocalizeJobContentDCC, re-localize-jobs.mjs).
+  /\btranslate this job (?:description|posting) from\b/i,
+  /\bkeep company names, product names\b/i,
+  /\breturn only translated text\b/i,
+  /\bmultilingual job content editor\b/i,
 ];
 
 /** Reasoning/chatter openers, only meaningful at the start of the answer. */
@@ -88,7 +102,7 @@ const LEADING_REASONING_PATTERNS = [
 const LEADING_ANYWHERE_IN_WINDOW_PATTERNS = [
   /\b(?:following|per|as per|according to) your (?:instructions?|rules|request)\b/i,
   /\b(?:the user|l['’]utente|der (?:benutzer|nutzer)|l['’]utilisateur) (?:wants|asks|is asking|has provided|provided|vuole|chiede|ha fornito|möchte|will|hat|veut|souhaite|demande|a fourni)\b/i,
-  /\bhere(?:['’]s| is) the (?:formatted|restructured|structured|composed)\b/i,
+  /\bhere(?:['’]s| is) (?:the|my|a) (?:formatted|restructured|structured|composed|translated|translation)\b/i,
 ];
 
 function leadingWindow(text) {
