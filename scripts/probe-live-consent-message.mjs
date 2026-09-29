@@ -136,12 +136,12 @@ async function probeOnce(browser, userAgent, url) {
 async function main() {
   const { json, paths } = parseArgs(process.argv.slice(2));
   const baseUrl = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
-  const { chromium } = await import('playwright');
+  const { launchChromium } = await import('./lib/ensure-chromium.mjs');
   const executablePath = process.env.CHROMIUM_EXECUTABLE_PATH || undefined;
   // Full Chromium in new headless mode, not Playwright's default
   // chrome-headless-shell: the shell has no PDF plugin and no window.chrome,
   // which the ad loaders' bot gate rejects (see botFingerprintVerdict).
-  const browser = await chromium.launch(executablePath ? { headless: true, executablePath } : { headless: true, channel: 'chromium' });
+  const browser = await launchChromium(executablePath ? { headless: true, executablePath } : { headless: true, channel: 'chromium' });
   // Headless Chromium announces itself as HeadlessChrome, which the ad loaders skip.
   const major = browser.version().split('.')[0];
   const userAgent = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;

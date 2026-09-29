@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { createServer } from 'node:http';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const STATIC_PAGES_PATH = 'build-plugins/staticPagesPlugin.ts';
@@ -121,7 +121,7 @@ const server = createServer((request, response) => {
 
 await new Promise((resolveListen) => server.listen(0, '127.0.0.1', resolveListen));
 const { port } = server.address();
-const browser = await chromium.launch({
+const browser = await launchChromium({
   headless: true,
   ...(executablePath ? { executablePath } : {}),
 });
