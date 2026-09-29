@@ -680,7 +680,9 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
 
   it('preserves exit 124 from a nested crawler timeout through the outer wrapper', () => {
     const crawler = {
-      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'exit 124' })),
+      // The real crawler is a child command: model its timeout exit without
+      // terminating the generated wrapper shell before it can classify it.
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: "bash -c 'exit 124'" })),
       targetTimeoutMinutes: 30,
     };
 
