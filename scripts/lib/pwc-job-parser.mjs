@@ -25,6 +25,7 @@
 
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -249,18 +250,19 @@ export function buildPwcLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || '').trim();
   const description = String(job.description || '').trim();
+  const sourceLang = description ? sourceLangOfBody(description, job.language || 'en') : 'it';
 
   const locationText = city ? ` con sede a ${city}` : '';
   const fallbackDesc = `PwC Switzerland cerca ${title}${locationText}. PwC e una delle principali societa di consulenza e revisione al mondo. Candidati online su pwc.ch.`;
 
   return {
+    // The body goes in the slot of the language it is written in, read from
+    // the body (PwC publishes in German, English and French), not copied into all four slots (#5253); the
+    // invented stand-in, when used, is Italian text and goes under `it`.
+    // Title copies stay: translate-pending retranslates source-copy titles.
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
-    },
+    descriptionByLocale: { [sourceLang]: description || fallbackDesc },
     slugByLocale: {
       it: slugify(`${title} pwc ${city}`),
       en: slugify(`${title} pwc ${city}`),

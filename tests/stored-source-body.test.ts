@@ -22,6 +22,25 @@ describe('keepStoredSourceBodies', () => {
     ]);
   });
 
+  it('moves a title and slug keyed by the fallback language to the stored source language', () => {
+    const fresh = [{
+      url: 'a', description: '', descriptionByLocale: {}, sourceLang: 'en',
+      titleByLocale: { en: 'Polymecanic Team Leader' }, slugByLocale: { en: 'polymecanic-team-leader-mikron' },
+    }];
+    const stored = [{ url: 'a', sourceLang: 'fr', description: BODY, descriptionByLocale: { fr: BODY } }];
+    const [kept] = keepStoredSourceBodies(fresh, stored, key);
+    expect(kept.sourceLang).toBe('fr');
+    expect(kept.titleByLocale).toEqual({ fr: 'Polymecanic Team Leader' });
+    expect(kept.slugByLocale).toEqual({ fr: 'polymecanic-team-leader-mikron' });
+  });
+
+  it('leaves multi-locale title and slug maps alone', () => {
+    const titleByLocale = { it: 'Addetto', en: 'Clerk', de: 'Sachbearbeiter', fr: 'Employé' };
+    const fresh = [{ url: 'a', description: '', descriptionByLocale: {}, sourceLang: 'en', titleByLocale }];
+    const stored = [{ url: 'a', sourceLang: 'de', description: BODY, descriptionByLocale: { de: BODY } }];
+    expect(keepStoredSourceBodies(fresh, stored, key)[0].titleByLocale).toEqual(titleByLocale);
+  });
+
   it('leaves out a job with neither a fresh nor a stored body over the floor', () => {
     const fresh = [{ url: 'a', description: 'Kurzer Text.', descriptionByLocale: {}, sourceLang: 'de' }];
     const stored = [{ url: 'a', sourceLang: 'de', description: 'Auch kurz.', descriptionByLocale: { de: 'Auch kurz.' } }];

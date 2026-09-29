@@ -41,6 +41,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import {
   parseEngelvoelkersListingPage,
   parseEngelvoelkersDetailPage,
@@ -256,7 +257,7 @@ function buildJob(row) {
 
   return {
     title: String(row.title || '').trim(),
-    slug: localized.slugByLocale.it,
+    slug: localized.slugByLocale[sourceLang] || localized.slugByLocale.it,
     url: row.detailUrl,
     applyUrl: row.detailUrl,
     company: row.company || COMPANY_NAME,
@@ -313,7 +314,12 @@ function mergeJobs(discoveredJobs) {
       ...fresh,
       sourceLang: publishable.sourceLang,
       description: publishable.body,
-      descriptionByLocale: { ...fresh.descriptionByLocale, [publishable.sourceLang]: publishable.body },
+      ...sourceSlotTitleAndSlug(
+        String(fresh.title || '').trim(),
+        String(fresh.slugByLocale?.[fresh.sourceLang] || fresh.slug || '').trim(),
+        publishable.sourceLang,
+      ),
+      descriptionByLocale: { [publishable.sourceLang]: publishable.body },
     };
     if (!prev) {
       added += 1;
@@ -323,10 +329,11 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   }).filter(Boolean);

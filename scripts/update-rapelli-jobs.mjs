@@ -37,6 +37,7 @@ import {
   deriveLocalizedSlug,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import {
   fetchRapelliJobUrls,
   fetchRapelliDetailPage,
@@ -86,6 +87,9 @@ function mergeCompanyJobs(parsedJobs) {
   }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -97,21 +101,23 @@ export function buildRapelliJobRecord({ raw = {}, detail = {}, now = new Date() 
 
   const location = raw.location || 'Stabio';
   const jobSlug = slugify(`${raw.title}-rapelli-${safeLocationToken(raw.location)}`);
+  // The language the body is written in, not a fixed `it` key.
+  const sourceLang = sourceLangOfBody(description, 'it');
   const timestamp = now.toISOString();
 
   return {
     id: `rapelli-${createHash('sha1').update(raw.url).digest('hex').slice(0, 12)}`,
     slug: jobSlug,
-    slugByLocale: { it: jobSlug },
+    slugByLocale: { [sourceLang]: jobSlug },
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: 'rapelli.ch',
     title: raw.title,
-    titleByLocale: { it: raw.title },
+    titleByLocale: { [sourceLang]: raw.title },
     description,
-    descriptionByLocale: { it: description },
+    descriptionByLocale: { [sourceLang]: description },
     requirements: [],
-    requirementsByLocale: { it: [] },
+    requirementsByLocale: { [sourceLang]: [] },
     location,
     canton: getCompanyDefaults('rapelli').canton,
     addressLocality: location,
@@ -127,7 +133,7 @@ export function buildRapelliJobRecord({ raw = {}, detail = {}, now = new Date() 
     // L3 still keeps it distinct from a submitted application event.
     applyUrl: raw.url,
     source: 'Rapelli Dedicated Parser (ORIOR Careers)',
-    sourceLang: detectLang(description || raw.title, 'it'),
+    sourceLang,
     crawledAt: timestamp,
   };
 }

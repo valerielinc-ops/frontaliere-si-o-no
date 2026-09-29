@@ -45,6 +45,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -272,17 +273,18 @@ export function buildAgroscopeLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || 'Switzerland').trim();
   const description = String(job.description || '').trim();
+  const sourceLang = description ? sourceLangOfBody(description, job.language || 'it') : 'it';
 
   const fallbackDesc = `Agroscope cerca ${title} con sede a ${city}. Centro di competenze della Confederazione per la ricerca nel settore agroalimentare. Candidati online su jobs.admin.ch.`;
 
   return {
+    // The body goes in the slot of the language it is written in, read from
+    // the body (Agroscope (jobs.admin.ch) publishes in German, French and Italian), not copied into all four slots (#5253); the
+    // invented stand-in, when used, is Italian text and goes under `it`.
+    // Title copies stay: translate-pending retranslates source-copy titles.
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
-    },
+    descriptionByLocale: { [sourceLang]: description || fallbackDesc },
     slugByLocale: {
       it: slugify(`${title} agroscope ${city}`),
       en: slugify(`${title} agroscope ${city}`),

@@ -44,6 +44,7 @@ import {
   captureLostSlugs,
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { capSlugArray } from './lib/slug-history-journal.mjs';
 import {
   parsePwcJobs,
@@ -216,7 +217,7 @@ export function buildPwcJob(row) {
   const hasSourceAddress = !row._explodedCity || city === sourceCity;
 
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[localized.sourceLang],
     slug: localized.slugByLocale.it,
     url: detailUrl,
     applyUrl,
@@ -234,12 +235,12 @@ export function buildPwcJob(row) {
     category: inferPwcCategory(row.title, row.description),
     sector: 'Consulenza',
     source: 'pwc-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'en'),
+    sourceLang: localized.sourceLang,
     postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.employmentType || 'full-time',
     contractType: row.employmentType || 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[localized.sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -335,11 +336,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergedSlugByLocale,
       ...(previousSlugs.length > 0 ? { previousSlugs } : {}),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

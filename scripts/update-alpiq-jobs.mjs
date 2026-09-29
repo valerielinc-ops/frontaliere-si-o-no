@@ -129,10 +129,14 @@ async function main() {
     const location = hasConcreteLocation ? sourceLocation : ALPIQ_SAFE_DEFAULT_ADDRESS.location;
     const canton = inferAnyCanton(sourceLocation) || ALPIQ_SAFE_DEFAULT_ADDRESS.canton;
     return {
-      id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
+      // Title, slug and requirements are keyed by the same source-language
+      // slot as the description (4 of 5 Alpiq postings are English), not a
+      // fixed `it` (#5253); the slug keeps its formula and existing jobs keep
+      // their published slugs through the merge.
+      id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
-      title: raw.title, titleByLocale: { it: raw.title },
-      description: desc, descriptionByLocale, requirements: [], requirementsByLocale: { it: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description: desc, descriptionByLocale, requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location,
       canton,
       postalCode: hasConcreteLocation

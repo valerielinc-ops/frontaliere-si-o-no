@@ -14,6 +14,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { fetchCedesJobUrls, fetchCedesDetailPage, slugify, inferEmploymentType } from './lib/cedes-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
@@ -54,6 +55,9 @@ function mergeCompanyJobs(parsedJobs) {
   for (const job of parsedJobs) { const key = String(job?.url || '').trim().replace(/\/+$/, ''); if (!key) continue; byUrl.set(key, job); }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   return writeJobsFiles([...others, ...clean]), clean;
 }
@@ -79,20 +83,22 @@ async function main() {
     const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-cedes-${safeLocationToken(raw.location)}`);
+    // The language the body is written in, not a fixed `en` key.
+    const sourceLang = sourceLangOfBody(description, 'en');
     parsedJobs.push({
       id: `cedes-${urlHash}`, slug: jobSlug,
-      slugByLocale: { en: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'cedes.com',
-      title: raw.title, titleByLocale: { en: raw.title },
-      description, descriptionByLocale: { en: description },
-      requirements: [], requirementsByLocale: { en: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description, descriptionByLocale: { [sourceLang]: description },
+      requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location: HQ.city, canton: HQ.canton,
       addressLocality: HQ.city, addressRegion: HQ.addressRegion,
       postalCode: HQ.postalCode, addressCountry: 'CH',
       category: 'technology', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
-      url: raw.url, source: 'CEDES Dedicated Parser', sourceLang: 'en', crawledAt: new Date().toISOString(),
+      url: raw.url, source: 'CEDES Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
     console.log(`  ✅ ${raw.title} — ${raw.location}`);
   }

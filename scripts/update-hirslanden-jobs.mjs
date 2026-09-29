@@ -15,6 +15,7 @@ import {
   HIRSLANDEN_KEY,
   HIRSLANDEN_COMPANY_NAME,
 } from './lib/hirslanden-job-parser.mjs';
+import { dropStaleLocaleDescriptions, resyncStoredSourceLang } from './lib/source-locale-slots.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -28,6 +29,16 @@ runStandardCrawlerPipeline({
   isTrustedDomain,
   defaultSourceLang: 'de',
   preserveExistingSlugs: true,
+  // Stored French postings were filed under a fixed `de`: move each body to
+  // its own language before the merge, which would keep it under `de`, and
+  // hand the slots not in their own language back to the translation pipeline.
+  prepareExistingJobs: (jobs) => {
+    for (const job of jobs) {
+      resyncStoredSourceLang(job);
+      dropStaleLocaleDescriptions(job);
+    }
+    return jobs;
+  },
 }).catch((err) => {
   console.error(`❌ Hirslanden Klinik crawler failed: ${err?.message || err}`);
   process.exit(1);

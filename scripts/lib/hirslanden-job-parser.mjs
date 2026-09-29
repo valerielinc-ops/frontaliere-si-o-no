@@ -33,6 +33,7 @@ import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.
 import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
@@ -535,7 +536,8 @@ export function hirslandenReferenceNumber(job) {
  * Fetch all Hirslanden Klinik jobs.
  *   1. Walk paginated SF j2w search results
  *   2. For each listing, fetch its detail page for the description
- * Returns ParsedJob[] with source-locale fields only (sourceLang='de').
+ * Returns ParsedJob[] with source-locale fields only, keyed by the language
+ * the body is written in (German, or French for the Romandie clinics).
  */
 export async function fetchAllHirslandenJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
@@ -625,18 +627,21 @@ export async function fetchAllHirslandenJobs() {
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${HIRSLANDEN_KEY} ${location}`);
       const employmentType = detectEmploymentType(title);
+      // The language the body is written in: 33 of 339 published postings
+      // (2026-09-29) are French, and a fixed `de` put them in the German slot.
+      const sourceLang = sourceLangOfBody(description, 'de');
 
       const job = {
         id: `${HIRSLANDEN_KEY}-${urlHash}`,
         slug: jobSlug,
-        slugByLocale: { de: jobSlug },
+        slugByLocale: { [sourceLang]: jobSlug },
         company: HIRSLANDEN_COMPANY_NAME,
         companyKey: HIRSLANDEN_KEY,
         companyDomain: HIRSLANDEN_COMPANY_DOMAIN,
         title,
-        titleByLocale: { de: title },
+        titleByLocale: { [sourceLang]: title },
         description,
-        descriptionByLocale: { de: description },
+        descriptionByLocale: { [sourceLang]: description },
         location,
         canton,
         addressLocality: location,
@@ -655,10 +660,10 @@ export async function fetchAllHirslandenJobs() {
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Hirslanden Klinik Dedicated Parser (SuccessFactors j2w)',
-        sourceLang: 'de',
+        sourceLang,
         crawledAt: new Date().toISOString(),
         requirements: [],
-        requirementsByLocale: { de: [] },
+        requirementsByLocale: { [sourceLang]: [] },
       };
 
       if (detail?.locationEvidence === 'description') markLocationDerivedFromVacancyText(job);

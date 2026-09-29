@@ -34,6 +34,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -451,14 +452,9 @@ export async function fetchBraccoJobs() {
       country,
       description,
       descriptionByLocale,
-      titleByLocale: {
-        en: title,
-      },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(title, 'bracco-suisse'),
-      },
       category: detectCategory(title),
       datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'bracco-workday-crawler',
@@ -531,6 +527,9 @@ async function mergeBraccoJobs(discoveredJobs) {
     country: 'CH',
     source: 'bracco-workday-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonBraccoJobs, ...merged];
 

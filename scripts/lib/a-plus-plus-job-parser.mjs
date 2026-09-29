@@ -231,7 +231,9 @@ export function buildAplusLocalizedContent(detail = {}, sourceLang = 'it') {
   // source-detail audit both read as the source text.
   const descriptionLocale = ['it', 'en', 'de', 'fr'].includes(sourceLang) ? sourceLang : 'it';
   return {
-    titleByLocale: { it: title },
+    // The title follows the body into the source slot (#5253); the slugs keep
+    // their published it/en keys.
+    titleByLocale: { [descriptionLocale]: title },
     descriptionByLocale: { [descriptionLocale]: detail.description || '' },
     slugByLocale: { it: slug, en: slug },
   };

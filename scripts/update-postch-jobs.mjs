@@ -585,10 +585,10 @@ async function fetchPostJobs() {
       // vacancy only in its own languages): see keyPostDescriptionBySourceLocale().
       descriptionByLocale: { [sourceLang]: description },
       // The page title is in the page's language: keyed there, never forced
-      // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+      // into `it` (see keyPostTitleBySourceLocale); the slug too.
       titleByLocale: { [sourceLang]: title },
       slug,
-      slugByLocale: { it: slug },
+      slugByLocale: { [sourceLang]: slug },
       sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-postali',
@@ -810,9 +810,11 @@ function runBaseCrawler() {
 // Post-processing
 // ──────────────────────────────────────────────────────────────
 
-function postProcessPostJobs() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+export function postProcessPostJobs(jobsOverride = null) {
+  if (jobsOverride === null && !fs.existsSync(DATA_JOBS)) return;
+  const raw = jobsOverride === null
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : jobsOverride;
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -849,9 +851,13 @@ function postProcessPostJobs() {
       if (titles.droppedStaleItalian) job.needsRetranslation = true;
       fixed++;
     }
-    // Published slugs keep their `it` key (untouched by the title keying).
-    if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
-      job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
+    // The slug is filed under the source language like the body and the title
+    // (it used to be forced into `it`, whatever the vacancy's language). A key
+    // A source-language slug is never rewritten. If that slot is missing, add
+    // the existing raw slug there even when a legacy locale already holds it.
+    const slugKeys = job.slugByLocale || {};
+    if (job.slug && sourceLang && !slugKeys[sourceLang]) {
+      job.slugByLocale = { ...slugKeys, [sourceLang]: job.slug };
       fixed++;
     }
     if (!job.canton) {
@@ -860,11 +866,12 @@ function postProcessPostJobs() {
     }
   }
 
-  if (fixed > 0) {
+  if (fixed > 0 && jobsOverride === null) {
     writeJsonAtomic(DATA_JOBS, jobs);
     writeJsonAtomic(PUBLIC_JOBS, jobs);
     console.log(`🔧 Post-processed ${fixed} Post.ch jobs (fixed company/location/canton).`);
   }
+  return jobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1011,4 +1018,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Post.ch'));
+const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (_isMain) {
+  main().catch((err) => exitCrawlerOnError(err, 'Post.ch'));
+}

@@ -33,6 +33,7 @@ import {
   isAvaloqTargetLocation,
   inferAvaloqCanton,
   buildAvaloqLocalizedContent,
+  dropStaleLocaleDescriptions,
   fetchAvaloqJobsFromApi,
   assertCompleteAvaloqSnapshot,
 } from './lib/avaloq-job-parser.mjs';
@@ -161,9 +162,10 @@ async function buildAvaloqJobs() {
     const localized = buildAvaloqLocalizedContent(detail, COMPANY_NAME);
     const canton = inferAvaloqCanton(detail.location || '');
     const contractType = /part/i.test(detail.workArrangement || '') ? 'part-time' : 'full-time';
+    const { sourceLang } = localized;
     return {
-      title: localized.titleByLocale.it || detail.title,
-      slug: localized.slugByLocale.it,
+      title: localized.titleByLocale[sourceLang] || detail.title,
+      slug: localized.slug,
       url: detail.canonicalUrl,
       applyUrl: detail.applyUrl,
       company: COMPANY_NAME,
@@ -179,12 +181,12 @@ async function buildAvaloqJobs() {
       category: inferCategory(detail),
       sector: 'Tecnologia & IT',
       source: 'avaloq-dedicated-crawler',
-      sourceLang: detectLang(`${detail.title} ${detail.description}`, 'en'),
+      sourceLang,
       postedDate: (detail.releasedDate || '').slice(0, 10) || new Date().toISOString().slice(0, 10),
       employmentType: contractType,
       contractType,
       validThrough: '',
-      description: localized.descriptionByLocale.it,
+      description: localized.descriptionByLocale[sourceLang],
       titleByLocale: localized.titleByLocale,
       descriptionByLocale: localized.descriptionByLocale,
       slugByLocale: localized.slugByLocale,
@@ -216,10 +218,13 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
+      // Existing slugs win: the published URLs do not move.
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

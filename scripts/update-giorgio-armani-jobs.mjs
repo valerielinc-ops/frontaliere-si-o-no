@@ -54,6 +54,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import {
   parseGiorgioArmaniListingHtml,
@@ -316,7 +317,7 @@ async function buildGiorgioArmaniJob(discovery) {
 
   return {
     title: detail.title,
-    slug: localized.slugByLocale.it,
+    slug: localized.slug,
     url: buildJobUrl(discovery.reqId),
     applyUrl: detail.applyHref ? `https://career5.successfactors.eu${detail.applyHref}` : buildApplyUrl(discovery.reqId),
     company: COMPANY_NAME,
@@ -331,7 +332,7 @@ async function buildGiorgioArmaniJob(discovery) {
     category: inferGiorgioArmaniCategory(detail.area, detail.title),
     sector: 'Moda & Lusso',
     source: 'giorgio-armani-dedicated-crawler',
-    sourceLang: detectLang(detail.description || '', 'en'),
+    sourceLang: localized.sourceLang,
     postedDate: toIsoDate(),
     employmentType: 'full-time',
     contractType: 'full-time',
@@ -370,10 +371,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

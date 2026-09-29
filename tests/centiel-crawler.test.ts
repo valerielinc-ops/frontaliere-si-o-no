@@ -282,7 +282,10 @@ describe("Centiel buildJob — the posting text only", () => {
     const job = buildJob({ ...row, pdfText: LONG_PDF_TEXT });
 
     expect(job.description).toBe(LONG_PDF_TEXT);
-    expect(job.descriptionByLocale).toEqual({ en: LONG_PDF_TEXT });
+    // The PDF is Italian: it is filed under `it`, not under a fixed `en` (#5253).
+    expect(job.sourceLang).toBe("it");
+    expect(job.descriptionByLocale).toEqual({ it: LONG_PDF_TEXT });
+    expect(job.titleByLocale).toEqual({ it: "Tecnico Collaudatore" });
     expect(job.description).not.toMatch(/Apply via:|Via alla Stampa 15|specializing in the design and manufacture/);
   });
 

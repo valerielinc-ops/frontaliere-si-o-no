@@ -40,6 +40,7 @@ import {
   isLocationExplicitlyForeign,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseHitachiEnergyListingJson,
   parseHitachiEnergyDetailPage,
@@ -261,7 +262,7 @@ function buildHitachiJob(row) {
   const primaryLoc = String(row.primaryLocation || row.location || '').split(',')[0].trim();
 
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[localized.sourceLang],
     slug: localized.slugByLocale.it,
     url: row.url,
     applyUrl: row.applyUrl,
@@ -277,12 +278,12 @@ function buildHitachiJob(row) {
     category: inferCategory(row.title, row.jobFunction),
     sector: inferSector(row.jobFunction),
     source: 'hitachi-energy-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'en'),
+    sourceLang: localized.sourceLang,
     postedDate: row.publicationDate || new Date().toISOString().slice(0, 10),
     employmentType: mapEmploymentType(row.jobType, row.contractType),
     contractType: normalize(row.contractType) || 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[localized.sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -312,10 +313,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

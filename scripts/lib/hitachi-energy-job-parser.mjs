@@ -18,6 +18,7 @@ import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mj
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const PAGE_SIZE = 20;
@@ -236,10 +237,16 @@ export function buildHitachiEnergyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.primaryLocation || job.location || '').trim() || 'Switzerland';
   const description = String(job.description || '').trim();
+  // The body goes in the slot of the language it is written in (read from
+  // the body: 53 English and 16 German postings on 2026-09-29), not copied
+  // into all four slots (#5253). Title copies and slugs stay as they were:
+  // translate-pending retranslates source-copy titles.
+  const sourceLang = sourceLangOfBody(description, 'en');
 
   return {
+    sourceLang,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: description, en: description, de: description, fr: description },
+    descriptionByLocale: { [sourceLang]: description },
     slugByLocale: {
       it: slugify(`${title} hitachi-energy ${location}`),
       en: slugify(`${title} hitachi-energy ${location}`),

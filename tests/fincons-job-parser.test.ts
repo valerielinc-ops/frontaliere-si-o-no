@@ -142,4 +142,16 @@ describe('fincons-job-parser', () => {
     expect(localized.titleByLocale.en).toBe('Angular / Java - Senior Full-Stack Developer');
     expect(localized.slugByLocale.en).toContain('angular-java-senior-full-stack-developer-fincons-group-lugano-ticino-switzerland');
   });
+
+  it('files a German ad under de, not under a fixed en (#5253)', () => {
+    const localized = buildFinconsLocalizedContent({
+      title: 'Applikations-Manager:in 80 - 100%',
+      location: 'Zürich',
+      description: 'Unternehmen im Überblick\nDie Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen mitgestaltet. Für unser Team in Zürich suchen wir eine engagierte Persönlichkeit.',
+    });
+    expect(localized.sourceLang).toBe('de');
+    expect(Object.keys(localized.descriptionByLocale)).toEqual(['de']);
+    expect(localized.titleByLocale).toEqual({ de: 'Applikations-Manager:in 80 - 100%' });
+    expect(localized.slugByLocale).toEqual({ de: localized.slug });
+  });
 });

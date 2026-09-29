@@ -44,8 +44,8 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
-  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -362,6 +362,9 @@ async function fetchJobs() {
     }
     const slug = slugify(listing.title, COMPANY_KEY);
     const postedDate = parseDate(listing.dateStr);
+    // The language the body is written in, not a fixed `it` key (a title
+    // such as "Production Manager" is not evidence of it).
+    const sourceLang = sourceLangOfBody(description, 'it');
 
     const job = {
       title: listing.title,
@@ -378,11 +381,11 @@ async function fetchJobs() {
       employmentType: detectEmploymentType(listing.percentage),
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'has-healthcare-crawler',
-      sourceLang: detectLang(description || listing.title, 'it'),
+      sourceLang,
       postedDate,
-      titleByLocale: { it: listing.title },
-      descriptionByLocale: { it: description },
-      slugByLocale: { it: slug },
+      titleByLocale: { [sourceLang]: listing.title },
+      descriptionByLocale: { [sourceLang]: description },
+      slugByLocale: { [sourceLang]: slug },
       // _targetScope tells the base crawler this job is in Ticino,
       // bypassing the non_detail_url exclusion for /node/NNN URLs.
       _targetScope: { canton: HQ.canton, location: HQ.city },
@@ -443,6 +446,9 @@ async function mergeJobs(discoveredJobs) {
     country: 'CH',
     source: 'has-healthcare-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonTargetJobs, ...merged];
 

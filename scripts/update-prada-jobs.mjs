@@ -39,6 +39,7 @@ import {
   deriveLocalizedSlug,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   fetchPradaJobUrls,
   fetchPradaDetailPage,
@@ -112,6 +113,9 @@ function mergeCompanyJobs(parsedJobs, companyExisting) {
   const fossils = companyExisting.filter((job) => dropPradaFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Removed the former invented descriptions from ${fossils} stored Prada Group job(s); they will be retranslated`);
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -212,16 +216,16 @@ async function main() {
     parsedJobs.push({
       id: `prada-${urlHash}`,
       slug: jobSlug,
-      slugByLocale: { en: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: 'pradagroup.com',
       title: raw.title,
-      titleByLocale: { en: raw.title },
+      titleByLocale: { [sourceLang]: raw.title },
       description,
       descriptionByLocale: descByLocale,
       requirements: [],
-      requirementsByLocale: { en: [] },
+      requirementsByLocale: { [sourceLang]: [] },
       location: loc,
       canton,
       addressRegion: canton,

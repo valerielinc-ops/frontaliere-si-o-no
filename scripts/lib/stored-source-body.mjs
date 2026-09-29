@@ -27,6 +27,14 @@ export function keepStoredSourceBodies(discoveredJobs = [], storedJobs = [], key
     const prevLang = prev?.sourceLang;
     const prevBody = (prevLang && prev?.descriptionByLocale?.[prevLang]) || prev?.description || '';
     if (!prevLang || !meetsSourceBodyFloor(prevBody)) return [];
-    return [{ ...job, description: prevBody, descriptionByLocale: { [prevLang]: prevBody }, sourceLang: prevLang }];
+    const kept = { ...job, description: prevBody, descriptionByLocale: { [prevLang]: prevBody }, sourceLang: prevLang };
+    // A title or slug the runner keyed by the fallback language of the empty
+    // body moves with the source language to the stored body's slot.
+    for (const field of ['titleByLocale', 'slugByLocale']) {
+      const map = job?.[field];
+      const keys = map && typeof map === 'object' ? Object.keys(map) : [];
+      if (keys.length === 1 && keys[0] === job.sourceLang && keys[0] !== prevLang) kept[field] = { [prevLang]: map[keys[0]] };
+    }
+    return [kept];
   });
 }

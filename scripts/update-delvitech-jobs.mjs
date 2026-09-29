@@ -30,6 +30,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseDelvitechCareerPage,
   parseDelvitechJobDetail,
@@ -300,7 +301,7 @@ async function buildDelvitechJob(listing) {
     sourceLocationClassified: true,
     job: {
       title: detail.title,
-      slug: localized.slugByLocale.en,
+      slug: localized.slug,
       url: detailUrl,
       // The source advertises email applications inside this HTTPS detail
       // page. Publish the page as the navigable handoff; keep the source email
@@ -318,7 +319,7 @@ async function buildDelvitechJob(listing) {
       category: inferDelvitechCategory(detail.title, detail.description),
       sector: 'Tecnologia & IT',
       source: 'delvitech-dedicated-crawler',
-      sourceLang: detectLang(detail.description || detail.title, 'en'),
+      sourceLang: localized.sourceLang,
       postedDate: new Date().toISOString().slice(0, 10),
       employmentType: 'full-time',
       contractType: 'full-time',
@@ -355,10 +356,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

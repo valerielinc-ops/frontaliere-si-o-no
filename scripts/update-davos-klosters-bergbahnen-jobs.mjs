@@ -13,6 +13,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import { fetchDavosKlostersBergbahnenJobUrls, fetchDavosKlostersBergbahnenDetailPage, slugify, inferEmploymentType } from './lib/davos-klosters-bergbahnen-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
@@ -52,6 +53,9 @@ function mergeCompanyJobs(parsedJobs) {
   for (const job of parsedJobs) { const key = String(job?.url || '').trim().replace(/\/+$/, ''); if (!key) continue; byUrl.set(key, job); }
   const deduped = [...byUrl.values()];
   const merged = mergePreserveLocaleData(companyExisting, deduped);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   return writeJobsFiles([...others, ...clean]), clean;
 }
@@ -72,19 +76,21 @@ async function main() {
     const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-davos-klosters-bergbahnen-${safeLocationToken(raw.location)}`);
+    // The language the body is written in, not a fixed `de` key.
+    const sourceLang = sourceLangOfBody(description, 'de');
     parsedJobs.push({
       id: `davos-klosters-bergbahnen-${urlHash}`, slug: jobSlug,
-      slugByLocale: { de: jobSlug },
+      slugByLocale: { [sourceLang]: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'davosklosters.ch',
-      title: raw.title, titleByLocale: { de: raw.title },
-      description, descriptionByLocale: { de: description },
-      requirements: [], requirementsByLocale: { de: [] },
+      title: raw.title, titleByLocale: { [sourceLang]: raw.title },
+      description, descriptionByLocale: { [sourceLang]: description },
+      requirements: [], requirementsByLocale: { [sourceLang]: [] },
       location: raw.location || 'Davos', canton: HQ.canton,
       addressLocality: raw.location || 'Davos', addressCountry: 'CH',
       category: 'tourism', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
-      url: raw.url, source: 'Davos Klosters Bergbahnen Dedicated Parser', sourceLang: detectLang(description || raw.title, 'de'), crawledAt: new Date().toISOString(),
+      url: raw.url, source: 'Davos Klosters Bergbahnen Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
     console.log(`  ✅ ${raw.title} — ${raw.location}`);
   }

@@ -25,6 +25,7 @@ import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { classifyMalformedRowDrift } from './malformed-row-observability.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -375,18 +376,20 @@ export async function fetchAllWuerthInternationalJobs() {
 
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} wuerth-international ${location}`);
+      // The language the body is written in, not a fixed `de`.
+      const sourceLang = sourceLangOfBody(description, 'de');
 
       const job = {
         id: `${WUERTH_INTERNATIONAL_KEY}-${urlHash}`,
         slug: jobSlug,
-        slugByLocale: { de: jobSlug },
+        slugByLocale: { [sourceLang]: jobSlug },
         company: WUERTH_INTERNATIONAL_COMPANY_NAME,
         companyKey: WUERTH_INTERNATIONAL_KEY,
         companyDomain: WUERTH_INTERNATIONAL_COMPANY_DOMAIN,
         title,
-        titleByLocale: { de: title },
+        titleByLocale: { [sourceLang]: title },
         description,
-        descriptionByLocale: description ? { de: description } : {},
+        descriptionByLocale: description ? { [sourceLang]: description } : {},
         location,
         canton: HQ.canton,
         addressLocality: location,
@@ -405,7 +408,7 @@ export async function fetchAllWuerthInternationalJobs() {
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Wuerth International Dedicated Parser (HTML)',
-        sourceLang: 'de',
+        sourceLang,
         crawledAt: new Date().toISOString(),
       };
 

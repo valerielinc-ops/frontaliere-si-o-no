@@ -3,6 +3,7 @@ import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation, TARGET_CANTONS  } from './target-swiss-locations.mjs';
 import { assertRssChannelItems } from './assert-json-list-shape.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -216,6 +217,7 @@ export function parseAristonJobDetail(html = '') {
 }
 
 export function buildAristonLocalizedContent(detail = {}) {
+  const descriptionSourceLang = sourceLangOfBody(detail.description, 'it');
   const sourceTitle = String(detail.title || '').trim();
   const location = String(detail.location || '').trim();
   const titleByLocale = {
@@ -232,8 +234,12 @@ export function buildAristonLocalizedContent(detail = {}) {
       de: slugify(`${titleByLocale.de} Ariston Group ${location}`),
       fr: slugify(`${titleByLocale.fr} Ariston Group ${location}`),
     },
+    // The body goes in the slot of the language it is written in, read
+    // from the body (Ariston publishes its Swiss vacancies in German and French),
+    // not under a fixed `it` (#5253).
+    sourceLang: descriptionSourceLang,
     descriptionByLocale: {
-      it: detail.description || '',
+      [descriptionSourceLang]: detail.description || '',
     },
   };
 }

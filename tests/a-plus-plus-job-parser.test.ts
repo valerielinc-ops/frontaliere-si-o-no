@@ -250,6 +250,7 @@ describe('buildAplusLocalizedContent', () => {
     const localized = buildAplusLocalizedContent({ title: 'Architect', description: 'We are looking for an architect.' }, 'en');
     expect(localized.descriptionByLocale.en).toBe('We are looking for an architect.');
     expect(localized.descriptionByLocale.it).toBeUndefined();
+    expect(localized.titleByLocale).toEqual({ en: 'Architect' });
   });
 
   it('handles empty inputs without throwing', () => {

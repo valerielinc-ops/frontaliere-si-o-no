@@ -25,6 +25,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType, buildVirDescriptionFields, dropVirFabricatedText } from './lib/vir-biotechnology-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -132,9 +133,9 @@ function buildJobFromGreenhouse(parsed) {
     streetAddress: 'Via Mirasole 1',
     description: descEn,
     descriptionByLocale,
-    titleByLocale: { en: parsed.title },
+    // Title and slug in the body's source slot, not a fixed `en`/`it`.
+    ...sourceSlotTitleAndSlug(parsed.title, slug, sourceLang),
     slug,
-    slugByLocale: { en: slug, it: slugify(parsed.title, 'vir-biotechnology') },
     category: detectCategory(parsed.title),
     datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
     source: 'vir-greenhouse-crawler',
@@ -178,6 +179,9 @@ async function mergeJobs(discoveredJobs) {
     companyKey: COMPANY_KEY,
     source: 'vir-greenhouse-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

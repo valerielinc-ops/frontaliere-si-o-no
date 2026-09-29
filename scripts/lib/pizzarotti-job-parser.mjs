@@ -5,6 +5,7 @@ import {
   isSwissLocationText,
   isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -137,18 +138,21 @@ export function parsePizzarottiJobDetail(html = '') {
   };
 }
 
-export function buildPizzarottiLocalizedContent(detail = {}, companyName = 'Impresa Pizzarotti & C. S.p.A.') {
+export function buildPizzarottiLocalizedContent(
+  detail = {},
+  companyName = 'Impresa Pizzarotti & C. S.p.A.',
+  sourceLang = sourceLangOfBody(detail.description, 'it'),
+) {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || '').trim() || 'Svizzera';
+  const slug = slugify(`${title} ${companyName} ${location}`);
+  // Keyed by the language the ad is written in (read from the body), not a
+  // fixed `it` (#5253). The slug keeps its formula.
   return {
-    titleByLocale: {
-      it: title,
-    },
-    descriptionByLocale: {
-      it: detail.description || '',
-    },
-    slugByLocale: {
-      it: slugify(`${title} ${companyName} ${location}`),
-    },
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: detail.description || '' },
+    slugByLocale: { [sourceLang]: slug },
   };
 }

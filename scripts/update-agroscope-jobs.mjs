@@ -57,6 +57,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAgroscopeApiResponse,
   isAgroscopeSwissRelevant,
@@ -200,7 +201,7 @@ function buildAgroscopeJob(row) {
   // link that *claims* precision it can't deliver would be worse than none.
   const detailUrl = row.directLink || 'https://jobs.admin.ch/?lang=it';
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[localized.sourceLang],
     slug: localized.slugByLocale.it,
     url: detailUrl,
     applyUrl: row.applyUrl || detailUrl,
@@ -217,12 +218,12 @@ function buildAgroscopeJob(row) {
     category: inferAgroscopeCategory(row),
     sector: 'Pubblica amministrazione',
     source: 'agroscope-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'it'),
+    sourceLang: localized.sourceLang,
     postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.pensumMax === '100' ? 'full-time' : 'part-time',
     contractType: row.pensumMax === '100' ? 'full-time' : 'part-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[localized.sourceLang],
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -252,10 +253,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim();
@@ -154,18 +155,20 @@ export function buildBoschLocalizedContent(detail = {}) {
   const locationLabel = normalize(detail.location || 'Svizzera');
   const lowerTitle = title.toLowerCase();
   const baseDescription = detail.description || '';
+  // The body goes in the slot of the language it is written in (read from
+  // the body), not copied into all four: a German ad copied into `it` showed
+  // German on the Italian page and left nothing for the translation pipeline
+  // to fill (#5253). Only the hand-written translations below fill other body
+  // slots. Title copies stay (translate-pending retranslates them), and the
+  // slugs are derived from the same titles as before.
+  const sourceLang = sourceLangOfBody(baseDescription, 'it');
   const titleByLocale = {
     it: title,
     en: title,
     de: title,
     fr: title,
   };
-  const descriptionByLocale = {
-    it: baseDescription,
-    en: baseDescription,
-    de: baseDescription,
-    fr: baseDescription,
-  };
+  const descriptionByLocale = { [sourceLang]: baseDescription };
 
   if (lowerTitle.includes('tecnico di servizio fossile regione ticino')) {
     titleByLocale.en = 'Fossil Service Technician Ticino Region (m/f/div.)';
@@ -252,6 +255,7 @@ export function buildBoschLocalizedContent(detail = {}) {
   }
 
   return {
+    sourceLang,
     titleByLocale,
     slugByLocale: {
       it: slugify(`${titleByLocale.it} Bosch ${locationLabel}`),

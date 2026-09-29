@@ -57,6 +57,7 @@ import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -145,6 +146,7 @@ export function rekeyDennerSourceSlots(job = {}) {
     titleByLocale: rekey(job.titleByLocale),
     descriptionByLocale: rekey(job.descriptionByLocale),
     requirementsByLocale: rekey(job.requirementsByLocale),
+    slugByLocale: rekey(job.slugByLocale),
   };
 }
 
@@ -175,7 +177,10 @@ function mergeCompanyJobs(parsedJobs) {
     if (k) byUrl.set(k, job);
   }
   const deduped = [...byUrl.values()].map(rekeyDennerSourceSlots);
-  const merged = mergePreserveLocaleData(companyExisting, deduped).map(dropStaleDennerItalianTitle);
+  const merged = mergePreserveLocaleData(companyExisting, deduped).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return dropStaleDennerItalianTitle(job);
+  });
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -308,6 +313,7 @@ export function buildDennerJobRecord({
   const canton = inferAnyCanton(normalizedLocation) || '';
   const timestamp = now.toISOString();
   const sourceLang = detectLang(description, 'it');
+  const slug = slugify(`${title}-denner`);
   // One posting per store: the store the posting names is part of the
   // vacancy (and the only thing that tells two same-city postings apart).
   const workplaceLine = workplace?.label
@@ -317,19 +323,19 @@ export function buildDennerJobRecord({
 
   return {
     id: `denner-${createHash('sha1').update(url).digest('hex').slice(0, 12)}`,
-    slug: slugify(`${title}-denner`),
-    slugByLocale: { it: slugify(`${title}-denner`) },
+    slug,
+    ...sourceSlotTitleAndSlug(title, slug, sourceLang),
     company: DENNER_COMPANY_NAME,
     companyKey: DENNER_KEY,
     companyDomain: 'denner.ch',
     title,
-    titleByLocale: { it: title },
+    titleByLocale: { [sourceLang]: title },
     description: normalizedDescription,
     // Keyed by the posting's language (German for most stores): under a fixed
     // `it` key the German body sat in the Italian slot.
     descriptionByLocale: { [sourceLang]: normalizedDescription },
     requirements: migrosData?.requirements || [],
-    requirementsByLocale: { it: migrosData?.requirements || [] },
+    requirementsByLocale: { [sourceLang]: migrosData?.requirements || [] },
     location: normalizedLocation,
     postalCode: postalCode || KNOWN_CITY_POSTAL_CODES[normalizedLocation.toLowerCase()] || '',
     canton,

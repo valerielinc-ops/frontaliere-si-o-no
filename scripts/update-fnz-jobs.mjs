@@ -46,6 +46,7 @@ import {
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import {
   dropFabricatedLocaleText,
   dropTranslationsOfFabricatedSource,
@@ -489,14 +490,9 @@ export async function fetchFnzJobs() {
       country: 'CH',
       description,
       descriptionByLocale,
-      titleByLocale: {
-        en: title,
-      },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(title, 'fnz'),
-      },
       category: detectCategory(title),
       datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'fnz-workday-crawler',
@@ -571,6 +567,9 @@ async function mergeFnzJobs(discoveredJobs) {
     country: 'CH',
     source: 'fnz-workday-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonFnzJobs, ...merged];
 

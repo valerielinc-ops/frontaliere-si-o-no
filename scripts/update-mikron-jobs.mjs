@@ -16,8 +16,9 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseMikronJobs, parseMikronJobDetail, dropMikronFabricatedText, keepMikronSourceBodies, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -182,7 +183,9 @@ async function fetchMikronJobs() {
     // The detail body is published in its own language (the Boudry postings
     // are French under an English title): key it by the detected language so
     // the French text is not stored as the `en` translation.
-    const sourceLang = detectLang(descEn || title, 'en');
+    // A title is not evidence of the language (see sourceLangOfBody): without
+    // a body the stored one is kept, with its own language.
+    const sourceLang = sourceLangOfBody(descEn, 'en');
 
     const employmentType = detectEmploymentType(title);
 
@@ -192,7 +195,8 @@ async function fetchMikronJobs() {
       ...(postalCode && { postalCode }),
       ...(streetAddress && { streetAddress }),
       description: descEn, descriptionByLocale: descEn ? { [sourceLang]: descEn } : {},
-      titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang), slug,
       sourceLang,
       category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
       source: 'mikron-html-crawler', employmentType,
@@ -234,6 +238,7 @@ async function mergeJobs(discoveredJobs) {
   const merged = mergePreserveLocaleData(existingMikronJobs, discoveredJobs).map((job) => ({
     ...job, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'mikron-html-crawler',
   }));
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
