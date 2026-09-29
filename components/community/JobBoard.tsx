@@ -7402,16 +7402,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
   if (offerwallResumeCheckedRef.current || !selectedJob || !authResolved || !assistedApplicationVariantReady) return;
   offerwallResumeCheckedRef.current = true;
-  if (!takeOfferwallResume(String(selectedJob.id))) return;
+  const resume = takeOfferwallResume(String(selectedJob.id));
+  if (!resume) return;
   if (
    assistedApplicationVariant !== 'rewarded_ad'
    || killSwitches.rewardedApplicationAd
    || !isExternalApplicationJob(selectedJob)
    || applicationOfferOpenRef.current
   ) return;
+  // The reload's reason and the gate/consent state at the click travel in the
+  // marker: the event the offer sent just before the reload does not arrive.
   const context = {
    ...assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
    surface: 'rewarded_application_resume',
+   ...resume,
   };
   const accessExpiresAt = getRewardedApplicationAccessExpiresAt();
   if (accessExpiresAt !== null) {
