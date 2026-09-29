@@ -25,9 +25,11 @@ import {
  *   companyKey: string,
  *   companyLabel: string,
  *   write: (jobs: object[]) => (unknown|Promise<unknown>),
+ *   assemble?: () => (unknown|Promise<unknown>),
  * }} options `prepare` repairs the stored jobs in place or returns a
  *   replacement array (the `prepareExistingJobs` contract); `write` persists
- *   the crawler's slice, with the same writer the crawler uses on a normal run.
+ *   the crawler's slice, with the same writer the crawler uses on a normal run;
+ *   `assemble` rebuilds the assembled dataset after a successful rewrite.
  * @returns {Promise<boolean>} true when the slice was rewritten.
  */
 export async function rewritePreparedStoredJobs({
@@ -36,6 +38,7 @@ export async function rewritePreparedStoredJobs({
   companyKey,
   companyLabel,
   write,
+  assemble,
 }) {
   if (typeof prepare !== 'function' || !Array.isArray(storedJobs) || storedJobs.length === 0) return false;
   const before = JSON.stringify(storedJobs);
@@ -56,6 +59,7 @@ export async function rewritePreparedStoredJobs({
     );
     return false;
   }
+  if (typeof assemble === 'function') await assemble();
   console.log(`  🧹 ${companyLabel}: stored slice rewritten without the crawler's own text (${prepared.length} job(s), nothing else changed).`);
   return true;
 }

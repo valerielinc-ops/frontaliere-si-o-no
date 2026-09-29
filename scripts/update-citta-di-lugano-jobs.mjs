@@ -272,6 +272,7 @@ async function main() {
       companyKey: COMPANY_KEY,
       companyLabel: COMPANY_NAME,
       write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+      assemble: () => assembleJobsDataset(),
     });
     return;
   }

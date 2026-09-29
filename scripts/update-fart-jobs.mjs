@@ -583,6 +583,7 @@ async function main() {
       companyKey: COMPANY_KEY,
       companyLabel: COMPANY_NAME,
       write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+      assemble: () => assembleJobsDataset(),
     });
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;

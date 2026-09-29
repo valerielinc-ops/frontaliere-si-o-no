@@ -1140,6 +1140,7 @@ export async function runStandardCrawlerPipeline(config) {
         isTargetJob: isCompanyJob,
         preserveExistingSlugs,
       }),
+      assemble: () => assembleJobsDataset(),
     });
     return;
   }
