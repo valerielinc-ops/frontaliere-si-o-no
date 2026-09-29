@@ -7,9 +7,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-intensivstation-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-intensivstation-spital-limmattal-schlieren",
-        "en": "fachfrau-mann-gesundheit-efz-intensivstation-spital-limmattal-ch",
+        "en": "professional-health-efz-intensive-care-unit-spital-limmattal-schlieren",
         "de": "fachfrau-mann-gesundheit-efz-intensivstation-spital-limmattal-ch",
-        "fr": "fachfrau-mann-gesundheit-efz-intensivstation-spital-limmattal-ch"
+        "fr": "unite-de-soins-intensifs-efz-de-sante-professionnelle-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -54,6 +54,12 @@
         "it": [
           "fachfrau-mann-gesundheit-efz-intensivstation-spital-limmattal-ch",
           "fachfrau-mann-gesundheit-cfc-intensivstation-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-intensivstation-spital-limmattal-ch"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-efz-intensivstation-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
@@ -77,12 +83,12 @@
     },
     {
       "id": "spital-limmattal-eeb19f5fd636",
-      "slug": "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch",
+      "slug": "persona-responsabile-del-caso-paziente-40-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch",
-        "en": "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch",
+        "it": "persona-responsabile-del-caso-paziente-40-spital-limmattal-schlieren",
+        "en": "patient-administration-clerk-40-spital-limmattal-schlieren",
         "de": "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch",
-        "fr": "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch"
+        "fr": "employe-e-administration-des-patients-40-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -139,7 +145,21 @@
           "maxValue": 44600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-f0b547bb6e64",

@@ -2029,9 +2029,9 @@
       "slug": "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "it": "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona",
-        "en": "anlagenfuhrer-efz-a-100-geberit-ch",
+        "en": "plant-manager-efz-a-100-geberit-rapperswil-jona",
         "de": "anlagenfuhrer-efz-a-100-geberit-ch",
-        "fr": "anlagenfuhrer-efz-a-100-geberit-ch"
+        "fr": "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -2074,7 +2074,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plant-manager-efz-a-100-geberit-rapperswil-jona",
-        "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona",
         "anlagenfuhrer-efz-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
@@ -2083,10 +2082,10 @@
           "anlagenfuhrer-efz-a-100-geberit-ch"
         ],
         "en": [
-          "plant-manager-efz-a-100-geberit-rapperswil-jona"
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ],
         "fr": [
-          "directeur-de-l-usine-efz-a-100-geberit-rapperswil-jona"
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ]
       },
       "needsRetranslation": true,

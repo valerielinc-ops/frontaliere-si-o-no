@@ -6729,7 +6729,7 @@
         "it": "carrozziere-lattoniere-afc-emil-frey-pambio-noranco",
         "en": "afc-latter-emil-frey-pambio-noranco",
         "de": "afc-letzteres-emil-frey-pambio-noranco",
-        "fr": "carrozziere-lattoniere-afc-emil-frey-pambio-noranco"
+        "fr": "afc-derniere-emil-frey-pambio-noranco"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -7014,12 +7014,12 @@
     },
     {
       "id": "emil-frey-4b58d7c7b756",
-      "slug": "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz",
+      "slug": "consulente-del-servizio-clienti-bmw-emil-frey-st-moritz",
       "slugByLocale": {
-        "it": "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz",
-        "en": "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz",
+        "it": "consulente-del-servizio-clienti-bmw-emil-frey-st-moritz",
+        "en": "bmw-customer-service-advisor-emil-frey-st-moritz",
         "de": "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz",
-        "fr": "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz"
+        "fr": "conseiller-ere-service-client-bmw-emil-frey-st-moritz"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -7074,13 +7074,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:13:26.154Z"
+      "firstSeenAt": "2026-09-28T21:13:26.154Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz"
+        ],
+        "en": [
+          "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz"
+        ],
+        "fr": [
+          "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "kundendienstberater-in-der-marke-bmw-emil-frey-st-moritz"
+      ]
     },
     {
       "id": "emil-frey-7c28dc804534",
-      "slug": "senior-marketing-automation-manager-emil-frey-zurich",
+      "slug": "responsabile-senior-dell-automazione-del-marketing-emil-frey-zurich",
       "slugByLocale": {
-        "it": "senior-marketing-automation-manager-emil-frey-zurich",
+        "it": "responsabile-senior-dell-automazione-del-marketing-emil-frey-zurich",
         "en": "senior-marketing-automation-manager-emil-frey-zurich",
         "de": "senior-marketing-automation-manager-emil-frey-zurich",
         "fr": "directeur-principal-de-l-automatisation-du-marketing-emil-frey-zurich"
@@ -7140,7 +7154,15 @@
         }
       },
       "firstSeenAt": "2026-09-28T21:13:26.128Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-marketing-automation-manager-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-marketing-automation-manager-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-194240dd42e4",
