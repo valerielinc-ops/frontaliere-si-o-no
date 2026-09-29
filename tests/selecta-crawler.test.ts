@@ -407,7 +407,7 @@ $(function () {
     expect(jobs).toEqual([]);
   });
 
-  it('falls back to a synthesized description (never drops the field) when the detail page has no jobAdContent block', async () => {
+  it('does not publish the posting (and invents no text) when the detail page has no jobAdContent block', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
       const href = String(url);
       if (href.includes('/Jobs')) {
@@ -416,22 +416,21 @@ $(function () {
       return { ok: true, status: 200, text: async () => '<html><body>no ad content</body></html>' } as unknown as Response;
     });
     const jobs = await fetchAllSelectaJobs();
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0].description.length).toBeGreaterThan(0);
-    expect(jobs[0].description).toMatch(/Selecta/);
+    expect(jobs).toEqual([]);
   });
 
-  it('does not throw when a single detail-page fetch rejects — job still emitted with a synthesized description', async () => {
+  it('does not throw when a single detail-page fetch rejects — that posting is not published, the others still are', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
       const href = String(url);
       if (href.includes('/Jobs')) {
-        return { ok: true, status: 200, text: async () => listingHtml([listing()] as never) } as unknown as Response;
+        return { ok: true, status: 200, text: async () => listingHtml([listing(), listing({ Id: 4615, Title: 'Servicetechniker (a) 100%' })] as never) } as unknown as Response;
       }
-      throw new Error('network error');
+      if (href.endsWith('/Job/4615')) throw new Error('network error');
+      return { ok: true, status: 200, text: async () => detailHtml() } as unknown as Response;
     });
     const jobs = await fetchAllSelectaJobs();
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0].description.length).toBeGreaterThan(0);
+    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Automatenbetreuer/in (a) 100%']);
+    expect(jobs[0].description).toMatch(/^Selecta ist der führende Anbieter/);
   });
 
   it('returns [] (no throw) when the listing fetch itself fails', async () => {
