@@ -44,6 +44,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -143,7 +144,7 @@ function extractGenericSection(html, headlineRx) {
   return htmlToText(m[2]);
 }
 
-async function fetchDetailDescription(detailUrl, fallbackTeaser) {
+async function fetchDetailDescription(detailUrl, fallbackTeaser, title = '') {
   if (!detailUrl) return fallbackTeaser || '';
   try {
     const html = await fetchHtml(detailUrl);
@@ -166,6 +167,15 @@ async function fetchDetailDescription(detailUrl, fallbackTeaser) {
     if (stellenantritt) parts.push(`Stellenantritt: ${stellenantritt}`);
 
     const text = parts.filter(Boolean).join('\n\n').trim();
+    // The four sections above are 29-42 % of the rendered vacancy (audit
+    // 2026-09-29) and lose their lists: "Unser Angebot", "Unsere Benefits"
+    // and "Über uns" are page-only. The whole vacancy text of the page, with
+    // its headings and bullets, replaces them when it contains them.
+    const pageText = selectProspectiveDetailDescription(html, {
+      title,
+      listingText: text,
+    }).text;
+    if (pageText) return pageText;
     if (text && text.split(/\s+/).length >= 30) return text.slice(0, 6000);
     return [fallbackTeaser, text].filter(Boolean).join('\n\n').trim();
   } catch (err) {
@@ -240,7 +250,7 @@ export async function fetchAllPblJobs() {
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
     const fallback = `${r.title} — ${PBL_COMPANY_NAME}, ${r.workplace || 'Liestal'}.`;
-    const desc = await fetchDetailDescription(r.detailUrl, fallback);
+    const desc = await fetchDetailDescription(r.detailUrl, fallback, r.title);
     if (desc && desc.length > fallback.length + 20) detailHits += 1;
     const safeDescription = desc && desc.split(/\s+/).length >= 30
       ? desc
