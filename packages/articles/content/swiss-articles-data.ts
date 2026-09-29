@@ -21265,6 +21265,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavoratori-svizzeri-ia-2026',
+    category: 'novita',
+    date: '2026-09-29T18:06:15.988Z',
+    image: '/images/blog/lavoratori-svizzeri-ia-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ufc-finanzia-ricerca-provenienza',
+    category: 'novita',
+    date: '2026-09-29T18:34:01.175Z',
+    image: '/images/blog/ufc-finanzia-ricerca-provenienza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -15,6 +15,7 @@ import {
   SZB_CHB_KEY,
   SZB_CHB_COMPANY_NAME,
 } from './lib/szb-chb-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +28,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isSzbChbJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, SZB_CHB_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Spitalzentrum Biel / Centre hospitalier Bienne crawler failed: ${err?.message || err}`);
   process.exit(1);

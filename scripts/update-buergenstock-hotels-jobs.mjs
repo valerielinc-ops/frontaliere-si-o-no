@@ -16,6 +16,7 @@ import {
   BUERGENSTOCK_HOTELS_KEY,
   BUERGENSTOCK_HOTELS_COMPANY_NAME,
 } from './lib/buergenstock-hotels-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -28,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isBuergenstockHotelsJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, BUERGENSTOCK_HOTELS_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Bürgenstock Hotels crawler failed: ${err?.message || err}`);
   process.exit(1);

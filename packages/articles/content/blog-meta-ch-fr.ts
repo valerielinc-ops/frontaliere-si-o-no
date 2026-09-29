@@ -7079,6 +7079,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS : frein législatif aux primes à 3%',
     'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'L\'USS demande au Conseil des États de limiter à 3% les primes LAMal. Au Tessin, l\'augmentation prévue pour 2027 est de 3,7%.',
     'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Berne, siège du Parlement suisse, au premier plan une calculatrice et une carte d\'assurance.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Travailleurs suisses et IA : 28% l’utilisent, mais elle ne convainc pas',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% des travailleurs en Suisse utilisent l’IA chaque jour, mais la conviction fait défaut. Les données de l’étude PwC \'Hopes and Fears\' 2026 sur les employés.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Travailleur suisse dans un bureau aux prises avec l\'intelligence artificielle générative',
+    'blog.article.ufc-finanzia-ricerca-provenienza.title': 'OFC : 1,95 million pour 26 projets de recherche',
+    'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'L\'OFC alloue environ 1,95 million de francs à 26 projets de recherche sur la provenance des musées et des collections en Suisse pour 2027-2028.',
+    'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Vue de Bellinzona avec musées en arrière-plan, lumière du matin',
 };
 
 export default blogMetaChFr;
