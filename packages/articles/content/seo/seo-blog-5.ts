@@ -97222,6 +97222,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-ticino-de-rosa': {
+    title: 'Premi LAMal Ticino 2027: aumento al 3,7% e 519,90 franchi',
+    description: 'Scopri i dati sui premi LAMal in Ticino per il 2027: aumento del 3,7% e costo di 519,90 franchi al mese. Le dichiarazioni del direttore del DSS Raffaele',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, aumento, franchi',
+    ogTitle: 'Premi LAMal Ticino 2027: aumento al 3,7% e 519,90 franchi',
+    ogDescription: 'Analisi dei premi LAMal in Ticino per il 2027 con l\'aumento al 3,7% e la spesa a 519,90 franchi mensili. Tutti i dettagli sulle misure del DSS e sul settore della fisioterapia.',
+    canonicalPath: '/articoli-frontaliere/premi-lamal-ticino-de-rosa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Ticino 2027: aumento al 3,7% e 519,90 franchi",
+      "description": "Scopri i dati sui premi LAMal in Ticino per il 2027: aumento del 3,7% e costo di 519,90 franchi al mese. Le dichiarazioni del direttore del DSS Raffaele",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-ticino-de-rosa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Bellinzona con i castelli medievali"
+      },
+      "datePublished": "2026-09-29T17:15:34+00:00",
+      "dateModified": "2026-09-29T17:15:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premi-lamal-ticino-de-rosa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

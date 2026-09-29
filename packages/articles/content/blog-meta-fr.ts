@@ -12292,6 +12292,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mobilita-lombardia-ticino-2026.title': 'Feu vert pour l\'accord Lombardie-Tessin',
     'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Le projet de loi n ° 197 sur la mobilité transfrontalière a été ratifié. Accord quinquennal pour les trains, les bus et les tarifs entre l\'Italie et la Suisse.',
     'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Train transfrontalier entre la Lombardie et le Tessin',
+    'blog.article.premi-lamal-ticino-de-rosa.title': 'Primes LAMal au Tessin 2027 : hausse de 3,7% et 519,90 francs',
+    'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'En 2027, la hausse des primes au Tessin sera de 3,7%, avec 519,90 francs par mois. Le directeur du DSS, Raffaele De Rosa, commente les mesures et les dépenses de santé.',
+    'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'Vue de Bellinzona avec des châteaux médiévaux',
 };
 
 export default blogMetaFr;
