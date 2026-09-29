@@ -6,7 +6,7 @@
  * out of the initial page load and away from Lighthouse / idle users.
  */
 
-import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
+import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
 
 const SCRIPT_ID = 'recaptcha-enterprise-loader';
 
