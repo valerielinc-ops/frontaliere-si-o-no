@@ -1,18 +1,9 @@
 {
-  "run": 113,
+  "run": 114,
   "companies": {
     "axa-svizzera": {
       "sterile": 1,
       "signature": "1c647427d0970f40"
-    },
-    "new-yorker": {
-      "sterile": 0,
-      "signature": "4c990cfc026322ef",
-      "skipUntilRun": 116
-    },
-    "jysk": {
-      "sterile": 1,
-      "signature": "ffc2b7bfa06ec22a"
     }
   }
 }

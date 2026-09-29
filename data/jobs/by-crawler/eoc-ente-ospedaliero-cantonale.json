@@ -97,8 +97,7 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fefp1q",
@@ -191,8 +190,7 @@
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-fefozu",
         "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-d46b9a",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-4333hw",
@@ -272,8 +270,7 @@
       },
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fef1x1",
@@ -349,8 +346,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fef1bd",
@@ -411,11 +407,13 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
-          "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez"
         ],
         "de": [
           "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-          "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano"
+          "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez"
         ],
         "fr": [
           "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
@@ -426,7 +424,8 @@
         "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
         "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -443,8 +442,7 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-feezrj",
@@ -524,8 +522,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-feezsb",
@@ -594,8 +591,7 @@
       },
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-4333hs",
@@ -665,7 +661,6 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -798,18 +793,23 @@
         "it": [
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
           "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx"
         ],
         "en": [
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
           "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "de": [
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx"
         ]
       },
       "previousSlugs": [
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
         "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
-        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -976,8 +976,7 @@
       },
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-4333fc",
@@ -1045,7 +1044,6 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -1104,11 +1102,21 @@
         "de": [
           "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
           "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "it": [
+          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
+        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1173,11 +1181,13 @@
       "previousSlugsByLocale": {
         "it": [
           "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feezrd"
         ],
         "de": [
           "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feezrd"
         ],
         "fr": [
           "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -1186,7 +1196,8 @@
       "previousSlugs": [
         "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feezrd"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1205,8 +1216,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fef0d4",
@@ -1367,8 +1377,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-feey98",
@@ -1439,8 +1448,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fefpsf",
@@ -1601,8 +1609,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fefpsg",
@@ -1687,8 +1694,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fefpse",
@@ -1772,8 +1778,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2795/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2795/description/4"
     },
     {
       "id": "company-fefpsc",
@@ -1858,8 +1863,7 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2793/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2793/description/4"
     },
     {
       "id": "company-fefpsd",
@@ -2024,8 +2028,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2792/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2792/description/4"
     },
     {
       "id": "company-fefpre",
@@ -2091,8 +2094,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2780/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2780/description/4"
     },
     {
       "id": "company-fefpsa",
@@ -2181,8 +2183,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2791/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2791/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2791/description/4"
     },
     {
       "id": "company-fefprl",
@@ -2269,8 +2270,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2787/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2787/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2787/description/4"
     },
     {
       "id": "company-fefppp",
@@ -2340,8 +2340,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2761/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2761/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2761/description/4"
     },
     {
       "id": "company-fefprk",
@@ -2421,8 +2420,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2786/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2786/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2786/description/4"
     },
     {
       "id": "company-fefprj",
@@ -2488,8 +2486,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2785/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2785/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2785/description/4"
     },
     {
       "id": "company-feeyzw",
@@ -2673,8 +2670,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2778/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2778/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2778/description/4"
     },
     {
       "id": "company-fefpqj",
@@ -2814,8 +2810,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2773/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2773/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2773/description/4"
     },
     {
       "id": "company-fefppq",
@@ -2969,8 +2964,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2760/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2760/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2760/description/4"
     },
     {
       "id": "company-uilr4m",
@@ -3075,8 +3069,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2755/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2755/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2755/description/4"
     },
     {
       "id": "company-uilr3n",
@@ -3184,8 +3177,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2741/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2741/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2741/description/4"
     },
     {
       "id": "company-uilr22",
@@ -3279,8 +3271,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2726/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2726/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2726/description/4"
     },
     {
       "id": "company-uikzkn",
@@ -3410,8 +3401,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1106/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1106/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1106/description/4"
     },
     {
       "id": "company-uil1tg",
@@ -3502,8 +3492,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1411/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1411/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1411/description/4"
     },
     {
       "id": "company-uikz1l",
@@ -3598,8 +3587,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1092/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1092/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1092/description/4"
     },
     {
       "id": "company-uil16d",
@@ -3698,8 +3686,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1357/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1357/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1357/description/4"
     },
     {
       "id": "company-uikzou",
@@ -3822,8 +3809,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1152/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1152/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1152/description/4"
     },
     {
       "id": "company-uikzkk",
@@ -3922,8 +3908,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1103/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1103/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1103/description/4"
     },
     {
       "id": "company-uil1va",
@@ -4010,8 +3995,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1435/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1435/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1435/description/4"
     },
     {
       "id": "company-uil4vn",
@@ -4109,8 +4093,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1850/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1850/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1850/description/4"
     },
     {
       "id": "company-uilpqm",
@@ -4318,8 +4301,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1364/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1364/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1364/description/4"
     },
     {
       "id": "company-uil3cr",
@@ -4410,8 +4392,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1638/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1638/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1638/description/4"
     },
     {
       "id": "company-uiloz2",
@@ -4521,8 +4502,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2483/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2483/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2483/description/4"
     },
     {
       "id": "company-uillzl",
@@ -4601,8 +4581,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2079/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2079/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2079/description/4"
     },
     {
       "id": "company-uil2qc",
@@ -4738,8 +4717,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1587/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1587/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1587/description/4"
     },
     {
       "id": "company-uil2ji",
@@ -4823,8 +4801,7 @@
       ],
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1509/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1509/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1509/description/4"
     },
     {
       "id": "company-uikz1p",
@@ -5010,8 +4987,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1108/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1108/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1108/description/4"
     },
     {
       "id": "company-uikzmf",
@@ -5092,8 +5068,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1128/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1128/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1128/description/4"
     },
     {
       "id": "company-uikzko",
@@ -5183,8 +5158,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1107/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1107/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1107/description/4"
     },
     {
       "id": "company-x29n9c",
@@ -5263,8 +5237,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/991/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/991/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/991/description/4"
     },
     {
       "id": "company-x29n9b",
@@ -5345,8 +5318,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/990/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/990/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/990/description/4"
     },
     {
       "id": "company-x29n8p",
@@ -5432,8 +5404,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/989/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/989/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/989/description/4"
     },
     {
       "id": "company-uikz1r",
@@ -5552,8 +5523,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1098/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1098/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1098/description/4"
     },
     {
       "id": "company-uil19q",
@@ -5650,8 +5620,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1394/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1394/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1394/description/4"
     },
     {
       "id": "company-uikzlc",
@@ -5745,8 +5714,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1110/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1110/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1110/description/4"
     },
     {
       "id": "company-uikzkq",
@@ -5842,8 +5810,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1109/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1109/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1109/description/4"
     },
     {
       "id": "company-uikzle",
@@ -5939,8 +5906,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1112/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1112/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1112/description/4"
     },
     {
       "id": "company-uikzld",
@@ -6034,8 +6000,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1111/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1111/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1111/description/4"
     },
     {
       "id": "company-uikytv",
@@ -6234,8 +6199,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2096/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2096/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2096/description/4"
     },
     {
       "id": "company-uilm13",
@@ -6314,8 +6278,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2091/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2091/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2091/description/4"
     },
     {
       "id": "company-uilmk6",
@@ -6407,8 +6370,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2106/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2106/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2106/description/4"
     },
     {
       "id": "company-uilmk0",
@@ -6505,8 +6467,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2100/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2100/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2100/description/4"
     },
     {
       "id": "company-uil4vw",
@@ -6600,8 +6561,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1859/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1859/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1859/description/4"
     },
     {
       "id": "company-uil2ns",
@@ -6681,8 +6641,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1558/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1558/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1558/description/4"
     },
     {
       "id": "company-uilozx",
@@ -6762,8 +6721,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2493/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2493/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2493/description/4"
     },
     {
       "id": "company-uiloyb",
@@ -6849,8 +6807,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2477/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2477/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2477/description/4"
     },
     {
       "id": "company-uilmrr",
@@ -6944,8 +6901,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2190/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2190/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2190/description/4"
     },
     {
       "id": "company-uillyj",
@@ -7042,8 +6998,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2062/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2062/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2062/description/4"
     },
     {
       "id": "company-uil0c5",
@@ -7129,8 +7084,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1214/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1214/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1214/description/4"
     },
     {
       "id": "company-uilmk2",
@@ -7205,8 +7159,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2102/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2102/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2102/description/4"
     },
     {
       "id": "company-uillxv",
@@ -7298,8 +7251,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2059/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2059/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2059/description/4"
     },
     {
       "id": "company-uilm12",
@@ -7382,8 +7334,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2090/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2090/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2090/description/4"
     },
     {
       "id": "company-uilm14",
@@ -7466,8 +7417,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2092/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2092/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2092/description/4"
     },
     {
       "id": "company-uilmk7",
@@ -7562,8 +7512,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2107/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2107/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2107/description/4"
     },
     {
       "id": "company-uilmk1",
@@ -7655,8 +7604,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2101/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2101/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2101/description/4"
     },
     {
       "id": "company-uilmk5",
@@ -7821,8 +7769,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2481/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2481/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2481/description/4"
     },
     {
       "id": "company-uil2mt",
@@ -7936,8 +7883,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1544/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1544/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1544/description/4"
     },
     {
       "id": "company-x29n3h",
@@ -8177,8 +8123,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1115/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1115/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1115/description/4"
     },
     {
       "id": "company-uillzk",
@@ -8265,8 +8210,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2078/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2078/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2078/description/4"
     },
     {
       "id": "company-uikzmd",
@@ -8350,8 +8294,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1126/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1126/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1126/description/4"
     },
     {
       "id": "company-uikzlj",
@@ -8450,8 +8393,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1117/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1117/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1117/description/4"
     },
     {
       "id": "company-uikzlf",
@@ -8543,8 +8485,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1113/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1113/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1113/description/4"
     },
     {
       "id": "company-uikznx",
@@ -8623,8 +8564,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1140/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1140/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1140/description/4"
     },
     {
       "id": "company-uikz1s",
@@ -8706,8 +8646,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1099/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1099/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1099/description/4"
     },
     {
       "id": "company-uikzli",
@@ -8792,8 +8731,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1116/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1116/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1116/description/4"
     },
     {
       "id": "company-uikzlg",
@@ -8878,8 +8816,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1114/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1114/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1114/description/4"
     },
     {
       "id": "company-uikzn5",
@@ -9013,8 +8950,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1133/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1133/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1133/description/4"
     },
     {
       "id": "company-x29n2m",
@@ -9104,8 +9040,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/917/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/917/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/917/description/4"
     },
     {
       "id": "company-uilnbn",
@@ -9207,8 +9142,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2213/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2213/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2213/description/4"
     },
     {
       "id": "company-uil16f",
@@ -9306,8 +9240,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1359/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1359/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1359/description/4"
     },
     {
       "id": "company-uikzn6",
@@ -9399,8 +9332,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1134/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1134/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1134/description/4"
     },
     {
       "id": "company-x29n2j",
@@ -9488,8 +9420,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/914/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/914/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/914/description/4"
     },
     {
       "id": "company-uil1ud",
@@ -9581,8 +9512,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1423/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1423/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1423/description/4"
     },
     {
       "id": "company-uilo2b",
@@ -9680,8 +9610,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2312/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2312/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2312/description/4"
     },
     {
       "id": "company-uikzn3",
@@ -9770,8 +9699,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1131/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1131/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1131/description/4"
     },
     {
       "id": "company-uikzn2",
@@ -9946,8 +9874,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1129/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1129/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1129/description/4"
     },
     {
       "id": "company-uikzn4",
@@ -10139,8 +10066,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2093/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2093/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2093/description/4"
     },
     {
       "id": "company-uillyk",
@@ -10253,8 +10179,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2063/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2063/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2063/description/4"
     },
     {
       "id": "company-uillxs",
@@ -10348,8 +10273,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2056/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2056/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2056/description/4"
     },
     {
       "id": "company-uil1sr",
@@ -10518,8 +10442,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2252/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2252/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2252/description/4"
     },
     {
       "id": "company-uilngr",
@@ -10632,8 +10555,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2271/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2271/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2271/description/4"
     },
     {
       "id": "company-uillyi",
@@ -10717,8 +10639,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2061/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2061/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2061/description/4"
     },
     {
       "id": "company-uilpql",
@@ -10888,8 +10809,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1487/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1487/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1487/description/4"
     },
     {
       "id": "company-uikzm8",
@@ -10971,8 +10891,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1121/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1121/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1121/description/4"
     },
     {
       "id": "company-uikzmc",
@@ -11053,8 +10972,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1125/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1125/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1125/description/4"
     },
     {
       "id": "company-uil2r4",
@@ -11149,8 +11067,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1594/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1594/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1594/description/4"
     },
     {
       "id": "company-uilmkv",
@@ -11238,8 +11155,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2110/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2110/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2110/description/4"
     },
     {
       "id": "company-uilpqk",
@@ -11329,8 +11245,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2591/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2591/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2591/description/4"
     },
     {
       "id": "company-uil1yo",
@@ -11414,8 +11329,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1473/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1473/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1473/description/4"
     },
     {
       "id": "company-uil1yp",
@@ -11505,8 +11419,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1474/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1474/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1474/description/4"
     },
     {
       "id": "company-uil1yn",
@@ -11598,8 +11511,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1472/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1472/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1472/description/4"
     },
     {
       "id": "company-uil4vo",
@@ -11722,8 +11634,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1851/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1851/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1851/description/4"
     },
     {
       "id": "company-uilqcx",
@@ -11811,8 +11722,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2640/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2640/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2640/description/4"
     },
     {
       "id": "company-uil1ys",
@@ -11914,8 +11824,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1477/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1477/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1477/description/4"
     },
     {
       "id": "company-uilpqn",
@@ -12095,8 +12004,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1475/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1475/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1475/description/4"
     },
     {
       "id": "company-uil5mc",
@@ -12211,8 +12119,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1950/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1950/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1950/description/4"
     },
     {
       "id": "company-uilmrt",
@@ -12306,8 +12213,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2192/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2192/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2192/description/4"
     },
     {
       "id": "company-uilnas",
@@ -12398,8 +12304,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2203/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2203/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2203/description/4"
     },
     {
       "id": "company-uilo8e",
@@ -12499,8 +12404,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2384/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2384/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2384/description/4"
     },
     {
       "id": "company-uillxu",
@@ -12587,8 +12491,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2058/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2058/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2058/description/4"
     },
     {
       "id": "company-uilmru",
@@ -12668,8 +12571,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2193/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2193/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2193/description/4"
     },
     {
       "id": "company-uilo3d",
@@ -12736,8 +12638,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2329/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2329/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2329/description/4"
     },
     {
       "id": "company-uilmpb",
@@ -12850,8 +12751,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2165/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2165/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2165/description/4"
     },
     {
       "id": "company-uil1ug",
@@ -12926,8 +12826,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1426/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1426/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1426/description/4"
     },
     {
       "id": "company-uilngt",
@@ -13029,8 +12928,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2273/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2273/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2273/description/4"
     },
     {
       "id": "company-uilngs",
@@ -13120,8 +13018,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2272/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2272/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2272/description/4"
     },
     {
       "id": "company-uilmlv",
@@ -13206,8 +13103,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2125/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2125/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2125/description/4"
     },
     {
       "id": "company-uil4ya",
@@ -13302,8 +13198,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1882/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1882/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1882/description/4"
     },
     {
       "id": "company-uilnbm",
@@ -13406,8 +13301,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2212/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2212/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2212/description/4"
     },
     {
       "id": "company-fefprg",
@@ -13494,8 +13388,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2782/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2782/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2782/description/4"
     },
     {
       "id": "company-fefprh",
@@ -13577,8 +13470,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2783/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2783/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2783/description/4"
     },
     {
       "id": "company-uilm0d",
@@ -13680,8 +13572,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2086/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2086/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2086/description/4"
     },
     {
       "id": "company-uillyh",
@@ -13765,8 +13656,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2060/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2060/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2060/description/4"
     },
     {
       "id": "company-uilm16",
@@ -13858,8 +13748,7 @@
       },
       "salarySource": "reported",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2094/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2094/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2094/description/4"
     },
     {
       "id": "company-uil2ol",
@@ -14006,8 +13895,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1566/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1566/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1566/description/4"
     },
     {
       "id": "company-uilqca",
@@ -14095,8 +13983,7 @@
       },
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2638/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2638/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2638/description/4"
     },
     {
       "id": "company-fefpri",
@@ -14187,8 +14074,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2784/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2784/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2784/description/4"
     },
     {
       "id": "company-fefprf",
@@ -14280,8 +14166,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2781/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2781/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2781/description/4"
     },
     {
       "id": "company-fefpqs",
@@ -14370,8 +14255,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2779/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2779/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2779/description/4"
     },
     {
       "id": "company-fefpqq",
@@ -14440,8 +14324,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2777/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2777/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2777/description/4"
     },
     {
       "id": "company-fefpqo",
@@ -14620,8 +14503,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/955/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/955/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/955/description/4"
     },
     {
       "id": "company-fefpqn",
@@ -14703,8 +14585,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2774/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2774/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2774/description/4"
     },
     {
       "id": "company-fefpqk",
@@ -14799,8 +14680,7 @@
       ],
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2771/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2771/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2771/description/4"
     },
     {
       "id": "company-fefppv",
@@ -14896,8 +14776,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2767/Description/4",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2767/description/4",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2767/description/4"
     },
     {
       "id": "company-fefpps",
@@ -15064,8 +14943,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2769/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2769/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2769/Description/4"
     },
     {
       "id": "company-fefppt",
@@ -15166,8 +15044,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2765/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2765/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2765/Description/4"
     },
     {
       "id": "company-fefpp2",
@@ -15270,8 +15147,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2759/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2759/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2759/Description/4"
     },
     {
       "id": "company-uilmk8",
@@ -15342,8 +15218,7 @@
       },
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2108/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2108/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2108/Description/4"
     },
     {
       "id": "company-fefppw",
@@ -15444,8 +15319,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2768/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4"
     },
     {
       "id": "company-uilr3p",
@@ -15538,8 +15412,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2743/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2743/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2743/Description/4"
     },
     {
       "id": "company-fefppr",
@@ -15633,8 +15506,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2763/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2763/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2763/Description/4"
     },
     {
       "id": "company-uilr4j",
@@ -15734,8 +15606,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2752/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2752/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2752/Description/4"
     },
     {
       "id": "company-uil41l",
@@ -15844,8 +15715,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1713/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1713/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/1713/Description/4"
     },
     {
       "id": "company-fefpp1",
@@ -15942,8 +15812,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2758/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2758/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2758/Description/4"
     },
     {
       "id": "company-fefpp0",
@@ -16036,8 +15905,7 @@
       "country": "CH",
       "salarySource": "reported",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2757/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2757/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2757/Description/4"
     },
     {
       "id": "company-fefpoz",
@@ -16131,8 +15999,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2756/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2756/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2756/Description/4"
     },
     {
       "id": "company-uilr2x",
@@ -16223,8 +16090,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2736/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2736/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2736/Description/4"
     },
     {
       "id": "company-fefpo0",
@@ -16308,8 +16174,7 @@
       ],
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2742/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2742/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2742/Description/4"
     },
     {
       "id": "company-uilr30",
@@ -16485,8 +16350,7 @@
       ],
       "salarySource": "estimated",
       "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2751/description/4",
-      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2751/Description/4",
-      "needsRetranslation": true
+      "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2751/Description/4"
     },
     {
       "id": "company-fefpsi",
@@ -16620,19 +16484,27 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "de": [
-          "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio"
+          "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
+          "kooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+          "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
-          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz"
+          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz",
+          "kooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+          "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hy"
         ]
       },
       "previousSlugs": [
         "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
-        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz"
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz",
+        "kooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hy"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,

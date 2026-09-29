@@ -384,7 +384,6 @@
         ]
       },
       "firstSeenAt": "2026-09-27T11:33:50.976Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1176,8 +1175,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-cc1a353fd70d",
@@ -1255,8 +1253,7 @@
       },
       "previousSlugs": [
         "manager-cruise-development-and-execution-msc-geneva"
-      ],
-      "needsRetranslation": true
+      ]
     }
   ]
 }
