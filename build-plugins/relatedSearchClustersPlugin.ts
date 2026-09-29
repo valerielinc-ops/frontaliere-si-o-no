@@ -3544,6 +3544,7 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
 const NOINDEX_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
 const CANONICAL_HREF_RE = /<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*href\s*=\s*["']([^"']+)["']/i;
 const CANONICAL_HREF_REVERSED_RE = /<link\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*rel\s*=\s*["']?canonical["']?/i;
+const JOB_SITEMAP_FILE_RE = /^sitemap-jobs(?:-[a-z0-9][a-z0-9-]*)?\.xml$/i;
 function normalizeLocForCanonicalCmp(u: string): string {
   try {
     const parsed = new URL(u, BASE_URL);
@@ -3591,6 +3592,7 @@ function normalizeLocForCanonicalCmp(u: string): string {
 export async function dropOverwrittenLocs(
   distDir: string,
   locs: ReadonlyArray<string>,
+  options: { inspectForeignPresent?: boolean } = {},
 ): Promise<string[]> {
   const KEEP = 1;
   const DROP_NOINDEX = 2;
@@ -3619,10 +3621,7 @@ export async function dropOverwrittenLocs(
       // owning locale this shard does not emit has no HTML on disk by design —
       // keep it so the it/main shard's sitemap stays complete. Skipped entirely
       // in the default build (EMIT_ALL_LOCALES) so behaviour is byte-identical.
-      if (!EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''))) {
-        flags[i] = KEEP;
-        continue;
-      }
+      const foreignLocale = !EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''));
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');
       let html: string | null = null;
@@ -3632,9 +3631,23 @@ export async function dropOverwrittenLocs(
         try {
           html = await fs.promises.readFile(flatPath, 'utf-8');
         } catch {
+          // A foreign-locale URL is normally absent from this shard by
+          // design. Job sitemaps opt into checking a foreign file when it is
+          // present (typically a bridge written by a direct-fs emitter), but
+          // still retain a genuinely absent URL for the locale shard that
+          // owns its HTML. This keeps the shared IT sitemap complete without
+          // allowing an on-disk noindex/canonical bridge to leak through.
+          if (foreignLocale) {
+            flags[i] = KEEP;
+            continue;
+          }
           flags[i] = DROP_MISSING;
           continue;
         }
+      }
+      if (foreignLocale && !options.inspectForeignPresent) {
+        flags[i] = KEEP;
+        continue;
       }
       if (NOINDEX_RE.test(html)) {
         flags[i] = DROP_NOINDEX;
@@ -3780,13 +3793,14 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
 }
 
 /**
- * Reconcile `sitemap-jobs.xml` against what actually shipped in dist/.
+ * Reconcile every `sitemap-jobs*.xml` file against what actually shipped in
+ * dist/.
  *
  * Why this is a dist-truth pass and not a membership test
  * -------------------------------------------------------
  * This used to drop exactly the URLs in `mirrorLocs` — the cross-section
  * mirrors this plugin knowingly overwrites (issue #911). That closes one
- * divergence and leaves every other one open, because sitemap-jobs.xml is
+ * divergence and leaves every other one open, because the job sitemap family is
  * written by ANOTHER plugin (jobsSeoPagesPlugin, `default` phase) which
  * advertises keyword/search landings it does not itself emit. Whenever the
  * advertised set and the emitted set drift for any reason this list does not
@@ -3815,30 +3829,55 @@ export async function reconcileSitemapJobsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string>,
 ): Promise<void> {
-  const sitemapPath = path.join(distDir, 'sitemap-jobs.xml');
-  let xml: string;
-  try {
-    xml = await fs.promises.readFile(sitemapPath, 'utf-8');
-  } catch {
-    return; // sitemap-jobs.xml not emitted this build — nothing to patch.
+  if (!fs.existsSync(distDir)) return;
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => JOB_SITEMAP_FILE_RE.test(file));
+  if (files.length === 0) return;
+
+  const sitemapFiles: Array<{ file: string; xml: string }> = [];
+  for (const file of files) {
+    try {
+      sitemapFiles.push({
+        file,
+        xml: await fs.promises.readFile(path.join(distDir, file), 'utf-8'),
+      });
+    } catch {
+      // A concurrent cleanup can remove a stale shard between readdir and
+      // readFile. It is already gone from the discoverable output; continue
+      // with the files that still exist.
+    }
   }
 
-  const locs = extractSitemapLocs(xml);
+  const locs = sitemapFiles.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (locs.length === 0 && mirrorLocs.length === 0) return;
 
+  // Unlike cluster sitemaps, the job sitemap family is written by the IT
+  // build and deliberately contains URLs owned by the other locale shards.
+  // `inspectForeignPresent` checks those URLs when a bridge file is present,
+  // while preserving a missing foreign file as cross-shard output.
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, locs)).map(normalizeLocForCanonicalCmp),
+    (await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true }))
+      .map(normalizeLocForCanonicalCmp),
   );
   const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
   const dropLocs = [...new Set([...unserved, ...mirrorLocs])];
   if (dropLocs.length === 0) return;
 
-  const { xml: patched, dropped } = dropUrlBlocksByLoc(xml, dropLocs);
+  let dropped = 0;
+  const changedFiles: string[] = [];
+  for (const { file, xml } of sitemapFiles) {
+    const result = dropUrlBlocksByLoc(xml, dropLocs);
+    if (result.xml === xml || result.dropped === 0) continue;
+    await fs.promises.writeFile(path.join(distDir, file), result.xml, 'utf-8');
+    dropped += result.dropped;
+    changedFiles.push(file);
+  }
   if (dropped > 0) {
-    await fs.promises.writeFile(sitemapPath, patched, 'utf-8');
     console.log(
-      `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
-      `(${unserved.length} failed the dist-truth check, ${mirrorLocs.length} known cross-section mirror(s), issue #911)`,
+      `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs*.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
+      `(${unserved.length} failed the dist-truth check, ${mirrorLocs.length} known cross-section mirror(s), ` +
+      `files=${changedFiles.join(', ')}, issue #911)`,
     );
   }
 }

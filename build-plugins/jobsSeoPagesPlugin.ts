@@ -10577,11 +10577,25 @@ ${staticAnalyticsHtml}
  // via companyEntries above.
  const overrideUrl = resolveCanonicalUrl(perLocaleSlugMap.it, itUrl);
  if (overrideUrl !== itUrl) return '';
- const alternateLinks = localeList.map((l) => {
+ const sitemapLocalePaths = new Map<typeof localeList[number], string>();
+ for (const l of localeList) {
  const sectionForLocale = buildCantonAwareSection(l, jobCantonForSitemap);
- const p = `${localePrefix[l]}/${sectionForLocale}/${perLocaleSlugMap[l]}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
- }).join('\n');
+ const p = `${localePrefix[l]}/${sectionForLocale}/${perLocaleSlugMap[l]}`.split('/').filter(Boolean).join('/');
+ const localePath = withSlash(p);
+ const localeUrl = `${BASE_URL}${localePath}`;
+ // Keep the legacy urlset aligned with the same active-page registry used by
+ // the canton shards. A translated slug can be suppressed by per-locale
+ // deduplication or can canonicalize through an explicit override; advertising
+ // it as an hreflang target in that case creates a sitemap URL that is either
+ // missing or points at a different page.
+ if (resolveCanonicalUrl(perLocaleSlugMap[l], localeUrl) !== localeUrl) continue;
+ if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${l}:${perLocaleSlugMap[l]}`)) continue;
+ sitemapLocalePaths.set(l, localePath);
+ }
+ if (!sitemapLocalePaths.has('it')) return '';
+ const alternateLinks = [...sitemapLocalePaths.entries()].map(([l, p]) =>
+ ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${p}" />`,
+ ).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
  const jobLastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
  return ` <url>\n <loc>${itUrl}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
