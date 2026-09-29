@@ -279,6 +279,23 @@ describe('le attestazioni di zero valgono solo come riga di esito (FU-009)', () 
     }
   });
 
+  it('un ``` dentro un recinto di ```` e\' contenuto, non la chiusura (review di #10288)', () => {
+    const body = ['````md', 'example', '```', 'Created/updated: 0 item', '```', '````'].join('\n');
+    expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+    // Il recinto si chiude solo con lo stesso carattere e senza testo dopo.
+    const tilde = ['~~~', 'Created/updated: 0 item', '``` ', '~~~ fine', '~~~'].join('\n');
+    expect(triageMarkerPersistenceExpectation(tilde).requiresBucket).toBe(true);
+  });
+
+  it('l\'intestazione vale fino a fine riga: prosa in coda non e\' l\'esito vuoto (review di #10288)', () => {
+    for (const body of [
+      '## Post-merge follow-up triage: zero outstanding items but 1 item remains',
+      '## Post-merge follow-up triage (backfill skipped) but 1 item remains',
+    ]) {
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket, body).toBe(true);
+    }
+  });
+
   it('una citazione `>` dell\'intestazione vuota non e\' l\'esito', () => {
     const body = '## Post-merge follow-up triage\n\n> ## Post-merge follow-up triage: zero outstanding items.\n';
     expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);

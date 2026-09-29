@@ -432,13 +432,20 @@ function attestationLines(lines) {
   const out = [];
   let fence = null;
   for (const line of lines) {
-    const opener = /^\s{0,3}(`{3,}|~{3,})/.exec(line);
-    if (opener) {
-      if (fence === null) fence = opener[1][0];
-      else if (opener[1][0] === fence) fence = null;
+    if (fence !== null) {
+      // CommonMark: chiude solo un delimitatore dello STESSO carattere, lungo almeno
+      // quanto l'apertura e senza altro testo dopo. Un ``` dentro un recinto di ````
+      // e' contenuto, non la fine dell'esempio.
+      const closer = /^\s{0,3}(`{3,}|~{3,})\s*$/.exec(line);
+      if (closer && closer[1][0] === fence.char && closer[1].length >= fence.length) fence = null;
       continue;
     }
-    if (fence !== null || /^\s{0,3}>/.test(line)) continue;
+    const opener = /^\s{0,3}(`{3,}|~{3,})/.exec(line);
+    if (opener) {
+      fence = { char: opener[1][0], length: opener[1].length };
+      continue;
+    }
+    if (/^\s{0,3}>/.test(line)) continue;
     out.push(line);
   }
   return out;
@@ -496,10 +503,12 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // o in una citazione facevano del marker un «provato vuoto» e la PR usciva
   // dal batch per sempre. Qualunque riga H2 conta, perche' il modello a volte
   // ripete il prefisso nudo prima dello zero (marker reale di
-  // nanakokyobashi-rgb/frontaliere-articles#1570).
+  // nanakokyobashi-rgb/frontaliere-articles#1570). L'intestazione vale fino a fine
+  // riga: «zero outstanding items but 1 item remains» non e' l'esito vuoto, e il
+  // backfill ammette solo la ragione prescritta dal prompt (`: PR not eligible …`).
   const legacyEmptyHeader = claimLines.length === 0
     && attesting.some((line) =>
-      /^\s*##\s+Post-merge follow-up triage\s*(?::\s*zero outstanding items\b|\(backfill skipped\))/i.test(line)
+      /^\s*##\s+Post-merge follow-up triage\s*(?::\s*zero outstanding items\.?|\(backfill skipped\)(?:\s*:\s*PR not eligible\b.*)?)\s*$/i.test(line)
       || /^\s*zero outstanding items\.?\s*$/i.test(line));
   // La variante osservata su #9286 usa prosa invece di `0`: dichiara nello
   // stesso claim che non esiste alcun item per la PR e che il bucket numerato
