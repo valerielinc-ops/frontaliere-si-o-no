@@ -321,11 +321,32 @@ function parseStartDate(raw) {
 }
 
 /**
+ * Plain text of the detail body with its structure kept: headings as `##`
+ * lines, `<li>` as `• ` bullets, paragraphs on their own lines. Collapsing
+ * every newline (the former `normalizeSpace(stripHtml(…))`) turned each
+ * posting into one paragraph with inline bullets.
+ */
+export function impleniaDetailText(html = '') {
+  const withHeadings = String(html || '').replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => {
+    const text = normalizeSpace(stripHtml(heading));
+    return text ? `\n\n## ${text}\n` : '';
+  });
+  return stripHtml(withHeadings)
+    .split('\n')
+    .map((line) => line.replace(/\s+/g, ' ').trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
  * Fetch the full job-body description from an Implenia jobs2web detail page.
  * The RMK list endpoint carries no body; the detail page is server-rendered
- * plain HTML with the body in an `itemprop="description"` schema.org/JobPosting
- * microdata block (verified live). fetchHtml follows the 302 to the canonical
- * `/job/{slug}/{seq}-de_DE/` URL. Returns inner HTML or '' on any failure.
+ * plain HTML with the body in `itemprop="description"` schema.org/JobPosting
+ * microdata — one span for the company intro, one per section after it
+ * (verified live 2026-09-29), all read by `extractMicrodataDescription`.
+ * fetchHtml follows the 302 to the canonical `/job/{slug}/{seq}-de_DE/` URL.
+ * Returns inner HTML or '' on any failure.
  */
 async function fetchImpleniaDetailDescription(url) {
   if (!url || !/^https?:\/\//.test(url)) return '';
@@ -383,7 +404,7 @@ export async function fetchAllImpleniaJobs() {
     // (fail-per-record, never fake content).
     const detailDescHtml = await fetchImpleniaDetailDescription(publicUrl);
     const detailDescText = detailDescHtml
-      ? normalizeSpace(stripHtml(detailDescHtml))
+      ? impleniaDetailText(detailDescHtml)
       : '';
     const descParts = [title];
     if (listing.jobFunction) descParts.push(listing.jobFunction);
