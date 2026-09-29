@@ -165,17 +165,11 @@ export async function fetchAllAarrehaSchinznachJobs() {
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const detailText = await fetchDetailDescription(r.detailUrl);
 
-    const summaryPieces = [
-      r.department ? `Bereich: ${r.department}` : '',
-      r.city ? `Standort: ${r.city}` : '',
-      r.ref ? `Referenz: ${r.ref}` : '',
-    ].filter(Boolean);
-    const description = detailText && detailText.split(/\s+/).length >= 30
-      ? detailText
-      : [
-        ...summaryPieces,
-        `${AARREHA_SCHINZNACH_COMPANY_NAME} — Zentrum für interdisziplinäre Rehabilitation in Schinznach-Bad (AG).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the vacancy's own text is published. A detail page without a body
+    // yields an empty description, which the shared pipeline's thin-source
+    // check quarantines instead of a summary written by the crawler
+    // (labelled listing fields plus a company sentence, issue 5253).
+    const description = detailText || '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${AARREHA_SCHINZNACH_KEY} ${r.city || 'schinznach'}`);

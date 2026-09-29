@@ -330,17 +330,11 @@ export async function fetchAllVictorinoxJobs() {
     // HQ site above, so HQ.canton is the correct (not fabricated) fallback.
     const canton = inferredCanton || HQ.canton;
 
-    const summaryPieces = [
-      r.department ? `Bereich: ${r.department}` : '',
-      city ? `Standort: ${city}` : '',
-      r.ref ? `Referenz: ${r.ref}` : '',
-    ].filter(Boolean);
-    const description = detailText && detailText.split(/\s+/).length >= 30
-      ? detailText
-      : [
-        ...summaryPieces,
-        `${VICTORINOX_COMPANY_NAME} — Schweizer Familienunternehmen, Hersteller des Original Schweizer Offiziersmessers, Uhren und Reisegepäck (HQ Ibach-Schwyz, SZ).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the vacancy's own text is published. A detail page without a body
+    // yields an empty description, which the shared pipeline's thin-source
+    // check quarantines instead of a summary written by the crawler
+    // (labelled listing fields plus a company sentence, issue 5253).
+    const description = detailText || '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${VICTORINOX_KEY} ${city || 'ibach'}`);

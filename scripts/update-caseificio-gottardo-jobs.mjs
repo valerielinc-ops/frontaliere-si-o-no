@@ -45,7 +45,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -255,12 +255,7 @@ async function fetchDetailDescription(url) {
   const html = await fetchPage(url);
   if (!html) return '';
 
-  // Extract main content — find the area after the title heading
-  // The page has the job title as an H1, then content divs with the description
-  const titleSource = stripScriptsAndStyles(html);
-  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const titleText = titleMatch ? stripHtml(titleMatch[1]).trim() : '';
-
+  // The page has the job title as an H1, then content divs with the description.
   // Try to extract the main content body
   // Look for the content between the header section and the footer contact section
   const contentMatch = html.match(
@@ -287,34 +282,13 @@ async function fetchDetailDescription(url) {
     .replace(/\s{3,}/g, '\n\n')
     .trim();
 
-  return description || `${titleText}\n\nPer maggiori dettagli, consultare la pagina dell'offerta.`;
+  // Only the page's own text: no title-plus-"see the offer page" stand-in.
+  return description;
 }
 
 // ─────────────────────────────────────────────────────────────
 // Description building
 // ─────────────────────────────────────────────────────────────
-
-function buildFallbackDescription(title, category, locationInfo) {
-  const parts = [];
-
-  const categoryLabel =
-    /tirocinio/i.test(category) ? 'posto di tirocinio' : 'offerta di impiego';
-
-  parts.push(
-    `Caseificio dimostrativo del Gottardo SA pubblica il seguente ${categoryLabel}: ${title}.`
-  );
-  if (locationInfo) {
-    parts.push(`Sede: ${locationInfo}`);
-  }
-  parts.push('');
-  parts.push('Per i dettagli completi, consultare la pagina dell\'offerta.');
-  parts.push('');
-  parts.push('Settore: Industria lattiero-casearia / Alimentare');
-  parts.push('Sede aziendale: Via Fontana 3, 6780 Airolo (TI), Svizzera');
-  parts.push('Contatto: direzione@cdga.ch | Tel. +41 91 869 11 80');
-
-  return parts.join('\n').trim();
-}
 
 // ─────────────────────────────────────────────────────────────
 // Category & experience detection
@@ -385,9 +359,10 @@ async function fetchCaseificioJobs() {
       console.warn(`  ⚠️  Could not fetch detail page: ${err?.message || err}`);
     }
 
-    if (!description || description.length < 50) {
-      description = buildFallbackDescription(listing.title, listing.category, listing.location);
-    }
+    // Only the source's own text is published (issue 5253). A detail page
+    // without a body leaves the description empty: mergeJobs keeps the body
+    // an existing job read earlier from the source, and does not publish a
+    // new job in this run.
 
     const slug = slugify(listing.title, COMPANY_KEY);
 
@@ -500,6 +475,8 @@ async function mergeJobs(discoveredJobs) {
 
       merged.push(updatedJob);
       updated++;
+    } else if (!discovered.description) {
+      console.warn(`  ⚠️  No source description for new offer "${discovered.title}" — not published in this run.`);
     } else {
       merged.push(discovered);
       added++;

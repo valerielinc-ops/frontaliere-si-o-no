@@ -282,21 +282,20 @@ describe('Victorinox crawler parser', () => {
       expect(delemontJob.streetAddress).toBe('');
     });
 
-    it('applies the thin-description guard: short detail pages fall back to a synthesized description ≥30 words', async () => {
+    it('publishes only the source text: a thin detail page is not padded with a crawler summary (issue 5253)', async () => {
       stubFetch(buildListingHtml(ROWS), ROWS);
 
       const jobs = await fetchAllVictorinoxJobs();
       const zermattJob = jobs.find((j: any) => j.title === 'Sales Assistant - Zermatt m/w/d');
 
       expect(zermattJob).toBeDefined();
-      // The raw detail text was too thin (< 30 words), so the fallback
-      // summary (dept/location/ref + company boilerplate) was used instead
-      // of the thin raw detail text.
-      expect(zermattJob.description).not.toContain('Kurze Stellenbeschreibung');
-      expect(zermattJob.description).toContain('Bereich: Sales');
-      expect(zermattJob.description).toContain('Standort: Zermatt');
-      expect(zermattJob.description).toContain('Referenz: 2026-241');
-      expect(zermattJob.description).toContain('Victorinox');
+      // The detail page is thin (< 30 words): it is published as the source
+      // states it, and the shared pipeline's thin-source check quarantines
+      // it. The labelled listing fields and the company sentence the crawler
+      // used to write in its place are gone.
+      expect(zermattJob.description).toBe('Stellenbeschreibung Kurze Stellenbeschreibung.');
+      expect(zermattJob.description).not.toMatch(/Bereich:|Standort:|Referenz:|Schweizer Familienunternehmen/);
+      expect(zermattJob.descriptionByLocale[zermattJob.sourceLang]).toBe(zermattJob.description);
     });
 
     it('includes structured-data completeness fields for every returned job (Non-Negotiable #3)', async () => {
