@@ -56,6 +56,7 @@ import {
   sharedSourceDocuments,
   fragmentAnchoredBlock,
   fragmentKind,
+  textFragmentBlock,
   fetchVacancyPdfText,
   createPdfSafeFetch,
 } from '../../scripts/audit-parser-quality.mjs';
@@ -2581,6 +2582,39 @@ describe('source detail on a document several postings share (ehnv, klinik-gut)'
     expect(report['shared-fixture'].issues).toMatchObject([{ type: 'source-detail-anchor-missing', count: 1, total: 1 }]);
     expect(report['shared-fixture'].severity).toBe('WARNING');
     expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 0, anchorMissing: 1 });
+  });
+
+  it('addresses a heading-per-ad list page through a text fragment (klinik-seeschau)', async () => {
+    // Joomla list: every ad is an <h2> + body, no id, no per-ad URL.
+    const page = `<html><body><main><ul>
+<li class="mod-entry"><h2 class="mod-entry-title">Dipl. Pflegefachfrau/-mann (HF) ab 50 %</h2><div class="mod-entry-desc"><p>${role('Pflege').repeat(3)}</p></div></li>
+<li class="mod-entry"><h2 class="mod-entry-title">Neu: Ausbildung zur Dipl. Pflegefachperson HF bei uns!</h2><div class="mod-entry-desc"><p>${role('Ausbildung').repeat(3)}</p></div></li>
+</ul></main></body></html>`;
+    const at = (title: string) => `https://www.klinik-seeschau.example/offene-stellen.html/59#:~:text=${encodeURIComponent(title).replace(/-/g, '%2D')}`;
+    const url = at('Dipl. Pflegefachfrau/-mann (HF) ab 50 %');
+    expect(fragmentKind(url)).toBe('text-fragment');
+    expect(textFragmentBlock(page, url)).toContain('Pflege');
+    expect(textFragmentBlock(page, url)).not.toContain('Neu: Ausbildung zur Dipl');
+    const [complete] = await check(`Dipl. Pflegefachfrau/-mann (HF) ab 50 % ${role('Pflege').repeat(3)}`, url, page);
+    expect(complete).toMatchObject({ sourceScope: 'fragment-anchor', descriptionMismatch: false });
+    const [teaser] = await check(role('Pflege').slice(0, 140), url, page);
+    expect(teaser.descriptionMismatch).toBe(true);
+    const [absent] = await check(role('Pflege').repeat(3), at('Stelle, die es nicht gibt'), page);
+    expect(absent.sourceScope).toBe('anchor-missing');
+  });
+
+  it('reads a published PDF URL as the source itself (oscam-castelrotto bando)', async () => {
+    const url = 'https://www.oscam.example/wp-content/uploads/2026/02/Concorso-generale-2026.pdf';
+    const bando = role('Medici assistenti').repeat(4);
+    const read = await checkSourceDetailsBatch([{ crawlerKey: 'pdf-url', url, job: { url, location: 'Castelrotto', sourceLang: 'it', description: bando } }], 1, {
+      fetchPage: async () => { throw new Error('the page fetcher must not read a PDF URL'); },
+      fetchVacancyPdf: async () => ({ text: bando, bodySha256: 'd'.repeat(64) }),
+    });
+    expect(read[0]).toMatchObject({ descriptionMismatch: false, vacancyPdf: { outcome: 'read', direct: true } });
+    const refused = await checkSourceDetailsBatch([{ crawlerKey: 'pdf-url', url, job: { url, sourceLang: 'it', description: bando } }], 1, {
+      fetchVacancyPdf: async () => ({ text: '', error: 'robots.txt disallows it' }),
+    });
+    expect(refused[0]).toMatchObject({ fetchFailed: true, blockedByRobots: true });
   });
 
   it('leaves a sample without the shared-document mark exactly as before', async () => {

@@ -1348,7 +1348,40 @@ export function sharedSourceDocuments(jobs = []) {
 export function fragmentKind(url = '') {
   const fragment = urlFragment(url);
   if (!fragment) return 'none';
+  if (fragment.startsWith(':~:text=')) return 'text-fragment';
   return /^[A-Za-z][\w:.-]*$/.test(fragment) ? 'anchor' : 'client-route';
+}
+
+/**
+ * The section a text fragment (`#:~:text=…`, the browsers' scroll-to-text
+ * address) opens: from the heading whose text is the fragment's start text to
+ * the next heading of the same level. It is how a page that lists every ad
+ * under its own heading but gives none of them an id or a URL — klinik-
+ * seeschau's Joomla list, «the listing IS the detail» — can still address
+ * one posting. Returns '' when no heading carries that text.
+ */
+export function textFragmentBlock(html = '', url = '') {
+  const fragment = String(url || '').split('#')[1] || '';
+  if (!fragment.startsWith(':~:text=')) return '';
+  const directive = fragment.slice(':~:text='.length).split('&')[0];
+  const parts = directive.split(',').filter((part) => part && !part.endsWith('-') && !part.startsWith('-'));
+  let start = '';
+  try {
+    start = decodeURIComponent(parts[0] || '');
+  } catch {
+    return '';
+  }
+  const wanted = plainText(start).toLowerCase();
+  if (!wanted) return '';
+  const source = String(html || '');
+  for (const match of source.matchAll(/<(h[1-6])\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+    if (plainText(match[2]).toLowerCase() !== wanted) continue;
+    const level = match[1].toLowerCase();
+    const after = match.index + match[0].length;
+    const next = source.slice(after).search(new RegExp(`<${level}\\b`, 'i'));
+    return source.slice(match.index, next < 0 ? Math.min(source.length, after + 30000) : after + next);
+  }
+  return '';
 }
 
 /**
@@ -1380,6 +1413,58 @@ export function fragmentAnchoredBlock(html = '', url = '') {
   return '';
 }
 
+/**
+ * A posting whose published URL IS the PDF of its advertisement (oscam-
+ * castelrotto's «bando di concorso»): the source text is the PDF, read like a
+ * linked one and bound by digest in the evidence. A PDF that cannot be read
+ * is a fetch failure with its reason, never an empty «match».
+ */
+async function checkPdfSourceDetail(item, fetchVacancyPdf, evidenceContext) {
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(item.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  if (!text || !/^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''))) {
+    const reason = String(pdf?.error || 'no text layer');
+    return {
+      ...item,
+      fetchFailed: true,
+      status: 0,
+      fetchError: reason.slice(0, 240),
+      blockedByRobots: /robots/i.test(reason) || undefined,
+      policyBlocked: /policy/i.test(reason) || undefined,
+    };
+  }
+  try {
+    const comparison = compareSourceDetail(item.job, { title: '', location: '', description: text }, {
+      locationEvidence: 'generic',
+      crawlerKey: item.crawlerKey,
+    });
+    const sourceDetailEvidence = evidenceContext
+      ? createSourceDetailEvidence({
+        crawlerKey: item.crawlerKey,
+        sourceUrl: item.url,
+        body: `application/pdf sha256:${pdf.bodySha256}`,
+        observation: comparison.replayObservation,
+        provenance: evidenceContext.provenance,
+        versions: evidenceContext.versions,
+        linkedDocument: { url: item.url, bodySha256: pdf.bodySha256 },
+      })
+      : null;
+    return {
+      ...item,
+      ...comparison,
+      vacancyPdf: { outcome: 'read', embedded: false, direct: true },
+      ...(sourceDetailEvidence ? { sourceDetailEvidence } : {}),
+    };
+  } catch (error) {
+    return processingFailureResult(item, error);
+  }
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
@@ -1388,6 +1473,7 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
   evidenceContext = null,
 } = {}) {
   const results = await mapPool(items, concurrency, async (item) => {
+    if (isPdfReference(withoutFragment(item.url))) return checkPdfSourceDetail(item, fetchVacancyPdf, evidenceContext);
     let fetched;
     try {
       fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
@@ -1440,7 +1526,10 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       let sourceScope = null;
       let locationEvidence = locationObservation.evidence;
       if (item.sharedDocument) {
-        const anchored = fragmentAnchoredBlock(fetched.body, item.job?.url || item.url);
+        const jobUrl = item.job?.url || item.url;
+        const anchored = fragmentKind(jobUrl) === 'text-fragment'
+          ? textFragmentBlock(fetched.body, jobUrl)
+          : fragmentAnchoredBlock(fetched.body, jobUrl);
         if (anchored) {
           sourceScope = 'fragment-anchor';
           detail.description = plainText(anchored);
@@ -1451,7 +1540,7 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           // Nothing on the page is this posting's: an app route has no
           // static place for it (informational), an anchor that is not on
           // the page is a defect of the published URL (visible issue).
-          sourceScope = fragmentKind(item.job?.url || item.url) === 'anchor' ? 'anchor-missing' : 'client-route';
+          sourceScope = fragmentKind(jobUrl) === 'client-route' ? 'client-route' : 'anchor-missing';
           detail.description = '';
           detail.location = '';
           detail.headingSublineFields = [];
