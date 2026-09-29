@@ -28,7 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -44,18 +44,10 @@ import {
 // by the shared fetchHtml helper). Use a strict "text/html" Accept instead.
 async function fetchRiveneuveHtml(url) {
   const t = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
+  return fetchHtml(url, {
+    timeoutMs: t,
       headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  });
 }
 
 export const RIVENEUVE_KEY = 'riveneuve';

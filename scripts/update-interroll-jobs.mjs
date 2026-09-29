@@ -9,7 +9,7 @@
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
@@ -74,12 +74,16 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') { try { return new URL(rawUrl).hostname.toLowerCase().includes('interroll.com'); } catch { return false; } }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en,it-CH;q=0.9',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 const DETAIL_DELAY_MS = 1000;
