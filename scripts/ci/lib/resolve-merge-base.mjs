@@ -56,7 +56,15 @@ export function unresolvedBaseOverrideActive(env = process.env) {
 
 function git(args) {
   try {
-    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 128 * 1024 * 1024 });
+    return execFileSync('git', args, {
+      encoding: 'utf8',
+      maxBuffer: 128 * 1024 * 1024,
+      // Codex's managed Node runtime can report EPERM after a child that
+      // inherited the agent's stdio has already exited successfully. Capture
+      // both streams explicitly so the merge-base verdict observes Git's
+      // actual exit status instead of treating a valid base as unresolved.
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
   } catch {
     return null; // null = git itself failed; '' = ran fine, empty output
   }
