@@ -12248,6 +12248,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.collaudo-ponte-comerio.title': 'Comerio, Abnahmeprüfung für die Fußgängerbrücke in der Via Giardini',
     'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio: Am Montag, den 28. September, wird die Fußgängerbrücke in der Via Giardini am 29. von 19 bis 7 Uhr getestet. Ab 17 Uhr Parkverbot in der Via Sacconaghi.',
     'blog.article.collaudo-ponte-comerio.imageAlt': 'Neue Fussgängerbrücke an der Via Giardini in Comerio während der Arbeiten',
+    'blog.article.luino-convegno-incidenti-stradali.title': 'Luino: Konferenz über Verkehrsunfälle im Palazzo Verbania',
+    'blog.article.luino-convegno-incidenti-stradali.excerpt': 'Am Freitag, den 25. September, versammelten sich etwa hundert Carabinieri und Polizisten in Luino, um die Einsatzverfahren zu vertiefen.',
+    'blog.article.luino-convegno-incidenti-stradali.imageAlt': 'Konferenz zur Erfassung von Verkehrsunfällen im Palazzo Verbania, Luino',
 };
 
 export default blogMetaDe;

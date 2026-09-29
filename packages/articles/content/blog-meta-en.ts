@@ -12249,6 +12249,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.collaudo-ponte-comerio.title': 'Comerio, testing for the pedestrian bridge in Via Giardini',
     'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio: Monday, September 28, the pedestrian bridge in Via Giardini will be tested from 7 pm to 7 am on the 29th. From 17:00 no parking in Via Sacconaghi.',
     'blog.article.collaudo-ponte-comerio.imageAlt': 'New pedestrian bridge on Via Giardini in Comerio during construction',
+    'blog.article.luino-convegno-incidenti-stradali.title': 'Luino: conference on road accidents at Palazzo Verbania',
+    'blog.article.luino-convegno-incidenti-stradali.excerpt': 'On Friday, September 25, about a hundred Carabinieri and police officers gathered at Luino to further examine operational procedures.',
+    'blog.article.luino-convegno-incidenti-stradali.imageAlt': 'Road accident investigation conference at Palazzo Verbania, Luino',
 };
 
 export default blogMetaEn;
