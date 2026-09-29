@@ -266,7 +266,9 @@ $(function () {
 <h2>Ihre Aufgaben</h2>
 <ul><li>Betreuung und Bestückung der Automaten</li><li>Reinigung und Wartung vor Ort</li></ul>
 <h2>Ihr Profil</h2>
-<ul><li>Freude am Kundenkontakt</li></ul>
+<ul><li>Freude am Kundenkontakt</li><li>Führerausweis Kategorie B und Bereitschaft zu flexiblen Einsätzen in der Region</li></ul>
+<h2>Wir bieten</h2>
+<p>Eine abwechslungsreiche Tätigkeit in einem motivierten Team, ein eigenes Servicefahrzeug, moderne Arbeitsmittel und attraktive Sozialleistungen.</p>
 </div>
 <div class="jobBlock jobApply"><button>Jetzt online Bewerben</button></div>
 </body></html>`;
@@ -319,6 +321,24 @@ $(function () {
     expect(j.descriptionByLocale.de).toBe(j.description);
     expect(j.url).toBe('https://careers.selecta.ch/Job/4614');
     expect(j.jobReqId).toBe('4614');
+  });
+
+  // Only the posting's own text is published (issue 5253): a page without a
+  // body used to go out as "{title} ({subtitle}) — Selecta, {city}.".
+  it('does not publish a posting whose detail page has no vacancy text', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
+      const href = String(url);
+      if (href.includes('/Jobs')) {
+        return { ok: true, status: 200, text: async () => listingHtml([listing(), listing({ Id: 4615, Title: 'Servicetechniker (a) 100%' })] as never) } as unknown as Response;
+      }
+      if (href.endsWith('/Job/4615')) {
+        return { ok: true, status: 200, text: async () => '<!doctype html><html><body><div class="jobBlock jobApply"><button>Jetzt online Bewerben</button></div></body></html>' } as unknown as Response;
+      }
+      return { ok: true, status: 200, text: async () => detailHtml() } as unknown as Response;
+    });
+    const jobs = await fetchAllSelectaJobs();
+    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Automatenbetreuer/in (a) 100%']);
+    for (const job of jobs) expect(job.description).not.toMatch(/— Selecta, /);
   });
 
   it('parses the .NET /Date(epoch)/ wire format into an ISO date (not the ambiguous dd.mm.yyyy display string)', async () => {
@@ -387,7 +407,7 @@ $(function () {
     expect(jobs).toEqual([]);
   });
 
-  it('falls back to a synthesized description (never drops the field) when the detail page has no jobAdContent block', async () => {
+  it('does not publish the posting (and invents no text) when the detail page has no jobAdContent block', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
       const href = String(url);
       if (href.includes('/Jobs')) {
@@ -396,22 +416,21 @@ $(function () {
       return { ok: true, status: 200, text: async () => '<html><body>no ad content</body></html>' } as unknown as Response;
     });
     const jobs = await fetchAllSelectaJobs();
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0].description.length).toBeGreaterThan(0);
-    expect(jobs[0].description).toMatch(/Selecta/);
+    expect(jobs).toEqual([]);
   });
 
-  it('does not throw when a single detail-page fetch rejects — job still emitted with a synthesized description', async () => {
+  it('does not throw when a single detail-page fetch rejects — that posting is not published, the others still are', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
       const href = String(url);
       if (href.includes('/Jobs')) {
-        return { ok: true, status: 200, text: async () => listingHtml([listing()] as never) } as unknown as Response;
+        return { ok: true, status: 200, text: async () => listingHtml([listing(), listing({ Id: 4615, Title: 'Servicetechniker (a) 100%' })] as never) } as unknown as Response;
       }
-      throw new Error('network error');
+      if (href.endsWith('/Job/4615')) throw new Error('network error');
+      return { ok: true, status: 200, text: async () => detailHtml() } as unknown as Response;
     });
     const jobs = await fetchAllSelectaJobs();
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0].description.length).toBeGreaterThan(0);
+    expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Automatenbetreuer/in (a) 100%']);
+    expect(jobs[0].description).toMatch(/^Selecta ist der führende Anbieter/);
   });
 
   it('returns [] (no throw) when the listing fetch itself fails', async () => {

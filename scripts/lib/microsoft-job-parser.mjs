@@ -13,6 +13,7 @@
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { normalizeCantonCode, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -318,6 +319,7 @@ export async function fetchAllMicrosoftJobs() {
   }
 
   const jobs = [];
+  let withoutBody = 0;
   for (const pos of positions) {
     const title = normalizeSpace(pos.name || '');
     if (!title || title.length < 3) continue;
@@ -326,6 +328,14 @@ export async function fetchAllMicrosoftJobs() {
     const { location, canton } = resolveSwissLocation(pos);
     const descriptionHtml = pos.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
+    // Only the posting's own text is published (issue 5253): a position
+    // without a description used to go out as "{title} — Microsoft"; it is
+    // not published any more.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ no vacancy text in the position, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
     const publicUrl = pos.publicUrl || `${PCS_ORIGIN}/careers/job/${pos.id}`;
     const department = normalizeSpace(pos.department || '');
     const employmentRaw = Array.isArray(pos.efcustomTextEmploymentType)
@@ -352,8 +362,8 @@ export async function fetchAllMicrosoftJobs() {
       companyDomain: MICROSOFT_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Microsoft`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Microsoft` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -382,6 +392,9 @@ export async function fetchAllMicrosoftJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} position(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total Microsoft jobs discovered: ${jobs.length}`);
   return jobs;
 }

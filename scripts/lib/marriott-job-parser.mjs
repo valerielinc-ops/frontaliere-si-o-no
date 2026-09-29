@@ -25,6 +25,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -340,6 +341,10 @@ function buildJobFromApi(listing) {
   // structure so the parser-quality audit can detect line-start bullets.
   const descriptionHtml = listing.description || '';
   const descriptionText = normalizeDescriptionBullets(stripHtml(descriptionHtml));
+  // Only the posting's own text is published (issue 5253): a listing without
+  // a description used to go out as "{title} — Marriott International"; no
+  // job is built from it any more.
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
 
   // Job field from custom fields
   const jobField = getCustomField(listing.customFields, 'cf_jobfield') ||
@@ -372,9 +377,9 @@ function buildJobFromApi(listing) {
     companyDomain: MARRIOTT_COMPANY_DOMAIN,
     title,
     titleByLocale: { [sourceLang]: title },
-    description: descriptionText || `${title} — ${MARRIOTT_COMPANY_NAME}`,
+    description: descriptionText,
     descriptionByLocale: {
-      [sourceLang]: descriptionText || `${title} — ${MARRIOTT_COMPANY_NAME}`,
+      [sourceLang]: descriptionText,
     },
     location,
     canton,
@@ -439,7 +444,7 @@ export async function fetchAllMarriottJobs() {
   for (const listing of listings) {
     const job = buildJobFromApi(listing);
     if (!job) {
-      console.warn(`  ⚠️ Skipping listing — title too short or missing.`);
+      console.warn(`  ⚠️ Skipping listing — title too short or missing, or no vacancy text: ${normalizeSpace(listing.title || '') || '(no title)'}`);
       continue;
     }
     jobs.push(job);

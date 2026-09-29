@@ -16,6 +16,7 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -325,6 +326,7 @@ export async function fetchAllRolexJobs() {
 
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -347,12 +349,18 @@ export async function fetchAllRolexJobs() {
 
     const descriptionHtml = (detail && detail.descriptionHtml) || '';
     // Detail page can surface widget chrome as the "description" body too —
-    // sanitize before the length check so a widget-only block falls through
-    // to the brand blurb instead of shipping as content.
+    // sanitize before the length check so a widget-only block never ships as
+    // content. Only the posting's own text is published (issue 5253): without
+    // a body the listing used to go out as "{title} — Rolex, {city}"; it is
+    // not published any more.
     const descriptionText = sanitizeSuccessFactorsField(stripHtml(descriptionHtml));
-    const description = descriptionText && descriptionText.length >= 40
-      ? descriptionText
-      : `${title} — ${ROLEX_COMPANY_NAME}, ${location} (${canton}).`;
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`   ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      await new Promise((r) => setTimeout(r, 300)); // same pause as a published listing
+      continue;
+    }
+    const description = descriptionText;
 
     const postedDate = (detail && detail.postedDate)
       || new Date().toISOString().split('T')[0];
@@ -405,6 +413,9 @@ export async function fetchAllRolexJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting / politeness
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Rolex jobs discovered: ${jobs.length}`);
   return jobs;
 }
