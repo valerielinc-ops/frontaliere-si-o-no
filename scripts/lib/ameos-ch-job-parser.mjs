@@ -32,6 +32,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -150,8 +151,7 @@ export function parseDetail(html = '') {
     const bounds = [sectionCloseIdx, nextFrame].filter((n) => n > 0);
     const cut = bounds.length > 0 ? Math.min(...bounds) : 16000;
     const inner = tail.slice(0, cut);
-    let text = decodeEntities(inner.replace(/<[^>]+>/g, ' '));
-    text = normalizeSpace(text);
+    let text = htmlToTextLines(inner);
     // TYPO3 sometimes inlines a CSS rule block before the body content; if
     // the text starts with selectors ending in `} text`, drop everything up
     // to (and including) the last `}` before the actual job heading.
@@ -159,9 +159,53 @@ export function parseDetail(html = '') {
       const idx = text.lastIndexOf('}');
       if (idx > 0 && idx < 1500) text = text.slice(idx + 1).trim();
     }
-    body = text.slice(0, 6000);
+    body = text;
   }
-  return { title, body };
+  return { title, body, adUrl: extractAmeosAdUrl(html) };
+}
+
+/**
+ * The job ad itself is the Solique page the detail embeds as an iframe
+ * (`live.solique.ch/ameos/job/details/{id}/`). The karriere.ameos.eu page only
+ * repeats it as a markup-free `itemprop="description"` string, so every list
+ * of the ad (tasks, profile) reached us already flattened.
+ */
+export function extractAmeosAdUrl(html = '') {
+  const m = /<iframe\b[^>]*\bsrc="(https:\/\/live\.solique\.ch\/ameos\/job\/details\/\d+\/?)"/i.exec(String(html || ''));
+  return m ? m[1] : '';
+}
+
+/**
+ * Description of an AMEOS Solique ad, in page order: the introduction, the
+ * title block (title + workload line), then each accordion group as heading +
+ * body with its lists kept as `• ` lines. The closing contact paragraph
+ * (contact person, phone, e-mail, application instructions), the Instagram
+ * teaser and the apply button are page chrome and are left out.
+ */
+export function parseAmeosSoliqueAd(html = '') {
+  const content = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ');
+  const parts = [];
+  const intro = /<div\s+class="introduction"[^>]*>([\s\S]*?)<\/div>/i.exec(content);
+  if (intro) {
+    const text = htmlToTextLines(intro[1]);
+    if (text) parts.push(text);
+  }
+  const title = /<h1\s+class="jobtitle"[^>]*>([\s\S]*?)<\/h1>/i.exec(content);
+  const titleAdd = /<h2\s+class="jobtitle-add"[^>]*>([\s\S]*?)<\/h2>/i.exec(content);
+  const titleText = title ? normalizeSpace(decodeEntities(title[1].replace(/<[^>]+>/g, ' '))) : '';
+  const titleAddText = titleAdd ? normalizeSpace(decodeEntities(titleAdd[1].replace(/<[^>]+>/g, ' '))) : '';
+  const heading = [titleText, titleAddText].filter(Boolean).join(' — ');
+  if (heading) parts.push(heading);
+  const groupRx = /<h3\s+class="group-title"[^>]*>([\s\S]*?)<\/h3>\s*<div\s+class="[^"]*\binner\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/gi;
+  let m;
+  while ((m = groupRx.exec(content)) !== null) {
+    const label = normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
+    const body = htmlToTextLines(m[2]);
+    if (label && body) parts.push(`${label}\n${body}`);
+  }
+  return parts.join('\n\n').trim();
 }
 
 /* ── Fetcher ───────────────────────────────────────────────── */
@@ -199,18 +243,31 @@ export async function fetchAllAmeosChJobs() {
     const row = chRows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const site = resolveAmeosChSite(row.slug);
-    let detail = { title: '', body: '' };
+    let detail = { title: '', body: '', adUrl: '' };
     try {
       const html = await fetchHtml(row.url);
       detail = parseDetail(html);
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${row.url}: ${err?.message || err}`);
     }
+    let adText = '';
+    if (detail.adUrl) {
+      try {
+        adText = parseAmeosSoliqueAd(await fetchHtml(detail.adUrl));
+      } catch (err) {
+        console.warn(`  ⚠️ Ad fetch failed for ${detail.adUrl}: ${err?.message || err}`);
+      }
+    }
     const title = detail.title || decodeURIComponent(row.slug).replace(/-/g, ' ');
-    const intro = `AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: ${title} (${site.city}, ${site.canton}).`;
-    const description = (detail.body && detail.body.length > 200)
-      ? `${intro}\n\n${detail.body}`
-      : intro;
+    // Only what the source publishes: the ad (Solique iframe), else the
+    // detail page's own text. The company blurb this parser used to prepend
+    // ("AMEOS Schweiz — Teil der AMEOS-Gruppe … Stelle: …") was its own
+    // wording, not the employer's.
+    const description = adText.length > 200 ? adText : (detail.body || '');
+    if (description.length < 200) {
+      console.warn(`  ⚠️ ${row.url}: no readable ad text — skipped this run.`);
+      continue;
+    }
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ameos ${site.city}`);

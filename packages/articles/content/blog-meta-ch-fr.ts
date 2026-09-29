@@ -7034,6 +7034,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uova-piccoli-allevamenti-csl.title': 'Œufs suisses : parler de petits élevages est « trompeur »',
     'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'La Commission suisse pour la loyauté juge trompeuse une publicité de Suisse Garantie : 65% des poules pondeuses vivent dans des élevages de plus de 4000 animaux.',
     'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Œufs suisses et poules pondeuses dans un élevage',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'Les Suisses sont les plus riches du monde',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'La Suisse est première pour le patrimoine financier brut par habitant, avec 406\'060 euros. Selon le Global Wealth Report 2026 d\'Allianz, le patrimoine net par personne s\'élève à 275\'980 euros.',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Aperçu d\'un centre financier suisse avec banques et montagnes',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'IA al lavoro in Svizzera: pochi benefici visti',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% des travailleurs suisses utilisent chaque jour l\'IA générative, mais seuls 10% constatent une meilleure qualité du travail. Les données de l\'étude PwC.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Travailleurs suisses et intelligence artificielle',
 };
 
 export default blogMetaChFr;

@@ -14,8 +14,11 @@ concurrency:
   # file: under sustained stale (>90min) the hourly watchdog dispatches this
   # workflow every hour, and with cancel=true an arriving dispatch would kill a
   # */15 cron run mid-collect, leaving data stale → watchdog re-dispatches → loop.
-  # Runs are ≤10min and crons are spaced ≥15min, so serialized queueing (group
-  # without cancel) still prevents overlap without the cancellation race.
+  # The collector now polls 141 crossings, with provider fallbacks, webcam
+  # analysis and a Firestore history mirror. A healthy run can use most of the
+  # 15-minute cap; the dispatch slots are 30 minutes apart, so serialized
+  # queueing (group without cancel) still prevents overlap without the
+  # cancellation race.
   cancel-in-progress: false
 
 permissions:
@@ -29,7 +32,11 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Run 36519627705 completed collection at 10m09s but was killed while
+    # committing because the old 10-minute cap left no tail for the mirror and
+    # push. Keep the data collection intact and give the full pass a bounded
+    # margin instead of dropping crossings or weakening publishability checks.
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
