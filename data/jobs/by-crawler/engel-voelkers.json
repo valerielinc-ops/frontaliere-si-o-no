@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-09-28T21:20:05.899Z",
+  "assembledAt": "2026-09-29T09:25:01.927Z",
   "jobs": [
     {
       "title": "Communication Manager | Team Support (Ascona/Lugano)",
@@ -737,8 +737,7 @@
       },
       "previousSlugs": [
         "senior-immobilienmakler-in-100-engel-voelkers-frauenfeld"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Junior Immobilienmakler/in 100%",
@@ -783,6 +782,21 @@
       },
       "id": "engel-voelkers-5229fd478d86",
       "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 82500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:20:02.340Z",
       "previousSlugsByLocale": {
         "it": [
           "junior-immobilienmakler-in-100-engel-voelkers-schaffhausen"
@@ -799,22 +813,7 @@
       },
       "previousSlugs": [
         "junior-immobilienmakler-in-100-engel-voelkers-schaffhausen"
-      ],
-      "salaryMin": 54000,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 82500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:20:02.340Z"
+      ]
     }
   ]
 }

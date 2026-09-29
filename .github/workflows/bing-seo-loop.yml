@@ -6,6 +6,13 @@ name: Bing SEO closed loop
 on:
   schedule:
     - cron: '35 4 * * *'
+  # Re-run the complete tree immediately after the publish workflow finishes.
+  # The scheduled run remains the safety net for external/content-only changes;
+  # a failed publish must not create a noisy issue from a half-deployed tree.
+  workflow_run:
+    workflows: ['Publish to GitHub Pages (deploy + validate)']
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       apply_fixes:
@@ -35,6 +42,7 @@ permissions:
 
 jobs:
   audit:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -223,6 +231,7 @@ jobs:
   # every URL is assigned to exactly one deterministic partition, so the
   # matrix below really covers the full published tree rather than a sample.
   tree-inventory:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -261,6 +270,7 @@ jobs:
 
   tree-crawl:
     needs: tree-inventory
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 50
     strategy:
@@ -317,7 +327,7 @@ jobs:
 
   tree-report:
     needs: [tree-inventory, tree-crawl]
-    if: ${{ always() && needs.tree-inventory.result == 'success' }}
+    if: ${{ always() && needs.tree-inventory.result == 'success' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
