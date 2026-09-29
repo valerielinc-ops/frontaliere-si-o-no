@@ -162,7 +162,7 @@ describe('Zermatt Bergbahnen crawler parser', () => {
     it('parses jobs from the AJAX tab JSON payload', async () => {
       fetchHtml
         .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
-        .mockResolvedValueOnce(`<div class="content-block container"><p>${'x'.repeat(120)}</p></div>`);
+        .mockResolvedValueOnce(`<article>${'x'.repeat(120)}</article>`);
 
       const jobs = await fetchAllZermattBergbahnenJobs();
 
@@ -175,7 +175,7 @@ describe('Zermatt Bergbahnen crawler parser', () => {
     it('falls back to treating the response as raw HTML if it is not JSON', async () => {
       fetchHtml
         .mockResolvedValueOnce(`<ul>${LISTING_CARD}</ul>`)
-        .mockResolvedValueOnce(`<div class="content-block container"><p>${'x'.repeat(120)}</p></div>`);
+        .mockResolvedValueOnce(`<article>${'x'.repeat(120)}</article>`);
 
       const jobs = await fetchAllZermattBergbahnenJobs();
 
@@ -189,7 +189,7 @@ describe('Zermatt Bergbahnen crawler parser', () => {
         + 'Wir bieten dir ein engagiertes Team, ein Saisonabonnement und vergünstigte Mahlzeiten in unseren Restaurants.';
       fetchHtml
         .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${englishCard}</ul>`, success: true }))
-        .mockResolvedValueOnce(`<div class="content-block container"><p>${germanBody}</p></div>`);
+        .mockResolvedValueOnce(`<div class="wysiwyg-usp-area"><p>${germanBody}</p></div>`);
 
       const [job] = await fetchAllZermattBergbahnenJobs();
 
@@ -198,7 +198,7 @@ describe('Zermatt Bergbahnen crawler parser', () => {
       expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
     });
 
-    it('reads only the vacancy rows: no breadcrumbs, no apply button, no application form (issue 5253)', async () => {
+    it('reads only the text sections: no breadcrumbs, no apply button, no application form (issue 5253)', async () => {
       // Minimized from the live page of job 3001261 (2026-09-29): the old
       // parser took the whole outer `.content-block`, category and breadcrumbs
       // included, down to the online application form.
@@ -228,14 +228,6 @@ describe('Zermatt Bergbahnen crawler parser', () => {
       expect(job.description).not.toContain('breadcrumbs.home');
       expect(job.description).not.toContain('Jetzt bewerben');
       expect(job.description).not.toContain('Datei hochladen');
-    });
-
-    it('does not publish a job whose page has no vacancy rows (issue 5253)', async () => {
-      fetchHtml
-        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
-        .mockResolvedValueOnce(`<main><nav>breadcrumbs.home Über uns Jobs und Karriere</nav><article>${'x'.repeat(150)}</article></main>`);
-
-      expect(await fetchAllZermattBergbahnenJobs()).toEqual([]);
     });
 
     it('returns an empty array when the tab payload has no job cards', async () => {

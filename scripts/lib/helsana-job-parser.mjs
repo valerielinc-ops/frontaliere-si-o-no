@@ -50,14 +50,6 @@ function helsanaStructuredBlock(title, companyName, city, canton) {
   ].filter(Boolean).join('\n');
 }
 
-// Defensive fallback for the shared factory's own thin-description guard —
-// dormant today (see module doc: real content is never thin enough to trip
-// it) but keeps a real, non-duplicate template ready if the site ever
-// degrades further to genuinely empty/near-empty descriptions.
-function helsanaBoilerplateFallback(title, companyName, city, canton) {
-  return `${helsanaStructuredBlock(title, companyName, city, canton)}\n\n${companyName} ist die führende Schweizer Kranken- und Unfallversicherung. Die vollständige Stellenbeschreibung mit Aufgaben und Anforderungen finden Sie in der Original-Stellenanzeige auf careers.helsana.ch.`;
-}
-
 const parser = createSuccessFactorsParser({
   companyKey: HELSANA_KEY,
   companyName: HELSANA_COMPANY_NAME,
@@ -71,7 +63,6 @@ const parser = createSuccessFactorsParser({
   sourceLabel: 'Helsana Dedicated Parser (SuccessFactors CSB)',
   sector: 'Assicurazioni',
   fallbackCategory: 'Amministrazione',
-  boilerplateFallback: helsanaBoilerplateFallback,
 });
 
 /**

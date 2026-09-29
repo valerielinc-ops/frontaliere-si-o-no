@@ -244,4 +244,27 @@ describe('fetchAllStadtZuerichJobs — tiles without an official ad', () => {
     mockPortal({ indexOk: false });
     await expect(fetchAllStadtZuerichJobs()).rejects.toThrow(/official ad index unavailable/);
   }, 20_000);
+
+  // 2026-09-29: the same ad re-posted under a second Referenz-Nr. (e.g.
+  // Gastro-Allrounder*in 51367/51788, same service and official text) is one
+  // vacancy; the tile with the lower job id is kept.
+  it('publishes one page for an ad re-posted under a second Referenz-Nr.', async () => {
+    const reposted = `<ul>${tile('1373317957', 'Gärtner*in', '51788')}${tile('1369892057', 'Gärtner*in', '51367')}</ul>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.startsWith('https://jobs.stadt-zuerich.ch/search/')) return new Response(reposted, { status: 200 });
+      if (u.includes('/stzh/jobsearch')) {
+        return new Response(JSON.stringify({ results: [
+          { href: '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.62001.html' },
+          { href: '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/job-detailseite.62002.html' },
+        ] }), { status: 200 });
+      }
+      if (u.includes('job-detailseite.62001.html')) return new Response(fixture.replace(/51726/g, '51788'), { status: 200 });
+      if (u.includes('job-detailseite.62002.html')) return new Response(fixture.replace(/51726/g, '51367'), { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+    const jobs = await fetchAllStadtZuerichJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].referenceNumber).toBe('51367');
+  }, 20_000);
 });

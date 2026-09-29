@@ -159,39 +159,38 @@ function parseListingPage(html = '') {
 }
 
 /**
- * Parse a job detail page for the vacancy text.
+ * Parse a Zermatt Bergbahnen job detail page for full description.
  *
- * Issue 5253: the old selector list took the LARGEST `.content-block`, which on
- * matterhornparadise.ch is the page wrapper: category, breadcrumbs
- * ("breadcrumbs.home Über uns Jobs und Karriere"), the vacancy, and the online
- * application form ("Anrede * Vorname * … Datei hochladen"). The vacancy is
- * made of the inner `.content-block.container` rows (intro, "Dein Job",
- * "Dein Profil / Wir bieten"); the form is a `.slide` block with inputs. Only
- * those rows are read, in page order; a page without them yields '' and the
- * job is not published instead of carrying navigation or form text.
+ * The posting's text lives in the page's text sections — the introduction
+ * (`.wysiwyg-usp-area`) and one `.wysiwyg-with-medium` section per block
+ * ("Dein Job", "Dein Profil", …) — read in page order, without the apply
+ * button. The former generic selectors matched the whole `<main>` instead,
+ * whose hero carries the department, the title and the breadcrumbs
+ * ("breadcrumbs.home Über uns Jobs und Karriere …"). A page without those
+ * sections gives no description.
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   if (!html) return '';
 
   const { document } = new JSDOM(html).window;
-  // Call-to-action buttons ("Jetzt bewerben" → #application-form) are page
-  // chrome, not vacancy text.
-  for (const cta of document.querySelectorAll('a.btn, button, a[href^="#application"]')) cta.remove();
-  const rows = [...document.querySelectorAll('.content-block.container')]
-    .filter((el) => !el.querySelector('form, input, select, textarea'));
-  const blocks = rows.length > 0
-    ? rows
-    : [...document.querySelectorAll('.ce-bodytext, .frame-type-text')];
 
-  return blocks
-    .map((el) => stripHtml(el.innerHTML || '')
+  const sections = [...document.querySelectorAll('.wysiwyg-usp-area, .wysiwyg-with-medium')];
+  const parts = [];
+  for (const section of sections) {
+    for (const button of section.querySelectorAll('a.btn, .btn, button')) button.remove();
+    const text = stripHtml(section.innerHTML || '')
       .split('\n')
       .map((line) => line.trim())
       .join('\n')
       .replace(/\n{3,}/g, '\n\n')
-      .trim())
-    .filter(Boolean)
-    .join('\n\n');
+      .trim();
+    if (text) parts.push(text);
+  }
+  // Without those sections the posting's text was not found: no description
+  // (the job takes the pipeline's thin-source path). The former fallback to
+  // `.content-block` / `article` / `main` / the largest `div` published the
+  // hero and the breadcrumbs instead.
+  return parts.join('\n\n').trim();
 }
 
 /* ── Category / Employment helpers ────────────────────────── */
@@ -284,19 +283,12 @@ export async function fetchAllZermattBergbahnenJobs() {
       }
     }
 
-    // Source text only (issue 5253): the detail body is the only text the
-    // source wrote. A job without one used to be published with a line we
-    // assembled ("<title>. — Zermatt Bergbahnen, Zermatt. Abteilung: …"); it is
-    // now left out of this run and the standard pipeline retains the stored
-    // record with the body an earlier run read.
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      console.warn(`  ⏭️ ${listing.title}: no vacancy text on the detail page — not published this run`);
-      continue;
-    }
-
-    // Language of the detail body, not of the title (issue 5253): titles are
-    // loanword soup and filed the body under a foreign source slot.
-    const sourceLang = detectLang(description, 'de');
+    // The detail page's text is published whatever its length. Below
+    // MIN_DESC_LENGTH the crawler used to replace it with the listing metadata
+    // ("<Titel>. — Zermatt Bergbahnen, Zermatt. Abteilung: …. <Tags>"); a
+    // detail without text now gives no description and the job takes the
+    // pipeline's thin-source path.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} Zermatt`, 'zermatt-bergbahnen');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, listing.tags);
@@ -337,3 +329,9 @@ export async function fetchAllZermattBergbahnenJobs() {
   console.log(`  Total Zermatt Bergbahnen jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+/**
+ * Fragments only the crawler once wrote: its metadata description, and the
+ * page hero (breadcrumbs) it used to take as part of the posting.
+ */
+export const ZERMATT_BERGBAHNEN_FABRICATED_DESCRIPTION_RE = /— Zermatt Bergbahnen, Zermatt\.|breadcrumbs\.home/;

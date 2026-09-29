@@ -15,7 +15,9 @@ import {
   isTrustedDomain,
   MONCUCCO_KEY,
   MONCUCCO_COMPANY_NAME,
+  MONCUCCO_FABRICATED_DESCRIPTION_RE,
 } from './lib/moncucco-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -30,6 +32,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isMoncuccoJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, MONCUCCO_FABRICATED_DESCRIPTION_RE, MONCUCCO_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Gruppo Ospedaliero Moncucco crawler failed: ${err?.message || err}`);
   process.exit(1);

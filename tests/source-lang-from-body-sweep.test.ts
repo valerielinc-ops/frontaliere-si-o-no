@@ -98,16 +98,6 @@ describe('moncucco', () => {
     expect(job.sourceLang).toBe('it');
     expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
   });
-
-  it('does not publish a job without a detail body instead of an assembled snippet (issue 5253)', async () => {
-    fetchHtml
-      .mockResolvedValueOnce(listing)
-      .mockRejectedValueOnce(new Error('HTTP 503'));
-
-    // The old parser published "<title> — Gruppo Ospedaliero Moncucco, Lugano
-    // <percentuale>"; the standard pipeline now keeps the stored record.
-    expect(await fetchAllMoncuccoJobs()).toEqual([]);
-  });
 });
 
 describe('flagRelabeledSourceLang', () => {

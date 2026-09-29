@@ -15,7 +15,9 @@ import {
   isTrustedDomain,
   ZERMATT_BERGBAHNEN_KEY,
   ZERMATT_BERGBAHNEN_COMPANY_NAME,
+  ZERMATT_BERGBAHNEN_FABRICATED_DESCRIPTION_RE,
 } from './lib/zermatt-bergbahnen-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -30,6 +32,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isZermattBergbahnenJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, ZERMATT_BERGBAHNEN_FABRICATED_DESCRIPTION_RE, ZERMATT_BERGBAHNEN_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Zermatt Bergbahnen crawler failed: ${err?.message || err}`);
   process.exit(1);
