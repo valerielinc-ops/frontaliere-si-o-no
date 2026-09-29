@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hoval",
-  "assembledAt": "2026-09-29T09:14:18.988Z",
+  "assembledAt": "2026-09-29T21:14:44.742Z",
   "jobs": [
     {
       "title": "Business Application Spezialist/in (m/w/d)",
@@ -346,8 +346,7 @@
       "postalCode": "4500",
       "firstSeenAt": "2026-05-26T23:07:05.422Z",
       "salarySource": "reported",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "retranslationAttempts": 0
     },
     {
       "title": "Servicetechniker/in Wärmepumpen - Region Zug (m/w/d) | Auch Quereinsteiger willkommen",
@@ -528,7 +527,7 @@
         "it": "servizio-tecnico-pompe-di-calore-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "en": "service-technician-heat-pumps-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "de": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
-        "fr": "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen"
+        "fr": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
       },
       "id": "hoval-e59261301c25",
       "previousSlugsByLocale": {
@@ -537,6 +536,7 @@
           "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
         ],
         "fr": [
+          "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen",
           "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
         ],
         "en": [
@@ -545,7 +545,8 @@
       },
       "previousSlugs": [
         "tecnico-a-di-servizio-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
-        "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
+        "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
+        "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
