@@ -12288,6 +12288,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 anni di aumenti: i premi sono triplicati',
     'blog.article.lamal-premi-ticino-triplicati.excerpt': 'La LAMal, introdotta nel 1996, ha visto triplicare il premio medio. Per il 2027 il DFI indica +5% in Svizzera e +3,7% in Ticino.',
     'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Vista di Lugano e del Ticino per un articolo sui premi LAMal',
+    'blog.article.mobilita-lombardia-ticino-2026.title': 'Via libera all\'Intesa Lombardia-Ticino',
+    'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Ratificato il Progetto di Legge n. 197 per la mobilità transfrontaliera. Accordo quinquennale per treni, autobus e tariffe tra Italia e Svizzera.',
+    'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Treno transfrontaliero tra Lombardia e Ticino',
 };
 
 export default blogMetaIt;

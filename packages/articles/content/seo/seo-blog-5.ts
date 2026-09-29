@@ -97183,6 +97183,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilita-lombardia-ticino-2026': {
+    title: 'Via libera all\'Intesa Lombardia-Ticino | Frontaliere Ticino',
+    description: 'Ratificata l\'Intesa Lombardia-Ticino sulla mobilità transfrontaliera. Scopri le novità per treni S40, S50, RE50, S30, autobus e tariffe. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, libera, intesa, lombardia-ticino, ratificato',
+    ogTitle: 'Mobilità transfrontaliera: via libera all\'Intesa Lombardia-Ticino',
+    ogDescription: 'Il Consiglio Regionale ha ratificato l\'accordo sottoscritto il 16 giugno 2026. Scopri le novità su treni, autobus, collegamenti con Malpensa e tariffe integrate per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/mobilita-lombardia-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via libera all'Intesa Lombardia-Ticino",
+      "description": "Ratificata l'Intesa Lombardia-Ticino sulla mobilità transfrontaliera. Scopri le novità per treni S40, S50, RE50, S30, autobus e tariffe. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilita-lombardia-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno transfrontaliero tra Lombardia e Ticino"
+      },
+      "datePublished": "2026-09-29T15:04:17+00:00",
+      "dateModified": "2026-09-29T15:04:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilita-lombardia-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

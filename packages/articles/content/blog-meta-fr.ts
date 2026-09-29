@@ -12289,6 +12289,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 ans de hausses : les primes ont triplé',
     'blog.article.lamal-premi-ticino-triplicati.excerpt': 'La LAMal, introduite en 1996, a vu la prime moyenne tripler. Pour 2027, le DFI indique +5% en Suisse et +3,7% au Tessin.',
     'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Vue sur Lugano et le Tessin pour un article sur les primes LAMal',
+    'blog.article.mobilita-lombardia-ticino-2026.title': 'Feu vert pour l\'accord Lombardie-Tessin',
+    'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Le projet de loi n ° 197 sur la mobilité transfrontalière a été ratifié. Accord quinquennal pour les trains, les bus et les tarifs entre l\'Italie et la Suisse.',
+    'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Train transfrontalier entre la Lombardie et le Tessin',
 };
 
 export default blogMetaFr;
