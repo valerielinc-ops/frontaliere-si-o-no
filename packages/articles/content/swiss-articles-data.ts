@@ -21355,6 +21355,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dati-srf-dipendenti-rubati',
+    category: 'novita',
+    date: '2026-09-29T21:53:18.107Z',
+    image: '/images/blog/dati-srf-dipendenti-rubati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

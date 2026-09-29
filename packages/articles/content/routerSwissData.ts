@@ -2392,6 +2392,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'groupe-e-riorganizzazione-friburgo': { it: 'groupe-e-riorganizzazione-friburgo', en: 'groupe-e-restructuring-fribourg', de: 'groupe-e-umstrukturierung-freiburg', fr: 'groupe-e-reorganisation-fribourg' },
  'parlamento-sonno-power-nap': { it: 'parlamento-sonno-power-nap', en: 'parliament-sleep-power-nap', de: 'parlament-schlaf-power-nap', fr: 'parlement-sommeil-power-nap' },
  'progetto-ia-medicina-bellinzona': { it: 'progetto-ia-medicina-bellinzona', en: 'ai-medicine-project-bellinzona', de: 'ki-medizin-projekt-bellinzona', fr: 'projet-ia-medecine-bellinzona' },
+ 'dati-srf-dipendenti-rubati': { it: 'dati-srf-dipendenti-rubati', en: 'srf-hacker-attack-employee-data', de: 'srf-hackerangriff-mitarbeiterdaten', fr: 'attaque-hacker-srf-donnees-salaries' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

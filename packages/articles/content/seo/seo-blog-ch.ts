@@ -92177,6 +92177,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dati-srf-dipendenti-rubati': {
+    title: 'Attacco hacker a SRF: dati rubati a circa 340 dipendenti',
+    description: 'Attacco hacker a SRF: sottratti dati di circa 340 collaboratori. La SSR esclude password, dati bancari, fonti giornalistiche e contenuti di comunicazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, hacker, dati, rubati',
+    ogTitle: 'SRF: rubati dati di circa 340 collaboratori',
+    ogDescription: 'Un\'intrusione ha riguardato soprattutto la divisione Informazione della SRF. Sottratti dati di contatto e organizzativi di circa 340 ex e attuali collaboratori, risalenti al 2020. La SSR indaga sulla causa e ha sporto denuncia.',
+    canonicalPath: '/articoli-svizzera/dati-srf-dipendenti-rubati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco hacker a SRF: dati rubati a circa 340 dipendenti",
+      "description": "Attacco hacker a SRF: sottratti dati di circa 340 collaboratori. La SSR esclude password, dati bancari, fonti giornalistiche e contenuti di comunicazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dati-srf-dipendenti-rubati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Redazione svizzera con monitor che illustrano un attacco informatico e dati di dipendenti"
+      },
+      "datePublished": "2026-09-29T21:53:18+00:00",
+      "dateModified": "2026-09-29T21:53:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dati-srf-dipendenti-rubati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7109,6 +7109,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.progetto-ia-medicina-bellinzona.title': 'AI and drugs: Bellinzona in the SWIT-DREAMS project',
     'blog.article.progetto-ia-medicina-bellinzona.excerpt': 'SWIT-DREAMS gets underway: 1,37 million euros from Interreg for research between Novara and Bellinzona on nanobodies and artificial intelligence applied to medicine.',
     'blog.article.progetto-ia-medicina-bellinzona.imageAlt': 'Medical research and AI in Bellinzona',
+    'blog.article.dati-srf-dipendenti-rubati.title': 'Hacker attack on SRF: data stolen from about 340 employees',
+    'blog.article.dati-srf-dipendenti-rubati.excerpt': 'SSR reports an attack on SRF: contact and organizational data of approximately 340 employees were stolen. Passwords and banking details do not appear to be involved.',
+    'blog.article.dati-srf-dipendenti-rubati.imageAlt': 'Swiss newsroom with monitors illustrating a cyberattack and stolen employee data',
 };
 
 export default blogMetaChEn;
