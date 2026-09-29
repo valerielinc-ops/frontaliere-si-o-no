@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Protectas SA job parser — official career-page inventory and JSON-LD detail
- * parser.
+ * Protectas SA job parser — official career-page inventory and JSON-LD/semantic
+ * HTML detail parser.
  *
  * The source is deliberately scoped to physical-security vacancies in Ticino.
  * Protectas also publishes cyber/security-technology roles; importing those
@@ -140,6 +140,36 @@ function extractElementInnerHtml(source, tags, startIndex) {
     }
   }
   return '';
+}
+
+function findItemPropElement(source, itemprop, className = '') {
+  const target = normalize(itemprop);
+  const expectedClass = normalize(className);
+  const tags = scanHtmlTags(source);
+  for (let index = 0; index < tags.length; index += 1) {
+    const tag = tags[index];
+    if (tag.closing) continue;
+    const declared = readAttr(tag.raw, 'itemprop')
+      .split(/\s+/)
+      .map(normalize)
+      .filter(Boolean);
+    if (!declared.includes(target)) continue;
+    if (expectedClass) {
+      const classes = readAttr(tag.raw, 'class').split(/\s+/).map(normalize);
+      if (!classes.includes(expectedClass)) continue;
+    }
+    return {
+      content: decodeHtml(readAttr(tag.raw, ['content', 'value', 'datetime'])),
+      innerHtml: extractElementInnerHtml(source, tags, index),
+    };
+  }
+  return null;
+}
+
+function extractItemPropText(source, itemprop, className = '') {
+  const element = findItemPropElement(source, itemprop, className);
+  if (!element) return '';
+  return firstText(element.content, normalizeSpace(stripHtml(element.innerHtml)));
 }
 
 function hasProtectasCounterHint(rawTag) {
@@ -411,6 +441,31 @@ function extractRequirements(jsonLd = {}) {
     .filter((value) => value.length > 3);
 }
 
+function extractSemanticHtmlDescription(html = '') {
+  const element = findItemPropElement(html, 'description', 'job-description');
+  return element ? stripHtml(element.innerHtml) : '';
+}
+
+function extractSemanticHtmlRequirements(html = '') {
+  const element = findItemPropElement(html, 'description', 'job-description');
+  if (!element) return [];
+  return [...element.innerHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)]
+    .map((match) => normalizeSpace(stripHtml(match[1])))
+    .filter((value) => value.length > 3);
+}
+
+function extractSemanticHtmlLocation(html = '') {
+  const jobLocation = findItemPropElement(html, 'jobLocation');
+  const locationSource = jobLocation ? jobLocation.innerHtml : html;
+  return {
+    locality: extractItemPropText(locationSource, 'addressLocality') || extractItemPropText(locationSource, 'address'),
+    postalCode: extractItemPropText(locationSource, 'postalCode'),
+    streetAddress: extractItemPropText(locationSource, 'streetAddress'),
+    region: extractItemPropText(locationSource, 'addressRegion'),
+    country: extractItemPropText(locationSource, 'addressCountry'),
+  };
+}
+
 /** Extract a physical address from a schema.org JobPosting object. */
 export function extractProtectasLocation(jsonLd = {}) {
   for (const place of asArray(jsonLd.jobLocation)) {
@@ -449,26 +504,35 @@ function isSwissLocation(location) {
 /** Parse and validate one official Protectas vacancy detail page. */
 export function parseProtectasJobDetail(html = '', detailUrl = '') {
   const jsonLd = parseProtectasJobPostingJsonLd(html);
-  if (!jsonLd) return null;
-
+  const semanticTitle = stripHtml(String(html).match(/<h1\b[^>]*>[\s\S]*?<\/h1>/i)?.[0] || '');
+  const semanticDescription = extractSemanticHtmlDescription(html);
+  const semanticLocation = extractSemanticHtmlLocation(html);
+  const jsonLocation = extractProtectasLocation(jsonLd || {});
+  const location = {
+    locality: firstText(jsonLocation.locality, semanticLocation.locality),
+    postalCode: firstText(jsonLocation.postalCode, semanticLocation.postalCode),
+    streetAddress: firstText(jsonLocation.streetAddress, semanticLocation.streetAddress),
+    region: firstText(jsonLocation.region, semanticLocation.region),
+    country: firstText(jsonLocation.country, semanticLocation.country),
+  };
   const title = firstText(
-    jsonLd.title,
-    stripHtml(String(html).match(/<h1\b[^>]*>[\s\S]*?<\/h1>/i)?.[0] || ''),
+    jsonLd?.title,
+    semanticTitle,
     stripHtml(readMetaContent(html, 'og:title')),
   );
-  const location = extractProtectasLocation(jsonLd);
   const canton = resolveCanton(location);
-  const description = extractDescription(jsonLd, html);
+  const description = firstText(jsonLd ? extractDescription(jsonLd, html) : '', semanticDescription);
   if (!title || title.length < 3 || !description || description.length < 80) return null;
   if (!isSwissLocation(location) || canton !== PROTECTAS_TARGET_CANTON) return null;
   if (!isPhysicalSecurityVacancy(title, description)) return null;
 
-  const jsonLdUrl = toProtectasUrl(jsonLd.url, detailUrl);
+  const jsonLdUrl = toProtectasUrl(jsonLd?.url || '', detailUrl);
   const publicUrl = isVacancyUrl(jsonLdUrl) ? jsonLdUrl : detailUrl;
   if (!isVacancyUrl(publicUrl)) return null;
 
   const locationLabel = [location.locality, location.region].filter(Boolean).join(', ')
     || [location.postalCode, location.country].filter(Boolean).join(' ');
+  const requirements = extractRequirements(jsonLd || {});
   return {
     title,
     description,
@@ -481,10 +545,14 @@ export function parseProtectasJobDetail(html = '', detailUrl = '') {
     addressCountry: location.country || 'CH',
     postalCode: location.postalCode,
     streetAddress: location.streetAddress,
-    postedAt: normalizeSpace(jsonLd.datePosted || '').slice(0, 10),
-    validThrough: normalizeSpace(jsonLd.validThrough || '').slice(0, 10),
-    employmentType: detectEmploymentType(jsonLd.employmentType || `${title} ${description}`),
-    requirements: extractRequirements(jsonLd),
+    postedAt: normalizeSpace(jsonLd?.datePosted || extractItemPropText(html, 'datePosted')).slice(0, 10),
+    validThrough: normalizeSpace(jsonLd?.validThrough || extractItemPropText(html, 'validThrough')).slice(0, 10),
+    employmentType: detectEmploymentType(
+      jsonLd?.employmentType || extractItemPropText(html, 'employmentType') || `${title} ${description}`,
+    ),
+    requirements: requirements.length > 0
+      ? requirements
+      : extractSemanticHtmlRequirements(html),
   };
 }
 

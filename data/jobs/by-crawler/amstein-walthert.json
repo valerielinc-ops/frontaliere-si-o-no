@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amstein-walthert",
-  "assembledAt": "2026-09-28T21:13:44.323Z",
+  "assembledAt": "2026-09-29T11:03:09.069Z",
   "jobs": [
     {
       "id": "amstein-walthert-39059d6a69a8",
@@ -33,7 +33,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4167.8/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:38.934Z",
+      "crawledAt": "2026-09-29T09:14:49.925Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -128,7 +128,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4182.5/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:38.674Z",
+      "crawledAt": "2026-09-29T09:14:49.662Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -197,6 +197,7 @@
         "responsabile-di-progetto-den-gewerken-heizung-luftung-kalte-sanitar-80-100-amstein-walthert-ag-zurich"
       ],
       "firstSeenAt": "2026-07-04T10:08:00.663Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -242,7 +243,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4122.9/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:38.431Z",
+      "crawledAt": "2026-09-29T09:14:49.404Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -281,6 +282,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:07:56.809Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -326,7 +328,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4548.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:38.201Z",
+      "crawledAt": "2026-09-29T09:14:49.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -408,7 +410,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4560.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.972Z",
+      "crawledAt": "2026-09-29T09:14:48.939Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -439,6 +441,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:07:55.075Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -484,7 +487,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4320.10/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.731Z",
+      "crawledAt": "2026-09-29T09:14:48.695Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Fürstenlandstrasse 41",
@@ -536,88 +539,6 @@
       }
     },
     {
-      "id": "amstein-walthert-89f2fbde13ea",
-      "slug": "brandschutzfachmann-o-brandschutzfachfrau-80-100-amstein-walthert-ag-zurich",
-      "slugByLocale": {
-        "it": "brandschutzfachmann-o-brandschutzfachfrau-80-100-amstein-walthert-ag-zurich",
-        "en": "fire-protection-specialist-80-100-amstein-walthert-ag-zurich-sikn44975",
-        "de": "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975",
-        "fr": "specialiste-de-la-protection-incendie-80-100-amstein-walthert-ag-zurich-sikn44975"
-      },
-      "company": "Amstein + Walthert AG",
-      "companyKey": "amstein-walthert",
-      "companyDomain": "amstein-walthert.ch",
-      "title": "Brandschutzfachmann oder Brandschutzfachfrau 80-100%",
-      "titleByLocale": {
-        "it": "Specialista antincendio 80-100 %",
-        "en": "Fire protection specialist 80-100 %",
-        "de": "Brandschutzfachmann oder Brandschutzfachfrau 80-100%",
-        "fr": "Spécialiste de la protection incendie 80-100 %"
-      },
-      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Für die Verstärkung unseres Brandschutz-Teams in Zürich suchen wir eine erfahrene und engagierte Persönlichkeit mit einer integralen sowie zielorientierten Arbeitsweise. Wir bieten dir ein motiviertes, dynamisches Team sowie eine moderne und grosszügige Arbeitsumgebung in unmittelbarer Nähe des Bahnhofs Oerlikon. In dieser vielseitigen Funktion trägst du wesentlich zur Weiterentwicklung unseres Bereichs bei und übernimmst Verantwortung in spannenden Projekten. Das sind deine Aufgaben\n• Für Behörden, Auftraggeber:innen, Architekt:innen und Planer:innen bist du die Ansprechperson\n• Du erarbeitest Brandschutzkonzepte inkl. Planskizzen, Konzeptbeschriebe, Nachweise etc. für Hochbauten bis QS Stufe 2\n• Erstellen von Brandschutz- und Feuerwehrplänen im CAD\n• Du machst die Qualitätskontrollen Brandschutz auf der Baustelle zur Sicherstellung einer fachgerechten Umsetzung bis zur Inbetriebnahme\n• Mitarbeit bei Spezialkonzepten wie Evakuation, Entrauchung, integrale Sicherheitstests etc.\n• Als Projektleiter:in hast du die Verantwortung hinsichtlich Qualität, Kosten und Terminen Das bringst du mit\n• Abschluss als Ingenieur:in / Techniker:in oder vergleichbare Ausbildung\n• Weiterbildung als Brandschutzfachmann oder Brandschutzfachfrau VKF erforderlich\n• Mehrjährige Erfahrung in der Planung und Umsetzung von Hochbauten\n• Praxiserfahrung im baulichen, technischen und organisatorischen Brandschutz\n• Interesse am lösungsorientierten und konzeptionellen Arbeiten\n• Kreativität, Engagement, Teamfähigkeit und gute Umgangsformen\n• Hohes Kundenbewusstsein\n• Gute Kenntnisse in MS-Office, CAD/BIM Kenntnisse von Vorteil\n• Sicherer Umgang mit der deutschen Sprache in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e della costruzione sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Per rafforzare il nostro team di protezione antincendio a Zurigo, siamo alla ricerca di una personalità esperta e impegnata con un modo di lavorare integrale e mirato. Vi offriamo un team motivato e dinamico e un ambiente di lavoro moderno e generoso nelle immediate vicinanze della stazione ferroviaria di Oerlikon. In questa versatile funzione, contribuisci in modo significativo all'ulteriore sviluppo della nostra area e ti assumerai la responsabilità di progetti entusiasmanti. Questi sono i tuoi compiti\n• Per le autorità, i clienti: dentro, architetto: dentro e pianificatore: all'interno sei la persona di contatto\n• Si sviluppano concetti di protezione antincendio incl. schizzi pianificati, descrizioni dei concetti, prove ecc. per edifici fino a livello QS 2\n• Creazione di piani di fuoco e di fuoco in CAD\n• Effettuare la protezione antincendio di controllo di qualità sul cantiere per garantire una implementazione professionale fino alla messa in servizio\n• Cooperazione in concetti speciali come l'evacuazione, l'estrazione del fumo, le prove di sicurezza integrale, ecc.\n• In qualità di responsabile del progetto: hai la responsabilità di qualità, costi e scadenze Lo porti con te.\n• Laurea come ingegnere:in / tecnico:in o formazione comparabile\n• Ulteriori formazione come specialista di protezione antincendio o specialista di protezione antincendio VKF richiesto\n• Diversi anni di esperienza nella progettazione e realizzazione di edifici\n• Esperienza pratica nella protezione antincendio strutturale, tecnica e organizzativa\n• Interessi del lavoro orientato alla soluzione e concettuale\n• Creatività, impegno, lavoro di squadra e buone maniere\n• Alta consapevolezza dei clienti\n• Buona conoscenza in MS-Office, CAD/BIM conoscenza è vantaggioso\n• Gestione sicura della lingua tedesca in parola e scrittura",
-        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and construction over the entire life cycle. Our solutions are innovative, elegant and sustainable. To strengthen our fire protection team in Zurich, we are looking for an experienced and committed personality with an integral and goal-oriented way of working. We offer you a motivated, dynamic team and a modern and generous working environment in the immediate vicinity of the Oerlikon train station. In this versatile function, you contribute significantly to the further development of our area and take on responsibility in exciting projects. These are your tasks\n• For authorities, clients:inside, architect:inside and planner:inside you are the contact person\n• You develop fire protection concepts incl. Planned sketches, concept descriptions, proofs etc. for buildings up to QS level 2\n• Creating Fire and Fire Plans in CAD\n• You carry out the quality control fire protection on the construction site to ensure a professional implementation until commissioning\n• Cooperation in special concepts such as evacuation, smoke extraction, integral safety tests, etc.\n• As a project manager: you have the responsibility regarding quality, costs and deadlines You bring that with you\n• Degree as an engineer:in / technician:in or comparable training\n• Further training as a fire protection specialist or fire protection specialist VKF required\n• Several years of experience in the planning and implementation of buildings\n• Practical experience in structural, technical and organizational fire protection\n• Interest in solution-oriented and conceptual work\n• Creativity, commitment, teamwork and good manners\n• High customer awareness\n• Good knowledge in MS-Office, CAD/BIM knowledge is advantageous\n• Safe handling of the German language in word and writing",
-        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Für die Verstärkung unseres Brandschutz-Teams in Zürich suchen wir eine erfahrene und engagierte Persönlichkeit mit einer integralen sowie zielorientierten Arbeitsweise. Wir bieten dir ein motiviertes, dynamisches Team sowie eine moderne und grosszügige Arbeitsumgebung in unmittelbarer Nähe des Bahnhofs Oerlikon. In dieser vielseitigen Funktion trägst du wesentlich zur Weiterentwicklung unseres Bereichs bei und übernimmst Verantwortung in spannenden Projekten. Das sind deine Aufgaben\n• Für Behörden, Auftraggeber:innen, Architekt:innen und Planer:innen bist du die Ansprechperson\n• Du erarbeitest Brandschutzkonzepte inkl. Planskizzen, Konzeptbeschriebe, Nachweise etc. für Hochbauten bis QS Stufe 2\n• Erstellen von Brandschutz- und Feuerwehrplänen im CAD\n• Du machst die Qualitätskontrollen Brandschutz auf der Baustelle zur Sicherstellung einer fachgerechten Umsetzung bis zur Inbetriebnahme\n• Mitarbeit bei Spezialkonzepten wie Evakuation, Entrauchung, integrale Sicherheitstests etc.\n• Als Projektleiter:in hast du die Verantwortung hinsichtlich Qualität, Kosten und Terminen Das bringst du mit\n• Abschluss als Ingenieur:in / Techniker:in oder vergleichbare Ausbildung\n• Weiterbildung als Brandschutzfachmann oder Brandschutzfachfrau VKF erforderlich\n• Mehrjährige Erfahrung in der Planung und Umsetzung von Hochbauten\n• Praxiserfahrung im baulichen, technischen und organisatorischen Brandschutz\n• Interesse am lösungsorientierten und konzeptionellen Arbeiten\n• Kreativität, Engagement, Teamfähigkeit und gute Umgangsformen\n• Hohes Kundenbewusstsein\n• Gute Kenntnisse in MS-Office, CAD/BIM Kenntnisse von Vorteil\n• Sicherer Umgang mit der deutschen Sprache in Wort und Schrift",
-        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et de la construction tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Pour renforcer notre équipe de protection contre l'incendie à Zurich, nous recherchons une personnalité expérimentée et engagée avec une manière de travailler intégrée et orientée vers l'objectif. Nous vous proposons une équipe motivée, dynamique et un environnement de travail moderne et généreux à proximité immédiate de la gare d'Oerlikon. Dans cette fonction polyvalente, vous contribuez de manière significative au développement de notre région et vous assumez la responsabilité de projets passionnants. Ce sont vos tâches\n• Pour les autorités, les clients:à l'intérieur, l'architecte:à l'intérieur et le planificateur:à l'intérieur vous êtes la personne à contacter\n• Vous développez des concepts de protection contre l'incendie. Esquisses, descriptions de concepts, épreuves, etc. prévues pour les bâtiments jusqu'au niveau QS 2\n• Créer des plans d'incendie en CAO\n• Vous effectuez le contrôle de qualité protection incendie sur le chantier de construction pour assurer une mise en œuvre professionnelle jusqu'à la mise en service\n• Coopération dans des concepts particuliers tels que l'évacuation, l'extraction de fumée, les tests de sécurité intégrés, etc.\n• En tant que gestionnaire de projet, vous avez la responsabilité de la qualité, des coûts et des délais Apporte ça avec toi.\n• Diplôme d'ingénieur:en / technicien:en ou formation comparable\n• Formation continue en tant que spécialiste de la protection contre l'incendie ou spécialiste de la protection contre l'incendie VKF requise\n• Plusieurs années d'expérience dans la planification et la mise en œuvre des bâtiments\n• Expérience pratique en matière de protection contre les incendies structurels, techniques et organisationnels\n• Intérêt pour les travaux axés sur les solutions et les concepts\n• Créativité, engagement, travail d'équipe et bonnes manières\n• Sensibilisation élevée des clients\n• Bonne connaissance en MS-Office, connaissance CAD/BIM est avantageux\n• Gestion sûre de la langue allemande en paroles et en écriture"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4497.5/",
-      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.505Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Andreasstrasse 5",
-      "postalCode": "8050",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ingegneria / Consulenza tecnica edile",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4497.5/",
-      "jobReqId": "SIKN4497.5",
-      "slugDisambiguator": "sikn44975",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975",
-        "specialiste-de-la-protection-contre-l-incendie-80-100-amstein-walthert-ag-zurich-sikn44975"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975"
-        ],
-        "en": [
-          "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975"
-        ],
-        "fr": [
-          "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975",
-          "specialiste-de-la-protection-contre-l-incendie-80-100-amstein-walthert-ag-zurich-sikn44975"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:07:49.178Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "amstein-walthert-9bac342ae4e4",
       "slug": "responsabile-di-progetto-fachkoordination-80-100-amstein-walthert-ag-st-gallen",
       "slugByLocale": {
@@ -648,7 +569,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4317.7/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.270Z",
+      "crawledAt": "2026-09-29T09:14:48.463Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Fürstenlandstrasse 41",
@@ -685,6 +606,90 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:07:48.309Z",
+      "needsRetranslation": true,
+      "salaryMin": 92000,
+      "salaryMax": 140000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 140000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "amstein-walthert-3cd574084d1b",
+      "slug": "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen",
+      "slugByLocale": {
+        "it": "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen",
+        "en": "project-manager-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen-sikn405614",
+        "de": "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614",
+        "fr": "chef-de-projet-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen-sikn405614"
+      },
+      "company": "Amstein + Walthert AG",
+      "companyKey": "amstein-walthert",
+      "companyDomain": "amstein-walthert.ch",
+      "title": "Projektleiter:in Gebäudeautomation 80-100%",
+      "titleByLocale": {
+        "it": "Project Manager Building Automation 80-100 %",
+        "en": "Project Manager Building Automation 80-100 %",
+        "de": "Projektleiter:in Gebäudeautomation 80-100%",
+        "fr": "Gestionnaire de projet: dans l'automatisation des bâtiments 80-100 %"
+      },
+      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Führen, Koordinieren und Erarbeiten von Gebäudeautomationsprojekten von der strategischen Planung bis hin zur Realisierung (SIA-Phasen 2-5)\n• Fachperson und direkte/r Ansprechpartner:in für Kund:innen\n• Erstellen von Konzepten\n• Beurteilen von Lösungsvarianten\n• Unterstützung in der Akquisition\n• Bindeglied zwischen den Gewerken während der Realisierung der Projekte\n• Sicherstellen der Umsetzung der Gesamtkonzepte Das bringst du mit\n• Abgeschlossene automations-, elektro- oder gebäudetechnische Grundausbildung\n• Weiterbildung HF/FH von Vorteil\n• Erfahrung in der Gebäudeautomation, Automation\n• Erfahrung in der Planung oder Projektleitung sowie Abwicklung von Projekten\n• Mehrere Jahre Erfahrung in einer ähnlichen Funktion\n• Selbständig sowie auch teamfähig\n• Lösungsorientiert und interdisziplinäres Denken\n• Sehr gute organisatorische und kommunikative Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e della costruzione sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Questi sono i tuoi compiti\n• Progetti di automazione degli edifici leader, coordinati e in via di sviluppo dalla pianificazione strategica all'implementazione (SIA fasi 2-5)\n• Persona di contatto professionale e diretto:in per i clienti:inside\n• Progettazione di concetti\n• Valutazione delle varianti di soluzione\n• Sostegno all'acquisizione\n• Collegamento tra gli scambi durante l'attuazione dei progetti\n• Assicurare l'implementazione dei concetti generali che si portano con voi\n• Automazione di base, formazione elettrica o edilizia completata\n• Ulteriore sviluppo di HF/FH è vantaggioso\n• Esperienza nell'automazione degli edifici, nell'automazione\n• Esperienza nella pianificazione o nella gestione dei progetti e nell'attuazione dei progetti\n• Diversi anni di esperienza in una funzione simile\n• Indipendente e squadra capace\n• pensiero orientato alla soluzione e interdisciplinare\n• Molto buone capacità organizzative e di comunicazione\n• Molto buona conoscenza del tedesco in parola e scrittura",
+        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and construction over the entire life cycle. Our solutions are innovative, elegant and sustainable. These are your tasks\n• Leading, coordinating and developing building automation projects from strategic planning to implementation (SIA phases 2-5)\n• Professional and direct contact person:in for customers:inside\n• Design of concepts\n• Assessment of solution variants\n• Support in the acquisition\n• Link between the trades during the implementation of the projects\n• Ensure the implementation of the overall concepts that you bring with you\n• Basic automation, electrical or building training completed\n• Further development of HF/FH is advantageous\n• Experience in building automation, automation\n• Experience in planning or project management and implementation of projects\n• Several years of experience in a similar function\n• Independent as well as team capable\n• Solution-oriented and interdisciplinary thinking\n• Very good organizational and communication skills\n• Very good knowledge of German in word and writing",
+        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Führen, Koordinieren und Erarbeiten von Gebäudeautomationsprojekten von der strategischen Planung bis hin zur Realisierung (SIA-Phasen 2-5)\n• Fachperson und direkte/r Ansprechpartner:in für Kund:innen\n• Erstellen von Konzepten\n• Beurteilen von Lösungsvarianten\n• Unterstützung in der Akquisition\n• Bindeglied zwischen den Gewerken während der Realisierung der Projekte\n• Sicherstellen der Umsetzung der Gesamtkonzepte Das bringst du mit\n• Abgeschlossene automations-, elektro- oder gebäudetechnische Grundausbildung\n• Weiterbildung HF/FH von Vorteil\n• Erfahrung in der Gebäudeautomation, Automation\n• Erfahrung in der Planung oder Projektleitung sowie Abwicklung von Projekten\n• Mehrere Jahre Erfahrung in einer ähnlichen Funktion\n• Selbständig sowie auch teamfähig\n• Lösungsorientiert und interdisziplinäres Denken\n• Sehr gute organisatorische und kommunikative Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
+        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et de la construction tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Ce sont vos tâches\n• Diriger, coordonner et développer des projets d'automatisation des bâtiments, de la planification stratégique à la mise en oeuvre (phases 2-5)\n• Personne de contact professionnelle et directe:in pour les clients:inside\n• Conception des concepts\n• Évaluation des variantes de solution\n• Appui à l'acquisition\n• Lien entre les métiers pendant la mise en œuvre des projets\n• Assurer la mise en œuvre des concepts globaux que vous apportez avec vous\n• automatisation de base, électricité ou formation au bâtiment terminée\n• Le développement de HF/FH est avantageux\n• Expérience en automatisation des bâtiments, automatisation\n• Expérience dans la planification ou la gestion de projets et la mise en œuvre de projets\n• Plusieurs années d'expérience dans une fonction similaire\n• Indépendant et capable d'équipe\n• Pensée interdisciplinaire et orientée vers la solution\n• Très bonnes aptitudes organisationnelles et de communication\n• Très bonne connaissance de l'allemand en paroles et en écriture"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4056.14/",
+      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:14:48.226Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "Fürstenlandstrasse 41",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ingegneria / Consulenza tecnica edile",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4056.14/",
+      "jobReqId": "SIKN4056.14",
+      "slugDisambiguator": "sikn405614",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614",
+        "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614",
+          "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen"
+        ],
+        "en": [
+          "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614"
+        ],
+        "fr": [
+          "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:07:48.595Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -730,7 +735,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4494.5/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:37.040Z",
+      "crawledAt": "2026-09-29T09:14:48.001Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -784,6 +789,89 @@
       }
     },
     {
+      "id": "amstein-walthert-0e4c25ad5217",
+      "slug": "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen",
+      "slugByLocale": {
+        "it": "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen",
+        "en": "electrical-planner-in-80-100-amstein-walthert-ag-st-gallen-sikn394517",
+        "de": "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517",
+        "fr": "planificateur-trice-electrique-in-80-100-amstein-walthert-ag-st-gallen-sikn394517"
+      },
+      "company": "Amstein + Walthert AG",
+      "companyKey": "amstein-walthert",
+      "companyDomain": "amstein-walthert.ch",
+      "title": "Elektroplaner:in 80-100%",
+      "titleByLocale": {
+        "it": "Progettista elettrico/a:in 80-100%",
+        "en": "Electrical planner 80-100 %",
+        "de": "Elektroplaner:in 80-100%",
+        "fr": "Planificateur électrique: dans 80-100 %"
+      },
+      "description": "Die Amstein + Walthert Holding AG ist die Konzernmuttergesellschaft der Amstein + Walthert Gruppe, welche insgesamt 1'100 Mitarbeitende beschäftigt und mit 20 Gesellschaften an 13 Standorten vertreten ist. Gemeinsam bearbeiten wir als Ingenieurinnen, Planer und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Projekten\n• Zeichnen von Plänen\n• Erstellung von Schemas\n• Bearbeitung der gesamten Elektrotechnik (Stark- und Schwachstrom) Das bringst du mit\n• Abschluss als Elektroplaner:in EFZ\n• Erste Berufserfahrungen\n• BIM und Revit Kenntnisse sind von Vorteil\n• Nova CAD-Kenntnisse\n• Dynamische Persönlichkeit mit Affinität zum digitalen Planen / Bauen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Messerli NPK Kenntnisse von Vorteil\n• Begeisterungsfähigkeit und arbeiten gerne im Team\n• Freude an anspruchsvoller Arbeit (Homeoffice möglich)",
+      "descriptionByLocale": {
+        "it": "Amstein + Walthert Holding AG è la società madre del Gruppo Amstein + Walthert, che impiega un totale di 1.100 persone ed è rappresentata da 20 società in 13 sedi. Insieme, come ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e dell'ingegneria civile sull'intero ciclo di vita. Questi sono i tuoi compiti\n• Sostegno ai responsabili del progetto: donne in vari progetti interessanti\n• Disegno di piani\n• Creazione di schemi\n• Lavorazione dell'intera tecnologia elettrica (alta e bassa corrente) Lo porti con te.\n• Laurea come pianificatore elettrico: in EFZ\n• Esperienza professionale iniziale\n• Le conoscenze di BIM e Revit sono utili\n• Nova CAD conoscenza\n• Personalità dinamica con affinità per la pianificazione digitale / costruzione\n• Molto buona conoscenza del tedesco in parola e scrittura\n• La conoscenza di Messerli NPK è utile\n• Enthusiasm e godere di lavorare in una squadra\n• Divertimento del lavoro impegnativo (possibile ufficio domestico)",
+        "en": "Amstein + Walthert Holding AG is the parent company of the Amstein + Walthert Group, which employs a total of 1,100 people and is represented by 20 companies at 13 locations. Together, as engineers, planners and consultants, we work on all aspects of the technology of civil engineering and civil engineering over the entire life cycle. These are your tasks\n• Support of the project managers:women in various interesting projects\n• Drawing of plans\n• Creation of schemes\n• Processing of the entire electrical technology (high and low current) You bring that with you\n• Degree as an electrical planner: in EFZ\n• Initial professional experience\n• BIM and Revit knowledge are beneficial\n• Nova CAD knowledge\n• Dynamic personality with affinity for digital planning / building\n• Very good knowledge of German in word and writing\n• Messerli NPK knowledge is beneficial\n• Enthusiasm and enjoy working in a team\n• Enjoyment of demanding work (home office possible)",
+        "de": "Die Amstein + Walthert Holding AG ist die Konzernmuttergesellschaft der Amstein + Walthert Gruppe, welche insgesamt 1'100 Mitarbeitende beschäftigt und mit 20 Gesellschaften an 13 Standorten vertreten ist. Gemeinsam bearbeiten wir als Ingenieurinnen, Planer und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Projekten\n• Zeichnen von Plänen\n• Erstellung von Schemas\n• Bearbeitung der gesamten Elektrotechnik (Stark- und Schwachstrom) Das bringst du mit\n• Abschluss als Elektroplaner:in EFZ\n• Erste Berufserfahrungen\n• BIM und Revit Kenntnisse sind von Vorteil\n• Nova CAD-Kenntnisse\n• Dynamische Persönlichkeit mit Affinität zum digitalen Planen / Bauen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Messerli NPK Kenntnisse von Vorteil\n• Begeisterungsfähigkeit und arbeiten gerne im Team\n• Freude an anspruchsvoller Arbeit (Homeoffice möglich)",
+        "fr": "Amstein + Walthert Holding AG est la société mère du groupe Amstein + Walthert, qui emploie un total de 1100 personnes et est représenté par 20 entreprises dans 13 sites. Ensemble, en tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et du génie civil tout au long du cycle de vie. Ce sont vos tâches\n• Soutien des responsables de projets: les femmes dans divers projets intéressants\n• Élaboration des plans\n• Création de systèmes\n• Traitement de l'ensemble de la technologie électrique (haut et bas courant) Apporte ça avec toi.\n• Degré de planification électrique: en EFZ\n• Expérience professionnelle initiale\n• Les connaissances BIM et Revit sont bénéfiques\n• Connaissances en CAO de Nova\n• Personnalité dynamique avec affinité pour la planification numérique / construction\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Messerli NPK connaissances est bénéfique\n• Enthousiasme et profitez de travailler en équipe\n• Profitez d'un travail exigeant (bureau à domicile possible)"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn3945.17/",
+      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:14:47.756Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "Fürstenlandstrasse 41",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ingegneria / Consulenza tecnica edile",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn3945.17/",
+      "jobReqId": "SIKN3945.17",
+      "slugDisambiguator": "sikn394517",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517",
+        "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517",
+          "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen"
+        ],
+        "en": [
+          "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517"
+        ],
+        "fr": [
+          "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:07:48.880Z",
+      "needsRetranslation": true,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "amstein-walthert-b072ae8c56c7",
       "slug": "responsabile-di-progetto-heizung-kalte-80-100-amstein-walthert-ag-st-gallen",
       "slugByLocale": {
@@ -814,7 +902,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4326.8/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.799Z",
+      "crawledAt": "2026-09-29T09:14:47.523Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Fürstenlandstrasse 41",
@@ -866,44 +954,44 @@
       }
     },
     {
-      "id": "amstein-walthert-3cd574084d1b",
-      "slug": "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen",
+      "id": "amstein-walthert-89f2fbde13ea",
+      "slug": "brandschutzfachmann-o-brandschutzfachfrau-80-100-amstein-walthert-ag-zurich",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen",
-        "en": "project-manager-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen-sikn405614",
-        "de": "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614",
-        "fr": "chef-de-projet-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen-sikn405614"
+        "it": "brandschutzfachmann-o-brandschutzfachfrau-80-100-amstein-walthert-ag-zurich",
+        "en": "fire-protection-specialist-80-100-amstein-walthert-ag-zurich-sikn44975",
+        "de": "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975",
+        "fr": "specialiste-de-la-protection-incendie-80-100-amstein-walthert-ag-zurich-sikn44975"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
       "companyDomain": "amstein-walthert.ch",
-      "title": "Projektleiter:in Gebäudeautomation 80-100%",
+      "title": "Brandschutzfachmann oder Brandschutzfachfrau 80-100%",
       "titleByLocale": {
-        "it": "Project Manager Building Automation 80-100 %",
-        "en": "Project Manager Building Automation 80-100 %",
-        "de": "Projektleiter:in Gebäudeautomation 80-100%",
-        "fr": "Gestionnaire de projet: dans l'automatisation des bâtiments 80-100 %"
+        "it": "Specialista antincendio 80-100 %",
+        "en": "Fire protection specialist 80-100 %",
+        "de": "Brandschutzfachmann oder Brandschutzfachfrau 80-100%",
+        "fr": "Spécialiste de la protection incendie 80-100 %"
       },
-      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Führen, Koordinieren und Erarbeiten von Gebäudeautomationsprojekten von der strategischen Planung bis hin zur Realisierung (SIA-Phasen 2-5)\n• Fachperson und direkte/r Ansprechpartner:in für Kund:innen\n• Erstellen von Konzepten\n• Beurteilen von Lösungsvarianten\n• Unterstützung in der Akquisition\n• Bindeglied zwischen den Gewerken während der Realisierung der Projekte\n• Sicherstellen der Umsetzung der Gesamtkonzepte Das bringst du mit\n• Abgeschlossene automations-, elektro- oder gebäudetechnische Grundausbildung\n• Weiterbildung HF/FH von Vorteil\n• Erfahrung in der Gebäudeautomation, Automation\n• Erfahrung in der Planung oder Projektleitung sowie Abwicklung von Projekten\n• Mehrere Jahre Erfahrung in einer ähnlichen Funktion\n• Selbständig sowie auch teamfähig\n• Lösungsorientiert und interdisziplinäres Denken\n• Sehr gute organisatorische und kommunikative Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
+      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Für die Verstärkung unseres Brandschutz-Teams in Zürich suchen wir eine erfahrene und engagierte Persönlichkeit mit einer integralen sowie zielorientierten Arbeitsweise. Wir bieten dir ein motiviertes, dynamisches Team sowie eine moderne und grosszügige Arbeitsumgebung in unmittelbarer Nähe des Bahnhofs Oerlikon. In dieser vielseitigen Funktion trägst du wesentlich zur Weiterentwicklung unseres Bereichs bei und übernimmst Verantwortung in spannenden Projekten. Das sind deine Aufgaben\n• Für Behörden, Auftraggeber:innen, Architekt:innen und Planer:innen bist du die Ansprechperson\n• Du erarbeitest Brandschutzkonzepte inkl. Planskizzen, Konzeptbeschriebe, Nachweise etc. für Hochbauten bis QS Stufe 2\n• Erstellen von Brandschutz- und Feuerwehrplänen im CAD\n• Du machst die Qualitätskontrollen Brandschutz auf der Baustelle zur Sicherstellung einer fachgerechten Umsetzung bis zur Inbetriebnahme\n• Mitarbeit bei Spezialkonzepten wie Evakuation, Entrauchung, integrale Sicherheitstests etc.\n• Als Projektleiter:in hast du die Verantwortung hinsichtlich Qualität, Kosten und Terminen Das bringst du mit\n• Abschluss als Ingenieur:in / Techniker:in oder vergleichbare Ausbildung\n• Weiterbildung als Brandschutzfachmann oder Brandschutzfachfrau VKF erforderlich\n• Mehrjährige Erfahrung in der Planung und Umsetzung von Hochbauten\n• Praxiserfahrung im baulichen, technischen und organisatorischen Brandschutz\n• Interesse am lösungsorientierten und konzeptionellen Arbeiten\n• Kreativität, Engagement, Teamfähigkeit und gute Umgangsformen\n• Hohes Kundenbewusstsein\n• Gute Kenntnisse in MS-Office, CAD/BIM Kenntnisse von Vorteil\n• Sicherer Umgang mit der deutschen Sprache in Wort und Schrift",
       "descriptionByLocale": {
-        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e della costruzione sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Questi sono i tuoi compiti\n• Progetti di automazione degli edifici leader, coordinati e in via di sviluppo dalla pianificazione strategica all'implementazione (SIA fasi 2-5)\n• Persona di contatto professionale e diretto:in per i clienti:inside\n• Progettazione di concetti\n• Valutazione delle varianti di soluzione\n• Sostegno all'acquisizione\n• Collegamento tra gli scambi durante l'attuazione dei progetti\n• Assicurare l'implementazione dei concetti generali che si portano con voi\n• Automazione di base, formazione elettrica o edilizia completata\n• Ulteriore sviluppo di HF/FH è vantaggioso\n• Esperienza nell'automazione degli edifici, nell'automazione\n• Esperienza nella pianificazione o nella gestione dei progetti e nell'attuazione dei progetti\n• Diversi anni di esperienza in una funzione simile\n• Indipendente e squadra capace\n• pensiero orientato alla soluzione e interdisciplinare\n• Molto buone capacità organizzative e di comunicazione\n• Molto buona conoscenza del tedesco in parola e scrittura",
-        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and construction over the entire life cycle. Our solutions are innovative, elegant and sustainable. These are your tasks\n• Leading, coordinating and developing building automation projects from strategic planning to implementation (SIA phases 2-5)\n• Professional and direct contact person:in for customers:inside\n• Design of concepts\n• Assessment of solution variants\n• Support in the acquisition\n• Link between the trades during the implementation of the projects\n• Ensure the implementation of the overall concepts that you bring with you\n• Basic automation, electrical or building training completed\n• Further development of HF/FH is advantageous\n• Experience in building automation, automation\n• Experience in planning or project management and implementation of projects\n• Several years of experience in a similar function\n• Independent as well as team capable\n• Solution-oriented and interdisciplinary thinking\n• Very good organizational and communication skills\n• Very good knowledge of German in word and writing",
-        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Führen, Koordinieren und Erarbeiten von Gebäudeautomationsprojekten von der strategischen Planung bis hin zur Realisierung (SIA-Phasen 2-5)\n• Fachperson und direkte/r Ansprechpartner:in für Kund:innen\n• Erstellen von Konzepten\n• Beurteilen von Lösungsvarianten\n• Unterstützung in der Akquisition\n• Bindeglied zwischen den Gewerken während der Realisierung der Projekte\n• Sicherstellen der Umsetzung der Gesamtkonzepte Das bringst du mit\n• Abgeschlossene automations-, elektro- oder gebäudetechnische Grundausbildung\n• Weiterbildung HF/FH von Vorteil\n• Erfahrung in der Gebäudeautomation, Automation\n• Erfahrung in der Planung oder Projektleitung sowie Abwicklung von Projekten\n• Mehrere Jahre Erfahrung in einer ähnlichen Funktion\n• Selbständig sowie auch teamfähig\n• Lösungsorientiert und interdisziplinäres Denken\n• Sehr gute organisatorische und kommunikative Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
-        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et de la construction tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Ce sont vos tâches\n• Diriger, coordonner et développer des projets d'automatisation des bâtiments, de la planification stratégique à la mise en oeuvre (phases 2-5)\n• Personne de contact professionnelle et directe:in pour les clients:inside\n• Conception des concepts\n• Évaluation des variantes de solution\n• Appui à l'acquisition\n• Lien entre les métiers pendant la mise en œuvre des projets\n• Assurer la mise en œuvre des concepts globaux que vous apportez avec vous\n• automatisation de base, électricité ou formation au bâtiment terminée\n• Le développement de HF/FH est avantageux\n• Expérience en automatisation des bâtiments, automatisation\n• Expérience dans la planification ou la gestion de projets et la mise en œuvre de projets\n• Plusieurs années d'expérience dans une fonction similaire\n• Indépendant et capable d'équipe\n• Pensée interdisciplinaire et orientée vers la solution\n• Très bonnes aptitudes organisationnelles et de communication\n• Très bonne connaissance de l'allemand en paroles et en écriture"
+        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e della costruzione sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Per rafforzare il nostro team di protezione antincendio a Zurigo, siamo alla ricerca di una personalità esperta e impegnata con un modo di lavorare integrale e mirato. Vi offriamo un team motivato e dinamico e un ambiente di lavoro moderno e generoso nelle immediate vicinanze della stazione ferroviaria di Oerlikon. In questa versatile funzione, contribuisci in modo significativo all'ulteriore sviluppo della nostra area e ti assumerai la responsabilità di progetti entusiasmanti. Questi sono i tuoi compiti\n• Per le autorità, i clienti: dentro, architetto: dentro e pianificatore: all'interno sei la persona di contatto\n• Si sviluppano concetti di protezione antincendio incl. schizzi pianificati, descrizioni dei concetti, prove ecc. per edifici fino a livello QS 2\n• Creazione di piani di fuoco e di fuoco in CAD\n• Effettuare la protezione antincendio di controllo di qualità sul cantiere per garantire una implementazione professionale fino alla messa in servizio\n• Cooperazione in concetti speciali come l'evacuazione, l'estrazione del fumo, le prove di sicurezza integrale, ecc.\n• In qualità di responsabile del progetto: hai la responsabilità di qualità, costi e scadenze Lo porti con te.\n• Laurea come ingegnere:in / tecnico:in o formazione comparabile\n• Ulteriori formazione come specialista di protezione antincendio o specialista di protezione antincendio VKF richiesto\n• Diversi anni di esperienza nella progettazione e realizzazione di edifici\n• Esperienza pratica nella protezione antincendio strutturale, tecnica e organizzativa\n• Interessi del lavoro orientato alla soluzione e concettuale\n• Creatività, impegno, lavoro di squadra e buone maniere\n• Alta consapevolezza dei clienti\n• Buona conoscenza in MS-Office, CAD/BIM conoscenza è vantaggioso\n• Gestione sicura della lingua tedesca in parola e scrittura",
+        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and construction over the entire life cycle. Our solutions are innovative, elegant and sustainable. To strengthen our fire protection team in Zurich, we are looking for an experienced and committed personality with an integral and goal-oriented way of working. We offer you a motivated, dynamic team and a modern and generous working environment in the immediate vicinity of the Oerlikon train station. In this versatile function, you contribute significantly to the further development of our area and take on responsibility in exciting projects. These are your tasks\n• For authorities, clients:inside, architect:inside and planner:inside you are the contact person\n• You develop fire protection concepts incl. Planned sketches, concept descriptions, proofs etc. for buildings up to QS level 2\n• Creating Fire and Fire Plans in CAD\n• You carry out the quality control fire protection on the construction site to ensure a professional implementation until commissioning\n• Cooperation in special concepts such as evacuation, smoke extraction, integral safety tests, etc.\n• As a project manager: you have the responsibility regarding quality, costs and deadlines You bring that with you\n• Degree as an engineer:in / technician:in or comparable training\n• Further training as a fire protection specialist or fire protection specialist VKF required\n• Several years of experience in the planning and implementation of buildings\n• Practical experience in structural, technical and organizational fire protection\n• Interest in solution-oriented and conceptual work\n• Creativity, commitment, teamwork and good manners\n• High customer awareness\n• Good knowledge in MS-Office, CAD/BIM knowledge is advantageous\n• Safe handling of the German language in word and writing",
+        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Für die Verstärkung unseres Brandschutz-Teams in Zürich suchen wir eine erfahrene und engagierte Persönlichkeit mit einer integralen sowie zielorientierten Arbeitsweise. Wir bieten dir ein motiviertes, dynamisches Team sowie eine moderne und grosszügige Arbeitsumgebung in unmittelbarer Nähe des Bahnhofs Oerlikon. In dieser vielseitigen Funktion trägst du wesentlich zur Weiterentwicklung unseres Bereichs bei und übernimmst Verantwortung in spannenden Projekten. Das sind deine Aufgaben\n• Für Behörden, Auftraggeber:innen, Architekt:innen und Planer:innen bist du die Ansprechperson\n• Du erarbeitest Brandschutzkonzepte inkl. Planskizzen, Konzeptbeschriebe, Nachweise etc. für Hochbauten bis QS Stufe 2\n• Erstellen von Brandschutz- und Feuerwehrplänen im CAD\n• Du machst die Qualitätskontrollen Brandschutz auf der Baustelle zur Sicherstellung einer fachgerechten Umsetzung bis zur Inbetriebnahme\n• Mitarbeit bei Spezialkonzepten wie Evakuation, Entrauchung, integrale Sicherheitstests etc.\n• Als Projektleiter:in hast du die Verantwortung hinsichtlich Qualität, Kosten und Terminen Das bringst du mit\n• Abschluss als Ingenieur:in / Techniker:in oder vergleichbare Ausbildung\n• Weiterbildung als Brandschutzfachmann oder Brandschutzfachfrau VKF erforderlich\n• Mehrjährige Erfahrung in der Planung und Umsetzung von Hochbauten\n• Praxiserfahrung im baulichen, technischen und organisatorischen Brandschutz\n• Interesse am lösungsorientierten und konzeptionellen Arbeiten\n• Kreativität, Engagement, Teamfähigkeit und gute Umgangsformen\n• Hohes Kundenbewusstsein\n• Gute Kenntnisse in MS-Office, CAD/BIM Kenntnisse von Vorteil\n• Sicherer Umgang mit der deutschen Sprache in Wort und Schrift",
+        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et de la construction tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Pour renforcer notre équipe de protection contre l'incendie à Zurich, nous recherchons une personnalité expérimentée et engagée avec une manière de travailler intégrée et orientée vers l'objectif. Nous vous proposons une équipe motivée, dynamique et un environnement de travail moderne et généreux à proximité immédiate de la gare d'Oerlikon. Dans cette fonction polyvalente, vous contribuez de manière significative au développement de notre région et vous assumez la responsabilité de projets passionnants. Ce sont vos tâches\n• Pour les autorités, les clients:à l'intérieur, l'architecte:à l'intérieur et le planificateur:à l'intérieur vous êtes la personne à contacter\n• Vous développez des concepts de protection contre l'incendie. Esquisses, descriptions de concepts, épreuves, etc. prévues pour les bâtiments jusqu'au niveau QS 2\n• Créer des plans d'incendie en CAO\n• Vous effectuez le contrôle de qualité protection incendie sur le chantier de construction pour assurer une mise en œuvre professionnelle jusqu'à la mise en service\n• Coopération dans des concepts particuliers tels que l'évacuation, l'extraction de fumée, les tests de sécurité intégrés, etc.\n• En tant que gestionnaire de projet, vous avez la responsabilité de la qualité, des coûts et des délais Apporte ça avec toi.\n• Diplôme d'ingénieur:en / technicien:en ou formation comparable\n• Formation continue en tant que spécialiste de la protection contre l'incendie ou spécialiste de la protection contre l'incendie VKF requise\n• Plusieurs années d'expérience dans la planification et la mise en œuvre des bâtiments\n• Expérience pratique en matière de protection contre les incendies structurels, techniques et organisationnels\n• Intérêt pour les travaux axés sur les solutions et les concepts\n• Créativité, engagement, travail d'équipe et bonnes manières\n• Sensibilisation élevée des clients\n• Bonne connaissance en MS-Office, connaissance CAD/BIM est avantageux\n• Gestion sûre de la langue allemande en paroles et en écriture"
       },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4056.14/",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4497.5/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.562Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "Fürstenlandstrasse 41",
-      "postalCode": "9000",
+      "crawledAt": "2026-09-29T09:14:47.269Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Andreasstrasse 5",
+      "postalCode": "8050",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Ingegneria",
+      "category": "Sicurezza",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -911,120 +999,38 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-04",
-      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4056.14/",
-      "jobReqId": "SIKN4056.14",
-      "slugDisambiguator": "sikn405614",
+      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4497.5/",
+      "jobReqId": "SIKN4497.5",
+      "slugDisambiguator": "sikn44975",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614",
-        "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen"
+        "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975",
+        "specialiste-de-la-protection-contre-l-incendie-80-100-amstein-walthert-ag-zurich-sikn44975"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614",
-          "responsabile-di-progetto-gebaudeautomation-80-100-amstein-walthert-ag-st-gallen"
+          "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975"
         ],
         "en": [
-          "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614"
+          "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975"
         ],
         "fr": [
-          "projektleiter-in-gebaudeautomation-80-100-amstein-walthert-st-gallen-sikn405614"
+          "brandschutzfachmann-oder-brandschutzfachfrau-80-100-amstein-walthert-zurich-sikn44975",
+          "specialiste-de-la-protection-contre-l-incendie-80-100-amstein-walthert-ag-zurich-sikn44975"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:07:48.595Z",
-      "salaryMin": 92000,
-      "salaryMax": 140000,
+      "firstSeenAt": "2026-07-04T10:07:49.178Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 140000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "amstein-walthert-0e4c25ad5217",
-      "slug": "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen",
-      "slugByLocale": {
-        "it": "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen",
-        "en": "electrical-planner-in-80-100-amstein-walthert-ag-st-gallen-sikn394517",
-        "de": "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517",
-        "fr": "planificateur-trice-electrique-in-80-100-amstein-walthert-ag-st-gallen-sikn394517"
-      },
-      "company": "Amstein + Walthert AG",
-      "companyKey": "amstein-walthert",
-      "companyDomain": "amstein-walthert.ch",
-      "title": "Elektroplaner:in 80-100%",
-      "titleByLocale": {
-        "it": "Progettista elettrico/a:in 80-100%",
-        "en": "Electrical planner 80-100 %",
-        "de": "Elektroplaner:in 80-100%",
-        "fr": "Planificateur électrique: dans 80-100 %"
-      },
-      "description": "Die Amstein + Walthert Holding AG ist die Konzernmuttergesellschaft der Amstein + Walthert Gruppe, welche insgesamt 1'100 Mitarbeitende beschäftigt und mit 20 Gesellschaften an 13 Standorten vertreten ist. Gemeinsam bearbeiten wir als Ingenieurinnen, Planer und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Projekten\n• Zeichnen von Plänen\n• Erstellung von Schemas\n• Bearbeitung der gesamten Elektrotechnik (Stark- und Schwachstrom) Das bringst du mit\n• Abschluss als Elektroplaner:in EFZ\n• Erste Berufserfahrungen\n• BIM und Revit Kenntnisse sind von Vorteil\n• Nova CAD-Kenntnisse\n• Dynamische Persönlichkeit mit Affinität zum digitalen Planen / Bauen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Messerli NPK Kenntnisse von Vorteil\n• Begeisterungsfähigkeit und arbeiten gerne im Team\n• Freude an anspruchsvoller Arbeit (Homeoffice möglich)",
-      "descriptionByLocale": {
-        "it": "Amstein + Walthert Holding AG è la società madre del Gruppo Amstein + Walthert, che impiega un totale di 1.100 persone ed è rappresentata da 20 società in 13 sedi. Insieme, come ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e dell'ingegneria civile sull'intero ciclo di vita. Questi sono i tuoi compiti\n• Sostegno ai responsabili del progetto: donne in vari progetti interessanti\n• Disegno di piani\n• Creazione di schemi\n• Lavorazione dell'intera tecnologia elettrica (alta e bassa corrente) Lo porti con te.\n• Laurea come pianificatore elettrico: in EFZ\n• Esperienza professionale iniziale\n• Le conoscenze di BIM e Revit sono utili\n• Nova CAD conoscenza\n• Personalità dinamica con affinità per la pianificazione digitale / costruzione\n• Molto buona conoscenza del tedesco in parola e scrittura\n• La conoscenza di Messerli NPK è utile\n• Enthusiasm e godere di lavorare in una squadra\n• Divertimento del lavoro impegnativo (possibile ufficio domestico)",
-        "en": "Amstein + Walthert Holding AG is the parent company of the Amstein + Walthert Group, which employs a total of 1,100 people and is represented by 20 companies at 13 locations. Together, as engineers, planners and consultants, we work on all aspects of the technology of civil engineering and civil engineering over the entire life cycle. These are your tasks\n• Support of the project managers:women in various interesting projects\n• Drawing of plans\n• Creation of schemes\n• Processing of the entire electrical technology (high and low current) You bring that with you\n• Degree as an electrical planner: in EFZ\n• Initial professional experience\n• BIM and Revit knowledge are beneficial\n• Nova CAD knowledge\n• Dynamic personality with affinity for digital planning / building\n• Very good knowledge of German in word and writing\n• Messerli NPK knowledge is beneficial\n• Enthusiasm and enjoy working in a team\n• Enjoyment of demanding work (home office possible)",
-        "de": "Die Amstein + Walthert Holding AG ist die Konzernmuttergesellschaft der Amstein + Walthert Gruppe, welche insgesamt 1'100 Mitarbeitende beschäftigt und mit 20 Gesellschaften an 13 Standorten vertreten ist. Gemeinsam bearbeiten wir als Ingenieurinnen, Planer und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Projekten\n• Zeichnen von Plänen\n• Erstellung von Schemas\n• Bearbeitung der gesamten Elektrotechnik (Stark- und Schwachstrom) Das bringst du mit\n• Abschluss als Elektroplaner:in EFZ\n• Erste Berufserfahrungen\n• BIM und Revit Kenntnisse sind von Vorteil\n• Nova CAD-Kenntnisse\n• Dynamische Persönlichkeit mit Affinität zum digitalen Planen / Bauen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Messerli NPK Kenntnisse von Vorteil\n• Begeisterungsfähigkeit und arbeiten gerne im Team\n• Freude an anspruchsvoller Arbeit (Homeoffice möglich)",
-        "fr": "Amstein + Walthert Holding AG est la société mère du groupe Amstein + Walthert, qui emploie un total de 1100 personnes et est représenté par 20 entreprises dans 13 sites. Ensemble, en tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et du génie civil tout au long du cycle de vie. Ce sont vos tâches\n• Soutien des responsables de projets: les femmes dans divers projets intéressants\n• Élaboration des plans\n• Création de systèmes\n• Traitement de l'ensemble de la technologie électrique (haut et bas courant) Apporte ça avec toi.\n• Degré de planification électrique: en EFZ\n• Expérience professionnelle initiale\n• Les connaissances BIM et Revit sont bénéfiques\n• Connaissances en CAO de Nova\n• Personnalité dynamique avec affinité pour la planification numérique / construction\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Messerli NPK connaissances est bénéfique\n• Enthousiasme et profitez de travailler en équipe\n• Profitez d'un travail exigeant (bureau à domicile possible)"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn3945.17/",
-      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.335Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "Fürstenlandstrasse 41",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ingegneria / Consulenza tecnica edile",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn3945.17/",
-      "jobReqId": "SIKN3945.17",
-      "slugDisambiguator": "sikn394517",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517",
-        "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517",
-          "progettista-elettrico-a-in-80-100-amstein-walthert-ag-st-gallen"
-        ],
-        "en": [
-          "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517"
-        ],
-        "fr": [
-          "elektroplaner-in-80-100-amstein-walthert-st-gallen-sikn394517"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:07:48.880Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1060,7 +1066,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4323.7/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:36.098Z",
+      "crawledAt": "2026-09-29T09:14:47.012Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Fürstenlandstrasse 41",
@@ -1107,6 +1113,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:07:47.408Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -1152,7 +1159,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jeme3759.12/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:35.864Z",
+      "crawledAt": "2026-09-29T09:14:46.759Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1234,7 +1241,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/juke4491.4/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:35.578Z",
+      "crawledAt": "2026-09-29T09:14:46.481Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1318,7 +1325,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4545.4/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:35.337Z",
+      "crawledAt": "2026-09-29T09:14:46.233Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1400,7 +1407,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/saen1269.73/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:35.088Z",
+      "crawledAt": "2026-09-29T09:14:45.964Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1439,6 +1446,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:39:03.837Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1484,7 +1492,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jona4605.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:34.831Z",
+      "crawledAt": "2026-09-29T09:14:45.705Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hodlerstrasse 5",
@@ -1539,6 +1547,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:07:30.603Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1584,7 +1593,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sija4404.7/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:34.616Z",
+      "crawledAt": "2026-09-29T09:14:45.385Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Henric Petri-Strasse 15",
@@ -1631,6 +1640,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:33:23.576Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1676,7 +1686,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/albe2853.28/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:34.339Z",
+      "crawledAt": "2026-09-29T09:14:45.138Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1759,7 +1769,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jeme3363.17/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:34.082Z",
+      "crawledAt": "2026-09-29T09:14:44.866Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1796,6 +1806,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:09.147Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1841,7 +1852,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jeme3864.14/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:33.803Z",
+      "crawledAt": "2026-09-29T09:14:44.594Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1899,6 +1910,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:08.795Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1944,7 +1956,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/juke4230.11/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:33.556Z",
+      "crawledAt": "2026-09-29T09:14:44.341Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -1981,6 +1993,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:09.499Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2026,7 +2039,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/tako1989.57/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:33.268Z",
+      "crawledAt": "2026-09-29T09:14:44.082Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -2136,7 +2149,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/juke4380.3/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:33.015Z",
+      "crawledAt": "2026-09-29T09:14:43.828Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -2174,8 +2187,8 @@
           "praxisintegriertes-bachelor-studium-pibs-amstein-walthert-zurich-juke43803"
         ]
       },
-      "firstSeenAt": "2026-08-03T22:16:07.751Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T22:16:07.751Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2221,7 +2234,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jona4398.5/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:32.772Z",
+      "crawledAt": "2026-09-29T09:14:43.588Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hodlerstrasse 5",
@@ -2242,6 +2255,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-06T11:35:31.649Z",
+      "needsRetranslation": true,
       "salaryMin": 105000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -2287,7 +2301,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/simo4611.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:32.564Z",
+      "crawledAt": "2026-09-29T09:14:43.391Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hodlerstrasse 5",
@@ -2363,7 +2377,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/anco4632.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:13:32.322Z",
+      "crawledAt": "2026-09-29T09:14:43.171Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Av. D’Ouchy 52",
@@ -2458,7 +2472,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sikn4635.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:32.106Z",
+      "crawledAt": "2026-09-29T09:14:42.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -2487,6 +2501,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:33:21.319Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -2532,7 +2547,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/anco4572.3/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:13:31.865Z",
+      "crawledAt": "2026-09-29T09:14:42.738Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Av. D’Ouchy 52",
@@ -2627,7 +2642,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/anco4578.3/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:13:31.649Z",
+      "crawledAt": "2026-09-29T09:14:42.531Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Avenue d'Ouchy 52",
@@ -2677,6 +2692,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:33:21.013Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2722,7 +2738,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sawa4647.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:31.445Z",
+      "crawledAt": "2026-09-29T09:14:42.311Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "streetAddress": "Allmendstrasse 18",
@@ -2761,6 +2777,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T22:56:20.544Z",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -2771,90 +2788,6 @@
           "@type": "QuantitativeValue",
           "minValue": 107000,
           "maxValue": 162500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "amstein-walthert-89a85084dc0e",
-      "slug": "responsabile-del-progetto-per-il-controllo-del-fuoco-e-test-integrali-80-100-amstein-walthert-ag-bern-jona36877",
-      "slugByLocale": {
-        "it": "responsabile-del-progetto-per-il-controllo-del-fuoco-e-test-integrali-80-100-amstein-walthert-ag-bern-jona36877",
-        "en": "project-manager-for-fire-control-and-integral-tests-80-100-amstein-walthert-ag-bern-jona36877",
-        "de": "projektleiter-in-fur-brandfallsteuerungen-und-integrale-tests-80-100-amstein-walthert-bern-jona36877",
-        "fr": "gestionnaire-de-projet-pour-la-lutte-contre-l-incendie-et-les-essais-integres-80-100-amstein-walthert-ag-bern-jona36877"
-      },
-      "company": "Amstein + Walthert AG",
-      "companyKey": "amstein-walthert",
-      "companyDomain": "amstein-walthert.ch",
-      "title": "Projektleiter:in für Brandfallsteuerungen und Integrale Tests 80%-100%",
-      "titleByLocale": {
-        "it": "Responsabile del progetto: per il controllo del fuoco e test integrali 80%-100 %",
-        "en": "Project manager: for fire control and integral tests 80%-100 %",
-        "de": "Projektleiter:in für Brandfallsteuerungen und Integrale Tests 80%-100%",
-        "fr": "Gestionnaire de projet: pour la lutte contre l'incendie et les essais intégrés 80%-100 %"
-      },
-      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Die Amstein + Walthert Bern AG zeichnet sich durch das Gesamtplanungsangebot Heizung/Kälte, Lüftung/Klima, Sanitär/Sprinkler, Elektro, Gebäudeautomation, Fachkoordination und Brandschutz aus. Zur Verstärkung und Ergänzung unseres Bereiches Elektro und dem Spezialgebiet Technischer Brandschutz suchen wir genau Sie. Das sind deine Aufgaben\n• Selbständige Konzeption und Planung von Brandfallsteuerungen\n• Erstellung von Brandfallsteuerungsmatrixen und Brandfallsteuerkonzepten\n• Planung, Durchführung und Nachbearbeitung / Auswertung von Integralen Tests\n• Aufnahmen / Aufarbeitung der Dokumentation von Brandfallsteuerungen in Bestandesbauten\n• Möglichkeit zur Ausübung der Funktion als Gesamtverantwortlicher für die Brandfallsteuerungen\n• Kontrollen der Pendenzen- und Mängelbehebung\n• Erstellen von Konzept- und Projektbeschrieben\n• Teilnahme an internen und externen Projektsitzungen\n• Enge Zusammenarbeit mit anderen Fachbereichen durch interdisziplinäre Teams\n• Führen von Teilprojektleitern, Sachbearbeitern und Zeichnern / Konstrukteuren Das bringst du mit\n• Erfolgreicher Lehrabschluss als Planer:in EFZ in der Baubranche oder Installateur:in EFZ im Bereich der Gebäudetechnik\n• Weiterbildung als Dipl. Ingenieur:in FH/HTL oder vergleichbare Ausbildung\n• Weiterbildung im Bereich Brandschutz und / oder Brandmeldeanlagen von Vorteil\n• Mehrjährige Berufserfahrung im Bereich technischer Brandschutz (z.B. Brandmeldeanlagen) von Vorteil\n• Interesse und Bereitschaft zur Weiterbildung im technischen Brandschutz\n• Lösungsorientiertes, unternehmerisches Denken und Handeln sowie eine selbstständige und zuverlässige Arbeitsweise\n• Teamfähigkeit, soziale Kompetenz und hohe Kundenorientierung\n• Gute Umgangsformen und gepflegte äussere Erscheinung\n• Gute Kenntnisse gängiger Arbeitsmittel (MS-Office)\n• Einwandfreie Deutschkenntnisse in Wort und Schrift, Französisch von Vorteil",
-      "descriptionByLocale": {
-        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e dell'ingegneria civile sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Amstein + Walthert Bern AG è caratterizzata dall'offerta di pianificazione generale riscaldamento/freddo, ventilazione / climatizzatore, sanitari / spugnolo, elettrico, automazione degli edifici, coordinamento specializzato e protezione antincendio. Per rafforzare e integrare il nostro campo di ingegneria elettrica e il campo speciale di protezione antincendio tecnica, ti stiamo cercando. Questi sono i tuoi compiti\n• Progettazione indipendente e progettazione di sistemi antincendio\n• Creazione di Firefall Control Matrixs e Firefall Control Concepts\n• Pianificazione, esecuzione e post-elaborazione / valutazione dei test integrali\n• Registrazioni / elaborazione della documentazione dei sistemi di controllo del fuoco negli edifici esistenti\n• Possibilità di esercitare la funzione di controllo generale responsabile del controllo del fuoco\n• Controlli sulle azioni pendenti e correttive\n• Creazione di descrizioni di concetti e progetti\n• Partecipazione a riunioni di progetto interne ed esterne\n• Una stretta collaborazione con altre discipline attraverso team interdisciplinari\n• Gestione dei sottoprogetti, impiegati e progettisti / costruttori Lo porti con te.\n• Apprendistato di successo come pianificatore: in EFZ nell'industria edile o installatore: in EFZ nel campo della tecnologia dell'edilizia\n• Un'ulteriore formazione come Dipl. Ingegnere: in FH/HTL o formazione comparabile\n• Un ulteriore sviluppo nel campo della protezione antincendio e/o dei sistemi antincendio è vantaggioso\n• Diversi anni di esperienza professionale nel campo della protezione antincendio tecnica (ad esempio sistemi antincendio) sono vantaggiosi\n• Interessi e prontezza per un'ulteriore formazione nella protezione antincendio tecnica\n• Soluzione orientata, pensiero imprenditoriale e agire, nonché un metodo di lavoro indipendente e affidabile\n• Lavoro di squadra, competenza sociale e alto orientamento del cliente\n• Buone maniere e aspetto esterno ben curato\n• Buona conoscenza delle attrezzature di lavoro comuni (MS-Office)\n• Conoscenza completa del tedesco nelle parole e nella scrittura, il francese è vantaggioso",
-        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and civil engineering over the entire life cycle. Our solutions are innovative, elegant and sustainable. Amstein + Walthert Bern AG is characterized by the overall planning offer heating/cold, ventilation/climate control, sanitary/spinkler, electrical, building automation, specialist coordination and fire protection. To reinforce and complement our field of electrical engineering and the special field of technical fire protection, we are looking for you. These are your tasks\n• Independent design and planning of fire control systems\n• Creation of Firefall Control Matrixs and Firefall Control Concepts\n• Planning, execution and post-processing / evaluation of integral tests\n• Recordings / processing of documentation of fire control systems in existing buildings\n• Possibility of exercising the function as general controller responsible for fire control\n• Checks on pending and corrective actions\n• Creation of concept and project descriptions\n• Participation in internal and external project meetings\n• Close cooperation with other disciplines through interdisciplinary teams\n• Managing sub-project managers, clerks and draftsmen / constructors You bring that with you\n• Successful apprenticeship as a planner:in EFZ in the construction industry or installer:in EFZ in the field of building technology\n• Further education as a Dipl. Engineer: in FH/HTL or comparable training\n• Further development in the field of fire protection and/or fire alarm systems is advantageous\n• Several years of professional experience in the field of technical fire protection (e.g. fire alarm systems) are advantageous\n• Interest and readiness for further training in technical fire protection\n• Solution-oriented, entrepreneurial thinking and acting as well as an independent and reliable working method\n• Teamwork, social competence and high customer orientation\n• Good manners and well-groomed external appearance\n• Good knowledge of common work equipment (MS-Office)\n• Complete knowledge of German in words and writing, French is advantageous",
-        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Die Amstein + Walthert Bern AG zeichnet sich durch das Gesamtplanungsangebot Heizung/Kälte, Lüftung/Klima, Sanitär/Sprinkler, Elektro, Gebäudeautomation, Fachkoordination und Brandschutz aus. Zur Verstärkung und Ergänzung unseres Bereiches Elektro und dem Spezialgebiet Technischer Brandschutz suchen wir genau Sie. Das sind deine Aufgaben\n• Selbständige Konzeption und Planung von Brandfallsteuerungen\n• Erstellung von Brandfallsteuerungsmatrixen und Brandfallsteuerkonzepten\n• Planung, Durchführung und Nachbearbeitung / Auswertung von Integralen Tests\n• Aufnahmen / Aufarbeitung der Dokumentation von Brandfallsteuerungen in Bestandesbauten\n• Möglichkeit zur Ausübung der Funktion als Gesamtverantwortlicher für die Brandfallsteuerungen\n• Kontrollen der Pendenzen- und Mängelbehebung\n• Erstellen von Konzept- und Projektbeschrieben\n• Teilnahme an internen und externen Projektsitzungen\n• Enge Zusammenarbeit mit anderen Fachbereichen durch interdisziplinäre Teams\n• Führen von Teilprojektleitern, Sachbearbeitern und Zeichnern / Konstrukteuren Das bringst du mit\n• Erfolgreicher Lehrabschluss als Planer:in EFZ in der Baubranche oder Installateur:in EFZ im Bereich der Gebäudetechnik\n• Weiterbildung als Dipl. Ingenieur:in FH/HTL oder vergleichbare Ausbildung\n• Weiterbildung im Bereich Brandschutz und / oder Brandmeldeanlagen von Vorteil\n• Mehrjährige Berufserfahrung im Bereich technischer Brandschutz (z.B. Brandmeldeanlagen) von Vorteil\n• Interesse und Bereitschaft zur Weiterbildung im technischen Brandschutz\n• Lösungsorientiertes, unternehmerisches Denken und Handeln sowie eine selbstständige und zuverlässige Arbeitsweise\n• Teamfähigkeit, soziale Kompetenz und hohe Kundenorientierung\n• Gute Umgangsformen und gepflegte äussere Erscheinung\n• Gute Kenntnisse gängiger Arbeitsmittel (MS-Office)\n• Einwandfreie Deutschkenntnisse in Wort und Schrift, Französisch von Vorteil",
-        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et du génie civil tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Amstein + Walthert Bern AG est caractérisée par l'offre globale de planification chauffage/froid, ventilation/contrôle du climat, sanitaires/spinkler, électrique, automatisation du bâtiment, coordination spécialisée et protection contre l'incendie. Pour renforcer et compléter notre domaine de l'ingénierie électrique et le domaine spécial de la protection contre l'incendie technique, nous vous recherchons. Ce sont vos tâches\n• Conception et planification indépendantes des systèmes anti-incendie\n• Création de matrices de contrôle des chutes de feu et concepts de contrôle des chutes de feu\n• Planification, exécution et post-traitement / évaluation des essais intégrés\n• Enregistrements / traitement de la documentation des systèmes anti-incendie dans les bâtiments existants\n• Possibilité d ' exercer la fonction de contrôleur général chargé de la lutte contre l ' incendie\n• Vérification des mesures en cours et des mesures correctives\n• Création de concepts et de descriptions de projets\n• Participation aux réunions internes et externes des projets\n• Coopération étroite avec d'autres disciplines par le biais d'équipes interdisciplinaires\n• Gestion des gestionnaires de sous-projets, commis et dessinateurs / constructeurs Apporte ça avec toi.\n• Apprentissage réussi en tant que planificateur:dans EFZ dans l'industrie de la construction ou l'installateur:dans EFZ dans le domaine de la technologie du bâtiment\n• La formation continue en tant que dipl. Ingénieur: en FH/HTL ou formation comparable\n• La poursuite du développement dans le domaine de la protection contre l'incendie et/ou des systèmes d'alarme incendie est avantageuse\n• Plusieurs années d'expérience professionnelle dans le domaine de la protection technique contre l'incendie (par exemple systèmes d'alarme incendie) sont avantageuses\n• Intérêt et disponibilité pour une formation continue en matière de protection technique contre les incendies\n• La pensée et l'action orientées vers la solution et l'esprit d'entreprise ainsi qu'une méthode de travail indépendante et fiable\n• Travail d'équipe, compétence sociale et orientation client élevée\n• Bonnes manières et bonne apparence extérieure\n• Bonne connaissance de l'équipement de travail commun (MS-Office)\n• Connaissance complète de l'allemand en mots et en écriture, le français est avantageux"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jona3687.7/",
-      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:31.197Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Hodlerstrasse 5",
-      "postalCode": "3001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ingegneria / Consulenza tecnica edile",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jona3687.7/",
-      "jobReqId": "JONA3687.7",
-      "slugDisambiguator": "jona36877",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-fur-brandfallsteuerungen-und-integrale-tests-80-100-amstein-walthert-bern-jona36877",
-        "responsabile-di-progetto-per-brandfallsteuerungen-e-integrale-tests-80-100-amstein-walthert-ag-bern",
-        "responsabile-del-progetto-per-il-controllo-del-fuoco-e-test-integrali-80-100-amstein-walthert-ag-bern-jona36877"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-fur-brandfallsteuerungen-und-integrale-tests-80-100-amstein-walthert-bern-jona36877",
-          "responsabile-di-progetto-per-brandfallsteuerungen-e-integrale-tests-80-100-amstein-walthert-ag-bern",
-          "responsabile-del-progetto-per-il-controllo-del-fuoco-e-test-integrali-80-100-amstein-walthert-ag-bern-jona36877"
-        ],
-        "en": [
-          "projektleiter-in-fur-brandfallsteuerungen-und-integrale-tests-80-100-amstein-walthert-bern-jona36877"
-        ],
-        "fr": [
-          "projektleiter-in-fur-brandfallsteuerungen-und-integrale-tests-80-100-amstein-walthert-bern-jona36877"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:27:18.044Z",
-      "salaryMin": 105500,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -2890,7 +2823,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sawa4641.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:30.976Z",
+      "crawledAt": "2026-09-29T09:14:41.877Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "streetAddress": "Allmendstrasse 18",
@@ -2972,7 +2905,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sawa4644.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:30.749Z",
+      "crawledAt": "2026-09-29T09:14:41.654Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "streetAddress": "Allmendstrasse 18",
@@ -3018,101 +2951,6 @@
       }
     },
     {
-      "id": "amstein-walthert-ab1c84b1468a",
-      "slug": "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674",
-      "slugByLocale": {
-        "it": "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674",
-        "en": "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674",
-        "de": "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674",
-        "fr": "sanitaire-de-planificateur-specialise-80-100-amstein-walthert-ag-zurich-saen120674"
-      },
-      "company": "Amstein + Walthert AG",
-      "companyKey": "amstein-walthert",
-      "companyDomain": "amstein-walthert.ch",
-      "title": "Fachplaner:in Sanitär 80-100%",
-      "titleByLocale": {
-        "it": "Specialist Planner Sanitary 80-100 %",
-        "en": "Specialist Planner Sanitary 80-100 %",
-        "de": "Fachplaner:in Sanitär 80-100%",
-        "fr": "Sanitaire de planificateur spécialisé 80-100 %"
-      },
-      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Grossprojekten\n• Selbständige Bearbeitung von kleineren Sanitäranlagen\n• Zeichnen von Plänen\n• Vorbereitung von Schemas und Submissionen sowie Erstellung von diversen Berechnungen\n• Regelmässige Teilnahme an internen und externen Projektsitzungen\n• Enge Zusammenarbeit mit anderen Fachbereichen durch interdisziplinäre Teams\n• Bereitschaft auch Bauleitungsaufgaben zu übernehmen Das bringst du mit\n• Erfolgreicher Lehrabschluss als Gebäudetechnikplaner:in Fachrichtung Sanitär\n• Einige Jahre Berufserfahrung von Vorteil\n• Hohe Kundenorientierung\n• Begeisterungs- und Teamfähigkeit\n• Einsatzbereitschaft auch in turbulenten Situationen\n• Gute Kenntnisse in MS-Office und CAD (Nova)\n• Deutschkenntnisse in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e della costruzione sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Questi sono i tuoi compiti\n• Sostegno ai project manager: donne in vari interessanti progetti su larga scala\n• Trattamento autonomo di impianti sanitari più piccoli\n• Disegno di piani\n• Preparazione di schemi e sottomissioni nonché creazione di vari calcoli\n• Partecipazione regolare alle riunioni di progetto interne ed esterne\n• Una stretta collaborazione con altre discipline attraverso team interdisciplinari\n• La volontà di assumere anche i compiti di gestione delle costruzioni Lo porti con te.\n• Grado di successo come progettista di tecnologia di costruzione: nel campo della sanificazione\n• Alcuni anni di esperienza professionale sono utili\n• Alto orientamento al cliente\n• Enthusiasm e competenze di squadra\n• Prontezza al lavoro anche in situazioni turbolenti\n• Buona conoscenza di MS-Office e CAD (Nova)\n• competenze tedesche nella parola e nella scrittura",
-        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and construction over the entire life cycle. Our solutions are innovative, elegant and sustainable. These are your tasks\n• Support of project managers: women in various interesting large-scale projects\n• Self-employed treatment of smaller sanitary facilities\n• Drawing of plans\n• Preparation of schemes and submissions as well as creation of various calculations\n• Regular participation in internal and external project meetings\n• Close cooperation with other disciplines through interdisciplinary teams\n• Willingness to also take over construction management tasks You bring that with you\n• Successful degree as a building technology planner: in the field of sanitation\n• A few years of professional experience are beneficial\n• High customer orientation\n• Enthusiasm and team skills\n• Readiness to work even in turbulent situations\n• Good knowledge of MS-Office and CAD (Nova)\n• German skills in word and writing",
-        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Grossprojekten\n• Selbständige Bearbeitung von kleineren Sanitäranlagen\n• Zeichnen von Plänen\n• Vorbereitung von Schemas und Submissionen sowie Erstellung von diversen Berechnungen\n• Regelmässige Teilnahme an internen und externen Projektsitzungen\n• Enge Zusammenarbeit mit anderen Fachbereichen durch interdisziplinäre Teams\n• Bereitschaft auch Bauleitungsaufgaben zu übernehmen Das bringst du mit\n• Erfolgreicher Lehrabschluss als Gebäudetechnikplaner:in Fachrichtung Sanitär\n• Einige Jahre Berufserfahrung von Vorteil\n• Hohe Kundenorientierung\n• Begeisterungs- und Teamfähigkeit\n• Einsatzbereitschaft auch in turbulenten Situationen\n• Gute Kenntnisse in MS-Office und CAD (Nova)\n• Deutschkenntnisse in Wort und Schrift",
-        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et de la construction tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Ce sont vos tâches\n• Appui aux directeurs de projets : les femmes dans divers projets de grande envergure intéressants\n• Traitement des travailleurs indépendants dans les petites installations sanitaires\n• Élaboration des plans\n• Préparation des plans et des soumissions ainsi que création de divers calculs\n• Participation régulière aux réunions internes et externes des projets\n• Coopération étroite avec d'autres disciplines par le biais d'équipes interdisciplinaires\n• Volonté de prendre également en charge les tâches de gestion de la construction Apporte ça avec toi.\n• Diplôme réussi en tant que planificateur technologique du bâtiment: dans le domaine de l'assainissement\n• Quelques années d'expérience professionnelle sont bénéfiques\n• Orientation client élevée\n• Enthousiasme et compétences en équipe\n• L'état de préparation au travail même dans des situations turbulentes\n• Bonne connaissance de MS-Office et CAD (Nova)\n• Compétences en allemand dans l'écriture et la parole"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/saen1206.74/",
-      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:30.492Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Andreasstrasse 5",
-      "postalCode": "8050",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ingegneria / Consulenza tecnica edile",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-10",
-      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/saen1206.74/",
-      "jobReqId": "SAEN1206.74",
-      "slugDisambiguator": "saen120674",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pianificatore-specialista-idraulico-80-100-amstein-walthert-ag-zurich-saen120672",
-        "specialist-planner-in-sanitary-80-100-amstein-walthert-ag-zurich-saen120672",
-        "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120672",
-        "specialiste-planificateur-en-sanitaires-80-100-amstein-walthert-ag-zurich-saen120672",
-        "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674",
-        "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pianificatore-specialista-idraulico-80-100-amstein-walthert-ag-zurich-saen120672",
-          "specialist-planner-in-sanitary-80-100-amstein-walthert-ag-zurich-saen120672",
-          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120672",
-          "specialiste-planificateur-en-sanitaires-80-100-amstein-walthert-ag-zurich-saen120672",
-          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674",
-          "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674"
-        ],
-        "en": [
-          "specialist-planner-in-sanitary-80-100-amstein-walthert-ag-zurich-saen120672",
-          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674"
-        ],
-        "de": [
-          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120672"
-        ],
-        "fr": [
-          "specialiste-planificateur-en-sanitaires-80-100-amstein-walthert-ag-zurich-saen120672",
-          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674"
-        ]
-      },
-      "firstSeenAt": "2026-09-10T23:06:38.919Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "amstein-walthert-8a66d75ae4a9",
       "slug": "studente-di-lavoro-sviluppo-aziendale-40-60-amstein-walthert-ag-zurich-tako46501",
       "slugByLocale": {
@@ -3143,7 +2981,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/tako4650.1/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:30.248Z",
+      "crawledAt": "2026-09-29T09:14:41.429Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -3195,6 +3033,102 @@
       }
     },
     {
+      "id": "amstein-walthert-ab1c84b1468a",
+      "slug": "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674",
+      "slugByLocale": {
+        "it": "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674",
+        "en": "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674",
+        "de": "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674",
+        "fr": "sanitaire-de-planificateur-specialise-80-100-amstein-walthert-ag-zurich-saen120674"
+      },
+      "company": "Amstein + Walthert AG",
+      "companyKey": "amstein-walthert",
+      "companyDomain": "amstein-walthert.ch",
+      "title": "Fachplaner:in Sanitär 80-100%",
+      "titleByLocale": {
+        "it": "Specialist Planner Sanitary 80-100 %",
+        "en": "Specialist Planner Sanitary 80-100 %",
+        "de": "Fachplaner:in Sanitär 80-100%",
+        "fr": "Sanitaire de planificateur spécialisé 80-100 %"
+      },
+      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Grossprojekten\n• Selbständige Bearbeitung von kleineren Sanitäranlagen\n• Zeichnen von Plänen\n• Vorbereitung von Schemas und Submissionen sowie Erstellung von diversen Berechnungen\n• Regelmässige Teilnahme an internen und externen Projektsitzungen\n• Enge Zusammenarbeit mit anderen Fachbereichen durch interdisziplinäre Teams\n• Bereitschaft auch Bauleitungsaufgaben zu übernehmen Das bringst du mit\n• Erfolgreicher Lehrabschluss als Gebäudetechnikplaner:in Fachrichtung Sanitär\n• Einige Jahre Berufserfahrung von Vorteil\n• Hohe Kundenorientierung\n• Begeisterungs- und Teamfähigkeit\n• Einsatzbereitschaft auch in turbulenten Situationen\n• Gute Kenntnisse in MS-Office und CAD (Nova)\n• Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e della costruzione sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Questi sono i tuoi compiti\n• Sostegno ai project manager: donne in vari interessanti progetti su larga scala\n• Trattamento autonomo di impianti sanitari più piccoli\n• Disegno di piani\n• Preparazione di schemi e sottomissioni nonché creazione di vari calcoli\n• Partecipazione regolare alle riunioni di progetto interne ed esterne\n• Una stretta collaborazione con altre discipline attraverso team interdisciplinari\n• La volontà di assumere anche i compiti di gestione delle costruzioni Lo porti con te.\n• Grado di successo come progettista di tecnologia di costruzione: nel campo della sanificazione\n• Alcuni anni di esperienza professionale sono utili\n• Alto orientamento al cliente\n• Enthusiasm e competenze di squadra\n• Prontezza al lavoro anche in situazioni turbolenti\n• Buona conoscenza di MS-Office e CAD (Nova)\n• competenze tedesche nella parola e nella scrittura",
+        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and construction over the entire life cycle. Our solutions are innovative, elegant and sustainable. These are your tasks\n• Support of project managers: women in various interesting large-scale projects\n• Self-employed treatment of smaller sanitary facilities\n• Drawing of plans\n• Preparation of schemes and submissions as well as creation of various calculations\n• Regular participation in internal and external project meetings\n• Close cooperation with other disciplines through interdisciplinary teams\n• Willingness to also take over construction management tasks You bring that with you\n• Successful degree as a building technology planner: in the field of sanitation\n• A few years of professional experience are beneficial\n• High customer orientation\n• Enthusiasm and team skills\n• Readiness to work even in turbulent situations\n• Good knowledge of MS-Office and CAD (Nova)\n• German skills in word and writing",
+        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Das sind deine Aufgaben\n• Unterstützung der Projektleiter:innen in verschiedenen interessanten Grossprojekten\n• Selbständige Bearbeitung von kleineren Sanitäranlagen\n• Zeichnen von Plänen\n• Vorbereitung von Schemas und Submissionen sowie Erstellung von diversen Berechnungen\n• Regelmässige Teilnahme an internen und externen Projektsitzungen\n• Enge Zusammenarbeit mit anderen Fachbereichen durch interdisziplinäre Teams\n• Bereitschaft auch Bauleitungsaufgaben zu übernehmen Das bringst du mit\n• Erfolgreicher Lehrabschluss als Gebäudetechnikplaner:in Fachrichtung Sanitär\n• Einige Jahre Berufserfahrung von Vorteil\n• Hohe Kundenorientierung\n• Begeisterungs- und Teamfähigkeit\n• Einsatzbereitschaft auch in turbulenten Situationen\n• Gute Kenntnisse in MS-Office und CAD (Nova)\n• Deutschkenntnisse in Wort und Schrift",
+        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et de la construction tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Ce sont vos tâches\n• Appui aux directeurs de projets : les femmes dans divers projets de grande envergure intéressants\n• Traitement des travailleurs indépendants dans les petites installations sanitaires\n• Élaboration des plans\n• Préparation des plans et des soumissions ainsi que création de divers calculs\n• Participation régulière aux réunions internes et externes des projets\n• Coopération étroite avec d'autres disciplines par le biais d'équipes interdisciplinaires\n• Volonté de prendre également en charge les tâches de gestion de la construction Apporte ça avec toi.\n• Diplôme réussi en tant que planificateur technologique du bâtiment: dans le domaine de l'assainissement\n• Quelques années d'expérience professionnelle sont bénéfiques\n• Orientation client élevée\n• Enthousiasme et compétences en équipe\n• L'état de préparation au travail même dans des situations turbulentes\n• Bonne connaissance de MS-Office et CAD (Nova)\n• Compétences en allemand dans l'écriture et la parole"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/saen1206.74/",
+      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:14:41.150Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Andreasstrasse 5",
+      "postalCode": "8050",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ingegneria / Consulenza tecnica edile",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-10",
+      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/saen1206.74/",
+      "jobReqId": "SAEN1206.74",
+      "slugDisambiguator": "saen120674",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pianificatore-specialista-idraulico-80-100-amstein-walthert-ag-zurich-saen120672",
+        "specialist-planner-in-sanitary-80-100-amstein-walthert-ag-zurich-saen120672",
+        "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120672",
+        "specialiste-planificateur-en-sanitaires-80-100-amstein-walthert-ag-zurich-saen120672",
+        "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674",
+        "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pianificatore-specialista-idraulico-80-100-amstein-walthert-ag-zurich-saen120672",
+          "specialist-planner-in-sanitary-80-100-amstein-walthert-ag-zurich-saen120672",
+          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120672",
+          "specialiste-planificateur-en-sanitaires-80-100-amstein-walthert-ag-zurich-saen120672",
+          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674",
+          "specialist-planner-sanitary-80-100-amstein-walthert-ag-zurich-saen120674"
+        ],
+        "en": [
+          "specialist-planner-in-sanitary-80-100-amstein-walthert-ag-zurich-saen120672",
+          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674"
+        ],
+        "de": [
+          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120672"
+        ],
+        "fr": [
+          "specialiste-planificateur-en-sanitaires-80-100-amstein-walthert-ag-zurich-saen120672",
+          "fachplaner-in-sanitar-80-100-amstein-walthert-zurich-saen120674"
+        ]
+      },
+      "firstSeenAt": "2026-09-10T23:06:38.919Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "amstein-walthert-fc1032730f9b",
       "slug": "aspirazione-planner-specialistica-80-100-amstein-walthert-ag-zurich-tako70879",
       "slugByLocale": {
@@ -3225,7 +3159,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/tako708.79/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.981Z",
+      "crawledAt": "2026-09-29T09:14:40.914Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -3320,7 +3254,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/tako723.85/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.765Z",
+      "crawledAt": "2026-09-29T09:14:40.659Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -3359,6 +3293,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:06:38.197Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3404,7 +3339,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4185.4/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.534Z",
+      "crawledAt": "2026-09-29T09:14:40.390Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -3443,6 +3378,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:06:38.609Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3488,7 +3424,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/jofi762.78/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.279Z",
+      "crawledAt": "2026-09-29T09:14:40.155Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -3570,7 +3506,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/simo4503.3/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:29.037Z",
+      "crawledAt": "2026-09-29T09:14:39.915Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hodlerstrasse 5",
@@ -3611,6 +3547,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:01.052Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -3656,7 +3593,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/vedi4542.4/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:28.798Z",
+      "crawledAt": "2026-09-29T09:14:39.671Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Andreasstrasse 5",
@@ -3695,6 +3632,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T23:32:44.034Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -3705,86 +3643,6 @@
           "@type": "QuantitativeValue",
           "minValue": 113500,
           "maxValue": 172000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "amstein-walthert-40ed1c863d8c",
-      "slug": "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau",
-      "slugByLocale": {
-        "it": "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau",
-        "en": "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
-        "de": "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
-        "fr": "consultant-securite-et-surete-80-100-amstein-walthert-ag-aarau-sili218420"
-      },
-      "company": "Amstein + Walthert AG",
-      "companyKey": "amstein-walthert",
-      "companyDomain": "amstein-walthert.ch",
-      "title": "Consultant Safety und Security 80-100%",
-      "titleByLocale": {
-        "it": "Consulente Safety e Security 80-100%",
-        "en": "Consultant Safety und Security 80-100%",
-        "de": "Berater Safety und Security 80-100%",
-        "fr": "Consultant Sécurité et sûreté 80-100 %"
-      },
-      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit. Wir beraten, planen und begleiten die Umsetzung von Sicherheitslösungen in anspruchsvollen Bau-, Infrastruktur- und Betriebsprojekten. Unsere Mitarbeitenden unterstützen Kund:innen von der ersten Analyse bis zur erfolgreichen Umsetzung im Projekt. Was die Rolle ausmacht Du unterstützt unsere Kund:innen bei strategischen und konzeptionellen Fragestellungen rund um Safety und Security. Dabei analysierst du Risiken und Anforderungen, entwickelst Sicherheitslösungen, Sicherheitskonzepte sowie Entscheidungsgrundlagen und begleitest deren Umsetzung in anspruchsvollen Projekten. Der Schwerpunkt liegt auf Analyse, Konzeption und Beratung, weniger auf operativen Sicherheitsaufgaben. Das sind deine Aufgaben\n• Erarbeiten von Sicherheitsanalysen, Sicherheitslösungen, Sicherheitskonzepten und Sicherheitsstandards\n• Beraten von Bauherren, Betreibern, Behörden und Projektteams\n• Mitarbeit und Übernahme von Teilprojektleitungen in interdisziplinären Sicherheitsprojekten\n• Begleiten der Umsetzung von baulichen, technischen und organisatorischen Sicherheitsmassnahmen in Planung und Ausführung\n• Mitwirken bei Offerten, Workshops und Kundenpräsentationen\n• Unterstützung des Teamleiters bei fachlichen und strategischen Fragestellungen Das bringst du mit\n• Mehrjährige Erfahrung in der Sicherheitsberatung, Sicherheitsplanung oder Sicherheitsprojekten\n• Fähigkeit, Risiken und Anforderungen in praktikable und umsetzbare Lösungen zu übersetzen\n• Freude an konzeptionellen, analytischen und strategischen Fragestellungen sowie an der Zusammenarbeit mit Kund:innen und Projektpartnern\n• Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englisch von Vorteil\n• Interesse und die Bereitschaft, sich in neue Fachgebiete einzuarbeiten",
-      "descriptionByLocale": {
-        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e dell'ingegneria civile sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Amstein + Walthert Sicherheits AG è un ufficio di consulenza e pianificazione neutrale nel campo della sicurezza. Consigliamo, pianifichiamo e accompagniamo l'implementazione di soluzioni di sicurezza in progetti costruttivi, infrastrutturali e operativi. I nostri dipendenti supportano i clienti dalla prima analisi alla riuscita attuazione del progetto. Supporti i nostri clienti in questioni strategiche e concettuali in materia di sicurezza e sicurezza. Analizzerai rischi e requisiti, svilupperai soluzioni di sicurezza, concetti di sicurezza e principi decisionali e accompagnerai la loro attuazione in progetti impegnativi. L'attenzione è rivolta all'analisi, alla concezione e alla consulenza, meno ai compiti di sicurezza operativa. Questi sono i tuoi compiti\n• Sviluppo di analisi di sicurezza, soluzioni di sicurezza, concetti di sicurezza e standard di sicurezza\n• Consulenza costruttori, operatori, autorità e team di progetto\n• Cooperazione e assunzione della gestione dei sottoprogetti in progetti di sicurezza interdisciplinari\n• Accompagnamento dell'attuazione delle misure di sicurezza strutturale, tecnica e organizzativa nella pianificazione e nell'esecuzione\n• Partecipazione a offerte, workshop e presentazioni dei clienti\n• Supporto del team leader in questioni tecniche e strategiche Lo porti con te.\n• Diversi anni di esperienza nella consulenza di sicurezza, pianificazione della sicurezza o progetti di sicurezza\n• Capacità di tradurre rischi e requisiti in soluzioni attuabili e attuabili\n• Godimento di domande concettuali, analitiche e strategiche, nonché cooperazione con i clienti: all'interno e partner di progetto\n• Metodo di lavoro strutturato, indipendente e orientato alla soluzione\n• Conoscenza molto buona del tedesco in parola e scrittura; l'inglese è vantaggioso\n• Interesse e disponibilità a conoscere nuove aree di competenza",
-        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and civil engineering over the entire life cycle. Our solutions are innovative, elegant and sustainable. Amstein + Walthert Sicherheits AG is a neutral consulting and planning office in the field of security. We advise, plan and accompany the implementation of security solutions in challenging construction, infrastructure and operational projects. Our employees support customers from the first analysis to the successful implementation in the project. You support our customers in strategic and conceptual issues around safety and security. You will analyse risks and requirements, develop security solutions, security concepts and decision-making principles and accompany their implementation in challenging projects. The focus is on analysis, conception and consulting, less on operational security tasks. These are your tasks\n• Development of security analyses, security solutions, security concepts and security standards\n• Advising builders, operators, authorities and project teams\n• Cooperation and assumption of sub-project management in interdisciplinary security projects\n• Accompanying the implementation of structural, technical and organizational security measures in planning and execution\n• Participation in offers, workshops and customer presentations\n• Support of the team leader in technical and strategic issues You bring that with you\n• Several years of experience in security consulting, security planning or security projects\n• Ability to translate risks and requirements into viable and actionable solutions\n• Enjoyment of conceptual, analytical and strategic questions as well as cooperation with customers: within and project partners\n• Structured, independent and solution-oriented working method\n• Very good knowledge of German in word and writing; English is beneficial\n• Interest and willingness to become familiar with new areas of expertise",
-        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit. Wir beraten, planen und begleiten die Umsetzung von Sicherheitslösungen in anspruchsvollen Bau-, Infrastruktur- und Betriebsprojekten. Unsere Mitarbeitenden unterstützen Kund:innen von der ersten Analyse bis zur erfolgreichen Umsetzung im Projekt. Was die Rolle ausmacht Du unterstützt unsere Kund:innen bei strategischen und konzeptionellen Fragestellungen rund um Safety und Security. Dabei analysierst du Risiken und Anforderungen, entwickelst Sicherheitslösungen, Sicherheitskonzepte sowie Entscheidungsgrundlagen und begleitest deren Umsetzung in anspruchsvollen Projekten. Der Schwerpunkt liegt auf Analyse, Konzeption und Beratung, weniger auf operativen Sicherheitsaufgaben. Das sind deine Aufgaben\n• Erarbeiten von Sicherheitsanalysen, Sicherheitslösungen, Sicherheitskonzepten und Sicherheitsstandards\n• Beraten von Bauherren, Betreibern, Behörden und Projektteams\n• Mitarbeit und Übernahme von Teilprojektleitungen in interdisziplinären Sicherheitsprojekten\n• Begleiten der Umsetzung von baulichen, technischen und organisatorischen Sicherheitsmassnahmen in Planung und Ausführung\n• Mitwirken bei Offerten, Workshops und Kundenpräsentationen\n• Unterstützung des Teamleiters bei fachlichen und strategischen Fragestellungen Das bringst du mit\n• Mehrjährige Erfahrung in der Sicherheitsberatung, Sicherheitsplanung oder Sicherheitsprojekten\n• Fähigkeit, Risiken und Anforderungen in praktikable und umsetzbare Lösungen zu übersetzen\n• Freude an konzeptionellen, analytischen und strategischen Fragestellungen sowie an der Zusammenarbeit mit Kund:innen und Projektpartnern\n• Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englisch von Vorteil\n• Interesse und die Bereitschaft, sich in neue Fachgebiete einzuarbeiten",
-        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et du génie civil tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Amstein + Walthert Sicherheits AG est un bureau de consultation et de planification neutre dans le domaine de la sécurité. Nous conseillons, planifions et accompagnons la mise en oeuvre de solutions de sécurité dans des projets de construction, d'infrastructure et d'exploitation difficiles. Nos collaborateurs soutiennent les clients depuis la première analyse jusqu'à la mise en œuvre réussie du projet. Vous accompagnez nos clients dans des questions stratégiques et conceptuelles concernant la sécurité. Vous analyserez les risques et les exigences, développerez des solutions de sécurité, des concepts de sécurité et des principes de prise de décision et accompagnerez leur mise en œuvre dans des projets difficiles. L'accent est mis sur l'analyse, la conception et la consultation, moins sur les tâches opérationnelles de sécurité. Ce sont vos tâches\n• Élaboration d'analyses de sécurité, de solutions de sécurité, de concepts de sécurité et de normes de sécurité\n• Conseiller les constructeurs, les opérateurs, les autorités et les équipes de projet\n• Coopération et prise en charge de la gestion des sous-projets dans les projets interdisciplinaires de sécurité\n• Accompagner la mise en œuvre de mesures de sécurité structurelles, techniques et organisationnelles dans la planification et l'exécution\n• Participation aux offres, ateliers et présentations des clients\n• Appui du chef d'équipe aux questions techniques et stratégiques Apporte ça avec toi.\n• Plusieurs années d'expérience dans le conseil en sécurité, la planification de la sécurité ou des projets de sécurité\n• Capacité de traduire les risques et les exigences en solutions viables et réalisables\n• Appréciation des questions conceptuelles, analytiques et stratégiques ainsi que de la coopération avec les clients : au sein des partenaires et des projets\n• Méthode de travail structurée, indépendante et axée sur la solution\n• Très bonne connaissance de l'allemand en paroles et en écriture; l'anglais est bénéfique\n• Intérêt et volonté de se familiariser avec de nouveaux domaines d'expertise"
-      },
-      "location": "Aarau",
-      "canton": "AG",
-      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sili2184.20/",
-      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:28.546Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "AG",
-      "streetAddress": "Bresteneggstrasse 5",
-      "postalCode": "5033",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ingegneria / Consulenza tecnica edile",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sili2184.20/",
-      "jobReqId": "SILI2184.20",
-      "slugDisambiguator": "sili218420",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
-        "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
-          "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau"
-        ],
-        "fr": [
-          "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:35:01.116Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -3820,7 +3678,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sili1731.27/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:28.311Z",
+      "crawledAt": "2026-09-29T09:14:39.428Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bresteneggstrasse 5",
@@ -3872,12 +3730,92 @@
       }
     },
     {
+      "id": "amstein-walthert-40ed1c863d8c",
+      "slug": "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau",
+      "slugByLocale": {
+        "it": "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau",
+        "en": "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
+        "de": "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
+        "fr": "consultant-securite-et-surete-80-100-amstein-walthert-ag-aarau-sili218420"
+      },
+      "company": "Amstein + Walthert AG",
+      "companyKey": "amstein-walthert",
+      "companyDomain": "amstein-walthert.ch",
+      "title": "Consultant Safety und Security 80-100%",
+      "titleByLocale": {
+        "it": "Consulente Safety e Security 80-100%",
+        "en": "Consultant Safety und Security 80-100%",
+        "de": "Berater Safety und Security 80-100%",
+        "fr": "Consultant Sécurité et sûreté 80-100 %"
+      },
+      "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit. Wir beraten, planen und begleiten die Umsetzung von Sicherheitslösungen in anspruchsvollen Bau-, Infrastruktur- und Betriebsprojekten. Unsere Mitarbeitenden unterstützen Kund:innen von der ersten Analyse bis zur erfolgreichen Umsetzung im Projekt. Was die Rolle ausmacht Du unterstützt unsere Kund:innen bei strategischen und konzeptionellen Fragestellungen rund um Safety und Security. Dabei analysierst du Risiken und Anforderungen, entwickelst Sicherheitslösungen, Sicherheitskonzepte sowie Entscheidungsgrundlagen und begleitest deren Umsetzung in anspruchsvollen Projekten. Der Schwerpunkt liegt auf Analyse, Konzeption und Beratung, weniger auf operativen Sicherheitsaufgaben. Das sind deine Aufgaben\n• Erarbeiten von Sicherheitsanalysen, Sicherheitslösungen, Sicherheitskonzepten und Sicherheitsstandards\n• Beraten von Bauherren, Betreibern, Behörden und Projektteams\n• Mitarbeit und Übernahme von Teilprojektleitungen in interdisziplinären Sicherheitsprojekten\n• Begleiten der Umsetzung von baulichen, technischen und organisatorischen Sicherheitsmassnahmen in Planung und Ausführung\n• Mitwirken bei Offerten, Workshops und Kundenpräsentationen\n• Unterstützung des Teamleiters bei fachlichen und strategischen Fragestellungen Das bringst du mit\n• Mehrjährige Erfahrung in der Sicherheitsberatung, Sicherheitsplanung oder Sicherheitsprojekten\n• Fähigkeit, Risiken und Anforderungen in praktikable und umsetzbare Lösungen zu übersetzen\n• Freude an konzeptionellen, analytischen und strategischen Fragestellungen sowie an der Zusammenarbeit mit Kund:innen und Projektpartnern\n• Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englisch von Vorteil\n• Interesse und die Bereitschaft, sich in neue Fachgebiete einzuarbeiten",
+      "descriptionByLocale": {
+        "it": "Amstein + Walthert è una società di ingegneria con circa 1100 dipendenti:innen. In quanto ingegneri, progettisti e consulenti, lavoriamo su tutti gli aspetti della tecnologia dell'ingegneria civile e dell'ingegneria civile sull'intero ciclo di vita. Le nostre soluzioni sono innovative, eleganti e sostenibili. Amstein + Walthert Sicherheits AG è un ufficio di consulenza e pianificazione neutrale nel campo della sicurezza. Consigliamo, pianifichiamo e accompagniamo l'implementazione di soluzioni di sicurezza in progetti costruttivi, infrastrutturali e operativi. I nostri dipendenti supportano i clienti dalla prima analisi alla riuscita attuazione del progetto. Supporti i nostri clienti in questioni strategiche e concettuali in materia di sicurezza e sicurezza. Analizzerai rischi e requisiti, svilupperai soluzioni di sicurezza, concetti di sicurezza e principi decisionali e accompagnerai la loro attuazione in progetti impegnativi. L'attenzione è rivolta all'analisi, alla concezione e alla consulenza, meno ai compiti di sicurezza operativa. Questi sono i tuoi compiti\n• Sviluppo di analisi di sicurezza, soluzioni di sicurezza, concetti di sicurezza e standard di sicurezza\n• Consulenza costruttori, operatori, autorità e team di progetto\n• Cooperazione e assunzione della gestione dei sottoprogetti in progetti di sicurezza interdisciplinari\n• Accompagnamento dell'attuazione delle misure di sicurezza strutturale, tecnica e organizzativa nella pianificazione e nell'esecuzione\n• Partecipazione a offerte, workshop e presentazioni dei clienti\n• Supporto del team leader in questioni tecniche e strategiche Lo porti con te.\n• Diversi anni di esperienza nella consulenza di sicurezza, pianificazione della sicurezza o progetti di sicurezza\n• Capacità di tradurre rischi e requisiti in soluzioni attuabili e attuabili\n• Godimento di domande concettuali, analitiche e strategiche, nonché cooperazione con i clienti: all'interno e partner di progetto\n• Metodo di lavoro strutturato, indipendente e orientato alla soluzione\n• Conoscenza molto buona del tedesco in parola e scrittura; l'inglese è vantaggioso\n• Interesse e disponibilità a conoscere nuove aree di competenza",
+        "en": "Amstein + Walthert is an engineering company with around 1100 employees:innen. As engineers, planners and consultants, we work on all aspects of the technology of civil engineering and civil engineering over the entire life cycle. Our solutions are innovative, elegant and sustainable. Amstein + Walthert Sicherheits AG is a neutral consulting and planning office in the field of security. We advise, plan and accompany the implementation of security solutions in challenging construction, infrastructure and operational projects. Our employees support customers from the first analysis to the successful implementation in the project. You support our customers in strategic and conceptual issues around safety and security. You will analyse risks and requirements, develop security solutions, security concepts and decision-making principles and accompany their implementation in challenging projects. The focus is on analysis, conception and consulting, less on operational security tasks. These are your tasks\n• Development of security analyses, security solutions, security concepts and security standards\n• Advising builders, operators, authorities and project teams\n• Cooperation and assumption of sub-project management in interdisciplinary security projects\n• Accompanying the implementation of structural, technical and organizational security measures in planning and execution\n• Participation in offers, workshops and customer presentations\n• Support of the team leader in technical and strategic issues You bring that with you\n• Several years of experience in security consulting, security planning or security projects\n• Ability to translate risks and requirements into viable and actionable solutions\n• Enjoyment of conceptual, analytical and strategic questions as well as cooperation with customers: within and project partners\n• Structured, independent and solution-oriented working method\n• Very good knowledge of German in word and writing; English is beneficial\n• Interest and willingness to become familiar with new areas of expertise",
+        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit. Wir beraten, planen und begleiten die Umsetzung von Sicherheitslösungen in anspruchsvollen Bau-, Infrastruktur- und Betriebsprojekten. Unsere Mitarbeitenden unterstützen Kund:innen von der ersten Analyse bis zur erfolgreichen Umsetzung im Projekt. Was die Rolle ausmacht Du unterstützt unsere Kund:innen bei strategischen und konzeptionellen Fragestellungen rund um Safety und Security. Dabei analysierst du Risiken und Anforderungen, entwickelst Sicherheitslösungen, Sicherheitskonzepte sowie Entscheidungsgrundlagen und begleitest deren Umsetzung in anspruchsvollen Projekten. Der Schwerpunkt liegt auf Analyse, Konzeption und Beratung, weniger auf operativen Sicherheitsaufgaben. Das sind deine Aufgaben\n• Erarbeiten von Sicherheitsanalysen, Sicherheitslösungen, Sicherheitskonzepten und Sicherheitsstandards\n• Beraten von Bauherren, Betreibern, Behörden und Projektteams\n• Mitarbeit und Übernahme von Teilprojektleitungen in interdisziplinären Sicherheitsprojekten\n• Begleiten der Umsetzung von baulichen, technischen und organisatorischen Sicherheitsmassnahmen in Planung und Ausführung\n• Mitwirken bei Offerten, Workshops und Kundenpräsentationen\n• Unterstützung des Teamleiters bei fachlichen und strategischen Fragestellungen Das bringst du mit\n• Mehrjährige Erfahrung in der Sicherheitsberatung, Sicherheitsplanung oder Sicherheitsprojekten\n• Fähigkeit, Risiken und Anforderungen in praktikable und umsetzbare Lösungen zu übersetzen\n• Freude an konzeptionellen, analytischen und strategischen Fragestellungen sowie an der Zusammenarbeit mit Kund:innen und Projektpartnern\n• Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englisch von Vorteil\n• Interesse und die Bereitschaft, sich in neue Fachgebiete einzuarbeiten",
+        "fr": "Amstein + Walthert est une société d'ingénierie avec environ 1100 employés:innen. En tant qu'ingénieurs, planificateurs et consultants, nous travaillons sur tous les aspects de la technologie du génie civil et du génie civil tout au long du cycle de vie. Nos solutions sont innovantes, élégantes et durables. Amstein + Walthert Sicherheits AG est un bureau de consultation et de planification neutre dans le domaine de la sécurité. Nous conseillons, planifions et accompagnons la mise en oeuvre de solutions de sécurité dans des projets de construction, d'infrastructure et d'exploitation difficiles. Nos collaborateurs soutiennent les clients depuis la première analyse jusqu'à la mise en œuvre réussie du projet. Vous accompagnez nos clients dans des questions stratégiques et conceptuelles concernant la sécurité. Vous analyserez les risques et les exigences, développerez des solutions de sécurité, des concepts de sécurité et des principes de prise de décision et accompagnerez leur mise en œuvre dans des projets difficiles. L'accent est mis sur l'analyse, la conception et la consultation, moins sur les tâches opérationnelles de sécurité. Ce sont vos tâches\n• Élaboration d'analyses de sécurité, de solutions de sécurité, de concepts de sécurité et de normes de sécurité\n• Conseiller les constructeurs, les opérateurs, les autorités et les équipes de projet\n• Coopération et prise en charge de la gestion des sous-projets dans les projets interdisciplinaires de sécurité\n• Accompagner la mise en œuvre de mesures de sécurité structurelles, techniques et organisationnelles dans la planification et l'exécution\n• Participation aux offres, ateliers et présentations des clients\n• Appui du chef d'équipe aux questions techniques et stratégiques Apporte ça avec toi.\n• Plusieurs années d'expérience dans le conseil en sécurité, la planification de la sécurité ou des projets de sécurité\n• Capacité de traduire les risques et les exigences en solutions viables et réalisables\n• Appréciation des questions conceptuelles, analytiques et stratégiques ainsi que de la coopération avec les clients : au sein des partenaires et des projets\n• Méthode de travail structurée, indépendante et axée sur la solution\n• Très bonne connaissance de l'allemand en paroles et en écriture; l'anglais est bénéfique\n• Intérêt et volonté de se familiariser avec de nouveaux domaines d'expertise"
+      },
+      "location": "Aarau",
+      "canton": "AG",
+      "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sili2184.20/",
+      "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:14:39.198Z",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "streetAddress": "Bresteneggstrasse 5",
+      "postalCode": "5033",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ingegneria / Consulenza tecnica edile",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sili2184.20/",
+      "jobReqId": "SILI2184.20",
+      "slugDisambiguator": "sili218420",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
+        "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420",
+          "consulente-safety-e-security-80-100-amstein-walthert-ag-aarau"
+        ],
+        "fr": [
+          "consultant-safety-und-security-80-100-amstein-walthert-aarau-sili218420"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:35:01.116Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "amstein-walthert-1eb73d08ec4d",
       "slug": "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-aarau",
       "slugByLocale": {
-        "de": "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866",
         "it": "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-aarau",
         "en": "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866",
+        "de": "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866",
         "fr": "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866"
       },
       "company": "Amstein + Walthert AG",
@@ -3885,16 +3823,16 @@
       "companyDomain": "amstein-walthert.ch",
       "title": "Projektleiter:in Sicherheits-Systeme 80-100%",
       "titleByLocale": {
-        "de": "Projektleiter:in Sicherheits-Systeme 80-100%",
         "it": "Responsabile di progetto Sicherheits-Systeme 80-100%",
         "en": "Project Manager Sicherheits-Systeme 80-100%",
+        "de": "Projektleiter:in Sicherheits-Systeme 80-100%",
         "fr": "Chef de projet Sicherheits-Systeme 80-100%"
       },
       "description": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit (Safety/Security). Wir bearbeiten als Ingenieur:innen und Planer:innen alle Aspekte der organisatorischen, baulichen und technischen Sicherheit von Objekten und beraten Behörden, Organisationen und Unternehmungen zu sämtlichen Sicherheitsthemen. Zusammen mit unseren Kund:innen entwickeln wir massgeschneiderte Lösungen. Das sind deine Aufgaben\n• Leitung und Umsetzung von Projekten im Bereich technischer Sicherheitssysteme\n• Planung und Koordination von Zutrittskontrollsystemen, Videoüberwachung, Ein- und Ausbruchmeldeanlagen sowie Perimeter- und Umfeldsicherheit\n• Verantwortung für Termine, Kosten und Qualität innerhalb der Projekte\n• Koordination und Führung von Lieferant:innen, Unternehmer:innen und Fachplaner:innen\n• Organisation und Leitung von Projekt- und Koordinationssitzungen\n• Erarbeiten und bearbeiten von Ausschreibungen, Evaluationen und Vergaben\n• Begleitung der Umsetzung bis zur Inbetriebnahme und Abnahme\n• Fachliche Ansprechperson für Bauherr:innen, Auftraggeber:innen und interne Teams Das bringst du mit\n• Grundausbildung im Bereich Elektrotechnik, Gebäudetechnik, Sicherheitstechnik oder vergleichbar\n• Mehrjährige Erfahrung in der Planung, Projektierung oder Umsetzung von Sicherheitssystemen\n• Erfahrung in der Projektierung oder Projektkoordination von Vorteil\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise\n• Fähigkeit, technische Zusammenhänge ganzheitlich zu erfassen und verständlich zu kommunizieren\n• Sicheres Auftreten im Umgang mit Kund:innen, Planer:innen und Unternehmer:innen\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse von Vorteil\n• Einen einwandfreien Leumund\n• Bereitschaft für Aus- und Weiterbildungen und projektbezogene Reisetätigkeit",
       "descriptionByLocale": {
-        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit (Safety/Security). Wir bearbeiten als Ingenieur:innen und Planer:innen alle Aspekte der organisatorischen, baulichen und technischen Sicherheit von Objekten und beraten Behörden, Organisationen und Unternehmungen zu sämtlichen Sicherheitsthemen. Zusammen mit unseren Kund:innen entwickeln wir massgeschneiderte Lösungen. Das sind deine Aufgaben\n• Leitung und Umsetzung von Projekten im Bereich technischer Sicherheitssysteme\n• Planung und Koordination von Zutrittskontrollsystemen, Videoüberwachung, Ein- und Ausbruchmeldeanlagen sowie Perimeter- und Umfeldsicherheit\n• Verantwortung für Termine, Kosten und Qualität innerhalb der Projekte\n• Koordination und Führung von Lieferant:innen, Unternehmer:innen und Fachplaner:innen\n• Organisation und Leitung von Projekt- und Koordinationssitzungen\n• Erarbeiten und bearbeiten von Ausschreibungen, Evaluationen und Vergaben\n• Begleitung der Umsetzung bis zur Inbetriebnahme und Abnahme\n• Fachliche Ansprechperson für Bauherr:innen, Auftraggeber:innen und interne Teams Das bringst du mit\n• Grundausbildung im Bereich Elektrotechnik, Gebäudetechnik, Sicherheitstechnik oder vergleichbar\n• Mehrjährige Erfahrung in der Planung, Projektierung oder Umsetzung von Sicherheitssystemen\n• Erfahrung in der Projektierung oder Projektkoordination von Vorteil\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise\n• Fähigkeit, technische Zusammenhänge ganzheitlich zu erfassen und verständlich zu kommunizieren\n• Sicheres Auftreten im Umgang mit Kund:innen, Planer:innen und Unternehmer:innen\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse von Vorteil\n• Einen einwandfreien Leumund\n• Bereitschaft für Aus- und Weiterbildungen und projektbezogene Reisetätigkeit",
         "it": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit (Safety/Security). Wir bearbeiten als Ingenieur:innen und Planer:innen alle Aspekte der organisatorischen, baulichen und technischen Sicherheit von Objekten und beraten Behörden, Organisationen und Unternehmungen zu sämtlichen Sicherheitsthemen. Zusammen mit unseren Kund:innen entwickeln wir massgeschneiderte Lösungen. Das sind deine Aufgaben\n• Leitung und Umsetzung von Projekten im Bereich technischer Sicherheitssysteme\n• Planung und Koordination von Zutrittskontrollsystemen, Videoüberwachung, Ein- und Ausbruchmeldeanlagen sowie Perimeter- und Umfeldsicherheit\n• Verantwortung für Termine, Kosten und Qualität innerhalb der Projekte\n• Koordination und Führung von Lieferant:innen, Unternehmer:innen und Fachplaner:innen\n• Organisation und Leitung von Projekt- und Koordinationssitzungen\n• Erarbeiten und bearbeiten von Ausschreibungen, Evaluationen und Vergaben\n• Begleitung der Umsetzung bis zur Inbetriebnahme und Abnahme\n• Fachliche Ansprechperson für Bauherr:innen, Auftraggeber:innen und interne Teams Das bringst du mit\n• Grundausbildung im Bereich Elektrotechnik, Gebäudetechnik, Sicherheitstechnik oder vergleichbar\n• Mehrjährige Erfahrung in der Planung, Projektierung oder Umsetzung von Sicherheitssystemen\n• Erfahrung in der Projektierung oder Projektkoordination von Vorteil\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise\n• Fähigkeit, technische Zusammenhänge ganzheitlich zu erfassen und verständlich zu kommunizieren\n• Sicheres Auftreten im Umgang mit Kund:innen, Planer:innen und Unternehmer:innen\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse von Vorteil\n• Einen einwandfreien Leumund\n• Bereitschaft für Aus- und Weiterbildungen und projektbezogene Reisetätigkeit",
         "en": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit (Safety/Security). Wir bearbeiten als Ingenieur:innen und Planer:innen alle Aspekte der organisatorischen, baulichen und technischen Sicherheit von Objekten und beraten Behörden, Organisationen und Unternehmungen zu sämtlichen Sicherheitsthemen. Zusammen mit unseren Kund:innen entwickeln wir massgeschneiderte Lösungen. Das sind deine Aufgaben\n• Leitung und Umsetzung von Projekten im Bereich technischer Sicherheitssysteme\n• Planung und Koordination von Zutrittskontrollsystemen, Videoüberwachung, Ein- und Ausbruchmeldeanlagen sowie Perimeter- und Umfeldsicherheit\n• Verantwortung für Termine, Kosten und Qualität innerhalb der Projekte\n• Koordination und Führung von Lieferant:innen, Unternehmer:innen und Fachplaner:innen\n• Organisation und Leitung von Projekt- und Koordinationssitzungen\n• Erarbeiten und bearbeiten von Ausschreibungen, Evaluationen und Vergaben\n• Begleitung der Umsetzung bis zur Inbetriebnahme und Abnahme\n• Fachliche Ansprechperson für Bauherr:innen, Auftraggeber:innen und interne Teams Das bringst du mit\n• Grundausbildung im Bereich Elektrotechnik, Gebäudetechnik, Sicherheitstechnik oder vergleichbar\n• Mehrjährige Erfahrung in der Planung, Projektierung oder Umsetzung von Sicherheitssystemen\n• Erfahrung in der Projektierung oder Projektkoordination von Vorteil\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise\n• Fähigkeit, technische Zusammenhänge ganzheitlich zu erfassen und verständlich zu kommunizieren\n• Sicheres Auftreten im Umgang mit Kund:innen, Planer:innen und Unternehmer:innen\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse von Vorteil\n• Einen einwandfreien Leumund\n• Bereitschaft für Aus- und Weiterbildungen und projektbezogene Reisetätigkeit",
+        "de": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit (Safety/Security). Wir bearbeiten als Ingenieur:innen und Planer:innen alle Aspekte der organisatorischen, baulichen und technischen Sicherheit von Objekten und beraten Behörden, Organisationen und Unternehmungen zu sämtlichen Sicherheitsthemen. Zusammen mit unseren Kund:innen entwickeln wir massgeschneiderte Lösungen. Das sind deine Aufgaben\n• Leitung und Umsetzung von Projekten im Bereich technischer Sicherheitssysteme\n• Planung und Koordination von Zutrittskontrollsystemen, Videoüberwachung, Ein- und Ausbruchmeldeanlagen sowie Perimeter- und Umfeldsicherheit\n• Verantwortung für Termine, Kosten und Qualität innerhalb der Projekte\n• Koordination und Führung von Lieferant:innen, Unternehmer:innen und Fachplaner:innen\n• Organisation und Leitung von Projekt- und Koordinationssitzungen\n• Erarbeiten und bearbeiten von Ausschreibungen, Evaluationen und Vergaben\n• Begleitung der Umsetzung bis zur Inbetriebnahme und Abnahme\n• Fachliche Ansprechperson für Bauherr:innen, Auftraggeber:innen und interne Teams Das bringst du mit\n• Grundausbildung im Bereich Elektrotechnik, Gebäudetechnik, Sicherheitstechnik oder vergleichbar\n• Mehrjährige Erfahrung in der Planung, Projektierung oder Umsetzung von Sicherheitssystemen\n• Erfahrung in der Projektierung oder Projektkoordination von Vorteil\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise\n• Fähigkeit, technische Zusammenhänge ganzheitlich zu erfassen und verständlich zu kommunizieren\n• Sicheres Auftreten im Umgang mit Kund:innen, Planer:innen und Unternehmer:innen\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse von Vorteil\n• Einen einwandfreien Leumund\n• Bereitschaft für Aus- und Weiterbildungen und projektbezogene Reisetätigkeit",
         "fr": "Amstein + Walthert ist ein Ingenieurunternehmen mit rund 1100 Mitarbeiter:innen. Wir bearbeiten als Ingenieur:innen, Planer:innen und Consultants sämtliche Aspekte der Technik von Hoch- und Tiefbauten und dies über den ganzen Lebenszyklus. Unsere Lösungen sind innovativ, elegant und nachhaltig. Amstein + Walthert Sicherheit AG ist ein neutrales Beratungs- und Planungsbüro auf dem Gebiet der Sicherheit (Safety/Security). Wir bearbeiten als Ingenieur:innen und Planer:innen alle Aspekte der organisatorischen, baulichen und technischen Sicherheit von Objekten und beraten Behörden, Organisationen und Unternehmungen zu sämtlichen Sicherheitsthemen. Zusammen mit unseren Kund:innen entwickeln wir massgeschneiderte Lösungen. Das sind deine Aufgaben\n• Leitung und Umsetzung von Projekten im Bereich technischer Sicherheitssysteme\n• Planung und Koordination von Zutrittskontrollsystemen, Videoüberwachung, Ein- und Ausbruchmeldeanlagen sowie Perimeter- und Umfeldsicherheit\n• Verantwortung für Termine, Kosten und Qualität innerhalb der Projekte\n• Koordination und Führung von Lieferant:innen, Unternehmer:innen und Fachplaner:innen\n• Organisation und Leitung von Projekt- und Koordinationssitzungen\n• Erarbeiten und bearbeiten von Ausschreibungen, Evaluationen und Vergaben\n• Begleitung der Umsetzung bis zur Inbetriebnahme und Abnahme\n• Fachliche Ansprechperson für Bauherr:innen, Auftraggeber:innen und interne Teams Das bringst du mit\n• Grundausbildung im Bereich Elektrotechnik, Gebäudetechnik, Sicherheitstechnik oder vergleichbar\n• Mehrjährige Erfahrung in der Planung, Projektierung oder Umsetzung von Sicherheitssystemen\n• Erfahrung in der Projektierung oder Projektkoordination von Vorteil\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise\n• Fähigkeit, technische Zusammenhänge ganzheitlich zu erfassen und verständlich zu kommunizieren\n• Sicheres Auftreten im Umgang mit Kund:innen, Planer:innen und Unternehmer:innen\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse von Vorteil\n• Einen einwandfreien Leumund\n• Bereitschaft für Aus- und Weiterbildungen und projektbezogene Reisetätigkeit"
       },
       "location": "Aarau",
@@ -3902,7 +3840,7 @@
       "url": "https://amstein-walthert.ch/de/uber-w/w-als-arbeitgeber/offene-stellen/sili318.66/",
       "source": "Amstein + Walthert AG Dedicated Parser (bespoke in-house CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:28.055Z",
+      "crawledAt": "2026-09-29T09:14:38.942Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bresteneggstrasse 5",
@@ -3921,29 +3859,30 @@
       "jobReqId": "SILI318.66",
       "slugDisambiguator": "sili31866",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866",
+        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31864",
+        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31862",
+        "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-zurich",
+        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-zurich-tako45395",
+        "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-aarau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866",
           "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31864",
           "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31862",
           "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-zurich",
-          "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-zurich-tako45395"
+          "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-zurich-tako45395",
+          "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-aarau"
         ],
         "en": [
           "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31864"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31866",
-        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31864",
-        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-aarau-sili31862",
-        "responsabile-di-progetto-sicherheits-systeme-80-100-amstein-walthert-ag-zurich",
-        "projektleiter-in-sicherheits-systeme-80-100-amstein-walthert-zurich-tako45395"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-07T15:03:08.739Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -3956,8 +3895,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-07T15:03:08.739Z"
+      }
     }
   ]
 }

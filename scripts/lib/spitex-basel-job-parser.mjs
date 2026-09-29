@@ -40,6 +40,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://www.spitexbasel.ch/Stellen-und-Bildung/Offene-Stellen/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.spitexbasel.ch', 'www.spitexbasel.ch'],
+  // Listing payload = 32 % of the rendered vacancy (audit 2026-09-29):
+  // "Was du bei uns findest" and the employer paragraph exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 /**

@@ -1,16 +1,18 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-09-28T21:11:53.128Z",
+  "generatedAt": "2026-09-29T10:20:24.850Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2337,
-  "avgDurationMs": 2337,
+  "durationMs": 2690,
+  "avgDurationMs": 2690,
   "durationHistory": [
-    2337
+    2430,
+    2381,
+    2690
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +71,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -91,46 +93,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Junior Facility Manager",
-      "slug": "responsabile-struttura-junior-tarchini-group-mendrisio",
-      "url": "https://www.tarchinigroup.com/it/work/1531/junior-facility-manager",
-      "applyUrl": "https://www.tarchinigroup.com/it/work/1531/junior-facility-manager",
-      "company": "Tarchini Group",
-      "companyKey": "tarchini-group",
-      "companyDomain": "tarchinigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Immobiliare",
-      "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6850",
-      "id": "tarchini-group-12e715eba42b",
-      "firstSeenAt": "2026-04-13T22:32:13.614Z",
-      "salarySource": "reported",
-      "applicationEmail": "info@tarchinigroup.com",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1549,16 +1549,38 @@ jobs:
           done
           if [ -n "$reason" ]; then
             echo "::error::$reason dopo il claim finale e prima di Codex: nessun fixer Claude."
-            echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
-            if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
-              if "$TRUSTED_GH_BIN" api --method DELETE \
-                "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
-                echo "Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
-              else
-                echo "::warning::Impossibile cancellare marker REDFLAG_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
-              fi
+            # Il refund è sicuro solo se la PR e la sua head virtuale sono
+            # ancora osservabili. Se il branch sparisce o GitHub è in una
+            # finestra incoerente, conserviamo il marker e lasciamo il claim
+            # retryable: cancellarlo qui perderebbe il solo wake-up utile.
+            refund_state=''
+            refund_ref_available='false'
+            refund_snapshot=''
+            if refund_snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null) \
+               && printf '%s' "$refund_snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.head.sha | type) == "string"' >/dev/null 2>&1; then
+              refund_state=$(printf '%s' "$refund_snapshot" | jq -r '.state')
+            fi
+            if timeout 30 git ls-remote --exit-code origin "refs/pull/$PR_NUMBER/head" >/dev/null 2>&1; then
+              refund_ref_available='true'
+            fi
+            if [ "$refund_state" = 'closed' ]; then
+              echo 'CLAIM_STATUS=failed-terminal' >> "$GITHUB_ENV"
+              echo "::error::REMOTE_HEAD_CLOSED: PR #$PR_NUMBER è stata chiusa durante il refund del marker; nessun rimborso ambiguo e nessun fixer Claude."
+            elif [ "$refund_state" != 'open' ] || [ "$refund_ref_available" != 'true' ]; then
+              echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"
+              echo "::error::REMOTE_HEAD_UNVERIFIED: impossibile verificare la head della PR durante il refund (state=${refund_state:-<vuoto>} ref=$refund_ref_available); marker REDFLAG_FIX_ROUND conservato per il retry."
             else
-              echo "::warning::Marker REDFLAG_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+              echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+              if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
+                if "$TRUSTED_GH_BIN" api --method DELETE \
+                  "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
+                  echo "Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
+                else
+                  echo "::warning::Impossibile cancellare marker REDFLAG_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
+                fi
+              else
+                echo "::warning::Marker REDFLAG_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+              fi
             fi
             echo 'snapshot_valid=false' >> "$GITHUB_OUTPUT"
             exit 1
@@ -1912,40 +1934,40 @@ jobs:
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
           # Head remota verificata prima di classificare (#9730, come corpus
-          # #1771). Un fetch fallito lascerebbe origin/$HEAD_REF alla
-          # fotografia dello step align; una head che avanza fra fetch e
-          # lettura darebbe una fotografia intermedia. In entrambi i casi
-          # SUCCESS e SUPERSEDED (claim released) sarebbero decisi su una head
-          # non verificata. Si classifica solo su uno SHA confermato da due
-          # letture concordi (fetch con refspec esplicito + ls-remote), con
-          # retry bounded e backoff; altrimenti errore esplicito PRIMA di ogni
-          # ramo che scrive stato: niente SUPERSEDED, niente released, marker
-          # di round conservato. Ogni comando di rete ha un timeout proprio (il
-          # timeout del job non deve decidere l'esito) e l'esito transitorio
-          # viene esportato come CLAIM_STATUS=failed-transient: il finalize
-          # (`pr-fixer-claim.mjs --claim`, CLAIM_ACTION=finalize) lo eredita
-          # invece di ricostruire uno stato terminale dall'outcome dell'azione,
-          # quindi il claim resta retryable.
+          # #1771). Il ref della branch locale non basta: una PR da fork non
+          # espone necessariamente refs/heads/$HEAD_REF su origin. Il ref
+          # virtuale refs/pull/$PR_NUMBER/head è invece il confine GitHub
+          # verificabile per entrambe le origini.
+          #
+          # Un fetch fallito, una head che avanza fra le letture o una PR chiusa
+          # durante il recheck non devono diventare SUCCESS/SUPERSEDED su una
+          # fotografia stantia. Le prime due classi restano failed-transient
+          # (retryable); la chiusura confermata è failed-terminal, perché non
+          # esiste più un fixer da ritentare. Prima di ogni ramo che scrive
+          # stato si richiedono anche una seconda lettura del ref remoto e uno
+          # snapshot PR coerente con quello SHA.
           REMOTE_SHA=""
+          REMOTE_REF="refs/pull/$PR_NUMBER/head"
+          REMOTE_TRACKING_REF="refs/remotes/origin/pr/$PR_NUMBER/head"
           remote_head_attempts=3
           remote_head_attempt=1
           while [ "$remote_head_attempt" -le "$remote_head_attempts" ]; do
             fetched_sha=""
             reread_sha=""
-            if timeout 60 git fetch --no-tags -q origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"; then
-              fetched_sha=$(git rev-parse --verify --quiet "refs/remotes/origin/$HEAD_REF^{commit}" 2>/dev/null) || fetched_sha=""
+            if timeout 60 git fetch --no-tags -q origin "+$REMOTE_REF:$REMOTE_TRACKING_REF"; then
+              fetched_sha=$(git rev-parse --verify --quiet "$REMOTE_TRACKING_REF^{commit}" 2>/dev/null) || fetched_sha=""
               # Una rilettura che esce non-zero conta come fallita anche se ha
               # stampato una riga: si usa l'output solo con exit 0.
-              if ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "refs/heads/$HEAD_REF" 2>/dev/null); then
+              if ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "$REMOTE_REF" 2>/dev/null); then
                 reread_sha=$(printf '%s\n' "$ls_remote_out" | awk 'NR == 1 { print $1 }')
               fi
               if [ -n "$fetched_sha" ] && [ "$fetched_sha" = "$reread_sha" ]; then
                 REMOTE_SHA="$fetched_sha"
                 break
               fi
-              echo "::warning::head remota di $HEAD_REF non stabile (tentativo $remote_head_attempt/$remote_head_attempts): fetch=${fetched_sha:-<vuoto>} rilettura=${reread_sha:-<vuoto>}"
+              echo "::warning::head remota di $REMOTE_REF non stabile (tentativo $remote_head_attempt/$remote_head_attempts): fetch=${fetched_sha:-<vuoto>} rilettura=${reread_sha:-<vuoto>}"
             else
-              echo "::warning::git fetch di $HEAD_REF fallito (tentativo $remote_head_attempt/$remote_head_attempts)"
+              echo "::warning::git fetch di $REMOTE_REF fallito (tentativo $remote_head_attempt/$remote_head_attempts)"
             fi
             if [ "$remote_head_attempt" -lt "$remote_head_attempts" ]; then
               sleep $((remote_head_attempt * 5))
@@ -1953,12 +1975,50 @@ jobs:
             remote_head_attempt=$((remote_head_attempt + 1))
           done
           if [ -z "$REMOTE_SHA" ]; then
-            CLAIM_STATUS=failed-transient
-            export CLAIM_STATUS
-            if [ -n "${GITHUB_ENV:-}" ]; then
-              echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"
+            pr_state=''
+            if pr_state=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.state' 2>/dev/null) \
+               && [ "$pr_state" = 'closed' ]; then
+              CLAIM_STATUS=failed-terminal
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-terminal' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_CLOSED: PR #$PR_NUMBER è chiusa e la sua head non è più verificabile → classificazione terminale, nessun SUCCESS/SUPERSEDED."
+            else
+              CLAIM_STATUS=failed-transient
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_UNVERIFIED: head remota di $REMOTE_REF non determinabile dopo $remote_head_attempts tentativi (fetch fallito o head cambiata fra le letture) → classificazione BLOCCANTE, job ROSSO. Nessun SUCCESS, nessun SUPERSEDED: il marker di round resta contato; claim failed-transient (retryable)."
             fi
-            echo "::error::REMOTE_HEAD_UNVERIFIED: head remota di $HEAD_REF non determinabile dopo $remote_head_attempts tentativi (fetch fallito o head cambiata fra le letture) → classificazione BLOCCANTE, job ROSSO. Nessun SUCCESS, nessun SUPERSEDED: il marker di round resta contato; claim failed-transient (retryable)."
+            exit 1
+          fi
+          # L'ultimo fetch+ls-remote prova la stabilità del ref, ma non
+          # certifica che la PR sia ancora aperta né che GitHub non l'abbia
+          # avanzata subito dopo. Prima di SUCCESS/SUPERSEDED rileggi entrambe
+          # le superfici; ogni divergenza resta retryable (o terminale se la PR
+          # è ormai chiusa), senza rimborsare un round su dati vecchi.
+          final_remote_sha=''
+          final_pr_state=''
+          final_pr_head=''
+          if final_ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "$REMOTE_REF" 2>/dev/null); then
+            final_remote_sha=$(printf '%s\n' "$final_ls_remote_out" | awk 'NR == 1 { print $1 }')
+          fi
+          final_pr_snapshot=''
+          if final_pr_snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null) \
+             && printf '%s' "$final_pr_snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.head.sha | type) == "string"' >/dev/null 2>&1; then
+            final_pr_state=$(printf '%s' "$final_pr_snapshot" | jq -r '.state')
+            final_pr_head=$(printf '%s' "$final_pr_snapshot" | jq -r '.head.sha')
+          fi
+          if [ "$final_pr_state" != 'open' ] || [ -z "$final_remote_sha" ] || [ "$final_remote_sha" != "$REMOTE_SHA" ] || [ "$final_pr_head" != "$final_remote_sha" ]; then
+            if [ "$final_pr_state" = 'closed' ]; then
+              CLAIM_STATUS=failed-terminal
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-terminal' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_CLOSED: PR #$PR_NUMBER è stata chiusa durante il recheck finale → nessun SUCCESS/SUPERSEDED; claim terminale."
+            else
+              CLAIM_STATUS=failed-transient
+              export CLAIM_STATUS
+              if [ -n "${GITHUB_ENV:-}" ]; then echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"; fi
+              echo "::error::REMOTE_HEAD_UNVERIFIED: la head è cambiata o non è verificabile nel recheck finale (remote=${final_remote_sha:-<vuoto>} iniziale=$REMOTE_SHA pr=${final_pr_head:-<vuoto>} state=${final_pr_state:-<vuoto>}) → nessun SUCCESS/SUPERSEDED, claim retryable."
+            fi
             exit 1
           fi
           echo "start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"

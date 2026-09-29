@@ -14,8 +14,9 @@
  *
  * Logic:
  *   - Reads data/jobs.json → builds sets of kept URL identities, slugs and IDs
- *   - For each slice in data/jobs/by-crawler/, removes any job absent from all
- *     kept sets (i.e., was pruned by the monolithic dedup pass)
+ *   - For each slice in data/jobs/by-crawler/, considers jobs absent from all
+ *     kept sets, but removes only records with positive cross-crawler dedup
+ *     evidence; assembly-only omissions remain fail-closed in the slice
  *   - Reports which jobs were pruned and from which slices
  *   - Writes back only modified slices
  *
@@ -29,6 +30,10 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
+import {
+  isProvenCrossCrawlerDedupRemoval,
+  loadCrossCrawlerDedupProofFile,
+} from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -38,6 +43,14 @@ function readJson(filePath, fallback) {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
   } catch {
     return fallback;
+  }
+}
+
+function readRaw(filePath) {
+  try {
+    return fs.readFileSync(filePath, 'utf8');
+  } catch {
+    return null;
   }
 }
 
@@ -79,10 +92,21 @@ export function filterSliceJobs(original, assembled) {
 export function pruneDedupFromSlices(root = ROOT) {
   const dataJobs = path.join(root, 'data', 'jobs.json');
   const slicesDir = path.join(root, 'data', 'jobs', 'by-crawler');
+  const assembledRaw = readRaw(dataJobs);
   const assembled = readJson(dataJobs, null);
   if (!Array.isArray(assembled)) {
     console.log('ℹ️  data/jobs.json not found or not an array — nothing to prune. Run assemble-jobs-dataset.mjs first.');
     return { totalPruned: 0, modifiedSlices: 0 };
+  }
+
+  let dedupProof = null;
+  try {
+    dedupProof = loadCrossCrawlerDedupProofFile({ candidateRaw: assembledRaw });
+    if (dedupProof) {
+      console.log(`🔐 Loaded ${dedupProof.entries.length} monolithic dedup proof decision(s)`);
+    }
+  } catch (error) {
+    console.warn(`⚠️  Ignoring unavailable monolithic dedup proof: ${error?.message ?? error}`);
   }
 
   const membership = buildAssembledMembership(assembled);
@@ -94,6 +118,8 @@ export function pruneDedupFromSlices(root = ROOT) {
   }
 
   const sliceFiles = listSliceFileNames(slicesDir);
+  const dedupReferenceJobs = assembled.slice();
+  if (dedupProof) dedupReferenceJobs.proof = dedupProof;
 
   let totalPruned = 0;
   let modifiedSlices = 0;
@@ -104,22 +130,40 @@ export function pruneDedupFromSlices(root = ROOT) {
     if (!slice || !Array.isArray(slice.jobs)) continue;
 
     const original = slice.jobs;
-    const kept = original.filter((job) => isJobInAssembledDataset(job, membership));
+    const absentJobs = original.filter((job) => !isJobInAssembledDataset(job, membership));
+    const prunedJobs = [];
+    const unprovenJobs = [];
+    for (const job of absentJobs) {
+      if (isProvenCrossCrawlerDedupRemoval(slicePath, job, dedupReferenceJobs)) {
+        prunedJobs.push(job);
+      } else {
+        unprovenJobs.push(job);
+      }
+    }
+    const pruned = prunedJobs.length;
 
-    const pruned = original.length - kept.length;
+    if (unprovenJobs.length > 0) {
+      console.warn(
+        `⚠️  ${file}: retained ${unprovenJobs.length} absent record(s) without positive `
+        + 'cross-crawler dedup proof; assembly-only filtering stays fail-closed',
+      );
+    }
+
     if (pruned > 0) {
-      const prunedJobs = original.filter((j) => !kept.includes(j));
-      console.log(`🗑️  ${file}: pruned ${pruned} cross-crawler duplicate(s):`);
+      const prunedSet = new Set(prunedJobs);
+      const kept = original.filter((job) => !prunedSet.has(job));
+      console.log(`🗑️  ${file}: pruned ${pruned} proven cross-crawler duplicate(s):`);
       for (const j of prunedJobs.slice(0, 5)) {
         console.log(`   - ${j.id || '?'} "${j.title || '?'}" @ ${j.company || '?'}`);
       }
       if (prunedJobs.length > 5) {
         console.log(`   ... and ${prunedJobs.length - 5} more`);
       }
-      // The assembled dataset is the evidence that the removed records were
-      // cross-crawler duplicates. Pass it to the shared byte guard explicitly;
-      // an ordinary crawler write remains fail-closed on the same shrink.
-      writeJson(slicePath, { ...slice, jobs: kept }, { dedupReferenceJobs: assembled });
+      // The assembled dataset plus the run-bound sidecar is the evidence that
+      // these specific records were cross-crawler duplicates. Unproven absent
+      // records stay in the slice, so an assembly filter cannot masquerade as
+      // a destructive dedup rewrite.
+      writeJson(slicePath, { ...slice, jobs: kept }, { dedupReferenceJobs });
       modifiedSlices++;
       totalPruned += pruned;
     }
