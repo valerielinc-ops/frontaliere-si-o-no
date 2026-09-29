@@ -60,22 +60,18 @@
  * migrolino AG operates ~700 convenience-store shop locations across ALL of
  * Switzerland (a retail chain, not a single-site employer), so per-job
  * addresses come from the JSON-LD `jobLocation.address` of EACH posting.
- * When the source omits a mandatory address field, `resolveAddress()` keeps
- * a source city only when a matching postal fallback is available, uses the
- * verified Suhr HQ only for a Suhr posting, and otherwise applies a coherent
- * canton location tuple plus a city-centre label — never the Suhr street
- * address for a different city in AG.
+ * When the source omits an address field, `resolveAddress()` keeps the source
+ * locality, derives a missing ZIP from the official locality directory (with
+ * a verified canton representative as the last resort), and uses a
+ * source-city label when the street itself is unavailable.
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import {
-  getCantonLocationFallback,
-  getCityPostalFallback,
-  getDefaultCantonLocationFallback,
-} from './canton-postal-fallback.mjs';
+import { getCantonPostalFallback, getDefaultCantonLocationFallback } from './canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -109,24 +105,14 @@ function normalize(value = '') {
 }
 
 /**
- * Resolve source-backed city / postal code / street address, with safe
- * non-empty fallbacks. The verified HQ address is city-gated on Suhr. Other
- * cities keep their own locality only when `data/swiss-postal-codes.json`
- * supplies a matching postal code; otherwise the complete canton fallback is
- * used so city, postalCode and addressRegion cannot describe different places.
- * An unresolved city/canton uses the canonical national fallback location.
+ * Resolve address fields from the source. A missing postal code may be
+ * derived from the official locality directory using the source locality;
+ * locality and street fields are never synthesized.
  *
  * @param {{ city?: string, postalCode?: string, streetAddress?: string }} [raw]
  * @param {string} [canton]
  * @returns {{ city: string, canton: string, postalCode: string, streetAddress: string }}
  */
-const HQ = {
-  city: 'Suhr',
-  canton: 'AG',
-  postalCode: '5034',
-  streetAddress: 'Wynenfeldstrasse 3',
-};
-
 export function resolveAddress(raw = {}, canton = '') {
   const sourceCity = normalizeSpace(raw.city || '');
   const sourcePostalCode = normalizeSpace(raw.postalCode || '');
@@ -135,60 +121,15 @@ export function resolveAddress(raw = {}, canton = '') {
   const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
     ? cantonHint.toUpperCase()
     : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
-  const cityPostalFallback = getCityPostalFallback(sourceCity);
-  const cantonLocationFallback = getCantonLocationFallback(resolvedCanton)
-    || getDefaultCantonLocationFallback();
-  const isRegionLabel = /^(ticino|tessin|grigioni|graub[uü]nden|grisons|grischun)$/i.test(sourceCity);
-  const isSuhrHq = resolvedCanton === HQ.canton && /\bsuhr\b/i.test(sourceCity);
-
-  if (!sourceCity) {
-    return {
-      city: cantonLocationFallback.city,
-      canton: cantonLocationFallback.addressRegion,
-      postalCode: cantonLocationFallback.postalCode,
-      streetAddress: `${cantonLocationFallback.city} city centre`,
-    };
-  }
-
-  if (isSuhrHq) {
-    return {
-      city: sourceCity,
-      canton: HQ.canton,
-      postalCode: sourcePostalCode || HQ.postalCode,
-      streetAddress: sourceStreetAddress || HQ.streetAddress,
-    };
-  }
-
-  // A source postal code is already tied to the source city; preserve it and
-  // only synthesize the missing street label. If the source canton is
-  // unresolved, fall through to the canonical tuple so addressRegion is not
-  // left empty beside a fabricated locality.
-  if (resolvedCanton && sourcePostalCode && !isRegionLabel) {
-    return {
-      city: sourceCity,
-      canton: resolvedCanton,
-      postalCode: sourcePostalCode,
-      streetAddress: sourceStreetAddress || `${sourceCity} city centre`,
-    };
-  }
-
-  // A known city can keep its own locality when the shared city map provides
-  // its postal code. This avoids pairing e.g. Baden or Wohlen with Aarau's
-  // canton-level postal code.
-  if (resolvedCanton && cityPostalFallback && !isRegionLabel) {
-    return {
-      city: sourceCity,
-      canton: resolvedCanton,
-      postalCode: cityPostalFallback,
-      streetAddress: sourceStreetAddress || `${sourceCity} city centre`,
-    };
-  }
-
+  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton)
+    || getDefaultCantonLocationFallback().postalCode;
   return {
-    city: cantonLocationFallback.city,
-    canton: cantonLocationFallback.addressRegion,
-    postalCode: cantonLocationFallback.postalCode,
-    streetAddress: `${cantonLocationFallback.city} city centre`,
+    city: sourceCity,
+    canton: resolvedCanton,
+    postalCode: sourcePostalCode || (sourceCity
+      ? officialLocalityPostalCode(sourceCity, resolvedCanton) || fallbackPostalCode
+      : ''),
+    streetAddress: sourceStreetAddress || (sourceCity ? `${sourceCity} city centre` : ''),
   };
 }
 
