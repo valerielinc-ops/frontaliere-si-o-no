@@ -108,6 +108,45 @@ describe('extractProspectiveDetailText', () => {
   });
 });
 
+describe('extractProspectiveDetailText — links to a map service', () => {
+  it('drops the label-only "Auf Google Maps öffnen" button of UPD and keeps the workplace address', () => {
+    const text = extractProspectiveDetailText(fixture('upd-maps-button.html'), {});
+    expect(text).not.toContain('Auf Google Maps öffnen');
+    expect(text).toContain('## Dein Arbeitsort');
+    expect(text).toContain('Universitäre Psychiatrische Dienste Bern, Murtenstrasse 21, 3008 Bern');
+    expect(text).not.toMatch(/Leo Muster|Noah Beispiel/);
+  });
+
+  it('drops route/map buttons whatever their label (Equans "Prise en compte du temps de trajet")', () => {
+    const text = extractProspectiveDetailText(fixture('equans-technicien-cvc.html'), { title: EQUANS_TITLE });
+    expect(text).not.toContain('Prise en compte du temps de trajet');
+  });
+
+  it('keeps a map link whose label is the address itself (SWICA template)', () => {
+    const text = extractProspectiveDetailText(
+      '<html><body><h3>Dein Arbeitsort</h3>'
+        + '<a class="stand-alone" href="https://www.google.com/maps/search/?api=1&query=Z%C3%BCrcherstrasse%2031">'
+        + 'Zürcherstrasse 31, 8401 Winterthur</a>'
+        + '<h3>Warum wir</h3><ul><li>Kita vor Ort</li></ul></body></html>',
+      {},
+    );
+    expect(text).toContain('Dein Arbeitsort: Zürcherstrasse 31, 8401 Winterthur');
+    expect(text).toContain('• Kita vor Ort');
+  });
+
+  it('prints an address repeated as its own heading once, not as "X: X" (PBL "Ihr Arbeitsort")', () => {
+    const text = extractProspectiveDetailText(
+      '<html><body><h3>Ihre Aufgaben</h3><ul><li>Betreuung</li></ul>'
+        + '<h3>Bienentalstrasse 7, 4410 Liestal</h3>'
+        + '<a href="https://maps.google.com/?q=Bienentalstrasse 7, 4410 Liestal"><small>Grösser Karte anzeigen</small></a>'
+        + '<p>Bienentalstrasse 7, 4410 Liestal</p></body></html>',
+      {},
+    );
+    expect(text).not.toContain('Grösser Karte anzeigen');
+    expect(text.split('\n').filter((line) => line.includes('Bienentalstrasse 7'))).toEqual(['Bienentalstrasse 7, 4410 Liestal']);
+  });
+});
+
 describe('selectProspectiveDetailDescription', () => {
   it('returns the page text when it contains the listing text', () => {
     const html = fixture('equans-technicien-cvc.html');

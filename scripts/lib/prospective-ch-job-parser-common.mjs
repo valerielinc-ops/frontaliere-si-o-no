@@ -297,12 +297,19 @@ const DETAIL_CHROME_TOKEN_RX = /cookie|consent|onetrust|share|social|breadcrumb|
 // `video`, `image-gallery`, `map` are widgets, `videoTextArea` (Livit's
 // "about us" copy next to a video) is not.
 const DETAIL_MEDIA_TOKEN_RX = /(?:^|[-_])(?:video|gallery|logo|map|maps)(?:$|[-_])/i;
+// A link to a map service is a route/"open in Maps" button, whatever its label
+// says in whatever language ("Auf Google Maps öffnen" on UPD, "Arbeitsweg
+// berechnen" on asana/Lindenhof, "Prise en compte du temps de trajet" on
+// Equans, "Grösser Karte anzeigen" on PBL): drop the element by its target,
+// not by a growing list of labels. A link whose label is an address (it
+// carries a postal code) is kept: there the link text is the workplace.
+const DETAIL_MAP_HREF_RX = /^(?:https?:)?\/\/(?:[\w-]+\.)*(?:google\.[a-z.]+\/maps\b|maps\.google\.[a-z.]+|goo\.gl\/maps\b|maps\.app\.goo\.gl|map\.search\.ch|openstreetmap\.org|maps\.apple\.com|bing\.com\/maps\b)/i;
 const DETAIL_HEADING_CLASS_RX = /title|heading|headline/i;
 // A heading that opens a chrome section: everything up to the next heading
 // is contact data, the application procedure or links to other vacancies.
 const DETAIL_CHROME_HEADING_RX = /^(?:ihr[e]? )?(?:kontakt|kontaktperson|ansprechpartner|ansprechperson|contact|contacts|contatto|contatti|personne de contact|persona di contatto|your contact|ta personne de contact)\b|^(?:bei |haben sie |hast du )?fragen\b|^(?:vos |your |le tue |deine |ihre )?questions?\b|^(?:weitere|andere|ähnliche|aehnliche|offene|verwandte) (?:offene )?(?:stellen|jobs|stellenangebote|angebote)\b|^(?:autres?|d['’]autres) (?:postes|offres|emplois)\b|^altr[ie] (?:posti|offerte|lavori)\b|^(?:other|similar|more|related) (?:open )?(?:jobs|positions|vacancies|roles)\b|^(?:der |unser )?bewerbungs(?:prozess|ablauf|verfahren)\b|^so bewirbst du dich\b|^(?:the )?application process\b|^processus de (?:candidature|recrutement)\b|^(?:teilen|share|partager|condividi)\b|^folgen sie uns\b|^follow us\b|^job-?abo\b|^newsletter\b|^einblicke\b|^impressionen\b|^(?:dein|ihr|euer) nächster schritt\b|^nächste schritte\b|^(?:your )?next steps?\b|^(?:la |les )?prochaines? étapes?\b|^kontaktformular\b/i;
 // Button/link labels rendered as their own line.
-const DETAIL_UI_LINE_RX = /^(?:jetzt (?:online )?bewerben|online bewerben|bewerben|bewerbung starten|zur bewerbung|apply(?: now)?|postuler(?: maintenant)?|postulez(?: maintenant)?|candidati(?: ora)?|candidarsi|mehr (?:erfahren|anzeigen|informationen)|weitere informationen|en savoir plus|read more|learn more|scopri di più|weiterlesen|zurück(?: zur übersicht)?|retour|back|drucken|print|teilen|share|merken|schliessen|schließen|close|senden|envoyer|linkedin|xing|facebook|twitter|instagram|whatsapp|youtube|e-?mail|mail|top|öffnen auf google|zur stellenübersicht|alle stellen|folgen sie uns|follow us|suivez-nous|seguici|weiter zurück|zurück weiter|link zu mehr informationen|alle benefits|mehr benefits|rechtliche grundlagen|zum inhalt springen|skip to (?:main )?content|download pdf|pdf herunterladen|arbeitsweg berechnen|route berechnen|anfahrt berechnen|prise en compte du temps de trajet.*|calcola il percorso|calculate route)[.!]?$/i;
+const DETAIL_UI_LINE_RX = /^(?:jetzt (?:online )?bewerben|online bewerben|bewerben|bewerbung starten|zur bewerbung|apply(?: now)?|postuler(?: maintenant)?|postulez(?: maintenant)?|candidati(?: ora)?|candidarsi|mehr (?:erfahren|anzeigen|informationen)|weitere informationen|en savoir plus|read more|learn more|scopri di più|weiterlesen|zurück(?: zur übersicht)?|retour|back|drucken|print|teilen|share|merken|schliessen|schließen|close|senden|envoyer|linkedin|xing|facebook|twitter|instagram|whatsapp|youtube|e-?mail|mail|top|zur stellenübersicht|alle stellen|folgen sie uns|follow us|suivez-nous|seguici|weiter zurück|zurück weiter|link zu mehr informationen|alle benefits|mehr benefits|rechtliche grundlagen|zum inhalt springen|skip to (?:main )?content|download pdf|pdf herunterladen)[.!]?$/i;
 
 // Legal/footer links that survive as short lines (privacy notice, imprint).
 const DETAIL_LEGAL_LINE_RX = /datenschutz|protection des données|privacy|protezione dei dati|impressum|mentions légales|suis-nous|folge uns|seguici su/i;
@@ -397,6 +404,11 @@ export function extractProspectiveDetailText(html = '', { title = '', listingTex
         const tag = child.tagName.toLowerCase();
         if (DETAIL_DROP_TAGS.has(tag)) continue;
         if (isChromeElement(child) && !holdsListingText(child)) continue;
+        // A map link labelled with the address itself (SWICA: `<a href=
+        // "…google.com/maps…">Zürcherstrasse 31, 8401 Winterthur</a>`) is the
+        // workplace, not a button: only label-only links (no postal code) go.
+        if (tag === 'a' && DETAIL_MAP_HREF_RX.test(String(child.getAttribute('href') || '').trim())
+          && !/\b\d{4}\b/.test(child.textContent || '')) continue;
         if (tag === 'br') {
           // A line break inside a list item continues the same item.
           if (bufferKind === 'item') buffer += ' ';
@@ -479,7 +491,13 @@ export function extractProspectiveDetailText(html = '', { title = '', listingTex
       const after = kept[index + 2];
       if (line.kind === 'heading' && value && value.kind === 'text' && value.text.length <= 60
         && (!after || after.kind === 'heading')) {
-        merged.push({ kind: 'text', text: `${line.text.replace(/[:：]\s*$/, '')}: ${value.text}` });
+        // A heading repeated as its own value (PBL prints the address as a
+        // heading and again under it) is one line, not "X: X".
+        const label = line.text.replace(/[:：]\s*$/, '');
+        merged.push({
+          kind: 'text',
+          text: detailLineKey(label) === detailLineKey(value.text) ? value.text : `${label}: ${value.text}`,
+        });
         index += 1;
         continue;
       }
