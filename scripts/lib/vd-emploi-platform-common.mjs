@@ -17,7 +17,7 @@
  *   - id (number), requisitionId (number)
  *   - title (string)
  *   - slug (string)          → NOT unique and NOT the address (see offerDetailUrl)
- *   - uri (string, optional) → canonical detail URL `${baseUrl}/fr/nos-offres/${slug}-${id}`
+ *   - uri (string, optional) → canonical detail URL `${baseUrl}/fr/nos-offres/${slug}-${id}` // locale-segment-ok: portale esterno emploi VD, percorso /fr/nos-offres/<slug>-<id> della fonte
  *   - dateFrom (ISO date)
  *   - content (HTML)
  *   - job: { id, title }     → category
