@@ -102,7 +102,8 @@ describe('RewardedApplicationOffer — reload that resumes the click', () => {
     render(<RewardedApplicationOffer {...p} />);
 
     expect(p.onReload).toHaveBeenCalledTimes(1);
-    expect(takeOfferwallResume('job-1')).toBe(true);
+    // The resumed click gets the reason: the event before the reload does not reach GA4.
+    expect(takeOfferwallResume('job-1')).toEqual({ reason, gate_status: status, consent_state: 'granted' });
     expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Apertura di «Fisioterapista diplomato»…');
     expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
     expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
@@ -240,7 +241,11 @@ describe('RewardedApplicationOffer — consent choice', () => {
     });
 
     expect(p.onReload).toHaveBeenCalledTimes(1);
-    expect(takeOfferwallResume('job-1')).toBe(true);
+    expect(takeOfferwallResume('job-1')).toEqual({
+      reason: 'no_consent_decision',
+      gate_status: 'suppressed',
+      consent_state: 'granted',
+    });
   });
 
   it('ignores a change that leaves no decision', () => {
