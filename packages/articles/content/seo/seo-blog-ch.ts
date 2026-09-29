@@ -92099,6 +92099,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-sonno-power-nap': {
+    title: 'In Parlamento serve un posto per dormire: power nap',
+    description: 'Durante le sessioni parlamentari i deputati svizzeri dormono solo 6h10, 50 minuti in meno del solito. Björn Rasch propone spazi per power nap a Palazzo federale',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, serve, posto, dormire',
+    ogTitle: 'In Parlamento serve un posto per dormire: power nap',
+    ogDescription: 'Lo studio di Björn Rasch sull\'Università di Friburgo rivela che i parlamentari svizzeri dormono in media 6 ore e 10 minuti durante le sessioni, circa 50 minuti meno del solito. La stanchezza può portare a scelte più rischiose e difficoltà',
+    canonicalPath: '/articoli-svizzera/parlamento-sonno-power-nap/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "In Parlamento serve un posto per dormire: power nap",
+      "description": "Durante le sessioni parlamentari i deputati svizzeri dormono solo 6h10, 50 minuti in meno del solito. Björn Rasch propone spazi per power nap a Palazzo federale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parlamento-sonno-power-nap.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stanza di riposo con divani silenziosi all'interno del Palazzo federale svizzero per power nap dei parlamentari"
+      },
+      "datePublished": "2026-09-29T21:03:20+00:00",
+      "dateModified": "2026-09-29T21:03:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-sonno-power-nap/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

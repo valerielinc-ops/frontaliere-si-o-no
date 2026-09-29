@@ -7103,6 +7103,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E taglia 12 posti: colpiti soprattutto i dirigenti',
     'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E conferma 12 licenziamenti a Friburgo: nove riguardano quadri. Il piano sociale prevede prestazioni e supporto per un nuovo impiego.',
     'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande, immagine simbolica della Svizzera per una notizia sul lavoro nell\'energia',
+    'blog.article.parlamento-sonno-power-nap.title': 'In Parlamento serve un posto per dormire: power nap',
+    'blog.article.parlamento-sonno-power-nap.excerpt': 'Durante le sessioni i parlamentari svizzeri dormono in media 6 ore e 10 minuti, circa 50 minuti in meno del solito, secondo lo studio di Björn Rasch su 16 membri del Parlamento.',
+    'blog.article.parlamento-sonno-power-nap.imageAlt': 'Stanza di riposo con divani silenziosi all\'interno del Palazzo federale svizzero per power nap dei parlamentari',
 };
 
 export default blogMetaChIt;
