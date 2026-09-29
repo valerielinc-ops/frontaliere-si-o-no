@@ -526,10 +526,12 @@ describe('candidateStrength', () => {
  * file dal trasporto `cat-file`, il loro path entrava nel pass lessicale:
  * `blog-body-ch` compare in 15 file reali e il symlink `services/locales/
  * blog-body-ch` lo portava a 16, oltre MAX_FILES, scartando tutti i candidati.
- * I file `.sh` restano sul percorso lessicale, senza il filtro AST.
+ * Il fixture riproduce quella forma: un literal kebab condiviso da 15 file e
+ * contenuto nel path di destinazione di un symlink.
  */
 describe('snapshot --head: un symlink non è codice da cercare', () => {
   const SCRIPT = resolve(import.meta.dirname, '..', 'scripts/ci/check-sibling-patterns.mjs');
+  const SLUG = 'crowded-shared-slug';
   const SIBLINGS = 14; // + il file cambiato = 15 = MAX_FILES
   let repo = '';
   let result: { candidates: Array<{ file: string; tokens: string[] }> };
@@ -546,19 +548,18 @@ describe('snapshot --head: un symlink non è codice da cercare', () => {
     git('config', 'user.email', 'test@example.com');
     git('config', 'user.name', 'test');
     git('config', 'core.symlinks', 'true');
-    write('scripts/changed.sh', 'echo base\n');
-    for (let i = 0; i < SIBLINGS; i++) write(`scripts/crowded-${i}.sh`, 'echo crowdedSharedToken\n');
-    write('scripts/sparse.sh', 'echo sparseSharedToken\n');
+    write('scripts/changed.mjs', "export const base = 'base';\n");
+    for (let i = 0; i < SIBLINGS; i++) write(`scripts/crowded-${i}.mjs`, `export const slug = '${SLUG}';\n`);
     // Come services/locales/blog-body-ch: destinazione fuori dalle CODE_DIRS,
-    // e il testo del path contiene entrambi i token.
-    symlinkSync('../packages/crowdedSharedToken/sparseSharedToken.sh', join(repo, 'scripts/linked-target.sh'));
+    // con il literal nel testo del path.
+    symlinkSync(`../packages/${SLUG}/index.mjs`, join(repo, 'scripts/linked-target.mjs'));
     git('add', '-A');
     git('commit', '-q', '-m', 'base');
     git('update-ref', 'refs/remotes/origin/main', 'HEAD');
 
     git('checkout', '-q', '-b', 'feature');
-    write('scripts/changed.sh', 'echo base\necho crowdedSharedToken sparseSharedToken\n');
-    git('add', 'scripts/changed.sh');
+    write('scripts/changed.mjs', `export const base = 'base';\nexport const slug = '${SLUG}';\n`);
+    git('add', 'scripts/changed.mjs');
     git('commit', '-q', '-m', 'feature');
 
     result = JSON.parse(
@@ -574,14 +575,14 @@ describe('snapshot --head: un symlink non è codice da cercare', () => {
     if (repo) rmSync(repo, { recursive: true, force: true });
   });
 
-  it('il path di un symlink non diventa un candidato', () => {
-    const files = result.candidates.map((c) => c.file);
-    expect(files).toContain('scripts/sparse.sh');
-    expect(files).not.toContain('scripts/linked-target.sh');
+  it('un symlink non spinge un token oltre MAX_FILES', () => {
+    const crowded = result.candidates.filter((c) => c.tokens.includes(SLUG));
+    expect(crowded).toHaveLength(SIBLINGS);
   });
 
-  it('un symlink non spinge un token oltre MAX_FILES', () => {
-    const crowded = result.candidates.filter((c) => c.tokens.includes('crowdedSharedToken'));
-    expect(crowded).toHaveLength(SIBLINGS);
+  it('il path di un symlink non diventa un candidato', () => {
+    const files = result.candidates.map((c) => c.file);
+    expect(files).toContain('scripts/crowded-0.mjs');
+    expect(files).not.toContain('scripts/linked-target.mjs');
   });
 });
