@@ -47,6 +47,11 @@ const parser = createProspectiveChParser({
     'jobs.gz-dielsdorf.ch',
     'recruitingapp-2896.umantis.com',
   ],
+  // The listing text hides what tells postings apart: the two "Fachperson
+  // Gesundheit EFZ" in Regensdorf share it, one is "Befristet", the other
+  // "Unbefristet" (audit 2026-09-29 read them as one duplicate); the page
+  // prints it with the benefits the listing lacks.
+  detailPageDescription: true,
 });
 
 export const fetchAllGzDielsdorfJobs = parser.fetchAllJobs;
