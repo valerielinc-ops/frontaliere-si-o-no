@@ -2,6 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -222,7 +223,15 @@ export function inferSunriseCategory(detail = {}) {
 export function buildSunriseLocalizedContent(detail = {}) {
   const title = String(detail.title || '').trim();
   const locationLabel = String(detail.cityState || detail.location || '').trim();
+  // The body goes in the slot of the language it is written in, read from
+  // the body. The portal locale hint only said it/en, so the German postings
+  // (8 of 26 on 2026-09-29) were filed under `en` (#5253). Title copies and
+  // slugs stay as they were (translate-pending retranslates source-copy
+  // titles).
+  const hintLang = normalize(detail.sourceLangHint || '').startsWith('it') ? 'it' : 'en';
+  const sourceLang = sourceLangOfBody(detail.description, hintLang);
   return {
+    sourceLang,
     titleByLocale: {
       it: title,
       en: title,
@@ -236,7 +245,7 @@ export function buildSunriseLocalizedContent(detail = {}) {
       fr: slugify(`${title} Sunrise ${locationLabel}`),
     },
     descriptionByLocale: {
-      [normalize(detail.sourceLangHint || '').startsWith('it') ? 'it' : 'en']: detail.description || '',
+      [sourceLang]: detail.description || '',
     },
   };
 }

@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
+import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 // ApplyToJob/JazzHR renders this public board in pages of at most 30 rows.
 // This is a source-completeness signal only; it is not a minimum vacancy gate.
@@ -233,15 +234,15 @@ export function inferBoardCategory(title = '', detail = {}) {
 export function buildBoardLocalizedContent(detail = {}, companyName = 'Board International') {
   const title = String(detail.title || '').trim();
   const location = String(detail.location || '').trim() || 'Chiasso';
+  const slug = slugify(`${title} ${companyName} ${location}`);
+  // Keyed by the language the ad is written in (read from the body), not a
+  // fixed `en` (#5253). The slug keeps its formula.
+  const sourceLang = sourceLangOfBody(detail.description, 'en');
   return {
-    titleByLocale: {
-      en: title,
-    },
-    descriptionByLocale: {
-      en: detail.description || '',
-    },
-    slugByLocale: {
-      en: slugify(`${title} ${companyName} ${location}`),
-    },
+    sourceLang,
+    slug,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: detail.description || '' },
+    slugByLocale: { [sourceLang]: slug },
   };
 }

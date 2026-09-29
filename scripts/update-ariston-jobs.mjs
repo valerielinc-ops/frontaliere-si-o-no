@@ -27,6 +27,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   buildAristonLocalizedContent,
   inferAristonCategory,
@@ -162,7 +163,7 @@ async function buildAristonJob(listing) {
     category: inferAristonCategory(sourceTitle, detail.description || ''),
     sector: 'Energia & Riscaldamento',
     source: 'ariston-dedicated-crawler',
-    sourceLang: detectLang(detail.description || '', 'it'),
+    sourceLang: localized.sourceLang,
     postedDate: toIsoDate(detail.postedDate || listing.validThrough),
     employmentType: 'full-time',
     contractType: 'full-time',
@@ -197,10 +198,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

@@ -28,6 +28,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
 import {
   parsePizzarottiListings,
   parsePizzarottiPageCount,
@@ -158,11 +159,12 @@ async function buildPizzarottiJob(listing) {
   const html = await fetchText(listing.href);
   const detail = parsePizzarottiJobDetail(html);
   const canton = inferPizzarottiCanton(`${detail.location} ${listing.location}`);
-  const localized = buildPizzarottiLocalizedContent(detail, COMPANY_NAME);
+  const sourceLang = sourceLangOfBody(detail.description || listing.teaser || '', 'it');
+  const localized = buildPizzarottiLocalizedContent(detail, COMPANY_NAME, sourceLang);
   const sourceUrl = detail.shareUrl || listing.href;
   const canonicalTitle = detail.title || listing.title;
   const canonicalSlug =
-    localized.slugByLocale.it ||
+    localized.slug ||
     normalizeKey(`${canonicalTitle} ${COMPANY_NAME} ${detail.location || listing.location}`);
   return {
     title: canonicalTitle,
@@ -181,7 +183,7 @@ async function buildPizzarottiJob(listing) {
     category: inferCategory(detail),
     sector: 'Costruzioni & Infrastrutture',
     source: 'pizzarotti-dedicated-crawler',
-    sourceLang: detectLang(detail.description || listing.teaser || '', 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
@@ -216,10 +218,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });
