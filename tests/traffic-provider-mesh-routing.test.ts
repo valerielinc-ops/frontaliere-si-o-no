@@ -5,6 +5,28 @@ import { buildTrafficProviderChain } from '../functions/src/trafficProviderMesh.
 describe('traffic provider rotation at crossing level', () => {
   afterEach(() => vi.unstubAllGlobals());
 
+  it('uses one route request for a static provider because it cannot measure approach delay', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ paths: [{ time: 240_000 }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Chiasso-Brogeda', lat: 45.8409, lng: 9.0376 },
+      {
+        graphhopperApiKey: 'graphhopper-key',
+        providerChain: buildTrafficProviderChain({ graphhopperApiKey: 'graphhopper-key' }),
+        enableWebcam: false,
+      },
+    );
+
+    expect(result.source).toBe('graphhopper');
+    expect(result.waitTimeMinutes).toBe(0);
+    expect(result.approachMinutes).toBe(0);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
   it('rotates from a 429 Mapbox segment to openrouteservice', async () => {
     const fetchMock = vi.fn(async (url: unknown) => {
       if (String(url).includes('mapbox.com')) {

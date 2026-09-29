@@ -436,6 +436,15 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  // Italian approach point: ≈500 m south of the crossing
  const approachLat = lat - 0.0045;
 
+ const hasTrafficAwareProvider = providerChain?.length
+  ? providerChain.some((entry) => {
+   const providerId = providerIdFromEntry(entry);
+   return providerId
+    && !options.providerRuntime?.disabled?.has(providerId)
+    && TRAFFIC_PROVIDER_SPECS[providerId]?.trafficAware;
+  })
+  : TRAFFIC_PROVIDER_SPECS[provider]?.trafficAware ?? true;
+
  const segmentFetcher = providerChain?.length
   ? (originLat, originLng, destLat, destLng) => getSegmentWithProviderFallback(
    originLat,
@@ -453,10 +462,18 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    options,
   ).then((value) => ({ ...value, provider }));
 
- const [crossingResult, approachResult] = await Promise.allSettled([
- segmentFetcher(lat, lng, checkpointLat, lng),
- segmentFetcher(approachLat, lng, lat, lng),
- ]);
+ const settledSegments = await Promise.allSettled(
+  hasTrafficAwareProvider
+   ? [
+    segmentFetcher(lat, lng, checkpointLat, lng),
+    segmentFetcher(approachLat, lng, lat, lng),
+   ]
+   : [segmentFetcher(lat, lng, checkpointLat, lng)],
+ );
+ const crossingResult = settledSegments[0];
+ const approachResult = hasTrafficAwareProvider
+  ? settledSegments[1]
+  : { status: 'skipped' };
 
  let waitTimeMinutes = 0;
  let approachMinutes = 0;
@@ -500,7 +517,7 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  if (approachResult.status === 'fulfilled') {
  const { durationNormalSec, durationTrafficSec } = approachResult.value;
  approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
- } else {
+ } else if (approachResult.status !== 'skipped') {
  console.warn(`⚠️ Approach segment failed for ${crossing.name}: ${approachResult.reason?.message}`);
  }
 
@@ -706,36 +723,49 @@ async function persistIfPublishable(results, errors, label) {
 
 function createProviderMeshRuntime(providerChain) {
  const disabled = new Set();
+ const RATE_LIMIT_WAIT_BUDGET_MS = 45_000;
  const reserveRequest = async (providerId, operation = 'route') => {
   if (disabled.has(providerId)) return { allowed: false, reason: 'disabled' };
-  try {
-   const reservation = await reserveTrafficProviderRequest(providerId, operation);
-   if (!reservation?.allowed) {
-    const reason = reservation.reason ?? 'quota';
-    // A spent allowance is account-wide; a minimum-interval refusal is not.
-    if (!TRANSIENT_RESERVATION_REASONS.includes(reason)) disabled.add(providerId);
+  const rateWaitStartedAt = Date.now();
+  while (true) {
+   try {
+    const reservation = await reserveTrafficProviderRequest(providerId, operation);
+    if (!reservation?.allowed) {
+     const reason = reservation.reason ?? 'quota';
+     if (reason === 'rate-limit') {
+      const retryAfterMs = Number(reservation.retryAfterMs);
+      const elapsedMs = Date.now() - rateWaitStartedAt;
+      if (Number.isFinite(retryAfterMs) && retryAfterMs > 0
+       && elapsedMs + retryAfterMs <= RATE_LIMIT_WAIT_BUDGET_MS) {
+       await new Promise((resolve) => setTimeout(resolve, retryAfterMs));
+       continue;
+      }
+     }
+     // A spent allowance is account-wide; a minimum-interval refusal is not.
+     if (!TRANSIENT_RESERVATION_REASONS.includes(reason)) disabled.add(providerId);
+     console.warn(
+      `🛑 ${providerId}/${operation} quota guard blocked the request (${reason}) — rotating provider`,
+     );
+    }
+    return reservation;
+   } catch (error) {
+    // A failed quota transaction cannot prove that a paid request is safe, so
+    // THIS request always fails closed. Whether the PROVIDER survives depends
+    // on why the transaction failed, and the two cases are opposites:
+    //   - retryable (contention on the single per-provider counter, Firestore
+    //     unavailable): keep the provider eligible. Banning it here is what
+    //     collapsed the mesh on 2026-09-18.
+    //   - permanent (permission denied, bad configuration): every remaining
+    //     segment would fail identically, so disable and rotate once instead of
+    //     re-hitting the same fault 280 times.
+    const retryable = isRetryableReservationError(error);
+    if (!retryable) disabled.add(providerId);
     console.warn(
-     `🛑 ${providerId}/${operation} quota guard blocked the request (${reason}) — rotating provider`,
+     `🛑 ${providerId}/${operation} quota check failed `
+     + `(${retryable ? 'retryable — next segment may reserve' : 'permanent — provider disabled'}): ${error.message}`,
     );
+    return { allowed: false, reason: retryable ? 'quota-check-failed' : 'quota-check-permanent' };
    }
-   return reservation;
-  } catch (error) {
-   // A failed quota transaction cannot prove that a paid request is safe, so
-   // THIS request always fails closed. Whether the PROVIDER survives depends
-   // on why the transaction failed, and the two cases are opposites:
-   //   - retryable (contention on the single per-provider counter, Firestore
-   //     unavailable): keep the provider eligible. Banning it here is what
-   //     collapsed the mesh on 2026-09-18.
-   //   - permanent (permission denied, bad configuration): every remaining
-   //     segment would fail identically, so disable and rotate once instead of
-   //     re-hitting the same fault 280 times.
-   const retryable = isRetryableReservationError(error);
-   if (!retryable) disabled.add(providerId);
-   console.warn(
-    `🛑 ${providerId}/${operation} quota check failed `
-    + `(${retryable ? 'retryable — next segment may reserve' : 'permanent — provider disabled'}): ${error.message}`,
-   );
-   return { allowed: false, reason: retryable ? 'quota-check-failed' : 'quota-check-permanent' };
   }
  };
 
