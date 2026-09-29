@@ -2363,6 +2363,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zugo-cybersecurity-de-escalation': { it: 'zugo-cybersecurity-de-escalation', en: 'zug-cybersecurity-de-escalation', de: 'zug-cybersicherheit-deeskalation', fr: 'zoug-cybersecurite-de-escalade' },
  'lindt-prungli-stime-2026': { it: 'lindt-prungli-stime-2026', en: 'lindt-prungli-estimates-2026', de: 'lindt-prungli-schatzungen-2026', fr: 'lindt-prungli-estimations-2026' },
  'compensi-lvamal-camera-bassa': { it: 'compensi-lvamal-camera-bassa', en: 'health-insurer-pay-cap-vote', de: 'krankenkassen-lohnobergrenze', fr: 'plafond-salaires-caisses-maladie' },
+ 'rincari-auto-abitazione-ticino': { it: 'rincari-auto-abitazione-ticino', en: 'car-housing-price-increases-ticino', de: 'preissteigerungen-auto-wohnen-tessin', fr: 'hausses-prix-auto-logement-tessin' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

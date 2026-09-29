@@ -7022,6 +7022,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.compensi-lvamal-camera-bassa.title': 'Casse malati: tetto agli stipendi dei dirigenti',
     'blog.article.compensi-lvamal-camera-bassa.excerpt': 'La Camera bassa approva la modifica della LVAMal: 157 voti favorevoli, 27 contrari e 8 astensioni. Il dossier passa ora al Consiglio degli Stati.',
     'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Dibattito svizzero sul limite ai compensi dei dirigenti delle casse malati',
+    'blog.article.rincari-auto-abitazione-ticino.title': 'Forti rincari per auto e abitazione, specie in Ticino',
+    'blog.article.rincari-auto-abitazione-ticino.excerpt': 'Ad agosto i costi abitativi e della mobilità salgono del 2,4% in Svizzera. Il Ticino registra il rincaro annuo più alto con il 3%.',
+    'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Rincari per auto e abitazione in Ticino e Svizzera',
 };
 
 export default blogMetaChIt;

@@ -7022,6 +7022,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.compensi-lvamal-camera-bassa.title': 'Krankenkassen: Gehaltsobergrenze für Führungskräfte',
     'blog.article.compensi-lvamal-camera-bassa.excerpt': 'Der Nationalrat genehmigt die Änderung des LVAMal: 157 Ja-Stimmen, 27 Nein-Stimmen und 8 Enthaltungen. Das Geschäft geht nun an den Ständerat.',
     'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Schweizer Debatte über eine Obergrenze für die Vergütung von Krankenkassenleitern',
+    'blog.article.rincari-auto-abitazione-ticino.title': 'Starke Preissteigerungen bei Autos und Wohnraum, insbesondere im Ticino',
+    'blog.article.rincari-auto-abitazione-ticino.excerpt': 'Im August steigen die Wohn- und Mobilitätskosten in der Schweiz um 2,4%. Ticino verzeichnet mit 3% die höchste jährliche Teuerung.',
+    'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Preiserhöhungen für Auto und Wohnen im Tessin und der Schweiz',
 };
 
 export default blogMetaChDe;
