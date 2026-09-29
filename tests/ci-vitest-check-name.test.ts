@@ -645,4 +645,12 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(step).toContain("github.event_name == 'pull_request'");
     expect(step).toContain('continue-on-error: true');
   });
+
+  it('il source gate hardcoded-secret gira nel required check', () => {
+    const start = TESTS_YML.indexOf('- name: Run source guards in parallel');
+    const end = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const step = TESTS_YML.slice(start, end < 0 ? undefined : end);
+    expect(step).toContain('RUN_HARDCODED_SECRETS');
+    expect(step).toContain('start_gate hardcoded-secrets node scripts/ci/scan-site-hardcoded-secrets.mjs');
+  });
 });
