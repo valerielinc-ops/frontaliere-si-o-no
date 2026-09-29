@@ -1,23 +1,24 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-09-28T21:14:23.009Z",
+  "generatedAt": "2026-09-29T09:18:36.739Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
   "written": 6,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4078,
-  "avgDurationMs": 4078,
+  "durationMs": 3894,
+  "avgDurationMs": 3894,
   "durationHistory": [
-    4078
+    3894
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "oetiker-7949b7e07a0a",
       "slug": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
@@ -30,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000152116549-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:17.237Z",
+      "crawledAt": "2026-09-29T09:18:31.472Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -47,16 +48,15 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000152116549-head-quality-hse-all-?oga=true",
       "jobReqId": "744000152116549",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-09-19T22:53:36.244Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "oetiker-40fa9592fb9c",
       "slug": "lehrstelle-als-polymechaniker-in-efz-all-oetiker-horgen-zh-switzerland",
@@ -69,7 +69,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:17.257Z",
+      "crawledAt": "2026-09-29T09:18:31.479Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -107,7 +107,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000149925798-leiter-einkauf-avor-pps-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:17.263Z",
+      "crawledAt": "2026-09-29T09:18:31.474Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -145,7 +145,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:17.254Z",
+      "crawledAt": "2026-09-29T09:18:31.458Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -184,7 +184,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:17.260Z",
+      "crawledAt": "2026-09-29T09:18:31.476Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -222,7 +222,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:14:17.268Z",
+      "crawledAt": "2026-09-29T09:18:31.482Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",

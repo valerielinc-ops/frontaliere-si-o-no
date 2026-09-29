@@ -6848,6 +6848,10 @@ jobs:
               echo "::error::roche: invalid terminal status: $status"
               printf '%s\n' '| roche | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::roche: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| roche | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::roche: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| roche | systemic runner shutdown (143) |' >> "$summary_file"
@@ -6871,6 +6875,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::privatklinik-wyss: invalid terminal status: $status"
               printf '%s\n' '| privatklinik-wyss | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::privatklinik-wyss: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| privatklinik-wyss | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::privatklinik-wyss: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -6896,6 +6904,10 @@ jobs:
               echo "::error::sintetica: invalid terminal status: $status"
               printf '%s\n' '| sintetica | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::sintetica: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| sintetica | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::sintetica: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| sintetica | systemic runner shutdown (143) |' >> "$summary_file"
@@ -6919,6 +6931,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::spital-zollikerberg: invalid terminal status: $status"
               printf '%s\n' '| spital-zollikerberg | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::spital-zollikerberg: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| spital-zollikerberg | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::spital-zollikerberg: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -6944,6 +6960,10 @@ jobs:
               echo "::error::sodexo: invalid terminal status: $status"
               printf '%s\n' '| sodexo | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::sodexo: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| sodexo | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::sodexo: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| sodexo | systemic runner shutdown (143) |' >> "$summary_file"
@@ -6967,6 +6987,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::raiffeisen-vc: invalid terminal status: $status"
               printf '%s\n' '| raiffeisen-vc | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::raiffeisen-vc: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| raiffeisen-vc | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::raiffeisen-vc: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -6992,6 +7016,10 @@ jobs:
               echo "::error::yapeal: invalid terminal status: $status"
               printf '%s\n' '| yapeal | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::yapeal: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| yapeal | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::yapeal: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| yapeal | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7015,6 +7043,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::sonova: invalid terminal status: $status"
               printf '%s\n' '| sonova | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::sonova: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| sonova | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::sonova: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7040,6 +7072,10 @@ jobs:
               echo "::error::sonnweid: invalid terminal status: $status"
               printf '%s\n' '| sonnweid | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::sonnweid: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| sonnweid | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::sonnweid: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| sonnweid | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7063,6 +7099,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::helvetia: invalid terminal status: $status"
               printf '%s\n' '| helvetia | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::helvetia: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| helvetia | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::helvetia: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7088,6 +7128,10 @@ jobs:
               echo "::error::prosenectute-ti: invalid terminal status: $status"
               printf '%s\n' '| prosenectute-ti | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::prosenectute-ti: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| prosenectute-ti | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::prosenectute-ti: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| prosenectute-ti | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7111,6 +7155,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::ksw: invalid terminal status: $status"
               printf '%s\n' '| ksw | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::ksw: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| ksw | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::ksw: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7136,6 +7184,10 @@ jobs:
               echo "::error::stadt-bern: invalid terminal status: $status"
               printf '%s\n' '| stadt-bern | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::stadt-bern: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| stadt-bern | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::stadt-bern: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| stadt-bern | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7159,6 +7211,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::microsoft: invalid terminal status: $status"
               printf '%s\n' '| microsoft | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::microsoft: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| microsoft | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::microsoft: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7184,6 +7240,10 @@ jobs:
               echo "::error::lups: invalid terminal status: $status"
               printf '%s\n' '| lups | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::lups: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| lups | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::lups: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| lups | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7207,6 +7267,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::ikea: invalid terminal status: $status"
               printf '%s\n' '| ikea | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::ikea: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| ikea | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::ikea: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7232,6 +7296,10 @@ jobs:
               echo "::error::bkw: invalid terminal status: $status"
               printf '%s\n' '| bkw | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::bkw: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| bkw | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::bkw: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| bkw | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7255,6 +7323,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::galenica: invalid terminal status: $status"
               printf '%s\n' '| galenica | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::galenica: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| galenica | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::galenica: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7280,6 +7352,10 @@ jobs:
               echo "::error::cler: invalid terminal status: $status"
               printf '%s\n' '| cler | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::cler: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| cler | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::cler: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| cler | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7303,6 +7379,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::breitling: invalid terminal status: $status"
               printf '%s\n' '| breitling | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::breitling: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| breitling | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::breitling: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7328,6 +7408,10 @@ jobs:
               echo "::error::globus: invalid terminal status: $status"
               printf '%s\n' '| globus | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::globus: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| globus | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::globus: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| globus | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7351,6 +7435,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::cordenpharma: invalid terminal status: $status"
               printf '%s\n' '| cordenpharma | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::cordenpharma: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| cordenpharma | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::cordenpharma: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7376,6 +7464,10 @@ jobs:
               echo "::error::kanton-gr: invalid terminal status: $status"
               printf '%s\n' '| kanton-gr | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::kanton-gr: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| kanton-gr | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::kanton-gr: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| kanton-gr | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7399,6 +7491,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::chicco-doro: invalid terminal status: $status"
               printf '%s\n' '| chicco-doro | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::chicco-doro: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| chicco-doro | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::chicco-doro: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7424,6 +7520,10 @@ jobs:
               echo "::error::belimo: invalid terminal status: $status"
               printf '%s\n' '| belimo | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::belimo: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| belimo | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::belimo: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| belimo | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7447,6 +7547,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::fart: invalid terminal status: $status"
               printf '%s\n' '| fart | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::fart: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| fart | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::fart: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
@@ -7472,6 +7576,10 @@ jobs:
               echo "::error::mcm-group: invalid terminal status: $status"
               printf '%s\n' '| mcm-group | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::mcm-group: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| mcm-group | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::mcm-group: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| mcm-group | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7496,6 +7604,10 @@ jobs:
               echo "::error::grischapersonal: invalid terminal status: $status"
               printf '%s\n' '| grischapersonal | invalid status |' >> "$summary_file"
               failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::grischapersonal: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| grischapersonal | target timeout (124) |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::grischapersonal: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
               printf '%s\n' '| grischapersonal | systemic runner shutdown (143) |' >> "$summary_file"
@@ -7519,6 +7631,10 @@ jobs:
             if ! [[ "$status" =~ ^[0-9]+$ ]]; then
               echo "::error::oscam: invalid terminal status: $status"
               printf '%s\n' '| oscam | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 124 ]; then
+              echo "::error::oscam: target timeout recorded as an actionable failure (exit 124)"
+              printf '%s\n' '| oscam | target timeout (124) |' >> "$summary_file"
               failure_count=$((failure_count + 1))
             elif [ "$status" -eq 143 ]; then
               echo "::warning::oscam: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"

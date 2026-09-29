@@ -21112,6 +21112,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'obbligo-assicurazione-detenuti',
+    category: 'novita',
+    date: '2026-09-29T09:13:37.161Z',
+    image: '/images/blog/obbligo-assicurazione-detenuti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'uova-piccoli-allevamenti-csl',
+    category: 'novita',
+    date: '2026-09-29T09:33:46.413Z',
+    image: '/images/blog/uova-piccoli-allevamenti-csl.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svizzera-patrimonio-finanziario-mondiale',
+    category: 'novita',
+    date: '2026-09-29T10:14:38.377Z',
+    image: '/images/blog/svizzera-patrimonio-finanziario-mondiale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lavoratori-svizzeri-ia-benefici',
+    category: 'novita',
+    date: '2026-09-29T10:54:40.401Z',
+    image: '/images/blog/lavoratori-svizzeri-ia-benefici.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

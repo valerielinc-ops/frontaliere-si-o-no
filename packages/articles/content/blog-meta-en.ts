@@ -12264,6 +12264,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sangiano-lavorare-ticino.title': 'Living in Sangiano and working in Ticino: budget guide',
     'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'The new Frontier Agreement has been in force since 1 January 2024. Learn how to distinguish exemptions, deductibles and deductibles for your life project.',
     'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Panoramic view of Lugano, a destination for many cross-border workers.',
+    'blog.article.ticino-costi-mobilita-abitazione.title': 'Ticino leads the increases in mobility and housing costs',
+    'blog.article.ticino-costi-mobilita-abitazione.excerpt': 'In August, price increases in Ticino reach 3%, while nationally housing and mobility rise by 2.4% and overall inflation is at 0.8%, corresponding to 1\'066 more francs per year for a typical family.',
+    'blog.article.ticino-costi-mobilita-abitazione.imageAlt': 'Commuter driving near Lugano with houses in the background, representing mobility and housing costs',
+    'blog.article.fials-vigilanza-ospedale-varese.title': 'FIALS: more nighttime security in Varese',
+    'blog.article.fials-vigilanza-ospedale-varese.excerpt': 'The union asks ASST Sette Laghi to review access points and shifts: a single guard in the Emergency Department is not enough.',
+    'blog.article.fials-vigilanza-ospedale-varese.imageAlt': 'Hospital entrance guarded by a security guard at night',
 };
 
 export default blogMetaEn;
