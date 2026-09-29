@@ -29,9 +29,9 @@
  *     that this parser cannot execute without a browser. Detail fetches add
  *     NO signal over the listing tile (verified: identical Departement/
  *     Dienstabteilung/Referenz-Nr., no pensum, no location) — so we skip
- *     them entirely and build a synthetic description from the tile fields
- *     (title + department + unit + reference + employer blurb), well above
- *     the thin-content floor (Non-Negotiable #4).
+ *     them entirely. The vacancy text comes from the city's official ad page
+ *     with the same Referenz-Nr. (see OFFICIAL_HOST below); a tile without
+ *     one is not published (issue 5253).
  *
  * Structured-data safe defaults (Non-Negotiable #3 — source has none of
  * these per-job): every job gets the Stadthaus Zürich civic address
@@ -55,8 +55,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -80,6 +82,20 @@ const HQ = {
 };
 
 const SECTOR = 'Amministrazione Pubblica';
+
+// The vacancy text is NOT on the jobs2web page: its `.jobdescription` holds
+// only the title, even after client-side rendering (verified 2026-09-29 with
+// a headless browser). The city publishes each ad on its own portal
+// ("Arbeiten für Zürich", www.stadt-zuerich.ch), one page per posting,
+// carrying the same Referenz-Nr. as the jobs2web tile's `adcode`. The
+// portal's own search component lists every page in one JSON call.
+const OFFICIAL_HOST = 'https://www.stadt-zuerich.ch';
+const OFFICIAL_JOBSEARCH_URL = `${OFFICIAL_HOST}/stzh/jobsearch`;
+const OFFICIAL_JOBSEARCH_COMPONENT =
+  '/content/web/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs/jcr:content/mainparsys/jobsearch';
+const OFFICIAL_JOBSEARCH_LIMIT = 2000;
+// A Swiss phone number: the recruiter contact block of each ad.
+const CONTACT_PHONE_RE = /(?:\+41|\b0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}\b/;
 
 // Dienstabteilung/Departement substrings already covered by their own
 // dedicated crawler pulling from a DIFFERENT source site — exclude here so
@@ -271,26 +287,89 @@ export function parseListingTiles(html = '') {
   return rows;
 }
 
-/* ── Description Builder ──────────────────────────────────── */
+/* ── Official ad pages ("Arbeiten für Zürich") ─────────────── */
 
-function buildDescription(row) {
-  const parts = [];
-  parts.push(
-    `${row.title} bei der Stadtverwaltung Zürich${row.department ? `, ${row.department}` : ''}` +
-      `${row.unit ? ` – ${row.unit}` : ''}.`
-  );
-  parts.push(
-    'Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz ' +
-      'und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, ' +
-      'Sicherheit, Technik und allgemeiner Verwaltung.'
-  );
-  if (row.ref) parts.push(`Referenz-Nr.: ${row.ref}.`);
-  parts.push(
-    `Arbeitsort: ${HQ.city} (${HQ.canton}). Weitere Details zu Aufgaben, Anforderungen und dem ` +
-      'Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform "Arbeiten für Zürich" ' +
-      'der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.'
-  );
-  return parts.join(' ');
+function officialBlockText(blockHtml = '') {
+  return normalizeDescriptionSpace(stripHtml(String(blockHtml)
+    .replace(/<a\b[^>]*href="tel:[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')));
+}
+
+/**
+ * Parse one official ad page (`/…/jobs/job-detailseite.{id}.html`): the
+ * Referenz-Nr. and the vacancy body — every `<stzh-richtext>` section of the
+ * page content in order (intro, Aufgaben, Profil, Wir bieten, Über uns),
+ * headings on their own line and list items as bullets. The "Interessiert?"
+ * contact block (recruiter names and direct phone numbers) is left out, as
+ * is page chrome outside the sections.
+ *
+ * @param {string} html
+ * @returns {{ ref: string, description: string } | null}
+ */
+export function parseOfficialAdPage(html = '') {
+  if (!html || typeof html !== 'string') return null;
+  const ref = (html.match(/Referenz-Nr\.?:?\s*(\d{3,})/i) || [])[1] || '';
+  const content = (html.match(/<stzh-pagecontent\b[\s\S]*?<\/stzh-pagecontent>/i) || [html])[0];
+  const sections = [];
+  const re = /<stzh-richtext\b[^>]*>([\s\S]*?)<\/stzh-richtext>/gi;
+  let m;
+  while ((m = re.exec(content)) !== null) {
+    if (CONTACT_PHONE_RE.test(stripHtml(m[1]))) continue;
+    const text = officialBlockText(m[1]);
+    if (text) sections.push(text);
+  }
+  const description = normalizeDescriptionBullets(sections.join('\n\n'));
+  if (!ref || !description) return null;
+  return { ref, description };
+}
+
+/**
+ * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
+ * One search call lists every page; each page is then fetched politely.
+ * Throws when the portal's index cannot be read: without it no posting has
+ * its text, and publishing none would empty the whole board.
+ *
+ * Exported for `stadtspital-zuerich-job-parser.mjs`, whose tiles live on the
+ * same portal: `unit` keeps only the ad pages whose Dienstabteilung (the
+ * index entry's first meta value) matches, so that crawler reads its own
+ * ~90 pages instead of the whole city index.
+ *
+ * @param {Set<string>} wantedRefs Referenz-Nr. of the tiles to fill
+ * @param {number} delayMs pause between two ad pages
+ * @param {{ unit?: RegExp }} [options]
+ * @returns {Promise<Map<string, string>>}
+ */
+export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit } = {}) {
+  const byRef = new Map();
+  let index;
+  try {
+    const params = new URLSearchParams({
+      q: '',
+      lang: 'de',
+      compResource: OFFICIAL_JOBSEARCH_COMPONENT,
+      variant: 'default',
+      offset: '0',
+      limit: String(OFFICIAL_JOBSEARCH_LIMIT),
+    });
+    index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
+  } catch (err) {
+    throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
+  }
+  const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
+    .filter((r) => !unit || unit.test(String(Array.isArray(r?.meta) ? r.meta[0] || '' : '')))
+    .map((r) => String(r?.href || ''))
+    .filter((href) => /\/job-detailseite\.\d+\.html$/.test(href)))];
+  console.log(`  📰 Official ad pages listed: ${hrefs.length}`);
+  for (const href of hrefs) {
+    if (wantedRefs.size && [...wantedRefs].every((ref) => byRef.has(ref))) break;
+    try {
+      const parsed = parseOfficialAdPage(await fetchPage(`${OFFICIAL_HOST}${href}`));
+      if (parsed && !byRef.has(parsed.ref)) byRef.set(parsed.ref, parsed.description);
+    } catch (err) {
+      console.warn(`  ⚠️ Official ad page failed: ${href} — ${err?.message || err}`);
+    }
+    await new Promise((r) => setTimeout(r, delayMs));
+  }
+  return byRef;
 }
 
 /* ── Main Fetch Function ──────────────────────────────────── */
@@ -346,6 +425,11 @@ export async function fetchAllStadtZuerichJobs() {
 
   const sourceLang = 'de';
   const jobs = [];
+  const officialTexts = await fetchOfficialAdTexts(
+    new Set(rows.map((r) => r.ref).filter(Boolean)),
+    Math.min(delayMs, 300),
+  );
+  let withoutText = 0;
 
   for (const row of rows) {
     const title = row.title;
@@ -357,11 +441,17 @@ export async function fetchAllStadtZuerichJobs() {
     // without a disambiguator the assemble step's slug-collision guard would
     // silently drop all but one of them.
     const jobSlug = slugify(`${title} stadt-zuerich zurigo ${row.ref || row.jobId}`);
-    // buildDescription() is synthesized (not scraped body text), but it
-    // splices in row.title/department/unit verbatim — sanitize the finished
-    // string as a defense-in-depth backstop against SF widget chrome leaking
-    // through those fields.
-    const descriptionText = sanitizeSuccessFactorsField(buildDescription(row));
+    // The official ad text of this Referenz-Nr. is the vacancy text. The
+    // tile summary that used to stand in for it made distinct postings with
+    // the same title and unit identical (19/430 duplicate descriptions) and
+    // carried no tasks/profile/offer (audit run 36528331656); a tile the
+    // portal does not publish is not published here either (issue 5253).
+    const officialText = row.ref ? officialTexts.get(String(row.ref)) : '';
+    if (!officialText || !meetsSourceBodyFloor(officialText)) {
+      withoutText += 1;
+      continue;
+    }
+    const descriptionText = officialText;
     const employmentType = detectEmploymentType(title);
     const expLevel = detectExperienceLevel(title);
 
@@ -412,8 +502,18 @@ export async function fetchAllStadtZuerichJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} — ${row.department || 'N/A'} / ${row.unit || 'N/A'}`);
   }
 
-  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length}`);
-  return jobs;
+  if (withoutText > 0) {
+    console.log(`  ⏭️ ${withoutText} tile(s) whose Referenz-Nr. has no official ad page — not published.`);
+  }
+  // The same ad re-posted under a second Referenz-Nr. (same title, service
+  // and official text: Gastro-Allrounder*in 51367/51788, Heizwerkführer*in
+  // 50406/51591 on 2026-09-29) is one vacancy: one page.
+  const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
+  if (dropped.length > 0) {
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, service and official text under another Referenz-Nr.).`);
+  }
+  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${unique.length} (all with the official ad text)`);
+  return unique;
 }
 
 export { slugify, stripHtml };

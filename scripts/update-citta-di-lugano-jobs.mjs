@@ -45,7 +45,14 @@ import {
 mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/citta-di-lugano-job-parser.mjs';
+import {
+  parseListingPage,
+  parseDetailPage,
+  buildJob,
+  stripHtml,
+  CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
+} from './lib/citta-di-lugano-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   buildPdfBackedDescription,
@@ -117,7 +124,7 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const listing of rawListings) {
-    const job = buildJob(listing);
+    let job = buildJob(listing);
     if (!job) continue;
 
     // Enrich description with PDF content when available
@@ -129,20 +136,12 @@ async function fetchJobs() {
         console.warn(`  ⚠️ PDF extraction failed for "${job.title}": ${pdfContent.error}`);
       } else if (pdfContent.text) {
         console.log(`  ✅ PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
-        job.description = buildPdfBackedDescription({
-          introLines: [
-            `## ${job.title}`,
-            `${COMPANY_NAME} — concorso pubblico a Lugano (TI), Svizzera.`,
-          ],
-          pdfText: pdfContent.text,
-          fallbackText: job.description || '',
-          footerLines: [
-            `**Settore:** Pubblica Amministrazione`,
-            `**Sede:** Via Nizzola 5, 6900 Lugano, TI, Svizzera`,
-            `[Bando ufficiale (PDF)](${pdfUrl})`,
-          ],
-        });
-        job.descriptionByLocale = { it: job.description };
+        // The bando's own text, in its own language: no lines of the crawler
+        // (CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE). The builder writes the
+        // locale maps for that language; the slug fields are never rewritten
+        // here (slug-write ratchet, tests/slug-write-encapsulation.test.ts).
+        const description = buildPdfBackedDescription({ pdfText: pdfContent.text });
+        job = buildJob(listing, { description, sourceLang: detectLang(description, 'it') });
       }
     }
 
@@ -163,7 +162,11 @@ function jobMatchKey(job = {}) {
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isCompanyJob(job));
-  const targetExisting = existing.filter(isCompanyJob);
+  const targetExisting = dropFabricatedDescriptions(
+    existing.filter(isCompanyJob),
+    CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

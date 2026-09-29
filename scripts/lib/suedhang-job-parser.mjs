@@ -25,6 +25,7 @@ import {
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -114,6 +115,10 @@ function extractDetail(html = '') {
   // nested divs, easier: take everything from the `content page-content` opener
   // up to the start of the footer/page-footer.
   let body = noScripts;
+  // The description is published only from a delimited container: with no
+  // length cap, the whole-page fallback (kept for the Arbeitsort/pensum
+  // lookups below) must not become the vacancy text.
+  let bodyIsDelimited = false;
   const startMatch = noScripts.match(/<div[^>]*class="content page-content"[^>]*>/i);
   if (startMatch) {
     const startIx = startMatch.index + startMatch[0].length;
@@ -121,11 +126,13 @@ function extractDetail(html = '') {
     const tail = noScripts.slice(startIx);
     const cutMatch = tail.match(/<footer\b|<div[^>]*class="[^"]*(?:page-footer|site-footer|footer-wrap|cf-footer)/i);
     body = cutMatch ? tail.slice(0, cutMatch.index) : tail;
+    bodyIsDelimited = Boolean(cutMatch);
   } else {
     const mainMatch = noScripts.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
       || noScripts.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
       || noScripts.match(/<div[^>]*class="[^"]*(?:entry-content|content-wrap|page-content)[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/i);
     body = mainMatch ? mainMatch[1] : noScripts;
+    bodyIsDelimited = Boolean(mainMatch);
   }
 
   const text = normalizeSpace(htmlToText(body));
@@ -143,7 +150,7 @@ function extractDetail(html = '') {
 
   return {
     title,
-    description: text.slice(0, 6000),
+    description: bodyIsDelimited ? text : '',
     location,
     pensum,
   };
@@ -218,10 +225,10 @@ export async function fetchAllSuedhangJobs() {
     const employmentType = detectHealthcareEmploymentType(pensumSource);
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
-    const fallbackDesc = `${title} — ${SUEDHANG_COMPANY_NAME}, ${location}. Klinik für Suchttherapien.`;
-    const description = detail.description && detail.description.split(/\s+/).length >= 30
-      ? detail.description
-      : fallbackDesc;
+    // Only source text (issue 5253): no "<title> — <company>, <place>." stub
+    // in place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const job = {
       id: `${SUEDHANG_KEY}-${urlHash}`,

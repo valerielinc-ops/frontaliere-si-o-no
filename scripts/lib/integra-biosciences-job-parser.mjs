@@ -40,6 +40,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -439,6 +440,7 @@ export async function fetchAllIntegraBiosciencesJobs() {
   console.log(`  📋 Job cards found: ${cards.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const delayMs = Number(process.env.JOBS_CRAWLER_DELAY_MS) || 500;
 
   for (const card of cards) {
@@ -469,14 +471,15 @@ export async function fetchAllIntegraBiosciencesJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} integra-biosciences ch`);
 
-    // Build description: prefer detail page, fall back to metadata
-    let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 30) {
-      const parts = [`${title} — INTEGRA Biosciences`];
-      if (card.businessArea) parts.push(`Business Area: ${card.businessArea}`);
-      parts.push(`Location: ${location} (${canton}), Switzerland`);
-      parts.push('INTEGRA Biosciences develops and manufactures innovative laboratory instruments for liquid handling and media preparation.');
-      descriptionText = parts.join('. ');
+    // Only the posting's own text is published (issue 5253): a detail page
+    // without a body (now: under the shared 50-word floor) used to be replaced by a stub of
+    // card metadata and a company sentence ("{title} — INTEGRA Biosciences.
+    // Business Area: … Location: …"); such a card is not published any more.
+    const descriptionText = detail.description || '';
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.log(`  ⏭️ No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
     }
 
     // Determine employment type from title
@@ -497,8 +500,12 @@ export async function fetchAllIntegraBiosciencesJobs() {
     }
     const contract = (pensumMax && pensumMax < 90) ? 'part-time' : 'full-time';
 
-    // Source language: titles are often German or English (mixed)
-    const sourceLang = detectLang(title, 'en');
+    // Source language of the vacancy body read from the detail page; the
+    // title (often English on German postings) only when no body was read.
+    const sourceLang = detectLang(
+      detail.description && detail.description.length >= 30 ? detail.description : title,
+      'en',
+    );
 
     const job = {
       // ── Required fields ──
@@ -546,6 +553,9 @@ export async function fetchAllIntegraBiosciencesJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} — ${card.businessArea || 'N/A'} (${employmentType})`);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} card(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total INTEGRA Biosciences jobs discovered: ${jobs.length}`);
   return jobs;
 }

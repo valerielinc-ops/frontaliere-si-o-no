@@ -51,6 +51,7 @@ import {
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -264,6 +265,7 @@ export async function fetchAllBossardJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
 
   for (const listing of listings) {
@@ -307,15 +309,16 @@ export async function fetchAllBossardJobs() {
     // Be polite to the Workday tenant between per-job detail fetches.
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${BOSSARD_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Arbeitgeber: Bossard AG — führender Anbieter industrieller Verbindungs- und Montagetechnik',
-      '• Bewerbung über: Bossard Karriereportal (Workday)',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} bossard ${location}`);
@@ -369,6 +372,9 @@ export async function fetchAllBossardJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${BOSSARD_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

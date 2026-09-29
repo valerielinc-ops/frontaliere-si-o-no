@@ -41,7 +41,9 @@ import {
   ISO_ALPHA2_COUNTRY_CODES,
   SWISS_COUNTRY_LABELS,
 } from './lib/prospector/country-inventory.mjs';
+import { fetch as undiciFetch } from 'undici';
 import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
@@ -60,6 +62,8 @@ const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-basel
 
 export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/extract.mjs',
+  // Reads the vacancy PDF a detail page links or embeds (fetchVacancyPdfText).
+  'scripts/lib/pdf-job-content.mjs',
   'scripts/lib/prospector/registrable.mjs',
   'scripts/lib/prospector/entities.mjs',
   'scripts/lib/decode-html-entities.mjs',
@@ -1007,6 +1011,22 @@ function sourceIsCoarserCantonOfPublished(published, source) {
   return swissMunicipalityCantons(locality).includes(canton);
 }
 
+/**
+ * Plain text of the source description without the `- ` markers the
+ * extractor writes for list items. `extractDetailFields` keeps a vacancy's
+ * lists as `- item` lines (so the crawlers that publish its text keep them);
+ * those markers are formatting it adds, not text of the source, and counted
+ * as characters they grew a source with 50 list items by 100 characters and
+ * moved the length ratio of every published text measured against it. The
+ * published side is measured exactly as before.
+ */
+function sourceContentText(value) {
+  return plainText(value)
+    .replace(/(^|\s)-(?=\s|$)/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 export function compareSourceDetail(job, detail, {
   locationEvidence = 'jsonld',
   crawlerKey = job?.crawlerKey,
@@ -1014,7 +1034,7 @@ export function compareSourceDetail(job, detail, {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
   const publishedDescription = plainText(sourceDescription(job));
-  const sourceDescriptionText = plainText(detail?.description || '');
+  const sourceDescriptionText = sourceContentText(detail?.description || '');
   const publishedWords = wordSet(publishedDescription);
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;
@@ -1085,6 +1105,7 @@ export function compareSourceDetail(job, detail, {
       publishedDescriptionLength: publishedDescription.length,
       sourceDescriptionLength: sourceDescriptionText.length,
       publishedWordCount: publishedWords.size,
+      sourceWordCount: sourceWords.size,
       overlapWordCount: overlap,
     },
   };
@@ -1124,13 +1145,474 @@ function sourceDetailReportReference(value) {
   }
 }
 
+/**
+ * Words with which a page names a PDF as its job advertisement. Vocabulary of
+ * the document, not of any one site: gemeinde-st-moritz links
+ * «Stelleninserat herunterladen» (…/stellenausschreibungen/…pdf) next to two
+ * «Download PDF» links to vote results that are not the vacancy.
+ */
+const VACANCY_DOCUMENT_WORDS = /stelleninserat|inserat|stellenausschreibung|ausschreibung|stellenbeschrieb|stellenbeschreibung|stellenangebot|jobbeschreibung|job[\s_-]*(?:ad|description|offer)|vacanc|annonce|offre[\s_-]+d[’']?emploi|mise[\s_-]+au[\s_-]+concours|bando|concorso|annuncio/i;
+const MAX_VACANCY_PDF_BYTES = 10 * 1024 * 1024;
+
+function isPdfReference(value = '') {
+  return /\.pdf(?:[?#]|$)/i.test(String(value));
+}
+
+/**
+ * The PDF a detail page presents as its vacancy, or null. Either the page
+ * EMBEDS it as its content (`iframe`/`embed` src, `object` data — csvm-mustair
+ * shows the ad in an iframe and nothing else), or a link names it the job ad
+ * in its text, title, aria-label or path. Any other PDF on the page (price
+ * lists, vote results, privacy notices) is not the vacancy and is ignored.
+ *
+ * @returns {{ url: string, embedded: boolean } | null}
+ */
+export function vacancyPdfLink(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const resolve = (reference) => {
+    try {
+      const url = new URL(decodeScrapedHtmlEntities(reference).trim(), pageUrl);
+      return /^https?:$/.test(url.protocol) ? url.href : '';
+    } catch {
+      return '';
+    }
+  };
+  for (const match of source.matchAll(/<(iframe|embed|object)\b[^>]*>/gi)) {
+    const reference = readAttr(match[0], match[1].toLowerCase() === 'object' ? 'data' : 'src');
+    if (reference && isPdfReference(reference)) {
+      const url = resolve(reference);
+      if (url) return { url, embedded: true };
+    }
+  }
+  for (const match of source.matchAll(/<a\b([^>]*)>([\s\S]{0,400}?)<\/a>/gi)) {
+    const opening = `<a${match[1]}>`;
+    const href = readAttr(opening, 'href');
+    if (!href || !isPdfReference(href)) continue;
+    let pathLabel = '';
+    try { pathLabel = decodeURIComponent(new URL(decodeScrapedHtmlEntities(href), pageUrl).pathname); } catch { pathLabel = href; }
+    const label = [plainText(match[2]), readAttr(opening, 'title'), readAttr(opening, 'aria-label'), pathLabel].join(' ');
+    if (VACANCY_DOCUMENT_WORDS.test(label)) {
+      const url = resolve(href);
+      if (url) return { url, embedded: false };
+    }
+  }
+  return null;
+}
+
+const PDF_SIGNATURE = '%PDF-';
+const PDF_BASE64_PREFIX = Buffer.from(PDF_SIGNATURE, 'latin1').toString('base64').slice(0, 6);
+
+/**
+ * `politeFetch` reads every body as text, which mangles PDF bytes. This
+ * transport keeps its URL policy, robots, throttle and redirects (it is the
+ * `fetchImpl` politeFetch calls for each hop) and decides on the BYTES, not
+ * on the headers or the URL: a body that starts with `%PDF-` comes back as
+ * base64, anything else — robots.txt, an HTML error page — as UTF-8 text.
+ * Neither the final Content-Type nor the final path is evidence: a `.pdf`
+ * link that redirects to `/download?id=…` served as
+ * `application/octet-stream` is still the PDF.
+ */
+export function createPdfSafeFetch(baseFetch = undiciFetch) {
+  return async function pdfSafeFetch(url, init) {
+    const response = await baseFetch(url, init);
+    if (response.status >= 300 && response.status < 400) return response;
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const isPdf = bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') === PDF_SIGNATURE;
+    return {
+      ok: response.ok,
+      status: response.status,
+      url: response.url || url,
+      headers: response.headers,
+      body: null,
+      text: async () => (isPdf ? bytes.toString('base64') : bytes.toString('utf8')),
+    };
+  };
+}
+
+/**
+ * Text of the vacancy PDF, fetched through the same politeFetch contract as
+ * the page. `baseFetch` and `extractTextImpl` exist for tests.
+ */
+export async function fetchVacancyPdfText(pdfUrl, {
+  fetchPage = politeFetch,
+  baseFetch = undiciFetch,
+  extractTextImpl,
+} = {}) {
+  const fetched = await fetchPage(pdfUrl, {
+    timeoutMs: 20000,
+    retries: 1,
+    accept: 'application/pdf,*/*;q=0.8',
+    fetchImpl: createPdfSafeFetch(baseFetch),
+  });
+  if (!fetched?.ok || !fetched.body) {
+    const refusal = fetched?.blockedByRobots ? 'robots.txt disallows it' : fetched?.policyBlocked ? 'fetch policy refused it' : `status ${fetched?.status || 0}`;
+    return { text: '', error: refusal };
+  }
+  if (!String(fetched.body).startsWith(PDF_BASE64_PREFIX)) return { text: '', error: 'not a pdf' };
+  const bytes = Buffer.from(fetched.body, 'base64');
+  if (bytes.length > MAX_VACANCY_PDF_BYTES) return { text: '', error: 'pdf too large' };
+  if (bytes.subarray(0, PDF_SIGNATURE.length).toString('latin1') !== PDF_SIGNATURE) return { text: '', error: 'not a pdf' };
+  const extracted = await extractPdfJobContentFromUrl(pdfUrl, {
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    }),
+    ...(extractTextImpl ? { extractTextImpl } : {}),
+  });
+  return {
+    text: extracted.text || '',
+    bodySha256: createHash('sha256').update(bytes).digest('hex'),
+    ...(extracted.error ? { error: extracted.error } : {}),
+  };
+}
+
+/**
+ * A page that presents its vacancy as a PDF carries only a teaser in HTML
+ * (gemeinde-st-moritz: 233 chars, «Schalter-Öffnungszeiten» included), so a
+ * parser that publishes the PDF read as «unrelated» to it. The PDF is one
+ * more candidate description of the SAME page and, as for the page's own
+ * blocks in `extractDetailFields`, the longest candidate wins — which also
+ * keeps the check able to fail: a parser that publishes only the teaser is
+ * now compared with the whole ad.
+ *
+ * When the PDF cannot be read, a LINKED one leaves the HTML reading as it was.
+ * An EMBEDDED one is the page's content, so what the HTML still offers is
+ * chrome (csvm-mustair: the news-page frame, «Dein Browser unterstützt kein
+ * PDF»): that reading is dropped and the sample proves nothing, instead of
+ * reporting the published ad as unrelated to the frame around it. csvm's
+ * robots.txt disallows /images/, where its PDFs live, so this is the path the
+ * audit takes there by its own robots rule.
+ */
+async function vacancyPdfDescription(html, pageUrl, detail, fetchVacancyPdf) {
+  const link = vacancyPdfLink(html, pageUrl);
+  if (!link || typeof fetchVacancyPdf !== 'function') return { linkedDocument: null, vacancyPdf: null };
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(link.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  const readable = Boolean(text) && /^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''));
+  if (!readable) {
+    if (link.embedded) detail.description = '';
+    return {
+      linkedDocument: null,
+      vacancyPdf: { outcome: 'unreadable', embedded: link.embedded, reason: String(pdf?.error || 'no text layer').slice(0, 120) },
+    };
+  }
+  if (text.length <= String(detail.description || '').length) {
+    return { linkedDocument: null, vacancyPdf: { outcome: 'shorter-than-page', embedded: link.embedded } };
+  }
+  detail.description = text;
+  return {
+    linkedDocument: { url: link.url, bodySha256: pdf.bodySha256 },
+    vacancyPdf: { outcome: 'read', embedded: link.embedded },
+  };
+}
+
+function withoutFragment(url = '') {
+  const value = String(url || '');
+  const at = value.indexOf('#');
+  return at < 0 ? value : value.slice(0, at);
+}
+
+function queryOf(url = '') {
+  try {
+    return new URL(withoutFragment(url)).search.replace(/^\?/, '');
+  } catch {
+    return '';
+  }
+}
+
+function urlFragment(url = '') {
+  const value = String(url || '');
+  const at = value.indexOf('#');
+  if (at < 0) return '';
+  try {
+    return decodeURIComponent(value.slice(at + 1));
+  } catch {
+    return value.slice(at + 1);
+  }
+}
+
+/**
+ * Documents several postings of one crawler point into, told apart only by
+ * the URL fragment. The fragment never reaches the server, so fetching any of
+ * those URLs returns the same document: a client-side route (Johdi Suite
+ * `emplois#offer/4094/…` on ehnv, daler-hopital, h-ju; pi-asp
+ * `#position,id=…`; etat-de-vaud `#fr/sites/CX_1/job/5725`) or one page
+ * listing every ad (grischapersonal, im-bethesda-spital, oscam `#concorso-…`).
+ * On run 36528331656 14 crawlers published such URLs for all their postings.
+ * A URL with a fragment that no other posting shares is left alone.
+ *
+ * @returns {Set<string>} the shared documents, fragment removed
+ */
+export function sharedSourceDocuments(jobs = []) {
+  const byDocument = new Map();
+  for (const job of jobs) {
+    const url = String(job?.url || '');
+    if (!url.includes('#')) continue;
+    const document = withoutFragment(url);
+    const urls = byDocument.get(document) || new Set();
+    urls.add(url);
+    byDocument.set(document, urls);
+  }
+  return new Set([...byDocument].filter(([, urls]) => urls.size > 1).map(([document]) => document));
+}
+
+/** `origin + pathname` of a URL, without query or fragment; '' when unparseable. */
+function bareDocumentUrl(url = '') {
+  try {
+    const parsed = new URL(String(url || ''));
+    return `${parsed.origin}${parsed.pathname}`;
+  } catch {
+    return '';
+  }
+}
+
+/** Comparable form of a bare document URL: lowercase host, no trailing slash. */
+function comparableDocumentUrl(url = '') {
+  try {
+    const parsed = new URL(String(url || ''));
+    return `${parsed.protocol}//${parsed.host.toLowerCase()}${parsed.pathname.replace(/\/+$/, '') || '/'}`;
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Documents several postings of one crawler point into, told apart only by a
+ * query parameter: la-fonte `inizia-con-noi?role=stagiaire-…` and
+ * `?role=apprendisti-…`, dxt-commodities `careers/?panel=20897_1` and
+ * `?panel=20897_2` (run 36571839273). Unlike a fragment, a query reaches the
+ * server and may well select a vacancy (`?jobid=`, `?id=` on most ATS), so a
+ * query-only difference is a CANDIDATE: the fetched page has to say it is the
+ * bare document (see `pageDeclaresBareDocument`) before the sample is read as
+ * a page several postings share.
+ *
+ * @returns {Set<string>} the candidate documents, as `origin + pathname`
+ */
+export function querySharedDocumentCandidates(jobs = []) {
+  const byDocument = new Map();
+  for (const job of jobs) {
+    const url = withoutFragment(job?.url || '');
+    if (!url.includes('?')) continue;
+    const document = bareDocumentUrl(url);
+    if (!document) continue;
+    const urls = byDocument.get(document) || new Set();
+    urls.add(url);
+    byDocument.set(document, urls);
+  }
+  return new Set([...byDocument].filter(([, urls]) => urls.size > 1).map(([document]) => document));
+}
+
+/**
+ * Whether the page fetched for `pageUrl` declares, through its canonical link,
+ * that it is the document without the query: then the query addressed nothing
+ * and every posting whose URL differs only by that query landed on the same
+ * page. la-fonte serves byte-identical pages for `?role=…` of both roles and
+ * for no query at all, canonical `https://www.lafonte.ch/inizia-con-noi`;
+ * dxt-commodities' `?panel=…` pages declare `https://dxt.com/careers/`.
+ * A canonical that keeps a query, or names another path, confirms nothing.
+ */
+export function pageDeclaresBareDocument(html = '', pageUrl = '') {
+  const source = String(html || '');
+  for (const match of source.matchAll(/<link\b[^>]*>/gi)) {
+    const rel = readAttr(match[0], 'rel').toLowerCase().split(/\s+/);
+    if (!rel.includes('canonical')) continue;
+    const href = readAttr(match[0], 'href');
+    if (!href) return false;
+    let canonical;
+    try {
+      canonical = new URL(href, pageUrl);
+    } catch {
+      return false;
+    }
+    if (canonical.search) return false;
+    return comparableDocumentUrl(canonical.toString()) === comparableDocumentUrl(bareDocumentUrl(pageUrl));
+  }
+  return false;
+}
+
+/**
+ * Whether a query candidate landed on a page that several postings share:
+ * the page declares the bare document as canonical AND lists this posting and
+ * at least one other posting of that document under their own titles. The
+ * canonical alone is not enough: a single-page app (a BrassRing
+ * `HomeWithPreLoad?jobid=…`) may declare its shell canonical and still read
+ * the query in the browser — its static page lists no posting at all, so it
+ * stays a per-vacancy URL measured as before.
+ */
+export function pageListsSharedPostings(html = '', pageUrl = '', title = '', siblingTitles = []) {
+  if (!pageDeclaresBareDocument(html, pageUrl)) return false;
+  if (!headingSectionBlock(html, title)) return false;
+  return (Array.isArray(siblingTitles) ? siblingTitles : [])
+    .some((sibling) => plainText(sibling).toLowerCase() !== plainText(title).toLowerCase()
+      && Boolean(headingSectionBlock(html, sibling)));
+}
+
+/**
+ * What a fragment on a shared document is, once `fragmentAnchoredBlock` has
+ * found no element with that id in the fetched page (an HTML id may contain
+ * `/`, `=`, `?`, `&` or start with a digit, so the syntax alone never decides
+ * that a fragment is not an element). A fragment written as a path or a
+ * key=value pair (`offer/4094/…`, `fr/sites/CX_1/job/5725`, `position,id=…`,
+ * `job.id=…`, `!/…`) and absent from the page is the route of a single-page
+ * app: the page has no static place for the posting. Anything else absent
+ * from the page is an anchor the page does not have.
+ */
+export function fragmentKind(url = '') {
+  const fragment = urlFragment(url);
+  if (!fragment) return 'none';
+  if (fragment.startsWith(':~:text=')) return 'text-fragment';
+  return /[/=]/.test(fragment) || fragment.startsWith('!') ? 'client-route' : 'anchor';
+}
+
+/**
+ * The section a text fragment (`#:~:text=…`, the browsers' scroll-to-text
+ * address) opens: from the heading whose text is the fragment's start text to
+ * the next heading of the same level. It is how a page that lists every ad
+ * under its own heading but gives none of them an id or a URL — klinik-
+ * seeschau's Joomla list, «the listing IS the detail» — can still address
+ * one posting. Returns '' when no heading carries that text.
+ */
+export function textFragmentBlock(html = '', url = '') {
+  const fragment = String(url || '').split('#')[1] || '';
+  if (!fragment.startsWith(':~:text=')) return '';
+  const directive = fragment.slice(':~:text='.length).split('&')[0];
+  const parts = directive.split(',').filter((part) => part && !part.endsWith('-') && !part.startsWith('-'));
+  let start = '';
+  try {
+    start = decodeURIComponent(parts[0] || '');
+  } catch {
+    return '';
+  }
+  return headingSectionBlock(html, start);
+}
+
+/**
+ * The section a heading whose text is `text` opens, to the next heading of
+ * the same or a higher rank (at most 30 000 characters when none follows),
+ * scripts and styles removed, or ''. The place of one posting on a page that
+ * lists several under their titles — what a text fragment addresses, and
+ * where a posting whose URL addresses nothing on the page still has its own
+ * text: la-fonte lists each role under an `<h4>`, dxt-commodities under the
+ * `<h4>` of its accordion panel, grischapersonal under an `<h1>` per table
+ * row. A higher-rank heading closes the section too: the last dxt panel is
+ * followed by the page's `<h2>`/`<h3>` footer, not by another `<h4>`.
+ */
+export function headingSectionBlock(html = '', text = '') {
+  const wanted = plainText(text).toLowerCase();
+  if (!wanted) return '';
+  const source = String(html || '');
+  for (const match of source.matchAll(/<(h([1-6]))\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+    if (plainText(match[3]).toLowerCase() !== wanted) continue;
+    const after = match.index + match[0].length;
+    const next = source.slice(after).search(new RegExp(`<h[1-${match[2]}]\\b`, 'i'));
+    return source.slice(match.index, next < 0 ? Math.min(source.length, after + 30000) : after + next)
+      .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
+  }
+  return '';
+}
+
+/**
+ * The element a URL fragment names (`id="…"`) inside the fetched page, as the
+ * inner HTML of that element, or ''. klinik-gut (`#drz-accordion-id-4367`)
+ * and klinik-schuetzen (`#job-PLUT7122`) list every ad on one page but give
+ * each its own element: that element IS the vacancy's source.
+ */
+export function fragmentAnchoredBlock(html = '', url = '') {
+  const fragment = urlFragment(url);
+  // An HTML id is any non-empty string without whitespace: `offer/4094`,
+  // `4367` and `a&b` are all valid, so the id is looked up in the page for
+  // every fragment that is not a text directive. In the markup `&` may be
+  // written `&amp;`.
+  if (!fragment || fragment.startsWith(':~:') || /\s/.test(fragment)) return '';
+  const source = String(html || '');
+  const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const spellings = [...new Set([fragment, fragment.replace(/&/g, '&amp;')])].map(escape).join('|');
+  const opening = new RegExp(`<([a-z][a-z0-9]*)\\b[^>]*\\bid\\s*=\\s*["'](?:${spellings})["'][^>]*>`, 'i').exec(source);
+  if (!opening || /\/\s*>$/.test(opening[0])) return '';
+  const tag = opening[1].toLowerCase();
+  const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+  tags.lastIndex = opening.index + opening[0].length;
+  let depth = 1;
+  let match;
+  while ((match = tags.exec(source))) {
+    if (match[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return source.slice(opening.index + opening[0].length, match.index);
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
+/**
+ * A posting whose published URL IS the PDF of its advertisement (oscam-
+ * castelrotto's «bando di concorso»): the source text is the PDF, read like a
+ * linked one and bound by digest in the evidence. A PDF that cannot be read
+ * is a fetch failure with its reason, never an empty «match».
+ */
+async function checkPdfSourceDetail(item, fetchVacancyPdf, evidenceContext) {
+  let pdf;
+  try {
+    pdf = await fetchVacancyPdf(item.url);
+  } catch (error) {
+    pdf = { text: '', error: sanitizeProcessingError(error) };
+  }
+  const text = String(pdf?.text || '').trim();
+  if (!text || !/^[a-f0-9]{64}$/.test(String(pdf?.bodySha256 || ''))) {
+    const reason = String(pdf?.error || 'no text layer');
+    return {
+      ...item,
+      fetchFailed: true,
+      status: 0,
+      fetchError: reason.slice(0, 240),
+      blockedByRobots: /robots/i.test(reason) || undefined,
+      policyBlocked: /policy/i.test(reason) || undefined,
+    };
+  }
+  try {
+    const comparison = compareSourceDetail(item.job, { title: '', location: '', description: text }, {
+      locationEvidence: 'generic',
+      crawlerKey: item.crawlerKey,
+    });
+    const sourceDetailEvidence = evidenceContext
+      ? createSourceDetailEvidence({
+        crawlerKey: item.crawlerKey,
+        sourceUrl: item.url,
+        body: `application/pdf sha256:${pdf.bodySha256}`,
+        observation: comparison.replayObservation,
+        provenance: evidenceContext.provenance,
+        versions: evidenceContext.versions,
+        linkedDocument: { url: item.url, bodySha256: pdf.bodySha256 },
+      })
+      : null;
+    return {
+      ...item,
+      ...comparison,
+      vacancyPdf: { outcome: 'read', embedded: false, direct: true },
+      ...(sourceDetailEvidence ? { sourceDetailEvidence } : {}),
+    };
+  } catch (error) {
+    return processingFailureResult(item, error);
+  }
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
   observeLocation = extractSourceLocationObservation,
+  fetchVacancyPdf = fetchVacancyPdfText,
   evidenceContext = null,
 } = {}) {
   const results = await mapPool(items, concurrency, async (item) => {
+    if (isPdfReference(withoutFragment(item.url))) return checkPdfSourceDetail(item, fetchVacancyPdf, evidenceContext);
     let fetched;
     try {
       fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
@@ -1176,7 +1658,64 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
         { includeDiagnostics: true, recordUrl },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
-      const locationEvidence = locationObservation.evidence;
+      // A document shared by several postings (see sharedSourceDocuments and
+      // querySharedDocumentCandidates) is the vacancy's source only where the
+      // posting has a place of its own on it: the element or the text its URL
+      // fragment names, or else the section under its own title. The whole
+      // page is every posting at once, so it is never measured against one.
+      let sourceScope = null;
+      let sharedBy = null;
+      let locationEvidence = locationObservation.evidence;
+      const jobUrl = item.job?.url || item.url;
+      if (item.sharedDocument) sharedBy = 'fragment';
+      else if (item.sharedDocumentCandidate === 'query'
+        && pageListsSharedPostings(fetched.body, fetched.url || item.url, item.job?.title, item.siblingTitles)) sharedBy = 'query';
+      // Whether the published URL itself leads to the posting on that page.
+      // A query the page ignores, or an anchor it does not have, does not:
+      // the reader lands on the top of a page listing several postings.
+      let urlAddressesPosting = true;
+      if (sharedBy) {
+        // The fragment addresses the posting on the shared page whatever made
+        // the page shared: la-fonte keeps its `?role=` identity and adds the
+        // text fragment of the role's title, dxt its `?panel=` and the id of
+        // the accordion panel.
+        const kind = fragmentKind(jobUrl);
+        const clientRoute = kind === 'client-route';
+        let addressed = '';
+        if (kind === 'text-fragment') addressed = textFragmentBlock(fetched.body, jobUrl);
+        else if (kind !== 'none') addressed = fragmentAnchoredBlock(fetched.body, jobUrl);
+        if (!addressed && !clientRoute) urlAddressesPosting = false;
+        const titled = !addressed && !clientRoute
+          ? headingSectionBlock(fetched.body, item.job?.title || '')
+          : '';
+        const block = addressed || titled;
+        if (block) {
+          sourceScope = addressed ? 'fragment-anchor' : 'title-heading';
+          detail.description = plainText(block);
+          const anchoredLocation = observeLocation(block, fetched.url || item.url, { recordUrl });
+          detail.location = anchoredLocation.location || '';
+          locationEvidence = anchoredLocation.evidence;
+        } else {
+          // Nothing on the page is this posting's: an app route has no
+          // static place for it (informational), an anchor or a query that
+          // addresses nothing, on a page without the posting's title, is a
+          // defect of the published URL (visible issue).
+          sourceScope = clientRoute ? 'client-route' : 'anchor-missing';
+          detail.description = '';
+          detail.location = '';
+          detail.headingSublineFields = [];
+          locationEvidence = 'generic';
+        }
+      }
+      const unattributable = sourceScope === 'client-route' || sourceScope === 'anchor-missing';
+      const { linkedDocument, vacancyPdf } = unattributable
+        ? { linkedDocument: null, vacancyPdf: null }
+        : await vacancyPdfDescription(
+          fetched.body,
+          fetched.url || item.url,
+          detail,
+          fetchVacancyPdf,
+        );
       const comparison = compareSourceDetail(item.job, detail, {
         locationEvidence,
         crawlerKey: item.crawlerKey,
@@ -1189,11 +1728,16 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           observation: comparison.replayObservation,
           provenance: evidenceContext.provenance,
           versions: evidenceContext.versions,
+          linkedDocument,
         })
         : null;
       return {
         ...item,
         ...comparison,
+        ...(vacancyPdf ? { vacancyPdf } : {}),
+        ...(sourceScope ? { sourceScope } : {}),
+        ...(sharedBy ? { sharedBy } : {}),
+        ...(urlAddressesPosting ? {} : { urlAddressesPosting: false }),
         // Attached to the RESULT, deliberately not routed through
         // `comparison.replayObservation`: the replay-evidence schema and its
         // strict validator in `classifySourceDetailObservation` would have to
@@ -1231,6 +1775,21 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
 export function sourceDetailUnobserved(result) {
   return !result.sourceLocation
     && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
+}
+
+/**
+ * What one identical-description bucket sample proved. `matched` is the only
+ * outcome that says "template": the source body was long enough to contradict
+ * the published one and did not. A page with less than
+ * COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS of body proves neither template nor
+ * fallback, so it is counted as `notComparable`, never as a match.
+ */
+export function duplicateBucketSampleOutcome(result) {
+  if (result?.fetchFailed) return 'fetchFailed';
+  if (result?.processingFailed) return 'processingFailed';
+  if (result?.descriptionMismatch) return 'mismatched';
+  if (Number(result?.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS) return 'notComparable';
+  return 'matched';
 }
 
 /**
@@ -1409,6 +1968,28 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     circularCorroborationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
+    // Outcomes of the identical-description bucket samples (see
+    // duplicateBucketSourceSample). Every requested bucket sample lands in
+    // exactly one of the five outcomes, so the hidden signal stays measured
+    // on every run even though it no longer makes a crawler WARNING.
+    duplicateBucketSamples: {
+      requested: 0,
+      matched: 0,
+      mismatched: 0,
+      notComparable: 0,
+      fetchFailed: 0,
+      processingFailed: 0,
+    },
+    // Detail pages that present the vacancy as a PDF (see vacancyPdfLink):
+    // read and used, unreadable (robots, fetch, no text layer), or shorter
+    // than what the page already carried.
+    vacancyPdfPages: { read: 0, unreadable: 0, shorterThanPage: 0 },
+    // Samples on a document several postings share (see sharedSourceDocuments
+    // and querySharedDocumentCandidates): read from the element their fragment
+    // names, read from the section under their own title, on an app route with
+    // no static page for the posting, or behind an anchor or a query that does
+    // not lead to the posting (counted whether or not its title was found).
+    sharedDocumentSamples: { fragmentAnchored: 0, titleHeading: 0, clientRoute: 0, anchorMissing: 0 },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1419,10 +2000,27 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       descriptionMismatches: 0, unobserved: 0, unobservedSourceMute: 0,
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
+      bucketVerification: null,
+      unattributable: 0, anchorMissing: 0, anchorMissingDetails: [],
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
     info.checked++;
+    if (result.vacancyPdf) {
+      const pdfOutcome = result.vacancyPdf.outcome === 'shorter-than-page' ? 'shorterThanPage' : result.vacancyPdf.outcome;
+      if (pdfOutcome in sourceDetailSummary.vacancyPdfPages) sourceDetailSummary.vacancyPdfPages[pdfOutcome]++;
+    }
+    const bucketSample = result.sampleReason === DUPLICATE_BUCKET_SAMPLE_REASON;
+    if (bucketSample) {
+      const outcome = duplicateBucketSampleOutcome(result);
+      sourceDetailSummary.duplicateBucketSamples.requested++;
+      sourceDetailSummary.duplicateBucketSamples[outcome]++;
+      info.bucketVerification = {
+        outcome,
+        bucketSize: Number.isInteger(result.bucketSize) ? result.bucketSize : null,
+        source: sourceReference,
+      };
+    }
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
@@ -1440,6 +2038,29 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       continue;
     }
     sourceDetailSummary.fetched++;
+    if (result.sourceScope === 'fragment-anchor') sourceDetailSummary.sharedDocumentSamples.fragmentAnchored++;
+    if (result.sourceScope === 'title-heading') sourceDetailSummary.sharedDocumentSamples.titleHeading++;
+    // Neither is «unobserved»: the page may well carry a JobPosting, just not
+    // this posting's. No verdict on description or location either way.
+    if (result.sourceScope === 'client-route') {
+      sourceDetailSummary.sharedDocumentSamples.clientRoute++;
+      info.unattributable++;
+      continue;
+    }
+    // The published URL does not lead to the posting: a visible defect of
+    // the URL. When the page still carries the posting under its own title
+    // (`title-heading`), that section is compared below like any source;
+    // without it there is nothing of this posting's to compare.
+    if (result.sourceScope === 'anchor-missing' || result.urlAddressesPosting === false) {
+      sourceDetailSummary.sharedDocumentSamples.anchorMissing++;
+      info.anchorMissing++;
+      const publishedUrl = result.job?.url || result.url;
+      const titled = result.sourceScope === 'title-heading' ? '; the section under its title was compared instead' : '';
+      info.anchorMissingDetails.push(result.sharedBy === 'query'
+        ? `${sourceReference}?${queryOf(publishedUrl)}: the page this URL shares with other postings ignores the query (it declares the URL without it as canonical)${titled}`
+        : `${sourceReference}#${urlFragment(publishedUrl)}: the page this URL shares with other postings has no element with that id${titled}`);
+      if (result.sourceScope === 'anchor-missing') continue;
+    }
     addLocationEvidenceCounts(
       sourceDetailSummary.locationEvidenceBeforeGateByEvidence,
       result.locationEvidenceCounts?.beforeGate,
@@ -1502,11 +2123,30 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.descriptionMismatch) {
       info.descriptionMismatches++;
       sourceDetailSummary.descriptionMismatches++;
-      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+      const bucketNote = bucketSample && Number.isInteger(result.bucketSize)
+        ? ` (body shared verbatim by ${result.bucketSize} jobs)`
+        : '';
+      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars${bucketNote}`);
     }
   }
   for (const [key, info] of Object.entries(byKey)) {
     const entry = report[key] || (report[key] = { total: 0, issues: [] });
+    if (info.bucketVerification) {
+      const bucketIssue = entry.issues.find((issue) => issue.type === 'duplicate-descriptions-desc-only');
+      if (bucketIssue) bucketIssue.sourceVerification = info.bucketVerification;
+    }
+    // Informational, never an issue: the source is an app with no static
+    // page per posting, so these samples could not be checked at all.
+    if (info.unattributable > 0) entry.sourceDetailUnattributable = info.unattributable;
+    if (info.anchorMissing > 0) {
+      entry.issues.push({
+        type: 'source-detail-anchor-missing',
+        count: info.anchorMissing,
+        total: info.checked,
+        details: info.anchorMissingDetails,
+        message: `${info.anchorMissing}/${info.checked} published URLs point into a page several postings share with an anchor that is not on it or a query it ignores — the link does not lead to the posting; publish a per-vacancy URL, an anchor that exists or a text fragment of its title`,
+      });
+    }
     if (info.processingFailed > 0) {
       entry.issues.push({
         type: 'parse-error', count: info.processingFailed, total: info.checked,
@@ -1621,6 +2261,24 @@ export function formatSourceDetailObservationLines(summary = {}) {
   if (unobserved > 0) {
     lines.push(`Source detail unobserved split: ${sourceMute} source served no JobPosting structured data (no issue raised), ${unobserved - sourceMute} served one and still read as nothing (parser finding)`);
   }
+  // Same reasoning for the identical-description buckets: the hidden signal
+  // stopped producing WARNINGs, so what the source said about each bucket is
+  // printed here on every run instead of disappearing with the WARNING.
+  if (count(summary.duplicateRequestsDropped) > 0) {
+    lines.push(`Source detail requests dropped as duplicates of a request of the same crawler: ${count(summary.duplicateRequestsDropped)} (same URL sampled twice — a sampler defect)`);
+  }
+  const shared = summary.sharedDocumentSamples;
+  if (shared && count(shared.fragmentAnchored) + count(shared.titleHeading) + count(shared.clientRoute) + count(shared.anchorMissing) > 0) {
+    lines.push(`Source detail samples on a page several postings share: ${count(shared.fragmentAnchored)} read from the element their URL fragment names, ${count(shared.titleHeading)} read from the section under their title, ${count(shared.clientRoute)} on an app route with no static page per posting (informational), ${count(shared.anchorMissing)} behind an anchor or a query that does not lead to the posting (source-detail-anchor-missing)`);
+  }
+  const pdfPages = summary.vacancyPdfPages;
+  if (pdfPages && count(pdfPages.read) + count(pdfPages.unreadable) + count(pdfPages.shorterThanPage) > 0) {
+    lines.push(`Source detail pages presenting the vacancy as a PDF: ${count(pdfPages.read)} compared with the PDF, ${count(pdfPages.unreadable)} PDF unreadable (an embedded one leaves the sample unobserved), ${count(pdfPages.shorterThanPage)} PDF shorter than the page body`);
+  }
+  const bucket = summary.duplicateBucketSamples;
+  if (bucket && count(bucket.requested) > 0) {
+    lines.push(`Identical-description buckets checked against the source: ${count(bucket.requested)} sampled — ${count(bucket.matched)} carry their source body (template), ${count(bucket.mismatched)} contradicted by it (source-detail-mismatch), ${count(bucket.notComparable)} source body < ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS} chars (proves nothing), ${count(bucket.fetchFailed)} fetch failed, ${count(bucket.processingFailed)} processing failed`);
+  }
   return lines;
 }
 
@@ -1673,19 +2331,28 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
   concurrency = 3,
   checkBatch = checkSourceDetailsBatch,
 } = {}) {
+  // Last line of defence behind the samplers: the same crawler asking for the
+  // same URL twice is one observation, not two, and a single duplicate makes
+  // the evidence bundle refuse the whole run. Kept once, counted, printed.
+  const seenRequests = new Set();
+  const requests = sourceDetailsToCheck.filter(({ crawlerKey, url }) => {
+    const identity = `${crawlerKey}\u0000${url}`;
+    if (seenRequests.has(identity)) return false;
+    seenRequests.add(identity);
+    return true;
+  });
+  const duplicateRequestsDropped = sourceDetailsToCheck.length - requests.length;
   const evidenceContext = {
     provenance,
     versions,
-    requestedCount: sourceDetailsToCheck.length,
-    requestedSamples: sourceDetailsToCheck.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
+    requestedCount: requests.length,
+    requestedSamples: requests.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
   };
-  const sourceResults = await checkBatch(sourceDetailsToCheck, concurrency, { evidenceContext });
+  const sourceResults = await checkBatch(requests, concurrency, { evidenceContext });
+  const sourceDetailSummary = applySourceDetailResults(report, sourceResults, requests.length);
+  sourceDetailSummary.duplicateRequestsDropped = duplicateRequestsDropped;
   return {
-    sourceDetailSummary: applySourceDetailResults(
-      report,
-      sourceResults,
-      sourceDetailsToCheck.length,
-    ),
+    sourceDetailSummary,
     sourceDetailEvidence: finalizeSourceDetailEvidence(report, sourceResults, evidenceContext),
   };
 }
@@ -1697,9 +2364,55 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
  * is the rule a reclassification has to be measured against — a source that
  * must stop being a WARNING has to emit NO issue, and a test can only prove
  * that by running the same rule the audit runs, not by reading the chain.
+ *
+ * A `hidden` issue is not a finding: it is an input to a ratchet (today only
+ * `duplicate-descriptions-desc-only`, which feeds the ≥95 % chrome ratchet and
+ * picks the bucket the source-detail pass verifies) and the report never
+ * prints it. Counting it here made 55 crawlers WARNING on run 36528331656 with
+ * no line under their name to say why. What that signal can prove is proved
+ * elsewhere, visibly: the chrome ratchet synthesizes a visible issue, and a
+ * bucket whose body the source contradicts becomes a `source-detail-mismatch`.
  */
 export function issueDrivenSeverity(entry) {
-  return (entry?.issues?.length || 0) > 0 ? 'WARNING' : 'OK';
+  const visible = (entry?.issues || []).filter((issue) => !issue?.hidden);
+  return visible.length > 0 ? 'WARNING' : 'OK';
+}
+
+/**
+ * Severity chain of one crawler entry, before the two ratchets. Exported so a
+ * replay or a test derives severity with the rule the audit runs instead of a
+ * hand-copied subset of it.
+ */
+export function assignSeverity(entry) {
+  const types = new Set(entry.issues.map((i) => i.type));
+  const thin = entry.issues.find((i) => i.type === 'thin-description');
+  const thinRatio = thin ? thin.count / thin.total : 0;
+  const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
+  const urlFail = types.has('stale-urls');
+  const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
+  const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
+  const detailSeverity = sourceDetailSeverity(entry);
+  if (types.has('parse-error')) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
+  // Form-chrome is a hard signal: even one row means the parser is
+  // leaking the surrounding page (form, footer, contact info) into the
+  // job description. There is no benign source of these phrases — never
+  // a false positive — so skip the ratio gate.
+  else if (formChromeCount > 0) entry.severity = 'CRITICAL';
+  else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
+  else entry.severity = issueDrivenSeverity(entry);
+  if (entry.severity === 'CRITICAL') {
+    const h = [];
+    if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
+    if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
+    if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
+    if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
+    if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
+    if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
+    else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
+    entry.action = h.join('. ') + '.';
+  }
 }
 
 export function sourceDetailSeverity(entry) {
@@ -1818,44 +2531,12 @@ export function filledLocaleCount(byLocale, { minLength = 11 } = {}) {
   }).length;
 }
 
-function descFingerprint(desc) {
-  return plainText(desc).toLowerCase().slice(0, 500);
-}
-
-/**
- * Estimate the length of a shared boilerplate prefix across jobs of the same
- * crawler. We sort plain-text descriptions and take the longest common prefix
- * of any adjacent pair: if the crawler leaks a company intro into every job,
- * that intro will show up as a long prefix on most neighbouring pairs.
- *
- * We only strip the prefix when it looks like real boilerplate — short enough
- * compared to the full description. If a pair is essentially identical end to
- * end (prefix ≈ description length), those are real duplicates and should be
- * flagged, not masked.
- */
-function estimateBoilerplateLength(plain) {
-  if (plain.length < 2) return 0;
-  const sorted = [...plain].sort();
-  let maxPrefix = 0;
-  for (let i = 1; i < sorted.length; i++) {
-    const a = sorted[i - 1];
-    const b = sorted[i];
-    const max = Math.min(a.length, b.length);
-    let j = 0;
-    while (j < max && a.charCodeAt(j) === b.charCodeAt(j)) j++;
-    // Guard: if the pair is nearly identical end-to-end, treat as a real
-    // duplicate (don't let it inflate the boilerplate estimate).
-    if (j >= Math.min(a.length, b.length) * 0.9) continue;
-    if (j > maxPrefix) maxPrefix = j;
-  }
-  return maxPrefix;
-}
-
 /**
  * Build per-job fingerprints for duplicate detection.
  *
  * Two modes are supported because the original "all-jobs-share-the-same-500-char
- * description-slice" heuristic conflates two very different parser problems:
+ * description-slice" heuristic (since replaced by the whole body in both
+ * modes) conflates two very different parser problems:
  *
  *   1. CHROME SCRAPING — the parser grabs nav/footer/megamenu instead of the
  *      job body, so dozens of UNRELATED jobs (different titles, different
@@ -1866,12 +2547,12 @@ function estimateBoilerplateLength(plain) {
  *      many cities (reboot-monkey: 142 "Data Center Technician — Switzerland —
  *      <city>" listings; lidl-svizzera: 8 apprendistato in 8 filiali;
  *      fielmann: 37 "Augenoptiker (w/m/d)" across 35 Workday store locations).
- *      The body is templated so post-boilerplate slices collide. The parser is
+ *      The body is templated so templated bodies collide. The parser is
  *      doing the right thing — flagging it as a duplicate listing is a false
  *      positive.
  *
  * We separate the two:
- *   - mode 'title-aware'  : title || location || desc-slice. Catches real
+ *   - mode 'title-aware'  : title || location || whole body. Catches real
  *                           duplicate listings where multiple postings share the
  *                           same title AND body AT THE SAME LOCATION (bitfinex's
  *                           Recruitee feed publishes 9× the same role; a feed
@@ -1885,10 +2566,41 @@ function estimateBoilerplateLength(plain) {
  *                           for store-chain feeds. Same role at distinct cities →
  *                           distinct fingerprints → not a duplicate. Same role
  *                           re-posted at the same city → still collides → flagged.
- *   - mode 'desc-only'    : the original desc-only slice. Used at a stricter
- *                           threshold to keep chrome-scraping detection alive
- *                           (chrome makes ALL descriptions identical regardless
- *                           of title).
+ *   - mode 'desc-only'    : the WHOLE normalized body, no slice. Used at a
+ *                           stricter threshold to keep chrome-scraping
+ *                           detection alive (chrome makes ALL descriptions
+ *                           identical regardless of title).
+ *
+ * Why desc-only no longer shares the title-aware slice: the slice starts at a
+ * crawler-wide offset taken from the longest common prefix of ANY adjacent
+ * pair (the former `estimateBoilerplateLength`), and that offset was cut from EVERY
+ * job, including the jobs that do not start with it. On run 36528331656 the
+ * offset was 911 chars on klinik-lengg (two variants of one role) and 2 588 on
+ * helvetia, so the 500-char window of the other jobs landed on their shared
+ * closing paragraph: 15 of the 55 crawlers WARNING only for this signal had no
+ * two jobs with the same body at all (the Praktikum Neuropsychologie and the
+ * FaGe apprenticeship "collided" on the clinic's footer). The same offset ran
+ * past the end of shorter bodies and emptied their window, so identical bodies
+ * went unseen: jumbo had 30 byte-identical bodies and a count of 2. "Identical
+ * body regardless of title" is what this signal documents, so it compares the
+ * body — the ≥95 % ratchet sees the same maximum on every crawler of that run
+ * (54 %, new-yorker) and 119 → 99 crawlers carry the hidden issue.
+ *
+ * Why title-aware compares the whole body too (run 36571839273): the same
+ * crawler-wide offset plus a 500-character window called two postings "the
+ * same" when they differed only outside the window. reboot-monkey publishes
+ * each Data Center Technician role twice per city, full-time and freelance
+ * (`…-on-site` / `…-on-site-1`): the two bodies differ at character 94
+ * («this is a full-time» / «this is a freelance»), before the offset, or at
+ * character 3 078 (the requirements list), after the window — 28/106
+ * "duplicates", none identical. selecta's two «Chauffeur Kat. C und E» at
+ * Kirchberg (Job/4600, Job/4601) differ at character 878: shift 05:00-15:00
+ * against 12:00-22:00. A posting that differs in its employment type, shift,
+ * rate, street address or reference number is another posting; a re-posting
+ * is the same text, and the whole text still collides. Measured on the main
+ * slices of 2026-09-29: 32 → 26 crawlers flagged; every bucket that splits
+ * differs in its body, and no crawler gains a flag (a whole-body match is
+ * also a window match, so the new key can only split buckets).
  */
 function jobLocationKey(job) {
   return plainText(job?.location || job?.addressLocality || job?.city || '').toLowerCase();
@@ -1896,18 +2608,14 @@ function jobLocationKey(job) {
 
 export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
-  const boilerLen = estimateBoilerplateLength(plain);
-  // Only strip when the boilerplate is long enough to be meaningful and not
-  // so long that stripping it leaves no signal.
-  const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
+  if (mode === 'desc-only') return plain;
   return plain.map((p, i) => {
-    const slice = p.slice(stripLen, stripLen + 500);
-    if (mode === 'title-aware') {
-      const title = plainText(jobs[i]?.title || '').toLowerCase();
-      const location = jobLocationKey(jobs[i]);
-      return `${title}||${location}||${slice}`;
-    }
-    return slice;
+    // An empty body is no evidence of a re-posting: without it the key is
+    // title + location alone.
+    if (!p) return '';
+    const title = plainText(jobs[i]?.title || '').toLowerCase();
+    const location = jobLocationKey(jobs[i]);
+    return `${title}||${location}||${p}`;
   });
 }
 
@@ -1918,6 +2626,46 @@ export function countDuplicates(fps) {
     counts.set(fp, (counts.get(fp) || 0) + 1);
   }
   return [...counts.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
+}
+
+function declaredPostalCode(job) {
+  return String(job?.postalCode || '').replace(/\s+/g, '').trim();
+}
+
+/**
+ * Jobs that collide on the title-aware fingerprint AND may be the same
+ * posting. The fingerprint's location is the published locality, so two
+ * branches of one chain in the same town collapse into one key: denner's
+ * «Verkäufer*in» at Basel 4058 and at Basel 4057 (Filiale 524 and 370) were
+ * a "duplicate listing" although each posting names its own shop. Two records
+ * that declare DIFFERENT postal codes are two workplaces by their own
+ * statement, so they are not a re-posting of each other. A record without a
+ * postal code proves nothing either way and still collides with everyone in
+ * its bucket — that keeps a posting ingested twice, once with and once
+ * without an address (banca-cler, interdiscount on run 36528331656), counted.
+ */
+export function countDuplicateListings(jobs, fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let count = 0;
+  for (const members of buckets.values()) {
+    if (members.length < 2) continue;
+    for (const index of members) {
+      const own = declaredPostalCode(jobs[index]);
+      const samePosting = members.some((other) => {
+        if (other === index) return false;
+        const theirs = declaredPostalCode(jobs[other]);
+        return !own || !theirs || own === theirs;
+      });
+      if (samePosting) count++;
+    }
+  }
+  return count;
 }
 
 /**
@@ -1937,16 +2685,123 @@ export function countDuplicates(fps) {
  * but the largest bucket is only 50/55 (91%), correctly below it.
  */
 export function largestDuplicateBucket(fps) {
-  const counts = new Map();
-  for (const fp of fps) {
-    if (fp.length < 20) continue; // skip empty/tiny
-    counts.set(fp, (counts.get(fp) || 0) + 1);
+  return largestDuplicateBucketMembers(fps).length;
+}
+
+/**
+ * Indices of the jobs in the largest fingerprint bucket (the first one in job
+ * order on a tie; a single job when no fingerprint repeats). Same bucket that
+ * largestDuplicateBucket() measures — kept as one function so the bucket the
+ * source-detail pass verifies is by construction the one the ratchet counts.
+ */
+export function largestDuplicateBucketMembers(fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let largest = [];
+  for (const members of buckets.values()) {
+    if (members.length > largest.length) largest = members;
   }
-  let max = 0;
-  for (const c of counts.values()) {
-    if (c > max) max = c;
+  return largest;
+}
+
+export const DUPLICATE_BUCKET_SAMPLE_REASON = 'identical-description-bucket';
+
+/**
+ * The job of the largest identical-description bucket that the source-detail
+ * pass should fetch, or null when that pass already covers the bucket.
+ *
+ * Identical bodies under different titles are two different things that the
+ * published data alone cannot tell apart: the source publishing one template
+ * for many postings (fachkraft's trades, a retailer's stores, tether's two
+ * research roles that share one Recruitee text) or the parser writing the same
+ * fallback — a company blurb, a listing teaser — for postings whose detail it
+ * did not read (engel-voelkers kept only the Lever intro paragraph and
+ * published it for its Senior and its Junior broker). Only the source decides,
+ * so one member of the bucket goes through the same comparison as the regular
+ * sample: a template matches its own page, a fallback is materially shorter
+ * than or unrelated to it and becomes a `source-detail-mismatch`.
+ *
+ * `jobs.slice(0, sampledCount)` is what the regular sample already fetches:
+ * a bucket member there is verified already, and a URL fetched there is not
+ * fetched twice (the evidence bundle refuses a duplicate request identity).
+ */
+export function duplicateBucketSourceSample(jobs, fps, regularIndices = regularSourceSampleIndices(jobs)) {
+  const members = largestDuplicateBucketMembers(fps);
+  if (members.length < 2) return null;
+  const regular = new Set(regularIndices);
+  if (members.some((index) => regular.has(index))) return null;
+  const regularUrls = new Set(regularIndices.map((index) => jobs[index]?.url));
+  const index = members.find((candidate) => jobs[candidate]?.url && !regularUrls.has(jobs[candidate].url));
+  return index === undefined ? null : { index, bucketSize: members.length };
+}
+
+/**
+ * Indices of the regular source-detail sample: the first `size` jobs, in
+ * slice order, whose URL no earlier sampled job already has. The evidence
+ * bundle binds each request by `crawlerKey:sha256(url)` and refuses a
+ * duplicate identity; pwc on 2026-09-29 published the same internship twice
+ * as its first two jobs (same URL), `jobs.slice(0, 2)` requested it twice and
+ * the refused bundle turned all 589 sampled crawlers into CRITICAL
+ * parse-errors (run 36562995006). A repeated URL is skipped for the next job.
+ */
+export function regularSourceSampleIndices(jobs = [], size = SOURCE_DETAIL_SAMPLE_SIZE) {
+  const indices = [];
+  const urls = new Set();
+  for (let index = 0; index < jobs.length && indices.length < size; index += 1) {
+    const url = jobs[index]?.url;
+    if (!url || urls.has(url)) continue;
+    urls.add(url);
+    indices.push(index);
   }
-  return max;
+  return indices;
+}
+
+/**
+ * Every source-detail request of one crawler: the regular sample plus, when
+ * a body repeats, one member of the largest identical-body bucket. Each URL
+ * is requested at most once (see regularSourceSampleIndices), and a posting
+ * on a document other postings share (a URL fragment tells them apart) is
+ * marked so — its full URL, fragment included, stays its identity. One that
+ * only a query tells apart is marked a candidate, confirmed or not by the
+ * page it fetches (see pageDeclaresBareDocument).
+ */
+export function sourceDetailSamplesForCrawler(crawlerKey, jobs = []) {
+  const sharedDocuments = sharedSourceDocuments(jobs);
+  const queryCandidates = querySharedDocumentCandidates(jobs);
+  const sharedDocumentMark = (job) => {
+    if (sharedDocuments.has(withoutFragment(job.url))) return { sharedDocument: true };
+    const document = bareDocumentUrl(withoutFragment(job.url));
+    if (!queryCandidates.has(document)) return {};
+    const siblingTitles = [...new Set(jobs
+      .filter((other) => other !== job && other?.url !== job.url
+        && bareDocumentUrl(withoutFragment(other?.url || '')) === document)
+      .map((other) => String(other?.title || '').trim())
+      .filter(Boolean))].slice(0, 20);
+    return { sharedDocumentCandidate: 'query', siblingTitles };
+  };
+  const regularIndices = regularSourceSampleIndices(jobs);
+  const samples = regularIndices.map((index) => {
+    const job = jobs[index];
+    return { crawlerKey, job, url: job.url, ...sharedDocumentMark(job) };
+  });
+  const bucketSample = duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'), regularIndices);
+  if (bucketSample) {
+    const job = jobs[bucketSample.index];
+    samples.push({
+      crawlerKey,
+      job,
+      url: job.url,
+      sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
+      bucketSize: bucketSample.bucketSize,
+      ...sharedDocumentMark(job),
+    });
+  }
+  return samples;
 }
 
 /* ── URL checker with concurrency limit ────────────────────── */
@@ -2067,10 +2922,7 @@ async function main() {
       }
     }
 
-    if (checkSourceDetails) {
-      const sampled = jobs.slice(0, SOURCE_DETAIL_SAMPLE_SIZE).filter((j) => j.url);
-      for (const job of sampled) sourceDetailsToCheck.push({ crawlerKey: key, job, url: job.url });
-    }
+    if (checkSourceDetails) sourceDetailsToCheck.push(...sourceDetailSamplesForCrawler(key, jobs));
 
     // 4. Missing locale coverage — skip in-flight translations
     const missingLocales = jobs.filter((j) => {
@@ -2114,7 +2966,7 @@ async function main() {
     // descriptions are byte-identical regardless of title, the parser is
     // probably grabbing nav/footer chrome instead of the per-job body.
     const fps = fingerprintsForCrawler(jobs, 'title-aware');
-    const dupeCount = countDuplicates(fps);
+    const dupeCount = countDuplicateListings(jobs, fps);
     if (dupeCount > 1) {
       issues.push({
         type: 'duplicate-descriptions',
@@ -2124,7 +2976,7 @@ async function main() {
       });
     }
 
-    // 5b. Chrome-scraping signal — desc-only slice at a stricter threshold.
+    // 5b. Chrome-scraping signal — identical bodies at a stricter threshold.
     // Stored separately so applyChromeScrapingRatchet() can escalate without
     // double-flagging templated content (which the title-aware check above
     // already filters out). Uses the LARGEST single bucket, not the sum
@@ -2138,11 +2990,16 @@ async function main() {
         type: 'duplicate-descriptions-desc-only',
         count: chromeDupes,
         total: jobs.length,
-        // No user-facing message: this issue exists only to feed
-        // applyChromeScrapingRatchet(). We don't render warnings for it.
+        // No user-facing message and no severity (issueDrivenSeverity skips
+        // hidden issues): this issue feeds applyChromeScrapingRatchet() and
+        // chooses the bucket the source-detail pass verifies below. Whether
+        // the shared body is the source's template or the parser's fallback
+        // is decided there, against the source, never from this count.
         message: '',
         hidden: true,
       });
+      // Its source-detail sample is requested with the regular one, by
+      // sourceDetailSamplesForCrawler (step 3 above).
     }
 
     report[key] = { total: jobs.length, population, issues };
@@ -2194,37 +3051,7 @@ async function main() {
   }
 
   // Assign severity + action hints
-  for (const entry of Object.values(report)) {
-    const types = new Set(entry.issues.map((i) => i.type));
-    const thin = entry.issues.find((i) => i.type === 'thin-description');
-    const thinRatio = thin ? thin.count / thin.total : 0;
-    const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
-    const urlFail = types.has('stale-urls');
-    const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
-    const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
-    const detailSeverity = sourceDetailSeverity(entry);
-    if (types.has('parse-error')) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
-    // Form-chrome is a hard signal: even one row means the parser is
-    // leaking the surrounding page (form, footer, contact info) into the
-    // job description. There is no benign source of these phrases — never
-    // a false positive — so skip the ratio gate.
-    else if (formChromeCount > 0) entry.severity = 'CRITICAL';
-    else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
-    else entry.severity = issueDrivenSeverity(entry);
-    if (entry.severity === 'CRITICAL') {
-      const h = [];
-      if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
-      if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
-      if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
-      if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
-      if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
-      if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
-      else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
-      entry.action = h.join('. ') + '.';
-    }
-  }
+  for (const entry of Object.values(report)) assignSeverity(entry);
 
   // ── Ratchet: regression in no-structured-content escalates to CRITICAL ──
   const noStructBaseline = loadNoStructureBaseline();

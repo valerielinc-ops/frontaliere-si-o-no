@@ -1,6 +1,6 @@
 {
   "crawlerKey": "convit-holding",
-  "assembledAt": "2026-09-28T21:37:52.656Z",
+  "assembledAt": "2026-09-29T09:37:08.788Z",
   "jobs": [
     {
       "id": "convit-fbcf8d437d81",
@@ -44,7 +44,6 @@
         "de": "sozialversicherungsberater-beruflicher-wandel-bereich-capolago-convit-holding-gmbh-capolago",
         "fr": "consultant-en-securite-sociale-changement-de-carriere-region-de-capolago-convit-holding-gmbh-capolago"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -103,7 +102,21 @@
         "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
         "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo"
@@ -120,22 +133,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     },
     {
       "id": "convit-9e51e274179b",
@@ -179,7 +177,6 @@
         "de": "bisheriger-berater-mit-oder-ohne-vbv-qualifikation-aktueller-bereich-convit-holding-gmbh-cureglia",
         "fr": "consultant-precedent-avec-ou-sans-qualification-vbv-zone-actuelle-convit-holding-gmbh-cureglia"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -238,7 +235,6 @@
         "de": "prevident-consultant-karrierewechsel-paradieszone-convit-holding-gmbh-paradiso",
         "fr": "consultant-precedent-changement-de-carriere-zone-paradise-convit-holding-gmbh-paradiso"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -253,7 +249,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "consulente-previdenziale-cambio-di-carriera-zona-paradiso-convit-holding-gmbh-paradiso"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-previdenziale-cambio-di-carriera-zona-paradiso-convit-holding-gmbh-paradiso"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "convit-c1c9ca99a3d6",
@@ -297,7 +302,6 @@
         "de": "privatberater-mit-oder-ohne-vbv-qualifikation-medrisio-bereich-convit-holding-gmbh-mendrisio",
         "fr": "consultant-prive-avec-ou-sans-qualification-vbv-zone-medrisio-convit-holding-gmbh-mendrisio"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -356,7 +360,6 @@
         "de": "prevident-consultant-karrierewandel-jubias-bereich-convit-holding-gmbh-giubiasco",
         "fr": "consultant-precedent-changement-de-carriere-zone-de-jubias-convit-holding-gmbh-giubiasco"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -413,9 +416,8 @@
         "it": "consulente-previdenziale-vbv-profilo-vita-zona-lugano-convit-lugano",
         "en": "vbv-profile-vita-zone-lugano-convit-holding-gmbh-lugano",
         "de": "vbv-profil-vita-zone-lugano-convit-holding-gmbh-lugano",
-        "fr": "consulente-previdenziale-vbv-profilo-vita-zona-lugano-convit-lugano"
+        "fr": "vbv-profil-vita-zone-lugano-convit-holding-gmbh-lugano"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -476,7 +478,6 @@
         "de": "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno",
         "fr": "consultant-en-securite-sociale-vbv-life-profile-zone-de-baignade-convit-holding-gmbh-massagno"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -491,7 +492,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno"
+        ],
+        "en": [
+          "prevident-consultant-career-change-zone-massagno-convit-holding-gmbh-massagno"
+        ],
+        "de": [
+          "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno"
+        ],
+        "fr": [
+          "consultant-precedent-changement-de-carriere-zone-massagno-convit-holding-gmbh-massagno"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno",
+        "prevident-consultant-career-change-zone-massagno-convit-holding-gmbh-massagno",
+        "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno",
+        "consultant-precedent-changement-de-carriere-zone-massagno-convit-holding-gmbh-massagno"
+      ]
     },
     {
       "id": "convit-5891066f7a44",
@@ -535,7 +556,21 @@
         "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
         "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-chiasso"
@@ -552,22 +587,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-chiasso"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     },
     {
       "id": "convit-6c5ceb801ab7",
@@ -611,7 +631,21 @@
         "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
         "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona"
@@ -628,22 +662,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     },
     {
       "id": "convit-b8729f5f5479",
@@ -687,7 +706,6 @@
         "de": "karriereberater-karrierewandel-chiasso-bereich-convit-holding-gmbh-chiasso",
         "fr": "consultant-en-carriere-changement-de-carriere-zone-chiasso-convit-holding-gmbh-chiasso"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -746,7 +764,6 @@
         "de": "privatberater-mit-oder-ohne-vbv-qualifikation-biasca-zone-convit-holding-gmbh-biasca",
         "fr": "consultant-prive-avec-ou-sans-qualification-vbv-zone-biasca-convit-holding-gmbh-biasca"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -805,7 +822,6 @@
         "de": "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno",
         "fr": "consultant-precedent-changement-de-carriere-zone-massagno-convit-holding-gmbh-massagno"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -864,7 +880,6 @@
         "de": "previdential-consultant-karrierewechsel-bereich-la-ponte-tresa-convit-holding-gmbh-ponte-tresa",
         "fr": "previdential-consultant-changement-de-carriere-region-de-la-ponte-tresa-convit-holding-gmbh-ponte-tresa"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -923,7 +938,6 @@
         "de": "sozialversicherungsberater-vbv-lebensprofil-medrisio-bereich-convit-holding-gmbh-mendrisio",
         "fr": "consultant-en-securite-sociale-vbv-life-profile-region-de-medrisio-convit-holding-gmbh-mendrisio"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -982,7 +996,6 @@
         "de": "bisheriger-berater-mit-oder-ohne-vbv-qualifikation-bellinzona-gebiet-convit-holding-gmbh-bellinzona",
         "fr": "consultant-precedent-avec-ou-sans-qualification-vbv-zone-de-bellinzona-convit-holding-gmbh-bellinzona"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1041,7 +1054,21 @@
         "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
         "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-locarno"
@@ -1058,22 +1085,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-locarno"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     },
     {
       "id": "convit-e60c82f52038",
@@ -1117,7 +1129,6 @@
         "de": "vorherige-berater-mit-oder-ohne-vbv-qualifikation-paradiso-zone-convit-holding-gmbh-paradiso",
         "fr": "consultant-predictif-avec-ou-sans-qualification-vbv-zone-paradiso-convit-holding-gmbh-paradiso"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1320,7 +1331,21 @@
         "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
         "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-cadempino"
@@ -1337,22 +1362,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-cadempino"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     },
     {
       "id": "convit-52e8a7e703b7",
@@ -1465,7 +1475,21 @@
         "de": "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola",
         "fr": "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-cadempino"
@@ -1482,22 +1506,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-cadempino"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     },
     {
       "id": "convit-1c1006f76a77",
@@ -1665,7 +1674,7 @@
         "it": "Consulente investimenti & previdenza (junior) tempo indeterminato",
         "en": "Junior Investment & Pension Consultant (permanent)",
         "de": "Junior Investment & Pensionsberater (unbefristet)",
-        "fr": "Consulente investimenti & previdenza (junior) tempo indeterminato"
+        "fr": "Conseiller en investissement (junior) pour une durée indéterminée"
       },
       "descriptionByLocale": {
         "it": "Consulente investimenti & previdenza (junior) tempo indeterminato\n\nIngresso nella consulenza previdenziale e finanziaria con focus su 3a/3b, piani di risparmio ETF, fondi previdenziali e pianificazione del budget.\n\nDati principali:\n\n- Organizzazione: Convit International GmbH\n\n- Sede aziendale di riferimento: Via al Mulino 22a, 6814 Cadempino\n\n- Area di inserimento: Castelnuovo Bozzente\n\n- Contratto: tempo indeterminato · Grado di occupazione: 10–100 %\n\n- Lingua: italiano (B2+) o tedesco (B2+)\n\n- Retribuzione: CHF 1500–7500/mese OTE (fisso + bonus, in base a pensum e performance)\n\n- Contatto: Recruiting@convit.ch\n\nAttività:\n\n- Consulenza a clienti privati su previdenza finanziaria, risparmio e soluzioni d'investimento.\n\n- Analisi dei bisogni, preparazione di concetti finanziari e supporto durante gli appuntamenti.\n\n- Gestione amministrativa dei dossier, follow-up e aggiornamento accurato del CRM.\n\n- Collaborazione con il team e sviluppo continuo delle competenze consulenziali.\n\nFormazione:\n\n- Formazione interna gratuita.\n\n- Possibilità di conseguire la certificazione VBV senza costi.\n\n- Posizione adatta anche a persone in entrata laterale.\n\nProfilo:\n\n- Interesse per previdenza, finanza personale e contatto con la clientela.\n\n- Modo di lavorare affidabile, preciso e orientato al servizio.\n\n- Disponibilità a lavorare in modo ibrido/Homeoffice a seconda della funzione.\n\nRequisito geografico:\n\n- Saranno prese in considerazione solo candidature dal Ticino oppure da zone frontalieri vicine e compatibili con la sede di Cadempino.\n\n- Per le candidature provenienti dall'Italia è richiesto tassativamente uno statuto di frontaliero valido con regolare permesso G.\n\n- Candidature senza status frontaliero valido non verranno considerate se provenienti dall'Italia.\n\nCandidatura: Invia la tua candidatura online; ti ricontatteremo rapidamente.",
@@ -1708,8 +1717,7 @@
         "consulente-investimenti-previdenza-junior-tempo-indeterminato-convit-cadempino"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/w358rv4w",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/w358rv4w"
     },
     {
       "id": "convit-554e8b53ca46",
@@ -1739,7 +1747,7 @@
         "it": "Consulente investimenti & previdenza (entrata laterale) Ibrido",
         "en": "Investment & Pension Consultant (Lateral Entry) Hybrid",
         "de": "Investment & Pension Consultant (Seiteneinstieg) Hybrid",
-        "fr": "Consulente investimenti & previdenza (entrata laterale) Ibrido"
+        "fr": "Conseiller en investissement (entrée latérale) Hybride"
       },
       "descriptionByLocale": {
         "it": "Consulente investimenti & previdenza (entrata laterale) Ibrido\n\nIngresso nella consulenza previdenziale e finanziaria con focus su 3a/3b, piani di risparmio ETF, fondi previdenziali e pianificazione del budget.\n\nDati principali:\n\n- Organizzazione: Convit International GmbH\n\n- Sede aziendale di riferimento: Via al Mulino 22a, 6814 Cadempino\n\n- Area di inserimento: Beregazzo\n\n- Contratto: tempo indeterminato · Grado di occupazione: 10–100 %\n\n- Lingua: italiano (B2+) o tedesco (B2+)\n\n- Retribuzione: CHF 1500–7500/mese OTE (fisso + bonus, in base a pensum e performance)\n\n- Contatto: Recruiting@convit.ch\n\nAttività:\n\n- Consulenza a clienti privati su previdenza finanziaria, risparmio e soluzioni d'investimento.\n\n- Analisi dei bisogni, preparazione di concetti finanziari e supporto durante gli appuntamenti.\n\n- Gestione amministrativa dei dossier, follow-up e aggiornamento accurato del CRM.\n\n- Collaborazione con il team e sviluppo continuo delle competenze consulenziali.\n\nFormazione:\n\n- Formazione interna gratuita.\n\n- Possibilità di conseguire la certificazione VBV senza costi.\n\n- Posizione adatta anche a persone in entrata laterale.\n\nProfilo:\n\n- Interesse per previdenza, finanza personale e contatto con la clientela.\n\n- Modo di lavorare affidabile, preciso e orientato al servizio.\n\n- Disponibilità a lavorare in modo ibrido/Homeoffice a seconda della funzione.\n\nRequisito geografico:\n\n- Saranno prese in considerazione solo candidature dal Ticino oppure da zone frontalieri vicine e compatibili con la sede di Cadempino.\n\n- Per le candidature provenienti dall'Italia è richiesto tassativamente uno statuto di frontaliero valido con regolare permesso G.\n\n- Candidature senza status frontaliero valido non verranno considerate se provenienti dall'Italia.\n\nCandidatura: Invia la tua candidatura online; ti ricontatteremo rapidamente.",
@@ -1782,8 +1790,7 @@
         "consulente-investimenti-previdenza-entrata-laterale-ibrido-convit-cadempino"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/v6y89r4r",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.careers-page.com/convit-holding-gmbh/job/v6y89r4r"
     },
     {
       "id": "convit-048f45a09b17",
@@ -1965,7 +1972,21 @@
         "de": "3rd-consultant-sparplane-keine-erfahrung-kostenloses-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "fr": "3eme-consultant-plans-d-economie-aucune-experience-formation-gratuite-convit-holding-gmbh-via-al-mulino-22a-6814"
       },
-      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
         "it": [
           "consulente-3a-piani-di-risparmio-senza-esperienza-formazione-gratuita-convit-cadempino"
@@ -1982,22 +2003,7 @@
       },
       "previousSlugs": [
         "consulente-3a-piani-di-risparmio-senza-esperienza-formazione-gratuita-convit-cadempino"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:37:47.329Z"
+      ]
     }
   ]
 }

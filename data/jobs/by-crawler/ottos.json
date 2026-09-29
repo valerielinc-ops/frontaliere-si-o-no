@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ottos",
-  "assembledAt": "2026-09-28T21:29:29.183Z",
+  "assembledAt": "2026-09-29T09:27:39.777Z",
   "jobs": [
     {
       "id": "ottos-7dc7c4b544d5",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4019128",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:08.426Z",
+      "crawledAt": "2026-09-29T09:27:18.648Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923833",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:07.822Z",
+      "crawledAt": "2026-09-29T09:27:17.995Z",
       "addressLocality": "Oberbüren",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -177,10 +177,10 @@
     },
     {
       "id": "ottos-5a774d296826",
-      "slug": "cashier-in-otto-s-ag-altstatten",
+      "slug": "cassiere-otto-s-ag-altstatten",
       "slugByLocale": {
-        "it": "cashier-in-otto-s-ag-altstatten",
-        "en": "cashier-in-otto-s-ag-altstatten",
+        "it": "cassiere-otto-s-ag-altstatten",
+        "en": "cashiers-otto-s-ag-altstatten",
         "de": "kassierer-in-ottos-altstatten",
         "fr": "caissier-otto-s-ag-altstatten"
       },
@@ -207,7 +207,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4034430",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:07.220Z",
+      "crawledAt": "2026-09-29T09:27:17.339Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -230,14 +230,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kassierer-in-ottos-altstatten"
+        "kassierer-in-ottos-altstatten",
+        "cashier-in-otto-s-ag-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-ottos-altstatten"
+          "kassierer-in-ottos-altstatten",
+          "cashier-in-otto-s-ag-altstatten"
         ],
         "en": [
-          "kassierer-in-ottos-altstatten"
+          "kassierer-in-ottos-altstatten",
+          "cashier-in-otto-s-ag-altstatten"
         ],
         "fr": [
           "kassierer-in-ottos-altstatten"
@@ -290,7 +293,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4024265",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:06.616Z",
+      "crawledAt": "2026-09-29T09:27:16.675Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -367,7 +370,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3986805",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:06.015Z",
+      "crawledAt": "2026-09-29T09:27:16.013Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -450,7 +453,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074218",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:05.412Z",
+      "crawledAt": "2026-09-29T09:27:15.340Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -473,11 +476,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen",
+        "de": [
           "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
         ],
-        "de": [
+        "it": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen",
           "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
         ]
       },
@@ -532,7 +535,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4025726",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:04.810Z",
+      "crawledAt": "2026-09-29T09:27:14.545Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -628,7 +631,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4067952",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:04.210Z",
+      "crawledAt": "2026-09-29T09:27:13.881Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -740,7 +743,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4066929",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:03.603Z",
+      "crawledAt": "2026-09-29T09:27:13.140Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -800,34 +803,35 @@
       "id": "ottos-639d450ca20a",
       "slug": "venditore-ausiliario-sportivo-m-f-otto-s-ag-delemont",
       "slugByLocale": {
-        "fr": "vendeur-auxiliaire-sport-h-f-ottos-delemont",
         "it": "venditore-ausiliario-sportivo-m-f-otto-s-ag-delemont",
         "en": "sports-auxiliary-seller-m-f-otto-s-ag-delemont",
-        "de": "sporthilfsverkaufer-m-w-otto-s-ag-delemont"
+        "de": "sporthilfsverkaufer-m-w-otto-s-ag-delemont",
+        "fr": "vendeur-auxiliaire-sport-h-f-ottos-delemont"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
       "companyDomain": "ottos.ch",
       "title": "Vendeur auxiliaire sport (h/f)",
       "titleByLocale": {
-        "fr": "Vendeur auxiliaire sport (h/f)",
         "it": "Venditore ausiliario sportivo (m/f)",
         "en": "Sports Auxiliary Seller (m/f)",
-        "de": "Sporthilfsverkäufer (m/w)"
+        "de": "Sporthilfsverkäufer (m/w)",
+        "fr": "Vendeur auxiliaire sport (h/f)"
       },
       "description": "Votre domaine d’activité\n\n• Conseil actif aux clients: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Présentation variée de la marchandise: Grâce à votre créativité, vous présentez nos produits de façon attrayante et contribuez ainsi activement à promouvoir les ventes\n• Gestion optimale de l’entrepôt: Vous administrez et gérez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisses journalier\n• Service à la clientèle professionnel: Vous participez activement au montage des vélos et des skis\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité aux affectations: Personnalité sachant travailler en équipe, férue de sport et engagée, grande motivation, capacité à assumer une lourde charge de travail et flexibilité quant aux horaires de travail changeants\n• Enthousiasme: Votre passion pour le sport, la mode et les tendances ne peut que convaincre\n\nBereich: Sport Outlets\n\nPensum: 60-80%",
       "descriptionByLocale": {
-        "fr": "Votre domaine d’activité\n\n• Conseil actif aux clients: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Présentation variée de la marchandise: Grâce à votre créativité, vous présentez nos produits de façon attrayante et contribuez ainsi activement à promouvoir les ventes\n• Gestion optimale de l’entrepôt: Vous administrez et gérez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisses journalier\n• Service à la clientèle professionnel: Vous participez activement au montage des vélos et des skis\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité aux affectations: Personnalité sachant travailler en équipe, férue de sport et engagée, grande motivation, capacité à assumer une lourde charge de travail et flexibilité quant aux horaires de travail changeants\n• Enthousiasme: Votre passion pour le sport, la mode et les tendances ne peut que convaincre\n\nBereich: Sport Outlets\n\nPensum: 60-80%",
         "it": "La tua area di attività\n\n• Consulenza attiva ai clienti: È con grande entusiasmo che si vende il nostro assortimento globale di articoli sportivi stagionali\n• Varie presentazioni della merce: Grazie alla vostra creatività, presentate i nostri prodotti in modo attraente e quindi contribuite attivamente alla promozione delle vendite\n• Gestione ottimale del magazzino: gestisci e gestisci il magazzino in modo efficiente\n• Sistema di scansione: Si utilizza il nostro moderno sistema di cassiere in modo sicuro ed efficiente ed elaborare loop giornalieri di cassa\n• Servizio clienti professionale: partecipa attivamente all'assemblaggio di biciclette e sci\n\nIl tuo profilo\n\n• Esperienza professionale: Esperienza nello sport\n• orientamento del servizio: comportamento orientato al cliente e presentazione attenta\n• Disponibilità di incarichi: Personalità che sa come lavorare come squadra, che è appassionato di sport e che si impegna, che è motivato, che è in grado di assumere un carico di lavoro pesante e che è flessibile per cambiare orario di lavoro\n• Enthusiasm: La tua passione per lo sport, la moda e le tendenze possono solo convincere\n\nBereich: Sport Outlets\n\nPenso: 60-80%",
         "en": "Your area of activity\n\n• Active advice to clients: It is with great enthusiasm that you sell our global assortment of seasonal sports items\n• Various presentation of the merchandise: Thanks to your creativity, you present our products in an attractive way and thus actively contribute to promoting sales\n• Optimal warehouse management: You manage and manage the warehouse efficiently\n• Scanning system: You use our modern cashier system safely and efficiently and process daily cashier loops\n• Professional customer service: You actively participate in the assembly of bikes and skis\n\nYour profile\n\n• Professional Experience: Experienced in Sport\n• Service orientation: Customer-oriented behaviour and careful presentation\n• Availability of assignments: Personality who knows how to work as a team, who is passionate about sport and who is committed, who is motivated, who is able to take on a heavy workload and who is flexible about changing working hours\n• Enthusiasm: Your passion for sport, fashion and trends can only convince\n\nBereich: Sport Outlets\n\nPensum: 60-80%",
-        "de": "Ihr Tätigkeitsbereich\n\n• Aktive Beratung für Kunden: Mit großer Begeisterung verkaufen Sie unser globales Sortiment an Saisonsportartikeln\n• Diverse Präsentation der Ware: Dank Ihrer Kreativität präsentieren Sie unsere Produkte attraktiv und tragen so aktiv zur Absatzförderung bei\n• Optimale Lagerverwaltung: Sie verwalten und verwalten das Lager effizient\n• Scansystem: Sie nutzen unser modernes Kassensystem sicher und effizient und verarbeiten tägliche Kassenschleifen\n• Professioneller Kundenservice: Sie beteiligen sich aktiv an der Montage von Fahrrädern und Skiern\n\nDein Profil\n\n• Berufserfahrung: Erfahrung im Sport\n• Serviceorientierung: Kundenorientiertes Verhalten und sorgfältige Präsentation\n• Verfügbarkeit von Einsätzen: Persönlichkeit, die weiß, wie man als Team arbeitet, die Sport leidenschaftlich liebt und die engagiert ist, die motiviert ist, die in der Lage ist, eine hohe Arbeitsbelastung zu übernehmen und die flexibel ist, wenn es um wechselnde Arbeitszeiten geht\n• Begeisterung: Ihre Leidenschaft für Sport, Mode und Trends kann nur überzeugen\n\nBereich: Sport Outlets\n\nPensum: 60-80%"
+        "de": "Ihr Tätigkeitsbereich\n\n• Aktive Beratung für Kunden: Mit großer Begeisterung verkaufen Sie unser globales Sortiment an Saisonsportartikeln\n• Diverse Präsentation der Ware: Dank Ihrer Kreativität präsentieren Sie unsere Produkte attraktiv und tragen so aktiv zur Absatzförderung bei\n• Optimale Lagerverwaltung: Sie verwalten und verwalten das Lager effizient\n• Scansystem: Sie nutzen unser modernes Kassensystem sicher und effizient und verarbeiten tägliche Kassenschleifen\n• Professioneller Kundenservice: Sie beteiligen sich aktiv an der Montage von Fahrrädern und Skiern\n\nDein Profil\n\n• Berufserfahrung: Erfahrung im Sport\n• Serviceorientierung: Kundenorientiertes Verhalten und sorgfältige Präsentation\n• Verfügbarkeit von Einsätzen: Persönlichkeit, die weiß, wie man als Team arbeitet, die Sport leidenschaftlich liebt und die engagiert ist, die motiviert ist, die in der Lage ist, eine hohe Arbeitsbelastung zu übernehmen und die flexibel ist, wenn es um wechselnde Arbeitszeiten geht\n• Begeisterung: Ihre Leidenschaft für Sport, Mode und Trends kann nur überzeugen\n\nBereich: Sport Outlets\n\nPensum: 60-80%",
+        "fr": "Votre domaine d’activité\n\n• Conseil actif aux clients: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Présentation variée de la marchandise: Grâce à votre créativité, vous présentez nos produits de façon attrayante et contribuez ainsi activement à promouvoir les ventes\n• Gestion optimale de l’entrepôt: Vous administrez et gérez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisses journalier\n• Service à la clientèle professionnel: Vous participez activement au montage des vélos et des skis\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité aux affectations: Personnalité sachant travailler en équipe, férue de sport et engagée, grande motivation, capacité à assumer une lourde charge de travail et flexibilité quant aux horaires de travail changeants\n• Enthousiasme: Votre passion pour le sport, la mode et les tendances ne peut que convaincre\n\nBereich: Sport Outlets\n\nPensum: 60-80%"
       },
+      "needsRetranslation": false,
       "location": "Delémont",
       "canton": "JU",
       "url": "https://live.solique.ch/ottosag/job/details/4075727",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:29:02.927Z",
+      "crawledAt": "2026-09-29T09:27:12.476Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -843,14 +847,16 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4075727",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075727",
       "department": "Sport Outlets",
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
+      "previousSlugs": [
+        "vendeur-auxiliaire-sport-h-f-ottos-delemont",
+        "vendeur-auxiliaire-sport-m-w-d-otto-s-ag-delemont"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-auxiliaire-sport-h-f-ottos-delemont",
@@ -863,10 +869,7 @@
           "vendeur-auxiliaire-sport-h-f-ottos-delemont"
         ]
       },
-      "previousSlugs": [
-        "vendeur-auxiliaire-sport-h-f-ottos-delemont",
-        "vendeur-auxiliaire-sport-m-w-d-otto-s-ag-delemont"
-      ],
+      "firstSeenAt": "2026-09-28T21:29:02.927Z",
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -879,8 +882,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:29:02.927Z"
+      }
     },
     {
       "id": "ottos-9cd04fb5b566",
@@ -914,7 +916,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4019031",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:02.327Z",
+      "crawledAt": "2026-09-29T09:27:11.824Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -999,7 +1001,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4016098",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:01.728Z",
+      "crawledAt": "2026-09-29T09:27:11.174Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1084,7 +1086,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4025536",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:01.123Z",
+      "crawledAt": "2026-09-29T09:27:10.524Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1167,7 +1169,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065709",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:29:00.447Z",
+      "crawledAt": "2026-09-29T09:27:09.867Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1259,7 +1261,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4053107",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:28:59.815Z",
+      "crawledAt": "2026-09-29T09:27:09.137Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1359,7 +1361,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4064061",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:59.166Z",
+      "crawledAt": "2026-09-29T09:27:08.486Z",
       "addressLocality": "Netstal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1446,7 +1448,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923245",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:58.563Z",
+      "crawledAt": "2026-09-29T09:27:07.833Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1529,7 +1531,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033705",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:57.953Z",
+      "crawledAt": "2026-09-29T09:27:07.176Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1612,7 +1614,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3987849",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:57.336Z",
+      "crawledAt": "2026-09-29T09:27:06.522Z",
       "addressLocality": "Bern-Bethlehem",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1708,7 +1710,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4057244",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:56.728Z",
+      "crawledAt": "2026-09-29T09:27:05.841Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1802,7 +1804,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4067343",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:56.119Z",
+      "crawledAt": "2026-09-29T09:27:05.099Z",
       "addressLocality": "Zwingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1885,7 +1887,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3990576",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:55.490Z",
+      "crawledAt": "2026-09-29T09:27:04.396Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1968,7 +1970,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4051473",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:54.881Z",
+      "crawledAt": "2026-09-29T09:27:03.745Z",
       "addressLocality": "Baldegg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2050,7 +2052,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4046234",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:54.276Z",
+      "crawledAt": "2026-09-29T09:27:03.059Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2135,7 +2137,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072546",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:53.670Z",
+      "crawledAt": "2026-09-29T09:27:02.104Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2218,7 +2220,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065691",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:53.032Z",
+      "crawledAt": "2026-09-29T09:27:01.440Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2301,7 +2303,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4051479",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:52.427Z",
+      "crawledAt": "2026-09-29T09:27:00.776Z",
       "addressLocality": "Schönenwerd",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2384,7 +2386,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923120",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:51.824Z",
+      "crawledAt": "2026-09-29T09:27:00.100Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2490,7 +2492,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074526",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:51.220Z",
+      "crawledAt": "2026-09-29T09:26:59.386Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2578,7 +2580,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4034670",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:50.620Z",
+      "crawledAt": "2026-09-29T09:26:58.729Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2630,89 +2632,6 @@
       }
     },
     {
-      "id": "ottos-ee6bf4807a74",
-      "slug": "assistente-assistente-vendite-food-non-food-otto-s-ag-buchs-ag",
-      "slugByLocale": {
-        "it": "assistente-assistente-vendite-food-non-food-otto-s-ag-buchs-ag",
-        "en": "help-seller-in-food-non-food-otto-s-ag-buchs-ag",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-        "fr": "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-buchs-ag"
-      },
-      "company": "OTTO'S AG",
-      "companyKey": "ottos",
-      "companyDomain": "ottos.ch",
-      "title": "Aushilfe Verkäufer:in Food/Non-Food",
-      "titleByLocale": {
-        "it": "Aiuto venditore cibo / non cibo",
-        "en": "Sales Assistant Food/Non-Food",
-        "de": "Aushilfe Verkäufer:in Food/Non-Food",
-        "fr": "Aide-commerciale Alimentaire/Non-alimentaire"
-      },
-      "description": "Ihr Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nIhr Profil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 60-80%",
-      "descriptionByLocale": {
-        "it": "Il vostro campo d'azione - Variegata presentazione della merce: con la vostra creatività implementate una presentazione della merce attraente e promozionale - Sistema POS di scansione: utilizzate il nostro moderno sistema POS in modo sicuro ed efficiente ed eseguite abilmente la chiusura giornaliera della cassa - Gestione ottimale del magazzino: introducete approcci innovativi e promuovete così l'efficienza e la sostenibilità - Ordine e pulizia: attraverso il vostro modo di lavorare ordinato create un'esperienza di acquisto invitante Il vostro profilo - Esperienza professionale: prima esperienza nei settori Food e/o Non-Food - Idea di servizio: comportamento orientato al cliente e comportamento curato - Giocatore di squadra: orientato alla soluzione, affidabile, disponibile e responsabile - Impegno: elevata flessibilità, resiliente e indipendente – Entusiasmo: il vostro cuore batte per la vendita - Avete tutto sotto controllo - OTTO'S Filiali Pensum - 60-80%",
-        "en": "Your area of action - Varied product presentation: With your creativity you implement an attractive and sales-promoting product presentation - Scanning cash system: You serve our modern cash register system safely and efficiently and skilfully complete the daily cashier conclusion - Opti Male Warehouse Management: You bring innovative approaches and thus promote the efficiency and sustainability - order and cleanliness: Through your orderly working method you create an inviting shopping experience your profile - professional experience: First experience in the areas of food and/or non-food - Service concept: customer-oriented behavior and well-kept appearance - Team Player: solution-oriented, reliable, helpful and responsible - ready to use: high flexibility, resilient and independent - enthusiasm: your heart beats for sales – you have everything under control - OTTO,S Branches Pensum - 60-80",
-        "de": "Ihr Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nIhr Profil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 60-80%",
-        "fr": "Votre domaine d'action - présentation de produits variée : Avec votre créativité, vous implémentez une présentation de produits attrayante et promotionnelle - Système de caisse de numérisation : Vous servez notre système moderne de caisse enregistreuse de manière sûre et efficace et vous complètez habilement la conclusion quotidienne de cashier - Opti Male Warehouse Management : Vous apportez des approches innovantes et ainsi promouvoir l'efficacité et la durabilité - commande et propreté : Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitante votre profil - expérience professionnelle : Première expérience dans les domaines de la nourriture et/ou non-alimentaire - Concept de service : comportement orienté client et apparence bien gardée - Team Player : solution-orientée, fiable, utile et responsable - prêt à l'emploi : flexibilité élevée, résilience et indépendance - enthousiasme : votre cœur bat pour la vente – vous avez tout sous contrôle - OTTO,S Branches Pensum - 60-80"
-      },
-      "needsRetranslation": false,
-      "location": "Buchs (AG)",
-      "canton": "AG",
-      "url": "https://live.solique.ch/ottosag/job/details/4016732",
-      "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:50.016Z",
-      "addressLocality": "Buchs (AG)",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6210",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al Dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://live.solique.ch/ottosag/job/details/4016732",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4016732",
-      "department": "OTTO’S Filialen",
-      "pensumMin": 60,
-      "pensumMax": 80,
-      "pensum": "60 - 80%",
-      "previousSlugs": [
-        "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
-        ],
-        "en": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
-        ],
-        "fr": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:28:20.456Z",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ottos-29e5d2c144af",
       "slug": "personale-commerciale-food-non-food-otto-s-ag-niederhasli",
       "slugByLocale": {
@@ -2744,7 +2663,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4068127",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:49.414Z",
+      "crawledAt": "2026-09-29T09:26:58.059Z",
       "addressLocality": "Niederhasli",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2832,7 +2751,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074236",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:48.810Z",
+      "crawledAt": "2026-09-29T09:26:57.322Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2855,11 +2774,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur",
+        "de": [
           "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur"
         ],
-        "de": [
+        "it": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur",
           "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur"
         ]
       },
@@ -2913,7 +2832,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4068144",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:48.210Z",
+      "crawledAt": "2026-09-29T09:26:56.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3004,7 +2923,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4059375",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:47.610Z",
+      "crawledAt": "2026-09-29T09:26:55.910Z",
       "addressLocality": "Bachenbülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3087,7 +3006,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4019232",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:47.008Z",
+      "crawledAt": "2026-09-29T09:26:55.233Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3170,7 +3089,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4016102",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:46.355Z",
+      "crawledAt": "2026-09-29T09:26:54.573Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3248,7 +3167,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4044245",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:45.750Z",
+      "crawledAt": "2026-09-29T09:26:53.908Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3333,7 +3252,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072303",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:45.147Z",
+      "crawledAt": "2026-09-29T09:26:53.105Z",
       "addressLocality": "Niederhasli",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3416,7 +3335,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4071399",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:44.544Z",
+      "crawledAt": "2026-09-29T09:26:52.444Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3504,7 +3423,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4050391",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:28:43.944Z",
+      "crawledAt": "2026-09-29T09:26:51.783Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -3604,7 +3523,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065896",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:43.205Z",
+      "crawledAt": "2026-09-29T09:26:51.129Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3692,7 +3611,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072705",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:42.596Z",
+      "crawledAt": "2026-09-29T09:26:50.475Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3778,7 +3697,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4039251",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:41.996Z",
+      "crawledAt": "2026-09-29T09:26:49.821Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3874,7 +3793,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3968614",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:41.368Z",
+      "crawledAt": "2026-09-29T09:26:49.113Z",
       "addressLocality": "Matzingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3929,9 +3848,9 @@
       "id": "ottos-d5e9cdb07302",
       "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
       "slugByLocale": {
-        "de": "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
         "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
         "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
+        "de": "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
         "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw"
       },
       "company": "OTTO'S AG",
@@ -3939,16 +3858,16 @@
       "companyDomain": "ottos.ch",
       "title": "Verkaufsmitarbeiter:in Food/Non-Food",
       "titleByLocale": {
-        "de": "Verkaufsmitarbeiter:in Food/Non-Food",
         "it": "Verkaufsmitarbeiter:in Food/Non-Food",
         "en": "Verkaufsmitarbeiter:in Food/Non-Food",
+        "de": "Verkaufsmitarbeiter:in Food/Non-Food",
         "fr": "Verkaufsmitarbeiter:in Food/Non-Food"
       },
       "description": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Warendisposition: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Mehrjährige Erfahrung in den Bereichen Food und Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie flexibel\n• Einsatzbereitschaft: Begeisterungsfähig, belastbar, verantwortungsbewusst uns selbständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie lassen Ihrer Kreativität freien Lauf\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
       "descriptionByLocale": {
-        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Warendisposition: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Mehrjährige Erfahrung in den Bereichen Food und Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie flexibel\n• Einsatzbereitschaft: Begeisterungsfähig, belastbar, verantwortungsbewusst uns selbständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie lassen Ihrer Kreativität freien Lauf\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
         "it": "Area di attività\n\n• Variazione delle merci: Con la vostra creatività si implementa una presentazione attraente e promozionale delle vendite di merci\n• Gestione delle merci: Elabori la ricevuta delle merci in modo responsabile e garantisci un flusso regolare di merci\n• Sistema POS di scansione: È possibile utilizzare il nostro sistema POS moderno in modo sicuro ed efficiente e abilmente effettuare il checkout giornaliero\n• Gestione ottimale del magazzino: si mettono in approcci innovativi e quindi promuovere efficienza e sostenibilità\n• Ordine e pulizia: Attraverso il vostro metodo di lavoro ordinato si crea un'esperienza di shopping invitante\n\nProfilo\n\n• Esperienza professionale: diversi anni di esperienza nei campi del cibo e del non-food\n• Concetto di servizio: comportamento orientato al cliente e aspetto ben tenuto\n• Team player: orientato alla soluzione, affidabile, disponibile e flessibile\n• Volontà al lavoro: entusiasta, resiliente, responsabile e indipendente\n• Enthusiasm: il tuo cuore batte per la vendita – Essi danno la loro creatività libero rein.\n\nArea: OTTO’S rami\n\nPensum: 100%",
         "en": "Area of activity\n\n• Varied presentation of goods: With your creativity you implement an attractive and sales-promoting presentation of goods\n• Goods management: You process the receipt of goods responsibly and ensure a smooth flow of goods\n• Scanning POS system: You operate our modern POS system safely and efficiently and skilfully carry out the daily checkout\n• Optimal warehouse management: You bring in innovative approaches and thus promote efficiency and sustainability\n• Order and cleanliness: Through your orderly working method you create an inviting shopping experience\n\nProfile\n\n• Professional experience: several years of experience in the fields of food and non-food\n• Service concept: customer-oriented behavior and well-kept appearance\n• Team player: solution-oriented, reliable, helpful and flexible\n• Willingness to work: enthusiastic, resilient, responsible and independent\n• Enthusiasm: Your heart beats for the sale – They give their creativity free rein.\n\nArea: OTTO’S branches\n\nPensum: 100%",
+        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Warendisposition: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Mehrjährige Erfahrung in den Bereichen Food und Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie flexibel\n• Einsatzbereitschaft: Begeisterungsfähig, belastbar, verantwortungsbewusst uns selbständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie lassen Ihrer Kreativität freien Lauf\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
         "fr": "Domaine d'activité\n\n• Présentation variée des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Gestion des marchandises: Vous traitez la réception des marchandises de manière responsable et vous assurez un flux de marchandises en douceur\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et effectuez la commande quotidienne avec compétence\n• Gestion optimale des entrepôts: vous apportez des approches innovantes et ainsi promouvoir l'efficacité et la durabilité\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nProfil\n\n• Expérience professionnelle: plusieurs années d'expérience dans les domaines de l'alimentation et non alimentaire\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et flexible\n• Volonté de travailler : enthousiaste, résilient, responsable et indépendant\n• Enthousiasme: Votre cœur bat pour la vente – Ils donnent libre cours à leur créativité.\n\nSecteur: branches OTTO\n\nPensum: 100%"
       },
       "needsRetranslation": true,
@@ -3957,7 +3876,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4075539",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:40.771Z",
+      "crawledAt": "2026-09-29T09:26:48.458Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3973,22 +3892,21 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4075539",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075539",
       "department": "OTTO’S Filialen",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
         ]
       },
-      "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
-      ],
+      "firstSeenAt": "2026-09-28T21:28:40.771Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -4001,8 +3919,7 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:28:40.771Z"
+      }
     },
     {
       "id": "ottos-3715ff0042c4",
@@ -4036,7 +3953,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4073990",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:40.173Z",
+      "crawledAt": "2026-09-29T09:26:47.803Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4119,7 +4036,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4005116",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:39.572Z",
+      "crawledAt": "2026-09-29T09:26:47.148Z",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -4206,7 +4123,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4059366",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:38.964Z",
+      "crawledAt": "2026-09-29T09:26:46.494Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4289,7 +4206,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3947827",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:38.359Z",
+      "crawledAt": "2026-09-29T09:26:45.835Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4372,7 +4289,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4034667",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:37.760Z",
+      "crawledAt": "2026-09-29T09:26:45.102Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4457,7 +4374,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4045212",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:37.156Z",
+      "crawledAt": "2026-09-29T09:26:44.444Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4551,7 +4468,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923381",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:36.557Z",
+      "crawledAt": "2026-09-29T09:26:43.780Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4629,7 +4546,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4063151",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:35.950Z",
+      "crawledAt": "2026-09-29T09:26:43.119Z",
       "addressLocality": "Oberburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4692,12 +4609,12 @@
     },
     {
       "id": "ottos-85375957e6e3",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
+      "slug": "personale-commerciale-tessile-sport-otto-s-ag-wettingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
+        "it": "personale-commerciale-tessile-sport-otto-s-ag-wettingen",
+        "en": "sales-staff-textile-sport-otto-s-ag-wettingen",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        "fr": "personnel-commercial-en-textile-sport-otto-s-ag-wettingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4722,7 +4639,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4057838",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:35.351Z",
+      "crawledAt": "2026-09-29T09:26:42.463Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4745,11 +4662,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
         ]
       },
       "firstSeenAt": "2026-08-20T21:59:40.447Z",
@@ -4798,7 +4723,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3952045",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:34.750Z",
+      "crawledAt": "2026-09-29T09:26:41.808Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -4875,7 +4800,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4050272",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:34.151Z",
+      "crawledAt": "2026-09-29T09:26:41.060Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4958,7 +4883,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4027195",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:33.552Z",
+      "crawledAt": "2026-09-29T09:26:40.358Z",
       "addressLocality": "Netstal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5035,7 +4960,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065685",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:32.951Z",
+      "crawledAt": "2026-09-29T09:26:39.694Z",
       "addressLocality": "Frauenkappelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5122,7 +5047,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923242",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:32.351Z",
+      "crawledAt": "2026-09-29T09:26:38.988Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5213,7 +5138,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3952042",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:31.752Z",
+      "crawledAt": "2026-09-29T09:26:38.241Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -5296,7 +5221,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3927353",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:31.150Z",
+      "crawledAt": "2026-09-29T09:26:37.579Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5381,7 +5306,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4022925",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:30.524Z",
+      "crawledAt": "2026-09-29T09:26:36.884Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5481,7 +5406,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072199",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:29.911Z",
+      "crawledAt": "2026-09-29T09:26:36.228Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5569,7 +5494,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3982414",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:29.303Z",
+      "crawledAt": "2026-09-29T09:26:35.571Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5651,7 +5576,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4048406",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:28.703Z",
+      "crawledAt": "2026-09-29T09:26:34.843Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5753,7 +5678,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4069393",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:28.099Z",
+      "crawledAt": "2026-09-29T09:26:34.166Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5808,9 +5733,9 @@
       "id": "ottos-f22dadbc4972",
       "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
       "slugByLocale": {
-        "de": "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
         "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
         "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
+        "de": "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
         "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen"
       },
       "company": "OTTO'S AG",
@@ -5818,16 +5743,16 @@
       "companyDomain": "ottos.ch",
       "title": "Verkaufsmitarbeiter:in Möbel",
       "titleByLocale": {
-        "de": "Verkaufsmitarbeiter:in Möbel",
         "it": "Verkaufsmitarbeiter:in Möbel",
         "en": "Verkaufsmitarbeiter:in Möbel",
+        "de": "Verkaufsmitarbeiter:in Möbel",
         "fr": "Verkaufsmitarbeiter:in Möbel"
       },
       "description": "Wirkungsbereich\n\n• Optimale Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Aktive Kundenberatung: Durch Ihre kompetente Beratung begeistern Sie unsere Kundschaft\n• Kundenaufträge abwickeln: Sie kümmern sich um die ordnungsgemässe Abwicklung aller Kundenaufträge und gewährleisten höchste Kundenzufriedenheit\n• Möbel montieren: Ihre fachgerechte Möbelmontage sorgt für eine ansprechende Möbelausstellung\n• Lager verwalten: Sie stellen eine optimale Lagerbewirtschaftung sicher und kümmern sich um die effiziente Warenausgabe\n\nProfil\n\n• Berufserfahrung: Mehrjährige Erfahrung im Bereich Möbel oder in einem handwerklichen Beruf\n• Verkaufsflair: Kundenorientiert, sicheres und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit\n• Belastbarkeit: Gute körperliche Verfassung, vielseitig und flexibel\n• Begeisterung: Die Möbelwelt ist Ihre Passion – Ihre Hände das Werkzeug\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
       "descriptionByLocale": {
-        "de": "Wirkungsbereich\n\n• Optimale Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Aktive Kundenberatung: Durch Ihre kompetente Beratung begeistern Sie unsere Kundschaft\n• Kundenaufträge abwickeln: Sie kümmern sich um die ordnungsgemässe Abwicklung aller Kundenaufträge und gewährleisten höchste Kundenzufriedenheit\n• Möbel montieren: Ihre fachgerechte Möbelmontage sorgt für eine ansprechende Möbelausstellung\n• Lager verwalten: Sie stellen eine optimale Lagerbewirtschaftung sicher und kümmern sich um die effiziente Warenausgabe\n\nProfil\n\n• Berufserfahrung: Mehrjährige Erfahrung im Bereich Möbel oder in einem handwerklichen Beruf\n• Verkaufsflair: Kundenorientiert, sicheres und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit\n• Belastbarkeit: Gute körperliche Verfassung, vielseitig und flexibel\n• Begeisterung: Die Möbelwelt ist Ihre Passion – Ihre Hände das Werkzeug\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
         "it": "Area di attività\n\n• Presentazione ottimale delle merci: Con la vostra creatività si implementa una presentazione attraente e promozionale delle vendite di merci\n• Consulenza clienti attiva: Ispirare con i tuoi consigli competenti Sono i nostri clienti.\n• Elaborazione degli ordini del cliente: si prende cura del corretto trattamento di tutti gli ordini del cliente e garantire la massima soddisfazione del cliente\n• Mobili di montaggio: Il vostro assemblaggio di mobili professionali garantisce una bella mostra di mobili\n• Gestisci i magazzini: Garantisci una gestione ottimale del magazzino e prenditi cura della consegna efficiente delle merci\n\nProfilo\n\n• Esperienza professionale: diversi anni di esperienza nel campo dell'arredamento o in una professione artigianale\n• Fiamma di vendita: aspetto orientato al cliente, sicuro e ben tenuto\n• Giocatore di squadra: soluzione-oriented, affidabile, utile\n• Resilienza: Buone condizioni fisiche, versatili e flessibili\n• Enthusiasm: Il mondo dei mobili è la tua passione – Le tue mani lo strumento\n\nArea: OTTO’S rami\n\nPensum: 100%",
         "en": "Area of activity\n\n• Optimal presentation of goods: With your creativity you implement an attractive and sales-promoting presentation of goods\n• Active customer advice: Inspiring with your competent advice They are our customers.\n• Processing customer orders: You take care of the proper processing of all customer orders and ensure maximum customer satisfaction\n• Mounting furniture: Your professional furniture assembly ensures an attractive furniture exhibition\n• Manage warehouses: You ensure optimal warehouse management and take care of the efficient delivery of goods\n\nProfile\n\n• Professional experience: several years of experience in the field of furniture or in a craft profession\n• Sales flair: customer-oriented, safe and well-kept appearance\n• Team player: solution-oriented, reliable, helpful\n• Resilience: Good physical condition, versatile and flexible\n• Enthusiasm: The furniture world is your passion – Your hands the tool\n\nArea: OTTO’S branches\n\nPensum: 100%",
+        "de": "Wirkungsbereich\n\n• Optimale Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Aktive Kundenberatung: Durch Ihre kompetente Beratung begeistern Sie unsere Kundschaft\n• Kundenaufträge abwickeln: Sie kümmern sich um die ordnungsgemässe Abwicklung aller Kundenaufträge und gewährleisten höchste Kundenzufriedenheit\n• Möbel montieren: Ihre fachgerechte Möbelmontage sorgt für eine ansprechende Möbelausstellung\n• Lager verwalten: Sie stellen eine optimale Lagerbewirtschaftung sicher und kümmern sich um die effiziente Warenausgabe\n\nProfil\n\n• Berufserfahrung: Mehrjährige Erfahrung im Bereich Möbel oder in einem handwerklichen Beruf\n• Verkaufsflair: Kundenorientiert, sicheres und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit\n• Belastbarkeit: Gute körperliche Verfassung, vielseitig und flexibel\n• Begeisterung: Die Möbelwelt ist Ihre Passion – Ihre Hände das Werkzeug\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
         "fr": "Domaine d'activité\n\n• Présentation optimale des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Conseil actif du client: Inspirer avec votre conseil compétent Ce sont nos clients.\n• Traitement des commandes du client: Vous prenez soin du traitement approprié de toutes les commandes du client et assurer une satisfaction maximale du client\n• Montage de meubles: Votre assemblage professionnel de meubles assure une exposition de meubles attrayante\n• Gérer les entrepôts : Vous assurez une gestion optimale des entrepôts et vous occupez de la livraison efficace des marchandises\n\nProfil\n\n• Expérience professionnelle: plusieurs années d'expérience dans le domaine du mobilier ou de l'artisanat\n• Aspects commerciaux : orientés vers le client, sûrs et bien entretenus\n• Joueur d'équipe : orienté solution, fiable, utile\n• Résilience: Bonne condition physique, polyvalente et flexible\n• Enthousiasme: Le monde du mobilier est votre passion – Vos mains l'outil\n\nSecteur: branches OTTO\n\nPensum: 100%"
       },
       "needsRetranslation": true,
@@ -5836,7 +5761,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4075790",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:27.501Z",
+      "crawledAt": "2026-09-29T09:26:33.460Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -5852,22 +5777,21 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4075790",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075790",
       "department": "OTTO’S Filialen",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
         ]
       },
-      "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
-      ],
+      "firstSeenAt": "2026-09-28T21:28:27.501Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -5880,8 +5804,7 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:28:27.501Z"
+      }
     },
     {
       "id": "ottos-38c316427438",
@@ -5915,7 +5838,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4070367",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:26.888Z",
+      "crawledAt": "2026-09-29T09:26:32.804Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6002,7 +5925,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4069225",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:26.175Z",
+      "crawledAt": "2026-09-29T09:26:32.144Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6058,12 +5981,12 @@
     },
     {
       "id": "ottos-27535144128c",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
+      "slug": "personale-commerciale-food-non-food-otto-s-ag-thun",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
+        "it": "personale-commerciale-food-non-food-otto-s-ag-thun",
+        "en": "sales-staff-food-non-food-otto-s-ag-thun",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        "fr": "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-thun"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6088,7 +6011,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4046329",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:25.570Z",
+      "crawledAt": "2026-09-29T09:26:31.489Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6111,11 +6034,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-thun"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-thun"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
         ]
       },
       "firstSeenAt": "2026-07-29T11:57:45.358Z",
@@ -6165,7 +6096,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4026130",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:24.961Z",
+      "crawledAt": "2026-09-29T09:26:30.607Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6248,7 +6179,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3973034",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:24.359Z",
+      "crawledAt": "2026-09-29T09:26:29.682Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6301,10 +6232,10 @@
     },
     {
       "id": "ottos-3f08589fa4d0",
-      "slug": "cashier-in-otto-s-ag-hegnau-volketswil",
+      "slug": "cassiere-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
-        "it": "cashier-in-otto-s-ag-hegnau-volketswil",
-        "en": "cashier-in-otto-s-ag-hegnau-volketswil",
+        "it": "cassiere-otto-s-ag-hegnau-volketswil",
+        "en": "cashiers-otto-s-ag-hegnau-volketswil",
         "de": "kassierer-in-ottos-hegnau-volketswil",
         "fr": "caissier-otto-s-ag-hegnau-volketswil"
       },
@@ -6331,7 +6262,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033714",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:23.759Z",
+      "crawledAt": "2026-09-29T09:26:29.022Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6354,14 +6285,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kassierer-in-ottos-hegnau-volketswil"
+        "kassierer-in-ottos-hegnau-volketswil",
+        "cashier-in-otto-s-ag-hegnau-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-ottos-hegnau-volketswil"
+          "kassierer-in-ottos-hegnau-volketswil",
+          "cashier-in-otto-s-ag-hegnau-volketswil"
         ],
         "en": [
-          "kassierer-in-ottos-hegnau-volketswil"
+          "kassierer-in-ottos-hegnau-volketswil",
+          "cashier-in-otto-s-ag-hegnau-volketswil"
         ],
         "fr": [
           "kassierer-in-ottos-hegnau-volketswil"
@@ -6414,7 +6348,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065706",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:23.153Z",
+      "crawledAt": "2026-09-29T09:26:28.367Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6491,27 +6425,27 @@
       "id": "ottos-a6f7808e9b12",
       "slug": "vendeur-d-articles-de-sport-m-w-d-otto-s-ag-delemont",
       "slugByLocale": {
-        "fr": "vendeur-d-articles-de-sport-h-f-ottos-delemont",
         "it": "vendeur-d-articles-de-sport-m-w-d-otto-s-ag-delemont",
         "en": "vendeur-d-articles-de-sport-h-f-ottos-delemont",
-        "de": "vendeur-d-articles-de-sport-h-f-ottos-delemont"
+        "de": "vendeur-d-articles-de-sport-h-f-ottos-delemont",
+        "fr": "vendeur-d-articles-de-sport-h-f-ottos-delemont"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
       "companyDomain": "ottos.ch",
       "title": "Vendeur d’articles de sport (h/f)",
       "titleByLocale": {
-        "fr": "Vendeur d’articles de sport (h/f)",
         "it": "Vendeur d’articles de sport (h/f)",
         "en": "Vendeur d’articles de sport (h/f)",
-        "de": "Vendeur d’articles de sport (h/f)"
+        "de": "Vendeur d’articles de sport (h/f)",
+        "fr": "Vendeur d’articles de sport (h/f)"
       },
       "description": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%",
       "descriptionByLocale": {
-        "fr": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%",
         "it": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%",
         "en": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%",
-        "de": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%"
+        "de": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%",
+        "fr": "Votre domaine d’activité\n\n• Conseil actif à la clientèle: C’est avec beaucoup d’enthousiasme que vous vendez notre assortiment global d’articles de sport saisonniers\n• Service client professionnel: Grâce à un excellent service, vous garantissez une satisfaction clientèle élevée\n• Présentation diversifiée de la marchandise: Par votre créativité, vous réalisez une présentation de la marchandise attrayante, propice à la vente\n• Gestion optimale de l’entrepôt: Vous gérez et approvisionnez l’entrepôt de manière efficace\n• Système de caisses par scanning: Vous utilisez de manière sûre et efficace notre système de caisses moderne et procédez au bouclement de caisse journalier\n\nVotre profil\n\n• Expérience professionnelle: Expérience éprouvée dans le domaine du sport\n• Orientation service: Comportement orienté clients et présentation soignée\n• Disponibilité: Esprit d’équipe, grande motivation, capacité à assumer une lourde charge de travail et sens des responsabilités\n• Enthousiasme: Vos ambitions nous permettront de franchir ensemble la prochaine étape\n\nBereich: Sport Outlets\n\nPensum: 100%"
       },
       "needsRetranslation": true,
       "location": "Delémont",
@@ -6519,7 +6453,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4075725",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:28:22.545Z",
+      "crawledAt": "2026-09-29T09:26:27.712Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -6535,22 +6469,20 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4075725",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075725",
       "department": "Sport Outlets",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "vendeur-d-articles-de-sport-h-f-ottos-delemont"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-d-articles-de-sport-h-f-ottos-delemont"
         ]
       },
-      "previousSlugs": [
-        "vendeur-d-articles-de-sport-h-f-ottos-delemont"
-      ],
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -6596,7 +6528,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4069155",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:21.931Z",
+      "crawledAt": "2026-09-29T09:26:27.055Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6682,7 +6614,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3922726",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:21.313Z",
+      "crawledAt": "2026-09-29T09:26:26.395Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6769,7 +6701,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4015690",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:20.713Z",
+      "crawledAt": "2026-09-29T09:26:25.715Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6854,7 +6786,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4068022",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:20.112Z",
+      "crawledAt": "2026-09-29T09:26:25.041Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6912,12 +6844,12 @@
     },
     {
       "id": "ottos-afae451556b5",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
+      "slug": "personale-commerciale-tessile-sport-otto-s-ag-schonenwerd",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
+        "it": "personale-commerciale-tessile-sport-otto-s-ag-schonenwerd",
+        "en": "sales-staff-textile-sport-otto-s-ag-schonenwerd",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        "fr": "personnel-commercial-en-textile-sport-otto-s-ag-schonenwerd"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6942,7 +6874,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4057465",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:19.504Z",
+      "crawledAt": "2026-09-29T09:26:24.386Z",
       "addressLocality": "Schönenwerd",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6965,11 +6897,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
         ]
       },
       "firstSeenAt": "2026-08-20T21:59:23.391Z",
@@ -7019,7 +6959,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4053705",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:18.900Z",
+      "crawledAt": "2026-09-29T09:26:23.689Z",
       "addressLocality": "Arbon",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7104,7 +7044,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4047177",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:18.256Z",
+      "crawledAt": "2026-09-29T09:26:23.034Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7189,7 +7129,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065694",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:17.651Z",
+      "crawledAt": "2026-09-29T09:26:22.322Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7271,7 +7211,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4066021",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:28:17.046Z",
+      "crawledAt": "2026-09-29T09:26:21.664Z",
       "addressLocality": "Echandens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -7375,7 +7315,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4039444",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:16.444Z",
+      "crawledAt": "2026-09-29T09:26:20.992Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7469,7 +7409,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072693",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:15.837Z",
+      "crawledAt": "2026-09-29T09:26:20.318Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7557,7 +7497,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4072690",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:15.235Z",
+      "crawledAt": "2026-09-29T09:26:19.646Z",
       "addressLocality": "Littau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7642,7 +7582,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3973208",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:14.629Z",
+      "crawledAt": "2026-09-29T09:26:18.950Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7728,7 +7668,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4069637",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:14.028Z",
+      "crawledAt": "2026-09-29T09:26:18.158Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7816,7 +7756,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4073721",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:13.423Z",
+      "crawledAt": "2026-09-29T09:26:17.481Z",
       "addressLocality": "Brunnen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7899,7 +7839,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4053808",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:28:12.818Z",
+      "crawledAt": "2026-09-29T09:26:16.699Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -7984,7 +7924,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3922138",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:12.202Z",
+      "crawledAt": "2026-09-29T09:26:15.990Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8074,7 +8014,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3959059",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:11.594Z",
+      "crawledAt": "2026-09-29T09:26:15.277Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -8151,7 +8091,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3952057",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:10.985Z",
+      "crawledAt": "2026-09-29T09:26:14.574Z",
       "addressLocality": "Reinach (AG)",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8228,7 +8168,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065901",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:10.344Z",
+      "crawledAt": "2026-09-29T09:26:13.915Z",
       "addressLocality": "Buchs (AG)",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8318,7 +8258,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3975052",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:09.739Z",
+      "crawledAt": "2026-09-29T09:26:13.259Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -8395,7 +8335,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065682",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:09.134Z",
+      "crawledAt": "2026-09-29T09:26:12.604Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8487,7 +8427,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4039254",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:08.531Z",
+      "crawledAt": "2026-09-29T09:26:11.953Z",
       "addressLocality": "Huttwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8576,7 +8516,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4064076",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:07.895Z",
+      "crawledAt": "2026-09-29T09:26:11.301Z",
       "addressLocality": "Oberengstringen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8629,12 +8569,12 @@
     },
     {
       "id": "ottos-d19c9bfc4718",
-      "slug": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
+      "slug": "capo-dipartimento-tessile-sport-otto-s-ag-zurich",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
-        "en": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
+        "it": "capo-dipartimento-tessile-sport-otto-s-ag-zurich",
+        "en": "head-of-department-textile-sports-otto-s-ag-zurich",
         "de": "abteilungsleiter-in-textil-sport-ottos-zurich",
-        "fr": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+        "fr": "chef-de-departement-textile-sport-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8659,7 +8599,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4059369",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:07.239Z",
+      "crawledAt": "2026-09-29T09:26:10.627Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8686,7 +8626,8 @@
         "capo-dipartimento-tessile-sport-otto-s-ag-gamsen-brig",
         "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
         "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
-        "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
+        "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
+        "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8694,16 +8635,19 @@
           "capo-dipartimento-tessile-sport-otto-s-ag-gamsen-brig",
           "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
           "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
-          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
+          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ],
         "en": [
-          "head-of-department-textile-sports-otto-s-ag-gamsen-brig"
+          "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ],
         "de": [
           "abteilungsleiter-in-textil-sport-ottos-gamsen-brig"
         ],
         "fr": [
-          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
+          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-24T21:57:44.961Z",
@@ -8753,7 +8697,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065966",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:06.633Z",
+      "crawledAt": "2026-09-29T09:26:09.973Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8841,7 +8785,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4046510",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:06.022Z",
+      "crawledAt": "2026-09-29T09:26:09.288Z",
       "addressLocality": "Haag",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8926,7 +8870,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4063185",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:05.420Z",
+      "crawledAt": "2026-09-29T09:26:08.594Z",
       "addressLocality": "Schönenwerd",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9016,7 +8960,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3945546",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:04.813Z",
+      "crawledAt": "2026-09-29T09:26:07.937Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9078,6 +9022,77 @@
       }
     },
     {
+      "id": "ottos-b01787f06bf9",
+      "slug": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
+      "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
+        "it": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
+        "en": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
+        "fr": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen"
+      },
+      "company": "OTTO'S AG",
+      "companyKey": "ottos",
+      "companyDomain": "ottos.ch",
+      "title": "Aushilfe Verkäufer:in Textil / Sport",
+      "titleByLocale": {
+        "de": "Aushilfe Verkäufer:in Textil / Sport",
+        "it": "Aushilfe Verkäufer:in Textil / Sport",
+        "en": "Aushilfe Verkäufer:in Textil / Sport",
+        "fr": "Aushilfe Verkäufer:in Textil / Sport"
+      },
+      "description": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit kreativen Ideen präsentieren Sie unsere Produkte ansprechend und fördern aktiv den Verkauf\n• Begeisterung für Textil und Sport: Ihr Feuer für die Textilwelt und Ihre Freude am Umgang mit Menschen löst Begeisterung aus\n• Optimale Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den täglichen Kassenabschluss durch\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Textil und/oder Sport\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Sie lieben Mode und Sport? Dann machen Sie Ihre Leidenschaft zum Beruf!\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
+      "descriptionByLocale": {
+        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit kreativen Ideen präsentieren Sie unsere Produkte ansprechend und fördern aktiv den Verkauf\n• Begeisterung für Textil und Sport: Ihr Feuer für die Textilwelt und Ihre Freude am Umgang mit Menschen löst Begeisterung aus\n• Optimale Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den täglichen Kassenabschluss durch\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Textil und/oder Sport\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Sie lieben Mode und Sport? Dann machen Sie Ihre Leidenschaft zum Beruf!\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
+        "it": "Area di attività\n\n• Variazione delle merci: Con idee creative presenti i nostri prodotti in modo attraente e attivamente promuovere le vendite\n• Entusiasmo per tessuti e sport: il vostro fuoco per il mondo tessile e la vostra gioia nel trattare con le persone innesca l'entusiasmo\n• Gestione ottimale dei beni e del magazzino: Elabori la ricevuta delle merci in modo responsabile e garantisci un flusso regolare di merci\n• Sistema POS di scansione: Si utilizza il nostro sistema POS moderno in modo sicuro ed efficiente e abilmente effettuare il checkout giornaliero\n• Ordine e pulizia: Attraverso il vostro metodo di lavoro ordinato si crea un'esperienza di shopping invitante\n\nProfilo\n\n• Esperienza professionale: Prima esperienza nel tessile e/o nello sport\n• Concetto di servizio: comportamento orientato al cliente e aspetto ben tenuto\n• Team player: orientato alla soluzione, affidabile, disponibile e responsabile\n• Prontezza per azione: elevata flessibilità, resiliente e indipendente\n• Enthusiasm: Ti piace la moda e lo sport? Fai la tua passione la tua professione!\n\nArea: OTTO’S rami\n\nPensum: 20-40 %",
+        "en": "Area of activity\n\n• Varied presentation of goods: With creative ideas you present our products attractively and actively promote sales\n• Enthusiasm for textiles and sports: Your fire for the textile world and your joy in dealing with people triggers enthusiasm\n• Optimal goods and warehouse management: You process the receipt of goods responsibly and ensure a smooth flow of goods\n• Scanning POS system: You operate our modern POS system safely and efficiently and skilfully carry out the daily checkout\n• Order and cleanliness: Through your orderly working method you create an inviting shopping experience\n\nProfile\n\n• Professional experience: First experience in textiles and/or sports\n• Service concept: customer-oriented behavior and well-kept appearance\n• Team player: solution-oriented, reliable, helpful and responsible\n• Readiness for action: High flexibility, resilient and independent\n• Enthusiasm: Do you love fashion and sports? Make your passion your profession!\n\nArea: OTTO’S branches\n\nPensum: 20-40 %",
+        "fr": "Domaine d'activité\n\n• Présentation variée des marchandises: Avec des idées créatives vous présentez nos produits de manière attrayante et active promouvoir les ventes\n• L'enthousiasme pour le textile et le sport : votre feu pour le monde du textile et votre joie de traiter avec les gens déclenche l'enthousiasme\n• Gestion optimale des marchandises et des entrepôts : Vous traitez la réception des marchandises de façon responsable et vous assurez un flux de marchandises en douceur\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et vous effectuez la commande quotidienne avec compétence\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nProfil\n\n• Expérience professionnelle: Première expérience dans le textile et/ou le sport\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et responsable\n• Préparation à l'action : Haute flexibilité, résilience et indépendance\n• Enthousiasme : Vous aimez la mode et le sport ? Faites de votre passion votre métier!\n\nSecteur: branches OTTO\n\nPensum: 20-40 %"
+      },
+      "needsRetranslation": true,
+      "location": "Münsingen",
+      "canton": "BE",
+      "url": "https://live.solique.ch/ottosag/job/details/4076251",
+      "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T09:26:07.281Z",
+      "addressLocality": "Münsingen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6210",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Commercio al Dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://live.solique.ch/ottosag/job/details/4076251",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4076251",
+      "department": "OTTO’S Filialen",
+      "pensumMin": 20,
+      "pensumMax": 40,
+      "pensum": "20 - 40%",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-29T09:26:07.281Z"
+    },
+    {
       "id": "ottos-9e15abc1be66",
       "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg",
       "slugByLocale": {
@@ -9109,7 +9124,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3923456",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:04.206Z",
+      "crawledAt": "2026-09-29T09:26:06.628Z",
       "addressLocality": "Baldegg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9186,7 +9201,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4037178",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:03.600Z",
+      "crawledAt": "2026-09-29T09:26:05.961Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9269,7 +9284,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4060982",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:02.991Z",
+      "crawledAt": "2026-09-29T09:26:05.301Z",
       "addressLocality": "Langnau am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9352,7 +9367,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4066926",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:02.382Z",
+      "crawledAt": "2026-09-29T09:26:04.647Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -9440,7 +9455,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3975407",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:01.774Z",
+      "crawledAt": "2026-09-29T09:26:03.991Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9524,7 +9539,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074485",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:01.171Z",
+      "crawledAt": "2026-09-29T09:26:03.330Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -9606,7 +9621,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4021904",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:28:00.509Z",
+      "crawledAt": "2026-09-29T09:26:02.673Z",
       "addressLocality": "Entlebuch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9689,7 +9704,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4069115",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:59.896Z",
+      "crawledAt": "2026-09-29T09:26:01.933Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9777,7 +9792,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4050323",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:27:59.292Z",
+      "crawledAt": "2026-09-29T09:26:01.237Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -9923,7 +9938,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4064351",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:27:58.688Z",
+      "crawledAt": "2026-09-29T09:26:00.548Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -10011,7 +10026,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4026677",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:58.080Z",
+      "crawledAt": "2026-09-29T09:25:59.836Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10095,7 +10110,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3927311",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:57.470Z",
+      "crawledAt": "2026-09-29T09:25:59.179Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10198,7 +10213,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4059363",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:56.871Z",
+      "crawledAt": "2026-09-29T09:25:58.524Z",
       "addressLocality": "Wohlen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10281,7 +10296,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3986808",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:56.264Z",
+      "crawledAt": "2026-09-29T09:25:57.859Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10312,83 +10327,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.124Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ottos-a25138a2e3ae",
-      "slug": "assistente-assistente-vendite-food-non-food-otto-s-ag-interlaken-9108d3",
-      "slugByLocale": {
-        "it": "assistente-assistente-vendite-food-non-food-otto-s-ag-interlaken-9108d3",
-        "en": "help-seller-in-food-non-food-otto-s-ag-interlaken-9108d3",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
-        "fr": "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-interlaken-9108d3"
-      },
-      "company": "OTTO'S AG",
-      "companyKey": "ottos",
-      "companyDomain": "ottos.ch",
-      "title": "Aushilfe Verkäufer:in Food/Non-Food",
-      "titleByLocale": {
-        "it": "Aushilfe Verkäufer:in Food/Non-Food",
-        "en": "Aushilfe Verkäufer:in Food/Non-Food",
-        "de": "Aushilfe Verkäufer:in Food/Non-Food",
-        "fr": "Aushilfe Verkäufer:in Food/Non-Food"
-      },
-      "description": "Ihr Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nIhr Profil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 60-80%",
-      "descriptionByLocale": {
-        "it": "La tua area di attività\n\n• Variazione delle merci: Con la vostra creatività si implementa una presentazione attraente e promozionale delle vendite di merci\n• Sistema POS di scansione: Si utilizza il nostro sistema POS moderno in modo sicuro ed efficiente e abilmente effettuare il checkout giornaliero\n• Gestione ottimale del magazzino: si apportano approcci innovativi e quindi promuovi efficienza e sostenibilità\n• Ordine e pulizia: Attraverso il vostro metodo di lavoro ordinato si crea un'esperienza di shopping invitante\n\nIl tuo profilo\n\n• Esperienza professionale: Prima esperienza nel settore alimentare e/o non alimentare\n• Concetto di servizio: comportamento orientato al cliente e aspetto ben tenuto\n• Team player: orientato alla soluzione, affidabile, disponibile e responsabile\n• Prontezza per azione: elevata flessibilità, resiliente e indipendente\n• Enthusiasm: il tuo cuore batte per la vendita – Hai tutto sotto controllo.\n\nArea: OTTO’S rami\n\nPensum: 60-80 %",
-        "en": "Your area of activity\n\n• Varied presentation of goods: With your creativity you implement an attractive and sales-promoting presentation of goods\n• Scanning POS system: You operate our modern POS system safely and efficiently and skilfully carry out the daily checkout\n• Optimal warehouse management: You bring in innovative approaches and thus promote efficiency and sustainability\n• Order and cleanliness: Through your orderly working method you create an inviting shopping experience\n\nYour profile\n\n• Professional experience: First experience in food and/or non-food\n• Service concept: customer-oriented behavior and well-kept appearance\n• Team player: solution-oriented, reliable, helpful and responsible\n• Readiness for action: High flexibility, resilient and independent\n• Enthusiasm: Your heart beats for the sale – You have everything under control.\n\nArea: OTTO’S branches\n\nPensum: 60-80 %",
-        "de": "Ihr Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nIhr Profil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 60-80%",
-        "fr": "Votre domaine d'activité\n\n• Présentation variée des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et vous effectuez la commande quotidienne avec compétence\n• Gestion optimale des entrepôts: Vous apportez des approches innovantes et ainsi promouvoir l'efficacité et la durabilité\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nVotre profil\n\n• Expérience professionnelle: Première expérience en alimentation et/ou non alimentaire\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et responsable\n• Préparation à l'action : Haute flexibilité, résilience et indépendance\n• Enthousiasme: Votre coeur bat pour la vente – Vous avez tout sous contrôle.\n\nSecteur: branches OTTO\n\nPensum: 60-80 %"
-      },
-      "needsRetranslation": true,
-      "location": "Interlaken",
-      "canton": "BE",
-      "url": "https://live.solique.ch/ottosag/job/details/3927347",
-      "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:55.604Z",
-      "addressLocality": "Interlaken",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6210",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al Dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-26",
-      "applyUrl": "https://live.solique.ch/ottosag/job/details/3927347",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "3927347",
-      "department": "OTTO’S Filialen",
-      "pensumMin": 60,
-      "pensumMax": 80,
-      "pensum": "60 - 80%",
-      "previousSlugs": [
-        "aushilfe-verkaufer-in-food-non-food-ottos-interlaken"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-interlaken"
-        ]
-      },
-      "firstSeenAt": "2026-07-16T11:35:36.911Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -10435,7 +10373,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4013683",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:55.004Z",
+      "crawledAt": "2026-09-29T09:25:56.548Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10520,7 +10458,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3982956",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:54.406Z",
+      "crawledAt": "2026-09-29T09:25:55.893Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10598,7 +10536,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4061706",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:53.807Z",
+      "crawledAt": "2026-09-29T09:25:55.231Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10686,7 +10624,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3982968",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:53.205Z",
+      "crawledAt": "2026-09-29T09:25:54.571Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10771,7 +10709,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4059372",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:52.598Z",
+      "crawledAt": "2026-09-29T09:25:53.912Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10854,7 +10792,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4026931",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:51.937Z",
+      "crawledAt": "2026-09-29T09:25:53.108Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10939,7 +10877,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4012814",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:51.317Z",
+      "crawledAt": "2026-09-29T09:25:52.261Z",
       "addressLocality": "Arbon",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -11016,7 +10954,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4019034",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:50.704Z",
+      "crawledAt": "2026-09-29T09:25:51.565Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -11101,7 +11039,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4020956",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:50.099Z",
+      "crawledAt": "2026-09-29T09:25:50.747Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -11185,7 +11123,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074416",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:49.481Z",
+      "crawledAt": "2026-09-29T09:25:50.085Z",
       "addressLocality": "Zwingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -11267,7 +11205,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4020539",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:48.871Z",
+      "crawledAt": "2026-09-29T09:25:49.422Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -11354,7 +11292,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033717",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:48.264Z",
+      "crawledAt": "2026-09-29T09:25:48.765Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11431,7 +11369,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3967249",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:47.659Z",
+      "crawledAt": "2026-09-29T09:25:48.071Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -11508,7 +11446,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065697",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:47.055Z",
+      "crawledAt": "2026-09-29T09:25:47.413Z",
       "addressLocality": "Zuchwil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11598,7 +11536,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3943461",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:46.374Z",
+      "crawledAt": "2026-09-29T09:25:46.724Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -11676,7 +11614,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4065303",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:45.760Z",
+      "crawledAt": "2026-09-29T09:25:46.022Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -11766,7 +11704,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4069396",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:45.161Z",
+      "crawledAt": "2026-09-29T09:25:45.362Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11854,7 +11792,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4045475",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:44.562Z",
+      "crawledAt": "2026-09-29T09:25:44.706Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11939,7 +11877,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033699",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:43.963Z",
+      "crawledAt": "2026-09-29T09:25:44.005Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12022,7 +11960,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4025533",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:43.361Z",
+      "crawledAt": "2026-09-29T09:25:43.346Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12101,7 +12039,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033711",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:42.753Z",
+      "crawledAt": "2026-09-29T09:25:42.689Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12184,7 +12122,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4068431",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:42.146Z",
+      "crawledAt": "2026-09-29T09:25:42.027Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12275,7 +12213,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4037184",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:41.480Z",
+      "crawledAt": "2026-09-29T09:25:41.372Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12360,7 +12298,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3968655",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:40.850Z",
+      "crawledAt": "2026-09-29T09:25:40.713Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -12443,7 +12381,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4044770",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:27:40.248Z",
+      "crawledAt": "2026-09-29T09:25:40.016Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -12526,7 +12464,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/3944940",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:39.646Z",
+      "crawledAt": "2026-09-29T09:25:39.359Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12605,7 +12543,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4029381",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:39.043Z",
+      "crawledAt": "2026-09-29T09:25:38.696Z",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -12682,7 +12620,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4068130",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:38.434Z",
+      "crawledAt": "2026-09-29T09:25:38.036Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -12770,7 +12708,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4033702",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:37.829Z",
+      "crawledAt": "2026-09-29T09:25:37.326Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12853,7 +12791,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4044650",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:37.208Z",
+      "crawledAt": "2026-09-29T09:25:36.651Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12908,9 +12846,9 @@
       "id": "ottos-b6897f92c382",
       "slug": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
       "slugByLocale": {
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
         "it": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
         "en": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
         "fr": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil"
       },
       "company": "OTTO'S AG",
@@ -12918,16 +12856,16 @@
       "companyDomain": "ottos.ch",
       "title": "Aushilfe Verkäufer:in Textil / Sport",
       "titleByLocale": {
-        "de": "Aushilfe Verkäufer:in Textil / Sport",
         "it": "Aushilfe Verkäufer:in Textil / Sport",
         "en": "Aushilfe Verkäufer:in Textil / Sport",
+        "de": "Aushilfe Verkäufer:in Textil / Sport",
         "fr": "Aushilfe Verkäufer:in Textil / Sport"
       },
       "description": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit kreativen Ideen präsentieren Sie unsere Produkte ansprechend und fördern aktiv den Verkauf\n• Begeisterung für Textil und Sport: Ihr Feuer für die Textilwelt und Ihre Freude am Umgang mit Menschen löst Begeisterung aus\n• Optimale Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den täglichen Kassenabschluss durch\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Textil und/oder Sport\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Sie lieben Mode und Sport? Dann machen Sie Ihre Leidenschaft zum Beruf!\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
       "descriptionByLocale": {
-        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit kreativen Ideen präsentieren Sie unsere Produkte ansprechend und fördern aktiv den Verkauf\n• Begeisterung für Textil und Sport: Ihr Feuer für die Textilwelt und Ihre Freude am Umgang mit Menschen löst Begeisterung aus\n• Optimale Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den täglichen Kassenabschluss durch\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Textil und/oder Sport\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Sie lieben Mode und Sport? Dann machen Sie Ihre Leidenschaft zum Beruf!\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
         "it": "Area di attività\n\n• Variazione delle merci: Con idee creative presenti i nostri prodotti in modo attraente e attivamente promuovere le vendite\n• Entusiasmo per tessuti e sport: il vostro fuoco per il mondo tessile e la vostra gioia nel trattare con le persone innesca l'entusiasmo\n• Gestione ottimale dei beni e dei magazzini: Elabori la ricevuta delle merci in modo responsabile e garantisci un flusso regolare di merci\n• Sistema POS di scansione: È possibile utilizzare il nostro sistema POS moderno in modo sicuro ed efficiente e abilmente effettuare il checkout giornaliero\n• Ordine e pulizia: Attraverso il vostro metodo di lavoro ordinato si crea un'esperienza di shopping invitante\n\nProfilo\n\n• Esperienza professionale: Prima esperienza nel tessile e/o nello sport\n• Concetto di servizio: comportamento orientato al cliente e aspetto ben tenuto\n• Team player: soluzione orientata, affidabile, disponibile e responsabile\n• Prontezza per azione: elevata flessibilità, resiliente e indipendente\n• Enthusiasm: Ti piace la moda e lo sport? Fai la tua passione la tua professione!\n\nArea: OTTO’S rami\n\nPenso: 20-40 %",
         "en": "Area of activity\n\n• Varied presentation of goods: With creative ideas you present our products attractively and actively promote sales\n• Enthusiasm for textiles and sports: Your fire for the textile world and your joy in dealing with people triggers enthusiasm\n• Optimal goods and warehouse management: You process the goods receipt responsibly and ensure a smooth flow of goods\n• Scanning POS system: You operate our modern POS system safely and efficiently and skilfully carry out the daily checkout\n• Order and cleanliness: Through your orderly working method you create an inviting shopping experience\n\nProfile\n\n• Professional experience: First experience in textile and/or sports\n• Service concept: customer-oriented behavior and well-kept appearance\n• Team player: solution-oriented, reliable, helpful and responsible\n• Readiness for action: High flexibility, resilient and independent\n• Enthusiasm: Do you love fashion and sports? Make your passion your profession!\n\nArea: OTTO’S branches\n\nPensum: 20-40 %",
+        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit kreativen Ideen präsentieren Sie unsere Produkte ansprechend und fördern aktiv den Verkauf\n• Begeisterung für Textil und Sport: Ihr Feuer für die Textilwelt und Ihre Freude am Umgang mit Menschen löst Begeisterung aus\n• Optimale Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den täglichen Kassenabschluss durch\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Textil und/oder Sport\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Sie lieben Mode und Sport? Dann machen Sie Ihre Leidenschaft zum Beruf!\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
         "fr": "Domaine d'activité\n\n• Présentation variée des marchandises: Avec des idées créatives vous présentez nos produits de manière attrayante et active promouvoir les ventes\n• L'enthousiasme pour le textile et le sport : votre feu pour le monde du textile et votre joie à traiter avec les gens déclenche l'enthousiasme\n• Gestion optimale des marchandises et des entrepôts: Vous traitez les marchandises de manière responsable et vous assurez un flux de marchandises en douceur\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et effectuez la commande quotidienne avec compétence\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nProfil\n\n• Expérience professionnelle: Première expérience dans le textile et/ou le sport\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et responsable\n• Préparation à l'action: Haute flexibilité, résilience et indépendance\n• Enthousiasme : Vous aimez la mode et le sport ? Faites de votre passion votre métier!\n\nSecteur: branches OTTO\n\nPensum: 20-40 %"
       },
       "needsRetranslation": true,
@@ -12936,7 +12874,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4075546",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:36.522Z",
+      "crawledAt": "2026-09-29T09:25:35.986Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12952,14 +12890,13 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4075546",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075546",
       "department": "OTTO’S Filialen",
       "pensumMin": 20,
       "pensumMax": 40,
       "pensum": "20 - 40%",
+      "firstSeenAt": "2026-09-28T21:27:36.522Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -12972,17 +12909,16 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:27:36.522Z"
+      }
     },
     {
       "id": "ottos-ef7783fad4c3",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-chur",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-chur",
+        "en": "sales-staff-with-all-round-function-otto-s-ag-chur",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        "fr": "personnel-de-vente-avec-fonction-complete-otto-s-ag-chur"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -13007,7 +12943,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4059582",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:35.621Z",
+      "crawledAt": "2026-09-29T09:25:35.310Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -13030,11 +12966,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:03.337Z",
@@ -13056,9 +13000,9 @@
       "id": "ottos-9136798f44ad",
       "slug": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
       "slugByLocale": {
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
         "it": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
         "en": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
         "fr": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil"
       },
       "company": "OTTO'S AG",
@@ -13066,16 +13010,16 @@
       "companyDomain": "ottos.ch",
       "title": "Aushilfe Verkäufer:in Food/Non-Food",
       "titleByLocale": {
-        "de": "Aushilfe Verkäufer:in Food/Non-Food",
         "it": "Aushilfe Verkäufer:in Food/Non-Food",
         "en": "Aushilfe Verkäufer:in Food/Non-Food",
+        "de": "Aushilfe Verkäufer:in Food/Non-Food",
         "fr": "Aushilfe Verkäufer:in Food/Non-Food"
       },
       "description": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
       "descriptionByLocale": {
-        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
         "it": "Area di attività\n\n• Variazione delle merci: Con la vostra creatività si implementa una presentazione attraente e promozionale delle vendite di merci\n• Sistema POS di scansione: È possibile utilizzare il nostro sistema POS moderno in modo sicuro ed efficiente e abilmente effettuare il checkout giornaliero\n• Gestione ottimale del magazzino: si mettono in approcci innovativi e quindi promuovere efficienza e sostenibilità\n• Ordine e pulizia: Attraverso il vostro metodo di lavoro ordinato si crea un'esperienza di shopping invitante\n\nProfilo\n\n• Esperienza professionale: Prima esperienza nel settore alimentare e/o non alimentare\n• Concetto di servizio: comportamento orientato al cliente e aspetto ben tenuto\n• Team player: soluzione orientata, affidabile, disponibile e responsabile\n• Prontezza per azione: elevata flessibilità, resiliente e indipendente\n• Enthusiasm: il tuo cuore batte per la vendita – Hai tutto sotto controllo.\n\nArea: OTTO’S rami\n\nPenso: 20-40 %",
         "en": "Area of activity\n\n• Varied presentation of goods: With your creativity you implement an attractive and sales-promoting presentation of goods\n• Scanning POS system: You operate our modern POS system safely and efficiently and skilfully carry out the daily checkout\n• Optimal warehouse management: You bring in innovative approaches and thus promote efficiency and sustainability\n• Order and cleanliness: Through your orderly working method you create an inviting shopping experience\n\nProfile\n\n• Professional experience: First experience in food and/or non-food\n• Service concept: customer-oriented behavior and well-kept appearance\n• Team player: solution-oriented, reliable, helpful and responsible\n• Readiness for action: High flexibility, resilient and independent\n• Enthusiasm: Your heart beats for the sale – You have everything under control.\n\nArea: OTTO’S branches\n\nPensum: 20-40 %",
+        "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 20-40%",
         "fr": "Domaine d'activité\n\n• Présentation variée des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et effectuez la commande quotidienne avec compétence\n• Gestion optimale des entrepôts: vous apportez des approches innovantes et ainsi promouvoir l'efficacité et la durabilité\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nProfil\n\n• Expérience professionnelle: Première expérience en alimentation et/ou non alimentaire\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et responsable\n• Préparation à l'action: Haute flexibilité, résilience et indépendance\n• Enthousiasme: Votre cœur bat pour la vente – Vous avez tout sous contrôle.\n\nSecteur: branches OTTO\n\nPensum: 20-40 %"
       },
       "needsRetranslation": true,
@@ -13084,7 +13028,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4075773",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:34.118Z",
+      "crawledAt": "2026-09-29T09:25:34.633Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -13100,14 +13044,13 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://live.solique.ch/ottosag/job/details/4075773",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4075773",
       "department": "OTTO’S Filialen",
       "pensumMin": 20,
       "pensumMax": 40,
       "pensum": "20 - 40%",
+      "firstSeenAt": "2026-09-28T21:27:34.118Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -13120,8 +13063,7 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:27:34.118Z"
+      }
     },
     {
       "id": "ottos-e96a645d2a46",
@@ -13155,7 +13097,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4070375",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:32.913Z",
+      "crawledAt": "2026-09-29T09:25:33.949Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -13243,7 +13185,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4074178",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:27:31.311Z",
+      "crawledAt": "2026-09-29T09:25:33.271Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -13266,11 +13208,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "it": [
-          "schreiner-in-mit-entwicklungsperspektive-cnc-otto-s-ag-sursee",
+        "de": [
           "schreiner-in-mit-entwicklungsperspektive-cnc-ottos-sursee"
         ],
-        "de": [
+        "it": [
+          "schreiner-in-mit-entwicklungsperspektive-cnc-otto-s-ag-sursee",
           "schreiner-in-mit-entwicklungsperspektive-cnc-ottos-sursee"
         ]
       },

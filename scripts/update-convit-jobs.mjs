@@ -46,6 +46,7 @@ import {
   createConvitListingSourceValidator,
   parseConvitDetailPage,
   buildConvitLocalizedContent,
+  dropConvitFabricatedText,
   isConvitSwissRelevant,
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
@@ -295,7 +296,8 @@ async function enrichWithDetails(listings) {
 
 function buildConvitJob(row) {
   const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
-  const localized = buildConvitLocalizedContent({ ...row, canton });
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildConvitLocalizedContent({ ...row, canton, sourceLang });
   const defaultCity = getCantonDisplayName(canton, 'it') || canton || 'Svizzera';
   const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
   return {
@@ -316,12 +318,12 @@ function buildConvitJob(row) {
     category: inferCategory(row.title),
     sector: 'Finanza & Previdenza',
     source: 'convit-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
+    sourceLang,
     postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -336,6 +338,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropConvitFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the former builder's sentences from ${fossils} stored Convit job(s); they will be translated from the posting`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

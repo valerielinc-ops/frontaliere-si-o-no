@@ -6,6 +6,7 @@ import {
   classifyZeroMatchRun,
   fetchOutcomeForZeroMatch,
   buildSmnClinicFetchResult,
+  buildSmnClinicDescriptionFields,
   suggestDirectoryLabels,
 } from '../scripts/lib/smn-clinic-job-parser.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
@@ -526,5 +527,23 @@ describe('buildSmnClinicFetchResult (metadata survives array transforms, issue #
     expect(filteredJobs).toEqual([{ id: 'job-2' }]);
     expect(result.fetchOutcome).toBe('selector_miss');
     expect(filteredJobs.fetchOutcome).toBeUndefined();
+  });
+});
+
+describe('buildSmnClinicDescriptionFields (the posting text, never a substitute paragraph)', () => {
+  it('keeps a short real posting instead of replacing it (the factory used to require 30 words)', () => {
+    const fields = buildSmnClinicDescriptionFields(
+      posting({ jobAd: { sections: { jobDescription: { text: '<p>Nous recherchons un chef de clinique en pédopsychiatrie pour notre service ambulatoire.</p>' } } } }),
+      { title: 'Chef de clinique en Pédopsychiatrie', defaultSourceLang: 'fr' },
+    );
+    expect(fields.description).toBe('Nous recherchons un chef de clinique en pédopsychiatrie pour notre service ambulatoire.');
+    expect(fields.sourceLang).toBe('fr');
+    expect(fields.descriptionByLocale).toEqual({ fr: fields.description });
+  });
+
+  it('gives a posting without text no description', () => {
+    const fields = buildSmnClinicDescriptionFields(posting(), { title: 'Chef de clinique en Pédopsychiatrie', defaultSourceLang: 'fr' });
+    expect(fields.description).toBe('');
+    expect(JSON.stringify(fields)).not.toMatch(/Poste ouvert|Offene Stelle|Posizione aperta|premier groupe hospitalier/);
   });
 });

@@ -36,6 +36,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const CRR_KEY = 'crr-suva-sion';
 export const CRR_COMPANY_NAME = 'Clinique romande de réadaptation (CRR Suva)';
@@ -94,16 +95,19 @@ export function parseListing(html) {
   return out;
 }
 
-function extractDetailBody(html) {
+export function extractDetailBody(html) {
   const h1End = html.search(/<\/h1>/i);
   if (h1End < 0) return '';
-  const tail = html.slice(h1End + '</h1>'.length, h1End + 30000);
+  const tail = html.slice(h1End + '</h1>'.length);
   const stopIdx = tail.search(/<footer|<aside|<div[^>]*class="[^"]*(?:footer|sidebar|partenaires)/i);
-  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail;
+  // No end marker: no delimited body. The text has no length cap
+  // (issue 5253), so the page tail after the h1 is never published.
+  if (stopIdx <= 0) return '';
+  const block = tail.slice(0, stopIdx);
   const cleaned = block
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')
     .replace(/<div[^>]*class="[^"]*(?:share|partage|breadcrumb)[^"]*"[\s\S]*?<\/div>/gi, '');
-  return normalizeSpace(htmlToText(cleaned)).slice(0, 6000);
+  return normalizeSpace(htmlToText(cleaned));
 }
 
 function extractH1(html) {
@@ -145,10 +149,11 @@ export async function fetchAllCrrJobs() {
     const title = detail.title || r.title;
     if (!title || title.length < 3) continue;
 
-    const fallback = `${title} à la Clinique romande de réadaptation (CRR Suva), Sion (VS). Institution de référence en réadaptation et réinsertion des personnes victimes d'accidents, au cœur du Valais.`;
-    const description = detail.body && detail.body.split(/\s+/).length >= 30
-      ? detail.body
-      : [fallback, detail.body].filter(Boolean).join('\n\n');
+    // Only source text (issue 5253): no "<title> à la Clinique romande de
+    // réadaptation…" paragraph in place of, or in front of, a thin body. A
+    // body under the common 50-word floor gives no description (the shared
+    // pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detail.body) ? detail.body : '';
 
     const sourceLang = detectLang(description || title, 'fr');
     const jobSlug = slugify(`${title} ${CRR_KEY} sion`);

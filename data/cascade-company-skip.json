@@ -1,9 +1,21 @@
 {
-  "run": 115,
+  "run": 118,
   "companies": {
     "axa-svizzera": {
       "sterile": 1,
       "signature": "1c647427d0970f40"
+    },
+    "huntsman": {
+      "sterile": 1,
+      "signature": "daab0a4528af31b7"
+    },
+    "jysk": {
+      "sterile": 1,
+      "signature": "ffc2b7bfa06ec22a"
+    },
+    "sobi": {
+      "sterile": 1,
+      "signature": "c5866d76535d1fab"
     }
   }
 }

@@ -32,6 +32,7 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDescriptionText,
+  fetchWorkdaySidebarText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -176,7 +177,16 @@ export async function fetchAllKsbJobs() {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
+  // KSB's career site shows an "About us" sidebar next to every posting, and
+  // Workday folds it into each posting's JSON-LD description. The CXS job
+  // payload never carries it, so KSB's short postings (a two-line
+  // "Spontanbewerbung", a 445-character OP-technician apprenticeship) were
+  // published at 13-35 % of what the source page states (audit run
+  // 36528331656). Read it once per run and append it to each posting body.
+  const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml);
+
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -201,17 +211,22 @@ export async function fetchAllKsbJobs() {
     );
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${KSB_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Arbeitgeber: Kantonsspital Baden — Akutspital im Kanton Aargau',
-      '• Bewerbung über: KSB-Karriereportal',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253). A req whose
+    // detail has no body used to go out as a synthetic "Key details" stub
+    // (location, employer, "apply on the portal"); it is not published any
+    // more.
+    if (detailDescription.length < 100) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const bodyText = detailDescription;
+    const descriptionText = aboutText ? `${bodyText}\n\n${aboutText}` : bodyText;
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // Language of the POSTING, not of the site-level sidebar: the "About us"
+    // block is English on a German-language site and would otherwise outvote
+    // a two-line German body.
+    const sourceLang = detectLang(bodyText || title, 'de');
     const jobSlug = slugify(`${title} ${KSB_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -258,6 +273,9 @@ export async function fetchAllKsbJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${KSB_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

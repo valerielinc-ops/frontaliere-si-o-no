@@ -25,6 +25,8 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const AARREHA_SCHINZNACH_KEY = 'aarreha-schinznach';
 export const AARREHA_SCHINZNACH_COMPANY_NAME = 'aarReha Schinznach';
@@ -102,20 +104,19 @@ export function parseAarrehaListing(html) {
   return out;
 }
 
+/**
+ * Vacancy text of a Talentsoft detail page: the `#contenu-ficheoffre`
+ * container, without the apply bar and footer menu that follow it.
+ */
+export function extractAarrehaSchinznachDetailDescription(html = '') {
+  return normalizeSpace(htmlToText(extractTalentsoftOfferHtml(html)));
+}
+
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    // The job-detail block sits inside id="contenu-ficheoffre". Take everything
-    // up to the share/actions/footer panel.
-    const startMatch = html.match(/id="contenu-ficheoffre"[^>]*>([\s\S]+)/);
-    if (!startMatch) return '';
-    const block = startMatch[1].slice(0, 14000);
-    // Cut off boilerplate footer (Sitemap / Rechtliche Hinweise / Cookies).
-    const cutMatch = block.match(/[\s\S]+?(?=Rechtliche\s+Hinweise|<\/main>|<footer)/);
-    const trimmed = cutMatch ? cutMatch[0] : block;
-    const text = htmlToText(trimmed);
-    return normalizeSpace(text).slice(0, 6000);
+    return extractAarrehaSchinznachDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ aarReha detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';
@@ -165,17 +166,11 @@ export async function fetchAllAarrehaSchinznachJobs() {
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const detailText = await fetchDetailDescription(r.detailUrl);
 
-    const summaryPieces = [
-      r.department ? `Bereich: ${r.department}` : '',
-      r.city ? `Standort: ${r.city}` : '',
-      r.ref ? `Referenz: ${r.ref}` : '',
-    ].filter(Boolean);
-    const description = detailText && detailText.split(/\s+/).length >= 30
-      ? detailText
-      : [
-        ...summaryPieces,
-        `${AARREHA_SCHINZNACH_COMPANY_NAME} — Zentrum für interdisziplinäre Rehabilitation in Schinznach-Bad (AG).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the vacancy's own text (issue 5253): no summary of labelled
+    // listing fields (Bereich/Standort/Referenz) plus a company sentence in
+    // place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailText) ? detailText : '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${AARREHA_SCHINZNACH_KEY} ${r.city || 'schinznach'}`);

@@ -1,23 +1,22 @@
 # Fonti farmacie per cantone
 
 Mappa delle fonti di ingresso per tutti i 26 cantoni svizzeri, aggiornata il
-15 settembre 2026. La data è quella della ricognizione degli URL aggiunti; per
-Ticino resta documentata la verifica tecnica del 31 agosto 2026.
+29 settembre 2026. Per Ticino, Ginevra, Giura, Basilea Città, Soletta e Zurigo sono documentati anche i
+connettori e gli snapshot operativi; gli altri cantoni restano fonti di
+orientamento finché non superano lo stesso contratto.
 
 Questa pagina descrive una mappa di fonti, non un dataset nazionale di turni.
 Un URL registrato permette di raggiungere la fonte di riferimento, ma non
 significa che il sito abbia un connettore attivo, che abbia scaricato un dato
 recente o che una farmacia sia di turno in questo momento.
 
-## Registro al 15 settembre 2026
+## Registro al 29 settembre 2026
 
-`active` è riservato alla fonte Ticino, già verificata come leggibile dal
-connettore esistente. Ginevra è `degraded`: il connettore dedicato legge la
-pagina pubblica, ma il calendario osservato è incompleto e resta
-`not_published`. Le altre 24 entry sono `unverified`: l'URL è stato registrato
-nella ricognizione, ma non esiste ancora un connettore o un dataset di turni
-collegato a questa applicazione. La colonna `accessMethod` descrive il percorso
-di accesso da valutare; non è una prova di fetch riuscito.
+`active` è riservato alle fonti che hanno un connettore e uno snapshot completo
+e fresco: Ticino, Ginevra, Giura, Basilea Città, Soletta e Zurigo. Le altre 20 entry sono `unverified`: l'URL è
+registrato, ma non esiste ancora un release operativo collegato a questa
+applicazione. La colonna `accessMethod` descrive il percorso del connettore;
+non è una prova di fetch riuscito se lo stato non è `active`.
 
 | Codice | Chiave registry | Cantone | Tipo | Accesso | Stato | Verificata | Fonte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -26,19 +25,19 @@ di accesso da valutare; non è una prova di fetch riuscito.
 | AR | `appenzell-ausserrhoden` | Appenzello Esterno | official | manual | unverified | 2026-09-15 | [Appenzello Esterno — triage](https://ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/abteilung-medizinische-dienste/kantonsaerztlicher-dienst/triagestelle/) |
 | BE | `bern` | Berna | association | html-scrape | unverified | 2026-09-15 | [apoBern — Notfalldienst](https://apobern.ch/dienstleistungen/notfalldienst/) |
 | BL | `basel-landschaft` | Basilea Campagna | official | manual | unverified | 2026-09-15 | [Basilea Campagna — domande mediche](https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsaerztlicher-dienst/kontakte/medizinische-fragen) |
-| BS | `basel-stadt` | Basilea Città | official | manual | unverified | 2026-09-15 | [Basilea Città — elenco farmacie](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt) |
+| BS | `basel-stadt` | Basilea Città | official | html-scrape | active | 2026-09-29 | [Basilea Città — elenco farmacie](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt) |
 | FR | `fribourg` | Friburgo | association | html-scrape | unverified | 2026-09-15 | [Pharmacies Fribourg — pharmacie de garde](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde) |
 | GE | `geneva` | Ginevra | association | html-scrape | active | 2026-09-24 | [Pharma Genève — pharmacie de garde](https://pharmageneve.swiss/pharmacie-de-garde/) |
 | GL | `glarus` | Glarona | official | manual | unverified | 2026-09-15 | [Glarona — numeri di emergenza](https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691) |
 | GR | `graubunden` | Grigioni | association | html-scrape | unverified | 2026-09-15 | [Apotheke Chur — emergenza](https://notfall.apotheke-chur.ch/) |
-| JU | `jura` | Giura | association | html-scrape | unverified | 2026-09-15 | [Giura — numeri di emergenza](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html) |
+| JU | `jura` | Giura | official | pdf | active | 2026-09-29 | [Giura — piani PDF dei turni](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html) |
 | LU | `lucerne` | Lucerna | association | html-scrape | unverified | 2026-09-15 | [Apo Luzern — Notfalldienst](https://www.apoluzern.ch/apotheken/notfalldienst) |
 | NE | `neuchatel` | Neuchâtel | association | html-scrape | unverified | 2026-09-15 | [Pharmacies de garde Neuchâtel](https://www.pharmacies-gardes-ne.ch/) |
 | NW | `nidwalden` | Nidvaldo | official | manual | unverified | 2026-09-15 | [Spital Nidwalden — Notfallpraxis](https://www.spital-nidwalden.ch/standorte/spital-nidwalden/hausarzt-notfallpraxis/) |
 | OW | `obwalden` | Obvaldo | official | manual | unverified | 2026-09-15 | [Kantonsspital Obwalden — emergenza](https://www.ksow.ch/notfall) |
 | SG | `st-gallen` | San Gallo | official | manual | unverified | 2026-09-15 | [San Gallo — aiuto medico](https://www.hallo.sg.ch/de/gesundheit/medizinische-hilfe.html) |
 | SH | `schaffhausen` | Sciaffusa | official | pdf | unverified | 2026-09-15 | [Sciaffusa — documento emergenze](https://sh.ch/CMS/get/file/69283655-61ba-4d85-88f9-7bcbf774fc3f) |
-| SO | `solothurn` | Soletta | association | html-scrape | unverified | 2026-09-15 | [AVSO — Notfalldienst Apotheken](https://avso.ch/notfalldienst-apotheken/) |
+| SO | `solothurn` | Soletta | association | html-scrape | active | 2026-09-29 | [AVSO — Notfalldienst Apotheken](https://avso.ch/notfalldienst-apotheken/) |
 | SZ | `schwyz` | Svitto | official | manual | unverified | 2026-09-15 | [Svitto — servizi di emergenza](https://www.sz.ch/departement-des-innern/amt-fuer-gesundheit-und-soziales/gesundheit/medizinische-dienste/notfalldienste.html/8756-8758-8802-9317-9316-12587-12685-12632) |
 | TG | `thurgau` | Turgovia | association | html-scrape | unverified | 2026-09-15 | [Apotheken Thurgau — Pikettdienst](https://www.apotheken-thurgau.ch/pikettdienst/) |
 | TI | `ticino` | Ticino | official | html-scrape | active | 2026-08-31 | [OFCT — farmacie di turno](https://www.ofct.ch/farmacieturno/) |
@@ -46,10 +45,10 @@ di accesso da valutare; non è una prova di fetch riuscito.
 | VD | `vaud` | Vaud | association | html-scrape | unverified | 2026-09-15 | [SVPH — pharmacies de garde](https://garde.svph.ch/) |
 | VS | `valais` | Vallese | association | html-scrape | unverified | 2026-09-15 | [PharmaValais — pharmacie de garde](https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html) |
 | ZG | `zug` | Zugo | official | manual | unverified | 2026-09-15 | [Zugo — comportamento in emergenza](https://zg.ch/de/gesundheit/notfall-und-rettungsdienst/verhalten-im-notfall) |
-| ZH | `zurich` | Zurigo | association | html-scrape | unverified | 2026-09-15 | [Notfall-Apotheken Zürich](https://www.notfall-apotheken-zh.ch/) |
+| ZH | `zurich` | Zurigo | association | html-scrape | active | 2026-09-29 | [AVKZ — Notfalldienst](https://www.avkz.ch/notfalldienst) |
 
-Le fonti associative sono AG, BE, FR, GE, GR, JU, LU, NE, SO, TG, VD, VS e
-ZH. Le pagine istituzionali per AI, AR, BL, BS, GL, NW, OW, SG, SH, SZ, UR e ZG
+Le fonti associative sono AG, BE, FR, GE, GR, LU, NE, SO, TG, VD, VS e ZH.
+Le pagine istituzionali per AI, AR, BL, GL, JU, NW, OW, SG, SH, SZ, UR e ZG
 sono state conservate come fonti `official` di orientamento, elenco, triage o
 contatto; una pagina di emergenza o una hotline non è stata trasformata in un
 calendario di farmacie.
@@ -58,15 +57,14 @@ calendario di farmacie.
 
 - La mappa geografica è completa: ogni codice e ogni chiave di
   `SWISS_CANTONS` ha una entry e un URL HTTPS di ingresso.
-- La copertura dei turni non è completa: solo Ticino ha una fonte `active` e un
-  connettore/dataset operativo verificato. Ginevra ha un connettore dedicato,
-  ma la sua fonte è `degraded` e il relativo snapshot resta `not_published`;
-  le altre 24 entry restano `unverified`.
-- L'assenza di `sourceFetchedAt` per le 24 fonti `unverified` non è uno zero
+- La copertura dei turni non è completa: Ticino, Ginevra, Giura, Basilea Città, Soletta e Zurigo hanno un
+  connettore/dataset operativo verificato; le altre 20 entry restano
+  `unverified` e source-only nella matrice.
+- L'assenza di `sourceFetchedAt` per le 20 fonti `unverified` non è uno zero
   turni: indica che questa applicazione non ha ancora registrato un fetch
   riuscito da un connettore per quelle fonti.
 - `degraded` è riservato a una fonte raggiungibile ma non sufficientemente
-  completa o stabile per la pubblicazione, come Ginevra; `blocked` resta
+  completa o stabile per la pubblicazione; `blocked` resta
   disponibile per un accesso negato. L'assenza di un connettore si esprime con
   `unverified`, non con uno stato operativo inventato.
 
@@ -83,7 +81,16 @@ solo valore non autorizza a pubblicare:
 
 Un `PharmacyDuty` potrà essere pubblicato soltanto dopo che un connettore
 collegato alla fonte avrà estratto una finestra temporale esplicita e il dato
-avrà superato i validator e i controlli di freschezza del dominio. La hub
+avrà superato i validator e i controlli di freschezza del dominio. I connettori
+Giura, Basilea Città, Soletta e Zurigo (`scripts/import-pharmacy-duties-swiss-cantons.mjs`)
+verificano rispettivamente i PDF di Delémont, Ajoie e Moutier, compreso il
+calendario colorato scansionato, la dichiarazione cantonale di apertura
+24h/365 giorni della 24 Stunden Apotheke Basel AG, il calendario AVSO delle
+tre regioni di Soletta con intervalli verificati sul Gesundheitsamt SO e sulla
+pagina corrente della farmacia di Dornach e la dichiarazione AVKZ per la
+Bellevue Apotheke di Zurigo, prima di
+produrre lo snapshot atomico consumato da `buildDutyCoverageMatrix()`.
+La hub
 `/farmacie/` può quindi mostrare il link, il tipo e lo stato della fonte, ma
 non presenta l'entry come turno live. Per un bisogno urgente va verificata la
 fonte originale e va chiamata la farmacia prima di spostarsi.

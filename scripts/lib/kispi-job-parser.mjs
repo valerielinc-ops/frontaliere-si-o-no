@@ -33,6 +33,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const KISPI_KEY = 'kispi';
 export const KISPI_COMPANY_NAME = 'Universitäts-Kinderspital Zürich';
@@ -208,10 +209,12 @@ export async function fetchAllKispiJobs() {
     // string and skip the `detail.metaDesc` tier (the raw HTML is truthy so the
     // `: metaDesc` branch never runs). `|| detail.metaDesc` preserves the
     // fallback hierarchy (same idiom fix as the Decathlon parser).
-    const descriptionText = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml))).slice(0, 6000)
+    const descriptionText = normalizeDescriptionBullets(normalizeSpace(htmlToText(descriptionHtml)))
       || detail.metaDesc;
-    const description = descriptionText
-      || `${title} — ${KISPI_COMPANY_NAME}, Zürich.`;
+    // Only source text (issue 5253): no "<title> — <company>, Zürich." line
+    // in place of a missing body. A text under the common 50-word floor gives
+    // no description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const address = (ld.jobLocation && ld.jobLocation.address) || {};
     const city = normalizeSpace(decodeEntities(String(address.addressLocality || DEFAULT_CITY)));

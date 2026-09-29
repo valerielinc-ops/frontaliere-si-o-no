@@ -47,6 +47,7 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const BERNER_MONTAGE_KEY = 'berner-montage';
@@ -306,6 +307,7 @@ export async function fetchAllBernerMontageJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   const seen = new Set();
 
   for (const listing of listings) {
@@ -359,18 +361,19 @@ export async function fetchAllBernerMontageJobs() {
             .replace(/[ \t]*\n[ \t]*/g, '\n')
             .replace(/\n{3,}/g, '\n\n')
             .trim(),
-        ).slice(0, 4000)
+        )
       : '';
 
-    const fallbackDescription = [
-      `${title} — ${BERNER_MONTAGE_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Standort: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Arbeitgeber: Montagetechnik Berner AG',
-      '• Bewerbung über: Berner Group Karriereportal (Workday)',
-    ].join('\n');
-    const description = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const description = detailDescription;
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} berner-montage ch`);
@@ -425,6 +428,9 @@ export async function fetchAllBernerMontageJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${BERNER_MONTAGE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

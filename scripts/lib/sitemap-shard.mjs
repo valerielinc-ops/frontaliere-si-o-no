@@ -24,7 +24,7 @@
  * @module scripts/lib/sitemap-shard
  */
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { readdir, unlink, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { SITEMAP_SHARD_CAP, padShardIndex } from './sitemap-limits.mjs';
 
@@ -49,6 +49,7 @@ import { SITEMAP_SHARD_CAP, padShardIndex } from './sitemap-limits.mjs';
 // and not Google's 50,000 (issue #5066).
 const DEFAULT_CAP_PER_SHARD = SITEMAP_SHARD_CAP;
 const FILENAME_PREFIX = 'sitemap-jobs';
+const JOB_SITEMAP_SHARD_RE = /^sitemap-jobs-[a-z0-9][a-z0-9-]*\.xml$/i;
 
 /**
  * Escape XML-reserved characters in a string.
@@ -248,6 +249,41 @@ export function emitSitemapIndex(shardFilenames, baseUrl) {
 }
 
 /**
+ * Remove job sitemap shards left by a previous build.
+ *
+ * Shard names are data-driven (canton slug + optional part suffix), so a
+ * build that emits fewer groups cannot overwrite a file that disappeared from
+ * the current corpus. `sitemapAliasPlugin` auto-discovers every matching file
+ * in dist/; leaving one behind therefore republishes URLs that are no longer
+ * emitted by the current build.
+ *
+ * The deliberately narrow filename predicate excludes sitemap-jobs.xml and
+ * every non-job sitemap. The caller writes the current sitemap-index.xml
+ * after this cleanup.
+ *
+ * @param {string} distDir
+ * @returns {Promise<string[]>} absolute paths removed
+ */
+export async function removeStaleJobSitemapShards(distDir) {
+  if (typeof distDir !== 'string' || distDir.length === 0) {
+    throw new Error('removeStaleJobSitemapShards: distDir is required');
+  }
+  let entries;
+  try {
+    entries = await readdir(distDir, { withFileTypes: true });
+  } catch (error) {
+    if (error?.code === 'ENOENT') return [];
+    throw error;
+  }
+
+  const stale = entries
+    .filter((entry) => entry.isFile() && JOB_SITEMAP_SHARD_RE.test(entry.name))
+    .map((entry) => path.join(distDir, entry.name));
+  await Promise.all(stale.map((file) => unlink(file)));
+  return stale;
+}
+
+/**
  * Write all shard files plus sitemap-index.xml to disk under `distDir`.
  *
  * No-op when `shards` is empty (nothing is written, including the index).
@@ -255,17 +291,27 @@ export function emitSitemapIndex(shardFilenames, baseUrl) {
  * @param {Array<Shard>} shards
  * @param {string} distDir - absolute path to dist directory
  * @param {string} baseUrl - canonical base URL for the sitemap-index
- * @returns {Promise<{shardPaths: string[], indexPath: string|null}>}
+ * @returns {Promise<{shardPaths: string[], indexPath: string|null, stalePaths: string[]}>}
  */
 export async function writeShardsToDist(shards, distDir, baseUrl) {
-  if (!Array.isArray(shards) || shards.length === 0) {
-    return { shardPaths: [], indexPath: null };
-  }
   if (typeof distDir !== 'string' || distDir.length === 0) {
     throw new Error('writeShardsToDist: distDir is required');
   }
 
   await mkdir(distDir, { recursive: true });
+  const stalePaths = await removeStaleJobSitemapShards(distDir);
+
+  if (!Array.isArray(shards) || shards.length === 0) {
+    // A zero-shard build must not leave the previous nested index discoverable
+    // as if it still described current output.
+    const indexPath = path.join(distDir, 'sitemap-index.xml');
+    try {
+      await unlink(indexPath);
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+    return { shardPaths: [], indexPath: null, stalePaths };
+  }
 
   const shardPaths = [];
   for (const shard of shards) {
@@ -283,5 +329,5 @@ export async function writeShardsToDist(shards, distDir, baseUrl) {
   const indexPath = path.join(distDir, 'sitemap-index.xml');
   await writeFile(indexPath, indexXml, 'utf8');
 
-  return { shardPaths, indexPath };
+  return { shardPaths, indexPath, stalePaths };
 }

@@ -27,11 +27,12 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
-  htmlToText,
+  extractBalancedTagBlockWithStatus,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const KLINIK_SCHUETZEN_KEY = 'klinik-schuetzen';
 export const KLINIK_SCHUETZEN_COMPANY_NAME = 'Klinik Schützen Rheinfelden';
@@ -80,7 +81,19 @@ export function parseListing(html) {
     const id = a.id;
     if (seen.has(id)) continue;
     seen.add(id);
-    let block = html.slice(a.start, next)
+    // Bound the block to the job's own `accordion-tab` element. Slicing to the
+    // next anchor let the LAST job run on to the footer and swallow the rest of
+    // the careers page (apprenticeships, unsolicited applications, the generic
+    // benefits accordion) — 5110 chars on "Psychologiepraktikum 2028" against
+    // ~1900 for its siblings. The anchor slice stays only as a fallback when
+    // the element never closes, and only when the next anchor or a <footer>
+    // closes it: the last job of a page without a footer gives no block, so
+    // the text (which has no length cap, issue 5253) never runs to the end
+    // of the page.
+    const openEnd = html.indexOf('>', a.start) + 1;
+    const own = extractBalancedTagBlockWithStatus(html.slice(openEnd, next === endOfBody ? undefined : next), a.tag, 200000);
+    const fallback = next < html.length ? html.slice(a.start, next) : '';
+    let block = (own.complete ? own.html : fallback)
       .replace(/<script[\s\S]*?<\/script>/gi, '')
       .replace(/<style[\s\S]*?<\/style>/gi, '');
     // The title lives either in the accordion label (<a class="accordion-label">)
@@ -95,12 +108,19 @@ export function parseListing(html) {
       title = titleMatch ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ''))) : '';
     }
     if (!title || title.length < 5) continue;
-    const text = normalizeSpace(htmlToText(block));
+    // The accordion label repeats the title the page shows again as `<h4>`
+    // inside the body, and the "Jetzt bewerben" button is apply chrome.
+    const body = block
+      .replace(/<a[^>]*class="[^"]*accordion-label[^"]*"[^>]*>[\s\S]*?<\/a>/i, '')
+      .replace(/<a[^>]*class="[^"]*\bbtn\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '');
+    // Keep paragraph and list breaks: collapsing every newline flattened the
+    // posting's `<ul>` sections into inline `•` prose.
+    const text = htmlToTextLines(body);
     if (!text || text.split(/\s+/).length < 30) continue;
     out.push({
       id,
       title,
-      description: text.slice(0, 6000),
+      description: text,
       url: `${PUBLIC_CAREER_URL}#job-${id}`,
     });
   }

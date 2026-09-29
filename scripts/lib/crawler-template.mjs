@@ -841,6 +841,10 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {boolean}  [allowAuthoritativeEmptySnapshot] — Publish a source-proven zero instead of keeping stale rows
  * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
+ * @property {(jobs: object[]) => (object[]|void)} [prepareExistingJobs] — Called with this
+ *   company's stored jobs right before the merge, only when the fresh fetch is merged.
+ *   It may repair them in place or return a replacement array. Used to remove text the
+ *   crawler itself once wrote into stored jobs, which the merge would otherwise keep.
  */
 
 /**
@@ -960,6 +964,7 @@ export async function runStandardCrawlerPipeline(config) {
     allowAuthoritativeEmptySnapshot = false,
     authoritativeSnapshotScope = 'all',
     baseCrawlerOpts = {},
+    prepareExistingJobs,
   } = config;
 
   if (!companyKey || !companyLabel || !fetchJobs || !isCompanyJob) {
@@ -1141,7 +1146,11 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  const merged = mergePreserveLocaleData(companyExisting, parsedJobs, mergeOpts);
+  // Opt-in: without `prepareExistingJobs` the merge input is unchanged.
+  const mergeExisting = typeof prepareExistingJobs === 'function'
+    ? (prepareExistingJobs(companyExisting) || companyExisting)
+    : companyExisting;
+  const merged = mergePreserveLocaleData(mergeExisting, parsedJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;

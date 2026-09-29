@@ -47,7 +47,7 @@ type WorkdayPosting = {
 };
 
 const LONG_BODY = '<p>'
-  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(3)
+  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(5)
   + '</p>';
 
 function json(payload: unknown, status = 200) {
@@ -164,7 +164,14 @@ describe('bobst — global Umantis board, no Mex/VD fallback', () => {
   });
 
   it('drops the foreign rows of the board end to end', async () => {
-    global.fetch = vi.fn(async () => new Response('', { status: 404 })) as any;
+    // Swiss rows need a real detail body to be published at all (issue 5253:
+    // no synthetic description when the page is unread), so the geography
+    // assertion below is not satisfied by an invented fallback.
+    const body = Array.from({ length: 60 }, (_, i) => `task${i}`).join(' ');
+    global.fetch = vi.fn(async () => new Response(
+      `<div class="customdatablock" id="customdatablock_1"><p>${body}</p></div>`,
+      { status: 200 },
+    )) as any;
     const rows = [
       ['Collaudatore meccanico', '/Vacancies/8613/Description/2', 'Italy (San Giorgio Monferrato)'],
       ['Area Sales Manager - Canada', '/Vacancies/9247/Description/2', 'USA (Parsippany)'],

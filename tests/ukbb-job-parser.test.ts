@@ -1,8 +1,11 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import {
   parseSitemapOfferUrls,
   parseSitemapIndexLocs,
   extractJobPostingLd,
+  extractUkbbRenderedDescription,
 } from '../scripts/lib/ukbb-job-parser.mjs';
 
 /**
@@ -84,5 +87,35 @@ describe('extractJobPostingLd', () => {
   it('returns null when no JobPosting is present', () => {
     const html = `<script type="application/ld+json">{"@type":"WebSite","name":"UKBB"}</script>`;
     expect(extractJobPostingLd(html)).toBeNull();
+  });
+});
+
+describe('extractUkbbRenderedDescription (issue 5253)', () => {
+  // Minimised offer page (contact name/phones redacted): the JSON-LD has no
+  // introduction and spreads tasks/profile/offer over three fields.
+  const html = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'ukbb', 'terminkoordinator-detail.html'),
+    'utf8',
+  );
+  const text = extractUkbbRenderedDescription(html);
+
+  it('publishes the introduction and every section in page order', () => {
+    expect(text).toMatch(/^Für das Patienten- und Zuweisermanagement für den Bereich Poliklinik/);
+    const order = ['## Ihre Aufgaben', '## Ihr Profil', '## Unser Angebot'].map((h) => text.indexOf(h));
+    expect(order.every((i) => i > 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+  });
+
+  it('keeps the list items as bullets', () => {
+    expect(text).toContain('## Ihr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung EFZ');
+    expect(text.match(/^• /gm)?.length).toBe(14);
+  });
+
+  it('leaves out the contact block', () => {
+    expect(text).not.toMatch(/Wir freuen uns auf Ihre Online-Bewerbung|HR Team|\+41/);
+  });
+
+  it('returns an empty string for a page without job-data sections', () => {
+    expect(extractUkbbRenderedDescription('<html><body><h1>x</h1></body></html>')).toBe('');
   });
 });

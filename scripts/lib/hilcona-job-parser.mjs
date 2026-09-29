@@ -8,8 +8,13 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * The main listing page (/de/offene-stellen) is JS-rendered with no inline job data,
  * so we rely on the sitemap for discovery and individual job pages for details.
  */
-import { stripScriptsAndStyles } from './crawler-template.mjs';
+import {
+  stripScriptsAndStyles,
+  stripHtml as stripHtmlKeepLines,
+  normalizeDescriptionSpace,
+} from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { decode as decodeEntities } from 'html-entities';
 
 const SITEMAP_URL = 'https://career.bellfoodgroup.com/sitemap.job.xml';
 const CAREERS_BASE = 'https://career.bellfoodgroup.com';
@@ -109,6 +114,58 @@ export function parseHilconaSitemapXml(xml) {
 
 // ── detail parsing ────────────────────────────────────────────────────
 
+/** HTML fragment → text with one `• ` line per list item, entities decoded. */
+function htmlToLines(html = '') {
+  return normalizeDescriptionSpace(decodeEntities(stripHtmlKeepLines(html)))
+    .replace(/•[ \t]*\n+[ \t]*/g, '• ')
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+function oneLine(html = '') {
+  return decodeEntities(stripHtml(html)).replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Label/value facts rendered under the lead: `<div class="font-bold">Pensum</div>
+ * <p …>100%</p>` (Vertragsart, Pensum, Arbeitszeitmodell, Stellenantritt, Sprache).
+ * Read only between the lead and the benefits section, so no other bold label
+ * of the page can leak in.
+ */
+export function parseHilconaJobFacts(html = '') {
+  const page = String(html || '');
+  const start = page.search(/<p\s+class="lead">/i);
+  if (start < 0) return [];
+  const end = page.indexOf('id="benefits"', start);
+  const region = page.slice(start, end > start ? end : undefined);
+  const facts = [];
+  for (const match of region.matchAll(/<div class="font-bold">([^<]+)<\/div>\s*<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+    const label = oneLine(match[1]);
+    const value = oneLine(match[2]);
+    if (label && value) facts.push({ label, value });
+  }
+  return facts;
+}
+
+/**
+ * "Das bieten wir" benefit cards: a bold title plus its `textbox-content` text.
+ * Every card is in the server HTML; the "Mehr anzeigen" button only toggles
+ * the visibility of the second half.
+ */
+export function parseHilconaBenefits(html = '') {
+  const page = String(html || '');
+  const start = page.indexOf('id="benefits"');
+  if (start < 0) return [];
+  const end = page.indexOf('id="task_experience"', start);
+  const region = page.slice(start, end > start ? end : undefined);
+  const benefits = [];
+  for (const match of region.matchAll(/<div class="[^"]*\bfont-bold\b[^"]*">([^<]+)<\/div>\s*<div class="[^"]*\btextbox-content\b[^"]*">([\s\S]*?)<\/div>/gi)) {
+    const title = oneLine(match[1]);
+    const text = oneLine(match[2]);
+    if (title && text) benefits.push({ title, text });
+  }
+  return benefits;
+}
+
 /**
  * Parse a Bell Food Group job detail page.
  * The portal uses a consistent HTML structure with:
@@ -129,7 +186,12 @@ export function parseHilconaDetailHtml(html) {
 
   // Lead paragraph (short description)
   const leadMatch = html.match(/<p\s+class="lead">([\s\S]*?)<\/p>/i);
-  const lead = leadMatch ? stripHtml(leadMatch[1]).trim() : '';
+  // Paragraphs between the lead and the facts block carry the application
+  // conditions ("nur Bewerber … in der Schweiz arbeitsberechtigt (EU/EFTA)").
+  const afterLead = leadMatch ? html.slice(leadMatch.index + leadMatch[0].length) : '';
+  const beforeFacts = afterLead.slice(0, Math.max(0, afterLead.search(/<div\b/i)));
+  const leadNotes = [...beforeFacts.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map((m) => oneLine(m[1])).filter(Boolean);
+  const lead = leadMatch ? [oneLine(leadMatch[1]), ...leadNotes].filter(Boolean).join('\n\n') : '';
 
   // Meta description fallback
   const metaRaw = extractMetaDescriptionRaw(html);
@@ -167,16 +229,29 @@ export function parseHilconaDetailHtml(html) {
   const reqMatch = html.match(/<h3[^>]*>Das bringst du mit<\/h3>\s*([\s\S]*?)(?:<\/div>)/i);
   const reqHtml = reqMatch ? reqMatch[1] : '';
 
-  // Build description from lead + tasks + requirements
+  // The ad is more than lead + tasks + profile (#5253): the job facts under the
+  // lead (contract, workload, working-time model, start date, workplace,
+  // language) and the "Das bieten wir" benefit cards are part of it — they were
+  // dropped, so the published text carried about a third of the vacancy.
+  const facts = parseHilconaJobFacts(html);
+  const workplace = [company, addressRaw.replace(/\s*\n\s*/g, ', ')].filter(Boolean).join(', ');
+  const benefits = parseHilconaBenefits(html);
+
   const parts = [];
   if (lead) parts.push(lead);
-  const tasksText = stripHtml(tasksHtml).trim();
-  if (tasksText) parts.push(`Aufgaben: ${tasksText}`);
-  const reqText = stripHtml(reqHtml).trim();
-  if (reqText) parts.push(`Anforderungen: ${reqText}`);
+  const factLines = facts.map(({ label, value }) => `• ${label}: ${value}`);
+  if (workplace) factLines.push(`• Arbeitsort: ${workplace}`);
+  if (factLines.length) parts.push(factLines.join('\n'));
+  const tasksText = htmlToLines(tasksHtml);
+  if (tasksText) parts.push(`Aufgaben:\n${tasksText}`);
+  const reqText = htmlToLines(reqHtml);
+  if (reqText) parts.push(`Anforderungen:\n${reqText}`);
+  if (benefits.length) {
+    parts.push(`Das bieten wir:\n${benefits.map(({ title: name, text }) => `• ${name}: ${text}`).join('\n')}`);
+  }
 
   // Fallback: use meta description if parts are too short
-  let description = parts.join(' ').trim();
+  let description = parts.join('\n\n').trim();
   if (description.length < 30 && metaDesc) description = metaDesc;
 
   // Extract source-backed geography from the address and the portal's own

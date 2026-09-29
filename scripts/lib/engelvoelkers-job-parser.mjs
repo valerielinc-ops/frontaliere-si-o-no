@@ -16,7 +16,8 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
-import { getCantonDisplayName } from './crawler-location-config.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const BASE_URL = 'https://www.engelvoelkers.com';
 const LISTING_PATH = '/ch/it/azienda/carriera/offerte-di-lavoro';
@@ -190,10 +191,29 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
   // structure survives. Previously we wrapped it in normalizeSpace() which
   // collapsed all the newlines back into spaces — the audit then flagged
   // every E&V job as flat prose.
-  const nextDescriptionHtml = posting?.content?.descriptionHtml || posting?.content?.description || '';
-  const nextDescription = stripHtml(nextDescriptionHtml)
+  // The posting is a Lever payload: `descriptionHtml` is only the opening
+  // paragraph, the role itself lives in `lists` (one entry per section —
+  // «Ihre Aufgaben», «Ihr Profil», «Unser Angebot», each a heading `text` and
+  // an HTML `content` list) and the application note in `closingHtml`.
+  // Reading only `descriptionHtml` published the licensee's company intro for
+  // every posting: the Senior (5+ years) and the Junior (2-5 years) broker in
+  // Schaffhausen carried the same 930-char body (issue 5253).
+  const content = posting?.content || {};
+  const sections = [stripHtml(content.descriptionHtml || content.description || '')];
+  for (const list of Array.isArray(content.lists) ? content.lists : []) {
+    const body = stripHtml(list?.content || '');
+    if (!body) continue;
+    const heading = normalizeSpace(decodeEntities(list?.text || ''));
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  sections.push(stripHtml(content.closingHtml || content.closing || ''));
+  const nextDescription = sections
+    .filter(Boolean)
+    .join('\n\n')
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
+    // `<li><p>…</p></li>` leaves the marker alone on its line.
+    .replace(/•\n+/g, '• ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 
@@ -247,83 +267,93 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
 }
 
 /**
- * Build localized content for an Engel & Völkers job.
+ * Build the source-language content of an Engel & Völkers job.
+ *
+ * Only the posting's own text is published, in its own language: the
+ * translation step fills the other locales. The builder used to append a
+ * synthesized "Dettagli della posizione / Position highlights / Eckdaten der
+ * Stelle / Détails du poste" bullet block to the SAME source text in all four
+ * locales — written to satisfy the audit's structure check, not taken from the
+ * posting (10/10 jobs) — and, without a body, an invented sentence ("… cerca
+ * personale per la posizione …"). A body under the 50-word source floor gives
+ * no description: the runner keeps the stored source text or leaves the job
+ * out (issue 5253). Slugs keep their four-locale shape so no published URL
+ * changes.
  */
 export function buildEngelvoelkersLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
-  const canton = String(job.canton || '').toUpperCase().trim();
-  const regionIt = getCantonDisplayName(canton, 'it') || canton;
-  const regionEn = getCantonDisplayName(canton, 'en') || canton;
-  const regionDe = getCantonDisplayName(canton, 'de') || canton;
-  const regionFr = getCantonDisplayName(canton, 'fr') || canton;
   const location = String(job.location || '').replace(/,?\s*Switzerland$/i, '').trim();
   const description = String(job.description || '').trim();
-  const company = String(job.company || 'Engel & Völkers').trim();
-
-  // Engel & Völkers postings are typically short paragraph-only prose in the
-  // SAP next-data payload — no <ul>/<li>. The structured bullet block below is
-  // real per-page context (location, employer, sector, canton, apply-url),
-  // not lorem-ipsum filler. It's appended AFTER the real prose so the audit's
-  // `hasStructuredContent` is satisfied without pushing the editorial body
-  // below the fold. When no prose is available it stands in alone.
-  const itDetailsBlock = [
-    'Dettagli della posizione:',
-    `• Sede: ${location}, ${regionIt}`,
-    `• Datore di lavoro: ${company}`,
-    '• Settore: Immobiliare di pregio (real estate luxury)',
-    `• Canton: ${canton}`,
-    '• Candidature: pagina carriere ufficiale di Engel & Völkers',
-  ].join('\n');
-  const itDesc = description
-    ? `${description}\n\n${itDetailsBlock}`
-    : `${company} cerca personale per la posizione ${title} con sede a ${location}.\n\n${itDetailsBlock}`;
-
-  const enDetailsBlock = [
-    'Position highlights:',
-    `• Location: ${location}, ${regionEn}`,
-    `• Employer: ${company}`,
-    '• Sector: Premium real estate',
-    `• Canton: ${canton}`,
-    '• Apply via the official Engel & Völkers careers page',
-  ].join('\n');
-  const enDesc = description
-    ? `${description}\n\n${enDetailsBlock}`
-    : `${company} is hiring for the ${title} position based in ${location}.\n\n${enDetailsBlock}`;
-
-  const deDetailsBlock = [
-    'Eckdaten der Stelle:',
-    `• Standort: ${location}, ${regionDe}`,
-    `• Arbeitgeber: ${company}`,
-    '• Branche: Premium-Immobilien (Real Estate Luxury)',
-    `• Kanton: ${canton}`,
-    '• Bewerbung über die offizielle Karriereseite von Engel & Völkers',
-  ].join('\n');
-  const deDesc = description
-    ? `${description}\n\n${deDetailsBlock}`
-    : `${company} sucht derzeit für die Position ${title} am Standort ${location}.\n\n${deDetailsBlock}`;
-
-  const frDetailsBlock = [
-    'Détails du poste :',
-    `• Lieu : ${location}, ${regionFr}`,
-    `• Employeur : ${company}`,
-    '• Secteur : Immobilier de prestige (real estate de luxe)',
-    `• Canton : ${canton}`,
-    '• Postuler via la page carrière officielle d\'Engel & Völkers',
-  ].join('\n');
-  const frDesc = description
-    ? `${description}\n\n${frDetailsBlock}`
-    : `${company} recrute pour le poste ${title} basé à ${location}.\n\n${frDetailsBlock}`;
-
+  const sourceLang = String(job.sourceLang || 'it');
+  const slug = slugify(`${title} engel-voelkers ${location}`);
   return {
-    titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
-    slugByLocale: {
-      it: slugify(`${title} engel-voelkers ${location}`),
-      en: slugify(`${title} engel-voelkers ${location}`),
-      de: slugify(`${title} engel-voelkers ${location}`),
-      fr: slugify(`${title} engel-voelkers ${location}`),
-    },
+    sourceLang,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: meetsSourceBodyFloor(description) ? { [sourceLang]: description } : {},
+    slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
   };
+}
+
+// First line of the synthesized block the retired builder appended, in each
+// locale. A stored slot that contains one is not source text.
+const LEGACY_DETAILS_BLOCK_RE = /\n*(?:Dettagli della posizione:|Position highlights:|Eckdaten der Stelle:|Détails du poste :)\n[\s\S]*$/;
+const LEGACY_INVENTED_SENTENCE_RE = /cerca personale per la posizione|is hiring for the .+ position based in|sucht derzeit für die Position|recrute pour le poste .+ basé à/;
+
+/** True when a stored slot was written by the retired builder. */
+export function isEngelvoelkersLegacyText(text = '') {
+  const value = String(text || '');
+  return LEGACY_DETAILS_BLOCK_RE.test(value) || LEGACY_INVENTED_SENTENCE_RE.test(value);
+}
+
+/**
+ * The source body a job may be published with: this run's body, else the
+ * stored source slot stripped of the retired details block when that is real
+ * source text over the 50-word floor, else null (not published this run).
+ */
+export function engelvoelkersPublishableBody(job = {}, prev = null) {
+  const lang = job.sourceLang || 'it';
+  const fresh = String(job.descriptionByLocale?.[lang] || '');
+  if (meetsSourceBodyFloor(fresh)) return { sourceLang: lang, body: fresh };
+  const storedLang = prev?.sourceLang || lang;
+  const stored = String(prev?.descriptionByLocale?.[storedLang] || '').replace(LEGACY_DETAILS_BLOCK_RE, '').trim();
+  if (stored && !LEGACY_INVENTED_SENTENCE_RE.test(stored) && meetsSourceBodyFloor(stored)) {
+    return { sourceLang: storedLang, body: stored };
+  }
+  return null;
+}
+
+/**
+ * The retired builder's own text in a stored slot: its synthesized block or its
+ * invented sentence. Shared cleanup: `dropFabricatedDescription`
+ * (drop-fabricated-description.mjs) removes the matching slots, the
+ * translations made from them and the flat description.
+ */
+export const ENGELVOELKERS_FABRICATED_DESCRIPTION_RE = new RegExp(
+  `${LEGACY_DETAILS_BLOCK_RE.source.replace(/^\\n\*/, '')}|${LEGACY_INVENTED_SENTENCE_RE.source}`,
+);
+
+/**
+ * Drop the retired builder's output from a stored record before the merge:
+ * the description slots it wrote (shared cleanup, see above) and the copies of
+ * the source title it wrote into the other locales. Returns a cleaned copy.
+ */
+export function scrubEngelvoelkersLegacySlots(prev = {}) {
+  if (!prev || typeof prev !== 'object') return prev;
+  const job = {
+    ...prev,
+    descriptionByLocale: { ...(prev.descriptionByLocale || {}) },
+    titleByLocale: { ...(prev.titleByLocale || {}) },
+  };
+  let changed = dropFabricatedDescription(job, ENGELVOELKERS_FABRICATED_DESCRIPTION_RE);
+  const sourceTitle = String(job.titleByLocale[job.sourceLang] || job.title || '').trim();
+  for (const [locale, text] of Object.entries(job.titleByLocale)) {
+    if (locale !== job.sourceLang && sourceTitle && String(text || '').trim() === sourceTitle) {
+      delete job.titleByLocale[locale];
+      changed = true;
+    }
+  }
+  if (!changed) return prev;
+  return { ...job, needsRetranslation: true };
 }
 
 /**

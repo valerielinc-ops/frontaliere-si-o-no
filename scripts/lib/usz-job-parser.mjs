@@ -13,7 +13,8 @@
  *   but the LISTING side is fully fetchable as JSON — no Playwright needed.
  *
  * Detail page: `links.directlink` returns an HTTPS URL on `jobs.usz.ch/...` —
- * we don't fetch it (the API already ships the full description in `szas.*`).
+ * the description source: the `szas.*` listing text is only part of the
+ * rendered vacancy (see the end of `fetchAllUszJobs`).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllUszJobs()  — Fetch and parse all jobs across pages
@@ -24,6 +25,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -302,6 +304,11 @@ export async function fetchAllUszJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${USZ_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing payload is 34-41 % of the rendered vacancy (audit 2026-09-29):
+  // "Unsere Benefits" and the "Weitere Auskünfte" details exist only on the directlink page, which becomes the description
+  // source; the listing text stays the per-job fallback.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: USZ_COMPANY_NAME });
+  const unique = dropRepostedListings(jobs, USZ_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${USZ_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

@@ -17,6 +17,7 @@
 import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
 export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
@@ -212,4 +213,19 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
     jobReqId,
     externalPath,
   };
+}
+
+// The text this crawler used to write itself: the lines the runner wrote ("<title> position at Julius Baer in <city>, Switzerland." and "Posizione aperta presso Julius Baer a <city>. Ruolo: …").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const JULIUS_BAER_FABRICATED_RE = / position at Julius Baer in [^\n]*, Switzerland\.|Posizione aperta presso Julius Baer a /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropJuliusBaerFabricatedText(job) {
+  return dropFabricatedDescription(job, JULIUS_BAER_FABRICATED_RE);
 }

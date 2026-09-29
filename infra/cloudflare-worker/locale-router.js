@@ -18,8 +18,9 @@
  * GitHub Pages match the shard repo's custom domain.
  *
  * Caching: shard responses are cached by Cloudflare's NATIVE edge cache via
- * `cf: { cacheEverything, cacheTtl }` on the origin fetch — keyed on the
- * origin-{loc} URL, tiered across colos.
+ * `cf: { cacheEverything, cacheTtlByStatus }` on the origin fetch — keyed on
+ * the origin-{loc} URL, tiered across colos. Positive responses keep the
+ * configured TTL; 5xx responses are never cached.
  *
  * Cache API (caches.default): apex-keyed. WRITTEN on every happy-path shard
  * 200 (below); READ only when the origin fails (5xx / timeout / network) to
@@ -522,8 +523,9 @@ export function splitPrivateUnsubParams(searchParams) {
 
 // Edge-cache TTLs for shard pages. Two layers, deliberately different:
 //
-//   ORIGIN_CACHE_TTL (2h) — `cf.cacheTtl` on the origin fetch: CF caches the
-//   ORIGIN response (tiered/cross-colo) so repeat misses don't re-contact
+//   ORIGIN_CACHE_TTL (2h) — the positive-status TTL in
+//   `cf.cacheTtlByStatus` on the origin fetch: CF caches the ORIGIN response
+//   (tiered/cross-colo) so repeat misses don't re-contact
 //   GitHub Pages. Kept at 2h because with cacheEverything it also negative-
 //   caches origin 404s: a page that flips 404→200 on deploy may serve a
 //   cached 404 from an already-probed colo for up to this TTL, and deploys
@@ -550,6 +552,28 @@ export function splitPrivateUnsubParams(searchParams) {
 const CACHE_MAX_AGE = 21600; // 6 h — eyeball-side (Worker response)
 const ORIGIN_CACHE_TTL = 7200; // 2 h — origin-fetch side (cf.cacheTtl)
 const FAIL_OPEN_CACHE_TTL = 86400; // 24 h — apex-keyed Cache API copy (fail-open failover)
+
+// Cloudflare's `cacheTtlByStatus` keeps the intended positive/negative caching
+// for 2xx–4xx responses while making 5xx responses explicitly uncacheable. A
+// uniform `cacheEverything` + `cacheTtl` would give an origin 5xx the same
+// lifetime as a valid page; after a transient GitHub Pages 503, subsequent
+// requests could receive that cached 503 before the origin is consulted,
+// which also prevents the stale-if-error branch from observing recovery. Keep
+// this policy shared by every best-effort Cloudflare fetch in this Worker so
+// an internal probe cannot cache the same transient error under a sibling key.
+function cacheEverythingWithout5xx(ttl) {
+  return {
+    cacheEverything: true,
+    cacheTtlByStatus: {
+      '200-299': ttl,
+      '300-399': ttl,
+      '400-499': ttl,
+      '500-599': -1,
+    },
+  };
+}
+
+const SHARD_ORIGIN_FETCH_CF = cacheEverythingWithout5xx(ORIGIN_CACHE_TTL);
 
 // Cache-Control stamped on shard 404s. ~51k/day of shard traffic is crawlers
 // re-fetching DEAD job URLs from memory (old canton/slug variants, pruned
@@ -582,9 +606,10 @@ const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 // and pushed to cdn.frontaliereticino.ch/job-canon/<shard>.json (CDN-offloaded,
 // same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). Fetched
 // here as a plain cross-origin subrequest (Workers fetch() is not CORS-bound,
-// unlike public/404.html's browser-context fetch) and edge-cached (cacheEverything
-// + cacheTtl) so repeat 404s for the same shard don't re-hit the CDN. Best-effort
-// throughout: any miss/timeout/parse error returns null and the normal 404 path
+// unlike public/404.html's browser-context fetch) and edge-cached
+// (cacheEverything + cacheTtlByStatus) so repeat 404s for the same shard don't
+// re-hit the CDN. Best-effort throughout: any miss/timeout/parse error returns
+// null and the normal 404 path
 // runs.
 //
 // LOCALE-AWARE (do NOT collapse): the slug segment is IDENTICAL across all 4
@@ -703,7 +728,7 @@ async function redirectTargetIsLive(pathname, origin) {
     const upstream = new URL(pathname, `https://${origin}`);
     const resp = await fetch(upstream.toString(), {
       signal: controller.signal,
-      cf: { cacheEverything: true, cacheTtl: ORIGIN_CACHE_TTL },
+      cf: cacheEverythingWithout5xx(ORIGIN_CACHE_TTL),
     });
     return resp.status === 200;
   } catch {
@@ -771,7 +796,7 @@ async function recoverCantonDriftOrphan(url, locale) {
     const mapUrl = new URL(`/job-canon/${sk}.json`, CDN_BASE);
     const resp = await fetch(mapUrl.toString(), {
       signal: controller.signal,
-      cf: { cacheEverything: true, cacheTtl: JOB_CANON_CACHE_TTL },
+      cf: cacheEverythingWithout5xx(JOB_CANON_CACHE_TTL),
     });
     if (!resp.ok) return null;
     map = await resp.json();
@@ -1037,7 +1062,7 @@ async function servePushedEdgeFile(pathname) {
     const cdnUrl = new URL(entry.cdnKey, CDN_BASE);
     const resp = await fetch(cdnUrl.toString(), {
       signal: controller.signal,
-      cf: { cacheEverything: true, cacheTtl: EDGE_PUSHED_CACHE_TTL },
+      cf: cacheEverythingWithout5xx(EDGE_PUSHED_CACHE_TTL),
     });
     if (!resp.ok) return null; // not yet published (or purged/expired) → origin passthrough
     const body = await resp.arrayBuffer();
@@ -1703,8 +1728,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx) {
   let resp;
   try {
     resp = await fetchOriginWithRetry(upstream, request, {
-      cacheEverything: true,
-      cacheTtl: ORIGIN_CACHE_TTL,
+      ...SHARD_ORIGIN_FETCH_CF,
     });
   } catch {
     // Every attempt timed out / threw — no origin response. Prefer a last-good

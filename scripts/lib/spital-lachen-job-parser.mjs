@@ -93,6 +93,27 @@ export function extractAccordionSections(html = '') {
 }
 
 /**
+ * The offer section ("Ihre Vorteile") is not an accordion: the page renders it
+ * as a `dcwi-cards-grid` widget — a `cards-grid__header` heading followed by
+ * one `card-box__text` per benefit (holidays, training, discounts, …). Read it
+ * as a labelled bullet list so the published posting keeps what the hospital
+ * offers alongside tasks and profile.
+ */
+export function extractBenefitCards(html = '') {
+  const start = String(html || '').search(/<section\s+class="cards-grid\b/);
+  if (start < 0) return null;
+  const end = html.indexOf('</section>', start);
+  const grid = html.slice(start, end > start ? end : undefined);
+  const header = grid.match(/<div\s+class="cards-grid__header[^"]*"[^>]*>\s*<h\d[^>]*>([\s\S]*?)<\/h\d>/);
+  const label = header ? normalizeSpace(decodeEntities(header[1].replace(/<[^>]+>/g, ' '))) : '';
+  const items = [...grid.matchAll(/<div\s+class="card-box__text[^"]*"[^>]*>([\s\S]*?)<\/div>/g)]
+    .map((m) => normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' '))))
+    .filter((text) => text.length >= 3);
+  if (!label || !items.length) return null;
+  return { label, text: items.map((text) => `• ${text}`).join('\n') };
+}
+
+/**
  * Fetch one detail page and build the job description string.
  */
 async function fetchDetail(link) {
@@ -104,6 +125,8 @@ async function fetchDetail(link) {
     return { description: '', tagline: '' };
   }
   const sections = extractAccordionSections(html);
+  const benefits = extractBenefitCards(html);
+  if (benefits) sections.push(benefits);
   // Tagline = `hero__description` short text (e.g. "Tagesklinik").
   const tag = html.match(/<p\s+class="hero__description[^"]*"[^>]*>([\s\S]*?)<\/p>/);
   const tagline = tag ? normalizeSpace(decodeEntities(tag[1].replace(/<[^>]+>/g, ' '))) : '';

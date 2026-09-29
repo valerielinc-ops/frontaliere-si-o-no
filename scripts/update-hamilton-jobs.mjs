@@ -285,8 +285,7 @@ function buildJob(listing, detail) {
     .replace(/\n[^\S\n]+/g, '\n')
     .replace(/[^\S\n]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, 3000);
+    .trim();
 
   const sourceLang = detectLang(title + ' ' + description) || 'de';
   const workload = parseWorkload(title);

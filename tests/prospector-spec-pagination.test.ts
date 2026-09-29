@@ -140,6 +140,24 @@ describe('spec.pagination', () => {
       .rejects.toThrow(/torna a una pagina gia letta/);
   });
 
+  it('tratta un self-link finale come terminatore solo per una spec opt-in', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1, next: `${ORIGIN}/?sf_paged=2` }),
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2'], page: 2, next: `${ORIGIN}/?sf_paged=2` }),
+    };
+    const { rows, fetched } = await collect(specWith({
+      pagination: { maxPages: 10, pageStateParams: ['sf_paged'], selfNextIsTerminal: true },
+    }), pages);
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/sa1/`,
+      `${ORIGIN}/job/sa2/`,
+    ]);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([
+      `${ORIGIN}/`,
+      `${ORIGIN}/?sf_paged=2`,
+    ]);
+  });
+
   it('fallisce chiuso quando maxPages si esaurisce con un next ancora presente', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1, total: 3, next: `${ORIGIN}/?sf_paged=2` }),
@@ -186,6 +204,16 @@ describe('helper di paginazione', () => {
     expect(findNextListingPageUrl('<a rel="prev" href="/list?page=1">«</a>', `${ORIGIN}/list`)).toBeNull();
   });
 
+  it('ignora un rel=next placeholder che punta a un fragment della pagina corrente', () => {
+    expect(findNextListingPageUrl('<a rel="next" href="#">Pagina successiva</a>', `${ORIGIN}/list?page=3`))
+      .toBeNull();
+  });
+
+  it('mantiene i fragment non-placeholder per la guardia anti-loop', () => {
+    expect(findNextListingPageUrl('<a rel="next" href="#/page=2">Pagina successiva</a>', `${ORIGIN}/list?page=3`))
+      .toBe(`${ORIGIN}/list?page=3`);
+  });
+
   it('toglie dall\'URL di dettaglio solo i parametri di paginazione dichiarati', () => {
     const state = ['sf_paged'];
     expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/sa3/`);
@@ -225,5 +253,7 @@ describe('helper di paginazione', () => {
       expect(spec.pagination, key).toBeTruthy();
       expect(normalizeSpecPagination(spec).maxPages, key).toBeGreaterThan(pages);
     }
+    const gmo = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/prospector/crawlers/gmo.json'), 'utf8'));
+    expect(normalizeSpecPagination(gmo).selfNextIsTerminal).toBe(true);
   });
 });

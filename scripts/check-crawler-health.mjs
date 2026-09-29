@@ -259,19 +259,19 @@ const EMPTY_OK_CRAWLERS = new Set([
   // positions match" for Lugano/Chur); parser is healthy and re-arms when an IST
   // role appears. Same legitimately-empty regional-filter case as manor/fusalp.
   'international-school-of-ticino',
-  // Schweizer Paraplegiker-Gruppe (Umantis tenant 2782) and Universitäre
-  // Psychiatrische Dienste Bern / UPD (Umantis tenant 2908): both listing
-  // endpoints (/Jobs/All) still return ~10 jobs, but the per-job detail URLs
-  // (/Vacancies/{id}/Description/*) now 3xx-redirect cross-host — the tenants
-  // migrated their job descriptions off Umantis (issue #1245). The shared
+  // Schweizer Paraplegiker-Gruppe (Umantis tenant 2782): the listing endpoint
+  // (/Jobs/All) still returns ~10 jobs, but the per-job detail URLs
+  // (/Vacancies/{id}/Description/*) now 3xx-redirect cross-host — the tenant
+  // migrated its job descriptions off Umantis (issue #1245). The shared
   // umantis parser correctly QUARANTINES every dead-detail job (it refuses to
   // synthesise boilerplate that would trip the dataset boilerplate-guard) and
   // emits 0 — the accepted degraded state for a migrated source, NOT a parser
   // break. Re-arms automatically if the tenant restores Umantis detail pages.
   // Real fix (per-tenant public-site description extraction) is deferred in
-  // #1245 as fragile/per-tenant.
+  // #1245 as fragile/per-tenant. (`upd`, the other tenant of this class, now
+  // reads the Prospective medium its redirect leads to and is no longer
+  // expected to be empty — issue 5253.)
   'paraplegie',
-  'upd',
   // Psychiatriezentrum Münsingen (PZM, Prospective medium 1008606): the
   // public career site (pzmag.ch/karriere) now 301-redirects to
   // upz-bern.ch/karriere — PZM merged with UPD Bern into "Universitäres
@@ -283,9 +283,9 @@ const EMPTY_OK_CRAWLERS = new Set([
   // allowlist requires — so 0 is the correct, permanent output for this
   // companyKey, not a selector break. The former PZM roles (verified: e.g.
   // "Dipl. Pflegefachperson im Nachtdienst ICM", Hunzigenallee 1
-  // Münsingen) are already surfaced by the sibling `upd` crawler above
-  // (Umantis tenant 2908), which now lists the full merged UPZ vacancy set
-  // including Münsingen-located roles — so no coverage is lost. Retiring
+  // Münsingen) are surfaced by the sibling `upd` crawler, which reads the
+  // merged UPZ vacancy set (Prospective medium 1000842, 30 of 107 postings
+  // in Münsingen on 2026-09-29) — so no coverage is lost. Retiring
   // the dedicated crawler (removing it from `.github/workflows/
   // crawler-group-10.yml`) is the complete follow-up but out of reach for
   // the automated fixer (no `workflows` push scope); tracked in #4080.
@@ -368,21 +368,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // Same legitimately-empty small-employer case as linnea and
   // wuerth-international (#3344).
   'medics-labor',
-  // AXA Svizzera (Prospective.ch Career Center 2193, national CH-wide
-  // crawler): the listing (https://jobs.axa.ch/?lang=it&offset=0&limit=500)
-  // returns HTTP 200 with the unchanged filter form and `#jobs-list`
-  // structure (same ids/classes the parser targets), but the server now
-  // renders `<p id="no-results">Attualmente non sono disponibili posti
-  // vacanti con questi criteri.</p>` and zero `<a id="job-*">` anchors — same
-  // across it/de/fr/en and confirmed in the production crawl log (issue
-  // #3564, 2026-07-05). Individual detail pages return HTTP 410 ("La
-  // pubblicazione di questo posto di lavoro è terminata"), proving the ATS
-  // backend is live and simply has no current national openings, not a
-  // template/markup change. Job count declined gradually (153 → 0) over
-  // ~3 weeks as postings expired without replacements, consistent with a
-  // real hiring lull, not a selector break. Parser is healthy and re-arms
-  // automatically when AXA republishes openings.
-  'axa-svizzera',
   // Browser-verified #3797 batch (2026-07-08) — 17 companies confirmed
   // genuinely at 0 open Swiss postings, not a crawler defect. Each entry's
   // evidence lives in the #3797 issue comment; one-line summary here.

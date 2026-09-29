@@ -42,6 +42,7 @@ import {
   WorkdayAuthError,
   workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -273,6 +274,7 @@ export async function fetchAllCslBehringJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -345,20 +347,19 @@ export async function fetchAllCslBehringJobs() {
         .replace(/[ \t]*\n[ \t]*/g, '\n')
         .replace(/\n{3,}/g, '\n\n')
         .trim()
-        .slice(0, 4000)
       : '';
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${CSL_BEHRING_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: CSL Behring — global biotech leader in plasma-derived and recombinant therapies (immunology, haematology, cardiovascular, transplant).',
-      '• Swiss footprint: Bern HQ for tech-ops & manufacturing; R&D + commercial functions across CH.',
-      '• Apply: CSL Behring Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${CSL_BEHRING_KEY} ch`);
@@ -408,6 +409,9 @@ export async function fetchAllCslBehringJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${CSL_BEHRING_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

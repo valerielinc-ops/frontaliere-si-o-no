@@ -28,9 +28,17 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const KLINIK_ADELHEID_KEY = 'klinik-adelheid';
 export const KLINIK_ADELHEID_COMPANY_NAME = 'Klinik Adelheid';
+
+/**
+ * Fragments only the crawler's former text wrote: the "Bereich: X." line it put
+ * above every body and its clinic paragraph, for `dropFabricatedDescriptions`
+ * on the stored jobs (issue 5253).
+ */
+export const KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE = /^Bereich: [^\n]*\.\n|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz/;
 export const KLINIK_ADELHEID_COMPANY_DOMAIN = 'klinik-adelheid.ch';
 
 const PUBLIC_CAREER_URL = 'https://www.klinik-adelheid.ch/jobs-und-karriere/offene-stellen/';
@@ -131,15 +139,11 @@ export async function fetchAllKlinikAdelheidJobs() {
     }
     await new Promise((r) => setTimeout(r, 200));
 
-    if (!description) {
-      description = [
-        `${row.title} — ${KLINIK_ADELHEID_COMPANY_NAME}, Unterägeri (ZG).`,
-        row.bereich ? `Bereich: ${row.bereich}.` : '',
-        'Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation.',
-      ].filter(Boolean).join('\n\n');
-    } else if (row.bereich) {
-      description = `Bereich: ${row.bereich}.\n\n${description}`;
-    }
+    // Only the posting's own text (issue 5253): no "Bereich: X." line in front
+    // of it, and a body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path) instead of a title/clinic
+    // paragraph written by the crawler.
+    if (!meetsSourceBodyFloor(description)) description = '';
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${KLINIK_ADELHEID_KEY} unteraegeri`);

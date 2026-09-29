@@ -5,8 +5,10 @@ import {
   getTrafficSegmentTravelTimes,
   parseProviderBudget,
   providerQuotaDefinition,
+  TRAFFIC_PROVIDER_SPECS,
   TRAFFIC_PROVIDER_ORDER,
 } from '../functions/src/trafficProviderMesh.js';
+import { HERE_MONTHLY_FREE_TIER_BUDGET } from '../functions/src/lib/hereBudget.js';
 import { lambert93ToWgs84 } from '../scripts/lib/official-traffic-sources.mjs';
 
 describe('traffic provider mesh', () => {
@@ -44,7 +46,7 @@ describe('traffic provider mesh', () => {
     expect(providerQuotaDefinition('here', 'route', {
       HERE_DAILY_BUDGET: '999999',
       HERE_MONTHLY_BUDGET: '999999',
-    }).limits.map((limit) => limit.budget)).toEqual([1_000, 4_500]);
+    }).limits.map((limit) => limit.budget)).toEqual([1_000, HERE_MONTHLY_FREE_TIER_BUDGET]);
     for (const operation of ['traffic-situations', 'traffic-lights', 'traffic-counters']) {
       expect(providerQuotaDefinition('opentransportdata', operation, {
         OPENTRANSPORTDATA_QUOTA: '999999',
@@ -54,6 +56,11 @@ describe('traffic provider mesh', () => {
       });
     }
     expect(providerQuotaDefinition('stadia').unitCost).toBe(20);
+    expect(providerQuotaDefinition('graphhopper').rateLimit).toEqual({
+      maxPerMinute: 20,
+      minIntervalMs: 3_000,
+    });
+    expect(TRAFFIC_PROVIDER_SPECS.graphhopper).toMatchObject({ batchSize: 1, batchDelayMs: 0 });
   });
 
   it('rejects an atomic reservation that would cross the cap', () => {

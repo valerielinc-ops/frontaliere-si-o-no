@@ -164,17 +164,35 @@ function parseListingRows(html) {
   return rows;
 }
 
+/**
+ * Parse one JSON-LD block. IKEA's apprenticeship postings ship raw TAB
+ * characters inside the description string (`<br/>•\tDetailhandelsassistent`),
+ * which strict JSON rejects. The block used to be skipped, the row lost its
+ * whole description and was published as "{title} — IKEA" (7 of 38 rows,
+ * audit run 36528331656). JSON forbids raw U+0000-U+001F only inside strings
+ * and treats them as insignificant whitespace outside, so replacing each with
+ * a space is lossless for the document structure; the description is HTML,
+ * where a tab and a space render the same.
+ */
+function parseJsonLdBlock(raw) {
+  try {
+    return JSON.parse(raw);
+  } catch {
+    try {
+      return JSON.parse(raw.replace(/[\u0000-\u001f]/g, ' '));
+    } catch {
+      return null;
+    }
+  }
+}
+
 /** Pull the JSON-LD JobPosting (if any) from a detail page. */
-function parseJobPosting(html) {
-  const blocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
+export function parseJobPosting(html) {
+  const blocks = String(html || '').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
   for (const block of blocks) {
     const raw = block.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '').trim();
-    let data;
-    try {
-      data = JSON.parse(raw);
-    } catch {
-      continue;
-    }
+    const data = parseJsonLdBlock(raw);
+    if (!data) continue;
     const candidates = Array.isArray(data) ? data : [data];
     for (const c of candidates) {
       if (c && c['@type'] === 'JobPosting') return c;
@@ -310,6 +328,7 @@ export async function fetchAllIkeaJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -326,6 +345,14 @@ export async function fetchAllIkeaJobs() {
     const postalCode = (/^\d{4}$/.test(postalCandidate) ? postalCandidate : '')
       || (addressLocality === HQ_CITY ? HQ_POSTAL : '');
     const descriptionText = stripHtml(listing.description || '');
+    // Only the posting's own text is published (issue 5253). A row whose
+    // detail JSON-LD carried no description used to go out as
+    // "{title} — IKEA"; it is not published any more.
+    if (!descriptionText) {
+      console.log(`   ⏭️ no vacancy text in the detail JSON-LD, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -342,8 +369,8 @@ export async function fetchAllIkeaJobs() {
       companyDomain: IKEA_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — ${IKEA_COMPANY_NAME}`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${IKEA_COMPANY_NAME}` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -373,6 +400,9 @@ export async function fetchAllIkeaJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} row(s) without vacancy text in the detail JSON-LD — not published.`);
+  }
   console.log(`\n📋 Total IKEA jobs discovered: ${jobs.length}`);
   return jobs;
 }

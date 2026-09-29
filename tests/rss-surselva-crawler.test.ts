@@ -21,6 +21,7 @@ import {
   isTrustedDomain,
   parseOstendisJob,
   parseDetailPageJsonLd,
+  stripOstendisApplyFooter,
   detectCategory,
   detectExperienceLevel,
   inferEmploymentType,
@@ -215,6 +216,62 @@ describe('inferEmploymentType', () => {
   });
 });
 
+// ─── Ostendis publication body: structure + footer (live shape, 2026-09-29) ─────
+// Minimised from the JSON-LD `description` of
+// link.ostendis.com/publication/leitung-regionalspital-surselva-… (contact
+// details replaced). Before the fix the parser flattened every `<li>` into
+// prose (18/18 rows without structure) and kept the apply button + postal
+// footer; the detail fetch itself was refused with HTTP 406 so the published
+// rows were the metadata boilerplate instead of this body.
+const OSTENDIS_PUBLICATION_DESCRIPTION = '<div><div><div><h1><b>Leitung Regionalspital Surselva </b></h1>'
+  + '<div><p>Das Regionalspital Surselva in Ilanz stellt die erweiterte Grund- und Notfallversorgung sicher.</p></div>'
+  + '<h3><b>Ihre Aufgaben</b></h3><ul>'
+  + '<li><div>Operative Gesamtverantwortung für das Regionalspital Surselva in fachlicher, personeller<div>und betriebswirtschaftlicher Hinsicht</div></div></li>'
+  + '<li><div>Sicherstellung eines geordneten, sicheren und wirtschaftlichen Spitalbetriebs mit hoher<div>Behandlungs- und Betreuungsqualität</div></div></li>'
+  + '</ul><h3><b>Was wir Ihnen bieten</b></h3><ul>'
+  + '<li><div>Die Möglichkeit, den Aufbau des Gesundheitsnetzes ab 2027 aktiv mitzugestalten<br /></div></li>'
+  + '</ul></div></div><div><div><div><b>Wenn wir Ihr Interesse geweckt haben, freuen wir uns auf Ihre Bewerbung an:<br /><br />Personaldienst</b>'
+  + '<div><b>Für Fragen steht er Ihnen gerne zur Verfügung.</b></div></div></div></div>'
+  + '<div><a>Jetzt online bewerben</a></div>'
+  + '<div><strong>Regionalspital Surselva AG - Spitalstrasse 6 - 7130 Ilanz <br />personal@example.ch / +41 00 000 00 00</strong></div></div></div>';
+
+describe('parseDetailPageJsonLd — Ostendis publication body', () => {
+  const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org/',
+    '@type': 'JobPosting',
+    title: 'Leitung Regionalspital Surselva 80-100 %',
+    description: OSTENDIS_PUBLICATION_DESCRIPTION,
+  })}</script></head><body></body></html>`;
+  const { description } = parseDetailPageJsonLd(html);
+
+  it('keeps every list item as a line-start bullet', () => {
+    const bullets = description.split('\n').filter((line) => line.startsWith('• '));
+    expect(bullets).toHaveLength(3);
+    expect(description).toMatch(/^• Operative Gesamtverantwortung/m);
+    expect(description).toContain('Ihre Aufgaben');
+    expect(description).toContain('Was wir Ihnen bieten');
+  });
+
+  it('keeps the application instructions but drops the apply button and postal footer', () => {
+    expect(description).toContain('freuen wir uns auf Ihre Bewerbung an:');
+    expect(description).not.toContain('Jetzt online bewerben');
+    expect(description).not.toContain('Spitalstrasse 6 - 7130 Ilanz');
+  });
+});
+
+describe('stripOstendisApplyFooter', () => {
+  it('cuts at the last button-only line followed by a footer-sized tail', () => {
+    expect(stripOstendisApplyFooter('Body\nJetzt bewerben\nFirma AG - 7130 Ilanz')).toBe('Body');
+  });
+
+  it('leaves an in-sentence apply mention and a long tail untouched', () => {
+    const inline = 'Bitte per E-Mail oder direkt über "Jetzt bewerben" senden.';
+    expect(stripOstendisApplyFooter(inline)).toBe(inline);
+    const longTail = `Intro\nJetzt bewerben\n${'Weiterer Inhalt der Stelle. '.repeat(20)}`;
+    expect(stripOstendisApplyFooter(longTail)).toBe(longTail.trim());
+  });
+});
+
 // ─── parseDetailPageJsonLd ──────────────────────────────────────────────────────
 
 describe('parseDetailPageJsonLd', () => {
@@ -326,7 +383,7 @@ describe('parseOstendisJob', () => {
   };
 
   const sampleDetail = {
-    description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.',
+    description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.',
     datePosted: '2024-06-25',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',
@@ -352,16 +409,19 @@ describe('parseOstendisJob', () => {
 
   it('uses detail page description when available', () => {
     const job = parseOstendisJob(sampleEntry, sampleDetail);
-    expect(job.description).toBe('Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.');
+    expect(job.description).toBe(sampleDetail.description);
   });
 
-  it('falls back to title-based description with boilerplate when detail is short', () => {
-    const job = parseOstendisJob(sampleEntry, { description: 'Short' });
-    expect(job.description).toContain('Hausärztin / Hausarzt');
-    expect(job.description).toContain('Regionalspital Surselva');
-    expect(job.description).toContain('Ärzte');
-    expect(job.description).toContain('Grund- und Notfallversorgung');
-    expect(job.description.length).toBeGreaterThanOrEqual(150);
+  // Only the posting's own text is published (issue 5253): a detail without a
+  // body used to be replaced by a stub of metadata plus the hospital summary.
+  it('builds no job when the detail page has no vacancy text', () => {
+    expect(parseOstendisJob(sampleEntry, { description: 'Short' })).toBeNull();
+    expect(parseOstendisJob(sampleEntry, {})).toBeNull();
+  });
+
+  it('builds no job from a body under the shared 50-word floor, nor pads it with the hospital summary', () => {
+    expect(parseOstendisJob(sampleEntry, { description: 'Wir suchen eine Hausärztin für unsere Gruppenpraxis in Ilanz.' })).toBeNull();
+    expect(parseOstendisJob(sampleEntry, sampleDetail).description).not.toContain('Grund- und Notfallversorgung');
   });
 
   it('uses detail page datePosted', () => {
@@ -374,8 +434,8 @@ describe('parseOstendisJob', () => {
     expect(job.employmentType).toBe('FULL_TIME');
   });
 
-  it('infers employment type from title when detail unavailable', () => {
-    const job = parseOstendisJob(sampleEntry, {});
+  it('infers employment type from title when the detail gives none', () => {
+    const job = parseOstendisJob(sampleEntry, { description: sampleDetail.description });
     expect(job.employmentType).toBe('FULL_TIME'); // 50-100% → max 100 ≥ 90
   });
 
@@ -429,13 +489,13 @@ describe('parseOstendisJob', () => {
 
   it('defaults location to Ilanz when city is empty', () => {
     const entryNoCity = { ...sampleEntry, city: '' };
-    const job = parseOstendisJob(entryNoCity, {});
+    const job = parseOstendisJob(entryNoCity, { description: sampleDetail.description });
     expect(job.location).toBe('Ilanz');
   });
 
   it('defaults postal code to 7130 when missing', () => {
     const entryNoZip = { ...sampleEntry, zip: '' };
-    const job = parseOstendisJob(entryNoZip, {});
+    const job = parseOstendisJob(entryNoZip, { description: sampleDetail.description });
     expect(job.postalCode).toBe('7130');
   });
 
@@ -468,7 +528,7 @@ describe('parseOstendisJob', () => {
 
   it('handles single percentage in title', () => {
     const singlePct = { ...sampleEntry, title: 'Koch 100%' };
-    const job = parseOstendisJob(singlePct, {});
+    const job = parseOstendisJob(singlePct, { description: sampleDetail.description });
     expect(job.pensumMin).toBe(100);
     expect(job.pensumMax).toBe(100);
     expect(job.pensum).toBe('100%');
@@ -477,7 +537,7 @@ describe('parseOstendisJob', () => {
 
   it('sets part-time contract for low pensum', () => {
     const partTime = { ...sampleEntry, title: 'Sekretärin 40-60%' };
-    const job = parseOstendisJob(partTime, {});
+    const job = parseOstendisJob(partTime, { description: sampleDetail.description });
     expect(job.contract).toBe('part-time');
     expect(job.employmentType).toBe('PART_TIME');
   });
@@ -524,7 +584,7 @@ describe('job shape', () => {
   };
 
   const validJob = parseOstendisJob(sampleEntry, {
-    description: 'Wir suchen eine erfahrene Pflegefachperson HF für unser Team in Ilanz.',
+    description: 'Wir suchen eine erfahrene Pflegefachperson HF für unser Team in Ilanz. Gute Deutschkenntnisse und Freude an der Arbeit mit Menschen runden Ihr Profil ab. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.',
     datePosted: '2026-04-01',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',

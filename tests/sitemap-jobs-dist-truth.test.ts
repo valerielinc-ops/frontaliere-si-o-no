@@ -36,6 +36,8 @@ const MISSING = `${BASE}/cerca-lavoro-ticino/ricerca-groupe-mutuel-emploi/`;
 const NOINDEX = `${BASE}/cerca-lavoro-ticino/ricerca-pittore-imbianchino-ticino/`;
 const FOREIGN_CANONICAL = `${BASE}/cerca-lavoro-ticino/ricerca-allianz-job/`;
 const KNOWN_MIRROR = `${BASE}/cerca-lavoro-ticino/ricerca-projektleiter-m-w-d/`;
+const SHARD_NOINDEX = `${BASE}/de/jobs-im-aargau/bridge-noindex/`;
+const SHARD_HEALTHY = `${BASE}/de/jobs-im-aargau/bridge-healthy/`;
 
 const selfCanonical = (loc: string) =>
   `<!doctype html><html><head><link rel="canonical" href="${loc}"></head><body>ok</body></html>`;
@@ -141,6 +143,19 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     await reconcileSitemapJobsWithDist(dist, []);
     expect(extractSitemapLocs(readSitemap())).toEqual([HEALTHY, HEALTHY_2, KNOWN_MIRROR]);
   });
+
+  it('also reconciles canton shards and drops a present foreign-locale bridge', async () => {
+    const shardPath = path.join(dist, 'sitemap-jobs-argovia.xml');
+    fs.writeFileSync(shardPath, wrap([SHARD_NOINDEX, SHARD_HEALTHY]), 'utf-8');
+    writePage(SHARD_NOINDEX, noindexBridge(`${BASE}/de/jobs-im-aargau/`));
+    writePage(SHARD_HEALTHY, selfCanonical(SHARD_HEALTHY));
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    const shardXml = fs.readFileSync(shardPath, 'utf-8');
+    expect(shardXml).not.toContain('bridge-noindex');
+    expect(shardXml).toContain('bridge-healthy');
+  });
 });
 
 /**
@@ -166,6 +181,30 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       const shard = await import('../build-plugins/relatedSearchClustersPlugin');
       await shard.reconcileSitemapJobsWithDist(dist, []);
       expect(shard.extractSitemapLocs(readSitemap())).toEqual([HEALTHY, EN, DE, FR]);
+    } finally {
+      if (prev === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = prev;
+    }
+  });
+
+  it('checks a foreign-locale file when the job shard has one on disk', async () => {
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs-argovia.xml'),
+      wrap([SHARD_NOINDEX, SHARD_HEALTHY]),
+      'utf-8',
+    );
+    writePage(SHARD_NOINDEX, noindexBridge(`${BASE}/de/jobs-im-aargau/`));
+    writePage(SHARD_HEALTHY, selfCanonical(SHARD_HEALTHY));
+
+    vi.resetModules();
+    const prev = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      const out = fs.readFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), 'utf-8');
+      expect(out).not.toContain('bridge-noindex');
+      expect(out).toContain('bridge-healthy');
     } finally {
       if (prev === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = prev;

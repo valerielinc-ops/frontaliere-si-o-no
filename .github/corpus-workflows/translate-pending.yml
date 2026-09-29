@@ -236,7 +236,7 @@ jobs:
       - name: Record translation rollout context
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
-          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
@@ -253,7 +253,7 @@ jobs:
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
-          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -363,7 +363,7 @@ jobs:
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
-          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}

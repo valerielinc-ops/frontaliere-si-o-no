@@ -9,6 +9,7 @@
  */
 
 import admin from 'firebase-admin';
+import { HERE_MONTHLY_FREE_TIER_BUDGET } from './lib/hereBudget.js';
 
 const GOOGLE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
 const MAPBOX_DIRECTIONS_URL = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic';
@@ -107,8 +108,8 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
             // compatible with its legacy `month` field via the read fallback.
             documentId: 'hereTransactionBudget',
             budgetEnv: 'HERE_MONTHLY_BUDGET',
-            defaultBudget: 4_000,
-            safeMaximum: 4_500,
+            defaultBudget: HERE_MONTHLY_FREE_TIER_BUDGET,
+            safeMaximum: HERE_MONTHLY_FREE_TIER_BUDGET,
           }),
         ],
       }),
@@ -195,6 +196,11 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
     key: 'graphhopperApiKey',
     quotas: Object.freeze({
       route: quotaOperation({
+        // The free GraphHopper key used by the collector is credit-limited per
+        // minute as well as per day. Keep one route reservation at least 3s
+        // apart (~20 one-credit routes/minute) so the provider never sees the
+        // 3-crossing × 2-segment burst that caused the recurring 429.
+        rateLimit: { maxPerMinute: 20, minIntervalMs: 3_000 },
         limits: [quotaLimit({
           period: 'day',
           quotaScope: 'graphhopper',
@@ -204,8 +210,10 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
         })],
       }),
     }),
-    batchSize: 3,
-    batchDelayMs: 500,
+    // Static routing needs one segment only (the second segment has no live
+    // delay to measure), and the shared reservation cadence serializes calls.
+    batchSize: 1,
+    batchDelayMs: 0,
     trafficAware: false,
   }),
   stadia: Object.freeze({

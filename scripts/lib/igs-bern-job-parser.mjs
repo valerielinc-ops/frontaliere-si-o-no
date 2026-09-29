@@ -26,13 +26,14 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   decodeEntities,
   fetchHtml,
-  htmlToText,
   normalizeSpace,
   detectHealthcareCategory,
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
+import { extractPublicjobsDetailDescription } from './publicjobs-detail-description.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -146,23 +147,7 @@ async function fetchPublicJobsDetail(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '');
-    const candidateBlocks = [];
-    const blockRe = /<(?:article|main|section|div)[^>]*(?:id|class)="[^"]*(?:job|content|main|description|inserat|stellen)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|main|section|div)>/gi;
-    let m;
-    while ((m = blockRe.exec(noScripts)) !== null && candidateBlocks.length < 12) {
-      candidateBlocks.push(m[1]);
-    }
-    candidateBlocks.push(noScripts);
-    let best = '';
-    for (const blk of candidateBlocks) {
-      const text = htmlToText(blk);
-      if (text.length > best.length) best = text;
-      if (best.length > 1200) break;
-    }
-    return normalizeSpace(best).slice(0, 6000);
+    return extractPublicjobsDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ IGS Bern detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';
@@ -230,11 +215,11 @@ export async function fetchAllIgsBernJobs() {
     const postedDate = parseSwissDate(row?.job_booking_start || '')
       || new Date().toISOString().split('T')[0];
 
-    const fallbackDesc = `${title} — ${IGS_BERN_COMPANY_NAME}, ${location}. Sozialpsychiatrische Institution in Bern (Soteria Bern und weitere Angebote).`;
     const detailDescription = await fetchPublicJobsDetail(detailUrl);
-    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
-      ? detailDescription
-      : fallbackDesc;
+    // Only source text (issue 5253): no "<title> — <company>, <place>." stub
+    // in place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailDescription) ? detailDescription : '';
     if (jobs.length > 0) await new Promise((r) => setTimeout(r, 250));
 
     const job = {

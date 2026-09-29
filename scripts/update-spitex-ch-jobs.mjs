@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   SPITEX_CH_KEY,
   SPITEX_CH_COMPANY_NAME,
+  SPITEX_CH_FABRICATED_DESCRIPTION_RE,
 } from './lib/spitex-ch-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isSpitexChJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, SPITEX_CH_FABRICATED_DESCRIPTION_RE, SPITEX_CH_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Spitex Schweiz crawler failed: ${err?.message || err}`);
   process.exit(1);

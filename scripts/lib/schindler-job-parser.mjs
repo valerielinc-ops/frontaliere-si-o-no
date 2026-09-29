@@ -34,8 +34,13 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  resolveSuccessFactorsTemplateTokens,
+  sanitizeSuccessFactorsField,
+} from './successfactors-jobs2web-widget-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractBalancedTagBlockWithStatus, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -278,8 +283,11 @@ export function extractTotalResults(html) {
 /**
  * Parse a Schindler SF j2w detail page.
  * Returns { title, description, location, applyUrl }.
+ *
+ * `listingTitle` (the authoritative results-row title) fills an unrendered
+ * `[[Title]]` token in the body when the page's own heading is unusable.
  */
-export function parseDetailPage(html) {
+export function parseDetailPage(html, { listingTitle = '' } = {}) {
   if (!html || typeof html !== 'string') return null;
 
   // Title: <h1 class="job-title"> for Schindler tenants
@@ -300,10 +308,20 @@ export function parseDetailPage(html) {
   //   <span class="jobdescription">...</span>
   // (NOT in <div id="content"> — that wrapper contains search widgets too).
   let descriptionHtml = '';
-  const jdSpanMatch = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
+  // Walk the element's own nesting: the body is full of nested
+  // `<span style=…>` headings, so a non-greedy `…([\s\S]*?)</span>` stops
+  // inside the body. On the SBB_AS apprenticeship pages (no job-action/footer
+  // marker right after the span) it kept only the first ~half of the posting
+  // — the "Ton profil", "Tes avantages" and application sections were lost.
+  const jdLoc = locateTagByAttribute(html, 'class="[^"]*\\bjobdescription\\b[^"]*"', { skipVoidTags: true });
+  if (jdLoc) {
+    const balanced = extractBalancedTagBlockWithStatus(jdLoc.rest, jdLoc.tagName, 400000);
+    if (balanced.complete) descriptionHtml = balanced.html;
+  }
+  const jdSpanMatch = descriptionHtml ? null : html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
   if (jdSpanMatch) {
     descriptionHtml = jdSpanMatch[1];
-  } else {
+  } else if (!descriptionHtml) {
     // Fall back: greedy match from <span class="jobdescription"> to its closing </span>.
     // SF templates can nest tags inside jobdescription, so we accept the largest match.
     const fallbackSpan = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*<\/div>/i);
@@ -329,7 +347,12 @@ export function parseDetailPage(html) {
     if (parts.length > 0) descriptionHtml = parts.join('\n\n');
   }
 
-  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml)));
+  let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml).replace(/\r\n?/g, '\n')));
+
+  // The SBB_AS apprenticeship template ships an unrendered `[[Title]]` token
+  // inside the body ("nous t'offrons une: [[Title]] à Le Mont-sur-Lausanne").
+  // Render it with the posting title before the widget guard runs.
+  description = resolveSuccessFactorsTemplateTokens(description, { title: title || listingTitle });
 
   // Reject SF widget garbage that occasionally bleeds into the description.
   description = sanitizeSuccessFactorsField(description);
@@ -348,12 +371,6 @@ export function parseDetailPage(html) {
   const location = '';
 
   return { title, description, location, applyUrl };
-}
-
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei Schindler in ${location || 'der Schweiz'}.\n\nDie Schindler-Gruppe ist einer der weltweit führenden Hersteller von Aufzügen, Fahrtreppen und Fahrsteigen. Das 1874 in der Schweiz gegründete Unternehmen beschäftigt rund 70'000 Mitarbeitende weltweit, davon mehrere tausend in der Schweiz. Schindler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem global tätigen Schweizer Technologieunternehmen mit Hauptsitz in Ebikon (Kanton Luzern).`;
 }
 
 /* ── HTTP fetch with timeout ──────────────────────────────── */
@@ -435,12 +452,13 @@ export async function fetchAllSchindlerJobs() {
 
   // Step 2 — detail pages
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
     try {
       let detail = null;
       try {
         const detailHtml = await fetchPage(listing.url, timeoutMs, userAgent);
-        detail = parseDetailPage(detailHtml);
+        detail = parseDetailPage(detailHtml, { listingTitle: listing.title });
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
       }
@@ -454,11 +472,16 @@ export async function fetchAllSchindlerJobs() {
         inferSwissTargetCanton(region) ||
         'LU'; // Schindler HQ is in Ebikon (LU)
 
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location);
+      // Only the posting's own text is published (issue 5253). A detail page
+      // that could not be read, or whose body is under 50 words, used to be
+      // replaced by an invented group summary; such a listing is not
+      // published any more.
+      const description = detail?.description || '';
+      if (description.split(/\s+/).filter(Boolean).length < 50) {
+        console.warn(`  ⏭️ Schindler: no vacancy text on the detail page, not published (${title})`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
+        continue;
       }
 
       const sourceLang = detectLang(description || title, 'de');
@@ -510,6 +533,10 @@ export async function fetchAllSchindlerJobs() {
       console.warn(`  ⚠️ Skipping ${listing.title} — ${err?.message || err}`);
     }
     await new Promise((r) => setTimeout(r, 300));
+  }
+
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
   }
 
   // Deduplicate by URL (safety: multiple tenants can occasionally cross-link)

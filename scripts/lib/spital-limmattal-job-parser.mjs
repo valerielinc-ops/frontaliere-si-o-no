@@ -29,8 +29,9 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
+import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -216,26 +217,11 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  const description = parts.join('\n');
+  const description = preferRicherReflineBody(html, parts.join('\n'));
   return { title, description };
 }
 
 /* ── Fallback description ──────────────────────────────────── */
-
-function buildFallbackDescription(title) {
-  return [
-    `${title} bei Spital Limmattal in Schlieren, Kanton Zürich.`,
-    '',
-    `Das Spital Limmattal ist das öffentliche Akutspital für die rund 150'000 Einwohnerinnen und Einwohner des Limmattals (Bezirke Dietikon und Zürich West). Das Spital ist Lehrspital der Universität Zürich und der Höheren Fachschulen für Pflege.`,
-    '',
-    'Das bietet «Limmi» den Mitarbeitenden:',
-    '• Modernes Arbeitsumfeld in einem Neubau (Eröffnung 2018)',
-    '• Breite Palette medizinischer Fachbereiche',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Attraktive Anstellungsbedingungen',
-    '• Rund 1\'500 Mitarbeitende in einem kollegialen Umfeld',
-  ].join('\n');
-}
 
 /* ── Main fetch ────────────────────────────────────────────── */
 
@@ -278,12 +264,10 @@ export async function fetchAllSpitalLimmattalJobs() {
     const canton = inferSwissTargetCanton(location) || 'ZH';
     const postalCode = '8952';
 
-    let description = '';
-    if (detail.description && detail.description.split(/\s+/).length >= 50) {
-      description = detail.description;
-    } else {
-      description = buildFallbackDescription(title);
-    }
+    // Only the posting's own text (issue 5253): a detail body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path), instead of a company paragraph and benefit list of the crawler's.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${SPITAL_LIMMATTAL_KEY} ch`);

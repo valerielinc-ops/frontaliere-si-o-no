@@ -47,6 +47,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const SPITEX_CH_KEY = 'spitex-ch';
 export const SPITEX_CH_COMPANY_NAME = 'Spitex Schweiz';
@@ -99,6 +100,56 @@ const COUNTRY_TO_CC = { Schweiz: 'CH', Switzerland: 'CH', Suisse: 'CH', Svizzera
 
 /* ── Factory-style exports ────────────────────────────────── */
 
+function sectionByClass(html, cls) {
+  const match = new RegExp(`<section\\b[^>]*\\bclass="[^"]*\\b${cls}\\b[^"]*"[^>]*>([\\s\\S]*?)</section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+function pillLabel(sectionHtml) {
+  return normalizeSpace(stripHtml(/<h2\b[^>]*wwj-pill-label[^>]*>([\s\S]*?)<\/h2>/i.exec(sectionHtml)?.[1] || ''));
+}
+
+/**
+ * The employer sections of a spitexjobs.ch vacancy page that belong to the ad
+ * but not to its JobPosting JSON-LD: the organisation portrait
+ * (`wwj-profile-bidder-description`) and the benefit cards
+ * (`wwj-benefits-section`, one `<article>` per benefit: heading + text), each
+ * under the label the page gives it ("Porträt", "Benefits").
+ *
+ * The JSON-LD `description` carries the intro and the role lists only, so
+ * the published ad lost the offer — holidays, allowances, paid travel time,
+ * car, training budget — and the organisation paragraph (J990528: 1,518
+ * published characters against a 4,889-character ad, 2026-09-29). Contact
+ * details, map, media and metadata stay out.
+ *
+ * @param {string} html
+ * @returns {string} HTML, '' when the page has neither section
+ */
+export function extractSpitexEmployerSectionsHtml(html = '') {
+  // Icons first: each benefit card's inline `<svg>` draws with `<line>`
+  // elements, which the `<li…>` → bullet rule of the text converters reads as
+  // list items ("• • • Fixe Dienste …").
+  const source = String(html || '').replace(/<svg\b[\s\S]*?<\/svg>/gi, '');
+  const parts = [];
+  const profile = sectionByClass(source, 'wwj-profile-bidder-section');
+  const portrait = /<div\b[^>]*class="[^"]*wwj-profile-bidder-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i.exec(profile)?.[1] || '';
+  const portraitText = normalizeSpace(stripHtml(portrait));
+  if (portraitText) {
+    parts.push(`<h3>${pillLabel(profile) || 'Porträt'}</h3><p>${portraitText}</p>`);
+  }
+  const benefitsSection = sectionByClass(source, 'wwj-benefits-section');
+  const items = [];
+  for (const card of benefitsSection.matchAll(/<article\b[^>]*class="[^"]*wwj-benefit\b[^"]*"[^>]*>([\s\S]*?)<\/article>/gi)) {
+    const heading = normalizeSpace(stripHtml(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i.exec(card[1])?.[1] || ''));
+    const text = normalizeSpace(stripHtml(card[1].replace(/<h3\b[^>]*>[\s\S]*?<\/h3>/i, '')));
+    if (heading || text) items.push(`<li>${[heading, text].filter(Boolean).join(': ')}</li>`);
+  }
+  if (items.length) {
+    parts.push(`<h3>${pillLabel(benefitsSection) || 'Benefits'}</h3><ul>${items.join('')}</ul>`);
+  }
+  return parts.join('\n');
+}
+
 export async function fetchAllSpitexChJobs() {
   console.log(`🏥 Fetching ${SPITEX_CH_COMPANY_NAME} jobs`);
   console.log(`   Source: ${BASE_URL}/suche (federation home-care board)\n`);
@@ -140,9 +191,11 @@ export async function fetchAllSpitexChJobs() {
   const jobs = [];
   for (const jobUrl of seenUrls) {
     let posting = null;
+    let employerHtml = '';
     try {
       const detailHtml = await fetchHtml(jobUrl);
       posting = extractJobPostingJsonLd(detailHtml);
+      employerHtml = extractSpitexEmployerSectionsHtml(detailHtml);
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${jobUrl}: ${err?.message || err}`);
     }
@@ -161,17 +214,10 @@ export async function fetchAllSpitexChJobs() {
     const canton = normalizeCantonCode(cantonGuess) || inferSwissTargetCanton(city) || 'BE';
     const country = COUNTRY_TO_CC[addr.addressCountry] || 'CH';
 
-    const descHtml = posting.description || '';
-    let description = htmlToText(descHtml);
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
+    const description = buildSpitexChDescription(posting.description || '', employerHtml);
     const hiringOrg = posting.hiringOrganization?.name
       ? decodeEntities(String(posting.hiringOrganization.name)).trim()
       : '';
-    if (uniqueWords.size < 30) {
-      description = `${title}${hiringOrg ? ` bei ${hiringOrg}` : ''} in ${city}.\n\nSpitex-Stelle in der Schweizer Hauspflege. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
-    }
 
     const sourceLang = detectLang(description || title, 'de');
     const postedDate = (() => {
@@ -269,3 +315,31 @@ export function isTrustedDomain(rawUrl = '') {
     return false;
   }
 }
+
+/**
+ * The description of a spitexjobs.ch vacancy: the JobPosting JSON-LD text and
+ * the employer's sections of the same ad (`extractSpitexEmployerSectionsHtml`),
+ * either of which may be missing — only the source's text. Below the 50-word
+ * floor (source-body-floor) there is no description, and the job takes the
+ * pipeline's thin-source path. Under 30 distinct words the parser used to
+ * replace the text with "<Titel> bei <Arbeitgeber> in <Ort>. Spitex-Stelle in
+ * der Schweizer Hauspflege…" (SPITEX_CH_FABRICATED_DESCRIPTION_RE).
+ *
+ * @param {string} descHtml      JSON-LD `description` (HTML)
+ * @param {string} employerHtml  employer sections of the page (HTML)
+ * @returns {string}
+ */
+export function buildSpitexChDescription(descHtml = '', employerHtml = '') {
+  const parts = [descHtml, employerHtml].filter((html) => stripHtml(String(html || '')).trim());
+  if (!parts.length) return '';
+  const text = htmlToText(parts.join('\n'));
+  return meetsSourceBodyFloor(text) ? text : '';
+}
+
+/**
+ * The whole substitute the parser used to write for a short posting: "<Titel>
+ * bei <Arbeitgeber> in <Ort>." and its fixed "Spitex-Stelle in der Schweizer
+ * Hauspflege…" paragraph, and nothing else (anchored at both ends).
+ */
+export const SPITEX_CH_FABRICATED_DESCRIPTION_RE =
+  /^[^\n]{3,500}\.\n\nSpitex-Stelle in der Schweizer Hauspflege\. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten\.\s*$/;

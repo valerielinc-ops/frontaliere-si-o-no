@@ -174,10 +174,15 @@ export function parseBellinzonaListingHtml(html) {
     const deadlineMatch = contextBlock.match(/Termine\s+(\d{1,2}\.\d{1,2}\.\d{2,4})/i);
     const deadline = deadlineMatch ? parseBellinzonaDate(deadlineMatch[1]) : null;
 
-    // Extract PDF link (Bando di concorso)
+    // Extract PDF link (Bando di concorso). The site now serves the bando
+    // from an extension-less document URL ("<titolo>-<id>", Content-Disposition
+    // …pdf) linked as "Scarica il documento" under the "Bando di concorso"
+    // label: take the first link after that label that is not the pi-asp
+    // application form.
     const pdfMatch = contextBlock.match(/href="([^"]*\.pdf[^"]*)"/i)
       || contextBlock.match(/href="([^"]*[Bb]ando[^"]*)"/i)
-      || contextBlock.match(/href="([^"]*[Ss]carica[^"]*)"/i);
+      || contextBlock.match(/href="([^"]*[Ss]carica[^"]*)"/i)
+      || contextBlock.match(/Bando di concorso[\s\S]*?<a\s+href="((?![^"]*pi-asp)[^"#]+)"/i);
     const pdfUrl = pdfMatch ? new URL(pdfMatch[1], 'https://www.bellinzona.ch').href : null;
 
     // Extract apply URL (pi-asp.de)
@@ -246,3 +251,13 @@ export function inferEmploymentType(title = '', description = '', percentage = '
   }
   return 'FULL_TIME';
 }
+
+/**
+ * Fragments only the runner's former wrapper around the bando wrote (a
+ * "## <titolo>" header, "Città di Bellinzona — concorso pubblico a Bellinzona (TI),
+ * Svizzera.", "Settore"/"Sede" footers, a link to the PDF, and a
+ * "Concorso pubblico presso la Città di Bellinzona…" sentence when the PDF had no
+ * text). Used to clean jobs stored before the runner published the bando alone.
+ */
+export const CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE =
+  /— concorso pubblico a Bellinzona \(TI\), Svizzera\.|\*\*Sede:\*\* Piazza Nosetto, 6500 Bellinzona|Consultare il bando di concorso per i requisiti completi\./;

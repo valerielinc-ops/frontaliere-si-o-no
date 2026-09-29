@@ -524,7 +524,8 @@ export function normalizeSpecPagination(spec) {
   const pageStateParams = Array.isArray(raw.pageStateParams)
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
     : [];
-  return { maxPages, minCoverage, declaredTotalRx, pageStateParams };
+  const selfNextIsTerminal = raw.selfNextIsTerminal === true;
+  return { maxPages, minCoverage, declaredTotalRx, pageStateParams, selfNextIsTerminal };
 }
 
 /**
@@ -591,8 +592,14 @@ export function stripListingPageState(url, pageUrl, stateParams = []) {
  * @returns {string|null}
  */
 export function findNextListingPageUrl(html, pageUrl) {
-  let origin = '';
-  try { origin = new URL(pageUrl).origin; } catch { return null; }
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+  const origin = current.origin;
+  current.hash = '';
   const tagRx = /<(?:a|link)\b[^>]*>/gi;
   let tag;
   while ((tag = tagRx.exec(String(html || '')))) {
@@ -605,10 +612,37 @@ export function findNextListingPageUrl(html, pageUrl) {
     let next;
     try { next = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
     if (next.origin !== origin) continue;
+    const samePageFragment = hrefValue.trim() === '#'
+      && next.pathname === current.pathname
+      && next.search === current.search;
     next.hash = '';
+    // A few sources leave a placeholder `rel=next href="#"` on their last
+    // page. It is a same-page fragment, not a continuation. Do not generalize
+    // this to every URL equal to the current page: a real pagination loop can
+    // expose the current page as an absolute or query-bearing URL and must
+    // still reach the fail-closed visited-page guard.
+    if (samePageFragment) continue;
     return next.href;
   }
   return null;
+}
+
+/**
+ * Compare two listing URLs after URL parsing and fragment removal. A small
+ * number of sources put a self-referential `rel=next` on their final page;
+ * only an explicitly opted-in spec may interpret that source quirk as an end
+ * marker. The default loop guard remains fail-closed for every other spec.
+ */
+function isSameListingPageUrl(left, right) {
+  try {
+    const a = new URL(left);
+    const b = new URL(right);
+    a.hash = '';
+    b.hash = '';
+    return a.href === b.href;
+  } catch {
+    return String(left || '').trim() === String(right || '').trim();
+  }
 }
 
 /**
@@ -799,6 +833,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       let nextUrl = findNextListingPageUrl(html, pageUrl);
       let pages = 1;
       while (nextUrl) {
+        if (pagination.selfNextIsTerminal && isSameListingPageUrl(nextUrl, pageUrl)) {
+          console.warn(
+            `[prospector:${spec.companyKey}] listing paginata: rel=next punta alla stessa pagina dopo ${pages} pagine; fine dichiarata dalla spec`,
+          );
+          break;
+        }
         if (visited.has(nextUrl)) {
           // A next link back to a page already read is a loop or an alias,
           // not the end of the listing: stopping here would publish a partial

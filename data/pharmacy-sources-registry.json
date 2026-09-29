@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T00:00:00.000Z",
+  "generatedAt": "2026-09-29T16:00:00.000Z",
   "sources": {
     "aargau": {
       "canton": "Argovia",
@@ -64,14 +64,17 @@
     "basel-stadt": {
       "canton": "Basilea Città",
       "officialSourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
-      "accessMethod": "manual",
-      "fetchFrequency": "P30D",
+      "accessMethod": "html-scrape",
+      "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
       "sourceType": "official",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale con un elenco di farmacie, non un calendario di turni; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario collegato al sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
+      "dutiesKey": "BS",
+      "notes": "La pagina ufficiale cantonale identifica la 24 Stunden Apotheke Basel AG (Petersgraben 3, 4051 Basel) e dichiara apertura lun-dom 24 ore, 365 giorni inclusi i festivi; l'adattatore verifica identità, indirizzo e dichiarazione di apertura prima di generare il calendario annuale.",
+      "sourceFetchedAt": "2026-09-29T12:00:00.000Z"
     },
     "fribourg": {
       "canton": "Friburgo",
@@ -124,14 +127,17 @@
     "jura": {
       "canton": "Giura",
       "officialSourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
-      "accessMethod": "html-scrape",
-      "fetchFrequency": "P30D",
+      "accessMethod": "pdf",
+      "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
-      "sourceType": "association",
+      "sourceType": "official",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa indicata per l'orientamento alle emergenze; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "sourceFetchedAt": "2026-09-29T15:18:26.896Z",
+      "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
+      "dutiesKey": "JU",
+      "notes": "La pagina ufficiale del Cantone pubblica i piani PDF 2026 di Delémont, Ajoie e Moutier. L'adattatore verifica testo, calendario colorato e identità prima di rendere il release operativo."
     },
     "lucerne": {
       "canton": "Lucerna",
@@ -213,9 +219,12 @@
       "timezone": "Europe/Zurich",
       "sourceType": "association",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
+      "dutiesKey": "SO",
+      "notes": "La fonte associativa AVSO pubblica il calendario corrente con identità, indirizzi e date per tutte le tre regioni del cantone; l'adattatore verifica le identità allowlistate. Le fasce correnti sono verificate sulla pagina ufficiale del Gesundheitsamt SO (Olten/Solothurn 10:00-12:00) e sulla pagina corrente Saner Dornach (Dorneck-Thierstein 09:00-12:00).",
+      "sourceFetchedAt": "2026-09-29T16:00:00.000Z"
     },
     "schwyz": {
       "canton": "Svitto",
@@ -319,15 +328,18 @@
     },
     "zurich": {
       "canton": "Zurigo",
-      "officialSourceUrl": "https://www.notfall-apotheken-zh.ch/",
+      "officialSourceUrl": "https://www.avkz.ch/notfalldienst",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
       "sourceType": "association",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
+      "dutiesKey": "ZH",
+      "notes": "La pagina dell'Apothekerverband des Kantons Zürich e della Notfalldienst-Kommission identifica la Bellevue Apotheke (Theaterstrasse 14, Zürich) come aperta ogni giorno 24 ore e dichiara la disponibilità delle farmacie di emergenza per l'intero cantone; l'adattatore verifica identità, indirizzo e dichiarazioni 24h/365 prima di generare il calendario annuale.",
+      "sourceFetchedAt": "2026-09-29T12:00:00.000Z"
     }
   }
 }

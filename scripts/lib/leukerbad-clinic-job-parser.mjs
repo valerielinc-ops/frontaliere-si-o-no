@@ -14,8 +14,10 @@
  *   1. GET /api/v2                 → master ref
  *   2. GET /api/v2/documents/search?ref=<master>&q=[[at(document.type,"job")]]&lang=*&pageSize=100
  *      → all job documents, both fr-ch and de-ch.
- *   3. For each Prismic document, flatten the rich-text job_description blocks
- *      into a plain-text body and build a ParsedJob.
+ *   3. GET the `page` document with uid `jobs` (one per language): its `job`
+ *      links are the positions the site lists; other job documents are left out.
+ *   4. For each listed Prismic document, flatten the rich-text job_description
+ *      blocks into a plain-text body and build a ParsedJob.
  *
  * Notes:
  *   - Master locale is `fr-ch`, secondary is `de-ch` (per /api/v2).
@@ -27,6 +29,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -179,6 +182,45 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Merge key of a Leukerbad Clinic record: its id (digest of the Prismic
+ * document id), not its URL — the stored `#job-<hash>` records and the
+ * text-fragment URLs name the same documents.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function leukerbadClinicMatchKey(job = {}) {
+  return String(job?.id || job?.url || '');
+}
+
+/**
+ * Ids of the job documents the site lists as open positions: the `job` links
+ * of the Prismic `page` document with uid `jobs`, per language. Every other
+ * `job` document is not on leukerbadclinic.ch — on 2026-09-29 the de-ch
+ * listing linked 5 of the 8 de-ch job documents; «Medizinische/r
+ * Praxisassistent/in», «Chefärztin / Chefarzt …» and «Verwaltungsmitarbeiter/in
+ * – Patientenmanagement» were in Prismic only, published by this crawler as
+ * open positions nobody could find on the site.
+ *
+ * @param {any[]} pageDocs Prismic documents of the `jobs` page
+ * @returns {Set<string>}
+ */
+export function listedJobDocumentIds(pageDocs = []) {
+  const ids = new Set();
+  const visit = (value) => {
+    if (!value || typeof value !== 'object') return;
+    if (Array.isArray(value)) {
+      for (const item of value) visit(item);
+      return;
+    }
+    if (value.link_type === 'Document' && value.type === 'job' && value.id && value.isBroken !== true) ids.add(value.id);
+    for (const child of Object.values(value)) visit(child);
+  };
+  for (const doc of pageDocs) visit(doc?.data);
+  return ids;
+}
+
 /* ── Build ParsedJob from Prismic document ─────────────────── */
 
 function buildJob(doc) {
@@ -218,27 +260,28 @@ function buildJob(doc) {
       ? langPrefix
       : detectLang(description || title, 'fr');
 
-  // Build canonical URL. Leukerbad's Nuxt/Prismic site renders individual
-  // job documents only inside the listing page; /{lang}/page/jobs/{uid}/
-  // returns 404. Keep the source URL on the live language-specific listing so
-  // URL housekeeping does not expire valid Prismic jobs.
+  // Public URL. The site's own per-job route, /{lang}/jobs/{uid}/, is
+  // prerendered for some documents only: the others answer HTTP 404 with the
+  // Nuxt shell (which renders the job in a browser, but URL housekeeping and
+  // search engines read the 404). So the job stays on the language listing,
+  // which lists every open position under its title — client-side: the static
+  // HTML carries the page chrome only. An anchor `#job-<hash>` named no
+  // element of that page, rendered or not, so the link led to the top of the
+  // list (parser-quality run 36571839273: source-detail-anchor-missing 2/2).
+  // The text fragment of the job title is where the browser scrolls once the
+  // list has rendered (measured in Chromium on the live listing). The
+  // `?jobid=` query (ignored by the static host) is the posting's identity for
+  // the URL-keyed layers that drop the fragment — extractJobIdentityFromUrl
+  // and the slug registry — which otherwise fold every posting of a language
+  // onto the bare listing URL (issues #4085 / #4169).
   //
-  // Every job on a given language listing therefore shares the SAME path
-  // (…/fr/page/jobs/ or …/de/page/jobs/). Without a per-job discriminator the
-  // shared crawler's URL-based fingerprint (canonicalizeJobUrl strips the hash,
-  // so a bare listing URL collapses to one key) folds all N jobs of a locale
-  // onto ONE fingerprint in mergeAndDeduplicate — the whole slice shrinks to 2
-  // (fr + de) and the shrink-guard hard-fails the crawler every run
-  // (issues #4085 / #4169). Append a stable per-doc fragment: it never reaches
-  // the server (the listing page still 200s, URL housekeeping still passes) and
-  // extractJobIdentityFromUrl's bare-hash rule turns it into a distinct
-  // `id|leukerbadclinic.ch|#job-<hash>` fingerprint — the exact same
-  // fragment-as-identity convention the other single-listing-page crawlers use
-  // (galenica #job.id=, eHnv #offer/, état de vaud #…/job/, klinik-gut #…-id-).
+  // The id stays the digest of the Prismic document id: it is the merge key
+  // (leukerbadClinicMatchKey), so stored records keep their translations and
+  // slugs across the URL change.
   const sitePath = sourceLang === 'de' ? 'de' : 'fr';
   const urlForHash = `${PRISMIC_REPO}:${doc.id || doc.uid || title}`;
   const urlHash = createHash('sha1').update(urlForHash).digest('hex').slice(0, 12);
-  const publicUrl = `https://leukerbadclinic.ch/${sitePath}/page/jobs/#job-${urlHash}`;
+  const publicUrl = textFragmentUrl(`https://leukerbadclinic.ch/${sitePath}/page/jobs/?jobid=${urlHash}`, title);
 
   const jobSlug = slugify(`${title} ${LEUKERBAD_CLINIC_COMPANY_NAME} ${workplace}`);
   const postedDate = (() => {
@@ -344,8 +387,20 @@ export async function fetchAllLeukerbadClinicJobs() {
 
   console.log(`\n   Prismic returned ${allDocs.length} job document(s) across all locales`);
 
+  // Only the positions the site lists. A listing that cannot be read is an
+  // error (the stored slice stays as it is), never «publish every document».
+  const pageQuery = encodeURIComponent('[[at(my.page.uid, "jobs")]]');
+  const pagePayload = await fetchJsonRetry(
+    `${PRISMIC_API_BASE}/documents/search?ref=${encodeURIComponent(masterRef)}&q=${pageQuery}&lang=*&pageSize=20`,
+  );
+  const pageDocs = assertJsonListShape(pagePayload, { key: 'results', source: 'leukerbad-clinic', lang: 'jobs page' });
+  if (pageDocs.length === 0) throw new Error('Leukerbad Clinic: the Prismic `jobs` page was not found');
+  const listed = listedJobDocumentIds(pageDocs);
+  const listedDocs = allDocs.filter((doc) => listed.has(doc?.id));
+  console.log(`   Listed on the jobs pages: ${listedDocs.length}/${allDocs.length} job document(s)`);
+
   const jobs = [];
-  for (const doc of allDocs) {
+  for (const doc of listedDocs) {
     try {
       const job = buildJob(doc);
       if (job) jobs.push(job);

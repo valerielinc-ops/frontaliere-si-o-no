@@ -34,6 +34,7 @@ import {
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -178,7 +179,10 @@ function extractDetail(html = '') {
 
   return {
     title,
-    description: text.slice(0, 6000),
+    // Only a delimited container is published: with no length cap, the
+    // whole-page fallback (kept for the field lookups above) must not become
+    // the vacancy text.
+    description: mainMatch ? text : '',
     location,
     pensum,
     startDate,
@@ -263,10 +267,10 @@ export async function fetchAllPrivatklinikWyssJobs() {
     const employmentType = detectHealthcareEmploymentType(pensumSource);
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
-    const fallbackDesc = `${title} — ${PRIVATKLINIK_WYSS_COMPANY_NAME}, ${location}. Fachklinik für Psychiatrie und Psychotherapie.`;
-    const description = detail.description && detail.description.split(/\s+/).length >= 30
-      ? detail.description
-      : fallbackDesc;
+    // Only source text (issue 5253): no "<title> — <company>, <place>." stub
+    // in place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const job = {
       id: `${PRIVATKLINIK_WYSS_KEY}-${urlHash}`,

@@ -29,10 +29,12 @@ import {
   decodeEntities,
   normalizeSpace,
   htmlToText,
+  extractBalancedTagBlockWithStatus,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const LHM_KEY = 'lhm-luzerner-hohenklinik-montana';
 export const LHM_COMPANY_NAME = 'Luzerner Höhenklinik Montana';
@@ -79,15 +81,42 @@ function extractH1(html) {
   return normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
 }
 
-function extractBodyText(html) {
+/**
+ * The vacancy lives in the page's main column, `<div class="content_overflow">`
+ * (introduction + tasks/profile/offer lists + application paragraph). The
+ * right column (`#portlets_right`) holds the contact-person widgets, which the
+ * old "everything after </h1>" slice put at the TOP of every description
+ * ("Pascale Baray Leiterin Hotellerie Auskunft: …") before the posting itself.
+ */
+function extractMainColumnText(html) {
+  const open = /<div\b[^>]*\bclass="[^"]*\bcontent_overflow\b[^"]*"[^>]*>/i.exec(html);
+  if (!open) return '';
+  const { html: inner, complete } = extractBalancedTagBlockWithStatus(
+    html.slice(open.index + open[0].length),
+    'div',
+    60000,
+  );
+  if (!complete) return '';
+  const cleaned = stripScriptsAndStyles(inner)
+    // Back-to-listing link ("Zurück" button or plain "zurück" anchor).
+    .replace(/<a\b[^>]*>\s*zurück\s*<\/a>/gi, '');
+  return htmlToTextLines(cleaned);
+}
+
+export function extractBodyText(html) {
+  const main = extractMainColumnText(html);
+  if (main) return main;
   // The detail body is rendered as a stack of <p>/<h2>/<ul> elements after
-  // the <h1>. Take the substring from the closing </h1> to the next footer.
-  // If that fails, fall back to the whole document.
+  // the <h1>. Take the substring from the closing </h1> to the next footer;
+  // without a footer there is no delimited body.
   const h1End = html.search(/<\/h1>/i);
   if (h1End < 0) return '';
-  const tail = html.slice(h1End + '</h1>'.length, h1End + 30000); // generous cap
+  const tail = html.slice(h1End + '</h1>'.length);
   const stopIdx = tail.search(/<footer|<div[^>]*class="[^"]*footer/i);
-  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail;
+  // No footer marker: no delimited body. The text has no length cap
+  // (issue 5253), so the page tail after the h1 is never published.
+  if (stopIdx <= 0) return '';
+  const block = tail.slice(0, stopIdx);
   // Strip nav portlets ("Suchen", "Sie sind hier:", contact widget,
   // breadcrumbs) — the LHM portal wraps everything in
   // `<div class="portlet-…">` blocks. Drop any portlet block with class
@@ -97,7 +126,7 @@ function extractBodyText(html) {
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')
     .replace(/<div[^>]*class="[^"]*(?:search|breadcrumb|navigation)[^"]*"[\s\S]*?<\/div>/gi, '');
   const text = htmlToText(cleaned);
-  return normalizeSpace(text).slice(0, 6000);
+  return normalizeSpace(text);
 }
 
 async function fetchDetail(url) {
@@ -146,10 +175,11 @@ export async function fetchAllLhmJobs() {
     const title = detail.title || slugToTitle(r.slug);
     if (!title || title.length < 3) continue;
 
-    const fallback = `${title} bei ${LHM_COMPANY_NAME}, Crans-Montana (VS). Stelle veröffentlicht auf der Karriereseite der Luzerner Höhenklinik Montana — einer Rehabilitationsklinik des Luzerner Kantonsspitals (LUKS) mit Spezialgebieten Pulmologie, Kardiologie und Psychosomatik.`;
-    const description = detail.body && detail.body.split(/\s+/).length >= 30
-      ? detail.body
-      : [fallback, detail.body].filter(Boolean).join('\n\n');
+    // The detail's own text, whatever its length. Under 30 words the crawler
+    // used to put a paragraph of its own on the clinic in front of it (or in
+    // its place); a detail without text now gives no description and the job
+    // takes the pipeline's thin-source path.
+    const description = detail.body || '';
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${LHM_KEY} crans-montana`);

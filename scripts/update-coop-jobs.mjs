@@ -54,7 +54,9 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasCorrectLocaleCoverage, normalizeSpace, mergeLocaleTextMap, fingerprintJob } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
-  fetchCoopJsonLd,
+  fetchCoopDetailPage,
+  collapseRepublishedCoopVacancies,
+  composeCoopFamilyDescription,
   coopDescHtmlToMarkdown,
   validateCoopDescription,
   titleOverlap,
@@ -68,6 +70,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -784,6 +787,46 @@ function runBaseCrawler() {
 
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 
+/**
+ * The source body of a stored Coop description, without the scaffold this
+ * runner writes around it (`## <title>`, `**<company>** — <place>, Svizzera`,
+ * and the `---` / `**Tipo:**` / `**Sede:**` footer), so the source-body word
+ * floor measures the vacancy text and not our own labels.
+ */
+export function coopStoredBody(description = '') {
+  const lines = String(description || '').split('\n');
+  const footer = lines.lastIndexOf('---');
+  const body = footer >= 0 ? lines.slice(0, footer) : lines;
+  if (/^##\s/.test(body[0] || '')) body.shift();
+  while (body.length > 0 && !body[0].trim()) body.shift();
+  if (/^\*\*[^*]+\*\* — .*Svizzera$/.test(body[0] || '')) body.shift();
+  return body.join('\n').trim();
+}
+
+/**
+ * The source body a Coop-family detail page publishes: the JSON-LD
+ * description plus the page's own facts and sections, exactly as
+ * `repairJobFromJsonLd` composes it (source text only, never our scaffold).
+ */
+export function coopDetailSourceBody(jsonLd, page = null) {
+  const ldDesc = String(jsonLd?.description || '').trim();
+  if (!ldDesc) return '';
+  return composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
+}
+
+/**
+ * Quarantine decision for one Coop job (issue 5253 review): the 50-word
+ * source floor is applied to the COMPOSED body the job would publish, not to
+ * the bare JSON-LD — a 49-word JSON-LD whose page facts and sections carry the
+ * vacancy past the floor is a publishable posting. Without a publishable
+ * detail body, the stored body (scaffold aside) keeps the job; otherwise it
+ * is quarantined.
+ */
+export function coopDetailNeedsQuarantine(job, jsonLd, page = null) {
+  if (jsonLd && meetsSourceBodyFloor(coopDetailSourceBody(jsonLd, page))) return false;
+  return !meetsSourceBodyFloor(coopStoredBody(job?.description));
+}
+
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
 
@@ -819,10 +862,10 @@ async function postProcessCoopJobs() {
     12,
     Math.max(1, Number(process.env.JOBS_COOP_DETAIL_CONCURRENCY) || 8),
   );
-  async function fetchCoopJsonLdResilient(url) {
+  async function fetchCoopDetailResilient(url) {
     for (let attempt = 0; attempt < 4; attempt += 1) {
-      const ld = await fetchCoopJsonLd(url, timeoutMs);
-      if (ld) return ld; // got JSON-LD (description handled downstream)
+      const detail = await fetchCoopDetailPage(url, timeoutMs);
+      if (detail) return detail; // got JSON-LD (+ page facts; description handled downstream)
       await sleep(400 * (attempt + 1)); // backoff only when the fetch itself failed (e.g. 503 under load)
     }
     return null;
@@ -833,7 +876,7 @@ async function postProcessCoopJobs() {
   // description) to a single job object in place. Safe to run from concurrent
   // workers because each call mutates only its own `job` (Node is single-threaded;
   // there is no shared mutable state between jobs here).
-  function repairJobFromJsonLd(job, jsonLd) {
+  function repairJobFromJsonLd(job, jsonLd, page = null) {
     let changed = false;
     // Snapshot BEFORE any mutation below: gates the needsRetranslation flag
     // further down (issue #3442). Coop's detail page is re-fetched every
@@ -888,7 +931,10 @@ async function postProcessCoopJobs() {
     const descLen = (job.description || '').length;
     const ldDesc = (jsonLd.description || '').trim();
     if (ldDesc) {
-      const markdown = coopDescHtmlToMarkdown(ldDesc);
+      // The JSON-LD body plus the vacancy's own facts the page shows around it
+      // (store address, Pensum, Stellenantritt): without them every store of a
+      // city published the same text for the same role.
+      const markdown = composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
       const validation = validateCoopDescription(markdown, ldDesc.length);
 
       // Replace if: current is shorter than JSON-LD markdown, current is too
@@ -900,10 +946,14 @@ async function postProcessCoopJobs() {
       // needsRetranslation exactly like the bug this guard exists to fix).
       // The incoming markdown still appearing verbatim in the prior stored
       // text means no real drift; anything else means the source changed.
+      // Both floors are the shared source-body word floor: the stored text
+      // (its generated title/company/"Tipo"/"Sede" scaffold aside) and the
+      // fresh body are judged in words, never in characters.
+      const bodyPublishable = meetsSourceBodyFloor(markdown);
       const sourceDrifted =
-        markdown.length > 200 && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
-      if (markdown.length > descLen || descLen < 350 || sourceDrifted) {
-        if (markdown.length > 200) {
+        bodyPublishable && !normalizeSpace(priorDescriptionText).includes(normalizeSpace(markdown));
+      if (markdown.length > descLen || !meetsSourceBodyFloor(coopStoredBody(priorDescriptionText)) || sourceDrifted) {
+        if (bodyPublishable) {
           // Build structured description with metadata
           const lines = [`## ${job.title || ldTitle}`, ''];
           // Add company from OG or hiringOrganization
@@ -985,15 +1035,11 @@ async function postProcessCoopJobs() {
 
   // Fetch + repair one job. Quarantines jobs that resolve no real description.
   async function processOne(job) {
-    const descLen = (job.description || '').length;
-    const jsonLd = await fetchCoopJsonLdResilient(job.url);
-    if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
-      // No real source description available → quarantine (don't publish a
-      // boilerplate-padded thin page).
-      if (descLen < 250) quarantineUrls.add(job.url);
-      if (!jsonLd) return;
-    }
-    if (repairJobFromJsonLd(job, jsonLd)) repaired += 1;
+    const detail = await fetchCoopDetailResilient(job.url);
+    const jsonLd = detail?.jsonLd || null;
+    if (coopDetailNeedsQuarantine(job, jsonLd, detail?.page || null)) quarantineUrls.add(job.url);
+    if (!jsonLd) return;
+    if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
 
   // Bounded-concurrency pool over the Coop jobs. A shared index cursor feeds
@@ -1029,12 +1075,24 @@ async function postProcessCoopJobs() {
     if (applyCoopLocationCantonPreference(job)) reconciled += 1;
   }
 
-  if (repaired > 0 || dropped > 0 || reconciled > 0) {
+  // The same ad published under several UUIDs (same store address, same
+  // text) is one vacancy for the reader: keep the earliest-seen record.
+  const { collapsed } = collapseRepublishedCoopVacancies(allJobs.filter(isCoopJob));
+  if (collapsed.length > 0) {
+    const collapsedUrls = new Set(collapsed.map(({ url }) => url));
+    const kept = allJobs.filter((j) => !(isCoopJob(j) && collapsedUrls.has(j.url)));
+    allJobs.length = 0;
+    allJobs.push(...kept);
+    for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished Coop vacancy ${url} collapsed into ${keptUrl}`);
+  }
+
+  if (repaired > 0 || dropped > 0 || reconciled > 0 || collapsed.length > 0) {
     writeJsonAtomic(DATA_JOBS, allJobs);
     writeJsonAtomic(PUBLIC_JOBS, allJobs);
     console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs`
       + (dropped ? ` · quarantined ${dropped} without a real source description` : '')
-      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : ''));
+      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : '')
+      + (collapsed.length ? ` · collapsed ${collapsed.length} republished duplicate(s)` : ''));
   } else {
     console.log(`  ✅ All ${coopJobs.length} Coop jobs passed validation`);
   }

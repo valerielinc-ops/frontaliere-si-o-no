@@ -29,7 +29,6 @@
  * exactly the high-demand profiles for frontaliere readers.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
@@ -40,6 +39,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
 
 export const PROSENECTUTE_TI_KEY = 'prosenectute-ti';
 export const PROSENECTUTE_TI_COMPANY_NAME = 'Pro Senectute Ticino e Moesano';
@@ -111,6 +111,24 @@ export function parseProSenectuteListing(html) {
 }
 
 /**
+ * Description fields of one concorso: the text of its PDF, in its own
+ * language. The crawler used to wrap it in lines of its own (the title, a
+ * sentence on yearly concorsi, "Bando completo (PDF): …", a line on the Lugano
+ * office) and, without PDF text, to write "Bando <titolo> di Pro Senectute…";
+ * a concorso without readable text now gets no description and takes the
+ * pipeline's thin-source path.
+ *
+ * @param {string} pdfText
+ */
+export function buildProSenectuteTiDescriptionFields(pdfText = '') {
+  return sourceLocaleDescription(buildPdfBackedDescription({ pdfText }), { defaultLang: 'it' });
+}
+
+/** Fragments only the former wrapper wrote (see `buildProSenectuteTiDescriptionFields`). */
+export const PROSENECTUTE_TI_FABRICATED_DESCRIPTION_RE =
+  /pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno|Bando completo \(PDF\): https?:|Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano|I dettagli completi su requisiti, profilo professionale e modalità di candidatura sono nel PDF allegato\./;
+
+/**
  * Pro Senectute publishes long-running yearly concorsi (the page itself says
  * "I presenti concorsi restano aperti anche in assenza di un effettivo
  * fabbisogno di personale"). Default location is Lugano (their HQ at Via
@@ -134,19 +152,7 @@ export async function fetchAllProSenectuteTiJobs() {
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
     const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
-    const description = buildPdfBackedDescription({
-      introLines: [
-        `${title}.`,
-        'Pro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno.',
-      ],
-      pdfText,
-      fallbackText: `Bando ${title} di Pro Senectute Ticino e Moesano. I dettagli completi su requisiti, profilo professionale e modalità di candidatura sono nel PDF allegato.`,
-      footerLines: [
-        `Bando completo (PDF): ${it.pdfUrl}`,
-        'Pro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).',
-      ],
-    });
-    const sourceLang = detectLang(description || title, 'it');
+    const { description, descriptionByLocale, sourceLang } = buildProSenectuteTiDescriptionFields(pdfText);
     const jobSlug = slugify(`${title} ${PROSENECTUTE_TI_KEY}`);
     // The PDF URL is the stable key — the AEM `jcr:` UUID stays the same for
     // the lifetime of the published concorso, and the year-stamped filename
@@ -162,7 +168,7 @@ export async function fetchAllProSenectuteTiJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale,
       // Newly-discovered jobs ship with source-locale-only fields. The shared
       // AI-localization step clears this flag when it fills the remaining 3
       // locales; if it can't (cache miss + AI quota), the flag stays and

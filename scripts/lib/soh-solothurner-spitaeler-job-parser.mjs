@@ -40,6 +40,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const SOH_KEY = 'soh-solothurner-spitaeler';
 export const SOH_COMPANY_NAME = 'Solothurner Spitäler AG (soH)';
@@ -110,6 +111,88 @@ export function parseSohListing(html) {
 }
 
 /**
+ * Key facts rendered above the posting (`div-job-info` → `job-infos`):
+ * Eintritt, Pensum, Standort (site + street address), Abteilung. They are the
+ * only place the page states the start date, workload and ward — the JSON-LD
+ * body starts directly with the tasks list.
+ */
+export function sohJobFacts(html = '') {
+  const lines = [];
+  const rx = /<div\s+class="job-infos">\s*<div\s+class="jobInfoTitle">[\s\S]*?<span>([\s\S]*?)<\/span>\s*<\/div>\s*<span[^>]*>([\s\S]*?)<\/span>\s*<\/div>/gi;
+  let m;
+  while ((m = rx.exec(String(html || '')))) {
+    const label = normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
+    const value = normalizeSpace(decodeEntities(m[2].replace(/<[^>]+>/g, ' ')));
+    if (label && value) lines.push(`${label}: ${value}`);
+  }
+  return lines.join('\n');
+}
+
+/**
+ * The offer ("Für uns selbstverständlich") is a benefits carousel that exists
+ * only in the HTML, not in the JSON-LD. Each card renders twice (front/back
+ * face of the flip card); read the front face once per card.
+ */
+export function sohBenefits(html = '') {
+  const start = String(html || '').search(/<section\b[^>]*\bid="job-advantages"/i);
+  if (start < 0) return '';
+  const end = html.indexOf('</section>', start);
+  const section = html.slice(start, end > start ? end : undefined);
+  const heading = section.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+  const label = heading ? normalizeSpace(decodeEntities(heading[1].replace(/<[^>]+>/g, ' '))) : '';
+  const seen = new Set();
+  const items = [];
+  for (const m of section.matchAll(/<span\s+class="benefitTitle"[^>]*>([\s\S]*?)<\/span>/gi)) {
+    const titleMatch = m[1].match(/<strong[^>]*>([\s\S]*?)<\/strong>/i);
+    const cardTitle = titleMatch ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ' '))) : '';
+    const text = normalizeSpace(decodeEntities(
+      m[1].replace(/<strong[^>]*>[\s\S]*?<\/strong>/i, ' ').replace(/<[^>]+>/g, ' '),
+    ));
+    const item = cardTitle && text ? `${cardTitle}: ${text}` : (cardTitle || text);
+    if (!item || seen.has(item)) continue;
+    seen.add(item);
+    items.push(`• ${item}`);
+  }
+  if (!items.length) return '';
+  return [label, ...items].filter(Boolean).join('\n');
+}
+
+/**
+ * The workplace the page renders under "Standort" ("Bürgerspital Solothurn,
+ * Schöngrünstrasse 42, 4500 Solothurn"). The JSON-LD `jobLocation` is filled
+ * by hand in the ATS and disagrees with it on ~7 % of postings: typos
+ * ("Oltern", "Soloturn") and the other hospital's town (a Bürgerspital
+ * Solothurn vacancy tagged Olten 4600), which also made two distinct
+ * site-specific postings look like one duplicated Olten listing. Returned only
+ * when the Standort names exactly one postal address; a multi-site Standort
+ * leaves the JSON-LD location in charge.
+ */
+export function sohStandortAddress(html = '') {
+  const facts = sohJobFacts(html);
+  const line = facts.split('\n').find((l) => /^Standort:/i.test(l)) || '';
+  const addresses = new Map();
+  for (const m of line.matchAll(/\b(\d{4})\s+([A-ZÄÖÜ][^,\d]*?)\s*(?=,|$)/g)) {
+    addresses.set(`${m[1]} ${m[2]}`, { postalCode: m[1], city: m[2].trim() });
+  }
+  return addresses.size === 1 ? [...addresses.values()][0] : null;
+}
+
+/** Vacancy reference as rendered in the contact block ("Referenz 986"). */
+function sohVacancyReference(html = '') {
+  const m = String(html || '').match(/Referenz\s+(\d+)\s*\)/i);
+  return m ? m[1] : '';
+}
+
+/** Place the offer before the contact block, as the page does. */
+function insertBeforeContact(text, benefits) {
+  if (!benefits) return text;
+  const at = text.search(/(?:^|\n)Bei Fragen zur Stelle/);
+  if (at < 0) return `${text}\n\n${benefits}`;
+  const cut = text[at] === '\n' ? at + 1 : at;
+  return `${text.slice(0, cut).trimEnd()}\n\n${benefits}\n\n${text.slice(cut)}`;
+}
+
+/**
  * Parse a soH detail page. The page embeds a `<script type="application/ld+json">`
  * containing a `JobPosting` document. We strip JSON-escape artifacts and
  * extract the fields we need.
@@ -143,20 +226,37 @@ export function parseSohDetail(html) {
 
   const title = String(jp.title || '').trim();
   const descriptionHtml = String(jp.description || '');
-  // Concatenate description with responsibilities + qualifications for
-  // a richer body.
-  const richParts = [
-    descriptionHtml,
-    jp.responsibilities ? String(jp.responsibilities) : '',
-    jp.qualifications ? String(jp.qualifications) : '',
-  ].filter(Boolean);
+  // The JSON-LD `description` already carries the tasks ("Das bewegen Sie bei
+  // uns") and profile ("Das bringen Sie mit") lists; `responsibilities` and
+  // `qualifications` repeat them verbatim. Appending both unconditionally
+  // printed every list twice. Add them only when the description lacks them.
+  const descriptionPlain = normalizeSpace(htmlToText(descriptionHtml));
+  const richParts = [descriptionHtml];
+  for (const extra of [jp.responsibilities, jp.qualifications]) {
+    const extraHtml = extra ? String(extra) : '';
+    const extraPlain = normalizeSpace(htmlToText(extraHtml));
+    if (extraPlain && !descriptionPlain.includes(extraPlain)) richParts.push(extraHtml);
+  }
   const richHtml = richParts.join('\n\n');
-  const descriptionText = htmlToText(richHtml);
+  const reference = sohVacancyReference(html);
+  const descriptionText = insertBeforeContact(
+    [
+      sohJobFacts(html),
+      // The contact line interpolates an ATS custom field the JSON-LD leaves
+      // unresolved ("Referenz %kundenfeld-520%"); the page renders the value.
+      htmlToTextLines(richHtml).replace(
+        /\s*\(?Referenz\s+%[a-z]+-\d+%\)?/gi,
+        reference ? ` (Referenz ${reference})` : '',
+      ),
+    ].filter(Boolean).join('\n\n'),
+    sohBenefits(html),
+  );
 
   const loc = jp.jobLocation && jp.jobLocation.address ? jp.jobLocation.address : {};
-  const city = String(loc.addressLocality || '').trim();
+  const standort = sohStandortAddress(html);
+  const city = standort?.city || String(loc.addressLocality || '').trim();
   const region = String(loc.addressRegion || '').trim();
-  const postalCode = String(loc.postalCode || '').trim();
+  const postalCode = standort?.postalCode || String(loc.postalCode || '').trim();
   const country = String(loc.addressCountry || '').trim();
 
   const employmentTypeRaw = String(jp.employmentType || '').toUpperCase();
@@ -225,13 +325,11 @@ export async function fetchAllSohJobs() {
     const postalCode = detail.postalCode || DEFAULT_POSTAL;
     const sourceLang = detectLang(detail.descriptionText || title, 'de');
 
-    let description = detail.descriptionText || '';
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
-    if (uniqueWords.size < 30) {
-      description = `${title} bei ${SOH_COMPANY_NAME} in ${city}.\n\nDie Solothurner Spitäler AG (soH) ist die Spitalgruppe des Kantons Solothurn mit den Standorten Bürgerspital Solothurn, Kantonsspital Olten, Spital Dornach und weiteren Aussenstandorten. Über 4'500 Mitarbeitende betreuen jährlich rund 35'000 stationäre Patientinnen und Patienten.`;
-    }
+    // The detail's own text, whatever its length. Under 30 distinct words the
+    // crawler used to replace it with a paragraph of its own on the soH; a
+    // detail without text now gives no description and the job takes the
+    // pipeline's thin-source path.
+    const description = detail.descriptionText || '';
 
     const postedDate = detail.postedDate || todayIso;
     const urlHash = createHash('sha1').update(fullUrl).digest('hex').slice(0, 12);

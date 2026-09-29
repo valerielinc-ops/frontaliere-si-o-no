@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
@@ -314,18 +315,26 @@ export async function fetchBaronieDetailPage(url, timeoutMs = 15000) {
 
 /**
  * Build localized content for a Baronie job from parsed detail data.
+ *
+ * The description is the detail text only, in the slot of its own language
+ * (`sourceLang`, detected by the runner) — issue 5253. The builder used to
+ * key it as `it` whatever its language, and to replace a text of 100
+ * characters or less with "<company>, azienda svizzera del gruppo Baronie
+ * specializzata nella produzione di cioccolato premium, cerca un profilo
+ * <title>…", a paragraph we wrote. A posting without text, or under the
+ * shared 50-word floor, now gets no description and takes the thin-source
+ * path of the pipeline.
  */
-export function buildBaronieLocalizedContent({ title, location, company, detailMarkdown }) {
+export function buildBaronieLocalizedContent({ title, location, detailMarkdown, sourceLang }) {
   const city = normalizeSpace(location) || 'Caslano';
-  const companyName = normalizeSpace(company) || 'Chocolat Alprose SA / Baronie Switzerland SA';
-
-  const itDesc = detailMarkdown && detailMarkdown.length > 100
-    ? detailMarkdown
-    : `${companyName}, azienda svizzera del gruppo Baronie specializzata nella produzione di cioccolato premium, cerca un profilo ${title} per la sede di ${city}. Baronie è il partner preferito a livello globale per prodotti a marchio proprio nel settore cioccolato e gelato, con 19 siti produttivi in Europa, USA, UK e Costa d'Avorio. L'azienda, con sede svizzera a Caslano (Ticino), opera nella filiera integrata del cacao. Candidati tramite il portale ufficiale.`;
+  const text = String(detailMarkdown || '').trim();
+  const description = meetsSourceBodyFloor(text) ? text : '';
+  const lang = String(sourceLang || '').trim() || 'en';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc },
+    descriptionByLocale: description ? { [lang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} baronie ${city}`),
       en: slugify(`${title} baronie ${city}`),

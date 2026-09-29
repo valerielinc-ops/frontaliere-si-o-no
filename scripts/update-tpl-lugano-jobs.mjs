@@ -49,7 +49,9 @@ import {
   parseTplDetailPage,
   buildTplDescription,
   inferEmploymentType,
+  TPL_FABRICATED_DESCRIPTION_RE,
 } from './lib/tpl-lugano-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -325,8 +327,14 @@ export function buildTplJobRow(source, postedDate = new Date().toISOString().sli
  * listing is dropped, because the listing snapshot is the active set.
  */
 export function mergeTplJobRows(sourceJobs = [], existingJobs = [], postedDate = undefined) {
+  // The merge keeps stored locale slots: remove the former wrapper of the
+  // crawler from stored rows first, so they are retranslated from the source.
   const existingByUrl = new Map(
-    (Array.isArray(existingJobs) ? existingJobs : [])
+    dropFabricatedDescriptions(
+      Array.isArray(existingJobs) ? existingJobs : [],
+      TPL_FABRICATED_DESCRIPTION_RE,
+      TPL_COMPANY_NAME,
+    )
       .map((job) => [canonicalTplDetailUrl(job.url), job])
       .filter(([key]) => Boolean(key)),
   );

@@ -3432,40 +3432,128 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
   }
 
+  const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
+  const hasEqualNonEmptyLocaleSlug = (left, right) => {
+    const leftSlugs = left?.slugByLocale;
+    const rightSlugs = right?.slugByLocale;
+    if (
+      !leftSlugs
+      || typeof leftSlugs !== 'object'
+      || Array.isArray(leftSlugs)
+      || !rightSlugs
+      || typeof rightSlugs !== 'object'
+      || Array.isArray(rightSlugs)
+    ) return false;
+    return Object.entries(leftSlugs).some(([locale, value]) => {
+      if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+      const leftValue = value.trim();
+      const rightValue = rightSlugs[locale].trim();
+      return Boolean(leftValue && rightValue && leftValue === rightValue);
+    });
+  };
+  const expiredGhostIdentity = (job) => {
+    const url = String(job?.url ?? '').trim();
+    if (url) return `url:${url}`;
+    const id = String(job?.id ?? '').trim();
+    if (id) return `id:${id}`;
+    const slug = String(job?.slug ?? '').trim();
+    if (slug) return `slug:${slug}`;
+    const slugByLocale = job?.slugByLocale;
+    if (
+      slugByLocale
+      && typeof slugByLocale === 'object'
+      && !Array.isArray(slugByLocale)
+      && Object.values(slugByLocale).some((value) => typeof value === 'string' && value.trim())
+    ) {
+      return `slug-map:${localeMapKey(slugByLocale)}`;
+    }
+    return null;
+  };
+
   // Build active lookup: title+company+location → first matching job
   const activeByTCL = Object.create(null);
   for (const j of activeJobs) {
-    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}||${(j.location || '').toLowerCase().trim()}`;
+    const key = jobTclKey(j);
     if (!activeByTCL[key]) activeByTCL[key] = j;
   }
 
-  // Build set of all active slugs (current + previous)
-  const activeSlugSet = new Set();
+  // Build an index of all active slugs (current + previous), retaining the
+  // owning job so the byte guard can verify the exact overlap that justified
+  // each expired-record removal.
+  const activeSlugOwners = new Map();
+  const registerActiveSlug = (slug, job) => {
+    if (typeof slug !== 'string' || !slug) return;
+    if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+  };
   for (const j of activeJobs) {
-    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => activeSlugSet.add(s));
-    if (j.previousSlugs) j.previousSlugs.forEach(s => activeSlugSet.add(s));
+    registerActiveSlug(j.slug, j);
+    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => registerActiveSlug(s, j));
+    if (j.previousSlugs) j.previousSlugs.forEach(s => registerActiveSlug(s, j));
     if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
       for (const arr of Object.values(j.previousSlugsByLocale)) {
-        if (Array.isArray(arr)) arr.forEach(s => activeSlugSet.add(s));
+        if (Array.isArray(arr)) arr.forEach(s => registerActiveSlug(s, j));
       }
     }
   }
 
   const ghostIds = new Set();
+  const ghostEvidenceById = new Map();
   let mergedSlugs = 0;
 
   for (const ej of expiredJobs) {
-    const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
-    const hasSlugOverlap = expSlugs.some(s => activeSlugSet.has(s));
-    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}||${(ej.location || '').toLowerCase().trim()}`;
-    const match = activeByTCL[key];
+    const localeSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
+    // Prefer locale slugs when the archive has them: a top-level slug can be
+    // shared by distinct URLs, while a locale slug is the established route
+    // identity. Use the canonical top-level slug only for legacy entries that
+    // carry no usable locale slug map at all.
+    const expSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
+      ? localeSlugs
+      : [ej.slug];
+    const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
+    const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
+    const key = jobTclKey(ej);
+    // When a shared title/company/location key has multiple active jobs, the
+    // overlapping slug is the evidence that identifies the actual owner.
+    // Prefer that owner for both the proof and the previous-slug merge;
+    // otherwise the first active job can inherit another job's route history.
+    const match = overlapJob && jobTclKey(overlapJob) === key
+      ? overlapJob
+      : activeByTCL[key];
+    // Keep the first active owner in the proof even when it belongs to a
+    // different TCL. That makes a foreign locale slug an explicit negative
+    // proof instead of allowing the locale-only fallback to hide it.
+    const overlapSlug = overlapCandidate;
+    const hasSlugOverlap = Boolean(overlapSlug && overlapJob && jobTclKey(overlapJob) === key);
 
     // Ghost: slug overlap + title match, or exact same IT slug
-    const sameItSlug = match && (ej.slugByLocale?.it === match.slugByLocale?.it);
-    if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
+    const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
+    const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
+    const hasSameItSlug = Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+    // Legacy archives sometimes carry only de/fr/en locale maps. Without an
+    // Italian slug, require one equal non-empty locale value as the durable
+    // same-posting evidence; a shared locale key alone is not proof.
+    const hasMatchingLocaleSlug = hasEqualNonEmptyLocaleSlug(ej, match);
+    // An exact Italian slug is independent, decisive evidence. Do not let an
+    // unrelated non-Italian owner turn that valid proof into a rejection.
+    const proofOverlapSlug = hasSameItSlug ? null : overlapSlug;
+    const legacySamePosting = Boolean(
+      match
+      && !expiredItSlug
+      && !matchItSlug
+      && hasMatchingLocaleSlug
+      && !overlapCandidate,
+    );
+    if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
 
     // Mark as ghost
-    ghostIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+    const ghostId = expiredGhostIdentity(ej);
+    if (!ghostId) continue;
+    ghostIds.add(ghostId);
+    ghostEvidenceById.set(ghostId, {
+      match,
+      overlapSlug: proofOverlapSlug,
+      overlapJob: proofOverlapSlug ? overlapJob : null,
+    });
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
     // matching the write path everywhere else — see addPreviousSlugForLocale).
@@ -3493,7 +3581,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 
   // Filter out ghosts
   const cleanedExpired = expiredJobs.filter(ej => {
-    const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+    const id = expiredGhostIdentity(ej);
     return !ghostIds.has(id);
   });
 
@@ -3514,12 +3602,60 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     for (const fp of sliceFiles) {
       const slice = readJson(fp, null);
       if (!Array.isArray(slice)) continue;
+      const removed = [];
       const cleaned = slice.filter(ej => {
-        const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
-        return !ghostIds.has(id);
+        const id = expiredGhostIdentity(ej);
+        if (ghostIds.has(id)) {
+          removed.push(ej);
+          return false;
+        }
+        return true;
       });
       if (cleaned.length < slice.length) {
-        writeJson(fp, cleaned);
+        const previousRaw = fs.readFileSync(fp, 'utf8');
+        const candidateRaw = `${JSON.stringify(cleaned, null, 2)}\n`;
+        const proofEntries = removed.map((ej) => {
+          const id = expiredGhostIdentity(ej);
+          const evidence = ghostEvidenceById.get(id);
+          return {
+            expired: ej,
+            match: evidence?.match,
+            overlapSlug: evidence?.overlapSlug || null,
+            overlapJob: evidence?.overlapJob || null,
+          };
+        });
+        writeJson(fp, cleaned, {
+          housekeepingProof: {
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw,
+            entries: proofEntries,
+          },
+        });
+        // The in-process proof above protects assembly itself. Persist the
+        // same exact evidence for the later grouped-isolated commit, which
+        // sees only the checkout blob and the post-merge candidate.
+        if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
+          const committedCandidateRaw = fs.readFileSync(fp, 'utf8');
+          const ghostProof = {
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            entries: proofEntries,
+          };
+          writeHousekeepingProofFile(fp, [{
+            operation: 'reconcile-ghost-expired',
+            removedCount: slice.length - cleaned.length,
+          }], {
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            metadata: ghostProof,
+          });
+        }
       }
     }
   }

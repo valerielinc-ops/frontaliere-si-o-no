@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
@@ -169,6 +169,63 @@ async function fetchJobListings() {
   return collected;
 }
 
+const DETAIL_DELAY_MS = 150;
+const DETAIL_CONCURRENCY = 3;
+
+function sectionInner(html, id) {
+  const match = new RegExp(`<section\\b[^>]*\\bid=["']${id}["'][^>]*>([\\s\\S]*?)</section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+/**
+ * The ad body of a jobs.emmi.com vacancy page, as HTML.
+ *
+ * The OHWS feed carries only the two bullet lists (`sza_tasks`,
+ * `sza_requirements`); its `sza_benefits` is a single sentence pointing to the
+ * careers site. The vacancy page the job links to is the ad itself: the
+ * role-specific introduction, the two headed lists ("Das kannst du bewirken",
+ * "Das bringst du mit") and the site's benefit cards ("Das bieten wir dir").
+ * Publishing the feed alone dropped the introduction, the headings and every
+ * benefit — 886 of 4,276 characters on the Langnau Betriebsmechaniker:in page
+ * (2026-09-29). About, application process, contact and similar-jobs sections
+ * are page chrome and stay out.
+ *
+ * @param {string} html
+ * @returns {string} '' when the page has none of the ad sections
+ */
+export function extractEmmiVacancyHtml(html = '') {
+  const source = String(html || '');
+  const parts = [];
+  const intro = sectionInner(source, 'introduction');
+  if (stripHtml(intro)) parts.push(intro);
+  const tasksAndProfile = sectionInner(source, 'tasksAndProfile');
+  if (stripHtml(tasksAndProfile)) parts.push(tasksAndProfile);
+  const benefits = sectionInner(source, 'benefits');
+  if (benefits) {
+    const items = [];
+    const cardRe = /class="benefitTitle"[^>]*>([\s\S]*?)<\/div>[\s\S]*?class="benefitText"[^>]*>([\s\S]*?)<\/div>/gi;
+    let card;
+    while ((card = cardRe.exec(benefits)) !== null) {
+      const title = normalizeSpace(stripHtml(card[1]));
+      const text = normalizeSpace(stripHtml(card[2]));
+      if (title || text) items.push(`<li>${[title, text].filter(Boolean).join(': ')}</li>`);
+    }
+    const heading = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(benefits)?.[0] || '';
+    if (items.length) parts.push(`${heading}<ul>${items.join('')}</ul>`);
+  }
+  return parts.join('\n');
+}
+
+async function fetchEmmiVacancyHtml(url) {
+  if (!isTrustedDomain(url) || !/(^|\.)jobs\.emmi\.com$/i.test(new URL(url).hostname)) return '';
+  try {
+    return extractEmmiVacancyHtml(await fetchHtml(url));
+  } catch (err) {
+    console.warn(`  ⚠️ Emmi detail fetch failed (${url}): ${err?.message || err}`);
+    return '';
+  }
+}
+
 /**
  * Fetch all Emmi jobs.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -187,6 +244,21 @@ export async function fetchAllEmmiJobs() {
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
+
+  // Vacancy pages, read three at a time (80+ pages one by one cost minutes of
+  // cron time); a page that cannot be read falls back to the OHWS blocks.
+  const vacancyHtmlByUrl = new Map();
+  const detailUrls = [...new Set(listings
+    .map((listing) => listing.links?.directlink || '')
+    .filter(Boolean))];
+  let nextDetail = 0;
+  await Promise.all(Array.from({ length: Math.min(DETAIL_CONCURRENCY, detailUrls.length) }, async () => {
+    while (nextDetail < detailUrls.length) {
+      const url = detailUrls[nextDetail++];
+      vacancyHtmlByUrl.set(url, await fetchEmmiVacancyHtml(url));
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+    }
+  }));
 
   const jobs = [];
   const seen = new Set();
@@ -212,14 +284,16 @@ export async function fetchAllEmmiJobs() {
     const postalCode = /^\d{4}$/.test(zip) ? zip : HQ.postalCode;
     const addressRegion = region || HQ.region;
 
-    // ── Description: tasks + requirements blocks from OHWS ──
-    const tasksHtml = szas.sza_tasks || '';
-    const reqsHtml = szas.sza_requirements || '';
-    const descriptionHtml = [tasksHtml, reqsHtml].filter(Boolean).join('\n');
-    const descriptionText = stripHtml(descriptionHtml) || stripHtml(tasksHtml);
-
     // ── Canonical job-detail URL (links.directlink) ──
     const publicUrl = listing.links?.directlink || CAREER_URL;
+
+    // ── Description: the vacancy page (intro, headed lists, benefits); the
+    // OHWS tasks + requirements blocks only when the page cannot be read ──
+    const tasksHtml = szas.sza_tasks || '';
+    const reqsHtml = szas.sza_requirements || '';
+    const vacancyHtml = vacancyHtmlByUrl.get(publicUrl) || '';
+    const descriptionHtml = vacancyHtml || [tasksHtml, reqsHtml].filter(Boolean).join('\n');
+    const descriptionText = stripHtml(descriptionHtml) || stripHtml(tasksHtml);
 
     // Stable reference: prefer prospective viewkey/reference, fallback URL hash.
     const stableRef =

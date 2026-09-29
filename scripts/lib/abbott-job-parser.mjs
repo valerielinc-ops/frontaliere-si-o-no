@@ -48,6 +48,7 @@ import {
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { resolveWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -227,6 +228,7 @@ export async function fetchAllAbbottJobs() {
   console.log(`  📋 Swiss listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -269,20 +271,20 @@ export async function fetchAllAbbottJobs() {
             .replace(/[ \t]*\n[ \t]*/g, '\n')
             .replace(/\n{3,}/g, '\n\n')
             .trim(),
-        ).slice(0, 4000)
+        )
       : '';
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${ABBOTT_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Employer: Abbott — global healthcare leader (medical devices, diagnostics, established pharmaceuticals, nutrition).',
-      '• Swiss footprint: Basel HQ + sales force across Romandie & DE-CH.',
-      '• Apply: Abbott Workday careers portal.',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ${ABBOTT_KEY} ch`);
@@ -332,6 +334,9 @@ export async function fetchAllAbbottJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${ABBOTT_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

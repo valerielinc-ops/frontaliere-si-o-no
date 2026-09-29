@@ -24,9 +24,10 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { extractReflineDetailTitle } from './refline-common.mjs';
+import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -245,25 +246,10 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  return { title, description: parts.join('\n') };
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
 }
 
 /* ── Fallback description ──────────────────────────────────── */
-
-function buildFallbackDescription(title, section, workplace) {
-  const sectionLabel = section ? ` (${section})` : '';
-  return [
-    `${title} bei Caritas Schweiz${sectionLabel}${workplace ? ` in ${workplace}` : ''}.`,
-    '',
-    'Caritas Schweiz ist die nationale Hilfsorganisation der katholischen Kirche und engagiert sich seit über 120 Jahren in der Schweiz und weltweit für Menschen in Not.',
-    '',
-    'Was Caritas bietet:',
-    '• Sinnstiftende Tätigkeit für eine soziale Schweiz',
-    '• Engagierte und kompetente Kolleginnen und Kollegen',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Faire und sozial verträgliche Anstellungsbedingungen',
-  ].join('\n');
-}
 
 /* ── Main fetch ────────────────────────────────────────────── */
 
@@ -303,12 +289,10 @@ export async function fetchAllCaritasSchweizJobs() {
     const canton = hints.canton;
     const postalCode = hints.postal || DEFAULT_POSTAL;
 
-    let description = '';
-    if (detail.description && detail.description.split(/\s+/).length >= 50) {
-      description = detail.description;
-    } else {
-      description = buildFallbackDescription(title, listing.section, listing.workplace);
-    }
+    // Only the posting's own text (issue 5253): a detail body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path), instead of a company paragraph and benefit list of the crawler's.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${CARITAS_SCHWEIZ_KEY} ${location}`);
