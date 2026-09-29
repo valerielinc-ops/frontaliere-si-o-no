@@ -90461,6 +90461,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-stati-bilaterali-iii': {
+    title: 'Bilaterali III: il Consiglio degli Stati apre il dibattito',
+    description: 'Il Consiglio degli Stati avvia l\'esame dei Bilaterali III con 29 voti contro 15. Dettagli sul pacchetto Svizzera-Ue, salari, aiuti di Stato e referendum.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, consiglio, stati, apre',
+    ogTitle: 'Bilaterali III: il Consiglio degli Stati esamina il pacchetto Svizzera-Ue',
+    ogDescription: 'Con 29 voti contro 15, il Consiglio degli Stati è entrato nel merito dei Bilaterali III. Scopri i dettagli sui 94 atti UE, la tutela dei salari, la libera circolazione e il referendum in discussione a Berna.',
+    canonicalPath: '/articoli-svizzera/consiglio-stati-bilaterali-iii/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III: il Consiglio degli Stati apre il dibattito",
+      "description": "Il Consiglio degli Stati avvia l'esame dei Bilaterali III con 29 voti contro 15. Dettagli sul pacchetto Svizzera-Ue, salari, aiuti di Stato e referendum.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-stati-bilaterali-iii.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna durante i dibattiti parlamentari sui Bilaterali III"
+      },
+      "datePublished": "2026-09-29T00:42:44+00:00",
+      "dateModified": "2026-09-29T00:42:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-stati-bilaterali-iii/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

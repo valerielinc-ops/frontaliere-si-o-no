@@ -6977,6 +6977,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bilaterali-iii-svizzera-ue.title': 'Bilateral Agreements III: Council of States enters into deliberations',
     'blog.article.bilaterali-iii-svizzera-ue.excerpt': 'The proposal to consider the bill was approved by 29 votes to 15. A new authority for state aid is planned, along with an extension of the hotel VAT rate to 3,8%.',
     'blog.article.bilaterali-iii-svizzera-ue.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilateral Agreements III: the Council of States opens the debate',
+    'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'The Council of States approved taking up the Switzerland-EU stabilization package for consideration by 29 votes to 15.',
+    'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'The Federal Palace in Bern during parliamentary debates on Bilateral III',
 };
 
 export default blogMetaChEn;
