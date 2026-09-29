@@ -233,34 +233,28 @@ export function buildMksPampLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Castel San Pietro';
 
-  // Prefer full detail description from JSON-LD, then RSS excerpt, then fallback
-  // Safety: always strip HTML in case raw tags leak through
-  // Markdown (lists and paragraphs), not a flattened line.
+  // Detail description from JSON-LD first, then the RSS excerpt, as
+  // markdown (lists and paragraphs), not a flattened line.
   const detailDesc = teamtailorHtmlToMarkdown(job.detailDescription || '');
   const rssDesc = teamtailorHtmlToMarkdown(job.descriptionHtml || '');
 
   const MIN_WORDS = 50;
 
+  // Source text only. Without 50 words of posting (detail JSON-LD or RSS)
+  // the description stays empty: the runner keeps the text a previous run
+  // read from the source, or does not publish the job this run. The company
+  // paragraph that used to stand in ("MKS PAMP SA, leader mondiale … cerca un
+  // profilo …") was not the posting.
   let description = '';
   if (detailDesc && wordCountOf(detailDesc) >= MIN_WORDS) {
     description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${detailDesc}`;
   } else if (rssDesc && wordCountOf(rssDesc) >= MIN_WORDS) {
     description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${rssDesc}`;
-  } else {
-    // Rich fallback with job-specific and company context (always >= 50 words)
-    description = [
-      `MKS PAMP SA, leader mondiale nella raffinazione di metalli preziosi con sede a ${city}, cerca un profilo ${title}.`,
-      `Fondata nel 1979, MKS PAMP SA è parte del gruppo MKS PAMP GROUP, uno dei principali operatori globali nel settore dei metalli preziosi, con circa 350 collaboratori.`,
-      `L'azienda offre un ambiente di lavoro internazionale, multiculturale e dinamico, con una cultura aziendale basata sulla sua storia familiare e valori di eccellenza operativa.`,
-      `La sede principale si trova a Castel San Pietro, nel Canton Ticino, con uffici anche a Ginevra, Barcellona, New York, Kuala Lumpur, Hong Kong, Shanghai e Dubai.`,
-      `I settori di attività includono raffinazione, trading, coniazione e tecnologie per metalli preziosi.`,
-      `Candidati tramite il portale ufficiale careers.mkspamp.com.`,
-    ].join(' ');
   }
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: description, en: description, de: description, fr: description },
+    descriptionByLocale: description ? { it: description, en: description, de: description, fr: description } : {},
     slugByLocale: {
       it: slugify(`${title} mks-pamp ${city}`),
       en: slugify(`${title} mks-pamp ${city}`),
@@ -268,4 +262,52 @@ export function buildMksPampLocalizedContent(job = {}) {
       fr: slugify(`${title} mks-pamp ${city}`),
     },
   };
+}
+
+/**
+ * The company paragraph earlier runs published instead of a missing posting
+ * ("MKS PAMP SA, leader mondiale nella raffinazione … cerca un profilo …
+ * Candidati tramite il portale ufficiale careers.mkspamp.com.") and its
+ * translations, recognised by the portal sentence. Only used to clear stale
+ * copies; it is never produced again.
+ */
+export function isMksPampInventedDescription(text = '') {
+  const value = String(text || '');
+  return /leader mondiale nella raffinazione di metalli preziosi[\s\S]*cerca un profilo/i.test(value)
+    || /careers\.mkspamp\.com\.?\s*$/i.test(value.trim()) && !/\n/.test(value.trim());
+}
+
+/** Source text of a stored record (source-locale slot, then description), or null. */
+export function storedMksPampSourceText(record) {
+  if (!record) return null;
+  const lang = String(record.sourceLang || '').trim();
+  for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isMksPampInventedDescription(text) && wordCountOf(text) >= 50) return { text, lang };
+  }
+  return null;
+}
+
+/**
+ * Source-only rule for a job built without a body: the stored source text
+ * of the same posting, or `null` (not published this run).
+ */
+export function resolveMksPampJobBody(job, prev) {
+  if (String(job?.description || '').trim()) return job;
+  const stored = storedMksPampSourceText(prev);
+  if (!stored) return null;
+  const lang = stored.lang || job.sourceLang;
+  return { ...job, description: stored.text, sourceLang: lang, descriptionByLocale: { [lang]: stored.text } };
+}
+
+/** Remove stale company-paragraph copies from every locale slot (in place). */
+export function clearMksPampInventedSlots(job) {
+  let removed = 0;
+  for (const [locale, text] of Object.entries(job?.descriptionByLocale || {})) {
+    if (isMksPampInventedDescription(text)) {
+      delete job.descriptionByLocale[locale];
+      removed += 1;
+    }
+  }
+  return removed;
 }

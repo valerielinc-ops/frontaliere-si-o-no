@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
-import { fetchJobListings } from '../scripts/update-cler-jobs.mjs';
+import { buildDescription, fetchJobListings } from '../scripts/update-cler-jobs.mjs';
 import { parseClerApiResponse } from '../scripts/lib/cler-job-parser.mjs';
-import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear, collapseClerDuplicateRequisitions } from '../scripts/lib/cler-job-parser.mjs';
+import { htmlToMarkdown, validateClerDescription, extractJobMeta, dedupeClerJobsByStableId, clerCareerSectionYear, collapseClerDuplicateRequisitions, isClerPlaceholderDescription, resolveClerJobBody, clearClerPlaceholderSlots } from '../scripts/lib/cler-job-parser.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 
 const clerCrawlerSource = fs.readFileSync(
@@ -574,5 +574,36 @@ describe('collapseClerDuplicateRequisitions — stored slice after the base craw
     const { jobs, dropped } = collapseClerDuplicateRequisitions([slice[0], slice[1]]);
     expect(jobs).toHaveLength(2);
     expect(dropped).toHaveLength(0);
+  });
+});
+
+describe('Cler source-only rule (no "per i dettagli consultare la pagina" stand-in)', () => {
+  const PLACEHOLDER = "## Kundenberater/in Privatkunden\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.";
+  const PLACEHOLDER_EN = '## Client advisor private clients\n\nBanca Cler — for details please see the job offer page.';
+
+  it('builds no stand-in when the detail page gives no body', () => {
+    expect(buildDescription('Kundenberater/in Privatkunden', null)).toBe('');
+    expect(buildDescription('Kundenberater/in Privatkunden', '<html><body><p>Kurz.</p></body></html>')).toBe('');
+    expect(buildDescription('Geschäftsstellenleiter/in', FIXTURE_JOB1_HTML).length).toBeGreaterThanOrEqual(200);
+  });
+
+  it('recognises the legacy stand-in and its translations', () => {
+    expect(isClerPlaceholderDescription(PLACEHOLDER)).toBe(true);
+    expect(isClerPlaceholderDescription(PLACEHOLDER_EN)).toBe(true);
+    expect(isClerPlaceholderDescription(htmlToMarkdown(FIXTURE_JOB1_HTML))).toBe(false);
+  });
+
+  it('keeps the stored source text, or does not publish', () => {
+    const source = htmlToMarkdown(FIXTURE_JOB1_HTML);
+    const job = { url: 'u', description: '', sourceLang: 'de', descriptionByLocale: {} };
+    expect(resolveClerJobBody(job, { sourceLang: 'de', description: source, descriptionByLocale: { de: source } })?.description).toBe(source);
+    expect(resolveClerJobBody(job, { sourceLang: 'de', description: PLACEHOLDER, descriptionByLocale: { de: PLACEHOLDER } })).toBeNull();
+    expect(resolveClerJobBody(job, undefined)).toBeNull();
+  });
+
+  it('clears stale stand-in copies from the locale slots', () => {
+    const merged = { descriptionByLocale: { de: 'Echter Text\nmit Inhalt', en: PLACEHOLDER_EN } };
+    expect(clearClerPlaceholderSlots(merged)).toBe(1);
+    expect(Object.keys(merged.descriptionByLocale)).toEqual(['de']);
   });
 });

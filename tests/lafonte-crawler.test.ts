@@ -2,6 +2,11 @@ import { describe, it, expect } from 'vitest';
 import {
   htmlToMarkdown,
   validateLaFonteDescription,
+  buildLaFonteDescription,
+  isLaFonteLegacyFrame,
+  stripLaFonteLegacyFrame,
+  scrubLaFonteLegacyFrame,
+  laFonteHasSourceBody,
 } from '../scripts/lib/lafonte-job-parser.mjs';
 
 // ──────────────────────────────────────────────────────────────
@@ -260,5 +265,58 @@ describe('validateLaFonteDescription', () => {
     const detail = { markdown: 'A'.repeat(200), sourceTextLength: 200, headingCount: 0, bulletCount: 0 };
     const { ok } = validateLaFonteDescription(detail, 100, 0.1);
     expect(ok).toBe(true);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// Published description = the role card only
+// ──────────────────────────────────────────────────────────────
+
+// Card body of "Apprendisti/e operatori/trici socioassistenziali AFC" as the
+// page publishes it (lafonte.ch/inizia-con-noi, 2026-09-29), shortened.
+const APPRENDISTI_BODY = "Nel corso dei tre anni di formazione potrai raggiungere gli obiettivi fissati dall'ordinanza sulla formazione di operatori/trici OSA, indirizzo persone con disabilità.\n\nCondizioni:\n\n- maggiore età\n- assolvimento della scolarità obbligatoria\n\nLe/gli interessate/i sono pregate/i di inviare la loro candidatura via mail a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)";
+// The same job as the old runner stored it (committed slice): the card body
+// inside a frame of sentences and fixed lines that are not on the page, and a
+// machine translation of that frame in `en`.
+const LEGACY_IT = `## Descrizione\nFondazione La Fonte, con sede a Lugano (TI), è alla ricerca di: Apprendisti/e operatori/trici socioassistenziali AFC.\n\n${APPRENDISTI_BODY}\n\n## Mansioni\n\n**Settore:** Servizi sociali / Assistenza disabilità\n**Sede:** Via A. Giacometti 1, 6900 Lugano (TI), Svizzera\n**Luogo di lavoro:** Lugano e Neggio\n**Candidatura:** recruiting@lafonte.ch`;
+const LEGACY_EN = 'Description Fondazione La Fonte, based in Lugano (TI), is looking for: Apprentices in Social Care AFC.\n\nTasks\n\nSector: Social Services / Disability Assistance Location: Via A. Giacometti 1, 6900 Lugano (TI), Switzerland Workplace: Lugano and Neggio Candidatura:AZI@lafonte.ch';
+
+describe('La Fonte published description', () => {
+  it('is the card body alone, with no sentence or line the page does not carry', () => {
+    expect(buildLaFonteDescription(APPRENDISTI_BODY)).toBe(APPRENDISTI_BODY);
+    expect(buildLaFonteDescription(APPRENDISTI_BODY)).not.toMatch(/alla ricerca di:|\*\*Settore:\*\*|Via A\. Giacometti|Contattare/);
+  });
+
+  it('is empty for a card without a body — no "Contattare … per i dettagli" filler', () => {
+    expect(buildLaFonteDescription('')).toBe('');
+    expect(buildLaFonteDescription('Posizione aperta.')).toBe('');
+  });
+
+  it('recovers the card body from a description written by the old frame', () => {
+    expect(isLaFonteLegacyFrame(LEGACY_IT)).toBe(true);
+    expect(isLaFonteLegacyFrame(APPRENDISTI_BODY)).toBe(false);
+    expect(stripLaFonteLegacyFrame(LEGACY_IT)).toBe(APPRENDISTI_BODY);
+    expect(stripLaFonteLegacyFrame(APPRENDISTI_BODY)).toBe(APPRENDISTI_BODY);
+  });
+
+  it('drops the translated frame and keeps real translations when scrubbing a stored job', () => {
+    const scrubbed = scrubLaFonteLegacyFrame({
+      sourceLang: 'it',
+      description: LEGACY_IT,
+      descriptionByLocale: {
+        it: LEGACY_IT,
+        en: LEGACY_EN,
+        de: 'Im Laufe der dreijährigen Ausbildung kannst du die Ziele der Verordnung über die Ausbildung zur Fachperson Betreuung erreichen.',
+      },
+    });
+    expect(scrubbed.description).toBe(APPRENDISTI_BODY);
+    expect(Object.keys(scrubbed.descriptionByLocale).sort()).toEqual(['de', 'it']);
+    expect(scrubbed.descriptionByLocale.it).toBe(APPRENDISTI_BODY);
+  });
+
+  it('keeps a job with an empty card only when an earlier run read a body from the page', () => {
+    expect(laFonteHasSourceBody({ sourceLang: 'it', description: LEGACY_IT, descriptionByLocale: { it: LEGACY_IT } })).toBe(true);
+    const emptyFrame = '## Descrizione\nFondazione La Fonte, con sede a Lugano (TI), è alla ricerca di: Stagiaire.\n\n## Mansioni\nContattare Fondazione La Fonte per i dettagli della posizione.\n\n**Settore:** Servizi sociali / Assistenza disabilità\n**Sede:** Via A. Giacometti 1, 6900 Lugano (TI), Svizzera\n**Candidatura:** recruiting@lafonte.ch';
+    expect(laFonteHasSourceBody({ sourceLang: 'it', description: emptyFrame, descriptionByLocale: { it: emptyFrame } })).toBe(false);
   });
 });

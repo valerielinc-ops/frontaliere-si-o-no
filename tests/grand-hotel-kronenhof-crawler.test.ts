@@ -13,7 +13,7 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { buildJob, parseDetailPage } from '@/scripts/update-kronenhof-jobs.mjs';
+import { buildJob, mergeJobLists, parseDetailPage } from '@/scripts/update-kronenhof-jobs.mjs';
 
 const DETAIL_HTML = `
 <html><body><main>
@@ -102,11 +102,80 @@ describe('buildJob', () => {
     expect(job.description).not.toContain('Stellenantritt:');
   });
 
-  it('files the German fallback description under de when the detail page is thin', () => {
-    const job = buildJob(raw, '');
-    expect(job.sourceLang).toBe('de');
-    expect(job.descriptionByLocale.de).toBe(job.description);
-    expect(job.description).toContain('Die Kulm Gruppe betreibt');
-    expect(job.description).toContain('Pensum: 100%. Vertrag:');
+  it('builds no description at all when the detail page is thin (no invented fallback)', () => {
+    const job = buildJob(raw, 'Chef de Rang wanted.');
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.sourceLang).toBe('');
+    expect(job.title).toBe('Chef de Rang - immediate start (m/w/d)');
+  });
+});
+
+describe('mergeJobLists', () => {
+  const raw = {
+    id: 716,
+    title: 'Chef de Rang - immediate start (m/w/d)',
+    location: 'Grand Hotel Kronenhof',
+    contract_duration: 'seasonal',
+    workload: 100,
+  };
+  // Marketing text earlier versions published for thin detail pages.
+  const INVENTED_FALLBACK =
+    'Chef de Rang — Grand Hotel Kronenhof, Pontresina. Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels im Engadin. Bewerbungen an: people@kulmgroup.com';
+
+  it('keeps the body stored from an earlier read of the source when the fresh page is thin', () => {
+    const stored = {
+      ...buildJob(raw, parseDetailPage(DETAIL_HTML)),
+      descriptionByLocale: {
+        en: buildJob(raw, parseDetailPage(DETAIL_HTML)).description,
+        it: 'Traduzione italiana del corpo letto dalla fonte.',
+      },
+    };
+    const { mergedTarget, updated, skipped } = mergeJobLists([stored], [buildJob(raw, '')]);
+    expect(updated).toBe(1);
+    expect(skipped).toBe(0);
+    expect(mergedTarget[0].description).toBe(stored.description);
+    expect(mergedTarget[0].sourceLang).toBe('en');
+    expect(mergedTarget[0].descriptionByLocale.it).toBe('Traduzione italiana del corpo letto dalla fonte.');
+  });
+
+  it('does not publish a job that has no body and nothing stored from the source', () => {
+    const fresh = buildJob(raw, '');
+    expect(mergeJobLists([], [fresh])).toMatchObject({ mergedTarget: [], added: 0, skipped: 1 });
+    const storedFallback = { ...fresh, sourceLang: 'de', description: INVENTED_FALLBACK, descriptionByLocale: { de: INVENTED_FALLBACK } };
+    expect(mergeJobLists([storedFallback], [fresh])).toMatchObject({ mergedTarget: [], updated: 0, skipped: 1 });
+  });
+
+  it('drops translations of a stale source (invented fallback, or Similar-jobs chrome) and flags retranslation', () => {
+    const fresh = buildJob(raw, parseDetailPage(DETAIL_HTML));
+    const fromFallback = {
+      ...fresh,
+      sourceLang: 'de',
+      description: INVENTED_FALLBACK,
+      descriptionByLocale: { de: INVENTED_FALLBACK, it: 'Il Gruppo Kulm gestisce due dei più esclusivi hotel 5 stelle.' },
+    };
+    const [a] = mergeJobLists([fromFallback], [fresh]).mergedTarget;
+    expect(Object.keys(a.descriptionByLocale)).toEqual(['en']);
+    expect(a.descriptionByLocale.en).toContain('Exquisite guest hospitality');
+    expect(a.needsRetranslation).toBe(true);
+
+    const withChrome = `${fresh.description}\n\n${'## Demi Chef de Partie (m/w/d)\nTeaser of another vacancy. '.repeat(40)}`;
+    const fromChrome = {
+      ...fresh,
+      description: withChrome,
+      descriptionByLocale: { en: withChrome, it: `Traduzione con le schede di altre offerte. ${'x '.repeat(2000)}` },
+    };
+    const [b] = mergeJobLists([fromChrome], [fresh]).mergedTarget;
+    expect(Object.keys(b.descriptionByLocale)).toEqual(['en']);
+    expect(b.descriptionByLocale.en).not.toContain('Teaser of another vacancy');
+    expect(b.needsRetranslation).toBe(true);
+  });
+
+  it('keeps real translations of an unchanged source', () => {
+    const fresh = buildJob(raw, parseDetailPage(DETAIL_HTML));
+    const stored = { ...fresh, descriptionByLocale: { en: fresh.description, it: 'Traduzione italiana del corpo letto dalla fonte.' } };
+    const [job] = mergeJobLists([stored], [fresh]).mergedTarget;
+    expect(job.descriptionByLocale.it).toBe('Traduzione italiana del corpo letto dalla fonte.');
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });

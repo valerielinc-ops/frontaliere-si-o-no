@@ -3,6 +3,8 @@ import {
   extractBurkhalterContentDescription,
   extractBurkhalterDetailDescription,
   extractBurkhalterJsonLdDescription,
+  isBurkhalterStubText,
+  mergeBurkhalterRecord,
 } from '../scripts/lib/burkhalter-job-parser.mjs';
 
 // Minimized from https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/techniker-in-gebaeudeautomation-msrl-1664
@@ -47,5 +49,39 @@ describe('Burkhalter detail description (thin 9/245, missing-locales 6/245)', ()
 
   it('returns an empty string for a page it cannot read (the runner then retries)', () => {
     expect(extractBurkhalterDetailDescription('<html><body>429 Too Many Requests</body></html>')).toBe('');
+  });
+});
+
+// Stub texts stored in the slice of 2026-09-29 (…/techniker-in-gebaeudeautomation-msrl-1664 and a
+// machine translation of another one).
+const STUB = 'Techniker/in Gebäudeautomation/MSRL (100%) presso AZ systems AG, Landquart';
+const STUB_EN = 'Description Installateurs-électriciens CFC (100%) at C2B Electrotechnique, branch of Grichting & Valterio Electro SA, Martigny';
+const SOURCE = extractBurkhalterJsonLdDescription(PAGE);
+
+describe('Burkhalter source-only merge (no `<title> presso …` stub)', () => {
+  it('recognises the stub and its translations, not a posting', () => {
+    expect(isBurkhalterStubText(STUB)).toBe(true);
+    expect(isBurkhalterStubText(STUB_EN)).toBe(true);
+    expect(isBurkhalterStubText(SOURCE)).toBe(false);
+  });
+
+  it('publishes the body read this run and drops stub slots', () => {
+    const prev = { url: 'u', sourceLang: 'de', description: STUB, descriptionByLocale: { en: STUB, fr: STUB_EN, it: 'Traduzione:\nvera' } };
+    const merged = mergeBurkhalterRecord(prev, { url: 'u', sourceLang: 'de', description: SOURCE, descriptionByLocale: { de: SOURCE } });
+    expect(merged?.description).toBe(SOURCE);
+    expect(merged?.descriptionByLocale).toEqual({ de: SOURCE, it: 'Traduzione:\nvera' });
+  });
+
+  it('keeps the stored source text when the page was not read this run', () => {
+    const prev = { url: 'u', sourceLang: 'de', description: STUB, descriptionByLocale: { de: SOURCE, en: STUB } };
+    const merged = mergeBurkhalterRecord(prev, { url: 'u', sourceLang: 'de', description: '', descriptionByLocale: {} });
+    expect(merged?.description).toBe(SOURCE);
+    expect(merged?.descriptionByLocale).toEqual({ de: SOURCE });
+  });
+
+  it('does not publish a job with no body this run and only stubs stored', () => {
+    const prev = { url: 'u', sourceLang: 'de', description: STUB, descriptionByLocale: { en: STUB } };
+    expect(mergeBurkhalterRecord(prev, { url: 'u', sourceLang: 'de', description: '', descriptionByLocale: {} })).toBeNull();
+    expect(mergeBurkhalterRecord(null, { url: 'u', sourceLang: 'de', description: '', descriptionByLocale: {} })).toBeNull();
   });
 });

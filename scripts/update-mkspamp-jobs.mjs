@@ -42,6 +42,8 @@ import {
   fetchMksPampDetailLocation,
   isMksPampSwissRelevant,
   buildMksPampLocalizedContent,
+  resolveMksPampJobBody,
+  clearMksPampInventedSlots,
 } from './lib/mkspamp-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -183,12 +185,12 @@ function buildMksPampJob(rssItem, location) {
     // The language of the posting, not of its title: English titles such as
     // "Precious Metal Control Manager" were detected as `fr`, which pinned an
     // English description to the French slot.
-    sourceLang: detectLang(localized.descriptionByLocale.it, 'it'),
+    sourceLang: detectLang(localized.descriptionByLocale.it || rssItem.title, 'it'),
     postedDate: parseDate(rssItem.pubDate),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale.it || '',
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -208,11 +210,21 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  const unpublished = [];
+  const mergedTarget = [];
+  for (const candidate of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(candidate));
+    // Source text only: without a body this run, the stored source text of
+    // the posting, or the job is not published this run.
+    const job = resolveMksPampJobBody(candidate, prev);
+    if (!job) {
+      unpublished.push(candidate.url);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+      mergedTarget.push(job);
+      continue;
     }
     updated += 1;
     const merged = {
@@ -223,8 +235,12 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
-  });
+    clearMksPampInventedSlots(merged);
+    mergedTarget.push(merged);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`⚠️ ${unpublished.length} MKS PAMP job(s) not published this run: no posting text and none stored (${unpublished.join(', ')})`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);

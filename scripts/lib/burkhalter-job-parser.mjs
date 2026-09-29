@@ -136,3 +136,72 @@ export function extractBurkhalterDetailDescription(html = '', { maxChars = 5000 
   const description = extractBurkhalterJsonLdDescription(html) || extractBurkhalterContentDescription(html);
   return description.slice(0, maxChars).trim();
 }
+
+/**
+ * A stub, not a posting: the `<title> presso <company>, <city>` line earlier
+ * runs published when a detail page could not be read, and its machine
+ * translations ("Description <title> at <company>, <city>", "Beschreibung …
+ * bei …"). A Burkhalter posting read from the source is always a multi-line
+ * text (JSON-LD sections); a single line under 300 characters never is.
+ */
+export function isBurkhalterStubText(text = '') {
+  const value = String(text || '').trim();
+  return value.length > 0 && value.length < 300 && !/\n/.test(value);
+}
+
+/**
+ * The source text a stored record carries (source-locale slot first, then
+ * the top-level description), or null when it only has stubs.
+ */
+export function storedBurkhalterSourceText(record) {
+  if (!record) return null;
+  const lang = String(record.sourceLang || '').trim();
+  for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isBurkhalterStubText(text)) return { text, lang };
+  }
+  return null;
+}
+
+/**
+ * Merge one discovered job into its stored record under the source-only rule:
+ *   - body read this run → it becomes the description and source-locale slot;
+ *   - no body → keep the text a previous run read from the source;
+ *   - no body and nothing stored → `null`: the job is not published this run.
+ * Stub texts left in any locale slot are removed so the translation step
+ * refills them from the real source text.
+ *
+ * @param {object|null} prev stored record (null for a new job)
+ * @param {object} job discovered job; `description` is '' when the page was not read
+ * @param {(prev: object, next: object) => object} mergeLocales merges the locale maps (runner-provided)
+ * @returns {object|null}
+ */
+export function mergeBurkhalterRecord(prev, job, mergeLocales = (p, n) => ({
+  ...p,
+  ...n,
+  descriptionByLocale: { ...(p.descriptionByLocale || {}), ...(n.descriptionByLocale || {}) },
+})) {
+  let next = job;
+  if (!String(job.description || '').trim()) {
+    const stored = storedBurkhalterSourceText(prev);
+    if (!stored) return null;
+    next = {
+      ...job,
+      description: stored.text,
+      sourceLang: stored.lang || job.sourceLang,
+      descriptionByLocale: stored.lang ? { [stored.lang]: stored.text } : {},
+    };
+  }
+  const merged = prev ? mergeLocales(prev, next) : { ...next };
+  const byLocale = { ...(merged.descriptionByLocale || {}) };
+  for (const [locale, text] of Object.entries(byLocale)) {
+    if (isBurkhalterStubText(text)) delete byLocale[locale];
+  }
+  merged.descriptionByLocale = byLocale;
+  if (isBurkhalterStubText(merged.description)) {
+    const source = storedBurkhalterSourceText(merged);
+    if (!source) return null;
+    merged.description = source.text;
+  }
+  return merged;
+}

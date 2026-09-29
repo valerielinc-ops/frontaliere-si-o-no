@@ -173,6 +173,56 @@ export function collapseClerDuplicateRequisitions(jobs = [], preferredUrls = new
   return { jobs: out, dropped };
 }
 
+/**
+ * The stand-in earlier runs published when a detail page gave no usable
+ * body: "## <title>\n\nBanca Cler — per i dettagli consultare la pagina
+ * dell'offerta." (and its translations, which keep the "Banca Cler —" lead).
+ * It is not source text and is never published again; it is recognised only
+ * to clear stale copies from stored records.
+ */
+export function isClerPlaceholderDescription(text = '') {
+  const value = String(text || '').trim();
+  if (!value) return false;
+  if (/per i dettagli consultare la pagina dell['’]offerta/i.test(value)) return true;
+  return value.length < 300 && /^##[^\n]*\n+\s*Banca Cler\s*[—–-]/.test(value);
+}
+
+/** Source text of a stored record (source-locale slot, then description), or null. */
+export function storedClerSourceText(record) {
+  if (!record) return null;
+  const lang = String(record.sourceLang || '').trim();
+  for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isClerPlaceholderDescription(text)) return { text, lang };
+  }
+  return null;
+}
+
+/**
+ * Source-only rule for a discovered job whose detail page gave no body:
+ * the stored source text of the same requisition, or `null` (not published
+ * this run). A job with a body is returned unchanged.
+ */
+export function resolveClerJobBody(job, prev) {
+  if (String(job?.description || '').trim()) return job;
+  const stored = storedClerSourceText(prev);
+  if (!stored) return null;
+  const lang = stored.lang || job.sourceLang;
+  return { ...job, description: stored.text, sourceLang: lang, descriptionByLocale: { [lang]: stored.text } };
+}
+
+/** Remove placeholder copies from every locale slot (in place). */
+export function clearClerPlaceholderSlots(job) {
+  let removed = 0;
+  for (const [locale, text] of Object.entries(job?.descriptionByLocale || {})) {
+    if (isClerPlaceholderDescription(text)) {
+      delete job.descriptionByLocale[locale];
+      removed += 1;
+    }
+  }
+  return removed;
+}
+
 // Localized labels Cler exposes in `.JobDetail__item`. Multilingual to survive
 // any future locale switch of the source site.
 const META_LABELS = {

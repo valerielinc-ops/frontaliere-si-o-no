@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildMksPampLocalizedContent,
+  clearMksPampInventedSlots,
+  isMksPampInventedDescription,
+  resolveMksPampJobBody,
   teamtailorHtmlToMarkdown,
 } from '../scripts/lib/mkspamp-job-parser.mjs';
 
@@ -36,5 +39,35 @@ describe('MKS PAMP Teamtailor description (flat 5/5)', () => {
     });
     expect(descriptionByLocale.it).toMatch(/^Precious Metal Control Manager — MKS PAMP SA, Castel San Pietro \(TI\)\.\n\n## MISSION/);
     expect(descriptionByLocale.it).toMatch(/^- Independently assure the site metal balance/m);
+  });
+});
+
+// The company paragraph the parser used to publish when a posting had < 50 words.
+const LEGACY_PARAGRAPH = "MKS PAMP SA, leader mondiale nella raffinazione di metalli preziosi con sede a Castel San Pietro, cerca un profilo HR Business Partner. Fondata nel 1979, MKS PAMP SA è parte del gruppo MKS PAMP GROUP. Candidati tramite il portale ufficiale careers.mkspamp.com.";
+const STORED_SOURCE = `Operatore reparto raffineria — MKS PAMP SA, Castel San Pietro (TI).\n\n## MISSIONE\n\n${Array(60).fill('raffinazione').join(' ')}`;
+
+describe('MKS PAMP source-only rule (no padded company paragraph)', () => {
+  it('recognises the legacy paragraph, not a real posting', () => {
+    expect(isMksPampInventedDescription(LEGACY_PARAGRAPH)).toBe(true);
+    expect(isMksPampInventedDescription(STORED_SOURCE)).toBe(false);
+  });
+
+  it('keeps the stored source text when this run read no posting text', () => {
+    const job = { url: 'https://careers.mkspamp.com/jobs/7130612-operatore-reparto-raffineria', description: '', sourceLang: 'it', descriptionByLocale: {} };
+    const resolved = resolveMksPampJobBody(job, { sourceLang: 'it', description: STORED_SOURCE, descriptionByLocale: { it: STORED_SOURCE } });
+    expect(resolved?.description).toBe(STORED_SOURCE);
+    expect(resolved?.descriptionByLocale).toEqual({ it: STORED_SOURCE });
+  });
+
+  it('does not publish a job without posting text and without stored source text', () => {
+    const job = { url: 'x', description: '', sourceLang: 'it', descriptionByLocale: {} };
+    expect(resolveMksPampJobBody(job, null)).toBeNull();
+    expect(resolveMksPampJobBody(job, { sourceLang: 'it', description: LEGACY_PARAGRAPH, descriptionByLocale: { it: LEGACY_PARAGRAPH } })).toBeNull();
+  });
+
+  it('clears stale paragraph copies from the locale slots', () => {
+    const merged = { descriptionByLocale: { it: STORED_SOURCE, en: LEGACY_PARAGRAPH } };
+    expect(clearMksPampInventedSlots(merged)).toBe(1);
+    expect(merged.descriptionByLocale).toEqual({ it: STORED_SOURCE });
   });
 });

@@ -261,41 +261,76 @@ export function isLombardiLocalJob(job = {}) {
   return LOCAL_SEDE_IDS.has(String(job.sedeId ?? ''));
 }
 
-/**
- * Company boilerplate fallback for descriptions when detail page is unavailable.
- */
-function lombardiBoilerplate(title, city, occupancy) {
-  const occLabel = occupancy ? ` (${occupancy})` : '';
-  return `Lombardi Group, studio di ingegneria con sede a ${city}, cerca un profilo ${title}${occLabel}. Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede locale a Giubiasco, opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.`;
-}
+/** Below this the detail markdown is not a vacancy body. */
+export const LOMBARDI_MIN_DETAIL_CHARS = 100;
 
 /**
- * Build localized content for a Lombardi job.
- * Uses full structured markdown from detail page when available.
+ * Build the source-language content of a Lombardi job from its detail page.
+ *
+ * Only the posting's own language is filled — title, description, slug — and
+ * the translation step fills the other locales. The builder used to stamp an
+ * invented Italian blurb ("Lombardi Group, studio di ingegneria con sede a …
+ * Candidati tramite il portale ufficiale.") into the `it` slot of every job and
+ * copy the source title into all four locales: an English posting showed the
+ * blurb on the Italian page, and the title copies kept the translation step
+ * from ever translating the title.
+ *
+ * Without a detail body there is nothing from the source to publish: returns
+ * null and the caller keeps an earlier source body or leaves the job out.
+ *
+ * @returns {{ sourceLang: string, titleByLocale: object, descriptionByLocale: object, slugByLocale: object } | null}
  */
 export function buildLombardiLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Giubiasco';
-  const occupancy = job.occupancy || '';
-  const detailDesc = job.detailMarkdown && job.detailMarkdown.length > 100
-    ? job.detailMarkdown
-    : '';
-  const itBoilerplate = lombardiBoilerplate(title, city, occupancy);
-  const sourceLang = detailDesc ? detectLang(detailDesc, 'it') : 'it';
-  const descriptionByLocale = { it: itBoilerplate };
-
-  if (detailDesc) {
-    descriptionByLocale[sourceLang] = detailDesc;
-  }
-
+  const detailDesc = String(job.detailMarkdown || '');
+  if (detailDesc.length <= LOMBARDI_MIN_DETAIL_CHARS) return null;
+  const sourceLang = detectLang(detailDesc, 'it');
   return {
-    titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale,
-    slugByLocale: {
-      it: slugify(`${title} lombardi ${city}`),
-      en: slugify(`${title} lombardi ${city}`),
-      de: slugify(`${title} lombardi ${city}`),
-      fr: slugify(`${title} lombardi ${city}`),
-    },
+    sourceLang,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: detailDesc },
+    slugByLocale: { [sourceLang]: slugify(`${title} lombardi ${city}`) },
   };
+}
+
+// The invented blurb the old builder wrote into the `it` slot. Pinned only to
+// recognise and remove it from stored records.
+const LEGACY_BLURB_RE = /^Lombardi Group, studio di ingegneria con sede a [\s\S]*Candidati tramite il portale ufficiale\.$/;
+
+export function isLombardiLegacyBlurb(text = '') {
+  return LEGACY_BLURB_RE.test(String(text || '').trim());
+}
+
+/**
+ * True when the stored record carries a body read from the detail page (so it
+ * can stay published on a run whose detail fetch failed).
+ */
+export function lombardiHasSourceBody(job = {}) {
+  const body = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
+  return body.length > LOMBARDI_MIN_DETAIL_CHARS && !isLombardiLegacyBlurb(body);
+}
+
+/**
+ * Remove what the old builder left in a stored record: the invented blurb in
+ * any description slot (and as base description), and in every non-source
+ * locale that was never translated, the source title copied verbatim. The
+ * translation step refills the emptied slots from the source text; a real
+ * translation (description present in that locale) keeps its title.
+ */
+export function scrubLombardiLegacyLocaleCopies(job = {}) {
+  const sourceLang = job.sourceLang;
+  const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
+  for (const [locale, value] of Object.entries(descriptionByLocale)) {
+    if (isLombardiLegacyBlurb(value)) delete descriptionByLocale[locale];
+  }
+  const sourceTitle = String(job.titleByLocale?.[sourceLang] || job.title || '').trim();
+  const titleByLocale = { ...(job.titleByLocale || {}) };
+  for (const [locale, value] of Object.entries(titleByLocale)) {
+    if (locale === sourceLang) continue;
+    if (String(value || '').trim() === sourceTitle && !descriptionByLocale[locale]) delete titleByLocale[locale];
+  }
+  const out = { ...job, titleByLocale, descriptionByLocale };
+  if (isLombardiLegacyBlurb(out.description)) out.description = descriptionByLocale[sourceLang] || '';
+  return out;
 }

@@ -56,7 +56,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { repairBurkhalterBoundarySlugs } from './lib/burkhalter-slug-boundary-repair.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
-import { extractBurkhalterDetailDescription } from './lib/burkhalter-job-parser.mjs';
+import { extractBurkhalterDetailDescription, mergeBurkhalterRecord } from './lib/burkhalter-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -233,11 +233,11 @@ function buildJob(raw, description = '') {
     postedDate,
     employmentType,
     contractType: employmentType,
-    description: description || `${title} presso ${company}, ${city}`,
+    // Only text read from the source: '' when the detail page could not be
+    // read (mergeBurkhalterRecord then keeps the stored source text, or the
+    // job is not published this run).
+    description,
     titleByLocale: {},
-    // The detail text is the source-locale slot: with `{}` the merge kept the
-    // stored slot forever, whatever this run read. The placeholder never
-    // enters it.
     descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
@@ -252,7 +252,7 @@ function buildJob(raw, description = '') {
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
-function mergeJobs(discoveredJobs, { missingDetailKeys = new Set() } = {}) {
+function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
@@ -262,30 +262,37 @@ function mergeJobs(discoveredJobs, { missingDetailKeys = new Set() } = {}) {
   let added = 0;
   let updated = 0;
   let repairedSlugs = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  const unpublished = [];
+  const mergeLocales = (prev, job) => ({
+    ...prev,
+    ...job,
+    titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+    descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
+    slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+  });
+  const mergedTarget = [];
+  for (const job of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(job)) || null;
+    // Source text only: no body this run → the stored source text, or the
+    // job is not published this run (never a `<title> presso …` stub).
+    const merged = mergeBurkhalterRecord(prev, job, mergeLocales);
+    if (!merged) {
+      unpublished.push(job);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+      mergedTarget.push(merged);
+      continue;
     }
     updated += 1;
-    // A detail page that could not be read this run yields only the
-    // `<title> presso <company>, <city>` placeholder: never let it overwrite
-    // the description a previous run did read.
-    const keepPrevDescription = missingDetailKeys.has(jobMatchKey(job))
-      && String(prev.description || '').trim().length > String(job.description || '').trim().length;
-    const merged = {
-      ...prev,
-      ...job,
-      ...(keepPrevDescription ? { description: prev.description, sourceLang: prev.sourceLang || job.sourceLang } : {}),
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, keepPrevDescription ? (prev.sourceLang || job.sourceLang) : job.sourceLang),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
-    };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     repairedSlugs += repairBurkhalterBoundarySlugs(merged);
-    return merged;
-  });
+    mergedTarget.push(merged);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`   ⚠️ ${unpublished.length} job(s) not published this run: detail page unreadable and no stored source text (${unpublished.map((j) => j.url).join(', ')})`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -398,13 +405,10 @@ async function main() {
 
   // Step 5: Build standardized job objects
   const jobs = relevantJobs.map((raw, i) => buildJob(raw, descriptions[i]));
-  const missingDetailKeys = new Set(
-    jobs.filter((job, i) => !descriptions[i]).map((job) => jobMatchKey(job)),
-  );
-  console.log(`✅ Built ${jobs.length} job objects (${missingDetailKeys.size} without a readable detail page)`);
+  console.log(`✅ Built ${jobs.length} job objects (${jobs.filter((job) => !job.description).length} without a readable detail page)`);
 
   // Step 6: Merge into jobs.json
-  const { total, added, updated, repairedSlugs, diff} = mergeJobs(jobs, { missingDetailKeys });
+  const { total, added, updated, repairedSlugs, diff} = mergeJobs(jobs);
   console.log(`\n📦 Merge complete: ${total} total, ${added} added, ${updated} updated`);
   if (repairedSlugs > 0) console.log(`   🔗 Repaired ${repairedSlugs} legacy boundary-truncated slug fields`);
 

@@ -71,7 +71,6 @@ const COMPANY_DOMAIN = 'kronenhof.com';
 const HQ = getCompanyDefaults(COMPANY_KEY);
 
 const API_BASE = 'https://careers.kronenhof.com/en/vacancies/json';
-const CAREERS_URL = 'https://careers.kronenhof.com/en/vacancies';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -301,7 +300,11 @@ export function buildJob(raw, detailDescription = '') {
     '6-months': '6-Monats-Stelle / 6-month contract',
   }[raw.contract_duration] || raw.contract_duration || 'Seasonal';
 
-  // Prefer detail page description if rich enough (>= 50 words), otherwise use fallback
+  // Only the detail page's own vacancy body is published (>= 50 words). A
+  // thinner or missing body yields NO description here: mergeJobLists keeps
+  // the body stored from an earlier read of the source, or leaves the job
+  // unpublished this run. The old marketing fallback ("Die Kulm Gruppe
+  // betreibt …, Bewerbungen an: …") was text the source never showed.
   const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
   const hasRichDetail = detailWordCount >= 50;
 
@@ -309,8 +312,7 @@ export function buildJob(raw, detailDescription = '') {
   // detail page is the /en/ portal, while titles are brigade terms ("Chef de
   // Rang", "Commis de Rang", "Zimmerdame") that detected as fr/de and filed a
   // machine translation as the source text (source-detail overlap 10 %, #5253).
-  // The synthesized German fallback below is German by construction.
-  const sourceLang = hasRichDetail ? detectLang(detailDescription, 'en') : 'de';
+  const sourceLang = hasRichDetail ? detectLang(detailDescription, 'en') : '';
   // The facts line is prepended to the body, so its labels speak the body's
   // language: fixed German labels on an English ad left the source slot mixed
   // (same fix as the sibling kulm-hotel parser, same Kulm Gruppe portal).
@@ -321,18 +323,7 @@ export function buildJob(raw, detailDescription = '') {
     raw.contract_starts_at ? `${labels.start}: ${raw.contract_starts_at.slice(0, 10)}.` : '',
   ].filter(Boolean).join(' ');
 
-  const fallbackDescription = [
-    metaLine,
-    `Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels im Engadin: das Grand Hotel Kronenhof in Pontresina und das Kulm Hotel in St. Moritz.`,
-    `Beide Häuser stehen für Schweizer Luxushotellerie auf höchstem Niveau mit einer langen Tradition, erstklassigem Service und einem engagierten internationalen Team.`,
-    `Als Arbeitgeber bieten wir: Personalunterkunft in der Engadiner Bergwelt, vergünstigte Verpflegung, umfassende Weiterbildungsmöglichkeiten, attraktive Mitarbeitervergünstigungen und ein inspirierendes Arbeitsumfeld in einer der schönsten Regionen der Schweiz.`,
-    `Die Kulm Gruppe beschäftigt rund 500 Mitarbeitende und bietet vielfältige Karrieremöglichkeiten in Gastronomie, Küche, Housekeeping, Front Office, Spa, Events und Administration.`,
-    `Bewerbungen an: people@kulmgroup.com oder über ${CAREERS_URL}`,
-  ].join(' ');
-
-  const description = hasRichDetail
-    ? `${metaLine}\n\n${detailDescription}`
-    : fallbackDescription;
+  const description = hasRichDetail ? `${metaLine}\n\n${detailDescription}` : '';
 
   return {
     title,
@@ -361,27 +352,71 @@ export function buildJob(raw, detailDescription = '') {
     titleByLocale: {},
     // The freshly crawled body is the source-locale text: without it the merge
     // kept whatever the previous run (or the translator) left in that slot.
-    descriptionByLocale: { [sourceLang]: description },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
   };
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
-function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const targetExisting = existing.filter(isTargetJob);
-  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+
+// First sentence of the marketing fallback earlier versions published when a
+// detail page was thin; its presence marks a stored text as NOT source-read.
+const INVENTED_FALLBACK_RE = /Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels/;
+
+function sourceTextOf(job) {
+  return String(job?.description || job?.descriptionByLocale?.[job?.sourceLang] || '');
+}
+
+/**
+ * Non-source slots are translations of the source text stored at the time.
+ * They are stale when that text carried content this parser no longer
+ * publishes: the invented fallback, or the "Similar jobs" cards (other
+ * vacancies' teasers) that made the old source 3-5× longer than the vacancy.
+ */
+function translationsAreStale(prev, freshSource) {
+  const prevSource = sourceTextOf(prev);
+  if (INVENTED_FALLBACK_RE.test(prevSource)) return true;
+  return Boolean(freshSource) && prevSource.length > freshSource.length * 1.5;
+}
+
+/**
+ * Reconcile stored and freshly built jobs (pure; no I/O).
+ * - A job built without a body keeps the body stored from an earlier read of
+ *   the source; with none stored (or only the invented fallback) it is not
+ *   published this run.
+ * - Stale translations (see translationsAreStale) and any slot still holding
+ *   the invented fallback are dropped and the job is flagged for
+ *   retranslation, so the translation step refills them from the real body.
+ */
+export function mergeJobLists(targetExisting = [], discoveredJobs = []) {
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  let skipped = 0;
+  const mergedTarget = [];
+  for (const discoveredJob of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(discoveredJob));
+    let job = discoveredJob;
+    if (!job.description) {
+      const storedSource = sourceTextOf(prev);
+      if (!storedSource || INVENTED_FALLBACK_RE.test(storedSource)) {
+        console.log(`  ⏭️  Not publishing ${job.title || job.url}: no vacancy body and none stored from the source`);
+        skipped += 1;
+        continue;
+      }
+      job = {
+        ...job,
+        description: prev.description || storedSource,
+        descriptionByLocale: prev.descriptionByLocale || {},
+        sourceLang: prev.sourceLang,
+      };
+    }
     if (!prev) {
       added += 1;
-      return job;
+      mergedTarget.push(job);
+      continue;
     }
     updated += 1;
     // If the slug changed (e.g., due to ID suffix being added on first re-crawl),
@@ -399,9 +434,29 @@ function mergeJobs(discoveredJobs) {
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    const staleTranslations = translationsAreStale(prev, discoveredJob.description);
+    let dropped = false;
+    for (const [locale, text] of Object.entries(merged.descriptionByLocale || {})) {
+      if (locale === merged.sourceLang) continue;
+      if (staleTranslations || INVENTED_FALLBACK_RE.test(String(text || ''))) {
+        delete merged.descriptionByLocale[locale];
+        dropped = true;
+      }
+    }
+    if (dropped) merged.needsRetranslation = true;
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
-  });
+    mergedTarget.push(merged);
+  }
+  return { mergedTarget, added, updated, skipped };
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const targetExisting = existing.filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const { mergedTarget, added, updated, skipped } = mergeJobLists(targetExisting, discoveredJobs);
+  if (skipped) console.log(`  ⏭️  Not published this run (no vacancy body): ${skipped}`);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);

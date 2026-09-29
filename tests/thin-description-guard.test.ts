@@ -1,8 +1,9 @@
 /**
  * Thin Description Guard — Tests for crawler description minimum word count.
  *
- * Verifies that all 8 crawlers that had thin description issues produce
- * descriptions with >= 50 words when detail pages return empty/thin content.
+ * Verifies that the crawlers that had thin description issues produce
+ * descriptions with >= 50 words when detail pages return empty/thin content
+ * (mks-pamp: returns none instead — source-only rule, see its section).
  *
  * Crawlers tested:
  *  1. grand-hotel-kronenhof (Kulm Group)
@@ -205,28 +206,32 @@ describe('AGIE Charmilles — fallback descriptions >= 50 words', () => {
 
 // ─── 5. MKS PAMP ──────────────────────────────────────────────────────────
 
-describe('MKS PAMP — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail and RSS descriptions are thin', () => {
+// Source-only rule (lot D, 2026-09-29): a thin or empty posting no longer gets
+// a company paragraph padded to 50 words — the builder returns no description
+// and the runner keeps the stored source text or does not publish the job
+// (covered in tests/mks-pamp-crawler.test.ts).
+describe('MKS PAMP — no padded fallback, source text only', () => {
+  it('returns no description when detail and RSS descriptions are thin', () => {
     const result = buildMksPampLocalizedContent({
       title: 'HR Business Partner',
       city: 'Castel San Pietro',
       descriptionHtml: '<p>Manage HR functions.</p>',
       detailDescription: '',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('produces >= 50 words with empty descriptions', () => {
+  it('returns no description with empty descriptions', () => {
     const result = buildMksPampLocalizedContent({
       title: 'Metal & Inventory Controller',
       city: 'Castel San Pietro',
       descriptionHtml: '',
       detailDescription: '',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('strips HTML from descriptionHtml before counting words', () => {
+  it('counts words after stripping HTML: tag-heavy thin content is still thin', () => {
     const htmlDesc = '<p><strong>Some</strong> <em>HTML</em> content with <b>tags</b> but only a few real words.</p>';
     const result = buildMksPampLocalizedContent({
       title: 'Test Role',
@@ -234,8 +239,7 @@ describe('MKS PAMP — fallback descriptions >= 50 words', () => {
       descriptionHtml: htmlDesc,
       detailDescription: '',
     });
-    // HTML-heavy but thin content should trigger fallback
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
   it('uses detail description when >= 50 words', () => {
@@ -247,6 +251,7 @@ describe('MKS PAMP — fallback descriptions >= 50 words', () => {
       detailDescription: richDesc,
     });
     expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
   });
 });
 

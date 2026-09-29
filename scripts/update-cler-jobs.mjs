@@ -39,6 +39,8 @@ import {
   extractJobMeta,
   dedupeClerJobsByStableId,
   collapseClerDuplicateRequisitions,
+  resolveClerJobBody,
+  clearClerPlaceholderSlots,
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -363,17 +365,15 @@ async function fetchDetailPage(relativeUrl) {
   }
 }
 
-function buildDescription(title, html) {
-  if (!html) {
-    // Fallback: minimal description from title only
-    return `## ${title}\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.`;
-  }
-
+/**
+ * The posting's own text, or '' when the detail page gave none (no HTML, or
+ * under 200 characters of markdown). No stand-in text: mergeJobs keeps the
+ * stored source text of the requisition, or does not publish the job.
+ */
+export function buildDescription(title, html) {
+  if (!html) return '';
   const markdown = htmlToMarkdown(html);
-  if (markdown && markdown.length >= 200) return markdown;
-
-  // Fallback if parser returned too little
-  return `## ${title}\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.`;
+  return markdown && markdown.length >= 200 ? markdown : '';
 }
 
 async function fetchClerJobs() {
@@ -485,7 +485,7 @@ async function fetchClerJobs() {
       contractType: empType === 'internship' ? 'stage' : 'permanent',
       description,
       titleByLocale: { de: title },
-      descriptionByLocale: { de: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       slugByLocale: { de: slugify(title) },
       crawledAt: new Date().toISOString(),
     };
@@ -532,11 +532,20 @@ function mergeJobs(discoveredJobs) {
   let removed = 0;
   const merged = [];
 
-  for (const discovered of dedupedDiscovered) {
-    const key = jobMatchKey(discovered);
+  const unpublished = [];
+  for (const candidate of dedupedDiscovered) {
+    const key = jobMatchKey(candidate);
     const prev = existingByKey.get(key);
+    // Source text only: without a body this run, the stored source text of
+    // the requisition, or the job is not published this run.
+    const discovered = resolveClerJobBody(candidate, prev);
+    if (!discovered) {
+      unpublished.push(candidate.url);
+      continue;
+    }
     if (!prev) {
       added++;
+      clearClerPlaceholderSlots(discovered);
       merged.push(discovered);
       continue;
     }
@@ -554,7 +563,11 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, discovered.slugByLocale, 3),
     };
     captureLostSlugs(mergedJob, prev.slugByLocale, prev.slug, 20);
+    clearClerPlaceholderSlots(mergedJob);
     merged.push(mergedJob);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`  ⚠️ ${unpublished.length} Cler job(s) not published this run: no body on the detail page and no stored source text (${unpublished.join(', ')})`);
   }
 
   // Count removed (existing jobs not in new crawl)
