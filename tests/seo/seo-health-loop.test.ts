@@ -278,6 +278,49 @@ describe('SEO health live runner', () => {
     }
   });
 
+  it('uses the shared job-detail contract when selecting sampled job URLs', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-job-sample-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
+    const sitemap = `${ORIGIN}/sitemap.xml`;
+    const archiveUrl = `${ORIGIN}/de/jobs-im-tessin/alle/`;
+    const detailUrl = `${ORIGIN}/de/jobs-im-tessin/software-engineer-acme/`;
+    const bodies = new Map<string, string>([
+      [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
+      [sitemap, `<urlset><url><loc>${archiveUrl}</loc></url><url><loc>${detailUrl}</loc></url></urlset>`],
+      [archiveUrl, `<link rel="canonical" href="${archiveUrl}">`],
+      [detailUrl, `<link rel="canonical" href="${detailUrl}"><script type="application/ld+json">{"@type":"JobPosting"}</script>`],
+    ]);
+    const fetchImpl = async (url: string) => response(url, bodies.has(url) ? 200 : 404, bodies.get(url) || '');
+    delete process.env.GITHUB_RUN_ID;
+    try {
+      const report = await runSeoHealthLoop({
+        options: {
+          origin: ORIGIN,
+          sitemap,
+          sample: 10,
+          jobSample: 10,
+          dryRun: true,
+          reportDir: join(root, 'reports'),
+          statePath: join(root, 'state.json'),
+          historyPath: join(root, 'history.jsonl'),
+        },
+        fetchImpl,
+        collectAnalytics: false,
+        root,
+        now: new Date('2026-09-13T00:00:00Z'),
+      });
+      expect(report.pageAudit.jobCandidateCount).toBe(1);
+      expect(report.pageAudit.sampledJobCount).toBe(1);
+      expect(report.findings.observed).not.toEqual(expect.arrayContaining([
+        expect.objectContaining({ code: 'jobposting-missing', url: archiveUrl }),
+      ]));
+    } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('surfaces a sitemap graph truncated exactly at the configured cap', async () => {
     const sitemap = `${ORIGIN}/sitemap.xml`;
     const children = ['one', 'two', 'three'].map((name) => `${ORIGIN}/sitemap-${name}.xml`);
