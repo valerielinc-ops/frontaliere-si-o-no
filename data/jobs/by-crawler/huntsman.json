@@ -477,7 +477,9 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     }
   ]
 }

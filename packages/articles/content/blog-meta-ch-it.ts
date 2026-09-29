@@ -7085,6 +7085,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ufc-finanzia-ricerca-provenienza.title': 'UFC: 1,95 mln per 26 progetti di ricerca',
     'blog.article.ufc-finanzia-ricerca-provenienza.excerpt': 'L\'UFC stanzia circa 1,95 milioni di franchi per 26 progetti di ricerca sulla provenienza di musei e collezioni in Svizzera per il 2027-2028.',
     'blog.article.ufc-finanzia-ricerca-provenienza.imageAlt': 'Vista di Bellinzona con musei sullo sfondo, luce mattutina',
+    'blog.article.validita-lista-onu-svizzera.title': 'ONU: aggiornata in Svizzera la lista delle sanzioni',
+    'blog.article.validita-lista-onu-svizzera.excerpt': 'Il 29 settembre 2026 il comitato di sanzioni dell’ONU ha modificato la lista. SESAM è stata aggiornata e la modifica vale subito in Svizzera.',
+    'blog.article.validita-lista-onu-svizzera.imageAlt': 'Berna, aggiornamento della lista ONU delle sanzioni nella banca dati SESAM',
+    'blog.article.centro-premi-salute-2027.title': 'Premi cassa malati 2027, il Centro chiede più misure',
+    'blog.article.centro-premi-salute-2027.excerpt': 'In Ticino i premi di cassa malati saliranno del 3,7% nel 2027, contro il 5% nazionale. Il Centro chiede di rafforzare gli interventi cantonali e federali.',
+    'blog.article.centro-premi-salute-2027.imageAlt': 'Ticino, documenti sui premi di cassa malati previsti per il 2027',
 };
 
 export default blogMetaChIt;
