@@ -73,6 +73,7 @@ import {
   extractRtlTextAlignEligibleSpans,
   htmlBlockToTextWithBullets,
   keyPostDescriptionBySourceLocale,
+  keyPostTitleBySourceLocale,
   parsePostJobDetail,
   stripPostFallbackSlots,
 } from './lib/postch-job-parser.mjs';
@@ -764,7 +765,9 @@ async function buildJobFromRecruitingApiEntry(entry) {
     // Keyed by the language the body is written in, never hard-wired to `it`:
     // see keyPostDescriptionBySourceLocale().
     descriptionByLocale: description ? { [sourceLang]: description } : {},
-    titleByLocale: { it: title },
+    // The page title is in the page's language: keyed there, never forced
+    // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+    titleByLocale: sourceLang ? { [sourceLang]: title } : {},
     slug,
     slugByLocale: { it: slug },
     sourceLang,
@@ -911,7 +914,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       country: 'CH',
       description,
       descriptionByLocale: description ? { [sourceLang]: description } : {},
-      titleByLocale: { it: title },
+      titleByLocale: sourceLang ? { [sourceLang]: title } : {},
       slug,
       slugByLocale: { it: slug },
       sourceLang,
@@ -970,6 +973,26 @@ function postFinanceMatchKey(job) {
   );
 }
 
+/**
+ * Title keyed under the source language (never forced into `it`); a stale
+ * non-Italian copy in `it` is dropped and the record flagged for
+ * retranslation. Slugs are left alone.
+ */
+function withSourceLanguageTitle(job, previous = null) {
+  const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'en');
+  const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(
+    job.titleByLocale,
+    job.title,
+    sourceLang,
+    { previousTitles: previous ? [previous.title, previous.titleByLocale?.[previous.sourceLang]] : [] },
+  );
+  return {
+    ...job,
+    titleByLocale,
+    ...(droppedStaleItalian ? { needsRetranslation: true } : {}),
+  };
+}
+
 async function mergePostFinanceJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
@@ -995,7 +1018,7 @@ async function mergePostFinanceJobs(discoveredJobs) {
       continue;
     }
     if (resolved.carried) carried++;
-    publishable.push(resolved.job);
+    publishable.push(withSourceLanguageTitle(resolved.job, existingByKey.get(postFinanceMatchKey(job)) || null));
   }
 
   const existingKeys = new Set(existingPfJobs.map(postFinanceMatchKey).filter(Boolean));
@@ -1020,7 +1043,10 @@ async function mergePostFinanceJobs(discoveredJobs) {
     companyKey: COMPANY_KEY,
     country: 'CH',
     source: 'postfinance-careers-crawler',
-  })).map(stripPostFallbackSlots).filter(Boolean);
+  })).map(stripPostFallbackSlots).filter(Boolean).map((job) => withSourceLanguageTitle(
+    job,
+    existingByKey.get(postFinanceMatchKey(job)) || null,
+  ));
 
   const final = [...nonPfJobs, ...merged];
 
@@ -1122,10 +1148,13 @@ function postProcessPostFinanceJobs() {
       job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
-    if (!job.titleByLocale || job.titleByLocale.it !== job.title) {
-      job.titleByLocale = { ...(job.titleByLocale || {}), it: job.title };
+    const keyedTitles = withSourceLanguageTitle({ ...job, sourceLang });
+    if (JSON.stringify(keyedTitles.titleByLocale) !== JSON.stringify(job.titleByLocale || {})) {
+      job.titleByLocale = keyedTitles.titleByLocale;
+      if (keyedTitles.needsRetranslation) job.needsRetranslation = true;
       fixed++;
     }
+    // Published slugs keep their `it` key (untouched by the title keying).
     if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
       job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
       fixed++;

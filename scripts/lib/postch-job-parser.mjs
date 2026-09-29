@@ -339,6 +339,45 @@ export function keyPostDescriptionBySourceLocale(
   return out;
 }
 
+/**
+ * Key a Post-platform title under the language its vacancy page is written
+ * in, like {@link keyPostDescriptionBySourceLocale}.
+ *
+ * The runners used to write the German/French page title into
+ * `titleByLocale.it` and force it back there after every localization pass,
+ * so the Italian page showed the untranslated title and the translation step
+ * saw the Italian slot as filled (66/216 Post.ch and 4/19 PostFinance
+ * vacancies with `it` equal to the German/French title on 2026-09-29). An
+ * `it` slot that is a copy of the source title — the current one or one a
+ * previous run stored — is that stale write: it is dropped and the caller
+ * flags the record for retranslation. Any other `it` title (a translation,
+ * even an imperfect one) is the translation pipeline's and stays. Slugs are
+ * deliberately not touched here.
+ *
+ * @param {Record<string, string>} titleByLocale
+ * @param {string} title       the source-language title
+ * @param {string} sourceLang  it | en | de | fr
+ * @param {{ previousTitles?: string[] }} [context]  source titles stored by earlier runs
+ * @returns {{ titleByLocale: Record<string, string>, droppedStaleItalian: boolean }}
+ */
+export function keyPostTitleBySourceLocale(titleByLocale = {}, title = '', sourceLang = '', { previousTitles = [] } = {}) {
+  const out = { ...(titleByLocale && typeof titleByLocale === 'object' ? titleByLocale : {}) };
+  const text = String(title || '').trim();
+  const lang = String(sourceLang || '').trim().toLowerCase();
+  if (!text || !POST_DESCRIPTION_LOCALES.includes(lang)) return { titleByLocale: out, droppedStaleItalian: false };
+  let droppedStaleItalian = false;
+  const italian = comparableLocaleText(out.it);
+  if (lang !== 'it' && italian) {
+    const sourceCopies = new Set([text, ...previousTitles].map(comparableLocaleText).filter(Boolean));
+    if (sourceCopies.has(italian)) {
+      delete out.it;
+      droppedStaleItalian = true;
+    }
+  }
+  out[lang] = text;
+  return { titleByLocale: out, droppedStaleItalian };
+}
+
 /* ── Source-body continuity (no invented text) ─────────────── */
 
 // The Italian texts the Post-platform runners used to invent when a vacancy

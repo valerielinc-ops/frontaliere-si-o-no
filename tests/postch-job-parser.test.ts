@@ -6,6 +6,7 @@ import {
   carryPostSourceBody,
   isPostFallbackDescription,
   keyPostDescriptionBySourceLocale,
+  keyPostTitleBySourceLocale,
   parsePostJobDetail,
   previousPostSourceBody,
   stripPostFallbackSlots,
@@ -156,5 +157,52 @@ describe('Post-platform source-body continuity (no invented text)', () => {
 
     // A record without invented text is returned as-is.
     expect(stripPostFallbackSlots(records.postfinanceRealBody)).toBe(records.postfinanceRealBody);
+  });
+});
+
+describe('keyPostTitleBySourceLocale', () => {
+  const titleRecords = JSON.parse(fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'post-title-locale-records.json'),
+    'utf-8',
+  ));
+
+  it('moves the page title into its own language and drops the copy forced into `it`', () => {
+    const record = titleRecords.postaSourceCopyInIt;
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(record.titleByLocale, record.title, record.sourceLang);
+    expect(droppedStaleItalian).toBe(true);
+    expect(titleByLocale.it).toBeUndefined();
+    expect(titleByLocale.de).toBe('Teamleader:in Inhouselogistik');
+    // Other slots belong to the translation pipeline and are left alone.
+    expect(titleByLocale.en).toBe(record.titleByLocale.en);
+    expect(titleByLocale.fr).toBe(record.titleByLocale.fr);
+  });
+
+  it('keeps an Italian title written by the translation pipeline, even an imperfect one', () => {
+    const record = titleRecords.postaTranslatedIt;
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(record.titleByLocale, record.title, record.sourceLang);
+    expect(droppedStaleItalian).toBe(false);
+    expect(titleByLocale).toEqual(record.titleByLocale);
+  });
+
+  it('drops a copy of the title an earlier run stored, and never touches slugs', () => {
+    const record = titleRecords.postfinanceSourceCopyInIt;
+    const before = JSON.stringify([record.slug, record.slugByLocale]);
+    const renamed = 'Fachspezialist:in Testing & Qualität Asset Management (w/m/d)';
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale(
+      record.titleByLocale,
+      renamed,
+      record.sourceLang,
+      { previousTitles: [record.title] },
+    );
+    expect(droppedStaleItalian).toBe(true);
+    expect(titleByLocale.it).toBeUndefined();
+    expect(titleByLocale.de).toBe(renamed);
+    expect(JSON.stringify([record.slug, record.slugByLocale])).toBe(before);
+  });
+
+  it('leaves Italian-source vacancies keyed as it', () => {
+    const { titleByLocale, droppedStaleItalian } = keyPostTitleBySourceLocale({}, 'Postino/a lettere e pacchi', 'it');
+    expect(droppedStaleItalian).toBe(false);
+    expect(titleByLocale).toEqual({ it: 'Postino/a lettere e pacchi' });
   });
 });

@@ -40,6 +40,7 @@ import {
   parsePostJobDetail,
   extractPostJobIdFromUrl,
   keyPostDescriptionBySourceLocale,
+  keyPostTitleBySourceLocale,
   previousPostSourceBody,
   stripPostFallbackSlots,
 } from './lib/postch-job-parser.mjs';
@@ -585,7 +586,9 @@ async function fetchPostJobs() {
       // Keyed by the language the body is written in (job.post.ch serves a
       // vacancy only in its own languages): see keyPostDescriptionBySourceLocale().
       descriptionByLocale: { [sourceLang]: description },
-      titleByLocale: { it: title },
+      // The page title is in the page's language: keyed there, never forced
+      // into `it` (see keyPostTitleBySourceLocale). Slugs keep their `it` key.
+      titleByLocale: { [sourceLang]: title },
       slug,
       slugByLocale: { it: slug },
       sourceLang,
@@ -689,6 +692,16 @@ async function mergePostJobs(discoveredJobs) {
     }
 
     if (existing) {
+      const sourceLang = discovered.sourceLang || existing.sourceLang;
+      // Source slot = fresh title; a stale non-Italian copy in `it` (written by
+      // the runner before 2026-09-29) is dropped so the localization pass
+      // translates it.
+      const titles = keyPostTitleBySourceLocale(
+        mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        discovered.title || existing.title,
+        sourceLang,
+        { previousTitles: [existing.title, existing.titleByLocale?.[existing.sourceLang]] },
+      );
       const updatedJob = {
         ...existing,
         title: discovered.title || existing.title,
@@ -705,7 +718,8 @@ async function mergePostJobs(discoveredJobs) {
         sector: discovered.sector || existing.sector,
         source: 'postch-careers-crawler',
         workload: discovered.workload || existing.workload,
-        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        titleByLocale: titles.titleByLocale,
+        ...(titles.droppedStaleItalian ? { needsRetranslation: true } : {}),
         // mergeLocaleTextMap keeps every non-source slot of the existing
         // record, including the legacy source-language copy the runner used to
         // write into `it`; drop it before the localization pass.
@@ -715,7 +729,7 @@ async function mergePostJobs(discoveredJobs) {
           discovered.sourceLang,
           (text) => detectLang(text, ''),
         ),
-        sourceLang: discovered.sourceLang || existing.sourceLang,
+        sourceLang,
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
@@ -829,10 +843,15 @@ function postProcessPostJobs() {
       job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
-    if (!job.titleByLocale || job.titleByLocale.it !== job.title) {
-      job.titleByLocale = { ...(job.titleByLocale || {}), it: job.title };
+    // Same for the title: source slot = page title, and a non-Italian copy in
+    // `it` is dropped for retranslation instead of being forced back there.
+    const titles = keyPostTitleBySourceLocale(job.titleByLocale, job.title, sourceLang);
+    if (JSON.stringify(titles.titleByLocale) !== JSON.stringify(job.titleByLocale || {})) {
+      job.titleByLocale = titles.titleByLocale;
+      if (titles.droppedStaleItalian) job.needsRetranslation = true;
       fixed++;
     }
+    // Published slugs keep their `it` key (untouched by the title keying).
     if (!job.slugByLocale || job.slugByLocale.it !== job.slug) {
       job.slugByLocale = { ...(job.slugByLocale || {}), it: job.slug };
       fixed++;
