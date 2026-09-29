@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T00:00:00.000Z",
+  "generatedAt": "2026-09-29T07:43:05.618Z",
   "sources": {
     "aargau": {
       "canton": "Argovia",
@@ -124,14 +124,15 @@
     "jura": {
       "canton": "Giura",
       "officialSourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
-      "accessMethod": "html-scrape",
-      "fetchFrequency": "P30D",
+      "accessMethod": "pdf",
+      "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
-      "sourceType": "association",
+      "sourceType": "official",
       "owner": "platform",
-      "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa indicata per l'orientamento alle emergenze; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
+      "sourceFetchedAt": "2026-09-29T07:43:05.618Z",
+      "notes": "La pagina ufficiale del Cantone pubblica i piani PDF 2026 di Delémont, Ajoie e Moutier. L'adattatore verifica testo, calendario colorato e identità prima di rendere il release operativo."
     },
     "lucerne": {
       "canton": "Lucerna",
