@@ -36,7 +36,8 @@
  *
  * Common flags:
  *   --dry-run          compute + print, do not write Firestore
- *   --budget <N>       override HERE_MONTHLY_BUDGET for the alert threshold
+ *   --budget <N>       override the alert threshold; values above the free-tier
+ *                      ceiling are clamped
  *   --alert            open a GitHub issue if reconciled usage exceeds the budget
  *
  * Firestore auth: GOOGLE_APPLICATION_CREDENTIALS (same as collect-traffic.mjs).
