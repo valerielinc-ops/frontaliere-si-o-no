@@ -3,7 +3,10 @@
  * source body stored from an earlier read, or the job is not published.
  */
 import { describe, it, expect } from 'vitest';
-import { keepStoredSourceBodies } from '@/scripts/lib/stored-source-body.mjs';
+import {
+  keepStoredSourceBodies,
+  keepStoredSourceBodiesByKey,
+} from '@/scripts/lib/stored-source-body.mjs';
 
 const BODY = Array(60).fill('Aufgabe').join(' ');
 const key = (url: string) => url;
@@ -27,5 +30,28 @@ describe('keepStoredSourceBodies', () => {
     const stored = [{ url: 'a', sourceLang: 'de', description: 'Auch kurz.', descriptionByLocale: { de: 'Auch kurz.' } }];
     expect(keepStoredSourceBodies(fresh, stored, key)).toEqual([]);
     expect(keepStoredSourceBodies(fresh, [], key)).toEqual([]);
+  });
+
+  it('uses a custom job identity and the declared source-locale slot', () => {
+    const fresh = [{
+      requisition: 'a',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+    }];
+    const stored = [{
+      requisition: 'a',
+      sourceLang: 'fr',
+      description: 'stale flat field',
+      descriptionByLocale: { fr: BODY, en: 'translation' },
+    }];
+    expect(keepStoredSourceBodiesByKey(fresh, stored, (job) => job.requisition)).toEqual([
+      {
+        requisition: 'a',
+        sourceLang: 'fr',
+        description: BODY,
+        descriptionByLocale: { fr: BODY },
+      },
+    ]);
   });
 });

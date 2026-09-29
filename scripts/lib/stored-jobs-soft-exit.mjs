@@ -18,13 +18,7 @@ import {
   isSystemicBoilerplateFailure,
 } from '../assemble-jobs-dataset.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-
-function sourceBodyForQuarantine(job) {
-  const topLevel = String(job?.description || '').trim();
-  if (topLevel) return topLevel;
-  const sourceLang = String(job?.sourceLang || '').trim();
-  return String(job?.descriptionByLocale?.[sourceLang] || '').trim();
-}
+import { sourceBodyForJob } from './stored-source-body.mjs';
 
 /**
  * @param {{
@@ -52,7 +46,7 @@ export async function rewritePreparedStoredJobs({
   const before = JSON.stringify(storedJobs);
   const prepared = prepare(storedJobs) || storedJobs;
   const preparedChanged = JSON.stringify(prepared) !== before;
-  const thinSourceJobs = prepared.filter((job) => !meetsSourceBodyFloor(sourceBodyForQuarantine(job)));
+  const thinSourceJobs = prepared.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
   if (!preparedChanged && thinSourceJobs.length === 0) return false;
 
   if (isSystemicBoilerplateFailure(detectBoilerplateDescriptions(prepared, companyKey))) {
@@ -61,7 +55,7 @@ export async function rewritePreparedStoredJobs({
     );
     return false;
   }
-  const publishable = prepared.filter((job) => meetsSourceBodyFloor(sourceBodyForQuarantine(job)));
+  const publishable = prepared.filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)));
   const quarantineCount = prepared.length - publishable.length;
   if (quarantineCount > 0) {
     console.warn(

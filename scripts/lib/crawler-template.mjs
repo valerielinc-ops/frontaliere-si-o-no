@@ -165,6 +165,12 @@ import {
   detectLang,
   deriveLocalizedSlug,
 } from './dedicated-crawler-common.mjs';
+import { mergeJobIdentity } from './job-match-key.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import {
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './stored-source-body.mjs';
 import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
 import {
   RETRYABLE_STATUS,
@@ -1149,7 +1155,48 @@ export async function runStandardCrawlerPipeline(config) {
   if (authoritativeEmptySnapshot) {
     console.log(`\n🧩 ${companyLabel}: authoritative empty snapshot verified. Retiring stale jobs...\n`);
   } else {
-    console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed. Merging...\n`);
+    console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed, preparing source bodies.\n`);
+  }
+
+  // A source listing can still yield a job-shaped row when its detail/PDF body
+  // was unreadable. Keep the body from the same stored source when it clears
+  // the floor; otherwise leave that row out of this run. The final filter below
+  // also removes older thin rows that miss grace would otherwise retain.
+  const mergeExisting = typeof prepareExistingJobs === 'function'
+    ? (prepareExistingJobs(companyExisting) || companyExisting)
+    : companyExisting;
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    parsedJobs,
+    mergeExisting,
+    matchKey || mergeJobIdentity,
+  );
+  if (!authoritativeEmptySnapshot && sourceBodyJobs.length === 0) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: no parsed job has a source body of at least 50 words; `
+      + 'quarantining thin-source rows and keeping only valid stored bodies.\n',
+    );
+    await rewritePreparedStoredJobs({
+      // The hook has already run above; reuse its prepared array so a
+      // no-publishable run does not invoke a mutating hook twice.
+      prepare: () => mergeExisting,
+      storedJobs: companyExisting,
+      companyKey,
+      companyLabel,
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+        isTargetJob: isCompanyJob,
+        preserveExistingSlugs,
+        ...options,
+      }),
+      assemble: () => assembleJobsDataset(),
+    });
+    return;
+  }
+
+  if (!authoritativeEmptySnapshot) {
+    console.log(
+      `  ✅ ${companyLabel}: ${sourceBodyJobs.length}/${parsedJobs.length} parsed job(s) have `
+      + 'a publishable source body (stored source bodies may replace thin reads).\n',
+    );
   }
 
   // ─── Step 3: Merge with slug stability ──────────────────────
@@ -1160,17 +1207,22 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  // Opt-in: without `prepareExistingJobs` the merge input is unchanged.
-  const mergeExisting = typeof prepareExistingJobs === 'function'
-    ? (prepareExistingJobs(companyExisting) || companyExisting)
-    : companyExisting;
-  const merged = mergePreserveLocaleData(mergeExisting, parsedJobs, mergeOpts);
+  const merged = mergePreserveLocaleData(mergeExisting, sourceBodyJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
-  const clean = slugStableMerge.sort((a, b) =>
-    String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
-  );
+  const thinSourceCount = slugStableMerge.filter(
+    (job) => !meetsSourceBodyFloor(sourceBodyForJob(job)),
+  ).length;
+  if (thinSourceCount > 0) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: quarantining ${thinSourceCount} merged job(s) without `
+      + 'a source body of at least 50 words (thin-source path).',
+    );
+  }
+  const clean = slugStableMerge
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
 
   // Write merged dataset (intermediate — Steps 5-6 modify in-place). DATA_JOBS
   // is a scratch path scoped to THIS crawler's own companyKey (see derivation

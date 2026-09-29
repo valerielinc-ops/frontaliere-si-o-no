@@ -103,6 +103,7 @@ import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-descr
 
 const COMPANY_KEY = 'prepare-existing-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
+const SOURCE_BODY = Array(60).fill('source').join(' ');
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -122,8 +123,8 @@ async function runPipeline(extra: Record<string, unknown> = {}) {
         url: 'https://example.com/stored-job',
         companyKey: COMPANY_KEY,
         sourceLang: 'de',
-        description: 'Ihre Aufgaben: Pflege der Patientinnen und Patienten.',
-        descriptionByLocale: { de: 'Ihre Aufgaben: Pflege der Patientinnen und Patienten.' },
+        description: SOURCE_BODY,
+        descriptionByLocale: { de: SOURCE_BODY },
       }],
       isCompanyJob: (job: { companyKey?: string }) => job.companyKey === COMPANY_KEY,
       ...extra,
@@ -173,6 +174,66 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
     await runPipeline({ prepareExistingJobs: (jobs: Array<{ tag?: string }>) => { jobs[0].tag = 'seen'; } });
     const [existing] = mocks.mergePreserveLocaleData.mock.calls[0];
     expect(existing).toEqual([expect.objectContaining({ id: 'stored-1', tag: 'seen' })]);
+  });
+
+  it('quarantines a non-empty standard-pipeline result without a source body', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-1',
+      slug: 'stored-job',
+      url: 'https://example.com/stored-job',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: '',
+      descriptionByLocale: { de: '' },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-1',
+        slug: 'stored-job',
+        url: 'https://example.com/stored-job',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: '',
+        descriptionByLocale: { de: '' },
+      }],
+      prepareExistingJobs: (jobs) => jobs,
+    });
+
+    expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({ skipShrinkGuard: true }),
+    );
+  });
+
+  it('uses a stored source body when a non-empty standard-pipeline result is thin', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-1',
+      slug: 'stored-job',
+      url: 'https://example.com/stored-job',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: SOURCE_BODY,
+      descriptionByLocale: { de: SOURCE_BODY },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-1',
+        slug: 'stored-job',
+        url: 'https://example.com/stored-job',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: 'short fresh detail',
+        descriptionByLocale: { de: 'short fresh detail' },
+      }],
+    });
+
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalledWith(
+      expect.arrayContaining([expect.objectContaining({ description: SOURCE_BODY })]),
+      [expect.objectContaining({ description: SOURCE_BODY, sourceLang: 'de' })],
+      {},
+    );
   });
 });
 
