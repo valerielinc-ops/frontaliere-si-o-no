@@ -6995,6 +6995,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soletta-avvio-impresa-obblighi.title': 'Ouvrir une entreprise dans le canton de Soleure : coûts',
     'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Forme juridique, registre du commerce, des impôts et des assurances : les éléments à examiner pour démarrer une activité dans le canton de Soleure.',
     'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Entrepreneur examinant les documents et coûts d\'une création d\'activité en Suisse',
+    'blog.article.swiss-starlink-aereo-internet.title': 'Swiss apporte l’Internet haut débit de Starlink à bord de ses avions',
+    'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss active l’Internet Starlink sur le premier Airbus A320neo Iseltwald, offrant une connectivité gratuite et à haut débit dans toutes les classes.',
+    'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Avion Swiss Airbus A320neo avec connexion Starlink',
 };
 
 export default blogMetaChFr;

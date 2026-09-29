@@ -6995,6 +6995,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-avvio-impresa-obblighi.title': 'Opening a business in the canton of Solothurn: costs',
     'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Legal form, trade register, taxes and insurance: the items to be examined to start a business in the canton of Solothurn.',
     'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Entrepreneur reviews documents and costs for starting a business in Switzerland',
+    'blog.article.swiss-starlink-aereo-internet.title': 'Swiss brings Starlink fast internet on board its aircraft',
+    'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss activates Starlink Internet on its first Airbus A320neo, Iseltwald, offering free, high-speed connectivity in all classes.',
+    'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Swiss Airbus A320neo airplane with Starlink connection',
 };
 
 export default blogMetaChEn;

@@ -6995,6 +6995,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soletta-avvio-impresa-obblighi.title': 'Aprire un\'attività nel Canton Soletta: costi',
     'blog.article.soletta-avvio-impresa-obblighi.excerpt': 'Forma giuridica, registro di commercio, imposte e assicurazioni: le voci da esaminare per avviare un\'attività nel Canton Soletta.',
     'blog.article.soletta-avvio-impresa-obblighi.imageAlt': 'Imprenditore esamina documenti e costi per avviare un\'attività in Svizzera',
+    'blog.article.swiss-starlink-aereo-internet.title': 'Swiss porta Internet veloce Starlink a bordo dei suoi aerei',
+    'blog.article.swiss-starlink-aereo-internet.excerpt': 'Swiss attiva Internet Starlink sul primo Airbus A320neo Iseltwald, offrendo connettività gratuita e ad alta velocità in tutte le classi.',
+    'blog.article.swiss-starlink-aereo-internet.imageAlt': 'Aereo Swiss Airbus A320neo con connessione Starlink',
 };
 
 export default blogMetaChIt;

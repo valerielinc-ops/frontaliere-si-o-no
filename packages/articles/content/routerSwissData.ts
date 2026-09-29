@@ -2354,6 +2354,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dibattito-stati-bilaterali-iii': { it: 'dibattito-stati-bilaterali-iii', en: 'states-debate-bilaterals-iii', de: 'staenderat-debatte-bilaterale-iii', fr: 'debat-etats-bilaterales-iii' },
  'voto-iniziativa-neutralita-grigioni': { it: 'voto-iniziativa-neutralita-grigioni', en: 'neutrality-initiative-vote-grisons', de: 'neutralitaetsinitiative-abstimmung-graubuenden', fr: 'vote-initiative-neutralite-grisons' },
  'soletta-avvio-impresa-obblighi': { it: 'soletta-avvio-impresa-obblighi', en: 'solothurn-business-startup-costs', de: 'geschaeftsstart-solothurn-kosten', fr: 'creation-entreprise-soleure-couts' },
+ 'swiss-starlink-aereo-internet': { it: 'swiss-starlink-aereo-internet', en: 'swiss-starlink-airplane-internet', de: 'swiss-starlink-flugzeug-internet', fr: 'swiss-starlink-avion-internet' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
