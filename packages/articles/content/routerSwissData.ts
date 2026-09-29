@@ -2381,6 +2381,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'parlamento-svizzero-strumenti-ricerca': { it: 'parlamento-svizzero-strumenti-ricerca', en: 'swiss-parliament-search-tools', de: 'schweizer-parlament-suchwerkzeuge', fr: 'parlement-suisse-outils-recherche' },
  'percorsi-impiego-pubblico': { it: 'percorsi-impiego-pubblico', en: 'public-service-paths', de: 'wege-oeffentlicher-dienst', fr: 'parcours-service-public' },
  'premi-cassa-malati-2027-differenze-cantoni': { it: 'premi-cassa-malati-2027-differenze-cantoni', en: 'health-insurance-premiums-2027-cantonal-differences', de: 'krankenkassenpramien-2027-kantonale-unterschiede', fr: 'primes-assurance-maladie-2027-differences-cantonales' },
+ 'uss-freno-premi-cassa-malati-3': { it: 'uss-freno-premi-cassa-malati-3', en: 'uss-brake-health-insurance-premiums-3', de: 'sgv-bremsen-krankenkassen-praemien-3', fr: 'usoc-frein-premieres-assurance-maladie-3' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

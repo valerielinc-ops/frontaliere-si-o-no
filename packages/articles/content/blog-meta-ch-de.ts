@@ -7076,6 +7076,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Krankenkasse 2027: bis zu 10\'000 Franken Unterschied',
     'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Im Jahr 2027 wird der nationale Durchschnitt 16\'450 Franken betragen, aber zwischen Genf und Zug beträgt der Unterschied für dieselbe Familie knapp 10\'000 Franken.',
     'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Schweizer Familie prüft Krankenkassen-Rechnung im Tessin',
+    'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: Gesetzliche Prämienbremse bei 3%',
+    'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'Die USS fordert vom Ständerat eine Begrenzung der LAMal-Prämienerhöhungen auf 3%. Im Tessin beträgt der für 2027 erwartete Anstieg 3,7%.',
+    'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Bern, Sitz des Schweizerischen Parlaments, im Vordergrund ein Taschenrechner und eine Versicherungskarte.',
 };
 
 export default blogMetaChDe;
