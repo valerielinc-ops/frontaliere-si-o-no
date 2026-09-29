@@ -711,6 +711,7 @@ fi`);
         // Two reads verify the retry that recovers the transient race; the
         // third is the immediate final recheck before the verdict.
         rereadSequence: 'external-2 external-2 external-2',
+        prHead: 'external-2',
       });
       expect(moved.status, moved.stdout + moved.stderr).toBe(0);
       expect(moved.stdout).toContain('remote=external-2 ');
