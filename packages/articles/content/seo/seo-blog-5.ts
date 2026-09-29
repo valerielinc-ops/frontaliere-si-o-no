@@ -96637,6 +96637,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vertice-provinciale-beko-astuti': {
+    title: 'Vertice Beko: Astuti avverte crisi profonda | Frontaliere Ticino',
+    description: 'Il tavolo provinciale si è riunito lunedì 28 settembre a Villa Recalcati sulla vertenza Beko di Cassinetta; Astuti (Pd) denuncia mancato rispetto degli impegni',
+    keywords: 'frontalieri, ticino, svizzera, italia, vertice, beko, astuti, avverte',
+    ogTitle: 'Vertice provinciale Beko: Astuti avverte crisi profonda',
+    ogDescription: 'Lunedì 28 settembre il tavolo provinciale sulle crisi aziendali si è riunito a Villa Recalcati per affrontare la vertenza Beko di Cassinetta. Astuti (Pd) ha sottolineato che gli impegni della multinazionale non sono stati rispettati, che il costo',
+    canonicalPath: '/articoli-frontaliere/vertice-provinciale-beko-astuti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vertice Beko: Astuti avverte crisi profonda",
+      "description": "Il tavolo provinciale si è riunito lunedì 28 settembre a Villa Recalcati sulla vertenza Beko di Cassinetta; Astuti (Pd) denuncia mancato rispetto degli impegni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vertice-provinciale-beko-astuti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fabbrica con lavoratori al confine tra Ticino e Lombardia, cielo nuvoloso"
+      },
+      "datePublished": "2026-09-29T01:03:50+00:00",
+      "dateModified": "2026-09-29T01:03:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vertice-provinciale-beko-astuti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

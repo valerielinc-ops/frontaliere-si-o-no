@@ -12244,6 +12244,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centro-ovale-chiasso-nuova-proprieta.title': 'Centro Ovale Chiasso: nuova proprietà e fine Ellipticum',
     'blog.article.centro-ovale-chiasso-nuova-proprieta.excerpt': 'Dopo il fallimento del progetto Ellipticum il 9 settembre, il Centro Ovale di Chiasso passa a una multinazionale della moda, destinazione ancora incerta.',
     'blog.article.centro-ovale-chiasso-nuova-proprieta.imageAlt': 'Centro Ovale di Chiasso all\'entrata della dogana',
+    'blog.article.vertice-provinciale-beko-astuti.title': 'Vertice Beko: Astuti avverte crisi profonda',
+    'blog.article.vertice-provinciale-beko-astuti.excerpt': 'Il tavolo provinciale si è riunito lunedì 28 settembre a Villa Recalcati sulla vertenza Beko di Cassinetta; Astuti (Pd) avverte: «gli impegni non sono stati rispettati, a pagare sono lavoratori e territorio».',
+    'blog.article.vertice-provinciale-beko-astuti.imageAlt': 'Fabbrica con lavoratori al confine tra Ticino e Lombardia, cielo nuvoloso',
 };
 
 export default blogMetaIt;
