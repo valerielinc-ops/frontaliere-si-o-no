@@ -159,46 +159,39 @@ function parseListingPage(html = '') {
 }
 
 /**
- * Parse a Zermatt Bergbahnen job detail page for full description.
+ * Parse a job detail page for the vacancy text.
+ *
+ * Issue 5253: the old selector list took the LARGEST `.content-block`, which on
+ * matterhornparadise.ch is the page wrapper: category, breadcrumbs
+ * ("breadcrumbs.home Über uns Jobs und Karriere"), the vacancy, and the online
+ * application form ("Anrede * Vorname * … Datei hochladen"). The vacancy is
+ * made of the inner `.content-block.container` rows (intro, "Dein Job",
+ * "Dein Profil / Wir bieten"); the form is a `.slide` block with inputs. Only
+ * those rows are read, in page order; a page without them yields '' and the
+ * job is not published instead of carrying navigation or form text.
  */
 function parseDetailPage(html = '') {
   if (!html) return '';
 
   const { document } = new JSDOM(html).window;
+  // Call-to-action buttons ("Jetzt bewerben" → #application-form) are page
+  // chrome, not vacancy text.
+  for (const cta of document.querySelectorAll('a.btn, button, a[href^="#application"]')) cta.remove();
+  const rows = [...document.querySelectorAll('.content-block.container')]
+    .filter((el) => !el.querySelector('form, input, select, textarea'));
+  const blocks = rows.length > 0
+    ? rows
+    : [...document.querySelectorAll('.ce-bodytext, .frame-type-text')];
 
-  const BODY_SELECTORS = [
-    '.content-block',
-    '.ce-bodytext',
-    '.frame-type-text',
-    'article',
-    '.content-main',
-    '#content',
-    'main',
-  ];
-
-  let body = '';
-  for (const sel of BODY_SELECTORS) {
-    const els = document.querySelectorAll(sel);
-    for (const el of els) {
-      const candidate = stripHtml(el.innerHTML || '');
-      if (candidate.length > body.length) body = candidate;
-    }
-    if (body.length >= MIN_DESC_LENGTH) break;
-  }
-
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
-  }
-
-  return body;
+  return blocks
+    .map((el) => stripHtml(el.innerHTML || '')
+      .split('\n')
+      .map((line) => line.trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim())
+    .filter(Boolean)
+    .join('\n\n');
 }
 
 /* ── Category / Employment helpers ────────────────────────── */

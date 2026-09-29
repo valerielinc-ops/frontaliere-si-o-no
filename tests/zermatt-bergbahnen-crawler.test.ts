@@ -162,7 +162,7 @@ describe('Zermatt Bergbahnen crawler parser', () => {
     it('parses jobs from the AJAX tab JSON payload', async () => {
       fetchHtml
         .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
-        .mockResolvedValueOnce(`<article>${'x'.repeat(120)}</article>`);
+        .mockResolvedValueOnce(`<div class="content-block container"><p>${'x'.repeat(120)}</p></div>`);
 
       const jobs = await fetchAllZermattBergbahnenJobs();
 
@@ -175,7 +175,7 @@ describe('Zermatt Bergbahnen crawler parser', () => {
     it('falls back to treating the response as raw HTML if it is not JSON', async () => {
       fetchHtml
         .mockResolvedValueOnce(`<ul>${LISTING_CARD}</ul>`)
-        .mockResolvedValueOnce(`<article>${'x'.repeat(120)}</article>`);
+        .mockResolvedValueOnce(`<div class="content-block container"><p>${'x'.repeat(120)}</p></div>`);
 
       const jobs = await fetchAllZermattBergbahnenJobs();
 
@@ -189,13 +189,53 @@ describe('Zermatt Bergbahnen crawler parser', () => {
         + 'Wir bieten dir ein engagiertes Team, ein Saisonabonnement und vergünstigte Mahlzeiten in unseren Restaurants.';
       fetchHtml
         .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${englishCard}</ul>`, success: true }))
-        .mockResolvedValueOnce(`<article>${germanBody}</article>`);
+        .mockResolvedValueOnce(`<div class="content-block container"><p>${germanBody}</p></div>`);
 
       const [job] = await fetchAllZermattBergbahnenJobs();
 
       expect(job.title).toBe('Customer Service Agent for the Valley Station');
       expect(job.sourceLang).toBe('de');
       expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
+    });
+
+    it('reads only the vacancy rows: no breadcrumbs, no apply button, no application form (issue 5253)', async () => {
+      // Minimized from the live page of job 3001261 (2026-09-29): the old
+      // parser took the whole outer `.content-block`, category and breadcrumbs
+      // included, down to the online application form.
+      const detail = `
+        <div class="content-block js-content-visibility">
+          <div class="hero">Technik Mitarbeitende/r Unterhalt &amp; Revision Gletscherlifte</div>
+          <nav class="breadcrumbs">breadcrumbs.home Über uns Jobs und Karriere</nav>
+          <div class="wysiwyg-usp-area content-block container">
+            <p>Die Zermatt Bergbahnen AG betreibt das ganzjährige, internationale Ausflugs- und Schneesportgebiet von Zermatt. Als moderner Arbeitgeber sind wir in Zermatt und im gesamten Mattertal stark verankert.</p>
+            <a class="btn btn-secondary" href="#application-form">Jetzt bewerben</a>
+          </div>
+          <div class="wysiwyg-with-medium content-block container">
+            <h3>Dein Job</h3><ul><li>Revisions- und Instandhaltungsarbeiten an den Gletscherliften</li><li>Störungsanalyse an mechanischen und hydraulischen Systemen</li></ul>
+          </div>
+          <div class="slide bg-white-dark content-block" id="application-form">
+            <form><label>Vorname *</label><input name="firstname"><label>Lebenslauf *</label><input type="file"> Datei hochladen</form>
+          </div>
+        </div>`;
+      fetchHtml
+        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
+        .mockResolvedValueOnce(detail);
+
+      const [job] = await fetchAllZermattBergbahnenJobs();
+
+      expect(job.description).toContain('Die Zermatt Bergbahnen AG betreibt');
+      expect(job.description).toContain('• Revisions- und Instandhaltungsarbeiten');
+      expect(job.description).not.toContain('breadcrumbs.home');
+      expect(job.description).not.toContain('Jetzt bewerben');
+      expect(job.description).not.toContain('Datei hochladen');
+    });
+
+    it('does not publish a job whose page has no vacancy rows (issue 5253)', async () => {
+      fetchHtml
+        .mockResolvedValueOnce(JSON.stringify({ html: `<ul>${LISTING_CARD}</ul>`, success: true }))
+        .mockResolvedValueOnce(`<main><nav>breadcrumbs.home Über uns Jobs und Karriere</nav><article>${'x'.repeat(150)}</article></main>`);
+
+      expect(await fetchAllZermattBergbahnenJobs()).toEqual([]);
     });
 
     it('returns an empty array when the tab payload has no job cards', async () => {

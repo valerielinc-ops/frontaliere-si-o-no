@@ -12,7 +12,9 @@ import {
   buildPemsaLocalizedContent,
   isPemsaInventedDescription,
   mergePemsaJobRecord,
+  parseDescriptionToMarkdown,
 } from '../scripts/lib/pemsa-job-parser.mjs';
+import { getCompanyBoilerplateIT } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const SOURCE_BODY = 'Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego fisso? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti mentiremo però: siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Imbianchino (M/F).';
 const ROUND_TRIP = 'la libertà del lavoro temporaneo e la sicurezza di un impiego fisso? Da 30 anni affianchiamo di centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti mentiremo però: siamo esigenti. Quindi, se sei una persona motivata ed urgente, unisciti al nostro team per la posizione di Imbianchino (M/F).';
@@ -107,5 +109,36 @@ describe('mergePemsaJobRecord', () => {
 
     expect(merged.needsRetranslation).toBeUndefined();
     expect(merged.descriptionByLocale.en).toBe(clean.descriptionByLocale.en);
+  });
+});
+
+describe('PEMSA ads with bold-paragraph sections (issue 5253)', () => {
+  // Minimized JSON-LD description of https://www.pemsa.ch/it/job/posatore-di-resina-2696898/
+  // (2026-09-29): plain intro, then "<p><strong>…</strong></p><ul>…" sections
+  // and no <h2-4>. The parser returned '' for it, and 3/313 stored jobs then
+  // carried the invented recruitment paragraph plus the central boilerplate.
+  const RAW = 'Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? \n\nDa 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera.\n'
+    + '&lt;/br&gt;&lt;p&gt;&lt;strong&gt;Il tuo incarico: &lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Leggere e interpretare i disegni esecutivi.&lt;/li&gt;\n&lt;li&gt;Preparare, riparare e controllare i supporti prima dell’applicazione.&lt;/li&gt;\n&lt;/ul&gt;\n'
+    + '&lt;p&gt;&lt;strong&gt;Il tuo profilo: &lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Esperienza nella posa di resine epossidiche o poliuretaniche.&lt;/li&gt;\n&lt;/ul&gt;';
+
+  it('reads intro and sections instead of returning an empty ad', () => {
+    const parsed = parseDescriptionToMarkdown(RAW);
+    expect(parsed.text).toContain('Vuoi la libertà del lavoro temporaneo');
+    expect(parsed.text).toContain('## Il tuo incarico:\n- Leggere e interpretare i disegni esecutivi.\n- Preparare, riparare');
+    expect(parsed.text).toContain('## Il tuo profilo:');
+    expect(parsed.sectionCount).toBe(2);
+  });
+
+  it('recognises the central boilerplate read from dedicated-crawler-common, bullet-split as stored', () => {
+    const central = getCompanyBoilerplateIT('PEMSA') as string;
+    const stored = `## Posatore di resina\n\n**PEMSA** — Genève (GE)\n\n${central.replace('. Offriamo', '. \n• Offriamo')}`;
+    expect(isPemsaInventedDescription(stored)).toBe(true);
+    const merged = mergePemsaJobRecord(
+      { ...STORED, sourceLang: 'it', description: stored, descriptionByLocale: { it: stored } },
+      freshJob(SOURCE_BODY),
+    );
+    expect(merged.descriptionByLocale.it).toBe(SOURCE_BODY);
+    expect(isPemsaInventedDescription(merged.description)).toBe(false);
+    expect(mergePemsaJobRecord({ ...STORED, sourceLang: 'it', description: stored, descriptionByLocale: { it: stored } }, freshJob(''))).toBeNull();
   });
 });

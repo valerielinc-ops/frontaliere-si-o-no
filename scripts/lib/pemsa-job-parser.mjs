@@ -17,6 +17,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   detectLang,
+  getCompanyBoilerplateIT,
   mergeLocaleTextMap,
   repairRelabeledSourceLocale,
 } from './dedicated-crawler-common.mjs';
@@ -84,6 +85,16 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
   let html = decoded.replace(/<\/br>/gi, '').replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ');
 
+  // Some PEMSA ads mark their sections with a bold paragraph instead of an
+  // <h2-4> ("<p><strong>Il tuo incarico: </strong></p><ul>…"). Without a
+  // heading nothing below was extracted and the ad published as EMPTY — the
+  // runner then filled it with invented text (issue 5253: 3/313 jobs carried
+  // the central company boilerplate). Promote those paragraphs to headings,
+  // only when the ad has no real heading at all.
+  if (!/<h[2-4][^>]*>/i.test(html)) {
+    html = html.replace(/<p[^>]*>\s*<(?:strong|b)>([\s\S]*?)<\/(?:strong|b)>\s*<\/p>/gi, '<h3>$1</h3>');
+  }
+
   const sections = [];
   const skipHeadings = /contatto|persona di contatto|contact|Kontakt|votre interlocuteur/i;
 
@@ -135,8 +146,10 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
       }
     }
 
-    // Plain text
-    const plain = contentBlock.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    // Plain text. List items were turned into "• " markers above: keep each
+    // on its own "- " line instead of flattening the list into prose.
+    const plain = contentBlock.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+      .replace(/^•\s*/, '- ').replace(/\s*•\s*/g, '\n- ');
     if (plain.length > 20) {
       sections.push(`## ${heading}\n${plain}`);
     }
@@ -292,11 +305,21 @@ export function buildPemsaLocalizedContent(job = {}) {
 
 // The recruitment paragraph the builder used to invent, in its four
 // languages. Only ever recognised to be removed from stored records.
-const PEMSA_INVENTED_DESCRIPTION_RE = /^PEMSA, (?:agenzia di reclutamento specializzata|a staffing agency specialised|eine auf Bau und Technik spezialisierte|agence de recrutement spécialisée)/i;
+const PEMSA_INVENTED_DESCRIPTION_RE = /(?:^|\n)PEMSA, (?:agenzia di reclutamento specializzata|a staffing agency specialised|eine auf Bau und Technik spezialisierte|agence de recrutement spécialisée)/i;
+// The central company paragraph `ensureMinimumDescriptionWordCount` appends
+// to short descriptions; read from the module, never copied here. Compared on
+// whitespace- and bullet-normalised text: the stored copies went through
+// `normalizeDescriptionBullets`, which split it into "• " lines.
+function normalizeForMatch(text = '') {
+  return String(text || '').replace(/(^|\s)[•*-]\s+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+const PEMSA_CENTRAL_BOILERPLATE = normalizeForMatch(getCompanyBoilerplateIT('PEMSA') || '');
 const PEMSA_MIN_SOURCE_BODY_CHARS = 100;
 
 export function isPemsaInventedDescription(text = '') {
-  return PEMSA_INVENTED_DESCRIPTION_RE.test(String(text || '').trim());
+  const value = String(text || '').trim();
+  return PEMSA_INVENTED_DESCRIPTION_RE.test(value)
+    || Boolean(PEMSA_CENTRAL_BOILERPLATE && normalizeForMatch(value).includes(PEMSA_CENTRAL_BOILERPLATE));
 }
 
 function pemsaSourceBody(job = {}) {
