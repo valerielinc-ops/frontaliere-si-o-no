@@ -7118,6 +7118,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.revisione-legge-materiale-bellico.title': 'Waffenexport: Gesetzesrevision zur Abstimmung',
     'blog.article.revisione-legge-materiale-bellico.excerpt': 'Der Bundesrat schlägt vor, die Vorschriften für die Ausfuhr von Kriegsmaterial zu lockern. Abstimmung am 29. November vorgesehen.',
     'blog.article.revisione-legge-materiale-bellico.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
+    'blog.article.revisione-legge-armi-votazione-novembre.title': 'Bern lockert Beschränkungen für Waffenexporte',
+    'blog.article.revisione-legge-armi-votazione-novembre.excerpt': 'Volksabstimmung am 29 novembre über die Revision des Kriegsmaterialgesetzes: mehr Flexibilität für Exporte und Wiederausfuhren in 17 EU-Länder und andere Staaten',
+    'blog.article.revisione-legge-armi-votazione-novembre.imageAlt': 'Lugano-Ansicht mit Schweizer Flagge und Waffenexportdokumenten',
 };
 
 export default blogMetaChDe;

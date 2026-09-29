@@ -92294,6 +92294,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-revisione-legge-armi-votazione-novembre': {
+    title: 'Berna allenta restrizioni esportazioni armi | Frontaliere Ticino',
+    description: 'Voto popolare 29 novembre per revisione legge materiale bellico: più flessibilità per esportazioni verso 17 Paesi UE e altri Stati. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, allenta, restrizioni, esportazioni',
+    ogTitle: 'Berna allenta restrizioni esportazioni armi',
+    ogDescription: 'Il 29 novembre si voterà la revisione della legge sul materiale bellico che introduce maggiore flessibilità per esportazioni e riesportazioni verso Paesi con regimi simili a quello svizzero.',
+    canonicalPath: '/articoli-svizzera/revisione-legge-armi-votazione-novembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna allenta restrizioni esportazioni armi",
+      "description": "Voto popolare 29 novembre per revisione legge materiale bellico: più flessibilità per esportazioni verso 17 Paesi UE e altri Stati. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/revisione-legge-armi-votazione-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con bandiera svizzera e documenti sulle esportazioni di armi"
+      },
+      "datePublished": "2026-09-29T23:20:15+00:00",
+      "dateModified": "2026-09-29T23:20:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revisione-legge-armi-votazione-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
