@@ -34,6 +34,9 @@ vi.mock('firebase-admin', () => {
   );
   return { default: { firestore } };
 });
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: { serverTimestamp: () => '__ts__', delete: () => '__delete__' },
+}));
 vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({ ensureAdminApp: vi.fn() }));
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 

@@ -74,6 +74,11 @@ vi.mock('firebase-admin', () => ({
   },
 }));
 
+vi.mock('firebase-admin/firestore', () => ({
+  Timestamp: firestore.Timestamp,
+  FieldValue: firestore.FieldValue,
+}));
+
 async function load() {
   return import('../functions/src/assistedApplicationRetention.js');
 }
