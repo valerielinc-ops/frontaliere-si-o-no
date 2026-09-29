@@ -29,6 +29,7 @@ import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, s
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -226,6 +227,18 @@ function updateAdapterConfig() {
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropJuliusBaerFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isJuliusBaerJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Julius Baer');
@@ -241,6 +254,7 @@ async function main() {
     const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isJuliusBaerJob)) : new Map();
     printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Julius Baer');
     writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Julius Baer');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

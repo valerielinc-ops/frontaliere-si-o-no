@@ -1,23 +1,21 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-09-29T09:24:05.301Z",
+  "generatedAt": "2026-09-29T21:17:42.834Z",
   "total": 1,
   "discovered": 1,
   "written": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6187,
-  "avgDurationMs": 6187,
+  "unchangedCount": 0,
+  "durationMs": 5851,
+  "avgDurationMs": 5851,
   "durationHistory": [
-    6187
+    5851
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Addetto/a rimessa",
       "company": "TPL - Trasporti Pubblici Luganesi",
@@ -49,13 +47,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-12T13:03:25.263Z",
-      "_qualityScore": 92,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 21,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

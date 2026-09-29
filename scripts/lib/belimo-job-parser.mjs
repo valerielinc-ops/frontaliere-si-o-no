@@ -54,6 +54,7 @@ import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-
 import { decodeEntities } from './prospector/entities.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -404,7 +405,7 @@ export async function fetchAllBelimoJobs() {
     // a description block used to go out as "{title} presso Belimo a {city}.";
     // it is not published any more.
     const descriptionText = stripHtml(parsed.descriptionHtml || '');
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       await new Promise((r) => setTimeout(r, DETAIL_FETCH_DELAY_MS));

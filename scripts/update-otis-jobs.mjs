@@ -63,6 +63,11 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Otis SA';
 
+function sameLocality(a, b) {
+  const key = (value) => String(value || '').normalize('NFD').replace(/\p{M}/gu, '').trim().toLowerCase();
+  return Boolean(key(a)) && key(a) === key(b);
+}
+
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
   const url = String(job?.url || '').toLowerCase();
@@ -146,6 +151,16 @@ async function main() {
     // listing location, so the more authoritative city wins over the array-order
     // sensitivity of a combined string.
     const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || '';
+    // The branch address printed in the ad ("Location: Nenzlingerweg 2, 4153
+    // Reinach") is the workplace, when it names the same town as the req.
+    // Street and postal code are set only when the ad prints both: a missing
+    // part is never guessed, so the posting's workplace stays unresolved and
+    // it is never grouped with another (identical-posting-dedupe).
+    const site = detail.siteAddress;
+    const siteAddress = site && site.streetAddress && site.postalCode
+      && sameLocality(site.locality, city)
+      ? { postalCode: site.postalCode, streetAddress: site.streetAddress }
+      : {};
     const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Switzerland')}`);
     // The language the body is written in, not a fixed `en` key.
     const sourceLang = sourceLangOfBody(description, 'en');
@@ -166,6 +181,7 @@ async function main() {
       location: city,
       canton,
       addressLocality: city,
+      ...siteAddress,
       addressCountry: 'CH',
       category: 'manufacturing',
       contract: 'full-time',
@@ -185,8 +201,9 @@ async function main() {
     return;
   }
 
-  // Two Workday reqs carrying the very same ad (title, site, text) are one
-  // vacancy to a reader, and publishing both made two identical pages.
+  // Two Workday reqs carrying the very same ad (title, branch address, text)
+  // are one vacancy to a reader, and publishing both made two identical
+  // pages. A req whose ad prints no full branch address is never grouped.
   const { jobs: uniqueJobs, dropped } = dropIdenticalPostings(parsedJobs);
   if (dropped.length > 0) {
     console.log(`  \ud83e\uddf9 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);

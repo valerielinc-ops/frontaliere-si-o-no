@@ -23,7 +23,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseMikronJobs, parseMikronJobDetail, dropMikronFabricatedText, keepMikronSourceBodies, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -81,14 +81,16 @@ function detectExperienceLevel(title = '') {
 
 async function fetchPage(url) {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'text/html', 'Accept-Language': 'en,it-CH;q=0.9' } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
+    return await fetchHtml(url, {
+      timeoutMs,
+      headers: {
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        Accept: 'text/html',
+        'Accept-Language': 'en,it-CH;q=0.9',
+      },
+    });
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 /**

@@ -20,7 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveLocalityAddress } from './lib/swiss-structured-address.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml as sharedFetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
@@ -70,11 +70,9 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    return await sharedFetchHtml(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'en,it-CH;q=0.9',
@@ -83,10 +81,7 @@ async function fetchPage(url, timeoutMs = 20000) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
 }
 
 function slugify(value = '') {

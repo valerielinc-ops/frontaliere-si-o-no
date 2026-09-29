@@ -32,8 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   isSuccessFactorsWidgetText,
   resolveSuccessFactorsTemplateTokens,
@@ -41,6 +40,7 @@ import {
 } from './successfactors-jobs2web-widget-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractBalancedTagBlockWithStatus, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -376,24 +376,14 @@ export function parseDetailPage(html, { listingTitle = '' } = {}) {
 /* ── HTTP fetch with timeout ──────────────────────────────── */
 
 async function fetchPage(url, timeoutMs, userAgent) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': userAgent,
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      'User-Agent': userAgent,
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
+    },
+  });
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -477,7 +467,7 @@ export async function fetchAllSchindlerJobs() {
       // replaced by an invented group summary; such a listing is not
       // published any more.
       const description = detail?.description || '';
-      if (description.split(/\s+/).filter(Boolean).length < 50) {
+      if (!meetsSourceBodyFloor(description)) {
         console.warn(`  ⏭️ Schindler: no vacancy text on the detail page, not published (${title})`);
         withoutBody += 1;
         await new Promise((r) => setTimeout(r, 300));

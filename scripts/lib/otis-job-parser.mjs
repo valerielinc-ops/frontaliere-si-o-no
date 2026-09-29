@@ -209,6 +209,40 @@ export function parseOtisWorkdayListings(apiResponse) {
 }
 
 /**
+ * The branch address the ad prints in its header ("Location:" followed by
+ * "Nenzlingerweg 2, 4153 Reinach", "Route de Moncor 12, CP 1136, 1701
+ * Fribourg", "Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH"). Post-office
+ * boxes are skipped; a part missing from the line stays empty, never guessed.
+ *
+ * @param {string} descriptionText
+ * @returns {{ streetAddress: string, postalCode: string, locality: string } | null}
+ */
+export function parseOtisSiteAddress(descriptionText = '') {
+  const match = /(?:^|\n)[ \t]*Location:[ \t]*\n?[ \t]*([^\n]+)/.exec(String(descriptionText || ''));
+  if (!match) return null;
+  const parts = match[1].split(',').map((part) => normalizeSpace(part)).filter(Boolean);
+  let streetAddress = '';
+  let postalCode = '';
+  let locality = '';
+  for (let i = 0; i < parts.length; i += 1) {
+    const part = parts[i];
+    if (/^(?:Postfach|CP|Case postale|PO Box)\b/i.test(part)) continue;
+    const postalAndLocality = /^(\d{4})\s+(.+)$/.exec(part);
+    if (postalAndLocality) {
+      [, postalCode, locality] = postalAndLocality;
+    } else if (/^\d{4}$/.test(part)) {
+      postalCode = part;
+    } else if (!streetAddress && !postalCode && i === 0) {
+      streetAddress = part;
+    } else if (!locality) {
+      locality = part;
+    }
+  }
+  locality = locality.replace(/\s*\/\s*[A-Z]{2}$/, '').trim();
+  return { streetAddress, postalCode, locality };
+}
+
+/**
  * Parse a single Workday job detail response.
  *
  * @param {object} detail - Parsed JSON from Workday job detail endpoint
@@ -236,6 +270,7 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
     description: descriptionText,
     url: publicUrl,
     city,
+    siteAddress: parseOtisSiteAddress(descriptionText),
     canton: inferAnyCanton(city) || '',
     employmentType: inferEmploymentType(title, descriptionText, timeType),
     datePosted: startDate,

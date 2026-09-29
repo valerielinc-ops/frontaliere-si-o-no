@@ -12295,6 +12295,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premi-lamal-ticino-de-rosa.title': 'Primes LAMal au Tessin 2027 : hausse de 3,7% et 519,90 francs',
     'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'En 2027, la hausse des primes au Tessin sera de 3,7%, avec 519,90 francs par mois. Le directeur du DSS, Raffaele De Rosa, commente les mesures et les dépenses de santé.',
     'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'Vue de Bellinzona avec des châteaux médiévaux',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.title': 'Accord Varese-Tessin : S40/S50 toutes les 30 min et RE50 Malpensa',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.excerpt': 'Le Conseil régional a ratifié l\'accord : S40 et S50 toutes les 30 min entre Varese et Mendrisio. La RE50 est prévue pour Malpensa et Lugano.',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.imageAlt': 'Gare de Mendrisio: nouvelle liaison S40/S50 toutes les 30 minutes vers Varese et Malpensa',
 };
 
 export default blogMetaFr;

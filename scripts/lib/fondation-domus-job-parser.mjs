@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
@@ -198,23 +198,14 @@ function parseFrenchDate(raw = '') {
  */
 async function fetchCareerPage() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'fr-CH,fr;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(CAREER_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'fr-CH,fr;q=0.9',
+    },
+  });
 }
 
 /**
@@ -341,20 +332,16 @@ export function parseJobsFromHtml(html = '') {
  */
 async function fetchJobUpDescription(jobUpUrl) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(jobUpUrl, {
-      signal: controller.signal,
+    const html = await fetchHtml(jobUpUrl, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'User-Agent': USER_AGENT,
         'Accept-Language': 'fr-CH,fr;q=0.9',
       },
     });
-    if (!res.ok) return null;
-    const html = await res.text();
 
     // Try JSON-LD JobPosting first (most reliable).
     // JobUp wraps JSON-LD in an array: [{...}]
@@ -381,8 +368,6 @@ async function fetchJobUpDescription(jobUpUrl) {
     return null;
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 

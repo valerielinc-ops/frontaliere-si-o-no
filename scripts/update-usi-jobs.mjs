@@ -57,6 +57,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1252,6 +1253,18 @@ function validateUsiLocaleCoverage() {
 // Main
 // ──────────────────────────────────────────────────────────────
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropUsiFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(USI_KEY, DATA_JOBS).filter(isUsiJob),
+    companyKey: USI_KEY,
+    companyLabel: USI_COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(USI_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(USI_KEY, 'USI');
@@ -1267,6 +1280,7 @@ async function main() {
     console.log('   The careers page may have changed structure or be temporarily unavailable.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     logUsiJobStats();
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -1297,6 +1311,7 @@ async function main() {
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job USI trovato in questa esecuzione. Nessun errore — uscita OK.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

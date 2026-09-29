@@ -1,23 +1,171 @@
 {
   "key": "anker-swiss",
   "label": "Anker Swiss Ticino AG",
-  "generatedAt": "2026-09-29T09:25:47.156Z",
-  "total": 209,
+  "generatedAt": "2026-09-29T21:29:39.420Z",
+  "total": 213,
   "discovered": null,
-  "parsed": 249,
+  "parsed": 253,
   "lastFetchOutcome": null,
-  "written": 209,
+  "written": 213,
   "authoritativeEmptySnapshot": false,
-  "newCount": 40,
+  "newCount": 44,
   "updatedCount": 209,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 631554,
-  "avgDurationMs": 631554,
+  "durationMs": 641162,
+  "avgDurationMs": 641162,
   "durationHistory": [
-    631554
+    641162
   ],
   "newJobs": [
+    {
+      "id": "anker-swiss-f0800fffad14",
+      "slug": "dachdecker-100-anker-swiss-ticino-ag-fluelen-f0800fff",
+      "slugDisambiguator": "f0800fff",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Dachdecker 100%",
+      "location": "Flüelen",
+      "canton": "UR",
+      "url": "https://anker-swiss.ch/stellen/dachdecker-1428914/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:29:30.305Z",
+      "addressLocality": "Flüelen",
+      "addressRegion": "UR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1428914/",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "anker-swiss-19e09300f7fb",
+      "slug": "dachdecker-100-anker-swiss-ticino-ag-seon-19e09300",
+      "slugDisambiguator": "19e09300",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Dachdecker 100%",
+      "location": "Seon",
+      "canton": "AG",
+      "url": "https://anker-swiss.ch/stellen/dachdecker-1428614/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:29:30.308Z",
+      "addressLocality": "Seon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1428614/",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "anker-swiss-587f04b7a7a9",
+      "slug": "dachdecker-100-anker-swiss-ticino-ag-thun-587f04b7",
+      "slugDisambiguator": "587f04b7",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Dachdecker 100%",
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://anker-swiss.ch/stellen/dachdecker-1428411/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:29:30.309Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1428411/",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "anker-swiss-8240ac261c52",
+      "slug": "schreiner-100-anker-swiss-ticino-ag-liestal-8240ac26",
+      "slugDisambiguator": "8240ac26",
+      "company": "Anker Swiss Ticino AG",
+      "companyKey": "anker-swiss",
+      "companyDomain": "anker-swiss.ch",
+      "title": "Schreiner 100%",
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://anker-swiss.ch/stellen/schreiner-1428034/",
+      "source": "Anker Swiss Ticino AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-29T21:29:30.309Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29",
+      "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1428034/",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
     {
       "id": "anker-swiss-60b34b330d41",
       "slug": "storenmonteur-100-anker-swiss-ticino-ag-dietikon-60b34b33",
@@ -31,7 +179,7 @@
       "url": "https://anker-swiss.ch/stellen/storenmonteur-1425711/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.086Z",
+      "crawledAt": "2026-09-29T21:29:30.310Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -47,10 +195,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/storenmonteur-1425711/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -68,7 +216,7 @@
       "url": "https://anker-swiss.ch/stellen/storenmonteur-1425627/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.088Z",
+      "crawledAt": "2026-09-29T21:29:30.310Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -84,10 +232,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/storenmonteur-1425627/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -105,7 +253,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1425422/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.089Z",
+      "crawledAt": "2026-09-29T21:29:30.311Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -121,10 +269,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1425422/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -142,7 +290,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1423092/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.094Z",
+      "crawledAt": "2026-09-29T21:29:30.314Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -158,10 +306,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/flachdachbauer-1423092/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -179,7 +327,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1422647/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.094Z",
+      "crawledAt": "2026-09-29T21:29:30.314Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,10 +343,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1422647/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -216,7 +364,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1420730/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.096Z",
+      "crawledAt": "2026-09-29T21:29:30.315Z",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -232,10 +380,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1420730/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -253,7 +401,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1419033/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.096Z",
+      "crawledAt": "2026-09-29T21:29:30.316Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -269,10 +417,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1419033/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -290,7 +438,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1365769/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.098Z",
+      "crawledAt": "2026-09-29T21:29:30.317Z",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -306,10 +454,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1365769/",
-      "_qualityScore": 56,
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -327,7 +475,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1405971/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.101Z",
+      "crawledAt": "2026-09-29T21:29:30.319Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -343,10 +491,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1405971/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -364,7 +512,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1362016/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.102Z",
+      "crawledAt": "2026-09-29T21:29:30.319Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -380,10 +528,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/maler-1362016/",
-      "_qualityScore": 59,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -401,7 +549,7 @@
       "url": "https://anker-swiss.ch/stellen/flachdachbauer-1404220/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.103Z",
+      "crawledAt": "2026-09-29T21:29:30.320Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,10 +565,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/flachdachbauer-1404220/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -438,7 +586,7 @@
       "url": "https://anker-swiss.ch/stellen/betonwerker-1398593/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.114Z",
+      "crawledAt": "2026-09-29T21:29:30.328Z",
       "addressLocality": "Veltheim AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -454,10 +602,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/betonwerker-1398593/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -475,7 +623,7 @@
       "url": "https://anker-swiss.ch/stellen/maurer-1393436/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.119Z",
+      "crawledAt": "2026-09-29T21:29:30.332Z",
       "addressLocality": "Unteriberg",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -491,10 +639,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/maurer-1393436/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -512,7 +660,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1392963/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.119Z",
+      "crawledAt": "2026-09-29T21:29:30.332Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -528,10 +676,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1392963/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -549,7 +697,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1392269/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.121Z",
+      "crawledAt": "2026-09-29T21:29:30.334Z",
       "addressLocality": "Tägerig",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -565,10 +713,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1392269/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -586,7 +734,7 @@
       "url": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1387738/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.122Z",
+      "crawledAt": "2026-09-29T21:29:30.335Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -602,10 +750,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/lueftungsanlagenbauer-1387738/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -623,7 +771,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1386531/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.124Z",
+      "crawledAt": "2026-09-29T21:29:30.336Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -639,28 +787,28 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1386531/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
     },
     {
-      "id": "anker-swiss-232ef3b917ee",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-      "slugDisambiguator": "232ef3b9",
+      "id": "anker-swiss-d081b1358907",
+      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+      "slugDisambiguator": "d081b135",
       "company": "Anker Swiss Ticino AG",
       "companyKey": "anker-swiss",
       "companyDomain": "anker-swiss.ch",
       "title": "Sanitärinstallateur 100%",
       "location": "Dübendorf",
       "canton": "ZH",
-      "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1385155/",
+      "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1385342/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.126Z",
+      "crawledAt": "2026-09-29T21:29:30.337Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -675,11 +823,11 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-29",
-      "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1385155/",
-      "_qualityScore": 64,
+      "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1385342/",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -697,7 +845,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1384485/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.127Z",
+      "crawledAt": "2026-09-29T21:29:30.338Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -713,10 +861,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/heizungsinstallateur-1384485/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -734,7 +882,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1384036/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.128Z",
+      "crawledAt": "2026-09-29T21:29:30.339Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -750,10 +898,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1384036/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -771,7 +919,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1383460/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.132Z",
+      "crawledAt": "2026-09-29T21:29:30.340Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -787,10 +935,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/heizungsinstallateur-1383460/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -808,7 +956,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1382490/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.133Z",
+      "crawledAt": "2026-09-29T21:29:30.341Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -824,10 +972,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/heizungsinstallateur-1382490/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -845,7 +993,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1382191/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.134Z",
+      "crawledAt": "2026-09-29T21:29:30.341Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -861,10 +1009,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1382191/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -882,7 +1030,7 @@
       "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1381538/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.135Z",
+      "crawledAt": "2026-09-29T21:29:30.342Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -898,10 +1046,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/heizungsinstallateur-1381538/",
-      "_qualityScore": 64,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 17
       }
@@ -919,7 +1067,7 @@
       "url": "https://anker-swiss.ch/stellen/plattenleger-1380720/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.136Z",
+      "crawledAt": "2026-09-29T21:29:30.343Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -935,10 +1083,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/plattenleger-1380720/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -956,7 +1104,7 @@
       "url": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1378290/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.138Z",
+      "crawledAt": "2026-09-29T21:29:30.345Z",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -972,158 +1120,10 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://anker-swiss.ch/stellen/sanitaerinstallateur-1378290/",
-      "_qualityScore": 61,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "anker-swiss-cd923fc2f525",
-      "slug": "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-      "slugDisambiguator": "cd923fc2",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Maler 100%",
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://anker-swiss.ch/stellen/maler-1337028/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.139Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "applyUrl": "https://anker-swiss.ch/stellen/maler-1337028/",
-      "_qualityScore": 59,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "anker-swiss-6fa1ae284194",
-      "slug": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-      "slugDisambiguator": "6fa1ae28",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Maler 100%",
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://anker-swiss.ch/stellen/maler-1336219/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.140Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "applyUrl": "https://anker-swiss.ch/stellen/maler-1336219/",
-      "_qualityScore": 59,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "anker-swiss-2f3a5cca49a3",
-      "slug": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-      "slugDisambiguator": "2f3a5cca",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Gipser-Trockenbauer 100%",
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325354/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.143Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325354/",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "anker-swiss-5edaf9468672",
-      "slug": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-      "slugDisambiguator": "5edaf946",
-      "company": "Anker Swiss Ticino AG",
-      "companyKey": "anker-swiss",
-      "companyDomain": "anker-swiss.ch",
-      "title": "Gipser-Trockenbauer 100%",
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325153/",
-      "source": "Anker Swiss Ticino AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.143Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1325153/",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 4,
         "completeness": 14
       }
@@ -1143,7 +1143,7 @@
       "url": "https://anker-swiss.ch/stellen/projektleiter-innenausbau-1425397/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.091Z",
+      "crawledAt": "2026-09-29T21:29:30.311Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1160,10 +1160,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/projektleiter-innenausbau-1425397/",
       "firstSeenAt": "2026-09-28T21:25:09.086Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1181,7 +1181,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1424629/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.092Z",
+      "crawledAt": "2026-09-29T21:29:30.312Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "St. Gallen",
       "addressCountry": "CH",
@@ -1198,10 +1198,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/maler-1424629/",
       "firstSeenAt": "2026-09-28T21:25:09.087Z",
-      "_qualityScore": 80,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1219,7 +1219,7 @@
       "url": "https://anker-swiss.ch/stellen/boden-parkettleger-1424317/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.092Z",
+      "crawledAt": "2026-09-29T21:29:30.312Z",
       "addressLocality": "Hitzkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1236,10 +1236,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/boden-parkettleger-1424317/",
       "firstSeenAt": "2026-09-28T21:25:09.088Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1257,7 +1257,7 @@
       "url": "https://anker-swiss.ch/stellen/boden-parkettleger-1424223/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.093Z",
+      "crawledAt": "2026-09-29T21:29:30.313Z",
       "addressLocality": "Wiedlisbach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1274,10 +1274,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/boden-parkettleger-1424223/",
       "firstSeenAt": "2026-09-28T21:25:09.088Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1295,7 +1295,7 @@
       "url": "https://anker-swiss.ch/stellen/technischer-zeichner-1424151/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T09:25:37.093Z",
+      "crawledAt": "2026-09-29T21:29:30.313Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1312,10 +1312,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/technischer-zeichner-1424151/",
       "firstSeenAt": "2026-09-28T21:25:09.089Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -1333,7 +1333,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1422413/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.095Z",
+      "crawledAt": "2026-09-29T21:29:30.315Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1350,10 +1350,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1422413/",
       "firstSeenAt": "2026-09-28T21:25:09.091Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1371,7 +1371,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1419278/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.096Z",
+      "crawledAt": "2026-09-29T21:29:30.315Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1388,10 +1388,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1419278/",
       "firstSeenAt": "2026-09-28T03:33:34.967Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1409,7 +1409,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1418930/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.097Z",
+      "crawledAt": "2026-09-29T21:29:30.317Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1426,10 +1426,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1418930/",
       "firstSeenAt": "2026-09-28T03:33:34.969Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1447,7 +1447,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1417700/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.098Z",
+      "crawledAt": "2026-09-29T21:29:30.318Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -1464,10 +1464,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1417700/",
       "firstSeenAt": "2026-09-10T23:16:52.549Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1485,7 +1485,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1404402/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.102Z",
+      "crawledAt": "2026-09-29T21:29:30.320Z",
       "addressLocality": "Malters",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1503,11 +1503,11 @@
       "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1404402/",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-06T23:02:53.023Z",
-      "_qualityScore": 80,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
+        "richness": 22,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -1524,7 +1524,7 @@
       "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1293251/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.161Z",
+      "crawledAt": "2026-09-29T21:29:30.363Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -1541,10 +1541,10 @@
       "postedDate": "2026-09-28",
       "applyUrl": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1293251/",
       "firstSeenAt": "2026-09-06T23:02:57.247Z",
-      "_qualityScore": 80,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1562,7 +1562,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1279913/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.178Z",
+      "crawledAt": "2026-09-29T21:29:30.376Z",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1580,11 +1580,11 @@
       "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1279913/",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T16:09:43.508Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
+        "richness": 22,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -1601,7 +1601,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1395952/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.117Z",
+      "crawledAt": "2026-09-29T21:29:30.330Z",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1618,10 +1618,10 @@
       "postedDate": "2026-09-27",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1395952/",
       "firstSeenAt": "2026-09-19T23:05:17.521Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1639,7 +1639,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1415467/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.099Z",
+      "crawledAt": "2026-09-29T21:29:30.318Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "addressCountry": "CH",
@@ -1656,10 +1656,10 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1415467/",
       "firstSeenAt": "2026-09-26T14:05:02.394Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1677,7 +1677,7 @@
       "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1414846/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.100Z",
+      "crawledAt": "2026-09-29T21:29:30.318Z",
       "addressLocality": "Staffelbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1694,10 +1694,10 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1414846/",
       "firstSeenAt": "2026-09-26T14:05:02.395Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1715,7 +1715,7 @@
       "url": "https://anker-swiss.ch/stellen/boden-parkettleger-1380603/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.137Z",
+      "crawledAt": "2026-09-29T21:29:30.343Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1732,10 +1732,10 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://anker-swiss.ch/stellen/boden-parkettleger-1380603/",
       "firstSeenAt": "2026-09-06T23:03:08.415Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1753,7 +1753,7 @@
       "url": "https://anker-swiss.ch/stellen/zimmermann-1368892/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.150Z",
+      "crawledAt": "2026-09-29T21:29:30.354Z",
       "addressLocality": "Beinwil am See",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1771,10 +1771,10 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1368892/",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-06T23:03:09.624Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 20,
         "completeness": 14
       }
@@ -1792,7 +1792,7 @@
       "url": "https://anker-swiss.ch/stellen/gaertner-1360859/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.160Z",
+      "crawledAt": "2026-09-29T21:29:30.362Z",
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1809,10 +1809,10 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://anker-swiss.ch/stellen/gaertner-1360859/",
       "firstSeenAt": "2026-09-06T23:03:08.112Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1830,7 +1830,7 @@
       "url": "https://anker-swiss.ch/stellen/maler-1294280/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.161Z",
+      "crawledAt": "2026-09-29T21:29:30.363Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -1847,10 +1847,10 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://anker-swiss.ch/stellen/maler-1294280/",
       "firstSeenAt": "2026-09-19T23:05:17.534Z",
-      "_qualityScore": 80,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1868,7 +1868,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1405838/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.101Z",
+      "crawledAt": "2026-09-29T21:29:30.319Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1885,10 +1885,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1405838/",
       "firstSeenAt": "2026-09-25T14:55:33.067Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1906,7 +1906,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1403686/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.108Z",
+      "crawledAt": "2026-09-29T21:29:30.325Z",
       "addressLocality": "Bremgarten AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1923,10 +1923,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1403686/",
       "firstSeenAt": "2026-09-25T14:55:33.072Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1944,7 +1944,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1402279/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.109Z",
+      "crawledAt": "2026-09-29T21:29:30.326Z",
       "addressLocality": "Krauchthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1961,10 +1961,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1402279/",
       "firstSeenAt": "2026-09-25T14:55:33.073Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -1982,7 +1982,7 @@
       "url": "https://anker-swiss.ch/stellen/elektroinstallateur-1399378/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.109Z",
+      "crawledAt": "2026-09-29T21:29:30.326Z",
       "addressLocality": "Krauchthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1999,10 +1999,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1399378/",
       "firstSeenAt": "2026-09-25T14:55:33.073Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -2020,7 +2020,7 @@
       "url": "https://anker-swiss.ch/stellen/betonwerker-1399254/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.110Z",
+      "crawledAt": "2026-09-29T21:29:30.326Z",
       "addressLocality": "Büron",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2037,10 +2037,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/betonwerker-1399254/",
       "firstSeenAt": "2026-09-25T14:55:33.073Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -2058,7 +2058,7 @@
       "url": "https://anker-swiss.ch/stellen/anlagenfuehrer-1399085/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.111Z",
+      "crawledAt": "2026-09-29T21:29:30.327Z",
       "addressLocality": "Wikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2075,10 +2075,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/anlagenfuehrer-1399085/",
       "firstSeenAt": "2026-09-25T14:55:33.074Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -2096,7 +2096,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1350727/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.172Z",
+      "crawledAt": "2026-09-29T21:29:30.372Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -2113,10 +2113,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1350727/",
       "firstSeenAt": "2026-09-10T23:16:52.604Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -2134,7 +2134,7 @@
       "url": "https://anker-swiss.ch/stellen/metallbaukonstrukteur-1322942/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.186Z",
+      "crawledAt": "2026-09-29T21:29:30.383Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2151,10 +2151,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://anker-swiss.ch/stellen/metallbaukonstrukteur-1322942/",
       "firstSeenAt": "2026-09-06T23:03:11.131Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -2172,7 +2172,7 @@
       "url": "https://anker-swiss.ch/stellen/dachdecker-1398172/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.115Z",
+      "crawledAt": "2026-09-29T21:29:30.329Z",
       "addressLocality": "Schüpfheim",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2189,10 +2189,10 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://anker-swiss.ch/stellen/dachdecker-1398172/",
       "firstSeenAt": "2026-09-23T23:53:10.866Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -2210,7 +2210,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1397814/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.115Z",
+      "crawledAt": "2026-09-29T21:29:30.329Z",
       "addressLocality": "Herzogenbuchsee",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2227,10 +2227,10 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1397814/",
       "firstSeenAt": "2026-09-23T23:53:10.867Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -2248,7 +2248,7 @@
       "url": "https://anker-swiss.ch/stellen/schreiner-1397415/",
       "source": "Anker Swiss Ticino AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:25:37.116Z",
+      "crawledAt": "2026-09-29T21:29:30.329Z",
       "addressLocality": "Ersigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2265,10 +2265,10 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://anker-swiss.ch/stellen/schreiner-1397415/",
       "firstSeenAt": "2026-09-23T23:53:10.867Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }

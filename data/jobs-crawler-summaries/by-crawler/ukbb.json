@@ -1,7 +1,7 @@
 {
   "key": "ukbb",
   "label": "Universitäts-Kinderspital beider Basel",
-  "generatedAt": "2026-09-29T09:14:53.326Z",
+  "generatedAt": "2026-09-29T21:15:43.601Z",
   "total": 27,
   "discovered": null,
   "parsed": 27,
@@ -12,10 +12,10 @@
   "updatedCount": 27,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22673,
-  "avgDurationMs": 22673,
+  "durationMs": 25089,
+  "avgDurationMs": 25089,
   "durationHistory": [
-    22673
+    25089
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://jobs.ukbb.ch/jobs/wissenschaftliche-assistenz-hiwi-befristet-bis-31-dezember-2027/c89251f5-37ae-460a-b0ca-dd4b6013c787",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:40.733Z",
+      "crawledAt": "2026-09-29T21:15:28.938Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -49,10 +49,10 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://jobs.ukbb.ch/jobs/wissenschaftliche-assistenz-hiwi-befristet-bis-31-dezember-2027/c89251f5-37ae-460a-b0ca-dd4b6013c787",
       "firstSeenAt": "2026-09-25T14:39:46.516Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -70,14 +70,14 @@
       "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-polikliniken-80-100-befristet/ecdde5d7-ceea-404e-8e89-bb90b5a0033f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:46.527Z",
+      "crawledAt": "2026-09-29T21:15:35.340Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4056",
       "streetAddress": "Spitalstrasse 33",
-      "category": "IT",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -87,11 +87,11 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-polikliniken-80-100-befristet/ecdde5d7-ceea-404e-8e89-bb90b5a0033f",
       "firstSeenAt": "2026-09-25T14:39:52.437Z",
-      "_qualityScore": 83,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 20,
+        "richness": 22,
+        "translation": 10,
         "completeness": 20
       }
     },
@@ -108,7 +108,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-mit-stv-leitung-med-dokumentation-80/080ffe54-956a-4977-89f2-a30d621e6477",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:28.306Z",
+      "crawledAt": "2026-09-29T21:15:14.867Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -125,11 +125,11 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://jobs.ukbb.ch/jobs/fachspezialist-in-mit-stv-leitung-med-dokumentation-80/080ffe54-956a-4977-89f2-a30d621e6477",
       "firstSeenAt": "2026-09-23T23:38:17.597Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -146,7 +146,7 @@
       "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-80/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:35.720Z",
+      "crawledAt": "2026-09-29T21:15:23.328Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -163,11 +163,11 @@
       "postedDate": "2026-09-14",
       "applyUrl": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-80/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
       "firstSeenAt": "2026-09-17T14:25:09.818Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -184,7 +184,7 @@
       "url": "https://jobs.ukbb.ch/jobs/paediatrische-r-aerzt-in-in-unserem-ambulatorium/65c4b742-401c-42d9-8dea-f58e1029b856",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:35.158Z",
+      "crawledAt": "2026-09-29T21:15:22.627Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "streetAddress": "Spitalstrasse 33",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -201,11 +201,11 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://jobs.ukbb.ch/jobs/paediatrische-r-aerzt-in-in-unserem-ambulatorium/65c4b742-401c-42d9-8dea-f58e1029b856",
       "firstSeenAt": "2026-09-07T23:23:34.308Z",
-      "_qualityScore": 80,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -222,7 +222,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fms-praktikant-in-100/81a0ef6f-8ff0-41de-89a5-2b32481afd77",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:36.283Z",
+      "crawledAt": "2026-09-29T21:15:24.026Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -239,11 +239,11 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://jobs.ukbb.ch/jobs/fms-praktikant-in-100/81a0ef6f-8ff0-41de-89a5-2b32481afd77",
       "firstSeenAt": "2026-09-07T15:03:12.049Z",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -260,7 +260,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-neuropaediatrie-100/503c8e59-624f-42f2-9c06-4f7735d0ebe9",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:34.583Z",
+      "crawledAt": "2026-09-29T21:15:21.920Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -277,11 +277,11 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://jobs.ukbb.ch/jobs/oberarzt-in-neuropaediatrie-100/503c8e59-624f-42f2-9c06-4f7735d0ebe9",
       "firstSeenAt": "2026-09-04T13:31:04.834Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -298,7 +298,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ict-applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100/478cee10-aed9-4954-9924-92d8f6ddd9e2",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:33.441Z",
+      "crawledAt": "2026-09-29T21:15:20.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -315,11 +315,11 @@
       "postedDate": "2026-09-02",
       "applyUrl": "https://jobs.ukbb.ch/jobs/ict-applikationsbetreuer-in-mit-schwerpunkt-kis-kisim-100/478cee10-aed9-4954-9924-92d8f6ddd9e2",
       "firstSeenAt": "2026-09-02T23:07:12.210Z",
-      "_qualityScore": 90,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 24,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -336,14 +336,14 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-patientenaufnahme-100/2b78f596-2408-4404-b1af-83bdbe9f1d26",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:30.592Z",
+      "crawledAt": "2026-09-29T21:15:17.353Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4056",
       "streetAddress": "Spitalstrasse 33",
-      "category": "IT",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
@@ -353,11 +353,11 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.ukbb.ch/jobs/teamleiter-in-patientenaufnahme-100/2b78f596-2408-4404-b1af-83bdbe9f1d26",
       "firstSeenAt": "2026-08-31T17:01:00.574Z",
-      "_qualityScore": 88,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 24,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -374,7 +374,7 @@
       "url": "https://jobs.ukbb.ch/jobs/expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100/4a0d26ea-c54c-4093-a107-521d48e3413e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:34.017Z",
+      "crawledAt": "2026-09-29T21:15:21.206Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -391,10 +391,10 @@
       "postedDate": "2026-08-26",
       "applyUrl": "https://jobs.ukbb.ch/jobs/expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100/4a0d26ea-c54c-4093-a107-521d48e3413e",
       "firstSeenAt": "2026-08-27T00:36:14.452Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -412,7 +412,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-ertragsmanagement-60-70/97e75efa-3bbf-4cf2-880b-d78a2df122b5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:37.444Z",
+      "crawledAt": "2026-09-29T21:15:25.338Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -429,11 +429,11 @@
       "postedDate": "2026-08-26",
       "applyUrl": "https://jobs.ukbb.ch/jobs/fachspezialist-in-ertragsmanagement-60-70/97e75efa-3bbf-4cf2-880b-d78a2df122b5",
       "firstSeenAt": "2026-08-27T00:36:17.742Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -450,7 +450,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-terminkoordination-100-polikliniken-radiologie/3b3e5804-60ce-46a2-9df6-50de5a90193c",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:32.020Z",
+      "crawledAt": "2026-09-29T21:15:18.800Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -467,11 +467,11 @@
       "postedDate": "2026-07-31",
       "applyUrl": "https://jobs.ukbb.ch/jobs/teamleiter-in-terminkoordination-100-polikliniken-radiologie/3b3e5804-60ce-46a2-9df6-50de5a90193c",
       "firstSeenAt": "2026-07-31T22:07:06.889Z",
-      "_qualityScore": 80,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -488,7 +488,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-60-haematologische-onkologische-poliklinik/bee296f6-33a2-4aa2-8358-d3b99c45de38",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:40.051Z",
+      "crawledAt": "2026-09-29T21:15:28.205Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -505,11 +505,11 @@
       "postedDate": "2026-07-22",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-60-haematologische-onkologische-poliklinik/bee296f6-33a2-4aa2-8358-d3b99c45de38",
       "firstSeenAt": "2026-07-23T11:16:40.638Z",
-      "_qualityScore": 80,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -526,7 +526,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-paediatrie/0fe24a9a-c685-47e4-8e93-962b860e240e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:29.023Z",
+      "crawledAt": "2026-09-29T21:15:15.634Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -543,11 +543,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-paediatrie/0fe24a9a-c685-47e4-8e93-962b860e240e",
       "firstSeenAt": "2026-07-23T11:16:32.697Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -564,7 +564,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-radiologie-80-100/1cb676e3-f106-43fa-b498-924913fd0aa5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:29.863Z",
+      "crawledAt": "2026-09-29T21:15:16.641Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -581,11 +581,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/oberarzt-in-radiologie-80-100/1cb676e3-f106-43fa-b498-924913fd0aa5",
       "firstSeenAt": "2026-07-23T11:16:33.348Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -602,7 +602,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-fuer-die-paediatrische-nephrologie-50-80/32cb67ef-2767-46fe-9291-c3e157a0c537",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:31.292Z",
+      "crawledAt": "2026-09-29T21:15:18.074Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -619,11 +619,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/oberarzt-in-fuer-die-paediatrische-nephrologie-50-80/32cb67ef-2767-46fe-9291-c3e157a0c537",
       "firstSeenAt": "2026-07-23T11:16:34.099Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -640,7 +640,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100/3f40a320-1e74-46d2-8bce-3c773f7e5011",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:32.744Z",
+      "crawledAt": "2026-09-29T21:15:19.725Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -657,11 +657,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100/3f40a320-1e74-46d2-8bce-3c773f7e5011",
       "firstSeenAt": "2026-07-23T11:16:34.743Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -678,7 +678,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-expert-in-anaesthesiepflege-nds-hf-80-100/a1852e47-d823-4635-b8d3-40883ab9b018",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:38.780Z",
+      "crawledAt": "2026-09-29T21:15:26.634Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -695,11 +695,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-expert-in-anaesthesiepflege-nds-hf-80-100/a1852e47-d823-4635-b8d3-40883ab9b018",
       "firstSeenAt": "2026-07-23T11:16:39.357Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -716,7 +716,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-paediatrie/ce261eef-f32c-49c5-8688-17633be08e0d",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:42.003Z",
+      "crawledAt": "2026-09-29T21:15:30.372Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -733,11 +733,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-paediatrie/ce261eef-f32c-49c5-8688-17633be08e0d",
       "firstSeenAt": "2026-07-23T11:16:42.720Z",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -754,7 +754,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-6-woechiges-wahlpflichtpraktikum-in-der-paediatrie/d31d0352-f7bd-40f5-b2ca-a196225b92bf",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:43.159Z",
+      "crawledAt": "2026-09-29T21:15:31.792Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -771,11 +771,11 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-6-woechiges-wahlpflichtpraktikum-in-der-paediatrie/d31d0352-f7bd-40f5-b2ca-a196225b92bf",
       "firstSeenAt": "2026-07-23T11:16:43.956Z",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -792,7 +792,7 @@
       "url": "https://jobs.ukbb.ch/jobs/zivildienst-in-der-pflege/dd8e0921-3080-4959-bb5d-0b27319318dc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:45.125Z",
+      "crawledAt": "2026-09-29T21:15:33.791Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -809,10 +809,10 @@
       "postedDate": "2026-07-20",
       "applyUrl": "https://jobs.ukbb.ch/jobs/zivildienst-in-der-pflege/dd8e0921-3080-4959-bb5d-0b27319318dc",
       "firstSeenAt": "2026-07-23T11:16:46.384Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -830,7 +830,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-uewp-neonatologie-80-100/cf339dbd-db33-4f55-8ad0-135eee70b132",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:42.592Z",
+      "crawledAt": "2026-09-29T21:15:31.078Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -847,11 +847,11 @@
       "postedDate": "2026-07-15",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-uewp-neonatologie-80-100/cf339dbd-db33-4f55-8ad0-135eee70b132",
       "firstSeenAt": "2026-07-23T11:16:43.336Z",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -868,14 +868,14 @@
       "url": "https://jobs.ukbb.ch/jobs/it-praktikant-in-schwerpunkt-support-100/8dafd0e9-bc80-40f8-b4a5-b622218286db",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:36.857Z",
+      "crawledAt": "2026-09-29T21:15:24.612Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4056",
       "streetAddress": "Spitalstrasse 33",
-      "category": "IT",
+      "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "intern",
@@ -885,10 +885,10 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.ukbb.ch/jobs/it-praktikant-in-schwerpunkt-support-100/8dafd0e9-bc80-40f8-b4a5-b622218286db",
       "firstSeenAt": "2026-07-23T11:16:37.990Z",
-      "_qualityScore": 75,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 20,
         "completeness": 20
       }
@@ -906,7 +906,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-fachperson-op-technik-hf-topa/9d53a3c1-93b5-4830-b9cd-a68109b1e097",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:38.051Z",
+      "crawledAt": "2026-09-29T21:15:26.031Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -923,11 +923,11 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-fachperson-op-technik-hf-topa/9d53a3c1-93b5-4830-b9cd-a68109b1e097",
       "firstSeenAt": "2026-07-23T11:16:38.626Z",
-      "_qualityScore": 84,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -944,7 +944,7 @@
       "url": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie/df6d0d9e-3878-4204-8512-528c180fd64b",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:45.844Z",
+      "crawledAt": "2026-09-29T21:15:34.643Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -961,11 +961,11 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie/df6d0d9e-3878-4204-8512-528c180fd64b",
       "firstSeenAt": "2026-07-23T11:16:47.035Z",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -982,7 +982,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60/c9c4baaf-d25a-4006-b59c-f80a0ddeb799",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:41.429Z",
+      "crawledAt": "2026-09-29T21:15:29.648Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -999,11 +999,11 @@
       "postedDate": "2026-05-06",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60/c9c4baaf-d25a-4006-b59c-f80a0ddeb799",
       "firstSeenAt": "2026-07-23T11:16:42.008Z",
-      "_qualityScore": 80,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
+        "richness": 22,
+        "translation": 15,
         "completeness": 20
       }
     },
@@ -1020,7 +1020,7 @@
       "url": "https://jobs.ukbb.ch/jobs/it-praktikant-in-schwerpunkt-applikationsbetreuung-80-100/b637bdf5-d775-4b44-9f9c-870a3373cf8f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:14:39.354Z",
+      "crawledAt": "2026-09-29T21:15:27.335Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1037,11 +1037,11 @@
       "postedDate": "2026-04-21",
       "applyUrl": "https://jobs.ukbb.ch/jobs/it-praktikant-in-schwerpunkt-applikationsbetreuung-80-100/b637bdf5-d775-4b44-9f9c-870a3373cf8f",
       "firstSeenAt": "2026-07-23T11:16:40.010Z",
-      "_qualityScore": 88,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 24,
+        "translation": 15,
         "completeness": 20
       }
     }
