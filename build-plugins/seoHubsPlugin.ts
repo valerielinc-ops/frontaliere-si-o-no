@@ -28,7 +28,7 @@ import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from './jobBoardGpt';
+import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1124,7 +1124,7 @@ function buildHtml(args: BuildHtmlArgs): string {
       })),
     },
   });
-  const jobBoardGptTag = isJobBoardPageUrl(canonicalUrl) ? `\n    ${GPT_BOOTSTRAP_TAG}` : '';
+  const jobBoardHeadTag = jobBoardHeadTags(canonicalUrl);
 
   // Pagination chrome: prev / page-numbers / next
   const pagination = totalPages > 1
@@ -1230,7 +1230,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
-    ${jobBoardGptTag}
+    ${jobBoardHeadTag}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}
@@ -1874,7 +1874,7 @@ export function buildThinCantonHubHtml(args: {
   // distinct.
   const canonicalPath = page === 1 ? basePath : paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const jobBoardGptTag = isJobBoardPageUrl(canonicalUrl) ? `\n    ${GPT_BOOTSTRAP_TAG}` : '';
+  const jobBoardHeadTag = jobBoardHeadTags(canonicalUrl);
   const pageSuffix = totalPages > 1 && page > 1
     ? (locale === 'de' ? ` — Seite ${page}` : locale === 'fr' ? ` — Page ${page}` : ` — Pagina ${page}`)
     : '';
@@ -2084,7 +2084,7 @@ export function buildThinCantonHubHtml(args: {
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
-    ${jobBoardGptTag}
+    ${jobBoardHeadTag}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}
