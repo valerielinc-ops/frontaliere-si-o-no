@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, classAttrRx } from './crawler-template.mjs';
+import { slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -27,6 +27,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchDualooDetail } from './dualoo-detail.mjs';
 
 export const KLINIK_ARLESHEIM_KEY = 'klinik-arlesheim';
 export const KLINIK_ARLESHEIM_COMPANY_NAME = 'Klinik Arlesheim';
@@ -77,39 +78,6 @@ export function parseDualooPortal(html) {
     out.push({ uuid, url, title, cityName, category, startDateMachine, startDateHuman });
   }
   return out;
-}
-
-/**
- * Extract rich content from a Dualoo detail page. The portal uses semantic
- * class names: `advertisementResponsibilitiesText` (tasks), `advertisementRequirementsText`
- * (profile), `advertisementBenefitsText` (benefits) — each wrapping a <ul><li>.
- */
-async function fetchDualooDetail(detailUrl) {
-  try {
-    const html = await fetchHtml(detailUrl);
-    const sections = [];
-    const grab = (cls, label) => {
-      const rx = new RegExp(`${classAttrRx(cls)}[^>]*>([\\s\\S]*?)</div>`, 'i');
-      const m = html.match(rx);
-      if (!m) return;
-      const text = m[1]
-        .replace(/<li[^>]*>/gi, '\n• ')
-        .replace(/<\/li>/gi, '')
-        .replace(/<br\s*\/?>/gi, '\n')
-        .replace(/<[^>]+>/g, ' ')
-        .replace(/&nbsp;/gi, ' ')
-        .replace(/\s+\n/g, '\n')
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      if (text) sections.push(`${label}\n${text}`);
-    };
-    grab('advertisementResponsibilitiesText', 'Aufgaben:');
-    grab('advertisementRequirementsText', 'Anforderungen:');
-    grab('advertisementBenefitsText', 'Wir bieten:');
-    return sections.join('\n\n');
-  } catch {
-    return '';
-  }
 }
 
 export async function fetchAllKlinikArlesheimJobs() {

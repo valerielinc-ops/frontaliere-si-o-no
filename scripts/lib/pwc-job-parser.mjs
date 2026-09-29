@@ -6,7 +6,8 @@
  *   Returns JSON: { medium_id, offset, total, jobs: [...], filtercount }
  *   Each job: { id, hk_id, viewkey, title, attributes, szas, links, start_date, end_date, language }
  *
- * No detail page fetching needed — the API returns full descriptions in `szas.*`.
+ * The API carries the listing fields below; the runner reads the description
+ * from the rendered vacancy page (`links.directlink`), which prints more.
  *   szas.sza_tasks, szas.sza_requirements, szas.sza_introduction,
  *   szas.sza_company_profil, szas.sza_contact, szas.sza_apply_link,
  *   szas.sza_location.city, szas.sza_location.zip, szas.sza_location.street,

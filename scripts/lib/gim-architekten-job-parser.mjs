@@ -50,7 +50,11 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
-import { collectJobsChVacancyUrls, parseVacancyLinks } from './jobs-ch-company-pages.mjs';
+import {
+  collectJobsChVacancyUrls,
+  fetchJobsChVacancyInOriginalLanguage,
+  parseVacancyLinks,
+} from './jobs-ch-company-pages.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton, findSwissCityInText } from './target-swiss-locations.mjs';
 import {
@@ -225,9 +229,17 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
   const jobs = [];
   for (const jobUrl of vacancyUrls) {
     let posting = null;
+    // Same jobs.ch trap as strabag/saint-gobain/visionapartments: the `/en/`
+    // route the profile links serves a machine translation, so read the
+    // original-language route of the same vacancy and publish that page. The
+    // id stays hashed on the profile link; the merge key is the UUID.
+    let sourceUrl = jobUrl;
+    let declaredLang = null;
     try {
-      const detailHtml = await fetchHtml(jobUrl);
-      posting = extractJobPostingJsonLd(detailHtml);
+      const vacancy = await fetchJobsChVacancyInOriginalLanguage(jobUrl, { fetchPage });
+      posting = extractJobPostingJsonLd(vacancy.html);
+      sourceUrl = vacancy.url;
+      declaredLang = vacancy.sourceLang;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${jobUrl}: ${err?.message || err}`);
     }
@@ -275,7 +287,7 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
       if (!Number.isNaN(vd.getTime())) validThrough = vd.toISOString().slice(0, 10);
     }
 
-    const sourceLang = detectLang(`${title} ${description}`, 'de');
+    const sourceLang = declaredLang || detectLang(`${title} ${description}`, 'de');
 
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} ${GIM_ARCHITEKTEN_KEY} ${city}`);
@@ -294,7 +306,7 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
       needsRetranslation: true,
       location: city,
       canton,
-      url: jobUrl,
+      url: sourceUrl,
       source: 'GIM Architekten AG Dedicated Parser (jobs.ch)',
       sourceLang,
       crawledAt: new Date().toISOString(),
@@ -314,7 +326,7 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
       featured: false,
       postedDate,
       ...(validThrough ? { validThrough } : {}),
-      applyUrl: jobUrl,
+      applyUrl: sourceUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });

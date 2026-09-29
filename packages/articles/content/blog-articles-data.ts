@@ -36844,6 +36844,24 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'cst-clausola-salvaguardia-tassa',
+ category: 'novita',
+ date: '2026-09-29T11:47:01.534Z',
+ image: '/images/blog/cst-clausola-salvaguardia-tassa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'stangata-premi-cassa-malati-ticino',
+ category: 'novita',
+ date: '2026-09-29T12:24:49.493Z',
+ image: '/images/blog/stangata-premi-cassa-malati-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

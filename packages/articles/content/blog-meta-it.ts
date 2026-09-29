@@ -12279,6 +12279,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'I numeri del giorno per i frontalieri – 29 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Bollettino frontalieri del 29 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'I numeri del 29 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt: clausola salvaguardia rafforzata con tassa incitativa',
+    'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'Il Consiglio degli Stati ha rafforzato la clausola di salvaguardia per l\'immigrazione, introducendo una tassa d\'incentivazione da 2.000 a 4.000 franchi e nuovi indicatori.',
+    'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Veduta panoramica di Lugano e del suo lago con le montagne sullo sfondo, un simbolo del Ticino.',
+    'blog.article.stangata-premi-cassa-malati-ticino.title': 'Premi cassa malati Ticino 2027: aumento del 3,7%',
+    'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'Nel 2027 i premi di cassa malati in Ticino aumentano del 3,7%, portando il premio medio a 520 franchi al mese, il più alto della Svizzera.',
+    'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Premi cassa malati in Ticino nel 2027',
 };
 
 export default blogMetaIt;

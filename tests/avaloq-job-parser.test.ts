@@ -99,6 +99,41 @@ describe('avaloq-job-parser', () => {
       .rejects.toThrow(/unrecognised Avaloq location/);
   });
 
+  it('links the SmartRecruiters posting page and publishes the company section (#5253)', async () => {
+    // `www.avaloq.com/careers/job-openings/<id>` now answers 303 → the generic
+    // listing, and the ad opens with a company paragraph the parser dropped.
+    const posting = {
+      id: '744000152257749',
+      name: 'Solution Manager - Architect (with Avaloq Experience)',
+      postingUrl: 'https://jobs.smartrecruiters.com/Avaloq1/744000152257749-solution-manager-architect-with-avaloq-experience-',
+      applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/744000152257749-solution-manager-architect-with-avaloq-experience-?oga=true',
+      location: { city: 'Bioggio', region: 'Canton Ticino', country: 'ch', fullLocation: 'Bioggio, Canton Ticino, Switzerland' },
+      jobAd: {
+        sections: {
+          companyDescription: { text: '<p>Founded and headquartered in Switzerland, Avaloq is continuously expanding its global footprint.</p>' },
+          jobDescription: { text: '<p>We are seeking an experienced Solution Manager - Architect.</p>' },
+          qualifications: { text: '<ul><li>Minimum 5+ years of professional experience with Avaloq</li></ul>' },
+          additionalInformation: { text: '<p>We are pleased to offer hybrid and flexible working.</p>' },
+        },
+      },
+    };
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith('/postings/744000152257749')) {
+        return new Response(JSON.stringify(posting), { status: 200 });
+      }
+      return new Response(JSON.stringify({ content: [posting], totalFound: 1 }), { status: 200 });
+    }));
+
+    const [row] = await fetchAvaloqJobsFromApi(100, () => true);
+    expect(row.canonicalUrl).toBe(posting.postingUrl);
+    expect(row.canonicalUrl).not.toContain('www.avaloq.com/careers/job-openings/');
+    expect(row.applyUrl).toBe(posting.applyUrl);
+    expect(row.description.indexOf('Founded and headquartered in Switzerland'))
+      .toBeLessThan(row.description.indexOf('We are seeking an experienced Solution Manager'));
+    expect(row.description).toContain('Minimum 5+ years of professional experience with Avaloq');
+  });
+
   it('extracts public job detail links from listing page html', () => {
     const html = `
       <div style="display:none">
