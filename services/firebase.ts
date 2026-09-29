@@ -179,6 +179,71 @@ async function prepareFirebaseInstallationsStore(): Promise<boolean> {
  }
 }
 
+type FirebaseInstallationsError = {
+ code?: unknown;
+ customData?: { serverCode?: unknown };
+ message?: unknown;
+};
+
+/**
+ * Firebase Analytics and Performance both start asynchronous Installations
+ * work during their otherwise synchronous factory call. A permanent 403
+ * from the Installations API therefore rejects an SDK-internal promise after
+ * the caller's try/catch has already completed.
+ */
+function isFirebaseInstallationsPermissionDenied(error: unknown): boolean {
+ const candidate = (error && typeof error === 'object')
+  ? error as FirebaseInstallationsError
+  : null;
+ const serverCode = candidate?.customData?.serverCode;
+ if (candidate?.code === 'installations/request-failed' && Number(serverCode) === 403) {
+  return true;
+ }
+
+ const message = typeof candidate?.message === 'string'
+  ? candidate.message
+  : String(error ?? '');
+ return /Installations:\s*Create Installation request failed with error ["']?403\s+PERMISSION_DENIED\b/i.test(message);
+}
+
+let _telemetryInstallationsBlocked = false;
+let _telemetryInstallationsCheck: Promise<boolean> | null = null;
+
+/**
+ * Complete the Installation registration before starting optional telemetry.
+ * `getId()` deliberately returns a FID before registration finishes, so it
+ * cannot be used as a readiness check. `getToken()` waits for registration and
+ * lets us stop Analytics/Performance before their SDK-internal promises can
+ * surface the same permanent permission error as an unhandled rejection.
+ * Transient/offline failures remain eligible for the SDK's normal retry path.
+ */
+async function ensureTelemetryInstallationsReady(app: FirebaseApp): Promise<boolean> {
+ if (typeof window === 'undefined') return true;
+ if (_telemetryInstallationsBlocked) return false;
+ if (_telemetryInstallationsCheck) return _telemetryInstallationsCheck;
+
+ _telemetryInstallationsCheck = (async () => {
+  try {
+   const { getInstallations, getToken } = await import('firebase/installations');
+   await getToken(getInstallations(app));
+   return true;
+  } catch (error) {
+   if (isFirebaseInstallationsPermissionDenied(error)) {
+    _telemetryInstallationsBlocked = true;
+    firebaseWarn('[Firebase] Installations permission denied; optional telemetry disabled for this page');
+    return false;
+   }
+   return true;
+  }
+ })();
+
+ try {
+  return await _telemetryInstallationsCheck;
+ } finally {
+  _telemetryInstallationsCheck = null;
+ }
+}
+
 function getEnvironmentFirebaseApiKey(): string {
  if (typeof process === 'undefined') return '';
  return String(process.env.FIREBASE_API_KEY || process.env.VITE_FIREBASE_API_KEY || '').trim();
@@ -258,13 +323,19 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
   _analyticsBlocked = true;
   _analytics = null;
  } else {
- const { initializeAnalytics } = await import("firebase/analytics");
- // Use initializeAnalytics instead of getAnalytics to pass config:
- // - send_page_view: false — App.tsx tracks SPA page views manually
- // to avoid duplicate page_view events that inflate pagesPerSession.
- _analytics = initializeAnalytics(await getAppInstance(), {
- config: { send_page_view: false },
- });
+  const app = await getAppInstance();
+  if (!await ensureTelemetryInstallationsReady(app)) {
+   _analyticsBlocked = true;
+   _analytics = null;
+  } else {
+   const { initializeAnalytics } = await import("firebase/analytics");
+   // Use initializeAnalytics instead of getAnalytics to pass config:
+   // - send_page_view: false — App.tsx tracks SPA page views manually
+   // to avoid duplicate page_view events that inflate pagesPerSession.
+   _analytics = initializeAnalytics(app, {
+    config: { send_page_view: false },
+   });
+  }
  }
  } catch (error) {
  // An IndexedDB lifecycle failure is recoverable: leave the retry gate open
@@ -308,10 +379,16 @@ export async function resetAnalytics(): Promise<FirebaseAnalytics | null> {
   _analytics = null;
   return null;
  }
+ const app = await getAppInstance();
+ if (!await ensureTelemetryInstallationsReady(app)) {
+  _analyticsBlocked = true;
+  _analytics = null;
+  return null;
+ }
  const { getAnalytics: ga } = await import("firebase/analytics");
  // Discard the stale instance so Firebase creates a fresh one.
  _analytics = null;
- _analytics = ga(await getAppInstance());
+ _analytics = ga(app);
  firebaseWarn('[Firebase] Analytics recovered after IndexedDB loss');
  } catch (error) {
  firebaseWarn('[Firebase] Analytics recovery failed');
@@ -380,9 +457,12 @@ let _perf: FirebasePerformance | null = null;
 async function initPerformance(): Promise<FirebasePerformance | null> {
  if (_perf) return _perf;
  if (import.meta.env.MODE === 'test') return null;
+ if (_telemetryInstallationsBlocked) return null;
  try {
+ const app = await getAppInstance();
+ if (!await ensureTelemetryInstallationsReady(app)) return null;
  const { getPerformance } = await import("firebase/performance");
- _perf = getPerformance(await getAppInstance());
+ _perf = getPerformance(app);
  } catch (e) {
  // Ad blocker or environment where perf monitoring is unsupported
  firebaseWarn('[Firebase] Performance Monitoring unavailable:', e);
