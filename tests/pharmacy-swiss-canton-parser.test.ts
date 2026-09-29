@@ -1,4 +1,5 @@
 // @vitest-environment node
+import { readFileSync } from 'node:fs';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -9,13 +10,63 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyColour,
   extractDelemontRows,
+  parseBaselStadtDutyPage,
   parseMoutierCalendar,
 } from '../scripts/lib/pharmacy-swiss-canton-parser.mjs';
 
 const SOURCE_URL = 'https://www.jura.ch/official.pdf';
 const FETCHED_AT = '2026-09-29T12:00:00.000Z';
+const BASEL_SOURCE_URL = 'https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt';
+const BASEL_SOURCE_HTML = readFileSync(new URL('./fixtures/pharmacy-duties/basel-stadt/source.html', import.meta.url), 'utf8');
 
 describe('Swiss canton pharmacy calendar parser', () => {
+  it('builds a year of Basel-Stadt 24-hour duties from the official identity and opening declaration', () => {
+    const parsed = parseBaselStadtDutyPage({
+      html: BASEL_SOURCE_HTML,
+      sourceUrl: BASEL_SOURCE_URL,
+      fetchedAt: FETCHED_AT,
+      calendarYear: 2026,
+    });
+
+    expect(parsed.coverageName).toBe('Basilea Città');
+    expect(parsed.pharmacies).toEqual([expect.objectContaining({
+      id: 'bs-24-stunden-apotheke-basel',
+      name: '24 Stunden Apotheke Basel AG',
+      city: 'Basel',
+      cantonCode: 'BS',
+    })]);
+    expect(parsed.rows).toHaveLength(365);
+    expect(parsed.rows[0]).toEqual(expect.objectContaining({
+      id: 'bs-24-stunden-2026-01-01',
+      startsAt: '2025-12-31T23:00:00.000Z',
+      endsAt: '2026-01-01T23:00:00.000Z',
+      dutyType: '24h',
+      status: 'expired',
+    }));
+    expect(parsed.rows.at(-1)).toEqual(expect.objectContaining({
+      id: 'bs-24-stunden-2026-12-31',
+      status: 'verified',
+    }));
+    expect(parsed.rows.find((row) => row.id === 'bs-24-stunden-2026-03-29')).toEqual(expect.objectContaining({
+      startsAt: '2026-03-28T23:00:00.000Z',
+      endsAt: '2026-03-29T22:00:00.000Z',
+    }));
+    expect(parsed.rows.find((row) => row.id === 'bs-24-stunden-2026-10-25')).toEqual(expect.objectContaining({
+      startsAt: '2026-10-24T22:00:00.000Z',
+      endsAt: '2026-10-25T23:00:00.000Z',
+    }));
+  });
+
+  it('rejects a Basel-Stadt page when the year-round opening declaration disappears', () => {
+    const html = '<td><strong>24 Stunden Apotheke Basel AG</strong> Petersgraben 3 4051 Basel Montag-Sonntag 24 Stunden</td>';
+    expect(() => parseBaselStadtDutyPage({
+      html,
+      sourceUrl: BASEL_SOURCE_URL,
+      fetchedAt: FETCHED_AT,
+      calendarYear: 2026,
+    })).toThrow('Basel-Stadt page no longer declares year-round opening');
+  });
+
   it('rejects a Delémont row whose pharmacy is not allowlisted', () => {
     const unknownRow = 'Unlisted Pharmacy du sam 1 janvier au sam 7 janvier à8h';
     const text = Array.from({ length: 52 }, () => unknownRow).join('\n');

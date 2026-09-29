@@ -31,7 +31,14 @@ const MONTHS = new Map([
 ]);
 
 const JURA_SOURCE_URL = 'https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html';
+const BASEL_STADT_SOURCE_URL = 'https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt';
 const JURA_COVERAGE_NAME = 'Giura';
+const BASEL_STADT_COVERAGE_NAME = 'Basilea Città';
+const BASEL_STADT_PHARMACY = Object.freeze({
+  id: 'bs-24-stunden-apotheke-basel',
+  name: '24 Stunden Apotheke Basel AG',
+  city: 'Basel',
+});
 const MOUTIER_SOURCE_NAME_BY_COLOUR = Object.freeze({
   blue: { id: 'ju-moutier-centre-migros', name: 'Centre Migros', city: 'Moutier' },
   green: { id: 'ju-moutier-centre-coop', name: 'Centre Coop', city: 'Moutier' },
@@ -65,6 +72,16 @@ const DELEMONT_IDENTITY_NAMES = Object.freeze([
 
 function normalizeWhitespace(value) {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function stripHtml(value) {
+  return normalizeWhitespace(String(value || '')
+    .replace(/<br\s*\/?\s*>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&#160;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;|&#34;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'"));
 }
 
 function normalizeKey(value) {
@@ -116,17 +133,20 @@ function localIso(dateKey, time) {
     value.setUTCDate(31 - value.getUTCDay());
     return value.toISOString().slice(0, 10);
   })();
-  const summerTime = dateKey >= lastSundayMarch && dateKey < lastSundayOctober;
+  const [hour] = String(time).split(':').map(Number);
+  const summerTime = (dateKey > lastSundayMarch && dateKey < lastSundayOctober)
+    || (dateKey === lastSundayMarch && hour >= 3)
+    || (dateKey === lastSundayOctober && hour < 3);
   const offset = summerTime ? '+02:00' : '+01:00';
   return new Date(`${dateKey}T${time}:00${offset}`).toISOString();
 }
 
-function identity(id, name, city, sourceUrl, fetchedAt) {
+function identity(id, name, city, sourceUrl, fetchedAt, cantonCode = 'JU') {
   return {
     id,
     name,
     city,
-    cantonCode: 'JU',
+    cantonCode,
     country: 'CH',
     sourceUrl,
     sourceType: 'official',
@@ -231,6 +251,51 @@ function extractAjoieRows(text, { sourceUrl, fetchedAt } = {}) {
   }
   if (rows.length < 45) throw new Error(`Ajoie calendar unexpectedly contains only ${rows.length} weekly rows`);
   return { rows, pharmacies: [...pharmacies.values()] };
+}
+
+export function parseBaselStadtDutyPage({ html, sourceUrl, fetchedAt, calendarYear = new Date().getUTCFullYear() } = {}) {
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Basel-Stadt calendar year: ${calendarYear}`);
+  const cells = [];
+  const cellPattern = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+  let match;
+  while ((match = cellPattern.exec(String(html || '')))) cells.push(stripHtml(match[1]));
+  const record = cells.find((value) => /24\s+Stunden\s+Apotheke\s+Basel\s+AG/i.test(value));
+  if (!record) throw new Error('Basel-Stadt page did not expose the allowlisted 24-hour pharmacy identity');
+  if (!/Petersgraben\s+3\b/i.test(record) || !/4051\s+Basel\b/i.test(record)) {
+    throw new Error('Basel-Stadt 24-hour pharmacy address changed or is unresolved');
+  }
+  if (!/Montag\s*-\s*Sonntag\s+24\s+Stunden/i.test(record)) {
+    throw new Error('Basel-Stadt page no longer declares Monday-Sunday 24-hour opening');
+  }
+  if (!/365\s+Tage\s+durchgehend/i.test(record)) {
+    throw new Error('Basel-Stadt page no longer declares year-round opening');
+  }
+
+  const pharmacy = identity(
+    BASEL_STADT_PHARMACY.id,
+    BASEL_STADT_PHARMACY.name,
+    BASEL_STADT_PHARMACY.city,
+    sourceUrl,
+    fetchedAt,
+    'BS',
+  );
+  const rows = [];
+  const firstDate = `${calendarYear}-01-01`;
+  const lastDate = `${calendarYear}-12-31`;
+  for (let date = firstDate; date <= lastDate; date = nextDate(date)) {
+    const next = nextDate(date);
+    rows.push(duty({
+      id: `bs-24-stunden-${date}`,
+      pharmacy,
+      coverageName: BASEL_STADT_COVERAGE_NAME,
+      startsAt: localIso(date, '00:00'),
+      endsAt: localIso(next, '00:00'),
+      dutyType: '24h',
+      sourceUrl,
+      fetchedAt,
+    }));
+  }
+  return { rows, pharmacies: [pharmacy], coverageName: BASEL_STADT_COVERAGE_NAME };
 }
 
 function numericWordMatches(bboxHtml) {
@@ -376,6 +441,9 @@ export function parseJuraCalendars({ delemontText, delemontSourceUrl, ajoieText,
 }
 
 export {
+  BASEL_STADT_COVERAGE_NAME,
+  BASEL_STADT_PHARMACY,
+  BASEL_STADT_SOURCE_URL,
   JURA_COVERAGE_NAME,
   JURA_SOURCE_URL,
   classifyColour,

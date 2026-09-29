@@ -16,9 +16,16 @@ describe('Swiss canton pharmacy duty release', () => {
   it('fails closed when a Jura source changes or an identity cannot be resolved', () => {
     expect(importer).toContain('failedSnapshot');
     expect(importer).toContain('discoverJuraPdfUrls');
-    expect(importer).toContain('if (result.fetchError || !result.snapshot._releaseReady) process.exitCode = 1;');
+    expect(importer).toContain('if (result.fetchError || Object.values(result.output.snapshots).some((snapshot) => snapshot._releaseReady !== true)) process.exitCode = 1;');
     expect(parser).toContain('parseMoutierCalendar');
     expect(parser).toContain('Moutier calendar is missing');
     expect(parser).toContain('Ajoie pharmacy identity is not allowlisted');
+  });
+
+  it('keeps Basel-Stadt on the same atomic snapshot and release path', () => {
+    expect(importer).toContain('parseBaselStadtDutyPage');
+    expect(importer).toContain('BASEL_STADT_SOURCE_KEY');
+    expect(importer).toContain('failedBaselStadtSnapshot');
+    expect(parser).toContain('Basel-Stadt page no longer declares year-round opening');
   });
 });

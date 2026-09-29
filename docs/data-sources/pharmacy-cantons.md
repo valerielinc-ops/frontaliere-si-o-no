@@ -1,7 +1,7 @@
 # Fonti farmacie per cantone
 
 Mappa delle fonti di ingresso per tutti i 26 cantoni svizzeri, aggiornata il
-29 settembre 2026. Per Ticino, Ginevra e Giura sono documentati anche i
+29 settembre 2026. Per Ticino, Ginevra, Giura e Basilea Città sono documentati anche i
 connettori e gli snapshot operativi; gli altri cantoni restano fonti di
 orientamento finché non superano lo stesso contratto.
 
@@ -13,7 +13,7 @@ recente o che una farmacia sia di turno in questo momento.
 ## Registro al 29 settembre 2026
 
 `active` è riservato alle fonti che hanno un connettore e uno snapshot completo
-e fresco: Ticino, Ginevra e Giura. Le altre 23 entry sono `unverified`: l'URL è
+e fresco: Ticino, Ginevra, Giura e Basilea Città. Le altre 22 entry sono `unverified`: l'URL è
 registrato, ma non esiste ancora un release operativo collegato a questa
 applicazione. La colonna `accessMethod` descrive il percorso del connettore;
 non è una prova di fetch riuscito se lo stato non è `active`.
@@ -25,7 +25,7 @@ non è una prova di fetch riuscito se lo stato non è `active`.
 | AR | `appenzell-ausserrhoden` | Appenzello Esterno | official | manual | unverified | 2026-09-15 | [Appenzello Esterno — triage](https://ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/abteilung-medizinische-dienste/kantonsaerztlicher-dienst/triagestelle/) |
 | BE | `bern` | Berna | association | html-scrape | unverified | 2026-09-15 | [apoBern — Notfalldienst](https://apobern.ch/dienstleistungen/notfalldienst/) |
 | BL | `basel-landschaft` | Basilea Campagna | official | manual | unverified | 2026-09-15 | [Basilea Campagna — domande mediche](https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsaerztlicher-dienst/kontakte/medizinische-fragen) |
-| BS | `basel-stadt` | Basilea Città | official | manual | unverified | 2026-09-15 | [Basilea Città — elenco farmacie](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt) |
+| BS | `basel-stadt` | Basilea Città | official | html-scrape | active | 2026-09-29 | [Basilea Città — elenco farmacie](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt) |
 | FR | `fribourg` | Friburgo | association | html-scrape | unverified | 2026-09-15 | [Pharmacies Fribourg — pharmacie de garde](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde) |
 | GE | `geneva` | Ginevra | association | html-scrape | active | 2026-09-24 | [Pharma Genève — pharmacie de garde](https://pharmageneve.swiss/pharmacie-de-garde/) |
 | GL | `glarus` | Glarona | official | manual | unverified | 2026-09-15 | [Glarona — numeri di emergenza](https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691) |
@@ -48,7 +48,7 @@ non è una prova di fetch riuscito se lo stato non è `active`.
 | ZH | `zurich` | Zurigo | association | html-scrape | unverified | 2026-09-15 | [Notfall-Apotheken Zürich](https://www.notfall-apotheken-zh.ch/) |
 
 Le fonti associative sono AG, BE, FR, GE, GR, LU, NE, SO, TG, VD, VS e ZH.
-Le pagine istituzionali per AI, AR, BL, BS, GL, JU, NW, OW, SG, SH, SZ, UR e ZG
+Le pagine istituzionali per AI, AR, BL, GL, JU, NW, OW, SG, SH, SZ, UR e ZG
 sono state conservate come fonti `official` di orientamento, elenco, triage o
 contatto; una pagina di emergenza o una hotline non è stata trasformata in un
 calendario di farmacie.
@@ -57,10 +57,10 @@ calendario di farmacie.
 
 - La mappa geografica è completa: ogni codice e ogni chiave di
   `SWISS_CANTONS` ha una entry e un URL HTTPS di ingresso.
-- La copertura dei turni non è completa: Ticino, Ginevra e Giura hanno un
-  connettore/dataset operativo verificato; le altre 23 entry restano
+- La copertura dei turni non è completa: Ticino, Ginevra, Giura e Basilea Città hanno un
+  connettore/dataset operativo verificato; le altre 22 entry restano
   `unverified` e source-only nella matrice.
-- L'assenza di `sourceFetchedAt` per le 23 fonti `unverified` non è uno zero
+- L'assenza di `sourceFetchedAt` per le 22 fonti `unverified` non è uno zero
   turni: indica che questa applicazione non ha ancora registrato un fetch
   riuscito da un connettore per quelle fonti.
 - `degraded` è riservato a una fonte raggiungibile ma non sufficientemente
@@ -81,10 +81,12 @@ solo valore non autorizza a pubblicare:
 
 Un `PharmacyDuty` potrà essere pubblicato soltanto dopo che un connettore
 collegato alla fonte avrà estratto una finestra temporale esplicita e il dato
-avrà superato i validator e i controlli di freschezza del dominio. Il connettore
-Giura (`scripts/import-pharmacy-duties-swiss-cantons.mjs`) verifica i PDF di
-Delémont, Ajoie e Moutier, compreso il calendario colorato scansionato, prima
-di produrre lo snapshot atomico consumato da `buildDutyCoverageMatrix()`.
+avrà superato i validator e i controlli di freschezza del dominio. I connettori
+Giura e Basilea Città (`scripts/import-pharmacy-duties-swiss-cantons.mjs`)
+verificano rispettivamente i PDF di Delémont, Ajoie e Moutier, compreso il
+calendario colorato scansionato, e la dichiarazione cantonale di apertura
+24h/365 giorni della 24 Stunden Apotheke Basel AG, prima di produrre lo
+snapshot atomico consumato da `buildDutyCoverageMatrix()`.
 La hub
 `/farmacie/` può quindi mostrare il link, il tipo e lo stato della fonte, ma
 non presenta l'entry come turno live. Per un bisogno urgente va verificata la

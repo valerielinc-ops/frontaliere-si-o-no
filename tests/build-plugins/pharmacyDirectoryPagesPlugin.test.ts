@@ -13,6 +13,7 @@ import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../../servic
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
+import swissCantonSnapshotJson from '../../data/pharmacy-duties-swiss-cantons.json';
 import italyDutiesJson from '../../data/pharmacy-duties-italy.json';
 import italyStatusJson from '../../data/pharmacy-duties-italy-status.json';
 import type { ItalyDutySnapshot } from '../../services/pharmacies/italyRelease';
@@ -163,13 +164,16 @@ describe('pharmacy directory page matrix', () => {
 
   it.each(locales)('keeps the static coverage matrix to five Ticino regions, verified Swiss cantons and source-only cantons (%s)', (locale) => {
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
-    // The matrix evaluates the Ticino release (duties + catalogue) AND the
-    // Italian one (duties + status), refreshed by separate crons in either
-    // order. A snapshot fetched after `now` is fail-closed as stale, so pinning
-    // `now` to the Ticino duties alone turned this red whenever the Italian
-    // refresh landed later (2026-09-24: Ticino 09:27, Italy 09:29).
-    const snapshotAt = Math.max(...[dutiesJson._fetchedAt, catalogueJson._fetchedAt, italyDutiesJson._fetchedAt, italyStatusJson._fetchedAt]
-      .map((fetchedAt) => Date.parse(String(fetchedAt))));
+    // The matrix evaluates the Ticino, Italian and Swiss-canton releases,
+    // refreshed by separate crons in either order. A snapshot fetched after
+    // `now` is fail-closed as stale, so derive `now` from every build input.
+    const swissSnapshotTimes = Object.values(swissCantonSnapshotJson.snapshots || {})
+      .map((snapshot) => Date.parse(String(snapshot._fetchedAt)));
+    const snapshotAt = Math.max(
+      ...[dutiesJson._fetchedAt, catalogueJson._fetchedAt, italyDutiesJson._fetchedAt, italyStatusJson._fetchedAt]
+        .map((fetchedAt) => Date.parse(String(fetchedAt))),
+      ...swissSnapshotTimes,
+    );
     const now = new Date(snapshotAt + 60_000);
     const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
     // Quali province italiane escono pubblicate lo decide lo snapshot che il
@@ -182,15 +186,15 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     // cron-count-ok: le cinque regioni ticinesi sono DUTY_WEEK_REGIONS, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
-    // cron-count-ok: GE e JU sono operativi quando i rispettivi release sono freschi; gli altri 23 restano source-only.
-    expect(page.html.match(/data-coverage-kind=(?:"swiss-canton"|swiss-canton)/g) || []).toHaveLength(2);
-    // cron-count-ok: i 26 cantoni meno TI, GE e JU restano source-only.
-    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(23);
+    // cron-count-ok: BS, GE e JU sono operativi quando i rispettivi release sono freschi; gli altri 22 restano source-only.
+    expect(page.html.match(/data-coverage-kind=(?:"swiss-canton"|swiss-canton)/g) || []).toHaveLength(3);
+    // cron-count-ok: i 26 cantoni meno TI, BS, GE e JU restano source-only.
+    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(22);
     // Main may promote a source-only canton to a valid non-unverified state.
     // The matrix contract requires one status attribute per source-only
     // canton, not that every source remains `unverified` forever.
-    // cron-count-ok: un attributo di stato per ciascuno dei 23 cantoni solo-fonte, costante del codice.
-    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(23);
+    // cron-count-ok: un attributo di stato per ciascuno dei 22 cantoni solo-fonte, costante del codice.
+    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(22);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
     // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);
@@ -374,7 +378,7 @@ describe('pharmacy directory page matrix', () => {
       expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(publishedProvinces.length);
       expect(page.html.match(/data-duty-country=IT/g) || []).toHaveLength(expectedRows);
       expect(page.html).toMatch(/<time\b/);
-      expect(page.html).toContain('data-source-only-status=true');
+      if (sourceOnlyProvinces.length > 0) expect(page.html).toMatch(/data-source-only-status=(?:"true"|true)/);
       for (const province of sourceOnlyProvinces) {
         expect(page.html).not.toMatch(new RegExp(`data-italy-duty-province=${province.code}[^>]*data-italy-duty-published`));
       }
