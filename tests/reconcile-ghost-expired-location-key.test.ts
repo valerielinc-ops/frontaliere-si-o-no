@@ -136,6 +136,27 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     expect(activeJobs[0].previousSlugs || []).not.toContain('foreign-owner-slug');
   });
 
+  it('does not coerce non-string locale values into ghost evidence', () => {
+    const activeJobs = [{
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      slugByLocale: { de: {}, fr: 'active-slug' },
+    }];
+    const expiredJobs = [{
+      url: 'https://example.test/expired',
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      slugByLocale: { de: {}, fr: 'expired-slug' },
+    }];
+
+    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+
+    expect(result.ghostCount).toBe(0);
+    expect(result.cleanedExpired).toEqual(expiredJobs);
+  });
+
   it('retains a distinct URL when two expired records share a top-level slug', () => {
     const activeJobs = [{
       title: 'Store Manager',

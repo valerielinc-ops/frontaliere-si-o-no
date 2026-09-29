@@ -996,6 +996,29 @@ describe('crawler slice integrity guard', () => {
     };
 
     expect(isProvenGhostExpiredReconciliation(filePath, foreignPrevious, foreignNext, foreignProof)).toBe(false);
+
+    const nonStringMatch = {
+      ...activeMatch,
+      slugByLocale: { de: {}, fr: 'active-slug' },
+    };
+    const nonStringRemoved = {
+      ...removed,
+      slugByLocale: { de: {}, fr: 'expired-slug' },
+    };
+    const nonStringPrevious = prettyJson([nonStringRemoved, retained]);
+    const nonStringProof = {
+      ...validProof,
+      baseRaw: nonStringPrevious,
+      candidateRaw: next,
+      entries: [{
+        expired: nonStringRemoved,
+        match: nonStringMatch,
+        overlapSlug: null,
+        overlapJob: null,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, nonStringPrevious, next, nonStringProof)).toBe(false);
   });
 
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {

@@ -3445,8 +3445,9 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       || Array.isArray(rightSlugs)
     ) return false;
     return Object.entries(leftSlugs).some(([locale, value]) => {
-      const leftValue = String(value ?? '').trim();
-      const rightValue = String(rightSlugs[locale] ?? '').trim();
+      if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+      const leftValue = value.trim();
+      const rightValue = rightSlugs[locale].trim();
       return Boolean(leftValue && rightValue && leftValue === rightValue);
     });
   };
