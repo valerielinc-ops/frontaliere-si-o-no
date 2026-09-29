@@ -7079,6 +7079,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS: freno legislativo ai premi al 3%',
     'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'L\'USS chiede al Consiglio degli Stati un limite del 3% ai premi LAMal. In Ticino l\'aumento previsto per il 2027 è del 3,7%.',
     'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Berna, sede del Parlamento svizzero, con in primo piano una calcolatrice e una tessera assicurativa.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Lavoratori svizzeri e IA: il 28% la usa ma non convince',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': 'Il 28% dei lavoratori in Svizzera usa l\'IA ogni giorno ma manca la convinzione. I dati della ricerca PwC \'Hopes and Fears\' 2026 sui dipendenti.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Lavoratore svizzero in ufficio alle prese con l\'intelligenza artificiale generativa',
 };
 
 export default blogMetaChIt;
