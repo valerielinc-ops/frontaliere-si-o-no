@@ -833,6 +833,26 @@ function structuredAddressNamesLocality(detail, publishedLocation) {
 }
 
 /**
+ * A structured JobPosting address can use a hamlet, neighbourhood or historical
+ * locality that is not in the current BFS municipality list. When its exact
+ * postal code is also present in the published location, the page still gives
+ * per-vacancy evidence for the same Swiss postal area. Keep this narrower than
+ * a free-text alias: only the structured `jobLocation` candidate is eligible.
+ */
+function structuredAddressSharesPublishedPostalCode(detail, publishedLocation) {
+  const publishedPostalCodes = new Set(
+    plainText(publishedLocation).match(/\b\d{4}\b/g) || [],
+  );
+  if (!publishedPostalCodes.size) return false;
+  const candidates = Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [];
+  return candidates.some((candidate) => {
+    const sourcePostalCode = plainText(candidate?.postalCode || '').match(/\b\d{4}\b/)?.[0];
+    return structuredAddressIsCoherent(candidate)
+      && Boolean(sourcePostalCode && publishedPostalCodes.has(sourcePostalCode));
+  });
+}
+
+/**
  * `jobLocation` in an ATS JSON-LD is not always the workplace: on the postings
  * an organisation publishes on behalf of another one it carries the POSTING
  * organisation's seat, constant across vacancies that are worked in different
@@ -1024,8 +1044,13 @@ export function compareSourceDetail(job, detail, {
   const sourceFieldsAgree = sourceLocationMatches(publishedLocation, sourceLocation);
   const sourceCoarserCanton = !sourceFieldsAgree && !publishedCorroboratedBySource
     && sourceIsCoarserCantonOfPublished(publishedLocation, sourceLocation);
-  const locationMatchesPublished = sourceFieldsAgree || publishedCorroboratedBySource;
+  const structuredPostalCodeAgrees = !sourceFieldsAgree
+    && structuredAddressSharesPublishedPostalCode(detail, publishedLocation);
+  const locationMatchesPublished = sourceFieldsAgree
+    || structuredPostalCodeAgrees
+    || publishedCorroboratedBySource;
   const circularCorroboration = !sourceFieldsAgree
+    && !structuredPostalCodeAgrees
     && !publishedCorroboratedBySource
     && locationEvidence === 'jsonld'
     && locationFromVacancyText
