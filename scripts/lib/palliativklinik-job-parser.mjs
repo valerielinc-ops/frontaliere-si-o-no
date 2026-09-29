@@ -15,7 +15,7 @@
  *   1. Parse the listing for each `<p>` containing a PKiP PDF link
  *   2. Extract a clean job title from the leading text of the paragraph
  *   3. Download and parse the PDF via `extractPdfJobContentFromUrl`
- *   4. Build a description with intro + PDF text + footer
+ *   4. Publish the PDF text alone as the description
  *
  * Clinic HQ: Stollenrain 12, 4144 Arlesheim (BL). Palliative Care centre.
  */
@@ -150,22 +150,21 @@ export function parseListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-export function buildPalliativklinikDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `Die Palliativklinik im Park in Arlesheim (BL) ist ein spezialisiertes Zentrum für Palliative Care in der Region Nordwestschweiz.`,
-      `Stelle: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Stelle "${title}" an der Palliativklinik im Park. Vollständige Anforderungen, Aufgaben und Bewerbungsmodalitäten siehe offizielles PDF.`,
-    footerLines: [
-      `Quelle (PDF): ${pdfUrl}`,
-      `Karriereseite: ${PALLIATIVKLINIK_CAREERS_URL}`,
-      `Fachbereich: Palliative Care`,
-    ],
-  });
-  return description;
+/**
+ * The description of one posting is the text of its PDF and nothing else.
+ * The crawler used to wrap it in lines of its own (a sentence on the clinic,
+ * "Stelle: <Titel>.", "Quelle (PDF): …", "Karriereseite: …", "Fachbereich: …")
+ * and, without PDF text, to write "Stelle "<Titel>" an der Palliativklinik im
+ * Park…"; a PDF without readable text now gives no description and the job
+ * takes the pipeline's thin-source path.
+ */
+export function buildPalliativklinikDescription({ pdfText = '' } = {}) {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the former wrapper wrote (see `buildPalliativklinikDescription`). */
+export const PALLIATIVKLINIK_FABRICATED_DESCRIPTION_RE =
+  /ist ein spezialisiertes Zentrum für Palliative Care in der Region Nordwestschweiz\.|Bewerbungsmodalitäten siehe offizielles PDF\.|(?:^|\n)Karriereseite: https?:\/\/[^\s]*palliativklinik/;
 
 /* ── Fetcher ───────────────────────────────────────────────── */
 
@@ -198,15 +197,7 @@ export async function fetchAllPalliativklinikJobs() {
     } catch (err) {
       console.warn(`     ⚠️ PDF fetch failed: ${err?.message || err}`);
     }
-    const description = buildPalliativklinikDescription({
-      title: row.title,
-      pdfText,
-      pdfUrl: row.pdfUrl,
-    });
-    if (!description || description.length < 200) {
-      console.warn(`     ⚠️ Description too short (${description.length} chars) — skipping`);
-      continue;
-    }
+    const description = buildPalliativklinikDescription({ pdfText });
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${PALLIATIVKLINIK_KEY} arlesheim`);

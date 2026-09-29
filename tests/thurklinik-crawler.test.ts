@@ -8,8 +8,10 @@ import {
   parseListing,
   cleanThurklinikTitle,
   buildThurklinikDescription,
+  THURKLINIK_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/thurklinik-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
 
 const FIXTURE_HTML = `
 <div class="content">
@@ -98,28 +100,18 @@ describe('Thurklinik crawler parser', () => {
   });
 
   describe('buildThurklinikDescription', () => {
-    it('embeds intro + PDF text + footer when PDF rich enough', () => {
+    // Only the PDF's own text (#5253): no intro on the clinic, no "Stelle:"
+    // line, no "Quelle (PDF)" / "Karriereseite" / "Spital:" footer.
+    it('publishes the PDF text alone', () => {
       const body = 'Aufgaben: OP-Assistenz, Schmerztherapie. '.repeat(15);
-      const out = buildThurklinikDescription({
-        title: 'Anästhesiepflege 60-80%',
-        pdfText: body,
-        pdfUrl: 'https://thurklinik.ch/wp/x.pdf',
-      });
-      expect(out).toContain('Thurklinik');
-      expect(out).toContain('Niederuzwil');
-      expect(out).toContain('Anästhesiepflege');
+      const out = buildThurklinikDescription({ pdfText: body });
+      expect(out).toBe(buildPdfBackedDescription({ pdfText: body }));
       expect(out).toContain('Aufgaben');
-      expect(out).toContain('https://thurklinik.ch/wp/x.pdf');
-      expect(out.length).toBeGreaterThan(400);
+      expect(out).not.toMatch(THURKLINIK_FABRICATED_DESCRIPTION_RE);
+      expect(out).not.toMatch(/Belegspital-Tagesklinik|Quelle \(PDF\)|Karriereseite/);
     });
-    it('falls back when PDF text empty', () => {
-      const out = buildThurklinikDescription({
-        title: 'Test',
-        pdfText: '',
-        pdfUrl: 'https://thurklinik.ch/wp/x.pdf',
-      });
-      expect(out).toContain('Thurklinik');
-      expect(out).toContain('Test');
+    it('writes no description of its own when the PDF text is empty', () => {
+      expect(buildThurklinikDescription({ pdfText: '' })).toBe('');
     });
     it('caps output length below 7000 chars', () => {
       const out = buildThurklinikDescription({

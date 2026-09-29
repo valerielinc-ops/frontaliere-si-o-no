@@ -78,8 +78,6 @@ const DEFAULT_POSTAL_CODE = '8044';
 const DEFAULT_STREET = 'Schreberweg 9';
 const DEFAULT_CANTON = 'ZH';
 
-const COMPANY_BOILERPLATE = "Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich.";
-
 export function isKlinikSusenbergJob(job) {
   const url = String(job?.url || '').toLowerCase();
   if (job?.companyKey === KLINIK_SUSENBERG_KEY) return true;
@@ -130,19 +128,22 @@ export function parseSusenbergJobsPage(html = '') {
   return out;
 }
 
-function buildDescription(row, pdfText = '') {
-  const introLines = [
-    `${row.title} bei der ${KLINIK_SUSENBERG_COMPANY_NAME}, ${DEFAULT_STREET}, ${DEFAULT_POSTAL_CODE} ${DEFAULT_CITY}, Schweiz.`,
-  ];
-  if (row.department) introLines.push(`Tätigkeitsbereich: ${row.department}.`);
-  introLines.push(COMPANY_BOILERPLATE);
-  return buildPdfBackedDescription({
-    introLines,
-    pdfText,
-    fallbackText: 'Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.',
-    footerLines: row.url ? [`Stelleninserat (PDF): ${row.url}`] : [],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else.
+ * The crawler used to wrap it in lines of its own ("<Titel> bei der Klinik
+ * Susenberg, <Adresse>, Schweiz.", "Tätigkeitsbereich: …", a paragraph on the
+ * clinic, "Stelleninserat (PDF): …") and, without PDF text, to write
+ * "Detailliertes Stellenprofil … siehe verlinktes PDF."; a PDF without
+ * readable text now gives no description and the job takes the pipeline's
+ * thin-source path.
+ */
+function buildDescription(pdfText = '') {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const KLINIK_SUSENBERG_FABRICATED_DESCRIPTION_RE =
+  /Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg|Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF\.|(?:^|\n)Stelleninserat \(PDF\): https?:/;
 
 function parsePostedDate(href = '') {
   // PDFs frequently end with `_YYYY-MM-DD.pdf` — use that as the post date when present.
@@ -171,7 +172,7 @@ export async function fetchAllKlinikSusenbergJobs() {
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
     const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
-    const description = buildDescription(r, pdfText);
+    const description = buildDescription(pdfText);
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${KLINIK_SUSENBERG_KEY} ${DEFAULT_CITY}`);
     const urlHash = createHash('sha1').update(r.url).digest('hex').slice(0, 12);

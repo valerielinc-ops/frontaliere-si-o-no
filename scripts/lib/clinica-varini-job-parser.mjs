@@ -157,20 +157,16 @@ export function parseClinicaVariniListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-function buildVariniDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${title} presso ${CLINICA_VARINI_COMPANY_NAME}, Orselina (Locarnese, Canton Ticino).`,
-      'Clinica Varini è una struttura sanitaria del Locarnese che opera nei settori della medicina specialistica e della dermatologia, con prestazioni stazionarie e ambulatoriali per pazienti adulti.',
-    ],
-    pdfText,
-    fallbackText: `Concorso ${title} presso ${CLINICA_VARINI_COMPANY_NAME}. I dettagli completi su requisiti, profilo professionale, modalità di candidatura e termine di presentazione sono disponibili nel documento PDF allegato.`,
-    footerLines: [
-      `Bando ufficiale (PDF): ${pdfUrl}`,
-      `Pagina notizie: ${PUBLIC_CAREER_URL}`,
-      'Settore: Sanità / Clinica privata',
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own about the clinic ("<titolo>
+ * presso Clinica Varini, Orselina…", a paragraph on the clinic), "Bando
+ * ufficiale (PDF): …", "Pagina notizie: …", "Settore: …", and to substitute a
+ * sentence of its own when the PDF had no text. A PDF without readable text
+ * now gives no description and the job takes the pipeline's thin-source path.
+ */
+export function buildVariniDescription({ title, pdfText = '' }) {
+  const description = buildPdfBackedDescription({ pdfText });
   const warnings = [];
   if (pdfText && description.length < MIN_VARINI_DESC_LENGTH) {
     warnings.push(
@@ -179,6 +175,10 @@ function buildVariniDescription({ title, pdfText = '', pdfUrl = '' }) {
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former intro, fallback and footer wrote (see `buildVariniDescription`). */
+export const CLINICA_VARINI_FABRICATED_DESCRIPTION_RE =
+  /Clinica Varini è una struttura sanitaria del Locarnese|sono disponibili nel documento PDF allegato\.|(?:^|\n)Pagina notizie: https?:|(?:^|\n)Bando ufficiale \(PDF\): https?:/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 

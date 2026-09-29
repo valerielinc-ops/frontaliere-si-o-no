@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   THURKLINIK_KEY,
   THURKLINIK_COMPANY_NAME,
+  THURKLINIK_FABRICATED_DESCRIPTION_RE,
 } from './lib/thurklinik-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isThurklinikJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, THURKLINIK_FABRICATED_DESCRIPTION_RE, THURKLINIK_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Thurklinik crawler failed: ${err?.message || err}`);
   process.exit(1);

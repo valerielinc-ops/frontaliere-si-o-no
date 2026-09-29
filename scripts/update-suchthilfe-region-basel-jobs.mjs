@@ -14,7 +14,9 @@ import {
   isTrustedDomain,
   SUCHTHILFE_REGION_BASEL_KEY,
   SUCHTHILFE_REGION_BASEL_COMPANY_NAME,
+  SUCHTHILFE_REGION_BASEL_FABRICATED_DESCRIPTION_RE,
 } from './lib/suchthilfe-region-basel-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +29,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isSuchthilfeRegionBaselJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, SUCHTHILFE_REGION_BASEL_FABRICATED_DESCRIPTION_RE, SUCHTHILFE_REGION_BASEL_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Suchthilfe Region Basel crawler failed: ${err?.message || err}`);
   process.exit(1);

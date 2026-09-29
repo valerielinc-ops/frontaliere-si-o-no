@@ -142,21 +142,17 @@ export function parseRehaAndeerListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-function buildRehaAndeerDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${REHA_ANDEER_COMPANY_NAME} sucht eine engagierte Persönlichkeit für die Position: ${title}.`,
-      'Reha Andeer ist eine private Rehabilitationsklinik in Andeer (Kanton Graubünden) und bietet stationäre und ambulante Behandlungen in einem familiären Umfeld inmitten der Schamser Bergwelt an.',
-    ],
-    pdfText,
-    fallbackText: `Stelleninserat ${title} bei ${REHA_ANDEER_COMPANY_NAME}. Die vollständigen Angaben zu Aufgaben, Anforderungen und Bewerbungsweg entnehmen Sie dem offiziellen PDF.`,
-    footerLines: [
-      `Stelleninserat (PDF): ${pdfUrl}`,
-      `Karriere-Seite: ${PUBLIC_CAREER_URL}`,
-      'Sektor: Gesundheitswesen / Rehabilitation',
-      'Bewerbung: per E-Mail gemäss den Hinweisen im Stelleninserat',
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own about the clinic ("Reha Andeer
+ * sucht eine engagierte Persönlichkeit…", a paragraph on the clinic),
+ * "Stelleninserat (PDF): …", "Karriere-Seite: …", "Sektor: …", "Bewerbung: …",
+ * and to substitute a sentence of its own when the PDF had no text. A PDF
+ * without readable text now gives no description and the job takes the
+ * pipeline's thin-source path.
+ */
+export function buildRehaAndeerDescription({ title, pdfText = '' }) {
+  const description = buildPdfBackedDescription({ pdfText });
   const warnings = [];
   if (pdfText && description.length < MIN_REHA_ANDEER_DESC_LENGTH) {
     warnings.push(
@@ -165,6 +161,10 @@ function buildRehaAndeerDescription({ title, pdfText = '', pdfUrl = '' }) {
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former intro, fallback and footer wrote (see `buildRehaAndeerDescription`). */
+export const REHA_ANDEER_FABRICATED_DESCRIPTION_RE =
+  /ist eine private Rehabilitationsklinik in Andeer|entnehmen Sie dem offiziellen PDF\.|(?:^|\n)Karriere-Seite: https?:|(?:^|\n)Bewerbung: per E-Mail gemäss den Hinweisen im Stelleninserat/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 

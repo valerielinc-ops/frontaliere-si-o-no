@@ -11,7 +11,9 @@ import {
   isTrustedDomain,
   CLINICA_VARINI_KEY,
   CLINICA_VARINI_COMPANY_NAME,
+  CLINICA_VARINI_FABRICATED_DESCRIPTION_RE,
 } from './lib/clinica-varini-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +26,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isClinicaVariniJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, CLINICA_VARINI_FABRICATED_DESCRIPTION_RE, CLINICA_VARINI_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Clinica Varini crawler failed: ${err?.message || err}`);
   process.exit(1);

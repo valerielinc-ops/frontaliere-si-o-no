@@ -4,6 +4,7 @@ import {
   ECAM_CANTON,
   ECAM_CITY,
   ECAM_COMPANY_NAME,
+  ECAM_FABRICATED_DESCRIPTION_RE,
   ECAM_KEY,
   buildEcamJob,
   extractEcamPostedDate,
@@ -120,7 +121,11 @@ describe('ECAM crawler parser', () => {
     expect(job.applyUrl).toBe(ECAM_CAREER_URL);
     expect(job.title).toContain('Responsabile servizio risorse umane');
     expect(job.description).toContain('conoscenza del diritto del lavoro');
-    expect(job.description).toContain(HR_PDF_URL);
+    // Only the notice's text: no crawler-written intro, source line or footer.
+    expect(job.description).not.toContain(HR_PDF_URL);
+    expect(job.description).not.toMatch(ECAM_FABRICATED_DESCRIPTION_RE);
+    expect(job.descriptionByLocale).toEqual({ it: job.description });
+    expect(job.sourceLang).toBe('it');
     expect(job.location).toBe('Mendrisio');
     expect(job.canton).toBe('TI');
     expect(job.addressCountry).toBe('CH');

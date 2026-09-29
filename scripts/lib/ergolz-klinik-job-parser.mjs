@@ -121,21 +121,21 @@ export function parseListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-export function buildErgolzKlinikDescription({ title, pdfText = '', pdfUrl = '' }) {
-  return buildPdfBackedDescription({
-    introLines: [
-      `Die Ergolz Klinik in Liestal (BL) ist Teil der Cardiance Group und bietet ein professionelles Umfeld in Medizin, Pflege, Therapie, Administration und Service.`,
-      `Stelle: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Stelle "${title}" an der Ergolz Klinik Liestal. Aufgaben, Anforderungen und Bewerbungsmodalitäten sind dem offiziellen PDF zu entnehmen.`,
-    footerLines: [
-      `Quelle (PDF): ${pdfUrl}`,
-      `Karriereseite: ${ERGOLZ_KLINIK_CAREERS_URL}`,
-      `Klinik: Ergolz Klinik, Liestal (BL)`,
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own (a paragraph on the Ergolz
+ * Klinik, "Stelle: <Titel>.", "Quelle (PDF): …", "Karriereseite: …", "Klinik:
+ * …") and to substitute a sentence of its own when the PDF had no text. A PDF
+ * without readable text now gives no description and the job takes the
+ * pipeline's thin-source path.
+ */
+export function buildErgolzKlinikDescription({ pdfText = '' } = {}) {
+  return buildPdfBackedDescription({ pdfText });
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const ERGOLZ_KLINIK_FABRICATED_DESCRIPTION_RE =
+  /ist Teil der Cardiance Group und bietet ein professionelles Umfeld|sind dem offiziellen PDF zu entnehmen\.|(?:^|\n)Klinik: Ergolz Klinik, Liestal \(BL\)/;
 
 /* ── Fetcher ───────────────────────────────────────────────── */
 
@@ -168,15 +168,7 @@ export async function fetchAllErgolzKlinikJobs() {
     } catch (err) {
       console.warn(`     ⚠️ PDF fetch failed: ${err?.message || err}`);
     }
-    const description = buildErgolzKlinikDescription({
-      title: row.title,
-      pdfText,
-      pdfUrl: row.pdfUrl,
-    });
-    if (!description || description.length < 200) {
-      console.warn(`     ⚠️ Description too short (${description.length} chars) — skipping`);
-      continue;
-    }
+    const description = buildErgolzKlinikDescription({ pdfText });
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${ERGOLZ_KLINIK_KEY} liestal`);
