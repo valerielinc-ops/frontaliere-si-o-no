@@ -1258,7 +1258,7 @@
       "slugByLocale": {
         "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
-        "de": "postdoc-universitat-bern-bern-a5xwgv",
+        "de": "postdoc-universitat-bern-bern",
         "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1305,8 +1305,7 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern",
-        "postdoc-universitat-bern-bern"
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1316,8 +1315,7 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv",
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "fr": [
           "post-doc-unibe-bern"
@@ -5421,12 +5419,12 @@
     },
     {
       "id": "unibe-535ac265b0f5",
-      "slug": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
+      "slug": "sem-laboratorio-manager-con-responsabilita-didattiche-universitat-bern-bern",
       "slugByLocale": {
         "en": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
-        "it": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
-        "de": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
-        "fr": "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
+        "it": "sem-laboratorio-manager-con-responsabilita-didattiche-universitat-bern-bern",
+        "de": "sem-lab-manager-mit-lehraufgaben-universitat-bern-bern",
+        "fr": "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -5486,21 +5484,21 @@
       "firstSeenAt": "2026-09-24T00:02:05.744Z",
       "previousSlugsByLocale": {
         "it": [
-          "sem-laboratorio-manager-con-responsabilita-didattiche-universitat-bern-bern",
           "sem-lab-manager-mit-lehraufgaben-universitat-bern-bern",
-          "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern"
+          "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern",
+          "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
         ],
         "de": [
-          "sem-lab-manager-mit-lehraufgaben-universitat-bern-bern"
+          "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
         ],
         "fr": [
-          "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern"
+          "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "sem-laboratorio-manager-con-responsabilita-didattiche-universitat-bern-bern",
         "sem-lab-manager-mit-lehraufgaben-universitat-bern-bern",
-        "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern"
+        "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern",
+        "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
       ]
     },
     {
