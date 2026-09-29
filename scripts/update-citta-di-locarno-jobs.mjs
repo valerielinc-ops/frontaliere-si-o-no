@@ -20,6 +20,7 @@ import {
   CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE,
 } from './lib/citta-di-locarno-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
@@ -78,7 +79,19 @@ async function main() {
     const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const rawJobs = await fetchLocarnoJobs();
-  if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Locarno jobs found. Keeping existing.'); return; }
+  if (rawJobs.length === 0) {
+    console.log('\u26a0\ufe0f No Locarno jobs found. Keeping existing.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: COMPANY_NAME,
+      write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+    });
+    return;
+  }
 
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Locarno jobs.`);
   const parsedJobs = [];
