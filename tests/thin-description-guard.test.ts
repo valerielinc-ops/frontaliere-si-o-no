@@ -229,111 +229,29 @@ describe('MKS PAMP — no padded fallback, source text only', () => {
 });
 
 // ─── 6. Centiel ────────────────────────────────────────────────────────────
-// buildJob is not exported, so we replicate the enrichment logic.
-
-describe('Centiel — fallback descriptions >= 50 words', () => {
-  function buildCentielDescription(title: string, desc: string, reportingTo: string, workingRate: string) {
-    const wc = desc.split(/\s+/).filter(Boolean).length;
-    if (wc >= 50) return desc;
-    const parts = [
-      `${title} — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.`,
-      reportingTo ? `Reporting to: ${reportingTo}.` : '',
-      workingRate ? `Working rate: ${workingRate}.` : '',
-      desc ? `\n${desc}` : '',
-      `\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.`,
-      `\nWorkplace: Cadro (Lugano), Via alla Stampa 15, CH-6965.`,
-      `Apply via: https://www.centiel.com/careers/`,
-    ];
-    return parts.filter(Boolean).join('\n').trim();
-  }
-
-  it('enriches thin After-Sales Technician description', () => {
-    const desc = buildCentielDescription(
-      'After-Sales Technician',
-      'Provide technical support for UPS systems.',
-      'Technical Director',
-      '100%',
-    );
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('produces >= 50 words even with empty original description', () => {
-    const desc = buildCentielDescription('Test Engineer', '', '', '');
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
+// A copy of the runner's padding used to be tested here ("<title> — Centiel,
+// Cadro (Lugano)…", a paragraph about Centiel and "Apply via: …" below 50
+// words): it tested the copy, not update-centiel-jobs.mjs, whose own tests
+// are in tests/centiel-crawler.test.ts (issue 5253).
 
 // ─── 7. Confederazione Ticino ──────────────────────────────────────────────
-// buildLocalizedContent is not exported, so we replicate the logic.
+// Same: a copy of update-confederazione-jobs.mjs's padding ("Posizione
+// nell'Amministrazione federale svizzera…", a paragraph about the federal
+// administration, "Candidati online su jobs.admin.ch.") tested the copy,
+// not the runner. The runner's padding is removed, with its tests, by lot D
+// in #10333 (issue 5253).
 
-describe('Confederazione Ticino — fallback descriptions >= 50 words', () => {
-  function buildConfederazioneDescription(
-    title: string, dept: string, city: string, description: string,
-    sourceLang: string, pensum: string, fieldOfActivity: string,
-  ) {
-    const descWordCount = description.split(/\s+/).filter(Boolean).length;
-    if (descWordCount >= 50) return description;
+// ─── 8. ensureMinimumDescriptionWordCount (volg, spruengli, empa; USI) ─────
+// It no longer pads (issue 5253): below 50 words it used to append a company
+// paragraph from COMPANY_BOILERPLATE_IT behind a "## title / **company** —
+// place" header. The removal of those stored paragraphs is tested in
+// tests/company-boilerplate-fossils.test.ts.
 
-    if (sourceLang === 'de') {
-      const pensumText = pensum ? ` Beschäftigungsgrad: ${pensum}.` : '';
-      const fieldText = fieldOfActivity ? ` Bereich: ${fieldOfActivity}.` : '';
-      return [
-        `${title} — ${dept}, ${city}.`,
-        `Stelle in der Schweizerischen Bundesverwaltung (Schweizerische Eidgenossenschaft).`,
-        description || '',
-        `${fieldText}${pensumText}`,
-        `Die Schweizerische Eidgenossenschaft ist einer der grössten Arbeitgeber des Landes mit modernen Anstellungsbedingungen, Weiterbildungsmöglichkeiten, flexiblen Arbeitszeiten und wettbewerbsfähigen Sozialleistungen. Die Bundesverwaltung setzt sich für Chancengleichheit ein und fördert ein inklusives und vielfältiges Arbeitsumfeld.`,
-        `Bewerben Sie sich online auf jobs.admin.ch.`,
-      ].filter(Boolean).join('\n');
-    }
-
-    const pensumText = pensum ? ` Grado di occupazione: ${pensum}.` : '';
-    const fieldText = fieldOfActivity ? ` Settore: ${fieldOfActivity}.` : '';
-    return [
-      `${title} — ${dept}, ${city}.`,
-      `Posizione nell'Amministrazione federale svizzera (Confederazione Svizzera).`,
-      description || '',
-      `${fieldText}${pensumText}`,
-      `La Confederazione Svizzera è uno dei maggiori datori di lavoro del Paese, con condizioni di impiego moderne, opportunità di formazione continua, orari di lavoro flessibili e prestazioni sociali competitive. L'Amministrazione federale si impegna per le pari opportunità e promuove un ambiente di lavoro inclusivo e diversificato.`,
-      `Candidati online su jobs.admin.ch.`,
-    ].filter(Boolean).join('\n');
-  }
-
-  it('enriches German apprenticeship listing (49 words -> >= 50)', () => {
-    const shortDesc = 'Kaufmännische Aufgaben in verschiedenen Bereichen erlernen und erledigen\nRechnungen verbuchen und bearbeiten\nTägliche Korrespondenz bearbeiten\nVerantwortung für kleinere Projekte übernehmen\nSitzungen und/oder kleinere Anlässe organisieren und daran teilnehmen\n\nSekundarschulabschluss\nFreude an Sprachen und Zahlen sowie an kaufmännischen Arbeiten\nTeamgeist und Verantwortungsbewusstsein\nInteressierte, offene, initiative und motivierte Person\nSelbstständige Arbeitsweise';
-    const desc = buildConfederazioneDescription(
-      'Lernende Kauffrau EFZ / Lernender Kaufmann EFZ',
-      'Bundesamt für Umwelt',
-      'Bellinzona',
-      shortDesc,
-      'de',
-      '100%',
-      'Verwaltung',
-    );
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('enriches Italian thin description', () => {
-    const desc = buildConfederazioneDescription(
-      'Apprendista impiegato/a di commercio AFC',
-      'Ufficio federale',
-      'Bellinzona',
-      'Mansioni amministrative in diversi settori.',
-      'it',
-      '100%',
-      'Amministrazione',
-    );
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
-
-// ─── 8. USI (via ensureMinimumDescriptionWordCount) ────────────────────────
-
-describe('ensureMinimumDescriptionWordCount — patches thin descriptions', () => {
-  it('patches job with thin description using company boilerplate', () => {
+describe('ensureMinimumDescriptionWordCount — no padding', () => {
+  it('leaves a thin description of a company that had a paragraph as the source wrote it', () => {
     const jobs = [{
       title: 'PhD Researcher',
-      company: 'USI',
+      company: 'USI – Università della Svizzera italiana',
       location: 'Lugano',
       canton: 'TI',
       addressRegion: 'TI',
@@ -341,13 +259,10 @@ describe('ensureMinimumDescriptionWordCount — patches thin descriptions', () =
       titleByLocale: { it: 'PhD Researcher' },
       descriptionByLocale: { it: 'Short description only.' },
     }];
-    // Note: ensureMinimumDescriptionWordCount relies on getCompanyBoilerplateIT
-    // which may not have a USI entry. In that case, the function returns 0 patches.
-    // The USI crawler also has its own ensureMinimumDescriptionWordCount call.
     const patched = ensureMinimumDescriptionWordCount(jobs, MIN_WORDS);
-    // If USI boilerplate exists, it should patch; otherwise it stays thin
-    // Either way, the function should not crash
-    expect(patched).toBeGreaterThanOrEqual(0);
+    expect(patched).toBe(0);
+    expect(jobs[0].description).toBe('Short description only.');
+    expect(jobs[0].descriptionByLocale).toEqual({ it: 'Short description only.' });
   });
 
   it('does not modify jobs already >= 50 words', () => {
