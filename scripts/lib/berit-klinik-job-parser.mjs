@@ -228,28 +228,19 @@ export function extractBeritKlinikTitleFromPdf(pdfText = '') {
 }
 
 /**
- * Build a structured PDF-backed description for a Berit posting.
+ * The description of one Berit posting: the text of its PDF and nothing else,
+ * normalised once by `buildPdfBackedDescription`. The crawler used to wrap it
+ * in lines of its own ("Berit Klinik sucht für den Standort <Ort> eine
+ * engagierte Persönlichkeit.", "Position: <Titel>.", "Quelle (PDF): …",
+ * "Karriereportal: …", "Sektor: …") and to substitute a sentence of its own
+ * when the PDF had no text.
  *
- * @param {string} title       Resolved job title
- * @param {string} city        Resolved city
- * @param {string} pdfText     Raw PDF text (un-normalised — buildPdfBackedDescription normalises once)
- * @param {string} pdfUrl      Source PDF URL (added to footer)
+ * @param {string} title       Resolved job title (for the length warning)
+ * @param {string} pdfText     Raw PDF text
  * @returns {{ description: string, warnings: string[] }}
  */
-export function buildBeritKlinikDescription({ title, city, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${BERIT_KLINIK_COMPANY_NAME} sucht für den Standort ${city} eine engagierte Persönlichkeit.`,
-      `Position: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Stelleninserat ${title} bei ${BERIT_KLINIK_COMPANY_NAME}. Die vollständigen Angaben zu Aufgaben, Anforderungen und Bewerbungsweg entnehmen Sie dem offiziellen PDF.`,
-    footerLines: [
-      `Quelle (PDF): ${pdfUrl}`,
-      `Karriereportal: ${BERIT_KLINIK_CAREERS_URL}`,
-      `Sektor: Gesundheitswesen / Klinik`,
-    ],
-  });
+export function buildBeritKlinikDescription({ title, pdfText = '' } = {}) {
+  const description = buildPdfBackedDescription({ pdfText });
 
   const warnings = [];
   if (pdfText && description.length < MIN_BERIT_KLINIK_DESC_LENGTH) {
@@ -259,3 +250,7 @@ export function buildBeritKlinikDescription({ title, city, pdfText = '', pdfUrl 
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote. */
+export const BERIT_KLINIK_FABRICATED_DESCRIPTION_RE =
+  /sucht für den Standort .{1,80} eine engagierte Persönlichkeit\.|entnehmen Sie dem offiziellen PDF\.|(?:^|\n)Karriereportal: https?:/;
