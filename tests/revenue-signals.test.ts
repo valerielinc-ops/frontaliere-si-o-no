@@ -29,6 +29,7 @@ import {
   shiftDateHour,
   windowKeys,
 } from '../scripts/lib/revenue-signals.mjs';
+import { buildTargetMarketCountryFilter } from '../scripts/lib/ga4-target-market.mjs';
 import { earliestHourNeeded, fetchHourlyCounts, runMonitor } from '../scripts/monitor-revenue-signals.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -195,8 +196,10 @@ describe('fetchHourlyCounts', () => {
 
   it('merges the metrics and the ad events per hour', async () => {
     const calls: string[] = [];
+    const bodies: Record<string, unknown>[] = [];
     const fetchImpl = async (_url: string, init: { body: string }) => {
       const body = JSON.parse(init.body);
+      bodies.push(body);
       calls.push(body.dateRanges[0].startDate);
       return body.dimensions.length === 1
         ? report([{ dimensionValues: [{ value: '2026092814' }], metricValues: [{ value: '10' }, { value: '25' }, { value: '30' }, { value: '0.05' }] }])
@@ -205,6 +208,8 @@ describe('fetchHourlyCounts', () => {
     const hours = await fetchHourlyCounts({ token: 't', currentHour: '2026092816', fetchImpl: fetchImpl as unknown as typeof fetch });
     expect(hours['2026092814']).toEqual({ sessions: 10, pageViews: 25, impressions: 30, revenue: 0.05, ad_filled: 20 });
     expect(calls).toEqual(['2026-09-06', '2026-09-06']);
+    expect(bodies[0].dimensionFilter).toEqual(buildTargetMarketCountryFilter());
+    expect((bodies[1].dimensionFilter as { andGroup: { expressions: unknown[] } }).andGroup.expressions[0]).toEqual(buildTargetMarketCountryFilter());
   });
 
   it('refuses a truncated report instead of measuring on partial data', async () => {

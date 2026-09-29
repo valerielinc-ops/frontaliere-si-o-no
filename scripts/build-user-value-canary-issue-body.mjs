@@ -50,6 +50,9 @@ lines.push("");
 lines.push(`**When detected:** ${r.timestamp || "(unknown)"}`);
 lines.push(`**GA4 property:** ${r.propertyId || "(unknown)"}`);
 lines.push(`**Workflow run:** ${runUrl}`);
+if (Array.isArray(r.targetMarketCountries) && r.targetMarketCountries.length > 0) {
+  lines.push(`**GA4 target-market scope:** ${r.targetMarketCountries.join(" + ")} (the same country filter is applied to revenue and active users)`);
+}
 lines.push("");
 lines.push("### Numbers");
 lines.push("");
