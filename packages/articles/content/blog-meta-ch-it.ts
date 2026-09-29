@@ -7097,6 +7097,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soletta-successione-donazione-aliquote.title': 'Soletta: aliquote successione e donazione senza imposta federale',
     'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Soletta la competenza è esclusivamente cantonale e comunale; AFC/ESTV non gestisce questo prelievo.',
     'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Paesaggio del Cantone di Soletta con colline e centri abitati',
+    'blog.article.sresi-prezzi-lugano-2026.title': 'Investimenti immobiliari: il Ticino va in controtendenza',
+    'blog.article.sresi-prezzi-lugano-2026.excerpt': 'L\'indice SRESI scende a 47,5 punti nel 2026 dai 69,5 del 2025. Lugano è l\'unico centro con aspettative di prezzi al ribasso.',
+    'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama di Lugano con edifici residenziali e lago sullo sfondo',
 };
 
 export default blogMetaChIt;

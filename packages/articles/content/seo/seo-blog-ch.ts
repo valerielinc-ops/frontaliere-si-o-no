@@ -92021,6 +92021,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sresi-prezzi-lugano-2026': {
+    title: 'Investimenti immobiliari: il Ticino va in controtendenza',
+    description: 'L\'indice SRESI passa da 69,5 a 47,5 punti nel 2026: aumenti attesi a Zurigo, Svizzera centrale e Lago Lemano, calo a Lugano e in Ticino secondo KPMG.',
+    keywords: 'frontalieri, ticino, svizzera, italia, investimenti, immobiliari, controtendenza, indice',
+    ogTitle: 'Investimenti immobiliari: il Ticino va in controtendenza',
+    ogDescription: 'Il sentiment degli esperti sugli investimenti immobiliari resta solido secondo KPMG, ma il dato 2026 è più basso del 2025. Aumenti più marcati attesi a Zurigo, nella Svizzera centrale e sul Lago Lemano; Lugano è l\'unico centro con prezzi al ribasso.',
+    canonicalPath: '/articoli-svizzera/sresi-prezzi-lugano-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Investimenti immobiliari: il Ticino va in controtendenza",
+      "description": "L'indice SRESI passa da 69,5 a 47,5 punti nel 2026: aumenti attesi a Zurigo, Svizzera centrale e Lago Lemano, calo a Lugano e in Ticino secondo KPMG.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sresi-prezzi-lugano-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con edifici residenziali e lago sullo sfondo"
+      },
+      "datePublished": "2026-09-29T20:14:25+00:00",
+      "dateModified": "2026-09-29T20:14:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sresi-prezzi-lugano-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

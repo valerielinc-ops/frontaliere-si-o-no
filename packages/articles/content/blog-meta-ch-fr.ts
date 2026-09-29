@@ -7097,6 +7097,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soletta-successione-donazione-aliquote.title': 'Soleure : taux des droits de succession et de donation sans impôt fédéral',
     'blog.article.soletta-successione-donazione-aliquote.excerpt': 'À Soleure, la compétence est exclusivement cantonale et communale ; AFC/ESTV ne gère pas ce prélèvement.',
     'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Paysage du canton de Soleure avec collines et agglomérations',
+    'blog.article.sresi-prezzi-lugano-2026.title': 'Investissements immobiliers : le Tessin va à contre-courant',
+    'blog.article.sresi-prezzi-lugano-2026.excerpt': 'L\'indice SRESI descend à 47,5 points en 2026, contre 69,5 en 2025. Lugano est le seul centre où les prix sont attendus à la baisse.',
+    'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama de Lugano avec des immeubles résidentiels et le lac en arrière-plan',
 };
 
 export default blogMetaChFr;
