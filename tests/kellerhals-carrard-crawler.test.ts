@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
+  fetchAllKellerhalsCarrardJobs,
   KELLERHALS_CARRARD_KEY,
   KELLERHALS_CARRARD_COMPANY_NAME,
   isKellerhalsCarrardJob,
@@ -124,6 +125,45 @@ describe('Kellerhals Carrard crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── fetchAllKellerhalsCarrardJobs: published page + office table (#5253) ──
+  describe('fetchAllKellerhalsCarrardJobs', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('publishes a Lausanne-only vacancy in Lausanne with the body of its job page', async () => {
+      // Live 2026-09-29, posting 2437629: `search.json?language=de` answers
+      // with an empty description (the position exists only in French) and
+      // office "Lausanne", which was missing from the office table — the job
+      // went out as a 199-character placeholder located in Bern.
+      vi.spyOn(globalThis, 'fetch')
+        .mockResolvedValueOnce(new Response(JSON.stringify([{
+          id: 2437629,
+          name: 'Avocat(e) à 100% ou 80%',
+          description: '',
+          office: 'Lausanne',
+          offices: ['Lausanne'],
+          schedule: 'full-time',
+        }]), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+        .mockResolvedValueOnce(new Response(`
+          <h1 class="page_jobTitle__x detail-title job-position-title">Avocat(e) à 100% ou 80%</h1>
+          <div class="page_jobDescriptionItem__x jb-description-item"><h2 class="detail-block-title">Vos tâches</h2>
+            <div class="rich-text-content detail-block-description"><ul><li>Conseiller notre clientèle en droit des affaires</li></ul></div></div>
+          <div class="page_jobDescriptionItem__x detail-content-block detail-content-block-about-us"><h2 class="detail-block-title">À propos de nous</h2>
+            <div class="rich-text-content detail-block-description"><p>Kellerhals Carrard compte plus de 400 collaboratrices et collaborateurs.</p></div></div>
+        `, { status: 200 }));
+
+      const [job] = await fetchAllKellerhalsCarrardJobs();
+
+      expect(job.location).toBe('Lausanne');
+      expect(job.canton).toBe('VD');
+      expect(job.postalCode).toBe('1003');
+      expect(job.description).toContain('Conseiller notre clientèle en droit des affaires');
+      expect(job.description).toContain('## À propos de nous');
+      expect(job.description).not.toContain('Stelle bei Kellerhals Carrard');
     });
   });
 });

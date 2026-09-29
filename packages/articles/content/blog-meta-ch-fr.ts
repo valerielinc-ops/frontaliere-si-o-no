@@ -7037,6 +7037,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'Les Suisses sont les plus riches du monde',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'La Suisse est première pour le patrimoine financier brut par habitant, avec 406\'060 euros. Selon le Global Wealth Report 2026 d\'Allianz, le patrimoine net par personne s\'élève à 275\'980 euros.',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Aperçu d\'un centre financier suisse avec banques et montagnes',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'IA al lavoro in Svizzera: pochi benefici visti',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% des travailleurs suisses utilisent chaque jour l\'IA générative, mais seuls 10% constatent une meilleure qualité du travail. Les données de l\'étude PwC.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Travailleurs suisses et intelligence artificielle',
+    'blog.article.cioccolato-mercato-svizzera.title': 'Lindt révise à la baisse ses prévisions de ventes pour 2026',
+    'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt prévoit une croissance du chiffre d\'affaires de 0%-2% (contre 4-6% précédemment), BP -8% dans la matinée, performance YTD -30%, -35% sur 12 mois, -24% sur 5 ans ; siège à Kilchberg ZH, 15\'500 employés.',
+    'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Barres de chocolat suisse sur table en bois avec fond des Alpes',
 };
 
 export default blogMetaChFr;

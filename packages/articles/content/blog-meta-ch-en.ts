@@ -7037,6 +7037,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'The Swiss are the richest in the world',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'Switzerland ranks first for gross financial wealth per capita at 406\'060 euros. According to Allianz\'s Global Wealth Report 2026, net wealth per person stands at 275\'980 euros.',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Overview of a Swiss financial center with banks and mountains',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'Swiss workers use AI, but few see its benefits',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% of Swiss workers use generative AI every day, but only 10% see improved work quality. Findings from PwC research.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Swiss workers and artificial intelligence',
+    'blog.article.cioccolato-mercato-svizzera.title': 'Lindt revises downwards its sales forecasts for 2026',
+    'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt expects revenue growth of 0%-2% (versus previous 4-6%), BP -8% in the morning, YTD performance -30%, -35% over 12 months, -24% over 5 years; headquarters in Kilchberg ZH, 15\'500 employees.',
+    'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Swiss chocolate bars on a wooden table with Alps background',
 };
 
 export default blogMetaChEn;
