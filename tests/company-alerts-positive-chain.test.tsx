@@ -58,6 +58,7 @@ const doubles = vi.hoisted(() => {
     trackJobAlertCreated: vi.fn((payload: any) => {
       state.created.push(payload);
     }),
+    trackEvent: vi.fn(),
     setUserSegmentFlags: vi.fn(),
   };
 
@@ -180,6 +181,7 @@ const doubles = vi.hoisted(() => {
       analytics.trackJobAlertCtaShown,
       analytics.trackJobAlertCtaClick,
       analytics.trackJobAlertCreated,
+      analytics.trackEvent,
       analytics.setUserSegmentFlags,
     ]) mock.mockClear();
   };
@@ -226,6 +228,11 @@ const adminDouble = vi.hoisted(() => {
 });
 
 vi.mock('firebase-admin', () => ({ default: adminDouble }));
+
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: adminDouble.firestore.FieldValue,
+  Timestamp: adminDouble.firestore.Timestamp,
+}));
 
 vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn((db: unknown, name: string) => ({ kind: 'collectionGroup', db, name })),
