@@ -93,6 +93,69 @@ describe('data/image CDN preconnect injection', () => {
     expect(charsetAt).toBeLessThan(hintAt);
   });
 
+  it('keeps an unquoted charset declaration before deploy-time head injections', () => {
+    const unquoted = BASE_HTML.replace('<meta charset="utf-8">', '<meta charset=utf-8>');
+    const { html } = runOffload(unquoted);
+    const charsetAt = html.indexOf('<meta charset=utf-8>');
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(charsetAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(charsetAt).toBeLessThan(hintAt);
+  });
+
+  it('consumes valid attributes after an unquoted charset value', () => {
+    const withAttribute = BASE_HTML.replace(
+      '<meta charset="utf-8">',
+      '<meta charset=utf-8 data-x>',
+    );
+    const { html } = runOffload(withAttribute);
+    const metaAt = html.indexOf('<meta charset=utf-8 data-x>');
+    const metaEnd = html.indexOf('>', metaAt);
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(metaAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(metaEnd);
+  });
+
+  it('handles charset attributes in any order and ignores > inside quoted values', () => {
+    const completeMeta = `<meta data-x=">" charset=utf-8 data-y='>'>`;
+    const withAttributes = BASE_HTML.replace('<meta charset="utf-8">', completeMeta);
+    const { html } = runOffload(withAttributes);
+    const metaAt = html.indexOf(completeMeta);
+    const completeMetaEnd = metaAt + completeMeta.length - 1;
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(metaAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(completeMetaEnd);
+  });
+
+  it('ignores fake meta tags in comments, templates, and raw-text nodes', () => {
+    const actualMeta = '<meta charset=utf-8>';
+    const hidden = [
+      '<!-- <meta charset=utf-8> -->',
+      '<template><meta charset=utf-8></template>',
+      '<script>const fake = "<meta charset=utf-8>";</script>',
+      '<style>/* <meta charset=utf-8> */</style>',
+      '<textarea><meta charset=utf-8></textarea>',
+      '<title><meta charset=utf-8></title>',
+    ].join('');
+    const withHidden = BASE_HTML.replace('<meta charset="utf-8">', hidden + actualMeta);
+    const { html } = runOffload(withHidden);
+    const actualAt = html.lastIndexOf(actualMeta);
+    const actualEnd = actualAt + actualMeta.length - 1;
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(actualAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(actualEnd);
+  });
+
+  it('preserves source offsets around non-ASCII text before the charset tag', () => {
+    const actualMeta = '<meta charset=utf-8>';
+    const withUnicode = BASE_HTML.replace('<meta charset="utf-8">', `İ${actualMeta}`);
+    const { html } = runOffload(withUnicode);
+    const metaAt = html.indexOf(actualMeta);
+    const metaEnd = metaAt + actualMeta.length - 1;
+    const hintAt = html.indexOf('rel="preconnect"');
+    expect(metaAt).toBeGreaterThan(html.indexOf('<head'));
+    expect(hintAt).toBeGreaterThan(metaEnd);
+  });
+
   it('skips the hint when the page already preconnects to the same origin (#3530)', () => {
     // When the data CDN origin coincides with the asset CDN origin, the build
     // already ships this exact preconnect (asyncCssPlugin / template heads) —
