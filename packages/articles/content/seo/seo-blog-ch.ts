@@ -91202,6 +91202,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-patrimonio-finanziario-mondiale': {
+    title: 'Gli svizzeri sono i più ricchi del mondo | Frontaliere Ticino',
+    description: 'La Svizzera è prima nel Global Wealth Report 2026 per patrimonio lordo pro capite con 406\'060 euro. Scopri tutti i dati sul portafoglio finanziario svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, sono, ricchi, mondo',
+    ogTitle: 'Gli svizzeri sono i più ricchi del mondo nel Global Wealth Report 2026',
+    ogDescription: 'Con 406\'060 euro di attivi finanziari lordi pro capite, la Svizzera guida la classifica mondiale secondo lo studio di Allianz. Analisi completa di passività, titoli e patrimonio netto.',
+    canonicalPath: '/articoli-svizzera/svizzera-patrimonio-finanziario-mondiale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gli svizzeri sono i più ricchi del mondo",
+      "description": "La Svizzera è prima nel Global Wealth Report 2026 per patrimonio lordo pro capite con 406'060 euro. Scopri tutti i dati sul portafoglio finanziario svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-patrimonio-finanziario-mondiale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di un centro finanziario svizzero con banche e montagne"
+      },
+      "datePublished": "2026-09-29T10:14:38+00:00",
+      "dateModified": "2026-09-29T10:14:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-patrimonio-finanziario-mondiale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
