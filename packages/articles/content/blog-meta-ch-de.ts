@@ -7031,6 +7031,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.obbligo-assicurazione-detenuti.title': 'Im Ausland domizilierte Häftlinge: keine KVG-Pflicht',
     'blog.article.obbligo-assicurazione-detenuti.excerpt': 'Nach der Abstimmung der Stände im Juni lehnte der Nationalrat die KVG-Änderung ohne Ja-Stimmen ab: Die Kosten der Häftlinge verbleiben bei den Kantonen.',
     'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Schweizer Parlament in Bern mit Unterlagen zur Krankenversicherung von Gefangenen',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Schweizer Eier: «irreführend» von Kleinviehzucht zu sprechen',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'Die Schweizerische Loyalitätskommission hält eine Werbung der Suisse Garantie für irreführend: 65% der Legehennen leben in Zuchtbetrieben mit über 4000 Tieren.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Schweizer Eier und Legehennen in einem Stall',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'Die Schweizer sind die reichsten Menschen der Welt',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'Die Schweiz steht beim Bruttofinanzvermögen pro Kopf mit 406\'060 Euro an erster Stelle. Laut dem Global Wealth Report 2026 von Allianz beträgt das Nettovermögen pro Person 275\'980 Euro.',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Uebersicht ueber ein Schweizer Finanzzentrum mit Banken und Bergen',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'Schweizer Arbeitnehmer nutzen KI, aber nur wenige sehen darin Vorteile',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% der Schweizer Arbeitnehmer nutzen täglich generative KI, aber nur 10% sehen eine bessere Arbeitsqualität. Die Daten der Studie von PwC.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Schweizer Arbeitnehmer und künstliche Intelligenz',
 };
 
 export default blogMetaChDe;

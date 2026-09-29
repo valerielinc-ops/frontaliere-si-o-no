@@ -7031,6 +7031,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.obbligo-assicurazione-detenuti.title': 'Prisoners domiciled abroad: no LAMal obligation',
     'blog.article.obbligo-assicurazione-detenuti.excerpt': 'After the Council of States\' vote in June, the National Council rejected the amendment to LAMal with no votes in favor: the costs of detainees remain with the Cantons.',
     'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Swiss Parliament in Bern with a dossier on detainees\' health insurance',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Swiss eggs: “misleading” to talk about small farms',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'The Swiss Commission for Fairness deems an advertisement by Suisse Garantie misleading: 65% of laying hens live on farms with more than 4000 animals.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Swiss eggs and laying hens in a farm setting',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'The Swiss are the richest in the world',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'Switzerland ranks first for gross financial wealth per capita at 406\'060 euros. According to Allianz\'s Global Wealth Report 2026, net wealth per person stands at 275\'980 euros.',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Overview of a Swiss financial center with banks and mountains',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'Swiss workers use AI, but few see its benefits',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% of Swiss workers use generative AI every day, but only 10% see improved work quality. Findings from PwC research.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Swiss workers and artificial intelligence',
 };
 
 export default blogMetaChEn;

@@ -83,4 +83,10 @@ describe('traffic scheduler Cloud dispatch', () => {
     expect(functionsIndex).toContain('export const dispatchTrafficCollection = onSchedule(');
     expect(functionsIndex).toContain("schedule: '0,30 * * * *'");
   });
+
+  it('leaves bounded tail time after the full traffic collection pass', () => {
+    const workflow = readFileSync(`${root}/.github/workflows/traffic-scheduler.yml`, 'utf8');
+    const timeout = Number(/jobs:\s+collect:[\s\S]*?timeout-minutes:\s*(\d+)/u.exec(workflow)?.[1]);
+    expect(timeout).toBeGreaterThanOrEqual(15);
+  });
 });

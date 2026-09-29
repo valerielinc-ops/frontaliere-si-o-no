@@ -7031,6 +7031,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.obbligo-assicurazione-detenuti.title': 'Detenuti domiciliati all\'estero: nessun obbligo LAMal',
     'blog.article.obbligo-assicurazione-detenuti.excerpt': 'Dopo il voto degli Stati in giugno, il Nazionale ha respinto la modifica LAMal senza voti favorevoli: i costi dei detenuti restano ai Cantoni.',
     'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Parlamento svizzero a Berna e dossier sull\'assicurazione malattie dei detenuti',
+    'blog.article.uova-piccoli-allevamenti-csl.title': 'Uova svizzere: «fuorviante» parlare di piccoli allevamenti',
+    'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'La Commissione svizzera per la lealtà giudica fuorviante una pubblicità di Suisse Garantie: il 65% delle ovaiole vive in allevamenti oltre 4000 esemplari.',
+    'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Uova svizzere e galline ovaiole in un allevamento',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'Gli svizzeri sono i più ricchi del mondo',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'La Svizzera è prima per patrimonio lordo finanziario pro capite con 406\'060 euro. Secondo il Global Wealth Report 2026 di Allianz, il patrimonio netto per persona è a 275\'980 euro.',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Panoramica di un centro finanziario svizzero con banche e montagne',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'I lavoratori svizzeri usano l\'IA, ma pochi ne vedono i benefici',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': 'Il 28% dei lavoratori svizzeri usa ogni giorno l\'IA generativa ma solo il 10% vede una qualità del lavoro migliore. I dati della ricerca PwC.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Lavoratori svizzeri e intelligenza artificiale',
 };
 
 export default blogMetaChIt;
