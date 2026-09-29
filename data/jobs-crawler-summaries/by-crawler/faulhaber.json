@@ -1,21 +1,21 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-29T09:16:08.636Z",
+  "generatedAt": "2026-09-29T21:16:22.228Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 3,
   "lastFetchOutcome": null,
   "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 64457,
-  "avgDurationMs": 64457,
+  "unchangedCount": 1,
+  "durationMs": 61274,
+  "avgDurationMs": 61274,
   "durationHistory": [
-    64457
+    61274
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,9 +43,9 @@
       "url": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:15:50.141Z",
-      "needsRetranslation": true,
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:16:03.788Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:33:48.674Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -79,8 +79,9 @@
       "url": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-29T09:15:25.867Z",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-29T21:15:41.247Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -114,8 +115,9 @@
       "url": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-29T09:15:38.388Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-29T21:15:52.948Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -124,10 +126,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
-      "slug": "candidatura-spontanea-croglio-faulhaber",
+      "slug": "candidatura-faulhaber-croglio",
       "company": "Faulhaber",
       "companyKey": "faulhaber",
       "companyDomain": "faulhaber.com",
@@ -152,15 +157,18 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-29T09:16:02.773Z",
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
+        "richness": 3,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-29T09:14:31.085Z",
+  "generatedAt": "2026-09-29T21:12:59.009Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 11,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2937,
-  "avgDurationMs": 2937,
+  "unchangedCount": 0,
+  "durationMs": 7220,
+  "avgDurationMs": 7220,
   "durationHistory": [
-    2937
+    7220
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,8 +47,8 @@
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
+        "richness": 22,
+        "translation": 19,
         "completeness": 19
       }
     },
@@ -82,11 +82,11 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:53:09.416Z",
       "needsRetranslation": true,
-      "_qualityScore": 80,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 23,
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
         "completeness": 19
       }
     },
@@ -120,11 +120,11 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:53:09.416Z",
       "needsRetranslation": true,
-      "_qualityScore": 80,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 23,
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
         "completeness": 19
       }
     },
@@ -161,8 +161,8 @@
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -199,8 +199,8 @@
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -237,8 +237,8 @@
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -275,8 +275,83 @@
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Jurist/in",
+      "slug": "jurist-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19847",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-10",
+      "validThrough": "2026-10-14",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-0ff3bc3f4d94",
+      "needsRetranslation": true,
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-10T23:06:37.551Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "HR Business Partner/-in",
+      "slug": "hr-business-partner-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19792",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-09",
+      "validThrough": "2026-10-13",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-d4ab9b520cbe",
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-26T13:53:09.416Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -313,8 +388,8 @@
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -351,88 +426,12 @@
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 22
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Jurist/in",
-      "slug": "jurist-in-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19847",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-10",
-      "validThrough": "2026-10-14",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-0ff3bc3f4d94",
-      "needsRetranslation": true,
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-10T23:06:37.551Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 20,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "HR Business Partner/-in",
-      "slug": "hr-business-partner-in-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19792",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-09",
-      "validThrough": "2026-10-13",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-d4ab9b520cbe",
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-26T13:53:09.416Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
