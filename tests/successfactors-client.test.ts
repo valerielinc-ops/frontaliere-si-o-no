@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   detectSuccessFactorsKind,
+  extractJobs2WebDeclaredTotal,
   fetchSuccessFactorsJobs,
 } from '../scripts/lib/ats-clients/successfactors-client.mjs';
 
@@ -55,6 +56,53 @@ describe('SuccessFactors client', () => {
     ]);
     expect(fetchMock).toHaveBeenNthCalledWith(1, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland', expect.any(Object));
     expect(fetchMock).toHaveBeenNthCalledWith(2, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland&startrow=10', expect.any(Object));
+  });
+
+  // jobdetails.nestle.com (2026-09-29): "Results 1 – 10 of 110" for the Swiss
+  // search, but startrow=5000 and startrow=50000 still return the same full
+  // page of unrelated results. The loop only stopped on a short page, so with
+  // `maxPages: 100000` a Nestlé crawl never finished.
+  it('stops when a page adds no new requisition', async () => {
+    const repeated = fullSearchPage(9001);
+    const fetchMock = vi.fn(async () => new Response(repeated, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 100000, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('stops once the next offset passes the declared result total', async () => {
+    const withTotal = (startId: number) => `<span class="paginationLabel">Results <b>${startId - 1000} – ${startId - 991}</b> of <b>20</b></span>${fullSearchPage(startId)}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(1001), { status: 200 }))
+      .mockResolvedValueOnce(new Response(withTotal(1011), { status: 200 }))
+      .mockResolvedValue(new Response(fullSearchPage(5001), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 100000, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs.map((job) => job.jobReqId)).toHaveLength(20);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('reads the declared total in the tenant languages', () => {
+    expect(extractJobs2WebDeclaredTotal('Results <b>1 – 10</b> of <b>110</b>')).toBe(110);
+    expect(extractJobs2WebDeclaredTotal('Ergebnisse <b>1 – 25</b> von <b>1,093</b>')).toBe(1093);
+    expect(extractJobs2WebDeclaredTotal('<p>no counter</p>')).toBeNull();
   });
 
   it('classifies the Swiss Re CSB "JobTeaserList" career page as html-jobreq (#3797)', () => {
