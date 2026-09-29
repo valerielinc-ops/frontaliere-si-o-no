@@ -34,6 +34,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseSunriseSearchPage,
   parseSunriseJobDetail,
@@ -296,10 +297,9 @@ async function buildSunriseJob(listing) {
     de: normalizeKey(`${detail.title} Sunrise ${locationLabel}`),
     fr: normalizeKey(`${detail.title} Sunrise ${locationLabel}`),
   };
-  const itDescription = localized.descriptionByLocale.it || '';
-  const enDescription = localized.descriptionByLocale.en || '';
+  const { sourceLang } = localized;
   return {
-    title: localized.titleByLocale.it || detail.title || listing.title,
+    title: localized.titleByLocale[sourceLang] || detail.title || listing.title,
     slug: localized.slugByLocale.it,
     url: detailUrl,
     applyUrl: detail.applyUrl,
@@ -316,7 +316,7 @@ async function buildSunriseJob(listing) {
     category: inferSunriseCategory(detail),
     sector: 'Tecnologia & IT',
     source: 'sunrise-dedicated-crawler',
-    sourceLang: detectLang(enDescription || itDescription || detail.description || '', 'en'),
+    sourceLang,
     postedDate: toIsoDate(detail.postedDate || listing.postedDate),
     employmentType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
@@ -351,10 +351,12 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      // Fresh text wins in the SOURCE slot only; translations are kept.
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    dropStaleLocaleDescriptions(merged);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
   });

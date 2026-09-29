@@ -44,6 +44,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { dropFabricatedLocaleText, sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isChCountry } from './lib/ch-country-guard.mjs';
 import {
@@ -632,9 +633,9 @@ export async function fetchCapriHoldingsJobs() {
       streetAddress: structuredAddress.streetAddress,
       description,
       descriptionByLocale,
-      titleByLocale: { en: title },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
-      slugByLocale: { en: slug, it: slugify(title, 'capri-holdings') },
       category: detectCategory(title),
       datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'capri-holdings-workday-crawler',
@@ -699,6 +700,9 @@ async function mergeJobs(discoveredJobs) {
     country: 'CH',
     source: 'capri-holdings-workday-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCapriJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

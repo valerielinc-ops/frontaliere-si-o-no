@@ -38,6 +38,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   normalizeSpace,
@@ -274,14 +275,9 @@ export async function fetchDxtJobs() {
       descriptionByLocale: {
         [sourceLang]: descEn,
       },
-      titleByLocale: {
-        en: parsed.title,
-      },
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(parsed.title, slug, sourceLang),
       slug,
-      slugByLocale: {
-        en: slug,
-        it: slugify(parsed.title, 'dxt'),
-      },
       category: detectCategory(parsed.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'dxt-careers-crawler',
@@ -406,6 +402,9 @@ async function mergeDxtJobs(discoveredJobs) {
     country: 'CH',
     source: 'dxt-careers-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   // Combine non-DXT jobs with merged DXT jobs
   const final = [...nonDxtJobs, ...merged];

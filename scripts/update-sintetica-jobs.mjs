@@ -16,6 +16,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, buildSinteticaDescriptionFields, dropSinteticaFabricatedText } from './lib/sintetica-job-parser.mjs';
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
@@ -163,8 +164,10 @@ export async function fetchJobs() {
       addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
       postalCode: site.postalCode, streetAddress: site.streetAddress,
       description,
-      titleByLocale: { en: raw.title }, descriptionByLocale,
-      slug, slugByLocale: { en: slug, it: slug },
+      descriptionByLocale,
+      // Title and slug in the body's source slot, not a fixed `en`/`it`.
+      ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+      slug,
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
@@ -195,6 +198,9 @@ async function mergeJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

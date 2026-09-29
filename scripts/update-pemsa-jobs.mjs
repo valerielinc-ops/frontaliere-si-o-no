@@ -155,7 +155,7 @@ function buildPemsaJob(detail, url) {
 
   return {
     title: localized.titleByLocale[sourceLang],
-    slug: localized.slugByLocale.it,
+    slug: localized.slugByLocale[sourceLang] || localized.slugByLocale.it,
     url,
     applyUrl: url,
     company: COMPANY_NAME,

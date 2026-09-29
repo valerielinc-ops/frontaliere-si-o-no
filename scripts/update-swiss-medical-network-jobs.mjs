@@ -21,6 +21,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace, dropSwissMedicalNetworkFabricatedText } from './lib/swiss-medical-network-job-parser.mjs';
@@ -202,8 +203,9 @@ export function buildJobFromApi(posting, detailDescription = '', applyUrl = '', 
     ...(posting.postalCode && { postalCode: posting.postalCode }),
     description,
     descriptionByLocale,
-    titleByLocale: { en: posting.title },
-    slug, slugByLocale: { en: slug, it: slugify(posting.title, 'swiss-medical-network') },
+    // Title and slug in the body's source slot, not a fixed `en`/`it`.
+    ...sourceSlotTitleAndSlug(posting.title, slug, sourceLang),
+    slug,
     category: detectCategory(posting.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'swiss-medical-smartrecruiters-crawler',
@@ -240,6 +242,9 @@ async function mergeJobs(discoveredJobs) {
     companyKey: COMPANY_KEY,
     source: 'swiss-medical-smartrecruiters-crawler',
   }));
+  // Non-source slots the merge kept that are not in their own language go
+  // back to the translation pipeline.
+  for (const job of merged) dropStaleLocaleDescriptions(job);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);

@@ -17,6 +17,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractInterrollJobBody } from './lib/interroll-job-parser.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -108,8 +109,9 @@ export function buildInterrollJob(raw, site, body = '') {
     addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
     postalCode: site.postalCode, streetAddress: site.streetAddress,
     description,
-    titleByLocale: { [sourceLang]: raw.title }, descriptionByLocale: { [sourceLang]: description },
-    slug, slugByLocale: { en: slug, it: slug },
+    ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
+    descriptionByLocale: { [sourceLang]: description },
+    slug,
     category: detectCategory(raw.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, description),
@@ -161,7 +163,10 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
+    dropStaleLocaleDescriptions(job);
+    return job;
+  });
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
