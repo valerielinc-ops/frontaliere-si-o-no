@@ -33,7 +33,6 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
-  mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
@@ -41,7 +40,10 @@ import {
   parsePemsaDetailPage,
   isPemsaSwissRelevant,
   buildPemsaLocalizedContent,
+  mergePemsaJobRecord,
+  PEMSA_FABRICATED_DESCRIPTION_RE,
 } from './lib/pemsa-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -149,9 +151,10 @@ function buildPemsaJob(detail, url) {
   // instead of mislabeling on a fixed canton.
   const canton = inferAnyCanton(city) || inferAnyCanton(detail.region || '') || '';
   const localized = buildPemsaLocalizedContent(detail);
+  const { sourceLang } = localized;
 
   return {
-    title: localized.titleByLocale.it,
+    title: localized.titleByLocale[sourceLang],
     slug: localized.slugByLocale.it,
     url,
     applyUrl: url,
@@ -167,12 +170,12 @@ function buildPemsaJob(detail, url) {
     category: inferCategory(detail.title),
     sector: 'Edilizia e tecnica',
     source: 'pemsa-dedicated-crawler',
-    sourceLang: detectLang(detail.title, 'it'),
+    sourceLang,
     postedDate: parseDate(detail.datePosted),
     employmentType: detail.employmentType?.toLowerCase().includes('part') ? 'part-time' : 'full-time',
     contractType: 'temporary',
     validThrough: detail.validThrough || '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[sourceLang] || '',
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -186,29 +189,36 @@ function jobMatchKey(job = {}) {
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const targetExisting = existing.filter(isTargetJob);
+  // Stored records lose the text the crawler side once wrote (the invented
+  // recruitment paragraph, the central company paragraph) and the
+  // translations made from it before they are merged (issue 5253).
+  const targetExisting = dropFabricatedDescriptions(existing.filter(isTargetJob), PEMSA_FABRICATED_DESCRIPTION_RE, 'PEMSA');
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  let unpublished = 0;
+  const mergedTarget = [];
+  for (const job of discoveredJobs) {
+    const prev = existingByKey.get(jobMatchKey(job)) || null;
+    // Source text only (issue 5253): a job without a body keeps the body an
+    // earlier run read from the source, or is not published this run.
+    const merged = mergePemsaJobRecord(prev, job);
+    if (!merged) {
+      unpublished += 1;
+      console.log(`  ⏭️ No source body for ${job.url} — not published this run`);
+      continue;
+    }
     if (!prev) {
       added += 1;
-      return job;
+    } else {
+      updated += 1;
+      captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     }
-    updated += 1;
-    const merged = {
-      ...prev,
-      ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
-    };
-    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
-    return merged;
-  });
+    mergedTarget.push(merged);
+  }
+  if (unpublished > 0) console.log(`  ⏭️ ${unpublished} PEMSA job(s) without a source body not published`);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);

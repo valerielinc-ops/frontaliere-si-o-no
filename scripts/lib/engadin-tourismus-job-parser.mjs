@@ -7,6 +7,7 @@
  * TYPO3-based CMS. Job listings use "Mehr lesen" links to detail pages.
  * Detail pages at /ueber-uns/jobs/jobs/{slug}
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -22,8 +23,6 @@ const HQ = getCompanyDefaults('engadin-tourismus');
 export const ENGADIN_TOURISMUS_KEY = 'engadin-tourismus';
 export const ENGADIN_TOURISMUS_COMPANY_NAME = 'Engadin Tourismus AG';
 export const ENGADIN_TOURISMUS_COMPANY_DOMAIN = 'engadintourismus.ch';
-
-export const MIN_DESC_LENGTH = 100;
 
 function createDocument(html = '') {
   const sanitized = String(html || '').replace(/<style\b[\s\S]*?<\/style>/gi, '');
@@ -108,45 +107,45 @@ function parseListingPage(html = '') {
 }
 
 /**
- * Parse a job detail page for full description.
+ * Parse a job detail page for the vacancy text.
+ *
+ * Issue 5253: the old selector list ended in `article`/`main`/`#content` and a
+ * "largest block of the page" fallback. None of the job-scoped containers
+ * exists on the current TYPO3 news template, so every job published the whole
+ * page navigation ("• Über uns | • Jobs • Strategie & Auftrag …", 2/2 jobs).
+ * The vacancy lives in the news record: `.news-single .article`, whose second
+ * grid row is the body (the first row is the H2 title and the date). Only
+ * job-scoped containers are read; a page without one yields '' and the job is
+ * not published instead of carrying navigation text. The application
+ * paragraph with the recruiter's e-mail and phone is dropped: it is contact
+ * chrome, not the role.
  */
+const VACANCY_BODY_SELECTORS = [
+  '.news-single .article .space-element-b-large',
+  '.news-single .news-text-wrap',
+  '.frame-type-text .ce-bodytext',
+  '.ce-bodytext',
+];
+
 function parseDetailPage(html = '') {
   if (!html) return '';
 
   const document = createDocument(html);
-
-  const BODY_SELECTORS = [
-    '.frame-type-text',
-    '.ce-bodytext',
-    'article',
-    '.content-main',
-    '#content',
-    'main',
-  ];
-
-  let body = '';
-  for (const sel of BODY_SELECTORS) {
-    const els = document.querySelectorAll(sel);
-    for (const el of els) {
-      const candidate = stripHtml(el.innerHTML || '');
-      if (candidate.length > body.length) body = candidate;
+  for (const sel of VACANCY_BODY_SELECTORS) {
+    const el = document.querySelector(sel);
+    if (!el) continue;
+    for (const paragraph of el.querySelectorAll('p')) {
+      if (paragraph.querySelector('a[href^="mailto:"], a[href^="tel:"], a[href*="UnCryptMailto"]')) paragraph.remove();
     }
-    if (body.length >= MIN_DESC_LENGTH) break;
+    const body = stripHtml(el.innerHTML || '')
+      .split('\n')
+      .map((line) => line.trim())
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    if (body) return body;
   }
-
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
-  }
-
-  return body;
+  return '';
 }
 
 /* ── Category / Employment helpers ────────────────────────── */
@@ -204,7 +203,19 @@ export async function fetchAllEngadinTourismusJobs() {
       }
     }
 
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    // Source text only (issue 5253): without a vacancy body of at least 50
+    // words the job is left out of this run — the standard pipeline retains
+    // the stored record — instead of being published with navigation text.
+    if (!meetsSourceBodyFloor(description)) {
+      console.warn(`  ⏭️ ${listing.title}: no vacancy text on the detail page — not published this run`);
+      continue;
+    }
+
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} St. Moritz`, 'engadin-tourismus');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, description);

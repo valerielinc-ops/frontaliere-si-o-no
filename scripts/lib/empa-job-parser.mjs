@@ -42,6 +42,7 @@
  * block; the Dübendorf HQ address below is used ONLY as a last-resort
  * fallback when JSON-LD is absent/malformed for a given posting.
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -242,26 +243,23 @@ export async function fetchAllEmpaJobs() {
 
     const location = String(workplaceHint || city || HQ.city).trim();
 
-    // Description: prefer rich JSON-LD description (real job body, incl.
-    // intro/tasks/requirements/benefits), fall back to the generic Refline
-    // detail paragraph-scan, then a minimal synthetic sentence.
+    // Description: the rich JSON-LD description (real job body, incl.
+    // intro/tasks/requirements/benefits), else the generic Refline detail
+    // paragraph-scan.
     const jsonLdDescription = jsonLd?.description ? stripHtml(jsonLd.description) : '';
     const detailParsed = parseReflineDetail(listing.detailHtml || '');
     const descriptionText = jsonLdDescription || detailParsed.description || '';
-    let description = descriptionText || `${title} bei ${EMPA_COMPANY_NAME} in ${location}.`;
-
-    // Thin-description guard (Non-Negotiable #4: never index <50-word
-    // content). Real Empa JSON-LD bodies run 350+ words; if the source ever
-    // returns a stub, append company context inline instead of leaving thin
-    // content indexable.
-    const descWordCount = description.split(/\s+/).filter(Boolean).length;
-    if (descWordCount < 50) {
-      description = [
-        description,
-        `Empa (Eidgenössische Materialprüfungs- und Forschungsanstalt) ist das interdisziplinäre Forschungsinstitut für Materialwissenschaft und Technologieentwicklung des ETH-Bereichs. An den drei Standorten Dübendorf, St. Gallen und Thun beschäftigt Empa rund 1'000 Wissenschaftlerinnen und Wissenschaftler, Ingenieurinnen und Ingenieure sowie technisches und administratives Personal aus über 50 Nationen und bietet attraktive Anstellungsbedingungen.`,
-        `Empa ist Teil des ETH-Bereichs und verbindet anwendungsorientierte Forschung mit der praktischen Umsetzung neuer Ideen für Industrie und Gesellschaft.`,
-      ].join('\n');
+    // Source text only (issue 5253): a body under 50 words is not padded
+    // with a company paragraph we wrote (Non-Negotiable #4 forbids thin
+    // content, and invented text is not the fix). The job is left out of
+    // this run: the standard pipeline retains the stored record, with the
+    // body an earlier run read from the source, and a new job without a
+    // real body is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.warn(`  ⏭️ ${title}: source body under 50 words — not published this run (${publicUrl})`);
+      continue;
     }
+    const description = descriptionText;
 
     const resolvedTitle = String(jsonLd?.title || detailParsed.title || title).trim();
     const sourceLang = detectLang(descriptionText || resolvedTitle, 'de');

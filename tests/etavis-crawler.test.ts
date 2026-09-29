@@ -247,7 +247,17 @@ describe('ETAVIS crawler parser', () => {
       </div>`;
 
     const longDesc =
-      'Per ampliamento del nostro reparto tecnico, ricerchiamo una/un Pianificatrice/tore elettricista AFC in grado di unire competenza tecnica, precisione progettuale e orientamento al cliente con un ruolo chiave nello sviluppo di progetti elettrici innovativi.';
+      'Per ampliamento del nostro reparto tecnico, ricerchiamo una/un Pianificatrice/tore elettricista AFC in grado di unire competenza tecnica, precisione progettuale e orientamento al cliente con un ruolo chiave nello sviluppo di progetti elettrici innovativi. '
+      + 'Ti occuperai della progettazione di impianti elettrici per edifici residenziali e commerciali, della preparazione dei piani e degli schemi, '
+      + 'del calcolo dei materiali e del coordinamento con i capi progetto e i montatori in cantiere.';
+    const detailOf = (description: string) => `<script type="application/ld+json">{
+      "@type":"JobPosting",
+      "description":"<p>${description}</p>",
+      "datePosted":"2026-06-17T15:12:26.794+02:00",
+      "employmentType":["OTHER"],
+      "hiringOrganization":{"name":"ETAVIS Elettro-Impianti SA"},
+      "jobLocation":{"address":{"streetAddress":"Via Giovanni Maraini 19","addressLocality":"Lugano","postalCode":"6963","addressRegion":"Ticino","addressCountry":"Svizzera"}}
+    }</script>`;
     const detailHtml = `<script type="application/ld+json">{
       "@type":"JobPosting",
       "description":"<p>${longDesc}</p>",
@@ -295,19 +305,36 @@ describe('ETAVIS crawler parser', () => {
       });
     });
 
-    it('falls back to a stub description when the detail fetch fails, but still fills every locale-required field', async () => {
+    // Issue 5253: a failed detail fetch used to publish "<title> — <company>,
+    // <city>" as the description. Only the source's body is published; the
+    // job stays out of the run (the pipeline keeps the stored source body
+    // under its miss grace) and the run says why it is empty.
+    it('does not publish a job whose detail fetch fails, and reports a connection error instead of a filtered-empty run', async () => {
       const fetcher = vi.fn(async (url: string) => {
         if (url === __testables.LISTING_URL) return listingHtml;
         throw new Error('network error');
       });
       const jobs = await fetchAllEtavisJobs({ _fetchHtml: fetcher });
-      expect(jobs).toHaveLength(1);
-      const job = jobs[0];
-      expect(job.description).toBeTruthy();
-      expect(job.postalCode).toBeTruthy();
-      expect(job.streetAddress).toBe('');
-      expect(job.employmentType).toBeTruthy();
-      expect(job.company).toBeTruthy();
+      expect(jobs).toEqual([]);
+      expect((jobs as unknown as { fetchOutcome: string }).fetchOutcome).toBe('connection_error');
+    });
+
+    it('does not publish a detail page without a JSON-LD body', async () => {
+      const fetcher = vi.fn(async (url: string) => (url === __testables.LISTING_URL ? listingHtml : '<html><body>Stelle</body></html>'));
+      const jobs = await fetchAllEtavisJobs({ _fetchHtml: fetcher });
+      expect(jobs).toEqual([]);
+      expect((jobs as unknown as { fetchOutcome: string }).fetchOutcome).toBe('selector_miss');
+    });
+
+    it('publishes a 50-word source body and not a 49-word one', async () => {
+      const words = longDesc.split(' ');
+      const crawl = (n: number) => fetchAllEtavisJobs({
+        _fetchHtml: vi.fn(async (url: string) => (url === __testables.LISTING_URL ? listingHtml : detailOf(words.slice(0, n).join(' ')))),
+      });
+      expect(await crawl(49)).toEqual([]);
+      const [job] = await crawl(50);
+      expect(job.description.split(/\s+/)).toHaveLength(50);
+      expect(job.description).not.toMatch(/ — ETAVIS/);
     });
 
     it('returns [] when the listing fetch fails entirely', async () => {

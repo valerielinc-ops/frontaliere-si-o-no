@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   UBP_KEY,
   UBP_COMPANY_NAME,
   UBP_CAREERS_URL,
   isUbpJob,
   isTrustedDomain,
+  fetchAllUbpJobs,
 } from '../scripts/lib/ubp-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -132,5 +133,63 @@ describe('Union Bancaire Privée crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Issue 5253: a requisition without a detail body was published with its
+// ShortDescriptionStr at any length, or else with "Position at Union Bancaire
+// Privée … one of Switzerland's leading private banks". Only the source's
+// text above the 50-word floor is published; below it the job stays out of
+// the run (the standard pipeline keeps the stored source body under its miss
+// grace).
+// Fixtures are minimised Oracle HCM REST payloads; no `data/**` is read.
+describe('fetchAllUbpJobs — only a source body above the floor is published', () => {
+  const SOURCE_WORDS = ('We are looking for an experienced Relationship Manager to join our private banking team in Lugano and develop a portfolio of '
+    + 'Italian and Swiss clients. You will advise high net worth individuals on investment solutions, grow assets under management, '
+    + 'work closely with portfolio managers and specialists, and ensure full compliance with regulatory requirements. You have at least '
+    + 'ten years of experience in private banking, an established client network and excellent knowledge of Italian and English.').split(' ');
+  const text = (n: number) => SOURCE_WORDS.slice(0, n).join(' ');
+  function stubOracle({ external, short }: { external: string | null; short: string }) {
+    vi.stubGlobal('fetch', async (input: string | URL) => {
+      const url = String(input);
+      if (url.includes('/recruitingCEJobRequisitionDetails/')) {
+        return new Response(JSON.stringify({ ExternalDescriptionStr: external === null ? '' : `<p>${external}</p>` }), { status: 200 });
+      }
+      if (url.includes('/recruitingCEJobRequisitions?')) {
+        return new Response(JSON.stringify({ items: [{ TotalJobsCount: 1, requisitionList: [{
+          Id: '4242', Title: 'Relationship Manager', PrimaryLocation: 'Lugano, Ticino, Switzerland', PrimaryLocationCountry: 'CH', ShortDescriptionStr: short,
+        }] }] }), { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    });
+    return fetchAllUbpJobs();
+  }
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the detail body under its own language', async () => {
+    const [job] = await stubOracle({ external: text(SOURCE_WORDS.length), short: '' });
+    expect(job.sourceLang).toBe('en');
+    expect(job.description).toContain(SOURCE_WORDS.slice(0, 6).join(' '));
+  });
+
+  it('publishes a ShortDescriptionStr only when it clears the floor', async () => {
+    const [job] = await stubOracle({ external: null, short: text(50) });
+    expect(job.description.split(/\s+/)).toHaveLength(50);
+    expect(await stubOracle({ external: null, short: text(12) })).toEqual([]);
+  });
+
+  it('does not publish a requisition without a body, and invents no description', async () => {
+    const jobs = await stubOracle({ external: null, short: '' });
+    expect(jobs).toEqual([]);
+    expect(JSON.stringify(jobs)).not.toMatch(/leading private banks|Position at Union Bancaire Privée/);
+  });
+
+  it('publishes a 50-word detail body and not a 49-word one', async () => {
+    expect(await stubOracle({ external: text(49), short: '' })).toEqual([]);
+    const [job] = await stubOracle({ external: text(50), short: '' });
+    expect(job.description.split(/\s+/)).toHaveLength(50);
   });
 });

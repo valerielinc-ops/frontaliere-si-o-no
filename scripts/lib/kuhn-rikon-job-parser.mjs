@@ -75,6 +75,7 @@
  * - isTrustedDomain() — Validate URLs belong to Kuhn Rikon / Jobalino
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -303,22 +304,19 @@ export async function fetchAllKuhnRikonJobs() {
     const descriptionText = jsonLd?.description
       ? jobalinoDescriptionToText(jsonLd.description)
       : stripHtml(tile.title || '');
-    let description = descriptionText || `${title} — ${KUHN_RIKON_COMPANY_NAME}.`;
-
-    // Thin-description guard (Non-Negotiable #4: never index <50-word content).
-    // Real Jobalino JobPosting bodies are typically long, but if the source
-    // ever returns a stub, append real company context inline rather than
-    // leave thin content indexable.
-    const descWordCount = description.split(/\s+/).filter(Boolean).length;
-    if (descWordCount < 50) {
-      const FILLER = 'Kuhn Rikon AG è un’azienda svizzera con sede a Rikon im '
-        + 'Tösstal (ZH), produttrice di pentole, coltelli e accessori da cucina di '
-        + 'alta qualità venduti in tutto il mondo con il marchio Kuhn Rikon. '
-        + 'L’azienda gestisce punti vendita e outlet in diverse località della '
-        + 'Svizzera e offre posizioni nei settori vendita, produzione, logistica e '
-        + 'amministrazione.';
-      description = [description, FILLER].join('\n');
+    // Source text only (issue 5253): a body under 50 words is not padded
+    // with a company paragraph we wrote (Non-Negotiable #4 forbids thin
+    // content, and invented text is not the fix). The job is left out of
+    // this run: the standard pipeline retains the stored record, with the
+    // body an earlier run read from the source, and a new job without a
+    // real body is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      console.warn(`   ⏭️ ${title}: source body under 50 words — not published this run (${tile.url})`);
+      failed += 1;
+      if (i < tiles.length - 1) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+      continue;
     }
+    const description = descriptionText;
 
     const { city, postalCode, streetAddress } = resolveAddress(tile);
     const canton = inferSwissTargetCanton(`${city} ${tile.country || ''}`) || HQ.canton;

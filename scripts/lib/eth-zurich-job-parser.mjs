@@ -25,6 +25,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, decodeHtmlEntities as decodeNamedEntities } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -321,6 +322,7 @@ export async function fetchAllEthZurichJobs() {
 
   const jobs = [];
   let detailFetches = 0;
+  let withoutBody = 0;
 
   for (const listing of listings) {
     const title = listing.title;
@@ -342,20 +344,18 @@ export async function fetchAllEthZurichJobs() {
       detailFetches += 1;
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
-    if (!descriptionText) {
-      const fallbackBits = [
-        `${title} — ETH Zürich (${location}).`,
-        '',
-        'Eckdaten der Stelle:',
-        `• Standort: ${location}${canton ? `, Kanton ${canton}` : ''}`,
-        `• Pensum/Vertrag: ${listing.ariaLabel || 'siehe Stellenbeschrieb'}`,
-        '• Arbeitgeber: ETH Zürich — Eidgenössische Technische Hochschule',
-        '• Bewerbungsplattform: jobs.ethz.ch',
-      ];
-      descriptionText = fallbackBits.join('\n');
+    // Only the source's own text is published (issue 5253). A page that was
+    // not read (fetch error, or past MAX_DETAIL_FETCHES) or holds no body is
+    // not described from the listing's aria-label: the job stays out of this
+    // run, so the standard pipeline keeps the body stored from the source
+    // under its miss grace, and a job never read is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(descriptionText)} words) — not published in this run`);
+      continue;
     }
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    const sourceLang = detectLang(descriptionText, 'de');
     const jobSlug = slugify(`${title} eth-zurich ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -400,5 +400,6 @@ export async function fetchAllEthZurichJobs() {
 
   console.log(`\n📋 Total ETH Zürich jobs discovered: ${jobs.length}`);
   console.log(`   Detail-page fetches: ${detailFetches}/${listings.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${listings.length}`);
   return jobs;
 }

@@ -27,6 +27,7 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { extractUmantisDetailContent } from './umantis-listing-common.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 const DETAIL_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -519,6 +520,7 @@ export async function fetchAllBobstJobs(options = {}) {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -538,24 +540,18 @@ export async function fetchAllBobstJobs(options = {}) {
       descriptionText = await fetchBobstDetail(publicUrl);
       await new Promise((r) => setTimeout(r, 250)); // rate-limit detail fetches
     }
-    if (!descriptionText) {
-      // Synthesise a structured English fallback when the detail fetch fails.
-      // Mirrors umantis-listing-common.mjs ultra_thin remediation: title + entity
-      // + city/canton + dept/type metadata + apply boilerplate. Enough prose to
-      // pass the thin-source gate; AI localization enriches the locale variants.
-      const meta = [];
-      if (listing.department) meta.push(`Department: ${listing.department}`);
-      if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
-      if (listing.contractTerm) meta.push(`Term: ${listing.contractTerm}`);
-      const metaLine = meta.length > 0 ? ` ${meta.join('. ')}.` : '';
-      descriptionText = [
-        `${title} at ${BOBST_COMPANY_NAME}, ${location}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
-        `${BOBST_COMPANY_NAME} is a global supplier of substrate processing, printing and converting equipment for the packaging industry.`,
-        `Apply via the Bobst careers portal.${metaLine}`,
-      ].join(' ');
+    // Only the source's own text is published (issue 5253). A detail page
+    // that was not read or holds no body is not described from the listing
+    // row (department, type, term) plus company prose: the job stays out of
+    // this run, so the standard pipeline keeps the body stored from the
+    // source under its miss grace, and a job never read is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(descriptionText)} words) — not published in this run`);
+      continue;
     }
 
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const sourceLang = detectLang(descriptionText, 'en');
     const jobSlug = slugify(`${title} bobst ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -569,8 +565,8 @@ export async function fetchAllBobstJobs(options = {}) {
       companyDomain: BOBST_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Bobst`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Bobst` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       // Newly-discovered jobs ship with source-locale-only fields. The shared
       // AI-localization step clears this flag when it fills the remaining 3
       // locales; if it can't, `translate-pending.yml` picks it up out-of-band.
@@ -605,6 +601,7 @@ export async function fetchAllBobstJobs(options = {}) {
   }
 
   console.log(`\n📋 Total Bobst jobs discovered: ${jobs.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${listings.length}`);
   return jobs;
 }
 

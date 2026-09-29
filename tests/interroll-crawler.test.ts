@@ -11,10 +11,12 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  extractInterrollJobBody,
 } from '@/scripts/lib/interroll-job-parser.mjs';
 import {
   resolveInterrollSiteAddress,
   INTERROLL_SITES,
+  buildInterrollJob,
 } from '@/scripts/update-interroll-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
@@ -232,5 +234,55 @@ describe('resolveInterrollSiteAddress', () => {
   it('registry only contains the confirmed Sant\'Antonino site', () => {
     expect(INTERROLL_SITES).toHaveLength(1);
     expect(INTERROLL_SITES[0].key).toBe('sant-antonino');
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+// Minimized from the live interroll.com job page (2026-09-29): the vacancy is
+// `.tx-jobs .news-detail-content`; the page around it is a 40k-character
+// mega-menu that `parseDetailPage`'s generic fallback would have published.
+const LIVE_TEMPLATE_DETAIL = `
+<html><body>
+<nav class="mega-menu"><div class="mega-menu-items-collapse-content">English Deutsch Products Solutions Industries Careers</div></nav>
+<div class="tx-jobs"><div class="module news-detail">
+  <div class="news-detail-header"><a href="/careers/jobs/">Back to overview</a> Aussendienst, Germany <h1>Area Sales Manager Products (m/v/d)</h1></div>
+  <div class="news-detail-content"><div class="inner"><div class="left">
+    <p>The Interroll Group is the leading global provider of material-handling solutions. The company was founded in 1959 and has been listed on the SIX Swiss Exchange since 1997.</p>
+    <p>Interroll provides system integrators and OEMs with a wide range of platform-based products and services in these categories: Rollers (conveyor rollers), Drives (motors and drives for conveyor systems), Conveyors &amp; Sorters as well as Pallet Handling (flow storage systems).</p>
+    <p><strong>What are my responsibilities?</strong></p>
+    <ul>
+      <li>Acquisition of new customers and key account management for the sales area</li>
+      <li>Development and implementation of strategies and action plans to increase sales</li>
+    </ul>
+  </div></div></div>
+</div></div>
+</body></html>`;
+
+describe('Interroll source text only (issue 5253)', () => {
+  const site = INTERROLL_SITES[0];
+  const raw = { title: 'Area Sales Manager Products (m/v/d)', url: 'https://www.interroll.com/careers/jobs/job-detail/area-sales-manager', location: "Sant'Antonino" };
+
+  it('reads only the vacancy container, never the navigation', () => {
+    const body = extractInterrollJobBody(LIVE_TEMPLATE_DETAIL);
+    expect(body).toContain('The Interroll Group is the leading global provider');
+    expect(body).toContain('• Acquisition of new customers');
+    expect(body).not.toContain('Products Solutions Industries');
+    expect(body).not.toContain('Back to overview');
+  });
+
+  it('returns nothing for a page without a vacancy container', () => {
+    expect(extractInterrollJobBody('<main><div>Products Solutions Industries Careers and a long navigation text</div></main>')).toBe('');
+  });
+
+  it('publishes the vacancy text in its own language instead of an invented sentence', () => {
+    const job = buildInterrollJob(raw, site, extractInterrollJobBody(LIVE_TEMPLATE_DETAIL));
+    expect(job?.sourceLang).toBe('en');
+    expect(job?.descriptionByLocale).toEqual({ en: job?.description });
+    expect(job?.description).not.toMatch(/position at Interroll Group in/);
+  });
+
+  it('does not publish a job without at least 50 words of source text', () => {
+    expect(buildInterrollJob(raw, site, '')).toBeNull();
+    expect(buildInterrollJob(raw, site, 'Area Sales Manager Products.')).toBeNull();
   });
 });

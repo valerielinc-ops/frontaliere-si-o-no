@@ -347,7 +347,7 @@ describe('Empa crawler parser', () => {
       expect(beJob?.postalCode).toBe('3602');
     });
 
-    it('enriches thin (<50 word) descriptions instead of leaving them indexable as-is', async () => {
+    it('leaves a thin (<50 word) source body out instead of padding it with invented company text (issue 5253)', async () => {
       const thinJsonLd = jobPostingJsonLd({ description: '<div>Kurze Stelle.</div>' });
       const rows = [listingRow('55850', '1', thinJsonLd.title as string, '100%', 'Dübendorf', '23.03.2026')];
       const fetchMock = vi.fn(async (url: string) => {
@@ -358,9 +358,10 @@ describe('Empa crawler parser', () => {
       vi.stubGlobal('fetch', fetchMock);
 
       const jobs = await fetchAllEmpaJobs();
-      expect(jobs).toHaveLength(1);
-      const wordCount = jobs[0].description.split(/\s+/).filter(Boolean).length;
-      expect(wordCount).toBeGreaterThanOrEqual(50);
+      // Not published this run: the standard pipeline keeps the stored record
+      // (with the body an earlier run read from the source) under its grace
+      // policy, and a new job without a real body never reaches the site.
+      expect(jobs).toHaveLength(0);
     });
 
     it('includes every structured-data field required by Non-Negotiable #3', async () => {
@@ -388,7 +389,7 @@ describe('Empa crawler parser', () => {
 
     // ── Graceful degradation: detail fetch fails (404 / network error) ──
     describe('graceful degradation when detail fetch fails', () => {
-      it('still produces a job with a safe-default (non-thin) description when the detail page 404s', async () => {
+      it('does not publish a job whose detail page 404s: no source body, no invented text (issue 5253)', async () => {
         const rows = [listingRow('55860', '1', 'Wissenschaftliche/r Mitarbeiter/in Materialwissenschaft', '100%', 'Dübendorf', '23.03.2026')];
         const fetchMock = vi.fn(async (url: string) => {
           if (url === LISTING_URL) return htmlResponse(200, listingHtml(rows));
@@ -397,16 +398,27 @@ describe('Empa crawler parser', () => {
         });
         vi.stubGlobal('fetch', fetchMock);
 
+        // The synthetic "<title> bei Empa in <city>." sentence plus the company
+        // paragraph used to be published here; the pipeline now keeps the
+        // stored record instead, with the body an earlier run read.
         const jobs = await fetchAllEmpaJobs();
-        expect(jobs).toHaveLength(1);
-        const job = jobs[0];
-        expect(job.title).toBe('Wissenschaftliche/r Mitarbeiter/in Materialwissenschaft');
-        // No JSON-LD available → falls back to Dübendorf HQ defaults.
+        expect(jobs).toHaveLength(0);
+      });
+
+      it('falls back to the Dübendorf HQ address when the JSON-LD carries no address', async () => {
+        const jsonLd = jobPostingJsonLd({ jobLocation: undefined });
+        const rows = [listingRow('55861', '1', jsonLd.title as string, '100%', 'Dübendorf', '23.03.2026')];
+        const fetchMock = vi.fn(async (url: string) => {
+          if (url === LISTING_URL) return htmlResponse(200, listingHtml(rows));
+          if (url.includes('/55861/')) return htmlResponse(200, detailHtml(jsonLd));
+          return htmlResponse(404, '');
+        });
+        vi.stubGlobal('fetch', fetchMock);
+
+        const [job] = await fetchAllEmpaJobs();
         expect(job.canton).toBe('ZH');
         expect(job.postalCode).toBe('8600');
         expect(job.streetAddress).toBe('Überlandstrasse 129');
-        const wordCount = job.description.split(/\s+/).filter(Boolean).length;
-        expect(wordCount).toBeGreaterThanOrEqual(50);
       });
 
       // NOTE: a fully-failed *listing* fetch (as opposed to a single job's

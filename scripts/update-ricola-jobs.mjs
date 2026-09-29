@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllRicolaJobs,
+  prepareRicolaExistingJobs,
   isRicolaJob,
   isTrustedDomain,
   RICOLA_KEY,
@@ -21,6 +22,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isRicolaJob,
   isTrustedDomain,
   defaultSourceLang: 'en',
+  prepareExistingJobs: prepareRicolaExistingJobs,
 }).catch((err) => {
   console.error(`❌ ${RICOLA_COMPANY_NAME} crawler failed: ${err?.message || err}`);
   process.exit(1);

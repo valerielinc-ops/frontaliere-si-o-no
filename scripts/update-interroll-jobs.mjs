@@ -6,6 +6,7 @@
  *   https://www.interroll.com/company/careers/jobs/
  * Detail pages at: /company/careers/jobs/job-detail/{slug}
  */
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -17,7 +18,8 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/interroll-job-parser.mjs';
+import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, extractInterrollJobBody } from './lib/interroll-job-parser.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -80,6 +82,39 @@ async function fetchPage(url, timeoutMs = 20000) {
   finally { clearTimeout(timer); }
 }
 
+const DETAIL_DELAY_MS = 1000;
+
+/**
+ * Build one Interroll job from its listing row, its site and the vacancy text
+ * of its detail page (issue 5253). The crawler used to be listing-only and
+ * published an invented English sentence ("X position at Interroll Group in
+ * …, Interroll is a global technology company …") as the whole description.
+ * Only the source text is published now; without at least 50 words of it the
+ * job is not published (returns null) — the merge keeps a stored record.
+ */
+export function buildInterrollJob(raw, site, body = '') {
+  const description = String(body || '').trim();
+  if (!meetsSourceBodyFloor(description)) return null;
+  const slug = slugify(raw.title, 'interroll');
+  const sourceLang = detectLang(description, 'en');
+  return {
+    url: raw.url, applyUrl: raw.url, title: raw.title,
+    company: COMPANY_NAME, companyKey: COMPANY_KEY,
+    location: site.location, canton: site.canton, country: 'CH',
+    addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
+    postalCode: site.postalCode, streetAddress: site.streetAddress,
+    description,
+    titleByLocale: { [sourceLang]: raw.title }, descriptionByLocale: { [sourceLang]: description },
+    slug, slugByLocale: { en: slug, it: slug },
+    category: detectCategory(raw.title),
+    datePosted: new Date().toISOString().split('T')[0],
+    source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, description),
+    sourceLang,
+    experienceLevel: detectExperienceLevel(raw.title),
+    sector: 'Industria / Logistica',
+  };
+}
+
 async function fetchJobs() {
   console.log(`🔍 Fetching Interroll jobs from ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL, 25000);
@@ -90,29 +125,19 @@ async function fetchJobs() {
   console.log(`  🇨🇭 Swiss jobs: ${swissJobs.length}`);
 
   const mapped = [];
-  for (const raw of swissJobs) {
+  for (const [index, raw] of swissJobs.entries()) {
     const site = resolveInterrollSiteAddress(raw.location);
     if (!site) {
       console.log(`  ⏭️ Skipping job at unknown Interroll Swiss site: "${raw.title}" (${raw.location})`);
       continue;
     }
-    const slug = slugify(raw.title, 'interroll');
-    mapped.push({
-      url: raw.url, applyUrl: raw.url, title: raw.title,
-      company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: site.location, canton: site.canton, country: 'CH',
-      addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
-      postalCode: site.postalCode, streetAddress: site.streetAddress,
-      description: `${raw.title} position at Interroll Group in ${site.location}, ${site.canton}. Interroll is a global technology company providing material handling solutions.`,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
-      category: detectCategory(raw.title),
-      datePosted: new Date().toISOString().split('T')[0],
-      source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
-      sourceLang: detectLang(raw.title, 'en'),
-      experienceLevel: detectExperienceLevel(raw.title),
-      sector: 'Industria / Logistica',
-    });
+    if (index > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    const job = buildInterrollJob(raw, site, extractInterrollJobBody(await fetchPage(raw.url)));
+    if (!job) {
+      console.log(`  ⏭️ ${raw.title}: no readable vacancy text on the detail page — not published this run`);
+      continue;
+    }
+    mapped.push(job);
   }
   return mapped;
 }
@@ -174,4 +199,8 @@ async function main() {
   console.log('\n✅ Interroll crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Interroll'));
+// Guarded so tests can import the helpers without running a live crawl that
+// writes the slice and the summary under data/.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Interroll'));
+}

@@ -20,6 +20,7 @@
  * boundary; it returns the parsed detail that the caller can reuse.
  */
 import { createHash } from 'node:crypto';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -52,6 +53,11 @@ export const FAULHABER_KEY = 'faulhaber';
 export const FAULHABER_COMPANY_NAME = 'Faulhaber';
 export const FAULHABER_COMPANY_DOMAIN = 'faulhaber.com';
 
+/**
+ * Node-selection heuristic only: the first body block with this many
+ * characters is taken as the vacancy text. Whether that text is published is
+ * decided by the shared 50-word floor (source-body-floor.mjs).
+ */
 export const MIN_DESC_LENGTH = 100;
 
 /** Only keep Swiss jobs from the Croglio site */
@@ -246,8 +252,12 @@ export function validateDetailHtml(html = '') {
     throw new Error('Faulhaber: detail response has no supported vacancy boundary');
   }
   const detail = parseDetailPage(html, document);
-  if (detail.description.length < MIN_DESC_LENGTH) {
-    throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters`);
+  // A page without any vacancy text is not a detail page (outage, template
+  // change): the caller retries it through the proxy or fails the run. Whether
+  // a real text is long enough to publish is decided by the shared 50-word
+  // floor in fetchAllFaulhaberJobs, not by a character count here.
+  if (!sourceBodyWordCount(detail.description)) {
+    throw new Error('Faulhaber: detail response has no vacancy text');
   }
   return detail;
 }
@@ -374,6 +384,7 @@ export async function fetchAllFaulhaberJobs({
   if (!listings.length) return [];
 
   const jobs = [];
+  let belowFloor = 0;
   for (const listing of listings) {
     let description = '';
     let detailLocation = listing.location;
@@ -398,14 +409,21 @@ export async function fetchAllFaulhaberJobs({
     // If we got no location from listing and detail didn't confirm Swiss, skip
     if (!listing.location && !SWISS_LOCATION_RE.test(detailLocation)) continue;
 
-    // A synthetic title/location fallback is thin content and would turn a
-    // transient detail outage into published low-quality data. Preserve the
-    // previous slice by failing the whole run instead.
-    if (!description || description.length < MIN_DESC_LENGTH) {
-      throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters for ${listing.url}`);
+    // The shared 50-word floor (source-body-floor.mjs): a shorter text is not
+    // published this run (the standard pipeline keeps the stored record for
+    // its grace runs); 100 characters let a 20-word body through. Nothing is
+    // ever composed in its place.
+    if (!meetsSourceBodyFloor(description)) {
+      belowFloor += 1;
+      console.warn(`  ⏭️ ${listing.title}: source body under 50 words — not published this run (${listing.url})`);
+      continue;
     }
 
-    const sourceLang = detectLang(listing.title, 'de');
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description || listing.title, 'de');
     const jobSlug = buildJobSlug(`${listing.title} Croglio`, 'faulhaber');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const empType = inferEmploymentType(listing.title, description);
@@ -443,6 +461,12 @@ export async function fetchAllFaulhaberJobs({
     });
   }
 
+  // Not one vacancy with a publishable body is a source-level failure (a
+  // transient detail outage): fail the run so the previous slice stays,
+  // instead of publishing thin text or emptying the slice.
+  if (jobs.length === 0 && belowFloor > 0) {
+    throw new Error(`Faulhaber: no detail page with a source body of 50 words (${belowFloor} below the floor)`);
+  }
   console.log(`  Total Faulhaber jobs discovered: ${jobs.length}`);
   return jobs;
 }

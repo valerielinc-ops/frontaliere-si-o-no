@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BOBST_KEY,
   BOBST_COMPANY_NAME,
@@ -393,19 +393,33 @@ describe('Bobst crawler parser', () => {
 
   // ── End-to-end through fetchAllBobstJobs ──
   describe('fetchAllBobstJobs (with stubbed runtime)', () => {
-    it('builds NormalizedJob shape from a Umantis row', async () => {
-      const row: RowShape = {
-        title: 'Senior Mechanical Engineer',
-        href: '/Vacancies/8895/Description/2',
-        cellText:
-          'Engineering | Online since: 05.05.2026 Senior Mechanical Engineer | Type: Full time | Term of employment: Permanent | Starting as: Mid | Department: Engineering | Switzerland (Mex)',
-      };
+    const row: RowShape = {
+      title: 'Senior Mechanical Engineer',
+      href: '/Vacancies/8895/Description/2',
+      cellText:
+        'Engineering | Online since: 05.05.2026 Senior Mechanical Engineer | Type: Full time | Term of employment: Permanent | Starting as: Mid | Department: Engineering | Switzerland (Mex)',
+    };
+    // Minimised Umantis detail body (customdatablock), in the source's words.
+    const SOURCE_WORDS = ('Our engineering team in Mex develops the next generation of die-cutting and folder-gluing machines for the packaging industry. '
+      + 'As Senior Mechanical Engineer you lead the design of machine modules from concept to series production, run tolerance analyses, '
+      + 'coordinate prototypes with suppliers and support assembly and field service during commissioning. You hold a master degree in '
+      + 'mechanical engineering, have at least eight years of experience in special machinery and are fluent in English and French.').split(' ');
+    const detailOf = (words: number) =>
+      `<html><body><div class="customdatablock" id="customdatablock_1"><p>${SOURCE_WORDS.slice(0, words).join(' ')}</p></div></body></html>`;
+    const crawlWith = async (detail: string | null) => {
+      vi.stubGlobal('fetch', async () => (detail === null
+        ? new Response('', { status: 503 })
+        : new Response(detail, { status: 200 })));
       const { runtime } = makeRuntime({ pages: [[row], []] });
+      return fetchAllBobstJobs({ _runtime: async () => runtime, _sleepMs: 0 });
+    };
 
-      const jobs = await fetchAllBobstJobs({
-        _runtime: async () => runtime,
-        _sleepMs: 0,
-      });
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it('builds NormalizedJob shape from a Umantis row and its detail body', async () => {
+      const jobs = await crawlWith(detailOf(SOURCE_WORDS.length));
 
       expect(jobs).toHaveLength(1);
       const job = jobs[0];
@@ -423,6 +437,26 @@ describe('Bobst crawler parser', () => {
       expect(job.postedDate).toBe('05.05.2026');
       expect(job.slug).toMatch(/^senior-mechanical-engineer/);
       expect(job.slugByLocale).toHaveProperty(job.sourceLang);
+      expect(job.sourceLang).toBe('en');
+      expect(job.description).toContain('die-cutting and folder-gluing machines');
+    });
+
+    // Issue 5253: an unread detail page used to become "<title> at Bobst …
+    // is a global supplier of substrate processing … Apply via the Bobst
+    // careers portal" plus the row metadata. Only the source's body is
+    // published; without one the job stays out of the run (the pipeline keeps
+    // the stored source body under its miss grace).
+    it('does not publish a row whose detail page could not be read, and invents no description', async () => {
+      const jobs = await crawlWith(null);
+
+      expect(jobs).toEqual([]);
+      expect(JSON.stringify(jobs)).not.toMatch(/global supplier of substrate processing|Apply via the Bobst careers portal/);
+    });
+
+    it('publishes a 50-word source body and not a 49-word one', async () => {
+      expect(await crawlWith(detailOf(49))).toEqual([]);
+      const [job] = await crawlWith(detailOf(50));
+      expect(job.description.split(/\s+/)).toHaveLength(50);
     });
 
     it('returns [] when the listing is empty', async () => {

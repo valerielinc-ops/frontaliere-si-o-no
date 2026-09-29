@@ -16,6 +16,7 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -278,6 +279,7 @@ export async function fetchAllUbpJobs() {
   console.log(`\n📋 Fetching details for ${requisitions.length} requisitions...`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const req of requisitions) {
     const reqId = String(req.Id || '');
     const title = normalizeSpace(req.Title || '');
@@ -292,17 +294,25 @@ export async function fetchAllUbpJobs() {
     const isForeignLoc = isLocationExplicitlyForeign(rawLocation);
     const canton = inferAnyCanton(rawLocation) || (isForeignLoc ? '' : (HQ?.canton || ''));
 
-    // Fetch full description from detail API
-    let descriptionText = '';
+    // Full description from the detail API; the requisition's own
+    // ShortDescriptionStr is the source's text too, but only published when
+    // it clears the same floor. Nothing else is published (issue 5253): no
+    // "Position at UBP … leading private banks" sentence. A job without a
+    // body stays out of this run, so the standard pipeline keeps the body
+    // stored from the source under its miss grace, and a job never read is
+    // not published.
     const detailPayload = await fetchRequisitionDetails(oracleBase, reqId);
-    if (detailPayload?.ExternalDescriptionStr) {
-      descriptionText = stripHtml(detailPayload.ExternalDescriptionStr);
-    }
-    if (!descriptionText) {
-      descriptionText = stripHtml(req.ShortDescriptionStr || '');
+    const desc = [
+      stripHtml(detailPayload?.ExternalDescriptionStr || ''),
+      stripHtml(req.ShortDescriptionStr || ''),
+    ].find((text) => meetsSourceBodyFloor(text)) || '';
+    if (!desc) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(stripHtml(detailPayload?.ExternalDescriptionStr || ''))} words) — not published in this run`);
+      continue;
     }
 
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const sourceLang = detectLang(desc, 'en');
     const jobSlug = slugify(`${title} ubp ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -311,7 +321,6 @@ export async function fetchAllUbpJobs() {
       : (detailPayload?.ExternalPostedStartDate || '').split('T')[0]
         || new Date().toISOString().split('T')[0];
 
-    const desc = descriptionText || `${title} — Position at Union Bancaire Privée (UBP) in ${rawLocation}. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.`;
 
     const job = {
       id: `ubp-${urlHash}`,
@@ -353,5 +362,6 @@ export async function fetchAllUbpJobs() {
   }
 
   console.log(`\n📋 Total Union Bancaire Privée jobs discovered: ${jobs.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${requisitions.length}`);
   return jobs;
 }

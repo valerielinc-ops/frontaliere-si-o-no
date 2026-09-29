@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
 import {
   fetchAllEpflJobs,
   isEpflJob,
@@ -23,10 +24,15 @@ runStandardCrawlerPipeline({
   companyKey: EPFL_KEY,
   companyLabel: EPFL_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllEpflJobs,
+  // The parser now reads the source language from the body, not the title
+  // (issue 5253): the jobs whose stored language changes get their
+  // non-source locales retranslated, and their published URLs stay as they
+  // are — the language is display metadata, not a reason to move a slug.
+  fetchJobs: withSourceLangRelabelFlags(fetchAllEpflJobs, EPFL_KEY),
   isCompanyJob: isEpflJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ EPFL crawler failed: ${err?.message || err}`);
   process.exit(1);

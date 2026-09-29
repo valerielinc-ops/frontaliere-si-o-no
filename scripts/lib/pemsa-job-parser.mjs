@@ -1,3 +1,4 @@
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * PEMSA — WordPress career page parser
@@ -15,6 +16,12 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import {
+  detectLang,
+  getCompanyBoilerplateIT,
+  mergeLocaleTextMap,
+  repairRelabeledSourceLocale,
+} from './dedicated-crawler-common.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 
@@ -79,6 +86,16 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
   let html = decoded.replace(/<\/br>/gi, '').replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ');
 
+  // Some PEMSA ads mark their sections with a bold paragraph instead of an
+  // <h2-4> ("<p><strong>Il tuo incarico: </strong></p><ul>…"). Without a
+  // heading nothing below was extracted and the ad published as EMPTY — the
+  // runner then filled it with invented text (issue 5253: 3/313 jobs carried
+  // the central company boilerplate). Promote those paragraphs to headings,
+  // only when the ad has no real heading at all.
+  if (!/<h[2-4][^>]*>/i.test(html)) {
+    html = html.replace(/<p[^>]*>\s*<(?:strong|b)>([\s\S]*?)<\/(?:strong|b)>\s*<\/p>/gi, '<h3>$1</h3>');
+  }
+
   const sections = [];
   const skipHeadings = /contatto|persona di contatto|contact|Kontakt|votre interlocuteur/i;
 
@@ -130,8 +147,10 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
       }
     }
 
-    // Plain text
-    const plain = contentBlock.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    // Plain text. List items were turned into "• " markers above: keep each
+    // on its own "- " line instead of flattening the list into prose.
+    const plain = contentBlock.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+      .replace(/^•\s*/, '- ').replace(/\s*•\s*/g, '\n- ');
     if (plain.length > 20) {
       sections.push(`## ${heading}\n${plain}`);
     }
@@ -240,13 +259,22 @@ export function isPemsaSwissRelevant(job = {}) {
 export const isPemsaTicinoRelevant = isPemsaSwissRelevant;
 
 /**
- * Build localized content for a PEMSA job.
- * Uses the full parsed description from the detail page.
+ * Build localized content for a PEMSA job: the source slot only.
+ *
+ * Issue 5253: the language was guessed from the TITLE ("Imbianchino (M/F)" →
+ * en, "Carpentiere AFC / AEC (m/f/d)" → de) while every body comes from the
+ * Italian site, so 19/314 jobs filed the Italian text under a foreign source
+ * slot. The builder also wrote an INVENTED recruitment paragraph into en/de/fr
+ * (267/314 jobs) and into `it` when the body was missing. The language now
+ * comes from the body, only that slot is written, and the other locales are
+ * left to the translation step. Without a body the description stays empty:
+ * `mergePemsaJobRecord` then keeps the body read by an earlier run or does not
+ * publish the job.
  */
 export function buildPemsaLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Svizzera';
-  const desc = job.description || '';
+  const desc = String(job.description || '').trim();
   const sectionCount = job.descriptionSectionCount || 0;
   const sourceLength = job.descriptionSourceLength || 0;
   const MIN_BODY_RATIO = 0.20;
@@ -263,16 +291,100 @@ export function buildPemsaLocalizedContent(job = {}) {
     }
   }
 
-  const itDesc = desc || `PEMSA, agenzia di reclutamento specializzata nel settore edile e tecnico, cerca un profilo ${title} a ${city}. PEMSA garantisce condizioni di lavoro ottimali e un supporto professionale durante tutto il processo. Candidati tramite il portale ufficiale.`;
-  const enDesc = `PEMSA, a staffing agency specialised in construction and technical trades, is looking for a ${title} in ${city}. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.`;
-  const deDesc = `PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als ${title} in ${city}. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.`;
-  const frDesc = `PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil ${title} à ${city}. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel.`;
-
+  const sourceLang = detectLang(desc || title, 'it');
   return {
-    titleByLocale: { it: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    sourceLang,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: desc ? { [sourceLang]: desc } : {},
+    // Slug key unchanged: the published PEMSA slugs live under `it`, and the
+    // runner merges slugs existing-wins, so no public URL moves.
     slugByLocale: {
       it: slugify(`${title} pemsa ${city}`),
     },
   };
+}
+
+// Text the crawler side once wrote into PEMSA descriptions, only ever
+// recognised to be removed from stored records (`dropFabricatedDescriptions`
+// in the runner, before the merge): the recruitment paragraph the builder
+// invented, in its four languages, and the central company paragraph
+// `ensureMinimumDescriptionWordCount` appended to short bodies. The latter is
+// matched on its first sentence read from dedicated-crawler-common (never
+// copied here), across the "• " line breaks `normalizeDescriptionBullets`
+// inserted into the stored copies.
+const PEMSA_CENTRAL_BOILERPLATE_LEAD = String(getCompanyBoilerplateIT('PEMSA') || '').split(/(?<=\.)\s/)[0].trim();
+export const PEMSA_FABRICATED_DESCRIPTION_RE = new RegExp([
+  '(?:^|\\n)PEMSA, (?:agenzia di reclutamento specializzata|a staffing agency specialised|eine auf Bau und Technik spezialisierte|agence de recrutement spécialisée)',
+  ...(PEMSA_CENTRAL_BOILERPLATE_LEAD
+    ? [PEMSA_CENTRAL_BOILERPLATE_LEAD.split(/\s+/).map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[\\s•*-]+')]
+    : []),
+].join('|'), 'i');
+function pemsaSourceBody(job = {}) {
+  const candidates = [job?.descriptionByLocale?.[job?.sourceLang], job?.description];
+  // The shared 50-word floor (source-body-floor.mjs) for the fresh and the
+  // stored body alike: 100 characters let a 20-word text through.
+  for (const raw of candidates) {
+    const text = String(raw || '').trim();
+    if (meetsSourceBodyFloor(text)) return text;
+  }
+  return '';
+}
+
+/**
+ * Merge a freshly built PEMSA job with its stored record (pure). The stored
+ * record has already lost any crawler-written text
+ * (`dropFabricatedDescriptions` with `PEMSA_FABRICATED_DESCRIPTION_RE`).
+ *
+ * - No body this run: keep the body an earlier run read from the source, with
+ *   its language; without one the job is not published (returns null).
+ * - A re-derived source language drops the mislabeled verbatim copy of the
+ *   source under the old key (`repairRelabeledSourceLocale`) and sets
+ *   `needsRetranslation`, so the translation step rebuilds the other locales
+ *   from the real source text.
+ *
+ * @param {object|null} prev  Stored record, or null for a new job.
+ * @param {object}      job   Fresh job from `buildPemsaJob`.
+ * @returns {object|null}
+ */
+export function mergePemsaJobRecord(prev, job) {
+  let fresh = job;
+  if (!pemsaSourceBody(fresh)) {
+    const storedBody = prev ? pemsaSourceBody(prev) : '';
+    if (!storedBody) return null;
+    // Re-derive the language from the kept body: the stored label may be
+    // the title-derived one this change corrects.
+    const storedLang = detectLang(storedBody, prev.sourceLang || 'it');
+    fresh = {
+      ...fresh,
+      sourceLang: storedLang,
+      description: storedBody,
+      descriptionByLocale: { [storedLang]: storedBody },
+    };
+  }
+  if (!prev) return fresh;
+
+  const sourceLang = fresh.sourceLang || prev.sourceLang || 'it';
+  const merged = {
+    ...prev,
+    ...fresh,
+    sourceLang,
+    titleByLocale: mergeLocaleTextMap(prev.titleByLocale, fresh.titleByLocale || {}, 3, sourceLang),
+    descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, fresh.descriptionByLocale || {}, 30, sourceLang),
+    slugByLocale: mergeLocaleTextMap(prev.slugByLocale, fresh.slugByLocale || {}, 3),
+  };
+
+  const relabeled = Boolean(prev.sourceLang && prev.sourceLang !== sourceLang);
+  if (relabeled) {
+    const relabel = { prevLang: prev.sourceLang, nextLang: sourceLang };
+    merged.titleByLocale = repairRelabeledSourceLocale(merged.titleByLocale, {
+      ...relabel,
+      sourceTexts: [fresh.title, prev.title],
+    }).map;
+    merged.descriptionByLocale = repairRelabeledSourceLocale(merged.descriptionByLocale, {
+      ...relabel,
+      sourceTexts: [fresh.description, prev.description],
+    }).map;
+  }
+  if (relabeled) merged.needsRetranslation = true;
+  return merged;
 }

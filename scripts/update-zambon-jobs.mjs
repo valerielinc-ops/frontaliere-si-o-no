@@ -13,6 +13,7 @@
  *
  * Previously used jobopportunity.ch (defunct as of early 2026).
  */
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -23,7 +24,9 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, ZAMBON_SWISS_SITE } from './lib/zambon-job-parser.mjs';
+import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, ZAMBON_SWISS_SITE, extractZambonJobBody } from './lib/zambon-job-parser.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -66,44 +69,67 @@ function isZambonSwissSiteLocation(rawLocation = '') {
   return !location || /\bcadempino\b/.test(location);
 }
 
+const DETAIL_DELAY_MS = 1000;
+// Fragments only the runner ever wrote: the description it composed from API
+// metadata ("<titolo>: opportunità professionale presso Zambon Svizzera SA, …"
+// and "<titolo> — posizione presso Zambon Svizzera SA a Cadempino (TI).").
+// Only ever recognised to be removed from stored records.
+export const ZAMBON_FABRICATED_DESCRIPTION_RE = /opportunità professionale presso Zambon Svizzera SA|— posizione presso Zambon Svizzera SA a /;
+
 /**
- * Build a rich description from API metadata since NcorePlat detail pages
- * are behind AWS WAF and can't be fetched server-side.
+ * Build one Zambon job from its source row and the vacancy text of its
+ * NcorePlat page (issue 5253). The careers API carries only metadata; the
+ * runner used to publish a description it wrote from those fields and a
+ * company paragraph (3/3 jobs). The NcorePlat page is server-rendered with the
+ * real ad, so that text is the description, in its own language. A job whose
+ * page yields no text gets an empty description: `mergeZambonJobs` then keeps
+ * the body an earlier run read, or does not publish it.
  */
-function buildZambonDescription(title, raw) {
-  const area = raw.job_family || '';
-  const contract = raw.contract_type_3 || 'Full Time';
-  const seniority = raw.seniority || '';
-  const contractType2 = raw.contract_type_2 || '';
+export function buildZambonJob({ id = '', url, title, datePosted = '', contract = '', department = '', seniority = '', source = 'zambon-ncoreplat-api' }, body = '') {
+  const description = meetsSourceBodyFloor(body) ? String(body).trim() : '';
+  const sourceLang = detectLang(description || title, 'it');
+  const slug = slugify(title, 'zambon');
+  return {
+    ...(id ? { id } : {}),
+    url, applyUrl: url, title,
+    company: COMPANY_NAME, companyKey: COMPANY_KEY,
+    location: ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
+    addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
+    postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
+    description,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
+    slug, slugByLocale: { it: slug },
+    category: detectCategory(title),
+    datePosted: datePosted || new Date().toISOString().split('T')[0],
+    source,
+    employmentType: inferEmploymentType(title, contract || description),
+    experienceLevel: detectExperienceLevel(title),
+    sector: 'Farmaceutica',
+    ...(department ? { department } : {}),
+    ...(seniority ? { seniority } : {}),
+    sourceLang,
+  };
+}
 
-  const seniorityText = seniority.includes('< 1')
-    ? 'per candidati con meno di 1 anno di esperienza'
-    : seniority.includes('1') && seniority.includes('3')
-    ? 'per candidati con 1-3 anni di esperienza'
-    : seniority.includes('3') && seniority.includes('5')
-    ? 'per candidati con 3-5 anni di esperienza'
-    : seniority.includes('5')
-    ? 'per candidati con oltre 5 anni di esperienza'
-    : '';
-
-  const contractInfo = contractType2 === 'Temporary'
-    ? 'Contratto a tempo determinato'
-    : contractType2 === 'Permanent'
-    ? 'Contratto a tempo indeterminato'
-    : 'Contratto';
-
-  const parts = [
-    `${title}: opportunità professionale presso ${COMPANY_NAME}, azienda farmaceutica internazionale con sede a ${ZAMBON_SWISS_SITE.city}, Canton ${ZAMBON_SWISS_SITE.canton} (Svizzera).`,
-    `Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi.`,
-    area ? `Area funzionale: ${area}.` : '',
-    `${contractInfo}, ${contract.toLowerCase()}.`,
-    seniorityText ? `Posizione ${seniorityText}.` : '',
-    `Sede di lavoro: ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}), Svizzera — zona frontaliera con l'Italia, facilmente raggiungibile dal confine di Chiasso/Como.`,
-    `Zambon offre un ambiente di lavoro dinamico e innovativo, con opportunità di crescita professionale nel settore farmaceutico. L'azienda investe costantemente in ricerca, sviluppo e qualità.`,
-    `Per candidarsi, visitare il portale carriere Zambon. La candidatura può essere inviata online tramite il sistema NcorePlat.`,
-  ];
-
-  return parts.filter(Boolean).join(' ');
+async function readZambonBodies(rows) {
+  let read = 0;
+  const jobs = [];
+  for (const [index, row] of rows.entries()) {
+    if (index > 0) await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    const job = buildZambonJob(row, extractZambonJobBody(await fetchPage(row.url)));
+    if (job.description) read += 1;
+    else console.warn(`  ⚠️ ${row.title}: no vacancy text on ${row.url}`);
+    jobs.push(job);
+  }
+  // Not one page readable is a source-level failure (e.g. a WAF in front of
+  // NcorePlat), not "every vacancy lost its text": return nothing so main()
+  // leaves the stored slice untouched instead of unpublishing every job.
+  if (rows.length > 0 && read === 0) {
+    console.warn('  ⚠️ No NcorePlat page readable in this run — keeping the stored Zambon slice.');
+    return [];
+  }
+  return jobs;
 }
 
 async function fetchJobs() {
@@ -129,31 +155,15 @@ async function fetchJobs() {
     const swissJobs = allJobs.filter(j => j.country === 'CH' || (j.country_label || '').toLowerCase().includes('switz'));
     console.log(`  📋 API returned ${allJobs.length} total positions, ${swissJobs.length} in Switzerland`);
 
-    return swissJobs.map((raw) => {
-      const title = (raw.title || '').trim();
-      const slug = slugify(title, 'zambon');
-      const detailUrl = raw.web_url || `https://app.ncoreplat.com/jobposition/${raw.id}`;
-      return {
-        id: `zambon-${raw.id}`,
-        url: detailUrl, applyUrl: detailUrl, title,
-        company: COMPANY_NAME, companyKey: COMPANY_KEY,
-        location: ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
-        addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
-        postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
-        description: buildZambonDescription(title, raw),
-        titleByLocale: { it: title }, descriptionByLocale: {},
-        slug, slugByLocale: { it: slug },
-        category: detectCategory(title),
-        datePosted: raw.opening_date ? parseZambonDate(raw.opening_date) : new Date().toISOString().split('T')[0],
-        source: 'zambon-ncoreplat-api',
-        employmentType: inferEmploymentType(title, raw.contract_type_3 || ''),
-        experienceLevel: detectExperienceLevel(title),
-        sector: 'Farmaceutica',
-        department: raw.job_family || '',
-        seniority: raw.seniority || '',
-        sourceLang: detectLang(buildZambonDescription(title, raw) || title, 'it'),
-      };
-    });
+    return await readZambonBodies(swissJobs.map((raw) => ({
+      id: `zambon-${raw.id}`,
+      url: raw.web_url || `https://app.ncoreplat.com/jobposition/${raw.id}`,
+      title: (raw.title || '').trim(),
+      datePosted: raw.opening_date ? parseZambonDate(raw.opening_date) : '',
+      contract: raw.contract_type_3 || '',
+      department: raw.job_family || '',
+      seniority: raw.seniority || '',
+    })));
   } catch (err) {
     console.warn(`⚠️ API fetch failed: ${err.message} — falling back to HTML parsing`);
   } finally {
@@ -173,25 +183,11 @@ async function fetchJobs() {
     return false;
   });
 
-  return sourceBackedListings.map((raw) => {
-    const slug = slugify(raw.title, 'zambon');
-    return {
-      url: raw.url, applyUrl: raw.url, title: raw.title,
-      company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: ZAMBON_SWISS_SITE.city, canton: ZAMBON_SWISS_SITE.canton, country: ZAMBON_SWISS_SITE.country,
-      addressLocality: ZAMBON_SWISS_SITE.city, addressRegion: ZAMBON_SWISS_SITE.canton, addressCountry: ZAMBON_SWISS_SITE.country,
-      postalCode: ZAMBON_SWISS_SITE.postalCode, streetAddress: ZAMBON_SWISS_SITE.streetAddress,
-      description: `${raw.title} — posizione presso ${COMPANY_NAME} a ${ZAMBON_SWISS_SITE.city} (${ZAMBON_SWISS_SITE.canton}).`,
-      titleByLocale: { en: raw.title }, descriptionByLocale: {},
-      slug, slugByLocale: { en: slug, it: slug },
-      category: detectCategory(raw.title),
-      datePosted: new Date().toISOString().split('T')[0],
-      source: 'zambon-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
-      experienceLevel: detectExperienceLevel(raw.title),
-      sector: 'Farmaceutica',
-      sourceLang: detectLang(raw.title, 'it'),
-    };
-  });
+  return readZambonBodies(sourceBackedListings.map((raw) => ({
+    url: raw.url,
+    title: raw.title,
+    source: 'zambon-careers-crawler',
+  })));
 }
 
 /** Parse "27 Mar 2026" → "2026-03-27" */
@@ -201,6 +197,79 @@ function parseZambonDate(dateStr) {
     if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
   } catch {}
   return new Date().toISOString().split('T')[0];
+}
+
+function storedZambonSourceBody(job = {}) {
+  const text = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();
+  return text && meetsSourceBodyFloor(text) ? text : '';
+}
+
+/**
+ * Merge freshly read Zambon jobs with the stored ones (issue 5253).
+ *
+ * - The stored jobs first lose the metadata description the runner once
+ *   wrote, with the translations made from it (`dropFabricatedDescriptions`,
+ *   on copies: the function stays pure).
+ * - A job whose page gave no text keeps the body an earlier run read from
+ *   the source, with its language; without one it is not published.
+ * - The source slot follows the language of the text: the old rule wrote the
+ *   fresh description into `it` whatever its language, and forced a
+ *   retranslation of every job on every run. Retranslation is now asked only
+ *   when the source text or its language changed.
+ *
+ * mergePreserveLocaleData matches on the stable trailing job id extracted
+ * from the URL, so a vendor title/slug rewrite does not orphan the job's
+ * previousSlugs/firstSeenAt history (issue #3699).
+ */
+export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
+  // No row read from the source (the listing failed, or `readZambonBodies`
+  // found no readable NcorePlat page) is a source-level failure, not "every
+  // vacancy closed": the stored slice stays exactly as it is. Scrubbing it
+  // here would drop every record whose only text is a legacy one.
+  if (!Array.isArray(discoveredJobs) || discoveredJobs.length === 0) {
+    return existingCompanyJobs.map((job) => structuredClone(job));
+  }
+  const stored = dropFabricatedDescriptions(
+    existingCompanyJobs.map((job) => structuredClone(job)),
+    ZAMBON_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
+  const existingByKey = new Map();
+  for (const job of stored) {
+    const key = extractStableJobId(job?.url);
+    if (key) existingByKey.set(key, job);
+  }
+  const withBodies = [];
+  for (const job of discoveredJobs) {
+    if (job.description) { withBodies.push(job); continue; }
+    const old = existingByKey.get(extractStableJobId(job?.url));
+    const storedBody = old ? storedZambonSourceBody(old) : '';
+    if (!storedBody) {
+      console.log(`  ⏭️ ${job.title}: no source text — not published this run`);
+      continue;
+    }
+    const storedLang = detectLang(storedBody, old.sourceLang || 'it');
+    withBodies.push({ ...job, sourceLang: storedLang, description: storedBody, descriptionByLocale: { [storedLang]: storedBody } });
+  }
+  const keep = new Set(withBodies.map((job) => extractStableJobId(job?.url)));
+  // Stored jobs whose only text was the runner's own description (now
+  // removed) are not carried over by the grace policy either.
+  const existingKept = stored.filter((job) => keep.has(extractStableJobId(job?.url)) || storedZambonSourceBody(job));
+
+  return mergePreserveLocaleData(existingKept, withBodies).map((job) => {
+    const old = existingByKey.get(extractStableJobId(job?.url));
+    const byLocale = { ...(job.descriptionByLocale || {}) };
+    const oldSource = old ? String(old.descriptionByLocale?.[old.sourceLang] || old.description || '').trim() : '';
+    const changed = Boolean(old) && (old.sourceLang !== job.sourceLang || oldSource !== String(job.description || '').trim());
+    // The other locales were translated from the previous source text. When
+    // the source changed, only the source slot survives and the translation
+    // step rebuilds the rest.
+    job.descriptionByLocale = changed && byLocale[job.sourceLang]
+      ? { [job.sourceLang]: byLocale[job.sourceLang] }
+      : byLocale;
+    if (changed) job.needsRetranslation = true;
+    return job;
+  });
 }
 
 async function mergeJobs(discoveredJobs) {
@@ -218,26 +287,7 @@ async function mergeJobs(discoveredJobs) {
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
 
-  // mergePreserveLocaleData matches on the stable trailing job id extracted
-  // from the URL (falls back to the normalized full URL when no stable
-  // token is found), so a vendor title/slug rewrite no longer orphans the
-  // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
-  // the previous exact-URL-keyed merge did (issue #3699). The post-map below
-  // re-derives the matched pre-merge record (by the same stable key) to
-  // reapply Zambon's two bespoke rules that mergePreserveLocaleData doesn't
-  // know about: forcing needsRetranslation on every touched job, and
-  // force-updating the Italian description when the fresh source is
-  // significantly richer than what we had.
-  const merged = mergePreserveLocaleData(existingCompanyJobs, discoveredJobs).map((job) => {
-    const key = extractStableJobId(job?.url);
-    const old = key ? existingByKey.get(key) : null;
-    if (!old) return job;
-    if (job.description && job.description.length > (old.description || '').length * 1.5) {
-      job.descriptionByLocale = { ...job.descriptionByLocale, it: job.description };
-    }
-    job.needsRetranslation = true;
-    return job;
-  });
+  const merged = mergeZambonJobs(existingCompanyJobs, discoveredJobs);
 
   const final = [...nonCompanyJobs, ...merged];
   writeJsonAtomic(DATA_JOBS, final);
@@ -280,4 +330,8 @@ async function main() {
   console.log('\n✅ Zambon crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Zambon'));
+// Guarded so tests can import the helpers without running a live crawl that
+// writes the slice and the summary under data/.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Zambon'));
+}

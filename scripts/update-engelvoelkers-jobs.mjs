@@ -45,11 +45,14 @@ import {
   parseEngelvoelkersListingPage,
   parseEngelvoelkersDetailPage,
   buildEngelvoelkersLocalizedContent,
+  engelvoelkersPublishableBody,
+  scrubEngelvoelkersLegacySlots,
   isEngelvoelkersSwissRelevant,
   inferEngelvoelkersCanton,
 } from './lib/engelvoelkers-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
@@ -246,10 +249,13 @@ async function enrichWithDetails(listings) {
 function buildJob(row) {
   const canton = row.canton || inferEngelvoelkersCanton(row.location);
   const locationClean = String(row.location || '').replace(/,?\s*Switzerland$/i, '').trim();
-  const localized = buildEngelvoelkersLocalizedContent({ ...row, canton, location: locationClean });
+  // The language of the posting is the language of its body; the title
+  // ("Immobilienberater/in 100 % | Ascona") only decides without a body.
+  const sourceLang = detectLang(String(row.description || '').trim() || row.title, 'it');
+  const localized = buildEngelvoelkersLocalizedContent({ ...row, canton, location: locationClean, sourceLang });
 
   return {
-    title: localized.titleByLocale.it,
+    title: String(row.title || '').trim(),
     slug: localized.slugByLocale.it,
     url: row.detailUrl,
     applyUrl: row.detailUrl,
@@ -265,12 +271,12 @@ function buildJob(row) {
     category: inferCategory(row.title, row.department || ''),
     sector: 'Immobiliare',
     source: 'engelvoelkers-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
+    sourceLang,
     postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
     employmentType: inferEmploymentType(row.employmentType || ''),
     contractType: inferEmploymentType(row.employmentType || ''),
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale[sourceLang] || '',
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -290,8 +296,25 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
-    const prev = existingByKey.get(jobMatchKey(job));
+  let unpublished = 0;
+  const mergedTarget = discoveredJobs.map((fresh) => {
+    const storedPrev = existingByKey.get(jobMatchKey(fresh));
+    const prev = storedPrev ? scrubEngelvoelkersLegacySlots(storedPrev) : null;
+    // Source text only: this run's body over the 50-word floor, else the
+    // stored source body, else the job is not published this run.
+    // The stored record as it was: its source slot (block stripped) is the
+    // fallback body; the scrubbed copy is what gets merged.
+    const publishable = engelvoelkersPublishableBody(fresh, storedPrev);
+    if (!publishable) {
+      unpublished += 1;
+      return null;
+    }
+    const job = {
+      ...fresh,
+      sourceLang: publishable.sourceLang,
+      description: publishable.body,
+      descriptionByLocale: { ...fresh.descriptionByLocale, [publishable.sourceLang]: publishable.body },
+    };
     if (!prev) {
       added += 1;
       return job;
@@ -306,7 +329,10 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
-  });
+  }).filter(Boolean);
+  if (unpublished > 0) {
+    console.log(`  ⏭️  ${unpublished} job(s) without a source body of at least 50 words — not published this run.`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -443,4 +469,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Engel & Völkers'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Engel & Völkers'));
+}
