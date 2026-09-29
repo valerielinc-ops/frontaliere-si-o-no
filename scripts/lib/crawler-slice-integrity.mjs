@@ -532,6 +532,12 @@ function proofJob(entry) {
   return entry?.job && typeof entry.job === 'object' ? entry.job : null;
 }
 
+function proofSourceJobs(entry) {
+  return Array.isArray(entry?.sourceJobs)
+    ? entry.sourceJobs.filter((job) => job && typeof job === 'object')
+    : [];
+}
+
 function crossCrawlerDedupSnapshot(job) {
   return {
     id: job?.id ?? null,
@@ -546,7 +552,12 @@ function crossCrawlerDedupSnapshot(job) {
 function isValidCrossCrawlerDedupEntry(entry, removedJob) {
   const job = proofJob(entry);
   if (!job || jobIdentity(job) !== jobIdentity(removedJob)) return false;
-  if (JSON.stringify(crossCrawlerDedupSnapshot(job)) !== JSON.stringify(crossCrawlerDedupSnapshot(removedJob))) {
+  const exactSnapshots = [job, ...proofSourceJobs(entry)].some((candidate) => (
+    jobIdentity(candidate) === jobIdentity(removedJob)
+    && JSON.stringify(crossCrawlerDedupSnapshot(candidate))
+      === JSON.stringify(crossCrawlerDedupSnapshot(removedJob))
+  ));
+  if (!exactSnapshots) {
     return false;
   }
   if (!['duplicate title+company', 'duplicate slug'].includes(entry.reason)) return false;
