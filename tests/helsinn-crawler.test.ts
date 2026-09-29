@@ -10,7 +10,9 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  extractHelsinnJobBody,
 } from '@/scripts/lib/helsinn-job-parser.mjs';
+import { buildHelsinnJob } from '@/scripts/update-helsinn-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -207,5 +209,29 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for regular title', () => {
     expect(detectExperienceLevel('Clinical Research Associate')).toBe('MID');
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+describe('Helsinn source text only (issue 5253)', () => {
+  const listing = { title: 'Clinical Research Associate', url: 'https://www.e-lavoro.ch/node/1234', location: 'Lugano' };
+
+  it('reads the Drupal body field of the detail page, not the page chrome', () => {
+    const body = extractHelsinnJobBody(FIXTURE_DETAIL_PAGE);
+    expect(body.length).toBeGreaterThanOrEqual(MIN_DESC_LENGTH);
+    expect(extractHelsinnJobBody('<main><nav>Home Jobs Contatti</nav></main>')).toBe('');
+  });
+
+  it('publishes the detail text in its own language instead of an invented sentence', () => {
+    const body = extractHelsinnJobBody(FIXTURE_DETAIL_PAGE);
+    expect(body.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    const job = buildHelsinnJob(listing, body);
+    expect(job).not.toBeNull();
+    expect(Object.keys(job!.descriptionByLocale)).toEqual([job!.sourceLang]);
+    expect(job!.description).not.toMatch(/position at Helsinn Healthcare SA/);
+  });
+
+  it('does not publish a job whose detail page gives no text', () => {
+    expect(buildHelsinnJob(listing, '')).toBeNull();
   });
 });

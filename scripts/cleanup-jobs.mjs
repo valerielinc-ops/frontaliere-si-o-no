@@ -35,6 +35,7 @@ import {
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { dropHousekeepingDuplicatePostings } from './lib/housekeeping-duplicate-postings.mjs';
 import {
   clearCrossCrawlerDedupProofFile,
   writeCrossCrawlerDedupProofFile,
@@ -872,38 +873,21 @@ async function main() {
     }
   }
 
-  // ── 3. Title+Company+Location dedup (same position posted with different URLs) ──
-  const seenTitleCompany = new Map();
-  const afterTcDedup = [];
-  for (const job of kept) {
-    const tcKey = `${(job.title || '').toLowerCase().replace(/\s+/g, ' ').trim()}|${(job.company || '').toLowerCase().replace(/\s+/g, ' ').trim()}|${(job.location || '').toLowerCase().replace(/\s+/g, ' ').trim()}`;
-    const prev = seenTitleCompany.get(tcKey);
-    if (prev) {
-      // Keep the one with a more recent crawledAt
-      const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
-      const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
-      let retained = prev;
-      let loser = job;
-      if (currTs > prevTs) {
-        // Replace prev with current (newer)
-        const idx = afterTcDedup.indexOf(prev);
-        if (idx !== -1) afterTcDedup[idx] = job;
-        seenTitleCompany.set(tcKey, job);
-        retained = job;
-        loser = prev;
-      }
-      dedupProofEntries.push({
-        job: dedupProofJob(loser),
-        retainedJob: dedupProofJob(retained),
-        sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
-        reason: 'duplicate title+company',
-        duplicateKey: tcKey,
-      });
-      removed.push({ id: loser.id, title: loser.title, url: loser.url, reason: 'duplicate title+company' });
-      continue;
-    }
-    seenTitleCompany.set(tcKey, job);
-    afterTcDedup.push(job);
+  // ── 3. Same posting published twice (dropHousekeepingDuplicatePostings) ──
+  // Only a proof from the source groups two records: the same title, company
+  // and location plus a full workplace (postal code AND street) or the same
+  // source identity. Title+company+location alone deleted distinct vacancies
+  // that are still online (stores of one city, one Workday req per vacancy).
+  const { kept: afterTcDedup, removed: tcDuplicates } = dropHousekeepingDuplicatePostings(kept);
+  for (const { loser, retained, duplicateKey } of tcDuplicates) {
+    dedupProofEntries.push({
+      job: dedupProofJob(loser),
+      retainedJob: dedupProofJob(retained),
+      sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
+      reason: 'duplicate title+company',
+      duplicateKey,
+    });
+    removed.push({ id: loser.id, title: loser.title, url: loser.url, reason: 'duplicate title+company' });
   }
   kept = afterTcDedup;
 

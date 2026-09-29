@@ -270,6 +270,84 @@ function extractJsonLd(html = '') {
 }
 
 /**
+ * Inner HTML of the detail template's `<section id="…">`, or ''. The
+ * Prospective template does not nest sections, so the first closing tag ends it.
+ */
+function templateSectionHtml(html = '', id = '') {
+  const match = new RegExp(`<section\\b[^>]*\\bid=["']${id}["'][^>]*>([\\s\\S]*?)<\\/section>`, 'i').exec(html);
+  return match ? match[1] : '';
+}
+
+/**
+ * The vacancy as the detail page renders it: `#introduction` (the unit's
+ * paragraph) and `#specifications` (tasks, profile, and the `.enthusiasm`
+ * block), headings kept as `##` lines and `<li>`/`<br>` as line breaks.
+ *
+ * The JSON-LD `description` is not the whole ad on every unit: on RTR it
+ * carries only tasks + profile + a contact stub, and misses the introduction
+ * and the «Per infurmaziun» block the page shows
+ * (…/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-…:
+ * 476 published characters, issue 5253). The offer block `#benefits`
+ * («Unser Versprechen» / «Nossa purschida»: teaser + the four benefits) is
+ * part of the ad too and closes it (see srgSsrBenefitsText). Contact,
+ * employee quote (`#slogan`) and «similar jobs» stay out.
+ *
+ * @param {string} html
+ * @returns {string} '' when the template sections are absent
+ */
+export function extractSrgSsrRenderedDescription(html = '') {
+  const parts = ['introduction', 'specifications']
+    .map((id) => templateSectionHtml(html, id))
+    .filter(Boolean)
+    .map((section) => decodeEntities(stripHtml(
+      section.replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => {
+        const text = normalizeSpace(heading.replace(/<[^>]+>/g, ' '));
+        return text ? `\n\n## ${text}\n` : '';
+      }),
+    )))
+    .map((text) => text.split('\n').map((line) => line.replace(/[ \t]+/g, ' ').trim()).join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim())
+    .filter(Boolean);
+  const benefits = srgSsrBenefitsText(html);
+  if (benefits) parts.push(benefits);
+  if (!parts.length) return '';
+  return parts.join('\n\n').trim();
+}
+
+/**
+ * The offer block of the detail template, `<section id="benefits">`: its
+ * heading, the teaser, and each benefit as `- <title>: <text>`. Each text is
+ * read once from its `p.benefit-N.content`; the same text is repeated as the
+ * tooltip `<title>` of the benefit's SVG icon, which is not page text.
+ *
+ * @param {string} html
+ * @returns {string} '' when the section or its benefits are absent
+ */
+export function srgSsrBenefitsText(html = '') {
+  const section = templateSectionHtml(html, 'benefits').replace(/<svg\b[\s\S]*?<\/svg>/gi, ' ');
+  if (!section) return '';
+  const text = (fragment = '') => normalizeSpace(decodeEntities(stripHtml(fragment)));
+  const heading = text(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i.exec(section)?.[1] || '');
+  const teaser = text(/<div\b[^>]*\bclass=["'][^"']*\bteaser\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i.exec(section)?.[1] || '');
+  const titles = new Map();
+  for (const m of section.matchAll(/<a\b[^>]*\bclass=["'][^"']*\bbenefit\b[^"']*["'][^>]*>/gi)) {
+    const n = /\bdata-benefit=["'](\d+)["']/i.exec(m[0])?.[1];
+    const title = /\btitle=["']([^"']*)["']/i.exec(m[0])?.[1];
+    if (n && title) titles.set(n, text(title));
+  }
+  const items = [];
+  for (const m of section.matchAll(/<p\b[^>]*\bclass=["'][^"']*\bbenefit-(\d+)\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/gi)) {
+    const body = text(m[2]);
+    if (!body) continue;
+    const title = titles.get(m[1]);
+    items.push(`- ${title ? `${title}: ` : ''}${body}`);
+  }
+  if (!teaser && !items.length) return '';
+  return [heading ? `## ${heading}` : '', teaser, items.join('\n')].filter(Boolean).join('\n');
+}
+
+/**
  * Build a structured description from JSON-LD fields.
  */
 function buildDescription(jsonLd) {
@@ -359,8 +437,11 @@ export async function fetchAllSrgSsrJobs() {
       const postalCode = String(jlAddress.postalCode || '').trim() || '';
       const streetAddress = normalizeSpace(jlAddress.streetAddress || '');
 
-      // Description from JSON-LD
-      const description = buildDescription(jsonLd || {}) || listing.snippet || `${title} — SRG SSR`;
+      // Description: the rendered ad (introduction + specifications); the
+      // JSON-LD body only when the template sections are missing.
+      const rendered = extractSrgSsrRenderedDescription(detailHtml);
+      const description = (rendered.split(/\s+/).length >= 30 ? rendered : '')
+        || buildDescription(jsonLd || {}) || listing.snippet || `${title} — SRG SSR`;
 
       // Employment type from JSON-LD or percentage parsing
       const pct = parseEmploymentPct(listing.infoLine);

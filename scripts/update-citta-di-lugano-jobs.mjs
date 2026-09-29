@@ -53,6 +53,7 @@ import {
   CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
 } from './lib/citta-di-lugano-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   buildPdfBackedDescription,
@@ -124,7 +125,7 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const listing of rawListings) {
-    const job = buildJob(listing);
+    let job = buildJob(listing);
     if (!job) continue;
 
     // Enrich description with PDF content when available
@@ -137,12 +138,11 @@ async function fetchJobs() {
       } else if (pdfContent.text) {
         console.log(`  ✅ PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
         // The bando's own text, in its own language: no lines of the crawler
-        // (CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE).
-        job.description = buildPdfBackedDescription({ pdfText: pdfContent.text });
-        job.sourceLang = detectLang(job.description, 'it');
-        job.titleByLocale = { [job.sourceLang]: job.title };
-        job.slugByLocale = { [job.sourceLang]: job.slug };
-        job.descriptionByLocale = { [job.sourceLang]: job.description };
+        // (CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE). The builder writes the
+        // locale maps for that language; the slug fields are never rewritten
+        // here (slug-write ratchet, tests/slug-write-encapsulation.test.ts).
+        const description = buildPdfBackedDescription({ pdfText: pdfContent.text });
+        job = buildJob(listing, { description, sourceLang: detectLang(description, 'it') });
       }
     }
 
@@ -262,7 +262,20 @@ async function main() {
 
   const discoveredJobs = await fetchJobs();
   let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
-  if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
+  if (discoveredJobs.length === 0) {
+    console.log('ℹ️  No job listings found — skipping crawl.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => dropFabricatedDescriptions(jobs, CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: COMPANY_NAME,
+      write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+      assemble: () => assembleJobsDataset(),
+    });
+    return;
+  }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
   const mergeResult = mergeJobs(discoveredJobs);

@@ -31,6 +31,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {
   extractUmantisDetailContent,
@@ -410,8 +411,13 @@ export async function fetchAllSeeSpitalJobs() {
     }
     if (detailContent && detailContent.length > 200) detailHits += 1;
 
-    const fallbackDesc = `${title} — ${SEE_SPITAL_COMPANY_NAME}, ${location}`;
-    const descriptionText = detailContent || listing.snippet || fallbackDesc;
+    // Only the posting's own text (issue 5253): the detail body, or the
+    // listing snippet when the detail was not read — never a "<title> —
+    // See-Spital, <place>" line in place of both. A body under the common
+    // 50-word floor gives no description (the shared pipeline's thin-source
+    // path).
+    const sourceBody = detailContent || listing.snippet || '';
+    const descriptionText = meetsSourceBodyFloor(sourceBody) ? sourceBody : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ${SEE_SPITAL_KEY} ch`);

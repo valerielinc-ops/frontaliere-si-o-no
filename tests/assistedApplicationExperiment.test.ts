@@ -19,6 +19,7 @@ import {
   ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY,
   isOfferwallLoadFailure,
   parseOfferwallFallbackFlag,
+  shouldOfferPaidFallback,
   useOfferwallPaidFallback,
   normalizeAssistedApplicationVariant,
   resolveAssistedApplicationVariant,
@@ -152,6 +153,19 @@ describe('Offerwall paid fallback', () => {
     }
     for (const reason of ['offerwall_closed_without_reward', 'ad_consent_missing', 'consent_denied', 'not_production', 'not_eligible', '', undefined]) {
       expect(isOfferwallLoadFailure(reason)).toBe(false);
+    }
+  });
+
+  it('offers the paid path on load failures and on a refused ad, never to ineligible runs', () => {
+    // Owner decision 2026-09-29: visitors who refuse the ad get the offer too.
+    for (const reason of [
+      'offerwall_not_shown', 'no_fill', 'ready_timeout', 'gpt_ready_timeout', 'gpt_unavailable', 'slot_init_error', 'display_error', 'slot_not_ready',
+      'consent_denied', 'ad_consent_missing', 'offerwall_closed_without_reward',
+    ]) {
+      expect(shouldOfferPaidFallback(reason)).toBe(true);
+    }
+    for (const reason of ['not_production', 'not_eligible', 'unavailable', 'video_closed_before_reward', '', undefined, null]) {
+      expect(shouldOfferPaidFallback(reason)).toBe(false);
     }
   });
 

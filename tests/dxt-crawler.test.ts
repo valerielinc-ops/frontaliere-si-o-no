@@ -19,7 +19,7 @@ import {
   MIN_DESC_LENGTH,
   MIN_TITLE_OVERLAP,
 } from '@/scripts/lib/dxt-job-parser.mjs';
-import { buildDescription, dropInventedDxtLocaleText } from '@/scripts/update-dxt-jobs.mjs';
+import { buildDescription, dropInventedDxtLocaleText, dxtPanelUrl, dxtMergeKey } from '@/scripts/update-dxt-jobs.mjs';
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 // Mirrors the actual HTML structure served by dxt.com/careers/ on 2026-03-18.
@@ -421,5 +421,33 @@ describe('dropInventedDxtLocaleText', () => {
     const [job] = dropInventedDxtLocaleText([{ ...clean }], [clean]);
     expect(job.descriptionByLocale.it).toContain('team contabile');
     expect(job.needsRetranslation).toBeUndefined();
+  });
+});
+
+// ─── The published URL leads to the panel (#5253, run 36571839273) ───────
+//
+// dxt.com ignores `?panel=`: every value serves the careers page (canonical
+// https://dxt.com/careers/) with all panels closed. The panel element
+// `offset_GROUPID_N` is on the page, so the fragment takes the reader there;
+// the query stays as the job's identity.
+describe('dxtPanelUrl / dxtMergeKey', () => {
+  it('addresses the panel element and keeps the ?panel= identity', () => {
+    expect(dxtPanelUrl('20897_2')).toBe('https://dxt.com/careers/?panel=20897_2#offset_20897_2');
+    const panels = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897');
+    for (const panel of panels) {
+      expect(FIXTURE_LUGANO_ACCORDION).toContain(`id="offset_${panel.panelId}"`);
+    }
+  });
+
+  it('matches a stored ?panel= record with the anchored URL of the same panel', () => {
+    expect(dxtMergeKey({ url: 'https://dxt.com/careers/?panel=20897_2' }))
+      .toBe(dxtMergeKey({ url: dxtPanelUrl('20897_2') }));
+    expect(dxtMergeKey({ url: dxtPanelUrl('20897_1') })).not.toBe(dxtMergeKey({ url: dxtPanelUrl('20897_2') }));
+  });
+
+  it('drops invented locale text of a stored record whose URL had no fragment yet', () => {
+    const merged = [{ ...STORED_JOB, url: dxtPanelUrl('20897_2'), description: PANEL_TEXT, descriptionByLocale: { ...STORED_JOB.descriptionByLocale, en: PANEL_TEXT } }];
+    const [job] = dropInventedDxtLocaleText(merged, [STORED_JOB]);
+    expect(job.descriptionByLocale).toEqual({ en: PANEL_TEXT });
   });
 });

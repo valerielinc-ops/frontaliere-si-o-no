@@ -583,12 +583,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
-        "chef-de-projets-nouveaux-produits-h-f-rolex-geneve"
+        "chef-de-projets-nouveaux-produits-h-f-rolex-geneve",
+        "chef-de-projets-nouveaux-produits-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
-          "chef-de-projets-nouveaux-produits-h-f-rolex-geneve"
+          "chef-de-projets-nouveaux-produits-h-f-rolex-geneve",
+          "chef-de-projets-nouveaux-produits-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:45.930Z",
@@ -1571,7 +1573,7 @@
       "titleByLocale": {
         "it": "Galvanoplast (M/F)",
         "en": "Galvanoplast (M/F)",
-        "de": "Galvanoplaste (H/F)",
+        "de": "Galvanoplast (M/W)",
         "fr": "Galvanoplaste (H/F)"
       },
       "description": "Introduction\n\nPour notre secteur Fournitures , nous recherchons un Galvanoplaste (H/F) dont la mission principale sera d'assurer les opérations de galvanoplastie et l’amélioration continue de nos procédés.\n\nResponsabilités\n\n• Réaliser les opérations de galvanoplastie\n\n• Préparer, suivre et contrôler les équipements, les bains et les paramètres de procédé.\n\n• Organiser et planifier les activités opérationnelles\n\n• Effectuer les contrôles et assurer la traçabilité.\n\n• Participer à l’amélioration continue des procédés et des méthodes de travail.\n\n• Garantir le respect des procédures, des standards qualité et des règles de sécurité\n\nProfil\n\n• CFC de galvanoplaste ou titre jugé équivalent.\n\n• Expérience confirmée en galvanoplastie dans un milieu de production\n\n• Connaissance de la technologie LIGA : un atout\n\n• Bonnes capacités de communication et esprit d’équipe\n\n• Esprit analytique et sens des responsabilités\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -1610,7 +1612,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:58:55.720Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1627,9 +1628,9 @@
     },
     {
       "id": "rolex-60f6f5bc0d70",
-      "slug": "decoller-h-f-rolex-bienne",
+      "slug": "decollatore-m-f-rolex-bienne",
       "slugByLocale": {
-        "it": "decoller-h-f-rolex-bienne",
+        "it": "decollatore-m-f-rolex-bienne",
         "en": "decoller-h-f-rolex-bienne",
         "de": "abscheider-h-f-rolex-bienne-e33cb0",
         "fr": "decolleteur-h-f-rolex-ch"
@@ -1674,11 +1675,13 @@
       "previousSlugs": [
         "decolleteur-h-f-rolex-ch",
         "decolleteur-m-w-d-rolex-bienne",
-        "m-w-d-decoller-rolex-bienne"
+        "m-w-d-decoller-rolex-bienne",
+        "decoller-h-f-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "decolleteur-h-f-rolex-ch"
+          "decolleteur-h-f-rolex-ch",
+          "decoller-h-f-rolex-bienne"
         ],
         "de": [
           "decolleteur-m-w-d-rolex-bienne",
@@ -5337,7 +5340,7 @@
       "title": "Manager de proximité - Sûreté, Sécurité & Environnement (H/F)",
       "titleByLocale": {
         "it": "Community Manager - Sicurezza e Ambiente (M/F)",
-        "en": "Manager de proximité - Sûreté, Sécurité & Environnement (H/F)",
+        "en": "Community Manager - Safety, Security & Environment (M/F)",
         "de": "Community Manager - Sicherheit & Umwelt (M/W)",
         "fr": "Manager de proximité - Sûreté, Sécurité & Environnement (H/F)"
       },
@@ -5384,7 +5387,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:16:29.913Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -11251,11 +11253,11 @@
     },
     {
       "id": "rolex-ae084dfef528",
-      "slug": "information-technology-learning-ne-cfc-rolex-bienne",
+      "slug": "swc-it-apprendimento-rolex-bienne",
       "slugByLocale": {
-        "it": "information-technology-learning-ne-cfc-rolex-bienne",
-        "en": "information-technology-learning-ne-cfc-rolex-bienne",
-        "de": "information-technology-learning-ne-cfc-rolex-bienne",
+        "it": "swc-it-apprendimento-rolex-bienne",
+        "en": "swc-it-learning-rolex-bienne",
+        "de": "swc-it-lernen-rolex-bienne",
         "fr": "apprentissage-d-informaticien-ne-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -11296,11 +11298,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-d-informaticien-ne-cfc-rolex-ch"
+        "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+        "information-technology-learning-ne-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-d-informaticien-ne-cfc-rolex-ch"
+          "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+          "information-technology-learning-ne-cfc-rolex-bienne"
+        ],
+        "en": [
+          "information-technology-learning-ne-cfc-rolex-bienne"
+        ],
+        "de": [
+          "information-technology-learning-ne-cfc-rolex-bienne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:15.260Z",

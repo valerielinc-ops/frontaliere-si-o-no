@@ -31,3 +31,5 @@ const parser = createVdEmploiPlatformParser({
 export const fetchAllEhcVdJobs = parser.fetchAllJobs;
 export const isEhcVdJob = parser.isCompanyJob;
 export const isTrustedDomain = parser.isTrustedDomain;
+/** Moves stored rows off the dead legacy `/nos-offres/<slug>` URL (see vd-emploi-platform-common). */
+export const prepareEhcVdExistingJobs = parser.prepareExistingJobs;

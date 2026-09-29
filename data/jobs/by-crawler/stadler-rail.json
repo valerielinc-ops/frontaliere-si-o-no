@@ -3944,12 +3944,12 @@
     },
     {
       "id": "stadler-rail-d724b8d7672e",
-      "slug": "produktionsleiter-in-stadler-rail-frauenfeld",
+      "slug": "direttore-di-produzione-stadler-rail-frauenfeld",
       "slugByLocale": {
-        "it": "produktionsleiter-in-stadler-rail-frauenfeld",
-        "en": "produktionsleiter-in-stadler-rail-frauenfeld",
+        "it": "direttore-di-produzione-stadler-rail-frauenfeld",
+        "en": "production-manager-stadler-rail-frauenfeld",
         "de": "produktionsleiter-in-stadler-rail-ch",
-        "fr": "produktionsleiter-in-stadler-rail-frauenfeld"
+        "fr": "directeur-de-la-production-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -3991,11 +3991,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsleiter-in-stadler-rail-ch"
+        "produktionsleiter-in-stadler-rail-ch",
+        "produktionsleiter-in-stadler-rail-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsleiter-in-stadler-rail-ch"
+          "produktionsleiter-in-stadler-rail-ch",
+          "produktionsleiter-in-stadler-rail-frauenfeld"
+        ],
+        "en": [
+          "produktionsleiter-in-stadler-rail-frauenfeld"
+        ],
+        "fr": [
+          "produktionsleiter-in-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-08-10T21:59:50.509Z",

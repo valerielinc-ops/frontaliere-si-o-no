@@ -839,12 +839,12 @@
     },
     {
       "id": "gkb-d829938f33ae",
-      "slug": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+      "slug": "servizio-giuridico-compliance-specializzato-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
-        "en": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+        "it": "servizio-giuridico-compliance-specializzato-80-100-graubundner-kantonalbank-chur",
+        "en": "specialist-legal-service-compliance-80-100-graubundner-kantonalbank-chur",
         "de": "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur",
-        "fr": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        "fr": "specialiste-en-service-juridique-compliance-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -889,14 +889,20 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
         ],
         "en": [
-          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
       ],
       "firstSeenAt": "2026-08-25T21:41:16.480Z",
       "salaryMin": 65000,

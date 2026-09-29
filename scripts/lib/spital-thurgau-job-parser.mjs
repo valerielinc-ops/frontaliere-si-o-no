@@ -32,12 +32,27 @@
 import { createHash } from 'node:crypto';
 import { slugify, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripHtml } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const SPITAL_THURGAU_KEY = 'spital-thurgau';
 export const SPITAL_THURGAU_COMPANY_NAME = 'Spital Thurgau (STGAG)';
 export const SPITAL_THURGAU_COMPANY_DOMAIN = 'stgag.ch';
+
+/**
+ * The WHOLE text the parser used to publish INSTEAD of the Umantis detail
+ * body (issue 5253), and nothing else: "<title> — Spital Thurgau (STGAG)."
+ * over the "• <label>: <value>" lines of the listing metadata, or
+ * "<title> — Spital Thurgau (STGAG), <city>" without them. Anchored at both
+ * ends on purpose: the published ad (detail body + the same metadata lines)
+ * must never be taken for it. Only ever recognised, to remove it from stored
+ * jobs before the merge (`prepareExistingJobs` in update-spital-thurgau-jobs.mjs).
+ */
+export const SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE = new RegExp(
+  '^\\s*[^\\n]{1,200}? — Spital Thurgau \\(STGAG\\)'
+  + '(?:\\.\\s*(?:\\n\\s*• (?:Standort|Abteilung|Bereich|Pensum|Anstellungsverhältnis|Eintrittsdatum): [^\\n]*)+|, [^\\n]{1,120})\\s*$',
+);
 
 const LISTING_URL = 'https://www.stgag.ch/jobs/';
 /** Pause between detail requests: one Umantis tenant, ~160 vacancies. */
@@ -388,16 +403,18 @@ export async function fetchAllSpitalThurgauJobs() {
     try {
       detailBody = extractStgagDetailDescription(await fetchPage(detailUrl));
     } catch (err) {
-      console.warn(`  ⚠️ detail ${id}: ${err?.message || err} — keeping listing metadata`);
+      console.warn(`  ⚠️ detail ${id}: ${err?.message || err} — no description this run`);
     }
     await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     if (detailBody) detailHits++;
     const metadata = descBits.join('\n');
-    const descriptionText = normalizeDescriptionBullets(detailBody
-      ? [detailBody, metadata].filter(Boolean).join('\n\n')
-      : (descBits.length
-        ? `${title} — ${SPITAL_THURGAU_COMPANY_NAME}.\n\n${metadata}`
-        : `${title} — ${SPITAL_THURGAU_COMPANY_NAME}, ${city}`));
+    // Only the ad's own text (issue 5253): no "<title> — Spital Thurgau
+    // (STGAG)." line over the listing metadata in place of a detail body that
+    // was not read. A detail body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const descriptionText = meetsSourceBodyFloor(detailBody)
+      ? normalizeDescriptionBullets([detailBody, metadata].filter(Boolean).join('\n\n'))
+      : '';
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} stgag ch`);

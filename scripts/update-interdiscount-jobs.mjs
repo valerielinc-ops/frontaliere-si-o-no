@@ -8,7 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
-import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
+import { enrichCoopSourceBackedJobs, withoutRepublishedCoopVacancies } from './lib/coop-job-parser.mjs';
 import {
   fetchAllInterdiscountJobs,
   isInterdiscountJob,
@@ -24,9 +24,11 @@ runStandardCrawlerPipeline({
   companyKey: INTERDISCOUNT_KEY,
   companyLabel: INTERDISCOUNT_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: async () => enrichCoopSourceBackedJobs(await fetchAllInterdiscountJobs(), {
+  // The same ad republished under two UUIDs (same store address, same body and
+  // facts) is one vacancy: keep the earliest-seen record.
+  fetchJobs: async () => withoutRepublishedCoopVacancies(await enrichCoopSourceBackedJobs(await fetchAllInterdiscountJobs(), {
     allowedHosts: ['jobs.coopjobs.ch'],
-  }),
+  }), 'Interdiscount'),
   isCompanyJob: isInterdiscountJob,
   isTrustedDomain,
   defaultSourceLang: 'de',

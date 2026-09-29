@@ -398,6 +398,13 @@ function extractPensum(text = '') {
  *             behaviour: infer canton from workplace text using
  *             inferSwissTargetCanton(); fall back to defaultCity/Canton/Postal.
  */
+/**
+ * A fragment only the factory's former stand-in description wrote
+ * ("<company> bietet eine sinnstiftende Tätigkeit in einem engagierten
+ * Team."), for `dropFabricatedDescriptions` on the stored jobs (issue 5253).
+ */
+export const REFLINE_FABRICATED_DESCRIPTION_RE = / bietet eine sinnstiftende Tätigkeit in einem engagierten Team\.\n• Vielfältige Aus- und Weiterbildungsmöglichkeiten/;
+
 export function createReflineParser(config) {
   const {
     reflineTenant,

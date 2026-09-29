@@ -229,7 +229,7 @@ describe('IKEA crawler parser', () => {
 describe('parseJobPosting — raw control characters in JSON-LD', () => {
   const html = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting",'
     + '"title":"Lehrstelle Detailhandelsfachfrau/-mann",'
-    + '"description":"<b>Wer du bist</b><br/>Hier bist du am richtigen Ort, wenn du dich auf folgende Lehrstellen bewerben möchtest:<br/>•\tDetailhandelsassistent/in EBA<br/>•\tDetailhandelsfachfrau/-mann EFZ",'
+    + '"description":"<b>Wer du bist</b><br/>Hier bist du am richtigen Ort, wenn du dich auf folgende Lehrstellen bewerben möchtest:<br/>•\tDetailhandelsassistent/in EBA<br/>•\tDetailhandelsfachfrau/-mann EFZ. In dieser Ausbildung lernst du Kundinnen und Kunden zu beraten, Waren ansprechend zu präsentieren, Bestellungen zu bearbeiten und gemeinsam im Team Lösungen zu entwickeln. Du arbeitest sorgfältig, zuverlässig und mit Freude an den täglichen Aufgaben im Einrichtungshaus. Wir begleiten dich mit einer strukturierten Einführung, Praxisanleitung und Möglichkeiten zur persönlichen Weiterentwicklung.",'
     + '"datePosted":"2026-6-10","employmentType":"Full time"}</script>';
 
   it('parses the posting instead of skipping the block', () => {

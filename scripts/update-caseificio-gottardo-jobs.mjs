@@ -18,6 +18,10 @@
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -49,7 +53,6 @@ import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-templat
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -305,26 +308,20 @@ async function fetchDetailDescription(url) {
 // Description building
 // ─────────────────────────────────────────────────────────────
 
-function buildFallbackDescription(title, category, locationInfo) {
-  const parts = [];
+// First words of the description earlier versions wrote themselves when the
+// detail page was thin ("Caseificio dimostrativo del Gottardo SA pubblica il
+// seguente … Per i dettagli completi, consultare la pagina dell'offerta."):
+// text the source never showed. It marks a STORED description as not
+// source-read; mergeJobs removes it (and its translations) before merging.
+export const CASEIFICIO_INVENTED_RE = /Caseificio dimostrativo del Gottardo SA pubblica il seguente /;
 
-  const categoryLabel =
-    /tirocinio/i.test(category) ? 'posto di tirocinio' : 'offerta di impiego';
-
-  parts.push(
-    `Caseificio dimostrativo del Gottardo SA pubblica il seguente ${categoryLabel}: ${title}.`
-  );
-  if (locationInfo) {
-    parts.push(`Sede: ${locationInfo}`);
-  }
-  parts.push('');
-  parts.push('Per i dettagli completi, consultare la pagina dell\'offerta.');
-  parts.push('');
-  parts.push('Settore: Industria lattiero-casearia / Alimentare');
-  parts.push('Sede aziendale: Via Fontana 3, 6780 Airolo (TI), Svizzera');
-  parts.push('Contatto: direzione@cdga.ch | Tel. +41 91 869 11 80');
-
-  return parts.join('\n').trim();
+/**
+ * The detail page's own text when it is over the shared word floor, '' under
+ * it (the job then keeps its stored source body, or is not published this
+ * run): no invented text, no thin page.
+ */
+export function caseificioSourceBody(detailText = '') {
+  return meetsSourceBodyFloor(detailText) ? String(detailText).trim() : '';
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -364,7 +361,7 @@ function detectEmploymentType(title = '', locationInfo = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchCaseificioJobs() {
+export async function fetchCaseificioJobs() {
   console.log(`📡 Fetching careers page: ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL);
   if (!html) {
@@ -396,9 +393,7 @@ async function fetchCaseificioJobs() {
       console.warn(`  ⚠️  Could not fetch detail page: ${err?.message || err}`);
     }
 
-    if (!description || description.length < 50) {
-      description = buildFallbackDescription(listing.title, listing.category, listing.location);
-    }
+    description = caseificioSourceBody(description);
 
     const slug = slugify(listing.title, COMPANY_KEY);
 
@@ -453,7 +448,14 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  const existingTargetJobs = dropFabricatedDescriptions(allJobs.filter(isTargetJob), CASEIFICIO_INVENTED_RE, COMPANY_NAME);
+  // A detail page under the word floor: keep the stored source body, or do not
+  // publish the posting this run (no invented text, no thin page).
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingTargetJobs, (url) => url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {

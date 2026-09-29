@@ -190,10 +190,11 @@ describe('KSML (Kanton Bern) crawler parser', () => {
                   organisation: 'Schule Bern',
                   inseratesprache: '1',
                   adresseOrg: { plzOrt: { plz: '3000', ort: 'Bern' }, strasse: 'Schulstrasse 1' },
-                  firmenportrait: 'Wir sind eine moderne Schule in Bern.',
-                  aufgaben: 'Unterricht auf der Primarstufe erteilen.',
-                  anforderungen: 'Lehrdiplom Primarstufe erforderlich.',
-                  wirBieten: 'Kollegiales Team und moderne Infrastruktur.',
+                  // Sections of a live posting (stelleId 40295, 2026-09-29).
+                  firmenportrait: 'Für unseren überschaulichen Zyklus 3 (Sek.1) suchen wir für eine Fachlehrperson',
+                  aufgaben: 'Unterricht nach Lehrplan auf unserer kleinen Sek.-Stufe mit 6 Klassen nach Model 3b Spiegel. 3 Lektionen Englisch an unserer 9.B, das heisst 1Lektion donnerstags 10:20 bis 11:05 Uhr und 2L. freitags 13:30 bis 15:05 Uhr (das Pensum kann auch aufgeteilt werden und bspw. nur die 2 Lektionen freitags übernommen werden).',
+                  anforderungen: 'Entsprechendes Lehrpatent / Lehrbefähigung oder in entsprechender Ausbildung',
+                  wirBieten: 'Interessante Stelle mit sehr guter Unterstützung durch das kleine Team und Schulleitung. Es besteht auch die Möglichkeit einer langfristigen, unbefristeten Anstellung.\n\nInteressiert?',
                   erfassungTs: '2026-06-23 06:57:25.495',
                   kontakt: 'Schulleitung\nMax Muster\n031 555 00 00',
                 },
@@ -225,6 +226,8 @@ describe('KSML (Kanton Bern) crawler parser', () => {
       });
       expect(jobs[0].id).toMatch(/^ksml-/);
       expect(jobs[0].url).toBe('https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/35547');
+      expect(jobs[0].description).toContain('Aufgaben\nUnterricht nach Lehrplan');
+      expect(jobs[0].description).toContain('Wir bieten\nInteressante Stelle');
       expect(jobs[0].description).not.toContain('Max Muster');
       expect(jobs[0].description).not.toContain('031 555 00 00');
     });
@@ -264,6 +267,11 @@ describe('KSML (Kanton Bern) crawler parser', () => {
       expect(jobs[0].sourceLang).toBe('fr');
       expect(jobs[0].employmentType).toBe('PART_TIME');
       expect(Object.keys(jobs[0].slugByLocale)).toEqual(['fr']);
+      // Sections under the 50-word floor (issue 5253): no description, and no
+      // "<title> — poste auprès de … Publié sur le marché cantonal …" line in
+      // its place; the pipeline keeps the stored body or quarantines it.
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({ fr: '' });
     });
   });
 });

@@ -157,6 +157,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from '../assemble-jobs-dataset.mjs';
+import { rewritePreparedStoredJobs } from './stored-jobs-soft-exit.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
@@ -842,9 +843,10 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  * @property {(jobs: object[]) => (object[]|void)} [prepareExistingJobs] — Called with this
- *   company's stored jobs right before the merge, only when the fresh fetch is merged.
- *   It may repair them in place or return a replacement array. Used to remove text the
- *   crawler itself once wrote into stored jobs, which the merge would otherwise keep.
+ *   company's stored jobs right before the merge, and on a run that parses no job
+ *   (`rewritePreparedStoredJobs` in stored-jobs-soft-exit.mjs). It may repair them
+ *   in place or return a replacement array. Used to remove text the crawler itself
+ *   once wrote into stored jobs, which the merge would otherwise keep.
  */
 
 /**
@@ -1129,6 +1131,17 @@ export async function runStandardCrawlerPipeline(config) {
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
     counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
+    await rewritePreparedStoredJobs({
+      prepare: prepareExistingJobs,
+      storedJobs: companyExisting,
+      companyKey,
+      companyLabel,
+      write: (jobs) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+        isTargetJob: isCompanyJob,
+        preserveExistingSlugs,
+      }),
+      assemble: () => assembleJobsDataset(),
+    });
     return;
   }
 

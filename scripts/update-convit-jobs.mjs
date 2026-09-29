@@ -56,6 +56,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { assertDetailFetchComplete } from './lib/detail-fetch-cap.mjs';
 
@@ -430,6 +431,16 @@ async function main() {
   } = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No listings found on Convit careers page — skipping.');
+    // The stored jobs are kept, without the text the crawler once wrote
+    // into them (the merge would have removed it).
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },
+      storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+      companyKey: COMPANY_KEY,
+      companyLabel: 'Convit Holding',
+      write: (jobs) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob }),
+      assemble: () => assembleJobsDataset(),
+    });
     return;
   }
 

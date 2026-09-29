@@ -12290,6 +12290,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mobilita-lombardia-ticino-2026.title': 'Green light for the Lombardy-Ticino Agreement',
     'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Ratified Draft Law No. 197 on cross-border mobility. Five-year agreement for trains, buses, and fares between Italy and Switzerland.',
     'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Cross-border train between Lombardy and Ticino',
+    'blog.article.premi-lamal-ticino-de-rosa.title': 'Ticino LAMal premiums 2027: increase to 3,7% and 519,90 francs',
+    'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'In 2027, the increase in premiums in Ticino will be 3,7%, with 519,90 francs per month. DSS Director Raffaele De Rosa comments on the measures and healthcare spending.',
+    'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'View of Bellinzona with medieval castles',
 };
 
 export default blogMetaEn;

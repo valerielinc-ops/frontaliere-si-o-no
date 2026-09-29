@@ -130,6 +130,42 @@ describe('fingerprintJob → registry key', () => {
     expect(b).toBe('id|gemeinde-stmoritz.ch|lehrperson-primar');
     expect(a).not.toBe(b);
   });
+
+  // Issue 5253: a page that lists every ad under its own heading, with no id
+  // and no page per ad, addresses one of them by a text fragment (klinik-
+  // seeschau since #10334). Read as nothing, every such ad fell back to the
+  // hash-stripped canonical URL and shared ONE registry entry: the second
+  // posting was pinned to the first posting's slug.
+  const PAGE = 'https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59';
+  const at = (title: string) => `${PAGE}#:~:text=${encodeURIComponent(title).replace(/-/g, '%2D')}`;
+
+  it('keys two ads of one page that differ only in their text fragment apart', () => {
+    const a = fingerprintJob({ url: at('Dipl. Pflegefachfrau/-mann (HF) ab 50 %') });
+    const b = fingerprintJob({ url: at('Neu: Ausbildung zur Dipl. Pflegefachperson HF bei uns!') });
+    expect(a).toBe('id|klinik-seeschau.ch|/karriere/offene-stellen.html/59#text=dipl. pflegefachfrau/-mann (hf) ab 50 %');
+    expect(a).not.toBe(b);
+    // prefix / suffix context does not change the posting's identity
+    expect(fingerprintJob({ url: `${PAGE}#:~:text=Stellen-,Dipl.%20Pflegefachfrau%2F%2Dmann%20(HF)%20ab%2050%20%25` })).toBe(a);
+  });
+
+  it('pins each ad of such a page to its own registry entry', () => {
+    const jobs = [
+      { url: at('Dipl. Pflegefachfrau/-mann (HF) ab 50 %'), slug: 'dipl-pflegefachfrau-mann-hf-ab-50-klinik-seeschau-kreuzlingen', canton: 'TG' },
+      { url: at('Neu: Ausbildung zur Dipl. Pflegefachperson HF bei uns!'), slug: 'neu-ausbildung-zur-dipl-pflegefachperson-hf-bei-uns-klinik-seeschau-kreuzlingen', canton: 'TG' },
+    ];
+    const registry: Record<string, { canonicalSlug?: string }> = {};
+    for (const job of jobs) registerJobSlug(job, registry);
+    expect(Object.keys(registry)).toHaveLength(2);
+    for (const job of jobs) expect(registry[fingerprintJob(job)].canonicalSlug).toBe(job.slug);
+  });
+
+  it('leaves URLs without a text directive, and text fragments behind a meaningful query, keyed as before', () => {
+    expect(fingerprintJob({ url: 'https://grischapersonal.ch/stellen/#job-a49cb87c8254' })).toBe('id|grischapersonal.ch|#job-a49cb87c8254');
+    expect(fingerprintJob({ url: 'https://grischapersonal.ch/stellen/?jobid=c51cc0441fec#:~:text=CAD%2DZEICHNER' })).toBe('id|grischapersonal.ch|c51cc0441fec');
+    expect(fingerprintJob({ url: 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire#:~:text=Stagiaire' }))
+      .toBe(fingerprintJob({ url: 'https://www.lafonte.ch/inizia-con-noi?role=stagiaire' }));
+    expect(fingerprintJob({ url: 'https://www.ehnv.ch/emplois#offer/4094/une-medecin' })).toBe('id|ehnv.ch|offer-4094');
+  });
 });
 
 describe('registerJobSlug', () => {

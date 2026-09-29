@@ -36,7 +36,9 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { composeFederalJobDescription, parseFederalJobDetailExtras } from './lib/federal-job-detail.mjs';
+import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -47,11 +49,20 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
+  federalRegionCantons,
+  federalWorkplaceFactValue,
   normalizeFederalDepartmentCompany,
   normalizeFederalJobLocation,
+  resolveFederalWorkplaceAddress,
+  resolveFederalWorkplaceLocality,
+  resolveSwissLocalityCanton,
 } from './lib/federal-job-normalization.mjs';
 import { holdSourceLang } from './lib/job-locale-utils.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isKnownSwissMunicipality,
+  normalizeCantonCode as normalizeSwissCantonCode,
+} from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -141,9 +152,45 @@ function buildSeedMetaFromApiJob(job) {
     || inferAnyCanton(normalizedLocation.location)
     || inferAnyCanton(region);
   const dept = String(job?.attributes?.['verwaltungseinheit']?.[0] || '').trim();
+  // The page's JSON-LD address is the administrative unit (Bern for 174/184
+  // jobs), not the workplace: hand the engine the vacancy's own `arbeitsort`
+  // as the workplace so it publishes Chamblon/Hinwil/Payerne instead. The
+  // engine infers the canton from that locality, so only a locality we can
+  // place in a canton is handed over — a former municipality missing from
+  // the BFS list (Bronschhofen, Grolley, Zimmerwald) would otherwise get a
+  // canton guessed from the job text.
+  // An explicit canton marker in `arbeitsort` ("Grolley (FR)", "Zimmerwald
+  // BE") places an ambiguous or former municipality; it is kept in the
+  // federal display form "Locality (XX)" that confederazione already uses.
+  // Without a marker, the official locality directory places the name within
+  // the cantons of the posting's `region` facet ("Bronschhofen" + Ostschweiz
+  // (AI … SG …) → SG, "Rüti" + Zürich (ZH) → ZH); a name the directory lists
+  // in two of those cantons (Romont BE/FR) stays unplaced. That canton also
+  // replaces the region's first code (AI for every Ostschweiz posting).
+  const regionCantons = federalRegionCantons(job?.attributes?.['region']);
+  const directoryCanton = (locality) => (
+    regionCantons.size > 0 ? resolveSwissLocalityCanton(locality, { cantons: regionCantons }) : ''
+  );
+  const resolvedWorkplace = resolveFederalWorkplaceLocality(arbeitsort, {
+    isPlaced: (locality) => Boolean(directoryCanton(locality)),
+  });
+  const markerCanton = normalizeSwissCantonCode(
+    normalizedLocation.canton || arbeitsort.match(/\b([A-Z]{2})\b(?=\s*(?:,|$))/)?.[1] || '',
+  );
+  let workplaceLocation = '';
+  let workplaceCanton = '';
+  if (resolvedWorkplace && (isKnownSwissMunicipality(resolvedWorkplace) || inferAnyCanton(resolvedWorkplace))) {
+    workplaceLocation = resolvedWorkplace;
+  } else if (resolvedWorkplace && markerCanton) {
+    workplaceLocation = `${resolvedWorkplace} (${markerCanton})`;
+  } else if (resolvedWorkplace && (workplaceCanton = directoryCanton(resolvedWorkplace))) {
+    workplaceLocation = `${resolvedWorkplace} (${workplaceCanton})`;
+  }
+  const seedCanton = workplaceCanton || canton;
   return {
     location: normalizedLocation.location || region || 'Schweiz',
-    ...(canton ? { canton } : {}),
+    ...(workplaceLocation ? { workplaceLocation } : {}),
+    ...(seedCanton ? { canton: seedCanton } : {}),
     company: normalizeFederalDepartmentCompany(dept, VTG_COMPANY_NAME) || VTG_COMPANY_NAME,
     ...(job?.start_date ? { postedDate: dateOnly(job.start_date) } : {}),
   };
@@ -388,6 +435,113 @@ function ensureSourceLang() {
   }
 }
 
+/**
+ * The shared engine publishes the page's JSON-LD description (tasks,
+ * requirements, benefits, unit profile). The page adds, in its own language,
+ * the role summary ("Auf den Punkt gebracht", up to ~1000 characters), the
+ * key facts (start date, contract, workplace), "Zusätzliche Informationen"
+ * and the application note — without them the published text was 35-44 % of
+ * the detail page (audit run 36528331656). composeFederalJobDescription
+ * skips sections already present, so a job the engine carried over from an
+ * earlier run is not enriched twice. An unreadable page keeps the engine text.
+ *
+ * The same page states the workplace address under the title ("Arbeitsort:
+ * Amp-Strasse 12, 9552 Bronschhofen"): see applyVtgWorkplaceAddress.
+ */
+async function enrichVtgDescriptionsFromDetailPages(seedMetaByUrl = {}) {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  const seedMetaById = new Map(Object.entries(seedMetaByUrl || {})
+    .map(([url, meta]) => [extractStableJobId(url), meta])
+    .filter(([id]) => Boolean(id)));
+  const targets = jobs.filter((job) => isVtgJob(job) && job.url);
+  let enriched = 0;
+  let addressed = 0;
+  let failed = 0;
+  await mapPool(targets, 3, async (job) => {
+    try {
+      const extras = parseFederalJobDetailExtras(await fetchHtml(job.url));
+      const next = composeFederalJobDescription(job.description, extras);
+      if (next && next !== job.description) {
+        job.description = next;
+        // The source slot is what every locale page is translated from:
+        // keep it on the enriched text and let the pipeline redo the others.
+        if (job.sourceLang) {
+          if (job.descriptionByLocale?.[job.sourceLang] !== next) job.needsRetranslation = true;
+          job.descriptionByLocale = { ...(job.descriptionByLocale || {}), [job.sourceLang]: next };
+        }
+        enriched += 1;
+      }
+      const seedMeta = seedMetaById.get(extractStableJobId(job.url));
+      const located = applyVtgWorkplaceAddress(job, extras.facts, { seededWorkplace: Boolean(seedMeta?.workplaceLocation) });
+      if (located !== job) {
+        Object.assign(job, located);
+        addressed += 1;
+      }
+    } catch {
+      failed += 1;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  });
+  if (enriched > 0 || addressed > 0) writeJsonAtomic(DATA_JOBS, jobs);
+  console.log(`📝 VTG detail sections added to ${enriched}/${targets.length} job(s), workplace address from the page on ${addressed}${failed ? ` (${failed} page(s) unreadable, engine text kept)` : ''}.`);
+}
+
+/**
+ * The workplace address a jobs.admin.ch page states under the title
+ * ("Arbeitsort: Amp-Strasse 12, 9552 Bronschhofen"), carried into the job:
+ * street line, CAP and locality, with the canton the official locality
+ * directory gives that CAP and locality. Two same-title apprenticeships with
+ * one body are two workplaces when their pages name two addresses — the
+ * JSON-LD only knows the administrative unit (Bern).
+ *
+ * - `seededWorkplace` and the address lies in the published canton: the
+ *   engine already published the posting's own `arbeitsort`. The address adds
+ *   street and CAP, and its locality as `addressLocality` when it names
+ *   another one (arbeitsort "Stans-Oberdorf", address "6370 Oberdorf").
+ * - otherwise the published place is not the workplace: the engine fell back
+ *   to the administrative unit's JSON-LD address (Bern, with the region
+ *   facet's first canton), or the arbeitsort was read in another canton than
+ *   the page's address ("Bremgarten" in region Espace Mittelland, address
+ *   "Kaserne, 5620 Bremgarten" in Aargau). The page's workplace replaces
+ *   location and canton.
+ *
+ * Returns the job unchanged when the page states no address that can be
+ * placed in one canton ("Pristina, Kosovo", no fact) — no address is made up.
+ */
+export function applyVtgWorkplaceAddress(job, facts = [], { seededWorkplace = false } = {}) {
+  const value = federalWorkplaceFactValue(facts);
+  if (!value || !job) return job;
+  const publishedCanton = String(job.canton || '').toUpperCase();
+  // The published canton only settles a CAP several cantons share ("8630
+  // Rüti": Zürich or St. Gallen); an address elsewhere is resolved on its own.
+  const inPublishedCanton = seededWorkplace && publishedCanton
+    ? resolveFederalWorkplaceAddress(value, { cantons: [publishedCanton] })
+    : null;
+  const address = inPublishedCanton || resolveFederalWorkplaceAddress(value);
+  if (!address) return job;
+  const next = {
+    ...job,
+    postalCode: address.postalCode,
+    addressLocality: address.addressLocality,
+    addressRegion: address.canton,
+  };
+  if (address.streetAddress) next.streetAddress = address.streetAddress;
+  else if (job.streetAddress) next.streetAddress = '';
+  if (!inPublishedCanton) {
+    // Same display form as the seed: a locality its name alone does not put
+    // in this canton keeps the marker ("Romont (FR)", "Oberdorf (NW)").
+    next.location = inferAnyCanton(address.addressLocality) === address.canton
+      ? address.addressLocality
+      : `${address.addressLocality} (${address.canton})`;
+    next.canton = address.canton;
+  }
+  const changed = ['postalCode', 'streetAddress', 'addressLocality', 'addressRegion', 'location', 'canton']
+    .some((field) => (next[field] || '') !== (job[field] || ''));
+  return changed ? next : job;
+}
+
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
@@ -459,6 +613,7 @@ async function main() {
   // Step 3: Run the base crawler (fetches detail pages)
   await runBaseCrawler();
   ensureSourceLang();
+  await enrichVtgDescriptionsFromDetailPages(discovery.seedMetaByUrl);
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({

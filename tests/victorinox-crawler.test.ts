@@ -282,21 +282,19 @@ describe('Victorinox crawler parser', () => {
       expect(delemontJob.streetAddress).toBe('');
     });
 
-    it('applies the thin-description guard: short detail pages fall back to a synthesized description ≥30 words', async () => {
+    it('publishes only the source text: a thin detail page gets no crawler summary (issue 5253)', async () => {
       stubFetch(buildListingHtml(ROWS), ROWS);
 
       const jobs = await fetchAllVictorinoxJobs();
       const zermattJob = jobs.find((j: any) => j.title === 'Sales Assistant - Zermatt m/w/d');
 
       expect(zermattJob).toBeDefined();
-      // The raw detail text was too thin (< 30 words), so the fallback
-      // summary (dept/location/ref + company boilerplate) was used instead
-      // of the thin raw detail text.
-      expect(zermattJob.description).not.toContain('Kurze Stellenbeschreibung');
-      expect(zermattJob.description).toContain('Bereich: Sales');
-      expect(zermattJob.description).toContain('Standort: Zermatt');
-      expect(zermattJob.description).toContain('Referenz: 2026-241');
-      expect(zermattJob.description).toContain('Victorinox');
+      // The detail page is under the common 50-word floor: the description
+      // stays empty (the shared pipeline's thin-source path) instead of the
+      // labelled listing fields and company sentence the crawler used to
+      // write in its place.
+      expect(zermattJob.description).toBe('');
+      expect(zermattJob.description).not.toMatch(/Bereich:|Standort:|Referenz:|Schweizer Familienunternehmen/);
     });
 
     it('includes structured-data completeness fields for every returned job (Non-Negotiable #3)', async () => {
@@ -310,6 +308,9 @@ describe('Victorinox crawler parser', () => {
       ];
       for (const job of jobs) {
         for (const field of structuredDataInputs) {
+          // The thin Zermatt page is under the 50-word floor: no description
+          // by design (thin-source path, issue 5253; see the test above).
+          if (field === 'description' && (job as any).title === 'Sales Assistant - Zermatt m/w/d') continue;
           expect((job as any)[field]).toBeTruthy();
         }
         // postalCode/streetAddress are safe-defaulted (never omitted) even

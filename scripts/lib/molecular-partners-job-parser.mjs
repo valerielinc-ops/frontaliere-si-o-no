@@ -24,6 +24,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -270,16 +271,11 @@ export async function fetchAllMolecularPartnersJobs() {
     const location = detailLocation || 'Zürich, Schlieren';
     const canton = inferSwissTargetCanton(location) || 'ZH';
 
-    const summaryPieces = [
-      r.ref ? `Referenza: ${r.ref}` : '',
-      `Sede: ${location}`,
-    ].filter(Boolean);
-    const description = detailText && detailText.split(/\s+/).length >= 30
-      ? detailText
-      : [
-        ...summaryPieces,
-        `${MOLECULAR_PARTNERS_COMPANY_NAME} — clinical-stage biotech company developing DARPin therapeutics, headquartered in Zürich-Schlieren (Switzerland).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the vacancy's own text (issue 5253): no summary of labelled
+    // listing fields (Referenza/Sede) plus a company sentence in place of a
+    // thin body. A body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailText) ? detailText : '';
 
     const sourceLang = detectLang(description || r.title, 'en');
     const jobSlug = slugify(`${r.title} molecular-partners schlieren`);

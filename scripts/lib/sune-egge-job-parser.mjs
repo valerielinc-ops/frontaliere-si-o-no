@@ -30,6 +30,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const SUNE_EGGE_KEY = 'sune-egge';
 export const SUNE_EGGE_COMPANY_NAME = 'Fachspital Sune-Egge';
@@ -130,11 +131,11 @@ function buildParsedJob(rec) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} sune egge zurich`);
 
-  const fallbackDesc =
-    `${title} — Stelle im Fachspital Sune-Egge in ${DEFAULT_CITY} (${DEFAULT_CANTON}), Schweiz. ` +
-    'Das Fachspital Sune-Egge der Stiftung Sozialwerk Pfarrer Sieber (SWS) betreut suchtmittelabhängige ' +
-    'Menschen mit komplexen Begleiterkrankungen (HIV / HCV) — eine in der Schweiz einzigartige Spezialklinik im Sozialwesen.';
-  const desc = descText.length >= 80 ? descText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle im
+  // Fachspital Sune-Egge …" line and clinic summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
   const postedDate = new Date().toISOString().slice(0, 10);
   const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;

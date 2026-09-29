@@ -13,7 +13,9 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
+import { buildZambonJob, mergeZambonJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -254,5 +256,102 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for regular title', () => {
     expect(detectExperienceLevel('Quality Assurance Specialist')).toBe('MID');
+  });
+});
+
+// ─── Source text only (issue 5253) ──────────────────────────────────────────
+// Minimized from the live NcorePlat page of job 811390 (2026-09-29). The
+// careers API carries only metadata; the runner used to publish a description
+// it wrote itself from those fields (3/3 stored jobs).
+const NCOREPLAT_PAGE = `
+<html><body>
+<div class="row paddedIn"><div class="col-lg-12 singlePosition">
+  <h1 class="iniziacon nCore_branding_heading"><strong>Buyer Procurement Indirect</strong></h1>
+  <div class="pTesto"><div class="nCore_branding_text break-word">
+    <p><strong>Zambon Switzerland SA</strong>, the Swiss affiliate of the multinational pharmaceutical group Zambon, based in Cadempino (Canton Ticino), is looking for a <strong>Buyer</strong> to join its <strong>Indirect Procurement</strong> team.</p>
+    <p>We are looking for a highly challenge-driven individual with a strong appetite for change and continuous improvement, who will contribute to the evolution of purchasing strategies and processes while developing valuable partnerships with suppliers and internal stakeholders.</p>
+    <p><strong>Key responsibilities:</strong></p>
+    <ul><li>Proactively conduct supplier scouting, qualification and evaluation activities at both national and international level.</li>
+    <li>Negotiate commercial agreements, contracts, Service Level Agreements (SLAs) and Key Performance Indicators (KPIs).</li></ul>
+  </div></div>
+</div></div>
+</body></html>`;
+const STORED_INVENTED = 'Buyer Procurement Indirect: opportunità professionale presso Zambon Svizzera SA, azienda farmaceutica internazionale con sede a Cadempino, Canton TI (Svizzera). Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi.';
+const JOB_URL = 'https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland';
+const STORED = {
+  id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect', companyKey: 'zambon', sourceLang: 'it',
+  description: STORED_INVENTED,
+  descriptionByLocale: { it: STORED_INVENTED, en: 'Buyer Procurement Indirect: professional opportunity at Zambon Switzerland SA, an international pharmaceutical company.' },
+  titleByLocale: { it: 'Buyer Procurement Indirect' },
+  slugByLocale: { it: 'buyer-procurement-indirect-zambon' },
+};
+
+describe('Zambon source text only (issue 5253)', () => {
+  it('reads the vacancy text of the NcorePlat page, lists included', () => {
+    const body = extractZambonJobBody(NCOREPLAT_PAGE);
+    expect(body).toContain('Zambon Switzerland SA , the Swiss affiliate');
+    expect(body).toContain('• Proactively conduct supplier scouting');
+    expect(body).not.toContain('Buyer Procurement Indirect\n');
+    expect(extractZambonJobBody('<html><body><div>AWS WAF challenge</div></body></html>')).toBe('');
+  });
+
+  it('builds the job from that text, in its own language', () => {
+    const job = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    expect(job.sourceLang).toBe('en');
+    expect(job.descriptionByLocale).toEqual({ en: job.description });
+    expect(ZAMBON_FABRICATED_DESCRIPTION_RE.test(job.description)).toBe(false);
+  });
+
+  it('replaces the stored invented description and drops its translations', () => {
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [merged] = mergeZambonJobs([STORED], [fresh]);
+    expect(merged.description).toBe(fresh.description);
+    expect(merged.descriptionByLocale).toEqual({ en: fresh.description });
+    expect(merged.needsRetranslation).toBe(true);
+    expect(merged.slugByLocale.it).toBe('buyer-procurement-indirect-zambon');
+  });
+
+  it('drops the stored invented description when it lives only in the flat field, with its translations (main slice shape)', () => {
+    // The three stored Zambon jobs on main: sourceLang it, no `it` slot, the
+    // invented text in `description` and en/de/fr translated from it.
+    const flatOnly = { ...STORED, descriptionByLocale: { en: STORED.descriptionByLocale.en, de: 'Buyer Procurement Indirekt: Berufsmöglichkeit bei Zambon Switzerland SA.' } };
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [merged] = mergeZambonJobs([flatOnly], [fresh]);
+    expect(merged.descriptionByLocale).toEqual({ en: fresh.description });
+    expect(merged.needsRetranslation).toBe(true);
+    expect(mergeZambonJobs([flatOnly], [buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '')])).toEqual([]);
+    // Pure: the caller's stored record is untouched.
+    expect(flatOnly.description).toBe(STORED_INVENTED);
+  });
+
+  it('does not publish a job whose page gives no text and whose stored text is invented', () => {
+    const fresh = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '');
+    expect(fresh.description).toBe('');
+    expect(mergeZambonJobs([STORED], [fresh])).toEqual([]);
+  });
+
+  it('leaves the stored slice unchanged when no row was read from the source (review #10396)', () => {
+    // readZambonBodies() returns [] when no NcorePlat page is readable (a WAF):
+    // a total read failure never unpublishes the stored jobs, legacy text included.
+    const legacy = { url: 'https://app.ncoreplat.com/jobposition/1', description: 'Ruolo: opportunità professionale presso Zambon Svizzera SA' };
+    const merged = mergeZambonJobs([legacy], []);
+    expect(merged.map((job: { url: string }) => job.url)).toEqual(['https://app.ncoreplat.com/jobposition/1']);
+    expect(merged).toEqual([legacy]);
+    expect(merged[0]).not.toBe(legacy);
+  });
+
+  it('publishes a body only from the shared 50-word floor (review #10396)', () => {
+    const words = (count: number) => Array.from({ length: count }, (_, index) => `parola${index}`).join(' ');
+    const row = { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' };
+    expect(buildZambonJob(row, words(49)).description).toBe('');
+    expect(buildZambonJob(row, words(50)).description).toBe(words(50));
+  });
+
+  it('keeps the source text an earlier run read when the page gives none', () => {
+    const real = buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, extractZambonJobBody(NCOREPLAT_PAGE));
+    const [first] = mergeZambonJobs([STORED], [real]);
+    const [second] = mergeZambonJobs([first], [buildZambonJob({ id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' }, '')]);
+    expect(second.description).toBe(real.description);
+    expect(second.sourceLang).toBe('en');
   });
 });

@@ -59,6 +59,7 @@
  * - detectCategory() / detectEmploymentType() / detectExperienceLevel()
  * - BUCHER_SUTER_KEY / BUCHER_SUTER_COMPANY_NAME / BUCHER_SUTER_COMPANY_DOMAIN
  */
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -293,8 +294,7 @@ export async function fetchAllBucherSuterJobs() {
 
     const articleProseHtml = extractArticleProseHtml(detailHtml);
     const description = normalizeDescriptionSpace(htmlToText(articleProseHtml));
-    const wordCount = description.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) continue;
+    if (!meetsSourceBodyFloor(description)) continue;
 
     const postalCode = HQ.postalCode;
     const addressRegion = canton;
@@ -305,7 +305,11 @@ export async function fetchAllBucherSuterJobs() {
     const postedDate = postedRaw ? String(postedRaw).split('T')[0] : new Date().toISOString().split('T')[0];
 
     const idHash = createHash('sha1').update(`wp-${wpId}`).digest('hex').slice(0, 12);
-    const sourceLang = detectLang(title) === 'de' ? 'de' : 'en';
+    // Language of the published body, not of the title (issue 5253): titles
+    // are loanword soup ("Candidatura spontanea", "Junior Logistics
+    // Specialist", "Guest Experience Specialist") and filed the body under a
+    // foreign source slot. The title is only the fallback when no body exists.
+    const sourceLang = detectLang(description) === 'de' ? 'de' : 'en';
     const jobSlug = slugify(`${title} bucher-suter ${city}`);
     const employmentType = detectEmploymentType(jobTypeLabel);
 
