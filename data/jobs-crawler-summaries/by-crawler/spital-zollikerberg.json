@@ -1,7 +1,7 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-28T21:08:51.397Z",
+  "generatedAt": "2026-09-29T09:10:09.909Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -9,16 +9,18 @@
   "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 33525,
-  "avgDurationMs": 33525,
+  "unchangedCount": 1,
+  "durationMs": 38152,
+  "avgDurationMs": 38152,
   "durationHistory": [
-    33525
+    38152
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-e1d7ac14f635",
       "slug": "facharztin-facharzt-psychiatrie-e-psychotherapie-arztbereich-spital-zollikerberg",
@@ -51,7 +53,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +62,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
