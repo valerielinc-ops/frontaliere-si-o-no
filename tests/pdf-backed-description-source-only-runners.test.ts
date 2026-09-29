@@ -24,6 +24,7 @@ import { CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/citta
 import { CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/citta-di-bellinzona-job-parser.mjs';
 import { CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE } from '../scripts/lib/citta-di-lugano-job-parser.mjs';
 import { MENDRISIO_FABRICATED_DESCRIPTION_RE } from '../scripts/update-mendrisio-jobs.mjs';
+import { OSCAM_FABRICATED_DESCRIPTION_RE, buildDescription as buildOscamDescription } from '../scripts/update-oscam-jobs.mjs';
 
 const FIXTURE = JSON.parse(fs.readFileSync(
   path.join(__dirname, 'fixtures/crawler-fabricated-descriptions/pdf-backed-runner-crawlers.json'),
@@ -41,6 +42,7 @@ const PATTERN_BY_CRAWLER: Record<string, RegExp> = {
   'berit-klinik': BERIT_KLINIK_FABRICATED_DESCRIPTION_RE,
   'clinique-le-noirmont': CLINIQUE_LE_NOIRMONT_FABRICATED_DESCRIPTION_RE,
   'tpl-lugano': TPL_FABRICATED_DESCRIPTION_RE,
+  oscam: OSCAM_FABRICATED_DESCRIPTION_RE,
 };
 
 // A PDF text as the extractor returns it: the posting's own sections.
@@ -92,6 +94,7 @@ describe('description builders: the PDF text and nothing else', () => {
     ['clinique-le-noirmont', (t) => buildCliniqueLeNoirmontDescription({ title: 'Infirmier/ère', pdfText: t }).description],
     ['fart', (t) => buildFartDescription('Autista di bus', t).description],
     ['tpl-lugano', (t) => buildTplDescription('Addetto/a rimessa', t, '').description],
+    ['oscam', (t) => buildOscamDescription(t)],
   ];
 
   for (const [key, build] of cases) {
