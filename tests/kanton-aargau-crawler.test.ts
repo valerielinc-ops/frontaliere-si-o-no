@@ -1,5 +1,9 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  parseAgJobsApi,
+  extractAgJobPosting,
   KANTON_AARGAU_KEY,
   KANTON_AARGAU_COMPANY_NAME,
   isKantonAargauJob,
@@ -53,11 +57,13 @@ describe('Kanton Aargau crawler parser', () => {
       expect(isTrustedDomain('https://www.ag.ch/de/ueber-uns/jobs-karriere/offene-stellen/stellenmarkt')).toBe(true);
     });
 
-    it('trusts the Umantis tenant host (recruitingapp-12705.umantis.com)', () => {
-      expect(isTrustedDomain('https://recruitingapp-12705.umantis.com/Vacancies/10927/Application/CheckLogin/1')).toBe(true);
+    it('trusts the job-market pages and their Prospective apply redirect', () => {
+      expect(isTrustedDomain('https://jobs.ag.ch/offene-stellen/juristisches-praktikum/f931e82c-ed5b-4ed8-bd63-17355638c2ff')).toBe(true);
+      expect(isTrustedDomain('https://ohws.prospective.ch/public/v1/redirect/f931e82c-ed5b-4ed8-bd63-17355638c2ff/ats/')).toBe(true);
     });
 
-    it('rejects other Umantis tenants', () => {
+    it('no longer trusts the retired Umantis back office', () => {
+      expect(isTrustedDomain('https://recruitingapp-12705.umantis.com/Vacancies/10927/Application/CheckLogin/1')).toBe(false);
       expect(isTrustedDomain('https://recruitingapp-999999.umantis.com/Jobs/All')).toBe(false);
     });
 
@@ -118,8 +124,8 @@ describe('Kanton Aargau crawler parser', () => {
       descriptionByLocale: { de: 'Leiterin / Leiter Sektion Revision 80-100% — offene Stelle beim Kanton Aargau, direkt auf dem offiziellen Stellenportal der Kantonalen Verwaltung ausgeschrieben.' },
       location: 'Aarau',
       canton: 'AG',
-      url: 'https://recruitingapp-12705.umantis.com/Vacancies/10927/Application/CheckLogin/1',
-      source: 'Kanton Aargau Dedicated Parser (Umantis tenant 12705)',
+      url: 'https://jobs.ag.ch/offene-stellen/leiterin-leiter-sektion-revision/0b6b1b5e-0000-4000-8000-000000000000',
+      source: 'Kanton Aargau Dedicated Parser (ag.ch job market)',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
       addressLocality: 'Aarau',
@@ -180,9 +186,43 @@ describe('Kanton Aargau crawler parser', () => {
       expect(validJob.sector).toBe('Amministrazione Pubblica');
     });
 
-    it('URL points to the same-host Umantis application flow (detail page dead-redirects cross-host)', () => {
-      expect(validJob.url).toContain('recruitingapp-12705.umantis.com');
-      expect(validJob.url).toContain('/Application/');
+    it('URL points to the vacancy page of the official job market', () => {
+      expect(validJob.url).toMatch(/^https:\/\/jobs\.ag\.ch\/offene-stellen\//);
+    });
+  });
+
+  // Issue 5253: the Umantis back office listed 423 rows (~110 from 2020-2022,
+  // repeated titles, synthesised body); the canton's job market lists the open
+  // vacancies with full ads. Real API payload and page, minimised.
+  describe('official job market', () => {
+    const fixture = (name: string) => readFileSync(resolve(__dirname, 'fixtures', 'kanton-aargau', name), 'utf8');
+
+    it('reads one entry per vacancy from the jobs-proxy API', () => {
+      const entries = parseAgJobsApi(JSON.parse(fixture('jobs-proxy-sample.json')));
+      expect(entries).toHaveLength(2);
+      expect(entries[0]).toMatchObject({
+        id: '10199001',
+        title: 'Juristisches Praktikum 100%',
+        url: 'https://jobs.ag.ch/offene-stellen/juristisches-praktikum/f931e82c-ed5b-4ed8-bd63-17355638c2ff',
+        location: 'Schafisheim',
+        department: 'Strassenverkehrsamt',
+        pensum: '80 - 100%',
+        term: 'befristet',
+      });
+    });
+
+    it('publishes the JSON-LD ad with lists, the benefits and the workplace address', () => {
+      const detail = extractAgJobPosting(fixture('detail-juristisches-praktikum.html'));
+      expect(detail.description).toContain('Spannende Aufgaben warten:\n• Abklärung und Beurteilung rechtlicher Fragestellungen');
+      expect(detail.description).toContain('Was du mitbringst:\n• Abgeschlossenes juristisches Studium');
+      expect(detail.description).toContain('Dein Arbeitsumfeld');
+      expect(detail.description).toContain('Benefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement');
+      expect(detail.description).not.toMatch(/&#39;|<[a-z]/i);
+      expect(detail).toMatchObject({ addressLocality: 'Schafisheim', postalCode: '5503', streetAddress: 'Länzert 2' });
+    });
+
+    it('returns an empty body when the page has no JobPosting', () => {
+      expect(extractAgJobPosting('<html><body><p>Seite nicht gefunden</p></body></html>').description).toBe('');
     });
   });
 });
