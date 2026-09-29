@@ -2374,6 +2374,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'classifica-ompi-alta-tecnologia': { it: 'classifica-ompi-alta-tecnologia', en: 'switzerland-innovation-ranking', de: 'schweiz-innovationsranking', fr: 'classement-innovation-suisse' },
  'soletta-licenza-estera-esami': { it: 'soletta-licenza-estera-esami', en: 'solothurn-driving-licence-conversion', de: 'solothurn-fuehrerausweis-umtausch', fr: 'soleure-permis-conduire-conversion' },
  'accessibilita-mezzi-pubblici-uft': { it: 'accessibilita-mezzi-pubblici-uft', en: 'public-transport-accessibility-swiss', de: 'barrierefreiheit-oeffentlicher-verkehr-schweiz', fr: 'accessibilite-transports-publics-suisse' },
+ 'reazioni-partiti-aumento-premi-2027': { it: 'reazioni-partiti-aumento-premi-2027', en: 'party-reactions-2027-premium-increase', de: 'parteireaktionen-2027-premiumerhoehung', fr: 'reactions-partis-hausse-premiums-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

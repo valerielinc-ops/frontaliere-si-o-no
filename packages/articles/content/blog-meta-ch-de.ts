@@ -7055,6 +7055,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.accessibilita-mezzi-pubblici-uft.title': 'ÖV-Barrierefreiheit: Die Sicht des UFT',
     'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Der Stand der Arbeiten an den Bahnhöfen und Bushaltestellen in der Schweiz wurde gemäß dem Bundesamt für Verkehr aktualisiert.',
     'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Schweizer Bahnhof mit Barrierefreiheit für Reisende mit eingeschränkter Mobilität',
+    'blog.article.reazioni-partiti-aumento-premi-2027.title': 'Prämienerhöhung 2027: Reaktionen von PLR, PS und Gewerkschaften',
+    'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Für 2027 wird ein Anstieg auf 3,7 % geschätzt. Die PLR fordert Kostenkontrolle, während SP und OCST Familien schützen. Die durchschnittliche Prämie im Tessin beträgt 519,90 Franken.',
+    'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Tessinischer Grossratsgebäude bei Dämmerung mit Schweizerflaggen',
 };
 
 export default blogMetaChDe;

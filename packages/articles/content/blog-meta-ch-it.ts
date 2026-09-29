@@ -7055,6 +7055,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accessibilita-mezzi-pubblici-uft.title': 'Accessibilità mezzi pubblici: il punto dell\'UFT',
     'blog.article.accessibilita-mezzi-pubblici-uft.excerpt': 'Aggiornato lo stato dei lavori per le stazioni ferroviarie e le fermate dei autobus in Svizzera secondo l\'Ufficio federale dei trasporti.',
     'blog.article.accessibilita-mezzi-pubblici-uft.imageAlt': 'Stazione ferroviaria svizzera con servizi per passeggeri a mobilità ridotta',
+    'blog.article.reazioni-partiti-aumento-premi-2027.title': 'Aumento premi 2027: reazioni PLR, PS e sindacati',
+    'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Stima al 3,7% per il 2027. Il PLR chiede controllo costi, il PS e l\'OCST difendono le famiglie. Premio medio ticinese a 519,90 franchi.',
+    'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Edificio del Gran Consiglio ticinese al tramonto con bandiere svizzere',
 };
 
 export default blogMetaChIt;
