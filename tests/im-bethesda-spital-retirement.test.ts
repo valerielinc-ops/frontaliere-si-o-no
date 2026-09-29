@@ -14,32 +14,28 @@ const readJson = <T>(relativePath: string): T =>
 // name ("& im Bethesda Spital"), with listing-page fragment URLs and teaser
 // descriptions (the only CRITICAL of the parser-quality audit, issue 5253).
 const RETIRED_KEY = 'im-bethesda-spital';
+// Only repo-authored files: the prospector store and the job slices are live
+// data the pipeline rewrites on its own (`scripts/ci/live-data-test-guard.mjs`),
+// so the candidate's `rejected` verdict is recorded in `ledger.jsonl`, not
+// asserted here.
 const RETIRED_SOURCE_FILES = [
-  'data/prospector/crawlers/im-bethesda-spital.json',
   'scripts/lib/im-bethesda-spital-job-parser.mjs',
   'scripts/update-im-bethesda-spital-jobs.mjs',
 ];
 
 describe('retired duplicate crawler im-bethesda-spital', () => {
-  it('cannot be scheduled or re-promoted', () => {
+  it('cannot be scheduled any more', () => {
     const manifest = readJson<{ manifest: Array<{ slug: string }> }>('data/crawler-manifest.json');
     const assignments = readJson<{ groups: string[][] }>('data/crawler-group-assignments.json');
     const roster = readJson<{ groups: Record<string, string[]>; primarySlices: Record<string, string> }>(
       'scripts/ci/crawler-generation-roster.json',
     );
-    const candidates = readJson<{
-      candidates: Record<string, { status: string; crawlerKey?: string; reason?: string }>;
-    }>('data/prospector/candidates.json');
 
     expect(manifest.manifest.some(({ slug }) => slug === RETIRED_KEY)).toBe(false);
     expect(manifest.manifest.some(({ slug }) => slug === 'bethesda-spital')).toBe(true);
     expect(assignments.groups.flat()).not.toContain(RETIRED_KEY);
     expect(Object.values(roster.groups).flat()).not.toContain(RETIRED_KEY);
     expect(roster.primarySlices).not.toHaveProperty(RETIRED_KEY);
-
-    const candidate = candidates.candidates['recruitingapp-2998@umantis.com'];
-    expect(candidate).toMatchObject({ status: 'rejected', crawlerKey: RETIRED_KEY });
-    expect(candidate.reason).toContain('bethesda-spital');
 
     for (const relativePath of RETIRED_SOURCE_FILES) {
       expect(existsSync(resolve(ROOT, relativePath)), relativePath).toBe(false);
