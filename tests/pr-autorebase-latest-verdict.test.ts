@@ -17,16 +17,21 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
+  isTerminalReviewState,
   latestReviewerVerdict,
+  latestReviewerSnapshot,
   needsHumanBlocksAutorebase,
+  reviewerSnapshotChanged,
 } from '../scripts/ci/pr-autorebase.mjs';
 
 const HEAD = 'a'.repeat(40);
 const OLD = 'b'.repeat(40);
 const BOT = { login: 'frontaliere-automation[bot]', type: 'Bot' };
+const AUTOREBASE_SOURCE = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
+const PROCESS_PR = AUTOREBASE_SOURCE.slice(AUTOREBASE_SOURCE.indexOf('async function processPR(pr) {'));
 
-const review = (body: string, commit: string, at: string, user = BOT) => ({
-  user, body, commit_id: commit, submitted_at: at, state: 'COMMENTED',
+const review = (body: string, commit: string, at: string, user = BOT, state = 'COMMENTED') => ({
+  user, body, commit_id: commit, submitted_at: at, state,
 });
 const LGTM = '## Findings (Important: 0)\n\n## LGTM';
 const RED = 'scripts/x.mjs:L3: 🔴 Important: rotto';
@@ -74,6 +79,36 @@ describe('latestReviewerVerdict: conta solo l\'ultima review del reviewer', () =
     expect(latestReviewerVerdict([review(LGTM, HEAD, '2026-09-27T08:00:00Z', human)], HEAD)).toBe('none');
     expect(latestReviewerVerdict([], HEAD)).toBe('none');
     expect(latestReviewerVerdict(null, HEAD)).toBe('unknown');
+  });
+
+  it('ignora PENDING e DISMISSED prima di scegliere il verdetto terminale', () => {
+    expect(isTerminalReviewState('COMMENTED')).toBe(true);
+    expect(isTerminalReviewState('APPROVED')).toBe(true);
+    expect(isTerminalReviewState('CHANGES_REQUESTED')).toBe(true);
+    expect(isTerminalReviewState('PENDING')).toBe(false);
+    expect(isTerminalReviewState('DISMISSED')).toBe(false);
+    expect(latestReviewerVerdict([
+      review(LGTM, HEAD, '2026-09-27T08:00:00Z'),
+      review(RED, HEAD, '2026-09-27T12:00:00Z', BOT, 'PENDING'),
+    ], HEAD)).toBe('lgtm');
+    expect(latestReviewerVerdict([
+      review(RED, HEAD, '2026-09-27T08:00:00Z'),
+      review(LGTM, HEAD, '2026-09-27T12:00:00Z', BOT, 'DISMISSED'),
+    ], HEAD)).toBe('blocking');
+    expect(latestReviewerVerdict([
+      review(LGTM, HEAD, '2026-09-27T08:00:00Z', BOT, 'PENDING'),
+    ], HEAD)).toBe('unknown');
+  });
+
+  it('rileva anche una nuova review con lo stesso verdetto durante il TOCTOU', () => {
+    const before = latestReviewerSnapshot([review(RED, HEAD, '2026-09-27T08:00:00Z')], HEAD);
+    const after = latestReviewerSnapshot([
+      review(RED, HEAD, '2026-09-27T08:00:00Z'),
+      review(RED, HEAD, '2026-09-27T09:00:00Z'),
+    ], HEAD);
+    expect(before.verdict).toBe('blocking');
+    expect(after.verdict).toBe('blocking');
+    expect(reviewerSnapshotChanged(before, after)).toBe(true);
   });
 });
 
@@ -176,5 +211,16 @@ exit 0
     expect(r.result.status, r.out).toBe(0);
     expect(r.out).not.toMatch(/needs-human con ultimo verdetto/);
     expect(r.out).toMatch(/PR #1 non near-merge/);
+  });
+
+  it('rilegge il verdetto terminale subito prima del push e può fare reset senza pubblicare il merge locale', () => {
+    const merge = PROCESS_PR.lastIndexOf("git(['merge', '--no-edit', 'origin/main'], { allowFail: true });");
+    const reread = PROCESS_PR.lastIndexOf('const reviewerBeforePush = readReviewerSnapshot(num, head);');
+    const push = PROCESS_PR.lastIndexOf('const pushed = pushBranch(branch);');
+    expect(merge).toBeGreaterThan(-1);
+    expect(reread).toBeGreaterThan(merge);
+    expect(reread).toBeLessThan(push);
+    expect(PROCESS_PR.slice(reread, push)).toContain('reviewerSnapshotChanged');
+    expect(PROCESS_PR.slice(reread, push)).toContain("git(['reset', '--hard', head]");
   });
 });

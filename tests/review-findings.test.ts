@@ -48,6 +48,14 @@ describe('identità stabile del finding', () => {
     expect(stableFindingId(a)).not.toBe(stableFindingId(b));
   });
 
+  it('mantiene tutti i file citati nell’identità di un finding multi-file', () => {
+    const a = finding('`scripts/ci/foo.mjs:L12`, `services/a.mjs:L20`: 🔴 Important: `parseFoo()` non gestisce il null.');
+    const b = finding('`scripts/ci/foo.mjs:L12`, `services/b.mjs:L20`: 🔴 Important: `parseFoo()` non gestisce il null.');
+    expect(a.citations.map((citation) => citation.path)).toEqual(['scripts/ci/foo.mjs', 'services/a.mjs']);
+    expect(b.citations.map((citation) => citation.path)).toEqual(['scripts/ci/foo.mjs', 'services/b.mjs']);
+    expect(stableFindingId(a)).not.toBe(stableFindingId(b));
+  });
+
   it('cade sulla prosa normalizzata quando non c’è un simbolo', () => {
     expect(findingSymbol('`scripts/ci/foo.mjs:L12`: 🔴 Important: il loop non termina.')).toBe('');
     const a = finding('`scripts/ci/foo.mjs:L12`: 🔴 Important: il loop non termina.');

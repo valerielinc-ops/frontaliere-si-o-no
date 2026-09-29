@@ -723,6 +723,11 @@ export const TOKEN_BOUND_COMMIT_RETRY_DELAY_SECONDS = 15;
 // terminate every detached worker in the same wave, so exit 143 is not a
 // per-crawler fault and must not create one issue per sibling.
 const RUNNER_SHUTDOWN_EXIT = 143;
+// GNU timeout returns 124 when the bounded command reaches its deadline. Keep
+// that code through nested timeout wrappers: it is an actionable target
+// timeout, not the generic status 1 that used to erase the distinction in the
+// durable crawler status and aggregate summary.
+const TARGET_TIMEOUT_EXIT = 124;
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the four systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
@@ -862,6 +867,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(...globalLeaseBusyNotice(crawler.slug, { propagate: true }));
   work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
   work.push(...runnerShutdownNotice(crawler.slug, { propagate: true }));
+  work.push(`if [ "$crawler_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$git_commit_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then`);
+  work.push(`  echo "::error::${crawler.slug}: nested timeout reached the target deadline (exit ${TARGET_TIMEOUT_EXIT}); preserving timeout classification"`);
+  work.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
+  work.push('fi');
   work.push(`if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`);
   work.push('  exit 1');
   work.push('fi');
@@ -907,6 +916,9 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
 
   outer.push(`if [ "$target_exit" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push(`  exit ${RUNNER_SHUTDOWN_EXIT}`);
+  outer.push('fi');
+  outer.push(`if [ "$target_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then`);
+  outer.push(`  exit ${TARGET_TIMEOUT_EXIT}`);
   outer.push('fi');
   outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$target_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; then`);
   outer.push('  exit 1');
@@ -1355,6 +1367,10 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
       '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
       `    echo "::error::${slug}: invalid terminal status: $status"`,
       `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
+      '    failure_count=$((failure_count + 1))',
+      `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
+      `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
+      `    printf '%s\\n' '| ${slug} | target timeout (124) |' >> "$summary_file"`,
       '    failure_count=$((failure_count + 1))',
       `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
       `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,

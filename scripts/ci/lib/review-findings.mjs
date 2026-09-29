@@ -13,9 +13,9 @@
  * `path:Lline`: una riga che si sposta (rebase, merge di main, fix altrove nel
  * file) produce un id nuovo, quindi lo stesso rilievo risulta «nuovo», non si
  * deduplica e non si lascia confermare. Qui l'identità è
- * `(path, simbolo, classe)`, invariante alla numerazione delle righe:
+ * `(paths, simbolo, classe)`, invariante alla numerazione delle righe:
  *
- *   - `path`    — il primo path citato, normalizzato;
+ *   - `paths`   — tutti i path citati, normalizzati e ordinati;
  *   - `simbolo` — il primo identificatore in backtick che non è un path
  *                 (`parseFoo()`, `NONCODE_RE`, `--no-thin`), altrimenti la
  *                 prosa del problema normalizzata;
@@ -125,12 +125,25 @@ function primaryPath(finding) {
 }
 
 /**
- * Id stabile di un finding: sha256 di `path\0simbolo\0classe`, 12 esadecimali.
- * NON contiene la riga: è questo che lo rende invariante a un rebase o a un
- * merge di main, i due eventi che producevano i duplicati misurati.
+ * Id stabile di un finding: sha256 di
+ * `paths\0simbolo\0classe\0prosa`, 12 esadecimali. NON contiene le righe:
+ * è questo che lo rende invariante a un rebase o a un merge di main, i due
+ * eventi che producevano i duplicati misurati. Tutti i path citati partecipano
+ * all'identità, così una conferma downstream non può trasformare un finding
+ * multi-file in uno diverso solo perché il primo anchor è rimasto uguale.
  */
+function citedPaths(finding) {
+  const citations = Array.isArray(finding?.citations) ? finding.citations : [];
+  return [...new Set(citations
+    .map((citation) => citation?.path)
+    .filter(Boolean)
+    .map((path) => String(path).replace(/^\.\//u, '')))]
+    .sort();
+}
+
 export function stableFindingId(finding) {
-  const path = primaryPath(finding);
+  const paths = citedPaths(finding);
+  const pathIdentity = paths.length > 0 ? paths.join('\u001f') : primaryPath(finding);
   const text = String(finding?.text || finding?.line || '');
   const symbol = findingSymbol(text);
   const klass = findingDeclaredClass(text);
@@ -142,7 +155,7 @@ export function stableFindingId(finding) {
   // non contiene il numero di riga (`normalizeProse` toglie gli span in
   // backtick, anchor compreso), quindi l'invarianza al rebase resta.
   return createHash('sha256')
-    .update(`${path}\u0000${symbol}\u0000${klass}\u0000${normalizeProse(text)}`)
+    .update(`${pathIdentity}\u0000${symbol}\u0000${klass}\u0000${normalizeProse(text)}`)
     .digest('hex')
     .slice(0, 12);
 }

@@ -418,6 +418,9 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       expect(snapshotStep, `${name}: final snapshot read must retry transient API races`).toContain('for snapshot_attempt in 1 2 3');
       expect(snapshotStep, `${name}: snapshot retries must be bounded`).toContain('snapshot_attempt/3');
       expect(snapshotStep, `${name}: snapshot retries must yield between attempts`).toContain('sleep 2');
+      expect(snapshotStep, `${name}: refund must revalidate the PR head`).toContain('refund_ref_available');
+      expect(snapshotStep, `${name}: unverifiable refund must stay retryable`).toContain('CLAIM_STATUS=failed-transient');
+      expect(snapshotStep, `${name}: unverifiable refund must preserve the marker`).toContain('marker RED');
       expect(guard, `${name}: round must be range-checked before arithmetic`).toContain('fuori intervallo 0..$MAX_ROUNDS');
       expect(guard, `${name}: parser errors must not default to round zero`).not.toMatch(/ROUND=.*\|\| true/u);
     }
@@ -530,6 +533,8 @@ describe('Classify outcome: head remota verificata fail-closed (#9730)', () => {
     fetchedSequence?: string;
     rereadSequence?: string;
     lsRemoteStatuses?: string;
+    prState?: string;
+    prHead?: string;
   }
 
   function runClassify(name: WorkflowName, scenario: Scenario = {}) {
@@ -549,8 +554,8 @@ describe('Classify outcome: head remota verificata fail-closed (#9730)', () => {
       for (const file of Object.values(logs)) writeFileSync(file, '');
       // Fake git a sequenze: ogni tentativo consuma il valore successivo di
       // FAKE_FETCH_STATUSES / FAKE_FETCHED / FAKE_REREAD / FAKE_LSREMOTE_STATUSES
-      // (vuoto = exit 0 / FAKE_REMOTE). `rev-parse origin/<ref>` resta la
-      // fotografia stantia che il classificatore NON deve piu' usare.
+      // (vuoto = exit 0 / FAKE_REMOTE). Il ref `refs/pull/N/head` e lo snapshot
+      // PR sono le sole superfici ammesse al recheck finale.
       fake(bin, 'git', String.raw`
 next_value() {
   n=$(cat "$FAKE_GIT_STATE/$1" 2>/dev/null || echo 0)
@@ -582,7 +587,13 @@ case "$1 $2" in
 esac`);
       fake(bin, 'sleep', 'echo "$1" >> "$SLEEP_LOG"');
       fake(bin, 'timeout', 'echo "$1 $2 $3" >> "$TIMEOUT_LOG"\nshift\nexec "$@"');
-      fake(bin, 'trusted-gh', 'echo "$*" >> "$GH_LOG"\necho 0');
+      fake(bin, 'trusted-gh', String.raw`
+echo "$*" >> "$GH_LOG"
+if [ "$1" = api ]; then
+  printf '{"state":"%s","head":{"sha":"%s"}}\n' "$FAKE_PR_STATE" "$FAKE_PR_HEAD"
+else
+  echo 0
+fi`);
       const result = spawnSync('bash', ['-c', classifyRun(name)], {
         encoding: 'utf8',
         env: {
@@ -600,6 +611,8 @@ esac`);
           FAKE_FETCHED: scenario.fetchedSequence ?? '',
           FAKE_REREAD: scenario.rereadSequence ?? '',
           FAKE_LSREMOTE_STATUSES: scenario.lsRemoteStatuses ?? '',
+          FAKE_PR_STATE: scenario.prState ?? 'open',
+          FAKE_PR_HEAD: scenario.prHead ?? scenario.remote ?? 'external-sha',
           REPO: 'owner/repo',
           PR_NUMBER: '7',
           HEAD_REF: 'feature/x',
@@ -635,7 +648,7 @@ esac`);
     expect(result.stdout, detail).not.toContain('round SUCCESS');
     expect(result.githubEnv, `${label}: unico stato esportato = failed-transient (mai released)`)
       .toBe('CLAIM_STATUS=failed-transient\n');
-    expect(result.ghLog, `${label}: nessuna chiamata GitHub prima del verdetto`).toBe('');
+    expect(result.ghLog, `${label}: il fallback interroga solo lo stato PR`).toContain('api repos/owner/repo/pulls/7');
     expect(result.fetchCount, `${label}: retry bounded a 3 tentativi`).toBe(3);
     expect(result.sleeps, `${label}: backoff crescente`).toEqual(['5', '10']);
   }
@@ -668,13 +681,22 @@ esac`);
       expect(superseded.status, superseded.stdout + superseded.stderr).toBe(0);
       expect(superseded.stdout).toContain('run SUPERSEDED');
       expect(superseded.githubEnv).toBe('CLAIM_STATUS=released\n');
-      expect(superseded.timeouts).toEqual(['60 git fetch', '30 git ls-remote']);
+      expect(superseded.timeouts).toEqual(['60 git fetch', '30 git ls-remote', '30 git ls-remote']);
       expect(superseded.sleeps).toEqual([]);
 
       const success = runClassify(name, { head: 'fix-sha', remote: 'fix-sha' });
       expect(success.status, success.stdout + success.stderr).toBe(0);
       expect(success.stdout).toContain('round SUCCESS');
       expect(success.githubEnv).toBe('');
+    });
+
+    it(`${name}: PR chiusa durante il recheck non viene classificata come head transitoria`, () => {
+      const closed = runClassify(name, { prState: 'closed' });
+      expect(closed.status, closed.stdout + closed.stderr).toBe(1);
+      expect(closed.stdout).toContain('REMOTE_HEAD_CLOSED');
+      expect(closed.stdout).not.toContain('run SUPERSEDED');
+      expect(closed.stdout).not.toContain('round SUCCESS');
+      expect(closed.githubEnv).toBe('CLAIM_STATUS=failed-terminal\n');
     });
 
     it(`${name}: un errore transitorio recupera su una head verificata`, () => {
@@ -686,7 +708,10 @@ esac`);
 
       const moved = runClassify(name, {
         fetchedSequence: 'external-1 external-2',
-        rereadSequence: 'external-2 external-2',
+        // Two reads verify the retry that recovers the transient race; the
+        // third is the immediate final recheck before the verdict.
+        rereadSequence: 'external-2 external-2 external-2',
+        prHead: 'external-2',
       });
       expect(moved.status, moved.stdout + moved.stderr).toBe(0);
       expect(moved.stdout).toContain('remote=external-2 ');
@@ -710,6 +735,8 @@ esac`);
       expect(run, 'il fetch della head non deve essere best-effort').not.toMatch(/git fetch[^\n]*\|\| true/u);
       expect(run, 'la rilettura non-zero non deve avere un fallback').not.toMatch(/ls-remote[^\n]*\|\| echo/u);
       expect(run, 'niente lettura diretta della ref remote-tracking stantia').not.toContain('git rev-parse "origin/$HEAD_REF"');
+      expect(run, 'la conferma finale deve usare il ref virtuale della PR').toContain('refs/pull/$PR_NUMBER/head');
+      expect(run, 'il recheck deve leggere lo stato della PR prima del verdetto').toContain('final_pr_snapshot');
       const guardAt = run.indexOf('REMOTE_HEAD_UNVERIFIED');
       for (const verdict of ['round SUCCESS', 'CLAIM_STATUS=released', 'run SUPERSEDED']) {
         expect(run.indexOf(verdict), `il guard deve precedere «${verdict}»`).toBeGreaterThan(guardAt);
