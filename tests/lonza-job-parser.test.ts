@@ -699,3 +699,47 @@ describe('Workday pagination integrity', () => {
     }
   });
 });
+
+// Only the req's own text is published (issue 5253). Shapes minimised from the
+// CXS payload of lonza.wd3.myworkdayjobs.com (2026-09-29): every body used to
+// end with an appended "Lonza is a global leader in pharma and biotech
+// manufacturing…" sentence the posting does not contain, and a req without a
+// body was published as "{title} position at Lonza in {city}".
+describe('fetchAllLonzaJobs — published text', () => {
+  it('publishes the Workday body as is and skips a req without one', async () => {
+    const body = '<p>Lonza is a preferred global partner to the pharmaceutical, biotech and nutrition markets.</p>'
+      + '<p><b>Key responsibilities:</b></p><ul><li>Operate downstream processing equipment</li><li>Document batch records</li></ul>';
+    const detail = (title: string, jobDescription: string) => ({
+      jobPostingInfo: { title, location: 'CH - Visp', jobDescription, timeType: 'Full time', startDate: '2026-09-20', jobReqId: title },
+    });
+    const fetchMock = vi.fn(async (url: string) => ({
+      ok: true,
+      async json() {
+        if (url.endsWith('/jobs')) {
+          return {
+            total: 2,
+            jobPostings: [
+              { title: 'Biotechnologist (m/f/d)', externalPath: '/job/CH---Visp/Biotechnologist--m-f-d-_R73688' },
+              { title: 'Operator (m/f/d)', externalPath: '/job/CH---Visp/Operator--m-f-d-_R70001' },
+            ],
+          };
+        }
+        if (url.includes('R73688')) return detail('Biotechnologist (m/f/d)', body);
+        return detail('Operator (m/f/d)', '');
+      },
+    }));
+    vi.stubGlobal('fetch', fetchMock);
+    try {
+      const { fetchAllLonzaJobs } = await import('../scripts/lib/lonza-job-parser.mjs');
+      const jobs = await fetchAllLonzaJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Biotechnologist (m/f/d)');
+      expect(jobs[0].description).toMatch(/^Lonza is a preferred global partner/);
+      expect(jobs[0].description).toContain('• Operate downstream processing equipment');
+      expect(jobs[0].description).not.toMatch(/global leader in pharma and biotech manufacturing/);
+      expect(jobs[0].descriptionByLocale[jobs[0].sourceLang]).toBe(jobs[0].description);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});

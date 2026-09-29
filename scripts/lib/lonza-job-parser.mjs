@@ -301,6 +301,7 @@ export async function fetchAllLonzaJobs() {
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const externalPath = listing.externalPath;
     if (!externalPath) continue;
@@ -350,10 +351,15 @@ export async function fetchAllLonzaJobs() {
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${LONZA_PUBLIC_BASE}${externalPath}`;
 
-    // Build the source-locale description (EN — Lonza posts primarily in English)
-    const descEn = descriptionText
-      ? `${descriptionText}\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.`.trim()
-      : `${title} position at Lonza in ${city}, Switzerland.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.`.trim();
+    // Only the req's own text is published: no company sentence appended to
+    // it, and no "{title} position at Lonza" stand-in when the detail has no
+    // body — such a req is not published (issue 5253).
+    const descEn = descriptionText.trim();
+    if (!descEn) {
+      console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(title, 'lonza-ch');
@@ -412,6 +418,10 @@ export async function fetchAllLonzaJobs() {
  const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
  if (dropped.length > 0) {
   console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);
+ }
+
+ if (withoutBody > 0) {
+  console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
  }
 
  console.log(`\n📋 Total unique Lonza jobs discovered: ${unique.length}`);
