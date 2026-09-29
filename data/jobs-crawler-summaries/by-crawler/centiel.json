@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-09-29T09:21:46.937Z",
+  "generatedAt": "2026-09-29T21:24:09.909Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3099,
-  "avgDurationMs": 3099,
+  "durationMs": 3251,
+  "avgDurationMs": 3251,
   "durationHistory": [
-    3099
+    3251
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -123,6 +123,8 @@
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,18 +1,52 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-29T09:20:52.364Z",
-  "total": 62,
-  "newCount": 2,
-  "updatedCount": 56,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 82021,
-  "avgDurationMs": 82021,
+  "generatedAt": "2026-09-29T21:18:03.864Z",
+  "total": 59,
+  "newCount": 1,
+  "updatedCount": 57,
+  "removedCount": 3,
+  "unchangedCount": 1,
+  "durationMs": 41806,
+  "avgDurationMs": 41806,
   "durationHistory": [
-    82021
+    41806
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Wengen",
+      "addressLocality": "Wengen",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3823",
+      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Wengen"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 54,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 12
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152326151-medizinische-r-praxisassistent-in-50-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152326151-medizinische-r-praxisassistent-in-50-100-?oga=true",
@@ -37,48 +71,15 @@
         "location": "Solothurn"
       },
       "sourceLang": "de",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-29T09:20:48.739Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 23,
         "completeness": 12
       }
     },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärzt/-in Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Grindelwald",
-      "addressLocality": "Grindelwald",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "3818",
-      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-09-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Grindelwald"
-      },
-      "sourceLang": "de",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152145969-tso-ou-instrumentiste-au-bloc-operatoire",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152145969-tso-ou-instrumentiste-au-bloc-operatoire?oga=true",
@@ -104,11 +105,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-28T21:17:58.078Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -137,11 +138,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 76,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -170,11 +171,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -203,11 +204,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -236,11 +237,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -269,11 +270,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -302,11 +303,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 76,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -335,11 +336,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -368,11 +369,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -401,11 +402,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -434,11 +435,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -467,11 +468,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -500,11 +501,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -533,11 +534,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -566,11 +567,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -599,11 +600,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -632,11 +633,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -665,11 +666,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -698,11 +699,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 76,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -731,11 +732,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -764,11 +765,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -796,11 +797,11 @@
         "location": "Bern"
       },
       "sourceLang": "de",
-      "_qualityScore": 76,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -829,11 +830,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -862,11 +863,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -894,11 +895,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 68,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -927,11 +928,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -960,11 +961,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -993,11 +994,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 71,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 12
       }
     },
@@ -1026,88 +1027,16 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 69,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical?oga=true",
-      "title": "Candidature spontanée - Secteur médical",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-09-26",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
         "richness": 18,
         "translation": 21,
         "completeness": 12
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-?oga=true",
-      "title": "Dipl. Fachperson Operationstechnik 40 - 80%",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Rapperswil-Jona",
-      "addressLocality": "Rapperswil-Jona",
-      "addressRegion": "SG",
-      "canton": "SG",
-      "country": "CH",
-      "postalCode": "8640",
-      "slug": "dipl-fachperson-operationstechnik-40-80-swiss-medical-network",
-      "category": "technical",
-      "datePosted": "2026-09-26",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Rapperswil-Jona"
-      },
-      "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
+  "removedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149244159-fachperson-gesundheit-efz",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149244159-fachperson-gesundheit-efz?oga=true",
@@ -1211,6 +1140,46 @@
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-?oga=true",
+      "title": "Dipl. Fachperson Operationstechnik 40 - 80%",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Rapperswil-Jona",
+      "addressLocality": "Rapperswil-Jona",
+      "addressRegion": "SG",
+      "canton": "SG",
+      "country": "CH",
+      "postalCode": "8640",
+      "slug": "dipl-fachperson-operationstechnik-40-80-swiss-medical-network",
+      "category": "technical",
+      "datePosted": "2026-09-26",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Rapperswil-Jona"
+      },
+      "sourceLang": "de",
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
+      "salaryMin": 46000,
+      "salaryMax": 69600,
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
