@@ -58,6 +58,7 @@ import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml, normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import { decodeEntities, htmlToText } from './lib/hospital-custom-html-helpers.mjs';
 import { readAttr } from './lib/html-attr.mjs';
+import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -162,65 +163,229 @@ const MANOR_DESCRIPTION_BUILDERS = {
   fr: buildDescriptionFr,
 };
 
-// "Voir JD", "-", "" — a body with fewer than three real words is a portal
-// placeholder, not vacancy content worth carrying.
+// Bodies that only point elsewhere ("-", "Voir JD", "selon profil du rôle",
+// "gemäss Rollenprofil", "già menzionato sopra") carry no vacancy content.
+// A short real requirement ("Deutschkenntnisse", "Flexibilität,
+// Verkaufstalent") is content and is kept.
+const MANOR_PLACEHOLDER_BODY_RX = /^(?:(?:voir|voire|siehe|vedi|see)\s+(?:jd|job\s*description|(?:le\s+)?profil\S*(?:\s+\S+){0,3})|(?:selon|gemäss|gemäß|secondo)\s+(?:le\s+|il\s+)?(?:profil|rollenprofil|profilo)\S*(?:\s+\S+){0,3}|già menzionato sopra)\.?$/iu;
 function hasVacancyWords(text) {
-  return (String(text || '').match(/\p{L}{2,}/gu) || []).length >= 3;
+  const value = String(text || '').replace(/\s+/g, ' ').trim();
+  return /\p{L}{2,}/u.test(value) && !MANOR_PLACEHOLDER_BODY_RX.test(value);
+}
+
+/* ── Company context (careers.manor.ch) ──────────────────────
+ * The jobs2web vacancy body is often a two-line requirement list. The
+ * employer text Manor itself publishes lives on its careers site, per
+ * language: the landing lead ("GLÜCKSMOMENTE" / "MOMENTS DE BONHEUR" /
+ * "MOMENTI DI GIOIA") and the benefits page. That text — verbatim, in the
+ * vacancy's language — is the company context a short vacancy carries, as a
+ * separate block after the body. The generic paragraph built above is only
+ * the fallback for a language the careers site does not publish (en) or a
+ * run where it cannot be read, and it too stays a separate block in the
+ * source-language slot only.
+ */
+export const MANOR_CAREERS_SOURCES = Object.freeze({
+  de: {
+    landingUrl: 'https://careers.manor.ch/de',
+    benefitsUrl: 'https://careers.manor.ch/de/ueber-manor/benefits',
+    aboutHeading: 'Über Manor',
+  },
+  fr: {
+    landingUrl: 'https://careers.manor.ch/fr',
+    benefitsUrl: 'https://careers.manor.ch/fr/%C3%A0-propos-de-manor/avantages',
+    aboutHeading: 'À propos de Manor',
+  },
+  it: {
+    landingUrl: 'https://careers.manor.ch/it',
+    benefitsUrl: 'https://careers.manor.ch/it/informazioni-su-manor/vantaggi',
+    aboutHeading: 'Informazioni su Manor',
+  },
+});
+const MANOR_FALLBACK_ABOUT_HEADINGS = { ...Object.fromEntries(Object.entries(MANOR_CAREERS_SOURCES).map(([lang, source]) => [lang, source.aboutHeading])), en: 'About Manor' };
+// Benefit groups carried per vacancy: the first two on the page
+// (employment conditions and staff discounts). The rest (training, family,
+// health, pension, partner discounts) is company-wide and would outweigh the
+// vacancy text itself.
+const MANOR_BENEFIT_GROUPS_PER_VACANCY = 2;
+
+function careersText(html) {
+  return decodeEntities(String(html || '').replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ' '))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Lead paragraph of the careers landing page, without its "10 reasons" teaser line. */
+export function parseManorCareersLead(html) {
+  const section = String(html || '').match(/<section\b[^>]*\bid="lead1"[^>]*>([\s\S]*?)<\/section>/i)?.[1] || '';
+  const paragraph = section.match(/<div class="lead[^"]*">\s*<p[^>]*>([\s\S]*?)<\/p>/i)?.[1] || '';
+  return careersText(paragraph.split(/<br\s*\/?>\s*<br\s*\/?>/i)[0]);
+}
+
+/** Heading, intro and benefit groups of the careers benefits page. */
+export function parseManorCareersBenefits(html) {
+  const source = String(html || '');
+  const hero = source.match(/<section\b[^>]*\bhero-text-brick[^>]*>([\s\S]*?)<\/section>/i)?.[1] || '';
+  const heading = careersText(hero.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '');
+  const intro = careersText(hero.match(/<div class="text[^"]*">([\s\S]*?)<\/div>/i)?.[1] || '');
+  const groups = [];
+  const blocks = source.split(/<div class="benefit\b[^"]*">/i).slice(1);
+  for (const block of blocks) {
+    const title = careersText(block.match(/<div class="title">([\s\S]*?)<\/div>/i)?.[1] || '');
+    const lead = careersText(block.match(/<div class="lead">([\s\S]*?)<\/div>/i)?.[1] || '');
+    const rows = [...block.matchAll(/<div class="row">([\s\S]*?)<\/div>/gi)].map((m) => careersText(m[1])).filter(Boolean);
+    if (title && rows.length > 0) groups.push({ title, lead, rows });
+  }
+  return { heading, intro, groups };
 }
 
 /**
- * Localized descriptions for one Manor vacancy.
- *
- * Manor's jobs2web body is often only a short requirement list
- * ("Körperlich fit / Arbeitsstart ab 06:00 Uhr"). Below 100 characters the
- * crawler used to REPLACE it with the generic store paragraph, so the only
- * vacancy-specific words on the page were dropped and every same-title opening
- * in a store collapsed onto one identical text. The portal's own words now
- * lead, followed by the store context. A substantial body is published as-is,
- * and it also fills the slot of its own language — that slot used to carry the
- * generic paragraph while the real text sat only in `it`.
+ * Markdown company block for one language, from the two parsed careers
+ * pages. Empty when either page did not yield its text (the caller then
+ * falls back).
  */
-export function buildManorJobDescriptions({ title, city, canton, pageDescription = '', pageLang = '' }) {
-  const source = String(pageDescription || '').trim();
-  const templates = Object.fromEntries(
-    MANOR_LOCALES.map((locale) => [locale, MANOR_DESCRIPTION_BUILDERS[locale](title, city, canton)]),
-  );
-  const declaredLang = MANOR_DESCRIPTION_LANGS.has(pageLang) ? pageLang : 'de';
-  if (source.length >= 100) {
-    // The declared portal tag is a fallback only: Manor has labelled an
-    // Italian body `fr-FR` (Lugano Polydesigner 3D, req 1367443255).
-    const sourceLang = detectLang(source, declaredLang);
-    return {
-      description: source,
-      descriptionByLocale: { ...templates, it: source, [sourceLang]: source },
-      sourceLang,
-    };
+export function buildManorCompanyContext(lang, { lead = '', benefits = null } = {}) {
+  const source = MANOR_CAREERS_SOURCES[lang];
+  const groups = (benefits?.groups || []).slice(0, MANOR_BENEFIT_GROUPS_PER_VACANCY);
+  if (!source || !lead || !benefits?.heading || groups.length === 0) return '';
+  const parts = [`## ${source.aboutHeading}\n${lead}`];
+  const benefitLines = [`## ${benefits.heading}`];
+  if (benefits.intro) benefitLines.push(benefits.intro);
+  for (const group of groups) {
+    benefitLines.push('', `**${group.title}**${group.lead ? ` — ${group.lead}` : ''}`);
+    for (const row of group.rows) benefitLines.push(`- ${row}`);
   }
-  const lead = hasVacancyWords(source) ? `${source}\n\n` : '';
-  const descriptionByLocale = Object.fromEntries(
-    MANOR_LOCALES.map((locale) => [locale, `${lead}${templates[locale]}`]),
-  );
+  parts.push(benefitLines.join('\n'));
+  return parts.join('\n\n');
+}
+
+/** Read the careers pages once per run; a language that fails maps to ''. */
+export async function fetchManorCompanyContexts({ fetchPage = fetchText, timeoutMs = 15000, delayMs = 1000 } = {}) {
+  const contexts = {};
+  for (const [lang, source] of Object.entries(MANOR_CAREERS_SOURCES)) {
+    try {
+      const lead = parseManorCareersLead(await fetchPage(source.landingUrl, timeoutMs));
+      await sleep(delayMs);
+      const benefits = parseManorCareersBenefits(await fetchPage(source.benefitsUrl, timeoutMs));
+      await sleep(delayMs);
+      contexts[lang] = buildManorCompanyContext(lang, { lead, benefits });
+    } catch (err) {
+      console.warn(`  ⚠️  Manor careers context (${lang}) unavailable: ${err?.message || err}`);
+      contexts[lang] = '';
+    }
+  }
+  return contexts;
+}
+
+/**
+ * Language of a Manor body. The portal's `lang` tag is right for most rows but
+ * not all (a German body tagged `it-IT`, an Italian one `fr-FR`, English HQ
+ * roles `fr-FR`), and trigram detection is unreliable on the two-word
+ * requirement lists most rows carry (it reads "Langue française et/ou
+ * allemande, flexibilité horaire" as English). The detector overrides the tag
+ * only on a body long enough to judge and with a clear lead.
+ */
+export function resolveManorBodyLang(body = '', pageLang = '') {
+  const declared = MANOR_DESCRIPTION_LANGS.has(pageLang) ? pageLang : 'de';
+  if (!body) return declared;
+  const { lang, confidence } = detectLanguageWithConfidence(body, declared);
+  if (lang === declared || !MANOR_LOCALES.includes(lang)) return declared;
+  return wordCount(body) >= 12 && confidence >= 0.4 ? lang : declared;
+}
+
+function wordCount(text) {
+  return (String(text || '').match(/\p{L}[\p{L}\p{N}'’-]*/gu) || []).length;
+}
+
+/**
+ * Description of one Manor vacancy, in the language of its body only.
+ *
+ * - The jobs2web body is published as-is ("Voir JD"-style placeholders
+ *   dropped). Its language comes from the text, the portal's `lang` tag being
+ *   only the fallback (Manor has tagged an Italian body `fr-FR`).
+ * - Only the source-language slot is filled: the other slots belong to the
+ *   translation step. The old builder copied a German/French body into `it`
+ *   and put the generic paragraph into every other slot.
+ * - A body under 50 words (or 300 characters) is followed by the company
+ *   context, a separate block: Manor's own careers text in that language
+ *   (`companyContexts[lang]`), else the generic paragraph under its own
+ *   heading.
+ */
+export function buildManorJobDescriptions({
+  title,
+  city,
+  canton,
+  pageDescription = '',
+  pageLang = '',
+  companyContexts = {},
+}) {
+  const raw = String(pageDescription || '').trim();
+  const body = hasVacancyWords(raw) ? raw : '';
+  const sourceLang = resolveManorBodyLang(body, pageLang);
+  let context = '';
+  let companyContext = 'none';
+  if (wordCount(body) < 50 || body.length < 300) {
+    context = String(companyContexts?.[sourceLang] || '').trim();
+    companyContext = context ? 'careers' : 'fallback';
+    if (!context) {
+      context = `## ${MANOR_FALLBACK_ABOUT_HEADINGS[sourceLang]}\n${MANOR_DESCRIPTION_BUILDERS[sourceLang](title, city, canton)}`;
+    }
+  }
+  const description = [body, context].filter(Boolean).join('\n\n');
   return {
-    description: descriptionByLocale.it,
-    descriptionByLocale,
-    sourceLang: detectLang(descriptionByLocale.it || title, 'de'),
+    description,
+    descriptionByLocale: { [sourceLang]: description },
+    sourceLang,
+    companyContext,
+    body,
   };
+}
+
+const MANOR_GENERIC_PARAGRAPH_RX = /(?:presso Manor, con sede a|at Manor, located in|bei Manor, gelegen in|chez Manor, situé à|Manor AG è una delle principali catene di grandi magazzini)/;
+
+/**
+ * Remove locale slots earlier runs filled with stale text: an `it` slot that
+ * is not Italian (the source body copied there) and the generic paragraph in
+ * any slot other than the source one. The translation step refills them from
+ * the source slot.
+ */
+export function stripStaleManorLocaleSlots(job) {
+  const slots = job?.descriptionByLocale;
+  if (!slots || typeof slots !== 'object') return job;
+  const sourceLang = job.sourceLang;
+  const kept = {};
+  let removed = 0;
+  for (const [locale, text] of Object.entries(slots)) {
+    const value = String(text || '');
+    const stale = locale !== sourceLang && (
+      MANOR_GENERIC_PARAGRAPH_RX.test(value)
+      || (locale === 'it' && sourceLang !== 'it' && detectLang(value, 'it') !== 'it')
+    );
+    if (stale) removed++;
+    else kept[locale] = text;
+  }
+  if (removed === 0) return job;
+  return { ...job, descriptionByLocale: kept, needsRetranslation: true };
 }
 
 /**
  * Manor re-posts one vacancy under several requisition ids (three
  * "Mitarbeiter*in Logistik Kommissionierung 100%" in Hochdorf, same body).
- * Identical title + store + published body is one vacancy for a job seeker:
- * keep the lowest requisition id and drop the repeats.
+ * Identical title + store + vacancy body is one vacancy for a job seeker:
+ * keep the lowest requisition id and drop the repeats. The body is the
+ * portal's own text (`_manorVacancyBody`, removed here), not the published
+ * description: two reposts tagged in different portal languages get the
+ * company context in different languages but are still one vacancy
+ * ("Boucher/ère 70%", Marin-Epagnier, 1363511155 fr / 1363511255 de).
  */
 export function dedupeManorReposts(jobs = []) {
   const normalized = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
   const idOf = (job) => Number(extractJobId(String(job?.url || '')) || Number.MAX_SAFE_INTEGER);
+  const bodyOf = (job) => (job && '_manorVacancyBody' in job ? job._manorVacancyBody : job?.description);
   const sorted = [...jobs].sort((a, b) => idOf(a) - idOf(b));
   const keptByKey = new Map();
   const reposts = [];
   for (const job of sorted) {
-    const key = [normalized(job.title), normalized(job.location), normalized(job.description)].join('\u0000');
+    const key = [normalized(job.title), normalized(job.location), normalized(bodyOf(job))].join('\u0000');
     const kept = keptByKey.get(key);
     if (kept) {
       reposts.push({ url: job.url, keptUrl: kept.url });
@@ -229,7 +394,12 @@ export function dedupeManorReposts(jobs = []) {
     keptByKey.set(key, job);
   }
   const keptSet = new Set(keptByKey.values());
-  return { jobs: jobs.filter((job) => keptSet.has(job)), reposts };
+  const unique = jobs.filter((job) => keptSet.has(job)).map((job) => {
+    if (!job || !('_manorVacancyBody' in job)) return job;
+    const { _manorVacancyBody, ...rest } = job;
+    return rest;
+  });
+  return { jobs: unique, reposts };
 }
 
 /* ── HTTP helpers ──────────────────────────────────────────── */
@@ -492,8 +662,12 @@ export async function fetchManorJobs() {
     return [];
   }
 
+  const companyContexts = await fetchManorCompanyContexts({ timeoutMs });
+  console.log(`📋 Manor careers company context: ${Object.entries(companyContexts).map(([lang, text]) => `${lang}=${text ? 'ok' : 'missing'}`).join(', ')}`);
+
   const jobs = [];
   const skipped = { missingTitle: 0, unresolvedCanton: 0 };
+  const contextUse = {};
   let detailFailures = 0;
 
   // Fetch detail pages for each target job
@@ -546,13 +720,15 @@ export async function fetchManorJobs() {
     const addressLocality = resolvedCity;
     const addressRegion = canton;
 
-    const { description: descIt, descriptionByLocale, sourceLang } = buildManorJobDescriptions({
+    const { description, descriptionByLocale, sourceLang, companyContext, body } = buildManorJobDescriptions({
       title,
       city: resolvedCity,
       canton,
       pageDescription: pageData.description,
       pageLang: pageData.descriptionLang,
+      companyContexts,
     });
+    contextUse[companyContext] = (contextUse[companyContext] || 0) + 1;
 
     const baseSlug = normalizeKey(`manor ${title} ${resolvedCity}`);
 
@@ -569,8 +745,7 @@ export async function fetchManorJobs() {
       canton,
       country: 'CH',
       category,
-      description: descIt,
-      descriptionIt: descIt,
+      description,
       descriptionByLocale,
       postedDate: pageData.postedDate || '',
       source: 'company-website',
@@ -582,6 +757,7 @@ export async function fetchManorJobs() {
         it: title,
       },
       sourceLang,
+      _manorVacancyBody: body,
     };
 
     console.log(`  ✅ ${title} — Manor @ ${city} (id: ${jobId})`);
@@ -594,6 +770,7 @@ export async function fetchManorJobs() {
   }
 
   console.log(`📋 Detail pages fetched: ${targetUrls.length - detailFailures}/${targetUrls.length}`);
+  console.log(`📋 Company context appended (short bodies): ${JSON.stringify(contextUse)}`);
   const { jobs: uniqueJobs, reposts } = dedupeManorReposts(jobs);
   if (reposts.length > 0) {
     console.log(`📋 Collapsed ${reposts.length} Manor repost(s) of an identical vacancy (same title, store and body): ${reposts.map((r) => `${extractJobId(r.url)}→${extractJobId(r.keptUrl)}`).join(', ')}`);
@@ -664,7 +841,11 @@ function mergeManorJobs(discoveredJobs) {
   // dropping previousSlugs/previousSlugsByLocale/firstSeenAt for the
   // "deleted" half instead of capturing the rename via
   // addPreviousSlugForLocale/captureLostSlugs.
-  const mergedManorJobs = mergePreserveLocaleData(existingManorJobs, discoveredJobs);
+  // The merge keeps existing non-source translations; drop the stale ones
+  // earlier runs wrote (source body copied into `it`, generic paragraph in the
+  // other slots) so the translation step refills them from the source slot.
+  const mergedManorJobs = mergePreserveLocaleData(existingManorJobs, discoveredJobs)
+    .map(stripStaleManorLocaleSlots);
 
   const finalJobs = [...nonManorJobs, ...mergedManorJobs];
 
