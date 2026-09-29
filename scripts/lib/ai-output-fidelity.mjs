@@ -309,3 +309,99 @@ export function assessComposedFromInputs(inputs, output, opts = {}) {
   }
   return { ok: true, reason: null, unsupported, leak: null };
 }
+
+// ── Degenerate repetition (model/MT loops) ─────────────────────────────────
+// A translator that falls into a repetition loop publishes garbage that is long,
+// in the right language and not a copy, so no length/language/copy check sees
+// it: pkb-private-bank `en` «For our headquarters in Lugano we receive a
+// Risk-Lights-Lights-Lights-…», julius-baer «the individual ρ ρ ρ ρ …»,
+// galliker «un chauffeur de chauffeur de chauffeur de …».
+//
+// Two signals, both judged RELATIVE to the text that was translated, because a
+// source can repeat legitimately (a phone number «92 92», a CSS dump, gender
+// forms collapsing to «Metzgerin - Metzgerin») and a faithful translation
+// repeats with it:
+//   • loop: some n-gram (n ≤ 8) repeated back to back ≥ 5 times, and more than
+//     twice as often as the most repetition-free reference;
+//   • collapse: over the same window (the first ≤ 120 tokens of each), the
+//     share of distinct tokens is < 0.35 of the reference's.
+// Calibrated on every description slot on origin/main 2026-09-29 (122,323
+// slots, 89,325 of them with a comparable window): the 284 slots either rule
+// flags were read one by one and are all garbage. Below the thresholds, the
+// first legitimate translations sit at 4 back-to-back repeats («Macellaio -
+// Macellaio / Macellaio - Macellaio», a faithful rendering of distinct French
+// gender forms) and at a window ratio of 0.58 against the source slot alone
+// (anker-swiss); the rule takes the more lenient of the two references.
+export const DEGENERATE_LOOP_MIN_REPEATS = 5;
+export const DEGENERATE_MAX_GRAM = 8;
+export const DEGENERATE_TTR_WINDOW = 120;
+export const DEGENERATE_TTR_MIN_WINDOW = 40;
+export const DEGENERATE_TTR_MAX_RATIO = 0.35;
+
+/**
+ * Tokens plus the longest back-to-back repetition of any n-gram (n ≤ 8).
+ * Computed once per text so callers comparing several slots against the same
+ * reference do not re-tokenize it.
+ * @param {string} text
+ * @returns {{ tokens: string[], repeats: number, gram: string }}
+ */
+export function repetitionProfile(text) {
+  const tokens = fidelityTokens(text);
+  let repeats = 1;
+  let gram = '';
+  for (let p = 1; p <= DEGENERATE_MAX_GRAM; p += 1) {
+    let run = 0;
+    for (let i = p; i < tokens.length; i += 1) {
+      if (tokens[i] === tokens[i - p]) {
+        run += 1;
+        const r = Math.floor((run + p) / p);
+        if (r > repeats) {
+          repeats = r;
+          gram = tokens.slice(i - p + 1, i + 1).join(' ');
+        }
+      } else {
+        run = 0;
+      }
+    }
+  }
+  return { tokens, repeats, gram };
+}
+
+function windowTypeTokenRatio(tokens, window) {
+  const slice = tokens.slice(0, window);
+  return slice.length ? new Set(slice).size / slice.length : 1;
+}
+
+const asProfile = (value) => (value && typeof value === 'object' && Array.isArray(value.tokens)
+  ? value
+  : repetitionProfile(String(value || '')));
+
+/**
+ * Is `text` a degenerate (looping / collapsed) rendering of its references?
+ * @param {string | ReturnType<typeof repetitionProfile>} text
+ * @param {{ references?: Array<string | ReturnType<typeof repetitionProfile> | null | undefined> }} [opts]
+ *   the text(s) it was translated from — the source slot and/or the crawled
+ *   description. Without references only the loop signal applies.
+ * @returns {{ kind: 'loop', gram: string, repeats: number } | { kind: 'collapse', ratio: number } | null}
+ */
+export function detectDegenerateRepetition(text, { references = [] } = {}) {
+  const profile = asProfile(text);
+  if (profile.tokens.length === 0) return null;
+  const refs = (references || [])
+    .filter((r) => r !== null && r !== undefined && r !== '')
+    .map(asProfile)
+    .filter((r) => r.tokens.length > 0);
+  const refRepeats = refs.length ? Math.min(...refs.map((r) => r.repeats)) : 1;
+  if (profile.repeats >= DEGENERATE_LOOP_MIN_REPEATS && profile.repeats > 2 * refRepeats) {
+    return { kind: 'loop', gram: profile.gram, repeats: profile.repeats };
+  }
+  let bestRatio = null;
+  for (const ref of refs) {
+    const window = Math.min(DEGENERATE_TTR_WINDOW, profile.tokens.length, ref.tokens.length);
+    if (window < DEGENERATE_TTR_MIN_WINDOW) continue;
+    const ratio = windowTypeTokenRatio(profile.tokens, window) / windowTypeTokenRatio(ref.tokens, window);
+    if (bestRatio === null || ratio > bestRatio) bestRatio = ratio;
+  }
+  if (bestRatio !== null && bestRatio < DEGENERATE_TTR_MAX_RATIO) return { kind: 'collapse', ratio: bestRatio };
+  return null;
+}

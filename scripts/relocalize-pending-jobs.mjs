@@ -54,7 +54,11 @@ import {
 import { legacyTruncatedCompanyKey, normalizeCompanyKeyAlias } from './lib/company-key.mjs';
 import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
-import { detectAiReasoningLeak } from './lib/ai-output-fidelity.mjs';
+import {
+  detectAiReasoningLeak,
+  detectDegenerateRepetition,
+  repetitionProfile,
+} from './lib/ai-output-fidelity.mjs';
 import {
   assertTrafficPriorityUsable,
   buildTrafficPriority,
@@ -880,6 +884,12 @@ export function isIncomplete(job) {
     }
   }
 
+  // Repetition profiles of the texts a slot was translated from, built once per
+  // job: the crawled description and the source-locale slot (see below).
+  let baseProfile;
+  let sourceSlotProfile;
+  const profileOf = (text) => (text ? repetitionProfile(text) : null);
+
   for (const locale of LOCALES) {
     const title = (tbl[locale] || '').trim();
     const desc = (dbl[locale] || '').trim();
@@ -889,12 +899,24 @@ export function isIncomplete(job) {
 
     // A slot holding an AI model's reasoning or an echo of its prompt instead
     // of the ad (formatter leak, then translated into every locale — 11 jobs /
-    // 29 slots on 2026-09-29). Long, not a copy and in a plausible language, so
+    // 31 slots on 2026-09-29). Long, not a copy and in a plausible language, so
     // no check below sees it; without this the job is never selected for
     // repair and a flagged one is un-flagged by reconcileRetranslationState.
     // Checked on every slot, source included: the forced relocalization resets
     // the source slot from the crawled description and retranslates from it.
     if (detectAiReasoningLeak(desc)) return true;
+
+    // A slot where the translator fell into a repetition loop
+    // («Risk-Lights-Lights-Lights-…», 181 jobs / 284 slots on 2026-09-29), judged
+    // against what it was translated from so a source that repeats on its own
+    // (a CSS dump, a phone number) does not keep a job in the queue that no
+    // retranslation can change. A translation is compared with the source slot
+    // AND the crawled description (the cleaner one decides), the source slot
+    // with the description only.
+    if (baseProfile === undefined) baseProfile = profileOf(baseDesc);
+    if (sourceSlotProfile === undefined) sourceSlotProfile = profileOf((dbl[srcLang] || '').trim());
+    const references = locale === srcLang ? [baseProfile] : [sourceSlotProfile, baseProfile];
+    if (detectDegenerateRepetition(desc, { references })) return true;
 
     // Title still in a language that is not `locale`.
     //

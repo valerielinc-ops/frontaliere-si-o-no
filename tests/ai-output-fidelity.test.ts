@@ -18,6 +18,7 @@ import {
   assessComposedFromInputs,
   assessVerbatimRestructure,
   detectAiReasoningLeak,
+  detectDegenerateRepetition,
   VERBATIM_RESTRUCTURE_MIN_PRECISION,
   VERBATIM_RESTRUCTURE_MIN_RECALL,
 } from '../scripts/lib/ai-output-fidelity.mjs';
@@ -28,6 +29,7 @@ import { isIncomplete } from '../scripts/relocalize-pending-jobs.mjs';
 const FIXTURES = path.join(__dirname, 'fixtures', 'ai-output-fidelity');
 const pairs = JSON.parse(fs.readFileSync(path.join(FIXTURES, 'formatter-pairs.json'), 'utf8'));
 const leaked = JSON.parse(fs.readFileSync(path.join(FIXTURES, 'leaked-slots.json'), 'utf8'));
+const degeneration = JSON.parse(fs.readFileSync(path.join(FIXTURES, 'degenerate-slots.json'), 'utf8'));
 
 // The same vocabulary shared-jobs-crawler passes: every localized heading.
 const HEADINGS = [...new Set(['it', 'de', 'fr', 'en'].flatMap((l) => Object.values(resolveLocalePromptContext(l).headings)))];
@@ -210,5 +212,69 @@ describe('relocalize-pending isIncomplete — the repair queue sees leaked slots
   it('a leaked SOURCE slot makes it incomplete too (the forced relocalization resets it from the description)', () => {
     const leakedSource = `${slotText('burkhalter-group', 'dbl.de')} ${de}`;
     expect(isIncomplete({ ...job, descriptionByLocale: { ...job.descriptionByLocale, de: leakedSource } })).toBe(true);
+  });
+});
+
+type SlotFixture = { crawler: string; slot: string; text: string; sourceSlot: string; description: string };
+// The references isIncomplete uses: a translation is compared with the source
+// slot and the crawled description, the source slot with the description.
+const referencesOf = (e: SlotFixture) => (e.sourceSlot ? [e.sourceSlot, e.description] : [e.description]);
+
+describe('detectDegenerateRepetition — translator loops (pkb-private-bank «Risk-Lights-Lights-…»)', () => {
+  it('flags every pinned degenerate slot: loops of a word, a glyph, a bigram, a phrase, a URL segment, and a collapse', () => {
+    const verdicts = degeneration.degenerate.map((e: SlotFixture) => [e.crawler, e.slot, detectDegenerateRepetition(e.text, { references: referencesOf(e) })?.kind ?? null]);
+    expect(verdicts.filter(([, , kind]: unknown[]) => kind === null)).toEqual([]);
+    expect(verdicts.find(([c]: unknown[]) => c === 'tertianum')?.[2]).toBe('collapse');
+  });
+
+  it('does not flag repetition that is faithful to what was translated', () => {
+    // «Macellaio - Macellaio / …» (4 repeats of distinct French gender forms),
+    // a CSS dump the source carries too, mojibake in the crawled description
+    // itself, and the least diverse legitimate translation of the census.
+    for (const e of degeneration.legit as SlotFixture[]) {
+      expect(detectDegenerateRepetition(e.text, { references: referencesOf(e) }), `${e.crawler} ${e.slot}`).toBeNull();
+    }
+  });
+
+  it('judges a loop against its reference: the same text is fine when the source loops the same way', () => {
+    const loop = `Wir bieten ${'Licht-'.repeat(6)}Licht und mehr.`;
+    expect(detectDegenerateRepetition(loop, { references: ['Wir bieten Licht und mehr.'] })?.kind).toBe('loop');
+    expect(detectDegenerateRepetition(loop, { references: [loop] })).toBeNull();
+    // The cleaner reference decides: a looping source slot does not excuse a
+    // looping translation when the crawled description is clean.
+    expect(detectDegenerateRepetition(loop, { references: [loop, 'Wir bieten Licht und mehr.'] })?.kind).toBe('loop');
+  });
+
+  it('isAcceptableTranslation rejects the degenerate slots and keeps the legitimate ones', () => {
+    for (const e of degeneration.degenerate as SlotFixture[]) {
+      expect(isAcceptableTranslation(e.sourceSlot || e.description, e.text), `${e.crawler} ${e.slot}`).toBe(false);
+    }
+    for (const e of degeneration.legit as SlotFixture[]) {
+      expect(isAcceptableTranslation(e.sourceSlot || e.description, e.text), `${e.crawler} ${e.slot}`).toBe(true);
+    }
+  });
+
+  it('isIncomplete queues a job whose translation loops, so the published pkb record enters repair', () => {
+    const pkbEn = (degeneration.degenerate as SlotFixture[]).find((e) => e.crawler === 'pkb-private-bank' && e.slot === 'dbl.en')!;
+    const de = 'Du berätst unsere Kundinnen und Kunden bei der Auswahl von Vorhängen direkt bei ihnen zu Hause, nimmst Masse und erstellst Offerten. Du arbeitest selbständig und planst deine Termine im Aussendienst.';
+    const job = {
+      title: 'Verkäuferin für Vorhänge im Aussendienst (m/w/d)',
+      sourceLang: 'de',
+      description: de,
+      titleByLocale: {
+        de: 'Verkäuferin für Vorhänge im Aussendienst (m/w/d)',
+        it: 'Venditrice di tende nel servizio esterno (m/f/d)',
+        en: 'Curtain sales consultant, field service (m/f/d)',
+        fr: 'Vendeuse de rideaux en service externe (h/f/d)',
+      },
+      descriptionByLocale: {
+        de,
+        it: 'Consigli le nostre clienti e i nostri clienti nella scelta delle tende direttamente a casa loro, prendi le misure e prepari le offerte. Lavori in modo autonomo e pianifichi i tuoi appuntamenti nel servizio esterno.',
+        en: 'You advise our customers on choosing curtains directly in their homes, take measurements and prepare quotes. You work independently and plan your own appointments in the field service.',
+        fr: 'Tu conseilles nos clientes et nos clients dans le choix des rideaux directement à leur domicile, tu prends les mesures et tu prépares les offres. Tu travailles de manière autonome et tu planifies tes rendez-vous.',
+      },
+    };
+    expect(isIncomplete(job)).toBe(false);
+    expect(isIncomplete({ ...job, descriptionByLocale: { ...job.descriptionByLocale, en: pkbEn.text } })).toBe(true);
   });
 });
