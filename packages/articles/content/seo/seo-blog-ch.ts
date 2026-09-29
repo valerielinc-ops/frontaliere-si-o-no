@@ -90851,6 +90851,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finma-conclude-julius-baer': {
+    title: 'Caso Signa, la FINMA conclude il procedimento su Julius Bär',
+    description: 'La FINMA chiude il caso Julius Bär legato a Signa: 250 milioni di capitale aggiuntivo e obblighi di reportistica sulla cultura del rischio fino al 2032.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caso, signa, finma, conclude',
+    ogTitle: 'Caso Signa, la FINMA conclude il procedimento su Julius Bär',
+    ogDescription: 'L\'autorità di vigilanza ha concluso l\'enforcement su Julius Bär. Tra le misure: 250 milioni di capitale aggiuntivo, stop al private debt e report sui rischi fino al 2032.',
+    canonicalPath: '/articoli-svizzera/finma-conclude-julius-baer/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caso Signa, la FINMA conclude il procedimento su Julius Bär",
+      "description": "La FINMA chiude il caso Julius Bär legato a Signa: 250 milioni di capitale aggiuntivo e obblighi di reportistica sulla cultura del rischio fino al 2032.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finma-conclude-julius-baer.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede di un istituto bancario nel centro finanziario di Zurigo"
+      },
+      "datePublished": "2026-09-29T06:44:48+00:00",
+      "dateModified": "2026-09-29T06:44:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finma-conclude-julius-baer/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
