@@ -239,11 +239,11 @@ const PAID_COPY = {
 
 const GREETING = { it: 'Ciao,', en: 'Hi,', de: 'Hallo,', fr: 'Bonjour,' };
 
-export function consultingIntakeUrl(orderId, locale) {
+export function consultingIntakeUrl(sessionId, locale) {
   const path = CONSULTING_PAGE_BY_LOCALE[locale] || CONSULTING_PAGE_BY_LOCALE.it;
   const url = new URL(`https://frontaliereticino.ch${path}`);
   url.searchParams.set('consulting_checkout', 'success');
-  url.searchParams.set('session_id', String(orderId));
+  url.searchParams.set('session_id', String(sessionId));
   return url.toString();
 }
 
@@ -295,7 +295,9 @@ export async function handleConsultingOrderPaid(before, after, orderId, { db, no
   const copy = PAID_COPY[locale];
   const tierLabel = TIER_LABEL[after.tier] || TIER_LABEL.base;
   const customerEmail = String(after.customerEmail || '').trim();
-  const link = consultingIntakeUrl(orderId, locale);
+  // ConsultingPage resumes by Stripe Checkout Session id (the webhook keys the
+  // order doc by it too); prefer the stored session id over the doc id.
+  const link = consultingIntakeUrl(after.stripeSessionId || orderId, locale);
   const emails = [];
   if (customerEmail) {
     emails.push({

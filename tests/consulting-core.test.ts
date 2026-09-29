@@ -345,6 +345,18 @@ describe('handleConsultingOrderPaid', () => {
     expect(internal.replyTo).toBe('client@example.com');
   });
 
+  it('links the intake form by the stored Stripe session id, not the document id', async () => {
+    const { handleConsultingOrderPaid } = await load();
+    const order = { ...paid, stripeSessionId: 'cs_test_123' };
+    const db = fakeDb({ firestore_123: order });
+
+    await handleConsultingOrderPaid(null, order, 'firestore_123', { db });
+
+    const [customer] = (sendEmailCascadeMock.mock.calls[0][0] as any[]).map((email) => email.payload);
+    expect(customer.text).toContain('session_id=cs_test_123');
+    expect(customer.text).not.toContain('session_id=firestore_123');
+  });
+
   it('releases the claim when the provider fails so a retry can send', async () => {
     const { handleConsultingOrderPaid } = await load();
     const db = fakeDb({ cs_2: paid });
