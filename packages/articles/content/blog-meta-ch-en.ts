@@ -7064,6 +7064,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Real estate investments: good confidence, Ticino negative',
     'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'In 2026, the SRESI stands at 47,5 points, down from 69,5 in 2025; Ticino and Lugano in negative territory, while Zurich, Central Switzerland and Lake Geneva lead expectations of increases.',
     'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Aerial view of Lugano lake, mountains and modern residential buildings in soft morning light',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Health insurance premiums 2027 in Ticino: +3,7% and EFAS from 2028',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: the system is good and costs money. In Ticino, premiums are rising by 3,7%, with EFAS expected from 2028.',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Swiss hospital corridor in Berna, natural light and professional atmosphere',
 };
 
 export default blogMetaChEn;

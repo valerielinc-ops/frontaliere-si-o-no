@@ -7064,6 +7064,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Immobilieninvestitionen: Vertrauen gut, Tessin negativ',
     'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'Im Jahr 2026 erzielte der SRESI 47,5 Punkte, gegenüber 69,5 im Jahr 2025; Tessin und Lugano im negativen Bereich, während Zürich, die Zentralschweiz und der Genfersee die Erwartungen für eine Steigerung anführen.',
     'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Luftaufnahme von Lugano mit See, Bergen und modernen Wohngebäuden bei weichem Morgenlicht',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Krankenkassenprämien 2027 im Tessin: +3,7% und EFAS ab 2028',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: Das System ist gut und kostet Geld. Im Tessin steigen die Prämien um 3,7%, wobei EFAS ab 2028 erwartet wird.',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Schweizer Krankenhausflur in Bern, natürliches Licht und professionelle Atmosphäre',
 };
 
 export default blogMetaChDe;
