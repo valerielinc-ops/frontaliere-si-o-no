@@ -275,11 +275,9 @@ export function parseAlpiqDetailHtml(html) {
 
   // Build full description
   const bodyText = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(roleHtml)));
-  const description = bodyText.slice(0, 3000);
-
   return {
     title,
-    description,
+    description: bodyText,
     sections,
     bullets,
   };

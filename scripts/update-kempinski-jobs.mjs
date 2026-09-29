@@ -217,7 +217,7 @@ function buildJob(posting) {
     const header = posting.benefits_header || 'Benefits';
     descParts.push(`${header}: ${stripHtml(posting.benefits)}`);
   }
-  const description = descParts.join(' | ').slice(0, 3000);
+  const description = descParts.join(' | ');
 
   const sourceLang = detectLang(title + ' ' + description) || 'en';
   const empType = mapEmploymentType(posting.employment_type || '');

@@ -285,7 +285,7 @@ function enrichJobFromDetail(job, detail) {
   const org = detail.hiringOrganization || {};
 
   const rawDesc = info.jobDescription || '';
-  const description = stripHtml(rawDesc).slice(0, 3000);
+  const description = stripHtml(rawDesc);
   const sourceLang = detectLang(job.title + ' ' + description) || 'de';
   const empType = mapEmploymentType(info.timeType || '', job.title);
 

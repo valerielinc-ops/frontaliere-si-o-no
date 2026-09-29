@@ -117,11 +117,11 @@ export function extractDetailBody(html) {
     const located = locateTagByAttribute(html.slice(jobPostingIdx), 'itemprop="description"', { skipVoidTags: true });
     if (located) {
       const inner = extractBalancedTagBlock(located.rest, located.tagName);
-      return normalizeSpace(htmlToText(inner)).slice(0, 6000);
+      return normalizeSpace(htmlToText(inner));
     }
   }
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1])).slice(0, 6000);
+  if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1]));
   return '';
 }
 

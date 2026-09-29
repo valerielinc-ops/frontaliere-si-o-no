@@ -196,7 +196,7 @@ export function parseDetail(html = '') {
       .replace(/[ \t]*\n[ \t]*/g, '\n')
       .replace(/\n{3,}/g, '\n\n')
       .trim();
-    description = normalizeDescriptionBullets(cleaned).slice(0, 7000);
+    description = normalizeDescriptionBullets(cleaned);
   }
   return { title, shiftType, location, description };
 }

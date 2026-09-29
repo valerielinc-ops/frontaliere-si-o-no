@@ -384,8 +384,7 @@ function extractDescription(html = '') {
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, 6000);
+    .trim();
 }
 
 function fallbackDescription(title, location, canton) {

@@ -26,13 +26,13 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   decodeEntities,
   fetchHtml,
-  htmlToText,
   normalizeSpace,
   detectHealthcareCategory,
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
+import { extractPublicjobsDetailDescription } from './publicjobs-detail-description.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -146,23 +146,7 @@ async function fetchPublicJobsDetail(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '');
-    const candidateBlocks = [];
-    const blockRe = /<(?:article|main|section|div)[^>]*(?:id|class)="[^"]*(?:job|content|main|description|inserat|stellen)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|main|section|div)>/gi;
-    let m;
-    while ((m = blockRe.exec(noScripts)) !== null && candidateBlocks.length < 12) {
-      candidateBlocks.push(m[1]);
-    }
-    candidateBlocks.push(noScripts);
-    let best = '';
-    for (const blk of candidateBlocks) {
-      const text = htmlToText(blk);
-      if (text.length > best.length) best = text;
-      if (best.length > 1200) break;
-    }
-    return normalizeSpace(best).slice(0, 6000);
+    return extractPublicjobsDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ IGS Bern detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';
