@@ -96676,6 +96676,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-collaudo-ponte-comerio': {
+    title: 'Comerio, collaudo per il ponte pedonale di via Giardini',
+    description: 'Comerio, lunedì 28 settembre il ponte pedonale di via Giardini sarà collaudato dalle 19 alle 7 del 29. Dalle 17 divieto di sosta in via Sacconaghi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comerio, collaudo, ponte, pedonale',
+    ogTitle: 'Collaudo ponte pedonale a Comerio: chiude la statale',
+    ogDescription: 'A Comerio il nuovo ponte pedonale di via Giardini entra nella fase del collaudo statico. Le prove iniziano lunedì 28 settembre alle 19 e proseguono fino alle 7 di martedì 29; dalle 17 divieto di sosta in via Sacconaghi.',
+    canonicalPath: '/articoli-frontaliere/collaudo-ponte-comerio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comerio, collaudo per il ponte pedonale di via Giardini",
+      "description": "Comerio, lunedì 28 settembre il ponte pedonale di via Giardini sarà collaudato dalle 19 alle 7 del 29. Dalle 17 divieto di sosta in via Sacconaghi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/collaudo-ponte-comerio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovo ponte pedonale di via Giardini a Comerio durante i lavori"
+      },
+      "datePublished": "2026-09-29T01:39:48+00:00",
+      "dateModified": "2026-09-29T01:39:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/collaudo-ponte-comerio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

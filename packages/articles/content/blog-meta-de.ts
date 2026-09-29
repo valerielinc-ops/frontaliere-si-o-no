@@ -12245,6 +12245,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vertice-provinciale-beko-astuti.title': 'Beko-Gipfel: Astuti warnt vor tiefer Krise',
     'blog.article.vertice-provinciale-beko-astuti.excerpt': 'Das provinzielle Gremium tagte am Montag, dem 28. September, in der Villa Recalcati zum Beko-Arbeitskonflikt in Cassinetta; Astuti (Pd) warnt: «Die Zusagen wurden nicht eingehalten, den Preis zahlen die Beschäftigten und die Region».',
     'blog.article.vertice-provinciale-beko-astuti.imageAlt': 'Fabrik mit Arbeitern an der Grenze zwischen Tessin und Lombardei, bewölkter Himmel',
+    'blog.article.collaudo-ponte-comerio.title': 'Comerio, Abnahmeprüfung für die Fußgängerbrücke in der Via Giardini',
+    'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio: Am Montag, den 28. September, wird die Fußgängerbrücke in der Via Giardini am 29. von 19 bis 7 Uhr getestet. Ab 17 Uhr Parkverbot in der Via Sacconaghi.',
+    'blog.article.collaudo-ponte-comerio.imageAlt': 'Neue Fussgängerbrücke an der Via Giardini in Comerio während der Arbeiten',
 };
 
 export default blogMetaDe;
