@@ -3501,10 +3501,14 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
   let mergedSlugs = 0;
 
   for (const ej of expiredJobs) {
-    const expSlugs = [
-      ej.slug,
-      ...(ej.slugByLocale ? Object.values(ej.slugByLocale) : []),
-    ];
+    const localeSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
+    // Prefer locale slugs when the archive has them: a top-level slug can be
+    // shared by distinct URLs, while a locale slug is the established route
+    // identity. Use the canonical top-level slug only for legacy entries that
+    // carry no usable locale slug map at all.
+    const expSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
+      ? localeSlugs
+      : [ej.slug];
     const overlapCandidate = expSlugs.find(s => activeSlugOwners.has(s)) || null;
     const overlapJob = overlapCandidate ? activeSlugOwners.get(overlapCandidate) : null;
     const key = jobTclKey(ej);

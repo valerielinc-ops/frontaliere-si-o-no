@@ -391,12 +391,12 @@ function buildGhostActiveIndex(activeJobs) {
 }
 
 function isGhostExpiredEntry(entry, activeIndex) {
-  const expiredSlugs = [
-    entry?.slug,
-    ...(entry?.slugByLocale && typeof entry.slugByLocale === 'object'
-      ? Object.values(entry.slugByLocale)
-      : []),
-  ];
+  const localeSlugs = entry?.slugByLocale && typeof entry.slugByLocale === 'object'
+    ? Object.values(entry.slugByLocale)
+    : [];
+  const expiredSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
+    ? localeSlugs
+    : [entry?.slug];
   const hasSlugOverlap = expiredSlugs.some((slug) => activeIndex.activeSlugSet.has(slug));
   const key = `${(entry?.title || '').toLowerCase().trim()}||${(entry?.company || '').toLowerCase().trim()}||${(entry?.location || '').toLowerCase().trim()}`;
   const match = activeIndex.activeByTCL.get(key);
@@ -993,10 +993,14 @@ function activeGhostReachableSlugs(job) {
 }
 
 function expiredGhostOverlapSlugs(job) {
-  return new Set(nonEmptyStrings([
-    job?.slug,
-    ...Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
-  ]));
+  const localeSlugs = job?.slugByLocale && typeof job.slugByLocale === 'object'
+    ? Object.values(job.slugByLocale)
+    : [];
+  return new Set(nonEmptyStrings(
+    localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
+      ? localeSlugs
+      : [job?.slug],
+  ));
 }
 
 function hasEqualNonEmptyLocaleSlug(left, right) {
