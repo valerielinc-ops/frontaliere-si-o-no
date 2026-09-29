@@ -185,7 +185,7 @@ export function writeCrossCrawlerDedupProofFile(
 }
 
 export function loadCrossCrawlerDedupProofFile(
-  { proofPath, proofDir, candidateRaw, env = process.env } = {},
+  { proofPath, proofDir, candidateRaw, env = process.env, cwd = process.cwd() } = {},
 ) {
   const resolvedProofPath = proofPath || crossCrawlerDedupProofPath({ proofDir, env });
   if (!resolvedProofPath || !fs.existsSync(resolvedProofPath)) return null;
@@ -212,14 +212,17 @@ export function loadCrossCrawlerDedupProofFile(
 
   const currentRunId = String(env.GITHUB_RUN_ID || '').trim();
   const currentRunAttempt = String(env.GITHUB_RUN_ATTEMPT || '').trim();
-  const currentBaseSha = String(env.GITHUB_SHA || '').trim();
+  const currentBaseSha = String(env.GITHUB_SHA || checkoutHeadSha(cwd) || '').trim();
   if (
     !proof.baseSha.trim()
     || !proof.runId.trim()
     || !proof.runAttempt.trim()
-    || (currentRunId && proof.runId !== currentRunId)
-    || (currentRunAttempt && proof.runAttempt !== currentRunAttempt)
-    || (currentBaseSha && proof.baseSha !== currentBaseSha)
+    || !currentRunId
+    || !currentRunAttempt
+    || !currentBaseSha
+    || proof.runId !== currentRunId
+    || proof.runAttempt !== currentRunAttempt
+    || proof.baseSha !== currentBaseSha
   ) {
     throw new Error('stale cross-crawler dedup proof: run metadata mismatch');
   }
@@ -529,9 +532,23 @@ function proofJob(entry) {
   return entry?.job && typeof entry.job === 'object' ? entry.job : null;
 }
 
+function crossCrawlerDedupSnapshot(job) {
+  return {
+    id: job?.id ?? null,
+    url: String(job?.url ?? '').trim(),
+    title: job?.title ?? '',
+    company: job?.company ?? '',
+    location: job?.location ?? '',
+    slug: String(job?.slug ?? '').trim(),
+  };
+}
+
 function isValidCrossCrawlerDedupEntry(entry, removedJob) {
   const job = proofJob(entry);
   if (!job || jobIdentity(job) !== jobIdentity(removedJob)) return false;
+  if (JSON.stringify(crossCrawlerDedupSnapshot(job)) !== JSON.stringify(crossCrawlerDedupSnapshot(removedJob))) {
+    return false;
+  }
   if (!['duplicate title+company', 'duplicate slug'].includes(entry.reason)) return false;
 
   const duplicateKey = String(entry.duplicateKey ?? '').trim();

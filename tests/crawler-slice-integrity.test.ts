@@ -473,6 +473,17 @@ describe('crawler slice integrity guard', () => {
       Object.assign([retained], { proof: malformedProof }),
     )).toBe(false);
 
+    const changedSnapshotPrevious = json({
+      crawlerKey: 'buehler',
+      jobs: [{ ...duplicateA, title: 'Changed after cleanup' }, duplicateB, retained],
+    });
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      changedSnapshotPrevious,
+      next,
+      referenceWithProof,
+    )).toBe(false);
+
     const mismatchedWinnerProof = {
       ...proof,
       entries: proof.entries.map((entry) => ({
@@ -525,6 +536,8 @@ describe('crawler slice integrity guard', () => {
         candidateRaw,
         env: { ...env, GITHUB_RUN_ATTEMPT: '2' },
       })).toThrow(/run metadata mismatch/);
+      expect(() => loadCrossCrawlerDedupProofFile({ proofPath, candidateRaw, env: {}, cwd: root }))
+        .toThrow(/run metadata mismatch/);
     } finally {
       clearCrossCrawlerDedupProofFile({ proofDir, cwd: root });
       rmSync(root, { recursive: true, force: true });
