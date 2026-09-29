@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sta",
-  "assembledAt": "2026-09-29T09:57:09.504Z",
+  "assembledAt": "2026-09-29T11:11:05.956Z",
   "jobs": [
     {
       "id": "sta-0bc0a43d4062",
@@ -126074,80 +126074,6 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "sta-f86d04ed276b",
-      "slug": "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-      "slugByLocale": {
-        "de": "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-        "it": "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-        "en": "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm",
-        "fr": "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Maler/in für Fassadenarbeiten",
-      "titleByLocale": {
-        "de": "Maler/in für Fassadenarbeiten",
-        "it": "Maler/in per Fassadenarbeiten",
-        "en": "Maler/in für Fassadenarbeiten",
-        "fr": "Maler/in für Fassadenarbeiten"
-      },
-      "description": "Tätigkeiten Ausführen von Fassadenarbeiten an Neu- und Umbauten Vorbereiten, grundieren und streichen verschiedener Untergründe Sauberes und termingerechtes Arbeiten im Team und selbstständig\n• Anforderungen Ausbildung als Maler EFZ oder EBA Handwerkliches Geschick und zuverlässige Arbeitsweise Körperlich fit, flexibel und wetterfest Gute Deutschkenntnisse Führerausweis Kat. B Angebot Temporäre Anstellung mit abwechslungsreichen Einsätzen Kollegiales Arbeitsumfeld und moderne Arbeitsmittel Faire Anstellungsbedingungen und attraktive Einsatzmöglichkeiten",
-      "descriptionByLocale": {
-        "de": "Tätigkeiten Ausführen von Fassadenarbeiten an Neu- und Umbauten Vorbereiten, grundieren und streichen verschiedener Untergründe Sauberes und termingerechtes Arbeiten im Team und selbstständig\n• Anforderungen Ausbildung als Maler EFZ oder EBA Handwerkliches Geschick und zuverlässige Arbeitsweise Körperlich fit, flexibel und wetterfest Gute Deutschkenntnisse Führerausweis Kat. B Angebot Temporäre Anstellung mit abwechslungsreichen Einsätzen Kollegiales Arbeitsumfeld und moderne Arbeitsmittel Faire Anstellungsbedingungen und attraktive Einsatzmöglichkeiten",
-        "it": "Attività Esecuzione di lavori di facciata su nuovi e ristrutturazioni Preparazione, irrigazione e pittura di vari substrati Lavoro pulito e on-time in una squadra e indipendentemente\n• Requisiti Formazione come pittore EFZ o EBA Artigianatosmanship competenze e metodi di lavoro affidabili Vestibilità fisica, flessibile e resistente alle intemperie Buona conoscenza della patente di guida tedesca Cat. B Offerta Lavoro temporaneo con varie assegnazioni Ambiente di lavoro collegiale e attrezzature di lavoro moderne Condizioni di lavoro eque e opportunità di lavoro attraenti",
-        "en": "Activities Performing facade work on new and renovations Preparing, priming and painting of various substrates Clean and on-time work in a team and independently\n• Requirements Training as a painter EFZ or EBA Craftsmanship skills and reliable working methods Physically fit, flexible and weatherproof Good knowledge of German driving licence Cat. B Offer Temporary employment with varied assignments Collegial working environment and modern work equipment Fair employment conditions and attractive employment opportunities",
-        "fr": "Activités Réalisation de travaux de façade sur les nouveautés et les rénovations Préparation, apprêtage et peinture de divers substrats Travail propre et à temps en équipe et indépendamment\n• Exigences Formation en tant que peintre EFZ ou EBA Compétences en artisanat et méthodes de travail fiables. B Offre Emploi temporaire à tâches variées Environnement de travail collégial et équipement de travail moderne Conditions d'emploi équitables et possibilités d'emploi attrayantes"
-      },
-      "location": "Kulm, Aargau",
-      "canton": "AG",
-      "url": "https://www.sta.jobs/stellen/maler-in-kulm-temporaer-109963/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:57:18.453Z",
-      "addressLocality": "Kulm",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-28",
-      "applyUrl": "https://www.sta.jobs/stellen/maler-in-kulm-temporaer-109963/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch"
-        ]
-      },
-      "previousSlugs": [
-        "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:57:18.453Z",
       "crawlerMissStreak": 1
     },
     {
