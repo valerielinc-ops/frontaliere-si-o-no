@@ -126,4 +126,15 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
       expect(exit.slice(call.length).trimStart()).toMatch(/^(return;|const _cdResult = logStats)/);
     });
   }
+
+  it('update-convit-jobs.mjs (per-job cleanup of its merge)', () => {
+    const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-convit-jobs.mjs'), 'utf8');
+    expect(source).toContain('targetExisting.filter((job) => dropConvitFabricatedText(job))');
+    const exit = source.slice(source.indexOf('await rewritePreparedStoredJobs({'));
+    const call = exit.slice(0, exit.indexOf('});') + 3);
+    // Returns nothing: the helper keeps the whole stored array, repaired in place.
+    expect(call).toContain('prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },');
+    expect(call).toContain('write: (jobs) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob }),');
+    expect(exit.slice(call.length).trimStart()).toMatch(/^return;/);
+  });
 });
