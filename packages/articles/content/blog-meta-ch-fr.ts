@@ -6986,6 +6986,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita.title': 'Neutralité, la presse souligne la défaite de l\'UDC',
     'blog.article.voto-iniziativa-neutralita.excerpt': 'Plus de 70 % des votants et l\'ensemble des cantons ont rejeté l\'initiative sur la neutralité. La campagne a été soutenue par Christoph Blocher.',
     'blog.article.voto-iniziativa-neutralita.imageAlt': 'Initiative sur la neutralite rejetee en Suisse',
+    'blog.article.dibattito-stati-bilaterali-iii.title': 'Conseil des Etats : début du débat sur les Bilatérales III',
+    'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'Le Conseil des Etats discute du paquet d\'accords avec l\'UE. Parmi les thèmes chauds : la libre circulation, la reprise du droit et la clause de sauvegarde.',
+    'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Palais fédéral à Berne siège du Conseil des États',
 };
 
 export default blogMetaChFr;

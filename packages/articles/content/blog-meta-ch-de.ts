@@ -6986,6 +6986,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-iniziativa-neutralita.title': 'Neutralität, die Presse betont die Niederlage der UDC',
     'blog.article.voto-iniziativa-neutralita.excerpt': 'Über 70% der Stimmberechtigten und alle Kantone lehnten die Neutralitätsinitiative ab. Die Kampagne wurde von Christoph Blocher unterstützt.',
     'blog.article.voto-iniziativa-neutralita.imageAlt': 'Neutralitatsinitiative in der Schweiz abgelehnt',
+    'blog.article.dibattito-stati-bilaterali-iii.title': 'Ständerat: Start der Bilateraldebatte III',
+    'blog.article.dibattito-stati-bilaterali-iii.excerpt': 'Der Ständerat diskutiert das Abkommenspaket mit der EU. Zu den heissen Themen gehören: Personenfreizügigkeit, Rechtsübernahme und Schutzklausel.',
+    'blog.article.dibattito-stati-bilaterali-iii.imageAlt': 'Bundeshaus in Bern Sitz des Ständerates',
 };
 
 export default blogMetaChDe;
