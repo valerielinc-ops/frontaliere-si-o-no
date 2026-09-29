@@ -297,12 +297,15 @@ describe('isSwissJob', () => {
 // buildJob
 // ═══════════════════════════════════════════════════════════════
 
+const EMS_BODY = 'Ihre Aufgaben: Betreuung der Produktionsanlagen im Schichtbetrieb, Qualitätskontrollen und Dokumentation.';
+
 describe('buildJob', () => {
   it('builds complete job object', () => {
     const job = buildJob({
       title: 'Chemist R&D',
       url: 'https://www.ems-group.com/en/career/job-vacancies/chemist',
       location: 'Domat/Ems',
+      description: EMS_BODY,
     });
     expect(job).not.toBeNull();
     expect(job!.company).toBe('EMS-Chemie AG');
@@ -311,25 +314,34 @@ describe('buildJob', () => {
   });
 
   it('includes postalCode and streetAddress', () => {
-    const job = buildJob({ title: 'Test', location: 'Domat/Ems' });
+    const job = buildJob({ title: 'Test', location: 'Domat/Ems', description: EMS_BODY });
     expect(job!.postalCode).toBe('7013');
     expect(job!.streetAddress).toBe('Via Innovativa 1');
     expect(job!.employmentType).toBe('FULL_TIME');
   });
 
   it('sets canton TG for Romanshorn', () => {
-    const job = buildJob({ title: 'Test', location: 'Romanshorn' });
+    const job = buildJob({ title: 'Test', location: 'Romanshorn', description: EMS_BODY });
     expect(job!.canton).toBe('TG');
   });
 
   it('generates slug with company name', () => {
-    const job = buildJob({ title: 'Production Operator' });
+    const job = buildJob({ title: 'Production Operator', description: EMS_BODY });
     expect(job!.slug).toContain('ems-chemie');
   });
 
   it('returns null for empty title', () => {
     expect(buildJob({ title: '' })).toBeNull();
     expect(buildJob(null as any)).toBeNull();
+  });
+
+  // Only the posting's own text is published (issue 5253): without the
+  // careercenter body a listing used to go out with an invented Italian seat
+  // blurb ("… presso EMS-Chemie AG, azienda leader …").
+  it('builds no job without the vacancy text, never inventing one', () => {
+    expect(buildJob({ title: 'Production Operator', location: 'Domat/Ems' })).toBeNull();
+    expect(buildJob({ title: 'Production Operator', location: 'Domat/Ems', description: '   ' })).toBeNull();
+    expect(buildJob({ title: 'Production Operator', description: EMS_BODY })!.sourceLang).toBe('de');
   });
 });
 

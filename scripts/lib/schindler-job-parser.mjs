@@ -373,12 +373,6 @@ export function parseDetailPage(html, { listingTitle = '' } = {}) {
   return { title, description, location, applyUrl };
 }
 
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei Schindler in ${location || 'der Schweiz'}.\n\nDie Schindler-Gruppe ist einer der weltweit führenden Hersteller von Aufzügen, Fahrtreppen und Fahrsteigen. Das 1874 in der Schweiz gegründete Unternehmen beschäftigt rund 70'000 Mitarbeitende weltweit, davon mehrere tausend in der Schweiz. Schindler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem global tätigen Schweizer Technologieunternehmen mit Hauptsitz in Ebikon (Kanton Luzern).`;
-}
-
 /* ── HTTP fetch with timeout ──────────────────────────────── */
 
 async function fetchPage(url, timeoutMs, userAgent) {
@@ -458,6 +452,7 @@ export async function fetchAllSchindlerJobs() {
 
   // Step 2 — detail pages
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
     try {
       let detail = null;
@@ -477,11 +472,16 @@ export async function fetchAllSchindlerJobs() {
         inferSwissTargetCanton(region) ||
         'LU'; // Schindler HQ is in Ebikon (LU)
 
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
-      } else {
-        description = buildFallbackDescription(title, location);
+      // Only the posting's own text is published (issue 5253). A detail page
+      // that could not be read, or whose body is under 50 words, used to be
+      // replaced by an invented group summary; such a listing is not
+      // published any more.
+      const description = detail?.description || '';
+      if (description.split(/\s+/).filter(Boolean).length < 50) {
+        console.warn(`  ⏭️ Schindler: no vacancy text on the detail page, not published (${title})`);
+        withoutBody += 1;
+        await new Promise((r) => setTimeout(r, 300));
+        continue;
       }
 
       const sourceLang = detectLang(description || title, 'de');
@@ -533,6 +533,10 @@ export async function fetchAllSchindlerJobs() {
       console.warn(`  ⚠️ Skipping ${listing.title} — ${err?.message || err}`);
     }
     await new Promise((r) => setTimeout(r, 300));
+  }
+
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without a vacancy body on the detail page — not published.`);
   }
 
   // Deduplicate by URL (safety: multiple tenants can occasionally cross-link)

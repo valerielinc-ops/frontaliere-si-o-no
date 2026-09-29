@@ -358,6 +358,7 @@ export async function fetchAllBelimoJobs() {
   const seen = new Set();
   let fetched = 0;
   let skippedByCap = 0;
+  let withoutBody = 0;
 
   for (const jobUrl of candidates) {
     if (fetched >= MAX_DETAIL_FETCHES) {
@@ -399,8 +400,17 @@ export async function fetchAllBelimoJobs() {
     const location = city;
     const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(region) || HQ.canton;
 
+    // Only the posting's own text is published (issue 5253): a page without
+    // a description block used to go out as "{title} presso Belimo a {city}.";
+    // it is not published any more.
     const descriptionText = stripHtml(parsed.descriptionHtml || '');
-    const description = descriptionText || `${title} presso ${BELIMO_COMPANY_NAME} a ${location}.`;
+    if (!descriptionText) {
+      console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      await new Promise((r) => setTimeout(r, DETAIL_FETCH_DELAY_MS));
+      continue;
+    }
+    const description = descriptionText;
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} belimo ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -461,6 +471,9 @@ export async function fetchAllBelimoJobs() {
     );
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} page(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total ${BELIMO_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

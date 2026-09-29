@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   UBS_KEY,
   UBS_COMPANY_NAME,
   isUbsJob,
   isTrustedDomain,
   __internals,
+  fetchAllUbsJobs,
 } from '../scripts/lib/ubs-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -251,4 +252,47 @@ describe('Taleo job details', () => {
     const apprentice = __internals.buildJobFromTaleo(taleoRow('34', '346345'), '5054');
     expect(apprentice.url).toContain('siteid=5054&jobid=346345');
   });
+});
+
+// Only the posting's own text is published (issue 5253). A posting whose
+// search row and job-details both carry no text used to go out as
+// "{title} — UBS"; it is not published any more. Taleo TGNewUI shapes
+// (HomeWithPreLoad token, MatchedJobs envelope, JobDetails questions) as
+// served by jobs.ubs.com on 2026-09-29.
+describe('fetchAllUbsJobs — posting without any vacancy text', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the posting with text and skips the one without, never inventing text', async () => {
+    const q = (name: string, value: string) => ({ QuestionName: name, Value: value });
+    const row = (reqid: string, title: string, desc: string) => ({
+      Questions: [q('reqid', reqid), q('jobtitle', title), q('jobdescription', desc), q('formtext23', 'Switzerland - Zurich'), q('formtext2', 'Zürich'), q('jobreqlanguage', '1'), q('lastupdated', '29-Sep-2026')],
+    });
+    const json = (payload: unknown) => new Response(JSON.stringify(payload), { status: 200, headers: { 'content-type': 'application/json' } });
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
+      const u = String(url);
+      if (u.includes('HomeWithPreLoad')) {
+        return new Response('<input name="__RequestVerificationToken" type="hidden" value="tok123" />', { status: 200, headers: { 'set-cookie': 'a=b; Path=/' } });
+      }
+      const body = JSON.parse(init.body || '{}');
+      if (u.includes('MatchedJobs')) {
+        if (!JSON.stringify(body).includes('5012')) return json({ Jobs: { Job: [] }, JobsCount: 0 });
+        return json({ Jobs: { Job: [row('350001', 'Client Advisor 80-100%', 'Your role: advise private clients in Zurich.'), row('350002', 'Credit Officer', '')] }, JobsCount: 2 });
+      }
+      if (u.includes('JobDetails')) {
+        const text = body.jobid === '350001'
+          ? '<p>Your role: advise private clients in Zurich and build lasting relationships with them across the whole wealth-planning cycle.</p>'
+          : '';
+        return json({ ServiceResponse: { Jobdetails: { JobDetailQuestions: text ? [{ ClassName: 'jobDetailTextArea', QuestionName: 'Your role', AnswerValue: text }] : [] } } });
+      }
+      return new Response('', { status: 404 });
+    }));
+
+    expect(__internals.buildJobFromTaleo(row('350002', 'Credit Officer', ''), '5012').description).toBe('');
+    const jobs = await fetchAllUbsJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Client Advisor 80-100%']);
+    expect(jobs[0].description).toContain('across the whole wealth-planning cycle');
+    for (const job of jobs) expect(job.description).not.toMatch(/— UBS$/);
+  }, 20_000);
 });

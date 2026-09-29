@@ -341,6 +341,7 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
 
   const jobs = [];
   const seenIds = new Set();
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.postingTitle || '');
     const positionId = String(listing.positionId || listing.jobPositionId || '').trim();
@@ -356,9 +357,15 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     const detailDescription = positionId ? await fetchAppleJobDescription(publicUrl) : '';
     if (positionId) await new Promise((r) => setTimeout(r, 300)); // polite detail pacing
     const descriptionSource = listing.jobSummary || '';
-    const descriptionText = detailDescription
-      || stripHtml(descriptionSource)
-      || `${title} — Apple Retail Switzerland`;
+    // Only the posting's own text is published (issue 5253): without the
+    // detail record and without a search summary the posting used to go out
+    // as "{title} — Apple Retail Switzerland"; it is not published any more.
+    const descriptionText = detailDescription || stripHtml(descriptionSource);
+    if (!descriptionText) {
+      console.log(`  ⏭️ no vacancy text on the detail page nor in the search summary, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} apple-retail-switzerland ch`);
@@ -412,6 +419,9 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without vacancy text — not published.`);
+  }
   console.log(`\n📋 Total Apple Retail Switzerland jobs discovered: ${jobs.length}`);
   return jobs;
 }

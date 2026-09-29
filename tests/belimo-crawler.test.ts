@@ -235,6 +235,27 @@ describe('Belimo crawler parser', () => {
       expect(jobs[0].country).toBe('CH');
       expect(jobs[0].addressCountry).toBe('CH');
     });
+
+    // Only the posting's own text is published (issue 5253): a page without a
+    // description block used to go out as "{title} presso Belimo a {city}.".
+    it('does not publish a Swiss page without vacancy text, never inventing one', async () => {
+      globalThis.fetch = (async (url: any) => {
+        const u = String(url);
+        if (u.startsWith(SITEMAP_URL)) return sitemapResponse();
+        return new Response(
+          `<html><body>
+            <h1 itemprop="title">Montagemitarbeiter/-in (100%)</h1>
+            <span itemprop="addressLocality" content="Hinwil"></span>
+            <span itemprop="postalCode" content="8340"></span>
+            <span itemprop="addressCountry" content="CH"></span>
+          </body></html>`,
+          { status: 200, headers: { 'Content-Type': 'text/html' } },
+        );
+      }) as any;
+
+      const jobs = await fetchAllBelimoJobs();
+      expect(jobs).toHaveLength(0);
+    });
   });
 
   // ── Detail-fetch budget constants ──

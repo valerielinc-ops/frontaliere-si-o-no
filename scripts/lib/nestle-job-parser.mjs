@@ -229,6 +229,7 @@ export async function fetchAllNestleJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
@@ -261,17 +262,16 @@ export async function fetchAllNestleJobs() {
     const detailDescription = await fetchJobDescriptionText(publicUrl);
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${NESTLE_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
-      '• Employer: Nestlé — world\'s largest food and beverage company',
-      '• Apply on: Nestlé careers portal',
-      '',
-      'This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.',
-    ].join('\n');
-    const descriptionText = wordCount(detailDescription) >= 50 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253). A detail page
+    // without a vacancy body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); such a listing is
+    // not published any more.
+    if (wordCount(detailDescription) < 50) {
+      console.log(`  ⏭️  No vacancy text on the detail page, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nestle ch`);
@@ -316,6 +316,9 @@ export async function fetchAllNestleJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
   console.log(`\n📋 Total Nestlé jobs discovered: ${jobs.length}`);
   return jobs;
 }

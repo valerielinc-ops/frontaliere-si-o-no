@@ -551,18 +551,16 @@ export function createWorkdaySwissParser(config) {
         : '';
       await new Promise((r) => setTimeout(r, 350));
 
-      const fallbackDescription = [
-        `${title} — ${companyName}, ${location}.`,
-        '',
-        'Key details:',
-        `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-        `• Employer: ${companyName}.`,
-        `• Apply: ${companyName} Workday careers portal.`,
-      ].join('\n');
-      const bodyText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
-      const descriptionText = detailDescription.length >= 100 && sidebarText
-        ? `${bodyText}\n\n${sidebarText}`
-        : bodyText;
+      // Only the posting's own text is published (issue 5253). A req whose
+      // detail has no body used to go out as a synthetic "Key details" stub
+      // (location, employer, "apply on the portal"); it is not published any
+      // more (0 rows on the 13 tenants of this factory on 2026-09-29).
+      if (detailDescription.length < 100) {
+        console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+        continue;
+      }
+      const bodyText = detailDescription;
+      const descriptionText = sidebarText ? `${bodyText}\n\n${sidebarText}` : bodyText;
 
       // Language of the posting body, not of the site-level sidebar.
       const sourceLang = detectLang(bodyText || title, defaultSourceLang);

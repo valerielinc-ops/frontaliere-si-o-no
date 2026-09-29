@@ -213,27 +213,31 @@ export function parseHitachiEnergyDetailPage(html = '') {
 }
 
 /**
+ * Rows that carry the posting's own text. Only that text is published
+ * (issue 5253): a listing whose detail page yielded no body used to go out
+ * with an invented four-language blurb ("Hitachi Energy is hiring for the
+ * {title} role based in {city}. … Apply through the official Hitachi Energy
+ * careers page."); it is not published any more.
+ *
+ * @param {object[]} rows enriched listings (`description` from the detail page)
+ * @returns {{ rows: object[], withoutBody: number }}
+ */
+export function publishableHitachiEnergyRows(rows = []) {
+  const kept = rows.filter((row) => String(row?.description || '').trim());
+  return { rows: kept, withoutBody: rows.length - kept.length };
+}
+
+/**
  * Build localized content for a Hitachi Energy job.
  */
 export function buildHitachiEnergyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.primaryLocation || job.location || '').trim() || 'Switzerland';
   const description = String(job.description || '').trim();
-  const jobFunction = String(job.jobFunction || '').trim();
-  const jobType = String(job.jobType || '').trim();
-
-  const itDesc = description
-    || `Hitachi Energy cerca un/a ${title} con sede a ${location}. ${jobFunction ? `Settore: ${jobFunction}.` : ''} ${jobType ? `Tipo: ${jobType}.` : ''} Candidati tramite il sito ufficiale Hitachi Energy.`;
-  const enDesc = description
-    || `Hitachi Energy is hiring for the ${title} role based in ${location}. ${jobFunction ? `Function: ${jobFunction}.` : ''} ${jobType ? `Type: ${jobType}.` : ''} Apply through the official Hitachi Energy careers page.`;
-  const deDesc = description
-    || `Hitachi Energy sucht derzeit für die Position ${title} am Standort ${location}. ${jobFunction ? `Bereich: ${jobFunction}.` : ''} ${jobType ? `Art: ${jobType}.` : ''} Bewirb dich über die offizielle Karriereseite von Hitachi Energy.`;
-  const frDesc = description
-    || `Hitachi Energy recrute actuellement pour le poste ${title} basé à ${location}. ${jobFunction ? `Domaine: ${jobFunction}.` : ''} ${jobType ? `Type: ${jobType}.` : ''} Postulez via la page carrière officielle de Hitachi Energy.`;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: { it: description, en: description, de: description, fr: description },
     slugByLocale: {
       it: slugify(`${title} hitachi-energy ${location}`),
       en: slugify(`${title} hitachi-energy ${location}`),

@@ -186,6 +186,7 @@ export async function fetchAllKsbJobs() {
   const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -210,18 +211,17 @@ export async function fetchAllKsbJobs() {
     );
     await new Promise((r) => setTimeout(r, 400));
 
-    const fallbackDescription = [
-      `${title} — ${KSB_COMPANY_NAME}, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
-      '• Arbeitgeber: Kantonsspital Baden — Akutspital im Kanton Aargau',
-      '• Bewerbung über: KSB-Karriereportal',
-    ].join('\n');
-    const bodyText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
-    const descriptionText = detailDescription.length >= 100 && aboutText
-      ? `${bodyText}\n\n${aboutText}`
-      : bodyText;
+    // Only the posting's own text is published (issue 5253). A req whose
+    // detail has no body used to go out as a synthetic "Key details" stub
+    // (location, employer, "apply on the portal"); it is not published any
+    // more.
+    if (detailDescription.length < 100) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const bodyText = detailDescription;
+    const descriptionText = aboutText ? `${bodyText}\n\n${aboutText}` : bodyText;
 
     // Language of the POSTING, not of the site-level sidebar: the "About us"
     // block is English on a German-language site and would otherwise outvote
@@ -273,6 +273,9 @@ export async function fetchAllKsbJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total ${KSB_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

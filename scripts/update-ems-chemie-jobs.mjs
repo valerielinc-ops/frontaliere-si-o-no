@@ -156,17 +156,18 @@ async function fetchEmsPage(offset, timeoutMs) {
 }
 
 /**
- * Minimum length of a portal body to publish instead of the seat fallback.
- * Every live careercenter vacancy carries tasks + profile + "Über uns"
- * (≈1.5-3k characters); anything shorter is a broken or foreign template.
+ * Minimum length of a portal body to publish. Every live careercenter
+ * vacancy carries tasks + profile + "Über uns" (≈1.5-3k characters);
+ * anything shorter is a broken or foreign template, and the listing is not
+ * published.
  */
 const MIN_PORTAL_DESCRIPTION_CHARS = 200;
 const DETAIL_DELAY_MS = 300;
 
 /**
  * Read one careercenter vacancy page. Returns the parsed portal detail, or
- * null when the page cannot be fetched/parsed (the listing then keeps the
- * seat fallback rather than being dropped on a transient error).
+ * null when the page cannot be fetched/parsed (the listing then has no
+ * vacancy text and is not published in this run).
  */
 async function fetchPortalDetail(url, timeoutMs) {
   try {
@@ -219,6 +220,7 @@ export async function fetchJobs() {
   }
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of allListings) {
     // The careercenter lists EMS's German sites (Groß-Umstadt, DEU) next to
     // the Swiss ones. They used to be published under the Domat/Ems seat with
@@ -228,9 +230,10 @@ export async function fetchJobs() {
       continue;
     }
     // The vacancy body lives on the detail page only. Without this fetch
-    // every job carried the fallback seat blurb instead of its tasks, profile
+    // every job carried an invented seat blurb instead of its tasks, profile
     // and benefits (audit run 36528331656: 312-363 published characters
-    // against ~3k on the source page).
+    // against ~3k on the source page). Without a body the listing is not
+    // published (issue 5253).
     const detail = /\/offene-stellen\//.test(listing.url)
       ? await fetchPortalDetail(listing.url, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000)
       : null;
@@ -249,14 +252,20 @@ export async function fetchJobs() {
       employmentType: detail?.employmentType || listing.employmentType,
     });
     if (job) {
-      console.log(`  ✅ ${job.title} (${job.location})${detailDescription ? '' : ' — seat fallback'}`);
+      console.log(`  ✅ ${job.title} (${job.location})`);
       jobs.push(job);
+    } else if (!detailDescription) {
+      console.log(`  ⏭️  No vacancy text on the careercenter page, not published: ${listing.title}`);
+      withoutBody += 1;
     }
     if (detail !== null || /\/offene-stellen\//.test(listing.url)) {
       await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
     }
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} listing(s) without vacancy text — not published.`);
+  }
   console.log(`📋 Total unique ${COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }

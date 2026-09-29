@@ -328,6 +328,7 @@ export async function fetchAllIkeaJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
@@ -344,6 +345,14 @@ export async function fetchAllIkeaJobs() {
     const postalCode = (/^\d{4}$/.test(postalCandidate) ? postalCandidate : '')
       || (addressLocality === HQ_CITY ? HQ_POSTAL : '');
     const descriptionText = stripHtml(listing.description || '');
+    // Only the posting's own text is published (issue 5253). A row whose
+    // detail JSON-LD carried no description used to go out as
+    // "{title} — IKEA"; it is not published any more.
+    if (!descriptionText) {
+      console.log(`   ⏭️ no vacancy text in the detail JSON-LD, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -360,8 +369,8 @@ export async function fetchAllIkeaJobs() {
       companyDomain: IKEA_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — ${IKEA_COMPANY_NAME}`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${IKEA_COMPANY_NAME}` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -391,6 +400,9 @@ export async function fetchAllIkeaJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} row(s) without vacancy text in the detail JSON-LD — not published.`);
+  }
   console.log(`\n📋 Total IKEA jobs discovered: ${jobs.length}`);
   return jobs;
 }

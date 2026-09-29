@@ -635,8 +635,11 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     companyDomain: UBS_COMPANY_DOMAIN,
     title,
     titleByLocale: { [sourceLang]: title },
-    description: descriptionText || `${title} — UBS`,
-    descriptionByLocale: { [sourceLang]: descriptionText || `${title} — UBS` },
+    // Only the posting's own text (issue 5253): an empty search-row text
+    // stays empty here and the job-details text fills it below; with
+    // neither, the posting is not published (no "{title} — UBS" stand-in).
+    description: descriptionText,
+    descriptionByLocale: { [sourceLang]: descriptionText },
     location: city,
     canton,
     url: publicUrl,
@@ -781,6 +784,7 @@ export async function fetchAllUbsJobs() {
   // teaser (duplicate descriptions).
   const jobs = [];
   let detailMisses = 0;
+  let withoutBody = 0;
   for (const { taleoJob, siteId } of allEntries) {
     const job = buildJobFromTaleo(taleoJob, siteId);
     if (!job) continue;
@@ -791,12 +795,19 @@ export async function fetchAllUbsJobs() {
       job._ubsMeta.reqId,
       job._ubsMeta.detailSiteId,
     );
-    if (full && full.length > String(job.description || '').length) {
+    const usedDetail = Boolean(full) && full.length > String(job.description || '').length;
+    if (usedDetail) {
       job.description = full;
       job.descriptionByLocale = { [job.sourceLang]: full };
-    } else {
-      detailMisses += 1;
     }
+    if (!job.description) {
+      console.log(`  ⏭️ no vacancy text in the search row nor in the job details, not published: ${job.title}`);
+      withoutBody += 1;
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => setTimeout(r, 250));
+      continue;
+    }
+    if (!usedDetail) detailMisses += 1;
     jobs.push(job);
     // Polite delay between detail requests.
     // eslint-disable-next-line no-await-in-loop
@@ -806,6 +817,9 @@ export async function fetchAllUbsJobs() {
     console.warn(`  ⚠️ ${detailMisses}/${jobs.length} UBS job-details requests returned no fuller text — kept the search-row "Your role" text.`);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} posting(s) without any vacancy text — not published.`);
+  }
   console.log(`\n📋 Total UBS Swiss jobs: ${jobs.length}`);
   return jobs;
 }

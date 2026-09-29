@@ -192,6 +192,32 @@ describe('IKEA crawler parser', () => {
       expect(job).toMatchObject({ location: 'Pratteln, BL', canton: 'BL', addressLocality: 'Pratteln', postalCode: '4133' });
     });
   });
+
+  // Only the posting's own text is published (issue 5253): a row whose detail
+  // JSON-LD has no description used to go out as "{title} — IKEA".
+  describe('row without a vacancy body', () => {
+    it('publishes the row with a body and skips the one without, never inventing text', async () => {
+      const anchor = (id: string, slug: string, title: string) => `<a href="/en/job/pratteln/${slug}/${id}" data-job-id="${id}" class="job-list__anchor">`
+        + `<span class="job-list__title">${title}</span><span class="job-list__location">Pratteln</span></a>`;
+      const listing = `${anchor('201', 'verkaufsberater', 'Verkaufsberater/in 80-100%')}${anchor('202', 'logistiker', 'Logistiker/in EFZ')}</section>`;
+      const detail = (description: string) => `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        description,
+        jobLocation: { address: { addressLocality: 'Pratteln', addressRegion: 'BL', addressCountry: 'CH', postalCode: '4133' } },
+      })}</script>`;
+      fetchHtml.mockImplementation(async (url: string) => {
+        const u = String(url || '');
+        if (u.includes('/verkaufsberater/')) return detail('<p>Du berätst unsere Kundinnen und Kunden in der Einrichtungsabteilung und gestaltest Wohnlösungen.</p>');
+        if (u.includes('/logistiker/')) return detail('');
+        return listing;
+      });
+
+      const jobs = await fetchAllIkeaJobs();
+      expect(jobs.map((job) => job.title)).toEqual(['Verkaufsberater/in 80-100%']);
+      expect(jobs[0].description).toContain('Du berätst unsere Kundinnen und Kunden');
+      for (const job of jobs) expect(job.description).not.toMatch(/— IKEA$/);
+    });
+  });
 });
 
 // Minimised from jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-

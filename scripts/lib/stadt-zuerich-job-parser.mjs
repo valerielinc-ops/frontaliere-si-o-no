@@ -29,9 +29,9 @@
  *     that this parser cannot execute without a browser. Detail fetches add
  *     NO signal over the listing tile (verified: identical Departement/
  *     Dienstabteilung/Referenz-Nr., no pensum, no location) — so we skip
- *     them entirely and build a synthetic description from the tile fields
- *     (title + department + unit + reference + employer blurb), well above
- *     the thin-content floor (Non-Negotiable #4).
+ *     them entirely. The vacancy text comes from the city's official ad page
+ *     with the same Referenz-Nr. (see OFFICIAL_HOST below); a tile without
+ *     one is not published (issue 5253).
  *
  * Structured-data safe defaults (Non-Negotiable #3 — source has none of
  * these per-job): every job gets the Stadthaus Zürich civic address
@@ -56,7 +56,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -285,28 +285,6 @@ export function parseListingTiles(html = '') {
   return rows;
 }
 
-/* ── Description Builder ──────────────────────────────────── */
-
-function buildDescription(row) {
-  const parts = [];
-  parts.push(
-    `${row.title} bei der Stadtverwaltung Zürich${row.department ? `, ${row.department}` : ''}` +
-      `${row.unit ? ` – ${row.unit}` : ''}.`
-  );
-  parts.push(
-    'Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz ' +
-      'und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, ' +
-      'Sicherheit, Technik und allgemeiner Verwaltung.'
-  );
-  if (row.ref) parts.push(`Referenz-Nr.: ${row.ref}.`);
-  parts.push(
-    `Arbeitsort: ${HQ.city} (${HQ.canton}). Weitere Details zu Aufgaben, Anforderungen und dem ` +
-      'Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform "Arbeiten für Zürich" ' +
-      'der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.'
-  );
-  return parts.join(' ');
-}
-
 /* ── Official ad pages ("Arbeiten für Zürich") ─────────────── */
 
 function officialBlockText(blockHtml = '') {
@@ -345,7 +323,8 @@ export function parseOfficialAdPage(html = '') {
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
  * One search call lists every page; each page is then fetched politely.
- * Returns an empty map on any listing failure (the tile stub then remains).
+ * Throws when the portal's index cannot be read: without it no posting has
+ * its text, and publishing none would empty the whole board.
  */
 async function fetchOfficialAdTexts(wantedRefs, delayMs) {
   const byRef = new Map();
@@ -361,8 +340,7 @@ async function fetchOfficialAdTexts(wantedRefs, delayMs) {
     });
     index = JSON.parse(await fetchPage(`${OFFICIAL_JOBSEARCH_URL}?${params}`));
   } catch (err) {
-    console.warn(`  ⚠️ Official ad index unavailable (${err?.message || err}) — keeping tile summaries.`);
-    return byRef;
+    throw new Error(`Stadt Zürich official ad index unavailable (${err?.message || err}): no posting has its vacancy text`);
   }
   const hrefs = [...new Set((Array.isArray(index?.results) ? index.results : [])
     .map((r) => String(r?.href || ''))
@@ -438,7 +416,7 @@ export async function fetchAllStadtZuerichJobs() {
     new Set(rows.map((r) => r.ref).filter(Boolean)),
     Math.min(delayMs, 300),
   );
-  let withOfficialText = 0;
+  let withoutText = 0;
 
   for (const row of rows) {
     const title = row.title;
@@ -450,17 +428,17 @@ export async function fetchAllStadtZuerichJobs() {
     // without a disambiguator the assemble step's slug-collision guard would
     // silently drop all but one of them.
     const jobSlug = slugify(`${title} stadt-zuerich zurigo ${row.ref || row.jobId}`);
-    // buildDescription() is synthesized (not scraped body text), but it
-    // splices in row.title/department/unit verbatim — sanitize the finished
-    // string as a defense-in-depth backstop against SF widget chrome leaking
-    // through those fields.
-    // The official ad text when the portal publishes this Referenz-Nr.; the
-    // tile summary otherwise. The summary made distinct postings with the
-    // same title and unit identical — 19/430 duplicate descriptions, and no
-    // tasks/profile/offer at all on any row (audit run 36528331656).
+    // The official ad text of this Referenz-Nr. is the vacancy text. The
+    // tile summary that used to stand in for it made distinct postings with
+    // the same title and unit identical (19/430 duplicate descriptions) and
+    // carried no tasks/profile/offer (audit run 36528331656); a tile the
+    // portal does not publish is not published here either (issue 5253).
     const officialText = row.ref ? officialTexts.get(String(row.ref)) : '';
-    if (officialText) withOfficialText += 1;
-    const descriptionText = officialText || sanitizeSuccessFactorsField(buildDescription(row));
+    if (!officialText) {
+      withoutText += 1;
+      continue;
+    }
+    const descriptionText = officialText;
     const employmentType = detectEmploymentType(title);
     const expLevel = detectExperienceLevel(title);
 
@@ -511,7 +489,10 @@ export async function fetchAllStadtZuerichJobs() {
     console.log(`  ✅ ${title.substring(0, 55)} — ${row.department || 'N/A'} / ${row.unit || 'N/A'}`);
   }
 
-  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length} (${withOfficialText} with the official ad text)`);
+  if (withoutText > 0) {
+    console.log(`  ⏭️ ${withoutText} tile(s) whose Referenz-Nr. has no official ad page — not published.`);
+  }
+  console.log(`\n📋 Total Stadt Zürich jobs discovered: ${jobs.length} (all with the official ad text)`);
   return jobs;
 }
 

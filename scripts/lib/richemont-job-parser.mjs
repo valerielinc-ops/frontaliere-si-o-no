@@ -251,7 +251,7 @@ async function fetchListingPage(context, page) {
  *
  * Returns `''` (empty string) on any failure: anti-bot, timeout, missing
  * markup, or text shorter than `MIN_DETAIL_DESCRIPTION_LEN`. The caller
- * falls back to the templated description.
+ * then does not publish the row.
  */
 async function fetchRichDescription(context, url) {
   let page;
@@ -316,13 +316,13 @@ async function enrichRowsWithDetail(context, rows) {
     if (text && text.length >= MIN_DETAIL_DESCRIPTION_LEN) {
       ok++;
     } else {
-      fallback++;
+      fallback++; // no readable body: the row is not published
     }
     if ((i + 1) % 25 === 0) {
-      console.log(`     progress: ${i + 1}/${rows.length} (${ok} rich, ${fallback} fallback)`);
+      console.log(`     progress: ${i + 1}/${rows.length} (${ok} rich, ${fallback} without body)`);
     }
   }
-  console.log(`   Detail enrichment: ${ok} rich, ${fallback} fallback to template`);
+  console.log(`   Detail enrichment: ${ok} rich, ${fallback} without a readable body`);
 }
 
 /**
@@ -331,8 +331,10 @@ async function enrichRowsWithDetail(context, rows) {
  * Playwright.
  *
  * When detail-page scraping yielded a rich body (≥ MIN_DETAIL_DESCRIPTION_LEN
- * chars), return that. Otherwise compose the legacy templated description
- * from listing-card fields. Never return an empty string.
+ * chars), return that; otherwise return ''. Only the posting's own text is
+ * published (issue 5253): the card-field template ("{title} Maison: …
+ * Open position at Compagnie Financière Richemont …") that used to stand in
+ * for a missing body is gone, and the caller does not publish such a row.
  */
 export function buildJobDescription({
   detailText = '',
@@ -345,16 +347,7 @@ export function buildJobDescription({
   // former whole-body space collapse published 144/174 postings as one
   // run-on paragraph (audit: no-structured-content).
   const rich = normalizeDescriptionBullets(normalizeDescriptionSpace(String(detailText || '').replace(/\u00a0/g, ' ')));
-  if (rich && rich.length >= MIN_DETAIL_DESCRIPTION_LEN) return rich;
-
-  const parts = [
-    title,
-    maison ? `Maison: ${maison}.` : '',
-    department ? `Department: ${department}.` : '',
-    locationText ? `Location: ${locationText}.` : '',
-    `Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).`,
-  ].filter(Boolean);
-  return parts.join(' ');
+  return rich && rich.length >= MIN_DETAIL_DESCRIPTION_LEN ? rich : '';
 }
 
 /**
@@ -466,6 +459,7 @@ export async function fetchAllRichemontJobs() {
   }
 
   const jobs = [];
+  let withoutBody = 0;
   for (const row of rows) {
     const title = normalizeSpace(row.title);
     if (!title || title.length < 3) continue;
@@ -487,6 +481,10 @@ export async function fetchAllRichemontJobs() {
       department,
       locationText,
     });
+    if (!description) {
+      withoutBody += 1;
+      continue;
+    }
     // Language of the vacancy body, not of its title: Richemont titles are
     // often English on French/German postings. The title decides only when
     // no detail body was read.
@@ -533,6 +531,9 @@ export async function fetchAllRichemontJobs() {
     jobs.push(job);
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} row(s) without a readable vacancy body — not published.`);
+  }
   console.log(`\n📋 Total Richemont jobs discovered: ${jobs.length}`);
   return jobs;
 }

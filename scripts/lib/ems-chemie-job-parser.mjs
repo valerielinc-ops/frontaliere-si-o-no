@@ -450,11 +450,15 @@ export function buildJob(raw) {
 
   const location = raw.location || 'Domat/Ems';
   const canton = location === 'Romanshorn' ? 'TG' : 'GR';
-  const description = raw.description || `${title} presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: ${location}.`;
-  // The vacancy body is German on the careercenter portal; the Italian seat
-  // blurb above is only the no-detail fallback. Declare the language of the
-  // text actually stored instead of leaving it to a downstream default.
-  const sourceLang = raw.sourceLang || (raw.description ? 'de' : 'it');
+  // Only the posting's own text is published (issue 5253): without the
+  // careercenter body a listing used to go out with an invented Italian
+  // blurb about the Domat/Ems seat; no job is built from it any more.
+  const description = String(raw.description || '').trim();
+  if (!description) return null;
+  // The vacancy body is German on the careercenter portal. Declare the
+  // language of the text actually stored instead of leaving it to a
+  // downstream default.
+  const sourceLang = raw.sourceLang || 'de';
 
   return {
     title,
