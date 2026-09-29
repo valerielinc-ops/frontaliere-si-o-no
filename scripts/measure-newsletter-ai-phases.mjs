@@ -16,7 +16,7 @@
  *
  * PRE replays the removed Phase 2 (batches of ≤3 cohorts per locale, one call
  * each, no deadline); POST runs the shipped composeCohortBriefings /
- * composeLocaleSubjects with generateLocaleBriefing / generateAISubject.
+ * composeLocaleSubjects with generateLocaleBriefing / generateAISubjects.
  *
  *   node scripts/measure-newsletter-ai-phases.mjs [--json]
  *
@@ -30,7 +30,7 @@ import {
   AI_PHASE_BUDGET_MS,
   composeCohortBriefings,
   composeLocaleSubjects,
-  generateAISubject,
+  generateAISubjects,
   generateLocaleBriefing,
 } from './send-newsletter.mjs';
 
@@ -40,6 +40,12 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const VARIANTS = ['concreto', 'curioso'];
 const PRE_BATCH_SIZE = 3;
 const EXCHANGE = { rate: 1.0595, previousRate: 1.0557 };
+
+/** A subjects answer: the JSON object, one subject per variant, that the one-call prompt asks for. */
+function subjectAnswer(opts) {
+  const variants = opts.jsonSchema?.schema?.required || [];
+  return JSON.stringify(Object.fromEntries(variants.map((v) => [v, '💼 Nuove offerte a Lugano questa settimana'])));
+}
 
 function cohortsFor(total) {
   const cohorts = new Map();
@@ -111,7 +117,7 @@ function serializedBroker(clock, { serviceMs, shortFirstAttempt = false }) {
       throw new Error('Codex CLI timed out at the caller deadline');
     }
     const system = messages[0]?.content || '';
-    if (/email subject line/i.test(system)) return '💼 Nuove offerte a Lugano questa settimana';
+    if (/email subject line/i.test(system)) return subjectAnswer(opts);
     const words = shortFirstAttempt && attempt === 1 ? 40 : 90;
     return `<p>${Array.from({ length: words }, (_, w) => `parola${w}`).join(' ')}.</p>`;
   }
@@ -185,7 +191,7 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
       variantIds: VARIANTS,
       briefingMap: phase2.briefingMap,
       exchangeRate: EXCHANGE,
-      generate: (ctx) => generateAISubject(ctx, { deadlineMs: subjectDeadlineMs, llm: broker.llm }),
+      generate: (ctx) => generateAISubjects(ctx, { deadlineMs: subjectDeadlineMs, llm: broker.llm }),
     });
     return {
       phase2Calls,
@@ -211,7 +217,7 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
 function lanedBroker(clock, { lanes, briefingMs, subjectMs }) {
   const freeAt = Array(lanes).fill(clock.now);
   const stats = { calls: 0, promptChars: 0 };
-  async function llm(messages) {
+  async function llm(messages, opts = {}) {
     stats.calls++;
     stats.promptChars += messages.reduce((n, m) => n + String(m.content || '').length, 0);
     const subject = /email subject line/i.test(messages[0]?.content || '');
@@ -220,7 +226,7 @@ function lanedBroker(clock, { lanes, briefingMs, subjectMs }) {
     const end = start + (subject ? subjectMs : briefingMs);
     freeAt[lane] = end;
     await clock.at(end);
-    if (subject) return '💼 Nuove offerte a Lugano questa settimana';
+    if (subject) return subjectAnswer(opts);
     return `<p>${Array.from({ length: 90 }, (_, w) => `parola${w}`).join(' ')}.</p>`;
   }
   return { llm, stats };
@@ -262,7 +268,7 @@ async function lanedPhases({ cohorts, lanes, briefingMs, subjectMs, together }) 
       variantIds: VARIANTS,
       ...source,
       exchangeRate: EXCHANGE,
-      generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs, llm: broker.llm }),
+      generate: (subjectCtx) => generateAISubjects(subjectCtx, { deadlineMs, llm: broker.llm }),
     });
     let subjects;
     if (together) {
