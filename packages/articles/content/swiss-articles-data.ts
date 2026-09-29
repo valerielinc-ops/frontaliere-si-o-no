@@ -21238,6 +21238,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'percorsi-impiego-pubblico',
+    category: 'pratico',
+    date: '2026-09-29T16:57:52.360Z',
+    image: '/images/blog/percorsi-impiego-pubblico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'premi-cassa-malati-2027-differenze-cantoni',
+    category: 'pratico',
+    date: '2026-09-29T17:31:47.343Z',
+    image: '/images/blog/premi-cassa-malati-2027-differenze-cantoni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'uss-freno-premi-cassa-malati-3',
+    category: 'novita',
+    date: '2026-09-29T17:51:01.145Z',
+    image: '/images/blog/uss-freno-premi-cassa-malati-3.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lavoratori-svizzeri-ia-2026',
+    category: 'novita',
+    date: '2026-09-29T18:06:15.988Z',
+    image: '/images/blog/lavoratori-svizzeri-ia-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

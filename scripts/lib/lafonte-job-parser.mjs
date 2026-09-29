@@ -10,6 +10,7 @@
 
 import { JSDOM } from 'jsdom';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { textFragmentUrl } from './text-fragment-url.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // HTML → Markdown converter
@@ -244,4 +245,23 @@ export function scrubLaFonteLegacyFrame(job = {}) {
 /** True when the stored record still carries a body read from the page. */
 export function laFonteHasSourceBody(job = {}) {
   return Boolean(scrubLaFonteLegacyFrame(job).description);
+}
+
+/**
+ * Public URL of one role card on the careers page. Every role is a card on
+ * the one page `inizia-con-noi`, under its `<h4>` title, with no id and no
+ * page of its own. The `?role=<slug>` query has been the job's identity
+ * (the shared crawler's fingerprint keeps the query, strips the fragment),
+ * but the page ignores it: every `?role=…` serves the same page, canonical
+ * `/inizia-con-noi`, so the link led to its top (parser-quality run
+ * 36571839273). The text fragment of the card's title takes the reader to the
+ * card; the query stays, so the identity and the stored records are unchanged.
+ *
+ * @param {string} careersUrl the careers page
+ * @param {string} slug the role slug (identity)
+ * @param {string} title the card title as the page prints it
+ * @returns {string}
+ */
+export function laFonteRoleUrl(careersUrl, slug, title) {
+  return textFragmentUrl(`${careersUrl}?role=${encodeURIComponent(slug)}`, title);
 }

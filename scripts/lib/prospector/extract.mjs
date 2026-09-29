@@ -90,6 +90,42 @@ export function textOf(html = '') {
 }
 
 /**
+ * Text of a vacancy body with its structure kept: one line per block
+ * (paragraph, heading, table row, `<br>`), list items as `- item` lines.
+ * `textOf` collapses everything to one line, and every description read from
+ * a detail page lost its lists that way: anker-swiss published 179 of its 209
+ * vacancies as one paragraph although each page lists its tasks, profile and
+ * benefits as `<ul>` (parser-quality run 36571839273: no-structured-content).
+ * Plain text with its own line breaks (a JSON-LD `description` written as
+ * `\r\n- item` lines, grischapersonal) keeps them too. Whitespace inside a line
+ * is collapsed as by `textOf`, so a comparison that normalises whitespace sees
+ * the same words.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function bodyTextOf(html = '') {
+  return String(html)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<li\b[^>]*>/gi, '\n- ')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/?(?:p|div|ul|ol|h[1-6]|tr|section|article|header|footer|table|tbody|thead|dl|dt|dd|blockquote)\b[^>]*>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/ ?\n ?/g, '\n')
+    // An item whose text sits in a nested block (`<li><p>…</p></li>`) starts
+    // on the next line: join it back to its marker.
+    .replace(/\n- ?\n+/g, '\n- ')
+    .replace(/\n- (?:- ?)+/g, '\n- ')
+    .replace(/\n(?:- ?)?(?=\n)/g, '')
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+}
+
+/**
  * All JSON-LD blocks in a document, flattened through `@graph`.
  * Malformed blocks are skipped — SME sites ship broken JSON-LD routinely and one
  * bad block must not cost the whole page.
@@ -304,7 +340,7 @@ export function structuredProseText(value = '') {
   for (let round = 0; round < 3 && /&(?:amp;)*lt;\/?[a-z][a-z0-9-]*(?:\s|&(?:amp;)*gt;|\/)/i.test(raw); round++) {
     raw = decodeEntities(raw);
   }
-  return textOf(raw);
+  return bodyTextOf(raw);
 }
 
 /**
@@ -330,7 +366,7 @@ function jobPostingBodyText(node) {
   for (const property of JOB_POSTING_BODY_PROPERTIES) {
     for (const value of proseValues(node?.[property])) add(value);
   }
-  return parts.join(' ');
+  return parts.join('\n');
 }
 
 /**
@@ -561,6 +597,26 @@ function isVacancyBodyClass(classValue = '') {
 }
 
 /**
+ * Whether an element id names a vacancy body: an id with `description` as a
+ * word of its own (`description__body`, `jobDescription`,
+ * `job-description`) and no UI component name. Never the word inside another
+ * one — the SAP cookie manager's `<div id="reqdescription">` («Ces cookies
+ * sont obligatoires…») is not an ad — and not the `…details` spellings, which
+ * ids use for the contact and metadata boxes around an ad (iPersonal's
+ * `VacancyDetails`: «Schriftliche Bewerbung», address and phone).
+ *
+ * @param {string} id
+ * @returns {boolean}
+ */
+function isVacancyBodyId(id = '') {
+  const value = String(id || '').trim();
+  if (!value || /\s/.test(value)) return false;
+  const parts = value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().split(/[-_]+/).filter(Boolean);
+  if (parts.some((part) => UI_COMPONENT_CLASS_PARTS.has(part))) return false;
+  return parts.includes('description');
+}
+
+/**
  * @typedef {{ start: number, contentStart: number, contentEnd: number }} BodyRange
  */
 
@@ -597,6 +653,76 @@ function isHiddenElement(raw = '') {
   const tokens = readAttr(raw, 'class').split(/\s+/).filter(Boolean);
   return tokens.some((token) => HIDDEN_CLASS_TOKENS.has(token))
     && !tokens.some((token) => RESPONSIVE_SHOW_TOKEN_RX.test(token));
+}
+
+/**
+ * Whether an element's inline style hides it (`display: none`,
+ * `visibility: hidden`). Used for vacancy-body CANDIDATES only: a container
+ * that names itself a description but is not displayed is a form's help text
+ * or a script-toggled message, not the rendered ad — InRecruiting (a-group)
+ * ships `<div class="geolocation-description text-danger" style="display:
+ * none">Select a data item from the drop-down list…</div>` in its application
+ * form, 212 characters that won on a page whose ad has no such class. Inline
+ * `display: none` also hides collapsed tabs and «read more» parts of real ads,
+ * so it is NOT applied to the descendants of a displayed body.
+ *
+ * @param {string} raw opening tag
+ * @returns {boolean}
+ */
+function isStyleHidden(raw = '') {
+  const style = readAttr(raw, 'style').toLowerCase().replace(/\s+/g, '');
+  return /(?:^|;)display:none(?:!important)?(?:;|$)/.test(style)
+    || /(?:^|;)visibility:hidden(?:!important)?(?:;|$)/.test(style);
+}
+
+/**
+ * id/class spelling of a block that lists OTHER postings: srg-ssr's
+ * `<section id="similar-jobs">`, a `similar-jobs-slider`, `related-jobs`,
+ * `job-recommendations`, `weitere-stellen`, `offres-similaires`.
+ */
+const RELATED_POSTINGS_NAME_RX = /(?:^|[-_ ])(?:similar|related|recommended|recommendations?|other|more|further|weitere|aehnliche|ähnliche|andere|autres|altre|simili|similaires|ulteriuras)[-_ ]?(?:jobs?|stellen(?:angebote)?|vacanc(?:y|ies)|positions?|openings?|offers?|offres|offerte|postings?|annunci|emplois|plazzas)(?:$|[-_ ])|(?:^|[-_ ])(?:jobs?|stellen|offres|emplois)[-_ ](?:similaires|simili|similar|related|recommendations?)(?:$|[-_ ])/i;
+
+/**
+ * Heading of a block that lists OTHER postings: kronenhof's
+ * `<section class="entry …"><h2>Similar jobs</h2>` carries the complete
+ * bodies of three more vacancies under that heading; srg-ssr's RTR pages
+ * title it «Ulteriuras plazzas».
+ */
+const RELATED_POSTINGS_HEADING_RX = /^(?:similar|related|recommended|other|more|further)\s+(?:jobs?|positions?|vacancies|openings|offers)\b|^(?:you might also like|this might also interest you)\b|^(?:ähnliche|aehnliche|weitere|andere)\s+(?:jobs?|stellen(?:angebote)?|stellen\s?inserate|angebote)\b|^(?:offres|postes|emplois)\s+similaires\b|^(?:autres|d'autres)\s+(?:offres|postes|emplois)\b|^(?:offerte|posizioni|annunci)\s+simili\b|^altre\s+(?:offerte|posizioni|opportunità)\b|^ulteriuras\s+plazzas\b/i;
+
+const RELATED_POSTINGS_CONTAINER_TAGS = new Set(['section', 'aside', 'div', 'ul', 'nav']);
+
+/**
+ * Whether an element is a block of OTHER postings (see the two spellings
+ * above): never part of this vacancy's body. A block that carries this
+ * vacancy's own title as a heading is not one, whatever it is called.
+ *
+ * @param {string} html
+ * @param {{ name: string, raw: string, end: number }} opening
+ * @param {{ contentEnd: number }} bounds
+ * @param {string[]} titles
+ * @returns {boolean}
+ */
+function isRelatedPostingsBlock(html, opening, bounds, titles) {
+  if (!RELATED_POSTINGS_CONTAINER_TAGS.has(opening.name)) return false;
+  const named = [readAttr(opening.raw, 'id'), ...readAttr(opening.raw, 'class').split(/\s+/)]
+    .some((token) => token && RELATED_POSTINGS_NAME_RX.test(token));
+  let headed = false;
+  if (!named && opening.name !== 'ul') {
+    const inner = html.slice(opening.end, Math.min(bounds.contentEnd, opening.end + 4000));
+    const first = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/i.exec(inner);
+    // The heading has to open the block, not sit deep inside a body.
+    headed = Boolean(first) && textOf(inner.slice(0, first.index)).length < 200
+      && RELATED_POSTINGS_HEADING_RX.test(textOf(first[2]));
+  }
+  if (!named && !headed) return false;
+  const own = titles.map((title) => textOf(title).toLowerCase()).filter(Boolean);
+  if (!own.length) return true;
+  const content = html.slice(opening.end, bounds.contentEnd);
+  for (const heading of content.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)) {
+    if (own.includes(textOf(heading[1]).toLowerCase())) return false;
+  }
+  return true;
 }
 
 /**
@@ -749,6 +875,77 @@ function vacancyDescriptionItempropRanges(html, index, { selectedTitle = null } 
   return owned.length ? owned : all.slice(0, 1);
 }
 
+/** Words a layout token needs to read as prose, not a field value. */
+const JOB_LAYOUT_TOKEN_MIN_WORDS = 40;
+
+/**
+ * Body ranges of a SuccessFactors Career Site Builder (jobs2web) ad: the
+ * prose `<span class="rtltextaligneligible">` of its `joblayouttoken` blocks.
+ * The layout splits one posting into a token per field — title, percentages,
+ * workplace, dates, salary, the vacancy text, the contact card — and marks
+ * only some of them `itemprop="description"`: on PostFinance and Mobiliar the
+ * only one is the recruiter's contact card (419 and 398 characters, with
+ * unresolved `[[cust_…]]` placeholders), while the vacancy text (1 431 and
+ * 3 600 characters) sits in a token without it. Field tokens are a few words
+ * each, so the prose floor keeps them out; the itemprop tokens are read as
+ * before and a token read twice is deduplicated by its range.
+ *
+ * @param {string} html
+ * @param {HtmlTagIndex} index
+ * @returns {BodyRange[]}
+ */
+function jobLayoutTokenBodyRanges(html, index) {
+  /** @type {BodyRange[]} */
+  const ranges = [];
+  const tokens = [];
+  for (const opening of index.openings) {
+    if (opening.name !== 'div' || !/\bjoblayouttoken\b/.test(readAttr(opening.raw, 'class'))) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (bounds && !isHiddenElement(opening.raw)) tokens.push({ start: opening.index, end: bounds.contentEnd });
+  }
+  if (!tokens.length) return ranges;
+  let consumedUntil = 0;
+  for (const opening of index.openings) {
+    if (opening.index < consumedUntil || opening.name !== 'span') continue;
+    if (!readAttr(opening.raw, 'class').split(/\s+/).includes('rtltextaligneligible')) continue;
+    if (!tokens.some((token) => opening.index > token.start && opening.index < token.end)) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    consumedUntil = bounds.end;
+    if (isHiddenElement(opening.raw)) continue;
+    const text = textOf(html.slice(opening.end, bounds.contentEnd));
+    if (text.split(/\s+/).filter((word) => /\p{L}{2,}/u.test(word)).length < JOB_LAYOUT_TOKEN_MIN_WORDS) continue;
+    ranges.push({ start: opening.index, contentStart: opening.end, contentEnd: bounds.contentEnd });
+  }
+  return ranges;
+}
+
+/**
+ * Body ranges of a BrassRing (Kenexa) job detail page: the answers of its
+ * `jobDetailTextArea` question/answer pairs («Your role», «Your team», «Your
+ * expertise», «About us»…), server-rendered as `<p class="… jobDetailTextArea
+ * answer">`. The rest of the page is an Angular application whose templates
+ * (`{{LimitExceededMessage}}`, «You have already applied for this job»…) are
+ * static text too: on UBS's `HomeWithPreLoad?…&jobid=…` pages they were read
+ * as an 8 000-character «body» around a 1 200-character ad.
+ *
+ * @param {HtmlTagIndex} index
+ * @returns {BodyRange[]}
+ */
+function jobDetailAnswerRanges(index) {
+  /** @type {BodyRange[]} */
+  const ranges = [];
+  for (const opening of index.openings) {
+    if (opening.name !== 'p') continue;
+    const classes = readAttr(opening.raw, 'class').split(/\s+/);
+    if (!classes.includes('jobDetailTextArea') || !classes.includes('answer')) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds || isHiddenElement(opening.raw)) continue;
+    ranges.push({ start: opening.index, contentStart: opening.end, contentEnd: bounds.contentEnd });
+  }
+  return ranges;
+}
+
 /**
  * The `title` (or `name`) a JobPosting microdata scope states for itself,
  * ignoring properties of items nested in it.
@@ -801,6 +998,9 @@ function distinctBodyTexts(html, bodyRanges, chromeRanges = []) {
   const texts = [];
   const seen = new Set();
   for (const range of outermost) {
+    // A candidate that sits inside chrome is chrome: the `description`
+    // teasers of a «similar jobs» slider, a body inside a hidden block.
+    if (cuts.some((cut) => range.start >= cut.start && range.contentEnd <= cut.end)) continue;
     let cursor = range.contentStart;
     let raw = '';
     for (const cut of cuts) {
@@ -809,8 +1009,8 @@ function distinctBodyTexts(html, bodyRanges, chromeRanges = []) {
       cursor = Math.max(cursor, cut.end);
     }
     raw += html.slice(cursor, range.contentEnd);
-    const text = textOf(raw);
-    const key = text.toLowerCase();
+    const text = bodyTextOf(raw);
+    const key = text.replace(/\s+/g, ' ').toLowerCase();
     if (!text || seen.has(key)) continue;
     seen.add(key);
     texts.push(text);
@@ -928,8 +1128,12 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // Extract balanced containers so nested lists/divs do not truncate the
   // vacancy at the first inner closing tag. The vocabulary is vendor-neutral;
   // Fachkraft's ff-detail-* classes are just one supported spelling.
+  // The vocabulary names the body in a class or, as often, in an id
+  // (InRecruiting's `<div id="description__body">` inside
+  // `class="card-body vacancy__sections"`, next to an application form that
+  // is three times longer than the ad).
   const openingRx = new RegExp(
-    `<(div|section|article)\\b([^>]*\\bclass\\s*=\\s*["'][^"']*(?:${DETAIL_BODY_CLASS_VOCABULARY.source})[^"']*["'][^>]*)>`,
+    `<(div|section|article)\\b([^>]*(?:\\bclass|\\sid)\\s*=\\s*["'][^"']*(?:${DETAIL_BODY_CLASS_VOCABULARY.source})[^"']*["'][^>]*)>`,
     'gi',
   );
   // Markup quoted inside a script is not rendered: Marriott's JSON-LD string
@@ -962,9 +1166,16 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     // vacancy container that happens to wrap it.
     // A hidden candidate (`class="job-description hidden"`) is not the
     // rendered page either.
+    const classValue = readAttr(match[0], 'class');
+    const classNamed = DETAIL_BODY_CLASS_VOCABULARY.test(classValue);
+    const idNamed = isVacancyBodyId(readAttr(match[0], 'id'));
+    // An id spelling that names no body (`VacancyDetails`) makes the element
+    // neither a candidate nor chrome: it is read, or cut, as before.
+    if (!classNamed && !idNamed) continue;
     if (/\b(?:cookie|cmplz|consent|meta)\b/i.test(detailClassAttr)
-      || !isVacancyBodyClass(readAttr(match[0], 'class'))
-      || isHiddenElement(match[0])) {
+      || (!idNamed && !isVacancyBodyClass(classValue))
+      || isHiddenElement(match[0])
+      || isStyleHidden(match[0])) {
       chromeRanges.push({ start: match.index, end });
       continue;
     }
@@ -978,13 +1189,24 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // teaser against a complete published body.
   const semanticIndex = indexHtmlTags(html);
   const selectedTitle = structuredRecords.length ? (structured.title || '') : '';
-  for (const range of vacancyDescriptionItempropRanges(html, semanticIndex, { selectedTitle })) bodyRanges.push(range);
+  const itempropRanges = vacancyDescriptionItempropRanges(html, semanticIndex, { selectedTitle });
+  for (const range of itempropRanges) bodyRanges.push(range);
+  for (const range of jobLayoutTokenBodyRanges(html, semanticIndex)) {
+    if (!bodyRanges.some((known) => known.start === range.start)) bodyRanges.push(range);
+  }
+  // BrassRing's question/answer pairs are the whole ad; the containers its
+  // Angular templates share a vocabulary with (`jobDetails…`) are not.
+  const answerRanges = jobDetailAnswerRanges(semanticIndex);
+  if (answerRanges.length) bodyRanges.splice(0, bodyRanges.length, ...answerRanges);
   // Form controls are never vacancy prose: an application form embedded in
   // the body (Jobalino ships one as a nested document) carries a nationality
   // select of ~250 country names that outweighed the vacancy itself.
   // Hidden elements are not the rendered page either: Phenom ships every
   // vacancy with a `hide job-expired-view` block saying the job "has been
   // filled", shown only once it really is.
+  // A block listing OTHER postings («Similar jobs», `#similar-jobs`) carries
+  // their titles and often their whole bodies (kronenhof: three complete ads
+  // under the one being read); it is never this vacancy's text.
   // A print-only rendering whose title element does not read exactly as this
   // vacancy's title is another ad (job.post.ch serves the same sample in
   // `printLayout` on every page), wherever it sits — also inside the <main>
@@ -997,7 +1219,8 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     const isChrome = FORM_CONTROL_TAGS.has(opening.name)
       || isHiddenElement(opening.raw)
       || (isPrintLayout(opening.raw)
-        && !printRegionCarriesTitle(html, semanticIndex, opening.end, bounds.contentEnd, titles));
+        && !printRegionCarriesTitle(html, semanticIndex, opening.end, bounds.contentEnd, titles))
+      || isRelatedPostingsBlock(html, opening, bounds, titles);
     if (isChrome) chromeRanges.push({ start: opening.index, end: bounds.end });
   }
   let blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
@@ -1022,7 +1245,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
       html,
       regions.map((region) => ({ start: region.start, contentStart: region.start, contentEnd: region.end })),
       chromeRanges,
-    ).join(' ');
+    ).join('\n');
     if (mainText) blocks.push(mainText);
   }
   const structuredDescriptions = structuredRecords.map((record) => record.description || '');
@@ -1045,8 +1268,8 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     : [];
   const descriptions = [
     ...blocks,
-    blocks.length > 1 ? blocks.join(' ') : '',
-    complementary.join(' '),
+    blocks.length > 1 ? blocks.join('\n') : '',
+    complementary.join('\n'),
     ...structuredDescriptions,
   ].filter(Boolean);
   descriptions.sort((a, b) => b.length - a.length);
@@ -1488,7 +1711,7 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
     const unitedDescription = distinctBodyTexts(
       block,
       vacancyDescriptionItempropRanges(block, blockIndex),
-    ).join(' ');
+    ).join('\n');
     const firstDescription = structuredProseText(prop('description'));
     out.push({
       title,

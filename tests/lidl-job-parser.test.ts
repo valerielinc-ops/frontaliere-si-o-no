@@ -23,6 +23,7 @@ import {
   getLidlSearchPageCount,
   extractLidlSearchLanguagePartitions,
   extractLidlApiHitFields,
+  restoreLidlSourceLocaleStructure,
 } from '../scripts/lib/lidl-job-parser.mjs';
 import {
   assertLidlAdapterParity,
@@ -492,10 +493,21 @@ describe('extractLidlApiHitFields', () => {
   });
 });
 
+// Minimised from the live LiCa body of team.lidl.ch/it/jobs/…-riazzino-748675
+// (2026-09-29). Discovery only seeds a vacancy whose body clears the shared
+// 50-word floor (source-body-floor.mjs), so the default hit carries a real one.
+const LICA_IT_BODY_TEXT = 'La vendita è la tua passione? Desideri fare del tuo meglio ogni giorno per offrire alla nostra clientela la migliore esperienza di acquisto possibile? Vuoi fare parte di un team indispensabile? Allora sei venuto proprio nel posto giusto. Ti aspettano interessanti e svariate possibilità di crescita professionale nel dinamico ambiente del commercio al dettaglio. Responsabilità del turno di lavoro secondo la pianificazione. Garantire la soddisfazione della clientela e gli standard di distribuzione nelle nostre filiali. Gestione ordini e presentazione delle merci.';
+const LICA_IT_BODY_HTML = '<div><div><h2><u>Introduzione</u></h2></div><div><p>La vendita è la tua passione? Desideri fare del tuo meglio ogni giorno per offrire alla nostra clientela la migliore esperienza di acquisto possibile? Vuoi fare parte di un team indispensabile? Allora sei venuto proprio nel posto giusto. Ti aspettano interessanti e svariate possibilità di crescita professionale nel dinamico ambiente del commercio al dettaglio.</p></div><div><h2><u>La posizione</u></h2></div><div><ul><li>Responsabilità del turno di lavoro secondo la pianificazione</li><li>Garantire la soddisfazione della clientela e gli standard di distribuzione nelle nostre filiali</li><li>Gestione ordini e presentazione delle merci</li><li>Attività di cassa</li></ul></div></div>';
+
+function firstWords(count: number) {
+  // Counted like sourceBodyWordCount(): tokens carrying a letter or a digit.
+  return LICA_IT_BODY_TEXT.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).slice(0, count).join(' ');
+}
+
 function licaHit(id: number, overrides: Record<string, unknown> = {}) {
   return {
     title: `Collaboratore vendita ${id}`,
-    descResponsibilities: '<ul><li>Consulenza alla clientela e gestione accurata della merce.</li><li>Collaborazione quotidiana con il team della filiale.</li></ul>',
+    descResponsibilities: LICA_IT_BODY_HTML,
     language: 'it',
     requisitionId: String(id),
     jobDetailUrl: `https://team.lidl.ch/it/jobs/collaboratore-vendita-lugano-${id}`,
@@ -599,6 +611,27 @@ describe('Lidl authoritative LiCa discovery', () => {
     expect(result.urls).toHaveLength(21);
     expect(result.jobsFromApi).toHaveLength(21);
     expect(Object.keys(result.seedMetaByUrl)).toHaveLength(21);
+  });
+
+  it('withholds a vacancy whose body is under 50 words even when it is longer than the old 50-character gate', async () => {
+    // 49 words (~300 characters) cleared the former `body.length < 50` check and
+    // would have been published as a thin page; 50 words is the floor.
+    const thin = licaHit(74000, { descResponsibilities: `<p>${firstWords(49)}</p>` });
+    const atFloor = licaHit(74001, { descResponsibilities: `<p>${firstWords(50)}</p>` });
+    expect(firstWords(49).length).toBeGreaterThan(50);
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      const jobs = [thin, atFloor];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: jobs.length,
+        filters: language ? undefined : languageFilters({ it: jobs.length }),
+      })), { status: 200 });
+    };
+    const result = await fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 });
+    expect(result).toMatchObject({ rawFetched: 2, withheldThinBody: 1, droppedMalformed: 0 });
+    expect(result.urls).toEqual([expect.stringMatching(/74001$/)]);
+    expect(result.jobsFromApi).toEqual([expect.objectContaining({ url: expect.stringMatching(/74001$/) })]);
+    expect(Object.keys(result.seedMetaByUrl)).toEqual([expect.stringMatching(/74001$/)]);
   });
 
   it('fails closed on partial pagination, total drift, malformed URLs, and HTTP failure', async () => {
@@ -801,5 +834,41 @@ describe('Lidl adapter persistence', () => {
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('restoreLidlSourceLocaleStructure', () => {
+  // Minimised from team.lidl.ch/fr/jobs/…-collombey-muraz-709685 (2026-09-29):
+  // the LiCa API body keeps one item per line, the stored `fr` slot had the
+  // list collapsed into prose after the base crawler.
+  const apiBody = [
+    'Introduction',
+    'Tu es passionné par la vente ?',
+    'Ta mission',
+    '',
+    '- Responsable d\'équipe selon la planification',
+    '',
+    '- Assurer la satisfaction des clients et les standards de la vente dans nos magasins',
+    '',
+    '- Encaissement',
+    'Notre offre',
+    'Chez Lidl Suisse, il y a de la place pour les ambitions et les innovations.',
+  ].join('\n');
+  const collapsed = 'Introduction\nTu es passionné par la vente ? Ta mission\n- Responsable d\'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Encaissement Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations.';
+  const apiJob = { sourceLang: 'fr', description: apiBody };
+
+  it('puts the structured API body back into its own language slot', () => {
+    const job = { descriptionByLocale: { fr: collapsed, it: 'Introduzione\n- Responsabile di squadra\n- Cassa' } };
+    expect(restoreLidlSourceLocaleStructure(job, apiJob)).toBe(true);
+    expect(job.descriptionByLocale.fr).toBe(apiBody);
+    expect(job.descriptionByLocale.it).toBe('Introduzione\n- Responsabile di squadra\n- Cassa');
+  });
+
+  it('leaves a slot that already carries the list, and an API body without one', () => {
+    const structured = { descriptionByLocale: { fr: apiBody } };
+    expect(restoreLidlSourceLocaleStructure(structured, apiJob)).toBe(false);
+    const flatApi = { descriptionByLocale: { fr: collapsed } };
+    expect(restoreLidlSourceLocaleStructure(flatApi, { sourceLang: 'fr', description: 'Texte sans liste.' })).toBe(false);
+    expect(flatApi.descriptionByLocale.fr).toBe(collapsed);
   });
 });

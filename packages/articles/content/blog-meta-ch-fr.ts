@@ -7070,6 +7070,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlement suisse : guide Curia Vista et Open Data',
     'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Des députés de 1848 aux votes CN : comment utiliser le portail officiel pour suivre les actes, les commissions et les délégations UE/OTAN.',
     'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Le Palais fédéral suisse à Berne, siège du Conseil national et du Conseil des États',
+    'blog.article.percorsi-impiego-pubblico.title': 'Travailler au sein de l\'Administration fédérale : opportunités et formation',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Administration fédérale offre 50 formations professionnelles, des stages pour les étudiants récemment diplômés et sept semaines de vacances.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Équipe au travail dans un bureau de l\'administration fédérale suisse',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Caisse-maladie 2027 : jusqu’à 10\'000 francs de différence',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'En 2027, la moyenne nationale sera de 16\'450 francs, mais entre Genève et Zoug, la différence pour la même famille frôle les 10\'000 francs.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famille suisse examinant la facture d\'assurance maladie au Tessin',
+    'blog.article.uss-freno-premi-cassa-malati-3.title': 'USS : frein législatif aux primes à 3%',
+    'blog.article.uss-freno-premi-cassa-malati-3.excerpt': 'L\'USS demande au Conseil des États de limiter à 3% les primes LAMal. Au Tessin, l\'augmentation prévue pour 2027 est de 3,7%.',
+    'blog.article.uss-freno-premi-cassa-malati-3.imageAlt': 'Berne, siège du Parlement suisse, au premier plan une calculatrice et une carte d\'assurance.',
+    'blog.article.lavoratori-svizzeri-ia-2026.title': 'Travailleurs suisses et IA : 28% l’utilisent, mais elle ne convainc pas',
+    'blog.article.lavoratori-svizzeri-ia-2026.excerpt': '28% des travailleurs en Suisse utilisent l’IA chaque jour, mais la conviction fait défaut. Les données de l’étude PwC \'Hopes and Fears\' 2026 sur les employés.',
+    'blog.article.lavoratori-svizzeri-ia-2026.imageAlt': 'Travailleur suisse dans un bureau aux prises avec l\'intelligence artificielle générative',
 };
 
 export default blogMetaChFr;

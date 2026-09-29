@@ -55,6 +55,7 @@ import {
   buildLaFonteDescription,
   scrubLaFonteLegacyFrame,
   laFonteHasSourceBody,
+  laFonteRoleUrl,
 } from './lib/lafonte-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -325,8 +326,9 @@ async function fetchLaFonteJobs() {
     const slug = slugify(listing.title, locationSuffix);
 
     // Each job needs a unique URL for dedup in the base crawler's fingerprintJob(),
-    // which uses canonicalizeJobUrl (strips hashes but preserves query params).
-    const jobUrl = `${CAREERS_URL}?role=${encodeURIComponent(slug)}`;
+    // which uses canonicalizeJobUrl (strips hashes but preserves query params);
+    // the text fragment of the title takes the reader to the card.
+    const jobUrl = laFonteRoleUrl(CAREERS_URL, slug, listing.title);
 
     const job = {
       title: listing.title,
@@ -408,7 +410,7 @@ async function mergeJobs(discoveredJobs) {
       // Card without a body this run: keep the body read from the page on an
       // earlier run, or leave the job out — never a made-up text.
       if (ex && laFonteHasSourceBody(ex)) {
-        merged.push(scrubLaFonteLegacyFrame(ex));
+        merged.push(scrubLaFonteLegacyFrame({ ...ex, url: discovered.url || ex.url }));
         updated++;
       } else {
         withoutSourceBody++;
@@ -426,6 +428,8 @@ async function mergeJobs(discoveredJobs) {
         location: discovered.location || ex.location,
         canton: HQ.canton,
         country: 'CH',
+        // The card's URL as this run builds it (same `?role=` identity).
+        url: discovered.url || ex.url,
         applyUrl: discovered.applyUrl || ex.applyUrl,
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,

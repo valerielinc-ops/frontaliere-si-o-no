@@ -5,7 +5,8 @@
  * screen that never mentions a video, so the GPT rewarded ad must not start
  * by itself: the visitor opts in explicitly once the slot is ready, a slot
  * that is not ready in time hands the click to the employer, and the reward
- * continues to the application with no further click.
+ * opens the application in a new tab: with no further click while the page
+ * holds a click's activation, otherwise from one click (2026-09-29).
  */
 
 import { readFileSync } from 'node:fs';
@@ -43,6 +44,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 }));
 
 import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
+import { setUserActivation } from '../../helpers/userActivation';
 import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 import { itReady } from '@/services/i18n';
 
@@ -81,10 +83,14 @@ beforeAll(async () => {
 beforeEach(() => {
   mocks.props = null;
   vi.clearAllMocks();
+  // A reward inside a click's activation opens the employer at once; the
+  // `handoff` card without one is covered in RewardedApplicationOffer.test.tsx.
+  setUserActivation(true);
 });
 
 afterEach(() => {
   cleanup();
+  setUserActivation(null);
   vi.restoreAllMocks();
   document.body.style.overflow = '';
 });
@@ -235,7 +241,57 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     if (detail) expect(event).toEqual(expect.objectContaining({ detail }));
   });
 
-  it('continues to the employer on the authoritative Google reward, with no further click', () => {
+  it('keeps the offer while the parent opens the employer directly, and shows the open card when the tab is blocked', async () => {
+    // PR #10366 review: a direct hand-off (no ad, paid fallback off) opened in
+    // a new tab the browser blocks must not lose the employer.
+    let resolveOpened: (ok: boolean) => void = () => {};
+    const onUnavailable = vi.fn(() => new Promise<boolean>((resolve) => { resolveOpened = resolve; }));
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} onContinue={onContinue} />);
+
+    callProp('onUnavailable', 'no_fill', { requestId: 5 } satisfies Info);
+    callProp('onUnavailable', 'no_fill', { requestId: 5 } satisfies Info);
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+    expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
+
+    await act(async () => {
+      resolveOpened(false);
+      await Promise.resolve();
+    });
+
+    const card = screen.getByTestId('rewarded-application-handoff');
+    expect(card).toHaveTextContent('Apri «Fisioterapista diplomato»');
+    expect(card).toHaveTextContent('L’offerta si apre in una nuova scheda e questa pagina resta aperta.');
+    expect(card).not.toHaveTextContent('sbloccata');
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_mode: 'direct_external', reason: 'no_fill' }),
+    ]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ handoff_reason: 'tab_not_opened' }),
+    ]);
+
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
+  });
+
+  it('shows no open card when the parent confirms the direct hand-off tab', async () => {
+    const onUnavailable = vi.fn(() => Promise.resolve(true));
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+
+    callProp('onUnavailable', 'no_fill', { requestId: 5 } satisfies Info);
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([]);
+  });
+
+  it('continues to the employer on the authoritative Google reward, with no further click inside a click activation', () => {
     const onContinue = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
     callProp('onReady', { requestId: 9 } satisfies Info);
@@ -254,6 +310,123 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     // The close that follows the grant does not continue twice.
     callProp('onClosed', true, { requestId: 9 } satisfies Info);
     expect(onContinue).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    ['no click activation left', false],
+    ['a browser without navigator.userActivation', null],
+  ])('with %s, asks for one click that opens the employer in a new tab', (_label, activation) => {
+    // A new tab opened without a click's activation is blocked by the browser:
+    // the reward asks for that click instead of leaving the site in this tab.
+    setUserActivation(activation);
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
+    expect(onContinue).not.toHaveBeenCalled();
+    expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
+    const card = screen.getByTestId('rewarded-application-handoff');
+    expect(card).toHaveTextContent('Candidatura a «Fisioterapista diplomato» sbloccata');
+    expect(card).toHaveTextContent('L’offerta si apre in una nuova scheda e questa pagina resta aperta.');
+
+    const open = screen.getByTestId('rewarded-application-handoff-open');
+    expect(open).toHaveTextContent('Apri l’offerta');
+    fireEvent.click(open);
+    fireEvent.click(open);
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+
+    callProp('onClosed', true, { requestId: 9 } satisfies Info);
+    expect(onContinue).toHaveBeenCalledTimes(1);
+  });
+
+  it('lets the visitor close the click card after the reward, with the access kept', () => {
+    setUserActivation(false);
+    const onContinue = vi.fn();
+    const onDismiss = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} onDismiss={onDismiss} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+
+    expect(onDismiss).toHaveBeenCalledTimes(1);
+    expect(onContinue).not.toHaveBeenCalled();
+    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
+  });
+
+  it('tracks the automatic new tab, and keeps the redirect screen once the tab took the foreground', async () => {
+    const onContinue = vi.fn(() => Promise.resolve(true));
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    await act(async () => {});
+
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_application_handoff_auto')).toEqual([expect.objectContaining(adContext)]);
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([]);
+    expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+  });
+
+  it('brings the open card back when no new tab took the foreground despite the activation', async () => {
+    // Safari may block window.open although navigator.userActivation.isActive
+    // is true; with noopener the call returns null, so the parent reports it.
+    const onContinue = vi.fn(() => Promise.resolve(false));
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    await act(async () => {});
+
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_mode: 'auto' }),
+    ]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_reason: 'tab_not_opened' }),
+    ]);
+    const open = screen.getByTestId('rewarded-application-handoff-open');
+    fireEvent.click(open);
+    expect(onContinue).toHaveBeenCalledTimes(2);
+    expect(tracked('rewarded_application_handoff_clicked')).toEqual([expect.objectContaining(adContext)]);
+  });
+
+  it('tracks the open card shown for lack of activation, and its click', () => {
+    setUserActivation(false);
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_reason: 'no_activation' }),
+    ]);
+    expect(tracked('rewarded_application_handoff_auto')).toEqual([]);
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_application_handoff_clicked')).toHaveLength(1);
+  });
+
+  it('starts on the open card for an access already granted, with no ad and no offer view', () => {
+    // A click resumed after the recovery reload whose access is still valid:
+    // no activation survives the reload, so one click opens the new tab.
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} resumed startInHandoff />);
+
+    expect(screen.getByTestId('rewarded-application-handoff')).toHaveTextContent('Candidatura a «Fisioterapista diplomato» sbloccata');
+    expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
+    expect(mocks.props).toBeNull();
+    expect(tracked('rewarded_application_offer_viewed')).toEqual([]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ handoff_reason: 'resume_entitlement', jobId: 'job-1' }),
+    ]);
+    expect(onContinue).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
   });
 
   it('offers a compact retry when the video is closed before the reward', () => {

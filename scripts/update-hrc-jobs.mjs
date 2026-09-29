@@ -9,6 +9,7 @@ import {
   fetchAllHrcJobs,
   isHrcJob,
   isTrustedDomain,
+  prepareHrcExistingJobs,
   HRC_KEY,
   HRC_COMPANY_NAME,
 } from './lib/hrc-job-parser.mjs';
@@ -23,6 +24,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllHrcJobs,
   isCompanyJob: isHrcJob,
   isTrustedDomain,
+  prepareExistingJobs: prepareHrcExistingJobs,
   defaultSourceLang: 'fr',
 }).catch((err) => {
   console.error(`❌ HRC crawler failed: ${err?.message || err}`);

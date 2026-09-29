@@ -157,6 +157,43 @@ export function parseDennerDetailPage(html = '') {
 }
 
 /**
+ * The vacancy's own store as the detail page prints it in the `<address>`
+ * block beside the Apply button:
+ *
+ *   <address><p>Denner AG</p><p>Filiale 691</p>
+ *     <div>Hinterdorfstrasse 40</div><div><span>8405 Winterthur</span></div></address>
+ *
+ * Denner posts one vacancy per store, so a city with several stores carries
+ * several postings with the same title and the same template body (two
+ * "Verkäufer*in" in Winterthur: Hinterdorfstrasse 40 / 8405 and
+ * Schützenstrasse 39 / 8400). The store is the only per-vacancy fact that
+ * tells them apart; the crawler used to drop it and publish a made-up
+ * `streetAddress` ("Denner Winterthur").
+ *
+ * @param {string} html
+ * @returns {{ label: string, streetAddress: string, postalCode: string, locality: string } | null}
+ */
+export function extractDennerWorkplace(html = '') {
+  const block = /<address\b[^>]*>([\s\S]*?)<\/address>/i.exec(String(html || ''));
+  if (!block) return null;
+  const lines = block[1]
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<[^>]+>/g, '\n')
+    .split('\n')
+    .map((line) => normalizeSpace(stripHtml(line)))
+    .filter(Boolean);
+  const postalIndex = lines.findIndex((line) => /^\d{4}\s+\S/.test(line));
+  if (postalIndex < 1) return null;
+  const [, postalCode, locality] = /^(\d{4})\s+(.+)$/.exec(lines[postalIndex]);
+  return {
+    label: lines.slice(0, postalIndex + 1).join(', '),
+    streetAddress: lines[postalIndex - 1],
+    postalCode,
+    locality,
+  };
+}
+
+/**
  * Check if a job belongs to Denner.
  * @param {object} job
  * @returns {boolean}
