@@ -5470,6 +5470,12 @@ export function registrableDomain(host) {
   return parts.slice(-2).join('.');
 }
 
+const NOISY_JOB_URL_PARAMS = Object.freeze([
+  'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+  'gclid', 'fbclid', 'mc_cid', 'mc_eid', '_ga', '_gl', 'trk', 'tracking',
+  'source', 'medium', 'campaign',
+]);
+
 export function canonicalizeJobUrl(rawUrl = '') {
   let u;
   try {
@@ -5477,12 +5483,7 @@ export function canonicalizeJobUrl(rawUrl = '') {
   } catch {
     return '';
   }
-  const noisyParams = [
-    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-    'gclid', 'fbclid', 'mc_cid', 'mc_eid', '_ga', '_gl', 'trk', 'tracking',
-    'source', 'medium', 'campaign',
-  ];
-  for (const key of noisyParams) u.searchParams.delete(key);
+  for (const key of NOISY_JOB_URL_PARAMS) u.searchParams.delete(key);
   u.hash = '';
   const pathClean = u.pathname.replace(/\/+$/, '');
   return `${u.origin}${pathClean}${u.search ? `?${u.searchParams.toString()}` : ''}`.toLowerCase();
@@ -5666,10 +5667,13 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     // Every other rule below reads `text=…` as nothing, so all the ads of such
     // a page fell back to the hash-stripped canonicalizeJobUrl and shared ONE
     // fingerprint — one slug-registry entry for several postings. The text is
-    // the posting's identity there. Only on a URL without a query: a query
-    // already tells the documents apart and keeps its current key (la-fonte
-    // `?role=…#:~:text=…`, grischapersonal and leukerbad `?jobid=…`).
-    const textDirective = u.search ? '' : textFragmentIdentity(hashRaw);
+    // the posting's identity there. Tracking parameters do not identify the
+    // document, so remove them before deciding whether the query is meaningful;
+    // a real query still keeps its current key (la-fonte `?role=…#:~:text=…`,
+    // grischapersonal and leukerbad `?jobid=…`).
+    const queryWithoutTracking = new URL(u);
+    for (const key of NOISY_JOB_URL_PARAMS) queryWithoutTracking.searchParams.delete(key);
+    const textDirective = queryWithoutTracking.search ? '' : textFragmentIdentity(hashRaw);
     if (textDirective) {
       const pathKey = (u.pathname.replace(/\/+$/, '') || '/').toLowerCase();
       return `${registrableDomain(host)}|${pathKey}#text=${textDirective}`;

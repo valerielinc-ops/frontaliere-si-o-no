@@ -95,4 +95,9 @@ describe('extractJobIdentityFromUrl — text-fragment identity', () => {
     expect(extractJobIdentityFromUrl('https://example.ch/list#:~:text=prefix-,Ruolo%20-'))
       .toBe('example.ch|/list#text=ruolo -');
   });
+
+  it('keeps text-fragment identity when the query contains only tracking parameters', () => {
+    expect(extractJobIdentityFromUrl('https://example.ch/list?utm_source=x#:~:text=Ruolo'))
+      .toBe('example.ch|/list#text=ruolo');
+  });
 });
