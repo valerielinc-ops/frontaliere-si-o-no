@@ -204,14 +204,19 @@ async function fetchDecathlonDetailDescription(url) {
  */
 export function extractDecathlonDetailDescription(html = '') {
   const source = String(html || '');
-  const blocks = [...source.matchAll(/<section\b[^>]*\bdata-logic-value="html_block"[^>]*>([\s\S]*?)<\/section>/gi)]
-    .map((match) => match[1].trim())
-    .filter((block) => stripHtml(block).trim());
-  const fromBlocks = blocks.join('\n');
-  const fromJsonLd = extractJobPostingDescription(source);
-  return stripHtml(fromBlocks).trim().length >= stripHtml(fromJsonLd).trim().length
-    ? fromBlocks
-    : fromJsonLd;
+  // Text, not markup: headings become their own lines and list items `• `
+  // lines (the marker the pipeline's normalizeDescriptionBullets restores
+  // after the caller collapses whitespace), no tag survives.
+  const toText = (fragment) => stripHtml(fragment)
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  const fromBlocks = [...source.matchAll(/<section\b[^>]*\bdata-logic-value="html_block"[^>]*>([\s\S]*?)<\/section>/gi)]
+    .map((match) => toText(match[1]))
+    .filter(Boolean)
+    .join('\n\n');
+  const fromJsonLd = toText(extractJobPostingDescription(source));
+  return fromBlocks.length >= fromJsonLd.length ? fromBlocks : fromJsonLd;
 }
 
 /**

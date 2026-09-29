@@ -37,6 +37,19 @@ describe('Decathlon detail description', () => {
     expect(description).not.toContain('Rejoins-nous');
   });
 
+  it('returns text, not rich-text markup, with the section titles and list items kept', () => {
+    const description = extractDecathlonDetailDescription(DETAIL_HTML);
+    expect(description).not.toMatch(/<\/?(?:h[1-6]|p|section|ul|li|div|b)\b/i);
+    expect(description).toMatch(/^Mission$/m);
+    expect(description).toMatch(/^Profil$/m);
+    expect(description).toMatch(/^• Velo-Fanatiker: Du bist selbst aktiver Radfahrer/m);
+    expect(description).toContain('Beratung & Verkauf:');
+    const minimal = extractDecathlonDetailDescription('<section data-logic-value="html_block"><h2>Mission</h2><p>Profil</p></section>');
+    expect(minimal).toContain('Mission');
+    expect(minimal).toContain('Profil');
+    expect(minimal).not.toMatch(/<h2|<p|<section/);
+  });
+
   it('keeps the JSON-LD body when the page has no html_block', () => {
     const jsonLdOnly = DETAIL_HTML.replace(/<section\b[\s\S]*<\/section>/, '');
     expect(extractDecathlonDetailDescription(jsonLdOnly)).toContain('Deine Mission bei uns:');

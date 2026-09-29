@@ -439,7 +439,49 @@ export function parseAxaJibeListing(json) {
       postedDate: String(data.posted_date || '').slice(0, 10),
     });
   }
-  return { total: Number(json?.totalCount) || 0, rows };
+  return { total: Number(json?.totalCount) || 0, seen: jobs.length, rows };
+}
+
+/**
+ * Every Swiss posting of the listing API, or a thrown error. The API's
+ * `totalCount` counts all postings of the filter (a Dublin one slipped into
+ * the Swiss filter on 2026-09-29), so completeness is measured on the entries
+ * RECEIVED, not on the Swiss rows kept. A page that fails, or a listing that
+ * ends before `totalCount` entries arrived, fails the crawl: returning the
+ * pages read so far would let the runner persist a truncated corpus (100 of
+ * ~157 postings when page 2 has a transient error) and drop the rest.
+ *
+ * @param {{ fetchJson: (url: string) => Promise<object>, pageSize?: number, maxPages?: number, pause?: () => Promise<void>, log?: (line: string) => void }} io
+ */
+export async function fetchAxaJibeListings({
+  fetchJson,
+  pageSize = 100,
+  maxPages = 20,
+  pause = async () => {},
+  log = () => {},
+}) {
+  const rows = new Map();
+  let total = 0;
+  let received = 0;
+  for (let page = 1; page <= maxPages; page += 1) {
+    const url = buildAxaJibeListingUrl(page, pageSize);
+    let parsed;
+    try {
+      parsed = parseAxaJibeListing(await fetchJson(url));
+    } catch (error) {
+      throw new Error(`AXA listing page ${page} failed after ${received}/${total || '?'} postings: ${error?.message || error}`);
+    }
+    total = parsed.total || total;
+    received += parsed.seen;
+    for (const row of parsed.rows) if (!rows.has(row.reqId)) rows.set(row.reqId, row);
+    log(`page ${page}: ${parsed.seen} postings, ${parsed.rows.length} Swiss (${received}/${total || '?'})`);
+    if (parsed.seen === 0 || (total && received >= total)) break;
+    await pause();
+  }
+  if (!total || received < total) {
+    throw new Error(`AXA listing incomplete: ${received}/${total || '?'} postings received — not persisting a truncated corpus`);
+  }
+  return [...rows.values()];
 }
 
 /**

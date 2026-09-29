@@ -22,7 +22,7 @@ import {
   buildAxaRegeneratedSlug,
   buildAxaJob,
 } from '@/scripts/update-axa-jobs.mjs';
-import { parseAxaJibeDetailPage, parseAxaJibeListing } from '@/scripts/lib/axa-job-parser.mjs';
+import { fetchAxaJibeListings, parseAxaJibeDetailPage, parseAxaJibeListing } from '@/scripts/lib/axa-job-parser.mjs';
 
 interface AxaRowFixture {
   url: string;
@@ -262,5 +262,37 @@ describe('AXA careers.axa.com (Jibe) source', () => {
     expect(detail.description).toContain('Das erwartet dich\n\n• Bedürfnisorientierte Beratung von Versicherungskund:innen');
     expect(detail.description).toContain('• Überzeugendes Auftreten');
     expect(detail.description).not.toMatch(/&[a-z]+;/i);
+  });
+
+  describe('listing completeness', () => {
+    const posting = (id: number, country = 'CH') => ({
+      data: { req_id: String(id), title: `Kundenberater:in ${id}`, language: 'de-de', city: 'BERN', postal_code: '3008', country_code: country, description: 'Das erwartet dich' },
+    });
+    const page = (from: number, count: number, totalCount: number, foreign = 0) => ({
+      totalCount,
+      jobs: [
+        ...Array.from({ length: count - foreign }, (_, i) => posting(from + i)),
+        ...Array.from({ length: foreign }, (_, i) => posting(90000 + i, 'IE')),
+      ],
+    });
+
+    it('fails, instead of returning 100 of 157, when page 2 errors', async () => {
+      const fetchJson = async (url: string) => {
+        if (url.includes('page=1&')) return page(1, 100, 157);
+        throw new Error('HTTP 503');
+      };
+      await expect(fetchAxaJibeListings({ fetchJson })).rejects.toThrow(/page 2 failed after 100\/157/);
+    });
+
+    it('fails when the listing ends before totalCount postings arrived', async () => {
+      const fetchJson = async (url: string) => (url.includes('page=1&') ? page(1, 100, 157) : { totalCount: 157, jobs: [] });
+      await expect(fetchAxaJibeListings({ fetchJson })).rejects.toThrow(/incomplete: 100\/157/);
+    });
+
+    it('returns every Swiss posting once all totalCount postings arrived, a foreign one included', async () => {
+      const fetchJson = async (url: string) => (url.includes('page=1&') ? page(1, 100, 158) : page(101, 58, 158, 1));
+      const rows = await fetchAxaJibeListings({ fetchJson });
+      expect(rows).toHaveLength(157);
+    });
   });
 });

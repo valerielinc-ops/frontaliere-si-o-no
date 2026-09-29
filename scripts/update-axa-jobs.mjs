@@ -51,8 +51,7 @@ import {
   inferAxaCanton,
   inferAxaCategory,
   extractUuidFromUrl,
-  buildAxaJibeListingUrl,
-  parseAxaJibeListing,
+  fetchAxaJibeListings,
   parseAxaJibeDetailPage,
   extractAxaJibeJobId,
   AXA_CAREERS_BASE_URL,
@@ -147,36 +146,23 @@ async function fetchText(url, retries = 2) {
 }
 
 /**
- * Page through the careers.axa.com listing API (country=Switzerland) until the
- * reported total is reached or a page adds nothing new.
+ * Every Swiss posting of the careers.axa.com listing API. Throws — and the
+ * crawl exits non-zero before anything is merged or written — when a page
+ * fails or fewer postings than `totalCount` arrived (fetchAxaJibeListings).
  */
 async function fetchAllListings() {
-  const all = new Map();
-  let total = 0;
-  for (let page = 1; page <= LISTING_MAX_PAGES; page += 1) {
-    const url = buildAxaJibeListingUrl(page, LISTING_PAGE_SIZE);
-    console.log(`\n📋 Fetching listing page ${page}: ${url}`);
-    let parsed;
-    try {
-      parsed = parseAxaJibeListing(JSON.parse(await fetchText(url)));
-    } catch (err) {
-      console.log(`  ⚠️ Failed to fetch listing page ${page}: ${err.message}`);
-      break;
-    }
-    total = parsed.total || total;
-    let added = 0;
-    for (const row of parsed.rows) {
-      if (!all.has(row.reqId)) {
-        all.set(row.reqId, row);
-        added += 1;
-      }
-    }
-    console.log(`  ✅ ${parsed.rows.length} Swiss jobs on this page (${all.size}/${total || '?'})`);
-    if (added === 0 || (total && all.size >= total)) break;
-    await sleep(DETAIL_DELAY_MS);
-  }
-  console.log(`\n📊 Total unique Swiss jobs: ${all.size}`);
-  return [...all.values()];
+  const rows = await fetchAxaJibeListings({
+    fetchJson: async (url) => {
+      console.log(`\n📋 Fetching listing: ${url}`);
+      return JSON.parse(await fetchText(url));
+    },
+    pageSize: LISTING_PAGE_SIZE,
+    maxPages: LISTING_MAX_PAGES,
+    pause: () => sleep(DETAIL_DELAY_MS),
+    log: (line) => console.log(`  ✅ ${line}`),
+  });
+  console.log(`\n📊 Total unique Swiss jobs: ${rows.length}`);
+  return rows;
 }
 
 /**
