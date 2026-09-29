@@ -2445,7 +2445,15 @@ export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   // so long that stripping it leaves no signal.
   const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
   return plain.map((p, i) => {
-    const slice = p.slice(stripLen, stripLen + 500);
+    // An empty body is no evidence of a re-posting: without it the key is
+    // title + location alone. And a crawler-wide prefix that reaches the end
+    // of THIS body is not this body's boilerplate: liebherr's German and
+    // English «Initialbewerbung» at Reiden (551 and 577 chars, different from
+    // the second character on) were cut to nothing and «collided» on title
+    // and place — the prefix is only stripped where body is left after it.
+    if (!p) return '';
+    const offset = stripLen < p.length ? stripLen : 0;
+    const slice = p.slice(offset, offset + 500);
     const title = plainText(jobs[i]?.title || '').toLowerCase();
     const location = jobLocationKey(jobs[i]);
     return `${title}||${location}||${slice}`;

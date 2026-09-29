@@ -2479,6 +2479,39 @@ describe('desc-only fingerprint compares the whole body (issue 5253, run 3652833
   });
 });
 
+describe('duplicate listings: a crawler-wide prefix never empties a body (liebherr, issue 5253)', () => {
+  // Two long variants of one role share a 900-char head, which sets the
+  // crawler-wide prefix; the German and English «Initialbewerbung» are
+  // shorter than that prefix and differ from the second character on.
+  const head = 'Ihre Aufgaben: Montage und Inbetriebnahme von Baumaschinen, Fehlerdiagnose an hydraulischen und elektrischen Systemen, Wartung und Reparatur beim Kunden vor Ort, Dokumentation der Arbeiten im Servicesystem, Beratung der Kundschaft zu Ersatzteilen und Wartungsverträgen. '.repeat(4);
+  const job = (title: string, description: string) => ({ title, description, location: 'Reiden' });
+  const jobs = [
+    job('Servicetechniker Baumaschinen 100%', `${head}${'Einsatzgebiet Zentralschweiz mit Firmenfahrzeug, Pikettdienst im Turnus und Weiterbildung im Werk. '.repeat(4)}`),
+    job('Servicetechniker Baumaschinen 80%', `${head}${'Einsatzgebiet Mittelland in Teilzeit, flexible Arbeitszeiten und Schulungen beim Hersteller. '.repeat(4)}`),
+    job('Initialbewerbung Liebherr-Baumaschinen AG', 'Initialbewerbung: Sie haben keine passende Stelle gefunden? Senden Sie uns Ihre Bewerbung, wir melden uns bei Ihnen, sobald eine passende Position frei wird. Wir freuen uns auf Ihre Unterlagen und darauf, Sie kennenzulernen.'),
+    job('Initialbewerbung Liebherr-Baumaschinen AG', 'Unsolicited application: you did not find a suitable position? Send us your application and we will contact you as soon as a suitable position becomes available. We look forward to receiving your documents.'),
+  ];
+
+  it('keeps the body of a posting shorter than the crawler-wide prefix', () => {
+    expect(jobs[2].description.length).toBeLessThan(head.length);
+    const fps = fingerprintsForCrawler(jobs, 'title-aware');
+    expect(fps[2].split('||')[2].length).toBeGreaterThan(0);
+    expect(countDuplicateListings(jobs, fps)).toBe(0);
+  });
+
+  it('does not let two empty bodies collide on title and place alone', () => {
+    const empty = [job('Initialbewerbung Liebherr-Baumaschinen AG', ''), job('Initialbewerbung Liebherr-Baumaschinen AG', '<p> </p>')];
+    const fps = fingerprintsForCrawler(empty, 'title-aware');
+    expect(fps).toEqual(['', '']);
+    expect(countDuplicateListings(empty, fps)).toBe(0);
+  });
+
+  it('still counts the same posting published twice', () => {
+    const twice = [...jobs, jobs[2]];
+    expect(countDuplicateListings(twice, fingerprintsForCrawler(twice, 'title-aware'))).toBe(2);
+  });
+});
+
 describe('duplicate listings: two declared postal codes are two workplaces (denner, issue 5253)', () => {
   // denner on run 36528331656: «Verkäufer*in» in Basel 4058 and Basel 4057 —
   // two shops, one locality key, and a 500-char window that never reaches the
