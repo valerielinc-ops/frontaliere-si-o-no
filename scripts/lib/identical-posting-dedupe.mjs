@@ -2,7 +2,8 @@
  * Drop true double publications from one crawler's fresh fetch.
  *
  * A double publication is the same advertisement reachable under two source
- * ids: identical title, identical workplace (locality, postal code and street)
+ * ids: identical title (up to the gender marker), identical workplace
+ * (locality, postal code and street)
  * and an identical FULL description (compared case- and
  * whitespace-insensitively). Two such rows are one vacancy
  * to a reader; publishing both produced two indistinguishable job pages, which
@@ -28,6 +29,15 @@ function normalized(value) {
   return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
+// Gender markers are a spelling of the title, not a different role: Lonza
+// published R76163-1 "Biotechnologist 100% (m/f/d)" and R76165-1
+// "Biotechnologist 100% (m/w/d)" with the same text in Visp (2026-09-29).
+const GENDER_MARKER_RE = /\(\s*(?:[mwfdxa](?:\s*[/|,]\s*[mwfdxa]){1,3}|a|all genders)\s*\)/giu;
+
+function normalizedTitle(value) {
+  return normalized(String(value || '').replace(GENDER_MARKER_RE, ' '));
+}
+
 function jobBody(job) {
   const text = job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '';
   return String(text)
@@ -49,7 +59,7 @@ export function identicalPostingKey(job) {
   const place = [job?.addressLocality || job?.location, job?.postalCode, job?.streetAddress]
     .map(normalized)
     .join('\u0000');
-  return `${normalized(job?.title)}\u0000${place}\u0000${body}`;
+  return `${normalizedTitle(job?.title)}\u0000${place}\u0000${body}`;
 }
 
 function stableOrderKey(job) {

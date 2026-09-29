@@ -42,6 +42,16 @@ describe('dropIdenticalPostings', () => {
     expect(dropIdenticalPostings([b, a]).jobs).toEqual([a]);
   });
 
+  it('treats titles that differ only by the gender marker as the same title', () => {
+    // Lonza, Visp, 2026-09-29: R76163-1 "(m/f/d)" and R76165-1 "(m/w/d)", same text.
+    const mf = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100---m-f-d-_R76163-1', { title: 'Biotechnologist 100% (m/f/d)', location: 'Visp', addressLocality: 'Visp' });
+    const mw = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100----m-w-d-_R76165-1', { title: 'Biotechnologist 100% (m/w/d)', location: 'Visp', addressLocality: 'Visp' });
+    expect(dropIdenticalPostings([mw, mf]).jobs).toEqual([mf]);
+    // Any other word of the title still tells two roles apart.
+    const senior = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Biotechnologist_R76199', { title: 'Senior Biotechnologist 100% (m/w/d)', location: 'Visp', addressLocality: 'Visp' });
+    expect(dropIdenticalPostings([mw, senior]).jobs).toHaveLength(2);
+  });
+
   it('ignores recruiting-campaign hashtag lines when comparing the text', () => {
     // Hirslanden Referenznummer 43018, 2026-09-29: the re-post only appends
     // "#ebkampagne #pflege".
