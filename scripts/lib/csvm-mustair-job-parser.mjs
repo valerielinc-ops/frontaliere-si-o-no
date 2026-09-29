@@ -85,6 +85,20 @@ export function parseCsvmListing(html) {
   return out;
 }
 
+/**
+ * Source locale of a posting. A short title alone is not enough evidence:
+ * `Dipl. Pflegefachperson HF` reads as English to the detector, so a German
+ * posting was stored with `sourceLang: 'en'` (the German text in the EN slot,
+ * and translations derived from the wrong language). The PDF is the posting
+ * itself, so detect on title + PDF text when the PDF yielded text. Without it
+ * the description is our own fallback line (in Italian), so the title stays
+ * the only evidence — with the German default of this /de/ listing.
+ */
+export function csvmSourceLang(title = '', pdfText = '') {
+  const evidence = pdfText ? `${title}\n${pdfText}` : title;
+  return detectLang(evidence || title, 'de');
+}
+
 export async function fetchAllCsvmMustairJobs() {
   console.log(`🏥 Fetching ${CSVM_MUSTAIR_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
@@ -119,9 +133,7 @@ export async function fetchAllCsvmMustairJobs() {
       fallbackText: `Dettagli completi sul PDF allegato alla pagina ${it.url}`,
       footerLines: [it.pdfUrl ? `Stellenbeschrieb (PDF): ${it.pdfUrl}` : ''].filter(Boolean),
     });
-    // Detect the source locale from the stable German listing title, NOT the
-    // now-PDF-backed description, so the locale routing stays put.
-    const sourceLang = detectLang(title || description, 'de');
+    const sourceLang = csvmSourceLang(title, pdfText);
     const jobSlug = slugify(`${title} ${CSVM_MUSTAIR_KEY} mustair`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({

@@ -21,14 +21,11 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
-  decodeEntities,
-  normalizeSpace,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { isDetailContentValid } from './umantis-listing-common.mjs';
-import { parseOnlyfyListing } from './onlyfy-listing-common.mjs';
+import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const VITREA_GESUNDHEIT_KEY = 'vitrea-gesundheit';
@@ -63,25 +60,15 @@ export function parseVitreaListing(html) {
   return parseOnlyfyListing(html, { portalBase: PORTAL_BASE, defaultLocation: 'Schweiz' });
 }
 
+// The detail URL is a client-rendered shell; the ad itself is the onlyfy
+// `/job/show/{handle}/full` document (see onlyfyFullAdUrl). The former
+// `<p>/<li>` sweep of the shell (capped at 30 fragments) never reached the
+// role text, so every vacancy fell back to the synthesised stub below.
 async function fetchDetailContent(url) {
+  const adUrl = onlyfyFullAdUrl(url);
+  if (!adUrl) return '';
   try {
-    const html = await fetchHtml(url);
-    const stripped = html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const parts = [];
-    const proseRx = /<(p|li|h[2-6])[^>]*>([\s\S]*?)<\/\1>/g;
-    let pm;
-    while ((pm = proseRx.exec(stripped))) {
-      const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
-      if (!text || text.length < 12) continue;
-      if (/cookie|privacy|impressum|datenschutz/i.test(text.slice(0, 40))) continue;
-      parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
-    }
-    return parts.slice(0, 30).join('\n');
+    return extractOnlyfyJobAdText(await fetchHtml(adUrl));
   } catch {
     return '';
   }
@@ -111,15 +98,21 @@ export async function fetchAllVitreaGesundheitJobs() {
   let detailHits = 0;
   for (const it of items) {
     const rawDetail = await fetchDetailContent(it.url);
-    const detailContent = isDetailContentValid(rawDetail, it.title) ? rawDetail : '';
+    // The text comes from this vacancy's own ad document (addressed by its
+    // handle, scoped to the ad template), not from a page that could be
+    // listing chrome, so the shell-era title-overlap heuristic does not apply:
+    // on the sibling Spitex Zürich tenant it rejected "Ausbildungsplatz Dipl.
+    // Pflegefachfrau/-mann HF 2026/2027" because the ad says "Pflegefachperson".
+    const detailContent = rawDetail.length >= 80 ? rawDetail : '';
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
     let description;
     if (detailContent) {
+      // The ad as published, plus the listing's workload; no company text of
+      // our own (the ad carries the employer's).
       description = [
         detailContent,
         it.employmentTypeStr ? `• Arbeitszeit: ${it.employmentTypeStr}` : '',
-        'Vitrea Gesundheit (ehemals VAMED Schweiz) — Rehabilitations- und Pflegedienstleister mit mehreren Standorten in der Schweiz, u.a. Rehaklinik Seewis GR.',
       ].filter(Boolean).join('\n\n');
     } else {
       // Detail page returned a consent wall or cookie chrome instead of the

@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -187,8 +187,10 @@ async function fetchDetail(context, detailUrl) {
         document.querySelector('article.node, .node--type-job, [role="main"]') ||
         document.querySelector('main') ||
         document.body;
+      const article = document.querySelector('article.node--type-smjob, article.node');
       return {
         title: h1 ? h1.innerText.trim() : '',
+        articleHtml: article ? article.outerHTML : '',
         bodyText: body ? body.innerText : '',
         canonical:
           (document.querySelector('link[rel="canonical"]') &&
@@ -205,6 +207,58 @@ async function fetchDetail(context, detailUrl) {
   }
 }
 
+/* ── Detail body extraction ────────────────────────────────── */
+
+// The vacancy on a `smjob` node is spread over dedicated Drupal fields:
+// `field-description` (Hauptaufgaben), `field-requirements` (Profil), the
+// deadline/pensum pair and `field-benefits` (Angebot). Everything else in the
+// article is page chrome: the hero image (labelled "Bild"), the "Jetzt
+// bewerben" button, the "Arbeiten und Leben im Engadin" brochure teaser and
+// the "Kontakt für Fragen" block with staff names, phones and e-mails. Reading
+// the whole article's innerText published all of it inside every description.
+const HOLISTICA_VACANCY_FIELD_RX = /\bfield--name-field-(?:description|requirements|benefits)\b/;
+const HOLISTICA_VACANCY_META_RX = /(?:^|\s)(?:deadline|pensum)(?:\s|$)/;
+
+function readBalancedDiv(html, contentStart) {
+  const tags = /<\/?div\b[^>]*>/gi;
+  tags.lastIndex = contentStart;
+  let depth = 1;
+  let match;
+  while ((match = tags.exec(html))) {
+    if (match[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return { content: html.slice(contentStart, match.index), end: tags.lastIndex };
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
+  }
+  return { content: html.slice(contentStart), end: html.length };
+}
+
+/**
+ * Vacancy body of a Clinica Holistica job node: tasks, profile, start date and
+ * workload, benefits — in page order, lists kept as `• ` lines. Returns '' when
+ * the page does not carry the Drupal vacancy fields (caller falls back).
+ */
+export function extractClinicaHolisticaDescription(html = '') {
+  const source = String(html || '');
+  const sections = [];
+  const openings = /<div\b[^>]*\bclass\s*=\s*["']([^"']*)["'][^>]*>/gi;
+  let match;
+  while ((match = openings.exec(source))) {
+    const classes = match[1];
+    const isVacancyField = HOLISTICA_VACANCY_FIELD_RX.test(classes);
+    const isVacancyMeta = !isVacancyField && /(?:^|\s)field(?:\s|$)/.test(classes)
+      && HOLISTICA_VACANCY_META_RX.test(classes);
+    if (!isVacancyField && !isVacancyMeta) continue;
+    const { content, end } = readBalancedDiv(source, openings.lastIndex);
+    openings.lastIndex = end;
+    const text = normalizeDescriptionSpace(stripHtml(content)).replace(/\n{2,}(?=• )/g, '\n');
+    if (text) sections.push(text);
+  }
+  return normalizeDescriptionSpace(sections.join('\n\n'));
+}
+
 /* ── Build ParsedJob ───────────────────────────────────────── */
 
 function buildJob(detailUrl, detail) {
@@ -212,9 +266,11 @@ function buildJob(detailUrl, detail) {
   const title = normalizeSpace(detail.title || '');
   if (!title || title.length < 3) return null;
 
-  // Body may already be plain-text from page.evaluate(innerText); run through
-  // stripHtml to neutralize residual entities and collapse blank lines.
-  const description = stripHtml(detail.bodyText || '') || `${title} — ${CLINICA_HOLISTICA_COMPANY_NAME}`;
+  // Prefer the vacancy fields of the job node; the article innerText is only a
+  // fallback for a page that no longer carries them (it includes the chrome).
+  const description = extractClinicaHolisticaDescription(detail.articleHtml || '')
+    || stripHtml(detail.bodyText || '')
+    || `${title} — ${CLINICA_HOLISTICA_COMPANY_NAME}`;
   const sourceLang = detectLang(description || title, 'de');
 
   const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);

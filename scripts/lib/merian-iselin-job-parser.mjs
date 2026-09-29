@@ -25,11 +25,12 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
-  htmlToText,
+  extractBalancedTagBlockWithStatus,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const MERIAN_ISELIN_KEY = 'merian-iselin';
 export const MERIAN_ISELIN_COMPANY_NAME = 'Merian Iselin Klinik';
@@ -74,26 +75,48 @@ export function parseMerianListing(html) {
   return out;
 }
 
+function balancedDivAfter(html, openMatch) {
+  const { html: inner, complete } = extractBalancedTagBlockWithStatus(
+    html.slice(openMatch.index + openMatch[0].length),
+    'div',
+    200000,
+  );
+  return complete ? inner : '';
+}
+
+function removeBalancedDivs(html, classRx) {
+  let out = html;
+  for (;;) {
+    const open = new RegExp(`<div\\b[^>]*\\bclass="[^"]*\\b${classRx}\\b[^"]*"[^>]*>`, 'i').exec(out);
+    if (!open) return out;
+    const inner = balancedDivAfter(out, open);
+    const end = open.index + open[0].length + inner.length + '</div>'.length;
+    out = `${out.slice(0, open.index)}${out.slice(inner ? end : open.index + open[0].length)}`;
+  }
+}
+
+/**
+ * The posting is the `job-detail__content` column of the detail page. The old
+ * page-wide `<p>/<li>/<h*>` scrape capped at 30 fragments and let a wrapping
+ * `<li>` swallow the whole page as one flat "bullet" — the hidden LOGA upload
+ * and consent texts (`loga3-hidden`), the "Online bewerben" button and the
+ * address/directions cards all ended up in the description, with the real
+ * section breaks lost. Read only the content column, drop the hidden form
+ * blocks and the apply link, and keep paragraph/list breaks.
+ */
+export function parseMerianDetailContent(html = '') {
+  const open = /<div\b[^>]*\bclass="[^"]*\bjob-detail__content\b[^"]*"[^>]*>/i.exec(html);
+  if (!open) return '';
+  let content = balancedDivAfter(html, open);
+  if (!content) return '';
+  content = removeBalancedDivs(content, 'loga3-hidden')
+    .replace(/<a\b[^>]*\bclass="[^"]*\bjob-detail__link-to-form\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '');
+  return htmlToTextLines(content);
+}
+
 async function fetchDetailContent(detailUrl) {
   try {
-    const html = await fetchHtml(detailUrl);
-    // Extract main content sections (Aufgaben/Anforderungen-style)
-    const strip = html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const parts = [];
-    const proseRx = /<(p|li|h[2-6])[^>]*>([\s\S]*?)<\/\1>/g;
-    let pm;
-    while ((pm = proseRx.exec(strip))) {
-      const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
-      if (!text || text.length < 12) continue;
-      if (/cookie|privacy|impressum|telefon|fax\s*\+/i.test(text.slice(0, 30))) continue;
-      parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
-    }
-    return parts.slice(0, 30).join('\n');
+    return parseMerianDetailContent(await fetchHtml(detailUrl));
   } catch {
     return '';
   }
@@ -119,7 +142,9 @@ export async function fetchAllMerianIselinJobs() {
       detailContent,
       it.type ? `Anstellungsart: ${it.type}` : '',
       it.range ? `Beschäftigungsgrad: ${it.range}` : '',
-      'Merian Iselin Klinik — private Belegklinik in Basel mit Schwerpunkten Orthopädie und Gynäkologie.',
+      // Company line only when the detail page gave nothing: it is our text,
+      // not the posting's, and must not pad a real description.
+      detailContent ? '' : 'Merian Iselin Klinik — private Belegklinik in Basel mit Schwerpunkten Orthopädie und Gynäkologie.',
     ].filter(Boolean).join('\n\n');
 
     const sourceLang = detectLang(description || it.title, 'de');

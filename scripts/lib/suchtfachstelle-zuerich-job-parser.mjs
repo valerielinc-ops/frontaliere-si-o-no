@@ -28,6 +28,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -105,18 +106,30 @@ export function parseDetail(html = '') {
   const titleMatch = stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   const titleRaw = titleMatch ? decodeEntities(titleMatch[1]).trim() : '';
   const title = cleanSfsTitle(titleRaw);
-  // Body: everything between the H1 "Die Suchtfachstelle Zürich als
-  // Arbeitgeberin" and the "Online-Bewerbung" form. The page has no
-  // <main>/<article> wrapper.
+  // Body: the ad is the page's `section.richtext` (lead, role heading,
+  // "Ihre Aufgaben" / "Ihr Profil" lists, "Unser Angebot", deadline), after
+  // the `section.intro` lead line and before the application form. It is
+  // read line by line so its lists survive (they used to be flattened into
+  // one paragraph and cut at 6000 characters). The paragraph naming the
+  // contact persons and their phone number is left out.
   let body = '';
-  const startIdx = html.indexOf('Die Suchtfachstelle Zürich als Arbeitgeberin');
-  if (startIdx > 0) {
-    const chunk = html.slice(startIdx);
-    const endIdx = chunk.search(/Online-Bewerbung|fui-bew/);
-    const body0 = endIdx > 0 ? chunk.slice(0, endIdx) : chunk.slice(0, 12000);
-    let text = decodeEntities(body0.replace(/<[^>]+>/g, ' '));
-    text = normalizeSpace(text);
-    body = text.slice(0, 6000);
+  const cleaned = stripScriptsAndStyles(html);
+  const introMain = /<p\b[^>]*class="[^"]*\bintro__main\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i.exec(cleaned);
+  const richtext = [...cleaned.matchAll(/<section\b[^>]*class="[^"]*\brichtext\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gi)]
+    .map((m) => m[1].replace(/<p\b[^>]*>(?:(?!<\/p>)[\s\S])*?nähere Auskünfte[\s\S]*?<\/p>/gi, ''))
+    .map((section) => htmlToTextLines(section))
+    .filter(Boolean);
+  if (richtext.length > 0) {
+    body = [introMain ? htmlToTextLines(introMain[1]) : '', ...richtext].filter(Boolean).join('\n\n');
+  } else {
+    // Older template without the richtext section: everything between the
+    // H1 "Die Suchtfachstelle Zürich als Arbeitgeberin" and the form.
+    const startIdx = html.indexOf('Die Suchtfachstelle Zürich als Arbeitgeberin');
+    if (startIdx > 0) {
+      const chunk = html.slice(startIdx);
+      const endIdx = chunk.search(/Online-Bewerbung|fui-bew/);
+      body = htmlToTextLines(endIdx > 0 ? chunk.slice(0, endIdx) : chunk.slice(0, 12000));
+    }
   }
   return { title, body };
 }
@@ -151,10 +164,14 @@ export async function fetchAllSuchtfachstelleZuerichJobs() {
       console.warn(`  ⚠️ Detail fetch failed for ${row.url}: ${err?.message || err}`);
     }
     const title = detail.title || row.slug.replace(/-/g, ' ');
-    const intro = `Die Suchtfachstelle Zürich ist Anlauf- und Beratungsstelle für Menschen mit Suchtproblemen (Erwachsene, Jugendliche, Kinder) und deren Angehörige am Standort Josefstrasse 91, 8005 Zürich. Stelle: ${title}.`;
-    const description = (detail.body && detail.body.length > 200)
-      ? `${intro}\n\n${detail.body}`
-      : intro;
+    // Only the ad's own text: the organisation blurb this parser used to
+    // prepend ("Die Suchtfachstelle Zürich ist Anlauf- und Beratungsstelle …
+    // Stelle: …") was its own wording, not the employer's.
+    const description = detail.body || '';
+    if (description.length < 200) {
+      console.warn(`  ⚠️ ${row.url}: no readable ad text — skipped this run.`);
+      continue;
+    }
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${SUCHTFACHSTELLE_ZUERICH_KEY}`);

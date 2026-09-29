@@ -13,8 +13,12 @@
  *   - Date parsing (DD.MM.YYYY → YYYY-MM-DD)
  *   - Detail URL construction
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  buildJobFromApi,
+  selectHvsSections,
   buildEmploymentType,
   buildDetailUrl,
   detectCategory,
@@ -358,5 +362,44 @@ describe('date parsing (DD.MM.YYYY → YYYY-MM-DD)', () => {
   it('returns empty for empty input', () => {
     expect(parseDate('')).toBe('');
     expect(parseDate(undefined as unknown as string)).toBe('');
+  });
+});
+
+// ─── German-only postings (live API payload of ATSANN0004863, 2026-09-29) ──────
+
+describe('German-only postings', () => {
+  const { listing, detail } = JSON.parse(fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'hopital-du-valais', 'annonce-de-only.json'),
+    'utf8',
+  ));
+
+  it('reads the *_de sections when the French ones are empty', () => {
+    const sections = selectHvsSections(listing, detail);
+    expect(sections.lang).toBe('de');
+    expect(sections.intro).toContain('Im Rahmen des Ausbaus des Spitalzentrums Oberwallis');
+    expect(sections.mission).toContain('Erstellung von Dossiers');
+    expect(sections.profil).toContain('Ingenieur/in FH');
+    expect(sections.offer).toContain('Ein anregendes und abwechslungsreiches Umfeld');
+  });
+
+  it('publishes the whole posting instead of the title, with German headings', () => {
+    const job = buildJobFromApi(listing, detail);
+    expect(job.sourceLang).toBe('de');
+    expect(job.description.length).toBeGreaterThan(1000);
+    expect(job.description).toContain('Ihre Aufgaben:\n• Erstellung von Dossiers');
+    expect(job.description).toContain('Ihr Profil:\n• Ingenieur/in FH');
+    expect(job.description).toContain('Wir bieten:');
+    expect(job.description).not.toMatch(/^(Mission|Offre):/m);
+    expect(job.descriptionByLocale).toEqual({ de: job.description });
+  });
+
+  it('keeps French postings on the French fields and headings', () => {
+    const job = buildJobFromApi(
+      { sys_id: 'x', number: 'ATSANN0000001', u_titre: 'Infirmier/ère', u_description: '<p>L\'Hôpital du Valais recherche pour le Centre Hospitalier du Valais Romand un-e infirmier/ère.</p>', u_site: 'SION' },
+      { mission: '<ul><li>Assurer les soins aux patients hospitalisés</li></ul>', profil: '<ul><li>Diplôme d\'infirmier/ère HES</li></ul>', offer: '', mission_de: '<ul><li>Pflege</li></ul>' },
+    );
+    expect(job.sourceLang).toBe('fr');
+    expect(job.description).toContain('Mission:\n• Assurer les soins');
+    expect(job.description).not.toContain('Pflege');
   });
 });

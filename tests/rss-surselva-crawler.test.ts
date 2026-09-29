@@ -21,6 +21,7 @@ import {
   isTrustedDomain,
   parseOstendisJob,
   parseDetailPageJsonLd,
+  stripOstendisApplyFooter,
   detectCategory,
   detectExperienceLevel,
   inferEmploymentType,
@@ -212,6 +213,62 @@ describe('inferEmploymentType', () => {
 
   it('defaults to FULL_TIME when no percentage', () => {
     expect(inferEmploymentType('Oberarzt Chirurgie')).toBe('FULL_TIME');
+  });
+});
+
+// ─── Ostendis publication body: structure + footer (live shape, 2026-09-29) ─────
+// Minimised from the JSON-LD `description` of
+// link.ostendis.com/publication/leitung-regionalspital-surselva-… (contact
+// details replaced). Before the fix the parser flattened every `<li>` into
+// prose (18/18 rows without structure) and kept the apply button + postal
+// footer; the detail fetch itself was refused with HTTP 406 so the published
+// rows were the metadata boilerplate instead of this body.
+const OSTENDIS_PUBLICATION_DESCRIPTION = '<div><div><div><h1><b>Leitung Regionalspital Surselva </b></h1>'
+  + '<div><p>Das Regionalspital Surselva in Ilanz stellt die erweiterte Grund- und Notfallversorgung sicher.</p></div>'
+  + '<h3><b>Ihre Aufgaben</b></h3><ul>'
+  + '<li><div>Operative Gesamtverantwortung für das Regionalspital Surselva in fachlicher, personeller<div>und betriebswirtschaftlicher Hinsicht</div></div></li>'
+  + '<li><div>Sicherstellung eines geordneten, sicheren und wirtschaftlichen Spitalbetriebs mit hoher<div>Behandlungs- und Betreuungsqualität</div></div></li>'
+  + '</ul><h3><b>Was wir Ihnen bieten</b></h3><ul>'
+  + '<li><div>Die Möglichkeit, den Aufbau des Gesundheitsnetzes ab 2027 aktiv mitzugestalten<br /></div></li>'
+  + '</ul></div></div><div><div><div><b>Wenn wir Ihr Interesse geweckt haben, freuen wir uns auf Ihre Bewerbung an:<br /><br />Personaldienst</b>'
+  + '<div><b>Für Fragen steht er Ihnen gerne zur Verfügung.</b></div></div></div></div>'
+  + '<div><a>Jetzt online bewerben</a></div>'
+  + '<div><strong>Regionalspital Surselva AG - Spitalstrasse 6 - 7130 Ilanz <br />personal@example.ch / +41 00 000 00 00</strong></div></div></div>';
+
+describe('parseDetailPageJsonLd — Ostendis publication body', () => {
+  const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org/',
+    '@type': 'JobPosting',
+    title: 'Leitung Regionalspital Surselva 80-100 %',
+    description: OSTENDIS_PUBLICATION_DESCRIPTION,
+  })}</script></head><body></body></html>`;
+  const { description } = parseDetailPageJsonLd(html);
+
+  it('keeps every list item as a line-start bullet', () => {
+    const bullets = description.split('\n').filter((line) => line.startsWith('• '));
+    expect(bullets).toHaveLength(3);
+    expect(description).toMatch(/^• Operative Gesamtverantwortung/m);
+    expect(description).toContain('Ihre Aufgaben');
+    expect(description).toContain('Was wir Ihnen bieten');
+  });
+
+  it('keeps the application instructions but drops the apply button and postal footer', () => {
+    expect(description).toContain('freuen wir uns auf Ihre Bewerbung an:');
+    expect(description).not.toContain('Jetzt online bewerben');
+    expect(description).not.toContain('Spitalstrasse 6 - 7130 Ilanz');
+  });
+});
+
+describe('stripOstendisApplyFooter', () => {
+  it('cuts at the last button-only line followed by a footer-sized tail', () => {
+    expect(stripOstendisApplyFooter('Body\nJetzt bewerben\nFirma AG - 7130 Ilanz')).toBe('Body');
+  });
+
+  it('leaves an in-sentence apply mention and a long tail untouched', () => {
+    const inline = 'Bitte per E-Mail oder direkt über "Jetzt bewerben" senden.';
+    expect(stripOstendisApplyFooter(inline)).toBe(inline);
+    const longTail = `Intro\nJetzt bewerben\n${'Weiterer Inhalt der Stelle. '.repeat(20)}`;
+    expect(stripOstendisApplyFooter(longTail)).toBe(longTail.trim());
   });
 });
 

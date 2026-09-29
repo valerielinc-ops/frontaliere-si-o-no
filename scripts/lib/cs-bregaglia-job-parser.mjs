@@ -21,6 +21,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const CS_BREGAGLIA_KEY = 'cs-bregaglia';
 export const CS_BREGAGLIA_COMPANY_NAME = 'Centro Sanitario Bregaglia';
@@ -63,6 +64,31 @@ export function parseRssFeed(xml) {
   return items;
 }
 
+// Joomla renders each obfuscated address as an empty `mailto:` anchor followed
+// by a `cloak…` span whose text is a "protected from spambots" notice and whose
+// real value is written by an inline script. Keep the address from the anchor
+// and drop the notice, so the body carries the contact instead of the warning.
+function uncloakJoomlaEmails(html = '') {
+  return String(html || '')
+    .replace(/<span\b[^>]*\bid=["']cloak[^"']*["'][^>]*>[\s\S]*?<\/span>/gi, '')
+    .replace(/<a\b[^>]*\bhref=["']mailto:([^"'?]+)[^"']*["'][^>]*>\s*<\/a>/gi, ' $1 ');
+}
+
+/**
+ * The RSS `<description>` is Joomla's intro text only — the "Offerta di lavoro
+ * in breve" facts list — while the vacancy page carries the whole posting
+ * (clinic presentation, `Requisiti`, `Offriamo`, application note). Read the
+ * `<article class="uk-article">` body after its title heading.
+ */
+export function parseCsBregagliaDetailBody(html = '') {
+  const start = String(html || '').search(/<article\b[^>]*\buk-article\b[^>]*>/i);
+  if (start < 0) return '';
+  const end = html.indexOf('</article>', start);
+  let body = html.slice(start, end > start ? end : undefined);
+  body = body.replace(/^<article\b[^>]*>/i, '').replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/i, '');
+  return htmlToTextLines(uncloakJoomlaEmails(body));
+}
+
 export async function fetchAllCsBregagliaJobs() {
   console.log(`🏥 Fetching ${CS_BREGAGLIA_COMPANY_NAME} jobs`);
   console.log(`   Feed: ${FEED_URL}\n`);
@@ -76,7 +102,15 @@ export async function fetchAllCsBregagliaJobs() {
   for (const it of items) {
     const title = it.title.replace(/^Offerta di lavoro:\s*/i, '');
     if (!title || title.length < 3) continue;
-    const description = it.description || `${title} — Centro Sanitario Bregaglia, Promontogno (GR).`;
+    let detailBody = '';
+    try {
+      detailBody = parseCsBregagliaDetailBody(await fetchHtml(it.url));
+    } catch (err) {
+      console.warn(`  ⚠️ detail fetch failed for ${it.url}: ${err?.message || err}`);
+    }
+    const description = (detailBody.length > it.description.length ? detailBody : '')
+      || it.description
+      || `${title} — Centro Sanitario Bregaglia, Promontogno (GR).`;
     const postedDate = (() => {
       const d = new Date(it.pubDate || '');
       return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);

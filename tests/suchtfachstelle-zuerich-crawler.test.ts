@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   SUCHTFACHSTELLE_ZUERICH_KEY,
@@ -156,5 +158,32 @@ describe('Suchtfachstelle Zürich crawler parser', () => {
     it('respects max length', () => {
       expect(slugify('a'.repeat(200)).length).toBeLessThanOrEqual(90);
     });
+  });
+});
+
+// Live detail page (2026-09-29), minimized; contact persons replaced by
+// placeholders. The ad is the page's `section.richtext`.
+describe('parseDetail — live richtext template', () => {
+  const html = fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'suchtfachstelle-zuerich', 'detail-psychotherapie.html'),
+    'utf8',
+  );
+
+  it('keeps the lead, the role heading and each list line by line', () => {
+    const { title, body } = parseDetail(html);
+    expect(title).toBe('Fachperson für Psychotherapie und Suchtberatung 60-80 %');
+    expect(body.startsWith('Therapie und Begleitung von Menschen mit risikoreichem Substanzkonsum')).toBe(true);
+    expect(body).toContain('Fachperson für Psychotherapie und Suchtberatung (60-80 %)');
+    expect(body).toContain('Ihre Aufgaben\n• Psychotherapeutische Unterstützung von Personen mit komplexen und mehrfachen Indikationen\n• Abklärung, Beratung und Krisenintervention');
+    expect(body).toContain('Ihr Profil\n• Sie verfügen über ein abgeschlossenes Studium in Psychologie');
+    expect(body).toContain('Unser Angebot\nWir bieten regelmässige Arbeitszeiten');
+    expect(body).toContain('bis zum 5. Oktober 2026');
+  });
+
+  it('leaves out the contact paragraph, the application form and any invented blurb', () => {
+    const { body } = parseDetail(html);
+    expect(body).not.toMatch(/Vorname Nachname|000 000 00 00|nähere Auskünfte/);
+    expect(body).not.toMatch(/Online-Bewerbung|Infrastruktur/);
+    expect(body).not.toContain('Anlauf- und Beratungsstelle');
   });
 });

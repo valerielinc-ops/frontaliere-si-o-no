@@ -19,6 +19,8 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const RSBJ_KEY = 'rsbj';
 export const RSBJ_COMPANY_NAME = 'Réseau Santé Balcon du Jura Vaudois (RSBJ)';
@@ -153,27 +155,49 @@ function detectExperienceLevel(title = '') {
   return 'mid';
 }
 
+/**
+ * The vacancy text of an RSBJ offer page (Jalios `fullDisplay OffreEmploi`):
+ * the `publication-metas` facts (contract, rate, start date) and the
+ * `wysiwyg` body — the whole ad, application paragraph included. The
+ * "Postuler" button, the internal "Référence" and the page chrome are left out.
+ *
+ * The former sweep collected every `<p>/<li>/<h1-6>` of the page capped at
+ * 25 fragments: it opened on the header menu ("• Horaires • Offres d'emploi
+ * • Accès sécurisé") and cut the end of longer offers (the FMH physicians ad
+ * lost its "Nous offrons" and application paragraphs).
+ *
+ * @param {string} html
+ * @returns {string} '' when the page has no offer body
+ */
+export function extractRsbjDetailText(html = '') {
+  const cleaned = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const block = (source, className) => {
+    const open = new RegExp(`<div\\b[^>]*class="[^"]*\\b${className}\\b[^"]*"[^>]*>`, 'i').exec(source);
+    return open ? extractBalancedTagBlock(source.slice(open.index + open[0].length), 'div', source.length) : '';
+  };
+  // Scope to the offer itself: the side columns carry other `wysiwyg` blocks.
+  const page = block(cleaned, 'fullDisplay');
+  const body = block(page, 'wysiwyg');
+  if (!body) return '';
+  const facts = htmlToTextLines(block(page, 'publication-metas'))
+    .split('\n')
+    .filter((line) => line.trim() && !/^Référence\s*:/i.test(line.trim()));
+  // Editors leave stray one-character paragraphs (".") in the body.
+  const text = htmlToTextLines(body)
+    .split('\n')
+    .filter((line) => !/^[\s.·•\-–]+$/.test(line))
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return [facts.join('\n'), text].filter(Boolean).join('\n\n');
+}
+
 async function fetchDetailContent(detailUrl) {
   try {
-    const html = await fetchHtml(detailUrl);
-    // Strip nav/footer/script, then extract prose elements
-    const main = html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const parts = [];
-    const proseRx = /<(p|li|h[1-6])[^>]*>([\s\S]*?)<\/\1>/g;
-    let pm;
-    while ((pm = proseRx.exec(main))) {
-      const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
-      if (!text || text.length < 8) continue;
-      if (/cookie|privacy|impressum|réseaux sociaux/i.test(text.slice(0, 40))) continue;
-      if (text.startsWith('.')) continue;
-      parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
-    }
-    return parts.slice(0, 25).join('\n');
+    return extractRsbjDetailText(await fetchHtml(detailUrl));
   } catch {
     return '';
   }
@@ -198,11 +222,10 @@ export async function fetchAllRsbjJobs() {
     const detailContent = await fetchDetailContent(e.url);
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, 250));
-    const description = [
-      detailContent,
-      e.meta,
-      'Réseau Santé Balcon du Jura Vaudois — Sites Sainte-Croix, L\'Auberson, Bullet.',
-    ].filter(Boolean).join('\n\n');
+    // The offer page carries contract/rate itself; the listing meta
+    // ("CDI · 30 %") is only the fallback when the page could not be read.
+    // No network sentence of our own.
+    const description = detailContent || [title, e.meta].filter(Boolean).join('\n\n');
     const location = 'Sainte-Croix';
     const canton = 'VD';
     const sourceLang = detectLang(description || title, 'fr');
