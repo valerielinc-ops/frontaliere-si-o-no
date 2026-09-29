@@ -23,6 +23,8 @@
  * reasons ARE the audit trail.
  */
 
+import { tenantHostOwner } from './coverage.mjs';
+
 /** @typedef {{ passed: boolean, reasons: string[], checks: Record<string, boolean> }} GateResult */
 
 export const GATE_DEFAULTS = {
@@ -95,7 +97,7 @@ function distinctDays(history) {
  * Decide whether one candidate may enter production unattended.
  *
  * @param {Record<string, any>} candidate
- * @param {{ existingKeys?: Set<string> }} [ctx]
+ * @param {{ existingKeys?: Set<string>, hostOwners?: Map<string, Set<string>> }} [ctx]
  * @param {Partial<typeof GATE_DEFAULTS>} [opts]
  * @returns {GateResult}
  */
@@ -141,6 +143,15 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 
   mark('keyFree', !candidate.crawlerKey || !(ctx.existingKeys || new Set()).has(candidate.crawlerKey),
     `la chiave ${candidate.crawlerKey} esiste gia' in produzione`);
+
+  // La copertura si chiede UNA volta, alla scoperta; un candidato entrato in
+  // coda prima di un segnale di copertura non se la sente chiedere mai piu'.
+  // Qui la si richiede sull'host del tenant, l'ultimo momento in cui la
+  // risposta cambia l'esito: `recruitingapp-2998.umantis.com` e' arrivato in
+  // produzione come doppione di `bethesda-spital` proprio cosi' (issue 5253).
+  const tenantOwner = tenantHostOwner(candidate, ctx.hostOwners);
+  mark('tenantFree', !tenantOwner,
+    `il tenant ${candidate.tenantHost} e' gia' letto dal crawler ${tenantOwner}: sarebbe lo stesso datore due volte`);
 
   mark('runs', good.length >= g.minRuns,
     `solo ${good.length} validazione/i buona/e su ${g.minRuns} richieste`);
@@ -306,7 +317,7 @@ export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-'
  * ten crawlers a day is recoverable while one that can add four hundred is not.
  *
  * @param {Record<string, any>[]} candidates
- * @param {{ existingKeys?: Set<string> }} [ctx]
+ * @param {{ existingKeys?: Set<string>, hostOwners?: Map<string, Set<string>> }} [ctx]
  * @param {Partial<typeof GATE_DEFAULTS>} [opts]
  * @returns {{ promotable: any[], blocked: { candidate: any, reasons: string[], checks: Record<string, boolean> }[], capped: number }}
  */

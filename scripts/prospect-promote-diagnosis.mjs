@@ -57,9 +57,10 @@ const gate = {
   minRuns: GATE_DEFAULTS.minRuns,
   minDistinctDays: GATE_DEFAULTS.minDistinctDays,
 };
+const coverage = loadCoverage(root);
 const { promotable, blocked, capped } = selectForPromotion(
   graduated,
-  { existingKeys: loadCoverage(root).keys },
+  { existingKeys: coverage.keys, hostOwners: coverage.hostOwners },
   gate,
 );
 const diagnosis = diagnosePromotionBlocks(blocked);

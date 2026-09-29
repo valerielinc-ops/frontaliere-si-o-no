@@ -64,6 +64,7 @@ export function normalizeCompanyName(name = '') {
  * @property {Set<string>} names         normalised company names
  * @property {Set<string>} domains       registrable domains
  * @property {Set<string>} [hosts]       exact hosts we already crawl, dedicated ones only
+ * @property {Map<string, Set<string>>} [hostOwners] every crawled host -> crawler keys reading it
  * @property {number} crawlerCount
  */
 
@@ -75,7 +76,8 @@ export function loadCoverage(root = ROOT) {
   const keys = new Set();
   const names = new Set();
   const domains = new Set();
-  const hosts = loadSourceHostOwnership(root).dedicatedHosts;
+  const ownership = loadSourceHostOwnership(root);
+  const hosts = ownership.dedicatedHosts;
 
   try {
     for (const f of fs.readdirSync(path.join(root, 'scripts'))) {
@@ -98,7 +100,44 @@ export function loadCoverage(root = ROOT) {
   // Crawler keys are themselves a name signal (`artisa-group` -> `artisa`).
   for (const k of keys) names.add(normalizeCompanyName(k.replace(/-/g, ' ')));
 
-  return { keys, names, domains, hosts, crawlerCount: keys.size };
+  return { keys, names, domains, hosts, hostOwners: ownership.byHost, crawlerCount: keys.size };
+}
+
+/**
+ * The crawler that already reads this candidate's ATS tenant, if any.
+ *
+ * `isCovered` asks the same question, but only once, at discovery: a candidate
+ * that entered the queue before a coverage signal existed is never asked again,
+ * and every later stage compares vacancy URLs instead. That is how
+ * `recruitingapp-2998@umantis.com` reached production as `im-bethesda-spital`
+ * (issue 5253): traced on 2026-08-22, before the exact-host index of #6484,
+ * then re-validated and promoted in September while `bethesda-spital` had been
+ * reading the same tenant since May. The URL comparison could not see it — the
+ * spec read the hospital's own page, whose JSON-LD postings carry no URL, so
+ * every vacancy became `jobs.html#job-<hash>` while the Umantis id sat only in
+ * `identifier.value`.
+ *
+ * The host is an employer identity only when it is a tenant SUBDOMAIN of the
+ * platform (`recruitingapp-2998.umantis.com` under `umantis.com`,
+ * `join.sfs.com` under `sfs.com`). A candidate whose `tenantHost` is the
+ * platform itself (`yousty.ch`, `rhb.ch`) sits in a lobby that lists many
+ * employers: one crawler reading that lobby today says nothing about who this
+ * candidate is, so it is never claimed. Among tenant hosts, only one owned by a
+ * single crawler key is claimed, for the reason `isCovered` gives.
+ *
+ * @param {{ tenantHost?: string|null, platform?: string|null, crawlerKey?: string|null }} candidate
+ * @param {Map<string, Set<string>>|undefined} hostOwners  `hostOwners` of the
+ *   coverage index, or `byHost` of `loadSourceHostOwnership`
+ * @returns {string|null} the crawler key already reading the tenant
+ */
+export function tenantHostOwner(candidate, hostOwners) {
+  const host = normalizeSourceHost(candidate?.tenantHost || '');
+  const platform = normalizeSourceHost(candidate?.platform || '');
+  if (!host || !platform || host === platform || !host.endsWith(`.${platform}`)) return null;
+  const owners = hostOwners?.get(host);
+  if (!owners || owners.size !== 1) return null;
+  const [owner] = owners;
+  return owner === String(candidate?.crawlerKey || '').toLowerCase() ? null : owner;
 }
 
 /**
