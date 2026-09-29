@@ -496,6 +496,13 @@ function createHeadSnapshotFromObjects() {
   }
 }
 
+function isPartialClone() {
+  const promisor = git(['config', '--get-regexp', '^remote\\..*\\.promisor$'], { allowFail: true });
+  const filter = git(['config', '--get-regexp', '^remote\\..*\\.partialclonefilter$'], { allowFail: true });
+  const extension = git(['config', '--get', 'extensions.partialClone'], { allowFail: true });
+  return /\s+true\s*$/m.test(promisor) || Boolean(filter.trim()) || Boolean(extension.trim());
+}
+
 /**
  * Materializza il solo albero di codice del ref in un file temporaneo.
  * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
@@ -508,7 +515,7 @@ function createHeadSnapshotFromObjects() {
  */
 function createHeadSnapshot() {
   if (!HEAD_REF) return null;
-  if (git(['rev-parse', '--is-partial-clone'], { allowFail: true }).trim() === 'true') {
+  if (isPartialClone()) {
     return createHeadSnapshotFromObjects();
   }
   let root;
