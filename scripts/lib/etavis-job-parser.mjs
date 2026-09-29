@@ -58,6 +58,7 @@ import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from 
 import { fetchHtml, decodeEntities } from './hospital-custom-html-helpers.mjs';
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -338,6 +339,8 @@ export async function fetchAllEtavisJobs(options = {}) {
 
   const jobs = [];
   let detailHits = 0;
+  let withoutBody = 0;
+  let detailFetchErrors = 0;
   for (const row of rows) {
     const title = row.title;
     const publicUrl = resolveApplyUrl(row.href);
@@ -348,6 +351,7 @@ export async function fetchAllEtavisJobs(options = {}) {
       detail = parseDetailJsonLd(detailHtml);
     } catch {
       detail = null;
+      detailFetchErrors += 1;
     }
 
     const address = detail?.jobLocation?.address || {};
@@ -371,12 +375,19 @@ export async function fetchAllEtavisJobs(options = {}) {
     if (detail?.description) {
       descriptionText = normalizeDescriptionBullets(normalizeSpace(stripHtml(String(detail.description))));
     }
-    if (descriptionText.length >= 40) detailHits += 1;
-    if (!descriptionText) {
-      descriptionText = `${title} — ${subsidiary}, ${location}`;
+    // Only the source's own text is published (issue 5253): not
+    // "<title> — <subsidiary>, <city>". A posting without a JSON-LD body
+    // stays out of this run, so the standard pipeline keeps the body stored
+    // from the source under its miss grace, and a job never read is not
+    // published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(descriptionText)} words) — not published in this run`);
+      continue;
     }
+    detailHits += 1;
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    const sourceLang = detectLang(descriptionText, 'de');
     const jobSlug = slugify(`${title} etavis ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -435,12 +446,20 @@ export async function fetchAllEtavisJobs(options = {}) {
 
   console.log(
     `\n📋 Total ${ETAVIS_COMPANY_NAME} jobs discovered: ${jobs.length} ` +
-      `(${detailHits} with real detail-page descriptions).`,
+      `(${detailHits} with real detail-page descriptions, ${withoutBody} without a source body).`,
   );
+  // Rows dropped for want of a body are not a geographic filter: an empty
+  // run where every detail read failed says why, so the health monitor does
+  // not call a blocked or re-templated detail page a healthy empty crawl.
+  let fetchOutcome = 'ok';
+  if (jobs.length === 0) {
+    if (withoutBody === 0) fetchOutcome = 'filtered_empty';
+    else fetchOutcome = detailFetchErrors >= withoutBody ? 'connection_error' : 'selector_miss';
+  }
   Object.defineProperties(jobs, {
     discoveredCount: { value: rows.length, enumerable: false },
     parsedCount: { value: jobs.length, enumerable: false },
-    fetchOutcome: { value: jobs.length > 0 ? 'ok' : 'filtered_empty', enumerable: false },
+    fetchOutcome: { value: fetchOutcome, enumerable: false },
   });
   return jobs;
 }
