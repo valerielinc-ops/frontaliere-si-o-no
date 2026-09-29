@@ -283,7 +283,7 @@ function genericSnapshotEvaluation(
       coverageType: value._scope.coverageType,
       coverageName: value.coverageName,
       sourceUrl: safeHttpsUrl(value._source) || source?.officialSourceUrl || '',
-      sourceType: 'official',
+      sourceType: expectedSourceType || 'official',
       fetchedAt: fetchedAt || '',
       releaseId: nonEmptyString(release.releaseId) || '',
       duties,

@@ -31,7 +31,69 @@ const MONTHS = new Map([
 ]);
 
 const JURA_SOURCE_URL = 'https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html';
+const BASEL_STADT_SOURCE_URL = 'https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt';
+const ZURICH_SOURCE_URL = 'https://www.avkz.ch/notfalldienst';
+const SOLOTHURN_SOURCE_URL = 'https://avso.ch/notfalldienst-apotheken/';
 const JURA_COVERAGE_NAME = 'Giura';
+const BASEL_STADT_COVERAGE_NAME = 'Basilea Città';
+const ZURICH_COVERAGE_NAME = 'Zurigo';
+const SOLOTHURN_COVERAGE_NAME = 'Soletta · Dorneck-Thierstein, Olten e Soletta';
+const BASEL_STADT_PHARMACY = Object.freeze({
+  id: 'bs-24-stunden-apotheke-basel',
+  name: '24 Stunden Apotheke Basel AG',
+  city: 'Basel',
+});
+const ZURICH_PHARMACY = Object.freeze({
+  id: 'zh-bellevue-apotheke',
+  name: 'Bellevue Apotheke',
+  city: 'Zürich',
+});
+const GERMAN_MONTHS = new Map([
+  ['januar', 1],
+  ['februar', 2],
+  ['märz', 3],
+  ['maerz', 3],
+  ['april', 4],
+  ['mai', 5],
+  ['juni', 6],
+  ['juli', 7],
+  ['august', 8],
+  ['september', 9],
+  ['oktober', 10],
+  ['november', 11],
+  ['dezember', 12],
+]);
+const SOLOTHURN_REGIONS = Object.freeze({
+  // AVSO supplies the date/identity assignment. The current cantonal health
+  // page confirms the 10:00–12:00 interval for Olten/Solothurn, while Saner
+  // Dornach publishes the current 09:00–12:00 Dorneck-Thierstein interval.
+  'DORNECK-THIERSTEIN': Object.freeze({ key: 'dorneck-thierstein', coverageName: 'Dorneck-Thierstein', startsAt: '09:00', endsAt: '12:00' }),
+  OLTEN: Object.freeze({ key: 'olten', coverageName: 'Olten', startsAt: '10:00', endsAt: '12:00' }),
+  SOLOTHURN: Object.freeze({ key: 'solothurn', coverageName: 'Solothurn', startsAt: '10:00', endsAt: '12:00' }),
+});
+const SOLOTHURN_IDENTITIES = Object.freeze({
+  'SANER APOTHEKE DORNACH': { id: 'so-dorneck-saner-apotheke-dornach', name: 'Saner Apotheke Dornach', city: 'Dornach', postalCode: '4143' },
+  'APOTHEKE DROGERIE KURZ': { id: 'so-olten-apotheke-drogerie-kurz', name: 'Apotheke - Drogerie Kurz', city: 'Trimbach', postalCode: '4632' },
+  'APOTHEKE - DROGERIE KURZ': { id: 'so-olten-apotheke-drogerie-kurz', name: 'Apotheke - Drogerie Kurz', city: 'Trimbach', postalCode: '4632' },
+  'APOTHEKE ZUM KREUZ': { id: 'so-olten-apotheke-zum-kreuz', name: 'Apotheke zum Kreuz', city: 'Olten', postalCode: '4600' },
+  'CENTRAL-APOTHEKE OLTEN': { id: 'so-olten-central-apotheke-olten', name: 'Central-Apotheke Olten', city: 'Olten', postalCode: '4600' },
+  'DROPA DROGERIE APOTHEKE HAGENDORF': { id: 'so-olten-dropa-drogerie-apotheke-haegendorf', name: 'DROPA Drogerie Apotheke Hägendorf', city: 'Hägendorf', postalCode: '4614' },
+  'DROGERIE APOTHEKE HAGENDORF': { id: 'so-olten-dropa-drogerie-apotheke-haegendorf', name: 'DROPA Drogerie Apotheke Hägendorf', city: 'Hägendorf', postalCode: '4614' },
+  'HAMMER-APOTHEKE': { id: 'so-olten-hammer-apotheke', name: 'Hammer-Apotheke', city: 'Olten', postalCode: '4600' },
+  'JURA APOTHEKE EICHENBERGER': { id: 'so-olten-jura-apotheke-eichenberger', name: 'Jura Apotheke Eichenberger', city: 'Dulliken', postalCode: '4657' },
+  'SANER APOTHEKE OLTEN BIFANG': { id: 'so-olten-saner-apotheke-olten-bifang', name: 'Saner Apotheke Olten Bifang', city: 'Olten', postalCode: '4600' },
+  'AMAVITA BIBERIST': { id: 'so-solothurn-amavita-biberist', name: 'Amavita Biberist', city: 'Biberist', postalCode: '4562' },
+  'AMAVITA DERENDINGEN': { id: 'so-solothurn-amavita-derendingen', name: 'Amavita Derendingen', city: 'Derendingen', postalCode: '4552' },
+  'AMBASSADOR APOTHEKE': { id: 'so-solothurn-ambassador-apotheke', name: 'Ambassador Apotheke', city: 'Solothurn', postalCode: '4500' },
+  'APOTHEKE COOP-VITALITY - GRENCHEN': { id: 'so-solothurn-coop-vitality-grenchen', name: 'Apotheke Coop-Vitality - Grenchen', city: 'Grenchen', postalCode: '2540' },
+  'COOP-VITALITY APOTHEKE - BIBERIST': { id: 'so-solothurn-coop-vitality-biberist', name: 'Coop-Vitality Apotheke - Biberist', city: 'Biberist', postalCode: '4562' },
+  'MEDBASE APOTHEKE - GRENCHEN': { id: 'so-solothurn-medbase-grenchen', name: 'Medbase Apotheke - Grenchen', city: 'Grenchen', postalCode: '2540' },
+  'MEDBASE APOTHEKE - OENSINGEN': { id: 'so-solothurn-medbase-oensingen', name: 'Medbase Apotheke - Oensingen', city: 'Oensingen', postalCode: '4702' },
+  'MEDBASE APOTHEKE - SOLOTHURN': { id: 'so-solothurn-medbase-solothurn', name: 'Medbase Apotheke - Solothurn', city: 'Solothurn', postalCode: '4500' },
+  'MEDBASE APOTHEKE - ZUCHWIL': { id: 'so-solothurn-medbase-zuchwil', name: 'Medbase Apotheke - Zuchwil', city: 'Zuchwil', postalCode: '4528' },
+  'TOPPHARM HIRSCH-APOTHEKE': { id: 'so-solothurn-toppharm-hirsch-apotheke', name: 'TopPharm Hirsch-Apotheke', city: 'Solothurn', postalCode: '4500' },
+  'WEISSENSTEIN APOTHEKE': { id: 'so-solothurn-weissenstein-apotheke', name: 'Weissenstein Apotheke', city: 'Langendorf', postalCode: '4513' },
+});
 const MOUTIER_SOURCE_NAME_BY_COLOUR = Object.freeze({
   blue: { id: 'ju-moutier-centre-migros', name: 'Centre Migros', city: 'Moutier' },
   green: { id: 'ju-moutier-centre-coop', name: 'Centre Coop', city: 'Moutier' },
@@ -65,6 +127,16 @@ const DELEMONT_IDENTITY_NAMES = Object.freeze([
 
 function normalizeWhitespace(value) {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function stripHtml(value) {
+  return normalizeWhitespace(String(value || '')
+    .replace(/<br\s*\/?\s*>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&#160;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;|&#34;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'"));
 }
 
 function normalizeKey(value) {
@@ -116,38 +188,41 @@ function localIso(dateKey, time) {
     value.setUTCDate(31 - value.getUTCDay());
     return value.toISOString().slice(0, 10);
   })();
-  const summerTime = dateKey >= lastSundayMarch && dateKey < lastSundayOctober;
+  const [hour] = String(time).split(':').map(Number);
+  const summerTime = (dateKey > lastSundayMarch && dateKey < lastSundayOctober)
+    || (dateKey === lastSundayMarch && hour >= 3)
+    || (dateKey === lastSundayOctober && hour < 3);
   const offset = summerTime ? '+02:00' : '+01:00';
   return new Date(`${dateKey}T${time}:00${offset}`).toISOString();
 }
 
-function identity(id, name, city, sourceUrl, fetchedAt) {
+function identity(id, name, city, sourceUrl, fetchedAt, cantonCode = 'JU', sourceType = 'official') {
   return {
     id,
     name,
     city,
-    cantonCode: 'JU',
+    cantonCode,
     country: 'CH',
     sourceUrl,
-    sourceType: 'official',
+    sourceType,
     lastVerifiedAt: fetchedAt,
   };
 }
 
-function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weekend', sourceUrl, fetchedAt }) {
+function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weekend', sourceUrl, fetchedAt, sourceType = 'official', coverageType = 'canton' }) {
   const expired = Date.parse(endsAt) <= Date.parse(fetchedAt);
   return {
     id,
     pharmacyId: pharmacy.id,
     pharmacyName: pharmacy.name,
-    coverageType: 'canton',
+    coverageType,
     coverageName,
     startsAt,
     endsAt,
     dutyType,
     status: expired ? 'expired' : 'verified',
     sourceUrl,
-    sourceType: 'official',
+    sourceType,
     fetchedAt,
     verifiedAt: fetchedAt,
   };
@@ -231,6 +306,190 @@ function extractAjoieRows(text, { sourceUrl, fetchedAt } = {}) {
   }
   if (rows.length < 45) throw new Error(`Ajoie calendar unexpectedly contains only ${rows.length} weekly rows`);
   return { rows, pharmacies: [...pharmacies.values()] };
+}
+
+export function parseBaselStadtDutyPage({ html, sourceUrl, fetchedAt, calendarYear = new Date().getUTCFullYear() } = {}) {
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Basel-Stadt calendar year: ${calendarYear}`);
+  const sourceRows = [];
+  const rowPattern = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
+  let rowMatch;
+  while ((rowMatch = rowPattern.exec(String(html || '')))) {
+    const cells = [];
+    const cellPattern = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+    let cellMatch;
+    while ((cellMatch = cellPattern.exec(rowMatch[1]))) cells.push(stripHtml(cellMatch[1]));
+    if (cells.length > 0) sourceRows.push(cells);
+  }
+  if (sourceRows.length === 0) {
+    const cells = [];
+    const cellPattern = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+    let cellMatch;
+    while ((cellMatch = cellPattern.exec(String(html || '')))) cells.push(stripHtml(cellMatch[1]));
+    if (cells.length > 0) sourceRows.push(cells);
+  }
+  const record = sourceRows.find((cells) => cells.some((value) => /24\s+Stunden\s+Apotheke\s+Basel\s+AG/i.test(value)));
+  if (!record) throw new Error('Basel-Stadt page did not expose the allowlisted 24-hour pharmacy identity');
+  const recordText = record.join(' ');
+  if (!/Petersgraben\s+3\b/i.test(recordText) || !/4051\s+Basel\b/i.test(recordText)) {
+    throw new Error('Basel-Stadt 24-hour pharmacy address changed or is unresolved');
+  }
+  if (!/Montag\s*[-–]\s*Sonntag\s+24\s+Stunden/i.test(recordText)) {
+    throw new Error('Basel-Stadt page no longer declares Monday-Sunday 24-hour opening');
+  }
+  if (!/365\s+Tage\s+durchgehend/i.test(recordText)) {
+    throw new Error('Basel-Stadt page no longer declares year-round opening');
+  }
+
+  const pharmacy = identity(
+    BASEL_STADT_PHARMACY.id,
+    BASEL_STADT_PHARMACY.name,
+    BASEL_STADT_PHARMACY.city,
+    sourceUrl,
+    fetchedAt,
+    'BS',
+  );
+  const rows = [];
+  const firstDate = `${calendarYear}-01-01`;
+  const lastDate = `${calendarYear}-12-31`;
+  for (let date = firstDate; date <= lastDate; date = nextDate(date)) {
+    const next = nextDate(date);
+    rows.push(duty({
+      id: `bs-24-stunden-${date}`,
+      pharmacy,
+      coverageName: BASEL_STADT_COVERAGE_NAME,
+      startsAt: localIso(date, '00:00'),
+      endsAt: localIso(next, '00:00'),
+      dutyType: '24h',
+      sourceUrl,
+      fetchedAt,
+    }));
+  }
+  return { rows, pharmacies: [pharmacy], coverageName: BASEL_STADT_COVERAGE_NAME };
+}
+
+export function parseZurichDutyPage({ html, sourceUrl, fetchedAt, calendarYear = new Date().getUTCFullYear() } = {}) {
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Zürich calendar year: ${calendarYear}`);
+  const pageText = stripHtml(String(html || ''));
+  if (!/Bellevue\s+Apotheke/i.test(pageText)) {
+    throw new Error('Zürich page did not expose the allowlisted Bellevue Apotheke identity');
+  }
+  if (!/Theaterstrasse\s+14\b/i.test(pageText) || !/Bellevue\s+Apotheke[\s\S]*?Zürich/i.test(pageText)) {
+    throw new Error('Zürich Bellevue Apotheke address or city changed or is unresolved');
+  }
+  if (!/täglich\s+24\s+Stunden\s+geöffnet/i.test(pageText)) {
+    throw new Error('Zürich page no longer declares daily 24-hour opening');
+  }
+  if (!/365\s+Tage\s+im\s+Jahr\s+geöffnet/i.test(pageText)) {
+    throw new Error('Zürich page no longer declares year-round opening');
+  }
+
+  const pharmacy = identity(
+    ZURICH_PHARMACY.id,
+    ZURICH_PHARMACY.name,
+    ZURICH_PHARMACY.city,
+    sourceUrl,
+    fetchedAt,
+    'ZH',
+    'association',
+  );
+  const rows = [];
+  const firstDate = `${calendarYear}-01-01`;
+  const lastDate = `${calendarYear}-12-31`;
+  for (let date = firstDate; date <= lastDate; date = nextDate(date)) {
+    const next = nextDate(date);
+    rows.push(duty({
+      id: `zh-bellevue-${date}`,
+      pharmacy,
+      coverageName: ZURICH_COVERAGE_NAME,
+      startsAt: localIso(date, '00:00'),
+      endsAt: localIso(next, '00:00'),
+      dutyType: '24h',
+      sourceUrl,
+      fetchedAt,
+      sourceType: 'association',
+    }));
+  }
+  return { rows, pharmacies: [pharmacy], coverageName: ZURICH_COVERAGE_NAME };
+}
+
+function germanMonthNumber(value) {
+  return GERMAN_MONTHS.get(normalizeWhitespace(value).toLocaleLowerCase('de')) || null;
+}
+
+function parseGermanDate(value, expectedYear) {
+  const match = /(?:Montag|Dienstag|Mittwoch|Donnerstag|Freitag|Samstag|Sonntag),?\s+(\d{1,2})\.\s+([^\s]+)\s+(\d{4})/i.exec(normalizeWhitespace(value));
+  if (!match) return null;
+  const month = germanMonthNumber(match[2]);
+  const year = Number(match[3]);
+  if (!month || !Number.isInteger(year) || year !== expectedYear) return null;
+  return isoDate(year, month, Number(match[1]));
+}
+
+function solothurnIdentity(rawName, postalCity, sourceUrl, fetchedAt) {
+  const key = normalizeKey(rawName);
+  const known = SOLOTHURN_IDENTITIES[key];
+  if (!known) throw new Error(`Solothurn pharmacy identity is not allowlisted: ${rawName}`);
+  const match = /^(\d{4})\s+(.+)$/.exec(normalizeWhitespace(postalCity));
+  if (!match || match[1] !== known.postalCode || normalizeKey(match[2]) !== normalizeKey(known.city)) {
+    throw new Error(`Solothurn pharmacy address changed or is unresolved: ${rawName} (${postalCity})`);
+  }
+  return identity(known.id, known.name, known.city, sourceUrl, fetchedAt, 'SO', 'association');
+}
+
+export function parseSolothurnDutyPage({ html, sourceUrl, fetchedAt, calendarYear = new Date().getUTCFullYear() } = {}) {
+  if (!Number.isInteger(calendarYear)) throw new Error(`Invalid Solothurn calendar year: ${calendarYear}`);
+  const pageText = stripHtml(String(html || ''));
+  if (!/Die Apotheken des Kantons Solothurn sind in 3 Regionen aufgeteilt/i.test(pageText)
+    || !/Notfalldienst an Sonn- und Feiertagen/i.test(pageText)) {
+    throw new Error('Solothurn page no longer declares the three-region Sunday/holiday duty system');
+  }
+
+  const rows = [];
+  const pharmacies = new Map();
+  const regions = new Set();
+  const seenRows = new Set();
+  const cardPattern = /<div\b[^>]*class=["'][^"']*grid-col[^"']*dmach-grid-item[^"']*["'][^>]*>([\s\S]*?)(?=<div\b[^>]*class=["'][^"']*grid-col[^"']*dmach-grid-item|$)/gi;
+  const valuePattern = /<p\b[^>]*class=["'][^"']*dmach-acf-value[^"']*["'][^>]*>([\s\S]*?)<\/p>/gi;
+  let cardMatch;
+  while ((cardMatch = cardPattern.exec(String(html || '')))) {
+    const values = [];
+    let valueMatch;
+    valuePattern.lastIndex = 0;
+    while ((valueMatch = valuePattern.exec(cardMatch[1]))) values.push(stripHtml(valueMatch[1]));
+    if (values.length < 5) continue;
+    const region = SOLOTHURN_REGIONS[normalizeKey(values[0])];
+    if (!region) throw new Error(`Solothurn duty region is not allowlisted: ${values[0]}`);
+    const date = parseGermanDate(values[1], calendarYear);
+    if (!date) throw new Error(`Solothurn duty date is invalid or outside ${calendarYear}: ${values[1]}`);
+    const pharmacy = solothurnIdentity(values[2], values[4], sourceUrl, fetchedAt);
+    const rowId = `so-${region.key}-${date}`;
+    if (seenRows.has(rowId)) throw new Error(`Solothurn calendar contains duplicate duty: ${rowId}`);
+    seenRows.add(rowId);
+    regions.add(region.key);
+    pharmacies.set(pharmacy.id, pharmacy);
+    rows.push(duty({
+      id: rowId,
+      pharmacy,
+      coverageType: 'region',
+      coverageName: region.coverageName,
+      startsAt: localIso(date, region.startsAt),
+      endsAt: localIso(date, region.endsAt),
+      dutyType: 'holiday',
+      sourceUrl,
+      sourceType: 'association',
+      fetchedAt,
+    }));
+  }
+  if (regions.size !== Object.keys(SOLOTHURN_REGIONS).length) {
+    throw new Error(`Solothurn calendar does not expose all three regions: ${[...regions].sort().join(', ') || 'none'}`);
+  }
+  if (rows.length === 0) throw new Error(`Solothurn calendar contains no ${calendarYear} duty rows`);
+  rows.sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt) || a.id.localeCompare(b.id));
+  return {
+    rows,
+    pharmacies: [...pharmacies.values()],
+    coverageName: SOLOTHURN_COVERAGE_NAME,
+  };
 }
 
 function numericWordMatches(bboxHtml) {
@@ -376,8 +635,16 @@ export function parseJuraCalendars({ delemontText, delemontSourceUrl, ajoieText,
 }
 
 export {
+  BASEL_STADT_COVERAGE_NAME,
+  BASEL_STADT_PHARMACY,
+  BASEL_STADT_SOURCE_URL,
   JURA_COVERAGE_NAME,
   JURA_SOURCE_URL,
+  SOLOTHURN_COVERAGE_NAME,
+  SOLOTHURN_SOURCE_URL,
+  ZURICH_COVERAGE_NAME,
+  ZURICH_PHARMACY,
+  ZURICH_SOURCE_URL,
   classifyColour,
   extractAjoieRows,
   extractDelemontRows,

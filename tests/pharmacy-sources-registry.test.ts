@@ -27,8 +27,8 @@ const ASSOCIATION_CANTON_KEYS = new Set([
  * the #6173 pharmacy/pharmacy-duty MVP). The registry maps the complete
  * `SWISS_CANTONS` geography to source configuration; every entry must carry
  * the full source-config shape so connectors share one contract. Ticino and
- * the verified Geneva/Jura adapters are active; the remaining entries stay
- * source-only until their release contract is complete.
+ * the verified Geneva/Jura/Basel-Stadt/Solothurn/Zürich adapters are active;
+ * the remaining entries stay source-only until their release contract is complete.
  */
 describe('pharmacy sources registry schema', () => {
   it('passes full-registry validation with zero errors', () => {
@@ -72,6 +72,51 @@ describe('pharmacy sources registry schema', () => {
     expect(Number.isFinite(Date.parse(sourceFetchedAt || ''))).toBe(true);
   });
 
+  it('Basel-Stadt is active only after the official 24-hour pharmacy adapter is registered', () => {
+    expect(registry.sources['basel-stadt']).toMatchObject({
+      officialSourceUrl: 'https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt',
+      accessMethod: 'html-scrape',
+      sourceType: 'official',
+      fetchFrequency: 'P1D',
+      status: 'active',
+      dutiesPath: 'data/pharmacy-duties-swiss-cantons.json',
+      dutiesKey: 'BS',
+    });
+    const sourceFetchedAt = registry.sources['basel-stadt'].sourceFetchedAt;
+    expect(typeof sourceFetchedAt).toBe('string');
+    expect(Number.isFinite(Date.parse(sourceFetchedAt || ''))).toBe(true);
+  });
+
+  it('Zürich is active only after the official 24-hour pharmacy adapter is registered', () => {
+    expect(registry.sources.zurich).toMatchObject({
+      officialSourceUrl: 'https://www.avkz.ch/notfalldienst',
+      accessMethod: 'html-scrape',
+      sourceType: 'association',
+      fetchFrequency: 'P1D',
+      status: 'active',
+      dutiesPath: 'data/pharmacy-duties-swiss-cantons.json',
+      dutiesKey: 'ZH',
+    });
+    const sourceFetchedAt = registry.sources.zurich.sourceFetchedAt;
+    expect(typeof sourceFetchedAt).toBe('string');
+    expect(Number.isFinite(Date.parse(sourceFetchedAt || ''))).toBe(true);
+  });
+
+  it('Solothurn is active only after the AVSO three-region adapter is registered', () => {
+    expect(registry.sources.solothurn).toMatchObject({
+      officialSourceUrl: 'https://avso.ch/notfalldienst-apotheken/',
+      accessMethod: 'html-scrape',
+      sourceType: 'association',
+      fetchFrequency: 'P1D',
+      status: 'active',
+      dutiesPath: 'data/pharmacy-duties-swiss-cantons.json',
+      dutiesKey: 'SO',
+    });
+    const sourceFetchedAt = registry.sources.solothurn.sourceFetchedAt;
+    expect(typeof sourceFetchedAt).toBe('string');
+    expect(Number.isFinite(Date.parse(sourceFetchedAt || ''))).toBe(true);
+  });
+
   it('registers Locarnese as an active regional duty source, not a 27th canton', () => {
     const source = registry.sources.ticino.regionalSources?.locarnese;
 
@@ -92,7 +137,7 @@ describe('pharmacy sources registry schema', () => {
   });
 
   it('keeps non-Ticino sources unverified until a connector or dataset exists', () => {
-    for (const canton of SWISS_CANTONS.filter((candidate) => !['TI', 'GE', 'JU'].includes(candidate.code))) {
+    for (const canton of SWISS_CANTONS.filter((candidate) => !['TI', 'GE', 'JU', 'BS', 'SO', 'ZH'].includes(candidate.code))) {
       const source = registry.sources[canton.key];
       expect(source.status).not.toBe('active');
       expect(source.sourceFetchedAt).toBeUndefined();
@@ -100,7 +145,7 @@ describe('pharmacy sources registry schema', () => {
   });
 
   it('marks associative and institutional discovery sources explicitly', () => {
-    for (const canton of SWISS_CANTONS.filter((candidate) => !['TI', 'GE', 'JU'].includes(candidate.code))) {
+    for (const canton of SWISS_CANTONS.filter((candidate) => !['TI', 'GE', 'JU', 'BS', 'SO', 'ZH'].includes(candidate.code))) {
       const source = registry.sources[canton.key];
       expect(source.status).toBe('unverified');
       expect(source.sourceType).toBe(ASSOCIATION_CANTON_KEYS.has(canton.key) ? 'association' : 'official');
