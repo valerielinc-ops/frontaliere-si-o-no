@@ -851,10 +851,10 @@ function postProcessPostJobs() {
     }
     // The slug is filed under the source language like the body and the title
     // (it used to be forced into `it`, whatever the vacancy's language). A key
-    // that already holds a slug is a published URL and is never rewritten:
-    // only a slug no key serves yet is added, in the source slot.
+    // A source-language slug is never rewritten. If that slot is missing, add
+    // the existing raw slug there even when a legacy locale already holds it.
     const slugKeys = job.slugByLocale || {};
-    if (job.slug && sourceLang && !Object.values(slugKeys).includes(job.slug)) {
+    if (job.slug && sourceLang && !slugKeys[sourceLang]) {
       job.slugByLocale = { ...slugKeys, [sourceLang]: job.slug };
       fixed++;
     }
