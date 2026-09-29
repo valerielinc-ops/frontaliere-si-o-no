@@ -1301,13 +1301,12 @@ export function isProvenExpiredRouteCollapse(
   });
   if (removedEntries.some((entry) => expiredLocaleRouteKeys(entry).size === 0)) return false;
 
-  // If assembly already removed ghosts before the commit helper canonicalized
-  // the candidate, that earlier large shrink must carry its own positive
-  // evidence. A small pre-canonicalization rewrite remains covered by the
-  // ordinary byte floor and needs no special proof.
-  const previousBytes = Buffer.byteLength(String(previousRaw), 'utf8');
-  const baseBytes = Buffer.byteLength(String(baseRaw), 'utf8');
-  if (isCatastrophicAccumulatorShrink(previousBytes, baseBytes)) {
+  // If assembly or a concurrent merge changed the candidate before the commit
+  // helper canonicalized it, that intermediate transition must carry its own
+  // positive evidence even when it is below the ordinary catastrophic-shrink
+  // threshold. Otherwise a small arbitrary loss could be hidden by a later
+  // route collapse that preserves only the surviving route union.
+  if (sha256(previousRaw) !== sha256(baseRaw)) {
     const priorProof = isProvenExpiredGhostPrune(
       filePath,
       previousRaw,

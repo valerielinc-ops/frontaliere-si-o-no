@@ -1124,6 +1124,30 @@ describe('crawler slice integrity guard', () => {
         housekeepingProof: ghostProof,
       })).toThrow(/catastrophic truncation avoided/);
 
+      const unprovenFiller = {
+        companyKey: 'unrelated-company',
+        slug: 'unproven-intermediate-row',
+        slugByLocale: { it: 'unproven-intermediate-row' },
+        description: 'z'.repeat(300_000),
+      };
+      const unprovenPrevious = json([ghost, unprovenFiller, duplicateA, duplicateB]);
+      const unprovenBase = json([unprovenFiller, duplicateA, duplicateB]);
+      const unprovenBasePath = join(root, 'unproven-base.json');
+      const unprovenRouteProofPath = join(root, 'unproven-route-proof.json');
+      writeFileSync(unprovenBasePath, unprovenBase);
+      execFileSync(process.execPath, [
+        resolve(import.meta.dirname, '../scripts/ci/canonicalize-expired-archive-slice.mjs'),
+        unprovenBasePath,
+        fileLabel,
+        unprovenRouteProofPath,
+      ], { encoding: 'utf8' });
+      const unprovenNext = readFileSync(unprovenBasePath, 'utf8');
+      const unprovenRouteProof = JSON.parse(readFileSync(unprovenRouteProofPath, 'utf8'));
+      expect(() => assertCrawlerSliceWriteSafe(fileLabel, unprovenPrevious, unprovenNext, {
+        canonicalizationBaseRaw: unprovenBase,
+        canonicalizationProof: unprovenRouteProof,
+      })).toThrow(/catastrophic truncation avoided/);
+
       const env = {
         GITHUB_RUN_ID: 'expired-route-proof-run',
         GITHUB_RUN_ATTEMPT: '1',
