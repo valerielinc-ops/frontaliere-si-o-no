@@ -312,7 +312,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.description.length).toBeGreaterThan(0);
       expect(parsed.city).toBe('');
       expect(parsed.canton).toBe('');
-      expect(parsed.postalCode).toBe('');
+      expect(parsed.postalCode).toBe('3000');
       expect(parsed.streetAddress).toBe('');
     });
 
@@ -343,7 +343,12 @@ describe('migrolino crawler parser', () => {
         description: 'Eine Stelle im migrolino-Shop mit Aufgaben im Verkauf und direktem Kundenkontakt.',
         jobLocation: {
           '@type': 'Place',
-          address: { '@type': 'PostalAddress', addressLocality: 'Suhrau', addressCountry: 'CH' },
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Loc. non risolta',
+            postalCode: '6500',
+            addressCountry: 'CH',
+          },
         },
       })}</script>`;
       const parsed = parseMigrolinoDetail(html);
@@ -351,7 +356,8 @@ describe('migrolino crawler parser', () => {
       expect(parsed.city).toBe('');
       expect(parsed.canton).toBe('');
       expect(parsed.postalCode).toBe('');
-      expect(parsed.streetAddress).toBe('Suhrau');
+      expect(parsed.streetAddress).toBe('Loc. non risolta');
+      expect(parsed.streetAddress).not.toContain('city centre');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {

@@ -278,7 +278,10 @@ export function parseMigrolinoDetail(html = '', url = '') {
   // accept a foreign/unknown posting as a real Swiss job.
   const outputCity = unresolvedExplicitCity ? '' : city;
   const outputCanton = unresolvedExplicitCity ? '' : resolvedCanton;
-  const outputPostalCode = unresolvedExplicitCity ? '' : postalCode;
+  const outputPostalCode = unresolvedExplicitCity
+    || (!rawCity && !normalizeSpace(address.postalCode || ''))
+    ? ''
+    : postalCode;
   const outputStreetAddress = unresolvedExplicitCity ? (rawCity || streetAddress) : streetAddress;
 
   return {
