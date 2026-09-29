@@ -13,6 +13,8 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { dropPlanzerFabricatedText, extractPlanzerDetailContent } from '../scripts/lib/planzer-job-parser.mjs';
 import { buildHasDescription, dropHasFabricatedText } from '../scripts/lib/has-healthcare-description.mjs';
+import { dropSolinaFabricatedText } from '../scripts/lib/solina-job-parser.mjs';
+import { dropKlinikAdelheidFabricatedText } from '../scripts/lib/klinik-adelheid-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const read = (...parts: string[]) => fs.readFileSync(path.join(__dirname, ...parts), 'utf8');
@@ -89,6 +91,28 @@ describe('HAS Healthcare (e-lavoro.ch) description', () => {
   });
 });
 
+describe('stored Solina and Klinik Adelheid jobs', () => {
+  it('Solina: the "Pensum / Standort:" line and the company sentence leave the source, their translations go', () => {
+    // Shape of all 28 solina rows on main (2026-09-29).
+    const source = 'Praktikant:in\n\nPensum / Standort: 100%, Standortübergreifend\n\n## Mehr als Theorie Deine Zukunft beginnt hier\nBei Solina lernst du den Beruf dort, wo er zählt.\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.';
+    const job = { sourceLang: 'de', description: source, descriptionByLocale: { de: source, it: 'Interno: in Pensum / Ubicazione: 100% …' } };
+    expect(dropSolinaFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('Praktikant:in\n\n## Mehr als Theorie Deine Zukunft beginnt hier\nBei Solina lernst du den Beruf dort, wo er zählt.');
+    expect(job.descriptionByLocale).toEqual({ de: job.description });
+    expect(dropSolinaFabricatedText(job)).toBe(false);
+  });
+
+  it('Klinik Adelheid: the "Bereich: X." line leaves the source, its translations go', () => {
+    // Shape of all 8 klinik-adelheid rows on main (2026-09-29).
+    const source = 'Bereich: Offene Lehrstellen.\n\nWir suchen per 1. August 2027 eine / einen\nLernende/n als Köchin / Koch EFZ';
+    const job = { sourceLang: 'de', description: source, descriptionByLocale: { de: source, fr: 'Domaine : …' } };
+    expect(dropKlinikAdelheidFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('Wir suchen per 1. August 2027 eine / einen\nLernende/n als Köchin / Koch EFZ');
+    expect(Object.keys(job.descriptionByLocale)).toEqual(['de']);
+    expect(dropKlinikAdelheidFabricatedText(job)).toBe(false);
+  });
+});
+
 describe('no crawler-written stand-in in the parsers that build it inside their fetch loop', () => {
   it.each([
     ['lib/aarreha-schinznach-job-parser.mjs', /Zentrum für interdisziplinäre Rehabilitation|summaryPieces/],
@@ -97,6 +121,10 @@ describe('no crawler-written stand-in in the parsers that build it inside their 
     ['lib/kispi-job-parser.mjs', /\$\{title\} — \$\{KISPI_COMPANY_NAME\}/],
     ['update-caseificio-gottardo-jobs.mjs', /Per maggiori dettagli|buildFallbackDescription|pubblica il seguente/],
     ['update-has-healthcare-jobs.mjs', /Settore: Farmaceutico|è alla ricerca di/],
+    ['lib/wagerenhof-job-parser.mjs', /buildFallbackDescription|Lebensgemeinschaft für rund/],
+    ['lib/klinik-adelheid-job-parser.mjs', /description = `Bereich:|140-Betten Rehabilitationsklinik der Zentralschweiz mit/],
+    ['lib/solina-job-parser.mjs', /`Pensum \/ Standort: \$\{|SOLINA_CONTEXT/],
+    ['lib/planzer-job-parser.mjs', /`Marke der Planzer-Gruppe: \$\{|summaryPieces/],
   ])('%s', (file, pattern) => {
     expect(read('..', 'scripts', ...file.split('/'))).not.toMatch(pattern);
   });

@@ -28,6 +28,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { dropFabricatedSourceText } from './stored-slice-repair.mjs';
 
 export const KLINIK_ADELHEID_KEY = 'klinik-adelheid';
 export const KLINIK_ADELHEID_COMPANY_NAME = 'Klinik Adelheid';
@@ -106,6 +107,25 @@ export function extractAdelheidDetail(html = '') {
   return slice.join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
+// The parser used to write "Bereich: X." above the page text, and a title /
+// company paragraph in place of a missing body (issue 5253).
+const ADELHEID_FABRICATED_RE = /^Bereich: [^\n]*\n|, Unterägeri \(ZG\)\.\n|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik/;
+
+/**
+ * Repair a STORED job written by the old builder: remove the leading
+ * "Bereich: X." line and drop the translations of the crawler-written text
+ * (see `stored-slice-repair.mjs`).
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function dropKlinikAdelheidFabricatedText(job) {
+  return dropFabricatedSourceText(job, {
+    pattern: ADELHEID_FABRICATED_RE,
+    strip: (text) => text.replace(/^Bereich: [^\n]*\n+/, ''),
+  });
+}
+
 export async function fetchAllKlinikAdelheidJobs() {
   console.log(`🏥 Fetching ${KLINIK_ADELHEID_COMPANY_NAME} jobs`);
   console.log(`   Source: ${PUBLIC_CAREER_URL}\n`);
@@ -131,15 +151,9 @@ export async function fetchAllKlinikAdelheidJobs() {
     }
     await new Promise((r) => setTimeout(r, 200));
 
-    if (!description) {
-      description = [
-        `${row.title} — ${KLINIK_ADELHEID_COMPANY_NAME}, Unterägeri (ZG).`,
-        row.bereich ? `Bereich: ${row.bereich}.` : '',
-        'Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation.',
-      ].filter(Boolean).join('\n\n');
-    } else if (row.bereich) {
-      description = `Bereich: ${row.bereich}.\n\n${description}`;
-    }
+    // Only the posting's own text (issue 5253): no "Bereich: X." line in front
+    // of it and no title/company paragraph in place of a missing body — the
+    // shared pipeline's thin-source check quarantines a job without one.
 
     const sourceLang = detectLang(description || row.title, 'de');
     const jobSlug = slugify(`${row.title} ${KLINIK_ADELHEID_KEY} unteraegeri`);
