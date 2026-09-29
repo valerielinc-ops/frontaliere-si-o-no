@@ -5509,8 +5509,11 @@ function textFragmentIdentity(fragment = '') {
   const textParam = fragment.slice(at + 3).split('&').find((part) => part.startsWith('text='));
   if (!textParam) return '';
   const parts = textParam.slice('text='.length).split(',');
-  const hasPrefix = parts.length > 1 && parts[0].endsWith('-');
-  const start = parts[hasPrefix ? 1 : 0] || '';
+  const first = parts[0] || '';
+  // A terminal hyphen is a prefix marker only when the directive actually
+  // contains a second component; otherwise it belongs to the text start.
+  const hasExplicitPrefix = parts.length > 1 && first.endsWith('-');
+  const start = hasExplicitPrefix ? (parts[1] || '') : first;
   let text = '';
   try {
     text = decodeURIComponent(start);
