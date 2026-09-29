@@ -48,6 +48,15 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
+      - name: Probe blocked source readiness
+        # This is a read-only watch. In particular, JU/NE are probed through
+        # their official canton pages, never through Ricardo; GE and ZG stay
+        # non-active until their official readiness gates are met.
+        continue-on-error: true
+        run: |
+          echo '## Blocked plate-auction source readiness' >> "$GITHUB_STEP_SUMMARY"
+          node scripts/plate-auctions/discover-sources.mjs --blocked-only | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Prepare Firebase credentials
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
@@ -98,6 +107,7 @@ jobs:
           tests/plate-auction-quality-checks.test.ts
           tests/plate-auction-connectors.test.ts
           tests/plate-auction-api-relay.test.ts
+          tests/plate-auction-discovery.test.ts
           tests/plate-auction-registry.test.ts
           tests/plate-auction-functions-registry-parity.test.ts
           tests/plate-auction-public-snapshot.test.ts
