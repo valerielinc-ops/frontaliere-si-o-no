@@ -7043,6 +7043,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cioccolato-mercato-svizzera.title': 'Lindt révise à la baisse ses prévisions de ventes pour 2026',
     'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt prévoit une croissance du chiffre d\'affaires de 0%-2% (contre 4-6% précédemment), BP -8% dans la matinée, performance YTD -30%, -35% sur 12 mois, -24% sur 5 ans ; siège à Kilchberg ZH, 15\'500 employés.',
     'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Barres de chocolat suisse sur table en bois avec fond des Alpes',
+    'blog.article.lindt-prezzi-cacao-2026.title': 'Lindt revoit ses estimations : baisse des ventes et des prix',
+    'blog.article.lindt-prezzi-cacao-2026.excerpt': 'Lindt&Sprüngli abaisse la prévision de croissance organique 2026 à 0-2 pour cent et envisage des réductions de prix plus importantes à partir de janvier après l’impact du cacao et de la chaleur estivale.',
+    'blog.article.lindt-prezzi-cacao-2026.imageAlt': 'Présentation de chocolat Lindt dans un magasin',
 };
 
 export default blogMetaChFr;
