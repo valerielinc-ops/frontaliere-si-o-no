@@ -97,12 +97,30 @@ describe('createVdEmploiPlatformParser().fetchAllJobs', () => {
     headers: { 'Content-Type': 'application/json' },
   })));
 
-  it('keeps one row for an offer published twice with the same title, workplace and text', async () => {
+  it('keeps two offers with different ids and requisitions even when title, workplace and text are identical', async () => {
     const [first] = fixture.hib.offers;
-    stubApi({ offers: [first, { ...first, id: first.id + 1000 }] });
+    const twin = { ...first, id: first.id + 1000, requisitionId: first.requisitionId + 1000, uri: undefined };
+    stubApi({ offers: [first, twin] });
+    const jobs = await createVdEmploiPlatformParser(hibConfig).fetchAllJobs();
+    expect(jobs).toHaveLength(2);
+    expect(new Set(jobs.map((job) => job.url)).size).toBe(2);
+  });
+
+  it('keeps one row, the most recent, for an offer the source republishes under the same requisition', async () => {
+    // EHC 3590 and 3626: two offer ids, requisition 2165 for both.
+    const [first] = fixture.hib.offers;
+    const older = { ...first, id: first.id + 1000, uri: undefined, dateFrom: '2000-01-01T00:00:00+00:00' };
+    stubApi({ offers: [older, first] });
     const jobs = await createVdEmploiPlatformParser(hibConfig).fetchAllJobs();
     expect(jobs).toHaveLength(1);
     expect(jobs[0].url).toMatch(new RegExp(`-${first.id}$`));
+  });
+
+  it('keeps one row for the same offer id listed twice', async () => {
+    const [first] = fixture.hib.offers;
+    stubApi({ offers: [first, { ...first }] });
+    const jobs = await createVdEmploiPlatformParser(hibConfig).fetchAllJobs();
+    expect(jobs).toHaveLength(1);
   });
 
   it('moves stored rows off the legacy URL onto the offer with the same title, and drops dead ones', async () => {

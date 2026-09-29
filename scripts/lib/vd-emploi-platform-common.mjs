@@ -173,6 +173,45 @@ function isLegacyOfferUrl(rawUrl = '') {
 
 const titleKey = (value = '') => normalizeSpace(decodeEntities(String(value || ''))).toLowerCase();
 
+/**
+ * The offers of one API response with each source-declared vacancy once. An
+ * offer's identity is its `requisitionId` when the API sends one, its `id`
+ * otherwise; for each identity the offer with the latest `dateFrom` is kept
+ * (API order on a tie), and the result keeps API order. Title, workplace and
+ * text are NOT an identity: two requisitions may advertise the same role in
+ * the same words and are two vacancies.
+ *
+ * @param {Array<{ id?: number|string, requisitionId?: number|string, dateFrom?: string }>} offers
+ */
+export function offersOnePerRequisition(offers = []) {
+  const identityOf = (offer) => {
+    const requisition = String(offer?.requisitionId ?? '').trim();
+    if (requisition) return `requisition:${requisition}`;
+    const id = String(offer?.id ?? '').trim();
+    return id ? `id:${id}` : '';
+  };
+  const time = (offer) => {
+    const t = Date.parse(String(offer?.dateFrom || ''));
+    return Number.isFinite(t) ? t : -Infinity;
+  };
+  const best = new Map();
+  for (const offer of offers) {
+    const key = identityOf(offer);
+    if (!key) continue;
+    const current = best.get(key);
+    if (!current || time(offer) > time(current)) best.set(key, offer);
+  }
+  const seenIds = new Set();
+  return offers.filter((offer) => {
+    const key = identityOf(offer);
+    if (key && best.get(key) !== offer) return false;
+    const id = String(offer?.id ?? '').trim();
+    if (id && seenIds.has(id)) return false;
+    if (id) seenIds.add(id);
+    return true;
+  });
+}
+
 function pickInformationValue(offer, infoId) {
   const list = Array.isArray(offer?.information) ? offer.information : [];
   const entry = list.find((it) => normalize(it?.id) === normalize(infoId));
@@ -293,12 +332,15 @@ export function createVdEmploiPlatformParser(config) {
 
     const jobs = [];
     legacyUrlOffers = new Map();
-    // One posting published twice (two offer ids, same title, workplace and
-    // body — EHC 3590/3626 «Infirmier en gériatrie», EMS Nelty de Beausobre)
-    // is one vacancy for the reader: the first, most recent one is kept.
-    const seenPostings = new Set();
-    let doublePublications = 0;
-    for (const offer of offers) {
+    // One vacancy published twice, as the source itself declares it: the same
+    // offer `id`, or the same `requisitionId` (the HR requisition behind the
+    // ad) on two offers — EHC 3590 and 3626 are both requisition 2165. Only
+    // the most recent offer of that identity is kept (see
+    // offersOnePerRequisition). Two offers with different ids and
+    // requisitions stay two vacancies even when their text is identical.
+    const kept = offersOnePerRequisition(offers);
+    const doublePublications = offers.length - kept.length;
+    for (const offer of kept) {
       const title = normalizeSpace(offer?.title || '');
       if (!title || title.length < 3) continue;
       const publicUrl = offerDetailUrl(offer, baseUrl, urlLocale);
@@ -388,14 +430,6 @@ export function createVdEmploiPlatformParser(config) {
         requirementsByLocale: { [sourceLang]: [] },
       };
 
-      const postingKey = [decodedTitle, location, descriptionText]
-        .map((value) => normalizeSpace(value).toLowerCase())
-        .join('|');
-      if (descriptionText && seenPostings.has(postingKey)) {
-        doublePublications += 1;
-        continue;
-      }
-      seenPostings.add(postingKey);
       jobs.push(job);
       const legacyUrl = legacyOfferUrl(offer, baseUrl);
       if (legacyUrl) {
@@ -406,7 +440,7 @@ export function createVdEmploiPlatformParser(config) {
     }
 
     if (doublePublications) {
-      console.log(`  ⏭️ ${doublePublications} offer(s) repeating another offer's title, workplace and text — kept once`);
+      console.log(`  ⏭️ ${doublePublications} offer(s) republishing the same offer id or requisition — kept once`);
     }
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
