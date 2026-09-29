@@ -22,6 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -287,7 +288,10 @@ export function parseCsebPublication(pub) {
 
   // Build full description from sections
   const descriptionText = buildDescription(pub);
-  const fallbackDesc = `${title} — Center da Sanadad Engiadina Bassa, ${location}`;
+  // Only the posting's own text (issue 5253): no "<title> — Center da Sanadad Engiadina Bassa, <place>"
+  // line in place of a missing body. A body under the common 50-word floor
+  // gives no description (the shared pipeline's thin-source path).
+  const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
   // URLs
   const publicUrl = pub.PublicationUrlAbacusJobPortal || CAREER_URL;
@@ -328,8 +332,8 @@ export function parseCsebPublication(pub) {
     companyDomain: CSEB_COMPANY_DOMAIN,
     title,
     titleByLocale: { [sourceLang]: title },
-    description: descriptionText || fallbackDesc,
-    descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+    description,
+    descriptionByLocale: { [sourceLang]: description },
     location,
     canton,
     url: publicUrl,

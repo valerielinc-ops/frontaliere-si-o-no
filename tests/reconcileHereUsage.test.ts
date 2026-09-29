@@ -9,10 +9,11 @@
  * here — they require live OAuth credentials and a Firestore connection.
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   sumRoutingTransactions,
   buildHereOAuthHeader,
+  hereReconciliationBudget,
   monthBounds,
   currentMonthKey,
 } from '../scripts/reconcile-here-usage.mjs';
@@ -133,5 +134,17 @@ describe('month window math', () => {
   it('currentMonthKey returns a YYYY-MM string', () => {
     expect(currentMonthKey(new Date('2026-06-15T12:00:00Z'))).toMatch(/^\d{4}-\d{2}$/);
     expect(currentMonthKey(new Date('2026-06-15T12:00:00Z'))).toBe('2026-06');
+  });
+});
+
+describe('HERE budget threshold', () => {
+  it('clamps a permissive Remote Config value to the free-tier ceiling', () => {
+    const warn = vi.fn();
+    expect(hereReconciliationBudget({ HERE_MONTHLY_BUDGET: '4500' }, warn)).toBe(4000);
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('exceeds the hard free-tier ceiling'));
+  });
+
+  it('keeps the configured value when it is within the ceiling', () => {
+    expect(hereReconciliationBudget({ HERE_MONTHLY_BUDGET: '3500' }, vi.fn())).toBe(3500);
   });
 });

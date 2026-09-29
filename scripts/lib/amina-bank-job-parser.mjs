@@ -32,6 +32,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
 import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
 
@@ -188,10 +189,11 @@ export async function fetchAllAminaBankJobs() {
     const jobSlug = slugify(`${title} amina bank zug`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const fallbackDesc =
-      `${title} — posizione presso AMINA Bank a ${DEFAULT_CITY} (${DEFAULT_CANTON}), Svizzera. ` +
-      'AMINA Bank è una banca svizzera regolamentata FINMA, pioniera nei servizi finanziari digitali e crypto.';
-    const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
+    // Only the posting's own text (issue 5253): no Italian "<title> —
+    // posizione presso AMINA Bank …" line and bank summary in place of a short
+    // page body. A body under the common 50-word floor gives no description
+    // (the shared pipeline's thin-source path).
+    const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;
 

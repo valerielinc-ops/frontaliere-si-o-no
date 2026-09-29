@@ -3016,7 +3016,7 @@
       "title": "Praktikantin/Praktikant Kommunikation & Marketing",
       "titleByLocale": {
         "it": "Interno/Interno Comunicazione & Marketing",
-        "en": "Praktikantin/Praktikant Kommunikation & Marketing",
+        "en": "Intern/Internship Communication & Marketing",
         "de": "Praktikantin/Praktikant Kommunikation & Marketing",
         "fr": "Communication et marketing internes/internes"
       },
@@ -3080,8 +3080,7 @@
           "maxValue": 92500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-basel-landschaft-b3a5abbe741f",
@@ -3262,7 +3261,7 @@
       "title": "Klassenlehrperson, 4.–6. Mehrjahrgangsklasse",
       "titleByLocale": {
         "it": "Insegnante di classe, 4.–6. Classe pluriennale",
-        "en": "Klassenlehrperson, 4.–6. Mehrjahrgangsklasse",
+        "en": "Class teacher, 4.–6. Multi-year class",
         "de": "Klassenlehrperson, 4.–6. Mehrjahrgangsklasse",
         "fr": "Professeur de classe, 4.–6. Classe pluriannuelle"
       },
@@ -3326,8 +3325,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-basel-landschaft-8231b148ceac",
@@ -3510,7 +3508,7 @@
       "title": "Lehrperson 2. Klasse",
       "titleByLocale": {
         "it": "Maestro 2a classe",
-        "en": "Lehrperson 2. Klasse",
+        "en": "Teacher 2nd class",
         "de": "Lehrperson 2. Klasse",
         "fr": "Enseignant 2e classe"
       },
@@ -3572,15 +3570,14 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-basel-landschaft-d14ff1336b3c",
       "slug": "maestro-3a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "it": "maestro-3a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "en": "lehrperson-3-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "en": "teacher-3rd-class-kantonale-verwaltung-basel-landschaft-munchenstein",
         "de": "lehrperson-3-klasse-kanton-basel-landschaft-munchenstein",
         "fr": "enseignant-3e-classe-kantonale-verwaltung-basel-landschaft-munchenstein"
       },
@@ -3626,14 +3623,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-3-klasse-kanton-basel-landschaft-munchenstein",
-        "teacher-3rd-class-kantonale-verwaltung-basel-landschaft-munchenstein"
+        "lehrperson-3-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-3-klasse-kanton-basel-landschaft-munchenstein"
         ],
         "en": [
-          "teacher-3rd-class-kantonale-verwaltung-basel-landschaft-munchenstein"
+          "lehrperson-3-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
         ],
         "fr": [
           "lehrperson-3-klasse-kanton-basel-landschaft-munchenstein"
@@ -3911,7 +3908,7 @@
       "slug": "maestro-5a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "it": "maestro-5a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "en": "lehrperson-5-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "en": "teacher-5th-class-kantonale-verwaltung-basel-landschaft-munchenstein",
         "de": "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein",
         "fr": "enseignant-5eme-classe-kantonale-verwaltung-basel-landschaft-munchenstein"
       },
@@ -3957,14 +3954,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein",
-        "teacher-5th-class-kantonale-verwaltung-basel-landschaft-munchenstein"
+        "lehrperson-5-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein"
         ],
         "en": [
-          "teacher-5th-class-kantonale-verwaltung-basel-landschaft-munchenstein"
+          "lehrperson-5-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
         ],
         "fr": [
           "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein"

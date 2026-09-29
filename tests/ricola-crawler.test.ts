@@ -11,6 +11,9 @@ import {
   buildPageUrl,
   resolveDetailUrl,
   __testables,
+  fetchAllRicolaJobs,
+  prepareRicolaExistingJobs,
+  ricolaContractFromTerm,
 } from '../scripts/lib/ricola-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -337,5 +340,51 @@ describe('Ricola crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('Ricola — source text only (issue 5253)', () => {
+  const fetchWith = (detail: string) => async (url: string) => {
+    if (url.includes('/Vacancies/1048/Description')) return detail;
+    return url.includes('Jobs/2') && !/[?&](?:page|p)=[2-9]/.test(url) ? LISTING_ROW_FIXTURE : '';
+  };
+
+  it('publishes the detail page text, never an invented company paragraph', async () => {
+    const jobs = await fetchAllRicolaJobs({ _fetchHtml: fetchWith(DETAIL_PAGE_FIXTURE) });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toContain('You bring order to the numbers');
+    expect(jobs[0].description).not.toMatch(/herbal-candy manufacturer|Apply via the Ricola careers portal/);
+    expect(jobs[0].sourceLang).toBe('en');
+  });
+
+  it('keeps the listing facts out of the body and reads "unlimited" as permanent', async () => {
+    const [job] = await fetchAllRicolaJobs({ _fetchHtml: fetchWith(DETAIL_PAGE_FIXTURE) });
+    expect(job.description).not.toMatch(/Type: |Employment period: /);
+    expect(job.contract).toBe('full-time');
+    expect(ricolaContractFromTerm('unlimited')).toBe('full-time');
+    expect(ricolaContractFromTerm('limited')).toBe('temporary');
+    expect(ricolaContractFromTerm('befristet')).toBe('temporary');
+    expect(ricolaContractFromTerm('unbefristet')).toBe('full-time');
+  });
+
+  it('drops the stored bodies that still end with the old facts line', () => {
+    // Shape of the two records on main (slice of 2026-09-29).
+    const stored = [{
+      sourceLang: 'en',
+      description: 'You bring order to the numbers.\n\nwww.ricola.com/career\n\nType: Full time. Employment period: unlimited.',
+      descriptionByLocale: {
+        en: 'You bring order to the numbers.\n\nwww.ricola.com/career\n\nType: Full time. Employment period: unlimited.',
+        de: 'Sie schaffen Ordnung in den Zahlen.\n\nType: Full time. Employment period: unlimited.',
+      },
+    }];
+    const [job] = prepareRicolaExistingJobs(stored);
+    expect(job.description).toBe('');
+    expect(Object.values(job.descriptionByLocale).join(' ')).not.toMatch(/Employment period:/);
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a job without a readable detail body out of the run', async () => {
+    const jobs = await fetchAllRicolaJobs({ _fetchHtml: fetchWith('') });
+    expect(jobs).toEqual([]);
   });
 });

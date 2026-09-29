@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "company-o4qo0h",
-      "slug": "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez",
+      "slug": "vice-direttoredifiliale-denner-aeschi-bei-spiez",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez",
-        "en": "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez",
+        "it": "vice-direttoredifiliale-denner-aeschi-bei-spiez",
+        "en": "branch-manager-denner-aeschi-bei-spiez",
         "de": "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h",
         "fr": "directeur-de-succursale-stv-in-migros-ticino-aeschi-bei-spiez"
       },
@@ -77,16 +77,19 @@
       "previousSlugs": [
         "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez",
         "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez",
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez"
         ],
         "en": [
-          "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h"
+          "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h",
+          "stv-branch-manager-in-migros-ticino-aeschi-bei-spiez"
         ],
         "fr": [
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h"
@@ -1116,6 +1119,19 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-29T09:15:43.102Z",
       "previousSlugs": [
+        "stv-filialleiter-in-denner-3nkluz",
+        "stv-filialleiter-in-denner-yw0jyp",
+        "stv-filialleiter-in-denner-xwqsvk",
+        "stv-filialleiter-in-denner-uk1txa",
+        "stv-filialleiter-in-denner-ag-bern-tp6czy",
+        "stv-filialleiter-in-denner-tp6czy",
+        "stv-filialleiter-in-denner-r8ohg4",
+        "stv-filialleiter-in-denner-ehqxop",
+        "stv-filialleiter-in-denner-dd2ywz",
+        "stv-filialleiter-in-denner-ag-zurich-geicje",
+        "stv-filialleiter-in-denner-zurich-geicje",
+        "stv-filialleiter-in-denner-syjkk9",
+        "stv-filialleiter-in-denner-rgvddr",
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-8",
         "stv-filialleiter-in-denner-9",
@@ -1145,6 +1161,19 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-filialleiter-in-denner-3nkluz",
+          "stv-filialleiter-in-denner-yw0jyp",
+          "stv-filialleiter-in-denner-xwqsvk",
+          "stv-filialleiter-in-denner-uk1txa",
+          "stv-filialleiter-in-denner-ag-bern-tp6czy",
+          "stv-filialleiter-in-denner-tp6czy",
+          "stv-filialleiter-in-denner-r8ohg4",
+          "stv-filialleiter-in-denner-ehqxop",
+          "stv-filialleiter-in-denner-dd2ywz",
+          "stv-filialleiter-in-denner-ag-zurich-geicje",
+          "stv-filialleiter-in-denner-zurich-geicje",
+          "stv-filialleiter-in-denner-syjkk9",
+          "stv-filialleiter-in-denner-rgvddr",
           "stv-filialleiter-in-denner-bern",
           "stv-filialleiter-in-denner-13",
           "stv-filialleiter-in-denner-fullinsdorf",
@@ -1244,9 +1273,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-36",
         "verkaufer-in-denner-21",
-        "seller-denner-zurich",
-        "vendeur-denner-zurich",
-        "venditore-denner-zurich",
         "verkaufer-in-denner-zurich",
         "verkaufer-in-denner-umuug6"
       ],
@@ -1255,7 +1281,6 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-36",
           "verkaufer-in-denner-21",
-          "venditore-denner-zurich",
           "verkaufer-in-denner-umuug6"
         ],
         "en": [
@@ -1704,12 +1729,12 @@
     },
     {
       "id": "denner-c92155882828",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "gestione-del-ramo-aggiunto-denner-reiden",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner",
+        "it": "gestione-del-ramo-aggiunto-denner-reiden",
+        "en": "assistant-branch-management-denner-reiden",
         "de": "assistent-in-filialleitung-denner-reiden",
-        "fr": "assistent-in-filialleitung-denner"
+        "fr": "direction-generale-adjointe-denner-reiden"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1768,11 +1793,19 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-29T09:15:39.507Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-2"
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner-2"
+          "assistent-in-filialleitung-denner-2",
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
@@ -2314,8 +2347,6 @@
         "venditore-in-salario-orario-denner-stein-ag",
         "verkaufer-in-im-stundenlohn-denner-stein-ag",
         "seller-in-in-hourly-wage-denner-stein-ag",
-        "seller-denner-ag-frauenfeld-008421",
-        "venditore-denner-ag-frauenfeld",
         "vendor-in-hourly-wages-denner-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-d6nn5t",
         "verkaufer-in-im-stundenlohn-denner-b51nr4",
@@ -2340,13 +2371,11 @@
           "seller-in-in-hourly-wage-denner-stein-ag",
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-wohlen-ag",
-          "venditore-denner-ag-frauenfeld",
           "verkaufer-in-im-stundenlohn-denner-d6nn5t",
           "verkaufer-in-im-stundenlohn-denner-b51nr4"
         ],
         "en": [
           "seller-denner-ag-frauenfeld",
-          "seller-denner-ag-frauenfeld-008421",
           "vendor-in-hourly-wages-denner-frauenfeld",
           "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld-b51nr4"
         ],
@@ -3483,9 +3512,9 @@
     },
     {
       "id": "company-ixnppb",
-      "slug": "stv-branch-manager-in-denner-kreuzlingen",
+      "slug": "gestore-ramo-denner-kreuzlingen",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-kreuzlingen",
+        "it": "gestore-ramo-denner-kreuzlingen",
         "en": "stv-branch-manager-in-denner-kreuzlingen",
         "de": "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
         "fr": "directeur-de-succursale-stv-in-denner-kreuzlingen"
@@ -3562,7 +3591,8 @@
         "stv-filialleiter-in-denner-6",
         "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
         "stv-filialleiter-in-denner-5",
-        "stv-filialleiter-in-denner-12"
+        "stv-filialleiter-in-denner-12",
+        "stv-branch-manager-in-denner-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3574,7 +3604,8 @@
           "stv-filialleiter-in-denner-6",
           "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
           "stv-filialleiter-in-denner-5",
-          "stv-filialleiter-in-denner-12"
+          "stv-filialleiter-in-denner-12",
+          "stv-branch-manager-in-denner-kreuzlingen"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb"
@@ -3720,9 +3751,9 @@
     },
     {
       "id": "company-58496d",
-      "slug": "stv-branch-manager-in-denner-wetzikon",
+      "slug": "gestore-ramo-denner-wetzikon",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-wetzikon",
+        "it": "gestore-ramo-denner-wetzikon",
         "en": "stv-branch-manager-in-denner-wetzikon",
         "de": "stv-filialleiter-in-denner-ag-wetzikon-58496d",
         "fr": "directeur-de-succursale-stv-in-denner-wetzikon"
@@ -3799,7 +3830,8 @@
         "stv-filialleiter-in-denner-7",
         "stv-filialleiter-in-denner-ag-wetzikon-58496d",
         "stv-filialleiter-in-denner-6",
-        "stv-filialleiter-in-denner-13"
+        "stv-filialleiter-in-denner-13",
+        "stv-branch-manager-in-denner-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3811,7 +3843,8 @@
           "stv-filialleiter-in-denner-7",
           "stv-filialleiter-in-denner-ag-wetzikon-58496d",
           "stv-filialleiter-in-denner-6",
-          "stv-filialleiter-in-denner-13"
+          "stv-filialleiter-in-denner-13",
+          "stv-branch-manager-in-denner-wetzikon"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-wetzikon-58496d"
@@ -4935,15 +4968,11 @@
       "crawledAt": "2026-09-29T09:15:29.348Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-basel-66c0e2",
-        "vendeur-denner-ag-basel-66c0e2",
         "verkaufer-in-denner-basel-j9jhrv",
         "seller-denner-ag-basel-25bcd4",
         "vendeur-denner-ag-basel-25bcd4",
-        "venditore-denner-ag-basel-66c0e2",
         "seller-denner-ag-basel-129873",
         "vendeur-denner-ag-basel",
-        "verkaufer-in-denner-basel",
         "verkaufer-in-denner-basel-jm857n",
         "verkaufer-in-denner-basel-sdrsyr"
       ],
@@ -4953,10 +4982,8 @@
           "verkaufer-in-denner-basel-j9jhrv",
           "seller-denner-ag-basel-25bcd4",
           "vendeur-denner-ag-basel-25bcd4",
-          "venditore-denner-ag-basel-66c0e2",
           "seller-denner-ag-basel-129873",
           "vendeur-denner-ag-basel",
-          "verkaufer-in-denner-basel",
           "verkaufer-in-denner-basel-jm857n",
           "verkaufer-in-denner-basel-sdrsyr"
         ]
@@ -7078,9 +7105,9 @@
     },
     {
       "id": "company-crop66",
-      "slug": "stv-branch-manager-in-denner-ag-egg-b",
+      "slug": "gestore-ramo-denner-egg-b",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-ag-egg-b",
+        "it": "gestore-ramo-denner-egg-b",
         "en": "stv-branch-manager-in-denner-ag-egg-b",
         "de": "stv-filialleiter-in-denner-ag-egg-b-zurich-crop66",
         "fr": "directeur-de-succursale-stv-denner-ag-egg-b"
@@ -7156,7 +7183,8 @@
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner-2",
         "stv-filialleiter-in-denner-11",
-        "stv-filialleiter-in-denner-8"
+        "stv-filialleiter-in-denner-8",
+        "stv-branch-manager-in-denner-ag-egg-b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7167,7 +7195,8 @@
           "stv-filialleiter-in-denner-3",
           "stv-filialleiter-in-denner-2",
           "stv-filialleiter-in-denner-11",
-          "stv-filialleiter-in-denner-8"
+          "stv-filialleiter-in-denner-8",
+          "stv-branch-manager-in-denner-ag-egg-b"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-egg-b-zurich-crop66"
@@ -7496,7 +7525,6 @@
         "verkaufer-in-im-stundenlohn-denner-zurich",
         "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
         "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
-        "venditore-nel-salario-orario-denner-ag-zurich",
         "verkaufer-in-im-stundenlohn-denner-x84zlj"
       ],
       "previousSlugsByLocale": {
@@ -7511,7 +7539,6 @@
           "verkaufer-in-im-stundenlohn-denner-zurich",
           "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
           "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
-          "venditore-nel-salario-orario-denner-ag-zurich",
           "verkaufer-in-im-stundenlohn-denner-x84zlj"
         ],
         "en": [
@@ -7909,6 +7936,8 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-29T09:15:16.614Z",
       "previousSlugs": [
+        "verkaufer-in-denner-t9tqag",
+        "verkaufer-in-denner-pfzdrt",
         "verkaufer-in-denner-usapjx",
         "verkaufer-in-denner",
         "verkaufer-in-denner-interlaken",
@@ -7954,6 +7983,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-denner-t9tqag",
+          "verkaufer-in-denner-pfzdrt",
           "verkaufer-in-denner-baar",
           "venditore-denner-ag-interlaken",
           "verkaufer-in-denner-ag-interlaken-rramd7",
@@ -8083,7 +8114,6 @@
         "verkaufer-in-denner-12",
         "verkaufer-in-denner-33",
         "verkaufer-in-denner-28",
-        "venditore-denner-ag-zug",
         "verkaufer-in-denner-k7ptw1",
         "verkaufer-in-denner-rtrz4s"
       ],
@@ -8102,7 +8132,6 @@
           "verkaufer-in-denner-12",
           "verkaufer-in-denner-33",
           "verkaufer-in-denner-28",
-          "venditore-denner-ag-zug",
           "verkaufer-in-denner-k7ptw1",
           "verkaufer-in-denner-rtrz4s"
         ],
@@ -10602,6 +10631,16 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-29T09:15:05.797Z",
       "previousSlugs": [
+        "verkaufer-in-denner-00x5do",
+        "verkaufer-in-denner-yrx1w7",
+        "verkaufer-in-denner-ue88ej",
+        "verkaufer-in-denner-0w78hf",
+        "verkaufer-in-denner-9d5z10",
+        "verkaufer-in-denner-8r80mp",
+        "verkaufer-in-denner-7th4hu",
+        "verkaufer-in-denner-5l2op8",
+        "verkaufer-in-denner-2d59lb",
+        "verkaufer-in-denner-0sjfd4",
         "verkaufer-in-denner-ag-luzern-2",
         "verkaufer-in-denner-ag-luzern-ofjr2x",
         "verkaufer-in-denner-ag-luzern",
@@ -10634,6 +10673,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-denner-00x5do",
+          "verkaufer-in-denner-yrx1w7",
+          "verkaufer-in-denner-ue88ej",
+          "verkaufer-in-denner-0w78hf",
+          "verkaufer-in-denner-9d5z10",
+          "verkaufer-in-denner-8r80mp",
+          "verkaufer-in-denner-7th4hu",
+          "verkaufer-in-denner-5l2op8",
+          "verkaufer-in-denner-2d59lb",
+          "verkaufer-in-denner-0sjfd4",
           "verkaufer-in-denner-25",
           "verkaufer-in-denner-frauenfeld",
           "verkaufer-in-denner-31",
@@ -10781,9 +10830,9 @@
     },
     {
       "id": "denner-4ed5cf5b32c4",
-      "slug": "stv-branch-manager-in-denner-ag-zug",
+      "slug": "vice-direttoredifiliale-denner-zug",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-ag-zug",
+        "it": "vice-direttoredifiliale-denner-zug",
         "en": "stv-branch-manager-in-denner-ag-zug",
         "de": "stv-filialleiter-in-denner-ag-zug-15ags6",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zug"
@@ -10848,7 +10897,8 @@
         "stv-branch-manager-in-denner-zug",
         "stv-filialleiter-in-denner-ag-zug",
         "stv-filialleiter-in-denner-ag-zug-15ags6",
-        "stv-filialleiter-in-denner-15ags6"
+        "stv-filialleiter-in-denner-15ags6",
+        "stv-branch-manager-in-denner-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10856,7 +10906,8 @@
           "stv-branch-manager-in-denner-zug",
           "stv-filialleiter-in-denner-ag-zug",
           "stv-filialleiter-in-denner-ag-zug-15ags6",
-          "stv-filialleiter-in-denner-15ags6"
+          "stv-filialleiter-in-denner-15ags6",
+          "stv-branch-manager-in-denner-ag-zug"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-zug-15ags6"
@@ -11763,9 +11814,9 @@
     },
     {
       "id": "denner-8153c4e7ff75",
-      "slug": "stv-branch-manager-in-denner-ag-sursee",
+      "slug": "gestore-ramo-denner-sursee",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-ag-sursee",
+        "it": "gestore-ramo-denner-sursee",
         "en": "stv-branch-manager-in-denner-ag-sursee",
         "de": "stv-filialleiter-in-denner-ag-sursee-whvjnl",
         "fr": "directeur-de-succursale-stv-in-denner-ag-sursee"
@@ -11834,7 +11885,8 @@
         "store-manager-denner-ag-sursee",
         "filialleiter-in-denner-ag-sursee",
         "gestionnaire-de-magasin-denner-ag-sursee",
-        "filialleiter-in-denner-ag-sursee-ylvu1n"
+        "filialleiter-in-denner-ag-sursee-ylvu1n",
+        "stv-branch-manager-in-denner-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11846,7 +11898,8 @@
           "store-manager-denner-ag-sursee",
           "filialleiter-in-denner-ag-sursee",
           "gestionnaire-de-magasin-denner-ag-sursee",
-          "filialleiter-in-denner-ag-sursee-ylvu1n"
+          "filialleiter-in-denner-ag-sursee-ylvu1n",
+          "stv-branch-manager-in-denner-ag-sursee"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-sursee-whvjnl",
@@ -12054,7 +12107,6 @@
         "verkaufer-in-denner-17",
         "verkaufer-in-denner-16",
         "verkaufer-in-denner-36",
-        "venditore-denner-ag-oftringen-79429a",
         "verkaufer-in-denner-uyleak"
       ],
       "previousSlugsByLocale": {
@@ -12066,7 +12118,6 @@
           "verkaufer-in-denner-17",
           "verkaufer-in-denner-16",
           "verkaufer-in-denner-36",
-          "venditore-denner-ag-oftringen-79429a",
           "verkaufer-in-denner-uyleak"
         ]
       },
@@ -12900,9 +12951,9 @@
     },
     {
       "id": "company-j51i63",
-      "slug": "stv-branch-manager-in-denner-ag-abtwil-sg",
+      "slug": "gestore-ramo-denner-abtwil-sg",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-ag-abtwil-sg",
+        "it": "gestore-ramo-denner-abtwil-sg",
         "en": "stv-branch-manager-in-denner-ag-abtwil-sg",
         "de": "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63",
         "fr": "directeur-de-succursale-stv-denner-ag-abtwil-sg"
@@ -12973,13 +13024,15 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-abtwil-sg",
         "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-abtwil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-abtwil-sg",
           "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-abtwil-sg"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63"

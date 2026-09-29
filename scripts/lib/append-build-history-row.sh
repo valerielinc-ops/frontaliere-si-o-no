@@ -27,11 +27,26 @@ if [ -z "$row" ]; then
   exit 0
 fi
 
+history_path='data/build-history/memory-peaks.jsonl'
 mkdir -p data/build-history
-printf '%s\n' "$row" >> data/build-history/memory-peaks.jsonl
+# The deploy checkout contains the prepared data snapshot as dirty state. Guard
+# the accumulator before and after appending so a degraded read cannot turn the
+# telemetry checkpoint into a destructive rewrite.
+node scripts/ci/assert-accumulator-write.mjs "$history_path"
+printf '%s\n' "$row" >> "$history_path"
+node scripts/ci/assert-accumulator-write.mjs "$history_path"
 
 git config user.name "build-history-bot"
 git config user.email "build-history-bot@frontaliereticino.ch"
-git add data/build-history/memory-peaks.jsonl
-git commit -m "$HISTORY_COMMIT_MSG"
+git add -- "$history_path"
+unexpected_paths="$(git diff --cached --name-only | grep -Fvx -- "$history_path" || true)"
+if [ -n "$unexpected_paths" ]; then
+  echo "::error::[$label] refusing to commit staged paths outside $history_path"
+  printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
+  exit 1
+fi
+# `--only` is intentional: the build leaves a generated data snapshot in the
+# checkout, and a broad `git commit` can pull those staged bytes into this
+# append-only history commit.
+git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"
 bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty

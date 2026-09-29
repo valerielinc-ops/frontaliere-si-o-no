@@ -178,7 +178,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "spital-buelach-5c4f250eae98",
@@ -4856,12 +4858,12 @@
     },
     {
       "id": "spital-buelach-e26a65ce7673",
-      "slug": "fachperson-gesundheit-medizin-spital-buelach-bulach",
+      "slug": "specialista-in-medicina-sanitaria-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-medizin-spital-buelach-bulach",
-        "en": "fachperson-gesundheit-medizin-spital-buelach-bulach",
+        "it": "specialista-in-medicina-sanitaria-spital-bulach-bulach",
+        "en": "health-medicine-specialist-spital-bulach-bulach",
         "de": "fachperson-gesundheit-medizin-spital-buelach-bulach",
-        "fr": "fachperson-gesundheit-medizin-spital-buelach-bulach"
+        "fr": "specialiste-en-medecine-de-la-sante-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4904,7 +4906,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialista-in-medicina-sanitaria-spital-bulach-bulach",
         "health-medicine-specialist-spital-bulach-bulach",
         "specialiste-en-medecine-de-la-sante-spital-bulach-bulach",
         "dipartimento-di-medicina-della-salute-spital-bulach-bulach",
@@ -4912,11 +4913,11 @@
         "department-of-health-medicine-spital-bulach-bulach",
         "healthcare-professional-medical-spital-bulach-bulach",
         "departement-de-medecine-sanitaire-spital-bulach-bulach",
-        "specialiste-en-sante-medical-spital-bulach-bulach"
+        "specialiste-en-sante-medical-spital-bulach-bulach",
+        "fachperson-gesundheit-medizin-spital-buelach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-in-medicina-sanitaria-spital-bulach-bulach",
           "health-medicine-specialist-spital-bulach-bulach",
           "specialiste-en-medecine-de-la-sante-spital-bulach-bulach",
           "dipartimento-di-medicina-della-salute-spital-bulach-bulach",
@@ -4924,13 +4925,14 @@
           "department-of-health-medicine-spital-bulach-bulach",
           "healthcare-professional-medical-spital-bulach-bulach",
           "departement-de-medecine-sanitaire-spital-bulach-bulach",
-          "specialiste-en-sante-medical-spital-bulach-bulach"
+          "specialiste-en-sante-medical-spital-bulach-bulach",
+          "fachperson-gesundheit-medizin-spital-buelach-bulach"
         ],
         "en": [
-          "health-medicine-specialist-spital-bulach-bulach"
+          "fachperson-gesundheit-medizin-spital-buelach-bulach"
         ],
         "fr": [
-          "specialiste-en-medecine-de-la-sante-spital-bulach-bulach"
+          "fachperson-gesundheit-medizin-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-08-31T17:31:37.616Z",

@@ -177,10 +177,10 @@
     },
     {
       "id": "ottos-5a774d296826",
-      "slug": "cashier-in-otto-s-ag-altstatten",
+      "slug": "cassiere-otto-s-ag-altstatten",
       "slugByLocale": {
-        "it": "cashier-in-otto-s-ag-altstatten",
-        "en": "cashier-in-otto-s-ag-altstatten",
+        "it": "cassiere-otto-s-ag-altstatten",
+        "en": "cashiers-otto-s-ag-altstatten",
         "de": "kassierer-in-ottos-altstatten",
         "fr": "caissier-otto-s-ag-altstatten"
       },
@@ -230,14 +230,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kassierer-in-ottos-altstatten"
+        "kassierer-in-ottos-altstatten",
+        "cashier-in-otto-s-ag-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-ottos-altstatten"
+          "kassierer-in-ottos-altstatten",
+          "cashier-in-otto-s-ag-altstatten"
         ],
         "en": [
-          "kassierer-in-ottos-altstatten"
+          "kassierer-in-ottos-altstatten",
+          "cashier-in-otto-s-ag-altstatten"
         ],
         "fr": [
           "kassierer-in-ottos-altstatten"
@@ -4606,12 +4609,12 @@
     },
     {
       "id": "ottos-85375957e6e3",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
+      "slug": "personale-commerciale-tessile-sport-otto-s-ag-wettingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
+        "it": "personale-commerciale-tessile-sport-otto-s-ag-wettingen",
+        "en": "sales-staff-textile-sport-otto-s-ag-wettingen",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        "fr": "personnel-commercial-en-textile-sport-otto-s-ag-wettingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4659,11 +4662,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
         ]
       },
       "firstSeenAt": "2026-08-20T21:59:40.447Z",
@@ -5970,12 +5981,12 @@
     },
     {
       "id": "ottos-27535144128c",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
+      "slug": "personale-commerciale-food-non-food-otto-s-ag-thun",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
+        "it": "personale-commerciale-food-non-food-otto-s-ag-thun",
+        "en": "sales-staff-food-non-food-otto-s-ag-thun",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        "fr": "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-thun"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6023,11 +6034,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-thun"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-thun"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
         ]
       },
       "firstSeenAt": "2026-07-29T11:57:45.358Z",
@@ -6213,10 +6232,10 @@
     },
     {
       "id": "ottos-3f08589fa4d0",
-      "slug": "cashier-in-otto-s-ag-hegnau-volketswil",
+      "slug": "cassiere-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
-        "it": "cashier-in-otto-s-ag-hegnau-volketswil",
-        "en": "cashier-in-otto-s-ag-hegnau-volketswil",
+        "it": "cassiere-otto-s-ag-hegnau-volketswil",
+        "en": "cashiers-otto-s-ag-hegnau-volketswil",
         "de": "kassierer-in-ottos-hegnau-volketswil",
         "fr": "caissier-otto-s-ag-hegnau-volketswil"
       },
@@ -6266,14 +6285,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kassierer-in-ottos-hegnau-volketswil"
+        "kassierer-in-ottos-hegnau-volketswil",
+        "cashier-in-otto-s-ag-hegnau-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-ottos-hegnau-volketswil"
+          "kassierer-in-ottos-hegnau-volketswil",
+          "cashier-in-otto-s-ag-hegnau-volketswil"
         ],
         "en": [
-          "kassierer-in-ottos-hegnau-volketswil"
+          "kassierer-in-ottos-hegnau-volketswil",
+          "cashier-in-otto-s-ag-hegnau-volketswil"
         ],
         "fr": [
           "kassierer-in-ottos-hegnau-volketswil"
@@ -6822,12 +6844,12 @@
     },
     {
       "id": "ottos-afae451556b5",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
+      "slug": "personale-commerciale-tessile-sport-otto-s-ag-schonenwerd",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
+        "it": "personale-commerciale-tessile-sport-otto-s-ag-schonenwerd",
+        "en": "sales-staff-textile-sport-otto-s-ag-schonenwerd",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        "fr": "personnel-commercial-en-textile-sport-otto-s-ag-schonenwerd"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6875,11 +6897,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
         ]
       },
       "firstSeenAt": "2026-08-20T21:59:23.391Z",
@@ -8539,12 +8569,12 @@
     },
     {
       "id": "ottos-d19c9bfc4718",
-      "slug": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
+      "slug": "capo-dipartimento-tessile-sport-otto-s-ag-zurich",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
-        "en": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
+        "it": "capo-dipartimento-tessile-sport-otto-s-ag-zurich",
+        "en": "head-of-department-textile-sports-otto-s-ag-zurich",
         "de": "abteilungsleiter-in-textil-sport-ottos-zurich",
-        "fr": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+        "fr": "chef-de-departement-textile-sport-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8596,7 +8626,8 @@
         "capo-dipartimento-tessile-sport-otto-s-ag-gamsen-brig",
         "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
         "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
-        "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
+        "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
+        "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8604,16 +8635,19 @@
           "capo-dipartimento-tessile-sport-otto-s-ag-gamsen-brig",
           "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
           "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
-          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
+          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ],
         "en": [
-          "head-of-department-textile-sports-otto-s-ag-gamsen-brig"
+          "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ],
         "de": [
           "abteilungsleiter-in-textil-sport-ottos-gamsen-brig"
         ],
         "fr": [
-          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
+          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-24T21:57:44.961Z",
@@ -12879,12 +12913,12 @@
     },
     {
       "id": "ottos-ef7783fad4c3",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-chur",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-chur",
+        "en": "sales-staff-with-all-round-function-otto-s-ag-chur",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        "fr": "personnel-de-vente-avec-fonction-complete-otto-s-ag-chur"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -12932,11 +12966,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:03.337Z",

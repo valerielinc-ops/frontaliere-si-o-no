@@ -31,6 +31,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { htmlToText } from './hospital-custom-html-helpers.mjs';
 import { readClosedElement } from './html-balanced-element.mjs';
 
@@ -247,8 +248,7 @@ export function extractChuvDetailDescription(html = '') {
 
 /**
  * Fetch the detail HTML for a single vacancy and return a plain-text description.
- * Falls back to the title-only stub if the request fails — the AI translation
- * pipeline will still produce a viable record.
+ * Empty string on failure: the caller does not publish a job without a body.
  */
 async function fetchJobDetail(weblink = '') {
   if (!weblink) return '';
@@ -287,6 +287,7 @@ export async function fetchAllChuvJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     const status = normalize(listing?.status || '');
     if (status && status !== 'open' && status !== 'live') continue;
@@ -318,20 +319,18 @@ export async function fetchAllChuvJobs() {
       descriptionText = await fetchJobDetail(publicUrl);
       await new Promise((r) => setTimeout(r, REQUEST_DELAY_MS));
     }
-    if (!descriptionText) {
-      // Compose a meaningful stub from the feed metadata so AI translation has signal.
-      const parts = [
-        `${title} — CHUV`,
-        department ? `Département: ${department}` : '',
-        professionalCategory ? `Catégorie: ${professionalCategory}` : '',
-        lieu ? `Lieu: ${lieu}` : '',
-        activityRate ? `Taux d'activité: ${activityRate}` : '',
-        contractType ? `Type de contrat: ${contractType}` : '',
-      ].filter(Boolean);
-      descriptionText = parts.join(' · ');
+    // Only the source's own text is published (issue 5253). A vacancy page
+    // that was not read (or skipped via CHUV_SKIP_DETAILS) is not described
+    // from the feed classifications: the job stays out of this run, so the
+    // standard pipeline keeps the body stored from the source under its miss
+    // grace, and a job never read is not published.
+    if (!meetsSourceBodyFloor(descriptionText)) {
+      withoutBody += 1;
+      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(descriptionText)} words) — not published in this run`);
+      continue;
     }
 
-    const sourceLang = detectLang(descriptionText || title, 'fr');
+    const sourceLang = detectLang(descriptionText, 'fr');
     const jobSlug = slugify(`${title} chuv ${listing?.id || ''}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -385,6 +384,7 @@ export async function fetchAllChuvJobs() {
   }
 
   console.log(`\n📋 Total CHUV jobs discovered: ${jobs.length}`);
+  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${listings.length}`);
   return jobs;
 }
 

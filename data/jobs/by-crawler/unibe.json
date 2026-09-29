@@ -789,12 +789,12 @@
     },
     {
       "id": "unibe-afe7851f4733",
-      "slug": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern",
+      "slug": "dottorato-e-assistente-scientifico-universitat-bern-bern",
       "slugByLocale": {
-        "it": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern",
-        "en": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern",
+        "it": "dottorato-e-assistente-scientifico-universitat-bern-bern",
+        "en": "doctoral-candidate-and-scientific-assistant-universitat-bern-bern",
         "de": "doktorand-in-wissenschaftliche-r-assistent-in-unibe-bern",
-        "fr": "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
+        "fr": "candidat-au-doctorat-et-assistant-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -838,12 +838,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorand-in-wissenschaftliche-r-assistent-in-unibe-bern",
-        "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern"
+        "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern",
+        "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doktorand-in-wissenschaftliche-r-assistent-in-unibe-bern",
-          "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern"
+          "doktorand-in-und-wissenschaftliche-r-assistent-in-unibe-bern",
+          "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
+        ],
+        "en": [
+          "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
+        ],
+        "fr": [
+          "doktorand-in-wissenschaftliche-r-assistent-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-08-26T10:23:19.587Z",
@@ -1250,7 +1258,7 @@
       "slugByLocale": {
         "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
-        "de": "postdoc-universitat-bern-bern",
+        "de": "postdoc-universitat-bern-bern-a5xwgv",
         "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1297,7 +1305,8 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern"
+        "post-doc-unibe-bern",
+        "postdoc-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1307,7 +1316,8 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv"
+          "postdoc-universitat-bern-bern-a5xwgv",
+          "postdoc-universitat-bern-bern"
         ],
         "fr": [
           "post-doc-unibe-bern"
@@ -3133,9 +3143,9 @@
       "slug": "ict-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "ict-systemadministrator-in-universitat-bern-bern",
-        "en": "ict-systemadministrator-in-universitat-bern-bern",
+        "en": "ict-system-administrator-universitat-bern-bern",
         "de": "ict-systemadministrator-in-unibe-bern",
-        "fr": "ict-systemadministrator-in-universitat-bern-bern"
+        "fr": "administrateur-du-systeme-des-tic-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3184,9 +3194,7 @@
         "linux-systemadministrator-in-unibe-bern",
         "linux-system-administrator-universitat-bern-bern",
         "administrateur-systeme-linux-universitat-bern-bern",
-        "administrateur-du-systeme-informatique-universitat-bern-bern",
-        "ict-system-administrator-universitat-bern-bern",
-        "administrateur-du-systeme-des-tic-universitat-bern-bern"
+        "administrateur-du-systeme-informatique-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3201,11 +3209,7 @@
         ],
         "fr": [
           "linux-systemadministrator-in-universitat-bern-bern",
-          "administrateur-du-systeme-informatique-universitat-bern-bern",
-          "administrateur-du-systeme-des-tic-universitat-bern-bern"
-        ],
-        "en": [
-          "ict-system-administrator-universitat-bern-bern"
+          "administrateur-du-systeme-informatique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.258Z",
@@ -3240,7 +3244,7 @@
         "it": "Amministratore delegato (direttore amministrativo/direttore amministrativo)",
         "en": "Managing Director (administrative director / administrative director)",
         "de": "Managing Direktor (Administrativer Direktor / Administrative Direktorin)",
-        "fr": "Managing Director (Administrativer Direktor / Administrative Direktorin)"
+        "fr": "Directeur général (Directeur administratif/Directeur administratif)"
       },
       "description": "<b>Die UniBE ist mittendrin.</b><br/>Bei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\nAufgaben:\nStrategische Steuerung und Organisationsentwicklung\n• Umsetzung der strukturellen und strategischen Weiterentwicklung des DBMR\n\n• Weiterentwicklung von Governance-, Entscheidungs- und Organisationsstrukturen\n\n• Beratung der wissenschaftlichen Leitung bei strategischen Fragestellungen\n\nOperative Gesamtkoordination\n• Verantwortung für die Bereiche Finanzen, Personal, Infrastruktur, Sicherheit und Forschungsplattformen\n\n• Steuerung von Budgetplanung, Controlling und Ressourcenallokation\n\n• Sicherstellung effizienter administrativer und operativer Prozesse im Forschungsbetrieb\n\n• Leitung und Weiterentwicklung der administrativen Teams\n\nIntegrations- und Schnittstellenfunktion\n• Koordination zwischen Forschungsprogrammen, Core Facilities, Fakultät, Universität und klinischen Partnern\n\n• Moderation komplexer Entscheidungsprozesse in einer Matrixorganisation\n\n• Vertretung des Departments in universitären und externen Gremien\n\n• Förderung einer transparenten Kommunikations- und Führungskultur\n\nIhr Profil\n\n• Abgeschlossenes Doktorat (PhD), vorzugsweise im biomedizinischen, naturwissenschaftlichen oder verwandten Bereich\n\n• Mehrjährige Führungserfahrung in einer komplexen Organisation, idealerweise im akademischen oder forschungsnahen Umfeld\n\n• Nachgewiesene Erfahrung in Organisationsentwicklung, Change-Management und strategischer Umsetzung\n\n• Fundierte Kompetenz in Budgetplanung, Finanzsteuerung und Personalführung\n\n• Erfahrung mit Drittmittelsystemen, Forschungsinfrastrukturen oder wissenschaftlichen Plattformen von Vorteil\n\n• Ausgeprägte analytische und strategische Fähigkeiten sowie integrativer Führungsstil\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\nAnforderungen:\n• Eine Schlüsselposition mit grossem Gestaltungsspielraum in einem international vernetzten Forschungsumfeld\n\n• Direkte Mitwirkung an der operativen und strategischen Entwicklung eines grossen universitären Forschungsdepartments\n\n• Zusammenarbeit mit führenden Forschenden aus Medizin, Naturwissenschaften und klinischer Forschung\n\n• Ein innovatives, interdisziplinäres und dynamisches Arbeitsumfeld\n\nWir bieten:\nGute Forschungsinfrastrukturen und internationales Netzwerk",
       "descriptionByLocale": {
@@ -3249,7 +3253,6 @@
         "de": "<b>Die UniBE ist mittendrin.</b><br/>Bei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\nAufgaben:\nStrategische Steuerung und Organisationsentwicklung\n• Umsetzung der strukturellen und strategischen Weiterentwicklung des DBMR\n\n• Weiterentwicklung von Governance-, Entscheidungs- und Organisationsstrukturen\n\n• Beratung der wissenschaftlichen Leitung bei strategischen Fragestellungen\n\nOperative Gesamtkoordination\n• Verantwortung für die Bereiche Finanzen, Personal, Infrastruktur, Sicherheit und Forschungsplattformen\n\n• Steuerung von Budgetplanung, Controlling und Ressourcenallokation\n\n• Sicherstellung effizienter administrativer und operativer Prozesse im Forschungsbetrieb\n\n• Leitung und Weiterentwicklung der administrativen Teams\n\nIntegrations- und Schnittstellenfunktion\n• Koordination zwischen Forschungsprogrammen, Core Facilities, Fakultät, Universität und klinischen Partnern\n\n• Moderation komplexer Entscheidungsprozesse in einer Matrixorganisation\n\n• Vertretung des Departments in universitären und externen Gremien\n\n• Förderung einer transparenten Kommunikations- und Führungskultur\n\nIhr Profil\n\n• Abgeschlossenes Doktorat (PhD), vorzugsweise im biomedizinischen, naturwissenschaftlichen oder verwandten Bereich\n\n• Mehrjährige Führungserfahrung in einer komplexen Organisation, idealerweise im akademischen oder forschungsnahen Umfeld\n\n• Nachgewiesene Erfahrung in Organisationsentwicklung, Change-Management und strategischer Umsetzung\n\n• Fundierte Kompetenz in Budgetplanung, Finanzsteuerung und Personalführung\n\n• Erfahrung mit Drittmittelsystemen, Forschungsinfrastrukturen oder wissenschaftlichen Plattformen von Vorteil\n\n• Ausgeprägte analytische und strategische Fähigkeiten sowie integrativer Führungsstil\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\nAnforderungen:\n• Eine Schlüsselposition mit grossem Gestaltungsspielraum in einem international vernetzten Forschungsumfeld\n\n• Direkte Mitwirkung an der operativen und strategischen Entwicklung eines grossen universitären Forschungsdepartments\n\n• Zusammenarbeit mit führenden Forschenden aus Medizin, Naturwissenschaften und klinischer Forschung\n\n• Ein innovatives, interdisziplinäres und dynamisches Arbeitsumfeld\n\nWir bieten:\nGute Forschungsinfrastrukturen und internationales Netzwerk",
         "fr": "L'UniBE est en plein milieu. Avec nous vous bénéficiez de l'emplacement central et des endroits pratiques pour le transport.\n\nTâches: Contrôle stratégique et développement organisationnel\n• Mise en œuvre du développement structurel et stratégique de la DBMR\n\n• Développement des structures de gouvernance, de prise de décision et d'organisation\n\n• Conseils au leadership scientifique sur les questions stratégiques\n\nCoordination opérationnelle globale\n• Responsabilité des plateformes de financement, de personnel, d'infrastructure, de sécurité et de recherche\n\n• Contrôle de la planification budgétaire, du contrôle et de l'affectation des ressources\n\n• Assurer l'efficacité des processus administratifs et opérationnels dans les opérations de recherche\n\n• Gestion et perfectionnement des équipes administratives\n\nIntégration et fonction d'interface\n• Coordination entre les programmes de recherche, les installations de base, les professeurs, les universités et les partenaires cliniques\n\n• Modération des processus décisionnels complexes dans une organisation matricielle\n\n• Représentation du Département dans les organes universels et externes\n\n• Promouvoir une culture de communication et de leadership transparente\n\nVotre profil\n\n• Doctorat (PhD), de préférence dans les domaines biomédical, scientifique ou connexe\n\n• Expérience de gestion pluriannuelle dans une organisation complexe, idéalement dans l'environnement académique ou de recherche\n\n• Expérience en matière de développement organisationnel, de gestion du changement et de mise en œuvre stratégique\n\n• Compétences bien fondées en matière de planification budgétaire, de gestion financière et de gestion du personnel\n\n• Expérience des systèmes de financement tiers, des infrastructures de recherche ou des plateformes scientifiques\n\n• Compétences analytiques et stratégiques exprimées et style de leadership inclusif\n\n• Très bonnes compétences en allemand et en anglais\n\nExigences:\n• Une position clé avec une grande marge de manœuvre pour la conception dans un environnement de recherche en réseau international\n\n• Participation directe au développement opérationnel et stratégique d'un grand département de recherche universitaire\n\n• Coopération avec des chercheurs de premier plan en médecine, sciences naturelles et recherche clinique\n\n• Un environnement de travail innovant, interdisciplinaire et dynamique\n\nNous offrons: Bonnes infrastructures de recherche et réseau international"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/managing-director-administrativer-direktor-administrative-direktorin/39836d63-ec97-4a60-a006-9f443ce58b42",
@@ -3534,12 +3537,12 @@
     },
     {
       "id": "unibe-16d3f8851ec1",
-      "slug": "wissenschaftliche-assistenz-universitat-bern-bern",
+      "slug": "assistenza-scientifica-universitat-bern-bern",
       "slugByLocale": {
-        "it": "wissenschaftliche-assistenz-universitat-bern-bern",
-        "en": "wissenschaftliche-assistenz-universitat-bern-bern",
+        "it": "assistenza-scientifica-universitat-bern-bern",
+        "en": "scientific-assistance-universitat-bern-bern",
         "de": "wissenschaftliche-assistenz-unibe-bern",
-        "fr": "wissenschaftliche-assistenz-universitat-bern-bern"
+        "fr": "assistance-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3583,11 +3586,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-assistenz-unibe-bern"
+        "wissenschaftliche-assistenz-unibe-bern",
+        "wissenschaftliche-assistenz-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-unibe-bern"
+          "wissenschaftliche-assistenz-unibe-bern",
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.252Z",

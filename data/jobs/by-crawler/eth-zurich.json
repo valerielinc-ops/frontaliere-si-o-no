@@ -525,7 +525,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "eth-zurich-560ec7892cc4",
@@ -6726,7 +6728,7 @@
       "companyDomain": "ethz.ch",
       "title": "Postdoctoral Researcher in Interiors and Evolution of Sub-Neptunes",
       "titleByLocale": {
-        "it": "Postdoctoral Researcher in Interiors and Evolution of Sub-Neptunes",
+        "it": "Ricercatore post-dottorato negli interni ed evoluzione dei sub-neptune",
         "en": "Postdoctoral Researcher in Interiors and Evolution of Sub-Neptunes",
         "de": "Postdoktorand in Innenräumen und Evolution von Sub-Neptunen",
         "fr": "Chercheur postdoctoral en intérieur et évolution des sous-Neptunes"
@@ -6772,7 +6774,6 @@
           "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:05.226Z",
       "salaryMin": 73500,
       "salaryMax": 111500,

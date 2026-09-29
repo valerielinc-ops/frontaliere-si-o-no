@@ -11,14 +11,26 @@ import { latestTrafficCollectionSlotAtOrBefore } from '../functions/src/lib/traf
 const root = fileURLToPath(new URL('..', import.meta.url));
 
 describe('traffic scheduler Cloud dispatch', () => {
-  it('preserves the weekday peak and midday slots', () => {
-    expect(isTrafficCollectionSlot('2026-09-22T04:00:00Z')).toBe(true);
-    expect(isTrafficCollectionSlot('2026-09-22T07:30:00Z')).toBe(true);
+  it('uses eight weekday slots that fit the provider quota budget', () => {
+    expect(isTrafficCollectionSlot('2026-09-22T04:00:00Z')).toBe(false);
+    expect(isTrafficCollectionSlot('2026-09-22T05:00:00Z')).toBe(true);
+    expect(isTrafficCollectionSlot('2026-09-22T07:00:00Z')).toBe(true);
+    expect(isTrafficCollectionSlot('2026-09-22T07:30:00Z')).toBe(false);
     expect(isTrafficCollectionSlot('2026-09-22T11:00:00Z')).toBe(true);
     expect(isTrafficCollectionSlot('2026-09-22T11:30:00Z')).toBe(false);
     expect(isTrafficCollectionSlot('2026-09-22T14:00:00Z')).toBe(true);
-    expect(isTrafficCollectionSlot('2026-09-22T17:30:00Z')).toBe(true);
+    expect(isTrafficCollectionSlot('2026-09-22T17:00:00Z')).toBe(true);
+    expect(isTrafficCollectionSlot('2026-09-22T17:30:00Z')).toBe(false);
     expect(isTrafficCollectionSlot('2026-09-22T18:00:00Z')).toBe(false);
+
+    const weekdaySlots = [];
+    for (let hour = 0; hour < 24; hour += 1) {
+      for (const minute of [0, 30]) {
+        const iso = `2026-09-22T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00Z`;
+        if (isTrafficCollectionSlot(iso)) weekdaySlots.push(`${hour}:${minute}`);
+      }
+    }
+    expect(weekdaySlots).toEqual(['5:0', '6:0', '7:0', '11:0', '14:0', '15:0', '16:0', '17:0']);
   });
 
   it('preserves the four weekend slots without weekday half-hours', () => {
@@ -33,16 +45,16 @@ describe('traffic scheduler Cloud dispatch', () => {
     const at = (iso: string) => latestTrafficCollectionSlotAtOrBefore(iso)?.toISOString();
     expect(at('2026-09-22T11:00:00Z')).toBe('2026-09-22T11:00:00.000Z');
     expect(at('2026-09-22T13:10:50Z')).toBe('2026-09-22T11:00:00.000Z');
-    expect(at('2026-09-22T10:59:59Z')).toBe('2026-09-22T07:30:00.000Z');
-    expect(at('2026-09-22T03:59:00Z')).toBe('2026-09-21T17:30:00.000Z');
+    expect(at('2026-09-22T10:59:59Z')).toBe('2026-09-22T07:00:00.000Z');
+    expect(at('2026-09-22T03:59:00Z')).toBe('2026-09-21T17:00:00.000Z');
     expect(at('2026-09-21T03:59:00Z')).toBe('2026-09-20T18:00:00.000Z');
-    expect(at('2026-09-19T05:59:00Z')).toBe('2026-09-18T17:30:00.000Z');
+    expect(at('2026-09-19T05:59:00Z')).toBe('2026-09-18T17:00:00.000Z');
   });
 
   it('dispatches the existing workflow on a due slot', async () => {
     const fetchImpl = vi.fn(async () => new Response(null, { status: 204 }));
     const result = await dispatchTrafficScheduler({
-      scheduledAt: '2026-09-22T14:30:00Z',
+      scheduledAt: '2026-09-22T14:00:00Z',
       fetchImpl,
       getRepoConfigImpl: async () => ({ pat: 'test-token', owner: 'owner', repo: 'repo' }),
     });
@@ -70,7 +82,7 @@ describe('traffic scheduler Cloud dispatch', () => {
 
   it('fails loudly when the dispatch API rejects the slot', async () => {
     await expect(dispatchTrafficScheduler({
-      scheduledAt: '2026-09-22T14:30:00Z',
+      scheduledAt: '2026-09-22T14:00:00Z',
       fetchImpl: async () => new Response('denied', { status: 403 }),
       getRepoConfigImpl: async () => ({ pat: 'test-token', owner: 'owner', repo: 'repo' }),
     })).rejects.toThrow('traffic_scheduler_dispatch_failed:403:denied');
@@ -81,7 +93,7 @@ describe('traffic scheduler Cloud dispatch', () => {
     const functionsIndex = readFileSync(`${root}/functions/index.js`, 'utf8');
     expect(workflow).not.toMatch(/^\s+schedule:/m);
     expect(functionsIndex).toContain('export const dispatchTrafficCollection = onSchedule(');
-    expect(functionsIndex).toContain("schedule: '0,30 * * * *'");
+    expect(functionsIndex).toContain("schedule: '0 * * * *'");
   });
 
   it('leaves bounded tail time after the full traffic collection pass', () => {

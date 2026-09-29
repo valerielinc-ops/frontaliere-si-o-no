@@ -100,9 +100,8 @@
  *   node scripts/ci/check-sibling-patterns.mjs --json
  *
  * Nessuna dipendenza Node aggiuntiva: usa il TypeScript già presente nel
- * progetto e git in PATH. `tar` è usato solo per l'ottimizzazione `--head`;
- * se manca, il checker torna al percorso Git storico. Cerca sempre solo file
- * tracked.
+ * progetto e git in PATH. Se lo snapshot `--head` non si può creare, il
+ * checker torna al percorso Git storico. Cerca sempre solo file tracked.
  */
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -119,7 +118,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 import {
@@ -227,6 +226,7 @@ const CHECK_CACHE_WAIT_MS = 240_000;
 const CHECK_CACHE_STALE_MS = 600_000;
 const CHECK_CACHE_POLL_MS = 100;
 const CHECK_CACHE_DISABLED = process.env.CHECK_SIBLING_PATTERNS_CACHE === '0';
+const HEAD_SNAPSHOT_TIMEOUT_MS = 60_000;
 const SLEEP_CELL = new Int32Array(new SharedArrayBuffer(4));
 let HEAD_SNAPSHOT_ROOT = null;
 
@@ -407,54 +407,83 @@ function cleanupHeadSnapshot() {
 }
 
 /**
- * Materializza il solo albero di codice del ref in un file temporaneo.
- * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
- * token; un archive estratto una volta permette al pass lessicale di leggere
- * ogni file direttamente e poi rilasciarne il contenuto.
- *
- * Se archive/tar non sono disponibili, il chiamante usa il percorso Git
- * storico come fallback: la riduzione della memoria è opzionale, non cambia
- * il verdetto del checker.
+ * Materializza il tree con una sola richiesta batch al object database. È il
+ * fallback per i clone parziali in cui `git archive` può restare bloccato
+ * mentre Git risolve i pack promisor: una `git grep` per ogni token sarebbe
+ * molto più lenta e ripeterebbe la stessa scansione dell'albero.
  */
-function createHeadSnapshot() {
-  if (!HEAD_REF) return null;
+function createHeadSnapshotFromObjects() {
   let root;
-  let archiveFd;
   try {
     root = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-patterns-'));
-    const archivePath = join(root, 'tree.tar');
-    archiveFd = openSync(archivePath, 'w');
-    const archive = spawnSync(
+    const treeResult = spawnSync(
       'git',
-      ['archive', '--format=tar', HEAD_REF, '--', ...CODE_DIRS],
-      { stdio: ['ignore', archiveFd, 'ignore'] },
+      ['ls-tree', '-r', '-z', '--full-tree', HEAD_REF, '--', ...CODE_DIRS],
+      {
+        encoding: 'buffer',
+        maxBuffer: 16 * 1024 * 1024,
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
     );
-    closeSync(archiveFd);
-    archiveFd = undefined;
-    if (archive.error || archive.status !== 0) {
-      throw archive.error ?? new Error('git archive failed');
+    if (treeResult.error || treeResult.status !== 0) {
+      throw treeResult.error ?? new Error('git ls-tree failed');
+    }
+    const tree = treeResult.stdout;
+    const files = tree
+      .toString('utf8')
+      .split('\0')
+      .filter(Boolean)
+      .map((entry) => {
+        const tab = entry.indexOf('\t');
+        if (tab < 0) return null;
+        const metadata = entry.slice(0, tab).split(' ');
+        const file = entry.slice(tab + 1);
+        if (metadata[1] !== 'blob' || !metadata[2] || !isCodeFile(file)) return null;
+        return { oid: metadata[2], file };
+      })
+      .filter(Boolean);
+    if (files.length === 0) throw new Error('git tree contains no code blobs');
+
+    const requests = Buffer.from(files.map(({ oid }) => `${oid}\n`).join(''));
+    const packedResult = spawnSync('git', ['cat-file', '--batch'], {
+      input: requests,
+      encoding: 'buffer',
+      maxBuffer: 256 * 1024 * 1024,
+      timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+      killSignal: 'SIGTERM',
+    });
+    if (packedResult.error || packedResult.status !== 0) {
+      throw packedResult.error ?? new Error('git cat-file failed');
+    }
+    const packed = packedResult.stdout;
+    let offset = 0;
+    for (const { oid, file } of files) {
+      const headerEnd = packed.indexOf(0x0a, offset);
+      if (headerEnd < 0) throw new Error('git cat-file returned an incomplete header');
+      const [returnedOid, type, sizeText] = packed
+        .subarray(offset, headerEnd)
+        .toString('ascii')
+        .split(' ');
+      const size = Number.parseInt(sizeText, 10);
+      if (returnedOid !== oid || type !== 'blob' || !Number.isSafeInteger(size) || size < 0) {
+        throw new Error(`git cat-file returned an invalid blob header for ${file}`);
+      }
+      const contentStart = headerEnd + 1;
+      const contentEnd = contentStart + size;
+      if (contentEnd >= packed.length || packed[contentEnd] !== 0x0a) {
+        throw new Error(`git cat-file returned an incomplete blob for ${file}`);
+      }
+      const target = join(root, file);
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, packed.subarray(contentStart, contentEnd));
+      offset = contentEnd + 1;
     }
 
-    const extracted = spawnSync(
-      'tar',
-      ['-xf', archivePath, '-C', root],
-      { stdio: ['ignore', 'ignore', 'ignore'] },
-    );
-    if (extracted.error || extracted.status !== 0) {
-      throw extracted.error ?? new Error('tar failed');
-    }
-    rmSync(archivePath, { force: true });
     HEAD_SNAPSHOT_ROOT = root;
     process.once('exit', cleanupHeadSnapshot);
     return root;
   } catch {
-    if (archiveFd !== undefined) {
-      try {
-        closeSync(archiveFd);
-      } catch {
-        // Best effort: cleanup below covers the temporary directory.
-      }
-    }
     if (root) {
       try {
         rmSync(root, { recursive: true, force: true });
@@ -463,6 +492,119 @@ function createHeadSnapshot() {
       }
     }
     return null;
+  }
+}
+
+function isPartialClone() {
+  const promisor = git(['config', '--get-regexp', '^remote\\..*\\.promisor$'], { allowFail: true });
+  const filter = git(['config', '--get-regexp', '^remote\\..*\\.partialclonefilter$'], { allowFail: true });
+  const extension = git(['config', '--get', 'extensions.partialClone'], { allowFail: true });
+  return /\s+true\s*$/m.test(promisor) || Boolean(filter.trim()) || Boolean(extension.trim());
+}
+
+/**
+ * Materializza i blob di codice del ref in una directory temporanea.
+ * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
+ * token; un indice estratto una volta permette al pass lessicale di leggere
+ * ogni file direttamente e poi rilasciarne il contenuto.
+ *
+ * Non usare `git archive` qui: in questo clone la storia contiene migliaia di
+ * packfile e un pathspec che nomina una sola sorgente può comunque traversare
+ * l'albero generato prima di emettere il primo byte. `ls-tree` individua i
+ * blob di codice e `cat-file --batch` li legge in una sola sessione Git, senza
+ * cambiare il verdetto e senza dipendere dalla dimensione degli asset esclusi.
+ */
+function createHeadSnapshot(files) {
+  if (!HEAD_REF) return null;
+  let root;
+  try {
+    root = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-patterns-'));
+    const trackedTree = execFileSync(
+      'git',
+      ['ls-tree', '-rz', '--full-tree', HEAD_REF, '--', ...CODE_DIRS],
+      {
+        encoding: null,
+        maxBuffer: 128 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
+    );
+
+    const wantedFiles = files instanceof Set ? files : files ? new Set(files) : null;
+    const entries = [];
+    for (const record of trackedTree.toString('utf8').split('\0')) {
+      if (!record) continue;
+      const tab = record.indexOf('\t');
+      if (tab < 0) continue;
+      const [mode, type, oid] = record.slice(0, tab).split(' ');
+      const file = record.slice(tab + 1);
+      if (type !== 'blob' || !oid || (wantedFiles && !wantedFiles.has(file)) || !isCodeFile(file)) continue;
+      // Un symlink (mode 120000) ha come blob il testo del path, non codice.
+      // Quelli nelle CODE_DIRS puntano a `packages/articles/**`, fuori dallo
+      // snapshot: con `git archive` + `tar` restavano pendenti e `readTracked`
+      // restituiva null. Scritti come file, il loro path entrava nel pass
+      // lessicale e nei conteggi MAX_FILES (`blog-body-ch`: 15 file reali + il
+      // symlink = token scartato). Saltarli conserva il verdetto precedente.
+      if (mode === '120000') continue;
+      entries.push({ file, oid });
+    }
+
+    // Keep the batch protocol here: a later refactor must not accidentally
+    // reintroduce one `git show` per file and recreate the multi-pack lookup
+    // cost.
+    const blobs = spawnSync(
+      'git',
+      ['cat-file', '--batch'],
+      {
+        input: Buffer.from(`${entries.map(({ oid }) => oid).join('\n')}\n`),
+        stdio: ['pipe', 'pipe', 'ignore'],
+        maxBuffer: 256 * 1024 * 1024,
+        timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
+        killSignal: 'SIGTERM',
+      },
+    );
+    if (blobs.error || blobs.status !== 0) {
+      throw blobs.error ?? new Error('git cat-file --batch failed');
+    }
+
+    let offset = 0;
+    for (const { file, oid } of entries) {
+      const headerEnd = blobs.stdout.indexOf(0x0a, offset);
+      if (headerEnd < 0) throw new Error(`missing cat-file header for ${file}`);
+      const [returnedOid, type, sizeText] = blobs.stdout
+        .subarray(offset, headerEnd)
+        .toString('utf8')
+        .split(' ');
+      const size = Number(sizeText);
+      const start = headerEnd + 1;
+      const end = start + size;
+      if (
+        returnedOid !== oid ||
+        type !== 'blob' ||
+        !Number.isSafeInteger(size) ||
+        end + 1 > blobs.stdout.length
+      ) {
+        throw new Error(`invalid cat-file record for ${file}`);
+      }
+      const destination = join(root, file);
+      mkdirSync(dirname(destination), { recursive: true });
+      writeFileSync(destination, blobs.stdout.subarray(start, end));
+      offset = end + 1; // `--batch` terminates every blob with LF.
+    }
+
+    HEAD_SNAPSHOT_ROOT = root;
+    process.once('exit', cleanupHeadSnapshot);
+    return root;
+  } catch {
+    if (root) {
+      try {
+        rmSync(root, { recursive: true, force: true });
+      } catch {
+        // Optional optimization only; Git fallback remains available.
+      }
+    }
+    return createHeadSnapshotFromObjects();
   }
 }
 
@@ -1145,7 +1287,7 @@ function main() {
   // A --head scan reads a single temporary tree instead of asking Git to
   // rescan the object database once per token. Working-tree checks read the
   // already tracked files directly and keep the same file boundaries.
-  createHeadSnapshot();
+  createHeadSnapshot(astFiles);
   const searchIndex = createSearchIndex(
     astFiles,
     [...tokenToChangedFiles.keys(), ...removedExprs],

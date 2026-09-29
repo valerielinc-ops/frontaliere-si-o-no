@@ -38,6 +38,7 @@ const EXPECTED_CONSUMERS = [
   'stadt-bern-job-parser.mjs',
   'stadt-luzern-job-parser.mjs',
   'unibe-job-parser.mjs',
+  'upd-job-parser.mjs',
   'uzh-job-parser.mjs',
   'viva-luzern-job-parser.mjs',
   'volksschule-luzern-job-parser.mjs',
@@ -48,7 +49,7 @@ afterEach(() => {
 });
 
 describe('Prospective.ch shared parser contract', () => {
-  it('keeps all 33 direct consumers on the audited shared factory', () => {
+  it('keeps all 34 direct consumers on the audited shared factory', () => {
     const libDir = path.resolve(process.cwd(), 'scripts/lib');
     const consumers = readdirSync(libDir)
       .filter((file) => file.endsWith('-job-parser.mjs'))

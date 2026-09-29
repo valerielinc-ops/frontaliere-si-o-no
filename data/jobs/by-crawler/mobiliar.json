@@ -573,7 +573,7 @@
       "title": "Senior Expert Haftpflichtversicherung National & International (w/m/d)",
       "titleByLocale": {
         "it": "Senior Expert Liability Insurance National & International (m/f/d)",
-        "en": "Senior Expert Haftpflichtversicherung National & International (w/m/d)",
+        "en": "Senior Expert Liability Insurance National & International (m/f/d)",
         "de": "Senior Expert Haftpflichtversicherung National & International (w/m/d)",
         "fr": "Assurance responsabilité civile experte supérieure nationale et internationale (h/f/d)"
       },
@@ -631,7 +631,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:58:16.652Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1926,12 +1925,12 @@
     },
     {
       "id": "mobiliar-c81664769276",
-      "slug": "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern",
+      "slug": "assicurazione-medica-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern",
-        "en": "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern",
+        "it": "assicurazione-medica-m-f-d-die-mobiliar-bern",
+        "en": "specialist-weather-insurance-m-f-d-die-mobiliar-bern",
         "de": "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch",
-        "fr": "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
+        "fr": "specialiste-de-l-assurance-meteo-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1989,11 +1988,19 @@
       },
       "sfJobId": "1165508755",
       "previousSlugs": [
-        "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch"
+        "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch",
+        "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch"
+          "fachspezialist-wetterversicherung-w-m-d-mobiliar-ch",
+          "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
+        ],
+        "fr": [
+          "fachspezialist-wetterversicherung-w-m-d-die-mobiliar-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:21.425Z",
