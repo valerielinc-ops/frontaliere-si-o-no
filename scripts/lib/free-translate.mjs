@@ -1077,20 +1077,26 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 // costo fisso di una richiesta e' invece il prompt, ~5,9k token di input anche
 // per tre parole. Quindi:
 //   - finche' c'e' una corsia libera (FREE_TRANSLATE_CODEX_LANES, default 2,
-//     massimo 3 come le corsie del broker) un testo parte subito da solo, con
+//     massimo 3 come le corsie del broker; 0 vale 1, perche' il tier si spegne
+//     con FREE_TRANSLATE_CODEX_MAX_CALLS=0) un testo parte subito da solo, con
 //     il prompt di sempre: e' la strada piu' veloce;
 //   - quando le corsie sono tutte occupate i testi aspettano comunque, e al
 //     primo posto libero quelli con la stessa coppia di lingue partono insieme
-//     in UNA richiesta (fino a 5 testi e 3000 caratteri) con uno schema a id:
-//     stesso tempo per testo, circa un quarto dei token. Testi identici in
-//     coda diventano una voce sola.
+//     in UNA richiesta (fino a FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS testi,
+//     default 5, e 3000 caratteri) con uno schema a id: stesso tempo per
+//     testo, circa un quarto dei token. Testi identici in coda diventano una
+//     voce sola.
 // Ogni chiamante riceve comunque la sua `Promise<string>`: `tryTier` conta
-// successi, echi ed errori testo per testo, come prima.
+// successi, echi ed errori testo per testo, come prima. Con
+// FREE_TRANSLATE_CODEX_LANES=1 e FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=1 il tier
+// torna una richiesta per testo, una alla volta: e' la leva di rollback, e la
+// base della misura in scripts/measure-codex-translate-tier.mjs.
 const CODEX_TRANSLATE_MAX_CALLS_DEFAULT = 40;
 const CODEX_TRANSLATE_MAX_MS_DEFAULT = 5 * 60 * 1000;
 const CODEX_TRANSLATE_LANES_DEFAULT = 2;
 const CODEX_TRANSLATE_LANES_MAX = 3;
-const CODEX_TRANSLATE_BATCH_MAX_TEXTS = 5;
+const CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT = 5;
+const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 10;
 const CODEX_TRANSLATE_BATCH_MAX_CHARS = 3000;
 // Tetto della singola richiesta: una traduzione non ha bisogno dei 10 minuti che
 // la lane concede al corpo articolo.
@@ -1214,13 +1220,24 @@ function _codexTranslateMessages(text, sourceLang, targetLang, marker) {
 // generator/tests/lib/reachable-source.mjs del corpus) li legge come l'apertura
 // di un template e smette di togliere i commenti dell'intero file.
 const CODE_FENCE = '```';
-function _cleanCodexTranslation(raw, source, marker) {
+/** La risposta senza una cornice di codice che la avvolge tutta, se la sorgente non ne aveva. */
+function _unfenceCodexAnswer(raw, source) {
   let out = String(raw ?? '').trim();
   if (!source.startsWith(CODE_FENCE) && out.startsWith(CODE_FENCE) && out.endsWith(CODE_FENCE)) {
     const firstNewline = out.indexOf('\n');
     const lastNewline = out.lastIndexOf('\n');
     if (firstNewline > 0 && lastNewline > firstNewline) out = out.slice(firstNewline + 1, lastNewline);
   }
+  return out;
+}
+
+/** Una voce di un gruppo: senza marcatori (il prompt di gruppo non ne usa), ma la stessa cornice tolta. */
+function _stripCodeFence(raw, source) {
+  return normalizeBlock(_unfenceCodexAnswer(raw, source));
+}
+
+function _cleanCodexTranslation(raw, source, marker) {
+  let out = _unfenceCodexAnswer(raw, source);
   const open = `BEGIN_TEXT_${marker}`;
   const close = `END_TEXT_${marker}`;
   if (out.startsWith(open)) out = out.slice(open.length).replace(/^[ \t]*\n?/, '');
@@ -1249,6 +1266,11 @@ function _codexLanes() {
   return Math.min(Math.max(lanes, 1), CODEX_TRANSLATE_LANES_MAX);
 }
 
+function _codexBatchMaxTexts() {
+  const texts = _codexBudget('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT);
+  return Math.min(Math.max(texts, 1), CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT);
+}
+
 /** Tempo di orologio speso finora con almeno una richiesta in volo. */
 function _codexSpentNow() {
   return _codexSpentMs + (_codexBusySince ? Date.now() - _codexBusySince : 0);
@@ -1275,12 +1297,21 @@ function _pumpCodex() {
   }
 }
 
-/** Il primo testo in coda e quelli con la stessa coppia di lingue, entro i tetti. */
+/**
+ * Il primo testo in coda e quelli con la stessa coppia di lingue, entro i
+ * tetti. Un gruppo prende la sua parte della coda (coda / corsie), non tutta:
+ * a effort max il tempo cresce col numero di testi, e un posto libero che si
+ * prendesse cinque testi lascerebbe l'altra corsia quasi scarica (misura in
+ * scripts/measure-codex-translate-tier.mjs: 8 testi FAQ in 45 s col gruppo
+ * pieno, in 30 s con la quota).
+ */
 function _takeCodexGroup() {
+  const share = Math.ceil(_codexPending.length / _codexLanes());
   const first = _codexPending.shift();
   const group = [first];
   let chars = first.clean.length;
-  for (let i = 0; i < _codexPending.length && group.length < CODEX_TRANSLATE_BATCH_MAX_TEXTS;) {
+  const maxTexts = Math.min(_codexBatchMaxTexts(), Math.max(share, 1));
+  for (let i = 0; i < _codexPending.length && group.length < maxTexts;) {
     const item = _codexPending[i];
     if (item.sourceLang === first.sourceLang && item.targetLang === first.targetLang
       && chars + item.clean.length <= CODEX_TRANSLATE_BATCH_MAX_CHARS) {
@@ -1434,7 +1465,7 @@ async function _codexTranslateBatch(call, opts, texts, sourceLang, targetLang) {
     if (!Number.isInteger(id) || id < 1 || id > texts.length || typeof entry?.text !== 'string') continue;
     const source = texts[id - 1];
     if (byText.has(source)) continue;
-    const out = normalizeBlock(entry.text);
+    const out = _stripCodeFence(entry.text, source);
     if (out) byText.set(source, out);
   }
   return byText;

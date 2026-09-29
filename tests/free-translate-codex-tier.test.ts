@@ -52,7 +52,7 @@ beforeAll(async () => {
     'DEEPL_API_KEY_2', 'AZURE_TRANSLATOR_KEY_2', 'GSC_CLIENT_ID', 'GSC_CLIENT_SECRET',
     'GSC_REFRESH_TOKEN', 'HF_TOKEN', 'HUGGINGFACE_API_KEY', 'LIBRETRANSLATE_SELF_HOSTED_URL',
     'MT_LOCAL_OPUSMT', 'ENABLE_CODEX_ARTICLE_FALLBACK', 'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN',
-    'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS', 'FREE_TRANSLATE_CODEX_LANES',
+    'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS', 'FREE_TRANSLATE_CODEX_LANES', 'FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS',
   ]) vi.stubEnv(key, '');
   vi.stubEnv('DEEPL_API_KEY', 'deepl-finta');
   vi.stubEnv('AZURE_TRANSLATOR_KEY', 'azure-finta');
@@ -356,13 +356,59 @@ describe('freeTranslate — tier Codex Luna Max', () => {
       inFlight -= 1;
       return answer(messages);
     });
-    const texts = numbered(4);
+    const texts = numbered(6);
     const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
     expect(value).toEqual(texts.map(translationOf));
-    // Default: due corsie. I primi due testi partono da soli, gli altri due insieme.
+    // Default: due corsie. I primi due testi partono da soli; al primo posto
+    // libero la coda di 4 si divide per le 2 corsie (gruppo di 2), poi i due
+    // testi rimasti partono uno per corsia.
     expect(maxInFlight).toBe(2);
-    expect(calls).toHaveLength(3);
-    expect(batchItems(calls[2].messages)).toHaveLength(2);
+    expect(calls.map((c) => batchItems(c.messages)?.length ?? 1)).toEqual([1, 1, 2, 1, 1]);
+  });
+
+  it('una voce di gruppo avvolta in una cornice di codice arriva senza cornice', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const answer = codexAnswer();
+      const fence = '```';
+      const calls = stubCodex((messages) => {
+        const items = batchItems(messages);
+        if (!items) return answer(messages);
+        return JSON.stringify({ items: items.map(({ id, text }) => ({ id, text: `${fence}\n${translationOf(text)}\n${fence}` })) });
+      });
+      const texts = numbered(3);
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(calls).toHaveLength(2);
+      expect(value).toEqual(texts.map(translationOf));
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
+  });
+
+  it('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=1 con una corsia torna una richiesta per testo, una alla volta', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '1');
+    try {
+      let inFlight = 0;
+      let maxInFlight = 0;
+      const answer = codexAnswer();
+      const calls = stubCodex(async (messages) => {
+        inFlight += 1;
+        maxInFlight = Math.max(maxInFlight, inFlight);
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        inFlight -= 1;
+        return answer(messages);
+      });
+      const texts = numbered(4);
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(value).toEqual(texts.map(translationOf));
+      expect(calls).toHaveLength(4);
+      expect(maxInFlight).toBe(1);
+      expect(calls.every((c) => batchItems(c.messages) === null)).toBe(true);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
+    }
   });
 
   it('con le corsie occupate i testi in coda partono insieme, con lo schema a id e le regole del testo singolo', async () => {
