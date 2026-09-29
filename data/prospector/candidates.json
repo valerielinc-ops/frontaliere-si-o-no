@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-29T05:49:52.550Z",
+  "updatedAt": "2026-09-29T07:52:20.773Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -613094,12 +613094,12 @@
     },
     "recruitingapp-2998@umantis.com": {
       "key": "recruitingapp-2998@umantis.com",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.145Z",
-      "updatedAt": "2026-09-21T10:55:16.737Z",
+      "updatedAt": "2026-09-29T07:52:20.756Z",
       "name": "& im Bethesda Spital",
       "tenantHost": "recruitingapp-2998.umantis.com",
       "platform": "umantis.com",
@@ -613115,8 +613115,10 @@
       "mode": "jsonld",
       "sourceLang": "de",
       "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "duplicate of existing crawler bethesda-spital (recruitingapp-2998.umantis.com)"
+      ],
       "validationHistory": [
         {
           "at": "2026-09-08T09:18:05.612Z",
@@ -613242,7 +613244,9 @@
       "detailEnrichment": false,
       "promotionPr": "9387",
       "promotionBranch": "prospector/promote-2026-09-20",
-      "promotedAt": "2026-09-21T10:55:16.737Z"
+      "promotedAt": "2026-09-21T10:55:16.737Z",
+      "reason": "retired: duplicate of dedicated crawler bethesda-spital (same Umantis tenant recruitingapp-2998; JSON-LD identifier = Umantis vacancy id), company name mis-extracted as \"& im Bethesda Spital\"",
+      "rejectedAt": "2026-09-29T07:52:20.756Z"
     },
     "recruitingapp-3018@umantis.com": {
       "key": "recruitingapp-3018@umantis.com",
@@ -976692,6 +976696,9 @@
     },
     "zugerberg-finanz@zug": {
       "rejectedAt": "2026-09-29T05:44:22.118Z"
+    },
+    "recruitingapp-2998@umantis.com": {
+      "rejectedAt": "2026-09-29T07:52:20.756Z"
     }
   }
 }

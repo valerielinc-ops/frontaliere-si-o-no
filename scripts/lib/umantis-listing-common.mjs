@@ -26,9 +26,9 @@
  *      Used by: KSBL, Adullam.
  *
  * This module provides a single `createUmantisListingParser()` factory that
- * tries BOTH extraction strategies and uses whichever yields data. Description
- * text is the listing-page snippet (no detail-page fetching) — short but
- * reliable across all tenant UIs.
+ * tries BOTH extraction strategies and uses whichever yields data, walks every
+ * page of the listing (`collectUmantisListingPages`: the table shows 10 rows
+ * per page), and reads the description from each vacancy's detail page.
  *
  * Some tenants embed the Umantis frontend behind a corporate CMS wrapper
  * (e.g. KSBL → karriere.ksbl.ch on TYPO3). The listing endpoint on the
@@ -222,6 +222,78 @@ function parseUmantisListing(html) {
   if (newer.length > 0) return { entries: newer, ui: 'newer' };
   const older = parseOlderUiListing(html);
   return { entries: older, ui: 'older' };
+}
+
+/* ── Pagination ──────────────────────────────────────────── */
+
+/**
+ * Upper bound on the listing walk. Umantis renders 10 rows per page by
+ * default (`TableMaxEntries`), so 60 pages cover 600 vacancies — the same cap
+ * `kanton-aargau-job-parser.mjs` uses for the largest tenant we crawl.
+ */
+export const UMANTIS_MAX_LISTING_PAGES = 60;
+
+/**
+ * Next-page link of an Umantis `Jobs/All` table, as rendered by both UI
+ * generations: `data-pagination-next-href="?tc{TABLE}=p{N}&amp;_search_token{TABLE}={TOKEN}"`.
+ * Returns the query string to append to the listing URL, or '' when the page
+ * has no pager.
+ */
+export function extractUmantisNextPageQuery(html = '') {
+  const m = String(html || '').match(
+    /data-pagination-next-href="\?(tc\d+)=p(\d+)&(?:amp;)?(_search_token\d+)=(\d+)/,
+  );
+  return m ? `${m[1]}=p${m[2]}&${m[3]}=${m[4]}` : '';
+}
+
+/**
+ * Walk every page of an Umantis listing starting from the already-fetched
+ * first page. The first page alone is only `TableMaxEntries` rows: on
+ * Bethesda (tenant 2998) it held 10 of the 14 vacancies the hospital
+ * publishes, and the other 4 were only reachable through `?tc1152481=p2`.
+ *
+ * The last page still links a `p{N+1}`, which Umantis 302-redirects back to
+ * page 1, so the walk stops on the first page that adds no unseen vacancy id
+ * (or on a fetch error, keeping what was collected — the slice writer's
+ * anti-shrink guard owns the decision about a short catalogue).
+ *
+ * @param {string} firstHtml   HTML of the listing's first page
+ * @param {string} listingUrl  the listing URL (already carrying `?lang=`)
+ * @param {(url: string) => Promise<string>} fetchPage
+ * @param {{ maxPages?: number, delayMs?: number }} [opts]
+ * @returns {Promise<{ entries: object[], ui: string, pages: number }>}
+ */
+export async function collectUmantisListingPages(firstHtml, listingUrl, fetchPage, opts = {}) {
+  const maxPages = opts.maxPages ?? UMANTIS_MAX_LISTING_PAGES;
+  const delayMs = opts.delayMs ?? 250;
+  const first = parseUmantisListing(firstHtml);
+  const entries = [...first.entries];
+  const seen = new Set(entries.map((entry) => entry.id));
+  let pages = 1;
+  let query = extractUmantisNextPageQuery(firstHtml);
+  const separator = listingUrl.includes('?') ? '&' : '?';
+  while (query && pages < maxPages) {
+    let html;
+    try {
+      html = await fetchPage(`${listingUrl}${separator}${query}`);
+    } catch (err) {
+      console.warn(`  ⚠️  Umantis listing page ${pages + 1} fetch failed: ${err?.message || err}`);
+      break;
+    }
+    const { entries: pageEntries } = parseUmantisListing(html);
+    let added = 0;
+    for (const entry of pageEntries) {
+      if (seen.has(entry.id)) continue;
+      seen.add(entry.id);
+      entries.push(entry);
+      added++;
+    }
+    if (added === 0) break;
+    pages++;
+    query = extractUmantisNextPageQuery(html);
+    if (query && delayMs > 0) await new Promise((r) => setTimeout(r, delayMs));
+  }
+  return { entries, ui: first.ui, pages };
 }
 
 /* ── Classifiers ─────────────────────────────────────────── */
@@ -632,8 +704,8 @@ export function createUmantisListingParser(config) {
     console.log();
 
     const html = await fetchHtml(LISTING_URL);
-    const { entries, ui } = parseUmantisListing(html);
-    console.log(`  ✓ ${entries.length} jobs from listing (${ui} UI)`);
+    const { entries, ui, pages } = await collectUmantisListingPages(html, LISTING_URL, fetchHtml);
+    console.log(`  ✓ ${entries.length} jobs from listing (${ui} UI, ${pages} page${pages === 1 ? '' : 's'})`);
     if (entries.length > 0) console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
     if (!entries.length) return [];
