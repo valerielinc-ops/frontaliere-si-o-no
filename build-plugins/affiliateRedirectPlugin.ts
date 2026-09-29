@@ -27,6 +27,7 @@ import {
  BASE_URL,
  CF_BEACON_SNIPPET,
  GA4_MEASUREMENT_ID,
+ ANALYTICS_EMISSION_ID_FACTORY_JS,
  GTAG_LOADER_SNIPPET,
  PARTNERIZE_TAG_SNIPPET,
  POSTHOG_SNIPPET,
@@ -130,7 +131,8 @@ window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
 gtag('config',${JSON.stringify(GA4_MEASUREMENT_ID)},{transport_type:'beacon',send_page_view:false});
-gtag('event','page_view',{event_callback:go,event_timeout:${REDIRECT_TRACKING_TIMEOUT_MS}});
+var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();
+gtag('event','page_view',{emission_id:emissionId,event_callback:go,event_timeout:${REDIRECT_TRACKING_TIMEOUT_MS}});
 setTimeout(go,${REDIRECT_TRACKING_TIMEOUT_MS});
 })();</script>
  </head>

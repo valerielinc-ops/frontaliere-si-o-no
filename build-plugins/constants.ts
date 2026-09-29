@@ -510,21 +510,18 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * `transport_type: 'beacon'` so it doesn't block page rendering or
  * interfere with SPA hydration.
  *
- * NOTE: We no longer set `window.__GTAG_PAGE_VIEW_SENT__` here.
- * Previously the flag was used by analytics.ts to skip the Firebase
- * page_view and avoid a duplicate. But the flag was set synchronously
- * before gtag.js loaded, so when gtag.js was blocked (ad blockers,
- * ~30-40% of users), Firebase also skipped → sessions had no page_view
- * → GA4 landing page = "(not set)" for ~25% of sessions.
- * Firebase now always fires page_view, accepting a minor duplicate for
- * non-blocked users in exchange for correct landing page in all sessions.
+ * The static page_view carries the same emission identity that the hydrated
+ * React page_view reuses. This keeps the bounce-safe static signal and the
+ * Firebase signal deduplicable without suppressing either producer when the
+ * gtag library is blocked.
  */
 /**
  * Plain JS body for the gtag init — written to dist/assets/gtag-init.js by
  * staticScriptsPlugin. The googletagmanager loader stays inline (it's already
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
-export const GTAG_INIT_CONTENT = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'});`;
+export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
+export const GTAG_INIT_CONTENT = `(function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon',send_page_view:false});gtag('event','page_view',{page_path:location.pathname,page_location:location.href,page_title:document.title,emission_id:emissionId});})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
 // gtag-init.js only pushes the GA4 page_view onto window.dataLayer; it does
 // NOT need to run before paint. `defer` takes it off the render-blocking path
