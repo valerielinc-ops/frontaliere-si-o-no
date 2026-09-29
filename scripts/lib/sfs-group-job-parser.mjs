@@ -50,6 +50,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -308,7 +309,9 @@ export async function fetchAllSfsGroupJobs() {
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     const resolvedHq = resolveAddress(location);
     const postalCode = resolvedHq?.postalCode
-      || (location === HQ.city ? HQ.postalCode : officialLocalityPostalCode(location, canton));
+      || (location === HQ.city
+        ? HQ.postalCode
+        : officialLocalityPostalCode(location, canton) || getCantonPostalFallback(canton) || HQ.postalCode);
     const streetAddress = resolvedHq?.streetAddress
       || (location === HQ.city ? HQ.streetAddress : undefined);
     // The detail's own text only: without it the job gets no description

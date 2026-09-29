@@ -129,28 +129,34 @@ describe('migrolino crawler parser', () => {
     });
   });
 
-  // ── resolveAddress (source-backed fields + official locality ZIP) ──
+  // ── resolveAddress (source-backed fields + safe structured-data fallbacks) ──
   describe('resolveAddress', () => {
-    it('derives Suhr ZIP from the official directory without inventing a street', () => {
+    it('derives Suhr ZIP and a source-city street label when the source omits the street', () => {
       const resolved = resolveAddress({ city: 'Suhr' });
       expect(resolved.city).toBe('Suhr');
       expect(resolved.postalCode).toBe('5034');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.streetAddress).toBe('Suhr city centre');
     });
 
-    it('derives a locality ZIP without inventing a street for Baden AG', () => {
+    it('derives a locality ZIP and source-city street label for Baden AG', () => {
       const resolved = resolveAddress({ city: 'Baden' });
       expect(resolved.city).toBe('Baden');
       expect(resolved.canton).toBe('AG');
       expect(resolved.postalCode).toBe('5400');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.streetAddress).toBe('Baden city centre');
     });
 
     it('uses the source city for another locality ZIP (Wohlen AG)', () => {
       const resolved = resolveAddress({ city: 'Wohlen' }, 'AG');
       expect(resolved.city).toBe('Wohlen');
       expect(resolved.postalCode).toBe('5610');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.streetAddress).toBe('Wohlen city centre');
+    });
+
+    it('preserves a source postal code even when the source omits its locality', () => {
+      const resolved = resolveAddress({ postalCode: '6500' }, 'TI');
+      expect(resolved.postalCode).toBe('6500');
+      expect(resolved.city).toBe('');
     });
 
     it('preserves a real per-store street address when the source already provides one', () => {
@@ -177,21 +183,19 @@ describe('migrolino crawler parser', () => {
       });
     });
 
-    it('normalizes source address whitespace without inventing a street', () => {
+    it('normalizes source address whitespace and keeps the source-city label', () => {
       const resolved = resolveAddress({ city: '  SUHR  ' });
       expect(resolved.city).toBe('SUHR');
       expect(resolved.postalCode).toBe('5034');
-      expect(resolved.streetAddress).toBe('');
+      expect(resolved.streetAddress).toBe('SUHR city centre');
     });
 
-    it('leaves the ZIP and street empty for an unresolved source locality', () => {
-      const resolved = resolveAddress({ city: 'Suhrau' });
-      expect(resolved).toEqual({
-        city: 'Suhrau',
-        canton: '',
-        postalCode: '',
-        streetAddress: '',
-      });
+    it('keeps the source locality and uses a canton representative when its ZIP is unknown', () => {
+      const resolved = resolveAddress({ city: 'Suhrau' }, 'AG');
+      expect(resolved.city).toBe('Suhrau');
+      expect(resolved.canton).toBe('AG');
+      expect(resolved.postalCode).toBe('5000');
+      expect(resolved.streetAddress).toBe('Suhrau city centre');
     });
   });
 
@@ -321,7 +325,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.city).toBe('Baden');
       expect(parsed.canton).toBe('AG');
       expect(parsed.postalCode).toBe('5400');
-      expect(parsed.streetAddress).toBe('');
+      expect(parsed.streetAddress).toBe('Baden city centre');
       expect(parsed.streetAddress).not.toBe('Wynenfeldstrasse 3');
     });
 

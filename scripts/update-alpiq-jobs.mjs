@@ -28,6 +28,7 @@ import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './lib/canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -44,7 +45,8 @@ const COMPANY_NAME = 'Alpiq';
 
 // When the source exposes only "Switzerland", use Alpiq Holding's registered
 // Lausanne office as the safe structured-data fallback. A concrete source
-// locality uses the official directory and otherwise keeps the ZIP empty.
+// locality uses the official directory and then the verified representative
+// postal code for its inferred canton.
 const ALPIQ_SAFE_DEFAULT_ADDRESS = {
   location: 'Lausanne',
   canton: 'VD',
@@ -52,7 +54,8 @@ const ALPIQ_SAFE_DEFAULT_ADDRESS = {
   streetAddress: 'Chemin de Mornex 10',
 };
 function resolveAlpiqPostalCode(location = '', canton = '') {
-  return officialLocalityPostalCode(location, canton);
+  return officialLocalityPostalCode(location, canton) || getCantonPostalFallback(canton)
+    || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode;
 }
 
 function isCompanyJob(job) {

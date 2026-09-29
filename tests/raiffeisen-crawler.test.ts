@@ -170,7 +170,7 @@ describe('Raiffeisen (national) crawler parser', () => {
       });
     });
 
-    it('leaves the ZIP empty when the official directory has no exact locality', async () => {
+    it('uses a verified canton representative when the official directory has no exact locality', async () => {
       process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
       globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({
         total: 1,
@@ -190,7 +190,7 @@ describe('Raiffeisen (national) crawler parser', () => {
       expect(jobs).toHaveLength(1);
       expect(jobs[0].location).toBe('Neuchâtel et Vallées');
       expect(jobs[0].canton).toBe('NE');
-      expect(jobs[0].postalCode).toBe('');
+      expect(jobs[0].postalCode).toBe('2000');
     });
 
     it('fails loudly when the API total is not fully read', async () => {

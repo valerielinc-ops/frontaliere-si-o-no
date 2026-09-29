@@ -44,6 +44,7 @@ import {
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './lib/canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -146,8 +147,8 @@ function resolveBranchAddress(arbeitsort) {
       return {
         city: candidate.trim(),
         canton,
-        postalCode: officialLocalityPostalCode(candidate, canton),
-        street: '',
+        postalCode: officialLocalityPostalCode(candidate, canton) || getCantonPostalFallback(canton),
+        street: `Filiale ${candidate.trim()}`,
       };
     }
   }

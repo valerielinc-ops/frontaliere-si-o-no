@@ -33,6 +33,7 @@
  */
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCantonForLocation } from './crawler-location-config.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -378,7 +379,9 @@ export async function fetchAllDormakabaJobs() {
     const location = realCity || HQ.city;
     const canton = inferredCanton || HQ.canton;
     const postalCode = resolved?.postalCode
-      || (realCity ? officialLocalityPostalCode(realCity, canton) : HQ.postalCode);
+      || (realCity
+        ? officialLocalityPostalCode(realCity, canton) || getCantonPostalFallback(canton) || HQ.postalCode
+        : HQ.postalCode);
     const streetAddress = resolved?.streetAddress
       || (location === HQ.city ? KNOWN_OFFICES.ruemlang.streetAddress : undefined);
 

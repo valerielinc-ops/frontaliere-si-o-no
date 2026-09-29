@@ -61,14 +61,16 @@
  * Switzerland (a retail chain, not a single-site employer), so per-job
  * addresses come from the JSON-LD `jobLocation.address` of EACH posting.
  * When the source omits an address field, `resolveAddress()` keeps the source
- * locality and street, derives a missing ZIP from the official locality
- * directory, and leaves unavailable fields empty.
+ * locality, derives a missing ZIP from the official locality directory (with
+ * a verified canton representative as the last resort), and uses a
+ * source-city label when the street itself is unavailable.
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback, getDefaultCantonLocationFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
@@ -119,13 +121,15 @@ export function resolveAddress(raw = {}, canton = '') {
   const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
     ? cantonHint.toUpperCase()
     : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
+  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton)
+    || getDefaultCantonLocationFallback().postalCode;
   return {
     city: sourceCity,
     canton: resolvedCanton,
-    postalCode: sourceCity
-      ? sourcePostalCode || officialLocalityPostalCode(sourceCity, resolvedCanton)
-      : '',
-    streetAddress: sourceStreetAddress,
+    postalCode: sourcePostalCode || (sourceCity
+      ? officialLocalityPostalCode(sourceCity, resolvedCanton) || fallbackPostalCode
+      : ''),
+    streetAddress: sourceStreetAddress || (sourceCity ? `${sourceCity} city centre` : ''),
   };
 }
 
