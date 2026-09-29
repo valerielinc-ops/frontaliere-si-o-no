@@ -110,7 +110,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   // Standalone pages
   const standalones: AppRoute['activeTab'][] = [
     'feedback', 'forum', 'contact', 'partners', 'consulting',
-    'job-board', 'profile', 'morning', 'gamification',
+    'job-board', 'profile', 'morning', 'gamification', 'for-employers',
     'privacy', 'terms', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
     'dialetto',
     'email-confirmed',
@@ -480,6 +480,13 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'petitionEn',
       'petitionDe',
       'petitionFr',
+      // The employers page has one locale-agnostic SPA route key; these
+      // localized metadata entries are consumed by staticPagesPlugin for the
+      // three localized static HTML variants and are not returned by
+      // getSeoSection(route).
+      'for-employers-en',
+      'for-employers-de',
+      'for-employers-fr',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {
