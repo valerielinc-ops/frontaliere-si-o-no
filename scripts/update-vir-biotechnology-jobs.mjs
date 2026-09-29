@@ -23,10 +23,10 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
+import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType, buildVirDescriptionFields, dropVirFabricatedText } from './lib/vir-biotechnology-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -112,8 +112,8 @@ async function fetchGreenhouseJobs() {
 
 function buildJobFromGreenhouse(parsed) {
   const slug = slugify(parsed.title, 'vir-biotechnology');
-  const descEn = parsed.description || `${parsed.title} position at Vir Biotechnology (Humabs BioMed) in ${parsed.city}, Switzerland.`;
-  const descIt = `Posizione aperta presso Vir Biotechnology (Humabs BioMed) a ${parsed.city}.\nRuolo: ${parsed.title}.\n\nVir Biotechnology è un'azienda biotecnologica globale. Humabs BioMed SA ha attività di ricerca in Svizzera, tra cui la sede di Bellinzona, Ticino.`;
+  // Only the posting's own text, keyed by its language (no fabricated `it`).
+  const { description: descEn, descriptionByLocale, sourceLang } = buildVirDescriptionFields(parsed);
 
   return {
     url: parsed.url,
@@ -130,7 +130,7 @@ function buildJobFromGreenhouse(parsed) {
     postalCode: HQ.postalCode,
     streetAddress: 'Via Mirasole 1',
     description: descEn,
-    descriptionByLocale: { en: descEn, it: descIt },
+    descriptionByLocale,
     titleByLocale: { en: parsed.title },
     slug,
     slugByLocale: { en: slug, it: slugify(parsed.title, 'vir-biotechnology') },
@@ -141,7 +141,7 @@ function buildJobFromGreenhouse(parsed) {
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Biotecnologia / Farmaceutica',
     _targetScope: { canton: parsed.canton || HQ.canton, location: parsed.city || 'Bellinzona' },
-    sourceLang: detectLang(descEn || parsed.title, 'en'),
+    sourceLang,
   };
 }
 
@@ -150,6 +150,8 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isVirJob(j));
   const existingCompanyJobs = allJobs.filter(isVirJob);
+  const fossils = existingCompanyJobs.filter((job) => dropVirFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the fabricated Italian blurb from ${fossils} stored job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

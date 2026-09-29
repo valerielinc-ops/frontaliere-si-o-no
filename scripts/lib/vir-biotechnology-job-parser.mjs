@@ -13,6 +13,7 @@
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { dropFabricatedLocaleText, sourceLocaleDescription } from './source-locale-description.mjs';
 
 const HQ = getCompanyDefaults('vir-biotechnology');
 
@@ -177,4 +178,28 @@ export function inferEmploymentType(title = '', description = '', percentage = '
     if (maxPct < 80) return 'PART_TIME';
   }
   return 'FULL_TIME';
+}
+
+/**
+ * Description fields of a Greenhouse posting: the posting's own text keyed by
+ * its language. The runner used to add an Italian company blurb of its own
+ * to `descriptionByLocale.it` of every job ("Posizione aperta presso Vir
+ * Biotechnology (Humabs BioMed) a …"), the same fabricated-locale defect
+ * corrected in mikron, bracco, fnz, ist and capri-holdings. The title sentence
+ * stays as the last-resort fallback of a posting without any text.
+ *
+ * @param {{ title: string, city: string, description?: string }} parsed
+ */
+export function buildVirDescriptionFields(parsed = {}) {
+  return sourceLocaleDescription(parsed.description, {
+    fallback: `${parsed.title} position at Vir Biotechnology (Humabs BioMed) in ${parsed.city}, Switzerland.`,
+  });
+}
+
+// Fossil of the removed Italian builder in stored jobs (see source-locale-description.mjs).
+const VIR_IT_BLURB_RE = /^Posizione aperta presso Vir Biotechnology \(Humabs BioMed\)[\s\S]*azienda biotecnologica globale/;
+
+/** Remove the fabricated Italian blurb of the former builder from a stored job. */
+export function dropVirFabricatedText(job) {
+  return dropFabricatedLocaleText(job, 'it', VIR_IT_BLURB_RE);
 }
