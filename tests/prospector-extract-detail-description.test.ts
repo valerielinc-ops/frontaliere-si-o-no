@@ -264,6 +264,20 @@ describe('form controls, hidden blocks and print templates are not the body', ()
     expect(description).not.toContain('Paketzustellung');
   });
 
+  it('reads every sibling <article> section when the title sits above them (hospital job ad)', () => {
+    const html = `<html><body><section class="main">
+      <p class="intro-text">Die Klinik Chirurgie evaluiert laufend Bewerbungen für die Stelle als</p>
+      <h1><strong>Unterassistent*in Chirurgie</strong><br>100%</h1>
+      <article><h2>Ihr Aufgabengebiet:</h2><ul><li>Aufnahme und stationäre Mitbetreuung von Patient*innen</li></ul></article>
+      <article><h2>Ihr Profil:</h2><ul><li>Wahlstudienjahr- oder PJ-Absolvent*in mit sehr guten Deutschkenntnissen</li></ul></article>
+      <article><h2>Was wir Ihnen bieten:</h2><ul><li>Ein kollegiales Team in einer Klinik mit breitem Spektrum</li></ul></article>
+    </section></body></html>`;
+    const { description } = extractDetailFields(html, 'https://recruitingapp.example.com/Vacancies/301/Description/1');
+    expect(description).toContain('Aufnahme und stationäre Mitbetreuung');
+    expect(description).toContain('Wahlstudienjahr');
+    expect(description).toContain('kollegiales Team');
+  });
+
   it('keeps a print template that carries this vacancy', () => {
     const html = `<html><body>
       <h1>Polizeiaspirant·in</h1>
@@ -314,6 +328,17 @@ describe('rendered text is weighed against the structured body', () => {
     expect(ownRecord.url).toContain('#job-');
     expect(detail.description).toContain('1800 Geburten');
     expect(detail.description).not.toContain('Praxisassistentin');
+  });
+
+  it('decodes HTML escaped twice in a JSON-LD description (farm business site)', () => {
+    const twice = '&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Wartung der Landmaschinen im eigenen Betrieb&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;'
+      + '&amp;lt;span style=&amp;quot;font-size: 16px;&amp;quot;&amp;gt;Du arbeitest selbständig im Team.&amp;lt;/span&amp;gt;';
+    const html = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'JobPosting', title: 'Betriebsmechaniker:in', description: twice })}</script>`;
+    const [record] = extractJsonLd(html, 'https://www.example.ch/job/betriebsmechaniker/');
+    expect(record.description).toContain('Wartung der Landmaschinen im eigenen Betrieb');
+    expect(record.description).toContain('Du arbeitest selbständig im Team.');
+    expect(record.description).not.toMatch(/<\/?(?:ul|li|span)/);
+    expect(record.description).not.toContain('font-size');
   });
 
   it('decodes entity-escaped HTML in a JSON-LD description (fashion retailer ATS)', () => {

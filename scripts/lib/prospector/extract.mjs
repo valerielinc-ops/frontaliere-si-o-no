@@ -298,8 +298,13 @@ function proseValues(value) {
  * @returns {string}
  */
 export function structuredProseText(value = '') {
-  const raw = String(value || '');
-  return textOf(/&lt;\/?[a-z][a-z0-9-]*(?:\s|&gt;|\/)/i.test(raw) ? decodeEntities(raw) : raw);
+  let raw = String(value || '');
+  // Escaped once (`&lt;p&gt;`) or twice (`&amp;lt;p&amp;gt;`): decode until
+  // no escaped tag is left, at most three rounds.
+  for (let round = 0; round < 3 && /&(?:amp;)*lt;\/?[a-z][a-z0-9-]*(?:\s|&(?:amp;)*gt;|\/)/i.test(raw); round++) {
+    raw = decodeEntities(raw);
+  }
+  return textOf(raw);
 }
 
 /**
@@ -916,19 +921,23 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // than the page's structured teaser, avoiding a navigation-only shell.
   // Chrome recognised above is cut out of it too: without the cut, rejecting
   // a carousel as a candidate would hand the whole <main> — the same carousel
-  // included — to this fallback. A print-only rendering counts only when it
-  // is this vacancy's: jobs.fr.ch prints the real ad there, while job.post.ch
-  // fills its `printLayout` article client-side and serves the same
-  // 2240-character sample ad (another vacancy) in it on every page.
+  // included — to this fallback. When no container carries the title (it
+  // sits above them), every top-level container is read, not only the first:
+  // the See-Spital ad is seven sibling <article> sections. A print-only
+  // rendering counts only when it is this vacancy's: jobs.fr.ch prints the
+  // real ad there, while job.post.ch fills its `printLayout` article
+  // client-side and serves the same 2240-character sample ad (another
+  // vacancy) in it on every page.
   const main = vacancyContainerRegion(html, title);
-  const mainIsThisVacancy = main && (!isPrintLayout(main.raw)
-    || [title, renderedTitle].some((candidate) => containsTitle(main.content, candidate)));
-  if (!blocks.length && mainIsThisVacancy) {
-    const [mainText] = distinctBodyTexts(
+  if (!blocks.length && main) {
+    const isThisVacancy = (region) => !isPrintLayout(region.raw)
+      || [title, renderedTitle].some((candidate) => containsTitle(region.content, candidate));
+    const regions = (main.owned ? [main] : main.outermost).filter(isThisVacancy);
+    const mainText = distinctBodyTexts(
       html,
-      [{ start: main.start, contentStart: main.start, contentEnd: main.end }],
+      regions.map((region) => ({ start: region.start, contentStart: region.start, contentEnd: region.end })),
       chromeRanges,
-    );
+    ).join(' ');
     if (mainText) blocks.push(mainText);
   }
   const structuredDescriptions = structuredRecords.map((record) => record.description || '');
@@ -1069,7 +1078,11 @@ const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{
  *
  * @param {string} html
  * @param {string} [title] vacancy title as rendered/structured on the page
- * @returns {{ raw: string, start: number, end: number, content: string } | null}
+ * @returns {{
+ *   raw: string, start: number, end: number, content: string,
+ *   owned: boolean,
+ *   outermost: Array<{ raw: string, start: number, end: number, content: string }>,
+ * } | null}
  */
 function vacancyContainerRegion(html = '', title = '') {
   const source = String(html);
@@ -1099,7 +1112,14 @@ function vacancyContainerRegion(html = '', title = '') {
   for (const region of owning) {
     if (chosen && region.start > chosen.start && region.end <= chosen.end) chosen = region;
   }
-  return chosen ?? regions[0] ?? null;
+  const picked = chosen ?? regions[0];
+  if (!picked) return null;
+  // The containers no other container wraps, for a caller that has to read a
+  // vacancy split across sibling <article> sections when none of them carries
+  // the title (the heading sits above them).
+  const outermost = regions.filter((region) => !regions.some((other) => other !== region
+    && other.start <= region.start && region.end <= other.end && (other.start < region.start || other.end > region.end)));
+  return { ...picked, owned: Boolean(chosen), outermost };
 }
 
 /**
