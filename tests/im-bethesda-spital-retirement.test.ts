@@ -82,13 +82,23 @@ describe('retired duplicate crawler im-bethesda-spital', () => {
         companyKey: 'im-bethesda-spital',
         slug: 'assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel',
         slugByLocale: { it: 'assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel' },
+        // The retired crawler's JSON-LD teaser and its translations.
+        description: 'Die Klinik Rheumatologie & Schmerzmedizin ist die grösste Rheumaklinik.',
+        descriptionByLocale: {
+          de: 'Die Klinik Rheumatologie & Schmerzmedizin ist die grösste Rheumaklinik.',
+          it: 'La clinica di reumatologia è la più grande.',
+        },
       },
     ];
+    const CANONICAL_BODY = 'Ihre Aufgaben\n• Interdisziplinäre Abklärung von stationären und ambulanten Patientinnen und Patienten';
 
-    const result = migrateRetiredImBethesdaJobs(canonical, retired);
+    const result = migrateRetiredImBethesdaJobs(canonical, retired, {
+      detailFor: (vacancyId: string) => (vacancyId === '328' ? CANONICAL_BODY : ''),
+    });
 
     expect(result.collapsed).toBe(1);
     expect(result.rehomed).toBe(1);
+    expect(result.archived).toHaveLength(0);
     expect(result.routesAfter).toBe(result.routesBefore);
     expect(result.jobs).toHaveLength(2);
     expect(result.jobs[0].previousSlugsByLocale?.it).toContain(retired[0].slugByLocale.it);
@@ -98,7 +108,20 @@ describe('retired duplicate crawler im-bethesda-spital', () => {
       url: 'https://recruitingapp-2998.umantis.com/Vacancies/328/Description/1',
       applyUrl: 'https://recruitingapp-2998.umantis.com/Vacancies/328/Application/CheckLogin/1',
       slug: retired[1].slug,
+      // Review of #10311: the rehomed record carries the canonical detail
+      // body, never the retired teaser or its translations.
+      description: CANONICAL_BODY,
+      descriptionByLocale: { de: CANONICAL_BODY },
+      needsRetranslation: true,
     });
+
+    // No usable canonical body: not published, filed for the expired archive
+    // with its routes, still counted as preserved.
+    const withoutBody = migrateRetiredImBethesdaJobs(canonical, retired, { detailFor: () => '' });
+    expect(withoutBody.rehomed).toBe(0);
+    expect(withoutBody.jobs).toHaveLength(1);
+    expect(withoutBody.archived.map((job: { slug: string }) => job.slug)).toEqual([retired[1].slug]);
+    expect(withoutBody.routesAfter).toBe(withoutBody.routesBefore);
     expect(() => migrateRetiredImBethesdaJobs(canonical, [{ ...retired[0], url: `${PAGE}#job-unknown` }]))
       .toThrow(/unknown retired record/);
   });
