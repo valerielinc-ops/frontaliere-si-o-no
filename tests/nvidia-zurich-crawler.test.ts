@@ -226,7 +226,12 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
   // external paths verbatim). The published slice then carried 8 records whose
   // Workday path is `Switzerland-Remote`, all stamped `Zürich / ZH`.
   describe('fetchAllNvidiaZurichJobs replay: primary location decides the record', () => {
-    const description = 'NVIDIA is looking for an engineer to join the team. '.repeat(4);
+    // Role paragraph of JR2022878 (NVIDIA Workday, 2026-09-29): a body over the
+    // shared 50-word floor, so the replay tests the location, not the body.
+    const description = 'We are looking for a Senior HPC and AI Network Software Architect to help build the next generation of scalable AI infrastructure. '
+      + 'The role emphasizes distributed training, real-time inference, and communication efficiency across large systems. '
+      + 'You will develop new software and hardware approaches, shape platform evolution through hands-on innovation, and contribute to designing systems powering the fastest AI workloads globally. '
+      + 'Collaborate with our distinguished team of researchers and engineers building software and hardware for AI at an outstanding scale.';
     const replay = [
       {
         posting: {
