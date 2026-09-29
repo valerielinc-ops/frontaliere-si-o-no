@@ -7007,6 +7007,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-robotica-crescita-aziende.title': 'Switzerland: 217 robotics companies and 7 thousand jobs',
     'blog.article.svizzera-robotica-crescita-aziende.excerpt': 'Raiffeisen analysis: 50 new companies since 2020. Zurich and Vaud key hubs, strong link with academic research and spin-offs.',
     'blog.article.svizzera-robotica-crescita-aziende.imageAlt': 'Robotic technology in a Swiss research center',
+    'blog.article.finma-conclude-julius-baer.title': 'Signa case, FINMA concludes proceedings concerning Julius Bär',
+    'blog.article.finma-conclude-julius-baer.excerpt': 'The supervisory authority closes the case related to the Signa real estate group. 250 million francs in additional capital and new risk reports requested.',
+    'blog.article.finma-conclude-julius-baer.imageAlt': 'Headquarters of a banking institution in Zurich financial district',
 };
 
 export default blogMetaChEn;
