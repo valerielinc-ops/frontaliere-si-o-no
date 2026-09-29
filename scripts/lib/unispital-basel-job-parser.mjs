@@ -21,6 +21,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -284,6 +285,11 @@ export async function fetchAllUnispitalBaselJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${UNISPITAL_BASEL_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing payload is 11-21 % of the rendered vacancy (audit 2026-09-29):
+  // "Benefits dieser Stelle", "Ihre Benefits am USB" and the workplace text exist only on the directlink page, which becomes the description
+  // source; the listing text stays the per-job fallback.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: UNISPITAL_BASEL_COMPANY_NAME });
+  const unique = dropRepostedListings(jobs, UNISPITAL_BASEL_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${UNISPITAL_BASEL_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

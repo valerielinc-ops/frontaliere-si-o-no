@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -120,8 +121,8 @@ function detectEmploymentType(text = '') {
  *     Wallis filter previously starved this crawler to 0 jobs whenever Valais
  *     had no openings (issue #3065); CH-wide it returns ~23 jobs.
  *
- * No detail page fetching needed — the API returns full descriptions
- * in szas.* fields.
+ * The API carries the listing fields; the description is read from the
+ * rendered vacancy page (see the end of `fetchAllTransgourmetJobs`).
  *
  * Detail page URL pattern: https://jobs.transgourmet.ch/offene-stellen/{slug}/{viewkey}
  */
@@ -404,6 +405,15 @@ export async function fetchAllTransgourmetJobs() {
     console.log(`  ✅ ${title} — ${city || canton}`);
   }
 
-  console.log(`\n📋 Total Transgourmet CH-wide jobs discovered: ${jobs.length}`);
-  return jobs;
+  // Transgourmet re-posts vacancies under new ids: the two "Mitarbeiterin /
+  // Mitarbeiter Verkauf Metzgerei" in Dietikon render the same page (audit
+  // 2026-09-29: one duplicate listing). Only identical rendered pages prove a
+  // re-post, so the page text is also the description source.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, {
+    isTrustedDomain,
+    label: TRANSGOURMET_COMPANY_NAME,
+  });
+  const unique = dropRepostedListings(jobs, TRANSGOURMET_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total Transgourmet CH-wide jobs discovered: ${unique.length}`);
+  return unique;
 }

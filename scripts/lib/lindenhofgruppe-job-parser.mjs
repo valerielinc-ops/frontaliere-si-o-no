@@ -28,6 +28,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './prospective-ch-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -270,6 +271,16 @@ export async function fetchAllLindenhofgruppeJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${LINDENHOFGRUPPE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  // The listing text hides what tells postings apart: the two "Dipl.
+  // Pflegefachfrau/-mann FH/HF" at the Lindenhofspital share it, but only one
+  // page carries the "Gut zu wissen" ward section (audit 2026-09-29 read them
+  // as one duplicate). The rendered vacancy page is the description source,
+  // and only identical rendered pages count as a re-post.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, {
+    isTrustedDomain,
+    label: LINDENHOFGRUPPE_COMPANY_NAME,
+  });
+  const unique = dropRepostedListings(jobs, LINDENHOFGRUPPE_COMPANY_NAME, { pageDescribed });
+  console.log(`\n📋 Total ${LINDENHOFGRUPPE_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }

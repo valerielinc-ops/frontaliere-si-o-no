@@ -37,6 +37,7 @@ import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
 export const CONCORDIA_KEY = 'concordia';
@@ -242,8 +243,9 @@ export async function fetchAllConcordiaJobs({
   let unresolvedLocations = 0;
   for (const url of detailUrls) {
     let ld;
+    let detailHtml = '';
     try {
-      const detailHtml = await fetchPage(url);
+      detailHtml = await fetchPage(url);
       ld = extractJobPostingLd(detailHtml);
     } catch (err) {
       detailFetchFailures += 1;
@@ -258,11 +260,19 @@ export async function fetchAllConcordiaJobs({
     }
 
     const title = normalizeSpace(ld.title);
-    const description = jobPostingDescriptionText(ld.description || '');
-    if (!description || description.split(/\s+/).length < 20) {
+    const ldDescription = jobPostingDescriptionText(ld.description || '');
+    if (!ldDescription || ldDescription.split(/\s+/).length < 20) {
       shortDescriptions += 1;
       continue;
     }
+    // The JSON-LD body is 39-44 % of the rendered vacancy (audit 2026-09-29):
+    // "Dein Arbeitsalltag", "Deine Vorteile" and the agency facts are
+    // page-only. The page is already in hand; the JSON-LD body stays the
+    // fallback when the page text does not contain it.
+    const description = selectProspectiveDetailDescription(detailHtml, {
+      title,
+      listingText: ldDescription,
+    }).text || ldDescription;
 
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
@@ -278,7 +288,8 @@ export async function fetchAllConcordiaJobs({
       ? String(ld.datePosted).slice(0, 10) : todayIso;
 
     const hiringOrgName = normalizeSpace(ld?.hiringOrganization?.name || '') || CONCORDIA_COMPANY_NAME;
-    const sourceLang = detectLang(description || title, 'de');
+    // Language of the vacancy body (JSON-LD), not of the page template.
+    const sourceLang = detectLang(ldDescription || title, 'de');
     const jobSlug = slugify(`${title} ${CONCORDIA_KEY} ${location}`);
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 

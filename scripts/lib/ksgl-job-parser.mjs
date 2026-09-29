@@ -36,6 +36,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -285,8 +286,18 @@ export async function fetchAllKsglJobs() {
     const postalCode = String(loc.postalCode || '').trim() || DEFAULT_POSTAL;
     const canton = inferSwissTargetCanton(location) || DEFAULT_CANTON;
 
-    const descriptionText = buildDescriptionFromLd(ld) || `${title} — ${KSGL_COMPANY_NAME}`;
-    const sourceLang = detectLang(descriptionText || title, 'de');
+    // The JSON-LD body misses what the page prints around it: the audit of
+    // 2026-09-29 found the KSGL page's own vacancy block (start date, pensum,
+    // the "Im Herz vu dr Regiuu" benefit cards) sharing only 12-13 % of its
+    // words with the published JSON-LD text. The page is already in hand; the
+    // JSON-LD text stays the fallback when the page does not contain it.
+    const ldDescription = buildDescriptionFromLd(ld);
+    const descriptionText = selectProspectiveDetailDescription(detailHtml, {
+      title,
+      listingText: ldDescription,
+    }).text || ldDescription || `${title} — ${KSGL_COMPANY_NAME}`;
+    // Language of the vacancy body (JSON-LD), not of the page template.
+    const sourceLang = detectLang(ldDescription || title, 'de');
     const jobSlug = slugify(`${title} ${KSGL_KEY} ${location}`);
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 

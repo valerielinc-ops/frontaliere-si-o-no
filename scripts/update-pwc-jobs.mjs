@@ -6,7 +6,8 @@
  *   https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500
  *
  * 1. Fetches all PwC job listings via JSON API (medium 1000311)
- * 2. All data is in the API response (no detail page fetching needed)
+ * 2. Listing fields come from the API; each description is read from the
+ *    vacancy page (`links.directlink`), which prints what the API omits
  * 3. Pages to the API-declared total, then keeps source-backed Swiss
  *    localities across all 26 cantons and drops foreign/unresolved rows.
  * 4. Merges into data/jobs.json
@@ -49,6 +50,7 @@ import {
   inferPwcCategory,
   buildPwcLocalizedContent,
 } from './lib/pwc-job-parser.mjs';
+import { dropRepostedListings, enrichProspectiveJobsFromDetailPages } from './lib/prospective-ch-job-parser-common.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -394,20 +396,14 @@ function validateLocales() {
   });
 }
 
-async function main() {
-  setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'PwC Switzerland');
-  console.log('===============================================');
-  console.log('  PwC Switzerland — Dedicated Crawler');
-  console.log('===============================================');
-  console.log(`  API: ${API_URL}`);
-  console.log(`  Careers: ${CAREERS_URL}\n`);
-
+/**
+ * Listing → per-city records → vacancy-page descriptions → re-posts dropped.
+ * Returns `null` when the source lists no vacancy (the caller skips the run).
+ * Writes nothing: `main()` merges and publishes the result.
+ */
+export async function fetchAllPwcJobs() {
   const listings = await fetchAllListings();
-  if (listings.length === 0) {
-    console.log('No PwC jobs found — skipping.');
-    return;
-  }
+  if (listings.length === 0) return null;
 
   const explodedListings = explodeListings(listings);
   if (explodedListings.length !== listings.length) {
@@ -433,8 +429,30 @@ async function main() {
     console.log(`🌍 Location filter: ${explodedListings.length} source locations → ${jobs.length} Swiss jobs (${rejectedLocations} rejected)`);
   }
 
-  const { total, added, updated, diff } = mergeJobs(jobs);
-  updateAdapterConfig(jobs);
+  // The API text (intro + tasks + requirements) is 32-36 % of the rendered
+  // vacancy (audit 2026-09-29): "Your Team", "Your Benefits" and the office
+  // details exist only on the jobs.pwc.ch page.
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: COMPANY_NAME });
+  return dropRepostedListings(jobs, COMPANY_NAME, { pageDescribed });
+}
+
+async function main() {
+  setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'PwC Switzerland');
+  console.log('===============================================');
+  console.log('  PwC Switzerland — Dedicated Crawler');
+  console.log('===============================================');
+  console.log(`  API: ${API_URL}`);
+  console.log(`  Careers: ${CAREERS_URL}\n`);
+
+  const uniqueJobs = await fetchAllPwcJobs();
+  if (uniqueJobs === null) {
+    console.log('No PwC jobs found — skipping.');
+    return;
+  }
+
+  const { total, added, updated, diff } = mergeJobs(uniqueJobs);
+  updateAdapterConfig(uniqueJobs);
 
   console.log('\nRunning locale fill for PwC jobs...');
   await translateMissingJobLocales({

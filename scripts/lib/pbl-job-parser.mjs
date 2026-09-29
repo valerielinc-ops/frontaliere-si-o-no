@@ -44,6 +44,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -143,31 +144,57 @@ function extractGenericSection(html, headlineRx) {
   return htmlToText(m[2]);
 }
 
-async function fetchDetailDescription(detailUrl, fallbackTeaser) {
+/**
+ * Description of one PBL vacancy from its detail page HTML.
+ *
+ * The page's whole vacancy text (headings, bullets, "Unser Angebot",
+ * "Unsere Benefits", "Über uns") is the description when it contains the four
+ * id-scoped sections below. Otherwise those sections are the description,
+ * untruncated: each one is read to its own `</section>`, so the text is
+ * already bounded to its container. A former 6000-character cap cut long
+ * vacancies mid-sentence instead.
+ *
+ * @param {string} html
+ * @param {{ title?: string, fallbackTeaser?: string }} [opts]
+ * @returns {string}
+ */
+export function buildPblDetailDescription(html, { title = '', fallbackTeaser = '' } = {}) {
+  if (!html) return fallbackTeaser || '';
+  const parts = [];
+  // The introduction block lives inside `topTitleArea` (the Abteilungen)
+  const topTitle = normalizeSpace(extractSectionContent(html, 'topTitleArea'));
+  // Filter out the always-present "Jetzt bewerben" button text
+  const intro = topTitle.replace(/^\s*Jetzt bewerben\s*/i, '').trim();
+  if (intro) parts.push(intro);
+
+  const tasks = normalizeSpace(extractSectionContent(html, 'tasks'));
+  if (tasks) parts.push(tasks);
+
+  const profile = normalizeSpace(extractSectionContent(html, 'profile'));
+  if (profile) parts.push(profile);
+
+  const stellenantritt = normalizeSpace(extractGenericSection(html, /Stellenantritt/));
+  if (stellenantritt) parts.push(`Stellenantritt: ${stellenantritt}`);
+
+  const text = parts.filter(Boolean).join('\n\n').trim();
+  // The four sections above are 29-42 % of the rendered vacancy (audit
+  // 2026-09-29) and lose their lists: "Unser Angebot", "Unsere Benefits"
+  // and "Über uns" are page-only. The whole vacancy text of the page, with
+  // its headings and bullets, replaces them when it contains them.
+  const pageText = selectProspectiveDetailDescription(html, {
+    title,
+    listingText: text,
+  }).text;
+  if (pageText) return pageText;
+  if (text && text.split(/\s+/).length >= 30) return text;
+  return [fallbackTeaser, text].filter(Boolean).join('\n\n').trim();
+}
+
+async function fetchDetailDescription(detailUrl, fallbackTeaser, title = '') {
   if (!detailUrl) return fallbackTeaser || '';
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return fallbackTeaser || '';
-
-    const parts = [];
-    // The introduction block lives inside `topTitleArea` (the Abteilungen)
-    const topTitle = normalizeSpace(extractSectionContent(html, 'topTitleArea'));
-    // Filter out the always-present "Jetzt bewerben" button text
-    const intro = topTitle.replace(/^\s*Jetzt bewerben\s*/i, '').trim();
-    if (intro) parts.push(intro);
-
-    const tasks = normalizeSpace(extractSectionContent(html, 'tasks'));
-    if (tasks) parts.push(tasks);
-
-    const profile = normalizeSpace(extractSectionContent(html, 'profile'));
-    if (profile) parts.push(profile);
-
-    const stellenantritt = normalizeSpace(extractGenericSection(html, /Stellenantritt/));
-    if (stellenantritt) parts.push(`Stellenantritt: ${stellenantritt}`);
-
-    const text = parts.filter(Boolean).join('\n\n').trim();
-    if (text && text.split(/\s+/).length >= 30) return text.slice(0, 6000);
-    return [fallbackTeaser, text].filter(Boolean).join('\n\n').trim();
+    return buildPblDetailDescription(html, { title, fallbackTeaser });
   } catch (err) {
     console.warn(`  ⚠️ PBL detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return fallbackTeaser || '';
@@ -240,7 +267,7 @@ export async function fetchAllPblJobs() {
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
     const fallback = `${r.title} — ${PBL_COMPANY_NAME}, ${r.workplace || 'Liestal'}.`;
-    const desc = await fetchDetailDescription(r.detailUrl, fallback);
+    const desc = await fetchDetailDescription(r.detailUrl, fallback, r.title);
     if (desc && desc.length > fallback.length + 20) detailHits += 1;
     const safeDescription = desc && desc.split(/\s+/).length >= 30
       ? desc
