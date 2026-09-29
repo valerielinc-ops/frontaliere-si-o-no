@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-09-28T21:12:35.670Z",
+  "assembledAt": "2026-09-29T09:12:28.219Z",
   "jobs": [
     {
       "id": "hermes-72295ebf73a5",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:12:31.112Z",
+      "crawledAt": "2026-09-29T09:12:22.760Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -129,7 +130,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:12:30.506Z",
+      "crawledAt": "2026-09-29T09:12:22.102Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -162,6 +163,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -207,7 +209,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:12:29.907Z",
+      "crawledAt": "2026-09-29T09:12:21.299Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -240,6 +242,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -269,7 +272,7 @@
       "title": "CDI - Sales Associate Zürich 80% (W/M)",
       "titleByLocale": {
         "it": "CDI - Vendite Associate Zurich 80% (M/F)",
-        "en": "CDI - Sales Associate Zurich 80% (M/F)",
+        "en": "CDI - Sales Associate Zürich 80% (W/M)",
         "de": "CDI - Sales Associate Zürich 80% (W/M)",
         "fr": "CDI - Sales Associate Zurich 80% (H/F)"
       },
@@ -285,7 +288,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23527/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:12:29.290Z",
+      "crawledAt": "2026-09-29T09:12:20.616Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -301,15 +304,18 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23527/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-28T04:52:56.758Z",
+      "previousSlugs": [
+        "cdi-sales-associate-zurich-80-w-m-hermes-ch",
+        "cdi-vendite-associate-zurich-80-m-f-hermes-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-sales-associate-zurich-80-w-m-hermes-ch"
+          "cdi-sales-associate-zurich-80-w-m-hermes-ch",
+          "cdi-vendite-associate-zurich-80-m-f-hermes-zurich"
         ]
       },
-      "previousSlugs": [
-        "cdi-sales-associate-zurich-80-w-m-hermes-ch"
-      ],
+      "firstSeenAt": "2026-09-28T04:52:56.758Z",
+      "needsRetranslation": true,
       "salaryMin": 66400,
       "salaryMax": 102000,
       "salarySource": "estimated",
