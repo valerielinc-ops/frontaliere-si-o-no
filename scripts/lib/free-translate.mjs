@@ -1069,9 +1069,10 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 // Esaurito un budget, una riga di log e il tier non si tenta piu'; i testi in
 // coda escono subito verso il tier successivo.
 //
-// Corsie e raggruppamento adattivo. A effort max il tempo di una richiesta e'
-// quasi tutto ragionamento sul testo da scrivere: richieste parallele finiscono
-// in circa il tempo di una, mentre cinque testi in una richiesta costano circa
+// Corsie e raggruppamento adattivo (gemello di valerielinc-ops/
+// frontaliere-si-o-no#10291). A effort max il tempo di una richiesta e' quasi
+// tutto ragionamento sul testo da scrivere: richieste parallele finiscono in
+// circa il tempo di una, mentre cinque testi in una richiesta costano circa
 // quanto cinque richieste in fila (misura locale su gpt-5.6-luna, 2026-09-29:
 // 1 titolo 7,1 s, 5 titoli insieme 36,8 s, 6 richieste parallele 11,5 s). Il
 // costo fisso di una richiesta e' invece il prompt, ~5,9k token di input anche
@@ -1082,15 +1083,17 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 //     il prompt di sempre: e' la strada piu' veloce;
 //   - quando le corsie sono tutte occupate i testi aspettano comunque, e al
 //     primo posto libero quelli con la stessa coppia di lingue partono insieme
-//     in UNA richiesta (fino a FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS testi,
-//     default 5, e 3000 caratteri) con uno schema a id: stesso tempo per
-//     testo, circa un quarto dei token. Testi identici in coda diventano una
-//     voce sola.
+//     in UNA richiesta con uno schema a id: ogni gruppo prende la sua parte
+//     della coda (coda / corsie, fino a FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS
+//     testi, default 5, e 3000 caratteri). Stesso tempo per testo, circa un
+//     quarto dei token. Testi identici in coda diventano una voce sola.
 // Ogni chiamante riceve comunque la sua `Promise<string>`: `tryTier` conta
 // successi, echi ed errori testo per testo, come prima. Con
 // FREE_TRANSLATE_CODEX_LANES=1 e FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=1 il tier
-// torna una richiesta per testo, una alla volta: e' la leva di rollback, e la
-// base della misura in scripts/measure-codex-translate-tier.mjs.
+// torna una richiesta per testo, una alla volta: e' la leva di rollback. La
+// misura prima/dopo e' nel gemello del sito
+// (scripts/measure-codex-translate-tier.mjs): 30 campi di articolo 232 → 113 s
+// e 184k → 62k token di input; 8 testi FAQ 61 → 30 s e 49k → 31k.
 const CODEX_TRANSLATE_MAX_CALLS_DEFAULT = 40;
 const CODEX_TRANSLATE_MAX_MS_DEFAULT = 5 * 60 * 1000;
 const CODEX_TRANSLATE_LANES_DEFAULT = 2;
@@ -1098,38 +1101,22 @@ const CODEX_TRANSLATE_LANES_MAX = 3;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT = 5;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 10;
 const CODEX_TRANSLATE_BATCH_MAX_CHARS = 3000;
-// Tetto della singola richiesta: una traduzione non ha bisogno dei 10 minuti che
+// Tetto della singola chiamata: una traduzione non ha bisogno dei 10 minuti che
 // la lane concede al corpo articolo.
 const CODEX_TRANSLATE_CALL_TIMEOUT_MS = 180_000;
 // Sotto questo residuo una chiamata non ha il tempo di finire: stesso minimo
 // che ai-models.mjs applica alla lane (CODEX_CLI_MIN_TIMEOUT_MS).
 const CODEX_TRANSLATE_MIN_CALL_MS = 15_000;
 const CODEX_TRANSLATE_FAILURE_LIMIT = 3;
-const CODEX_TRANSLATE_BATCH_SCHEMA = Object.freeze({
-  type: 'object',
-  additionalProperties: false,
-  required: ['items'],
-  properties: {
-    items: {
-      type: 'array',
-      items: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['id', 'text'],
-        properties: { id: { type: 'integer' }, text: { type: 'string' } },
-      },
-    },
-  },
-});
 
 // Scadenza ASSOLUTA (epoch ms) del processo che ospita la cascata, oltre la
 // quale nessuna chiamata Codex deve restare in volo. `null` = nessuna: e' il
 // caso di translate-pending e degli altri chiamanti senza un `timeout`
 // esterno, per i quali il comportamento resta quello di prima.
 //
-// Perche' serve: il budget del tier (FREE_TRANSLATE_CODEX_MAX_MS, 5 minuti) e'
-// CUMULATO dall'inizio delle traduzioni, non ancorato all'orologio del
-// processo. create-article parte con le traduzioni dopo generazione e gate,
+// Perche' serve: il budget del tier (FREE_TRANSLATE_CODEX_MAX_MS, 5 minuti)
+// conta il tempo con richieste in volo dall'inizio delle traduzioni, non e'
+// ancorato all'orologio del processo. create-article parte con le traduzioni dopo generazione e gate,
 // quindi sulle run 36309380063 e 36305591991 i 300 s di Codex sono partiti a
 // processo gia' inoltrato e il `timeout` del workflow (cap 657 s) lo ha ucciso
 // con l'articolo IT pronto: `hard-killed after 657s on section frontaliere`.
@@ -1162,6 +1149,22 @@ export function codexCallDeadlineMs({ now, budgetRemainingMs, processDeadlineMs 
   return now + windowMs;
 }
 const CODEX_LANGUAGE_NAMES = { it: 'Italian', en: 'English', de: 'German', fr: 'French' };
+const CODEX_TRANSLATE_BATCH_SCHEMA = Object.freeze({
+  type: 'object',
+  additionalProperties: false,
+  required: ['items'],
+  properties: {
+    items: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['id', 'text'],
+        properties: { id: { type: 'integer' }, text: { type: 'string' } },
+      },
+    },
+  },
+});
 
 let _codexCalls = 0;
 let _codexTexts = 0;
@@ -1341,9 +1344,8 @@ function _pumpCodex() {
  * Il primo testo in coda e quelli con la stessa coppia di lingue, entro i
  * tetti. Un gruppo prende la sua parte della coda (coda / corsie), non tutta:
  * a effort max il tempo cresce col numero di testi, e un posto libero che si
- * prendesse cinque testi lascerebbe l'altra corsia quasi scarica (misura in
- * scripts/measure-codex-translate-tier.mjs: 8 testi FAQ in 45 s col gruppo
- * pieno, in 30 s con la quota).
+ * prendesse cinque testi lascerebbe l'altra corsia quasi scarica (misura del
+ * gemello del sito: 8 testi FAQ in 45 s col gruppo pieno, in 30 s con la quota).
  */
 function _takeCodexGroup() {
   const share = Math.ceil(_codexPending.length / _codexLanes());
@@ -1407,7 +1409,7 @@ async function _translateGroupWithCodex(group) {
     _stopCodex(`budget di ${Math.round(maxMs / 1000)}s esaurito (FREE_TRANSLATE_CODEX_MAX_MS)`);
     return none();
   }
-  // Rivalutata qui, in coda, e non all'ingresso: l'attesa dietro le chiamate
+  // Rivalutata qui, in coda, e non all'ingresso: l'attesa dietro le richieste
   // precedenti consuma proprio la finestra del processo.
   const callDeadlineMs = codexCallDeadlineMs({ now: Date.now(), budgetRemainingMs: remainingMs });
   if (callDeadlineMs === null) {
