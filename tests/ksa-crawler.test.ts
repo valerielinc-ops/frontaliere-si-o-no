@@ -172,7 +172,17 @@ describe('Kantonsspital Aarau (KSA) crawler parser', () => {
 
   describe('resolveKsaVacancyBody', () => {
     it('uses the careercenter body when the vacancy has one', () => {
-      expect(resolveKsaVacancyBody({ snippet: 'kurz' }, 'Aufgaben: …')).toBe('Aufgaben: …');
+      const body = buildKsaDetailDescription(prospectiveFeed.jobs[0].szas);
+      expect(body.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(resolveKsaVacancyBody({ snippet: 'kurz' }, body)).toBe(body);
+    });
+
+    it('applies the same 50-word floor to a short or malformed careercenter join', () => {
+      expect(resolveKsaVacancyBody({}, 'uno due tre')).toBe('');
+      expect(resolveKsaVacancyBody({ snippet: 'kurz' }, 'Aufgaben: …')).toBe('');
+      // A thin join still leaves the teaser as the body when the teaser is one.
+      const teaser = Array.from({ length: 60 }, (_, i) => `Wort${i}`).join(' ');
+      expect(resolveKsaVacancyBody({ snippet: teaser }, 'Aufgaben: …')).toBe(teaser);
     });
 
     it('publishes no title-only or one-line record (thin content, Non-Negotiable #4)', () => {

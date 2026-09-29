@@ -58,7 +58,8 @@ const BASE_URL = `https://recruitingapp-${UMANTIS_TENANT}.umantis.com`;
 const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
 const PUBLIC_CAREER_URL = 'https://www.ksa.ch/de/kantonsspital-aarau/karriere-bildung/bewerben/offene-stellen';
 
-// Below this a listing teaser is not a vacancy body (Non-Negotiable #4).
+// Below this a text is not a vacancy body (Non-Negotiable #4), whether it
+// comes from the careercenter join or from the listing teaser.
 const MIN_LISTING_BODY_WORDS = 50;
 
 function countWords(text = '') {
@@ -66,8 +67,10 @@ function countWords(text = '') {
 }
 
 /**
- * The publishable body of one Umantis vacancy: its careercenter text, else a
- * listing teaser long enough to be a body, else '' (not published).
+ * The publishable body of one Umantis vacancy: its careercenter text when it
+ * is a body (≥ 50 words), else a listing teaser that is one, else '' (not
+ * published). The careercenter text passes the same floor as the teaser: a
+ * short or malformed join is thin content too.
  *
  * A vacancy missing from the careercenter has no public body anywhere: its
  * Umantis Description page redirects to a 404 and CheckLogin is an
@@ -81,7 +84,7 @@ function countWords(text = '') {
  * @returns {string}
  */
 export function resolveKsaVacancyBody(listing = {}, richDesc = '') {
-  if (richDesc) return richDesc;
+  if (countWords(richDesc) >= MIN_LISTING_BODY_WORDS) return richDesc;
   const snippet = normalizeSpace(listing?.snippet || '');
   return countWords(snippet) >= MIN_LISTING_BODY_WORDS ? snippet : '';
 }
@@ -466,12 +469,12 @@ export async function fetchAllKsaJobs() {
     const canton = 'AG';
 
     const richDesc = descriptionByVacancyId.get(listing.vacancyId) || '';
-    if (richDesc) enriched += 1;
     const descriptionText = resolveKsaVacancyBody(listing, richDesc);
     if (!descriptionText) {
       withoutBody.push(listing.vacancyId);
       continue;
     }
+    if (richDesc && descriptionText === richDesc) enriched += 1;
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ksa ch`);
@@ -527,7 +530,7 @@ export async function fetchAllKsaJobs() {
 
   console.log(`  ✓ Rich descriptions joined: ${enriched}/${jobs.length}`);
   if (withoutBody.length) {
-    console.log(`  ⏭️  Skipped ${withoutBody.length} vacancies with no public body (not on the careercenter, teaser < ${MIN_LISTING_BODY_WORDS} words): ${withoutBody.join(', ')}`);
+    console.log(`  ⏭️  Skipped ${withoutBody.length} vacancies with no public body (careercenter text and teaser both < ${MIN_LISTING_BODY_WORDS} words): ${withoutBody.join(', ')}`);
   }
   // A failed or drifted careercenter join is not "these vacancies have no
   // body": refuse to publish a gutted slice instead of dropping the batch.
