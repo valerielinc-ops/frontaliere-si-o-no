@@ -271,9 +271,11 @@ async function fetchDetailDescription(url) {
   if (contentMatch) {
     description = stripHtml(contentMatch[1]);
   } else {
-    // Fallback: extract all text after h1 title until footer
+    // Fallback: extract all text after h1 title until the contact box or the
+    // page footer (the same end markers as above; there is no length cap, so
+    // the page tail must never be reached).
     const afterTitle = html.split(/<\/h1>/i).slice(1).join('');
-    const beforeFooter = afterTitle.split(/Caseificio dimostrativo del Gottardo SA/i)[0] || afterTitle;
+    const beforeFooter = afterTitle.split(/Caseificio dimostrativo del Gottardo|<footer|class="[^"]*footer/i)[0];
     description = stripHtml(beforeFooter);
   }
 
@@ -284,11 +286,6 @@ async function fetchDetailDescription(url) {
     .replace(/\{[^}]*\}/g, '')
     .replace(/\s{3,}/g, '\n\n')
     .trim();
-
-  // Limit length
-  if (description.length > 3000) {
-    description = description.slice(0, 3000) + '…';
-  }
 
   return description || `${titleText}\n\nPer maggiori dettagli, consultare la pagina dell'offerta.`;
 }
