@@ -3,6 +3,9 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parseReflineDetail, reflineJsonLdDescriptionText } from '../scripts/lib/refline-common.mjs';
 import { parseReflineDetail as parseHoheneggDetail } from '../scripts/lib/privatklinik-hohenegg-job-parser.mjs';
+import { parseReflineDetail as parseCaritasDetail } from '../scripts/lib/caritas-schweiz-job-parser.mjs';
+import { parseReflineDetail as parsePignaDetail } from '../scripts/lib/pigna-job-parser.mjs';
+import { parseReflineDetail as parseSpitalDetail } from '../scripts/lib/spital-limmattal-job-parser.mjs';
 
 // Real Refline page, minimised (contact anonymised): Privatklinik Hohenegg,
 // tenant 640332, posting 0057. The standard Refline template ships the body as
@@ -35,6 +38,16 @@ describe('parseReflineDetail — body of the standard smartEditable template (#5
   it('is the same reader for the bespoke Hohenegg parser, which used to fall back to invented text', () => {
     expect(parseHoheneggDetail).toBe(parseReflineDetail);
     expect(parseHoheneggDetail(HOHENEGG_0057).description).not.toContain('Was die Hohenegg bietet');
+  });
+
+  it.each([
+    ['caritas-schweiz', parseCaritasDetail],
+    ['pigna', parsePignaDetail],
+    ['spital-limmattal', parseSpitalDetail],
+  ])('%s keeps its own scan but can no longer lose a bare-text posting', (_label, parse) => {
+    const { description: text } = parse(HOHENEGG_0057);
+    expect(text).toContain('Im Team oder selbstständig erledigen Sie vielfältige Aufgaben');
+    expect(text.split(/\s+/).length).toBeGreaterThan(200);
   });
 
   it('keeps the paragraph scan when it reads more than the JSON-LD (no regression for <p>/<li> tenants)', () => {

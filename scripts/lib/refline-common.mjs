@@ -240,19 +240,32 @@ export function parseReflineDetail(html = '') {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  const scanned = parts.join('\n');
-  // The paragraph scan only sees `<p>`/`<li>`/`<h3>`/`<h4>`. The standard
-  // Refline template ships the body as bare text inside
-  // `<div id="bIntro|bDescription|bDuty|bRequirement|bBenefit" class="smartEditable">`
-  // (line breaks as `<br>`), so on those postings the scan returned the four
-  // `<h3>` headings and nothing else: below the word floor, every caller then
-  // published its invented fallback text instead of the ad (Privatklinik
-  // Hohenegg 0057: 591 published chars against a 2,242-char posting; PUK Zürich
-  // 2117: 306 against 2,436). The same page always carries the full body in its
-  // JobPosting JSON-LD `description`, so the richer of the two readings wins.
+  return { title, description: preferRicherReflineBody(html, parts.join('\n')) };
+}
+
+/**
+ * The richer of a paragraph-scan reading and the page's JobPosting body.
+ *
+ * The paragraph scan only sees `<p>`/`<li>`/`<h3>`/`<h4>`. The standard
+ * Refline template ships the body as bare text inside
+ * `<div id="bIntro|bDescription|bDuty|bRequirement|bBenefit" class="smartEditable">`
+ * (line breaks as `<br>`), so on those postings the scan returned the four
+ * `<h3>` headings and nothing else: below the word floor, every caller then
+ * published its invented fallback text instead of the ad (Privatklinik
+ * Hohenegg 0057: 591 published chars against a 2,242-char posting; PUK Zürich
+ * 2117: 306 against 2,436). The same page always carries the full body in its
+ * JobPosting JSON-LD `description`, so the richer of the two readings wins.
+ * Shared with the tenant parsers that keep their own scan (Caritas, Pigna,
+ * Spital Limmattal), so a posting written in bare text cannot fall back there
+ * either.
+ *
+ * @param {string} html Refline detail page
+ * @param {string} scanned the caller's paragraph-scan text
+ * @returns {string}
+ */
+export function preferRicherReflineBody(html = '', scanned = '') {
   const structured = reflineJsonLdDescriptionText(parseReflineJobPostingJsonLd(html));
-  const description = countWords(structured) > countWords(scanned) ? structured : scanned;
-  return { title, description };
+  return countWords(structured) > countWords(scanned) ? structured : scanned;
 }
 
 function countWords(text = '') {
