@@ -52,6 +52,8 @@ import {
   titleOverlap,
   isSwissJob,
 } from './lib/baronie-job-parser.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -152,11 +154,13 @@ function buildBaronieJob(url, detail) {
   const city = detail.location || 'Caslano';
   const company = detail.company || 'Chocolat Alprose SA / Baronie Switzerland SA';
 
+  const sourceLang = detectLang(detail.markdown || title, 'en');
   const localized = buildBaronieLocalizedContent({
     title,
     location: city,
     company,
     detailMarkdown: detail.markdown,
+    sourceLang,
   });
 
   const job = {
@@ -176,12 +180,12 @@ function buildBaronieJob(url, detail) {
     category: inferCategory(title),
     sector: 'Alimentare / Cioccolato',
     source: 'baronie-dedicated-crawler',
-    sourceLang: detectLang(detail.markdown || title, 'en'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -195,6 +199,25 @@ function buildBaronieJob(url, detail) {
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
+// The paragraph the builder used to write in the `it` slot for a detail text of
+// 100 characters or less ("<company>, azienda svizzera del gruppo Baronie…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+const BARONIE_FABRICATED_RE = /azienda svizzera del gruppo Baronie specializzata nella produzione di cioccolato premium/;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (BARONIE_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropBaronieFabricatedText(job) {
+  return dropFabricatedDescription(job, BARONIE_FABRICATED_RE);
+}
+
 function jobMatchKey(job = {}) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
@@ -203,6 +226,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropBaronieFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented description from ${fossils} stored Baronie job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -424,7 +449,9 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ Baronie crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`❌ Baronie crawler failed: ${error?.stack || error}`);
+    process.exitCode = 1;
+  });
+}

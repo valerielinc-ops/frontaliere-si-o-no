@@ -37,6 +37,7 @@ import {
   PKB_KEY,
   COMPANY_NAME,
   COMPANY_DOMAIN,
+  dropPkbFabricatedText,
 } from './lib/pkb-private-bank-job-parser.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -133,6 +134,8 @@ function mergeParsedPkbJobs(parsedJobs) {
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonPkb = allJobs.filter((job) => !isPkbJob(job));
   const pkbExisting = allJobs.filter(isPkbJob);
+  const fabricatedFossils = pkbExisting.filter((job) => dropPkbFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored PKB Private Bank job(s); they will be retranslated`);
 
   const byUrl = new Map();
   for (const job of parsedJobs) {

@@ -32,6 +32,7 @@ import {
 import { decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { readClosedElement } from './html-balanced-element.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
@@ -520,4 +521,19 @@ export function inferEmploymentType(title = '', description = '', percentage = '
     if (maxPct < 80) return 'PART_TIME';
   }
   return 'FULL_TIME';
+}
+
+// The text this crawler used to write itself: the paragraph the runner wrote without a posting text ("Posizione aperta presso Alpiq (…). Alpiq è uno dei principali produttori di energia…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const ALPIQ_FABRICATED_RE = /Posizione aperta presso Alpiq \(/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropAlpiqFabricatedText(job) {
+  return dropFabricatedDescription(job, ALPIQ_FABRICATED_RE);
 }

@@ -993,6 +993,25 @@ function expiredGhostOverlapSlugs(job) {
   ));
 }
 
+function hasEqualNonEmptyLocaleSlug(left, right) {
+  const leftSlugs = left?.slugByLocale;
+  const rightSlugs = right?.slugByLocale;
+  if (
+    !leftSlugs
+    || typeof leftSlugs !== 'object'
+    || Array.isArray(leftSlugs)
+    || !rightSlugs
+    || typeof rightSlugs !== 'object'
+    || Array.isArray(rightSlugs)
+  ) return false;
+  return Object.entries(leftSlugs).some(([locale, value]) => {
+    if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+    const leftValue = value.trim();
+    const rightValue = rightSlugs[locale].trim();
+    return Boolean(leftValue && rightValue && leftValue === rightValue);
+  });
+}
+
 function isValidGhostExpiredProofEntry(entry, removedJob) {
   const expired = entry?.expired;
   const match = entry?.match;
@@ -1017,17 +1036,24 @@ function isValidGhostExpiredProofEntry(entry, removedJob) {
 
   const expiredItSlug = String(expired?.slugByLocale?.it ?? '').trim();
   const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
-  return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+  if (expiredItSlug || matchItSlug) {
+    return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+  }
+  // The writer records the first active owner of every expired locale slug in
+  // overlapSlug/overlapJob. If no Italian slug is available, require an exact
+  // non-empty locale value rather than accepting a shared locale key alone.
+  return hasEqualNonEmptyLocaleSlug(expired, match);
 }
 
 /**
  * Prove the narrow expired-slice rewrite performed by reconcileGhostExpired.
  *
  * The assembler removes only archived records that have a title/company/
- * location match with an active record and either share a reachable slug or
- * carry the exact same non-empty Italian slug. Bind the proof to the exact
- * before/after bytes and require the candidate to be an unchanged subset, so
- * a degraded reader or an unrelated archive rewrite remains fail-closed.
+ * location match with an active record and either share a reachable slug,
+ * carry the exact same non-empty Italian slug, or carry one exact non-empty
+ * non-Italian locale slug. Bind the proof to the exact before/after bytes and
+ * require the candidate to be an unchanged subset, so a degraded reader or
+ * an unrelated archive rewrite remains fail-closed.
  */
 export function isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, proof) {
   if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;

@@ -8,8 +8,10 @@ import {
   parseListing,
   cleanErgolzKlinikTitle,
   buildErgolzKlinikDescription,
+  ERGOLZ_KLINIK_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/ergolz-klinik-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
 
 const FIXTURE_LISTING_HTML = `
 <div class="page">
@@ -129,26 +131,17 @@ describe('Ergolz Klinik crawler parser', () => {
       'Ihre Aufgaben: Patientenbetreuung, Therapie, Dokumentation. ' +
       'Ihre Anforderungen: Diplom HF / FH, Berufserfahrung.';
 
-    it('embeds intro + PDF text + footer when PDF is rich enough', () => {
-      const out = buildErgolzKlinikDescription({
-        title: 'Herztherapeut/in 40-60%',
-        pdfText: realPdfBody,
-        pdfUrl: 'https://ergolz.cardiance.com/wp/x.pdf',
-      });
-      expect(out).toContain('Ergolz Klinik');
-      expect(out).toContain('Herztherapeut');
+    // Only the PDF's own text (#5253): no intro on the clinic, no "Stelle:"
+    // line, no "Quelle (PDF)" / "Karriereseite" / "Klinik:" footer.
+    it('publishes the PDF text alone', () => {
+      const out = buildErgolzKlinikDescription({ pdfText: realPdfBody });
+      expect(out).toBe(buildPdfBackedDescription({ pdfText: realPdfBody }));
       expect(out).toContain('Ihre Aufgaben');
-      expect(out).toContain('https://ergolz.cardiance.com/wp/x.pdf');
-      expect(out.length).toBeGreaterThan(400);
+      expect(out).not.toMatch(ERGOLZ_KLINIK_FABRICATED_DESCRIPTION_RE);
+      expect(out).not.toMatch(/Cardiance Group|Quelle \(PDF\)|Karriereseite/);
     });
-    it('falls back gracefully when PDF text is empty', () => {
-      const out = buildErgolzKlinikDescription({
-        title: 'Test Position',
-        pdfText: '',
-        pdfUrl: 'https://ergolz.cardiance.com/wp/empty.pdf',
-      });
-      expect(out).toContain('Ergolz Klinik');
-      expect(out).toContain('Test Position');
+    it('writes no description of its own when the PDF text is empty', () => {
+      expect(buildErgolzKlinikDescription({ pdfText: '' })).toBe('');
     });
     it('caps output length below 7000 chars', () => {
       const huge = 'A'.repeat(20000);

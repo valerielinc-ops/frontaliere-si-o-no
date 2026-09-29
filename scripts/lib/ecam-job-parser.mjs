@@ -11,6 +11,7 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify } from './crawler-template.mjs';
 
 export const ECAM_KEY = 'ecam';
@@ -252,19 +253,11 @@ function experienceLevel(title) {
 export function buildEcamJob({ pdfUrl, filename, pdfText = '' } = {}) {
   const sourceUrl = assertEcamUrl(pdfUrl, { allowPdf: true }).href;
   const title = extractEcamTitle(pdfText, filename);
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${ECAM_COMPANY_NAME} pubblica il concorso «${title}» per il proprio organico di case per anziani nel Mendrisiotto.`,
-      'La candidatura deve essere inviata tramite il formulario online indicato nella pagina ufficiale delle opportunità d’impiego.',
-    ],
-    pdfText,
-    fallbackText: `Avviso ufficiale ECAM per ${title}. Consultare il PDF per compiti, requisiti, condizioni d’assunzione e modalità di candidatura.`,
-    footerLines: [
-      `Fonte (PDF): ${sourceUrl}`,
-      `Pagina ufficiale: ${ECAM_CAREER_URL}`,
-      'Settore: Sanità / Case per anziani',
-    ],
-  });
+  // The notice's own text, in its own language: no lines of the crawler
+  // (`ECAM_FABRICATED_DESCRIPTION_RE`). A PDF without readable text gives no
+  // description and the job takes the pipeline's thin-source path.
+  const description = buildPdfBackedDescription({ pdfText });
+  const sourceLang = detectLang(description || title, 'it');
   const employmentType = detectEmploymentType(title, pdfText);
   const slug = slugify(`${title} ecam ${ECAM_CITY}`);
   const id = `ecam-${createHash('sha1').update(sourceUrl).digest('hex').slice(0, 12)}`;
@@ -274,19 +267,19 @@ export function buildEcamJob({ pdfUrl, filename, pdfText = '' } = {}) {
   return {
     id,
     slug,
-    slugByLocale: { it: slug },
+    slugByLocale: { [sourceLang]: slug },
     company: ECAM_COMPANY_NAME,
     companyKey: ECAM_KEY,
     companyDomain: ECAM_COMPANY_DOMAIN,
     title,
-    titleByLocale: { it: title },
+    titleByLocale: { [sourceLang]: title },
     description,
-    descriptionByLocale: { it: description },
+    descriptionByLocale: { [sourceLang]: description },
     location: ECAM_CITY,
     canton: ECAM_CANTON,
     url: sourceUrl,
     source: 'ECAM Dedicated Parser',
-    sourceLang: 'it',
+    sourceLang,
     crawledAt: new Date().toISOString(),
     addressLocality: ECAM_CITY,
     addressRegion: ECAM_CANTON,
@@ -304,9 +297,13 @@ export function buildEcamJob({ pdfUrl, filename, pdfText = '' } = {}) {
     ...(validThrough ? { validThrough } : {}),
     applyUrl: ECAM_CAREER_URL,
     requirements: [],
-    requirementsByLocale: { it: [] },
+    requirementsByLocale: { [sourceLang]: [] },
   };
 }
+
+/** Fragments only the crawler's former intro, fallback and footer wrote. */
+export const ECAM_FABRICATED_DESCRIPTION_RE =
+  /per il proprio organico di case per anziani nel Mendrisiotto\.|Consultare il PDF per compiti, requisiti, condizioni d’assunzione|(?:^|\n)Fonte \(PDF\): https?:|(?:^|\n)Pagina ufficiale: https?:/;
 
 /**
  * Fetch the official ECAM page and extract every current job PDF.

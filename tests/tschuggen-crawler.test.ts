@@ -6,6 +6,8 @@
  * isTrustedDomain() using HTML fixtures mirroring the real
  * Umantis ATS page structure at tenant 2904.
  */
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect, vi } from 'vitest';
 
 import {
@@ -350,6 +352,18 @@ describe('Tschuggen Collection crawler parser', () => {
       const result = parseTschuggenDetailPage('', 'Default');
       expect(result.title).toBe('Default');
       expect(result.description).toBe('');
+    });
+
+    // Issue 5253: every paragraph was joined with « | » on one line, so 4 of 5
+    // descriptions had no list structure. Real page, minimised.
+    it('keeps headings and one bullet per list item (real page)', () => {
+      const html = readFileSync(resolve(__dirname, 'fixtures', 'tschuggen', 'detail-fb-manager-1331.html'), 'utf8');
+      const { description } = parseTschuggenDetailPage(html, 'Fallback');
+      expect(description).not.toContain(' | ');
+      expect(description).toContain('IHR PROFIL\n• Abgeschlossene Berufsausbildung mit Weiterbildung im Bereich Food and Beverage');
+      expect(description).toContain('• Planung und Umsetzung exklusiver Veranstaltungen, Banketten und Events\n• Führung, Motivation');
+      expect(description).toContain('UNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Ausgewogenes Menü-Angebot');
+      expect(description).not.toMatch(/data:image|🎯|📄/u);
     });
   });
 

@@ -45,6 +45,7 @@ import {
   parseTarchiniDetailPage,
   buildTarchiniLocalizedContent,
   inferTarchiniCanton,
+  dropTarchiniFabricatedText,
 } from './lib/tarchini-group-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
@@ -186,7 +187,8 @@ async function enrichWithDetails(listings) {
 }
 
 function buildTarchiniJob(row) {
-  const localized = buildTarchiniLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildTarchiniLocalizedContent({ ...row, sourceLang });
   const canton = inferTarchiniCanton(row.location);
   const applicationEmail = row.applyEmail || 'risorseumane@tarchinigroup.com';
   return {
@@ -210,12 +212,12 @@ function buildTarchiniJob(row) {
     category: inferCategory(row.title),
     sector: inferSector(),
     source: 'tarchini-group-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -230,6 +232,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropTarchiniFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Tarchini Group job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

@@ -8,9 +8,11 @@ import {
   parseListing,
   cleanSuchthilfeRegionBaselTitle,
   buildSuchthilfeRegionBaselDescription,
+  SUCHTHILFE_REGION_BASEL_FABRICATED_DESCRIPTION_RE,
   inferLocationForPosting,
 } from '../scripts/lib/suchthilfe-region-basel-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
 
 const FIXTURE_LISTING_HTML = `
 <div class="button-set">
@@ -146,28 +148,17 @@ describe('Suchthilfe Region Basel crawler parser', () => {
       'Aufgaben: Pflege, Therapie, Dokumentation. '.repeat(15) +
       'Wir bieten ein engagiertes Team.';
 
-    it('embeds intro + PDF text + footer when PDF rich enough', () => {
-      const out = buildSuchthilfeRegionBaselDescription({
-        title: 'Pflegefachperson HF/FH 70-90%',
-        pdfText: body,
-        pdfUrl: 'https://www.suchthilfe.ch/wp/x.pdf',
-        location: { city: 'Reinach', canton: 'BL' },
-      });
-      expect(out).toContain('Suchthilfe Region Basel');
-      expect(out).toContain('Pflegefachperson');
-      expect(out).toContain('Reinach');
-      expect(out).toContain('https://www.suchthilfe.ch/wp/x.pdf');
-      expect(out.length).toBeGreaterThan(400);
+    // Only the PDF's own text (#5253): no paragraph on the Suchthilfe, no
+    // "Stelle: <Titel> (<Ort>)." line, no "Quelle (PDF)" / "Träger:" footer.
+    it('publishes the PDF text alone', () => {
+      const out = buildSuchthilfeRegionBaselDescription({ pdfText: body });
+      expect(out).toBe(buildPdfBackedDescription({ pdfText: body }));
+      expect(out).toContain('Wir bieten ein engagiertes Team.');
+      expect(out).not.toMatch(SUCHTHILFE_REGION_BASEL_FABRICATED_DESCRIPTION_RE);
+      expect(out).not.toMatch(/ESTA Klinik|Quelle \(PDF\)|Karriereseite/);
     });
-    it('falls back gracefully when PDF text is empty', () => {
-      const out = buildSuchthilfeRegionBaselDescription({
-        title: 'Test',
-        pdfText: '',
-        pdfUrl: 'https://www.suchthilfe.ch/wp/empty.pdf',
-        location: { city: 'Basel', canton: 'BS' },
-      });
-      expect(out).toContain('Suchthilfe Region Basel');
-      expect(out).toContain('Test');
+    it('writes no description of its own when the PDF text is empty', () => {
+      expect(buildSuchthilfeRegionBaselDescription({ pdfText: '' })).toBe('');
     });
     it('caps output length below 7000 chars', () => {
       const out = buildSuchthilfeRegionBaselDescription({

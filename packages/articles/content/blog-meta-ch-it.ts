@@ -7058,6 +7058,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reazioni-partiti-aumento-premi-2027.title': 'Aumento premi 2027: reazioni PLR, PS e sindacati',
     'blog.article.reazioni-partiti-aumento-premi-2027.excerpt': 'Stima al 3,7% per il 2027. Il PLR chiede controllo costi, il PS e l\'OCST difendono le famiglie. Premio medio ticinese a 519,90 franchi.',
     'blog.article.reazioni-partiti-aumento-premi-2027.imageAlt': 'Edificio del Gran Consiglio ticinese al tramonto con bandiere svizzere',
+    'blog.article.voto-armi-industria-difesa.title': 'Armi, esportazioni più facili: voto il 29 novembre',
+    'blog.article.voto-armi-industria-difesa.excerpt': 'Il Consiglio federale sostiene la revisione della legge sul materiale bellico: il voto è previsto il 29 novembre per rafforzare industria e posti di lavoro.',
+    'blog.article.voto-armi-industria-difesa.imageAlt': 'Stabilimento industriale svizzero con bandiera nazionale sul dibattito per l\'export di armi.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Investimenti immobiliari: fiducia buona, Ticino negativo',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'Nel 2026 lo SRESI segna 47,5 punti, giù dai 69,5 del 2025; Ticino e Lugano in territorio negativo, mentre Zurigo, Svizzera centrale e Lago Lemano guidano le aspettative di aumento.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Vista aerea di Lugano con lago, montagne e edifici residenziali moderni, luce mattutina soffusa',
 };
 
 export default blogMetaChIt;

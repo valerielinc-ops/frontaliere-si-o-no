@@ -15,6 +15,7 @@
 
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
 
 const NCORE_HOST = 'app.ncoreplat.com';
 const NCORE_BASE_URL = `https://${NCORE_HOST}`;
@@ -55,6 +56,54 @@ export function slugify(value = '', suffix = '') {
 
 /** Minimum description length to accept. */
 export const MIN_DESC_LENGTH = 100;
+
+/**
+ * Description fields of one posting: the NCore detail body (the whole ad), or
+ * the listing snippet when the detail page yielded less — in its own language.
+ *
+ * The runner used to prefix the body with a line of its own ("<title> —
+ * Sintetica SA, Mendrisio (TI).") and, when the body was shorter than
+ * MIN_DESC_LENGTH, to publish "<title> — posizione aperta presso Sintetica SA
+ * al sito di … Sintetica SA è un'azienda farmaceutica svizzera …" instead of
+ * the posting; NCore publishes neither. A posting without text gets no
+ * description and takes the pipeline's thin-source path.
+ *
+ * @param {{ detailBody?: string, snippet?: string }} source
+ */
+export function buildSinteticaDescriptionFields({ detailBody = '', snippet = '' } = {}) {
+  const [text = ''] = [detailBody, snippet]
+    .map((value) => String(value || '').trim())
+    .sort((a, b) => b.length - a.length);
+  return sourceLocaleDescription(text, { defaultLang: 'en' });
+}
+
+// Fossils of the former builder in stored jobs: the header line in front of
+// the body, or the substituted company sentence.
+const SINTETICA_HEADER_RE = /^[^\n]{1,300}? — Sintetica SA, [^\n]{1,80}? \([A-Z]{2}\)\.\s*/;
+const SINTETICA_FALLBACK_RE = /— posizione aperta presso Sintetica SA al sito di /;
+
+/**
+ * Remove the former builder's text from a stored job. Every locale slot was
+ * written from (or translated from) the prefixed text, and the merge keeps
+ * non-source slots, so all slots are dropped and rebuilt by the translation
+ * step; the description keeps only the posting body (nothing, when it was the
+ * substituted sentence).
+ *
+ * @returns {boolean} true when the job carried the former text.
+ */
+export function dropSinteticaFabricatedText(job) {
+  if (!job || typeof job !== 'object') return false;
+  const texts = [job.description, ...Object.values(job.descriptionByLocale || {})].map((t) => String(t || '').trim());
+  if (!texts.some((t) => SINTETICA_HEADER_RE.test(t) || SINTETICA_FALLBACK_RE.test(t))) return false;
+  const description = String(job.description || '').trim();
+  const body = SINTETICA_FALLBACK_RE.test(description) ? '' : description.replace(SINTETICA_HEADER_RE, '').trim();
+  const source = sourceLocaleDescription(body, { defaultLang: 'en' });
+  job.description = source.description;
+  job.descriptionByLocale = source.description ? source.descriptionByLocale : {};
+  if (source.description) job.sourceLang = source.sourceLang;
+  job.needsRetranslation = true;
+  return true;
+}
 
 /**
  * Parse the NCore Platform listing page.
