@@ -563,10 +563,12 @@ async function fetchDetailHtml(url, { fetchImpl = fetch, timeoutMs } = {}) {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      // A JSON or plain-text answer (API error body, proxy page) is not a
-      // rendered vacancy even when it echoes the listing text.
+      // Only a declared HTML document is a rendered vacancy. A JSON or
+      // plain-text answer (API error body, proxy page) can echo the listing
+      // text and pass the coverage check, and so can an answer that declares
+      // no type at all: fail closed before reading the body.
       const type = String(res.headers?.get?.('content-type') || '');
-      if (type && !/html/i.test(type)) return { status: res.status, url: res.url || url, html: '', notHtml: true };
+      if (!/\bhtml\b/i.test(type)) return { status: res.status, url: res.url || url, html: '', notHtml: true };
       return { status: res.status, url: res.url || url, html: await res.text() };
     } finally {
       clearTimeout(timer);

@@ -131,7 +131,13 @@ describe('selectProspectiveDetailDescription', () => {
 });
 
 function htmlResponse(html: string, url: string, status = 200) {
-  return { ok: status >= 200 && status < 300, status, url, text: async () => html };
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    url,
+    headers: { get: (name: string) => (name.toLowerCase() === 'content-type' ? 'text/html;charset=UTF-8' : null) },
+    text: async () => html,
+  };
 }
 
 describe('enrichProspectiveJobsFromDetailPages', () => {
@@ -196,6 +202,32 @@ describe('enrichProspectiveJobsFromDetailPages — non-HTML answers', () => {
     });
     expect(result.fallback).toEqual({ 'not-html': 1 });
     expect(job.description).toBe(EQUANS_LISTING);
+  });
+
+  it('fails closed on a 2xx answer that declares no content type, before reading its body', async () => {
+    const job = {
+      url: EQUANS_URL,
+      title: EQUANS_TITLE,
+      sourceLang: 'fr',
+      description: EQUANS_LISTING,
+      descriptionByLocale: { fr: EQUANS_LISTING },
+    };
+    const text = vi.fn(async () => JSON.stringify({ title: EQUANS_LISTING }));
+    const result = await enrichProspectiveJobsFromDetailPages([job], {
+      fetchImpl: async (url: string) => ({
+        ok: true,
+        status: 200,
+        url,
+        headers: { get: () => '' },
+        text,
+      }),
+      delayMs: 0,
+    });
+    expect(result.fallback).toEqual({ 'not-html': 1 });
+    expect(result.used).toBe(0);
+    expect(job.description).toBe(EQUANS_LISTING);
+    expect(job.descriptionByLocale.fr).toBe(EQUANS_LISTING);
+    expect(text).not.toHaveBeenCalled();
   });
 });
 
