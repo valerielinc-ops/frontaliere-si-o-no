@@ -792,11 +792,14 @@ export async function runAssistedApplicationNotificationSweep({ db, nowMs = Date
     // not leave the owner without the order (sendPaidOrderNotifications skips
     // whichever of the two is already sent).
     const ownerMissing = notificationNeedsRetry(notifications[NOTIFICATION_KEYS.ownerNewOrder], nowMs);
+    let acted = false;
     if ((introMissing || ownerMissing) && paidAtMs && nowMs - paidAtMs <= INTRO_BACKSTOP_WINDOW_MS) {
       const results = await sendPaidOrderNotifications(db, doc.id, { nowMs });
       if (results.some((result) => !result.ok && !result.skipped)) summary.failed += 1;
       else summary.intros += 1;
-      continue;
+      acted = true;
+      // An intro sent just now is not 48 h old: no reminder in this pass.
+      if (introMissing) continue;
     }
 
     const introSentMs = intro?.status === 'sent' ? timestampMillis(intro.sentAt) : null;
@@ -821,7 +824,7 @@ export async function runAssistedApplicationNotificationSweep({ db, nowMs = Date
       else summary.failed += 1;
       continue;
     }
-    summary.skipped += 1;
+    if (!acted) summary.skipped += 1;
   }
   return summary;
 }

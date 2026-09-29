@@ -294,7 +294,10 @@ describe('follow-up emails', () => {
   it('sends one 48 h reminder while the materials are still missing', async () => {
     store['order-1'] = paidOrder({
       paidAt: new Date(NOW - 50 * HOUR),
-      notifications: { customer_intro: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) } },
+      notifications: {
+        customer_intro: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) },
+        owner_new_order: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) },
+      },
     });
     const first = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW });
     const second = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW + HOUR });
@@ -304,10 +307,26 @@ describe('follow-up emails', () => {
     expect(payloads()[0].subject).toContain('Promemoria');
   });
 
+  it('retries a failed owner notice and still sends the due reminder in the same pass', async () => {
+    store['order-1'] = paidOrder({
+      paidAt: new Date(NOW - 50 * HOUR),
+      notifications: {
+        customer_intro: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) },
+        owner_new_order: { status: 'failed' },
+      },
+    });
+    const summary = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW });
+    expect(summary).toMatchObject({ intros: 1, reminders: 1, failed: 0 });
+    expect(payloads().map((payload) => payload.to[0])).toEqual(['valerie@frontaliereticino.ch', 'candidate@example.com']);
+  });
+
   it('does not remind once Valerie marked the materials as received', async () => {
     store['order-1'] = paidOrder({
       submissionStatus: 'in_progress',
-      notifications: { customer_intro: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) } },
+      notifications: {
+        customer_intro: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) },
+        owner_new_order: { status: 'sent', sentAt: new Date(NOW - 49 * HOUR) },
+      },
     });
     const summary = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW });
     expect(summary.reminders).toBe(0);
