@@ -28,6 +28,7 @@ type QueueFilter = AssistedApplicationAdminStatus | 'all';
 
 const STATUS_LABELS: Record<QueueFilter, string> = {
   all: 'Tutte',
+  awaiting_upload: 'In attesa materiali',
   ready_for_manual_submission: 'Pronte',
   in_progress: 'In lavorazione',
   submitted: 'Inviate',
@@ -36,6 +37,7 @@ const STATUS_LABELS: Record<QueueFilter, string> = {
 };
 
 const STATUS_STYLES: Record<AssistedApplicationAdminStatus, string> = {
+  awaiting_upload: 'bg-surface-alt text-subtle border-edge',
   ready_for_manual_submission: 'bg-warning-subtle text-warning border-warning-border',
   in_progress: 'bg-info-subtle text-info border-info-border',
   submitted: 'bg-success-subtle text-success border-success-border',
@@ -47,6 +49,12 @@ const NEXT_STATUS_OPTIONS: Record<AssistedApplicationAdminStatus, Array<{
   status: AssistedApplicationAdminStatus;
   label: string;
 }>> = {
+  // Materials usually arrive as a reply to Valerie's email, not via the upload page.
+  awaiting_upload: [
+    { status: 'in_progress', label: 'Materiali ricevuti via email' },
+    { status: 'submitted', label: 'Segna come inviata' },
+    { status: 'blocked', label: 'Blocca' },
+  ],
   ready_for_manual_submission: [
     { status: 'in_progress', label: 'Prendi in carico' },
     { status: 'submitted', label: 'Segna come inviata' },
@@ -83,7 +91,9 @@ function paymentLabel(order: AssistedApplicationAdminOrder): string {
 
 function orderEventContext(order: AssistedApplicationAdminOrder) {
   return {
-    variant: order.experimentVariant === 'assisted_application' ? 'assisted_application' as const : 'control' as const,
+    variant: order.experimentVariant === 'assisted_application'
+      ? 'assisted_application' as const
+      : order.experimentVariant === 'offerwall_fallback' ? 'rewarded_ad' as const : 'control' as const,
     jobId: order.jobId || 'unknown',
     companyId: order.companyId || order.companyName || 'unknown',
   };
@@ -95,6 +105,39 @@ function StatusBadge({ status }: { status: AssistedApplicationAdminStatus }) {
       {status === 'submitted' ? <CheckCircle2 size={13} aria-hidden="true" /> : status === 'blocked' ? <AlertTriangle size={13} aria-hidden="true" /> : <Clock3 size={13} aria-hidden="true" />}
       {STATUS_LABELS[status]}
     </span>
+  );
+}
+
+const EMAIL_STATUS_LABELS: Record<string, string> = {
+  sent: 'inviata',
+  sending: 'in invio',
+  failed: 'non riuscita (ritento)',
+  ambiguous: 'esito incerto',
+};
+
+function emailStatusLabel(status: string | null): string {
+  return status ? EMAIL_STATUS_LABELS[status] || status : 'non inviata';
+}
+
+function CvLink({ order }: { order: AssistedApplicationAdminOrder }) {
+  if (!order.hasCv) {
+    return <span className="mt-1 block text-xs text-subtle">CV non ancora ricevuto sul sito (può arrivare via email)</span>;
+  }
+  if (!order.cvUrl) {
+    const reason = order.cvFileCheck && order.cvFileCheck !== 'ok'
+      ? 'il file caricato non è un PDF/DOC/DOCX valido'
+      : `verifica antivirus: ${order.cvScanStatus || 'non disponibile'}`;
+    return <span className="mt-1 block text-xs text-danger">CV non apribile: {reason}. Chiedilo via email.</span>;
+  }
+  return (
+    <>
+      <a className="mt-1 inline-flex items-center gap-1 text-link hover:underline" href={order.cvUrl} target="_blank" rel="noreferrer"><FileText size={13} aria-hidden="true" /> Apri CV</a>
+      {order.cvScanStatus !== 'clean' && (
+        <span className="mt-1 block text-xs text-warning">
+          Non scansionato{order.cvFileCheck === 'ok' ? ' · formato verificato' : ''}: aprilo come un allegato email.
+        </span>
+      )}
+    </>
   );
 }
 
@@ -140,6 +183,7 @@ export default function AssistedApplicationAdmin() {
 
   const counts = useMemo(() => {
     const result: Record<AssistedApplicationAdminStatus, number> = {
+      awaiting_upload: 0,
       ready_for_manual_submission: 0,
       in_progress: 0,
       submitted: 0,
@@ -210,7 +254,7 @@ export default function AssistedApplicationAdmin() {
             <UserCheck size={20} className="text-accent" aria-hidden="true" />
             Coda candidature assistite
           </h2>
-          <p className="mt-1 text-sm text-muted">Ordini pagati con CV e mandato disponibili per la sottomissione manuale.</p>
+          <p className="mt-1 text-sm text-muted">Tutti gli ordini pagati: i materiali arrivano dalla pagina dell’ordine o come risposta all’email di Valerie.</p>
         </div>
         <button
           type="button"
@@ -276,10 +320,10 @@ export default function AssistedApplicationAdmin() {
                   <StatusBadge status={order.submissionStatus} />
                 </div>
 
-                <dl className="mt-4 grid gap-4 border-t border-edge pt-4 sm:grid-cols-2 lg:grid-cols-4">
+                <dl className="mt-4 grid gap-4 border-t border-edge pt-4 sm:grid-cols-2 lg:grid-cols-5">
                   <DataRow label="Candidato">
                     <span className="font-semibold text-strong">{order.applicantName || '—'}</span>
-                    {order.applicantEmail && <a className="mt-0.5 block text-link hover:underline" href={`mailto:${order.applicantEmail}`}>{order.applicantEmail}</a>}
+                    {(order.applicantEmail || order.customerEmail) && <a className="mt-0.5 block text-link hover:underline" href={`mailto:${order.applicantEmail || order.customerEmail}`}>{order.applicantEmail || order.customerEmail}</a>}
                     {order.applicantPhone && <span className="mt-0.5 block text-subtle">{order.applicantPhone}</span>}
                   </DataRow>
                   <DataRow label="Annuncio">
@@ -293,7 +337,12 @@ export default function AssistedApplicationAdmin() {
                     <span className={order.consentVersion && order.consentedAt ? 'text-success' : 'text-danger'}>
                       {order.consentVersion && order.consentedAt ? `Consenso ${formatDate(order.consentedAt)}` : 'Consenso non disponibile'}
                     </span>
-                    {order.cvUrl ? <a className="mt-1 inline-flex items-center gap-1 text-link hover:underline" href={order.cvUrl} target="_blank" rel="noreferrer"><FileText size={13} aria-hidden="true" /> Apri CV</a> : <span className="mt-1 block text-xs text-danger">CV non disponibile</span>}
+                    <CvLink order={order} />
+                  </DataRow>
+                  <DataRow label="Email automatiche">
+                    <span className="block text-xs text-subtle">Benvenuto: {emailStatusLabel(order.emails?.intro ?? null)}</span>
+                    <span className="block text-xs text-subtle">Promemoria 48 h: {emailStatusLabel(order.emails?.reminder ?? null)}</span>
+                    <span className="block text-xs text-subtle">Conferma invio: {emailStatusLabel(order.emails?.submitted ?? null)}</span>
                   </DataRow>
                 </dl>
 

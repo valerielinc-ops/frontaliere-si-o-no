@@ -15,6 +15,7 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { isAutomationAgent, isCrawlerVisitorAgent } from './lib/returnVisit.js';
+import { localeFromSiteUrl } from './assistedApplicationNotifications.js';
 
 export const ASSISTED_APPLICATION_PRODUCT = 'assisted_application';
 export const ASSISTED_APPLICATION_PRICE_CENTS = ASSISTED_APPLICATION_PRICE_EUR_CENTS;
@@ -22,7 +23,10 @@ export const ASSISTED_APPLICATION_CURRENCY = 'eur';
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
 
 const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_checkout_requests';
-const VALID_VARIANTS = new Set(['control', 'assisted_application']);
+// `offerwall_fallback`: the paid offer opened because the job-board Offerwall
+// could not load (JobBoard handleRewardedApplicationUnavailable).
+const VALID_VARIANTS = new Set(['control', 'assisted_application', 'offerwall_fallback']);
+const VALID_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
 
 class AssistedApplicationRequestConflictError extends Error {
@@ -125,6 +129,7 @@ function metadataForOrder(order, userId) {
     jobTitle: order.jobTitle,
     experimentVariant: order.experimentVariant,
     userId,
+    locale: order.locale || 'it',
   };
 }
 
@@ -150,10 +155,14 @@ function stripeRequestKeyFor(requestRecord, requestKeyHash, checkoutAttempt) {
   return checkoutAttempt === 1 ? requestKeyHash : requestKeyHash + ':' + checkoutAttempt;
 }
 
-function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttempt) {
+function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttempt, presentation) {
   return {
     orderId,
     userId,
+    // Presentation only (not part of the checkout identity): the concierge
+    // emails are written in this locale and link back to this page.
+    locale: presentation.locale,
+    orderPageUrl: appendOrderId(presentation.successUrl, orderId),
     checkoutRequestKeyHash: requestKeyHash,
     checkoutAttempt,
     checkoutSessionStatus: 'creating',
@@ -207,6 +216,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   };
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);
+  const locale = VALID_LOCALES.has(body.locale) ? body.locale : (localeFromSiteUrl(successUrl) || 'it');
 
   if (!order.jobId || !validHttpsUrl(order.jobUrl) || !order.companyId || !order.companyName || !order.jobTitle) {
     return { status: 400, body: { ok: false, error: 'invalid_job' } };
@@ -281,7 +291,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         transaction.set(requestRef, requestRecord, { merge: true });
         transaction.set(
           orderRef,
-          pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt),
+          pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt, { locale, successUrl }),
         );
         return;
       }
@@ -303,7 +313,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       transaction.set(requestRef, requestRecord);
       transaction.set(
         orderRef,
-        pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt),
+        pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt, { locale, successUrl }),
       );
     });
   } catch (error) {
@@ -336,7 +346,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   }
 
   const orderId = orderRef.id;
-  const metadata = metadataForOrder({ ...order, orderId }, userId);
+  const metadata = metadataForOrder({ ...order, orderId, locale }, userId);
 
   const stripe = await getStripe();
   const session = await stripe.checkout.sessions.create({
