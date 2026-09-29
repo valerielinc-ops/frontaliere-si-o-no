@@ -179,12 +179,12 @@ describe('migrolino crawler parser', () => {
       });
     });
 
-    it('leaves address fields empty when the source gives no locality', () => {
+    it('uses the verified default postal code when the source gives no locality', () => {
       const resolved = resolveAddress({});
       expect(resolved).toEqual({
         city: '',
         canton: '',
-        postalCode: '',
+        postalCode: '3000',
         streetAddress: '',
       });
     });
@@ -335,7 +335,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.streetAddress).not.toBe('Wynenfeldstrasse 3');
     });
 
-    it('does not emit an explicit unresolved source city through the fallback', () => {
+    it('keeps an explicit unresolved source city as the street label', () => {
       const html = `<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org/',
         '@type': 'JobPosting',
@@ -351,7 +351,7 @@ describe('migrolino crawler parser', () => {
       expect(parsed.city).toBe('');
       expect(parsed.canton).toBe('');
       expect(parsed.postalCode).toBe('');
-      expect(parsed.streetAddress).toBe('');
+      expect(parsed.streetAddress).toBe('Suhrau');
     });
 
     it('returns an empty title (not a throw) for empty/invalid input', () => {

@@ -70,7 +70,7 @@ import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import { getCantonPostalFallback, getDefaultCantonLocationFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
@@ -122,13 +122,14 @@ export function resolveAddress(raw = {}, canton = '') {
   const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
     ? cantonHint.toUpperCase()
     : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
-  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton);
+  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton)
+    || getDefaultCantonLocationFallback().postalCode;
   return {
     city: sourceCity,
     canton: resolvedCanton,
-    postalCode: sourcePostalCode || (sourceCity
-      ? officialLocalityPostalCode(sourceCity, resolvedCanton) || fallbackPostalCode
-      : ''),
+    postalCode: sourcePostalCode
+      || officialLocalityPostalCode(sourceCity, resolvedCanton)
+      || fallbackPostalCode,
     streetAddress: sourceStreetAddress || sourceCity,
   };
 }
@@ -278,7 +279,7 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const outputCity = unresolvedExplicitCity ? '' : city;
   const outputCanton = unresolvedExplicitCity ? '' : resolvedCanton;
   const outputPostalCode = unresolvedExplicitCity ? '' : postalCode;
-  const outputStreetAddress = unresolvedExplicitCity ? '' : streetAddress;
+  const outputStreetAddress = unresolvedExplicitCity ? (rawCity || streetAddress) : streetAddress;
 
   return {
     title,
