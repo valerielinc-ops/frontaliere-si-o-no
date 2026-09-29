@@ -25,6 +25,7 @@ import { gradeExtraction } from './lib/prospector/validate.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
 import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
+import { tenantHostOwner } from './lib/prospector/coverage.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
@@ -104,6 +105,25 @@ let duplicates = 0;
 const ownership = loadSourceHostOwnership(ROOT, { urls: true });
 
 for (const spec of specs) {
+  // A tenant we already read is a duplicate whatever its vacancies look like.
+  // The URL comparison below is blind when the spec reads a page other than
+  // the ATS: `im-bethesda-spital` read the hospital's own jobs page, whose
+  // URL-less JSON-LD postings became `jobs.html#job-<hash>`, and was re-graded
+  // `good` for weeks on a tenant `bethesda-spital` had been crawling since May
+  // (issue 5253). Asked before `runSpec`, so a known duplicate costs no fetch.
+  const tenantOwner = tenantHostOwner(byCrawlerKey.get(spec.companyKey), ownership.byHost);
+  if (tenantOwner) {
+    duplicates++;
+    const candidate = byCrawlerKey.get(spec.companyKey);
+    console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
+    setStatus(store, candidate.key, 'rejected', {
+      qualityVerdict: 'duplicate',
+      qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
+      duplicateOf: tenantOwner,
+    });
+    continue;
+  }
+
   // Stessa ragione dello stadio di sintesi: qui si rende di nuovo il DOM di
   // siti arbitrari, e perdere il giudizio di tutte le spec per colpa di una
   // significherebbe anche non far avanzare lo STORICO su cui il gate di

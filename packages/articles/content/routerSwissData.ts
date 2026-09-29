@@ -2364,6 +2364,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lindt-prungli-stime-2026': { it: 'lindt-prungli-stime-2026', en: 'lindt-prungli-estimates-2026', de: 'lindt-prungli-schatzungen-2026', fr: 'lindt-prungli-estimations-2026' },
  'compensi-lvamal-camera-bassa': { it: 'compensi-lvamal-camera-bassa', en: 'health-insurer-pay-cap-vote', de: 'krankenkassen-lohnobergrenze', fr: 'plafond-salaires-caisses-maladie' },
  'rincari-auto-abitazione-ticino': { it: 'rincari-auto-abitazione-ticino', en: 'car-housing-price-increases-ticino', de: 'preissteigerungen-auto-wohnen-tessin', fr: 'hausses-prix-auto-logement-tessin' },
+ 'rincari-abitazione-mobilita-svizzera': { it: 'rincari-abitazione-mobilita-svizzera', en: 'housing-mobility-costs-switzerland', de: 'wohn-mobilitaetskosten-schweiz', fr: 'couts-logement-mobilite-suisse' },
+ 'obbligo-assicurazione-detenuti': { it: 'obbligo-assicurazione-detenuti', en: 'detainees-abroad-lamal-obligation', de: 'gefangene-ausland-krankenversicherung', fr: 'detenus-etranger-assurance-maladie' },
+ 'uova-piccoli-allevamenti-csl': { it: 'uova-piccoli-allevamenti-csl', en: 'swiss-eggs-small-farms-csl', de: 'schweizer-eier-kleine-betriebe-csl', fr: 'oeufs-suisses-petits-elevages-csl' },
+ 'svizzera-patrimonio-finanziario-mondiale': { it: 'svizzera-patrimonio-finanziario-mondiale', en: 'switzerland-global-financial-wealth', de: 'schweiz-globales-finanzvermoegen', fr: 'suisse-patrimoine-financier-mondial' },
+ 'lavoratori-svizzeri-ia-benefici': { it: 'lavoratori-svizzeri-ia-benefici', en: 'swiss-workers-ai-benefits', de: 'schweizer-arbeitnehmer-ki-vorteile', fr: 'travailleurs-suisses-ia-benefices' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

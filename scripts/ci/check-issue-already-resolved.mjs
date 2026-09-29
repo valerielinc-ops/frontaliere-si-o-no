@@ -306,10 +306,22 @@ export function isAggregateForAnalytics(title, body) {
 // aperto comunque #10136 alle 18:00Z, un duplicato che e' andato subito in
 // conflitto e ha generato un secondo hand-off (#10137).
 const CONFLICT_HANDOFF_TITLE_RE = /^Conflitto con main(?: dopo LGTM)?: riapplicare la PR #(\d+) su main$/u;
+const CONFLICT_HANDOFF_HEAD_RE = /HEAD\s+`([0-9a-f]{7,40})`/iu;
 
 export function conflictHandoffOriginPr(title) {
   const match = CONFLICT_HANDOFF_TITLE_RE.exec(String(title || '').trim());
   return match ? Number(match[1]) : null;
+}
+
+/**
+ * The hand-off body carries the source PR HEAD prefix observed when the issue
+ * was opened. An OPEN hand-off may be short-circuited only when the current
+ * API snapshot is for that same head; otherwise a stale mergeable verdict can
+ * hide a rebase or a new conflict.
+ */
+export function conflictHandoffExpectedHead(body) {
+  const match = CONFLICT_HANDOFF_HEAD_RE.exec(String(body || ''));
+  return match ? match[1].toLowerCase() : '';
 }
 
 /**
@@ -319,10 +331,23 @@ export function conflictHandoffOriginPr(title) {
  * (still `CONFLICTING`, `UNKNOWN` mergeability, closed unmerged, unreadable)
  * proceeds: a false short-circuit would drop a real reapply.
  */
-export function handoffOriginVerdict(pr) {
+export function handoffOriginVerdict(pr, { expectedHead = '' } = {}) {
   const state = String(pr?.state || '').toUpperCase();
   if (state === 'MERGED') return { resolved: true, reason: 'merged' };
-  if (state === 'OPEN' && String(pr?.mergeable || '').toUpperCase() === 'MERGEABLE') {
+  if (state === 'OPEN') {
+    const observedHead = String(pr?.headRefOid || '').toLowerCase();
+    const expected = String(expectedHead || '').trim().toLowerCase();
+    if (!expected || !observedHead || !observedHead.startsWith(expected)) {
+      return { resolved: false, reason: 'origin-head-unverified' };
+    }
+    const mergeable = String(pr?.mergeable || '').toUpperCase();
+    if (mergeable !== 'MERGEABLE') {
+      return { resolved: false, reason: mergeable === 'CONFLICTING' ? 'origin-open' : 'origin-mergeability-stale' };
+    }
+    const mergeableState = String(pr?.mergeStateStatus || '').toUpperCase();
+    if (!['CLEAN', 'UNSTABLE', 'BEHIND', 'BLOCKED', 'HAS_HOOKS'].includes(mergeableState)) {
+      return { resolved: false, reason: 'origin-mergeability-stale' };
+    }
     return { resolved: true, reason: 'conflict-resolved' };
   }
   return { resolved: false, reason: state ? `origin-${state.toLowerCase()}` : 'origin-unreadable' };
@@ -367,10 +392,10 @@ function main() {
     let origin = null;
     try {
       origin = JSON.parse(
-        gh(['pr', 'view', String(handoffOrigin), ...repoArgs, '--json', 'state,mergeable'], { allowFail: true }) || 'null',
+        gh(['pr', 'view', String(handoffOrigin), ...repoArgs, '--json', 'state,mergeable,mergeStateStatus,headRefOid'], { allowFail: true }) || 'null',
       );
     } catch { origin = null; }
-    const verdict = handoffOriginVerdict(origin);
+    const verdict = handoffOriginVerdict(origin, { expectedHead: conflictHandoffExpectedHead(iss.body) });
     if (!verdict.resolved) {
       console.log(`Conflict hand-off of PR #${handoffOrigin}: ${verdict.reason} — proceeding (reapply still needed).`);
       setOutput(false);

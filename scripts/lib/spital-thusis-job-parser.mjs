@@ -244,11 +244,92 @@ export function parseListingPage(html = '') {
  *   - "Wir bieten" (benefits)
  *   - Contact information
  */
+/**
+ * Index of the `</div>` closing a div whose opening tag ends at `from`
+ * (nested divs counted); the end of the document when it never closes.
+ */
+function balancedDivEnd(src, from) {
+  const tagPattern = /<\/?div\b[^>]*>/gi;
+  tagPattern.lastIndex = from;
+  let depth = 1;
+  let tag;
+  while ((tag = tagPattern.exec(src)) !== null) {
+    if (tag[0][1] === '/') depth -= 1;
+    else if (!tag[0].endsWith('/>')) depth += 1;
+    if (depth === 0) return tag.index;
+  }
+  return src.length;
+}
+
+const RUKZUK_PROFILE_HEADING_RE = /^(?:(?:Dein|Ihr|Unser)(?:e|es)?\s+)?(?:Profil|Anforderung(?:en|sprofil)?|Voraussetzungen)\b/i;
+
+/**
+ * Read the vacancy from the Rukzuk page layout every live job page shares
+ * (measured on 3 pages, 2026-09-29): after the `rz_breadcrumb`, the posting
+ * is a run of `rz_textfield` → `<div class="text">` blocks (intro, h1 aside,
+ * "Deine Aufgaben:", "Dein Profil:", "Was dich bei uns erwartet:", closing,
+ * contact) that ends at the link to the Ostendis application tool
+ * (`…/cvdropper/…`); the site footer follows it.
+ *
+ * The former heading regexes cut a section at the first
+ * `(Dein|Ihr|Unser)…:` anywhere in the text, case-insensitively — so
+ * "…Betreuung unserer Patient:innen…" ended the task list after one bullet
+ * (the 46-char thin row), and "Dein Profil" / "Was dich bei uns erwartet" had
+ * no pattern at all.
+ *
+ * @returns {{ blocks: string[], requirements: string[] } | null} null when
+ *   the page does not have that layout.
+ */
+function parseRukzukJobBlocks(html) {
+  const start = html.indexOf('rz_breadcrumb');
+  if (start < 0) return null;
+  const applyLink = html.slice(start).search(/<a [^>]*href="[^"]*ostendis\.com[^"]*cvdropper/i);
+  const end = applyLink >= 0 ? start + applyLink : html.length;
+  const openTag = /<div class="text">/g;
+  openTag.lastIndex = start;
+  const blocks = [];
+  const requirements = [];
+  let match;
+  while ((match = openTag.exec(html)) !== null && match.index < end) {
+    const contentEnd = balancedDivEnd(html, openTag.lastIndex);
+    const inner = html.slice(openTag.lastIndex, contentEnd);
+    openTag.lastIndex = contentEnd;
+    const text = normalizeDescriptionSpace(stripHtml(inner));
+    if (!text) continue;
+    blocks.push(text);
+    // Requirements: the list items under a profile heading, up to the next
+    // heading (one text block can carry "Dein Profil:" AND "Was dich bei uns
+    // erwartet:").
+    const headingPattern = /<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/gi;
+    let heading;
+    while ((heading = headingPattern.exec(inner)) !== null) {
+      if (!RUKZUK_PROFILE_HEADING_RE.test(normalizeSpace(stripHtml(heading[1])))) continue;
+      const rest = inner.slice(headingPattern.lastIndex);
+      const nextHeading = rest.search(/<h[1-6][^>]*>\s*(?:<[^>]+>\s*)*[^<\s]/i);
+      const section = nextHeading >= 0 ? rest.slice(0, nextHeading) : rest;
+      const liPattern = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+      let li;
+      while ((li = liPattern.exec(section)) !== null) {
+        const item = normalizeDescriptionSpace(stripHtml(li[1]));
+        if (item.length > 5) requirements.push(item);
+      }
+    }
+  }
+  return blocks.length ? { blocks, requirements } : null;
+}
+
 export function parseDetailPage(html = '') {
   const result = {
     description: '',
     requirements: [],
   };
+
+  const rukzuk = parseRukzukJobBlocks(String(html || ''));
+  if (rukzuk) {
+    result.description = rukzuk.blocks.join('\n\n');
+    result.requirements = rukzuk.requirements;
+    return result;
+  }
 
   // Strategy: extract the main content between the title and the footer/nav.
   // Rukzuk pages don't use standard semantic HTML, so we extract text
