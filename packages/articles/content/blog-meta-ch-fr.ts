@@ -7046,6 +7046,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lindt-prezzi-cacao-2026.title': 'Lindt revoit ses estimations : baisse des ventes et des prix',
     'blog.article.lindt-prezzi-cacao-2026.excerpt': 'Lindt&Sprüngli abaisse la prévision de croissance organique 2026 à 0-2 pour cent et envisage des réductions de prix plus importantes à partir de janvier après l’impact du cacao et de la chaleur estivale.',
     'blog.article.lindt-prezzi-cacao-2026.imageAlt': 'Présentation de chocolat Lindt dans un magasin',
+    'blog.article.classifica-ompi-alta-tecnologia.title': 'La Suisse, première au monde pour l\'innovation',
+    'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'La Suisse est première depuis 2011 dans le classement de l\'OMPI ; la Suède et les États-Unis suivent, tandis que la Chine entre pour la première fois dans le top dix.',
+    'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Des chercheurs devant un centre suisse de recherche et d\'innovation',
 };
 
 export default blogMetaChFr;

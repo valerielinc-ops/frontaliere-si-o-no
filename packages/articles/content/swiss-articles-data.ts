@@ -21166,6 +21166,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'classifica-ompi-alta-tecnologia',
+    category: 'novita',
+    date: '2026-09-29T12:39:48.060Z',
+    image: '/images/blog/classifica-ompi-alta-tecnologia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
