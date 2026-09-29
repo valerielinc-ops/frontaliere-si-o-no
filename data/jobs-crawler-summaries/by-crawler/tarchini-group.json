@@ -1,58 +1,51 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-09-29T10:20:24.850Z",
+  "generatedAt": "2026-09-29T21:13:25.415Z",
   "total": 2,
-  "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2690,
-  "avgDurationMs": 2690,
+  "durationMs": 2476,
+  "avgDurationMs": 2476,
   "durationHistory": [
-    2430,
-    2381,
-    2690
+    2476
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "title": "Technisch-kaufmännische Fachperson Projekt Swiss Energy Program",
-      "slug": "technisch-kaufmannische-fachperson-projekt-swiss-energy-program-tarchini-group-manno",
-      "url": "https://www.tarchinigroup.com/it/work/1546/technisch-kaufm-nnische-fachperson-projekt-swiss-energy-program",
-      "applyUrl": "https://www.tarchinigroup.com/it/work/1546/technisch-kaufm-nnische-fachperson-projekt-swiss-energy-program",
+      "title": "Tecnico di cantiere e coordinatore per i lavori di manutenzione e ristrutturazione",
+      "slug": "tecnico-di-cantiere-e-coordinatore-per-i-lavori-di-manutenzione-e-ristrutturazione-tarchini-group-mendrisio",
+      "url": "https://www.tarchinigroup.com/it/work/1549/tecnico-di-cantiere-e-coordinatore-per-i-lavori-di-manutenzione-e-ristrutturazione",
+      "applyUrl": "https://www.tarchinigroup.com/it/work/1549/tecnico-di-cantiere-e-coordinatore-per-i-lavori-di-manutenzione-e-ristrutturazione",
+      "applicationEmail": "info@tarchinigroup.com",
       "company": "Tarchini Group",
       "companyKey": "tarchini-group",
       "companyDomain": "tarchinigroup.com",
-      "location": "Manno",
-      "addressLocality": "Manno",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "admin",
+      "category": "technician",
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "de",
+      "sourceLang": "it",
       "postedDate": "2026-09-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "tarchini-group-ffb6f3d5474b",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-31T11:36:03.527Z",
-      "salarySource": "estimated",
-      "applicationEmail": "info@tarchinigroup.com",
-      "_qualityScore": 89,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 19
+        "translation": 10,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Sales Manager",
       "slug": "sales-manager-tarchini-group-lugano",
@@ -93,6 +86,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Technisch-kaufmännische Fachperson Projekt Swiss Energy Program",
+      "slug": "progetto-tecnico-e-commerciale-swiss-energy-program-tarchini-group-manno",
+      "url": "https://www.tarchinigroup.com/it/work/1546/technisch-kaufm-nnische-fachperson-projekt-swiss-energy-program",
+      "applyUrl": "https://www.tarchinigroup.com/it/work/1546/technisch-kaufm-nnische-fachperson-projekt-swiss-energy-program",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Manno",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "admin",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "tarchini-group-ffb6f3d5474b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-31T11:36:03.527Z",
+      "salarySource": "estimated",
+      "applicationEmail": "info@tarchinigroup.com",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": []
 }
