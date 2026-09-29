@@ -21112,6 +21112,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'obbligo-assicurazione-detenuti',
+    category: 'novita',
+    date: '2026-09-29T09:13:37.161Z',
+    image: '/images/blog/obbligo-assicurazione-detenuti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
