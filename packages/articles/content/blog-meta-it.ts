@@ -12271,6 +12271,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fials-vigilanza-ospedale-varese.title': 'FIALS: più vigilanza notturna a Varese',
     'blog.article.fials-vigilanza-ospedale-varese.excerpt': 'Il sindacato chiede all\'ASST Sette Laghi di rivedere gli accessi e i turni: una sola guardia al Pronto Soccorso non basta.',
     'blog.article.fials-vigilanza-ospedale-varese.imageAlt': 'Ingresso di un ospedale presidiato da una guardia giurata di notte',
+    'blog.article.corpo-lago-como-288-metri.title': 'Lago di Como, corpo trovato a 288 metri',
+    'blog.article.corpo-lago-como-288-metri.excerpt': 'A San Siro i sommozzatori dei Vigili del Fuoco hanno trovato a circa 288 metri il corpo del 38enne disperso nel Lago di Como.',
+    'blog.article.corpo-lago-como-288-metri.imageAlt': 'Lago di Como a San Siro, dove il corpo è stato trovato a circa 288 metri',
+    'blog.article.bollettino-frontaliere-2026-09-29.title': 'Bollettino del frontaliere – 29 settembre 2026: franco a 1.0582 €',
+    'blog.article.bollettino-frontaliere-2026-09-29.excerpt': 'I numeri di oggi, 29 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-29.imageAlt': 'I numeri del giorno per i frontalieri – 29 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-29.seoDescription': 'Bollettino frontalieri del 29 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-29.ogDescription': 'I numeri del 29 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
