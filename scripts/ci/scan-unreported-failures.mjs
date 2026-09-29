@@ -97,7 +97,7 @@
  * Costo per passata, dimensionato di conseguenza:
  *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~5 per le
  *     run rosse della finestra di 24 h (~465 `failure`, 100 per pagina) +
- *     1 `gh issue list` + per ogni workflow candidato 1 lettura dell'ultima run
+ *     2 `gh issue list` (aperte e chiuse) + per ogni workflow candidato 1 lettura dell'ultima run
  *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
  *     dei job, entrambe ≤ MAX_ISSUES.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
