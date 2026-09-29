@@ -12263,6 +12263,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-sangiano-lavorare-ticino.title': 'In Sangiano leben und im Tessin arbeiten: Budgetleitfaden',
     'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Seit dem 1. Januar 2024 ist die neue Frontalieri-Vereinbarung in Kraft. Erfahren Sie, wie Sie Befreiungen, Selbstbehalte und Abzüge für Ihr Lebensprojekt unterscheiden können.',
     'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Panoramablick auf Lugano, ein Ziel für viele Grenzgänger.',
+    'blog.article.ticino-costi-mobilita-abitazione.title': 'Tessin führt die Preissteigerungen bei Mobilität und Wohnen an',
+    'blog.article.ticino-costi-mobilita-abitazione.excerpt': 'Im August erreichen die Preissteigerungen im Tessin 3%, während auf nationaler Ebene Wohnen und Mobilität um 2,4% steigen und die allgemeine Inflation bei 0,8% liegt, was für eine typische Familie 1\'066 Franken mehr pro Jahr entspricht.',
+    'blog.article.ticino-costi-mobilita-abitazione.imageAlt': 'Pendler fährt nahe Lugano mit Häusern im Hintergrund, symbolisiert Mobilitäts- und Wohnkosten',
+    'blog.article.fials-vigilanza-ospedale-varese.title': 'FIALS: Mehr Nachtwache in Varese',
+    'blog.article.fials-vigilanza-ospedale-varese.excerpt': 'Die Gewerkschaft fordert die asst Sette Laghi auf, die Zugänge und Schichten zu überprüfen: Eine einzige Wache in der Notaufnahme reicht nicht aus.',
+    'blog.article.fials-vigilanza-ospedale-varese.imageAlt': 'Krankenhaustor, bewacht von einem Nachtwächter',
 };
 
 export default blogMetaDe;

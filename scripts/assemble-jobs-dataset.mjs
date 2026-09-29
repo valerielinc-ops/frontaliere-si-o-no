@@ -3524,6 +3524,10 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
             activeJobs,
             ghostEntryIds: [...ghostIds],
           },
+          housekeepingProof: {
+            kind: 'reconcile-ghost-expired',
+            activeJobs,
+          },
         });
       }
     }

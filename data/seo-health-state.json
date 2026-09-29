@@ -1,32 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-09-28T11:05:50.620Z",
-  "findings": {
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-im-tessin/alle/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/alle/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-09-27T10:07:32.354Z",
-      "lastSeenAt": "2026-09-28T11:05:50.620Z",
-      "detail": null
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-saint-gall/produits-alimentaires-vendus-coop-genossenschaft-bettmeralp/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-saint-gall/produits-alimentaires-vendus-coop-genossenschaft-bettmeralp/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-09-28T11:05:50.620Z",
-      "lastSeenAt": "2026-09-28T11:05:50.620Z",
-      "detail": "edge=503 count=1 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
-      "code": "cloudflare-5xx-unverified",
-      "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-09-28T11:05:50.620Z",
-      "lastSeenAt": "2026-09-28T11:05:50.620Z",
-      "detail": "count=270 sampled-out-or-unprobed; no live recovery asserted"
-    }
-  },
-  "cleanRuns": 0,
-  "lastActionable": true
+  "lastRunAt": "2026-09-29T10:48:56.640Z",
+  "findings": {},
+  "cleanRuns": 1,
+  "lastActionable": false
 }

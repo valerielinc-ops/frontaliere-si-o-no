@@ -25,7 +25,7 @@ vi.mock('@/scripts/lib/pdf-job-content.mjs', async (importOriginal) => {
   return { ...actual, extractPdfJobContentFromUrl };
 });
 
-import { fetchAllCsvmMustairJobs, parseCsvmListing } from '@/scripts/lib/csvm-mustair-job-parser.mjs';
+import { csvmSourceLang, fetchAllCsvmMustairJobs, parseCsvmListing } from '@/scripts/lib/csvm-mustair-job-parser.mjs';
 
 // Two EasyBlog posts: a real job (with attached PDF) and an archive item that
 // must be filtered out by the negative-slug heuristic.
@@ -87,6 +87,19 @@ describe('CSVM crawler — PDF-backed description', () => {
     expect(desc).toContain('Teamgeist');
     // Real content → well above the 30-unique-word boilerplate threshold.
     expect(desc.split(/\s+/).filter(Boolean).length).toBeGreaterThan(30);
+  });
+
+  it('detects the source locale on the PDF posting, not on a short title alone', () => {
+    // Real csvm.ch posting (2026-09-29): the title alone reads as English to
+    // the detector, the attached PDF is German.
+    const title = 'Dipl. Pflegefachperson HF';
+    const pdfText = 'Das Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. '
+      + 'Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. '
+      + 'Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60% '
+      + 'Ihr Profil Diplom HF Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld Unser Angebot Interessante und abwechslungsreiche Tätigkeit';
+    expect(csvmSourceLang(title, pdfText)).toBe('de');
+    // Without PDF text only the title is evidence; German titles keep `de`.
+    expect(csvmSourceLang('Pflegehelfer(in) SRK 80-100%', '')).toBe('de');
   });
 
   it('falls back to the listing boilerplate when PDF extraction fails (no crash)', async () => {

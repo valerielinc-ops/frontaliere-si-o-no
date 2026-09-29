@@ -14,6 +14,9 @@
  *   - Job shape validation
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   SPITAL_THUSIS_KEY,
   SPITAL_THUSIS_COMPANY_NAME,
@@ -264,6 +267,43 @@ describe('parseListingPage', () => {
   it('returns empty array for page with no job links', () => {
     const noJobsHtml = '<html><body><p>No open positions</p></body></html>';
     expect(parseListingPage(noJobsHtml)).toEqual([]);
+  });
+});
+
+// ─── parseDetailPage: live Rukzuk layout (source-detail audit 2026-09-29) ───────
+// The heading regexes cut "Deine Aufgaben" at "…Betreuung unserer Patient:innen"
+// (a case-insensitive `Unser…:` lookahead inside a word), leaving the 46-char
+// thin row "Aufgaben:\n• ganzheitliche Pflege und Betreuung", and had no
+// pattern for "Dein Profil" / "Was dich bei uns erwartet".
+describe('parseDetailPage — Rukzuk job layout', () => {
+  const html = readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'spital-thusis-detail-rukzuk.html'),
+    'utf8',
+  );
+  const result = parseDetailPage(html);
+
+  it('keeps every section of the posting with its bullets', () => {
+    expect(result.description).toContain('Für unsere interdisziplinäre Pflegeabteilung im Spital Thusis suchen wir DICH');
+    expect(result.description).toMatch(/^• ganzheitliche Pflege und Betreuung unserer Patient:innen und deren Angehörigen$/m);
+    expect(result.description).toMatch(/^• Mitverantwortung für die Ausbildung von Fachpersonen Gesundheit EFZ sowie Studierenden HF$/m);
+    expect(result.description).toContain('Dein Profil:');
+    expect(result.description).toContain('Was dich bei uns erwartet:');
+    expect(result.description.split('\n').filter((line) => line.startsWith('• '))).toHaveLength(14);
+  });
+
+  it('stops at the application-tool link: no navigation or site footer', () => {
+    expect(result.description).not.toContain('Veranstaltungen');
+    expect(result.description).not.toContain('Link zum Bewerbungstool');
+    expect(result.description).not.toContain('Kontaktübersicht');
+    expect(result.description).not.toContain('administration@spitalthusis.ch');
+  });
+
+  it('reads requirements only from the profile section', () => {
+    expect(result.requirements).toEqual([
+      'abgeschlossene Ausbildung als Dipl. Pflegefachperson HF (oder gleichwertige Anerkennung)',
+      'hohes Qualitätsbewusstsein und Interesse an der Weiterentwicklung der Pflege',
+      'Freude an interdisziplinärer Zusammenarbeit und an einem konstruktiven, zielorientierten Arbeitsstil',
+    ]);
   });
 });
 
