@@ -15,7 +15,7 @@ import {
   coopDetailNeedsQuarantine,
   coopDetailSourceBody,
 } from '../scripts/update-coop-jobs.mjs';
-import { fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
+import { countDuplicateListings, fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
 import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
@@ -30,6 +30,7 @@ import {
   buildCoopTranslationCacheEntry,
   resolveCoopCantonCode,
   collapseRepublishedCoopVacancies,
+  withoutRepublishedCoopVacancies,
   composeCoopFamilyDescription,
   extractCoopFamilyPageDetails,
 } from '../scripts/lib/coop-job-parser.mjs';
@@ -42,6 +43,13 @@ const frenchDetailFixture = JSON.parse(
 // workplace field and the content blocks; recruiter names/phones redacted.
 const familyPages = Object.fromEntries(JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-detail-pages.json'), 'utf8'),
+).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
+
+// Two Coop apprenticeship ads published at Heiden under two UUIDs (identical
+// but for the ATS tracking id), plus the Interdiscount/Jumbo pages of the
+// location fixes; minimized, recruiter names redacted.
+const republishedPages = Object.fromEntries(JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-republished-pages.json'), 'utf8'),
 ).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
 
 const makeCoopApiJob = (index, { canton = 'Zurigo' } = {}) => ({
@@ -1828,5 +1836,57 @@ describe('Coop quarantine gate on the composed source body (review #10333)', () 
   it('still quarantines the same 49-word JSON-LD without page details and without a stored body', () => {
     expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, null)).toBe(true);
     expect(coopDetailNeedsQuarantine(staleJob, null, null)).toBe(true);
+  });
+});
+
+describe('Coop reposts without a street address (parser-quality audit #5253)', () => {
+  const pages = ['coop-heiden-a', 'coop-heiden-b'].map((id) => republishedPages[id]);
+  const title = 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"';
+
+  it('keeps two UUIDs apart when the source gives no store address, even with identical pages', () => {
+    const listings = pages.map(({ url }) => ({
+      id: 'coop-family-heiden', companyKey: 'jumbo', url, title, description: 'listing fallback',
+      location: 'Heiden', addressLocality: 'Heiden', canton: 'AR', addressRegion: 'AR', addressCountry: 'CH', sourceLang: 'de',
+    }));
+    const enriched = listings.map((listing, index) => applyCoopSourceDetailToJob(
+      listing, extractJsonLd(pages[index].html), extractCoopFamilyPageDetails(pages[index].html),
+    ));
+
+    // The page names only "Heiden" (the JSON-LD is the Gossau office): no
+    // street, store number or shared URL proves the two are one vacancy, so
+    // the audit bucket stays and both live pages stay published.
+    expect(enriched[0].description).toBe(enriched[1].description);
+    expect(enriched.map((job) => [job.location, job.postalCode, job.streetAddress])).toEqual([['Heiden', '', ''], ['Heiden', '', '']]);
+    expect(countDuplicateListings(enriched, fingerprintsForCrawler(enriched, 'title-aware'))).toBe(2);
+    expect(collapseRepublishedCoopVacancies(enriched).collapsed).toEqual([]);
+    expect(withoutRepublishedCoopVacancies(enriched, 'JUMBO').map((job: { url: string }) => job.url)).toEqual(pages.map(({ url }) => url));
+  });
+
+  it('moves every route of a collapsed full-address repost onto the record it keeps', () => {
+    const base = {
+      title: 'Transportdisponent:in', location: 'Gossau', postalCode: '9200', streetAddress: 'Industriestrasse 109',
+      description: '- Arbeitsort: Coop, Industriestrasse 109, 9200 Gossau\n- Pensum: 100 %\n\n## Aufgaben\n- Touren planen',
+    };
+    const keeper = {
+      ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a',
+      firstSeenAt: new Date(Date.now() - 30 * 86400000).toISOString(),
+      slug: 'transportdisponent-in-coop-gossau', slugByLocale: { it: 'transportdisponent-in-coop-gossau', de: 'transportdisponent-in-gossau' },
+    };
+    const repost = {
+      ...base, url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b',
+      firstSeenAt: new Date(Date.now() - 2 * 86400000).toISOString(),
+      // The shared fresh slug is the keeper's own URL, not a route to bridge.
+      slug: 'transportdisponent-in-coop-gossau',
+      slugByLocale: { it: 'transportdisponent-in-coop-gossau', de: 'transportdisponent-in-gossau-2' },
+      previousSlugsByLocale: { it: ['disponent-coop-gossau'] },
+    };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([repost, keeper]);
+
+    expect(collapsed).toEqual([{ url: repost.url, keptUrl: keeper.url }]);
+    expect(kept).toEqual([keeper]);
+    expect(keeper.previousSlugsByLocale.de).toContain('transportdisponent-in-gossau-2');
+    expect(keeper.previousSlugsByLocale.it).toContain('disponent-coop-gossau');
+    expect(keeper.previousSlugsByLocale.it).not.toContain(keeper.slug);
+    expect(countDuplicateListings(kept, fingerprintsForCrawler(kept, 'title-aware'))).toBe(0);
   });
 });

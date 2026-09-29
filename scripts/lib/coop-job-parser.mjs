@@ -18,6 +18,7 @@ import {
   fetchFollowingValidatedRedirects,
 } from './prospector/public-fetch-policy.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { transferSlugHistory } from './expired-jobs-archive.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -331,8 +332,11 @@ export function extractCoopFamilyWorkplace(html = '') {
   const analyticsWorkplace = normalizeCoopFamilyWorkplace(analyticsValue);
   if (analyticsWorkplace && analyticsWorkplace.toLowerCase() !== 'fust') return analyticsWorkplace;
 
+  // The French Interdiscount template has no `job_arbeitsort` and titles the
+  // section "Lieu du travail": reading only "Lieu de travail" published its
+  // Signy and Bassecourt apprenticeships at the Jegenstorf head office.
   const section = source.match(
-    /<h4[^>]*>\s*(?:<b[^>]*>)?\s*(?:arbeitsort|lieu\s+de\s+travail|luogo\s+di\s+lavoro)\s*(?:<\/b>)?\s*<\/h4>\s*<p[^>]*>([\s\S]{0,500}?)<\/p>/i
+    /<h4[^>]*>\s*(?:<b[^>]*>)?\s*(?:arbeitsort|lieu\s+d[eu]\s+travail|luogo\s+di\s+lavoro)\s*(?:<\/b>)?\s*<\/h4>\s*<p[^>]*>([\s\S]{0,500}?)<\/p>/i
   );
   const addressLines = String(section?.[1] || '')
     .split(/<br\s*\/?\s*>/i)
@@ -506,15 +510,47 @@ export function composeCoopFamilyDescription(markdown = '', page = null) {
 }
 
 /**
+ * Move the routes of a collapsed repost onto the record that replaces it.
+ * Two reposts of one ad usually share their freshly built slug (same title,
+ * same place): a slug the keeper already serves is not a route to bridge, and
+ * handing it to `transferSlugHistory` would record the keeper's own URL as its
+ * previous slug.
+ */
+function absorbRepublishedRoutes(keeper, removed) {
+  const active = new Set([keeper?.slug, ...Object.values(keeper?.slugByLocale || {})].filter(Boolean));
+  const foreign = (slug) => Boolean(slug) && !active.has(slug);
+  const entriesOf = (map) => Object.entries(map && typeof map === 'object' && !Array.isArray(map) ? map : {});
+  const routes = {
+    slug: foreign(removed?.slug) ? removed.slug : '',
+    slugByLocale: Object.fromEntries(entriesOf(removed?.slugByLocale).filter(([, slug]) => foreign(slug))),
+    previousSlugs: (Array.isArray(removed?.previousSlugs) ? removed.previousSlugs : []).filter(foreign),
+    previousSlugsByLocale: Object.fromEntries(entriesOf(removed?.previousSlugsByLocale)
+      .map(([locale, slugs]) => [locale, (Array.isArray(slugs) ? slugs : []).filter(foreign)])
+      .filter(([, slugs]) => slugs.length > 0)),
+  };
+  const hasRoutes = routes.slug || routes.previousSlugs.length > 0
+    || Object.keys(routes.slugByLocale).length > 0 || Object.keys(routes.previousSlugsByLocale).length > 0;
+  return hasRoutes ? transferSlugHistory(keeper, routes, 'coop-job-parser.collapseRepublishedCoopVacancies') : 0;
+}
+
+/**
  * Collapse the same vacancy published several times under different UUIDs:
  * same title, same store (postal code AND street — a city alone is not a
  * store: Zürich has dozens) and a byte-identical body, facts included (so a
  * different Pensum or start date keeps two postings apart). Measured on the
  * 2026-09-29 Coop slice: "Transportdisponent:in" three times at Industriestrasse
- * 109, 9200 Gossau with one text. The earliest-seen record is kept, so the
- * published URL/slug that search engines already know survives; the others
- * are returned so the caller can report them. Records without a full store
- * address are never collapsed.
+ * 109, 9200 Gossau with one text. Records without a full store address are
+ * never collapsed, even when their pages are identical: two UUIDs without a
+ * street can be two vacancies of one role, and collapsing them would drop a
+ * live page (Coop's two "Detailhandelsfachfrau:mann EFZ" apprenticeships at
+ * Heiden, pages identical but for the ATS tracking id, stay two records).
+ *
+ * The earliest-seen record is kept, so the published URL/slug that search
+ * engines already know survives, and it absorbs every route of the records it
+ * replaces (`transferSlugHistory`, the slug-history bridge also used by
+ * `reconcile-crawler-company-ownership.mjs`): their indexed URLs redirect to
+ * it instead of answering 404. The replaced records are returned so the caller
+ * can report them.
  *
  * @returns {{ kept: object[], collapsed: Array<{url: string, keptUrl: string}> }}
  */
@@ -546,8 +582,12 @@ export function collapseRepublishedCoopVacancies(jobs = []) {
   for (const job of input) {
     const key = keyOf(job);
     const keeper = key ? keeperByKey.get(key) : null;
-    if (keeper && keeper !== job) collapsed.push({ url: job.url, keptUrl: keeper.url });
-    else kept.push(job);
+    if (keeper && keeper !== job) {
+      absorbRepublishedRoutes(keeper, job);
+      collapsed.push({ url: job.url, keptUrl: keeper.url });
+    } else {
+      kept.push(job);
+    }
   }
   return { kept, collapsed };
 }
@@ -904,13 +944,20 @@ export function applyCoopSourceDetailToJob(job, jsonLd, page = null) {
   const detailEvidence = jsonLdAddressCandidates(jsonLd)
     .map((candidate) => ({ candidate, geography: resolveCoopJsonLdGeography(candidate) }))
     .find(({ geography }) => geography);
-  if (!detailEvidence) {
+  const workplaceEvidence = pageWorkplaceEvidence(job, page) || listingAddressEvidence(job);
+  // The JSON-LD address is the employer's office, not the vacancy's place, and
+  // it can be unresolvable on its own: the Jumbo/Coop apprenticeship template
+  // stamps "Gossau", which names two municipalities (SG and ZH). The workplace
+  // the page and the listing declare is the vacancy's own evidence; without
+  // it the record is still rejected (two Jumbo "Detailhandelsfachfrau:mann /
+  // -assistent:in" at Weinfelden Thurmarkt and St. Gallen Gallusmarkt were
+  // dropped as "location rejected" on 2026-09-29).
+  if (!detailEvidence && !workplaceEvidence) {
     throw detailRejection(`Coop-family detail location rejected: ${job?.url || 'missing-url'}`);
   }
 
-  const workplaceEvidence = pageWorkplaceEvidence(job, page) || listingAddressEvidence(job);
   const workplaceKey = normalizeSwissTargetLocationText(workplaceEvidence?.geography?.location || '');
-  const detailKey = normalizeSwissTargetLocationText(detailEvidence.geography.location);
+  const detailKey = normalizeSwissTargetLocationText(detailEvidence?.geography?.location || '');
   // A branch label that starts with the detail municipality ("Schaffhausen,
   // Herblingermarkt" vs JSON-LD "Schaffhausen") names the same place: keep the
   // detail's municipality and its street address.
@@ -918,8 +965,7 @@ export function applyCoopSourceDetailToJob(job, jsonLd, page = null) {
     && workplaceKey.startsWith(detailKey)
     && !/^[\p{L}\p{N}]/u.test(workplaceKey.slice(detailKey.length));
   const workplaceOverridesDetail = Boolean(workplaceEvidence)
-    && workplaceKey !== detailKey
-    && !labelNamesDetail;
+    && (!detailEvidence || (workplaceKey !== detailKey && !labelNamesDetail));
   const evidence = workplaceOverridesDetail ? workplaceEvidence : detailEvidence;
 
   const sourceLang = String(job?.sourceLang || 'de').trim() || 'de';

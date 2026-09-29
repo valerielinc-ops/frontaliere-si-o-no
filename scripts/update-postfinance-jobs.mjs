@@ -41,6 +41,7 @@
  *   6. Per-job canton via inferAnyCanton on the city slug (all 26 cantons);
  *      drop jobs whose canton does not resolve to a Swiss canton (non-CH)
  */
+import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -361,7 +362,8 @@ function parseSitemapUrls(xml = '') {
   const locRe = /<loc>\s*(.*?)\s*<\/loc>/gi;
   let match;
   while ((match = locRe.exec(xml)) !== null) {
-    const url = match[1].replace(/&amp;/g, '&').trim();
+    // XML text: every predefined entity, not only `&amp;` (decodeSitemapLoc).
+    const url = decodeSitemapLoc(match[1]);
     if (url) urls.push(url);
   }
   return urls;

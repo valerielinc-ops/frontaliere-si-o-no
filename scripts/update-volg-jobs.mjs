@@ -58,7 +58,7 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { CANTON_POSTAL_FALLBACK } from './lib/canton-postal-fallback.mjs';
+import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -649,37 +649,6 @@ export const VOLG_INVENTED_TEXT_RX = new RegExp(
   [VOLG_LISTING_LINE_RX.source, ...VOLG_INVENTED_TEXT_MARKERS.map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))].join('|'),
 );
 
-// Per-city postal code table for known Volg/LANDI/fenaco locations.
-// Used as a fast lookup; cities outside the table fall back to a
-// canton-level postal code (see CANTON_POSTAL_FALLBACK), then '0000'.
-// Prevents applyCompanyDefaults from overwriting per-job locations with HQ (Cadenazzo).
-const CITY_POSTAL_CH = {
-  // Graubünden
-  Andeer: '7440', Arosa: '7050', Bever: '7502', Bonaduz: '7402', Chur: '7000',
-  'Davos Dorf': '7260', 'Davos Platz': '7270', 'Disentis/Mustér': '7180',
-  'Eggersriet SG': '9034', Flims: '7017', Klosters: '7250', 'Laax Signina': '7031',
-  Landquart: '7302', Lenzerheide: '7078', Malans: '7208', Maienfeld: '7304',
-  Nufenen: '6546', Pany: '7234', Pontresina: '7504', Poschiavo: '7742',
-  Saas: '7247', 'Sils Maria': '7514', Splügen: '7435', 'St. Moritz': '7500',
-  'Tenna GR': '7106', Thusis: '7430', Trimmis: '7203', Untervaz: '7204',
-  Vals: '7132', Zuoz: '7524',
-  // Valais / Wallis
-  Anniviers: '3960', Baltschieder: '3937', Bettmeralp: '3992', Binn: '3996',
-  'Brig-Glis': '3900', Bürchen: '3943', 'Collombey-Muraz': '1868',
-  Ernen: '3995', Eyholz: '3930', Founex: '1297', Grächen: '3925',
-  'Obergoms VS': '3988', Orsières: '1937', Raron: '3942', Reckingen: '3993',
-  'Saint-Maurice': '1890', Saxon: '1907', Saas: '3910',
-  'Unterbäch': '3944', Veysonnaz: '1993', Vex: '1981', Visp: '3930',
-  Visperterminen: '3932', Vissoie: '3960', 'Wiler (Lötschen)': '3918',
-  // Ticino
-  Bellinzona: '6500', Biasca: '6710', Cadenazzo: '6593', Chiasso: '6830',
-  'Giubiasco': '6512', Locarno: '6600', Lugano: '6900', Mendrisio: '6850',
-};
-
-function getPostalCode(city = '', canton = '') {
-  return CITY_POSTAL_CH[city] || CANTON_POSTAL_FALLBACK[canton] || '0000';
-}
-
 // Canton -> primary official language fallback. Volg/LANDI/fenaco is CH-wide,
 // so a hardcoded 'de' fallback mislabels French/Italian-canton postings
 // (detectLang() falls back to the caller-supplied default for short/ambiguous
@@ -727,7 +696,11 @@ export function buildJob(raw) {
   const localeFallback = resolveCantonLocale(canton);
   const sourceLang = sourceLangFromDetailUrl(url) || detectLang(title, localeFallback);
   const today = new Date().toISOString().slice(0, 10);
-  const postalCode = getPostalCode(city, canton);
+  // The listing names only the locality: its CAP comes from the official
+  // directory of localities or stays empty for the detail page to fill. A
+  // hand-kept city table with canton stand-ins published Reiden (LU) as 5000,
+  // the CAP of Aarau, and every unknown Zürich locality as 8000.
+  const postalCode = officialLocalityPostalCode(city, canton);
   // No body before the detail page is read: the listing carries only title,
   // employer, place, Pensum and contract, which the enriched body repeats from
   // the page's own facts. A vacancy without a detail body gets none here — see

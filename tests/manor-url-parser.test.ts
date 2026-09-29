@@ -11,6 +11,7 @@ import {
   extractCityFromUrl,
   extractTitleFromUrl,
   parseJobPage,
+  parseSitemapUrls,
   readManorDescriptionLang,
   resolveManorBodyLang,
   resolveManorLocation,
@@ -372,5 +373,53 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(jobs.map((job) => job.url.match(/(\d+)\/$/)?.[1])).toEqual(['1362291455', '1368627455']);
     expect(reposts).toHaveLength(2);
     expect(reposts.every((r) => r.keptUrl.includes('1362291455'))).toBe(true);
+  });
+});
+
+describe('Manor locale copies of one vacancy (audit-parser-quality issue 5253, duplicate-descriptions)', () => {
+  // positions.manor.ch gives no store: the page carries "Basel, CH" only, so
+  // the city is the whole site the source states. Manor publishes one
+  // vacancy once per portal locale (1368279755 en-US, 1368279855 fr-FR,
+  // 1368279955 de-DE for "Buyer (Women's Fashion) 100%", same body).
+  const fixture = (name: string) => readFileSync(new URL(`./fixtures/manor-job-buyer-${name}-template.html`, import.meta.url), 'utf8');
+  const SITEMAP = [
+    "<loc>https://positions.manor.ch/job/Basel-Buyer-%28Women&apos;s-Fashion%29-100/1368279955/</loc>",
+    "<loc>https://positions.manor.ch/job/Basel-Buyer-%28Women&apos;s-Fashion%29-100/1368279755/</loc>",
+  ].join('\n');
+
+  it('decodes the escaped apostrophe of the sitemap instead of publishing it in the URL', () => {
+    expect(parseSitemapUrls(SITEMAP)).toEqual([
+      "https://positions.manor.ch/job/Basel-Buyer-%28Women's-Fashion%29-100/1368279955/",
+      "https://positions.manor.ch/job/Basel-Buyer-%28Women's-Fashion%29-100/1368279755/",
+    ]);
+    expect(parseSitemapUrls('<loc>https://positions.manor.ch/job/a?x=1&amp;y=2/1/</loc>')).toEqual(['https://positions.manor.ch/job/a?x=1&y=2/1/']);
+  });
+
+  it('reads the vacancy body of the English template, whose span declares itemprop before class', () => {
+    const [deUrl, enUrl] = parseSitemapUrls(SITEMAP);
+    const de = parseJobPage(fixture('de'), deUrl);
+    const en = parseJobPage(fixture('en'), enUrl);
+    expect(en.title).toBe("Buyer (Women's Fashion) 100%");
+    expect(en.description).toMatch(/^• Minimum of 5 years' experience in a similar senior buying role/);
+    expect(en.description).toBe(de.description);
+  });
+
+  it('does not treat a data-class attribute as the vacancy body class', () => {
+    const html = '<meta property="og:title" content="Buyer" />'
+      + '<span itemprop="description"><span data-class="jobdescription">wrong</span></span>';
+    expect(parseJobPage(html, BIEL_URL).description).toBe('');
+  });
+
+  it('collapses the locale copies once both bodies are read, keeping the lowest requisition id', () => {
+    const jobs = parseSitemapUrls(SITEMAP).map((url) => {
+      const page = parseJobPage(fixture(url.includes('1368279755') ? 'en' : 'de'), url);
+      const built = buildManorJobDescriptions({
+        title: page.title, city: 'Basel', canton: 'BS', pageDescription: page.description, pageLang: page.descriptionLang,
+      });
+      return { url, title: page.title, location: 'Basel', description: built.description, _manorVacancyBody: built.body };
+    });
+    const { jobs: unique, reposts } = dedupeManorReposts(jobs);
+    expect(unique.map((job) => job.url.match(/(\d+)\/$/)?.[1])).toEqual(['1368279755']);
+    expect(reposts).toEqual([{ url: expect.stringContaining('1368279955'), keptUrl: expect.stringContaining('1368279755') }]);
   });
 });

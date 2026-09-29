@@ -138,6 +138,23 @@ describe('Volg listing geography and source language', () => {
     ]);
   });
 
+  it('takes the CAP of the real locality from the official directory, never a canton stand-in', () => {
+    const listing = (city: string, canton: string) => buildJob({
+      url: 'https://jobs.fenaco.com/offene-stellen/werkstattleitung-w-m-d/69eba901-9bba-4dca-9e87-019ce171fd8c',
+      title: 'Werkstattleitung (w/m/d)', company: 'Kunz Landtechnik', city, canton, workload: '80-100%', contractTerms: 'unbefristet',
+    });
+
+    // Main's 2026-09-29 slice: Reiden (LU) at 5000, the CAP of Aarau (AG),
+    // Winterthur at 8000; 62 records carried 5000, 41 carried 8000.
+    expect(listing('Reiden', 'LU')).toMatchObject({ location: 'Reiden', addressLocality: 'Reiden', postalCode: '6260', streetAddress: '' });
+    expect(listing('Marthalen', 'ZH').postalCode).toBe('8460');
+    // A place the directory does not list, or the multi-part employer label
+    // itself, gets no CAP: the detail page fills it or it stays empty.
+    expect(listing('Serco Retail AG, Reiden', 'LU').postalCode).toBe('');
+    expect(listing('Saas', 'GR').postalCode).toBe('');
+    expect(listing('Nowhere', 'AG').postalCode).toBe('');
+  });
+
   it('reads the source language from the detail path, not from a short title', () => {
     expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-landi-f-h-d/a5605337-eb60-4611-8e71-12e9572b965f')).toBe('fr');
     expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-efz/1')).toBe('de');

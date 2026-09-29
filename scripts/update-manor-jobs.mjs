@@ -20,6 +20,7 @@
  * from the store city encoded in the URL via inferAnyCanton; the region gate
  * is isTargetSwissLocation across all 26 Swiss cantons.
  */
+import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
 import path from 'node:path';
@@ -422,16 +423,14 @@ function sleep(ms) {
 }
 
 /* ── Sitemap parser ────────────────────────────────────────── */
-function parseSitemapUrls(xml) {
+export function parseSitemapUrls(xml) {
   const urls = [];
   const re = /<loc>([^<]+)<\/loc>/g;
   let match;
   while ((match = re.exec(xml)) !== null) {
-    const url = match[1]
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .trim();
+    // The sitemap escapes the apostrophe too ("Basel-Buyer-%28Women&apos;s-
+    // Fashion%29-100"): left undecoded it became part of the published URL.
+    const url = decodeSitemapLoc(match[1]);
     urls.push(url);
   }
   return urls;
@@ -569,8 +568,12 @@ export function parseJobPage(html, url) {
   const titleMatch = html.match(/itemprop="title"[^>]*>([^<]+)/i);
   const title = metaTitle || (titleMatch ? decodeEntities(titleMatch[1]).trim() : null);
 
-  // Extract description from <span class="jobdescription">
-  const descMatch = html.match(/<span class="jobdescription">([\s\S]*?)<\/span>/);
+  // Extract description from <span class="jobdescription">. The English
+  // template writes `<span itemprop="description" class="jobdescription">`
+  // (1368279755, the en-US copy of "Buyer (Women's Fashion) 100%"): a regex
+  // anchored on `<span class=` read no body there, so the copy was published
+  // with the company context only and never recognised as a repost.
+  const descMatch = html.match(/<span\b[^>]*\sclass="jobdescription"[^>]*>([\s\S]*?)<\/span>/);
   const rawDesc = descMatch ? normalizeDescriptionBullets(htmlToText(descMatch[1])) : '';
 
   // Extract posted date from itemprop="datePosted"
