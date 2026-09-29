@@ -20,7 +20,7 @@ import { parseDetailDescription as parsePlaineDetail } from '../scripts/lib/clin
 import { parseDetailDescription as parseDiaconisDetail } from '../scripts/lib/stiftung-diaconis-job-parser.mjs';
 import { extractDetailBody as extractArsanteDetailBody } from '../scripts/lib/arsante-clinique-de-carouge-job-parser.mjs';
 import { extractBalancedJobDescription, parseDetail as parseRfsmDetail } from '../scripts/lib/rfsm-fribourg-job-parser.mjs';
-import { extractCaseificioDetailDescription } from '../scripts/lib/caseificio-gottardo-detail.mjs';
+import { extractCaseificioDetailDescription } from '../scripts/update-caseificio-gottardo-jobs.mjs';
 import { parseAlpiqDetailHtml } from '../scripts/lib/alpiq-job-parser.mjs';
 import { extractDetailBody as extractCrrDetailBody } from '../scripts/lib/crr-suva-sion-job-parser.mjs';
 import { extractBodyText as extractLhmBodyText } from '../scripts/lib/lhm-luzerner-hohenklinik-montana-job-parser.mjs';
