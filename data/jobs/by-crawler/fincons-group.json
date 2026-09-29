@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fincons-group",
-  "assembledAt": "2026-09-28T21:19:27.883Z",
+  "assembledAt": "2026-09-29T09:13:38.953Z",
   "jobs": [
     {
       "title": "Applikations-Manager:in 80 - 100%",
@@ -107,7 +107,7 @@
       "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Konzeption, Weiterentwicklung und Betrieb von Datenbank-Services für PostgreSQL, MongoDB und MS SQL auf Azure und AWS\n- Bereitstellung der Datenbank-Services über GitOps, Operatoren und ein Self-Service-Portal\n- Unterstützung der Anwendungsteams bei der Nutzung und Anbindung der Datenbanken\n- Begleitung von Service-Umstellungen sowie Umsetzung von neuen Anforderungen und Verbesserungen\n- Wartung und Betrieb der Datenbank-Services in Zusammenarbeit mit externen Betriebsteams\n\n## Anforderungen\n\n- Erfahrung in der Softwareentwicklung mit Go und Node.js, idealerweise für die Automatisierung von Infrastrukturprozessen\n- Gute praktische Erfahrung im Bmit Infrastructure as Code und Automatisierungstools wie Terraform und Crossplane\n- Kenntnisse in CI/CD- und GitOps-Umgebungen mit Git, ArgoCD und Tekton\n- Erfahrung mit Kubernetes oder OpenShift\n- Gute Kenntnisse von Cloud-Plattformen, insbesondere AWS oder Azure\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Cloud & Datenbanken 80 - 100%",
-        "en": "DevOps Engineer Cloud & Databases 80 - 100%",
+        "en": "DevOps Engineer Cloud & Datenbanken 80 - 100%",
         "de": "DevOps Ingenieur Cloud & Datenbanken 80 - 100%",
         "fr": "DevOps Ingénieur Cloud & Datenbanken 80 - 100%"
       },
@@ -1083,13 +1083,11 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time-k79vyz",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+          "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
         ],
         "en": [
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time-k79vyz",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+          "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
         ],
         "fr": [
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
@@ -1097,8 +1095,7 @@
       },
       "previousSlugs": [
         "senior-applikations-entwickler-in-80-100-fincons-group-full-time-k79vyz",
-        "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-        "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+        "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
       ]
     },
     {
@@ -1844,7 +1841,8 @@
       },
       "previousSlugs": [
         "senior-software-ingenieur-in-java-angular-100-fincons-group-full-time"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Software-Entwickler:in Backend 50%",
@@ -2025,7 +2023,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-01",
-      "validThrough": "2026-09-29",
+      "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Sicherstellung des Betriebs sowie des Lifecycle-Managements und der Weiterentwicklung der OpenShift- und Kubernetes-Plattformen (On-Premises und Cloud)\n- Analyse, Optimierung und proaktives Performance-Tuning der bestehenden Umgebungen\n- Entgegennahme, Analyse und nachhaltige Behebung von Störungen im Rahmen des Incident- und Problemmanagements\n- Planung, Koordination und Umsetzung von Changes gemäss definierten Changemanagement-Prozessen\n- Effiziente Bearbeitung von Jira-Tickets gemäss Priorisierung und Zuweisung durch den Product Owner\n- Aktive Teilnahme an agilen Zeremonien im Team sowie im ART (z. B. Sprints und PI Planning)\n\n## Anforderungen\n\n- Fundierte Erfahrung mit Red Hat OpenShift und Kubernetes (On-Premises)\n- Kenntnisse in Oracle Forms, ADF und WebLogic Server (WLS)\n- Sehr gute Kenntnisse in Linux (RHEL)\n- Erfahrung im Umgang mit Ansible\n- Solide Grundkenntnisse in den Bereichen Netzwerk, Security, Storage und Betriebssysteme\n- Praxiserfahrung mit Splunk und ServiceNow\n- Kenntnisse agiler Arbeitsmethoden (SAFe, Scrum)\n- Gute Kenntnisse von ITIL-Prozessen\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n- Strukturierte, selbstständige und zuverlässige Arbeitsweise\n- Erfahrung in einem agilen, teamorientierten Arbeitsumfeld\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
@@ -2048,8 +2046,8 @@
         "fr": "system-ingenieur-devops-openshift-kubernetes-fincons-group-bern"
       },
       "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260701084515_LN8SHGSV7KLPKEJK",
+        "experienceRequirements": "",
+        "uniqueJobCode": "",
         "listingLocation": "Bern, Bern, Switzerland",
         "listingDepartment": ""
       },
