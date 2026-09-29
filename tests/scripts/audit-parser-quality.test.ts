@@ -46,10 +46,16 @@ import {
   SOURCE_DETAIL_NORMALIZER_VERSION_FILES,
   vacancyHeadingSublineFields,
   workdayPrimaryLocationFromUrl,
+  assignSeverity,
+  duplicateBucketSourceSample,
+  duplicateBucketSampleOutcome,
+  largestDuplicateBucketMembers,
+  DUPLICATE_BUCKET_SAMPLE_REASON,
 } from '../../scripts/audit-parser-quality.mjs';
 import { extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
   SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+  classifySourceDetailObservation,
   createSourceDetailEvidence,
   createSourceDetailEvidenceBundle,
   replaySourceDetailEvidence,
@@ -1206,6 +1212,54 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationMismatch).toBe(true);
     expect(result.locationInconclusive).toBe(false);
     expect(result.descriptionMismatch).toBe(true);
+  });
+
+  describe('description overlap is containment of the shorter text (issue 5253)', () => {
+    // microsoft 1970393557002627 on run 36528331656: the JSON-LD holds only the
+    // bullets (1 791 chars), the published body is the whole JD (6 140 chars).
+    const bullets = 'Design, build and operate large scale distributed services on Azure infrastructure. Partner with product teams to define reliability objectives, capacity models and incident response. Mentor engineers through design reviews, code reviews and on-call rotations. ';
+    const overview = 'Overview: Microsoft Cloud Operations brings together engineers who keep the platform running for customers in every region, with a strong culture of learning, inclusion and ownership across teams and geographies. ';
+    const qualifications = 'Qualifications: Bachelor degree in computer science or related field with several years of professional experience in software engineering, strong communication skills and experience with cloud platforms. ';
+    const observation = (published: string, source: string) => compareSourceDetail(
+      { location: 'Zürich', sourceLang: 'en', description: published },
+      { location: 'Zürich', description: source },
+      { locationEvidence: 'jsonld' },
+    );
+
+    it('accepts a published body that carries the whole, shorter source and more', () => {
+      const result = observation(`${overview}${bullets}${qualifications}`.repeat(2), bullets.repeat(2));
+      expect(result.descriptionMismatch).toBe(false);
+      expect(result.overlapRatio).toBe(1);
+    });
+
+    it('keeps an unrelated published body a mismatch, whichever side is longer', () => {
+      const unrelatedShort = 'Wir suchen eine Pflegefachperson für unsere Bettenstation mit Freude an interprofessioneller Zusammenarbeit, Belastbarkeit und Flexibilität in Nacht- und Wochenenddiensten. ';
+      expect(observation(unrelatedShort.repeat(6), bullets.repeat(2)).descriptionMismatch).toBe(true);
+      expect(observation(unrelatedShort.repeat(4), `${overview}${bullets}${qualifications}`.repeat(2)).descriptionMismatch).toBe(true);
+    });
+
+    it('keeps a published fragment of a longer source a mismatch through the 45 % length rule', () => {
+      const result = observation(bullets, `${overview}${bullets}${qualifications}`.repeat(2));
+      expect(result.overlapRatio).toBe(1);
+      expect(result.publishedDescriptionLength).toBeLessThan(result.sourceDescriptionLength * 0.45);
+      expect(result.descriptionMismatch).toBe(true);
+    });
+
+    it('replays an observation sealed before sourceWordCount with the published denominator it was sealed with', () => {
+      const sealed = {
+        location: { checked: true, matchesPublished: true, inconclusive: false, evidence: 'jsonld', authority: 'source-detail' },
+        description: { publishedDescriptionLength: 6140, sourceDescriptionLength: 1791, publishedWordCount: 366, overlapWordCount: 111 },
+      };
+      expect(classifySourceDetailObservation(sealed)).toMatchObject({ descriptionMismatch: true, overlapRatio: 0.3 });
+      expect(classifySourceDetailObservation({
+        ...sealed,
+        description: { ...sealed.description, sourceWordCount: 111 },
+      })).toMatchObject({ descriptionMismatch: false, overlapRatio: 1 });
+      expect(() => classifySourceDetailObservation({
+        ...sealed,
+        description: { ...sealed.description, sourceWordCount: 100 },
+      })).toThrow(/exceeds the source word set/);
+    });
   });
 
   it('does not flag a sufficiently faithful source description', () => {
@@ -2365,6 +2419,188 @@ describe('largestDuplicateBucket', () => {
     // 55 total; the largest single bucket (50) stays below it.
     expect(countDuplicates(fps)).toBe(53);
     expect(largestDuplicateBucket(fps)).toBe(50);
+  });
+});
+
+describe('desc-only fingerprint compares the whole body (issue 5253, run 36528331656)', () => {
+  // Geometry of klinik-lengg on that run: two variants of one nursing role share
+  // a long head, which set the crawler-wide slice offset; two unrelated roles of
+  // the same length end with the clinic's closing paragraph. The old 500-char
+  // window of those two landed inside the shared paragraph and "collided".
+  const footer = 'Die Klinik ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation. Es ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.';
+  const nursingHead = 'Aufgaben: Sie pflegen und betreuen Patientinnen und Patienten mit neurologischen Erkrankungen und Epilepsie auf der Bettenstation, planen die Pflege nach dem Pflegeprozess, arbeiten eng mit Ärztinnen, Ärzten und Therapeutinnen zusammen, begleiten Lernende und Studierende, übernehmen die Tagesverantwortung und dokumentieren sorgfältig im klinischen Informationssystem. Anforderungen: Diplom als Pflegefachperson HF oder FH, Berufserfahrung in der Neurologie oder Rehabilitation von Vorteil, Freude an interprofessioneller Zusammenarbeit, hohe Sozialkompetenz, Belastbarkeit und Flexibilität. ';
+  const internship = 'Aufgaben: Kennenlernen der neuropsychologischen Diagnostik und Therapie, Durchführung von Einzel- und Gruppentherapie unter Supervision. Anforderungen: abgeschlossenes Bachelor-Studium in Psychologie, Interesse an klinischer Neuropsychologie. ';
+  const apprenticeshipBase = 'Aufgaben: Als Fachfrau oder Fachmann Gesundheit pflegen und betreuen Sie Menschen mit neurologischen Erkrankungen. Anforderungen: Schulabschluss Sek. A oder B, Bereitschaft für unregelmässige Arbeitszeiten, Multicheck';
+  // Same length as `internship`, as on the live run (1459 chars both).
+  const apprenticeship = `${apprenticeshipBase}${', Freude am Umgang mit Menschen und Teamgeist'.slice(0, internship.length - apprenticeshipBase.length - 2)}. `;
+  const clinicJobs = [
+    { title: 'Dipl. Pflegefachperson 80-100%', description: `${nursingHead}Pensum 80-100 %, Station Nord. ${footer}` },
+    { title: 'Dipl. Pflegefachperson 40-60%', description: `${nursingHead}Teilzeit 40-60 % in der Nachtwache, Station Süd. ${footer}` },
+    { title: 'Praktikum Neuropsychologie (a)', description: `${internship}${footer}` },
+    { title: 'Lehrstelle Fachfrau / Fachmann Gesundheit EFZ (a) 2027', description: `${apprenticeship}${footer}` },
+  ];
+
+  it('does not collide two different roles that only share the closing paragraph', () => {
+    expect(apprenticeship.length).toBe(internship.length);
+    const fps = fingerprintsForCrawler(clinicJobs, 'desc-only');
+    expect(largestDuplicateBucket(fps)).toBe(1);
+    expect(largestDuplicateBucketMembers(fps)).toHaveLength(1);
+  });
+
+  it('counts identical bodies that a crawler-wide slice offset used to push past their end', () => {
+    // jumbo on that run: 30 byte-identical bodies, desc-only count 2.
+    const shortTemplate = 'Wir suchen für unsere Filiale eine motivierte Verkaufsperson. Du berätst Kundinnen und Kunden, bewirtschaftest die Ware und arbeitest an der Kasse. Du bringst eine abgeschlossene Ausbildung im Detailhandel mit. Wir bieten dir ein junges Team und attraktive Einkaufsrabatte.';
+    const jobs = [
+      clinicJobs[0],
+      clinicJobs[1],
+      { title: 'Verkäufer/in 100% Zürich', description: shortTemplate },
+      { title: 'Verkäufer/in 60% Bern', description: shortTemplate },
+      { title: 'Aushilfe Verkauf Basel', description: shortTemplate },
+    ];
+    const fps = fingerprintsForCrawler(jobs, 'desc-only');
+    expect(largestDuplicateBucket(fps)).toBe(3);
+    expect(largestDuplicateBucketMembers(fps)).toEqual([2, 3, 4]);
+  });
+
+  it('leaves the title-aware fingerprint (duplicate listings) unchanged', () => {
+    const fps = fingerprintsForCrawler(clinicJobs, 'title-aware');
+    expect(fps.every((fp) => fp.split('||').length === 3)).toBe(true);
+    expect(fps[0].split('||')[2].length).toBeLessThanOrEqual(500);
+  });
+});
+
+describe('identical-description bucket: severity contract and source verification', () => {
+  const hiddenBucket = (count: number, total: number) => ({
+    type: 'duplicate-descriptions-desc-only', count, total, message: '', hidden: true,
+  });
+
+  it('a crawler whose only finding is the hidden bucket signal is OK, not an unexplained WARNING', () => {
+    // 55 crawlers of run 36528331656 (axa-svizzera 2/3, jysk 23/70, …) were
+    // WARNING with no printed line: the only issue was this hidden one.
+    const entry: Record<string, unknown> & { issues: Issue[] } = { total: 70, issues: [hiddenBucket(23, 70)] };
+    expect(issueDrivenSeverity(entry)).toBe('OK');
+    assignSeverity(entry);
+    expect(entry.severity).toBe('OK');
+  });
+
+  it('a visible issue next to the hidden one still makes the crawler WARNING', () => {
+    const entry: Record<string, unknown> & { issues: Issue[] } = {
+      total: 70,
+      issues: [
+        hiddenBucket(23, 70),
+        { type: 'missing-locales', count: 3, total: 70, message: '3/70 missing 2+ locales' },
+      ],
+    };
+    expect(issueDrivenSeverity(entry)).toBe('WARNING');
+    assignSeverity(entry);
+    expect(entry.severity).toBe('WARNING');
+  });
+
+  it('the chrome ratchet still escalates a universal blob through the hidden signal', () => {
+    const report: Record<string, Entry> = { chrome: makeDuplicateEntry(9, 9, 'OK') };
+    applyDuplicateDescriptionRatchet(report);
+    expect(report.chrome.severity).toBe('CRITICAL');
+  });
+
+  describe('duplicateBucketSourceSample', () => {
+    const template = 'Du berätst unsere Kundschaft in allen Fragen rund um Versicherung und Vorsorge und baust dein eigenes Netzwerk in der Region auf.';
+    const job = (i: number, description: string, url = `https://jobs.example.test/${i}`) => ({
+      title: `Stelle ${i}`,
+      description,
+      url,
+    });
+
+    it('picks the first member of the largest bucket outside the regular sample', () => {
+      const jobs = [job(0, 'Eigene Beschreibung null mit genug Text'), job(1, 'Eigene Beschreibung eins mit genug Text'), job(2, template), job(3, template)];
+      expect(duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'))).toEqual({ index: 2, bucketSize: 2 });
+    });
+
+    it('adds nothing when the regular sample already verifies a bucket member', () => {
+      const jobs = [job(0, template), job(1, 'Eigene Beschreibung eins mit genug Text'), job(2, template)];
+      expect(duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'))).toBeNull();
+    });
+
+    it('never requests a URL the regular sample already requests', () => {
+      const jobs = [
+        job(0, 'Eigene Beschreibung null mit genug Text', 'https://jobs.example.test/shared'),
+        job(1, 'Eigene Beschreibung eins mit genug Text'),
+        job(2, template, 'https://jobs.example.test/shared'),
+        job(3, template),
+      ];
+      expect(duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'))).toEqual({ index: 3, bucketSize: 2 });
+    });
+
+    it('adds nothing when no body repeats', () => {
+      const jobs = [job(0, 'Eigene Beschreibung null mit genug Text'), job(1, 'Eigene Beschreibung eins mit genug Text'), job(2, template)];
+      expect(duplicateBucketSourceSample(jobs, fingerprintsForCrawler(jobs, 'desc-only'))).toBeNull();
+    });
+  });
+
+  // End to end through the same fetch → extract → compare path as the audit.
+  // The published body is the one both bucket members carry; the source page
+  // is the one the sampled member links to.
+  const companyBlurb = 'Engel & Völkers ist ein weltweit führendes Dienstleistungsunternehmen in der Vermittlung von hochwertigen Immobilien. Unsere langjährige Erfahrung kombiniert ein starkes regionales und weltweites Netzwerk. Menschen und Immobilien sind uns eine Herzensangelegenheit.';
+  const roleBody = [
+    'Ihre Aufgaben: Akquise und Aufbau von Neukundenbeziehungen in Ihrem eigenen Farminggebiet. Beratung und Begleitung des gesamten Verkaufsprozesses. Durchführung von Objektbesichtigungen und Verkaufsverhandlungen. Eigenständige Abwicklung der Verkäufe bis zur Beurkundung.',
+    'Ihr Profil: Sie sind bereits über fünf Jahre als Immobilienmaklerin oder Immobilienmakler tätig, verfügen über fundierte Markt- und Fachkenntnisse und gehen engagiert auf die individuellen Bedürfnisse Ihrer Kundschaft ein. Einwandfreie Deutschkenntnisse und ein gültiger Führerausweis der Kategorie B werden vorausgesetzt.',
+    'Unser Angebot: Sie verantworten in Ihrem Farminggebiet die Immobilienvermarktung, gestalten Ihren Arbeitsalltag flexibel, nutzen das weltweite Netzwerk und bilden sich an der internen Academy weiter. Festanstellung mit leistungsorientierter Provision.',
+  ].join(' ');
+  const sourcePage = (description: string) => `<html><head><script type="application/ld+json">${JSON.stringify({
+    '@type': 'JobPosting',
+    title: 'Senior Immobilienmakler/in 100%',
+    description,
+    jobLocation: { address: { addressLocality: 'Schaffhausen', addressCountry: 'CH' } },
+  })}</script></head><body><h1>Senior Immobilienmakler/in 100%</h1></body></html>`;
+  const verify = async (published: string, sourceDescription: string) => {
+    const url = 'https://jobs.example.test/senior-immobilienmakler';
+    const results = await checkSourceDetailsBatch([{
+      crawlerKey: 'bucket-fixture',
+      url,
+      sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
+      bucketSize: 2,
+      job: { url, location: 'Schaffhausen', addressLocality: 'Schaffhausen', sourceLang: 'de', description: published },
+    }], 1, {
+      fetchPage: async () => ({ ok: true, status: 200, url, body: sourcePage(sourceDescription), host: 'jobs.example.test' }),
+    });
+    const report: Record<string, { total: number; issues: Issue[]; severity?: string }> = {
+      'bucket-fixture': { total: 10, issues: [hiddenBucket(2, 10) as Issue] },
+    };
+    const summary = applySourceDetailResults(report, results, results.length);
+    assignSeverity(report['bucket-fixture']);
+    return { entry: report['bucket-fixture'], summary, result: results[0] };
+  };
+
+  it('a legitimate template (the source carries the same body) is not a WARNING', async () => {
+    const templateBody = `${companyBlurb} ${roleBody}`;
+    const { entry, summary, result } = await verify(templateBody, templateBody);
+    expect(duplicateBucketSampleOutcome(result)).toBe('matched');
+    expect(entry.issues.filter((issue) => !issue.hidden)).toEqual([]);
+    expect(entry.severity).toBe('OK');
+    expect(summary.duplicateBucketSamples).toMatchObject({ requested: 1, matched: 1, mismatched: 0 });
+    expect((entry.issues[0] as Issue & { sourceVerification?: { outcome: string } }).sourceVerification?.outcome).toBe('matched');
+  });
+
+  it('a generic fallback (company blurb instead of the role body) stays flagged', async () => {
+    const { entry, summary, result } = await verify(companyBlurb, `${companyBlurb} ${roleBody}`);
+    expect(duplicateBucketSampleOutcome(result)).toBe('mismatched');
+    const mismatch = entry.issues.find((issue) => issue.type === 'source-detail-mismatch') as Issue & { details?: string[] };
+    expect(mismatch).toMatchObject({ descriptionMismatches: 1 });
+    expect(mismatch.details?.[0]).toMatch(/body shared verbatim by 2 jobs/);
+    expect(entry.severity).toBe('WARNING');
+    expect(summary.duplicateBucketSamples).toMatchObject({ requested: 1, matched: 0, mismatched: 1 });
+  });
+
+  it('a source body too short to contradict anything proves nothing and is counted as such', () => {
+    expect(duplicateBucketSampleOutcome({ sourceDescriptionLength: 0 })).toBe('notComparable');
+    expect(duplicateBucketSampleOutcome({ fetchFailed: true })).toBe('fetchFailed');
+    expect(duplicateBucketSampleOutcome({ processingFailed: true })).toBe('processingFailed');
+  });
+
+  it('prints the bucket outcomes on every run', () => {
+    const lines = formatSourceDetailObservationLines({
+      duplicateBucketSamples: { requested: 87, matched: 46, mismatched: 27, notComparable: 8, fetchFailed: 6, processingFailed: 0 },
+    });
+    expect(lines).toContain('Identical-description buckets checked against the source: 87 sampled — 46 carry their source body (template), 27 contradicted by it (source-detail-mismatch), 8 source body < 200 chars (proves nothing), 6 fetch failed, 0 processing failed');
   });
 });
 

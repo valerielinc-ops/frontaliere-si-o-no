@@ -1085,6 +1085,7 @@ export function compareSourceDetail(job, detail, {
       publishedDescriptionLength: publishedDescription.length,
       sourceDescriptionLength: sourceDescriptionText.length,
       publishedWordCount: publishedWords.size,
+      sourceWordCount: sourceWords.size,
       overlapWordCount: overlap,
     },
   };
@@ -1231,6 +1232,21 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
 export function sourceDetailUnobserved(result) {
   return !result.sourceLocation
     && Number(result.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS;
+}
+
+/**
+ * What one identical-description bucket sample proved. `matched` is the only
+ * outcome that says "template": the source body was long enough to contradict
+ * the published one and did not. A page with less than
+ * COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS of body proves neither template nor
+ * fallback, so it is counted as `notComparable`, never as a match.
+ */
+export function duplicateBucketSampleOutcome(result) {
+  if (result?.fetchFailed) return 'fetchFailed';
+  if (result?.processingFailed) return 'processingFailed';
+  if (result?.descriptionMismatch) return 'mismatched';
+  if (Number(result?.sourceDescriptionLength || 0) < COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS) return 'notComparable';
+  return 'matched';
 }
 
 /**
@@ -1409,6 +1425,18 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     circularCorroborationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
+    // Outcomes of the identical-description bucket samples (see
+    // duplicateBucketSourceSample). Every requested bucket sample lands in
+    // exactly one of the five outcomes, so the hidden signal stays measured
+    // on every run even though it no longer makes a crawler WARNING.
+    duplicateBucketSamples: {
+      requested: 0,
+      matched: 0,
+      mismatched: 0,
+      notComparable: 0,
+      fetchFailed: 0,
+      processingFailed: 0,
+    },
   };
   const byKey = {};
   for (const result of sourceResults) {
@@ -1419,10 +1447,22 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       descriptionMismatches: 0, unobserved: 0, unobservedSourceMute: 0,
       circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
+      bucketVerification: null,
     };
     const info = byKey[key];
     const sourceReference = sourceDetailReportReference(result.url);
     info.checked++;
+    const bucketSample = result.sampleReason === DUPLICATE_BUCKET_SAMPLE_REASON;
+    if (bucketSample) {
+      const outcome = duplicateBucketSampleOutcome(result);
+      sourceDetailSummary.duplicateBucketSamples.requested++;
+      sourceDetailSummary.duplicateBucketSamples[outcome]++;
+      info.bucketVerification = {
+        outcome,
+        bucketSize: Number.isInteger(result.bucketSize) ? result.bucketSize : null,
+        source: sourceReference,
+      };
+    }
     if (result.fetchFailed) {
       info.fetchFailed++;
       sourceDetailSummary.fetchFailed++;
@@ -1502,11 +1542,18 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.descriptionMismatch) {
       info.descriptionMismatches++;
       sourceDetailSummary.descriptionMismatches++;
-      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+      const bucketNote = bucketSample && Number.isInteger(result.bucketSize)
+        ? ` (body shared verbatim by ${result.bucketSize} jobs)`
+        : '';
+      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars${bucketNote}`);
     }
   }
   for (const [key, info] of Object.entries(byKey)) {
     const entry = report[key] || (report[key] = { total: 0, issues: [] });
+    if (info.bucketVerification) {
+      const bucketIssue = entry.issues.find((issue) => issue.type === 'duplicate-descriptions-desc-only');
+      if (bucketIssue) bucketIssue.sourceVerification = info.bucketVerification;
+    }
     if (info.processingFailed > 0) {
       entry.issues.push({
         type: 'parse-error', count: info.processingFailed, total: info.checked,
@@ -1621,6 +1668,13 @@ export function formatSourceDetailObservationLines(summary = {}) {
   if (unobserved > 0) {
     lines.push(`Source detail unobserved split: ${sourceMute} source served no JobPosting structured data (no issue raised), ${unobserved - sourceMute} served one and still read as nothing (parser finding)`);
   }
+  // Same reasoning for the identical-description buckets: the hidden signal
+  // stopped producing WARNINGs, so what the source said about each bucket is
+  // printed here on every run instead of disappearing with the WARNING.
+  const bucket = summary.duplicateBucketSamples;
+  if (bucket && count(bucket.requested) > 0) {
+    lines.push(`Identical-description buckets checked against the source: ${count(bucket.requested)} sampled — ${count(bucket.matched)} carry their source body (template), ${count(bucket.mismatched)} contradicted by it (source-detail-mismatch), ${count(bucket.notComparable)} source body < ${COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS} chars (proves nothing), ${count(bucket.fetchFailed)} fetch failed, ${count(bucket.processingFailed)} processing failed`);
+  }
   return lines;
 }
 
@@ -1697,9 +1751,55 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
  * is the rule a reclassification has to be measured against — a source that
  * must stop being a WARNING has to emit NO issue, and a test can only prove
  * that by running the same rule the audit runs, not by reading the chain.
+ *
+ * A `hidden` issue is not a finding: it is an input to a ratchet (today only
+ * `duplicate-descriptions-desc-only`, which feeds the ≥95 % chrome ratchet and
+ * picks the bucket the source-detail pass verifies) and the report never
+ * prints it. Counting it here made 55 crawlers WARNING on run 36528331656 with
+ * no line under their name to say why. What that signal can prove is proved
+ * elsewhere, visibly: the chrome ratchet synthesizes a visible issue, and a
+ * bucket whose body the source contradicts becomes a `source-detail-mismatch`.
  */
 export function issueDrivenSeverity(entry) {
-  return (entry?.issues?.length || 0) > 0 ? 'WARNING' : 'OK';
+  const visible = (entry?.issues || []).filter((issue) => !issue?.hidden);
+  return visible.length > 0 ? 'WARNING' : 'OK';
+}
+
+/**
+ * Severity chain of one crawler entry, before the two ratchets. Exported so a
+ * replay or a test derives severity with the rule the audit runs instead of a
+ * hand-copied subset of it.
+ */
+export function assignSeverity(entry) {
+  const types = new Set(entry.issues.map((i) => i.type));
+  const thin = entry.issues.find((i) => i.type === 'thin-description');
+  const thinRatio = thin ? thin.count / thin.total : 0;
+  const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
+  const urlFail = types.has('stale-urls');
+  const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
+  const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
+  const detailSeverity = sourceDetailSeverity(entry);
+  if (types.has('parse-error')) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
+  // Form-chrome is a hard signal: even one row means the parser is
+  // leaking the surrounding page (form, footer, contact info) into the
+  // job description. There is no benign source of these phrases — never
+  // a false positive — so skip the ratio gate.
+  else if (formChromeCount > 0) entry.severity = 'CRITICAL';
+  else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
+  else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
+  else entry.severity = issueDrivenSeverity(entry);
+  if (entry.severity === 'CRITICAL') {
+    const h = [];
+    if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
+    if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
+    if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
+    if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
+    if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
+    if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
+    else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
+    entry.action = h.join('. ') + '.';
+  }
 }
 
 export function sourceDetailSeverity(entry) {
@@ -1885,10 +1985,25 @@ function estimateBoilerplateLength(plain) {
  *                           for store-chain feeds. Same role at distinct cities →
  *                           distinct fingerprints → not a duplicate. Same role
  *                           re-posted at the same city → still collides → flagged.
- *   - mode 'desc-only'    : the original desc-only slice. Used at a stricter
- *                           threshold to keep chrome-scraping detection alive
- *                           (chrome makes ALL descriptions identical regardless
- *                           of title).
+ *   - mode 'desc-only'    : the WHOLE normalized body, no slice. Used at a
+ *                           stricter threshold to keep chrome-scraping
+ *                           detection alive (chrome makes ALL descriptions
+ *                           identical regardless of title).
+ *
+ * Why desc-only no longer shares the title-aware slice: the slice starts at a
+ * crawler-wide offset taken from the longest common prefix of ANY adjacent
+ * pair (`estimateBoilerplateLength`), and that offset is then cut from EVERY
+ * job, including the jobs that do not start with it. On run 36528331656 the
+ * offset was 911 chars on klinik-lengg (two variants of one role) and 2 588 on
+ * helvetia, so the 500-char window of the other jobs landed on their shared
+ * closing paragraph: 15 of the 55 crawlers WARNING only for this signal had no
+ * two jobs with the same body at all (the Praktikum Neuropsychologie and the
+ * FaGe apprenticeship "collided" on the clinic's footer). The same offset ran
+ * past the end of shorter bodies and emptied their window, so identical bodies
+ * went unseen: jumbo had 30 byte-identical bodies and a count of 2. "Identical
+ * body regardless of title" is what this signal documents, so it compares the
+ * body — the ≥95 % ratchet sees the same maximum on every crawler of that run
+ * (54 %, new-yorker) and 119 → 99 crawlers carry the hidden issue.
  */
 function jobLocationKey(job) {
   return plainText(job?.location || job?.addressLocality || job?.city || '').toLowerCase();
@@ -1896,18 +2011,16 @@ function jobLocationKey(job) {
 
 export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
+  if (mode === 'desc-only') return plain;
   const boilerLen = estimateBoilerplateLength(plain);
   // Only strip when the boilerplate is long enough to be meaningful and not
   // so long that stripping it leaves no signal.
   const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
   return plain.map((p, i) => {
     const slice = p.slice(stripLen, stripLen + 500);
-    if (mode === 'title-aware') {
-      const title = plainText(jobs[i]?.title || '').toLowerCase();
-      const location = jobLocationKey(jobs[i]);
-      return `${title}||${location}||${slice}`;
-    }
-    return slice;
+    const title = plainText(jobs[i]?.title || '').toLowerCase();
+    const location = jobLocationKey(jobs[i]);
+    return `${title}||${location}||${slice}`;
   });
 }
 
@@ -1937,16 +2050,59 @@ export function countDuplicates(fps) {
  * but the largest bucket is only 50/55 (91%), correctly below it.
  */
 export function largestDuplicateBucket(fps) {
-  const counts = new Map();
-  for (const fp of fps) {
-    if (fp.length < 20) continue; // skip empty/tiny
-    counts.set(fp, (counts.get(fp) || 0) + 1);
+  return largestDuplicateBucketMembers(fps).length;
+}
+
+/**
+ * Indices of the jobs in the largest fingerprint bucket (the first one in job
+ * order on a tie; a single job when no fingerprint repeats). Same bucket that
+ * largestDuplicateBucket() measures — kept as one function so the bucket the
+ * source-detail pass verifies is by construction the one the ratchet counts.
+ */
+export function largestDuplicateBucketMembers(fps) {
+  const buckets = new Map();
+  fps.forEach((fp, index) => {
+    if (fp.length < 20) return; // skip empty/tiny
+    const members = buckets.get(fp);
+    if (members) members.push(index);
+    else buckets.set(fp, [index]);
+  });
+  let largest = [];
+  for (const members of buckets.values()) {
+    if (members.length > largest.length) largest = members;
   }
-  let max = 0;
-  for (const c of counts.values()) {
-    if (c > max) max = c;
-  }
-  return max;
+  return largest;
+}
+
+export const DUPLICATE_BUCKET_SAMPLE_REASON = 'identical-description-bucket';
+
+/**
+ * The job of the largest identical-description bucket that the source-detail
+ * pass should fetch, or null when that pass already covers the bucket.
+ *
+ * Identical bodies under different titles are two different things that the
+ * published data alone cannot tell apart: the source publishing one template
+ * for many postings (fachkraft's trades, a retailer's stores, tether's two
+ * research roles that share one Recruitee text) or the parser writing the same
+ * fallback — a company blurb, a listing teaser — for postings whose detail it
+ * did not read (engel-voelkers kept only the Lever intro paragraph and
+ * published it for its Senior and its Junior broker). Only the source decides,
+ * so one member of the bucket goes through the same comparison as the regular
+ * sample: a template matches its own page, a fallback is materially shorter
+ * than or unrelated to it and becomes a `source-detail-mismatch`.
+ *
+ * `jobs.slice(0, sampledCount)` is what the regular sample already fetches:
+ * a bucket member there is verified already, and a URL fetched there is not
+ * fetched twice (the evidence bundle refuses a duplicate request identity).
+ */
+export function duplicateBucketSourceSample(jobs, fps, sampledCount = SOURCE_DETAIL_SAMPLE_SIZE) {
+  const members = largestDuplicateBucketMembers(fps);
+  if (members.length < 2) return null;
+  const regular = jobs.slice(0, sampledCount).filter((job) => job?.url);
+  if (members.some((index) => index < sampledCount && jobs[index]?.url)) return null;
+  const regularUrls = new Set(regular.map((job) => job.url));
+  const index = members.find((candidate) => jobs[candidate]?.url && !regularUrls.has(jobs[candidate].url));
+  return index === undefined ? null : { index, bucketSize: members.length };
 }
 
 /* ── URL checker with concurrency limit ────────────────────── */
@@ -2124,7 +2280,7 @@ async function main() {
       });
     }
 
-    // 5b. Chrome-scraping signal — desc-only slice at a stricter threshold.
+    // 5b. Chrome-scraping signal — identical bodies at a stricter threshold.
     // Stored separately so applyChromeScrapingRatchet() can escalate without
     // double-flagging templated content (which the title-aware check above
     // already filters out). Uses the LARGEST single bucket, not the sum
@@ -2138,11 +2294,27 @@ async function main() {
         type: 'duplicate-descriptions-desc-only',
         count: chromeDupes,
         total: jobs.length,
-        // No user-facing message: this issue exists only to feed
-        // applyChromeScrapingRatchet(). We don't render warnings for it.
+        // No user-facing message and no severity (issueDrivenSeverity skips
+        // hidden issues): this issue feeds applyChromeScrapingRatchet() and
+        // chooses the bucket the source-detail pass verifies below. Whether
+        // the shared body is the source's template or the parser's fallback
+        // is decided there, against the source, never from this count.
         message: '',
         hidden: true,
       });
+      if (checkSourceDetails) {
+        const bucketSample = duplicateBucketSourceSample(jobs, fpsDescOnly);
+        if (bucketSample) {
+          const job = jobs[bucketSample.index];
+          sourceDetailsToCheck.push({
+            crawlerKey: key,
+            job,
+            url: job.url,
+            sampleReason: DUPLICATE_BUCKET_SAMPLE_REASON,
+            bucketSize: bucketSample.bucketSize,
+          });
+        }
+      }
     }
 
     report[key] = { total: jobs.length, population, issues };
@@ -2194,37 +2366,7 @@ async function main() {
   }
 
   // Assign severity + action hints
-  for (const entry of Object.values(report)) {
-    const types = new Set(entry.issues.map((i) => i.type));
-    const thin = entry.issues.find((i) => i.type === 'thin-description');
-    const thinRatio = thin ? thin.count / thin.total : 0;
-    const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
-    const urlFail = types.has('stale-urls');
-    const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
-    const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
-    const detailSeverity = sourceDetailSeverity(entry);
-    if (types.has('parse-error')) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
-    // Form-chrome is a hard signal: even one row means the parser is
-    // leaking the surrounding page (form, footer, contact info) into the
-    // job description. There is no benign source of these phrases — never
-    // a false positive — so skip the ratio gate.
-    else if (formChromeCount > 0) entry.severity = 'CRITICAL';
-    else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
-    else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
-    else entry.severity = issueDrivenSeverity(entry);
-    if (entry.severity === 'CRITICAL') {
-      const h = [];
-      if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
-      if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
-      if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
-      if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
-      if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
-      if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
-      else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
-      entry.action = h.join('. ') + '.';
-    }
-  }
+  for (const entry of Object.values(report)) assignSeverity(entry);
 
   // ── Ratchet: regression in no-structured-content escalates to CRITICAL ──
   const noStructBaseline = loadNoStructureBaseline();
