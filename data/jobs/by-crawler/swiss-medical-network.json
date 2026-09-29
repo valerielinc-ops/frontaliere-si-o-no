@@ -25,10 +25,11 @@
         "it": "Assistente medico, 50 - 100 %",
         "fr": "Assistant médical, 50 - 100 %"
       },
-      "slug": "medizinische-r-praxisassistent-in-50-100-swiss-medical-network",
+      "slug": "assistente-medico-50-100-swiss-medical-network-solothurn",
       "slugByLocale": {
         "en": "medizinische-r-praxisassistent-in-50-100-swiss-medical-network",
-        "it": "medizinische-r-praxisassistent-in-50-100-swiss-medical-network"
+        "it": "assistente-medico-50-100-swiss-medical-network-solothurn",
+        "fr": "assistant-medical-50-100-swiss-medical-network-solothurn"
       },
       "category": "healthcare",
       "datePosted": "2026-09-29",
@@ -55,7 +56,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T09:20:48.739Z"
+      "firstSeenAt": "2026-09-29T09:20:48.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-50-100-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-50-100-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152145969-tso-ou-instrumentiste-au-bloc-operatoire",
@@ -111,20 +120,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network",
-          "tso-o-strumentalista-dell-unita-operativa-swiss-medical-network-neuchatel"
-        ],
-        "en": [
-          "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network",
-        "tso-o-strumentalista-dell-unita-operativa-swiss-medical-network-neuchatel"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151845487-secretaire-medical-e-bilingue-fr-all-",
@@ -2006,7 +2002,8 @@
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
         "en": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+        "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-grindelwald"
       },
       "category": "healthcare",
       "datePosted": "2026-09-29",

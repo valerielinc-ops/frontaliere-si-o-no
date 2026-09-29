@@ -3847,8 +3847,8 @@
       "slugByLocale": {
         "de": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
         "it": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
-        "en": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
-        "fr": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
+        "en": "dipl-expert-dipl-expert-emergency-care-with-additional-function-vocational-training-a-spital-emmental-burgdorf",
+        "fr": "oui-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3933,12 +3933,12 @@
     },
     {
       "id": "spital-emmental-ab920350d8be",
-      "slug": "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf",
+      "slug": "stanza-da-bagno-dei-dipendenti-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
-        "it": "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf",
-        "en": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
-        "fr": "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        "it": "stanza-da-bagno-dei-dipendenti-a-spital-emmental-burgdorf-langnau",
+        "en": "employee-washing-room-a-spital-emmental-burgdorf-langnau",
+        "fr": "salle-de-lavage-des-employes-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3989,11 +3989,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
+          "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf"
+        "mitarbeiter-in-abwaschkuche-a-spital-emmental-burgdorf",
+        "collaboratore-trice-abwaschkuche-a-spital-emmental-burgdorf"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,
