@@ -1,15 +1,18 @@
 /**
- * Drop true double publications from one crawler's fresh fetch.
+ * Drop true double publications from one crawler's fresh fetch: the same
+ * advertisement reachable under two source ids. Publishing both produced two
+ * indistinguishable job pages, which the parser-quality audit reports as
+ * `duplicate-descriptions` (issue 5253). The identity always comes from the
+ * source, never from empty fields; two ways to prove it:
  *
- * A double publication is the same advertisement reachable under two source
- * ids: identical title (up to the gender marker), identical and fully
- * resolved workplace (locality, postal code and street all present)
- * and an identical FULL description (compared case- and
- * whitespace-insensitively). Two such rows are one vacancy
- * to a reader; publishing both produced two indistinguishable job pages, which
- * the parser-quality audit reports as `duplicate-descriptions` (issue 5253:
- * Hirslanden re-posts a requisition under a second SuccessFactors job id with
- * the same Referenznummer; Lonza opens a second Workday req with the same ad).
+ * - `dropSameSourceReference`: the source gives both postings the same
+ *   reference (Hirslanden prints the same Referenznummer on two SuccessFactors
+ *   job ids; Lonza's same requisition id under two URLs).
+ * - `dropIdenticalPostings`: identical title (up to the gender marker),
+ *   identical and fully resolved workplace (locality, postal code and street
+ *   all present) and an identical FULL description, compared case- and
+ *   whitespace-insensitively (Stadt Zürich re-posts an ad under a second
+ *   Referenz-Nr.; Otis prints the branch address in the ad).
  *
  * Postings that differ anywhere in the text — a shift, a role name, a language
  * version — or in the workplace — Denner advertises the same store role for
@@ -17,8 +20,7 @@
  * are kept, even when the audit's
  * 500-character fingerprint window cannot tell them apart. Lines made only of
  * hashtags ("#ebkampagne #pflege", "#LI-DNI") are recruiting-campaign tracking
- * tags, not vacancy text, and are ignored in the comparison: Hirslanden
- * re-posted Referenznummer 43018 with such a line appended.
+ * tags, not vacancy text, and are ignored in the comparison.
  *
  * Within a group the posting with the lowest stable source id is kept, so the
  * choice does not flip between runs while both stay online.
@@ -78,6 +80,25 @@ function isLowerStableId(a, b) {
   return ka.id.localeCompare(kb.id, 'en', { numeric: true }) < 0;
 }
 
+function keepLowestStableIdPerKey(jobs, keyOf) {
+  const keyByJob = new Map(jobs.map((job) => [job, keyOf(job)]));
+  const keeperByKey = new Map();
+  for (const job of jobs) {
+    const key = keyByJob.get(job);
+    if (!key) continue;
+    const current = keeperByKey.get(key);
+    if (!current || isLowerStableId(job, current)) keeperByKey.set(key, job);
+  }
+  const kept = [];
+  const dropped = [];
+  for (const job of jobs) {
+    const key = keyByJob.get(job);
+    if (!key || keeperByKey.get(key) === job) kept.push(job);
+    else dropped.push(job);
+  }
+  return { jobs: kept, dropped };
+}
+
 /**
  * Keep one posting per double publication, preserving the order of the input.
  *
@@ -86,19 +107,25 @@ function isLowerStableId(a, b) {
  * @returns {{ jobs: T[], dropped: T[] }}
  */
 export function dropIdenticalPostings(jobs = []) {
-  const keeperByKey = new Map();
-  for (const job of jobs) {
-    const key = identicalPostingKey(job);
-    if (!key) continue;
-    const current = keeperByKey.get(key);
-    if (!current || isLowerStableId(job, current)) keeperByKey.set(key, job);
-  }
-  const kept = [];
-  const dropped = [];
-  for (const job of jobs) {
-    const key = identicalPostingKey(job);
-    if (!key || keeperByKey.get(key) === job) kept.push(job);
-    else dropped.push(job);
-  }
-  return { jobs: kept, dropped };
+  return keepLowestStableIdPerKey(jobs, identicalPostingKey);
+}
+
+/**
+ * Keep one posting per SOURCE reference, preserving the order of the input.
+ *
+ * `referenceOf(job)` returns the identifier the source itself gives the
+ * advertisement (a reference number printed in the ad, a requisition id), or
+ * '' when it gives none. Postings that carry the same reference are one
+ * advertisement published under several URLs (Hirslanden: the same
+ * Referenznummer under two SuccessFactors job ids); the one with the lowest
+ * stable id is kept. A posting without a reference is never grouped: the
+ * identity comes from the source, never from empty fields.
+ *
+ * @template T
+ * @param {T[]} jobs
+ * @param {(job: T) => string} referenceOf
+ * @returns {{ jobs: T[], dropped: T[] }}
+ */
+export function dropSameSourceReference(jobs = [], referenceOf) {
+  return keepLowestStableIdPerKey(jobs, (job) => String(referenceOf(job) || '').trim());
 }

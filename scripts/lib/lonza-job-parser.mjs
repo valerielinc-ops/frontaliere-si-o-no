@@ -13,7 +13,7 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
-import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
+import { dropSameSourceReference } from './identical-posting-dedupe.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -282,6 +282,14 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
+/**
+ * Fragment only the crawler's former text wrote: a company sentence appended
+ * to every description, and the whole stand-in of a req without a body
+ * ("{title} position at Lonza in {city}, Switzerland." plus that sentence).
+ */
+export const LONZA_FABRICATED_DESCRIPTION_RE =
+  /Lonza is a global leader in pharma and biotech manufacturing\. The company operates major production facilities in Visp/;
+
 /* ── Main fetch function ───────────────────────────────────── */
 
 /**
@@ -414,12 +422,13 @@ export async function fetchAllLonzaJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
- // Lonza sometimes opens a second Workday req with the very same ad (title,
- // site and text identical: R76184-1/R76397, R78157-1/R79043 on 2026-09-29).
- // One advertisement, one page.
- const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
+ // One Workday requisition reachable under two URLs is one advertisement:
+ // one page. Two reqs with different ids are distinct advertisements even
+ // when title, site and text coincide (R76184-1/R76397 on 2026-09-29): the
+ // source gives no proof that they are the same vacancy, so both are kept.
+ const { jobs: unique, dropped } = dropSameSourceReference(jobs, (job) => job.jobReqId);
  if (dropped.length > 0) {
-  console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);
+  console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same requisition id under another URL).`);
  }
 
  if (withoutBody > 0) {
