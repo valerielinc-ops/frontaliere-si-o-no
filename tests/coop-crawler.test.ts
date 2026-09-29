@@ -12,7 +12,8 @@ import {
   findUnrecognizedCoopDivisions,
   isCoopJob,
   reconcileCoopLocationCanton,
-  shouldQuarantineCoopJob,
+  coopDetailNeedsQuarantine,
+  coopDetailSourceBody,
 } from '../scripts/update-coop-jobs.mjs';
 import { fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
@@ -1159,25 +1160,6 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(applyCoopSourceDetailToJob(listing, detailWith(50))).toMatchObject({ _enrichedFromDetail: true });
   });
 
-  it('uses the composed page body for quarantine, not JSON-LD alone', () => {
-    const [companyKey, url, locality] = cases[0];
-    const listing = {
-      id: `${companyKey}-composed-floor`, companyKey, url, title: 'Verkäuferin Verkäufer',
-      description: 'listing fallback', location: locality, canton: 'SG', sourceLang: 'de',
-    };
-    const jsonLdBody = Array.from({ length: 49 }, (_, index) => `Quelle${index + 1}`).join(' ');
-    const page = {
-      facts: [{ label: 'Pensum', value: '80-100 Prozent' }],
-      sections: [{ heading: 'Aufgaben', items: ['Beratung und Betreuung unserer Kundschaft im Alltag'] }],
-      benefits: { heading: 'Vorteile', items: [] },
-    };
-    expect(shouldQuarantineCoopJob({
-      jsonLd: { description: jsonLdBody }, page, storedDescription: listing.description,
-    })).toBe(false);
-    const composed = composeCoopFamilyDescription(coopDescHtmlToMarkdown(jsonLdBody), page);
-    expect(composed.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).length).toBeGreaterThanOrEqual(50);
-  });
-
   it.each(cases)('%s replaces listing fallbacks without changing identity or route history', (companyKey, url, locality, region, canton) => {
     const listing = {
       id: `${companyKey}-stable`, url, companyKey, title: 'Verkäuferin Verkäufer',
@@ -1821,5 +1803,30 @@ describe('Coop-family detail page content outside the JSON-LD description', () =
     expect(applyCoopSourceDetailToJob(listing, jsonLd, page)).toMatchObject({
       location: 'Schaffhausen', postalCode: '8207', streetAddress: 'Herblingerstrasse 1',
     });
+  });
+});
+
+describe('Coop quarantine gate on the composed source body (review #10333)', () => {
+  // Real JSON-LD wording of a Coop sales role, cut to 49 words, and the page's
+  // own facts/sections: the composed posting clears the 50-word source floor.
+  const WORDS = 'Du liebst die Abwechslung darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen stets freundlich und engagiert Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet'.split(' ');
+  const jsonLd49 = { description: `<p>${Array.from({ length: 49 }, (_, i) => WORDS[i % WORDS.length]).join(' ')}</p>` };
+  const page = {
+    workplace: '',
+    facts: [{ label: 'Arbeitsort', value: 'Coop Supermarkt Zürich Oerlikon, Schaffhauserstrasse 355, 8050 Zürich' }, { label: 'Pensum', value: '40-60%' }],
+    sections: [],
+    benefits: null,
+  };
+  const staleJob = { description: '## Verkäufer:in Food\n\nlisting fallback' };
+
+  it('does not quarantine a 49-word JSON-LD whose page details bring the composed body to 50+ words', () => {
+    const composed = coopDetailSourceBody(jsonLd49, page);
+    expect(composed).toContain('Schaffhauserstrasse 355');
+    expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, page)).toBe(false);
+  });
+
+  it('still quarantines the same 49-word JSON-LD without page details and without a stored body', () => {
+    expect(coopDetailNeedsQuarantine(staleJob, jsonLd49, null)).toBe(true);
+    expect(coopDetailNeedsQuarantine(staleJob, null, null)).toBe(true);
   });
 });

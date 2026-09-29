@@ -65,6 +65,7 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -618,33 +619,35 @@ export function resolveVolgJobBodies(freshJobs = [], existingJobs = []) {
 }
 
 /**
- * Remove invented text that earlier runs stored in the top-level description
- * or locale slots. The merge keeps non-source slots ("existing translation
- * wins"), so a record that once published the invented paragraph kept it —
- * untranslated German in `it`/`en`/`fr` included — after the real body came
- * back. When any field carries it, keep only a valid source body, make it the
- * top-level description, and flag the record for retranslation. A record with
- * no valid source body is dropped.
+ * Remove invented text that earlier runs stored in the locale slots. The merge
+ * keeps non-source slots ("existing translation wins"), so a record that once
+ * published the invented paragraph kept it — untranslated German in `it`/`en`/
+ * `fr` included — after the real body came back. When any slot carries it,
+ * every non-source slot is of that vintage: drop them and flag the record for
+ * retranslation from the real source slot.
  */
 export function stripVolgInventedSlots(job) {
-  const slots = job?.descriptionByLocale && typeof job.descriptionByLocale === 'object'
-    ? job.descriptionByLocale
-    : {};
-  const hasInventedText = isVolgInventedText(job?.description)
-    || Object.values(slots).some((text) => isVolgInventedText(text));
-  if (!hasInventedText) return job;
-
-  const sourceLang = String(job?.sourceLang || '').trim();
-  const sourceText = sourceLang ? previousSourceBody(job) : '';
-  if (!sourceText) return null;
-
-  return {
-    ...job,
-    description: sourceText,
-    descriptionByLocale: { [sourceLang]: sourceText },
-    needsRetranslation: true,
-  };
+  if (!job || typeof job !== 'object') return job;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object' ? job.descriptionByLocale : {};
+  const slotsInvented = Object.values(slots).some((text) => isVolgInventedText(text));
+  const flatInvented = isVolgInventedText(job.description);
+  if (!slotsInvented && !flatInvented) return job;
+  const sourceLang = job.sourceLang;
+  const sourceText = String(slots[sourceLang] || '').trim();
+  const realSource = sourceLang && !isVolgInventedText(sourceText) && meetsSourceBodyFloor(sourceText) ? sourceText : '';
+  // The flat `description` is what a grace-retained record publishes: it must
+  // be the real source body too (review #10333), or the record goes.
+  const flat = flatInvented ? realSource : job.description;
+  if (!realSource && (!flat || isVolgInventedText(flat))) return null;
+  const kept = realSource ? { [sourceLang]: slots[sourceLang] } : {};
+  return { ...job, description: flat, descriptionByLocale: slotsInvented ? kept : slots, needsRetranslation: true };
 }
+
+// One pattern for the stored-record scrub (drop-fabricated-description.mjs):
+// the listing line or the opening sentence of any retired company paragraph.
+export const VOLG_INVENTED_TEXT_RX = new RegExp(
+  [VOLG_LISTING_LINE_RX.source, ...VOLG_INVENTED_TEXT_MARKERS.map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))].join('|'),
+);
 
 // Per-city postal code table for known Volg/LANDI/fenaco locations.
 // Used as a fast lookup; cities outside the table fall back to a
@@ -769,6 +772,10 @@ function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  // Stored records first lose the text this crawler once invented (slots,
+  // translations made from it and the flat description), so nothing merged
+  // or retained from them republishes it.
+  dropFabricatedDescriptions(targetExisting, VOLG_INVENTED_TEXT_RX, 'Volg/fenaco');
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
@@ -779,7 +786,7 @@ function mergeJobs(discoveredJobs) {
       added += 1;
       const j = { ...job };
       delete j._enrichedFromDetail;
-      return stripVolgInventedSlots(j);
+      return j;
     }
     updated += 1;
     // When description was enriched from the detail page, clear stale

@@ -166,15 +166,15 @@ describe('rittmeyer-job-parser', () => {
     expect(Object.keys(legacy.descriptionByLocale)).toEqual(['de']);
   });
 
-  it('drops a copied German source title from Italian and requests retranslation', () => {
+  it('drops the source title copied into another locale and flags the retranslation (review #10333)', () => {
     const scrubbed = scrubRittmeyerLegacyLocaleCopies({
-      sourceLang: 'de',
       title: 'Titel Deutsch',
-      titleByLocale: { it: 'Titel Deutsch', de: 'Titel Deutsch' },
-      descriptionByLocale: { de: 'Ein ausreichend langer deutscher Quelltext.' },
+      sourceLang: 'de',
+      titleByLocale: { de: 'Titel Deutsch', it: 'Titel Deutsch' },
+      descriptionByLocale: { de: 'Wir suchen eine engagierte Persönlichkeit für unser Team in Baar.' },
     });
-
-    expect(scrubbed.titleByLocale).toEqual({ de: 'Titel Deutsch' });
+    expect(scrubbed.titleByLocale).not.toHaveProperty('it');
+    expect(scrubbed.titleByLocale.de).toBe('Titel Deutsch');
     expect(scrubbed.needsRetranslation).toBe(true);
   });
 });

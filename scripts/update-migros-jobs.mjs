@@ -136,6 +136,23 @@ function isMigrosJob(job) {
  * @param {(job: object) => boolean} [isTarget]
  * @returns {{ jobs: object[], reposts: { url: string, keptUrl: string }[] }}
  */
+/**
+ * Collapse the reposts in the stored list and write the SAME deduplicated
+ * list to the data file and to its public copy (when the run produced one), so
+ * a removed repost cannot survive in either (review #10333).
+ *
+ * @returns {Array<{url: string, keptUrl: string}>} the collapsed reposts
+ */
+export function collapseMigrosRepostsInFiles({ dataJobsPath, publicJobsPath }) {
+  const raw = fs.existsSync(dataJobsPath) ? JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8')) : [];
+  const allJobs = Array.isArray(raw) ? raw : [];
+  const { jobs: uniqueJobs, reposts } = dedupeMigrosReposts(allJobs);
+  if (reposts.length === 0) return reposts;
+  writeJsonAtomic(dataJobsPath, uniqueJobs);
+  if (publicJobsPath && fs.existsSync(publicJobsPath)) writeJsonAtomic(publicJobsPath, uniqueJobs);
+  return reposts;
+}
+
 export function dedupeMigrosReposts(jobs = [], isTarget = isMigrosJob) {
   const normalizedText = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
   const rank = (job) => `${job?.firstSeenAt || '9999'}\u0000${job?.url || ''}`;
@@ -754,15 +771,8 @@ async function main() {
 
   // Step 3b': collapse the portal's double publications of one vacancy.
   {
-    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-    const allJobs = Array.isArray(raw) ? raw : [];
-    const { jobs: uniqueJobs, reposts } = dedupeMigrosReposts(allJobs);
+    const reposts = collapseMigrosRepostsInFiles({ dataJobsPath: DATA_JOBS, publicJobsPath: PUBLIC_DATA_JOBS });
     if (reposts.length > 0) {
-      writeJsonAtomic(DATA_JOBS, uniqueJobs);
-      // The public scratch mirror feeds the assembled/public dataset; keep it
-      // in lockstep with the deduped private slice or the removed repost can
-      // remain indexable there.
-      if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, uniqueJobs);
       console.log(`  🧹 Collapsed ${reposts.length} Migros repost(s) of an identical vacancy: ${reposts.map((r) => `${r.url} → ${r.keptUrl}`).join(', ')}`);
     }
   }

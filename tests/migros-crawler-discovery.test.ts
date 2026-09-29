@@ -1,6 +1,9 @@
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  collapseMigrosRepostsInFiles,
   dedupeMigrosReposts,
   extractMigrosListingDetailPaths,
   extractMigrosListingPageNumbers,
@@ -135,13 +138,29 @@ describe('Migros double publications (audit-parser-quality issue 5253)', () => {
     expect(reposts).toEqual([]);
   });
 
-  it('returns a deduplicated list without the removed repost URL', () => {
-    const duplicateUrl = `${base}c922adc5-d69b-4d00-a717-5002ad249e33`;
-    const { jobs } = dedupeMigrosReposts([
-      job('43315b46-0af4-46e8-9361-b737a9683d5d'),
-      job('c922adc5-d69b-4d00-a717-5002ad249e33'),
-    ], () => true);
+  it('writes the same deduplicated list to the data file and to its public copy (review #10333)', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'migros-reposts-'));
+    try {
+      const dataJobsPath = path.join(dir, 'jobs.json');
+      const publicJobsPath = `${dataJobsPath}.public.json`;
+      const stored = [
+        job('c922adc5-d69b-4d00-a717-5002ad249e33', { firstSeenAt: daysAgoIso(7) }),
+        job('43315b46-0af4-46e8-9361-b737a9683d5d', { firstSeenAt: daysAgoIso(8) }),
+      ];
+      fs.writeFileSync(dataJobsPath, JSON.stringify(stored));
+      fs.writeFileSync(publicJobsPath, JSON.stringify(stored));
 
-    expect(jobs.map((candidate) => candidate.url)).not.toContain(duplicateUrl);
+      const reposts = collapseMigrosRepostsInFiles({ dataJobsPath, publicJobsPath });
+      const data = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+      const pub = JSON.parse(fs.readFileSync(publicJobsPath, 'utf8'));
+
+      expect(reposts.map((r: { url: string }) => r.url)).toEqual([`${base}c922adc5-d69b-4d00-a717-5002ad249e33`]);
+      expect(pub).toEqual(data);
+      for (const list of [data, pub]) {
+        expect(list.map((kept: { url: string }) => kept.url)).not.toContain(`${base}c922adc5-d69b-4d00-a717-5002ad249e33`);
+      }
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

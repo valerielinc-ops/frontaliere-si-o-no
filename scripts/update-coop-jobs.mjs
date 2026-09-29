@@ -804,16 +804,27 @@ export function coopStoredBody(description = '') {
 }
 
 /**
- * A Coop detail is publishable when the composed source body — JSON-LD plus
- * the facts/lists that exist only in the page — clears the shared word floor.
- * The stored body is only a grace-period fallback when the fresh detail stays
- * below the floor or cannot be fetched.
+ * The source body a Coop-family detail page publishes: the JSON-LD
+ * description plus the page's own facts and sections, exactly as
+ * `repairJobFromJsonLd` composes it (source text only, never our scaffold).
  */
-export function shouldQuarantineCoopJob({ jsonLd = null, page = null, storedDescription = '' } = {}) {
-  if (!jsonLd) return !meetsSourceBodyFloor(coopStoredBody(storedDescription));
-  const sourceMarkdown = coopDescHtmlToMarkdown(jsonLd.description || '');
-  const composed = composeCoopFamilyDescription(sourceMarkdown, page);
-  return !meetsSourceBodyFloor(composed) && !meetsSourceBodyFloor(coopStoredBody(storedDescription));
+export function coopDetailSourceBody(jsonLd, page = null) {
+  const ldDesc = String(jsonLd?.description || '').trim();
+  if (!ldDesc) return '';
+  return composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
+}
+
+/**
+ * Quarantine decision for one Coop job (issue 5253 review): the 50-word
+ * source floor is applied to the COMPOSED body the job would publish, not to
+ * the bare JSON-LD — a 49-word JSON-LD whose page facts and sections carry the
+ * vacancy past the floor is a publishable posting. Without a publishable
+ * detail body, the stored body (scaffold aside) keeps the job; otherwise it
+ * is quarantined.
+ */
+export function coopDetailNeedsQuarantine(job, jsonLd, page = null) {
+  if (jsonLd && meetsSourceBodyFloor(coopDetailSourceBody(jsonLd, page))) return false;
+  return !meetsSourceBodyFloor(coopStoredBody(job?.description));
 }
 
 async function postProcessCoopJobs() {
@@ -1026,12 +1037,7 @@ async function postProcessCoopJobs() {
   async function processOne(job) {
     const detail = await fetchCoopDetailResilient(job.url);
     const jsonLd = detail?.jsonLd || null;
-    // Judge the composed source body, not JSON-LD alone: the detail page can
-    // carry enough authoritative facts/lists to lift a 49-word JSON-LD body
-    // over the floor. A stored valid body remains the only grace fallback.
-    if (shouldQuarantineCoopJob({ jsonLd, page: detail?.page, storedDescription: job.description })) {
-      quarantineUrls.add(job.url);
-    }
+    if (coopDetailNeedsQuarantine(job, jsonLd, detail?.page || null)) quarantineUrls.add(job.url);
     if (!jsonLd) return;
     if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
