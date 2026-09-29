@@ -11,6 +11,8 @@ import {
   parseBpsSuisseDetailPage,
   isTicinoBpsJob,
   MIN_BPS_FULL_DESC,
+  buildBpsSuisseDescriptionFields,
+  dropBpsSuisseFabricatedText,
 } from '@/scripts/lib/bps-suisse-job-parser.mjs';
 
 // ─── Fixture: Listing page ───
@@ -192,5 +194,51 @@ describe('MIN_BPS_FULL_DESC', () => {
   it('is a reasonable minimum description length', () => {
     expect(MIN_BPS_FULL_DESC).toBeGreaterThanOrEqual(100);
     expect(MIN_BPS_FULL_DESC).toBeLessThanOrEqual(500);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// Description = the posting's own text (no wrapper of the runner's)
+// ═══════════════════════════════════════════════════════════════
+
+// Minimized from the PDF call of "Consulente alla clientela commerciale
+// ipotecaria" (slice of 2026-09-29).
+const BPS_CALL = 'Banca Popolare di Sondrio (SUISSE) SA – Ufficio Risorse Umane Via Maggio 1, 6900 Lugano. Lavora con noi. Siamo un istituto bancario svizzero con una solida presenza nazionale e una forte attenzione al territorio.';
+
+describe('buildBpsSuisseDescriptionFields', () => {
+  it('publishes the PDF call alone, keyed by its language', () => {
+    const fields = buildBpsSuisseDescriptionFields({ pdfText: BPS_CALL, bodyText: 'Testo della pagina.' });
+    expect(fields.description).toBe(BPS_CALL);
+    expect(fields.descriptionByLocale).toEqual({ it: BPS_CALL });
+    expect(fields.sourceLang).toBe('it');
+    expect(fields.description).not.toMatch(/posizione aperta|\*\*Settore:\*\*|\*\*Sede:\*\*|Bando ufficiale/);
+  });
+
+  it('falls back to the detail-page body, and to nothing without any text', () => {
+    expect(buildBpsSuisseDescriptionFields({ bodyText: BPS_CALL }).description).toBe(BPS_CALL);
+    expect(buildBpsSuisseDescriptionFields({}).description).toBe('');
+  });
+});
+
+describe('dropBpsSuisseFabricatedText', () => {
+  it('drops the wrapped source slot and the translations made from it', () => {
+    const wrapped = `## Consulente Alla Clientela Commerciale Ipotecaria\n\nBPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a Lugano (TI).\n\n${BPS_CALL}\n\n**Settore:** Bancario / Finanziario`;
+    const job: any = {
+      sourceLang: 'it',
+      description: wrapped,
+      descriptionByLocale: {
+        it: wrapped,
+        en: '## Adviser to the Client Commercial Mortgage\n\nBPS (Banca Popolare di Sondrio) SUISSE — open position in Lugano (TI).',
+      },
+    };
+    expect(dropBpsSuisseFabricatedText(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a clean job alone', () => {
+    const job: any = { sourceLang: 'it', description: BPS_CALL, descriptionByLocale: { it: BPS_CALL, en: 'Translated.' } };
+    expect(dropBpsSuisseFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.en).toBe('Translated.');
   });
 });

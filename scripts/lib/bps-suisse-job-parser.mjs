@@ -11,10 +11,55 @@
  *   parseBpsSuisseListingPage(html)  — extract job URLs from listing page
  *   parseBpsSuisseDetailPage(html)   — extract job data from a detail page
  *   isTicinoBpsJob(job)              — deprecated legacy compatibility helper
+ *   buildBpsSuisseDescriptionFields  — the posting's own text, keyed by language
+ *   dropBpsSuisseFabricatedText(job) — remove the former wrapper from a stored job
  */
+import { buildPdfBackedDescription } from './pdf-job-content.mjs';
+import {
+  dropFabricatedLocaleText,
+  dropTranslationsOfFabricatedSource,
+  sourceLocaleDescription,
+} from './source-locale-description.mjs';
 
 /** Minimum body length for a "full" BPS job description. */
 export const MIN_BPS_FULL_DESC = 200;
+
+/**
+ * Description fields of one posting: the PDF call when BPS links one (it
+ * carries the whole ad), else the detail-page body — in its own language.
+ *
+ * The runner used to wrap that text in lines of its own ("## <title>",
+ * "BPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a Lugano (TI).",
+ * "**Settore:** Bancario / Finanziario", "**Sede:** Via Giacomo Bentina 5…",
+ * a link to the PDF) and to substitute a paragraph about the bank when both
+ * were empty; BPS publishes none of it. A posting without text gets no
+ * description and takes the pipeline's thin-source path.
+ *
+ * @param {{ pdfText?: string, bodyText?: string }} source
+ */
+export function buildBpsSuisseDescriptionFields({ pdfText = '', bodyText = '' } = {}) {
+  return sourceLocaleDescription(
+    buildPdfBackedDescription({ pdfText, fallbackText: bodyText }),
+    { defaultLang: 'it' },
+  );
+}
+
+// Fossils of the former wrapper in stored jobs (header line, or the
+// substituted bank paragraph).
+const BPS_WRAPPER_RE = /BPS \(Banca Popolare di Sondrio\) SUISSE — posizione aperta a |— posizione aperta presso BPS \(Banca Popolare di Sondrio\) SUISSE/;
+
+/**
+ * Remove the former wrapper from a stored job: the translations made from the
+ * wrapped text and the wrapped source slot itself. The runner's merge keeps
+ * existing locale slots, so without this they would outlive the fix.
+ *
+ * @returns {boolean} true when the job carried the wrapper.
+ */
+export function dropBpsSuisseFabricatedText(job) {
+  const derived = dropTranslationsOfFabricatedSource(job, BPS_WRAPPER_RE);
+  const source = dropFabricatedLocaleText(job, job?.sourceLang || 'it', BPS_WRAPPER_RE);
+  return derived || source;
+}
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
