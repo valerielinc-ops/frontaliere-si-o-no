@@ -2386,6 +2386,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ufc-finanzia-ricerca-provenienza': { it: 'ufc-finanzia-ricerca-provenienza', en: 'ufc-funds-provenance-research', de: 'ebk-foerderung-provenienz-forschung', fr: 'oc-finance-cherche-provenance' },
  'validita-lista-onu-svizzera': { it: 'validita-lista-onu-svizzera', en: 'un-sanctions-list-switzerland', de: 'uno-sanktionsliste-schweiz', fr: 'liste-sanctions-onu-suisse' },
  'centro-premi-salute-2027': { it: 'centro-premi-salute-2027', en: 'centre-health-premiums-2027', de: 'zentrum-krankenkassenpraemien-2027', fr: 'centre-primes-maladie-2027' },
+ 'premi-cassa-malati-ticino-rincaro-lettori': { it: 'premi-cassa-malati-ticino-rincaro-lettori', en: 'health-insurance-premiums-ticino-increase-readers', de: 'krankenkassenpraemien-tessin-erhoehung-leser', fr: 'primes-assurance-maladie-tessin-augmentation-lecteurs' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

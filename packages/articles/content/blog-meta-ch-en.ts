@@ -7091,6 +7091,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.centro-premi-salute-2027.title': '2027 health insurance premiums, Il Centro calls for more measures',
     'blog.article.centro-premi-salute-2027.excerpt': 'In Ticino, health insurance premiums will rise by 3.7% in 2027, compared with 5% nationally. The Centre calls for strengthening cantonal and federal measures.',
     'blog.article.centro-premi-salute-2027.imageAlt': 'Ticino documents on health insurance premiums planned for 2027',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Health insurance premiums, readers vent: «The same words every year»',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'In Ticino, the premium increase for 2027 is among the most limited, but the average premium exceeds 500 francs. The cumulative increase over four years would exceed 40%.',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Person in Ticino examining health insurance bills with a view of Lugano.',
 };
 
 export default blogMetaChEn;

@@ -7091,6 +7091,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.centro-premi-salute-2027.title': 'Primes d\'assurance-maladie 2027, Le Centre demande davantage de mesures',
     'blog.article.centro-premi-salute-2027.excerpt': 'Au Tessin, les primes d\'assurance-maladie augmenteront de 3,7% en 2027, contre 5% au niveau national. Le Centre demande de renforcer les mesures cantonales et fédérales.',
     'blog.article.centro-premi-salute-2027.imageAlt': 'Tessin : documents sur les primes d\'assurance maladie prévues pour 2027',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Primes santé: le ras-le-bol des lecteurs',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'Au Tessin, la hausse des primes pour 2027 compte parmi les plus modérées, mais la prime moyenne dépasse 500 francs. La hausse cumulée sur quatre ans dépasserait 40%.',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Personne au Tessin examinant les factures d\'assurance maladie avec vue sur Lugano.',
 };
 
 export default blogMetaChFr;
