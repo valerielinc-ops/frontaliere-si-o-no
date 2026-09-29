@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T07:54:00.122Z",
+  "generatedAt": "2026-09-29T15:18:26.896Z",
   "sources": {
     "aargau": {
       "canton": "Argovia",
@@ -131,7 +131,7 @@
       "owner": "platform",
       "status": "active",
       "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
-      "sourceFetchedAt": "2026-09-29T07:54:00.122Z",
+      "sourceFetchedAt": "2026-09-29T15:18:26.896Z",
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "JU",
       "notes": "La pagina ufficiale del Cantone pubblica i piani PDF 2026 di Delémont, Ajoie e Moutier. L'adattatore verifica testo, calendario colorato e identità prima di rendere il release operativo."
