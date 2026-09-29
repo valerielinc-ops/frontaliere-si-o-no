@@ -3541,6 +3541,9 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     // active posting; a foreign active owner must never be hidden by the
     // fallback.
     const hasMatchingLocaleSlug = hasEqualNonEmptyLocaleSlug(ej, match);
+    // An exact Italian slug is independent, decisive evidence. Do not let an
+    // unrelated non-Italian owner turn that valid proof into a rejection.
+    const proofOverlapSlug = hasSameItSlug ? null : overlapSlug;
     const legacySamePosting = Boolean(
       match
       && !expiredItSlug
@@ -3556,8 +3559,8 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     ghostIds.add(ghostId);
     ghostEvidenceById.set(ghostId, {
       match,
-      overlapSlug,
-      overlapJob: overlapSlug ? overlapJob : null,
+      overlapSlug: proofOverlapSlug,
+      overlapJob: proofOverlapSlug ? overlapJob : null,
       legacyLocaleFallback: legacySamePosting && !hasMatchingLocaleSlug,
     });
 
