@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildSubjectVariantsPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
 import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
@@ -235,7 +235,7 @@ async function initAI() {
 
 // Focused AI chain for newsletter: top-scoring models across multiple providers.
 // Avoids the 115+ model shotgun that causes cascading 429s and slow fallbacks.
-// One briefing per locale + 2 subjects per locale = ≤12 calls per run.
+// One briefing per locale + one call for both subjects of a locale = ≤8 calls per run.
 // Models are still sorted by score at runtime, so the best performer leads.
 // IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs
 // (AI_MODELS.*). When Google renames a model on the Gemini API, fix it there first.
@@ -381,9 +381,10 @@ export function newsletterSubjectKey(loc, variant) {
 }
 
 /**
- * Phase 3 composition: one AI subject per (locale, variant), written from the
- * locale's largest cohort; `generate(ctx)` → subject or null, null falling
- * back to the variant's static subject. At most locales × variants calls.
+ * Phase 3 composition: the subjects of every A/B variant of a locale from ONE
+ * AI call, written from the locale's largest cohort; `generate(ctx)` with
+ * `ctx.variants` → `{ [variant]: subject | null }`, a null or missing subject
+ * falling back to the variant's static subject. One call per locale.
  * Pass `briefingMap` (finished Phase 2) or `briefingFor` (Phase 2 running
  * alongside, see localeSubjectTheme).
  */
@@ -396,29 +397,21 @@ export async function composeLocaleSubjects(cohorts, { locales, variantIds, brie
       localeRepresentatives.set(loc, { ...cohort, key });
     }
   }
-  const themes = new Map();
-  const themeFor = (loc) => {
-    if (!themes.has(loc)) {
-      themes.set(loc, localeSubjectTheme(localeRepresentatives.get(loc), { briefingMap, briefingFor, exchangeRate }));
-    }
-    return themes.get(loc);
-  };
 
   const subjectMap = new Map();
-  const localeVariantPairs = [];
-  for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
-  await pMap(localeVariantPairs, async ({ loc, variant }) => {
+  await pMap(locales, async (loc) => {
     const rep = localeRepresentatives.get(loc);
-    const briefingText = await themeFor(loc);
-    const subject = await generate({
+    const subjects = await generate({
       subscriber: rep?.subscriber || { locale: loc },
       exchangeRate,
       matchedJobs: rep?.matchedJobs || [],
-      briefingSummary: briefingText,
-      variant,
+      briefingSummary: await localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }),
+      variants: variantIds,
     });
-    subjectMap.set(newsletterSubjectKey(loc, variant), subject || getVariantFallback(variant, loc));
-  }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
+    for (const variant of variantIds) {
+      subjectMap.set(newsletterSubjectKey(loc, variant), subjects?.[variant] || getVariantFallback(variant, loc));
+    }
+  }, Math.min(locales.length, AI_CONCURRENCY)); // bounded parallel AI calls
   return subjectMap;
 }
 
@@ -737,33 +730,60 @@ function sanitizeAIBriefingHtml(raw) {
   return html;
 }
 
-export async function generateAISubject(ctx, { deadlineMs, llm = callLLM } = {}) {
-  if (!llm) return null;
+/** An AI subject line as sent, or null when it is unusable. */
+export function acceptAISubject(text) {
+  if (typeof text !== 'string') return null;
+  const raw = text.trim().replace(/^["']|["']$/g, '');
+  // Reject degenerate AI output (empty, too short, emoji-only) so the caller
+  // can fall back to the variant's static subject. Without this guard a 1-char
+  // emoji subject like "💼" sneaks past `subject || getVariantFallback(...)`
+  // (truthy) and trips the inlineQaCheck `length < 10` gate, aborting the
+  // entire send. Require at least 10 chars AND a 3+ letter run to ensure real text.
+  if (raw.length < 10 || !/[\p{L}]{3,}/u.test(raw)) return null;
+  // Ensure subject is a complete sentence — never truncate. A word-boundary
+  // cut still risks lopping off the sentence's final word (e.g. "...il ruolo
+  // più" with "cliccato" chopped off) since it only checks for *a* space,
+  // not whether the cut lands after a complete clause. Safer to discard an
+  // over-limit AI subject and let the caller fall back to the static subject
+  // than to ship a grammatically broken one.
+  if (raw.length > 55) return null;
+  return raw;
+}
+
+/** The JSON object of a subjects answer: a string (fenced or not) or an already-parsed object. */
+function parseSubjectsAnswer(result) {
+  if (result && typeof result === 'object') return result;
+  const text = String(result ?? '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+  const start = text.indexOf('{');
+  const end = text.lastIndexOf('}');
+  if (start < 0 || end <= start) return null;
+  const parsed = JSON.parse(text.slice(start, end + 1));
+  return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : null;
+}
+
+/**
+ * Every A/B subject of a locale from ONE AI call (buildSubjectVariantsPrompt):
+ * `{ [variant]: subject | null }` for `ctx.variants`. A variant is null when
+ * its subject is missing or fails acceptAISubject, and every variant is null
+ * when the call fails; the caller falls back to each variant's static subject.
+ */
+export async function generateAISubjects(ctx, { deadlineMs, llm = callLLM } = {}) {
+  const variants = ctx.variants || [];
+  const subjects = Object.fromEntries(variants.map((v) => [v, null]));
+  if (!llm || variants.length === 0) return subjects;
   try {
-    const { system, user } = buildSubjectPrompt(ctx);
+    const { system, user, jsonSchema } = buildSubjectVariantsPrompt(ctx);
     const result = await llm([
       { role: 'system', content: system },
       { role: 'user', content: user },
-    ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
-    const raw = result.trim().replace(/^["']|["']$/g, '');
-    // Reject degenerate AI output (empty, too short, emoji-only) so the caller
-    // can fall back to FALLBACK_SUBJECT. Without this guard a 1-char emoji
-    // subject like "💼" sneaks past `subject || FALLBACK_SUBJECT[loc]` (truthy)
-    // and trips the inlineQaCheck `length < 10` gate, aborting the entire send.
-    // Require at least 10 chars AND a 3+ letter run to ensure real text.
-    if (raw.length < 10 || !/[\p{L}]{3,}/u.test(raw)) return null;
-    // Ensure subject is a complete sentence — never truncate. A word-boundary
-    // cut still risks lopping off the sentence's final word (e.g. "...il ruolo
-    // più" with "cliccato" chopped off) since it only checks for *a* space,
-    // not whether the cut lands after a complete clause. Safer to discard an
-    // over-limit AI subject and let the caller fall back to FALLBACK_SUBJECT
-    // than to ship a grammatically broken one.
-    if (raw.length > 55) return null;
-    return raw;
+    ], { temperature: 0.8, maxTokens: 80 * variants.length, jsonSchema, chain: NEWSLETTER_AI_CHAIN, deadlineMs });
+    const answer = parseSubjectsAnswer(result);
+    if (!answer) throw new Error(`no JSON object in the answer: ${String(result).slice(0, 120)}`);
+    for (const v of variants) subjects[v] = acceptAISubject(answer[v]);
   } catch (e) {
-    console.warn('\u26a0\ufe0f AI subject failed:', e.message?.slice(0, 200));
-    return null;
+    console.warn(`⚠️ AI subjects (${ctx.subscriber?.locale || 'it'}) failed:`, e.message?.slice(0, 200));
   }
+  return subjects;
 }
 
 // ─── Unsubscribe / Auth URLs ────────────────────────────────
@@ -2567,10 +2587,10 @@ async function main() {
   // From the cohorts, so no locale is asked for without a cohort to use it.
   const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
 
-  // ── Phase 3: Generate 1 AI subject per locale × A/B variant ──
+  // ── Phase 3: Generate the AI subjects of every A/B variant, 1 call per locale ──
   // Subject-line A/B test: one subject per (locale, variant) so each subscriber
   // gets the subject for their deterministically-assigned variant (Phase 5).
-  // Still cohort-cheap: at most locales × variants AI calls (≤8), not per-sub.
+  // One AI call writes every variant of a locale (≤4 calls), not per-sub.
   //
   // Phases 2 and 3 run together. A subject reads only the first 100 characters
   // of its locale's largest cohort briefing, and those are that cohort's jobs
@@ -2611,7 +2631,7 @@ async function main() {
       variantIds,
       briefingFor,
       exchangeRate,
-      generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs: subjectDeadlineMs }),
+      generate: (subjectCtx) => generateAISubjects(subjectCtx, { deadlineMs: subjectDeadlineMs }),
     });
   })();
   const [{ briefingMap, localeBriefings, aiCohorts, fallbackCohorts }, subjectMap] = await Promise.all([phase2, phase3]);
