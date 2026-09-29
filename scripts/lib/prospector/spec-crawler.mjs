@@ -591,8 +591,14 @@ export function stripListingPageState(url, pageUrl, stateParams = []) {
  * @returns {string|null}
  */
 export function findNextListingPageUrl(html, pageUrl) {
-  let origin = '';
-  try { origin = new URL(pageUrl).origin; } catch { return null; }
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+  const origin = current.origin;
+  current.hash = '';
   const tagRx = /<(?:a|link)\b[^>]*>/gi;
   let tag;
   while ((tag = tagRx.exec(String(html || '')))) {
@@ -606,6 +612,11 @@ export function findNextListingPageUrl(html, pageUrl) {
     try { next = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
     if (next.origin !== origin) continue;
     next.hash = '';
+    // A few sources leave a placeholder `rel=next href="#"` on their last
+    // page. It is a same-page fragment, not a continuation; ignoring it lets
+    // the existing visited-page guard keep its fail-closed behavior for real
+    // pagination loops.
+    if (next.href === current.href) continue;
     return next.href;
   }
   return null;

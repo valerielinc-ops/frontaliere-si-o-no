@@ -186,6 +186,11 @@ describe('helper di paginazione', () => {
     expect(findNextListingPageUrl('<a rel="prev" href="/list?page=1">«</a>', `${ORIGIN}/list`)).toBeNull();
   });
 
+  it('ignora un rel=next placeholder che punta a un fragment della pagina corrente', () => {
+    expect(findNextListingPageUrl('<a rel="next" href="#">Pagina successiva</a>', `${ORIGIN}/list?page=3`))
+      .toBeNull();
+  });
+
   it('toglie dall\'URL di dettaglio solo i parametri di paginazione dichiarati', () => {
     const state = ['sf_paged'];
     expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/sa3/`);
