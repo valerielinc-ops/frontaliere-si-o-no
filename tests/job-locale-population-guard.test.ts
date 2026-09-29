@@ -102,8 +102,11 @@ describe('job-locale population identity', () => {
     });
 
     it('rejects an inflated population too — the slice/assembled swap', () => {
-      // Descriptions: 90,528 assembled vs 107,808 read from the slices (+19%).
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 107808)).toThrow(/\[population-changed\]/);
+      // The historical 107,808 slice figure belonged to the old 90,900
+      // baseline and is now inside the re-derived band. Keep the documented
+      // +18.6% slice/assembled swap as a synthetic out-of-band fixture.
+      const inflatedDescriptionSlots = Math.round(DESCRIPTION_POPULATION.expectedSlots * 1.186);
+      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, inflatedDescriptionSlots)).toThrow(/\[population-changed\]/);
       // Titles: 78,725 assembled (re-baselined 2026-08-25, issue 6510) vs
       // 92,231 read from the slices, re-measured the same day directly off
       // data/jobs/by-crawler/*.json (+17.2%). The two historical figures this
@@ -116,9 +119,11 @@ describe('job-locale population identity', () => {
     });
 
     it('holds both shipped populations at their real measured sizes', () => {
-      // Descriptions, assembled, 2026-08-11 at both ends of the crawl wave.
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 91297)).not.toThrow();
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 90528)).not.toThrow();
+      // Descriptions, assembled, 2026-09-29: 115,907 in CI and 115,899 in
+      // the local re-measurement of the same corpus wave.
+      for (const n of [115907, 115899]) {
+        expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, n)).not.toThrow();
+      }
       // Titles, assembled, four measurements the same day.
       for (const n of [68587, 68306, 67987, 67844]) {
         expect(() => assertPopulationUnchanged(TITLE_POPULATION, n)).not.toThrow();
@@ -271,12 +276,11 @@ describe('job-locale population identity', () => {
       expect(() => runDescriptionGate(makeJobs(100, { queued: 90 }), 400, 0.02)).not.toThrow(/\[quality-regression\]/);
     });
 
-    it('SCENARIO D — the real 2026-08-11 numbers do not trip the population guard', () => {
-      // 62,944 → 34,594 served slots was the old denominator. On the new
-      // population the same two states are 91,297 and 90,528, both inside the
-      // band — so the gate stays on the quality question, which is the point.
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 91297)).not.toThrow();
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 90528)).not.toThrow();
+    it('SCENARIO D — the real 2026-09-29 numbers do not trip the population guard', () => {
+      // The two current assembled measurements are both inside the band, so
+      // the gate stays on the quality question, which is the point.
+      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 115907)).not.toThrow();
+      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 115899)).not.toThrow();
       // ...while the old denominators would both have been flagged as what they
       // were: a different set.
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 62944)).toThrow(/\[population-changed\]/);

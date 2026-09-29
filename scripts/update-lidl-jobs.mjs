@@ -140,7 +140,6 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['bevaix|2022', 'NE'],
   ['niederuzwil|9244', 'SG'],
   ['romont|1680', 'FR'],
-  // Village of Altstätten SG; geo.admin.ch zipcode 9450 = Lüchingen / Altstätten SG.
   ['luchingen|9450', 'SG'],
 ]);
 
