@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -112,7 +113,6 @@ export async function persistMailtrapEvent(db, eventData) {
  return persistJobAlertMailtrapEvent(db, { email, type, eventData, messageId, occurredAt });
  }
 
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
  // Update subscriber-level fields
@@ -254,7 +254,6 @@ export async function persistMailtrapEvent(db, eventData) {
 // ── Job alert event handler (mirrors newsletter pattern) ────
 
 async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messageId, occurredAt }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
