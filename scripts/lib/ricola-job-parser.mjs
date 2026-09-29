@@ -57,6 +57,7 @@ import { detectLang, decodeHtmlEntities, decodeNumericEntities, normalizeSpace a
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './drop-fabricated-description.mjs';
 
 /* ── Constants ────────────────────────────────────────────── */
 
@@ -319,6 +320,27 @@ async function fetchJobListings(options = {}) {
  * personal email) before the generic `stripHtml()` helper converts the
  * remainder to plain text with preserved bullet lists.
  */
+/**
+ * Contract type from the listing's "Employment period" term. The old test
+ * `/limited|befristet|temporary/` also matched "un**limited**", so both Ricola
+ * postings on main (permanent roles) were published as temporary.
+ */
+export function ricolaContractFromTerm(term = '') {
+  const value = normalizeSpace(term).toLowerCase();
+  if (/\b(?:unlimited|unbefristet|permanent|indeterminato|indéterminée?)\b/.test(value)) return 'full-time';
+  return /\b(?:limited|befristet|temporary|temporär|fixed[- ]term|determinato|déterminée?)\b/.test(value) ? 'temporary' : 'full-time';
+}
+
+// The listing facts line the parser used to append to every body
+// ("\n\nType: Part-time. Employment period: unlimited."). Stored records still
+// carry it until the shared cleanup drops them before the merge.
+export const RICOLA_META_LINE_RX = /\n\n(?:Type|Employment period): [^\n]*\.\s*$/;
+
+/** `prepareExistingJobs` for the standard pipeline: drop the stored meta-line bodies. */
+export function prepareRicolaExistingJobs(jobs) {
+  return dropFabricatedDescriptions(jobs, RICOLA_META_LINE_RX, RICOLA_COMPANY_NAME);
+}
+
 export function extractRicolaDetailContent(html) {
   if (!html || typeof html !== 'string') return '';
 
@@ -402,11 +424,6 @@ export async function fetchAllRicolaJobs(options = {}) {
 
     const detailContent = await fetchDetailContent(listing.url, options);
 
-    const meta = [];
-    if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
-    if (listing.contractTerm) meta.push(`Employment period: ${listing.contractTerm}`);
-    const metaLine = meta.length > 0 ? `\n\n${meta.join('. ')}.` : '';
-
     // Source text only (issue 5253): without a detail body over the 50-word
     // floor the job is left out of this run (the standard pipeline keeps the
     // stored record in grace) instead of getting a company paragraph written
@@ -416,7 +433,10 @@ export async function fetchAllRicolaJobs(options = {}) {
       console.warn(`  ⏭️ ${title}: no vacancy text on the detail page — not published this run`);
       continue;
     }
-    const descriptionText = `${detailContent}${metaLine}`;
+    // The posting's own text only: the listing's "Type: … Employment period:
+    // …" facts are structured fields (employmentType, contract), not a line
+    // appended to the body.
+    const descriptionText = detailContent;
 
     const sourceLang = detectLang(detailContent, 'en');
     const jobSlug = slugify(`${title} ricola ch`);
@@ -455,7 +475,7 @@ export async function fetchAllRicolaJobs(options = {}) {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: /limited|befristet|temporary/i.test(listing.contractTerm || '') ? 'temporary' : 'full-time',
+      contract: ricolaContractFromTerm(listing.contractTerm),
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: SECTOR,
