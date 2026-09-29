@@ -65,6 +65,7 @@ describe('source language read from the body, not a fixed key (#5253)', () => {
   const files = [
     'update-cedes-jobs.mjs',
     'update-davos-klosters-bergbahnen-jobs.mjs',
+    'update-has-healthcare-jobs.mjs',
     'update-hilcona-jobs.mjs',
     'update-laderach-jobs.mjs',
     'update-otis-jobs.mjs',
