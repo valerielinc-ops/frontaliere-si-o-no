@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clariant",
-  "assembledAt": "2026-09-28T21:12:17.946Z",
+  "assembledAt": "2026-09-29T09:14:21.077Z",
   "jobs": [
     {
       "id": "clariant-e621ca88dbc5",
@@ -33,7 +33,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:12:13.679Z",
+      "crawledAt": "2026-09-29T09:14:17.144Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:16:31.933Z",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
       "salarySource": "estimated",
