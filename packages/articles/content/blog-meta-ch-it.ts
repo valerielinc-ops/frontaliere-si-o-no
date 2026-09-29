@@ -7025,6 +7025,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rincari-auto-abitazione-ticino.title': 'Forti rincari per auto e abitazione, specie in Ticino',
     'blog.article.rincari-auto-abitazione-ticino.excerpt': 'Ad agosto i costi abitativi e della mobilità salgono del 2,4% in Svizzera. Il Ticino registra il rincaro annuo più alto con il 3%.',
     'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Rincari per auto e abitazione in Ticino e Svizzera',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Rincari casa e mobilità: spesa in aumento in Svizzera',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'Ad agosto 2026 i prezzi legati ad abitazione e mobilità in Svizzera segnano un +2,4%, con un aggravio di 89 franchi al mese per le famiglie.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Aumento dei costi di abitazione e mobilità in Svizzera',
 };
 
 export default blogMetaChIt;
