@@ -115,12 +115,10 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Same gate as discover-404s.yml: the sweep appends raw 404 URLs; any the
         # resolver can't map (bot-probe junk like /wp-admin/install.php) would
-        # break tests/search-console-compat.test.ts → main red. Assemble jobs
-        # first (resolver statically needs data/jobs.json), then drop
-        # non-resolving paths before commit.
-        run: |
-          node scripts/assemble-jobs-dataset.mjs
-          npx --no-install tsx scripts/prune-404-compat-paths.ts
+        # break tests/search-console-compat.test.ts → main red. The resolver
+        # uses committed static registries, so avoid assembling the ~400 MB
+        # crawler-slice corpus in this compatibility-only writer.
+        run: npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Commit and push
         if: inputs.dry_run != true && inputs.dry_run != 'true'
