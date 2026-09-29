@@ -501,6 +501,57 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('matches a structured source locality through the vacancy postal code', () => {
+    const result = compareSourceDetail(
+      {
+        location: 'Fontaines, CH, 2046',
+        sourceLang: 'fr',
+        description: 'Description complète de la fonction et des responsabilités. '.repeat(20),
+      },
+      {
+        location: 'Grosses Fontaines',
+        locationCandidates: [{
+          location: 'Grosses Fontaines, Font',
+          addressCountry: 'CH',
+          addressLocality: 'Grosses Fontaines',
+          addressRegion: 'Font',
+          postalCode: '2046',
+        }],
+        description: 'Description complète de la fonction et des responsabilités. '.repeat(20),
+      },
+      { locationEvidence: 'strong-markup' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(false);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('keeps a structured locality mismatch when the postal codes differ', () => {
+    const result = compareSourceDetail(
+      {
+        location: 'Fontaines, CH, 2046',
+        sourceLang: 'fr',
+        description: 'Description complète de la fonction et des responsabilités. '.repeat(20),
+      },
+      {
+        location: 'Grosses Fontaines',
+        locationCandidates: [{
+          location: 'Grosses Fontaines, Font',
+          addressCountry: 'CH',
+          addressLocality: 'Grosses Fontaines',
+          addressRegion: 'Font',
+          postalCode: '2047',
+        }],
+        description: 'Description complète de la fonction et des responsabilités. '.repeat(20),
+      },
+      { locationEvidence: 'strong-markup' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationInconclusive).toBe(false);
+  });
+
   it('marks description-only corroboration as circular for text-derived jobs', () => {
     const result = compareSourceDetail(
       {

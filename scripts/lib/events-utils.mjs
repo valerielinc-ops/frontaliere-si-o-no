@@ -858,7 +858,9 @@ async function readEventImageBody(response, maxBytes) {
       if (chunkBytes === 0) continue;
 
       if (buffer) buffer.set(value, totalBytes);
-      else chunks.push(value);
+      // A copy, not the chunk itself: a reader may hand back the same buffer
+      // on every read (corpus nanakokyobashi-rgb/frontaliere-articles#1906).
+      else chunks.push(Buffer.from(value));
       totalBytes += chunkBytes;
     }
     return buffer ? buffer.subarray(0, totalBytes) : Buffer.concat(chunks, totalBytes);

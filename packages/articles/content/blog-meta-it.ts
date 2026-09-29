@@ -12259,6 +12259,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pasture-chiusura-garanzie.title': 'Chiusura di Chiasso, timori tra il personale di Pasture',
     'blog.article.pasture-chiusura-garanzie.excerpt': 'La SEM garantisce la riapertura della struttura di Chiasso; il fronte sindacale difende i posti di lavoro e segnala licenziamenti in vista, senza certezze.',
     'blog.article.pasture-chiusura-garanzie.imageAlt': 'Scorcio di Chiasso legato alla preoccupazione del personale di Pasture',
+    'blog.article.castelseprio-ticino-frontaliere.title': 'Vivere a Castelseprio e lavorare in Ticino da frontaliere',
+    'blog.article.castelseprio-ticino-frontaliere.excerpt': 'Per chi vive a Castelseprio, accordo frontalieri in vigore dal 1° gennaio 2024: esenzione di €7\'500 per i vecchi e franchigia di €10\'000 per i nuovi.',
+    'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Pendolare frontaliero verso il Ticino all\'alba, con paesaggio collinare e luce naturale',
 };
 
 export default blogMetaIt;
