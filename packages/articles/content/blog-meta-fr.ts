@@ -12266,6 +12266,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sangiano-lavorare-ticino.title': 'Vivre à Sangiano et travailler au Tessin : guide budgétaire',
     'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Le nouvel accord frontalier est en vigueur depuis le 1er janvier 2024. Découvrez comment distinguer les exonérations, les franchises et les retenues pour votre projet de vie.',
     'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Vue panoramique sur Lugano, destination pour de nombreux frontaliers.',
+    'blog.article.ticino-costi-mobilita-abitazione.title': 'Le Tessin en tête des hausses des coûts de la mobilité et du logement',
+    'blog.article.ticino-costi-mobilita-abitazione.excerpt': 'En août, les hausses de prix au Tessin atteignent 3%, tandis qu’au niveau national, les prix du logement et de la mobilité augmentent de 2,4% et que l’inflation générale s’établit à 0,8%, ce qui correspond à 1\'066 francs de plus par an pour une famille type.',
+    'blog.article.ticino-costi-mobilita-abitazione.imageAlt': 'Usager de la route près de Lugano avec maisons en arrière-plan, représentant les coûts de mobilité et de logement',
+    'blog.article.fials-vigilanza-ospedale-varese.title': 'FIALS : plus de surveillance nocturne à Varèse',
+    'blog.article.fials-vigilanza-ospedale-varese.excerpt': 'Le syndicat demande à l\'ASST Sept Lacs de revoir les accès et les quarts de travail : un seul garde aux urgences ne suffit pas.',
+    'blog.article.fials-vigilanza-ospedale-varese.imageAlt': 'Entrée d\'un hôpital gardée par un agent de sécurité la nuit',
 };
 
 export default blogMetaFr;

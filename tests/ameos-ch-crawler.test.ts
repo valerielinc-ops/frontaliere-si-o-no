@@ -1,5 +1,9 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  extractAmeosAdUrl,
+  parseAmeosSoliqueAd,
   AMEOS_CH_KEY,
   AMEOS_CH_COMPANY_NAME,
   AMEOS_CH_CAREERS_URL,
@@ -186,5 +190,33 @@ describe('AMEOS Schweiz crawler parser', () => {
     it('respects max length', () => {
       expect(slugify('a'.repeat(200)).length).toBeLessThanOrEqual(90);
     });
+  });
+});
+
+// Live pages (2026-09-29), minimized; the contact person of the ad replaced by
+// a placeholder. The karriere.ameos.eu detail only repeats the ad as a
+// markup-free itemprop string; the ad itself is the embedded Solique page.
+describe('AMEOS Solique ad', () => {
+  const fixture = (name: string) => fs.readFileSync(path.join(__dirname, 'fixtures', 'ameos-ch', name), 'utf8');
+
+  it('finds the embedded ad on the detail page', () => {
+    expect(extractAmeosAdUrl(fixture('detail-7902.html'))).toBe('https://live.solique.ch/ameos/job/details/4037222/');
+    expect(parseDetail(fixture('detail-7902.html')).adUrl).toBe('https://live.solique.ch/ameos/job/details/4037222/');
+    expect(extractAmeosAdUrl('<main><h1>x</h1></main>')).toBe('');
+  });
+
+  it('keeps the ad sections with their lists as line-start bullets', () => {
+    const text = parseAmeosSoliqueAd(fixture('solique-ad-4037222.html'));
+    expect(text.startsWith('Das AMEOS Seeklinikum Brunnen liegt am wunderschönen Vierwaldstättersee')).toBe(true);
+    expect(text).toContain('Oberarzt (m/w/d) und/oder Leitender Facharzt (m/w/d) Psychiatrie und Psychotherapie — 80-100 %, stationär und / oder teils ambulant');
+    expect(text).toContain('Ihre Aufgaben\n• Als Oberarzt (m/w/d) sind Sie für die fachärztliche therapeutische Leitung');
+    expect(text).toContain('Ihr Profil\n• Sie bringen sich in Projekte ein');
+    expect(text).toMatch(/^• Loyalität und der konstruktive Umgang/m);
+  });
+
+  it('publishes neither the contact paragraph nor page chrome nor an invented blurb', () => {
+    const text = parseAmeosSoliqueAd(fixture('solique-ad-4037222.html'));
+    expect(text).not.toMatch(/Vorname Nachname|000 00 00|Instagram|Jetzt bewerben|Vor allem Gesundheit/);
+    expect(text).not.toContain('AMEOS Schweiz — Teil der AMEOS-Gruppe');
   });
 });

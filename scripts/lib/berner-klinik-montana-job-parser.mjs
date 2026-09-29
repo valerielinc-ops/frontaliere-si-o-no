@@ -24,7 +24,9 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
+  extractBalancedTagBlock,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const BERNER_KLINIK_MONTANA_KEY = 'berner-klinik-montana';
 export const BERNER_KLINIK_MONTANA_COMPANY_NAME = 'Berner Klinik Montana';
@@ -76,25 +78,39 @@ export function parseBernerKlinikListing(html) {
   return out;
 }
 
+/**
+ * The vacancy text of a bernerklinik.ch offer page: the `post-excerpt`
+ * lead ("Notre clinique … recherche un/une …") and the WordPress
+ * `entry-content` block (activités, profil, offre, candidature), without the
+ * trailing "Télécharger l'offre d'emploi" button.
+ *
+ * The former sweep collected every `<p>/<li>/<h2-6>` of the page capped at
+ * 25 fragments: it opened on the site search form ("Recherche pour :
+ * Recherche Merci de saisir un mot-clé…"), glued the first heading into the
+ * first bullet and cut the application paragraph of longer offers.
+ *
+ * @param {string} html
+ * @returns {string} '' when the page has no `entry-content` block
+ */
+export function extractBernerKlinikDetailText(html = '') {
+  const page = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const open = /<div\b[^>]*class="[^"]*\bentry-content\b[^"]*"[^>]*>/i.exec(page);
+  if (!open) return '';
+  const content = extractBalancedTagBlock(page.slice(open.index + open[0].length), 'div', page.length)
+    .replace(/<div\b[^>]*class="[^"]*\bwp-block-buttons?\b[^"]*"[^>]*>[\s\S]*?<\/a>\s*<\/div>\s*(?:<\/div>)?/gi, '');
+  const excerpt = page.match(/<h2\b[^>]*class="[^"]*\bpost-excerpt\b[^"]*"[^>]*>([\s\S]*?)<\/h2>/i);
+  return [excerpt ? htmlToTextLines(excerpt[1]) : '', htmlToTextLines(content)]
+    .filter(Boolean)
+    .join('\n\n')
+    .trim();
+}
+
 async function fetchDetailContent(detailUrl) {
   try {
-    const html = await fetchHtml(detailUrl);
-    const stripped = html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const parts = [];
-    const proseRx = /<(p|li|h[2-6])\b[^>]*>([\s\S]*?)<\/\1>/g;
-    let pm;
-    while ((pm = proseRx.exec(stripped))) {
-      const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
-      if (!text || text.length < 12) continue;
-      if (/cookie|privacy|impressum|réseaux sociaux/i.test(text.slice(0, 40))) continue;
-      parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
-    }
-    return parts.join('\n');
+    return extractBernerKlinikDetailText(await fetchHtml(detailUrl));
   } catch {
     return '';
   }
@@ -116,11 +132,10 @@ export async function fetchAllBernerKlinikMontanaJobs() {
     const detailContent = await fetchDetailContent(it.url);
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, 250));
-    const description = [
-      detailContent,
-      it.intro,
-      'Berner Klinik Montana — Clinique bernoise spécialisée en réadaptation à Crans-Montana (VS).',
-    ].filter(Boolean).join('\n\n');
+    // The offer page carries the lead itself (post-excerpt); the listing
+    // teaser is only the fallback when the page could not be read. No company
+    // sentence of our own.
+    const description = detailContent || it.intro || '';
 
     const sourceLang = detectLang(description || it.title, 'fr');
     const jobSlug = slugify(`${it.title} ${BERNER_KLINIK_MONTANA_KEY} crans-montana`);

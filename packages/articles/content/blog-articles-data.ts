@@ -36808,6 +36808,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ticino-costi-mobilita-abitazione',
+ category: 'pratico',
+ date: '2026-09-29T10:00:49.866Z',
+ image: '/images/blog/ticino-costi-mobilita-abitazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'fials-vigilanza-ospedale-varese',
+ category: 'pratico',
+ date: '2026-09-29T10:38:19.961Z',
+ image: '/images/blog/fials-vigilanza-ospedale-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

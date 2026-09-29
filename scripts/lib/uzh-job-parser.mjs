@@ -30,6 +30,9 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.uzh.ch/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.uzh.ch'],
+  // Listing payload = 9-33 % of the rendered vacancy (audit 2026-09-29):
+  // the faculty/department text and the "Wir bieten" benefit list exist only on the directlink page.
+  detailPageDescription: true,
 });
 
 export const fetchAllUzhJobs = parser.fetchAllJobs;
