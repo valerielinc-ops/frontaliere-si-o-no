@@ -2369,6 +2369,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'uova-piccoli-allevamenti-csl': { it: 'uova-piccoli-allevamenti-csl', en: 'swiss-eggs-small-farms-csl', de: 'schweizer-eier-kleine-betriebe-csl', fr: 'oeufs-suisses-petits-elevages-csl' },
  'svizzera-patrimonio-finanziario-mondiale': { it: 'svizzera-patrimonio-finanziario-mondiale', en: 'switzerland-global-financial-wealth', de: 'schweiz-globales-finanzvermoegen', fr: 'suisse-patrimoine-financier-mondial' },
  'lavoratori-svizzeri-ia-benefici': { it: 'lavoratori-svizzeri-ia-benefici', en: 'swiss-workers-ai-benefits', de: 'schweizer-arbeitnehmer-ki-vorteile', fr: 'travailleurs-suisses-ia-benefices' },
+ 'cioccolato-mercato-svizzera': { it: 'cioccolato-mercato-svizzera', en: 'chocolate-market-switzerland', de: 'schokolade-markt-schweiz', fr: 'chocolat-marche-suisse' },
+ 'lindt-prezzi-cacao-2026': { it: 'lindt-prezzi-cacao-2026', en: 'lindt-prices-cocoa-2026', de: 'lindt-preise-kakao-2026', fr: 'lindt-prix-cacao-2026' },
+ 'classifica-ompi-alta-tecnologia': { it: 'classifica-ompi-alta-tecnologia', en: 'switzerland-innovation-ranking', de: 'schweiz-innovationsranking', fr: 'classement-innovation-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7040,6 +7040,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoratori-svizzeri-ia-benefici.title': 'Swiss workers use AI, but few see its benefits',
     'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% of Swiss workers use generative AI every day, but only 10% see improved work quality. Findings from PwC research.',
     'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Swiss workers and artificial intelligence',
+    'blog.article.cioccolato-mercato-svizzera.title': 'Lindt revises downwards its sales forecasts for 2026',
+    'blog.article.cioccolato-mercato-svizzera.excerpt': 'Lindt expects revenue growth of 0%-2% (versus previous 4-6%), BP -8% in the morning, YTD performance -30%, -35% over 12 months, -24% over 5 years; headquarters in Kilchberg ZH, 15\'500 employees.',
+    'blog.article.cioccolato-mercato-svizzera.imageAlt': 'Swiss chocolate bars on a wooden table with Alps background',
+    'blog.article.lindt-prezzi-cacao-2026.title': 'Lindt revises estimates: sales and prices decline',
+    'blog.article.lindt-prezzi-cacao-2026.excerpt': 'Lindt&Sprüngli cuts the 2026 organic growth forecast to 0-2 percent and is considering broader price reductions from January after the impact of cocoa and summer heat.',
+    'blog.article.lindt-prezzi-cacao-2026.imageAlt': 'Lindt chocolate display in a shop',
+    'blog.article.classifica-ompi-alta-tecnologia.title': 'Switzerland ranks first in the world for innovation',
+    'blog.article.classifica-ompi-alta-tecnologia.excerpt': 'Switzerland has ranked first since 2011 in the WIPO ranking; Sweden and the United States follow, while China enters the top ten for the first time.',
+    'blog.article.classifica-ompi-alta-tecnologia.imageAlt': 'Researchers outside a Swiss center dedicated to research and innovation',
 };
 
 export default blogMetaChEn;

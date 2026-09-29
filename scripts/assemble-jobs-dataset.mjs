@@ -3520,6 +3520,10 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       });
       if (cleaned.length < slice.length) {
         writeJson(fp, cleaned, {
+          expiredGhostProof: {
+            activeJobs,
+            ghostEntryIds: [...ghostIds],
+          },
           housekeepingProof: {
             kind: 'reconcile-ghost-expired',
             activeJobs,

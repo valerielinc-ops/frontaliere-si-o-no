@@ -25,6 +25,8 @@ on:
     branches: [main]
     paths:
       - 'infra/cloudflare-worker/**'
+      - 'scripts/cf-purge-worker-origin-cache.mjs'
+      - 'scripts/lib/cf-purge-limits.mjs'
   workflow_dispatch: {}
 
 # Never cancel an in-flight deploy: a half-applied Worker/route change is worse
@@ -114,6 +116,14 @@ jobs:
           accountId: ${{ env.CF_ACCOUNT_ID }}
           workingDirectory: infra/cloudflare-worker
           command: deploy
+
+      # cacheTtlByStatus changes future origin responses, but cannot evict a
+      # 5xx already stored under the old uniform cacheTtl. Purge only the
+      # origin-* hosts the Worker fetches: never the apex/CDN hosts and never
+      # the zone-wide purge_everything path. This must complete before the
+      # first post-rollout request can refill a stale native entry.
+      - name: Purge legacy native Worker-origin cache
+        run: node scripts/cf-purge-worker-origin-cache.mjs
 
       # Over-cap failover config. wrangler re-syncs routes from wrangler.toml,
       # which cannot express request_limit_fail_open — a deploy can silently
