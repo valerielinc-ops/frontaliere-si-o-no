@@ -7037,6 +7037,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'Gli svizzeri sono i più ricchi del mondo',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'La Svizzera è prima per patrimonio lordo finanziario pro capite con 406\'060 euro. Secondo il Global Wealth Report 2026 di Allianz, il patrimonio netto per persona è a 275\'980 euro.',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Panoramica di un centro finanziario svizzero con banche e montagne',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'I lavoratori svizzeri usano l\'IA, ma pochi ne vedono i benefici',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': 'Il 28% dei lavoratori svizzeri usa ogni giorno l\'IA generativa ma solo il 10% vede una qualità del lavoro migliore. I dati della ricerca PwC.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Lavoratori svizzeri e intelligenza artificiale',
 };
 
 export default blogMetaChIt;

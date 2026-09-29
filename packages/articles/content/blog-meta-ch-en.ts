@@ -7037,6 +7037,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'The Swiss are the richest in the world',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'Switzerland ranks first for gross financial wealth per capita at 406\'060 euros. According to Allianz\'s Global Wealth Report 2026, net wealth per person stands at 275\'980 euros.',
     'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Overview of a Swiss financial center with banks and mountains',
+    'blog.article.lavoratori-svizzeri-ia-benefici.title': 'Swiss workers use AI, but few see its benefits',
+    'blog.article.lavoratori-svizzeri-ia-benefici.excerpt': '28% of Swiss workers use generative AI every day, but only 10% see improved work quality. Findings from PwC research.',
+    'blog.article.lavoratori-svizzeri-ia-benefici.imageAlt': 'Swiss workers and artificial intelligence',
 };
 
 export default blogMetaChEn;
