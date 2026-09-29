@@ -21238,6 +21238,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'percorsi-impiego-pubblico',
+    category: 'pratico',
+    date: '2026-09-29T16:57:52.360Z',
+    image: '/images/blog/percorsi-impiego-pubblico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

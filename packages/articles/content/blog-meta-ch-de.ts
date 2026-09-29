@@ -7070,6 +7070,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Schweizer Parlament: Leitfaden für Curia Vista und Open Data',
     'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Von den Abgeordneten von 1848 bis zu den CN-Abstimmungen: Wie man das offizielle Portal verwendet, um Akten, Ausschüsse und EU/NATO-Delegationen zu verfolgen.',
     'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Der Schweizerische Bundespalast in Bern, Sitz des Nationalrats und des Ständerats',
+    'blog.article.percorsi-impiego-pubblico.title': 'Arbeiten in der Bundesverwaltung: Chancen und Ausbildung',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'Die Bundesverwaltung bietet 50 Berufsausbildungen, Praktika für Hochschulabsolventinnen und -absolventen sowie sieben Wochen Ferien an.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Schweizer Büroteam bei der Arbeit für die Bundesverwaltung',
 };
 
 export default blogMetaChDe;

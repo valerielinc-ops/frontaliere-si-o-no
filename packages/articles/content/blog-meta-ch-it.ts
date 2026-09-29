@@ -7070,6 +7070,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlamento svizzero: guida a Curia Vista e Open Data',
     'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Dai deputati dal 1848 alle votazioni CN: come usare il portale ufficiale per tracciare atti, commissioni e delegazioni UE/NATO.',
     'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Il Palazzo del Parlamento svizzero a Berna, sede del Consiglio nazionale e del Consiglio degli Stati',
+    'blog.article.percorsi-impiego-pubblico.title': 'Lavorare nell\'Amministrazione federale: opportunità e formazione',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Amministrazione federale offre 50 formazioni professionali, praticantati per neolaureati e sette settimane di vacanze.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team al lavoro in un ufficio svizzero per l\'Amministrazione federale',
 };
 
 export default blogMetaChIt;

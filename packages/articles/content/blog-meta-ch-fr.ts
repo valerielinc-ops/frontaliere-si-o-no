@@ -7070,6 +7070,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parlamento-svizzero-strumenti-ricerca.title': 'Parlement suisse : guide Curia Vista et Open Data',
     'blog.article.parlamento-svizzero-strumenti-ricerca.excerpt': 'Des députés de 1848 aux votes CN : comment utiliser le portail officiel pour suivre les actes, les commissions et les délégations UE/OTAN.',
     'blog.article.parlamento-svizzero-strumenti-ricerca.imageAlt': 'Le Palais fédéral suisse à Berne, siège du Conseil national et du Conseil des États',
+    'blog.article.percorsi-impiego-pubblico.title': 'Travailler au sein de l\'Administration fédérale : opportunités et formation',
+    'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Administration fédérale offre 50 formations professionnelles, des stages pour les étudiants récemment diplômés et sept semaines de vacances.',
+    'blog.article.percorsi-impiego-pubblico.imageAlt': 'Équipe au travail dans un bureau de l\'administration fédérale suisse',
 };
 
 export default blogMetaChFr;
