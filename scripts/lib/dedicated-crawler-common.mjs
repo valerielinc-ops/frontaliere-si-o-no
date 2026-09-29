@@ -53,6 +53,7 @@ import {
   hasUsableTitle,
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
+import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
@@ -2228,6 +2229,12 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   const cleanDesc = (clean || cleanDescriptionDCC)(description || '');
   if (!cleanDesc || cleanDesc.length < floor) return '';
   if (locale === sourceLang) return cleanDesc;
+  // Not a translation, whatever its length: an answer carrying the model's
+  // reasoning, or one stuck in a repetition loop («Risk-Lights-Lights-…»)
+  // compared with this source (ai-output-fidelity.mjs). Applied to every
+  // candidate this function can return or cache, and to what the cache returns.
+  const unusable = (text) => Boolean(detectAiReasoningLeak(text)
+    || detectDegenerateRepetition(text, { references: [cleanDesc] }));
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
@@ -2239,10 +2246,16 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-desc-v2', [cleanDesc, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored answer that leaks or loops is dropped and recomputed, never
+    // replayed.
+    const cachedUnusable = typeof fromCache === 'string' && fromCache !== AI_CACHE_RAW_SENTINEL
+      && unusable(fromCache);
+    if (cachedUnusable && ctx.deleteCachedAiResponse) ctx.deleteCachedAiResponse(cacheKey);
+    if (typeof fromCache === 'string' && !cachedUnusable) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-      if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()) {
+      if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()
+          && !unusable(sentinelFallback)) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return sentinelFallback;
       }
@@ -2250,7 +2263,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     }
     // DeepL first
     const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateObservedDetailed(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (deepl && deepl.length >= floor) {
+    if (deepl && deepl.length >= floor && !unusable(deepl)) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
     }
@@ -2296,14 +2309,16 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
         const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
-        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()) {
+        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()
+            && !unusable(translated)) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
         }
       } catch { /* fallback below */ }
     }
     const fallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()) {
+    if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()
+        && !unusable(fallback)) {
       setCachedAiResponse(cacheKey, fallback);
       return fallback;
     }
@@ -2313,7 +2328,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
 
   // No cache — simple free-translate fallback
   const simple = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-  return (simple && simple.length >= floor) ? simple : '';
+  return (simple && simple.length >= floor && !unusable(simple)) ? simple : '';
 }
 
 // ── Protected brand names ───────────────────────────────────────────────────

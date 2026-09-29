@@ -11,6 +11,7 @@ import {
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
 import { MIN_TITLE_CHARS } from './translation-quality.mjs';
+import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -238,6 +239,11 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
   const sourceHeadings = countHeadings(source);
   const outputHeadings = countHeadings(output);
   if (sourceHeadings >= 1 && outputHeadings === 0) return false;
+  // Same leak/degeneration invariants as isAcceptableTranslation (the free
+  // cascade's gate): the local engines (NLLB/Ollama) loop too, and this gate
+  // also judges memoized answers, so a stored loop is not replayed.
+  if (detectAiReasoningLeak(output)) return false;
+  if (detectDegenerateRepetition(output, { references: [source] })) return false;
   return true;
 }
 

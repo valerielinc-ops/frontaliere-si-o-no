@@ -94,6 +94,28 @@ describe('job localization pipeline', () => {
     expect(stats.providerHits.libretranslate).toBe(1);
   });
 
+  it('falls back when NLLB loops (pkb-private-bank «Risk-Lights-Lights-…»)', async () => {
+    const source = 'Per la nostra sede di Lugano ricerchiamo un Risk Officer con esperienza di almeno 5 anni, con sviluppate competenze negli ambiti della sorveglianza dei rischi relativi alle attività della gestione patrimoniale.';
+    const looping = `For our headquarters in Lugano we receive a Risk-${'Lights-'.repeat(40)}Lights officer.`;
+    const clean = 'For our Lugano headquarters we are looking for a Risk Officer with at least 5 years of experience and well-developed skills in monitoring the risks of wealth management activities.';
+    const fetchMock = vi.fn(async (url: string) => ({
+      ok: true,
+      json: async () => ({ translatedText: String(url).includes(':9001') ? looping : clean }),
+    }));
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const translated = await translateTextWithLocalPipeline({
+      text: source,
+      sourceLang: 'it',
+      targetLang: 'en',
+      kind: 'description',
+      minChars: 120,
+    });
+
+    expect(translated).toBe(clean);
+    expect(getJobLocalizationPipelineStats().providerFailures.nllb).toBe(1);
+  });
+
   it('falls back when NLLB echoes a source sentinel in a mangled form', async () => {
     const fetchMock = vi.fn(async (url: string) => {
       if (String(url).includes(':9001')) {
