@@ -3627,6 +3627,28 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
             entries: proofEntries,
           },
         });
+        // The in-process proof above protects assembly itself. Persist the
+        // same exact evidence for the later grouped-isolated commit, which
+        // sees only the checkout blob and the post-merge candidate.
+        if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
+          const committedCandidateRaw = fs.readFileSync(fp, 'utf8');
+          const ghostProof = {
+            schemaVersion: 1,
+            type: 'ghost-expired-reconciliation',
+            path: path.relative(ROOT, fp).split(path.sep).join('/'),
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            entries: proofEntries,
+          };
+          writeHousekeepingProofFile(fp, [{
+            operation: 'reconcile-ghost-expired',
+            removedCount: slice.length - cleaned.length,
+          }], {
+            baseRaw: previousRaw,
+            candidateRaw: committedCandidateRaw,
+            metadata: ghostProof,
+          });
+        }
       }
     }
   }

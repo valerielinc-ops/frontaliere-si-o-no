@@ -1792,6 +1792,8 @@ commit_isolated_from_worktree() {
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
       local_merge_path="$f"
       candidate_path="$local_merge_path"
+      canonicalization_base_path=""
+      canonicalization_proof_path=""
       mode_to_stage="100644"
 
       if [ "$GROUP_BATCH" = true ]; then
@@ -2120,8 +2122,15 @@ commit_isolated_from_worktree() {
       fi
 
       if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        canonicalization_base_path="$merge_dir/canonicalization-base.json"
+        canonicalization_proof_path="$merge_dir/canonicalization-proof.json"
+        rm -f "$canonicalization_proof_path"
+        if ! cp "$candidate_path" "$canonicalization_base_path"; then
+          echo "❌ grouped-isolated: could not snapshot expired archive before route canonicalization: $f"
+          return 1
+        fi
         if ! node "$(dirname "$0")/../ci/canonicalize-expired-archive-slice.mjs" \
-          "$candidate_path" "$f"; then
+          "$candidate_path" "$f" "$canonicalization_proof_path"; then
           echo "❌ grouped-isolated: expired archive route canonicalization failed for $f"
           return 1
         fi
@@ -2161,6 +2170,13 @@ commit_isolated_from_worktree() {
             return 1
           fi
           integrity_args+=("$housekeeping_proof_path" "-" "$proof_candidate_path")
+        fi
+        if [ -f "${canonicalization_proof_path:-}" ]; then
+          if [ "${#integrity_args[@]}" -eq 3 ]; then
+            integrity_args+=("-" "-" "-" "$canonicalization_base_path" "$canonicalization_proof_path")
+          else
+            integrity_args+=("$canonicalization_base_path" "$canonicalization_proof_path")
+          fi
         fi
         integrity_exit=0
         HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}" \

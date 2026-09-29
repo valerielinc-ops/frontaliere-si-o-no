@@ -9,13 +9,16 @@
  * before it is staged.
  */
 import fs from 'node:fs';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { collapseDuplicateRouteEntries, localeRouteKeys } from '../lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from '../lib/atomic-write-json.mjs';
+import { localeMapKey } from '../lib/locale-map-diff.mjs';
 
-const [filePath, label = filePath] = process.argv.slice(2);
+const [filePath, label = filePath, proofPath = ''] = process.argv.slice(2);
 
 if (!filePath) {
-  console.error('usage: canonicalize-expired-archive-slice.mjs <file> [label]');
+  console.error('usage: canonicalize-expired-archive-slice.mjs <file> [label] [proof-path]');
   process.exit(2);
 }
 
@@ -23,8 +26,34 @@ function routeSet(entries) {
   return new Set(entries.flatMap((entry) => [...localeRouteKeys(entry)]));
 }
 
+function sha256(raw) {
+  return createHash('sha256').update(raw, 'utf8').digest('hex');
+}
+
+function archiveIdentity(entry) {
+  const slug = String(entry?.slug ?? '').trim();
+  if (slug) return `slug:${String(entry?.companyKey ?? '').trim()}:${slug}`;
+  const id = String(entry?.id ?? '').trim();
+  if (id) return `id:${id}`;
+  return `locale:${localeMapKey(entry?.slugByLocale)}`;
+}
+
+function writeRouteProof(proof, targetPath) {
+  if (!targetPath) return;
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  const temporaryPath = `${targetPath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(proof, null, 2)}\n`, 'utf8');
+    fs.renameSync(temporaryPath, targetPath);
+  } catch (error) {
+    try { fs.unlinkSync(temporaryPath); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
+}
+
 try {
-  const original = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const originalRaw = fs.readFileSync(filePath, 'utf8');
+  const original = JSON.parse(originalRaw);
   if (!Array.isArray(original)) {
     throw new Error(`${label} must be a JSON array`);
   }
@@ -50,7 +79,35 @@ try {
     );
   }
 
-  writeJsonAtomic(filePath, result.entries);
+  const baseIdentities = original.map(archiveIdentity);
+  const candidateIdentities = result.entries.map(archiveIdentity);
+  const candidateIdentitySet = new Set(candidateIdentities);
+  const routeUnion = [...requiredRoutes].sort();
+  const predictedCandidateRaw = `${JSON.stringify(result.entries, null, 2)}\n`;
+  const routeProof = {
+    schemaVersion: 1,
+    kind: 'expired-route-collapse',
+    path: label,
+    baseDigest: sha256(originalRaw),
+    candidateDigest: sha256(predictedCandidateRaw),
+    baseEntryCount: original.length,
+    candidateEntryCount: result.entries.length,
+    collapsed: result.collapsed,
+    removedIdentities: baseIdentities.filter((identity) => !candidateIdentitySet.has(identity)),
+    routeCount: routeUnion.length,
+    routeDigest: sha256(JSON.stringify(routeUnion)),
+  };
+
+  // The proof is also passed to the local atomic writer. This matters when a
+  // route component itself crosses the catastrophic byte floor; the commit
+  // helper receives the same proof again after the final merge.
+  writeJsonAtomic(filePath, result.entries, {
+    housekeepingProof: proofPath ? routeProof : null,
+  });
+  const candidateRaw = fs.readFileSync(filePath, 'utf8');
+  if (proofPath) {
+    writeRouteProof({ ...routeProof, candidateDigest: sha256(candidateRaw) }, proofPath);
+  }
   console.log(
     `  🔁 canonicalized expired archive slice ${label}: `
       + `${result.collapsed} duplicate route(s) collapsed`,
