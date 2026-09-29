@@ -551,6 +551,24 @@ const CACHE_MAX_AGE = 21600; // 6 h — eyeball-side (Worker response)
 const ORIGIN_CACHE_TTL = 7200; // 2 h — origin-fetch side (cf.cacheTtl)
 const FAIL_OPEN_CACHE_TTL = 86400; // 24 h — apex-keyed Cache API copy (fail-open failover)
 
+// The shard fetch must not give an origin 5xx the same two-hour cache lifetime
+// as a valid page. `cacheEverything` + a uniform `cacheTtl` makes the upstream
+// cache an error cache too; after a transient GitHub Pages 503, subsequent
+// Worker requests can receive that cached 503 before the origin is consulted,
+// which also prevents the stale-if-error branch from observing recovery. Keep
+// the intended positive/negative caching for 2xx–4xx responses, but make the
+// 5xx range explicitly uncacheable so a transient shard outage does not become
+// a persistent public error.
+const SHARD_ORIGIN_FETCH_CF = {
+  cacheEverything: true,
+  cacheTtlByStatus: {
+    '200-299': ORIGIN_CACHE_TTL,
+    '300-399': ORIGIN_CACHE_TTL,
+    '400-499': ORIGIN_CACHE_TTL,
+    '500-599': -1,
+  },
+};
+
 // Cache-Control stamped on shard 404s. ~51k/day of shard traffic is crawlers
 // re-fetching DEAD job URLs from memory (old canton/slug variants, pruned
 // jobs) — 404 is the correct status (no page can exist for them: the
@@ -1703,8 +1721,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx) {
   let resp;
   try {
     resp = await fetchOriginWithRetry(upstream, request, {
-      cacheEverything: true,
-      cacheTtl: ORIGIN_CACHE_TTL,
+      ...SHARD_ORIGIN_FETCH_CF,
     });
   } catch {
     // Every attempt timed out / threw — no origin response. Prefer a last-good
