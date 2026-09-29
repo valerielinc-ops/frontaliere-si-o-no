@@ -47,7 +47,9 @@ import {
   repairRelabeledSourceLocale,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, buildFallbackDescription, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
+import { parseListingPage, parseDetailPage, buildJob, stripHtml, RHB_INVENTED_FALLBACK_RE } from './lib/ferrovia-retica-job-parser.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -122,12 +124,15 @@ async function fetchJobs() {
         const detailHtml = await fetchHtml(listing.url, timeoutMs);
         if (detailHtml) {
           const detail = parseDetailPage(detailHtml);
-          if (detail && detail.description && detail.description.split(/\s+/).length >= 30) {
+          // One floor for the whole crawler (shared, 50 words): the detail
+          // gate used to accept 30 words while buildJob wanted 50 and padded
+          // the gap with an invented company paragraph.
+          if (detail && meetsSourceBodyFloor(detail.description)) {
             listing.description = detail.description;
             if (detail.location) listing.location = detail.location;
-            console.log(`    ✅ Detail description: ${detail.description.split(/\s+/).length} words`);
+            console.log(`    ✅ Detail description: ${sourceBodyWordCount(detail.description)} words`);
           } else {
-            console.log(`    ⚠️ Detail page description too short (${(detail?.description || '').split(/\s+/).length} words), using fallback`);
+            console.log(`    ⚠️ Detail page description too short (${sourceBodyWordCount(detail?.description || '')} words): kept only if a source body is stored`);
           }
         }
       } catch (err) {
@@ -139,7 +144,7 @@ async function fetchJobs() {
 
     const job = buildJob(listing);
     if (job) {
-      console.log(`  ✅ ${job.title} (${job.location}) — ${job.description.split(/\s+/).length} words`);
+      console.log(`  ✅ ${job.title} (${job.location}) — ${sourceBodyWordCount(job.description)} words`);
       jobs.push(job);
     }
   }
@@ -177,6 +182,10 @@ export function mergeDiscoveredJobWithPrev(job, prev) {
   const merged = {
     ...prev,
     ...job,
+    // A fresh read below the word floor carries no body: keep the one stored
+    // from an earlier read of the source (never an invented one — those are
+    // removed before the merge).
+    description: job.description || prev.description || '',
     // Keep existing postedDate if discovered one is missing
     postedDate: job.postedDate || prev.postedDate,
     titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, sourceLang),
@@ -212,12 +221,19 @@ function mergeJobs(discoveredJobs) {
   // NOT from data/jobs.json which is gitignored and absent in CI.
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isCompanyJob(job));
-  const targetExisting = existing.filter(isCompanyJob);
+  // Stored descriptions the crawler once wrote itself (the removed fallback
+  // paragraph) and the translations made from them go before the merge.
+  const targetExisting = dropFabricatedDescriptions(
+    existing.filter(isCompanyJob),
+    RHB_INVENTED_FALLBACK_RE,
+    COMPANY_NAME,
+  );
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
   let updated = 0;
+  let withoutBody = 0;
   const mergedTarget = discoveredJobs.map((job) => {
     const prev = existingByKey.get(jobMatchKey(job));
     if (!prev) {
@@ -228,7 +244,14 @@ function mergeJobs(discoveredJobs) {
     const merged = mergeDiscoveredJobWithPrev(job, prev);
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
+  }).filter((job) => {
+    // No source body, fresh or stored: not published this run (no thin page,
+    // no invented text). It comes back as soon as the detail page is read.
+    if (meetsSourceBodyFloor(job.description)) return true;
+    withoutBody += 1;
+    return false;
   });
+  if (withoutBody > 0) console.log(`  ⏭️ ${withoutBody} job(s) without a source body over the word floor: not published this run`);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);

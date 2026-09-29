@@ -111,7 +111,7 @@ describe('Center da Sanadad Engiadina Bassa crawler parser', () => {
       PublicationLanguage: 'de',
       PublicationStartDate: '2025-11-12',
       PositionLevelOfEmployment: '0',
-      Tasks: '&lt;p&gt;Rotierende Betreuung von Patienten&lt;/p&gt;',
+      Tasks: '&lt;p&gt;Rotierende Betreuung von Patienten in unterschiedlichen Situationen und eine sorgfältige Begleitung während des gesamten Einsatzes. Sie arbeiten eng mit dem interprofessionellen Team zusammen, dokumentieren die geleisteten Aufgaben zuverlässig und achten jederzeit auf eine respektvolle Kommunikation mit Patientinnen, Patienten und Angehörigen. Dabei übernehmen Sie Verantwortung, reagieren aufmerksam auf Veränderungen und unterstützen eine sichere Versorgung im Alltag.&lt;/p&gt;',
       Requirements: '&lt;p&gt;Diplomierte Rettungssanitäterin&lt;/p&gt;',
       Benefits: '&lt;p&gt;Attraktive Anstellungsbedingungen&lt;/p&gt;',
       Organization: '&lt;p&gt;Center da sandà Engiadina Bassa&lt;/p&gt;',
@@ -204,7 +204,7 @@ describe('Center da Sanadad Engiadina Bassa crawler parser', () => {
       expect(job.description).not.toContain('<p>');
     });
 
-    it('uses fallback description when all sections empty', () => {
+    it('writes no text of its own when all sections are empty (issue 5253)', () => {
       const pub = {
         ...basePub,
         Tasks: '',
@@ -215,8 +215,10 @@ describe('Center da Sanadad Engiadina Bassa crawler parser', () => {
         Closure: '',
       };
       const job = parseCsebPublication(pub);
-      expect(job.description).toContain(job.title);
-      expect(job.description).toContain('Center da Sanadad Engiadina Bassa');
+      // No "<title> — Center da Sanadad Engiadina Bassa, <place>" line: the
+      // posting keeps its stored source body or takes the thin-source path.
+      expect(job.description).toBe('');
+      expect(job.descriptionByLocale).toEqual({ [job.sourceLang]: '' });
     });
 
     it('sets correct URLs', () => {

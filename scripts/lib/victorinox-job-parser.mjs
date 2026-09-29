@@ -50,6 +50,7 @@ import {
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
 import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -330,17 +331,11 @@ export async function fetchAllVictorinoxJobs() {
     // HQ site above, so HQ.canton is the correct (not fabricated) fallback.
     const canton = inferredCanton || HQ.canton;
 
-    const summaryPieces = [
-      r.department ? `Bereich: ${r.department}` : '',
-      city ? `Standort: ${city}` : '',
-      r.ref ? `Referenz: ${r.ref}` : '',
-    ].filter(Boolean);
-    const description = detailText && detailText.split(/\s+/).length >= 30
-      ? detailText
-      : [
-        ...summaryPieces,
-        `${VICTORINOX_COMPANY_NAME} — Schweizer Familienunternehmen, Hersteller des Original Schweizer Offiziersmessers, Uhren und Reisegepäck (HQ Ibach-Schwyz, SZ).`,
-      ].filter(Boolean).join('\n\n');
+    // Only the vacancy's own text (issue 5253): no summary of labelled
+    // listing fields (Bereich/Standort/Referenz) plus a company sentence in
+    // place of a thin body. A body under the common 50-word floor gives no
+    // description (the shared pipeline's thin-source path).
+    const description = meetsSourceBodyFloor(detailText) ? detailText : '';
 
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${VICTORINOX_KEY} ${city || 'ibach'}`);

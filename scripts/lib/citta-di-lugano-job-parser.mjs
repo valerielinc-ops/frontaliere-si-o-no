@@ -228,8 +228,12 @@ export function parseDetailPage(html) {
 
 /**
  * Build a normalized job object from raw listing data.
+ *
+ * `description`/`sourceLang`: the PDF bando's text and its language, passed by
+ * the runner when it has read the bando; the builder keys the job's locale
+ * maps (slug included) on that language, so nothing rewrites them afterwards.
  */
-export function buildJob(raw) {
+export function buildJob(raw, { description, sourceLang = 'it' } = {}) {
   if (!raw || !raw.title) return null;
 
   const title = normalizeSpace(raw.title);
@@ -239,7 +243,10 @@ export function buildJob(raw) {
   // its own on the Città di Lugano below 220 characters / 50 words; a job
   // without text now gets no description here, the runner fills it from the
   // PDF bando, and without either it takes the pipeline's thin-source path.
-  const finalDescription = normalizeSpace(raw.description || '');
+  const listingDescription = normalizeSpace(raw.description || '');
+  const finalDescription = description ?? listingDescription;
+  const lang = sourceLang || 'it';
+  const slug = slugify(`${title}-citta-di-lugano`);
   const applyUrl = firstJobSpecificLuganoUrl(raw.applyUrl, raw.pdfUrl, raw.url);
 
   return {
@@ -256,18 +263,16 @@ export function buildJob(raw) {
     addressCountry: 'CH',
     postalCode: HQ.postalCode,
     streetAddress: 'Piazza della Riforma',
-    employmentType: inferEmploymentType(title, finalDescription),
-    category: detectCategory(title, finalDescription),
+    employmentType: inferEmploymentType(title, listingDescription),
+    category: detectCategory(title, listingDescription),
     description: finalDescription,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
-    slug: slugify(`${title}-citta-di-lugano`),
-    slugByLocale: {
-      it: slugify(`${title}-citta-di-lugano`),
-    },
-    titleByLocale: { it: title },
-    descriptionByLocale: { it: finalDescription },
-    sourceLang: 'it',
+    slug,
+    slugByLocale: { [lang]: slug },
+    titleByLocale: { [lang]: title },
+    descriptionByLocale: { [lang]: finalDescription },
+    sourceLang: lang,
     deadline: raw.deadline || '',
     _targetScope: { canton: HQ.canton, location: HQ.city },
   };

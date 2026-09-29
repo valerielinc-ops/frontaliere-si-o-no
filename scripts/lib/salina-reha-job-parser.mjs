@@ -24,6 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   createBrowser,
   createPoliteContext,
@@ -244,11 +245,11 @@ function buildParsedJob({ title, descriptionHtml, postedAt, publicUrl, city }) {
   const jobSlug = slugify(`${cleanTitle} salina rheinfelden`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  const fallbackDesc =
-    `${cleanTitle} — Stelle in der Salina Rehaklinik / Reha Rheinfelden in ${resolvedCity} (AG), Schweiz. ` +
-    'Die Salina Rehaklinik ist ein Betrieb der Reha Rheinfelden — eines der führenden ' +
-    'Rehabilitationszentren der Region mit Schwerpunkten in Neurologie, Pädiatrie und Orthopädie.';
-  const desc = descriptionText.length >= 80 ? descriptionText : fallbackDesc;
+  // Only the posting's own text (issue 5253): no "<title> — Stelle in der
+  // Salina Rehaklinik …" line and clinic summary in place of a short body. A
+  // body under the common 50-word floor gives no description (the shared
+  // pipeline's thin-source path).
+  const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
   const postedDate = (() => {
     if (!postedAt) return new Date().toISOString().slice(0, 10);

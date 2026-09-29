@@ -9,6 +9,7 @@ import {
   fetchAllHibJobs,
   isHibJob,
   isTrustedDomain,
+  prepareHibExistingJobs,
   HIB_KEY,
   HIB_COMPANY_NAME,
 } from './lib/hib-job-parser.mjs';
@@ -23,6 +24,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllHibJobs,
   isCompanyJob: isHibJob,
   isTrustedDomain,
+  prepareExistingJobs: prepareHibExistingJobs,
   defaultSourceLang: 'fr',
 }).catch((err) => {
   console.error(`❌ HIB crawler failed: ${err?.message || err}`);

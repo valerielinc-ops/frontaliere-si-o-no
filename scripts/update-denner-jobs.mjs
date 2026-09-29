@@ -48,7 +48,8 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
-import { inferEmploymentType } from './lib/denner-job-parser.mjs';
+import { extractDennerWorkplace, inferEmploymentType } from './lib/denner-job-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -124,6 +125,45 @@ function writeJobsFiles(jobs) {
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
+/**
+ * The record builder files the title, description and requirements under
+ * `it` whatever the language of the posting (137/146 German, 9/146 French in
+ * the 2026-09-29 slice). Re-key them to the posting's `sourceLang` before the
+ * merge, so the fresh German title is no longer offered to the Italian slot
+ * (issue 5253; same rule as posta/postfinance). Kept outside the builder on
+ * purpose: the builder is being reworked by lot G (workplace line).
+ */
+export function rekeyDennerSourceSlots(job = {}) {
+  const lang = job?.sourceLang;
+  if (!lang || lang === 'it') return job;
+  const rekey = (map = {}) => {
+    const { it, ...rest } = map || {};
+    return it === undefined || rest[lang] !== undefined ? map : { ...rest, [lang]: it };
+  };
+  return {
+    ...job,
+    titleByLocale: rekey(job.titleByLocale),
+    descriptionByLocale: rekey(job.descriptionByLocale),
+    requirementsByLocale: rekey(job.requirementsByLocale),
+  };
+}
+
+/**
+ * After the merge: an `it` title that is a verbatim copy of a non-Italian
+ * source title is not a translation (30/146 jobs showed the German title on
+ * the Italian page). Remove it and ask the translation step for the real one.
+ * Slugs are left untouched: the published `it` slugs stay where they are.
+ */
+export function dropStaleDennerItalianTitle(job = {}) {
+  const lang = job?.sourceLang;
+  const itTitle = String(job?.titleByLocale?.it || '').trim();
+  if (!lang || lang === 'it' || !itTitle) return job;
+  const sourceTitle = String(job.titleByLocale?.[lang] || job.title || '').trim();
+  if (itTitle !== sourceTitle) return job;
+  const { it, ...rest } = job.titleByLocale;
+  return { ...job, titleByLocale: rest, needsRetranslation: true };
+}
+
 function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(DENNER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
@@ -134,8 +174,8 @@ function mergeCompanyJobs(parsedJobs) {
     const k = String(job?.url || '').trim().replace(/\/+$/, '');
     if (k) byUrl.set(k, job);
   }
-  const deduped = [...byUrl.values()];
-  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const deduped = [...byUrl.values()].map(rekeyDennerSourceSlots);
+  const merged = mergePreserveLocaleData(companyExisting, deduped).map(dropStaleDennerItalianTitle);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
@@ -242,6 +282,9 @@ export async function fetchDennerJobUrls() {
 }
 
 /* -- Detail page fetching & parsing ------------------------------------ */
+// Label of the workplace line, in the language of the posting.
+const WORKPLACE_LABEL = { de: 'Arbeitsort', fr: 'Lieu de travail', it: 'Luogo di lavoro', en: 'Workplace' };
+
 export function buildDennerJobRecord({
   url = '',
   rawTitle = '',
@@ -249,17 +292,28 @@ export function buildDennerJobRecord({
   migrosData = {},
   location = '',
   postalCode = '',
+  workplace = null,
   jsonLd = null,
   now = new Date(),
 } = {}) {
   const title = String(rawTitle || '').replace(/\s+/g, ' ').trim();
   if (!title || !url) return null;
+  // Only the posting's own body is published, above the shared word floor.
+  // The former fallback ("Posizione aperta presso Denner. <titolo>.") was a
+  // thin sentence the source never showed; a posting without a body is not
+  // published this run.
+  if (!meetsSourceBodyFloor(description)) return null;
 
   const normalizedLocation = String(location || '');
   const canton = inferAnyCanton(normalizedLocation) || '';
   const timestamp = now.toISOString();
-  const fallbackDescription = `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${title}.`;
-  const normalizedDescription = description || fallbackDescription;
+  const sourceLang = detectLang(description, 'it');
+  // One posting per store: the store the posting names is part of the
+  // vacancy (and the only thing that tells two same-city postings apart).
+  const workplaceLine = workplace?.label
+    ? `${WORKPLACE_LABEL[sourceLang] || WORKPLACE_LABEL.de}: ${workplace.label}`
+    : '';
+  const normalizedDescription = [workplaceLine, description].filter(Boolean).join('\n\n');
 
   return {
     id: `denner-${createHash('sha1').update(url).digest('hex').slice(0, 12)}`,
@@ -271,7 +325,9 @@ export function buildDennerJobRecord({
     title,
     titleByLocale: { it: title },
     description: normalizedDescription,
-    descriptionByLocale: { it: normalizedDescription },
+    // Keyed by the posting's language (German for most stores): under a fixed
+    // `it` key the German body sat in the Italian slot.
+    descriptionByLocale: { [sourceLang]: normalizedDescription },
     requirements: migrosData?.requirements || [],
     requirementsByLocale: { it: migrosData?.requirements || [] },
     location: normalizedLocation,
@@ -280,7 +336,7 @@ export function buildDennerJobRecord({
     addressLocality: normalizedLocation,
     addressRegion: canton,
     addressCountry: 'CH',
-    streetAddress: normalizedLocation ? `Denner ${normalizedLocation}` : 'Denner',
+    streetAddress: workplace?.streetAddress || (normalizedLocation ? `Denner ${normalizedLocation}` : 'Denner'),
     employmentType: inferEmploymentType(title, description, String(migrosData?.workPercentage || '')),
     category: 'retail',
     contract: migrosData?.employmentType || 'full-time',
@@ -293,7 +349,7 @@ export function buildDennerJobRecord({
     // L3 still keeps it distinct from a submitted application event.
     applyUrl: url,
     source: 'Denner/Migros Dedicated Parser',
-    sourceLang: detectLang(description || title, 'it'),
+    sourceLang,
     crawledAt: timestamp,
   };
 }
@@ -328,46 +384,51 @@ async function fetchAndParseDetailPages(urls) {
 
     for (const r of results) {
       if (r.status !== 'fulfilled' || !r.value) continue;
-      const { url, html } = r.value;
-
-      const migrosData = extractMigrosStructuredData(html);
-
-      let jsonLd = null;
-      const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-      if (jsonLdMatch) { try { jsonLd = JSON.parse(jsonLdMatch[1]); } catch {} }
-
-      const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-      const rawTitle = jsonLd?.title || (h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : '');
-      if (!rawTitle) continue;
-
-      const locMatch = html.match(/addressLocality['"]\s*:\s*['"]([^'"]+)/i);
-      const pcMatch = html.match(/postalCode['"]\s*:\s*['"](\d{4})/i);
-      let location = locMatch ? locMatch[1].trim() : '';
-      let postalCode = pcMatch ? pcMatch[1] : '';
-
-      if (!location) {
-        const metaLoc = rawTitle.match(/[-\u2013]\s*(\d{4})\s+([A-Z\u00C0-\u017E][a-z\u00e0-\u017e]+(?:\s+[A-Z\u00C0-\u017E][a-z\u00e0-\u017e]+)*)/);
-        if (metaLoc) { postalCode = metaLoc[1]; location = metaLoc[2]; }
-      }
-
-      const description = migrosData?.description || jsonLd?.description || '';
-      const pctMatch = rawTitle.match(/(\d+\s*-\s*\d+\s*%)/);
-      const workPct = pctMatch ? pctMatch[1] : (migrosData?.workPercentage || '');
-
-      const job = buildDennerJobRecord({
-        url,
-        rawTitle,
-        description,
-        migrosData: { ...migrosData, workPercentage: workPct },
-        location,
-        postalCode,
-        jsonLd,
-      });
+      const job = parseDennerDetailJob(r.value.url, r.value.html);
       if (job) jobs.push(job);
     }
   }
 
   return jobs;
+}
+
+/** One Denner job record from a fetched detail page, or null. */
+export function parseDennerDetailJob(url, html, { now = new Date() } = {}) {
+  const migrosData = extractMigrosStructuredData(html);
+
+  let jsonLd = null;
+  const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
+  if (jsonLdMatch) { try { jsonLd = JSON.parse(jsonLdMatch[1]); } catch {} }
+
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const rawTitle = jsonLd?.title || (h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : '');
+  if (!rawTitle) return null;
+
+  const locMatch = html.match(/addressLocality['"]\s*:\s*['"]([^'"]+)/i);
+  const pcMatch = html.match(/postalCode['"]\s*:\s*['"](\d{4})/i);
+  let location = locMatch ? locMatch[1].trim() : '';
+  let postalCode = pcMatch ? pcMatch[1] : '';
+
+  if (!location) {
+    const metaLoc = rawTitle.match(/[-\u2013]\s*(\d{4})\s+([A-Z\u00C0-\u017E][a-z\u00e0-\u017e]+(?:\s+[A-Z\u00C0-\u017E][a-z\u00e0-\u017e]+)*)/);
+    if (metaLoc) { postalCode = metaLoc[1]; location = metaLoc[2]; }
+  }
+
+  const description = migrosData?.description || jsonLd?.description || '';
+  const pctMatch = rawTitle.match(/(\d+\s*-\s*\d+\s*%)/);
+  const workPct = pctMatch ? pctMatch[1] : (migrosData?.workPercentage || '');
+
+  return buildDennerJobRecord({
+    url,
+    rawTitle,
+    description,
+    migrosData: { ...migrosData, workPercentage: workPct },
+    location,
+    postalCode,
+    workplace: extractDennerWorkplace(html),
+    jsonLd,
+    now,
+  });
 }
 
 /* -- Main -------------------------------------------------------------- */

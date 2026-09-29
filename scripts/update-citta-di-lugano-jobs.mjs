@@ -125,7 +125,7 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const listing of rawListings) {
-    const job = buildJob(listing);
+    let job = buildJob(listing);
     if (!job) continue;
 
     // Enrich description with PDF content when available
@@ -138,12 +138,11 @@ async function fetchJobs() {
       } else if (pdfContent.text) {
         console.log(`  ✅ PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
         // The bando's own text, in its own language: no lines of the crawler
-        // (CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE).
-        job.description = buildPdfBackedDescription({ pdfText: pdfContent.text });
-        job.sourceLang = detectLang(job.description, 'it');
-        job.titleByLocale = { [job.sourceLang]: job.title };
-        job.slugByLocale = { [job.sourceLang]: job.slug };
-        job.descriptionByLocale = { [job.sourceLang]: job.description };
+        // (CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE). The builder writes the
+        // locale maps for that language; the slug fields are never rewritten
+        // here (slug-write ratchet, tests/slug-write-encapsulation.test.ts).
+        const description = buildPdfBackedDescription({ pdfText: pdfContent.text });
+        job = buildJob(listing, { description, sourceLang: detectLang(description, 'it') });
       }
     }
 
@@ -273,6 +272,7 @@ async function main() {
       companyKey: COMPANY_KEY,
       companyLabel: COMPANY_NAME,
       write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+      assemble: () => assembleJobsDataset(),
     });
     return;
   }

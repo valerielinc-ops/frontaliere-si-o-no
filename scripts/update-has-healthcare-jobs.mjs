@@ -51,6 +51,9 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -226,6 +229,8 @@ function parseDetailPage(html) {
   const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
 
   const sections = {};
+  // The page's own heading for each section, keyed like `sections`.
+  const headings = {};
 
   // Extract sections by <h2> headers: Info azienda, Competenze richieste,
   // Saranno richiesti i seguenti compiti, Che cosa offriamo
@@ -236,6 +241,7 @@ function parseDetailPage(html) {
     const content = stripHtml(m[2]).trim();
     if (content.length > 20) {
       sections[header.toLowerCase()] = content;
+      headings[header.toLowerCase()] = header;
     }
   }
 
@@ -251,60 +257,38 @@ function parseDetailPage(html) {
   );
   const education = eduMatch ? stripHtml(eduMatch[1]).trim() : '';
 
-  return { sections, language, education };
+  return { sections, headings, language, education };
 }
 
-function buildDescription(title, detail) {
+// Sections of the posting published under the page's own headings.
+const HAS_DESCRIPTION_SECTIONS = [
+  'competenze richieste',
+  'saranno richiesti i seguenti compiti',
+  'che cosa offriamo',
+];
+
+/**
+ * The posting's own text (issue 5253): its sections under the page's
+ * headings, then the "Lingue richieste" / "Titolo di studio" fields the page
+ * shows. No presentation line, emoji labels or "Settore:" / "Sede:" lines of
+ * the crawler's — sector and address stay in their structured fields. A body
+ * under the common 50-word floor (or no section at all) gives ''.
+ */
+export function buildDescription(detail) {
   const parts = [];
-
-  parts.push(
-    `${COMPANY_NAME}, con sede a Biasca (TI), è alla ricerca di: ${title}.`
-  );
-  parts.push('');
-
-  // Company info (skip — too long and boilerplate)
-  // Add competenze
-  const competenze =
-    detail.sections['competenze richieste'] || '';
-  if (competenze) {
-    parts.push('📋 Competenze richieste:');
-    parts.push(competenze);
-    parts.push('');
+  for (const key of HAS_DESCRIPTION_SECTIONS) {
+    const content = detail.sections?.[key];
+    if (content) parts.push([detail.headings?.[key], content].filter(Boolean).join('\n'));
   }
-
-  // Add tasks
-  const compiti =
-    detail.sections['saranno richiesti i seguenti compiti'] || '';
-  if (compiti) {
-    parts.push('🎯 Mansioni principali:');
-    parts.push(compiti);
-    parts.push('');
-  }
-
-  // Add what we offer
-  const offriamo = detail.sections['che cosa offriamo'] || '';
-  if (offriamo) {
-    parts.push('🎁 Cosa offriamo:');
-    parts.push(offriamo);
-    parts.push('');
-  }
-
-  // Language / education
-  if (detail.language) {
-    parts.push(`🗣️ Lingue richieste: ${detail.language}`);
-  }
-  if (detail.education) {
-    parts.push(`🎓 Titolo di studio: ${detail.education}`);
-  }
-
-  parts.push('');
-  parts.push(
-    `Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)`
-  );
-  parts.push(`Sede: Via Industria 24, Biasca (TI), Svizzera`);
-
-  return parts.join('\n').trim();
+  if (parts.length === 0) return '';
+  if (detail.language) parts.push(`Lingue richieste: ${detail.language}`);
+  if (detail.education) parts.push(`Titolo di studio: ${detail.education}`);
+  const text = parts.join('\n\n').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
 }
+
+/** Fragments only the crawler's former description builder wrote. */
+export const HAS_FABRICATED_DESCRIPTION_RE = /, con sede a Biasca \(TI\), è alla ricerca di: |(?:^|\n)Settore: Farmaceutico \/ API \(Active Pharmaceutical Ingredients\)/;
 
 // ─────────────────────────────────────────────────────────────
 // Category & experience detection
@@ -369,7 +353,13 @@ async function fetchJobs() {
       ? parseDetailPage(detailHtml)
       : { sections: {}, language: '', education: '' };
 
-    const description = buildDescription(listing.title, detail);
+    const description = buildDescription(detail);
+    if (!description) {
+      // No source body: not published in this run (no crawler-written stand-in).
+      console.warn(`  ⚠️ No posting text on ${listing.detailUrl} — not published in this run.`);
+      await new Promise((r) => setTimeout(r, 500));
+      continue;
+    }
     const slug = slugify(listing.title, COMPANY_KEY);
     const postedDate = parseDate(listing.dateStr);
 
@@ -424,7 +414,11 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
-  const existingTargetJobs = allJobs.filter(isTargetJob);
+  // Stored jobs of the old builder: their crawler-written description and the
+  // translations of it go before the locale-preserving merge; one left
+  // without any source text is not published (issue 5253).
+  const existingTargetJobs = dropFabricatedDescriptions(allJobs.filter(isTargetJob), HAS_FABRICATED_DESCRIPTION_RE, 'HAS Healthcare')
+    .filter((job) => String(job.description || '').trim() || Object.values(job.descriptionByLocale || {}).some((text) => String(text || '').trim()));
 
   const existingKeys = new Set(
     existingTargetJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
@@ -679,4 +673,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'HAS Healthcare'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'HAS Healthcare'));
+}

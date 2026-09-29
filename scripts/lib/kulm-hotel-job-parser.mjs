@@ -288,6 +288,12 @@ function extractSections(html = '') {
   return text.length > 50 ? text : '';
 }
 
+/** Labels of the synthesized facts line, in the language of the ad body. */
+const META_LABELS = {
+  en: { workload: 'Workload', contract: 'Contract', start: 'Start' },
+  de: { workload: 'Pensum', contract: 'Vertrag', start: 'Stellenantritt' },
+};
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -359,15 +365,25 @@ export async function fetchAllKulmHotelJobs() {
       ? vac.contract_starts_at.slice(0, 10)
       : new Date().toISOString().split('T')[0];
 
+    const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
+    const hasRichDetail = detailWordCount >= 50;
+
+    // The language of the ad is the language of its body. It used to be
+    // guessed from the TITLE alone, and job titles are loanword soup
+    // ("Sous Chef Main Kitchen" → it, "Room Attendant / Zimmerdame" → fr,
+    // "Office Employee/ Steward" → de): 10 of 17 English ads were published
+    // with the English text in a foreign source slot, so the Italian page
+    // served English and the English slot a translation of itself (#5253).
+    // The synthesized German fallback is German by construction.
+    const sourceLang = hasRichDetail ? detectLang(detailDescription, 'en') : 'de';
+    const labels = META_LABELS[sourceLang] || META_LABELS.en;
+
     // Build description
     const metaLine = [
       `${title} — ${KULM_HOTEL_COMPANY_NAME} (${locationLabel}), ${city} (Engadin, Graubünden).`,
-      `Pensum: ${workload}%. Vertrag: ${contractLabel}.`,
-      vac.contract_starts_at ? `Stellenantritt: ${vac.contract_starts_at.slice(0, 10)}.` : '',
+      `${labels.workload}: ${workload}%. ${labels.contract}: ${contractLabel}.`,
+      vac.contract_starts_at ? `${labels.start}: ${vac.contract_starts_at.slice(0, 10)}.` : '',
     ].filter(Boolean).join(' ');
-
-    const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
-    const hasRichDetail = detailWordCount >= 50;
 
     const fallbackDescription = [
       metaLine,
@@ -382,8 +398,6 @@ export async function fetchAllKulmHotelJobs() {
     const description = hasRichDetail
       ? `${metaLine}\n\n${detailDescription}`
       : fallbackDescription;
-
-    const sourceLang = detectLang(title, 'en');
 
     const job = {
       // ── Required fields ──

@@ -214,11 +214,12 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     });
     expect(options).toMatchObject({ preserveExistingSlugs: false });
     expect(options).not.toHaveProperty('skipShrinkGuard');
-    // Still the soft exit: no merge, no retirement, no localization, no assembly.
+    // Still the soft exit: no merge, no retirement or localization; the
+    // cleaned slice is assembled before the process returns.
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
     expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
     expect(mocks.runDedicatedBaseCrawler).not.toHaveBeenCalled();
-    expect(mocks.assembleJobsDataset).not.toHaveBeenCalled();
+    expect(mocks.assembleJobsDataset).toHaveBeenCalledTimes(1);
   });
 
   it('writes nothing when the hook finds no crawler text in the stored jobs', async () => {

@@ -122,6 +122,7 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
       const call = exit.slice(0, exit.indexOf('});') + 3);
       expect(call).toContain(`prepare: (jobs) => dropFabricatedDescriptions(jobs, ${mergePattern},`);
       expect(call).toMatch(/write: \(jobs\) => writeJobsCrawlerSlice\([A-Z_]+, jobs\)/);
+      expect(call).toContain('assemble: () => assembleJobsDataset(),');
       // The call sits in the zero-job exit, before its `return`.
       expect(exit.slice(call.length).trimStart()).toMatch(/^(return;|const _cdResult = logStats)/);
     });
@@ -135,6 +136,7 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
     // Returns nothing: the helper keeps the whole stored array, repaired in place.
     expect(call).toContain('prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },');
     expect(call).toContain('write: (jobs) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob }),');
+    expect(call).toContain('assemble: () => assembleJobsDataset(),');
     expect(exit.slice(call.length).trimStart()).toMatch(/^return;/);
   });
 });

@@ -864,6 +864,7 @@ async function main() {
       companyKey: MENDRISIO_KEY,
       companyLabel: MENDRISIO_COMPANY_NAME,
       write: (jobs) => writeJobsCrawlerSlice(MENDRISIO_KEY, jobs),
+      assemble: () => assembleJobsDataset(),
     });
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;

@@ -9,6 +9,12 @@ import {
   htmlToMarkdown,
 } from '../scripts/lib/jumbo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  applyCoopSourceDetailToJob,
+  enrichCoopSourceBackedJobs,
+  extractCoopFamilyPageDetails,
+  extractJsonLd,
+} from '../scripts/lib/coop-job-parser.mjs';
 
 describe('JUMBO crawler parser', () => {
   it('wires strict source-detail enrichment and stable-route preservation', () => {
@@ -168,5 +174,45 @@ describe('JUMBO crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Live Prospective detail pages minimized (see the fixture header); recruiter
+// names redacted.
+const republishedPages = Object.fromEntries(JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-republished-pages.json'), 'utf8'),
+).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
+
+describe('JUMBO detail whose JSON-LD office is ambiguous (parser-quality audit #5253)', () => {
+  const { url, html } = republishedPages['jumbo-gossau-jsonld'];
+  const listing = {
+    id: 'jumbo-weinfelden', companyKey: JUMBO_KEY, url,
+    title: 'Detailhandelsfachfrau:mann / -assistent:in', description: 'listing fallback',
+    location: 'Jumbo Weinfelden Thurmarkt', addressLocality: 'Jumbo Weinfelden Thurmarkt',
+    canton: 'TG', addressRegion: 'TG', addressCountry: 'CH', sourceLang: 'de',
+  };
+
+  it('keeps the vacancy at the workplace its page declares instead of rejecting it', async () => {
+    // "Gossau" names two municipalities (SG, ZH): the office alone resolves nowhere.
+    expect(extractJsonLd(html).jobLocation.address.addressLocality).toBe('Gossau');
+    expect(applyCoopSourceDetailToJob(listing, extractJsonLd(html), extractCoopFamilyPageDetails(html))).toMatchObject({
+      location: 'Jumbo Weinfelden Thurmarkt', canton: 'TG', postalCode: '', streetAddress: '',
+    });
+
+    const rejected: string[] = [];
+    const enriched = await enrichCoopSourceBackedJobs([listing], {
+      allowedHosts: ['jobs.coopjobs.ch'],
+      fetchImpl: async () => new Response(html, { status: 200, headers: { 'content-type': 'text/html' } }),
+      onRejected: (urls: string[]) => rejected.push(...urls),
+    });
+    expect(rejected).toEqual([]);
+    expect(enriched.map((job: { url: string }) => job.url)).toEqual([url]);
+  });
+
+  it('still rejects the record when neither the page nor the listing names a workplace', () => {
+    const page = { ...extractCoopFamilyPageDetails(html), workplace: '' };
+    const { addressLocality, ...withoutWorkplace } = listing;
+    expect(() => applyCoopSourceDetailToJob({ ...withoutWorkplace, location: 'Schweiz' }, extractJsonLd(html), page))
+      .toThrow(/location rejected/);
   });
 });

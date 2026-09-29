@@ -12,6 +12,7 @@ import {
   KLINIK_SONNENHALDE_KEY,
   KLINIK_SONNENHALDE_COMPANY_NAME,
 } from './lib/klinik-sonnenhalde-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +25,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKlinikSonnenhaldeJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, KLINIK_SONNENHALDE_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Klinik Sonnenhalde crawler failed: ${err?.message || err}`);
   process.exit(1);

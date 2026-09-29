@@ -34,6 +34,8 @@ const DETAIL_HTML = `
       <div class="annonce-row">
         Per il nostro team Quality Management cerchiamo un tecnico di misura con esperienza nella metrologia,
         nel controllo qualità e nella documentazione dei risultati. La posizione collabora con produzione e ingegneria.
+        Pianifichi le misure sui micromotori, programmi le macchine di misura a coordinate, analizzi le deviazioni
+        con i reparti coinvolti e proponi azioni correttive documentate secondo le norme ISO in vigore nello stabilimento.
       </div>
     </div>
   </div>`;
@@ -100,6 +102,25 @@ describe('Faulhaber crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source language (issue 5253)', () => {
+    it('files the Italian detail body under it even when the listing title is English', async () => {
+      // Real case in the 2026-09-29 slice: "JUNIOR LOGISTICS SPECIALIST" and
+      // "Candidatura spontanea" were labelled from the title and filed the
+      // body under a foreign source slot (4/4 jobs).
+      const englishListing = LISTING_JSON.replace('"JobofferName":"Tecnico di misura"', '"JobofferName":"Junior Logistics Specialist"');
+      const listingBody = JINA_LISTING_BODY.replace(LISTING_JSON, englishListing);
+      const fetchHtmlImpl = vi.fn(async () => { throw httpError(500); });
+      const fetchJinaImpl = vi.fn(async (url: string) => url === LISTING_DATA_URL ? listingBody : DETAIL_HTML);
+
+      const [job] = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl });
+
+      expect(job.title).toBe('Junior Logistics Specialist');
+      expect(job.sourceLang).toBe('it');
+      expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
+      expect(Object.keys(job.titleByLocale)).toEqual(['it']);
     });
   });
 
@@ -220,7 +241,7 @@ describe('Faulhaber crawler parser', () => {
       await expect(fetchAllFaulhaberJobs({
         fetchHtmlImpl,
         fetchJinaImpl: vi.fn(async (url: string) => url === LISTING_DATA_URL ? JINA_LISTING_BODY : DETAIL_HTML),
-      })).rejects.toThrow(/description below 100 characters/);
+      })).rejects.toThrow(/no detail page with a source body of 50 words/);
     });
   });
 

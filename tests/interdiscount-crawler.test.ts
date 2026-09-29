@@ -10,7 +10,12 @@ import {
   htmlToMarkdown,
 } from '../scripts/lib/interdiscount-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { applyCoopSourceDetailToJob } from '../scripts/lib/coop-job-parser.mjs';
+import {
+  applyCoopSourceDetailToJob,
+  extractCoopFamilyPageDetails,
+  extractCoopFamilyWorkplace,
+  extractJsonLd,
+} from '../scripts/lib/coop-job-parser.mjs';
 import { fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 
 describe('Interdiscount crawler parser', () => {
@@ -342,5 +347,32 @@ describe('Interdiscount multi-branch enrichment (#7349)', () => {
 
     expect(src).toContain('...(city ? { addressLocality: city } : {})');
     expect(src).not.toContain('addressLocality: city || location');
+  });
+});
+
+// Live Prospective detail pages minimized (see the fixture header); recruiter
+// names redacted.
+const republishedPages = Object.fromEntries(JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-family-republished-pages.json'), 'utf8'),
+).pages.map((page: { id: string, url: string, html: string }) => [page.id, page]));
+
+describe('Interdiscount French template workplace (parser-quality audit #5253)', () => {
+  it('publishes the "Lieu du travail" workplace instead of the Jegensdorf head office', () => {
+    const { url, html } = republishedPages['interdiscount-lieu-du-travail'];
+    const jsonLd = extractJsonLd(html);
+    const listing = {
+      id: 'interdiscount-signy', companyKey: INTERDISCOUNT_KEY, url,
+      title: 'Gestionnaire du commerce de detail', description: 'listing fallback',
+      location: 'Signy', addressLocality: 'Signy', canton: 'VD', addressRegion: 'VD', addressCountry: 'CH', sourceLang: 'fr',
+    };
+
+    // The French page carries no `job_arbeitsort`; its section says "du", not "de".
+    expect(html).not.toContain('job_arbeitsort');
+    expect(html).toContain('Lieu du travail');
+    expect(jsonLd.jobLocation.address).toMatchObject({ addressLocality: 'Jegensdorf', postalCode: '3303' });
+    expect(extractCoopFamilyWorkplace(html)).toBe('Signy');
+    expect(applyCoopSourceDetailToJob(listing, jsonLd, extractCoopFamilyPageDetails(html))).toMatchObject({
+      location: 'Signy', addressLocality: 'Signy', canton: 'VD', postalCode: '', streetAddress: '',
+    });
   });
 });

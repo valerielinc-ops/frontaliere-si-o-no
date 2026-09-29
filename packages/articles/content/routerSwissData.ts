@@ -2380,6 +2380,16 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lucas-engelberger-premi-cassa-malati-2027': { it: 'lucas-engelberger-premi-cassa-malati-2027', en: 'lucas-engelberger-2027-health-insurance-premiums', de: 'lucas-engelberger-2027-krankenversicherungspramien', fr: 'lucas-engelberger-premiums-assurance-maladie-2027' },
  'parlamento-svizzero-strumenti-ricerca': { it: 'parlamento-svizzero-strumenti-ricerca', en: 'swiss-parliament-search-tools', de: 'schweizer-parlament-suchwerkzeuge', fr: 'parlement-suisse-outils-recherche' },
  'percorsi-impiego-pubblico': { it: 'percorsi-impiego-pubblico', en: 'public-service-paths', de: 'wege-oeffentlicher-dienst', fr: 'parcours-service-public' },
+ 'premi-cassa-malati-2027-differenze-cantoni': { it: 'premi-cassa-malati-2027-differenze-cantoni', en: 'health-insurance-premiums-2027-cantonal-differences', de: 'krankenkassenpramien-2027-kantonale-unterschiede', fr: 'primes-assurance-maladie-2027-differences-cantonales' },
+ 'uss-freno-premi-cassa-malati-3': { it: 'uss-freno-premi-cassa-malati-3', en: 'uss-brake-health-insurance-premiums-3', de: 'sgv-bremsen-krankenkassen-praemien-3', fr: 'usoc-frein-premieres-assurance-maladie-3' },
+ 'lavoratori-svizzeri-ia-2026': { it: 'lavoratori-svizzeri-ia-2026', en: 'swiss-workers-ai-2026', de: 'schweizer-arbeitnehmer-ki-2026', fr: 'travailleurs-suisses-ia-2026' },
+ 'ufc-finanzia-ricerca-provenienza': { it: 'ufc-finanzia-ricerca-provenienza', en: 'ufc-funds-provenance-research', de: 'ebk-foerderung-provenienz-forschung', fr: 'oc-finance-cherche-provenance' },
+ 'validita-lista-onu-svizzera': { it: 'validita-lista-onu-svizzera', en: 'un-sanctions-list-switzerland', de: 'uno-sanktionsliste-schweiz', fr: 'liste-sanctions-onu-suisse' },
+ 'centro-premi-salute-2027': { it: 'centro-premi-salute-2027', en: 'centre-health-premiums-2027', de: 'zentrum-krankenkassenpraemien-2027', fr: 'centre-primes-maladie-2027' },
+ 'premi-cassa-malati-ticino-rincaro-lettori': { it: 'premi-cassa-malati-ticino-rincaro-lettori', en: 'health-insurance-premiums-ticino-increase-readers', de: 'krankenkassenpraemien-tessin-erhoehung-leser', fr: 'primes-assurance-maladie-tessin-augmentation-lecteurs' },
+ 'soletta-successione-donazione-aliquote': { it: 'soletta-successione-donazione-aliquote', en: 'solothurn-inheritance-donation-rates', de: 'solothurn-erbschaft-schenkung-saetze', fr: 'soleure-heritage-donation-taux' },
+ 'sresi-prezzi-lugano-2026': { it: 'sresi-prezzi-lugano-2026', en: 'swiss-real-estate-confidence-lugano', de: 'immobilien-vertrauen-lugano-schweiz', fr: 'confiance-immobiliere-lugano-suisse' },
+ 'groupe-e-riorganizzazione-friburgo': { it: 'groupe-e-riorganizzazione-friburgo', en: 'groupe-e-restructuring-fribourg', de: 'groupe-e-umstrukturierung-freiburg', fr: 'groupe-e-reorganisation-fribourg' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

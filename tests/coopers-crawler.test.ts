@@ -1,9 +1,12 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   COOPERS_KEY,
   COOPERS_COMPANY_NAME,
   isCoopersJob,
   isTrustedDomain,
+  parseCoopersDetailDescription,
 } from '../scripts/lib/coopers-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +127,51 @@ describe('Coopers Group AG crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── Detail body (#5253: German postings kept only the application blurb) ──
+  describe('parseCoopersDetailDescription', () => {
+    const html = readFileSync(path.join(__dirname, 'fixtures', 'coopers-detail-de.html'), 'utf8');
+
+    it('keeps intro, tasks, profile, job profile and benefits in page order', () => {
+      const description = parseCoopersDetailDescription(html);
+      const order = [
+        'Für einen international tätigen Kunden',
+        'Ihre Aufgaben:',
+        'Ihr Profil:',
+        'Job profile',
+        'Job benefits',
+      ];
+      const positions = order.map((marker) => description.indexOf(marker));
+      expect(positions.every((index) => index >= 0)).toBe(true);
+      expect([...positions].sort((a, b) => a - b)).toEqual(positions);
+      expect(description).toContain('• Analyse, Optimierung und Abbildung von Geschäftsprozessen in enger Abstimmung mit den Fachbereichen');
+      expect(description).toContain('• Sehr gute Deutsch- und gute Englischkenntnisse');
+      expect(description).toContain('• Part Time, 100%');
+      expect(description).toContain('• Flat hierarchy');
+    });
+
+    it('reads the duplicated mobile/desktop job-profile box once', () => {
+      const description = parseCoopersDetailDescription(html);
+      expect(description.match(/Festanstellung/g)).toHaveLength(1);
+    });
+
+    it('decodes named entities and keeps one bullet per line', () => {
+      const description = parseCoopersDetailDescription(html);
+      expect(description).not.toMatch(/&[a-z]+;/i);
+      expect(description).not.toMatch(/•\s*\n/);
+    });
+
+    it('drops the application blurb, recruiter card and page rails', () => {
+      const description = parseCoopersDetailDescription(html);
+      for (const chrome of ['spannenden Position', 'Bewerbungsunterlagen', 'Apply now', 'Sounds interesting', 'Max Muster', '+41', 'Similar jobs', 'Back to overview']) {
+        expect(description).not.toContain(chrome);
+      }
+    });
+
+    it('returns an empty string when the page has no vacancy body', () => {
+      expect(parseCoopersDetailDescription('<main><p>Not found</p></main>')).toBe('');
     });
   });
 });

@@ -4,12 +4,15 @@
  * Tests parseDennerListingPage(), parseDennerDetailPage(),
  * isDennerJob(), and constants.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 
 import {
   parseDennerListingPage,
   parseDennerDetailPage,
   isDennerJob,
+  extractDennerWorkplace,
   DENNER_PORTAL_URL,
 } from '@/scripts/lib/denner-job-parser.mjs';
 
@@ -205,5 +208,29 @@ describe('DENNER_PORTAL_URL', () => {
   it('points to Migros Group portal', () => {
     expect(DENNER_PORTAL_URL).toContain('jobs.migros.ch');
     expect(DENNER_PORTAL_URL).toContain('denner');
+  });
+});
+
+// Two live postings (2026-09-29) with the same title, body and city but
+// different stores; fixtures keep the JSON-LD address and the <address> block.
+describe('extractDennerWorkplace', () => {
+  const fixture = (id: string) => fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'denner', `detail-workplace-${id}.html`),
+    'utf8',
+  );
+
+  it('reads the store, street and postal code of each posting', () => {
+    expect(extractDennerWorkplace(fixture('d7c16630'))).toEqual({
+      label: 'Denner AG, Filiale 691, Hinterdorfstrasse 40, 8405 Winterthur',
+      streetAddress: 'Hinterdorfstrasse 40',
+      postalCode: '8405',
+      locality: 'Winterthur',
+    });
+    expect(extractDennerWorkplace(fixture('fed0b7f3'))?.label)
+      .toBe('Denner AG, Filiale 1375, Schützenstrasse 39, 8400 Winterthur');
+  });
+
+  it('returns null without an address block', () => {
+    expect(extractDennerWorkplace('<main><h1>Verkäufer*in</h1></main>')).toBeNull();
   });
 });

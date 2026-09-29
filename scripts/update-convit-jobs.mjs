@@ -439,6 +439,7 @@ async function main() {
       companyKey: COMPANY_KEY,
       companyLabel: 'Convit Holding',
       write: (jobs) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob }),
+      assemble: () => assembleJobsDataset(),
     });
     return;
   }
