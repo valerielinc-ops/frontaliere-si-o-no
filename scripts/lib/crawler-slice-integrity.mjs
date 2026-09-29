@@ -9,6 +9,7 @@ import {
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { localeMapKey } from './locale-map-diff.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
@@ -371,6 +372,15 @@ function expiredEntryIdentity(entry) {
   if (slug) return slug;
   const id = String(entry?.id ?? '').trim();
   return id || null;
+}
+
+/** Identity shared with the expired-route canonicalization proof. */
+function expiredArchiveIdentity(entry) {
+  const slug = String(entry?.slug ?? '').trim();
+  if (slug) return `slug:${String(entry?.companyKey ?? '').trim()}:${slug}`;
+  const id = String(entry?.id ?? '').trim();
+  if (id) return `id:${id}`;
+  return `locale:${localeMapKey(entry?.slugByLocale)}`;
 }
 
 function uniqueExpiredEntryIdentities(entries) {
