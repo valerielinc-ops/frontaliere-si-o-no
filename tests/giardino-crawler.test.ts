@@ -28,7 +28,7 @@ import {
   getHotelLocation,
   extractH1Title,
   parseContentSections,
-  buildDescription,
+  GIARDINO_INVENTED_INTRO_RE,
   buildEnglishIndex,
   jobTitleKey,
   resolvePublicUrl,
@@ -284,45 +284,15 @@ describe('parseContentSections', () => {
   });
 });
 
-// ─── Description building ───────────────────────────────────────────────────────
+// ─── Invented intro of the former builder (removed) ─────────────────────────────
 
-describe('buildDescription', () => {
-  it('builds description with all sections', () => {
-    const sections = parseContentSections(STEWARD_CONTENT);
-    const desc = buildDescription(sections, 'Steward', 'lago', 'Minusio');
-
-    expect(desc).toContain('Giardino Lago');
-    expect(desc).toContain('Minusio');
-    expect(desc).toContain('Steward');
-    expect(desc).toContain('## Aufgaben');
-    expect(desc).toContain('## Anforderungen');
-    expect(desc).toContain('## Benefits');
+describe('GIARDINO_INVENTED_INTRO_RE', () => {
+  it('marks the sentence the former builder put in front of every description', () => {
+    expect(GIARDINO_INVENTED_INTRO_RE.test('Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward. Die Giardino Hotels sind …')).toBe(true);
   });
 
-  it('includes hotel name for mountain', () => {
-    const sections = { aboutJob: 'Test', aboutYou: [], talentCulture: [] };
-    const desc = buildDescription(sections, 'Chef', 'mountain', 'Champfèr');
-    expect(desc).toContain('Giardino Mountain');
-    expect(desc).toContain('Champfèr');
-  });
-
-  it('formats requirements as bullet list', () => {
-    const sections = {
-      aboutJob: '',
-      aboutYou: ['Requirement A', 'Requirement B'],
-      talentCulture: [],
-    };
-    const desc = buildDescription(sections, 'Test', 'ascona', 'Ascona');
-    expect(desc).toContain('- Requirement A');
-    expect(desc).toContain('- Requirement B');
-  });
-
-  it('skips empty sections', () => {
-    const sections = { aboutJob: '', aboutYou: [], talentCulture: [] };
-    const desc = buildDescription(sections, 'Test', 'lago', 'Minusio');
-    expect(desc).not.toContain('## Aufgaben');
-    expect(desc).not.toContain('## Anforderungen');
-    expect(desc).not.toContain('## Benefits');
+  it('does not match text read from the Talents page', () => {
+    expect(GIARDINO_INVENTED_INTRO_RE.test('Wir suchen für das Giardino Lago eine/n Steward (m/w) mit Freude am Gastgeben.')).toBe(false);
   });
 });
 
@@ -702,9 +672,9 @@ describe('job shape', () => {
     companyDomain: 'giardinohotels.ch',
     title: 'Steward',
     titleByLocale: { de: 'Steward' },
-    description: 'Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward.',
+    description: 'Als Steward im Giardino Lago sorgst du für saubere Küchen und Geschirr.',
     descriptionByLocale: {
-      de: 'Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward.',
+      de: 'Als Steward im Giardino Lago sorgst du für saubere Küchen und Geschirr.',
     },
     location: 'Minusio',
     canton: 'TI',

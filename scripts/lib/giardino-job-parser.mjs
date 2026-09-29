@@ -36,6 +36,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml } from './crawler-template.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -241,44 +242,13 @@ export function parseContentSections(contentHtml = '') {
 }
 
 /**
- * Build a structured markdown description from parsed sections.
+ * First words of the sentence the former builder opened every description
+ * with ("Giardino Group sucht für das <Hotel> in <Ort> eine/n <Titel>. Die
+ * Giardino Hotels sind …"): text the source never showed. It marks a STORED
+ * description as not source-read; the runner removes it (and the translations
+ * made from it) before the merge.
  */
-export function buildDescription(sections, title, hotelKey, city) {
-  const hotelNames = {
-    mountain: 'Giardino Mountain',
-    ascona: 'Giardino Ascona',
-    lago: 'Giardino Lago',
-  };
-  const hotelName = hotelNames[hotelKey] || 'Giardino Group';
-
-  const parts = [];
-
-  // Intro
-  parts.push(
-    `Giardino Group sucht für das ${hotelName} in ${city} eine/n ${title}. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.`,
-  );
-
-  // Job description
-  if (sections.aboutJob) {
-    parts.push(`\n## Aufgaben\n${sections.aboutJob}`);
-  }
-
-  // Requirements
-  if (sections.aboutYou.length > 0) {
-    parts.push(
-      `\n## Anforderungen\n${sections.aboutYou.map((r) => `- ${r}`).join('\n')}`,
-    );
-  }
-
-  // Benefits
-  if (sections.talentCulture.length > 0) {
-    parts.push(
-      `\n## Benefits\n${sections.talentCulture.map((b) => `- ${b}`).join('\n')}`,
-    );
-  }
-
-  return parts.join('\n').trim();
-}
+export const GIARDINO_INVENTED_INTRO_RE = /Giardino Group sucht für das /;
 
 /* ── Category Detection (hospitality-specific) ────────────── */
 
@@ -627,12 +597,8 @@ function toIndexItem(card) {
   return { slug: card.file, link: card.url, title: { rendered: card.rawTitle } };
 }
 
-/** Thin-content floor (AGENTS.md non-negotiable #4: no indexed page under 50 words). */
-export const MIN_DESCRIPTION_WORDS = 50;
-
-function countWords(text = '') {
-  return String(text || '').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
-}
+/** Thin-content floor (AGENTS.md non-negotiable #4), the shared one. */
+export const MIN_DESCRIPTION_WORDS = MIN_SOURCE_BODY_WORDS;
 
 /* ── Fetch ────────────────────────────────────────────────── */
 
@@ -755,7 +721,7 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
 
     // Structured description from the linked page itself
     const description = buildTalentsDescription(detail, sourceLang);
-    if (countWords(description) < MIN_DESCRIPTION_WORDS) {
+    if (!meetsSourceBodyFloor(description)) {
       console.warn(`⚠️ ${publicUrl}: description under ${MIN_DESCRIPTION_WORDS} words — ad skipped this run.`);
       continue;
     }
