@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "aldi-suisse-96f2f8de71f8",
-      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+      "slug": "direttore-di-filiale-aggiunto-m-f-d-aldi-suisse-biberist",
       "slugByLocale": {
-        "it": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "en": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "it": "direttore-di-filiale-aggiunto-m-f-d-aldi-suisse-biberist",
+        "en": "deputy-branch-manager-m-f-d-aldi-suisse-biberist",
         "de": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "fr": "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        "fr": "directeur-adjoint-de-branche-h-f-d-aldi-suisse-biberist"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -100,7 +100,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T21:33:13.101Z"
+      "firstSeenAt": "2026-06-29T21:33:13.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-9e420fe21829",
@@ -5255,9 +5269,9 @@
     },
     {
       "id": "aldi-suisse-37fc8ced2038",
-      "slug": "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana",
+      "slug": "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana",
+        "it": "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana",
         "en": "sales-collaborator-m-f-d-aldi-suisse-crans-montana",
         "de": "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana",
         "fr": "collaborateur-de-vente-m-f-d-aldi-suisse"
@@ -5331,13 +5345,13 @@
       "previousSlugs": [
         "collaborateur-de-vente-m-f-d-aldi-suisse",
         "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
-        "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana"
+        "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-de-vente-m-f-d-aldi-suisse",
           "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
-          "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana"
+          "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana"
         ],
         "en": [
           "collaborateur-de-vente-m-f-d-aldi-suisse"

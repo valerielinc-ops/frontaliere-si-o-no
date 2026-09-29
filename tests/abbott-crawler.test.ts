@@ -63,7 +63,7 @@ describe('Abbott crawler location resolution', () => {
   // live shapes of 2026-09-25; the detail payloads without a requisition field
   // are the case of a failed detail fetch.
   describe('fetchAllAbbottJobs replay: a job needs a named Swiss locality', () => {
-    const description = 'Abbott is looking for a specialist to join the Swiss team. '.repeat(3);
+    const description = 'Abbott is looking for a specialist to join the Swiss team. '.repeat(5);
     const replay = [
       { title: 'Medical Educator - Romandie', path: '/job/Switzerland---Remote/Medical-Educator_R1', label: 'Switzerland - Remote', requisition: null },
       { title: 'Klinischer Kalzium-Spezialist', path: '/job/Switzerland---Remote/Klinischer-Kalzium-Spezialist_R2', label: 'Switzerland - Remote', requisition: 'Switzerland > Baar : Neuhofstrasse 23' },
@@ -126,7 +126,7 @@ describe('Abbott crawler location resolution', () => {
         title: 'Specialist', externalPath: path, locationsText: label, postedOn: 'Posted 3 Days Ago', bulletFields: ['R9'],
       });
       workdayReplay.details.set(path, {
-        jobPostingInfo: { title: 'Specialist', timeType: 'Full time', jobDescription: `<p>${'Abbott Swiss role. '.repeat(8)}</p>` },
+        jobPostingInfo: { title: 'Specialist', timeType: 'Full time', jobDescription: `<p>${'Abbott Swiss role in quality and operations. '.repeat(8)}</p>` },
       });
       vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
         fn();

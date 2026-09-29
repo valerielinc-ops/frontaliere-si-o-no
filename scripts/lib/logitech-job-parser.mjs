@@ -24,6 +24,7 @@ import {
   firstLocationSegment,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -251,6 +252,7 @@ export async function fetchAllLogitechJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let withoutBody = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
@@ -298,16 +300,16 @@ export async function fetchAllLogitechJobs() {
     // the request (anti-bot or 4xx). Long-term we expect the detail fetch to
     // succeed in >99% of cases — the stub is here so a single failure doesn't
     // ship an empty description.
-    const fallbackDescription = [
-      `${title} — Logitech, ${location}.`,
-      '',
-      'Key details:',
-      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
-      '• Employer: Logitech — global designer and manufacturer of consumer electronics',
-      `• Schedule: ${listing.timeType || 'see job posting'}`,
-      '• Apply on: Logitech Workday careers portal',
-    ].join('\n');
-    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
+    // Only the posting's own text is published (issue 5253): a req whose
+    // Workday detail has no body used to go out as a synthetic "Key details"
+    // stub (location, employer, "apply on the portal"); it is not published
+    // any more.
+    if (!meetsSourceBodyFloor(detailDescription)) {
+      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      withoutBody += 1;
+      continue;
+    }
+    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} logitech ch`);
@@ -354,6 +356,9 @@ export async function fetchAllLogitechJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
+  if (withoutBody > 0) {
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+  }
   console.log(`\n📋 Total Logitech jobs discovered: ${jobs.length}`);
   return jobs;
 }

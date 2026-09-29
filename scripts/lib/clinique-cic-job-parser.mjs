@@ -164,12 +164,12 @@ async function fetchDetailDescription(detailUrl) {
         const data = JSON.parse(ldMatch[1]);
         const desc = Array.isArray(data) ? data.find((d) => d['@type'] === 'JobPosting')?.description : data.description;
         if (desc && typeof desc === 'string') {
-          return normalizeSpace(htmlToText(desc)).slice(0, 6000);
+          return normalizeSpace(htmlToText(desc));
         }
       } catch { /* swallow JSON parse */ }
     }
     const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-    if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1])).slice(0, 6000);
+    if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1]));
     return '';
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);

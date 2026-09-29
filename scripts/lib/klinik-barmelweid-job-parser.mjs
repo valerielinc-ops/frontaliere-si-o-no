@@ -36,6 +36,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 
 // Barmelweid's TYPO3 stack returns HTTP 406 for anything that doesn't look
 // like a real browser User-Agent, so we cannot reuse the shared `fetchHtml`
@@ -151,22 +152,36 @@ export function parseListing(html) {
   return out;
 }
 
+/**
+ * Vacancy text of a Barmelweid TYPO3 detail page: the header subtitles
+ * (intro, Beschäftigungsgrad, Eintritt) and the `jobinfo` block (lead,
+ * "So ticken wir", tasks, profile, "Über uns").
+ *
+ * The parser used to convert the whole `<body>` and cut it at 6000
+ * characters, so every description carried the skip links, the quote slider,
+ * the recruiter card, the share bar, the footer menus and the cookie-consent
+ * dialog; the cap was the only bound on that sweep (issue 5253). The link
+ * buttons inside `jobinfo` ("Lerne uns kennen", "Jetzt bewerben") are dropped.
+ */
+export function extractKlinikBarmelweidDetailDescription(html = '') {
+  const source = String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  const info = readClosedElement(source, 'class="jobinfo"');
+  if (!info) return '';
+  const header = readClosedElement(source, 'class="jobheader"').replace(/<h1\b[\s\S]*?<\/h1>/gi, ' ');
+  const body = info.replace(/<a\b[^>]*\bclass="[^"]*\binternal-link-button\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, ' ');
+  return [header, body]
+    .map((part) => normalizeSpace(htmlToText(part)))
+    .filter(Boolean)
+    .join('\n\n');
+}
+
 async function fetchDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    // Detail pages are TYPO3 — the offer text sits inside the main content
-    // wrapper. We strip scripts/styles/header/footer and take the longest
-    // text block we find.
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<header[\s\S]*?<\/header>/gi, '')
-      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
-    const bodyMatch = noScripts.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    const block = bodyMatch ? bodyMatch[1] : noScripts;
-    const text = htmlToText(block);
-    return normalizeSpace(text).slice(0, 6000);
+    return extractKlinikBarmelweidDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ Barmelweid detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';
