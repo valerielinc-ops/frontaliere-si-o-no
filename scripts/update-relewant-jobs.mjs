@@ -167,7 +167,7 @@ async function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const fossils = targetExisting.filter((job) => dropRelewantFabricatedText(job)).length;
-  if (fossils > 0) console.log(`  🧹 Dropped the translations of the former header/footer wrapper from ${fossils} stored ReleWant job(s); they will be retranslated`);
+  if (fossils > 0) console.log(`  🧹 Removed the former header/footer wrapper from ${fossils} stored ReleWant job(s) (description and every locale); their translations will be rebuilt`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

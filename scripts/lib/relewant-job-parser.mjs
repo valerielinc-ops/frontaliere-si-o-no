@@ -359,33 +359,78 @@ export function buildRelewantLocalizedContent(job = {}) {
 }
 
 // The header the builder used to put above the Zoho text in stored jobs
-// ("## <title>\n\n**ReleWant** — <city>, Svizzera"), also in the flattened
-// form some slots were saved in ("<title> ReleWant — <city>, Ticino, Svizzera").
-const RELEWANT_WRAPPER_RE = /^\s*(?:##\s+)?[^\n]{1,200}?\s+(?:\*\*)?ReleWant(?:\*\*)? — [^\n]{1,80}?Svizzera\b/;
+// ("## <title>\n\n**ReleWant** — <city>, Svizzera"), also translated
+// (Switzerland/Schweiz/Suisse) and in the flattened form some slots were
+// saved in ("<title> ReleWant — <city>, Ticino, Svizzera …").
+const RELEWANT_COUNTRY = '(?:Svizzera|Switzerland|Schweiz|Suisse)';
+const RELEWANT_HEADER_RE = new RegExp(
+  String.raw`^\s*(?:##\s+)?(?:[^\n]{0,200}?\s+)?(?:\*\*)?ReleWant(?:\*\*)? — [^\n]{0,80}?${RELEWANT_COUNTRY}\b[ \t]*\n*`,
+);
+// Its footers: a trailing block of "**Label:** value" lines (Esperienza
+// richiesta/Settore/Sede/Tipo and their translations), optionally after
+// "---"; flattened, the same fields on one line ending with the location.
+const RELEWANT_FOOTER_RE = /(?:\s*\n\s*---\s*)?(?:\s*\n[ \t]*\*\*[^*\n:]{2,40}\s?:\*\*[^\n]*)+\s*$/;
+const RELEWANT_FLAT_FOOTER_RE = new RegExp(
+  String.raw`\s*(?:---\s*)?(?:(?:Esperienza richiesta|Required experience|Erforderliche Erfahrung|Expérience requise)\s?:[^\n]*?)?(?:(?:Settore|Sector|Bereich|Secteur)\s?:[^\n]*?)?(?:Sede|Location|Standort|Lieu)\s?:\s*[^\n]{0,60}?${RELEWANT_COUNTRY}(?:\s+(?:Tipo|Type|Typ)\s?:[^\n]{0,40})?\s*$`,
+);
 
 /**
- * Stored jobs still carry the former header and footers in their source text
- * (`description` or the source slot), and the other slots were translated
- * from that wrapped text. Drop those translations — the fresh crawl replaces
- * the source slot with the bare Zoho text — and flag the job for
- * retranslation.
+ * The Zoho text inside a stored wrapped description, or null when `text`
+ * does not start with the former header.
+ */
+function stripRelewantWrapper(text) {
+  const value = String(text || '');
+  if (!RELEWANT_HEADER_RE.test(value)) return null;
+  return value
+    .replace(RELEWANT_HEADER_RE, '')
+    .replace(RELEWANT_FOOTER_RE, '')
+    .replace(RELEWANT_FLAT_FOOTER_RE, '')
+    .trim();
+}
+
+/**
+ * Remove the former header and footers from a stored job, before the merge:
  *
- * @returns {boolean} true when translations of the wrapped text were dropped.
+ * - from `description` and from EVERY locale slot (a job whose language is
+ *   now detected differently must not keep the wrapper in its old source
+ *   slot); a slot left empty is dropped;
+ * - when the stored source text was wrapped, the other slots were translated
+ *   from it: they are dropped and the job is flagged for retranslation (the
+ *   fresh crawl replaces the source slot with the bare Zoho text).
+ *
+ * @returns {boolean} true when the job changed.
  */
 export function dropRelewantFabricatedText(job) {
-  const byLocale = job?.descriptionByLocale;
-  if (!byLocale || typeof byLocale !== 'object') return false;
+  if (!job || typeof job !== 'object') return false;
+  let changed = false;
   const sourceLang = String(job.sourceLang || '').trim() || 'it';
-  const wrapped = [job.description, byLocale[sourceLang]].some((text) => RELEWANT_WRAPPER_RE.test(String(text || '')));
-  if (!wrapped) return false;
-  let dropped = false;
-  for (const locale of Object.keys(byLocale)) {
-    if (locale === sourceLang) continue;
-    delete byLocale[locale];
-    dropped = true;
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : null;
+  const sourceWrapped = [job.description, byLocale?.[sourceLang]]
+    .some((text) => RELEWANT_HEADER_RE.test(String(text || '')));
+
+  const cleanDescription = stripRelewantWrapper(job.description);
+  if (cleanDescription !== null) {
+    job.description = cleanDescription;
+    changed = true;
   }
-  if (dropped) job.needsRetranslation = true;
-  return dropped;
+  if (!byLocale) return changed;
+
+  for (const locale of Object.keys(byLocale)) {
+    if (sourceWrapped && locale !== sourceLang) {
+      delete byLocale[locale];
+      job.needsRetranslation = true;
+      changed = true;
+      continue;
+    }
+    const clean = stripRelewantWrapper(byLocale[locale]);
+    if (clean === null) continue;
+    if (clean) byLocale[locale] = clean;
+    else delete byLocale[locale];
+    changed = true;
+  }
+  return changed;
 }
 
 /**
