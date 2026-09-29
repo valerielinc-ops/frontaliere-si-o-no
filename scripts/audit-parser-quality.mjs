@@ -2638,11 +2638,12 @@ function declaredPostalCode(job) {
  * branches of one chain in the same town collapse into one key: denner's
  * «Verkäufer*in» at Basel 4058 and at Basel 4057 (Filiale 524 and 370) were
  * a "duplicate listing" although each posting names its own shop. Two records
- * that declare DIFFERENT postal codes are two workplaces by their own
- * statement, so they are not a re-posting of each other. A record without a
- * postal code proves nothing either way and still collides with everyone in
- * its bucket — that keeps a posting ingested twice, once with and once
- * without an address (banca-cler, interdiscount on run 36528331656), counted.
+ * that declare DIFFERENT postal codes or different street addresses are two
+ * workplaces by their own statement, so they are not a re-posting of each
+ * other. A record without a postal code or street address proves nothing
+ * either way and still collides with everyone in its bucket — that keeps a
+ * posting ingested twice, once with and once without an address (banca-cler,
+ * interdiscount on run 36528331656), counted.
  */
 export function countDuplicateListings(jobs, fps) {
   const buckets = new Map();
@@ -2652,15 +2653,26 @@ export function countDuplicateListings(jobs, fps) {
     if (members) members.push(index);
     else buckets.set(fp, [index]);
   });
+  const declaredStreetAddress = (job) => plainText(job?.streetAddress || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+  const mayBeSamePosting = (left, right) => {
+    const leftPostal = declaredPostalCode(left);
+    const rightPostal = declaredPostalCode(right);
+    if (leftPostal && rightPostal && leftPostal !== rightPostal) return false;
+    const leftStreet = declaredStreetAddress(left);
+    const rightStreet = declaredStreetAddress(right);
+    if (leftStreet && rightStreet && leftStreet !== rightStreet) return false;
+    return true;
+  };
   let count = 0;
   for (const members of buckets.values()) {
     if (members.length < 2) continue;
     for (const index of members) {
-      const own = declaredPostalCode(jobs[index]);
       const samePosting = members.some((other) => {
         if (other === index) return false;
-        const theirs = declaredPostalCode(jobs[other]);
-        return !own || !theirs || own === theirs;
+        return mayBeSamePosting(jobs[index], jobs[other]);
       });
       if (samePosting) count++;
     }

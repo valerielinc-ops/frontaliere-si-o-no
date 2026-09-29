@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   extractBurkhalterContentDescription,
+  extractBurkhalterDetailFields,
   extractBurkhalterDetailDescription,
   extractBurkhalterJsonLdDescription,
   isBurkhalterStubText,
@@ -38,6 +39,27 @@ describe('Burkhalter detail description (thin 9/245, missing-locales 6/245)', ()
     const md = extractBurkhalterDetailDescription(PAGE);
     expect(md).toMatch(/^Wir sind ein Schweizer Unternehmen/);
     expect(md).not.toMatch(/Vacancies|Bahnhofplatz 3b|7302 Landquart/);
+  });
+
+  it('keeps the source workplace address from JobPosting JSON-LD', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      ...JSONLD,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Davos Platz',
+          postalCode: '7270',
+          streetAddress: 'Obere Strasse 19',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script>`;
+    expect(extractBurkhalterDetailFields(html, 'https://www.burkhalter.ch/job')).toMatchObject({
+      addressLocality: 'Davos Platz',
+      postalCode: '7270',
+      streetAddress: 'Obere Strasse 19',
+    });
   });
 
   it('falls back to the visible content block when the page has no JSON-LD posting', () => {
@@ -85,10 +107,18 @@ describe('Burkhalter source-only merge (no `<title> presso …` stub)', () => {
   });
 
   it('keeps the stored source text when the page was not read this run', () => {
-    const prev = { url: 'u', sourceLang: 'de', description: STUB, descriptionByLocale: { de: SOURCE, en: STUB } };
+    const prev = {
+      url: 'u',
+      sourceLang: 'de',
+      description: STUB,
+      descriptionByLocale: { de: SOURCE, en: STUB },
+      postalCode: '7270',
+      streetAddress: 'Obere Strasse 19',
+    };
     const merged = mergeBurkhalterRecord(prev, { url: 'u', sourceLang: 'de', description: '', descriptionByLocale: {} });
     expect(merged?.description).toBe(SOURCE);
     expect(merged?.descriptionByLocale).toEqual({ de: SOURCE });
+    expect(merged).toMatchObject({ postalCode: '7270', streetAddress: 'Obere Strasse 19' });
   });
 
   it('does not publish a job with no body this run and only stubs stored', () => {

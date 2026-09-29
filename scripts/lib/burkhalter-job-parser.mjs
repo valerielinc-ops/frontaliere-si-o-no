@@ -11,6 +11,8 @@
  * of which is posting content.
  */
 
+import { extractDetailFields } from './prospector/extract.mjs';
+
 const NAMED_ENTITIES = {
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
   ndash: '–', mdash: '—', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', hellip: '…',
@@ -143,6 +145,31 @@ export function extractBurkhalterDetailDescription(html = '') {
 }
 
 /**
+ * Extract the source workplace together with the source-only description.
+ * Burkhalter's JobPosting JSON-LD carries the real branch address; keeping it
+ * lets the quality audit distinguish two same-role postings at different
+ * Davos sites instead of treating their shared city as the workplace key.
+ */
+export function extractBurkhalterDetailFields(html = '', pageUrl = '') {
+  let detail = {};
+  try {
+    detail = extractDetailFields(html, pageUrl) || {};
+  } catch {
+    // A malformed auxiliary block must not discard the valid JobPosting body.
+  }
+  const candidates = Array.isArray(detail.locationCandidates) ? detail.locationCandidates : [];
+  const candidate = candidates.find((entry) => entry?.postalCode && entry?.streetAddress)
+    || candidates.find((entry) => entry?.addressLocality || entry?.postalCode || entry?.streetAddress)
+    || {};
+  return {
+    description: extractBurkhalterDetailDescription(html),
+    addressLocality: String(candidate.addressLocality || candidate.location || '').trim(),
+    postalCode: String(candidate.postalCode || '').trim(),
+    streetAddress: String(candidate.streetAddress || '').trim(),
+  };
+}
+
+/**
  * A stub, not a posting: the `<title> presso <company>, <city>` line earlier
  * runs published when a detail page could not be read, and its machine
  * translations ("Description <title> at <company>, <city>", "Beschreibung …
@@ -198,6 +225,13 @@ export function mergeBurkhalterRecord(prev, job, mergeLocales = (p, n) => ({
     };
   }
   const merged = prev ? mergeLocales(prev, next) : { ...next };
+  // A transient detail-page miss must not erase a workplace address read on a
+  // previous source fetch. A newly read non-empty field still replaces it.
+  for (const field of ['postalCode', 'streetAddress']) {
+    if (!String(merged[field] || '').trim() && String(prev?.[field] || '').trim()) {
+      merged[field] = prev[field];
+    }
+  }
   const byLocale = { ...(merged.descriptionByLocale || {}) };
   for (const [locale, text] of Object.entries(byLocale)) {
     if (isBurkhalterStubText(text)) delete byLocale[locale];
