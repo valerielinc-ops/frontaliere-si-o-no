@@ -8,7 +8,9 @@ import {
   isTrustedDomain,
   SPITEX_ZUERICH_KEY,
   SPITEX_ZUERICH_COMPANY_NAME,
+  SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE,
 } from './lib/spitex-zuerich-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 runStandardCrawlerPipeline({
@@ -25,4 +27,5 @@ runStandardCrawlerPipeline({
   // translations on re-crawl. Key on the stable `/job/{hash}` token instead.
   matchKey: (j) => (String(j?.url || '').match(/\/job\/([a-z0-9-]+)/i)?.[1] || j?.url || ''),
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, SPITEX_ZUERICH_FABRICATED_DESCRIPTION_RE, SPITEX_ZUERICH_COMPANY_NAME),
 }).catch((err) => { console.error(`❌ Spitex Zürich crawler failed: ${err?.message || err}`); process.exit(1); });

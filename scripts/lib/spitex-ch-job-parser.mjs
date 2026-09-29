@@ -47,6 +47,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const SPITEX_CH_KEY = 'spitex-ch';
 export const SPITEX_CH_COMPANY_NAME = 'Spitex Schweiz';
@@ -213,19 +214,10 @@ export async function fetchAllSpitexChJobs() {
     const canton = normalizeCantonCode(cantonGuess) || inferSwissTargetCanton(city) || 'BE';
     const country = COUNTRY_TO_CC[addr.addressCountry] || 'CH';
 
-    const descHtml = posting.description || '';
-    let description = htmlToText(descHtml);
-    const uniqueWords = new Set(
-      description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-    );
+    const description = buildSpitexChDescription(posting.description || '', employerHtml);
     const hiringOrg = posting.hiringOrganization?.name
       ? decodeEntities(String(posting.hiringOrganization.name)).trim()
       : '';
-    if (uniqueWords.size < 30) {
-      description = `${title}${hiringOrg ? ` bei ${hiringOrg}` : ''} in ${city}.\n\nSpitex-Stelle in der Schweizer Hauspflege. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
-    } else if (employerHtml) {
-      description = htmlToText(`${descHtml}\n${employerHtml}`);
-    }
 
     const sourceLang = detectLang(description || title, 'de');
     const postedDate = (() => {
@@ -323,3 +315,31 @@ export function isTrustedDomain(rawUrl = '') {
     return false;
   }
 }
+
+/**
+ * The description of a spitexjobs.ch vacancy: the JobPosting JSON-LD text and
+ * the employer's sections of the same ad (`extractSpitexEmployerSectionsHtml`),
+ * either of which may be missing — only the source's text. Below the 50-word
+ * floor (source-body-floor) there is no description, and the job takes the
+ * pipeline's thin-source path. Under 30 distinct words the parser used to
+ * replace the text with "<Titel> bei <Arbeitgeber> in <Ort>. Spitex-Stelle in
+ * der Schweizer Hauspflege…" (SPITEX_CH_FABRICATED_DESCRIPTION_RE).
+ *
+ * @param {string} descHtml      JSON-LD `description` (HTML)
+ * @param {string} employerHtml  employer sections of the page (HTML)
+ * @returns {string}
+ */
+export function buildSpitexChDescription(descHtml = '', employerHtml = '') {
+  const parts = [descHtml, employerHtml].filter((html) => stripHtml(String(html || '')).trim());
+  if (!parts.length) return '';
+  const text = htmlToText(parts.join('\n'));
+  return meetsSourceBodyFloor(text) ? text : '';
+}
+
+/**
+ * The whole substitute the parser used to write for a short posting: "<Titel>
+ * bei <Arbeitgeber> in <Ort>." and its fixed "Spitex-Stelle in der Schweizer
+ * Hauspflege…" paragraph, and nothing else (anchored at both ends).
+ */
+export const SPITEX_CH_FABRICATED_DESCRIPTION_RE =
+  /^[^\n]{3,500}\.\n\nSpitex-Stelle in der Schweizer Hauspflege\. Diese Position bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten\.\s*$/;

@@ -197,6 +197,20 @@ describe('buildJob', () => {
     expect(job!.description).not.toMatch(CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE);
   });
 
+  it('keys the locale maps on the language of the bando the runner passes, with the same slug', () => {
+    const listing = { title: 'Architetto progettista', description: 'Concorso pubblico.' };
+    const bando = 'Stellenausschreibung\n\nDie Stadt Lugano sucht eine Architektin oder einen Architekten.';
+    const job = buildJob(listing, { description: bando, sourceLang: 'de' });
+    expect(job!.description).toBe(bando);
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.descriptionByLocale).toEqual({ de: bando });
+    expect(job!.titleByLocale).toEqual({ de: 'Architetto progettista' });
+    expect(job!.slugByLocale).toEqual({ de: buildJob(listing)!.slug });
+    expect(job!.slug).toBe(buildJob(listing)!.slug);
+    // Category and contract still come from the listing, as before.
+    expect(job!.category).toBe(buildJob(listing)!.category);
+  });
+
   it('returns null for empty or missing title', () => {
     expect(buildJob({ title: '' })).toBeNull();
     expect(buildJob(null as any)).toBeNull();

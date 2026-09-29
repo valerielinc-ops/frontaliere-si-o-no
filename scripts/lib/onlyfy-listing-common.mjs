@@ -18,6 +18,7 @@
  */
 import { decodeEntities, normalizeSpace, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { htmlToTextLines } from './html-to-text-lines.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /**
  * Parse an onlyfy.jobs listing page into role rows.
@@ -154,4 +155,24 @@ function tidyAdText(text = '') {
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+// What an ad URL answers with instead of the ad: a consent or cookie wall, an
+// error page, a vacancy that is no longer online. Checked on the opening of
+// the text, where such a page states what it is.
+const NOT_AN_AD_LEAD_RE = /^\s*(?:cookie[- ]?(?:einstellungen|settings|richtlinie|policy|hinweis)|wir verwenden cookies|we use cookies|diese (?:website|webseite|seite) verwendet cookies|this (?:website|site) uses cookies|datenschutzeinstellungen|privacy (?:settings|preferences)|einwilligung|zustimmung|consent\b|404\b|500\b|seite nicht gefunden|page not found|nicht gefunden|not found\b|fehler\b|error\b|zugriff verweigert|access denied|forbidden\b|(?:diese|die) (?:stelle|stellenanzeige|position) ist nicht mehr|this (?:job|position|vacancy) is no longer|stelle nicht (?:gefunden|verfügbar))/i;
+
+/**
+ * True when text read from an onlyfy ad document is the ad itself: a body
+ * long enough to stand on its own (source-body-floor, 50 words) that is not a
+ * consent, cookie or error page the ad URL answered with. Anything else is
+ * not published as the vacancy's description.
+ *
+ * @param {string} text  output of `extractOnlyfyJobAdText`
+ * @returns {boolean}
+ */
+export function isOnlyfyJobAdText(text = '') {
+  const body = String(text || '').trim();
+  if (!body || NOT_AN_AD_LEAD_RE.test(body)) return false;
+  return meetsSourceBodyFloor(body);
 }

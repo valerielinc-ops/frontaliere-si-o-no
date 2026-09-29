@@ -25,7 +25,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
+import { parseOnlyfyListing, onlyfyFullAdUrl, extractOnlyfyJobAdText, isOnlyfyJobAdText } from './onlyfy-listing-common.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const VITREA_GESUNDHEIT_KEY = 'vitrea-gesundheit';
@@ -63,7 +63,7 @@ export function parseVitreaListing(html) {
 // The detail URL is a client-rendered shell; the ad itself is the onlyfy
 // `/job/show/{handle}/full` document (see onlyfyFullAdUrl). The former
 // `<p>/<li>` sweep of the shell (capped at 30 fragments) never reached the
-// role text, so every vacancy fell back to the synthesised stub below.
+// role text, so every vacancy fell back to a stub the parser wrote itself.
 async function fetchDetailContent(url) {
   const adUrl = onlyfyFullAdUrl(url);
   if (!adUrl) return '';
@@ -103,30 +103,22 @@ export async function fetchAllVitreaGesundheitJobs() {
     // listing chrome, so the shell-era title-overlap heuristic does not apply:
     // on the sibling Spitex Zürich tenant it rejected "Ausbildungsplatz Dipl.
     // Pflegefachfrau/-mann HF 2026/2027" because the ad says "Pflegefachperson".
-    const detailContent = rawDetail.length >= 80 ? rawDetail : '';
+    // Only the ad itself: a consent, cookie or error page, or a body under the
+    // 50-word floor, is not the vacancy's text (isOnlyfyJobAdText).
+    const detailContent = isOnlyfyJobAdText(rawDetail) ? String(rawDetail).trim() : '';
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, POLITE_DELAY_MS));
-    let description;
-    if (detailContent) {
-      // The ad as published, plus the listing's workload; no company text of
-      // our own (the ad carries the employer's).
-      description = [
+    // The ad as published, plus the listing's workload.
+    // Without the ad the parser used to write a stub of its own ("<Titel> bei
+    // Vitrea Gesundheit, <Ort>, Schweiz." with Standort/Bereich/Bewerbung bullets,
+    // VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE); a vacancy without text now gets no
+    // description and takes the pipeline's thin-source path.
+    const description = detailContent
+      ? [
         detailContent,
         it.employmentTypeStr ? `• Arbeitszeit: ${it.employmentTypeStr}` : '',
-      ].filter(Boolean).join('\n\n');
-    } else {
-      // Detail page returned a consent wall or cookie chrome instead of the
-      // role body. Synthesise a bullet-structured fallback so the parser-
-      // quality `hasStructuredContent` audit passes; AI translation downstream
-      // can still enrich each locale from this scaffold.
-      const intro = `${it.title} bei Vitrea Gesundheit (ehemals VAMED Schweiz), ${it.location}, Schweiz.`;
-      const bullets = [];
-      if (it.employmentTypeStr) bullets.push(`• Arbeitszeit: ${it.employmentTypeStr}`);
-      bullets.push(`• Standort: ${it.location}`);
-      bullets.push('• Bereich: Rehabilitations- und Pflegedienstleistungen');
-      bullets.push('• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit');
-      description = `${intro}\n\n${bullets.join('\n')}`;
-    }
+      ].filter(Boolean).join('\n\n')
+      : '';
 
     const canton = inferCantonFromLocation(it.location);
     const sourceLang = detectLang(description || it.title, 'de');
@@ -175,3 +167,12 @@ export async function fetchAllVitreaGesundheitJobs() {
   console.log(`📋 Total ${VITREA_GESUNDHEIT_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich detail content)`);
   return jobs;
 }
+
+/**
+ * The whole stub the parser used to write without the ad: "<Titel> bei Vitrea
+ * Gesundheit (ehemals VAMED Schweiz), <Ort>, Schweiz." and its
+ * Arbeitszeit/Standort/Bereich/Bewerbung bullets, and nothing else. Anchored
+ * at both ends, so an ad that quotes one of these lines is never taken for it.
+ */
+export const VITREA_GESUNDHEIT_FABRICATED_DESCRIPTION_RE =
+  /^[^\n]{3,300} bei Vitrea Gesundheit \(ehemals VAMED Schweiz\), [^\n]{0,120}, Schweiz\.\n\n(?:• Arbeitszeit: [^\n]{1,120}\n)?• Standort: [^\n]{0,120}\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy\.jobs-Karriereportal von Vitrea Gesundheit\s*$/;
