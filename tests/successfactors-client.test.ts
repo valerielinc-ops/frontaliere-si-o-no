@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  admitJobs2WebRow,
   detectSuccessFactorsKind,
   extractJobs2WebDeclaredTotal,
   fetchSuccessFactorsJobs,
@@ -96,6 +97,45 @@ describe('SuccessFactors client', () => {
     }
 
     expect(jobs.map((job) => job.jobReqId)).toHaveLength(20);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  // A search row without a requisition id is identified by its URL. Before,
+  // every such row counted as new, so a repeated full page of them never
+  // reached "no new requisition" and the loop ran until maxPages.
+  it('identifies a row without a requisition id by its URL', () => {
+    const seen = new Set<string>();
+    const page = Array.from({ length: 10 }, (_, index) => ({
+      jobReqId: '',
+      applyUrl: `https://www.swissre.com/careers/job/role-${index}`,
+    }));
+    expect(page.filter((row) => admitJobs2WebRow(row, seen))).toHaveLength(10);
+    // The same page again adds nothing, so the loop stops after fetching it.
+    expect(page.filter((row) => admitJobs2WebRow(row, seen))).toHaveLength(0);
+    // A row with neither id nor URL cannot prove it is new.
+    expect(admitJobs2WebRow({ jobReqId: '', applyUrl: '' }, seen)).toBe(false);
+  });
+
+  it('stops after a repeated full page of cards whose links carry no numeric id', async () => {
+    const card = (slug: string) => `
+      <li class="JobTeaserList--item">
+        <a class="JobTeaser--link" href="/careers/job/${slug}">
+          <div class="JobTeaser--title">Role ${slug}</div>
+        </a>
+      </li>`;
+    const repeated = `<ul>${Array.from({ length: 10 }, (_, index) => card(`underwriter-${index}`)).join('')}</ul>`;
+    const fetchMock = vi.fn(async () => new Response(repeated, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://www.swissre.com/careers/jobSearch.html',
+      { maxPages: 100000, minDelayMs: 0, company: 'Swiss Re' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(10);
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 

@@ -725,8 +725,7 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
       let newRows = 0;
       for (const row of rows) {
         const job = extractSuccessFactorsJobIdentity(row, { company });
-        if (job.jobReqId && seenJobIds.has(job.jobReqId)) continue;
-        if (job.jobReqId) seenJobIds.add(job.jobReqId);
+        if (!admitJobs2WebRow(job, seenJobIds)) continue;
         newRows += 1;
         if (matchesLocation(job.location)) {
           yield job;
@@ -744,6 +743,23 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     }
     return;
   }
+}
+
+/**
+ * Record a jobs2web search row in `seen` and say whether it is new. The row's
+ * identity is its requisition id, or its URL when the template carries none;
+ * a row without either cannot prove it is new. Counting such rows as new kept
+ * the pagination loop alive on a repeated full page until `maxPages`.
+ *
+ * @param {{ jobReqId?: string, applyUrl?: string, url?: string }} job
+ * @param {Set<string>} seen
+ * @returns {boolean}
+ */
+export function admitJobs2WebRow(job, seen) {
+  const identity = String(job?.jobReqId || job?.applyUrl || job?.url || '').trim();
+  if (!identity || seen.has(identity)) return false;
+  seen.add(identity);
+  return true;
 }
 
 /* ── Internal HTML helpers ─────────────────────────────────────────────── */

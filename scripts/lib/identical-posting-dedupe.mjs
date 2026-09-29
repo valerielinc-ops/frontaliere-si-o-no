@@ -2,8 +2,8 @@
  * Drop true double publications from one crawler's fresh fetch.
  *
  * A double publication is the same advertisement reachable under two source
- * ids: identical title (up to the gender marker), identical workplace
- * (locality, postal code and street)
+ * ids: identical title (up to the gender marker), identical and fully
+ * resolved workplace (locality, postal code and street all present)
  * and an identical FULL description (compared case- and
  * whitespace-insensitively). Two such rows are one vacancy
  * to a reader; publishing both produced two indistinguishable job pages, which
@@ -47,8 +47,12 @@ function jobBody(job) {
 }
 
 /**
- * Grouping key of a posting: title, workplace and full body. Empty when the
- * posting has no body — an empty text never proves two postings identical.
+ * Grouping key of a posting: title, workplace and full body. Empty — the
+ * posting is never grouped — when the body is empty or the workplace is not
+ * fully resolved: an empty text, or a missing locality, postal code or
+ * street, never proves two postings identical. Otis leaves the locality blank
+ * when a req names none, and two stores in one town differ only by postal code
+ * or street; comparing blanks would merge distinct vacancies.
  *
  * @param {object} job
  * @returns {string}
@@ -56,10 +60,9 @@ function jobBody(job) {
 export function identicalPostingKey(job) {
   const body = normalized(jobBody(job));
   if (!body) return '';
-  const place = [job?.addressLocality || job?.location, job?.postalCode, job?.streetAddress]
-    .map(normalized)
-    .join('\u0000');
-  return `${normalizedTitle(job?.title)}\u0000${place}\u0000${body}`;
+  const place = [job?.addressLocality || job?.location, job?.postalCode, job?.streetAddress].map(normalized);
+  if (place.some((part) => !part)) return '';
+  return `${normalizedTitle(job?.title)}\u0000${place.join('\u0000')}\u0000${body}`;
 }
 
 function stableOrderKey(job) {

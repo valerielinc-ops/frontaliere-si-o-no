@@ -8,11 +8,18 @@ import { dropIdenticalPostings, identicalPostingKey } from '../scripts/lib/ident
 // differ only past the audit's 500-character window (kept).
 const BODY = 'Arbeitsort: Salem-Spital, Klinik Beau-Site oder Klinik Permanence\n\nBesetzung per: nach Vereinbarung\n\nReferenznummer: 43018\n\nSuchst du eine neue Herausforderung in der Pflege?';
 
+// Grouping needs a fully resolved workplace (locality, postal code, street),
+// so the fixtures carry all three; the dataset rows of these crawlers do not
+// always have them, and then nothing is grouped (last case below).
+const VISP = { location: 'Visp', addressLocality: 'Visp', postalCode: '3930', streetAddress: 'Lonzastrasse' };
+
 function job(url: string, overrides: Record<string, unknown> = {}) {
   return {
     title: 'Dipl. Pflegefachfrau / Pflegefachmann Hirslanden Bern (a) 20-100%',
     location: 'Bern',
     addressLocality: 'Bern',
+    postalCode: '3013',
+    streetAddress: 'Schänzlistrasse 39',
     sourceLang: 'de',
     description: BODY,
     descriptionByLocale: { de: BODY },
@@ -33,9 +40,9 @@ describe('dropIdenticalPostings', () => {
   });
 
   it('compares the whole text case- and whitespace-insensitively', () => {
-    const a = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1', { title: 'Elektroinstallateur EFZ 80-100% (m/w/d)', location: 'Visp', addressLocality: 'Visp' });
+    const a = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1', { title: 'Elektroinstallateur EFZ 80-100% (m/w/d)', ...VISP });
     const b = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76397', {
-      title: 'Elektroinstallateur EFZ 80-100% (m/w/d)', location: 'Visp', addressLocality: 'Visp',
+      title: 'Elektroinstallateur EFZ 80-100% (m/w/d)', ...VISP,
       description: BODY.replace(/\n\n/g, '\n  \n'), descriptionByLocale: { de: BODY.replace(/\n\n/g, '\n  \n') },
     });
     expect(identicalPostingKey(a)).toBe(identicalPostingKey(b));
@@ -44,11 +51,11 @@ describe('dropIdenticalPostings', () => {
 
   it('treats titles that differ only by the gender marker as the same title', () => {
     // Lonza, Visp, 2026-09-29: R76163-1 "(m/f/d)" and R76165-1 "(m/w/d)", same text.
-    const mf = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100---m-f-d-_R76163-1', { title: 'Biotechnologist 100% (m/f/d)', location: 'Visp', addressLocality: 'Visp' });
-    const mw = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100----m-w-d-_R76165-1', { title: 'Biotechnologist 100% (m/w/d)', location: 'Visp', addressLocality: 'Visp' });
+    const mf = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100---m-f-d-_R76163-1', { title: 'Biotechnologist 100% (m/f/d)', ...VISP });
+    const mw = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100----m-w-d-_R76165-1', { title: 'Biotechnologist 100% (m/w/d)', ...VISP });
     expect(dropIdenticalPostings([mw, mf]).jobs).toEqual([mf]);
     // Any other word of the title still tells two roles apart.
-    const senior = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Biotechnologist_R76199', { title: 'Senior Biotechnologist 100% (m/w/d)', location: 'Visp', addressLocality: 'Visp' });
+    const senior = job('https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Biotechnologist_R76199', { title: 'Senior Biotechnologist 100% (m/w/d)', ...VISP });
     expect(dropIdenticalPostings([mw, senior]).jobs).toHaveLength(2);
   });
 
@@ -84,5 +91,22 @@ describe('dropIdenticalPostings', () => {
     const emptyA = job('https://careers.mediclinic.com/Hirslanden/job/x/3/', { description: '', descriptionByLocale: {} });
     const emptyB = job('https://careers.mediclinic.com/Hirslanden/job/x/4/', { description: '', descriptionByLocale: {} });
     expect(dropIdenticalPostings([emptyA, emptyB]).jobs).toHaveLength(2);
+  });
+
+  it('never groups postings whose workplace is not fully resolved', () => {
+    // Otis leaves the locality blank when a req names none: two reqs with the
+    // same title and text but no locality, postal code or street may be two
+    // workplaces, so both are kept.
+    const unresolved = { location: '', addressLocality: '', postalCode: '', streetAddress: '' };
+    const a = job('https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Servicetechniker_20001', unresolved);
+    const b = job('https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Servicetechniker_20002', unresolved);
+    expect(identicalPostingKey(a)).toBe('');
+    expect(dropIdenticalPostings([a, b]).jobs).toHaveLength(2);
+    // A partial workplace is not resolved either: locality alone, or locality
+    // and postal code without the street.
+    const localityOnly = { postalCode: '', streetAddress: '' };
+    expect(dropIdenticalPostings([job('https://c/job/x/5/', localityOnly), job('https://c/job/x/6/', localityOnly)]).jobs).toHaveLength(2);
+    const noStreet = { streetAddress: '' };
+    expect(dropIdenticalPostings([job('https://c/job/x/7/', noStreet), job('https://c/job/x/8/', noStreet)]).jobs).toHaveLength(2);
   });
 });
