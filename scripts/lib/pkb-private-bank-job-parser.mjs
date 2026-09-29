@@ -40,6 +40,7 @@ import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
 import { sourceLocaleDescription } from './source-locale-description.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 export const PKB_KEY = 'pkb-private-bank';
 export const COMPANY_NAME = 'PKB Private Bank SA';
@@ -397,4 +398,19 @@ export async function fetchPkbJobs({ userAgent = DEFAULT_UA, timeoutMs = 15000 }
     if (job) results.push(job);
   }
   return results;
+}
+
+// The text this crawler used to write itself: the paragraph the builder wrote without a posting text ("Posizione aperta presso PKB Private Bank SA a … fondata nel 1958…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const PKB_FABRICATED_RE = /Posizione aperta presso PKB Private Bank SA a /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropPkbFabricatedText(job) {
+  return dropFabricatedDescription(job, PKB_FABRICATED_RE);
 }

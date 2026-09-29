@@ -35,6 +35,7 @@ import {
   buildArtisaLocalizedContent,
   assertCompleteArtisaListingSnapshot,
   assertCompleteArtisaTargetSnapshot,
+  dropArtisaFabricatedText,
 } from './lib/artisa-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
@@ -220,6 +221,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropArtisaFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Artisa Group job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

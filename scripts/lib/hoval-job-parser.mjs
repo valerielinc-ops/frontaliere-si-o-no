@@ -13,6 +13,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const BASE_URL = 'https://www.hoval.it';
 
@@ -170,4 +171,19 @@ export function inferHovalCanton(location = '') {
     .replace(/^(rc|ostschweiz|region)\s+/i, '')
     .trim();
   return inferAnyCanton(cleanCity) || inferAnyCanton(normalizeSpace(location)) || 'CH';
+}
+
+// The text this crawler used to write itself: the four sentences the builder wrote without a posting text ("Hoval ha aperto una selezione…", "Hoval is hiring for the…", "Hoval sucht derzeit…", "Hoval recrute actuellement…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const HOVAL_FABRICATED_RE = /Hoval ha aperto una selezione per il ruolo |Hoval is hiring for the |Hoval sucht derzeit für die Position |Hoval recrute actuellement pour le poste /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropHovalFabricatedText(job) {
+  return dropFabricatedDescription(job, HOVAL_FABRICATED_RE);
 }

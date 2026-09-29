@@ -19,6 +19,7 @@ import {
  */
 
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 export const KNOWLEDGE_LAB_FRESHTEAM_JOBS_URL = 'https://klab.freshteam.com/jobs/';
 const FRESHTEAM_ORIGIN = 'https://klab.freshteam.com';
@@ -370,4 +371,19 @@ export function inferKnowledgeLabCanton(job = {}) {
   const city = normalizeSpace(job.location);
   if (!isKnowledgeLabSwissRelevant({ ...job, location: city })) return '';
   return inferAnyCanton(city);
+}
+
+// The text this crawler used to write itself: the four sentences the builder wrote without a posting text ("Knowledge Lab cerca un/una…", "…is hiring for the…", "…sucht derzeit…", "…recrute actuellement…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const KNOWLEDGE_LAB_FABRICATED_RE = /Knowledge Lab cerca un\/una |Knowledge Lab is hiring for the |Knowledge Lab sucht derzeit für die Position |Knowledge Lab recrute actuellement pour le poste /;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropKnowledgeLabFabricatedText(job) {
+  return dropFabricatedDescription(job, KNOWLEDGE_LAB_FABRICATED_RE);
 }

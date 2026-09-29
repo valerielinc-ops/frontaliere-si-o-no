@@ -41,7 +41,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
+import { parseSwisscomJobDescription, dropSwisscomFabricatedText } from './lib/swisscom-job-parser.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -497,6 +497,8 @@ async function mergeSwisscomJobs(discoveredJobs) {
 
   const nonSwisscomJobs = allJobs.filter((j) => !isSwisscomJob(j));
   const existingSwisscomJobs = allJobs.filter(isSwisscomJob);
+  const fabricatedFossils = existingSwisscomJobs.filter((job) => dropSwisscomFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Swisscom job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingSwisscomJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

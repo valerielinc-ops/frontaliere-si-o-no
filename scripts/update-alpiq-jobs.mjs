@@ -21,6 +21,7 @@ import {
   slugify,
   inferEmploymentType,
   repairThinAlpiqLocaleDescriptions,
+  dropAlpiqFabricatedText,
 } from './lib/alpiq-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
@@ -110,6 +111,8 @@ function mergeCompanyJobs(parsedJobs) {
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
   const companyExisting = allJobs.filter((j) => isCompanyJob(j));
+  const fabricatedFossils = companyExisting.filter((job) => dropAlpiqFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Alpiq job(s); they will be retranslated`);
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
   const deduped = [...byUrl.values()];

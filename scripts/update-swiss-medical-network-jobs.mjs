@@ -23,7 +23,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
-import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
+import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace, dropSwissMedicalNetworkFabricatedText } from './lib/swiss-medical-network-job-parser.mjs';
 import { matchesCliniqueDeGenolierPosting } from './lib/clinique-de-genolier-job-parser.mjs';
 import { matchesCliniqueDeMontchoisiPosting } from './lib/clinique-de-montchoisi-job-parser.mjs';
 import { matchesCliniqueDeValerePosting } from './lib/clinique-de-valere-job-parser.mjs';
@@ -219,6 +219,8 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isSwissMedicalJob(j));
   const existingCompanyJobs = allJobs.filter(isSwissMedicalJob);
+  const fabricatedFossils = existingCompanyJobs.filter((job) => dropSwissMedicalNetworkFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Swiss Medical Network job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

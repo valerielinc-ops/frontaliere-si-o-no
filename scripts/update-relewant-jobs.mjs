@@ -181,14 +181,20 @@ async function mergeJobs(discoveredJobs) {
     }
     updated += 1;
     // Clear translations only when the source description changed significantly.
-    // Otherwise preserve existing translated locales (en/de/fr) and only update
-    // the source locale (it) from the fresh job data.
+    // Otherwise preserve the existing translated locales and only update the
+    // source-language slot from the fresh job data.
     const prevLen = (prev.description || '').length;
     const newLen = (job.description || '').length;
     const sourceChanged = Math.abs(newLen - prevLen) > 100;
+    // The source slot is the one of the language detected for THIS crawl
+    // (`job.sourceLang`), not a literal `it`: an English/German/French posting
+    // must refresh its own slot.
+    const sourceLang = job.sourceLang || prev.sourceLang || 'it';
+    const freshSource = (job.descriptionByLocale || {})[job.sourceLang];
     const mergedDescByLocale = sourceChanged
       ? { ...(job.descriptionByLocale || {}) }
-      : { ...(prev.descriptionByLocale || {}), it: (job.descriptionByLocale || {}).it ?? (prev.descriptionByLocale || {}).it };
+      : { ...(prev.descriptionByLocale || {}), [sourceLang]: freshSource ?? (prev.descriptionByLocale || {})[sourceLang] };
+    if (mergedDescByLocale[sourceLang] === undefined) delete mergedDescByLocale[sourceLang];
     const updatedJob = {
       ...prev,
       ...job,

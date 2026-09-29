@@ -16,6 +16,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const BASE_URL = 'https://www.mtic-group.org';
 
@@ -219,4 +220,19 @@ export function buildMticLocalizedContent(job = {}) {
  */
 export function isMticSwissSubsidiaryJob(job = {}) {
   return String(job.subsidiaryCountry || '').toUpperCase() === 'CH';
+}
+
+// The text this crawler used to write itself: the sentences the builder wrote in it/en/de/fr ("MTIC Group / SPS InterCert S.A. ricerca…", "…is hiring for the…", "…sucht derzeit…", "…recrute actuellement…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const MTIC_FABRICATED_RE = /MTIC Group \/ SPS InterCert S\.A\. (?:ricerca |is hiring for the |sucht derzeit für die Position |recrute actuellement pour le poste )/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropMticFabricatedText(job) {
+  return dropFabricatedDescription(job, MTIC_FABRICATED_RE);
 }

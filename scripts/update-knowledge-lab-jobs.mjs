@@ -54,6 +54,7 @@ import {
   buildKnowledgeLabLocalizedContent,
   isKnowledgeLabSwissRelevant,
   inferKnowledgeLabCanton,
+  dropKnowledgeLabFabricatedText,
 } from './lib/knowledge-lab-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -245,6 +246,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fabricatedFossils = targetExisting.filter((job) => dropKnowledgeLabFabricatedText(job)).length;
+  if (fabricatedFossils > 0) console.log(`  🧹 Removed the former crawler-written description from ${fabricatedFossils} stored Knowledge Lab job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

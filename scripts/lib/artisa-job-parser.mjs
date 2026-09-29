@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { sourceLocaleDescription } from './source-locale-description.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -346,4 +347,19 @@ export function buildArtisaLocalizedContent(job = {}) {
       fr: slugify(`${titleByLocale.fr} Artisa Group ${location}`),
     },
   };
+}
+
+// The text this crawler used to write itself: the four templates the builder (and the locale repair) wrote ("## Posizione aperta / Artisa Group ha aperto una selezione…", "## Open position…", "## Offene Stelle…", "## Poste ouvert…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+export const ARTISA_FABRICATED_RE = /Artisa Group (?:ha aperto una selezione per il ruolo |is currently hiring for the |rekrutiert derzeit für die Position |recrute actuellement pour le poste )/;
+
+/**
+ * Remove that text from a stored job before the locale-preserving merge: the
+ * slots and flat `description` that carry it and the translations made from
+ * it (`dropFabricatedDescription`); the job is flagged for retranslation.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropArtisaFabricatedText(job) {
+  return dropFabricatedDescription(job, ARTISA_FABRICATED_RE);
 }
