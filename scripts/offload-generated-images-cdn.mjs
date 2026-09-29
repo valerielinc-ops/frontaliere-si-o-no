@@ -395,7 +395,7 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
           const headContent = headCloseAt >= 0
             ? headRemainder.slice(0, headCloseAt)
             : headRemainder;
-          const charset = headContent.match(/<meta\s+charset\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+)\s*\/?\s*>/i);
+          const charset = headContent.match(/<meta\s+charset\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+)(?:\s+[^>]*?)?\s*\/?\s*>/i);
           // HTML requires the encoding declaration near the start of <head>.
           // Keep the deploy-time hints after it; fall back to the old insertion
           // point for unusual documents that do not declare a charset.
