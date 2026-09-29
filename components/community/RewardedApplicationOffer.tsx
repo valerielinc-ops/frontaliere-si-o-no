@@ -407,10 +407,18 @@ export default function RewardedApplicationOffer({
     decisionRef.current = decision;
     if (decision.plan === 'offerwall') return;
     if (decision.plan === 'reload' && decision.status !== 'held') {
-      if (onReload && markOfferwallResume(jobId)) {
+      const reason = NOT_HELD_REASON[decision.status];
+      if (onReload && markOfferwallResume(jobId, {
+        reason,
+        gate_status: decision.status,
+        consent_state: decision.consent,
+      })) {
+        // Best effort: an event sent this close to the reload usually does
+        // not reach GA4. The resumed click reports the same context
+        // (`rewarded_application_offer_resumed`).
         trackAssistedApplicationEvent('rewarded_offerwall_reload', {
           ...offerwallContext(),
-          reason: NOT_HELD_REASON[decision.status],
+          reason,
         });
         onReload();
         return;

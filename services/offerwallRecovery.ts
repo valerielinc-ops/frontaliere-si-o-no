@@ -119,15 +119,31 @@ const RESUME_STORAGE_KEY = 'frontaliere_offerwall_resume_v1';
 export const OFFERWALL_RESUME_MAX_AGE_MS = 60_000;
 
 /**
- * Remember, for the reload that follows, which job's click to resume. Returns
- * false when session storage is unavailable: the caller must not reload then,
- * or the click would be lost.
+ * Why the click reloaded the page, carried by the resume marker. An analytics
+ * event sent in the instant before the reload does not reach GA4 (live,
+ * 29-09: `rewarded_offerwall_reload` never arrived), so the resumed click
+ * reports it once the page is back.
  */
-export function markOfferwallResume(jobId: string, win: Window = window): boolean {
+export interface OfferwallResumeContext {
+  reason?: string;
+  gate_status?: string;
+  consent_state?: string;
+}
+
+/**
+ * Remember, for the reload that follows, which job's click to resume and why.
+ * Returns false when session storage is unavailable: the caller must not
+ * reload then, or the click would be lost.
+ */
+export function markOfferwallResume(
+  jobId: string,
+  context: OfferwallResumeContext = {},
+  win: Window = window,
+): boolean {
   try {
     win.sessionStorage.setItem(
       RESUME_STORAGE_KEY,
-      JSON.stringify({ jobId, path: win.location.pathname, at: Date.now() }),
+      JSON.stringify({ jobId, path: win.location.pathname, at: Date.now(), ...context }),
     );
     return win.sessionStorage.getItem(RESUME_STORAGE_KEY) !== null;
   } catch {
@@ -136,26 +152,33 @@ export function markOfferwallResume(jobId: string, win: Window = window): boolea
 }
 
 /**
- * Read and clear the resume marker: true only for a fresh marker left by this
- * job on this page. Clearing it on every read makes the resume one-shot.
+ * Read and clear the resume marker: its context only for a fresh marker left
+ * by this job on this page, null otherwise. Clearing it on every read makes
+ * the resume one-shot.
  */
-export function takeOfferwallResume(jobId: string, win: Window = window): boolean {
+export function takeOfferwallResume(jobId: string, win: Window = window): OfferwallResumeContext | null {
   let raw: string | null = null;
   try {
     raw = win.sessionStorage.getItem(RESUME_STORAGE_KEY);
     win.sessionStorage.removeItem(RESUME_STORAGE_KEY);
   } catch {
-    return false;
+    return null;
   }
-  if (!raw) return false;
+  if (!raw) return null;
   try {
-    const marker = JSON.parse(raw) as { jobId?: unknown; path?: unknown; at?: unknown };
+    const marker = JSON.parse(raw) as { jobId?: unknown; path?: unknown; at?: unknown } & Record<string, unknown>;
     const age = typeof marker.at === 'number' ? Date.now() - marker.at : Number.NaN;
-    return marker.jobId === jobId
+    const fresh = marker.jobId === jobId
       && marker.path === win.location.pathname
       && age >= 0
       && age <= OFFERWALL_RESUME_MAX_AGE_MS;
+    if (!fresh) return null;
+    const context: OfferwallResumeContext = {};
+    for (const key of ['reason', 'gate_status', 'consent_state'] as const) {
+      if (typeof marker[key] === 'string') context[key] = marker[key] as string;
+    }
+    return context;
   } catch {
-    return false;
+    return null;
   }
 }

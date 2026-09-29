@@ -132,14 +132,23 @@ describe('offerwallGateWaitMs', () => {
 describe('resume marker', () => {
   it('resumes the same job on the same page once', () => {
     expect(markOfferwallResume('job-1')).toBe(true);
-    expect(takeOfferwallResume('job-1')).toBe(true);
-    expect(takeOfferwallResume('job-1')).toBe(false);
+    expect(takeOfferwallResume('job-1')).toEqual({});
+    expect(takeOfferwallResume('job-1')).toBeNull();
+  });
+
+  it('carries the reload reason and the click state to the resumed click', () => {
+    markOfferwallResume('job-1', { reason: 'no_consent_decision', gate_status: 'suppressed', consent_state: 'granted' });
+    expect(takeOfferwallResume('job-1')).toEqual({
+      reason: 'no_consent_decision',
+      gate_status: 'suppressed',
+      consent_state: 'granted',
+    });
   });
 
   it('ignores and clears a marker for another job', () => {
     markOfferwallResume('job-1');
-    expect(takeOfferwallResume('job-2')).toBe(false);
-    expect(takeOfferwallResume('job-1')).toBe(false);
+    expect(takeOfferwallResume('job-2')).toBeNull();
+    expect(takeOfferwallResume('job-1')).toBeNull();
   });
 
   it('ignores a marker left on another page', () => {
@@ -147,7 +156,7 @@ describe('resume marker', () => {
       'frontaliere_offerwall_resume_v1',
       JSON.stringify({ jobId: 'job-1', path: '/cerca-lavoro-ticino/altro/', at: Date.now() }),
     );
-    expect(takeOfferwallResume('job-1')).toBe(false);
+    expect(takeOfferwallResume('job-1')).toBeNull();
   });
 
   it('ignores a stale or malformed marker', () => {
@@ -155,9 +164,9 @@ describe('resume marker', () => {
       'frontaliere_offerwall_resume_v1',
       JSON.stringify({ jobId: 'job-1', path: window.location.pathname, at: Date.now() - OFFERWALL_RESUME_MAX_AGE_MS - 1 }),
     );
-    expect(takeOfferwallResume('job-1')).toBe(false);
+    expect(takeOfferwallResume('job-1')).toBeNull();
     window.sessionStorage.setItem('frontaliere_offerwall_resume_v1', '{not json');
-    expect(takeOfferwallResume('job-1')).toBe(false);
+    expect(takeOfferwallResume('job-1')).toBeNull();
   });
 
   it('reports a marker it could not store, so the caller does not reload', () => {
