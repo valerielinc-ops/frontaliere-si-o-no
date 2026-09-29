@@ -12257,6 +12257,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pasture-chiusura-garanzie.title': 'Schließung in Chiasso, Befürchtungen beim Personal von Pasture',
     'blog.article.pasture-chiusura-garanzie.excerpt': 'Das SEM garantiert die Wiedereröffnung der Einrichtung in Chiasso; die Gewerkschaftsfront verteidigt die Arbeitsplätze und weist auf bevorstehende Entlassungen hin, ohne Gewissheit.',
     'blog.article.pasture-chiusura-garanzie.imageAlt': 'Szene aus Chiasso im Zusammenhang mit den Sorgen des Pasture-Personals',
+    'blog.article.castelseprio-ticino-frontaliere.title': 'Leben in Castelseprio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.castelseprio-ticino-frontaliere.excerpt': 'Für diejenigen, die in Castelseprio leben, geltender Grenzgängervertrag ab dem 1. Januar 2024: Befreiung von 7\'500 € für alte und Selbstbehalt von 10\'000 € für neue.',
+    'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Grenzgänger auf dem Weg ins Tessin bei Tagesanbruch, mit sanften Hügeln',
 };
 
 export default blogMetaDe;

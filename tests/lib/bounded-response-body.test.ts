@@ -13,6 +13,9 @@
  *    two bounded GitHub readers not covered by
  *    `tests/crawler-generation-observer-read-client.test.ts` are exercised
  *    with a reader whose `releaseLock()` throws.
+ * 3. #7483: every chunk is copied, because a reader may hand back the same
+ *    buffer on every read (corpus nanakokyobashi-rgb/frontaliere-articles#1906
+ *    on the event-image twin).
  *
  * Synthetic streams only: no network.
  */
@@ -68,6 +71,38 @@ function responseWithThrowingRelease(chunks: Uint8Array[], headers = new Headers
 }
 
 const json = (value: unknown) => new TextEncoder().encode(JSON.stringify(value));
+
+/**
+ * Response-like object whose reader hands back the SAME Uint8Array on every
+ * read, rewritten with the next slice of `text` (padded with JSON whitespace to
+ * equal parts). A reader that keeps the chunk by reference ends up with the
+ * last slice repeated `parts` times.
+ */
+function responseReusingBuffer(text: string, parts = 2) {
+  const encoded = new TextEncoder().encode(text);
+  const partBytes = Math.ceil(encoded.byteLength / parts);
+  const padded = new Uint8Array(partBytes * parts).fill(0x20);
+  padded.set(encoded);
+  const reused = new Uint8Array(partBytes);
+  let next = 0;
+  const reader = {
+    read: async () => {
+      if (next === parts) return { done: true, value: undefined };
+      reused.set(padded.subarray(next * partBytes, (next + 1) * partBytes));
+      next += 1;
+      return { done: false, value: reused };
+    },
+    cancel: async () => {},
+    releaseLock() {},
+  };
+  return {
+    ok: true,
+    status: 200,
+    headers: new Headers(),
+    body: { getReader: () => reader, cancel: async () => {} },
+    reused,
+  };
+}
 
 describe('readBoundedResponseBytes', () => {
   it('interrupts a chunked response without Content-Length as soon as it crosses the cap', async () => {
@@ -252,5 +287,56 @@ describe('releaseLock() that throws in the other bounded GitHub readers', () => 
     await expect(request({ method: 'GET', path: '/repos/o/r/actions/runs/1' }))
       .rejects.toThrow('response_too_large');
     expect(state.cancelled).toBe(true);
+  });
+});
+
+// #7483, the sibling class of corpus nanakokyobashi-rgb/frontaliere-articles#1906:
+// a reader may reuse its buffer, so a reader that keeps each chunk by reference
+// (or as a view over `value.buffer`) returns the last chunk repeated.
+describe('bounded readers keep a copy of every chunk when the reader reuses its buffer', () => {
+  it('readBoundedResponseBytes returns the bytes in order', async () => {
+    const result = await readBoundedResponseBytes(responseReusingBuffer('abcd'), 1_000);
+    expect(new TextDecoder().decode(result!)).toBe('abcd');
+  });
+
+  it('readBoundedResponseBytes does not return the reader buffer for a single chunk', async () => {
+    const response = responseReusingBuffer('ab', 1);
+    const result = await readBoundedResponseBytes(response, 1_000);
+    response.reused.set([0x78, 0x78]);
+    expect(new TextDecoder().decode(result!)).toBe('ab');
+  });
+
+  it('githubWorkflowDispatch parses the whole body', async () => {
+    const response = responseReusingBuffer(JSON.stringify({ workflow_run_id: 12 }));
+    await expect(readBoundedJsonResponse(response, 1_000)).resolves.toEqual({ workflow_run_id: 12 });
+  });
+
+  it('crawler-generation-dispatch parses the whole body', async () => {
+    const response = responseReusingBuffer(JSON.stringify({ ok: 12 }));
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test',
+      token: 't',
+      fetchImpl: async () => response,
+    });
+    await expect(request({ method: 'GET', path: '/repos/o/r/actions/runs/1' }))
+      .resolves.toMatchObject({ status: 200, body: { ok: 12 } });
+  });
+
+  it('translate successor guard parses the workflow payload and reaches the claim lookup', async () => {
+    // Read correctly, the first payload is valid and the guard asks for the
+    // claim (404 here). Read as the last half twice, it fails as invalid JSON.
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(responseReusingBuffer(JSON.stringify({ type: 'file', sha: 'b'.repeat(40) })))
+      .mockResolvedValueOnce(new Response('{}', { status: 404 }));
+    await expect(verifyRecoverySuccessor({
+      apiUrl: 'https://api.github.com',
+      token: 'test-token',
+      runId: '33534757741',
+      runAttempt: '2',
+      headSha: 'a'.repeat(40),
+      eventName: 'workflow_dispatch',
+      fetchImpl,
+    })).rejects.toThrow('successor_guard_claim_missing');
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 });

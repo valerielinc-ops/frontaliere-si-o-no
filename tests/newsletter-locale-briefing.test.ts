@@ -5,7 +5,7 @@
 // the 2119 cohorts of a fresh Monday campaign (run 35582069095).
 import { describe, expect, it, vi } from 'vitest';
 
-import { composeCohortBriefings } from '@/scripts/send-newsletter.mjs';
+import { composeCohortBriefings, composeLocaleSubjects, SUBJECT_THEME_CHARS } from '@/scripts/send-newsletter.mjs';
 import { buildBriefingPrompt, buildLocaleBriefingPrompt } from '@/services/newsletter-content-core.mjs';
 
 const EXCHANGE = { rate: 1.0595, previousRate: 1.0557 };
@@ -124,5 +124,68 @@ describe('buildLocaleBriefingPrompt', () => {
     expect(system).toMatch(/Write in German/);
     expect(system).toMatch(/ABSOLUTE LANGUAGE RULE/);
     expect(system).toMatch(/NEVER use Markdown/);
+  });
+});
+
+// Phases 2 and 3 run together: a subject waits for its locale's AI briefing
+// only when the Theme (first 100 characters of the largest cohort's briefing)
+// depends on it, and the Theme is the same one the sequential phases produced.
+describe('composeLocaleSubjects next to Phase 2', () => {
+  const job = (n: number, title: string) => ({ title, company: `Azienda${n}`, location: 'Lugano', url: `/lavoro/ruolo-${n}` });
+  function cohortMap(entries: Array<[string, { locale: string; matchedJobs: any[] }]>) {
+    return new Map(entries.map(([key, c]) => [key, { ...c, members: [{}], subscriber: { locale: c.locale } }]));
+  }
+  const aiText = (loc: string) => `<p>${loc} apertura del briefing sul cambio ${'parola '.repeat(60).trim()}.</p>`;
+
+  async function themes(cohorts: Map<string, any>, briefingFor: (loc: string) => Promise<string | null>) {
+    const seen = new Map<string, string>();
+    await composeLocaleSubjects(cohorts, {
+      locales: [...new Set([...cohorts.values()].map((c) => c.locale))],
+      variantIds: ['concreto'],
+      briefingFor,
+      exchangeRate: EXCHANGE,
+      generate: async (ctx: { subscriber: { locale: string }; briefingSummary: string }) => {
+        seen.set(ctx.subscriber.locale, ctx.briefingSummary);
+        return 'Oggetto';
+      },
+    });
+    return seen;
+  }
+  async function sequentialTheme(cohorts: Map<string, any>, loc: string) {
+    const phase2 = await composeCohortBriefings(cohorts, { locales: [loc], generate: async (l: string) => aiText(l), exchangeRate: EXCHANGE });
+    const seen = new Map<string, string>();
+    await composeLocaleSubjects(cohorts, {
+      locales: [loc], variantIds: ['concreto'], briefingMap: phase2.briefingMap, exchangeRate: EXCHANGE,
+      generate: async (ctx: { briefingSummary: string }) => { seen.set(loc, ctx.briefingSummary); return 'Oggetto'; },
+    });
+    return seen.get(loc);
+  }
+
+  it('does not wait for the briefing when the jobs paragraph covers the Theme, and keeps the same Theme', async () => {
+    const cohorts = cohortMap([['it:0', { locale: 'it', matchedJobs: [
+      job(0, 'Specialista in contabilità e controllo di gestione'),
+      job(1, 'Responsabile della logistica di magazzino'),
+      job(2, 'Tecnico di laboratorio chimico'),
+    ] }]]);
+    const never = vi.fn(() => new Promise<string | null>(() => {}));
+    const seen = await themes(cohorts, never);
+    expect(never).not.toHaveBeenCalled();
+    expect(seen.get('it')).toHaveLength(SUBJECT_THEME_CHARS);
+    expect(seen.get('it')).toBe(await sequentialTheme(cohorts, 'it'));
+  });
+
+  it("waits for the locale's AI text when the cohort has no jobs", async () => {
+    const cohorts = cohortMap([['de:0', { locale: 'de', matchedJobs: [] }]]);
+    const seen = await themes(cohorts, async (loc) => aiText(loc));
+    expect(seen.get('de')!.startsWith('de apertura del briefing')).toBe(true);
+    expect(seen.get('de')).toBe(await sequentialTheme(cohorts, 'de'));
+  });
+
+  it('waits for the briefing when a short jobs paragraph leaves room for its text, with the same Theme', async () => {
+    const cohorts = cohortMap([['fr:0', { locale: 'fr', matchedJobs: [job(0, 'Cuoco')] }]]);
+    const briefingFor = vi.fn(async (loc: string) => aiText(loc));
+    const seen = await themes(cohorts, briefingFor);
+    expect(briefingFor).toHaveBeenCalledWith('fr');
+    expect(seen.get('fr')).toBe(await sequentialTheme(cohorts, 'fr'));
   });
 });
