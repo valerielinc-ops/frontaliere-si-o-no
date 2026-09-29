@@ -39,14 +39,15 @@ describe('transient reservation refusals do not ban a provider for the run', () 
     };
     const disabled = new Set<string>();
     let reservations = 0;
-    // Refuse the first reservation the way a Firestore contention abort does,
-    // then behave normally — exactly the 3-in-282 rate seen in the real run.
+    // Refuse the approach reservation the way a Firestore contention abort
+    // does, then behave normally — exactly the 3-in-282 rate seen in the real
+    // run. The crossing is selected first, so the approach is reservation #2.
     const providerRuntime = {
       disabled,
       ensureProvider: async (id: string) => !disabled.has(id),
       reserveRequest: async () => {
         reservations += 1;
-        return reservations === 1
+        return reservations === 2
           ? { allowed: false, reason: 'quota-check-failed' }
           : { allowed: true };
       },
@@ -57,8 +58,8 @@ describe('transient reservation refusals do not ban a provider for the run', () 
       json: async () => ({ routes: [{ duration: 300, legs: [{ annotation: { duration: [300] } }] }] }),
     }) as unknown as Response));
 
-    // Both segments of the crossing are attempted concurrently, so the first
-    // one eats the refusal. The crossing still resolves from the other one…
+    // The crossing is selected first and the approach eats the refusal. The
+    // crossing still resolves successfully…
     const first = await fetchCrossingTraffic(CHIASSO, { ...options, providerRuntime });
     expect(first.source).toBe('mapbox');
     // …and, decisively, mapbox is still in the chain for the next crossing.
