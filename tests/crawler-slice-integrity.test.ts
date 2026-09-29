@@ -11,6 +11,7 @@ import {
   clearCrossCrawlerDedupProofFile,
   isProvenCrossCrawlerDedupRemoval,
   isProvenCrossCrawlerDedupPrune,
+  isProvenExpiredGhostPrune,
   isProvenHousekeepingPrune,
   isProvenRetiredScratchArchiveDelete,
   isSafeBuehlerForeignPruneJobs,
@@ -738,6 +739,62 @@ describe('crawler slice integrity guard', () => {
       next,
       { ...proof, candidateDigest: sha256('[{}]\n') },
     )).toBe(false);
+  });
+
+  it('allows a large expired-slice shrink only for proven active ghosts', () => {
+    const ghost = {
+      slug: 'legacy-stockist-route',
+      companyKey: 'rituals-cosmetics',
+      title: 'Stockist (h/f)',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Carouge',
+      slugByLocale: { it: 'legacy-stockist-route' },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'unrelated-expired-route',
+      companyKey: 'rituals-cosmetics',
+      title: 'Other position',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Zürich',
+      expiredAt: '2026-09-01T00:00:00.000Z',
+    };
+    const activeJobs = [{
+      slug: 'current-stockist-route',
+      title: ghost.title,
+      company: ghost.company,
+      location: ghost.location,
+      slugByLocale: { it: 'current-stockist-route' },
+      previousSlugs: [ghost.slug],
+    }];
+    const previous = json([ghost, retained]);
+    const next = json([retained]);
+    const proof = { kind: 'reconcile-ghost-expired', activeJobs };
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+
+    expect(isProvenExpiredGhostPrune(filePath, previous, next, proof)).toBe(true);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next)).toThrow(/catastrophic truncation avoided/);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { housekeepingProof: proof }).reason)
+      .toBe('proven-expired-ghost-prune');
+
+    const unrelatedActive = [{
+      ...activeJobs[0],
+      previousSlugs: [],
+      slugByLocale: { it: 'different-route' },
+    }];
+    expect(isProvenExpiredGhostPrune(filePath, previous, next, {
+      kind: 'reconcile-ghost-expired',
+      activeJobs: unrelatedActive,
+    })).toBe(false);
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-expired-ghost-'));
+    const absolutePath = join(root, filePath);
+    try {
+      writeJsonAtomic(absolutePath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(absolutePath, JSON.parse(next), { housekeepingProof: proof })).not.toThrow();
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {
