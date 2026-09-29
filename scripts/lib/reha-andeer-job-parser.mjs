@@ -21,6 +21,7 @@ import { createHash } from 'node:crypto';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -166,6 +167,29 @@ export function buildRehaAndeerDescription({ title, pdfText = '' }) {
 export const REHA_ANDEER_FABRICATED_DESCRIPTION_RE =
   /ist eine private Rehabilitationsklinik in Andeer|entnehmen Sie dem offiziellen PDF\.|(?:^|\n)Karriere-Seite: https?:|(?:^|\n)Bewerbung: per E-Mail gemäss den Hinweisen im Stelleninserat/;
 
+/**
+ * Fetch the source listing. The page is live, but its WordPress origin has
+ * intermittently returned a structural 404 to the crawler egress while a
+ * clean egress still served the page. Rescue only this known source-specific
+ * 404; any other HTTP error, or an unverified proxy response, remains a hard
+ * failure so the crawler cannot publish a guessed empty listing.
+ */
+export async function fetchRehaAndeerListingHtml({ timeoutMs } = {}) {
+  try {
+    return await fetchHtml(PUBLIC_CAREER_URL, { timeoutMs });
+  } catch (err) {
+    if (Number(err?.status) !== 404) throw err;
+    const rescuedHtml = await fetchHtmlViaJinaWithRetry(PUBLIC_CAREER_URL, { timeoutMs });
+    if (rescuedHtml != null) {
+      console.warn(
+        `⚠️ Reha Andeer seed returned HTTP 404; using verified clean-egress HTML rescue.`,
+      );
+      return rescuedHtml;
+    }
+    throw err;
+  }
+}
+
 /* ── Main fetch ────────────────────────────────────────────── */
 
 export async function fetchAllRehaAndeerJobs() {
@@ -175,7 +199,7 @@ export async function fetchAllRehaAndeerJobs() {
 
   let html;
   try {
-    html = await fetchHtml(PUBLIC_CAREER_URL, { timeoutMs });
+    html = await fetchRehaAndeerListingHtml({ timeoutMs });
   } catch (err) {
     throw new Error(`Failed to fetch Reha Andeer page: ${err?.message || err}`);
   }
