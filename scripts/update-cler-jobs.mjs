@@ -124,11 +124,14 @@ function normCity(raw = '') {
  * several (e.g. "Basel/Bern") — JobPosting needs a single jobLocation, and
  * downstream we still emit the canton-quorum hub.
  */
-function resolveBranchAddress(arbeitsort) {
+export function resolveBranchAddress(arbeitsort, sourceStreetAddress = '') {
   const raw = String(arbeitsort || '').trim();
   if (!raw) return null;
+  const sourcePostalCode = raw.match(/\b(\d{4})\b/)?.[1] || '';
+  const sourceStreet = String(sourceStreetAddress || '').trim();
+  const locationText = raw.replace(/\b\d{4}\b/g, ' ').replace(/\s+/g, ' ').trim();
   // Split on common separators, prefer the first usable token.
-  const candidates = raw.split(/[\/,;|]| und | et | e | and /i).map((s) => s.trim()).filter(Boolean);
+  const candidates = locationText.split(/[\/,;|]| und | et | e | and /i).map((s) => s.trim()).filter(Boolean);
   for (const candidate of candidates) {
     const key = normCity(candidate);
     if (!key) continue;
@@ -137,8 +140,11 @@ function resolveBranchAddress(arbeitsort) {
       return {
         city: candidate.trim(),
         canton: branch.canton,
-        postalCode: branch.postalCode,
-        street: branch.street,
+        postalCode: sourcePostalCode
+          || officialLocalityPostalCode(candidate, branch.canton)
+          || branch.postalCode
+          || getCantonPostalFallback(branch.canton),
+        street: sourceStreet || candidate.trim(),
       };
     }
     if (isTargetSwissLocation(candidate, { includeAllCantons: true, includeBorderProximity: false })) {
@@ -147,8 +153,10 @@ function resolveBranchAddress(arbeitsort) {
       return {
         city: candidate.trim(),
         canton,
-        postalCode: officialLocalityPostalCode(candidate, canton) || getCantonPostalFallback(canton),
-        street: `Filiale ${candidate.trim()}`,
+        postalCode: sourcePostalCode
+          || officialLocalityPostalCode(candidate, canton)
+          || getCantonPostalFallback(canton),
+        street: sourceStreet || candidate.trim(),
       };
     }
   }
@@ -447,7 +455,7 @@ async function fetchClerJobs() {
     // Resolve the real Arbeitsort. A missing or unrecognised workplace must
     // not be stamped with the Basel HQ: that would turn a national listing
     // into a false fixed-location posting.
-    const branch = resolveBranchAddress(detailMeta.arbeitsort);
+    const branch = resolveBranchAddress(detailMeta.arbeitsort, detailMeta.street);
     if (!branch) {
       skipped.unresolvedWorkplace++;
       console.warn(`    ⚠️ no resolvable Swiss Arbeitsort; skipping ${title}`);

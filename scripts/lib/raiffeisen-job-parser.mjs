@@ -150,7 +150,14 @@ export async function fetchAllRaiffeisenJobs() {
   return jobs
     .map((job) => {
       const canton = inferAnyCanton(job?.location || job?.addressLocality || '');
-      return canton ? { ...job, canton, addressRegion: canton } : null;
+      return canton
+        ? {
+          ...job,
+          canton,
+          addressRegion: canton,
+          streetAddress: job.streetAddress || job.addressLocality || job.location,
+        }
+        : null;
     })
     .filter(Boolean);
 }

@@ -62,15 +62,15 @@
  * addresses come from the JSON-LD `jobLocation.address` of EACH posting.
  * When the source omits an address field, `resolveAddress()` keeps the source
  * locality, derives a missing ZIP from the official locality directory (with
- * a verified canton representative as the last resort), and uses a
- * source-city label when the street itself is unavailable.
+ * a verified canton representative as the last resort), and uses the source
+ * locality for the required street field when the street itself is absent.
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData, cleanDescription } from './migros-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { getCantonPostalFallback, getDefaultCantonLocationFallback } from './canton-postal-fallback.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 
@@ -105,9 +105,10 @@ function normalize(value = '') {
 }
 
 /**
- * Resolve address fields from the source. A missing postal code may be
- * derived from the official locality directory using the source locality;
- * locality and street fields are never synthesized.
+ * Resolve address fields from the source. A missing postal code is derived
+ * from the official locality directory and, only when that lookup is empty,
+ * from the existing canton representative. A missing street uses the source
+ * locality as required by the JobPosting contract.
  *
  * @param {{ city?: string, postalCode?: string, streetAddress?: string }} [raw]
  * @param {string} [canton]
@@ -121,15 +122,14 @@ export function resolveAddress(raw = {}, canton = '') {
   const resolvedCanton = (/^[a-z]{2}$/i.test(cantonHint)
     ? cantonHint.toUpperCase()
     : inferAnyCanton(cantonHint)) || inferAnyCanton(sourceCity);
-  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton)
-    || getDefaultCantonLocationFallback().postalCode;
+  const fallbackPostalCode = getCantonPostalFallback(resolvedCanton);
   return {
     city: sourceCity,
     canton: resolvedCanton,
     postalCode: sourcePostalCode || (sourceCity
       ? officialLocalityPostalCode(sourceCity, resolvedCanton) || fallbackPostalCode
       : ''),
-    streetAddress: sourceStreetAddress || (sourceCity ? `${sourceCity} city centre` : ''),
+    streetAddress: sourceStreetAddress || sourceCity,
   };
 }
 
@@ -244,7 +244,7 @@ export function parseMigrolinoDetail(html = '', url = '') {
   } = resolveAddress({
     city: rawCity,
     postalCode: address.postalCode || '',
-    streetAddress: address.streetAddress || '',
+    streetAddress: address.streetAddress || address.street || address.addressLine1 || '',
   }, canton);
 
   const jsonLdDescription = normalizeSpace(cleanDescription(jsonLd?.description || ''));
