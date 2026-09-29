@@ -421,6 +421,39 @@ export function isZeroClaimLine(line) {
 }
 
 /**
+ * Le righe che possono ATTESTARE un esito vuoto: fuori dai blocchi di codice
+ * recintati e dalle citazioni `>`. Una frase riportata come esempio non e'
+ * l'esito di questo triage (corpus FU-2026-09-24-009, portato con #7483).
+ * Restringe solo le attestazioni di zero: i bucket si contano su ogni riga di
+ * claim, perche' un claim in piu' chiede una prova in piu' e non puo' mai far
+ * saltare una PR.
+ */
+function attestationLines(lines) {
+  const out = [];
+  let fence = null;
+  for (const line of lines) {
+    if (fence !== null) {
+      // CommonMark: chiude solo un delimitatore dello STESSO carattere, lungo almeno
+      // quanto l'apertura e senza altro testo dopo. Un ``` dentro un recinto di ````
+      // e' contenuto, non la fine dell'esempio.
+      const closer = /^\s{0,3}(`{3,}|~{3,})\s*$/.exec(line);
+      if (closer && closer[1][0] === fence.char && closer[1].length >= fence.length) fence = null;
+      continue;
+    }
+    const opener = /^\s{0,3}(`{3,}|~{3,})/.exec(line);
+    if (opener) {
+      fence = { char: opener[1][0], length: opener[1].length };
+      continue;
+    }
+    if (/^\s{0,3}>/.test(line)) continue;
+    out.push(line);
+  }
+  return out;
+}
+
+const TRIAGE_CLAIM_LINE_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i;
+
+/**
  * Extract the persistence claim from a marker.  A zero-result/backfill marker
  * intentionally needs no bucket; every other successful marker must name one or
  * more daily issues.  This is only an expectation parser — the issue bodies are
@@ -428,12 +461,17 @@ export function isZeroClaimLine(line) {
  */
 export function triageMarkerPersistenceExpectation(markerBody) {
   const body = String(markerBody || '');
+  const lines = body.split(/\r?\n/);
   // Only the explicit creation/update line is a persistence claim. Later
   // prose may mention a sealed historical bucket for audit context; treating
   // that reference as another claim makes a valid marker fail verification.
-  const claim = body.split(/\r?\n/)
-    .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line))
+  const claim = lines
+    .filter((line) => TRIAGE_CLAIM_LINE_RE.test(line))
     .join('\n');
+  // Uno zero si attesta solo fuori da codice recintato e citazioni: un
+  // `Created/updated: 0 item` dentro un esempio recintato non e' l'esito.
+  const attesting = attestationLines(lines);
+  const attestingClaimCount = attesting.filter((line) => TRIAGE_CLAIM_LINE_RE.test(line)).length;
   // `bucket: #N` vale quanto `bucket #N`.
   const buckets = [...claim.matchAll(/\bbucket\s*:?\s*#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
@@ -452,14 +490,26 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // «nessun bucket giornaliero; 0 item.» (PR #9039/#9045/#9053) e il template
   // canonico con N=0, «daily bucket #9609 ... con 0 item da questa PR.»
   // (run 35947247334, PR #9518). La prosa senza cifre resta fail-closed.
-  const zeroClaim = claimLines.length > 0 && claimLines.every((line) => isZeroClaimLine(line));
+  const zeroClaim = attestingClaimCount > 0 && claimLines.every((line) => isZeroClaimLine(line));
   // Le formule d'intestazione valgono SOLO in assenza di una riga di claim.
   // Cercarle nell'intero corpo anche quando un claim NON-zero esiste lasciava a
   // una prosa successiva la possibilita' di scavalcare la verifica del bucket
   // per una persistenza reale: il gate diceva «vuoto» su un marker che prometteva
   // item. E' il secondo finding 🔴 della review su questa PR.
+  // E valgono solo come riga di ESITO, non come prosa: l'intestazione H2 che
+  // il prompt impone (post-merge-followup.yml, esito vuoto e backfill), o una
+  // riga che contiene soltanto «Zero outstanding items.» (forma storica, marker
+  // reale di #3027). Le stesse parole dentro una frase, in un esempio recintato
+  // o in una citazione facevano del marker un «provato vuoto» e la PR usciva
+  // dal batch per sempre. Qualunque riga H2 conta, perche' il modello a volte
+  // ripete il prefisso nudo prima dello zero (marker reale di
+  // nanakokyobashi-rgb/frontaliere-articles#1570). L'intestazione vale fino a fine
+  // riga: «zero outstanding items but 1 item remains» non e' l'esito vuoto, e il
+  // backfill ammette solo la ragione prescritta dal prompt (`: PR not eligible …`).
   const legacyEmptyHeader = claimLines.length === 0
-    && /zero outstanding items|backfill skipped/i.test(body);
+    && attesting.some((line) =>
+      /^\s*##\s+Post-merge follow-up triage\s*(?::\s*zero outstanding items\.?|\(backfill skipped\)(?:\s*:\s*PR not eligible\b.*)?)\s*$/i.test(line)
+      || /^\s*zero outstanding items\.?\s*$/i.test(line));
   // La variante osservata su #9286 usa prosa invece di `0`: dichiara nello
   // stesso claim che non esiste alcun item per la PR e che il bucket numerato
   // non è stato modificato. Il numero è contesto di audit, non una promessa
@@ -469,7 +519,7 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // match keeps a second claim, a positive count, or an "updated" bucket from
   // being hidden behind one harmless-looking line.
   const unchangedBucketZeroLine = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*nessun\s+item\s+per\s+questa\s+PR\s*;\s*bucket(?:\s+giornaliero)?\s+#[1-9]\d*\s+non\s+modificat[oa]\s+da\s+questa\s+PR\s*\.?\s*$/i;
-  const unchangedBucketZero = claimLines.length > 0
+  const unchangedBucketZero = attestingClaimCount > 0
     && claimLines.every((line) => unchangedBucketZeroLine.test(line));
   const noBucketExpected = zeroClaim || unchangedBucketZero || legacyEmptyHeader;
   return {
