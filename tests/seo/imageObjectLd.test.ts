@@ -6,7 +6,12 @@
  * *always* present in the output, even when the caller passes a sparse input.
  */
 import { describe, expect, it } from 'vitest';
-import { imageObjectLd, imageObjectLdDocument, SITE_LICENSE_PAGE } from '@/services/seo/imageObjectLd';
+import {
+  imageObjectLd,
+  imageObjectLdDocument,
+  resolveHttpUrl,
+  SITE_LICENSE_PAGE,
+} from '@/services/seo/imageObjectLd';
 
 const REQUIRED = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'] as const;
 
@@ -89,6 +94,32 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
         acquireLicensePage: 'Come ottenere la licenza',
       }),
     ).toThrow(/acquireLicensePage must be an absolute http\(s\) URL/);
+  });
+
+  it('normalizes whitespace around an explicit URL', () => {
+    const ld = imageObjectLd({
+      contentUrl: 'https://example.com/x.png',
+      license: '  https://example.com/license  ',
+    });
+    expect(ld.license).toBe('https://example.com/license');
+  });
+
+  it('rejects non-string URL overrides before reading URL properties', () => {
+    expect(() => imageObjectLd({
+      contentUrl: 'https://example.com/x.png',
+      license: 42 as never,
+    })).toThrow(/license must be an absolute http\(s\) URL/);
+    expect(() => imageObjectLd({
+      contentUrl: 'https://example.com/x.png',
+      acquireLicensePage: { href: 'https://example.com' } as never,
+    })).toThrow(/acquireLicensePage must be an absolute http\(s\) URL/);
+  });
+
+  it('validates the fallback through the same URL resolver', () => {
+    expect(() => resolveHttpUrl(undefined, 'ftp://example.com/license', 'license'))
+      .toThrow(/license must be an absolute http\(s\) URL/);
+    expect(() => resolveHttpUrl(undefined, 42, 'license'))
+      .toThrow(/license must be an absolute http\(s\) URL/);
   });
 
   it('preserves optional fields when present', () => {
