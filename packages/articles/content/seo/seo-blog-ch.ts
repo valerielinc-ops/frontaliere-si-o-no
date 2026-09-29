@@ -91943,6 +91943,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-ticino-rincaro-lettori': {
+    title: 'Premi cassa malati, lo sfogo dei lettori: «Ogni anno le stesse parole»',
+    description: 'Analisi del rincaro premi cassa malati 2027 in Ticino, con il premio medio oltre 500 franchi e un aumento cumulato del 40% in quattro anni. Le reazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, sfogo',
+    ogTitle: 'Premi cassa malati Ticino: rincaro e reazioni dei lettori',
+    ogDescription: 'I premi della cassa malati 2027 in Ticino aumentano, pur essendo tra i più contenuti. Il premio medio supera i 500 franchi e il rincaro cumulato in 4 anni è stimato oltre il 40%. Scopri le proposte dei lettori e l\'impatto del tetto del 10%.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-ticino-rincaro-lettori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati, lo sfogo dei lettori: «Ogni anno le stesse parole»",
+      "description": "Analisi del rincaro premi cassa malati 2027 in Ticino, con il premio medio oltre 500 franchi e un aumento cumulato del 40% in quattro anni. Le reazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-ticino-rincaro-lettori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona in Ticino esamina bollette della cassa malati con vista su Lugano."
+      },
+      "datePublished": "2026-09-29T19:30:36+00:00",
+      "dateModified": "2026-09-29T19:30:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-ticino-rincaro-lettori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

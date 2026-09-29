@@ -7091,6 +7091,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.centro-premi-salute-2027.title': 'Premi cassa malati 2027, il Centro chiede più misure',
     'blog.article.centro-premi-salute-2027.excerpt': 'In Ticino i premi di cassa malati saliranno del 3,7% nel 2027, contro il 5% nazionale. Il Centro chiede di rafforzare gli interventi cantonali e federali.',
     'blog.article.centro-premi-salute-2027.imageAlt': 'Ticino, documenti sui premi di cassa malati previsti per il 2027',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Premi cassa malati, lo sfogo dei lettori: «Ogni anno le stesse parole»',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'In Ticino, il rincaro dei premi per il 2027 è tra i più contenuti, ma il premio medio supera i 500 franchi. Il rincaro cumulato in quattro anni supererebbe il 40%.',
+    'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Persona in Ticino esamina bollette della cassa malati con vista su Lugano.',
 };
 
 export default blogMetaChIt;
