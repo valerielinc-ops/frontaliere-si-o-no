@@ -1720,7 +1720,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
     const checkoutDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
     const checkoutJob: any = Object.values(checkoutDoc.jobs)[0];
-    checkoutJob.steps.find((step: any) => step.uses === 'actions/checkout@v5').if = 'always()';
+    checkoutJob.steps.find((step: any) => step.uses === 'actions/checkout@v7').if = 'always()';
     expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(checkoutDoc), path.basename(logicPath)))
       .toThrow(/full job mismatch/);
   });
@@ -2279,7 +2279,7 @@ describe('cross-repo crawler execution artifacts', () => {
           type: 'string',
         });
       }
-      const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
+      const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v7');
       expect(checkouts).toHaveLength(contract.checkout.attempts);
       expect(checkouts[0]).toMatchObject({
         id: 'site_checkout_primary',

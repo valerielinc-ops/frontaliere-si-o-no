@@ -597,7 +597,7 @@ describe('deploy.yml — every checkout has an explicit CA bundle (#9681)', () =
   const checkoutSteps = Object.entries(workflow.jobs).flatMap(([jobName, job]: [string, any]) => {
     const steps: Array<Record<string, any>> = Array.isArray(job.steps) ? job.steps : [];
     return steps.flatMap((step, index) =>
-      step.uses === 'actions/checkout@v5' ? [{ jobName, steps, index }] : [],
+      step.uses === 'actions/checkout@v7' ? [{ jobName, steps, index }] : [],
     );
   });
 

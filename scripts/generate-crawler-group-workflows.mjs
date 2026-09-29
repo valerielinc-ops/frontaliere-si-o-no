@@ -1783,7 +1783,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
 
   steps.push({
     name: 'Checkout',
-    uses: 'actions/checkout@v5',
+    uses: 'actions/checkout@v7',
     with: { 'fetch-depth': 50 },
   });
 
@@ -1797,7 +1797,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
 
   steps.push({
     name: 'Setup Node.js',
-    uses: 'actions/setup-node@v5',
+    uses: 'actions/setup-node@v7',
     with: { 'node-version': '22', cache: 'npm' },
   });
 

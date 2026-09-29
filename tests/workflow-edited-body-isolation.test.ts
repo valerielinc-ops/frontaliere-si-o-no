@@ -306,7 +306,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(recovery.jobs.recover.if).toContain("github.event_name == 'workflow_run'");
     expect(recovery.jobs.recover.if).toContain('github.event.changes.body != null');
     expect(recovery.jobs.recover.steps).toHaveLength(4);
-    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v5') as { with?: Record<string, string | boolean> } | undefined;
+    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v7') as { with?: Record<string, string | boolean> } | undefined;
     expect(trustedCheckout?.with?.ref).toBe('main');
     expect(trustedCheckout?.with?.path).toBe('.trusted-main');
     expect(trustedCheckout?.with?.['persist-credentials']).toBe(false);

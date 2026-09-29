@@ -72,7 +72,7 @@ jobs:
 
     steps:
       - name: Checkout (workflow files + failure-report script)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # Non-cone sparse patterns (gitignore-style). `.github/workflows`
           # feeds the `find` discovery; `scripts` materializes

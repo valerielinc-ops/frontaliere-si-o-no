@@ -43,7 +43,7 @@ jobs:
       # verify-company-logos.mjs (che non importa quell'utility come modulo). Verificato con
       # `node scripts/ci/apply-checkout-profiles.mjs --dry-run --only audit-missing-company-logos.yml`
       # → "workflow modificati: 0, peso escluso in media per job: 0 MB su 6829 MB".
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
@@ -51,7 +51,7 @@ jobs:
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 12
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm

@@ -132,13 +132,13 @@ jobs:
       # Bootstrap checkout #1: anonymous, read-only — see header note.
       - name: Checkout frontaliere-si-o-no (public, read-only)
         id: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           fetch-depth: 50
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -149,7 +149,7 @@ jobs:
       - name: Restore per-company translation cache
         id: translation_cache_restore
         continue-on-error: true
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
@@ -176,7 +176,7 @@ jobs:
       # every run (#9677). The v2 key misses once, restores the Opus-MT weights
       # through the old prefix and saves the directory with e5 in it.
       - name: Cache local MT models (Opus-MT + e5 semantic judge)
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/transformers
           key: local-mt-models-v2-opus-e5
@@ -185,7 +185,7 @@ jobs:
             opus-mt-models-
 
       - name: Cache Argos Translate models
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.local/share/argos-translate/packages
           key: argos-translate-models-v1
@@ -227,8 +227,8 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: |
-          python3 -m pip install --quiet --upgrade pip
-          python3 -m pip install --quiet argostranslate
+          python3 -m pip install --quiet --upgrade pip==26.2.1
+          python3 -m pip install --quiet argostranslate==1.11.0
           python3 scripts/local-mt-translate.py --install
 
       # Seed the clock in a non-optional step. Phase 2a/2b/2c may continue on
@@ -764,7 +764,7 @@ jobs:
       - name: Save per-company translation cache
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
@@ -795,7 +795,7 @@ jobs:
 
       - name: Report failure to GitHub Issues
         if: failure()
-        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/report-failure@main
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/report-failure@57b6d36d7baac843ca800783e6f17cf3e61030c0
         with:
           title: 'Workflow Failure: Translate Pending Jobs'
           closed-by: close-recovered-failure-issues

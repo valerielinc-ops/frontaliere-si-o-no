@@ -31,7 +31,7 @@
  *     header on why — its date/count substitutions are only idempotent
  *     against the pristine seed). Before the main loop, runLlmsGenerator()
  *     below renders the current llms.txt family into a scratch dir via
- *     `npx -y tsx@4 scripts/generate-llms-txt.mjs` (needs tsx: the generator
+ *     `npx -y tsx@4.23.15 scripts/generate-llms-txt.mjs` (needs tsx: the generator
  *     transitively imports build-plugins/sitemapAliasPlugin.ts), and
  *     'generated' entries resolve their local file from THAT scratch dir
  *     instead of public/ — same relative path (pathname minus the leading
@@ -146,7 +146,7 @@ function uploadFile(localFile, cdnKey, cacheControl) {
 function runLlmsGenerator() {
   const result = spawnSync(
     'npx',
-    ['-y', 'tsx@4', path.join(REPO_ROOT, 'scripts/generate-llms-txt.mjs'), '--root', REPO_ROOT, '--out', GENERATED_SCRATCH_DIR],
+    ['-y', 'tsx@4.23.15', path.join(REPO_ROOT, 'scripts/generate-llms-txt.mjs'), '--root', REPO_ROOT, '--out', GENERATED_SCRATCH_DIR],
     { encoding: 'utf8' },
   );
   process.stdout.write(result.stdout ?? '');

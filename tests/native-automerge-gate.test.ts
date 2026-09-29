@@ -1107,7 +1107,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).not.toContain('Static control-plane bootstrap guard');
     expect(workflow).not.toContain('control-plane path');
     expect(workflow).not.toContain('CONTROL_PLANE_GUARD_VERSION');
-    expect(workflow).toContain('uses: actions/checkout@v5');
+    expect(workflow).toContain('uses: actions/checkout@v7');
     expect(workflow).toContain('ref: main');
     expect(workflow).toContain('filter: blob:none');
     expect(workflow).toContain('sparse-checkout-cone-mode: false');
@@ -1127,7 +1127,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).not.toContain('control-plane path');
     expect(retry).not.toContain('CONTROL_PLANE_GUARD_VERSION');
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
-    expect(retry).toContain('uses: actions/checkout@v5');
+    expect(retry).toContain('uses: actions/checkout@v7');
     expect(retry).toContain('ref: main');
     expect(retry).toContain('filter: blob:none');
     expect(retry).toContain('sparse-checkout-cone-mode: false');

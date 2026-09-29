@@ -172,7 +172,7 @@ jobs:
           fi
           echo "Studio attivo fino al ${EXPERIMENT_EXPIRES_ON} (oggi ${today})."
       - name: Checkout matrix parser
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: scripts/ci/matrix-experiment-variants.mjs
           sparse-checkout-cone-mode: false
@@ -208,14 +208,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -249,7 +249,7 @@ jobs:
           args: --stats
       - name: Cache assemble-jobs output
         if: steps.assemble_cache_key.outputs.key != ''
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -345,7 +345,7 @@ jobs:
           echo "::endgroup::"
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       # Lockstep con deploy.yml's build-locale job: stesso script, stessi
       # numeri, un posto solo (scripts/ci/grow-build-swap.sh). Senza,
@@ -354,13 +354,13 @@ jobs:
         run: bash scripts/ci/grow-build-swap.sh
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -396,7 +396,7 @@ jobs:
       # every shard builds the IDENTICAL dataset. OG images are still rendered
       # per-shard during build:ci (og-jobs cache shared across runs).
       - name: Download prepared snapshot
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: prepared-snapshot
           path: /tmp/snapshot
@@ -412,7 +412,7 @@ jobs:
           fi
 
       - name: Cache per-job OG images
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
@@ -450,7 +450,7 @@ jobs:
       - name: Restore chained incremental manifest
         if: inputs.chain != ''
         id: bench-incremental-manifest-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-manifest
           key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
@@ -460,7 +460,7 @@ jobs:
       - name: Restore previous incremental manifest
         if: inputs.chain == '' || steps.bench-incremental-manifest-cache.outputs.cache-matched-key == ''
         id: incremental-manifest-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
@@ -470,7 +470,7 @@ jobs:
       - name: Restore chained jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1' && inputs.chain != ''
         id: bench-jobs-seo-html-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
           # Keep the production exact-hash contract: the restored manifest is
@@ -481,7 +481,7 @@ jobs:
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1' && (inputs.chain == '' || steps.bench-jobs-seo-html-cache.outputs.cache-matched-key == '')
         id: jobs-seo-html-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
@@ -845,7 +845,7 @@ jobs:
       - name: Save chained jobs SEO HTML cache
         if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         id: bench-jobs-seo-html-save
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
           key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
@@ -853,7 +853,7 @@ jobs:
       - name: Save chained incremental manifest
         if: success() && inputs.chain != '' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         id: bench-incremental-manifest-save
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/incremental-manifest
           key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
@@ -923,7 +923,7 @@ jobs:
       BUILD_BENCH: '1'
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Apply variant environment
         env:
           VARIANT_ENV_JSON: ${{ needs.matrix-setup.outputs.single_env_json }}
@@ -936,12 +936,12 @@ jobs:
       - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
         run: bash scripts/ci/grow-build-swap.sh
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -964,7 +964,7 @@ jobs:
             echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
           fi
       - name: Download prepared snapshot
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: prepared-snapshot
           path: /tmp/snapshot
@@ -979,7 +979,7 @@ jobs:
             exit 1
           fi
       - name: Cache per-job OG images
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
@@ -1004,7 +1004,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (compare script)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -1031,11 +1031,11 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Download all manifests
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           path: /tmp/manifests
           pattern: manifest-*

@@ -37,7 +37,7 @@ describe('portable crawler generation observer workflow', () => {
     expect(doc.permissions).toEqual({ actions: 'read', contents: 'read' });
     const job: any = doc.jobs.sentinel;
     expect(job['timeout-minutes']).toBeLessThanOrEqual(15);
-    const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v7');
     expect(checkout.with.repository).toBe('valerielinc-ops/frontaliere-si-o-no');
     expect(checkout.with.ref).toBe('${{ inputs.site_code_commit }}');
     expect(checkout.with['persist-credentials']).toBe(false);
@@ -48,7 +48,7 @@ describe('portable crawler generation observer workflow', () => {
     });
     expect(prepare.run).toContain('--expected-generation-token "$EXPECTED_GENERATION_TOKEN"');
     expect(prepare.run).toContain('--expected-site-code-commit "$EXPECTED_SITE_CODE_COMMIT"');
-    expect(doc.jobs.probe.steps.some((step: any) => step.uses === 'actions/checkout@v5')).toBe(false);
+    expect(doc.jobs.probe.steps.some((step: any) => step.uses === 'actions/checkout@v7')).toBe(false);
     expect(doc.jobs.observe_event.concurrency).toEqual({
       group: 'crawler-generation-observer-${{ needs.probe.outputs.generation_token }}',
       'cancel-in-progress': true,
@@ -86,7 +86,7 @@ describe('portable crawler generation observer workflow', () => {
   it('sparse-checkout contains the complete observer import closure plus the generated roster', () => {
     const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
     for (const job of [doc.jobs.sentinel, doc.jobs.observe_event, doc.jobs.reconcile_scheduled]) {
-      const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+      const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v7');
       const sparsePaths = checkout.with['sparse-checkout']
         .split('\n')
         .map((value: string) => value.trim().replace(/^\//, ''))

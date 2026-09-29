@@ -82,7 +82,7 @@ jobs:
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
       - name: Validate crawler generation token before crawling
@@ -90,13 +90,13 @@ jobs:
       - name: Restore crawler AI cache
         id: restore_crawler_ai_cache
         continue-on-error: true
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/jobs-ai-cache.json
           key: jobs-ai-cache-v1-crawler-group-08-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: jobs-ai-cache-v1-crawler-group-08-${{ github.repository }}-${{ runner.os }}-
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
@@ -105,7 +105,7 @@ jobs:
       - name: Restore per-company translation cache
         id: translation_cache_restore
         continue-on-error: true
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-crawler-group-08-${{ github.run_id }}-${{ github.run_attempt }}
@@ -7689,14 +7689,14 @@ jobs:
       - name: Save crawler AI cache
         if: always() && hashFiles('.cache/jobs-ai-cache.json') != ''
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/jobs-ai-cache.json
           key: jobs-ai-cache-v1-crawler-group-08-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Save per-company translation cache
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-crawler-group-08-${{ github.run_id }}-${{ github.run_attempt }}

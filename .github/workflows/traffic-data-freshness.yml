@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -152,7 +152,7 @@ jobs:
       # hourly runs stay a cheap ~30s checkout+check.
       - name: Setup Node.js
         if: steps.check.outputs.STALE == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm

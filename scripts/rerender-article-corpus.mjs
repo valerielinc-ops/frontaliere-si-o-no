@@ -58,7 +58,7 @@
 // filed alongside it for the explicit revert-trigger statement.
 //
 // ── Usage ────────────────────────────────────────────────────────────────
-//   npx -y tsx@4 scripts/rerender-article-corpus.mjs \
+//   npx -y tsx@4.23.15 scripts/rerender-article-corpus.mjs \
 //     --section <frontaliere|svizzera|all> [default: all — CI wires ONE
 //         matrix job per section instead, so each job's wall-time/memory
 //         footprint stays bounded to one section; --section all is a manual/
@@ -89,10 +89,10 @@ const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Pinned to the SAME tsx major version fast-publish-article.yml pins for its
-// top-level invocation (`npx -y tsx@4 scripts/publish-article-fast.mjs`), so a
+// top-level invocation (`npx -y tsx@4.23.15 scripts/publish-article-fast.mjs`), so a
 // self-spawned batch worker (below) can never resolve a different tsx version
 // than whatever invoked this script's own top-level (orchestrator) run.
-const TSX_INVOCATION = ['-y', 'tsx@4'];
+const TSX_INVOCATION = ['-y', 'tsx@4.23.15'];
 
 const DEFAULT_BATCH_SIZE = 300; // see header comment — reasoned, not measured
 const DEFAULT_PUSH_BATCH_SIZE = 400; // relpaths per push-article-shard-incremental.sh call; well under ARG_MAX, chosen for predictability independent of render batch size

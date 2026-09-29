@@ -105,7 +105,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
   });
 
   it('keeps the full commit history treeless and gates both assemble steps', () => {
-    const checkoutStart = TESTS_YML.indexOf('- uses: actions/checkout@v5');
+    const checkoutStart = TESTS_YML.indexOf('- uses: actions/checkout@v7');
     const setupStart = TESTS_YML.indexOf('- name: Setup Node.js', checkoutStart);
     const checkout = TESTS_YML.slice(checkoutStart, setupStart);
     const cacheStart = TESTS_YML.indexOf('- name: Cache assemble-jobs output');
