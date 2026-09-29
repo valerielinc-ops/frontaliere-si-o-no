@@ -1,7 +1,7 @@
 {
   "key": "klinik-arlesheim",
   "label": "Klinik Arlesheim",
-  "generatedAt": "2026-09-29T09:27:21.906Z",
+  "generatedAt": "2026-09-29T21:26:13.902Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -12,10 +12,10 @@
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6490,
-  "avgDurationMs": 6490,
+  "durationMs": 6624,
+  "avgDurationMs": 6624,
   "durationHistory": [
-    6490
+    6624
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/ece50152-606a-4d7f-b7e8-afa88e34e616/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:11.958Z",
+      "crawledAt": "2026-09-29T21:26:06.948Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -48,11 +48,11 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/ece50152-606a-4d7f-b7e8-afa88e34e616/detail?lang=DE",
       "firstSeenAt": "2026-09-18T23:21:15.910Z",
-      "_qualityScore": 87,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -69,7 +69,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/5017a040-f259-4164-b48e-107ae89bec2b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:13.288Z",
+      "crawledAt": "2026-09-29T21:26:08.318Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,11 +85,11 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/5017a040-f259-4164-b48e-107ae89bec2b/detail?lang=DE",
       "firstSeenAt": "2026-09-18T23:21:17.123Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -106,7 +106,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/e8a23848-b9c8-451b-8c6a-4810cabadbd9/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:13.734Z",
+      "crawledAt": "2026-09-29T21:26:08.786Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -122,11 +122,11 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/e8a23848-b9c8-451b-8c6a-4810cabadbd9/detail?lang=DE",
       "firstSeenAt": "2026-08-31T17:22:33.065Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -143,7 +143,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:11.515Z",
+      "crawledAt": "2026-09-29T21:26:06.503Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -159,11 +159,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "firstSeenAt": "2026-08-27T20:04:32.645Z",
-      "_qualityScore": 87,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -180,7 +180,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:10.635Z",
+      "crawledAt": "2026-09-29T21:26:05.579Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -196,11 +196,11 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "firstSeenAt": "2026-08-11T21:56:08.216Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -217,7 +217,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/67b062dc-16f8-45a9-9956-955827d888fe/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:11.074Z",
+      "crawledAt": "2026-09-29T21:26:06.044Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -233,11 +233,11 @@
       "postedDate": "2026-07-13",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/67b062dc-16f8-45a9-9956-955827d888fe/detail?lang=DE",
       "firstSeenAt": "2026-07-13T22:27:44.012Z",
-      "_qualityScore": 87,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -254,7 +254,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:12.416Z",
+      "crawledAt": "2026-09-29T21:26:07.410Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -270,11 +270,11 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "firstSeenAt": "2026-05-19T10:23:14.700Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -291,7 +291,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:12.852Z",
+      "crawledAt": "2026-09-29T21:26:07.874Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -307,11 +307,11 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "firstSeenAt": "2026-05-19T10:23:15.077Z",
-      "_qualityScore": 82,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 17
       }
     }
