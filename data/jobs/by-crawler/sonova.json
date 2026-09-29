@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-09-29T09:10:15.052Z",
+  "assembledAt": "2026-09-29T21:14:55.317Z",
   "jobs": [
     {
       "id": "sonova-d6013fac87f6",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.061Z",
+      "crawledAt": "2026-09-29T21:14:46.879Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Sound-Quality-Engineer-%28mfd%29/1434799633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.058Z",
+      "crawledAt": "2026-09-29T21:14:46.876Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.055Z",
+      "crawledAt": "2026-09-29T21:14:46.873Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -233,83 +233,6 @@
       }
     },
     {
-      "id": "sonova-f52f1ea1d2a3",
-      "slug": "software-ingegnere-embedded-ai-m-f-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "software-ingegnere-embedded-ai-m-f-d-sonova-staefa",
-        "en": "software-engineer-embedded-ai-m-f-d-sonova-ch",
-        "de": "software-ingenieur-embedded-ai-m-f-d-sonova-staefa",
-        "fr": "software-ingenieur-embedded-ai-m-f-d-sonova-staefa"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Software Engineer Embedded AI (m/f/d)",
-      "titleByLocale": {
-        "it": "Software Ingegnere Embedded AI (m/f/d)",
-        "en": "Software Engineer Embedded AI (m/f/d)",
-        "de": "Software Ingenieur Embedded AI (m/f/d)",
-        "fr": "Software Ingénieur Embedded AI (m/f/d)"
-      },
-      "description": "At Sonova R&D, we are not just developing hearing devices, we are shaping the future of hearing technology. At the heart of this transformation is the deployment and execution of neural networks on our next-generation embedded platform. This requires innovative tools and firmware infrastructure, giving you the opportunity to directly influence the performance of our products.\n\nAs our new Software Engineer Embedded AI you will bridge the gap between cutting-edge AI and ultra-low-power embedded systems. You will develop the embedded AI software stack that forms the foundation of our next-generation hearing instruments.\n\nAre you excited to explore new technological territory and play a pivotal role in shaping Sonova’s edge AI capabilities? Join us and help rethink how embedded software is built to enhance people’s hearing experience and quality of life.\n\nMore about the role\n\n• Develop firmware for a deeply embedded AI platform operating under strict latency, memory, compute, and energy constraints\n\n• Design, implement, and maintain the embedded AI software stack including optimization for performance, latency, and energy efficiency\n\n• Collaborate with AI and DSP experts to analyze and deploy DNN algorithms in hearing-device applications\n\n• Tailor AI algorithms to the embedded platform and its constraints (e.g., quantization, memory, compute and power)\n\n• Implement prototypes, bring them to production-ready features and integrate them into our system in collaboration with other engineering teams.\n\n• Ensure high software quality through clean-code practices, code reviews, testing, documentation, maintenance, and root-cause analysis\n\n• Continuously improve development methodologies, tools, design patterns, and best practices for efficient ML/DNN development and deployment\n\nMore about you\n\n• Degree in Computer Science, Electrical Engineering, or a related technical field\n\n• Strong hands-on experience with embedded C++, Python, and object-oriented programming\n\n• Experience developing and deploying neural networks on embedded systems, including familiarity with deployment frameworks such as TensorFlow Lite, ONNX, TVM, or ExecuTorch\n\n• Knowledge of embedded compilers, micro-NPUs, and system-level simulation\n\n• Experience with CUDA is an advantage\n\n• Knowledge of audio or digital signal processing is an advantage\n\n• Experience in bringing features to products is an advantage\n\n• Fluent English, with strong written and verbal communication skills\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "A Sonova R&D, non stiamo solo sviluppando dispositivi acustici, stiamo plasmando il futuro della tecnologia dell'udito. Al centro di questa trasformazione è la distribuzione e l'esecuzione di reti neurali sulla nostra piattaforma incorporata di nuova generazione. Ciò richiede strumenti innovativi e infrastrutture firmware, dando la possibilità di influenzare direttamente le prestazioni dei nostri prodotti.\n\nCome il nostro nuovo Software Engineer Embedded AI si schiuderà il divario tra l'intelligenza artificiale all'avanguardia e sistemi incorporati a bassa potenza. Si svilupperà lo stack software AI incorporato che forma la base dei nostri strumenti acustici di nuova generazione.\n\nSei entusiasta di esplorare il nuovo territorio tecnologico e di svolgere un ruolo fondamentale nella modellazione delle capacità AI bordo di Sonova? Unisciti a noi e aiuta a ripensare come il software incorporato è costruito per migliorare l'esperienza uditiva delle persone e la qualità della vita.\n\nUlteriori informazioni sul ruolo\n\n• Sviluppare il firmware per una piattaforma AI profondamente integrata che opera sotto rigidi vincoli di latenza, memoria, elaborazione e energia\n\n• Progettare, implementare e mantenere lo stack software AI incorporato tra cui ottimizzazione per prestazioni, latenza e efficienza energetica\n\n• Collabora con gli esperti AI e DSP per analizzare e distribuire gli algoritmi DNN in applicazioni per dispositivi acustici\n\n• Algoritmi di Tailor AI alla piattaforma incorporata e ai suoi vincoli (ad esempio, quantizzazione, memoria, calcolo e potenza)\n\n• Prototipi di implementazione, portarli a caratteristiche pronte alla produzione e integrarli nel nostro sistema in collaborazione con altri team di ingegneria.\n\n• Assicurare alta qualità del software attraverso pratiche di codice pulito, recensioni di codice, test, documentazione, manutenzione e analisi root-cause\n\n• Migliora costantemente le metodologie di sviluppo, gli strumenti, i modelli di progettazione e le migliori pratiche per un efficiente sviluppo e distribuzione ML/DNN\n\nPiù di te\n\n• Laurea in Informatica, Ingegneria Elettrica, o un campo tecnico correlato\n\n• Forte esperienza pratica con C++, Python e programmazione orientata agli oggetti\n\n• Esperienza di sviluppo e distribuzione di reti neurali su sistemi incorporati, tra cui familiarità con i framework di distribuzione come TensorFlow Lite, ONNX, TVM, o ExecuTorch\n\n• Conoscenza dei compilatori incorporati, micro-NPU e simulazione a livello di sistema\n\n• L'esperienza con CUDA è un vantaggio\n\n• La conoscenza dell'elaborazione del segnale audio o digitale è un vantaggio\n\n• L'esperienza nel portare funzionalità ai prodotti è un vantaggio\n\n• Inglese fluente, con forti capacità di comunicazione scritte e verbali\n\nMaggiori informazioni su ciò che offriamo\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. Offriamo una vasta gamma di opportunità di formazione sia per il vostro sviluppo professionale che personale, e ci sono eccezionali opportunità di crescita con i piani di sviluppo individuali.\n\nProcesso di applicazione\n\nMagdalena Suszek, Talent Acquisition Partner, non vede l'ora di ricevere la vostra applicazione tramite la nostra piattaforma di applicazione del lavoro online, compreso il vostro CV e lettera di copertura. Per questa vacanza, saranno considerate solo applicazioni dirette.\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "At Sonova R&D, we are not just developing hearing devices, we are shaping the future of hearing technology. At the heart of this transformation is the deployment and execution of neural networks on our next-generation embedded platform. This requires innovative tools and firmware infrastructure, giving you the opportunity to directly influence the performance of our products.\n\nAs our new Software Engineer Embedded AI you will bridge the gap between cutting-edge AI and ultra-low-power embedded systems. You will develop the embedded AI software stack that forms the foundation of our next-generation hearing instruments.\n\nAre you excited to explore new technological territory and play a pivotal role in shaping Sonova’s edge AI capabilities? Join us and help rethink how embedded software is built to enhance people’s hearing experience and quality of life.\n\nMore about the role\n\n• Develop firmware for a deeply embedded AI platform operating under strict latency, memory, compute, and energy constraints\n\n• Design, implement, and maintain the embedded AI software stack including optimization for performance, latency, and energy efficiency\n\n• Collaborate with AI and DSP experts to analyze and deploy DNN algorithms in hearing-device applications\n\n• Tailor AI algorithms to the embedded platform and its constraints (e.g., quantization, memory, compute and power)\n\n• Implement prototypes, bring them to production-ready features and integrate them into our system in collaboration with other engineering teams.\n\n• Ensure high software quality through clean-code practices, code reviews, testing, documentation, maintenance, and root-cause analysis\n\n• Continuously improve development methodologies, tools, design patterns, and best practices for efficient ML/DNN development and deployment\n\nMore about you\n\n• Degree in Computer Science, Electrical Engineering, or a related technical field\n\n• Strong hands-on experience with embedded C++, Python, and object-oriented programming\n\n• Experience developing and deploying neural networks on embedded systems, including familiarity with deployment frameworks such as TensorFlow Lite, ONNX, TVM, or ExecuTorch\n\n• Knowledge of embedded compilers, micro-NPUs, and system-level simulation\n\n• Experience with CUDA is an advantage\n\n• Knowledge of audio or digital signal processing is an advantage\n\n• Experience in bringing features to products is an advantage\n\n• Fluent English, with strong written and verbal communication skills\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Bei Sonova R&D entwickeln wir nicht nur Hörgeräte, sondern gestalten die Zukunft der Hörtechnologie. Im Mittelpunkt dieser Transformation steht die Bereitstellung und Ausführung neuronaler Netzwerke auf unserer Embedded-Plattform der nächsten Generation. Dies erfordert innovative Tools und eine Firmware-Infrastruktur, die Ihnen die Möglichkeit gibt, die Leistung unserer Produkte direkt zu beeinflussen.\n\nAls unser neuer Software Engineer Embedded AI schließen Sie die Lücke zwischen modernster KI und extrem energiearmen Embedded-Systemen. Sie entwickeln den Embedded AI Software Stack, der die Grundlage für unsere Hörgeräte der nächsten Generation bildet.\n\nSind Sie aufgeregt, neue technologische Gebiete zu erkunden und eine entscheidende Rolle bei der Gestaltung der Edge AI-Fähigkeiten von Sonova zu spielen? Machen Sie mit und überdenken Sie, wie eingebettete Software entwickelt wurde, um das Hörerlebnis und die Lebensqualität der Menschen zu verbessern.\n\nMehr über die Rolle\n\n• Firmware für eine tief eingebettete KI-Plattform entwickeln, die unter strengen Latenz-, Speicher-, Rechen- und Energiebeschränkungen arbeitet\n\n• Entwerfen, Implementieren und Pflegen des Embedded AI-Software-Stacks einschließlich Optimierung für Leistung, Latenz und Energieeffizienz\n\n• Zusammenarbeit mit KI- und DSP-Experten zur Analyse und Bereitstellung von DNN-Algorithmen in Hörgeräteanwendungen\n\n• Passen Sie KI-Algorithmen auf die eingebettete Plattform und ihre Einschränkungen (z. B. Quantisierung, Speicher, Berechnung und Leistung) an\n\n• Implementieren Sie Prototypen, bringen Sie sie zu produktionsfertigen Funktionen und integrieren Sie sie in Zusammenarbeit mit anderen Engineering-Teams in unser System.\n\n• Gewährleistung einer hohen Softwarequalität durch Clean-Code-Praktiken, Code-Reviews, Tests, Dokumentation, Wartung und Root-Cause-Analyse\n\n• Kontinuierliche Verbesserung von Entwicklungsmethoden, Tools, Designmustern und Best Practices für eine effiziente Entwicklung und Bereitstellung von ML/DNN\n\nMehr über dich\n\n• Abschluss in Informatik, Elektrotechnik oder einem verwandten technischen Bereich\n\n• Starke praktische Erfahrung mit eingebettetem C++, Python und objektorientierter Programmierung\n\n• Erfahrung in der Entwicklung und Bereitstellung neuronaler Netzwerke auf eingebetteten Systemen, einschließlich der Vertrautheit mit Bereitstellungs-Frameworks wie TensorFlow Lite, ONNX, TVM oder ExecuTorch\n\n• Kenntnisse über eingebettete Compiler, Mikro-NPUs und Simulation auf Systemebene\n\n• Erfahrung mit CUDA ist von Vorteil\n\n• Kenntnisse in der Audio- oder digitalen Signalverarbeitung sind von Vorteil\n\n• Erfahrung im Bringen von Features zu Produkten ist ein Vorteil\n\n• fließendes Englisch, mit starken schriftlichen und verbalen Kommunikationsfähigkeiten\n\nMehr über das, was wir anbieten\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz engagieren wir uns für den Aufbau einer inklusiven Kultur. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. Wir bieten eine breite Palette von Ausbildungsmöglichkeiten für Ihre berufliche und persönliche Entwicklung, und es gibt außergewöhnliche Wachstumsmöglichkeiten mit individuellen Entwicklungsplänen.\n\nAnwendungsprozess\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre Bewerbung über unsere Online-Bewerbungsplattform, einschließlich Ihres Lebenslaufs und Anschreibens. Für diese Vakanz werden nur direkte Bewerbungen berücksichtigt.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Chez Sonova R&D, nous ne sommes pas seulement en train de développer des appareils auditifs, nous façonnons l'avenir de la technologie auditive. Au cœur de cette transformation se trouve le déploiement et l'exécution de réseaux neuronaux sur notre plateforme intégrée de nouvelle génération. Cela nécessite des outils innovants et une infrastructure de firmware, vous permettant d'influencer directement les performances de nos produits.\n\nEn tant que notre nouvel ingénieur logiciel Embedded AI, vous comblerez l'écart entre les systèmes de pointe AI et les systèmes intégrés ultra-faible puissance. Vous développerez la pile logicielle d'IA intégrée qui constitue la base de nos instruments auditifs de nouvelle génération.\n\nÊtes-vous heureux d'explorer de nouveaux territoires technologiques et de jouer un rôle central dans la formation des capacités d'IA de bord de Sonova? Rejoignez-nous et aidez à repenser la façon dont les logiciels intégrés sont construits pour améliorer l'expérience auditive et la qualité de vie des gens.\n\nEn savoir plus sur le rôle\n\n• Développer un firmware pour une plateforme d'IA profondément intégrée fonctionnant sous des contraintes de latence, de mémoire, de calcul et d'énergie strictes\n\n• Conception, mise en œuvre et entretien de la pile logicielle IA intégrée, y compris l'optimisation pour la performance, la latence et l'efficacité énergétique\n\n• Collaborer avec des experts de l'IA et du DSP pour analyser et déployer les algorithmes DNN dans les applications de dispositifs auditifs\n\n• Adapter les algorithmes AI à la plate-forme intégrée et ses contraintes (par exemple quantification, mémoire, calcul et puissance)\n\n• Implémentez des prototypes, apportez-les aux fonctionnalités prêtes à la production et intégrez-les dans notre système en collaboration avec d'autres équipes d'ingénierie.\n\n• Assurer une qualité de logiciel élevée grâce à des pratiques de code propre, des examens de code, des essais, de la documentation, de la maintenance et de l'analyse des causes profondes\n\n• Améliorer continuellement les méthodes de développement, les outils, les modèles de conception et les meilleures pratiques pour le développement et le déploiement efficaces de ML/DND\n\nPlus sur vous\n\n• Diplôme en informatique, en génie électrique ou dans un domaine technique connexe\n\n• Forte expérience pratique avec la programmation intégrée C++, Python et orientée objet\n\n• Expérience du développement et du déploiement de réseaux neuronaux sur des systèmes embarqués, y compris la connaissance des cadres de déploiement tels que TensorFlow Lite, ONNX, TVM ou ExecuTorch\n\n• Connaissance des compilateurs intégrés, des micro-NPU et de la simulation au niveau du système\n\n• L'expérience avec CUDA est un avantage\n\n• La connaissance du traitement du signal audio ou numérique est un avantage\n\n• L'expérience dans l'apport de caractéristiques aux produits est un avantage\n\n• Anglais brillant, avec de solides compétences en communication écrite et verbale\n\nPlus sur ce que nous offrons\n\nEn tant que l'un des principaux fournisseurs de soins auditifs en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez concilier une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. Nous offrons un large éventail de possibilités de formation pour votre développement professionnel et personnel, et il ya des possibilités de croissance exceptionnelles avec des plans de développement individuels.\n\nProcessus de demande\n\nMagdalena Suszek, Talent Acquisition Partner, est impatiente de recevoir votre candidature via notre plateforme d'application en ligne, y compris votre CV et lettre de motivation. Pour ce poste vacant, seules les candidatures directes seront examinées.\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-Embedded-AI-%28mfd%29/1436636333/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.049Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-14",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1436636333/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "software-engineer-embedded-ai-m-f-d-sonova-ch",
-        "software-ingegnere-embedded-ai-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-embedded-ai-m-f-d-sonova-ch",
-          "software-ingegnere-embedded-ai-m-f-d-sonova-staefa"
-        ],
-        "de": [
-          "software-engineer-embedded-ai-m-f-d-sonova-ch"
-        ],
-        "fr": [
-          "software-engineer-embedded-ai-m-f-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:55:54.943Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sonova-014e943d2e13",
       "slug": "architetto-charging-solutions-sonova-staefa",
       "slugByLocale": {
@@ -340,7 +263,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.045Z",
+      "crawledAt": "2026-09-29T21:14:46.870Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -417,7 +340,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:10:10.041Z",
+      "crawledAt": "2026-09-29T21:14:46.867Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -493,7 +416,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.038Z",
+      "crawledAt": "2026-09-29T21:14:46.864Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -570,7 +493,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.035Z",
+      "crawledAt": "2026-09-29T21:14:46.860Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -605,6 +528,7 @@
         "senior-manager-performance-uditiva-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.917Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -650,7 +574,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:10:10.031Z",
+      "crawledAt": "2026-09-29T21:14:46.857Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -675,6 +599,7 @@
           "technical-specialista-production-tsp-m-f-d-sonova-staefa"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -720,7 +645,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.028Z",
+      "crawledAt": "2026-09-29T21:14:46.854Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -777,7 +702,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Trainee pratique - Power Management (h/f/d)"
+        "fr": "Practical Trainee - Power Management (m/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -791,7 +716,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.025Z",
+      "crawledAt": "2026-09-29T21:14:46.851Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -830,6 +755,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -875,7 +801,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.020Z",
+      "crawledAt": "2026-09-29T21:14:46.848Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -954,7 +880,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.014Z",
+      "crawledAt": "2026-09-29T21:14:46.844Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1028,7 +954,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.008Z",
+      "crawledAt": "2026-09-29T21:14:46.840Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1053,6 +979,7 @@
           "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1098,7 +1025,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:10.003Z",
+      "crawledAt": "2026-09-29T21:14:46.836Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1168,7 +1095,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:09.995Z",
+      "crawledAt": "2026-09-29T21:14:46.832Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1240,7 +1167,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:10:09.987Z",
+      "crawledAt": "2026-09-29T21:14:46.828Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1274,6 +1201,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1319,7 +1247,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:10:09.980Z",
+      "crawledAt": "2026-09-29T21:14:46.824Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1353,6 +1281,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.177Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1398,7 +1327,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:10:09.972Z",
+      "crawledAt": "2026-09-29T21:14:46.821Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1430,6 +1359,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.246Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1475,7 +1405,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:10:09.907Z",
+      "crawledAt": "2026-09-29T21:14:46.784Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1489,10 +1419,14 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1441934833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-28T21:09:05.057Z",
+      "previousSlugs": [
+        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
+        "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
+          "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten"
         ],
         "de": [
           "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
@@ -1501,9 +1435,7 @@
           "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
-      ],
+      "firstSeenAt": "2026-09-28T21:09:05.057Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1517,7 +1449,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     }
   ]
 }
