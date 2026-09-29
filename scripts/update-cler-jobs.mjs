@@ -38,6 +38,9 @@ import {
   validateClerDescription,
   extractJobMeta,
   dedupeClerJobsByStableId,
+  collapseClerDuplicateRequisitions,
+  resolveClerJobBody,
+  clearClerPlaceholderSlots,
   parseClerApiResponse,
 } from './lib/cler-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -47,6 +50,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -362,17 +366,17 @@ async function fetchDetailPage(relativeUrl) {
   }
 }
 
-function buildDescription(title, html) {
-  if (!html) {
-    // Fallback: minimal description from title only
-    return `## ${title}\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.`;
-  }
-
+/**
+ * The posting's own text, or '' when the detail page gave none (no HTML, or
+ * fewer than MIN_SOURCE_BODY_WORDS words — measured in words, not characters:
+ * a 49-word body padded with long compounds is still thin). No stand-in
+ * text: mergeJobs keeps the stored source text of the requisition, or does
+ * not publish the job.
+ */
+export function buildDescription(title, html) {
+  if (!html) return '';
   const markdown = htmlToMarkdown(html);
-  if (markdown && markdown.length >= 200) return markdown;
-
-  // Fallback if parser returned too little
-  return `## ${title}\n\nBanca Cler — per i dettagli consultare la pagina dell'offerta.`;
+  return markdown && meetsSourceBodyFloor(markdown) ? markdown : '';
 }
 
 async function fetchClerJobs() {
@@ -484,7 +488,7 @@ async function fetchClerJobs() {
       contractType: empType === 'internship' ? 'stage' : 'permanent',
       description,
       titleByLocale: { de: title },
-      descriptionByLocale: { de: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       slugByLocale: { de: slugify(title) },
       crawledAt: new Date().toISOString(),
     };
@@ -531,11 +535,20 @@ function mergeJobs(discoveredJobs) {
   let removed = 0;
   const merged = [];
 
-  for (const discovered of dedupedDiscovered) {
-    const key = jobMatchKey(discovered);
+  const unpublished = [];
+  for (const candidate of dedupedDiscovered) {
+    const key = jobMatchKey(candidate);
     const prev = existingByKey.get(key);
+    // Source text only: without a body this run, the stored source text of
+    // the requisition, or the job is not published this run.
+    const discovered = resolveClerJobBody(candidate, prev);
+    if (!discovered) {
+      unpublished.push(candidate.url);
+      continue;
+    }
     if (!prev) {
       added++;
+      clearClerPlaceholderSlots(discovered);
       merged.push(discovered);
       continue;
     }
@@ -553,7 +566,11 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, discovered.slugByLocale, 3),
     };
     captureLostSlugs(mergedJob, prev.slugByLocale, prev.slug, 20);
+    clearClerPlaceholderSlots(mergedJob);
     merged.push(mergedJob);
+  }
+  if (unpublished.length > 0) {
+    console.warn(`  ⚠️ ${unpublished.length} Cler job(s) not published this run: no body on the detail page and no stored source text (${unpublished.join(', ')})`);
   }
 
   // Count removed (existing jobs not in new crawl)
@@ -584,6 +601,29 @@ function mergeJobs(discoveredJobs) {
 // ─────────────────────────────────────────────────────────────
 // Post-processing
 // ─────────────────────────────────────────────────────────────
+
+/**
+ * The shared base crawler re-adds requisitions that mergeJobs() had already
+ * collapsed (same id under another locale / career-section path — see
+ * collapseClerDuplicateRequisitions). Collapse them again after it ran, and
+ * keep the dropped record's slugs as redirects of the survivor.
+ */
+function collapseDuplicateRequisitionsInSlice(preferredUrls) {
+  const all = readJson(DATA_JOBS, []);
+  if (!Array.isArray(all)) return 0;
+  const target = all.filter(isTargetJob);
+  const { jobs: survivors, dropped } = collapseClerDuplicateRequisitions(target, preferredUrls);
+  if (dropped.length === 0) return 0;
+  for (const { dropped: gone, kept } of dropped) {
+    captureLostSlugs(kept, gone.slugByLocale || {}, gone.slug || '', 20);
+  }
+  const survivorSet = new Set(survivors);
+  const next = all.filter((job) => !isTargetJob(job) || survivorSet.has(job));
+  writeJson(DATA_JOBS, next);
+  if (fs.existsSync(path.dirname(PUBLIC_JOBS))) writeJson(PUBLIC_JOBS, next);
+  console.log(`  ↺ Post-base-crawler dedup: ${target.length} → ${survivors.length} Cler records (same requisition under another path)`);
+  return dropped.length;
+}
 
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
@@ -652,6 +692,7 @@ async function main() {
   // Phase 3: Run base crawler for AI localization
   console.log('\n🌐 Phase 3: AI localization...');
   await runBaseCrawler();
+  collapseDuplicateRequisitionsInSlice(new Set(discoveredJobs.map((job) => job.url)));
 
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,

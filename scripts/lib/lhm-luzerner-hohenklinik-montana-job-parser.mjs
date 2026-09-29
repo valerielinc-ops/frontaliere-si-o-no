@@ -174,10 +174,11 @@ export async function fetchAllLhmJobs() {
     const title = detail.title || slugToTitle(r.slug);
     if (!title || title.length < 3) continue;
 
-    const fallback = `${title} bei ${LHM_COMPANY_NAME}, Crans-Montana (VS). Stelle veröffentlicht auf der Karriereseite der Luzerner Höhenklinik Montana — einer Rehabilitationsklinik des Luzerner Kantonsspitals (LUKS) mit Spezialgebieten Pulmologie, Kardiologie und Psychosomatik.`;
-    const description = detail.body && detail.body.split(/\s+/).length >= 30
-      ? detail.body
-      : [fallback, detail.body].filter(Boolean).join('\n\n');
+    // The detail's own text, whatever its length. Under 30 words the crawler
+    // used to put a paragraph of its own on the clinic in front of it (or in
+    // its place); a detail without text now gives no description and the job
+    // takes the pipeline's thin-source path.
+    const description = detail.body || '';
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${LHM_KEY} crans-montana`);

@@ -53,6 +53,7 @@ import {
   hasUsableTitle,
   isStructureFlattenedCopy,
 } from './translation-quality.mjs';
+import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
@@ -720,6 +721,12 @@ export function detectLang(text = '', fallback = 'it') {
   return detectLanguage(text, fallback);
 }
 
+// Company paragraphs this module used to append to thin postings — written by
+// us, never published by the employer. Nothing adds them any more (issue
+// 5253: a posting publishes only its source text; one without text takes the
+// thin-source path of validateDedicatedLocaleCoverage). The table stays only
+// so that dropCompanyBoilerplateFossils can remove them, with their
+// "## title / **company** — place" header, from jobs stored before that.
 const COMPANY_BOILERPLATE_IT = {
   'PEMSA': `PEMSA è da oltre 30 anni un punto di riferimento nel mercato svizzero per il reclutamento e la gestione di professionisti qualificati nei settori della costruzione, impiantistica, elettrotecnica e meccanica industriale. Offriamo contratti fissi e temporanei, con la sicurezza di un partner stabile e la flessibilità che cerchi.\n\nVantaggi: consulenza personalizzata, accesso a cantieri di prestigio in tutta la Svizzera, supporto amministrativo completo, retribuzione competitiva e opportunità di formazione continua.`,
   'ReleWant': `ReleWant è una società di consulenza IT con sede in Ticino, specializzata in soluzioni informatiche innovative per il settore bancario e finanziario. Offriamo servizi di consulenza, sviluppo software e gestione di progetti IT complessi per le principali istituzioni finanziarie in Svizzera.\n\nOffriamo un ambiente di lavoro stimolante, progetti sfidanti nel settore fintech, formazione continua, flessibilità lavorativa e condizioni d'impiego competitive.`,
@@ -744,9 +751,13 @@ const COMPANY_BOILERPLATE_IT = {
 };
 
 /**
- * Find and return IT boilerplate for a company, or null.
+ * The legacy IT company paragraph for a company, or null. Used only to
+ * recognise the stored fossils (see COMPANY_BOILERPLATE_IT).
  */
 export function getCompanyBoilerplateIT(company = '') {
+  company = String(company || '').trim();
+  // An empty name is contained in every key: it must match none of them.
+  if (!company) return null;
   for (const [key, text] of Object.entries(COMPANY_BOILERPLATE_IT)) {
     if (company === key || company.includes(key) || key.includes(company)) return text;
   }
@@ -792,69 +803,152 @@ export function isPlaceholderDescription(text = '') {
   return PLACEHOLDER_PATTERNS.some(re => re.test(clean));
 }
 
-/**
- * Enrich thin IT descriptions with company boilerplate. Mutates jobs in-place.
- * Returns count of enriched jobs.
- */
-export function enrichThinDescriptions(jobs, threshold = 300) {
-  let count = 0;
-  for (const j of jobs) {
-    const itDesc = String(j.descriptionByLocale?.it || j.description || '');
-    if (itDesc.length >= threshold) continue;
-    const bp = getCompanyBoilerplateIT(j.company);
-    if (!bp) continue;
-    const title = j.titleByLocale?.it || j.title || '';
-    const loc = j.location || '';
-    const canton = j.canton || j.addressRegion || '';
-    const enriched = itDesc.includes('##')
-      ? `${itDesc}\n\n${bp}`
-      : `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${itDesc}\n\n${bp}`;
-    if (!j.descriptionByLocale) j.descriptionByLocale = {};
-    j.descriptionByLocale.it = enriched;
-    count++;
+// Whitespace of a stored fossil: later passes re-flowed some of them into
+// bullets ("…industriale. \n• Offriamo contratti…"), so a run of spaces,
+// newlines and bullet markers all count as one gap.
+const FOSSIL_GAP_RE_SOURCE = String.raw`(?:[\s•·▪◦]|-(?=\s))+`;
+
+const COMPANY_BOILERPLATE_FOSSIL_RES = Object.values(COMPANY_BOILERPLATE_IT).map((text) => new RegExp(
+  text
+    .trim()
+    .split(/\s+/)
+    .map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, "['’]"))
+    .join(FOSSIL_GAP_RE_SOURCE),
+  'g',
+));
+
+// "## <title>\n\n**<company>** — <place> (<canton>)" — the header the same
+// enrichment put above the posting text.
+const COMPANY_BOILERPLATE_HEADER_RE = /^##[^\n]*\n\s*\*\*([^*\n]+)\*\*[ \t]*—[^\n]*(?:\n+|$)/;
+
+function hasCompanyBoilerplateParagraph(value) {
+  if (typeof value !== 'string') return false;
+  return COMPANY_BOILERPLATE_FOSSIL_RES.some((re) => {
+    re.lastIndex = 0;
+    return re.test(value);
+  });
+}
+
+function stripCompanyBoilerplateFossil(value) {
+  let text = String(value);
+  let paragraph = false;
+  for (const re of COMPANY_BOILERPLATE_FOSSIL_RES) {
+    re.lastIndex = 0;
+    if (!re.test(text)) continue;
+    re.lastIndex = 0;
+    text = text.replace(re, '\n\n');
+    paragraph = true;
   }
-  return count;
+  let header = false;
+  const headerMatch = text.trimStart().match(COMPANY_BOILERPLATE_HEADER_RE);
+  if (headerMatch && getCompanyBoilerplateIT(headerMatch[1])) {
+    text = text.trimStart().slice(headerMatch[0].length);
+    header = true;
+  }
+  if (!paragraph && !header) return null;
+  return {
+    text: text.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim(),
+    paragraph,
+    header,
+  };
 }
 
 /**
- * Ensure every job's base `description` field has >= minWords words.
- * First syncs from descriptionByLocale.it if richer; then appends
- * company boilerplate when still below threshold.  Mutates in-place.
- * Returns count of jobs that were patched.
+ * Remove, from a stored job, the company paragraph and the
+ * "## title / **company** — place" header that hardenJobLocaleFields (below
+ * 300 characters of Italian text) and ensureMinimumDescriptionWordCount
+ * (below 50 words) used to add (issue 5253). The
+ * locale-preserving merge keeps a stored slot across crawls, so without this
+ * the text we wrote would outlive the code that wrote it.
+ *
+ * Only a job that still carries one of the paragraphs somewhere is touched:
+ * a header of the same shape without it is another runner's own format
+ * (relewant writes one), not this fossil.
+ *
+ * - `description` and every slot lose the paragraph and the header; what the
+ *   source published stays.
+ * - A slot left empty is dropped.
+ * - A non-Italian slot that carries the header but not the Italian paragraph
+ *   is a translation of the padded text: dropped, the job re-translates.
+ * - When the source-language slot itself was padded, every other slot was
+ *   translated from the padded text: those are dropped too.
+ * - A slot that is only a copy of a source in another language keeps the copy
+ *   as a placeholder and flags the job for retranslation (the same rule as
+ *   the rest of hardenJobLocaleFields).
+ *
+ * Mutates the job; returns true when it changed.
  */
-export function ensureMinimumDescriptionWordCount(jobs, minWords = 50) {
-  let patched = 0;
-  for (const j of jobs) {
-    const wordCount = (str) => String(str || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+export function dropCompanyBoilerplateFossils(job) {
+  if (!job || typeof job !== 'object') return false;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? Object.values(job.descriptionByLocale)
+    : [];
+  if (![job.description, ...slots].some(hasCompanyBoilerplateParagraph)) return false;
+  let changed = false;
+  const descriptionFossil = typeof job.description === 'string'
+    ? stripCompanyBoilerplateFossil(job.description)
+    : null;
+  if (descriptionFossil) {
+    job.description = descriptionFossil.text;
+    changed = true;
+  }
+  const byLocale = job.descriptionByLocale;
+  if (!byLocale || typeof byLocale !== 'object') return changed;
 
-    // Step 1: sync from descriptionByLocale.it if it has more words
+  const sourceLang = String(job.sourceLang || '').trim();
+  let sourceSlotPadded = false;
+  for (const locale of Object.keys(byLocale)) {
+    if (typeof byLocale[locale] !== 'string') continue;
+    const fossil = stripCompanyBoilerplateFossil(byLocale[locale]);
+    if (!fossil) continue;
+    changed = true;
+    if (locale === sourceLang && fossil.paragraph) sourceSlotPadded = true;
+    const translatedFossil = fossil.header && !fossil.paragraph && locale !== 'it';
+    if (translatedFossil || !fossil.text) {
+      delete byLocale[locale];
+      if (locale !== sourceLang) job.needsRetranslation = true;
+      continue;
+    }
+    byLocale[locale] = fossil.text;
+  }
+
+  if (sourceSlotPadded) {
+    for (const locale of Object.keys(byLocale)) {
+      if (locale === sourceLang) continue;
+      delete byLocale[locale];
+      job.needsRetranslation = true;
+    }
+  }
+
+  if (changed && sourceLang) {
+    const sourceText = normalizeSpace(byLocale[sourceLang] || job.description || '');
+    for (const [locale, value] of Object.entries(byLocale)) {
+      if (locale === sourceLang || typeof value !== 'string') continue;
+      if (sourceText && normalizeSpace(value) === sourceText) job.needsRetranslation = true;
+    }
+  }
+  return changed;
+}
+
+/**
+ * Copy the Italian slot into the legacy `description` field when it has more
+ * words. It no longer pads anything: below `_minWords` it used to append a
+ * company paragraph the source never published (issue 5253); a posting
+ * without enough text now takes the thin-source path of
+ * validateDedicatedLocaleCoverage. Name, signature and return value stay for
+ * the runners that still call it: the return value was the number of padded
+ * jobs, which gated their write of the stored file, and is now always 0 so
+ * that the copy above never becomes a new write path. Mutates in place.
+ */
+export function ensureMinimumDescriptionWordCount(jobs, _minWords = 50) {
+  const wordCount = (str) => String(str || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  for (const j of jobs) {
     const itDesc = String(j.descriptionByLocale?.it || '').trim();
     if (itDesc && wordCount(itDesc) > wordCount(j.description)) {
       j.description = itDesc;
     }
-
-    // Check if already sufficient
-    if (wordCount(j.description) >= minWords) continue;
-
-    // Step 2: try enriching with company boilerplate
-    const bp = getCompanyBoilerplateIT(j.company);
-    if (bp) {
-      const title = j.titleByLocale?.it || j.title || '';
-      const loc = j.location || '';
-      const canton = j.canton || j.addressRegion || '';
-      const existing = String(j.description || '').trim();
-      const enriched = existing
-        ? `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${existing}\n\n${bp}`
-        : `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${bp}`;
-      j.description = enriched;
-      if (!j.descriptionByLocale) j.descriptionByLocale = {};
-      if (wordCount(j.descriptionByLocale.it) < wordCount(enriched)) {
-        j.descriptionByLocale.it = enriched;
-      }
-      patched++;
-    }
   }
-  return patched;
+  return 0;
 }
 
 export function deriveLocalizedSlug(job, locale) {
@@ -1305,6 +1399,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         }
       }
     }
+
+    // Company paragraph + "## title / **company** — place" header we used to
+    // pad thin postings with (issue 5253): out of `description` and the slots
+    // before anything below reads or copies them.
+    if (dropCompanyBoilerplateFossils(job)) jobChanged = true;
 
     // Decode HTML entities (handles double-encoded cases like &amp;#8211; → – )
     const cleanText = (s) => decodeNumericEntities(decodeHtmlEntities(String(s || '').trim()));
@@ -1841,13 +1940,6 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     }
   }
 
-  // Enrich thin IT descriptions with company boilerplate
-  const enriched = enrichThinDescriptions(raw);
-  if (enriched > 0) {
-    changed = true;
-    console.log(`📝 Enriched ${enriched} thin IT descriptions with company boilerplate.`);
-  }
-
   if (!changed) {
     const result = { changed: false, repaired: 0, total: raw.length };
     _hardenResultCache.set(resolvedPath, result);
@@ -2228,6 +2320,12 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   const cleanDesc = (clean || cleanDescriptionDCC)(description || '');
   if (!cleanDesc || cleanDesc.length < floor) return '';
   if (locale === sourceLang) return cleanDesc;
+  // Not a translation, whatever its length: an answer carrying the model's
+  // reasoning, or one stuck in a repetition loop («Risk-Lights-Lights-…»)
+  // compared with this source (ai-output-fidelity.mjs). Applied to every
+  // candidate this function can return or cache, and to what the cache returns.
+  const unusable = (text) => Boolean(detectAiReasoningLeak(text)
+    || detectDegenerateRepetition(text, { references: [cleanDesc] }));
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
@@ -2239,10 +2337,16 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-desc-v2', [cleanDesc, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
-    if (typeof fromCache === 'string') {
+    // A stored answer that leaks or loops is dropped and recomputed, never
+    // replayed.
+    const cachedUnusable = typeof fromCache === 'string' && fromCache !== AI_CACHE_RAW_SENTINEL
+      && unusable(fromCache);
+    if (cachedUnusable && ctx.deleteCachedAiResponse) ctx.deleteCachedAiResponse(cacheKey);
+    if (typeof fromCache === 'string' && !cachedUnusable) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-      if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()) {
+      if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()
+          && !unusable(sentinelFallback)) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return sentinelFallback;
       }
@@ -2250,7 +2354,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     }
     // DeepL first
     const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateObservedDetailed(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (deepl && deepl.length >= floor) {
+    if (deepl && deepl.length >= floor && !unusable(deepl)) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
     }
@@ -2296,14 +2400,16 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
         const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
-        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()) {
+        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()
+            && !unusable(translated)) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
         }
       } catch { /* fallback below */ }
     }
     const fallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()) {
+    if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()
+        && !unusable(fallback)) {
       setCachedAiResponse(cacheKey, fallback);
       return fallback;
     }
@@ -2313,7 +2419,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
 
   // No cache — simple free-translate fallback
   const simple = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-  return (simple && simple.length >= floor) ? simple : '';
+  return (simple && simple.length >= floor && !unusable(simple)) ? simple : '';
 }
 
 // ── Protected brand names ───────────────────────────────────────────────────

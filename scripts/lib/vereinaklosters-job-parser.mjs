@@ -32,7 +32,7 @@ const CAREER_URL = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
 const VEREINAKLOSTERS_PATH = '/jobs/hotel-vereina-52746';
 const MIN_DESCRIPTION_WORDS = 50;
 const VEREINAKLOSTERS_EMPTY_FETCH_OUTCOME = 'anti_bot_block';
-const VEREINAKLOSTERS_SECONDARY_SPEC = {
+export const VEREINAKLOSTERS_SECONDARY_SPEC = {
   companyKey: VEREINAKLOSTERS_KEY,
   companyName: VEREINAKLOSTERS_COMPANY_NAME,
   companyHost: 'local-job.ch',
@@ -42,7 +42,10 @@ const VEREINAKLOSTERS_SECONDARY_SPEC = {
     'https://local-job.ch/berufsgruppe/gastronomie-tourismus/graubuenden/serneus/',
   ],
   detailTemplate: '/job/*/',
-  listingCandidateText: 'Hotel Vereina',
+  // local-job's listing anchors carry the role title while the employer label
+  // sits beside the link. Filter on the source-backed detail page instead of
+  // dropping every candidate before detail enrichment can prove its tenant.
+  detailCandidateText: 'Hotel Vereina',
   detailEnrichment: true,
   detailFetchWorkers: 4,
   pagination: { maxPages: 10 },

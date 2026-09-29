@@ -274,3 +274,13 @@ export function inferEmploymentType(title = '', description = '', percentage = '
   }
   return 'FULL_TIME';
 }
+
+/**
+ * Fragments only the runner's former wrapper around the bando wrote (a
+ * "## <titolo>" header, "Città di Locarno — concorso pubblico a Locarno (TI),
+ * Svizzera.", "Settore"/"Sede" footers, a link to the PDF, and a
+ * "Concorso pubblico presso la Città di Locarno…" sentence when the PDF had no
+ * text). Used to clean jobs stored before the runner published the bando alone.
+ */
+export const CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE =
+  /— concorso pubblico a Locarno \(TI\), Svizzera\.|\*\*Sede:\*\* Piazza Grande 18, 6600 Locarno|Consultare il bando di concorso allegato per requisiti e modalità di candidatura\./;

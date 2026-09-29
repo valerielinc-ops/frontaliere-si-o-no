@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -129,9 +130,11 @@ async function fetchAllSwissJobUrls() {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
   const xml = await fetchHtml(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
 
-  // Extract all <loc> URLs that point at job detail pages.
+  // Extract all <loc> URLs that point at job detail pages. <loc> is XML
+  // text: an `&` in a slug arrives as `&amp;` and must be decoded, or the
+  // published URL differs from the page's own (same fix as belimo).
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
-    .map((m) => m[1].trim())
+    .map((m) => decodeEntities(m[1].trim()))
     .filter((url) => url.includes('/job/'));
 
   console.log(`  📦 Total Swiss job URLs in sitemap: ${allUrls.length}`);
