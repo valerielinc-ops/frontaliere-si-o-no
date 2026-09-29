@@ -73,13 +73,16 @@ export const POPULATION_SOURCE =
  * a loosened gate.
  *
  * TOLERANCE 15%. Sized to make the historical failure impossible rather than
- * to a round number: the same population read from the SLICES is 107,808 slots
- * (+18.6%), so the slice/assembled swap that caused this gate's first red now
- * fails as a population change with its own message instead of as a fake
- * quality regression. Daily drift is 0.8%, so the band is ~19x observed
- * movement and will not flicker. When genuine corpus growth crosses it the
- * gate says so in one line and asks for a deliberate re-derivation — which is
- * the intended cost, not a defect.
+ * to a round number: the old assembled baseline's slice reading was 107,808
+ * slots (+18.6% over 90,900), so the slice/assembled swap that caused this
+ * gate's first red had its own population-change message instead of a fake
+ * quality regression. After the 2026-09-29 re-baseline that historical figure
+ * is inside the new band; `tests/job-locale-population-guard.test.ts` therefore
+ * keeps the same +18.6% swap as an explicit synthetic out-of-band fixture.
+ * Daily drift is 0.8%, so the band is ~19x observed movement and will not
+ * flicker. When genuine corpus growth crosses it the gate says so in one line
+ * and asks for a deliberate re-derivation — which is the intended cost, not a
+ * defect.
  * @type {PopulationSpec}
  */
 export const DESCRIPTION_POPULATION = {
