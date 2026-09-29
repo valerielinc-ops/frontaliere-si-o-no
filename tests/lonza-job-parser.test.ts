@@ -746,38 +746,46 @@ describe('fetchAllLonzaJobs — published text', () => {
     }
   });
 
-  // 2026-09-29: R76184-1 and R76397 carry the same title, site and text. The
-  // source gives two requisition ids, so they are two advertisements; only
-  // the same requisition id under two URLs is one advertisement.
-  it('keeps two reqs with the same ad under different requisition ids, one page per requisition id', async () => {
+  // 2026-09-29: R76184-1 and R76397 carry the same title, locations, time type
+  // and text; only their publication dates differ. Two identical pages to a
+  // reader: one page, the req with the lowest id. A req whose posting differs
+  // in a real attribute (here the time type) stays; so does the same req under
+  // a second URL, which collapses by its requisition id.
+  it('publishes one page for identical postings under different reqs, keeps a posting that differs', async () => {
     const body = '<p>Lonza is a preferred global partner to the pharmaceutical, biotech and nutrition markets.</p>'
       + '<p><b>Key responsibilities:</b></p><ul><li>Install and maintain electrical systems in the Visp plant</li><li>Document interventions</li>'
       + '<li>Support shutdowns, change controls and continuous improvement projects in the plant</li></ul>'
       + '<p><b>Key requirements:</b></p><ul><li>Apprenticeship as an electrician (EFZ) or a comparable qualification</li>'
       + '<li>Experience in a GMP environment and good German and English skills</li></ul>';
     const title = 'Elektroinstallateur EFZ 80-100% (m/w/d)';
+    const reqs: Record<string, { timeType: string; startDate: string }> = {
+      'R76184-1': { timeType: 'Full time', startDate: '2026-05-07' },
+      R76397: { timeType: 'Full time', startDate: '2026-05-18' },
+      R76400: { timeType: 'Part time', startDate: '2026-05-20' },
+    };
     const fetchMock = vi.fn(async (url: string) => ({
       ok: true,
       async json() {
         if (url.endsWith('/jobs')) {
           return {
-            total: 3,
+            total: 4,
             jobPostings: [
               { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1' },
               { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76397' },
               { title, externalPath: '/job/Visp/Elektroinstallateur-EFZ_R76397' },
+              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76400' },
             ],
           };
         }
-        const jobReqId = url.includes('R76184-1') ? 'R76184-1' : 'R76397';
-        return { jobPostingInfo: { title, location: 'CH - Visp', jobDescription: body, timeType: 'Full time', startDate: '2026-09-20', jobReqId } };
+        const jobReqId = Object.keys(reqs).find((id) => url.endsWith(`_${id}`)) || 'R76397';
+        return { jobPostingInfo: { title, location: 'CH - Visp', jobDescription: body, ...reqs[jobReqId], jobReqId } };
       },
     }));
     vi.stubGlobal('fetch', fetchMock);
     try {
       const { fetchAllLonzaJobs } = await import('../scripts/lib/lonza-job-parser.mjs');
       const jobs = await fetchAllLonzaJobs();
-      expect(jobs.map((job: { jobReqId: string }) => job.jobReqId).sort()).toEqual(['R76184-1', 'R76397']);
+      expect(jobs.map((job: { jobReqId: string }) => job.jobReqId).sort()).toEqual(['R76184-1', 'R76400']);
     } finally {
       vi.unstubAllGlobals();
     }

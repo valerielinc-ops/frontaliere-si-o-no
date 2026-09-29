@@ -113,6 +113,31 @@ function writeJobsFiles(jobs) {
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
+/**
+ * The builder used to write the posting into a fixed `it` slot whatever its
+ * language (the ALDI ads are German or French). A stored job whose `it` slot
+ * holds a text that is not Italian, while its source language is another
+ * one, carries that copy instead of a translation: drop the slot (title and
+ * description) and flag the job, so the translation step writes the Italian
+ * text. Slugs are left as they are. Mutates the job; true when it changed.
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function dropStaleItalianSlot(job) {
+  if (!job || job.sourceLang === 'it') return false;
+  let changed = false;
+  for (const field of ['descriptionByLocale', 'titleByLocale']) {
+    const text = String(job[field]?.it || '').trim();
+    if (text && detectLang(text, 'it') !== 'it') {
+      delete job[field].it;
+      changed = true;
+    }
+  }
+  if (changed) job.needsRetranslation = true;
+  return changed;
+}
+
 function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(ALDI_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
@@ -124,6 +149,10 @@ function mergeCompanyJobs(parsedJobs) {
     if (k) byUrl.set(k, job);
   }
   const deduped = [...byUrl.values()];
+  const repaired = companyExisting.filter(dropStaleItalianSlot).length;
+  if (repaired > 0) {
+    console.log(`  🧹 ALDI Suisse: dropped a non-Italian \`it\` slot from ${repaired} stored job(s); they will be retranslated`);
+  }
   const merged = mergePreserveLocaleData(companyExisting, deduped);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
@@ -179,6 +208,10 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
 
   const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
+  // The ads are German or French: the text goes in the slot of the language
+  // it is written in, never in a fixed `it` slot (the localization step fills
+  // the other locales).
+  const sourceLang = detectLang(description || rawTitle, 'de');
   const canton = inferAnyCanton(location);
   if (!canton) return null;
   const postalCode = listing.zip || '';
@@ -187,16 +220,16 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
   return {
     id: `aldi-suisse-${urlHash}`,
     slug: jobSlug,
-    slugByLocale: { it: jobSlug },
+    slugByLocale: { [sourceLang]: jobSlug },
     company: ALDI_COMPANY_NAME,
     companyKey: ALDI_KEY,
     companyDomain: 'aldi.ch',
     title: rawTitle,
-    titleByLocale: { it: rawTitle },
+    titleByLocale: { [sourceLang]: rawTitle },
     description,
-    descriptionByLocale: { it: description },
+    descriptionByLocale: { [sourceLang]: description },
     requirements: requirements.slice(0, 20),
-    requirementsByLocale: { it: requirements.slice(0, 20) },
+    requirementsByLocale: { [sourceLang]: requirements.slice(0, 20) },
     location,
     postalCode,
     canton,
@@ -216,7 +249,7 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
     // L3 still keeps this distinct from a submitted application event.
     applyUrl: listing.url,
     source: 'ALDI Suisse Dedicated Parser',
-    sourceLang: detectLang(description || rawTitle, 'de'),
+    sourceLang,
     crawledAt: timestamp,
   };
 }

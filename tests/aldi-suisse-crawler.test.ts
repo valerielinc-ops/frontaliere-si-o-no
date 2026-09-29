@@ -14,7 +14,7 @@ import {
   ALDI_SEARCH_API,
   ALDI_SUCCESSFACTORS_BASE,
 } from '@/scripts/lib/aldi-suisse-job-parser.mjs';
-import { buildAldiJobRecord } from '@/scripts/update-aldi-suisse-jobs.mjs';
+import { buildAldiJobRecord, dropStaleItalianSlot } from '@/scripts/update-aldi-suisse-jobs.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -461,5 +461,57 @@ describe('buildAldiJobRecord — no invented text', () => {
       parsed: { body },
     });
     expect(job.description.length).toBe(body.length);
+  });
+});
+
+// The ALDI ads are German or French; the builder used to write every posting
+// into a fixed `it` slot. The text goes in the slot of its own language.
+describe('buildAldiJobRecord — source-language slot', () => {
+  const german = 'Aufgaben\n• Mitarbeit in der Filiale (Warenbereitstellung, Kassieren, Backen, Reinigung)\n'
+    + 'Profil\n• Abgeschlossene Ausbildung im Detailhandel oder Berufserfahrung in einer vergleichbaren Funktion\n'
+    + 'Unser Angebot\n• Ein überdurchschnittlicher Lohn, fünf Wochen Ferien und ein sicherer Arbeitsplatz in einem dynamischen Team, '
+    + 'in dem du Verantwortung übernimmst und dich weiterentwickeln kannst, mit Weiterbildungen und einer strukturierten Einarbeitung in der Filiale.';
+  const french = 'Tâches\n• Collaboration dans la filiale (mise en place des marchandises, caisse, cuisson, nettoyage)\n'
+    + 'Profil\n• Formation achevée dans le commerce de détail ou expérience professionnelle dans une fonction comparable\n'
+    + 'Notre offre\n• Un salaire supérieur à la moyenne, cinq semaines de vacances et un emploi sûr au sein d\u2019une équipe dynamique, '
+    + 'où tu prends des responsabilités et évolues, avec des formations continues et une mise au courant structurée en filiale.';
+
+  it('writes a German ad in the de slot and a French ad in the fr slot, never in it', () => {
+    const de = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1389180133', title: 'Mitarbeiter Verkauf (m/w/d)', city: 'Sempach Station', zip: '6203' },
+      parsed: { body: german, requirements: ['Detailhandel'] },
+    });
+    const fr = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1389180134', title: 'Collaborateur de vente (h/f/d)', city: 'Lausanne', zip: '1004' },
+      parsed: { body: french },
+    });
+    expect(de.sourceLang).toBe('de');
+    expect(Object.keys(de.descriptionByLocale)).toEqual(['de']);
+    expect(de.titleByLocale).toEqual({ de: 'Mitarbeiter Verkauf (m/w/d)' });
+    expect(de.slugByLocale).toEqual({ de: de.slug });
+    expect(de.requirementsByLocale).toEqual({ de: ['Detailhandel'] });
+    expect(fr.sourceLang).toBe('fr');
+    expect(Object.keys(fr.descriptionByLocale)).toEqual(['fr']);
+  });
+
+  it('drops a stored `it` slot that holds the German text and flags the job; an Italian one stays', () => {
+    const stale = {
+      sourceLang: 'de',
+      titleByLocale: { de: 'Mitarbeiter Verkauf (m/w/d)', it: 'Mitarbeiter Verkauf (m/w/d)' },
+      descriptionByLocale: { de: german, it: german },
+      slugByLocale: { de: 'mitarbeiter-verkauf-m-w-d-aldi-suisse', it: 'mitarbeiter-verkauf-m-w-d-aldi-suisse' },
+    };
+    expect(dropStaleItalianSlot(stale)).toBe(true);
+    expect(stale.descriptionByLocale).toEqual({ de: german });
+    expect((stale as { needsRetranslation?: boolean }).needsRetranslation).toBe(true);
+    expect(stale.slugByLocale.it).toBe('mitarbeiter-verkauf-m-w-d-aldi-suisse');
+
+    const translated = {
+      sourceLang: 'de',
+      titleByLocale: { de: 'Mitarbeiter Verkauf (m/w/d)', it: 'Collaboratore vendita (m/f/d)' },
+      descriptionByLocale: { de: german, it: 'Compiti\n• Collaborazione nella filiale (preparazione della merce, cassa, cottura, pulizia) con il team e i clienti.' },
+    };
+    expect(dropStaleItalianSlot(translated)).toBe(false);
+    expect(translated.descriptionByLocale.it).toMatch(/^Compiti/);
   });
 });

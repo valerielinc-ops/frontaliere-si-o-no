@@ -13,6 +13,9 @@
  *   all present) and an identical FULL description, compared case- and
  *   whitespace-insensitively (Stadt Zürich re-posts an ad under a second
  *   Referenz-Nr.; Otis prints the branch address in the ad).
+ * - `identicalAdvertisementKey` + `keepLowestStableIdPerKey`: the same test
+ *   on the source fields a crawler names as the workplace (Lonza: the Workday
+ *   locations and time type of a second req carrying the same posting).
  *
  * Postings that differ anywhere in the text — a shift, a role name, a language
  * version — or in the workplace — Denner advertises the same store role for
@@ -49,6 +52,24 @@ function jobBody(job) {
 }
 
 /**
+ * Grouping key of one advertisement: title (up to the gender marker), the
+ * workplace parts the caller names, and the full body. Empty — the posting is
+ * never grouped — when the body is empty or any workplace part is missing:
+ * an empty value never proves two postings identical.
+ *
+ * @param {object} job
+ * @param {unknown[]} workplace  source fields that locate the vacancy
+ * @returns {string}
+ */
+export function identicalAdvertisementKey(job, workplace = []) {
+  const body = normalized(jobBody(job));
+  if (!body) return '';
+  const place = workplace.map(normalized);
+  if (place.length === 0 || place.some((part) => !part)) return '';
+  return `${normalizedTitle(job?.title)}\u0000${place.join('\u0000')}\u0000${body}`;
+}
+
+/**
  * Grouping key of a posting: title, workplace and full body. Empty — the
  * posting is never grouped — when the body is empty or the workplace is not
  * fully resolved: an empty text, or a missing locality, postal code or
@@ -60,11 +81,7 @@ function jobBody(job) {
  * @returns {string}
  */
 export function identicalPostingKey(job) {
-  const body = normalized(jobBody(job));
-  if (!body) return '';
-  const place = [job?.addressLocality || job?.location, job?.postalCode, job?.streetAddress].map(normalized);
-  if (place.some((part) => !part)) return '';
-  return `${normalizedTitle(job?.title)}\u0000${place.join('\u0000')}\u0000${body}`;
+  return identicalAdvertisementKey(job, [job?.addressLocality || job?.location, job?.postalCode, job?.streetAddress]);
 }
 
 function stableOrderKey(job) {
@@ -80,7 +97,16 @@ function isLowerStableId(a, b) {
   return ka.id.localeCompare(kb.id, 'en', { numeric: true }) < 0;
 }
 
-function keepLowestStableIdPerKey(jobs, keyOf) {
+/**
+ * Keep one posting per non-empty key (the one with the lowest stable id),
+ * preserving the order of the input. A posting whose key is empty is kept.
+ *
+ * @template T
+ * @param {T[]} jobs
+ * @param {(job: T) => string} keyOf
+ * @returns {{ jobs: T[], dropped: T[] }}
+ */
+export function keepLowestStableIdPerKey(jobs, keyOf) {
   const keyByJob = new Map(jobs.map((job) => [job, keyOf(job)]));
   const keeperByKey = new Map();
   for (const job of jobs) {

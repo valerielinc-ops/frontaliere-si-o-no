@@ -13,7 +13,11 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
-import { dropSameSourceReference } from './identical-posting-dedupe.mjs';
+import {
+  dropSameSourceReference,
+  identicalAdvertisementKey,
+  keepLowestStableIdPerKey,
+} from './identical-posting-dedupe.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -311,6 +315,8 @@ export async function fetchAllLonzaJobs() {
 
   const jobs = [];
   let withoutBody = 0;
+  // Workday attributes that tell two postings apart, kept out of the record.
+  const advertisementKeys = new Map();
   for (const listing of listings) {
     const externalPath = listing.externalPath;
     if (!externalPath) continue;
@@ -418,17 +424,32 @@ export async function fetchAllLonzaJobs() {
     // req's own primary workplace, never from the description, so it is never
     // "derived from vacancy text".
 
+    // Everything the Workday posting says about the vacancy: title, primary
+    // and additional locations, time type and text. jobPostingInfo.startDate
+    // and postedOn are the publication dates of the req, not attributes of
+    // the vacancy, so they are not part of it.
+    advertisementKeys.set(job, identicalAdvertisementKey(job, [
+      info.location || primaryLocationText,
+      info.timeType,
+      JSON.stringify(info.additionalLocations || []),
+    ]));
     jobs.push(job);
     await new Promise((r) => setTimeout(r, 300));
   }
 
- // One Workday requisition reachable under two URLs is one advertisement:
- // one page. Two reqs with different ids are distinct advertisements even
- // when title, site and text coincide (R76184-1/R76397 on 2026-09-29): the
- // source gives no proof that they are the same vacancy, so both are kept.
- const { jobs: unique, dropped } = dropSameSourceReference(jobs, (job) => job.jobReqId);
+ // One Workday requisition reachable under two URLs is one advertisement.
+ // Lonza also opens a second req with the very same posting: on 2026-09-29
+ // R76184-1/R76397, R76163-1/R76165-1, R78180-1/R79814 and R78157-1/R79043
+ // had the same title (up to the gender marker), locations, time type and
+ // text, and differed only in their publication dates. With no attribute to
+ // tell them apart they are two identical pages to a reader: one page, the
+ // req with the lowest id (already published, so its URL stays).
+ const byRequisition = dropSameSourceReference(jobs, (job) => job.jobReqId);
+ const byAdvertisement = keepLowestStableIdPerKey(byRequisition.jobs, (job) => advertisementKeys.get(job) || '');
+ const unique = byAdvertisement.jobs;
+ const dropped = [...byRequisition.dropped, ...byAdvertisement.dropped];
  if (dropped.length > 0) {
-  console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same requisition id under another URL).`);
+  console.log(`  🧹 Dropped ${dropped.length} double publication(s): ${byRequisition.dropped.length} same requisition id under another URL, ${byAdvertisement.dropped.length} identical posting under another req.`);
  }
 
  if (withoutBody > 0) {

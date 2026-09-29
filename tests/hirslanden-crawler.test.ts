@@ -376,6 +376,25 @@ describe('Hirslanden — one page per Referenznummer', () => {
     expect(hirslandenReferenceNumber({ description: 'Arbeitsort: Klinik Hirslanden | Zürich' })).toBe('');
   });
 
+  it('keeps one page for the French and German versions of one Biel ad (Referenznummer 70053)', async () => {
+    const { dropSameSourceReference } = await import('../scripts/lib/identical-posting-dedupe.mjs');
+    const de = {
+      sourceLang: 'de',
+      title: 'Dipl. Hebamme (a) 50-100% - Befristete Anstellung',
+      description: 'Arbeitsort: Hirslanden Klinik Linde | Biel / Bienne\n\nBesetzung per: nach Vereinbarung\n\nAnstellungsart: Befristet\n\nReferenznummer: 70053\n\nAls grösstes medizinisches Netzwerk der Schweiz',
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Biel-Dipl_-Hebamme/1391700433/',
+    };
+    const fr = {
+      sourceLang: 'fr',
+      title: 'Sage-femme diplômée (a) 50-100% - À durée déterminée',
+      description: "Lieu du travail: Hirslanden Klinik Linde | Biel / Bienne Occupation par: Selon accordType d'emploi: À durée déterminée Numéro de référence: 70053\n\nEn tant que plus grand réseau médical de Suisse",
+      url: 'https://careers.mediclinic.com/Hirslanden/job/Biel-Sage-femme-diplomee/1391700533/',
+    };
+    const { jobs, dropped } = dropSameSourceReference([fr, de], hirslandenReferenceNumber);
+    expect(jobs).toEqual([de]);
+    expect(dropped).toEqual([fr]);
+  });
+
   it('publishes one posting per Referenznummer, the one with the lowest job id', async () => {
     const tasks = Array.from({ length: 12 }, (_, i) => `<p>Aufgabe ${i + 1}: Du betreust Patientinnen und Patienten auf der Station mit viel Herz.</p>`).join('');
     const searchHtml = `<table>
