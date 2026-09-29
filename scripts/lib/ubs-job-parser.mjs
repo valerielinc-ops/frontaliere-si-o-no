@@ -34,6 +34,7 @@ import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from '.
 import { inferAnyCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -803,7 +804,7 @@ export async function fetchAllUbsJobs() {
     // carries only the "Your role" teaser, 6-7 % of the source page, so a
     // posting whose job-details text cannot be read is not published — the
     // teaser alone would be an incomplete vacancy.
-    if (!full) {
+    if (!meetsSourceBodyFloor(full)) {
       console.log(`  ⏭️ no job-details text, not published (the search-row teaser alone is incomplete): ${job.title}`);
       withoutBody += 1;
       // eslint-disable-next-line no-await-in-loop

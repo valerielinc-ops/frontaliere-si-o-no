@@ -176,7 +176,7 @@ describe('Richemont crawler parser', () => {
       // Formerly asserted `not.toMatch(/\n/)`: the whole body was collapsed
       // into one paragraph, which is why 144/174 Richemont postings had no
       // list at all (audit run 36528331656, no-structured-content).
-      const rich = 'Line one.\n\n\n\nLine two.   Excessive    spaces. ' + 'x'.repeat(200);
+      const rich = 'Line one.\n\n\n\nLine two.   Excessive    spaces. ' + 'Richemont owns leading luxury Maisons. '.repeat(12);
       const out = buildJobDescription({ ...cardFields, detailText: rich });
       expect(out).not.toMatch(/ {2,}/);
       expect(out).not.toMatch(/\n{3,}/);
