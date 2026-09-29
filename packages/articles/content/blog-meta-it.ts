@@ -12247,6 +12247,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vertice-provinciale-beko-astuti.title': 'Vertice Beko: Astuti avverte crisi profonda',
     'blog.article.vertice-provinciale-beko-astuti.excerpt': 'Il tavolo provinciale si è riunito lunedì 28 settembre a Villa Recalcati sulla vertenza Beko di Cassinetta; Astuti (Pd) avverte: «gli impegni non sono stati rispettati, a pagare sono lavoratori e territorio».',
     'blog.article.vertice-provinciale-beko-astuti.imageAlt': 'Fabbrica con lavoratori al confine tra Ticino e Lombardia, cielo nuvoloso',
+    'blog.article.collaudo-ponte-comerio.title': 'Comerio, collaudo per il ponte pedonale di via Giardini',
+    'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio: lunedì 28 settembre il ponte pedonale di via Giardini sarà collaudato dalle 19 alle 7 del 29. Dalle 17 divieto di sosta in via Sacconaghi.',
+    'blog.article.collaudo-ponte-comerio.imageAlt': 'Nuovo ponte pedonale di via Giardini a Comerio durante i lavori',
 };
 
 export default blogMetaIt;

@@ -36754,6 +36754,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'collaudo-ponte-comerio',
+ category: 'novita',
+ date: '2026-09-29T01:39:48.779Z',
+ image: '/images/blog/collaudo-ponte-comerio.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12246,6 +12246,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vertice-provinciale-beko-astuti.title': 'Beko summit: Astuti warns of deep crisis',
     'blog.article.vertice-provinciale-beko-astuti.excerpt': 'The provincial table met on Monday, September 28 at Villa Recalcati on the Beko dispute in Cassinetta; Astuti (Pd) warns: "the commitments have not been respected, it is workers and territory that pay".',
     'blog.article.vertice-provinciale-beko-astuti.imageAlt': 'Factory with workers at the Ticino-Lombardy border, cloudy sky',
+    'blog.article.collaudo-ponte-comerio.title': 'Comerio, testing for the pedestrian bridge in Via Giardini',
+    'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio: Monday, September 28, the pedestrian bridge in Via Giardini will be tested from 7 pm to 7 am on the 29th. From 17:00 no parking in Via Sacconaghi.',
+    'blog.article.collaudo-ponte-comerio.imageAlt': 'New pedestrian bridge on Via Giardini in Comerio during construction',
 };
 
 export default blogMetaEn;

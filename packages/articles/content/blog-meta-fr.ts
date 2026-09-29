@@ -12248,6 +12248,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vertice-provinciale-beko-astuti.title': 'Direction de Beko : Astuti met en garde contre une crise profonde',
     'blog.article.vertice-provinciale-beko-astuti.excerpt': 'La table provinciale s\'est réunie lundi 28 septembre à la Villa Recalcati sur le différend Beko de Cassinetta ; Astuti (PD) prévient : « les engagements n\'ont pas été respectés, ce sont les travailleurs et le territoire qui paient ».',
     'blog.article.vertice-provinciale-beko-astuti.imageAlt': 'Usine avec des travailleurs à la frontière entre le Tessin et la Lombardie, ciel nuageux',
+    'blog.article.collaudo-ponte-comerio.title': 'Comerio, essai du pont piétonnier de via Giardini',
+    'blog.article.collaudo-ponte-comerio.excerpt': 'Comerio : le lundi 28 septembre, le pont piétonnier de via Giardini sera testé de 19h à 7h du 29. À partir de 17 heures, interdiction de stationner dans la rue Sacconaghi.',
+    'blog.article.collaudo-ponte-comerio.imageAlt': 'Nouvelle passerelle piétonne de la Via Giardini à Comerio pendant les travaux',
 };
 
 export default blogMetaFr;
