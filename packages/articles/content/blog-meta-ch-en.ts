@@ -7097,6 +7097,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-successione-donazione-aliquote.title': 'Solothurn: inheritance and gift tax rates without federal tax',
     'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Solothurn, responsibility lies exclusively with the canton and municipalities; AFC/ESTV does not administer this tax.',
     'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Solothurn canton landscape with hills and settlements',
+    'blog.article.sresi-prezzi-lugano-2026.title': 'Real estate investments: Ticino bucks the trend',
+    'blog.article.sresi-prezzi-lugano-2026.excerpt': 'The SRESI index falls to 47,5 points in 2026 from 69,5 in 2025. Lugano is the only center where prices are expected to decline.',
+    'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Lugano panorama with residential buildings and the lake in the background',
 };
 
 export default blogMetaChEn;
