@@ -91,8 +91,10 @@ function dedupProofJob(job) {
 
 function dedupProofSourceKeys(job) {
   const keys = new Set();
+  const url = String(job?.url ?? '').trim();
+  if (url) keys.add(`url:${url}`);
   const stableIdentity = buildStableJobIdentity(job);
-  if (stableIdentity) keys.add(stableIdentity);
+  if (stableIdentity) keys.add(`identity:${stableIdentity}`);
   const id = String(job?.id ?? '').trim().toLowerCase();
   if (id) keys.add(`id:${id}`);
   const slug = String(job?.slug ?? '').trim().toLowerCase();
@@ -133,17 +135,32 @@ function buildDedupProofSourceIndex() {
 
 function dedupProofSourceJobs(index, job) {
   if (!index) return [];
-  const candidates = [];
-  const seen = new Set();
-  for (const key of dedupProofSourceKeys(job)) {
-    for (const sourceJob of index.get(key) || []) {
-      const serialized = JSON.stringify(sourceJob);
-      if (seen.has(serialized)) continue;
-      seen.add(serialized);
-      candidates.push(sourceJob);
+  const keys = [...dedupProofSourceKeys(job)];
+  const directKeys = keys.filter((key) => !key.startsWith('identity:'));
+  const collect = (lookupKeys) => {
+    const candidates = [];
+    const seen = new Set();
+    for (const key of lookupKeys) {
+      for (const sourceJob of index.get(key) || []) {
+        const serialized = JSON.stringify(sourceJob);
+        if (seen.has(serialized)) continue;
+        seen.add(serialized);
+        candidates.push(sourceJob);
+      }
     }
+    return candidates;
+  };
+
+  // Prefer the least ambiguous source key. In particular, identityUrlKey
+  // strips fragments by design, while some vendors use the fragment for the
+  // per-posting identity; falling back to it too early would copy unrelated
+  // records into every proof entry for that vendor.
+  for (const key of directKeys) {
+    const direct = collect([key]);
+    if (direct.length > 0) return direct;
   }
-  return candidates;
+
+  return collect(keys);
 }
 
 function normalizeScopeValue(value) {
