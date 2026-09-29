@@ -1040,12 +1040,12 @@
     },
     {
       "id": "imad-a2bc15749263",
-      "slug": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
+      "slug": "carriera-emd-di-notte-al-50-in-hom-di-11-o-12-mesi-imad-geneva",
       "slugByLocale": {
-        "it": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
-        "en": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
-        "de": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
-        "fr": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        "fr": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
+        "it": "carriera-emd-di-notte-al-50-in-hom-di-11-o-12-mesi-imad-geneva",
+        "en": "caregiver-emd-at-night-at-50-in-hom-of-11-or-12-months-imad-geneva",
+        "de": "pflegeperson-emd-in-der-nacht-bei-50-in-hom-von-11-oder-12-monaten-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1098,7 +1098,21 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        ],
+        "en": [
+          "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        ],
+        "de": [
+          "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+      ]
     },
     {
       "id": "imad-60559d94f7d8",

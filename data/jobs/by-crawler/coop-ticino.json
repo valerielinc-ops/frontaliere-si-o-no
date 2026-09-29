@@ -3923,8 +3923,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-f-m-d-coop-genossenschaft-lausanne",
-        "en": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-05oyuf",
-        "de": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-05oyuf",
+        "en": "collaborator-partner-restaurant-student-post-m-f-d-coop-genossenschaft-lausanne",
+        "de": "mitarbeiter-partnerrestaurant-student-post-m-w-d-coop-genossenschaft-lausanne",
         "fr": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-f-h-d-coop-genossenschaft-lausanne"
       },
       "requirementsByLocale": {
@@ -21064,7 +21064,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-zurich-95ca1a",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-zurich",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-zurich",
         "de": "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-zurich-95ca1a"
       },
@@ -21099,7 +21099,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
           "chef-chef-m-f-d-coop-genossenschaft-zurich-55jsrk",
-          "chef-chef-m-f-d-coop-genossenschaft-zurich"
+          "kochin-koch-w-m-d-coop-genossenschaft-zurich"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk"
@@ -21109,8 +21109,8 @@
         "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
         "chef-chef-m-f-d-coop-genossenschaft-zurich-55jsrk",
         "kochin-koch-m-w-d-coop-ristorante-zurich",
-        "chef-chef-m-f-d-coop-genossenschaft-zurich",
-        "kochin-koch-m-w-d-coop-ristorante-zurich-2"
+        "kochin-koch-m-w-d-coop-ristorante-zurich-2",
+        "kochin-koch-w-m-d-coop-genossenschaft-zurich"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/4455dd68-7ff2-4f6c-88fc-950bbc8269db",
       "salaryMin": 73500,
@@ -47875,7 +47875,7 @@
       },
       "slugByLocale": {
         "it": "cooker-m-f-d-coop-genossenschaft-balgach",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-balgach",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-balgach",
         "de": "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
         "fr": "cuisiniere-h-f-d-coop-genossenschaft-balgach"
       },
@@ -47908,7 +47908,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
-          "chef-chef-m-f-d-coop-genossenschaft-balgach"
+          "kochin-koch-m-w-d-coop-genossenschaft-balgach"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3"
@@ -47917,7 +47917,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
         "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen",
-        "chef-chef-m-f-d-coop-genossenschaft-balgach"
+        "kochin-koch-m-w-d-coop-genossenschaft-balgach"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/d8125810-f39d-4ed1-9747-912242d93e07",
       "salaryMin": 57500,
@@ -58242,7 +58242,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-klosters-serneus",
         "en": "seller-food-coop-genossenschaft-klosters-serneus",
         "de": "verkaufer-in-food-coop-klosters-serneus-graubunden-ls96m6",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-klosters-serneus"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -58280,11 +58280,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus"
+          "aliments-pour-vendeurs-coop-genossenschaft-klosters-serneus"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus"
+        "aliments-pour-vendeurs-coop-genossenschaft-klosters-serneus"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -58828,10 +58828,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-14T16:09:28.881Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-magden",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-magden",
         "en": "seller-food-coop-genossenschaft-magden",
         "de": "verkaufer-in-food-coop-magden-aargau-rd8deh",
-        "fr": "verkaufer-in-food-coop-genossenschaft-magden"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-magden"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -58868,18 +58868,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-magden"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-magden"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-magden",
-        "produits-alimentaires-vendus-coop-genossenschaft-magden"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -58912,10 +58900,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-14T16:09:28.881Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-winterthur",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-winterthur-e5a645",
         "en": "seller-food-coop-genossenschaft-winterthur-e5a645",
         "de": "verkaufer-in-food-coop-winterthur-zurich-n1wbez",
-        "fr": "verkaufer-in-food-coop-genossenschaft-winterthur"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-winterthur-e5a645"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -58952,18 +58940,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-winterthur-e5a645"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-winterthur-e5a645"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-winterthur-e5a645",
-        "produits-alimentaires-vendus-coop-genossenschaft-winterthur-e5a645"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -58996,10 +58972,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-14T16:09:28.881Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-ostermundigen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen",
         "en": "seller-food-coop-genossenschaft-ostermundigen",
         "de": "verkaufer-in-food-coop-ostermundigen-bern-1t3miy",
-        "fr": "verkaufer-in-food-coop-genossenschaft-ostermundigen"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-ostermundigen"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -59036,18 +59012,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-ostermundigen"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen",
-        "produits-alimentaires-vendus-coop-genossenschaft-ostermundigen"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -59222,7 +59186,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern-aac8c1",
         "en": "seller-food-coop-genossenschaft-bern-aac8c1",
         "de": "verkaufer-in-food-coop-bern-yv68g1",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-bern"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bern-aac8c1"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -59258,16 +59222,16 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-bern-aac8c1"
+          "aliments-pour-vendeurs-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-bern-aac8c1"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+        "aliments-pour-vendeurs-coop-genossenschaft-bern"
+      ]
     },
     {
       "id": "company-iikp3y",
@@ -59301,7 +59265,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern-139fd5",
         "en": "seller-food-coop-genossenschaft-bern-139fd5",
         "de": "verkaufer-in-food-coop-bern-iikp3y",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-bern"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bern-139fd5"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -59337,16 +59301,16 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-bern-139fd5"
+          "aliments-pour-vendeurs-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-bern-139fd5"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+        "aliments-pour-vendeurs-coop-genossenschaft-bern"
+      ]
     },
     {
       "id": "company-2jpivn",
@@ -62696,10 +62660,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-11T13:46:17.671Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-interlaken",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-interlaken",
         "en": "seller-food-coop-genossenschaft-interlaken",
         "de": "verkaufer-in-food-coop-interlaken-bern-nx7o7o",
-        "fr": "verkaufer-in-food-coop-genossenschaft-interlaken"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-interlaken"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -62736,18 +62700,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-interlaken"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-interlaken"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-interlaken",
-        "produits-alimentaires-vendus-coop-genossenschaft-interlaken"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -62780,10 +62732,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-11T13:46:17.671Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-kirchberg",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-kirchberg",
         "en": "seller-food-coop-genossenschaft-kirchberg",
         "de": "verkaufer-in-food-coop-kirchberg-bern-3vui4a",
-        "fr": "verkaufer-in-food-coop-genossenschaft-kirchberg"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-kirchberg"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -62820,18 +62772,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-kirchberg"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-kirchberg"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-kirchberg",
-        "produits-alimentaires-vendus-coop-genossenschaft-kirchberg"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -62864,10 +62804,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-11T13:46:17.671Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-langenthal",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-langenthal",
         "en": "seller-food-coop-genossenschaft-langenthal",
         "de": "verkaufer-in-food-coop-langenthal-bern-t2mg9t",
-        "fr": "verkaufer-in-food-coop-genossenschaft-langenthal"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-langenthal"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -62904,18 +62844,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-langenthal"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-langenthal"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-langenthal",
-        "produits-alimentaires-vendus-coop-genossenschaft-langenthal"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -67288,10 +67216,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-10T23:20:16.004Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-liestal",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-liestal",
         "en": "seller-food-coop-genossenschaft-liestal",
         "de": "verkaufer-in-food-coop-liestal-basel-landschaft-x0bt73",
-        "fr": "verkaufer-in-food-coop-genossenschaft-liestal"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-liestal"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -67328,18 +67256,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-liestal"
-        ],
-        "fr": [
-          "aliments-pour-vendeurs-coop-genossenschaft-liestal"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-liestal",
-        "aliments-pour-vendeurs-coop-genossenschaft-liestal"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -67754,10 +67670,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-10T23:20:16.004Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-zollikon",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-zollikon",
         "en": "seller-food-coop-genossenschaft-zollikon",
         "de": "verkaufer-in-food-coop-zollikon-zurich-trkgr8",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zollikon"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-zollikon"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -67794,18 +67710,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-zollikon"
-        ],
-        "fr": [
-          "aliments-pour-vendeurs-coop-genossenschaft-zollikon"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-zollikon",
-        "aliments-pour-vendeurs-coop-genossenschaft-zollikon"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -73609,10 +73513,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-09T13:58:36.882Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-aarau",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-aarau",
         "en": "seller-food-coop-genossenschaft-aarau",
         "de": "verkaufer-in-food-coop-city-aarau-aargau-35hikd",
-        "fr": "verkaufer-in-food-coop-genossenschaft-aarau"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-aarau"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -73650,9 +73554,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-aarau"
-        ],
         "fr": [
           "aliments-pour-vendeurs-coop-genossenschaft-aarau",
           "verkaufer-in-food-coop-city-aarau-35hikd"
@@ -76863,7 +76764,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-luzern",
         "en": "seller-food-coop-genossenschaft-luzern",
         "de": "verkaufer-in-food-coop-luzern-wvnz2q",
-        "fr": "verkaufer-in-food-coop-genossenschaft-luzern-wvnz2q"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-luzern"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -76903,12 +76804,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "produits-alimentaires-vendus-coop-genossenschaft-luzern",
-          "verkaufer-in-food-coop-genossenschaft-luzern"
+          "verkaufer-in-food-coop-genossenschaft-luzern",
+          "verkaufer-in-food-coop-genossenschaft-luzern-wvnz2q"
         ]
       },
       "previousSlugs": [
         "produits-alimentaires-vendus-coop-genossenschaft-luzern",
-        "verkaufer-in-food-coop-genossenschaft-luzern"
+        "verkaufer-in-food-coop-genossenschaft-luzern",
+        "verkaufer-in-food-coop-genossenschaft-luzern-wvnz2q"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -77116,7 +77019,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-disentis-muster",
         "en": "seller-food-coop-genossenschaft-disentis-muster",
         "de": "verkaufer-in-food-coop-disentis-muster-graubunden-6mgr26",
-        "fr": "verkaufer-in-food-coop-genossenschaft-disentis-muster-6mgr26"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-disentis-muster"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -77200,7 +77103,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-maur",
         "en": "seller-food-coop-genossenschaft-maur",
         "de": "verkaufer-in-food-coop-maur-zurich-74wjrk",
-        "fr": "verkaufer-in-food-coop-genossenschaft-maur"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-maur"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -77239,11 +77142,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-maur"
+          "verkaufer-in-food-coop-genossenschaft-maur"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-maur"
+        "verkaufer-in-food-coop-genossenschaft-maur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -77280,7 +77183,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-matten-bei-interlaken",
         "en": "seller-food-coop-genossenschaft-matten-bei-interlaken",
         "de": "verkaufer-in-food-coop-matten-bei-interlaken-bern-4tl3ip",
-        "fr": "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-matten-bei-interlaken"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -77319,11 +77222,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-matten-bei-interlaken"
+          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-matten-bei-interlaken"
+        "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -77360,7 +77263,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern",
         "en": "seller-food-coop-genossenschaft-bern",
         "de": "verkaufer-in-food-coop-bern-kr3ykr",
-        "fr": "verkaufer-in-food-coop-genossenschaft-bern-kr3ykr"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bern"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -81563,10 +81466,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-frutigen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-frutigen",
         "en": "seller-in-food-coop-genossenschaft-frutigen",
         "de": "verkaufer-in-food-coop-frutigen-bern-fn6cfh",
-        "fr": "verkaufer-in-food-coop-genossenschaft-frutigen"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-frutigen"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -81603,18 +81506,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-frutigen"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-frutigen"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-frutigen",
-        "produits-alimentaires-vendus-coop-genossenschaft-frutigen"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -81709,10 +81600,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "slugByLocale": {
-        "it": "kommissionierer-in-coop-genossenschaft-bern",
-        "en": "kommissionierer-in-coop-genossenschaft-bern",
+        "it": "pickers-ordine-coop-genossenschaft-bern",
+        "en": "order-pickers-coop-genossenschaft-bern",
         "de": "kommissionierer-in-coop-bern-y3mtqf",
-        "fr": "kommissionierer-in-coop-genossenschaft-bern"
+        "fr": "commandeurs-coop-genossenschaft-bern"
       },
       "titleByLocale": {
         "it": "Kommissionierer:in",
@@ -81750,9 +81641,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "pickers-ordine-coop-genossenschaft-bern"
-        ],
         "en": [
           "order-pickers-coop-genossenschaft-bern",
           "kommissionierer-in-coop-bern-y3mtqf"
@@ -81800,10 +81688,10 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-grindelwald",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald",
         "en": "seller-in-food-coop-genossenschaft-grindelwald",
         "de": "verkaufer-in-food-coop-grindelwald-bern-g2n31r",
-        "fr": "verkaufer-in-food-coop-genossenschaft-grindelwald"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-grindelwald"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -81840,18 +81728,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald"
-        ],
-        "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-grindelwald"
-        ]
-      },
-      "previousSlugs": [
-        "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald",
-        "produits-alimentaires-vendus-coop-genossenschaft-grindelwald"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -81884,7 +81760,7 @@
       "crawledAt": "2026-09-29T09:31:30.658Z",
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-genossenschaft-laupen",
+        "it": "vendite-magazine-coop-genossenschaft-laupen",
         "en": "warehouse-sales-coop-genossenschaft-laupen",
         "de": "magaziner-in-verkauf-coop-laupen-bern-dbbev9",
         "fr": "magasin-en-vente-coop-genossenschaft-laupen"
@@ -81924,14 +81800,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "vendite-magazine-coop-genossenschaft-laupen"
-        ]
-      },
-      "previousSlugs": [
-        "vendite-magazine-coop-genossenschaft-laupen"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -82834,7 +82702,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald-588082",
         "en": "seller-in-food-coop-genossenschaft-grindelwald-588082",
         "de": "verkaufer-in-food-coop-grindelwald-bern-z1lg4x",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-grindelwald"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-grindelwald-588082"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -82870,16 +82738,16 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-grindelwald-588082"
+          "aliments-pour-vendeurs-coop-genossenschaft-grindelwald"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-grindelwald-588082"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+        "aliments-pour-vendeurs-coop-genossenschaft-grindelwald"
+      ]
     },
     {
       "id": "company-xrhlwr",
@@ -82984,7 +82852,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich",
         "en": "seller-in-food-coop-genossenschaft-zurich-9eb23d",
         "de": "verkaufer-in-food-coop-zurich-c4qsr4",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-zurich"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -83020,16 +82888,16 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-zurich"
+          "aliments-pour-vendeurs-coop-genossenschaft-zurich"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "aliments-pour-vendeurs-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-8ergcm",
@@ -83226,7 +83094,7 @@
       "firstSeenAt": "2026-09-06T23:01:59.541Z",
       "slugByLocale": {
         "it": "polydesigner-3d-m-f-d-coop-genossenschaft-schaffhausen",
-        "en": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen",
+        "en": "poly-3d-designer-m-f-d-coop-genossenschaft-schaffhausen",
         "de": "polydesigner-3d-m-w-d-coop-city-schaffhausen-kw0lwh",
         "fr": "polydesigner-3d-h-f-d-coop-genossenschaft-schaffhausen"
       },
@@ -83267,11 +83135,11 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "poly-3d-designer-m-f-d-coop-genossenschaft-schaffhausen"
+          "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "poly-3d-designer-m-f-d-coop-genossenschaft-schaffhausen"
+        "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -83398,7 +83266,7 @@
         "it": "venditore-in-food-coop-genossenschaft-kandersteg",
         "en": "seller-in-food-coop-genossenschaft-kandersteg",
         "de": "verkaufer-in-food-coop-kandersteg-bern-6r6hsu",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-kandersteg"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-kandersteg"
       },
       "addressLocality": "Kandersteg",
       "sourceLang": "de",
@@ -83426,7 +83294,7 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-kandersteg-bern-6r6hsu",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-kandersteg"
+          "produits-alimentaires-vendus-coop-genossenschaft-kandersteg"
         ]
       },
       "previousSlugs": [
@@ -83434,7 +83302,7 @@
         "verkaufer-in-food-coop-kandersteg-bern",
         "venditore-a-food-coop-genossenschaft-kandersteg",
         "venditore-food-coop-genossenschaft-kandersteg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-kandersteg"
+        "produits-alimentaires-vendus-coop-genossenschaft-kandersteg"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/af75df6a-5d1e-4cd6-a377-aad18974aae3",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/af75df6a-5d1e-4cd6-a377-aad18974aae3",
@@ -86039,7 +85907,7 @@
         "it": "venditore-in-food-coop-genossenschaft-fehraltorf",
         "en": "seller-in-food-coop-genossenschaft-fehraltorf",
         "de": "verkaufer-in-food-coop-fehraltorf-zurich-jcp2ad",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-fehraltorf"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-fehraltorf"
       },
       "addressLocality": "Fehraltorf",
       "sourceLang": "de",
@@ -86071,7 +85939,7 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-fehraltorf-zurich-jcp2ad",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-fehraltorf"
+          "produits-alimentaires-vendus-coop-genossenschaft-fehraltorf"
         ]
       },
       "previousSlugs": [
@@ -86079,7 +85947,7 @@
         "verkaufer-in-food-coop-fehraltorf-zurich",
         "verkaufer-in-food-coop-genossenschaft-fehraltorf-0t8a80",
         "verkaufer-in-food-coop-fehraltorf-zurich-0t8a80",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-fehraltorf"
+        "produits-alimentaires-vendus-coop-genossenschaft-fehraltorf"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6cb2a3ab-a92d-4919-ab9b-5c42e7825837",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6cb2a3ab-a92d-4919-ab9b-5c42e7825837",
@@ -86879,7 +86747,7 @@
         "it": "venditore-in-food-coop-genossenschaft-chur",
         "en": "seller-in-food-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-coop-city-chur-graubunden-qh26l1",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-chur"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -86917,11 +86785,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
+          "aliments-pour-vendeurs-coop-genossenschaft-chur"
         ]
       },
       "previousSlugs": [
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
+        "aliments-pour-vendeurs-coop-genossenschaft-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -86958,7 +86826,7 @@
         "it": "venditore-in-food-coop-genossenschaft-lengnau",
         "en": "seller-in-food-coop-genossenschaft-lengnau",
         "de": "verkaufer-in-food-coop-lengnau-bern-ilw4vl",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-lengnau"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-lengnau"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -86996,11 +86864,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-lengnau"
+          "aliments-pour-vendeurs-coop-genossenschaft-lengnau"
         ]
       },
       "previousSlugs": [
-        "vendeur-dans-la-nourriture-coop-genossenschaft-lengnau"
+        "aliments-pour-vendeurs-coop-genossenschaft-lengnau"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -87589,7 +87457,7 @@
         "it": "venditore-in-food-coop-genossenschaft-illnau-effretikon",
         "en": "seller-in-food-coop-genossenschaft-illnau-effretikon",
         "de": "verkaufer-in-food-coop-illnau-effretikon-zurich-xzmzyp",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-illnau-effretikon"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-illnau-effretikon"
       },
       "addressLocality": "Illnau-Effretikon",
       "sourceLang": "de",
@@ -87615,13 +87483,13 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-illnau-effretikon-zurich-xzmzyp",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-illnau-effretikon"
+          "produits-alimentaires-vendus-coop-genossenschaft-illnau-effretikon"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-illnau-effretikon-zurich-xzmzyp",
         "verkaufer-in-food-coop-illnau-effretikon-zurich",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-illnau-effretikon"
+        "produits-alimentaires-vendus-coop-genossenschaft-illnau-effretikon"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5e66fa8c-c8bc-4355-ae02-2a57bc8d403b",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5e66fa8c-c8bc-4355-ae02-2a57bc8d403b",
@@ -87875,7 +87743,7 @@
         "it": "risorse-umane-business-partner-m-w-d-coop-bern-ny3n0d",
         "en": "hr-business-partner-m-w-d-coop-bern-ny3n0d",
         "de": "personalwesen-business-partner-m-w-d-coop-bern-ny3n0d",
-        "fr": "hr-business-partner-m-w-d-coop-genossenschaft-bern"
+        "fr": "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -87904,7 +87772,7 @@
         "fr": [
           "hr-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
           "hr-business-partner-m-w-d-coop-bern-ny3n0d",
-          "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
+          "hr-business-partner-m-w-d-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
@@ -87914,7 +87782,7 @@
         "hr-business-partner-m-w-d-coop-gossau-sankt-gallen",
         "hr-business-partner-m-w-d-coop-bern-ny3n0d",
         "hr-business-partner-m-w-d-coop-bern",
-        "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
+        "hr-business-partner-m-w-d-coop-genossenschaft-bern"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/hr-business-partner-w-m-d/b4b030fc-da11-42d8-b312-51d11e28e5bb",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/hr-business-partner-w-m-d/b4b030fc-da11-42d8-b312-51d11e28e5bb",
@@ -87972,7 +87840,7 @@
         "it": "venditore-in-food-coop-genossenschaft-ruegsau",
         "en": "seller-in-food-coop-genossenschaft-ruegsau",
         "de": "verkaufer-in-food-coop-ruegsau-bern-rt6d3c",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-ruegsau"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-ruegsau"
       },
       "addressLocality": "Rüegsau",
       "sourceLang": "de",
@@ -87998,13 +87866,13 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-ruegsau-bern-rt6d3c",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-ruegsau"
+          "produits-alimentaires-vendus-coop-genossenschaft-ruegsau"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-ruegsau-bern-rt6d3c",
         "verkaufer-in-food-coop-ruegsau-bern",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-ruegsau"
+        "produits-alimentaires-vendus-coop-genossenschaft-ruegsau"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/98453393-5ae6-4c71-ad4f-afadcf0a4dc1",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/98453393-5ae6-4c71-ad4f-afadcf0a4dc1",
@@ -88142,7 +88010,7 @@
         "it": "venditore-in-food-coop-genossenschaft-balgach",
         "en": "seller-in-food-coop-genossenschaft-balgach",
         "de": "verkaufer-in-food-coop-balgach-sankt-gallen-izld3t",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-balgach"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-balgach"
       },
       "addressLocality": "Balgach",
       "sourceLang": "de",
@@ -88168,13 +88036,13 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-balgach-sankt-gallen-izld3t",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-balgach"
+          "produits-alimentaires-vendus-coop-genossenschaft-balgach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-balgach-sankt-gallen-izld3t",
         "verkaufer-in-food-coop-balgach-sankt-gallen",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-balgach"
+        "produits-alimentaires-vendus-coop-genossenschaft-balgach"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a115d7d0-18b5-4321-892a-41de27c03bc7",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a115d7d0-18b5-4321-892a-41de27c03bc7",
@@ -90062,7 +89930,7 @@
         "it": "venditore-in-food-coop-genossenschaft-wattenwil",
         "en": "seller-in-food-coop-genossenschaft-wattenwil",
         "de": "verkaufer-in-food-coop-wattenwil-bern-3bqst5",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-wattenwil"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-wattenwil"
       },
       "addressLocality": "Wattenwil",
       "sourceLang": "de",
@@ -90096,7 +89964,7 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-wattenwil-bern-3bqst5",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-wattenwil"
+          "produits-alimentaires-vendus-coop-genossenschaft-wattenwil"
         ]
       },
       "previousSlugs": [
@@ -90106,7 +89974,8 @@
         "verkaufer-in-food-coop-wattenwil-bern-3bqst5",
         "verkaufer-in-food-coop-wattenwil-bern",
         "seller-in-food-coop-genossenschaft-wattenwil-40cyml",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-wattenwil-40cyml"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-wattenwil-40cyml",
+        "produits-alimentaires-vendus-coop-genossenschaft-wattenwil"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/346e937c-d10f-4f51-9fa1-c5aa3cec5f16",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/346e937c-d10f-4f51-9fa1-c5aa3cec5f16",
@@ -90347,7 +90216,7 @@
         "it": "venditore-in-food-coop-genossenschaft-seuzach",
         "en": "seller-in-food-coop-genossenschaft-seuzach",
         "de": "verkaufer-in-food-coop-seuzach-zurich-6xwdrd",
-        "fr": "produits-alimentaires-vendus-coop-genossenschaft-seuzach"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-seuzach"
       },
       "addressLocality": "Seuzach",
       "sourceLang": "de",
@@ -90385,7 +90254,7 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-seuzach-zurich-6xwdrd",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-seuzach"
+          "produits-alimentaires-vendus-coop-genossenschaft-seuzach"
         ]
       },
       "previousSlugs": [
@@ -90398,7 +90267,8 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-seuzach-jtcnw0",
         "venditore-food-coop-genossenschaft-seuzach",
         "verkaufer-in-food-coop-seuzach-zurich-o3pkwy",
-        "verkaufer-in-food-coop-genossenschaft-seuzach-iyijsb"
+        "verkaufer-in-food-coop-genossenschaft-seuzach-iyijsb",
+        "produits-alimentaires-vendus-coop-genossenschaft-seuzach"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d9f29cd9-ced6-4b4e-b3c1-a786e35aa33c",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d9f29cd9-ced6-4b4e-b3c1-a786e35aa33c",
@@ -90670,7 +90540,7 @@
         "it": "venditore-in-food-coop-genossenschaft-zurich",
         "en": "seller-in-food-coop-genossenschaft-zurich-2b4632",
         "de": "verkaufer-in-food-coop-zurich-46jnxl",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zurich-46jnxl"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-2b4632"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -90909,7 +90779,7 @@
         "it": "venditore-in-food-coop-genossenschaft-basel",
         "en": "seller-in-food-coop-genossenschaft-basel",
         "de": "verkaufer-in-food-coop-basel-stadt-i1etnr",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-basel"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-basel"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -90947,11 +90817,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-basel"
+          "aliments-pour-vendeurs-coop-genossenschaft-basel"
         ]
       },
       "previousSlugs": [
-        "vendeur-dans-la-nourriture-coop-genossenschaft-basel"
+        "aliments-pour-vendeurs-coop-genossenschaft-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -91342,7 +91212,7 @@
         "it": "venditore-in-food-coop-genossenschaft-koniz",
         "en": "seller-in-food-coop-genossenschaft-koniz",
         "de": "verkaufer-in-food-coop-koniz-bern-ymljhu",
-        "fr": "verkaufer-in-food-coop-genossenschaft-koniz"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-koniz"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -91381,11 +91251,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-koniz"
+          "verkaufer-in-food-coop-genossenschaft-koniz"
         ]
       },
       "previousSlugs": [
-        "vendeur-dans-la-nourriture-coop-genossenschaft-koniz"
+        "verkaufer-in-food-coop-genossenschaft-koniz"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -91699,7 +91569,7 @@
         "it": "venditore-in-food-coop-genossenschaft-luzern",
         "en": "seller-in-food-coop-genossenschaft-luzern",
         "de": "verkaufer-in-food-coop-luzern-hmjpmu",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-luzern"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-luzern"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -91737,11 +91607,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-luzern"
+          "aliments-pour-vendeurs-coop-genossenschaft-luzern"
         ]
       },
       "previousSlugs": [
-        "vendeur-dans-la-nourriture-coop-genossenschaft-luzern"
+        "aliments-pour-vendeurs-coop-genossenschaft-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -95113,7 +94983,7 @@
         "it": "venditore-trice-food-coop-genossenschaft-zurich",
         "en": "salesman-food-coop-genossenschaft-zurich",
         "de": "verkaufer-in-food-coop-zurich-yjvrps",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zurich-yjvrps"
+        "fr": "vendeur-aliment-coop-genossenschaft-zurich"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -95340,7 +95210,7 @@
         "it": "venditore-trice-food-coop-genossenschaft-adliswil",
         "en": "salesman-food-coop-genossenschaft-adliswil",
         "de": "verkaufer-in-food-coop-adliswil-zurich-42mu6a",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-adliswil"
+        "fr": "vendeur-aliment-coop-genossenschaft-adliswil"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -95378,11 +95248,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-aliment-coop-genossenschaft-adliswil"
+          "aliments-pour-vendeurs-coop-genossenschaft-adliswil"
         ]
       },
       "previousSlugs": [
-        "vendeur-aliment-coop-genossenschaft-adliswil"
+        "aliments-pour-vendeurs-coop-genossenschaft-adliswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -95490,7 +95360,7 @@
         "it": "venditore-trice-food-coop-genossenschaft-aarau",
         "en": "salesman-food-coop-genossenschaft-aarau",
         "de": "verkaufer-in-food-coop-aarau-aargau-4q7j27",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-aarau"
+        "fr": "vendeur-aliment-coop-genossenschaft-aarau"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -95528,11 +95398,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-aliment-coop-genossenschaft-aarau"
+          "aliments-pour-vendeurs-coop-genossenschaft-aarau"
         ]
       },
       "previousSlugs": [
-        "vendeur-aliment-coop-genossenschaft-aarau"
+        "aliments-pour-vendeurs-coop-genossenschaft-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -95641,7 +95511,7 @@
         "it": "commesso-a-generi-alimentari-coop-genossenschaft-bern",
         "en": "food-sales-associate-coop-genossenschaft-bern-632964",
         "de": "verkaufer-in-food-coop-bern-ati0lu",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-bern"
+        "fr": "vendeur-aliment-coop-genossenschaft-bern"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -95677,16 +95547,16 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-aliment-coop-genossenschaft-bern"
+          "aliments-pour-vendeurs-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
-        "vendeur-aliment-coop-genossenschaft-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+        "aliments-pour-vendeurs-coop-genossenschaft-bern"
+      ]
     },
     {
       "id": "company-kefzcm",
@@ -98510,7 +98380,7 @@
         "it": "venditore-trice-food-coop-genossenschaft-balgach",
         "en": "salesman-food-coop-genossenschaft-balgach",
         "de": "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-balgach"
+        "fr": "vendeur-aliment-coop-genossenschaft-balgach"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -98548,11 +98418,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-aliment-coop-genossenschaft-balgach"
+          "aliments-pour-vendeurs-coop-genossenschaft-balgach"
         ]
       },
       "previousSlugs": [
-        "vendeur-aliment-coop-genossenschaft-balgach"
+        "aliments-pour-vendeurs-coop-genossenschaft-balgach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -98589,7 +98459,7 @@
         "it": "addetto-a-vendite-food-coop-genossenschaft-bern",
         "en": "food-sales-associate-coop-genossenschaft-bern-d447c6",
         "de": "verkaufer-in-food-coop-bern-7mymbl",
-        "fr": "verkaufer-in-food-coop-genossenschaft-bern-7mymbl"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-bern-d447c6"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -99208,7 +99078,7 @@
         "it": "addetto-a-vendite-food-coop-genossenschaft-zurich-4d0951",
         "en": "food-sales-associate-coop-genossenschaft-zurich-4d0951",
         "de": "verkaufer-in-food-coop-zurich-xy2zgt",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zurich-xy2zgt"
+        "fr": "vendeur-euse-alimentation-coop-genossenschaft-zurich"
       },
       "titleByLocale": {
         "it": "Verkäufer:in Food",
@@ -99354,7 +99224,7 @@
         "it": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
         "en": "food-sales-associate-coop-genossenschaft-zurich-42e898",
         "de": "verkaufer-in-food-coop-city-zurich-fix6o0",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich"
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -99390,16 +99260,16 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "previousSlugsByLocale": {
         "fr": [
-          "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
+          "aliments-pour-vendeurs-coop-genossenschaft-zurich"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "aliments-pour-vendeurs-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-aqybqg",
@@ -148719,9 +148589,9 @@
       "firstSeenAt": "2026-09-26T14:10:57.436Z",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-coop-gossau-oypaij",
-        "en": "logistics-coop-gossau-sg",
+        "en": "logistician-coop-gossau-68ab42",
         "de": "logistiker-in-coop-gossau-oypaij",
-        "fr": "logistique-coop-gossau-sg"
+        "fr": "logisticien-coop-gossau-68ab42"
       },
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica",
@@ -148752,19 +148622,19 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "logistician-coop-gossau-68ab42"
+          "logistics-coop-gossau-sg"
         ],
         "fr": [
-          "logisticien-coop-gossau-68ab42"
+          "logistique-coop-gossau-sg"
         ]
       },
       "previousSlugs": [
-        "logistician-coop-gossau-68ab42",
-        "logisticien-coop-gossau-68ab42"
+        "logistics-coop-gossau-sg",
+        "logistique-coop-gossau-sg"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ignrtp",
