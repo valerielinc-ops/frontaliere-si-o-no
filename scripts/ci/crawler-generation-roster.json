@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 625,
+  "crawlerCount": 624,
   "groups": {
     "10": [
       "atec-personal",
@@ -174,7 +174,6 @@
       "kanton-solothurn",
       "klinik-adelheid",
       "mabetex",
-      "my",
       "octapharma",
       "pfister",
       "recruitingapp-2563",
@@ -1070,7 +1069,6 @@
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
     "mueller-steinmaur": "data/jobs/by-crawler/mueller-steinmaur.json",
-    "my": "data/jobs/by-crawler/my.json",
     "nant": "data/jobs/by-crawler/nant.json",
     "neoproconseils": "data/jobs/by-crawler/neoproconseils.json",
     "nestle": "data/jobs/by-crawler/nestle.json",
@@ -1304,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:264390a221b6a508f71258e31d643d2b27153bbe68f4f8822e77970e9aa2b2dd"
+  "digest": "sha256:ce18be902d7c896fe4a39f6a8af05e499e85a63464512f7076191420d5ac1680"
 }

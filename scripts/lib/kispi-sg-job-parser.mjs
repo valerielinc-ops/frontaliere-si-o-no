@@ -25,7 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
@@ -33,7 +33,9 @@ export const KISPI_SG_KEY = 'kispi-sg';
 export const KISPI_SG_COMPANY_NAME = 'Ostschweizer Kinderspital';
 export const KISPI_SG_COMPANY_DOMAIN = 'kispisg.ch';
 
-const BASE_HOST = 'https://www.kispisg.ch';
+// kispisg.ch now 301-redirects every path to the same path on oks.ch (the
+// hospital's new domain): the canonical vacancy pages live there.
+const BASE_HOST = 'https://www.oks.ch';
 const LISTING_URL = `${BASE_HOST}/stellen`;
 const COMPANY_SECTOR = 'Sanità / Ospedali';
 const DEFAULT_CANTON = 'SG';
@@ -192,54 +194,99 @@ export function parseListingPage(html) {
 /* ── Detail page parser ──────────────────────────────────── */
 
 /**
+ * Inner HTML of the first element matched by `openTagRx`, balanced on its own
+ * tag name so nested elements of the same kind do not end it early.
+ */
+function elementInner(html, openTagRx) {
+  const open = openTagRx.exec(html);
+  if (!open) return '';
+  const tag = open[0].match(/^<\s*([a-z0-9]+)/i)?.[1]?.toLowerCase();
+  if (!tag) return '';
+  const start = open.index + open[0].length;
+  const tagRx = new RegExp(`<\\s*(\\/?)\\s*${tag}\\b[^>]*>`, 'gi');
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let m;
+  while ((m = tagRx.exec(html))) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, m.index);
+  }
+  return html.slice(start);
+}
+
+function blockText(fragment = '') {
+  return normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(fragment)))
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * The vacancy body of an oks.ch (formerly kispisg.ch) Pimcore job page.
+ *
+ * The ad is `.job-detail`: a headline block (intro sentence, `<h1>` title,
+ * apply button) followed by `.job-detail__element__feld` blocks, each an
+ * `<h3>` heading and its text or list («Ihre Aufgaben», «Ihr Profil», «Wir
+ * bieten Ihnen», «Ihr Arbeitsbereich», …). The contact card and the sharing
+ * bar are separate elements and are not read.
+ *
+ * Replaces a keyword-window scraper over the whole page (issue 5253): it
+ * matched «Aufgaben» twice, stopped every section at 1500 chars or at the next
+ * heading WORD, capped the result at 8 fragments, and could run into the
+ * `og:description` meta tag — one posting published 124 chars of navigation.
+ *
+ * @param {string} html
+ * @returns {string} plain text, sections separated by a blank line, list items as `• `
+ */
+export function extractKispiSgDetailDescription(html = '') {
+  const page = String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style\s*>/gi, ' ');
+  const detail = elementInner(page, /<div\b[^>]*class="job-detail"[^>]*>/i);
+  if (!detail) return '';
+  const sections = [];
+  const intro = blockText(elementInner(detail, /<p\b[^>]*class="description"[^>]*>/i));
+  if (intro) sections.push(intro);
+  for (const m of detail.matchAll(/<div\b[^>]*class="job-detail__element__feld"[^>]*>/gi)) {
+    const block = elementInner(detail.slice(m.index), /<div\b[^>]*class="job-detail__element__feld"[^>]*>/i);
+    const heading = blockText(block.match(/<h3\b[^>]*>([\s\S]*?)<\/h3\s*>/i)?.[1] || '');
+    const body = blockText(block.replace(/<h3\b[\s\S]*?<\/h3\s*>/i, ' '));
+    if (!body) continue;
+    sections.push(heading ? `${heading}\n${body}` : body);
+  }
+  return normalizeDescriptionBullets(sections.join('\n\n').trim());
+}
+
+/**
  * Extract job description and Umantis vacancy ID from an individual
- * kispisg.ch/de/stellen/{slug} page.
+ * oks.ch/de/stellen/{slug} page.
  *
  * Returns { description, applyUrl, umantisVacancyId }.
  */
-function parseDetailPage(html, title) {
-  // Strip scripts and styles
-  let cleaned = html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
-
-  // Extract sections by common DE HR headers
-  const sectionHeaders = ['Ihre Aufgaben', 'Aufgaben', 'Ihr Profil', 'Wir bieten', 'Wir suchen',
-    'Stellenbeschreibung', 'Was Sie erwartet', 'Was wir bieten', 'Anforderungen', 'Anforderungsprofil'];
-
-  const parts = [];
-  for (const header of sectionHeaders) {
-    const rx = new RegExp(`${header.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([\\s\\S]{20,1500}?)(?=<h[1-6]|Ihre Aufgaben|Aufgaben|Ihr Profil|Wir bieten|Wir suchen|Stellenbeschreibung|Was Sie|Was wir|Anforderung|jetzt bewerben|<footer|$)`, 'i');
-    const mm = cleaned.match(rx);
-    if (mm) {
-      const text = normalizeSpace(decodeHtmlEntities(stripHtml(mm[1])));
-      if (text.length > 30) parts.push(`${header}:\n${text}`);
-    }
-  }
-
-  // Fallback: extract prose from <p> and <li> tags in main content area
-  if (parts.length === 0) {
-    const proseRx = /<(p|li)[^>]*>([\s\S]*?)<\/\1>/g;
-    let pm;
-    while ((pm = proseRx.exec(cleaned))) {
-      const text = normalizeSpace(decodeHtmlEntities(pm[2].replace(/<[^>]+>/g, ' ')));
-      if (text.length > 40 && !/cookie|datenschutz|impressum|telefon|^menu$|navigation/i.test(text.slice(0, 50))) {
-        parts.push(text);
-      }
-    }
-  }
-
-  const description = parts.slice(0, 8).join('\n\n');
+function parseDetailPage(html) {
+  const description = extractKispiSgDetailDescription(html);
 
   // Extract Umantis vacancy ID from apply URL: /Vacancies/{id}/Application/
   const applyMatch = html.match(/href="(https:\/\/recruitingapp-2979\.umantis\.com\/Vacancies\/(\d+)\/Application[^"]+)"/i);
-  const applyUrl = applyMatch ? applyMatch[1] : '';
+  const applyUrl = applyMatch ? decodeHtmlEntities(applyMatch[1]) : '';
   const umantisVacancyId = applyMatch ? applyMatch[2] : '';
 
   return { description, applyUrl, umantisVacancyId };
 }
 
 /* ── Company matchers ─────────────────────────────────────── */
+
+/**
+ * Merge key for the crawler pipeline: the Pimcore page id behind `job.id`.
+ * `url` moved from the Umantis application form to the oks.ch vacancy page
+ * (issue 5253); the default URL-derived key would read every job as new and
+ * drop its translations and slug continuity. The id was already derived from
+ * the Pimcore id, so old and new records meet on it.
+ *
+ * @param {{ id?: string }} job
+ * @returns {string}
+ */
+export function matchKispiSgJob(job) {
+  return String(job?.id || '');
+}
 
 export function isKispiSgJob(job) {
   const key = normalize(job?.companyKey || '');
@@ -250,6 +297,7 @@ export function isKispiSgJob(job) {
     company.includes('ostschweizer kinderspital') ||
     company.includes('kispi') ||
     url.includes('kispisg.ch') ||
+    url.includes('oks.ch/de/stellen') ||
     url.includes('recruitingapp-2979.umantis.com')
   );
 }
@@ -260,6 +308,8 @@ export function isTrustedDomain(rawUrl = '') {
     return (
       host === 'kispisg.ch' ||
       host.endsWith('.kispisg.ch') ||
+      host === 'oks.ch' ||
+      host.endsWith('.oks.ch') ||
       host === 'recruitingapp-2979.umantis.com'
     );
   } catch {
@@ -302,7 +352,7 @@ export async function fetchAllKispiSgJobs() {
 
     try {
       const detailHtml = await fetchHtml(detailPageUrl);
-      const parsed = parseDetailPage(detailHtml, title);
+      const parsed = parseDetailPage(detailHtml);
       description = parsed.description;
       applyUrl = parsed.applyUrl;
       if (description) descriptionHits++;
@@ -323,7 +373,10 @@ export async function fetchAllKispiSgJobs() {
       }
     }
 
-    const jobUrl = applyUrl || `${LISTING_URL}#job-${pimcoreId}`;
+    // The vacancy page is the job's identity and what a reader lands on; the
+    // Umantis CheckLogin link is the application form, kept as applyUrl.
+    // Continuity across the switch is kept by `matchKispiSgJob` (stable id).
+    const jobUrl = detailPageUrl;
     const sourceLang = detectLang(description || title, DEFAULT_SOURCE_LANG);
     const jobSlug = slugify(`${title} ${KISPI_SG_KEY} ${DEFAULT_CITY}`);
     // Use a deterministic ID seed: pimcore page ID is stable across runs
