@@ -7034,6 +7034,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uova-piccoli-allevamenti-csl.title': 'Swiss eggs: “misleading” to talk about small farms',
     'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'The Swiss Commission for Fairness deems an advertisement by Suisse Garantie misleading: 65% of laying hens live on farms with more than 4000 animals.',
     'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Swiss eggs and laying hens in a farm setting',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'The Swiss are the richest in the world',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'Switzerland ranks first for gross financial wealth per capita at 406\'060 euros. According to Allianz\'s Global Wealth Report 2026, net wealth per person stands at 275\'980 euros.',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Overview of a Swiss financial center with banks and mountains',
 };
 
 export default blogMetaChEn;

@@ -7034,6 +7034,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uova-piccoli-allevamenti-csl.title': 'Schweizer Eier: «irreführend» von Kleinviehzucht zu sprechen',
     'blog.article.uova-piccoli-allevamenti-csl.excerpt': 'Die Schweizerische Loyalitätskommission hält eine Werbung der Suisse Garantie für irreführend: 65% der Legehennen leben in Zuchtbetrieben mit über 4000 Tieren.',
     'blog.article.uova-piccoli-allevamenti-csl.imageAlt': 'Schweizer Eier und Legehennen in einem Stall',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.title': 'Die Schweizer sind die reichsten Menschen der Welt',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.excerpt': 'Die Schweiz steht beim Bruttofinanzvermögen pro Kopf mit 406\'060 Euro an erster Stelle. Laut dem Global Wealth Report 2026 von Allianz beträgt das Nettovermögen pro Person 275\'980 Euro.',
+    'blog.article.svizzera-patrimonio-finanziario-mondiale.imageAlt': 'Uebersicht ueber ein Schweizer Finanzzentrum mit Banken und Bergen',
 };
 
 export default blogMetaChDe;
