@@ -2,15 +2,18 @@
  * Drop true double publications from one crawler's fresh fetch.
  *
  * A double publication is the same advertisement reachable under two source
- * ids: identical title, identical workplace and an identical FULL description
- * (compared case- and whitespace-insensitively). Two such rows are one vacancy
+ * ids: identical title, identical workplace (locality, postal code and street)
+ * and an identical FULL description (compared case- and
+ * whitespace-insensitively). Two such rows are one vacancy
  * to a reader; publishing both produced two indistinguishable job pages, which
  * the parser-quality audit reports as `duplicate-descriptions` (issue 5253:
  * Hirslanden re-posts a requisition under a second SuccessFactors job id with
  * the same Referenznummer; Lonza opens a second Workday req with the same ad).
  *
  * Postings that differ anywhere in the text — a shift, a role name, a language
- * version — are distinct vacancies and are kept, even when the audit's
+ * version — or in the workplace — Denner advertises the same store role for
+ * two Zürich stores, postal codes 8048 and 8050 — are distinct vacancies and
+ * are kept, even when the audit's
  * 500-character fingerprint window cannot tell them apart. Lines made only of
  * hashtags ("#ebkampagne #pflege", "#LI-DNI") are recruiting-campaign tracking
  * tags, not vacancy text, and are ignored in the comparison: Hirslanden
@@ -43,7 +46,9 @@ function jobBody(job) {
 export function identicalPostingKey(job) {
   const body = normalized(jobBody(job));
   if (!body) return '';
-  const place = normalized(job?.addressLocality || job?.location || '');
+  const place = [job?.addressLocality || job?.location, job?.postalCode, job?.streetAddress]
+    .map(normalized)
+    .join('\u0000');
   return `${normalized(job?.title)}\u0000${place}\u0000${body}`;
 }
 

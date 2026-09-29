@@ -63,10 +63,14 @@ describe('dropIdenticalPostings', () => {
     expect(dropIdenticalPostings([a, b]).jobs).toHaveLength(2);
   });
 
-  it('keeps the same ad at different workplaces and never groups empty bodies', () => {
+  it('keeps the same ad at different workplaces (locality or postal code) and never groups empty bodies', () => {
     const bern = job('https://careers.mediclinic.com/Hirslanden/job/x/1/');
     const aarau = job('https://careers.mediclinic.com/Hirslanden/job/x/2/', { location: 'Aarau', addressLocality: 'Aarau' });
     expect(dropIdenticalPostings([bern, aarau]).jobs).toHaveLength(2);
+    // Denner, 2026-09-29: the same store role in two Zürich stores.
+    const store8048 = job('https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/055dc2ed-900f-49a7-91cd-d259678cd1db', { location: 'Zürich', addressLocality: 'Zürich', postalCode: '8048', streetAddress: 'Denner Zürich' });
+    const store8050 = job('https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/db0efd20-5349-410c-ad6f-def6d41c05d8', { location: 'Zürich', addressLocality: 'Zürich', postalCode: '8050', streetAddress: 'Denner Zürich' });
+    expect(dropIdenticalPostings([store8048, store8050]).jobs).toHaveLength(2);
     const emptyA = job('https://careers.mediclinic.com/Hirslanden/job/x/3/', { description: '', descriptionByLocale: {} });
     const emptyB = job('https://careers.mediclinic.com/Hirslanden/job/x/4/', { description: '', descriptionByLocale: {} });
     expect(dropIdenticalPostings([emptyA, emptyB]).jobs).toHaveLength(2);
