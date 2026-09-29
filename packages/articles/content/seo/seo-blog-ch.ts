@@ -91241,6 +91241,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoratori-svizzeri-ia-benefici': {
+    title: 'I lavoratori svizzeri usano l\'IA, ma pochi ne vedono i benefici',
+    description: 'Il 28% usa l\'IA generativa ogni giorno in Svizzera ma solo il 10% nota una qualità migliore del lavoro. Tutti i dati della ricerca PwC Hopes and Fears 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, svizzeri, usano, pochi',
+    ogTitle: 'I lavoratori svizzeri usano l\'IA, ma pochi ne vedono i benefici',
+    ogDescription: 'L\'uso quotidiano dell\'IA in Svizzera raggiunge il 28% superando la media globale, ma i benefici percepiti restano limitati. Scopri i dati della ricerca PwC Hopes and Fears.',
+    canonicalPath: '/articoli-svizzera/lavoratori-svizzeri-ia-benefici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I lavoratori svizzeri usano l'IA, ma pochi ne vedono i benefici",
+      "description": "Il 28% usa l'IA generativa ogni giorno in Svizzera ma solo il 10% nota una qualità migliore del lavoro. Tutti i dati della ricerca PwC Hopes and Fears 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoratori-svizzeri-ia-benefici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori svizzeri e intelligenza artificiale"
+      },
+      "datePublished": "2026-09-29T10:54:40+00:00",
+      "dateModified": "2026-09-29T10:54:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoratori-svizzeri-ia-benefici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

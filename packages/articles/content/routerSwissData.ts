@@ -2368,6 +2368,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'obbligo-assicurazione-detenuti': { it: 'obbligo-assicurazione-detenuti', en: 'detainees-abroad-lamal-obligation', de: 'gefangene-ausland-krankenversicherung', fr: 'detenus-etranger-assurance-maladie' },
  'uova-piccoli-allevamenti-csl': { it: 'uova-piccoli-allevamenti-csl', en: 'swiss-eggs-small-farms-csl', de: 'schweizer-eier-kleine-betriebe-csl', fr: 'oeufs-suisses-petits-elevages-csl' },
  'svizzera-patrimonio-finanziario-mondiale': { it: 'svizzera-patrimonio-finanziario-mondiale', en: 'switzerland-global-financial-wealth', de: 'schweiz-globales-finanzvermoegen', fr: 'suisse-patrimoine-financier-mondial' },
+ 'lavoratori-svizzeri-ia-benefici': { it: 'lavoratori-svizzeri-ia-benefici', en: 'swiss-workers-ai-benefits', de: 'schweizer-arbeitnehmer-ki-vorteile', fr: 'travailleurs-suisses-ia-benefices' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
