@@ -1934,15 +1934,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T23:08:47.414Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-        ]
-      },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1955,7 +1946,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf",
+          "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf",
+        "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "empa-606a70e8b53e",

@@ -3635,8 +3635,8 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
       "sourceLang": "de",
@@ -3644,14 +3644,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:59.307Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-verkauf-40-chur"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-40-chur"
-      ],
       "salaryMin": 27400,
       "salaryMax": 42000,
       "currency": "CHF",
@@ -3667,7 +3659,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-40/1369228055/"
+      "applyUrl": "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-40/1369228055/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-verkauf-40-chur"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-40-chur"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf 20%",
@@ -3700,8 +3700,8 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 20%",
+        "de": "Mitarbeiter im Verkauf 20%",
         "en": "Mitarbeiter*in Sales 20%",
-        "de": "Mitarbeiter*in Verkauf 20%",
         "fr": "Mitarbeiter*in Vente 20%"
       },
       "sourceLang": "de",
@@ -3709,14 +3709,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:59.307Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-verkauf-20-chur"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-20-chur"
-      ],
       "salaryMin": 13700,
       "salaryMax": 21000,
       "currency": "CHF",
@@ -3732,7 +3724,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-20/1369228355/"
+      "applyUrl": "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-20/1369228355/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-verkauf-20-chur"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-20-chur"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf Spielwaren 50%",
@@ -3831,7 +3831,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Merchandising 60%",
         "en": "Mitarbeiter*in Merchandising 60%",
-        "de": "Mitarbeiter*in Merchandising 60%",
+        "de": "Mitarbeiter im Merchandising 60%",
         "fr": "Mitarbeiter en marchandisation 60%"
       },
       "sourceLang": "de",
@@ -3839,14 +3839,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:59.307Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-merchandising-60-spreitenbach"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-merchandising-60-spreitenbach"
-      ],
       "salaryMin": 37200,
       "salaryMax": 56400,
       "currency": "CHF",
@@ -3862,7 +3854,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Merchandising-60/1369233955/"
+      "applyUrl": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Merchandising-60/1369233955/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-merchandising-60-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-merchandising-60-spreitenbach"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf (Home & Haushalt) 50%",
@@ -4146,7 +4146,7 @@
         "fr": "manor-collaborateur-trice-supermarche-70-chavannes-de-bogis"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché 70%",
+        "it": "Collaboratore del supermercato 70%",
         "en": "Supermarket Collaborator 70%",
         "de": "Supermarkt-Mitarbeiter 70%",
         "fr": "Collaborateur/trice supermarché 70%"
@@ -4170,7 +4170,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:53:59.307Z",
-      "needsRetranslation": true,
       "crawledAt": "",
       "salaryMin": 50400,
       "salaryMax": 77700,
