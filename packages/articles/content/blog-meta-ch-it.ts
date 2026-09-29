@@ -7028,6 +7028,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Rincari casa e mobilità: spesa in aumento in Svizzera',
     'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'Ad agosto 2026 i prezzi legati ad abitazione e mobilità in Svizzera segnano un +2,4%, con un aggravio di 89 franchi al mese per le famiglie.',
     'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Aumento dei costi di abitazione e mobilità in Svizzera',
+    'blog.article.obbligo-assicurazione-detenuti.title': 'Detenuti domiciliati all\'estero: nessun obbligo LAMal',
+    'blog.article.obbligo-assicurazione-detenuti.excerpt': 'Dopo il voto degli Stati in giugno, il Nazionale ha respinto la modifica LAMal senza voti favorevoli: i costi dei detenuti restano ai Cantoni.',
+    'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Parlamento svizzero a Berna e dossier sull\'assicurazione malattie dei detenuti',
 };
 
 export default blogMetaChIt;

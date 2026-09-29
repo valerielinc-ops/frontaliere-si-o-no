@@ -7028,6 +7028,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Logement et mobilité : hausse des dépenses en Suisse',
     'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'En août 2026, les prix liés au logement et à la mobilité en Suisse affichent un +2,4%, avec un surcoût de 89 francs par mois pour les familles.',
     'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Augmentation des coûts du logement et de la mobilité en Suisse',
+    'blog.article.obbligo-assicurazione-detenuti.title': 'Détenus domiciliés à l\'étranger : aucune obligation LAMal',
+    'blog.article.obbligo-assicurazione-detenuti.excerpt': 'Après le vote du Conseil des États en juin, le Conseil national a rejeté la modification de la LAMal sans aucune voix favorable : les coûts des détenus restent à la charge des cantons.',
+    'blog.article.obbligo-assicurazione-detenuti.imageAlt': 'Parlement suisse à Berne avec un dossier sur l\'assurance maladie des détenus',
 };
 
 export default blogMetaChFr;
