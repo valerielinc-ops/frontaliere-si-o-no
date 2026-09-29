@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-09-29T09:23:33.287Z",
+  "assembledAt": "2026-09-29T21:23:59.334Z",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -34,7 +34,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:27.951Z",
+      "crawledAt": "2026-09-29T21:23:55.424Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -53,11 +53,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "leiterin-leiter-handchirurgie-80-100-klinik-gut-chur"
+          "leiterin-leiter-handchirurgie-80-100-klinik-gut-chur",
+          "facharztin-facharzt-handchirurgie-80-100-klinik-gut-chur"
         ],
         "it": [
           "facharztin-facharzt-handchirurgie-80-100-klinik-gut-chur",
-          "leiterin-leiter-handchirurgie-80-100-klinik-gut-chur"
+          "leiterin-leiter-handchirurgie-80-100-klinik-gut-chur",
+          "specialista-chirurgia-manuale-specialistica-80-100-klinik-gut-ag-chur"
         ],
         "en": [
           "facharztin-facharzt-handchirurgie-80-100-klinik-gut-chur"
@@ -68,7 +70,8 @@
       },
       "previousSlugs": [
         "facharztin-facharzt-handchirurgie-80-100-klinik-gut-chur",
-        "leiterin-leiter-handchirurgie-80-100-klinik-gut-chur"
+        "leiterin-leiter-handchirurgie-80-100-klinik-gut-chur",
+        "specialista-chirurgia-manuale-specialistica-80-100-klinik-gut-ag-chur"
       ],
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 110500,
@@ -90,9 +93,9 @@
       "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
       "slugByLocale": {
         "it": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-        "en": "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "en": "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
         "de": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "fr": "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+        "fr": "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -117,7 +120,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:27.949Z",
+      "crawledAt": "2026-09-29T21:23:55.421Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -136,17 +139,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
+        "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch",
+        "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
         "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
         "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
+          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
+          "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch"
         ],
         "en": [
+          "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
           "election-year-pj-sub-assistants-klinik-gut-ag-flasch"
         ],
         "fr": [
+          "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch",
           "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
         ]
       },
@@ -191,12 +200,13 @@
         "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs und Zürich.\nZur Ergänzung unseres Ärzteteams in Fläsch suchen wir regelmässig eine/n:\nAssistenzärztin / Assistenzarzt 100%\nHinweis: Aufgrund unserer aktuellen Besetzung können wir derzeit keine neuen Bewerbungen berücksichtigen. Ab Januar 2027 freuen wir uns wieder über Bewerbungen für diese Position.\nDie Stelle eignet sich besonders für Assistenzärztinnen und Assistenzärzte mit dem Weiterbildungsziel orthopädische Chirurgie, aber auch für Allgemeinmediziner/-innen als Fremdjahr. Die Klinik Gut St. Moritz besitzt eine Weiterbildungsberechtigung der FMH Kategorie C2 (2 Jahre Orthopädie und Traumatologie des Bewegungsapparates, davon 1 Jahr Traumatologie). Für den Standort in Fläsch besteht eine Weiterbildungsberechtigung im Klinik-Verbund mit St. Moritz. Durch eine definierte halbjährliche Rotation der Assistenten unter den beiden Standorten ist eine sehr vielseitige Weiterbildung in Orthopädie und Traumatologie gewährleistet.\nDeine Aufgaben:\n\n• Bettenstation: Patientenaufnahmestatus, postoperative Betreuung, tägliche Visiten mit Chefärzten und Erledigung Berichtswesen\n\n• Operationssaal: Erste Assistenzen, Erlernen von OP-Teilschritten, assistierte Durchführung ausgewählter Operationen (stufengerecht nach Ausbildungsstand)\n\n• Sprechstundenteilnahme: Neuvorstellungen und Nachkontrollen\n\n• Notaufnahme (St. Moritz): Erstversorgung, Diagnostik und Therapieeinleitung\n\n• Teilnahme an Pikettdiensten (Tag, Nacht, Wochenende)\n\n• Ärztliche Betreuung von regionalen Sport-Events\nDu bringst mit:\n\n• Abgeschlossenes Medizinstudium\n\n• MEBEKO Anerkennung muss bei Stellenantritt vorliegen\n\n• Bereitschaft, sich aktiv in das Klinikgeschehen einzubringen\n\n• Selbstständiges und verantwortungsbewusstes Arbeiten\n\n• Teamfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten dir:\n\n• Umfassendes Spektrum orthopädischer Krankheitsbilder und traumatologischer Verletzungen des Bewegungsapparates\n\n• OP-Begleitung durch fachspezialisierte Chefärzte\n\n• Multidisziplinäres und abwechslungsreiches Umfeld mit nationaler und internationaler Kundschaft\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Wir pflegen die Du-Kultur in einer flachen Hierarchie\nBei Fragen wende dich an Herrn Dr. med. Christian Steiner, Chefarzt, Ärztlicher Leiter Nordbünden, Tel. 081 258 44 16.\nWir freuen uns auf deine Bewerbung per E-Mail an:\nhr@klinik-gut.ch\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
         "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux aux cliniques de St. Moritz et Fläsch, ainsi qu'aux cabinets de Chur, Buchs et Zurich. Pour compléter notre équipe médicale à Fläsch, nous recherchons un accord : Assistant médecin / assistant médecin 100% Le poste est particulièrement approprié pour les médecins adjoints dans le but de la chirurgie orthopédique, mais aussi pour les médecins généralistes comme une année étrangère. Klinik Gut St. Moritz est titulaire d'un certificat d'études complémentaires de la catégorie FMH C2 (2 ans d'orthopédie et de traumatologie du système musculo-squelettique, dont 1 an de traumatologie). Pour l'emplacement à Fläsch, il y a un droit de formation dans la clinique association avec St. Moritz. Par une rotation semestrielle définie des assistants sous les deux emplacements, une formation très polyvalente en orthopédie et traumatologie est garantie. Vos tâches :\n• Station de lit: statut d'admission du patient, soins postopératoires, visites quotidiennes avec les médecins en chef et rapports\n• Salle d'opération: assistance initiale, apprentissage des étapes chirurgicales, mise en œuvre assistée de certaines opérations (graduel selon le niveau de formation)\n• Participation aux heures de consultation: nouvelles présentations et contrôles de suivi\n• Service des urgences (St. Moritz): soins primaires, diagnostic et initiation à la thérapie\n• Participation aux services de picting (jour, nuit, week-end)\n• Soutien médical aux manifestations sportives régionales Vous apportez avec vous :\n• Études médicales achevées\n• MEBEKO La reconnaissance doit être disponible lors de l'entrée dans l'emploi\n• Volonté de participer activement au processus clinique\n• Travail indépendant et responsable\n• Travail d'équipe\n• Très bonne connaissance de l'allemand en paroles et en écriture Nous vous offrons:\n• Gamme complète de maladies orthopédiques et de lésions traumatologiques du système musculo-squelettique\n• OP accompagnement par des médecins en chef spécialisés\n• Environnement multidisciplinaire et varié avec des clients nationaux et internationaux\n• Possibilités de formation internes et externes\n• Nous maintenons la culture dans une hiérarchie plate Si vous avez des questions, contactez le Dr Med. Christian Steiner, médecin en chef, directeur médical Nordbünden, tél. 081 258 44 16. Nous nous réjouissons de votre candidature par courriel à : hr@klinik-gut.ch PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
       },
+      "needsRetranslation": true,
       "location": "Fläsch",
       "canton": "GR",
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:27.946Z",
+      "crawledAt": "2026-09-29T21:23:55.419Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -215,12 +225,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
-        "assistenzarztin-assistenzarzt-100-bewerbungen-ab-januar-2027-klinik-gut-flasch"
+        "assistenzarztin-assistenzarzt-100-bewerbungen-ab-januar-2027-klinik-gut-flasch",
+        "assistente-medico-a-100-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
-          "assistenzarztin-assistenzarzt-100-bewerbungen-ab-januar-2027-klinik-gut-flasch"
+          "assistenzarztin-assistenzarzt-100-bewerbungen-ab-januar-2027-klinik-gut-flasch",
+          "assistente-medico-a-100-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.983Z",
@@ -270,7 +282,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:27.944Z",
+      "crawledAt": "2026-09-29T21:23:55.417Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -290,13 +302,15 @@
       "previousSlugs": [
         "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
         "collaboratore-trice-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-ag-st-moritz",
-        "mitarbeiter-in-empfang-100-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st"
+        "mitarbeiter-in-empfang-100-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
+        "ricevimento-dei-dipendenti-80-posizione-stagionale-novembre-2026-a-marzo-aprile-2027-klinik-gut-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
           "collaboratore-trice-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-ag-st-moritz",
-          "mitarbeiter-in-empfang-100-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st"
+          "mitarbeiter-in-empfang-100-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
+          "ricevimento-dei-dipendenti-80-posizione-stagionale-novembre-2026-a-marzo-aprile-2027-klinik-gut-ag-st-moritz"
         ],
         "en": [
           "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st"
@@ -339,11 +353,11 @@
         "de": "Dipl. Pflegefachfrau/-mann HF oder FH 80-100% / Wintersaison 2026/27",
         "fr": "Dipl. HF ou FH 80-100% / Saison d'hiver 2026/27"
       },
-      "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n\nZur Ergänzung unseres Pflegeteams am Klinikstandort  St. Moritz  suchen wir für die  Wintersaison 2026/27 (1. November 2026 oder nach Vereinbarung bis 30. April 2027)\n eine/n Dipl. Pflegefachfrau/mann HF/FH 80-100 %\n Dein Wirkungsbereich:\n\n• Zielorientierte Betreuung: Du begleitest unsere Patientinnen und Patienten gemäss den definierten Zielen im Pflegeprozess.\n\n• Gelebte Qualität: Die Einhaltung der Pflegerichtlinien und Standards ist für dich absolut selbstverständlich.\n\n• Zukunft fördern: Die Unterstützung bei der Ausbildung unserer Lernenden und Studierenden ist dir ein echtes Anliegen.\n Damit überzeugst du uns:\n\n• Dein Fundament: Ausbildung als Dipl. Pflegefachperson HF/FH (Berufserfahrung ist ein Plus).\n\n• Dein Fokus: Hohe Pflegequalität und ein starker Servicegedanke.\n\n• Deine Persönlichkeit: Belastbar, flexibel, kommunikativ und ein echter Teamplayer.\n\n• Deine Arbeitsweise: Exakt, eigenverantwortliche und absolut zuverlässig.\n\n• Dein Mindset: Du gehst die Extrameile und bleibst auch in hektischen Momenten cool.\n Wir bieten dir:\n\n• Abwechslungsreicher Alltag: Ein vielseitiges Aufgabengebiet mit grosser Selbstständigkeit im eigenen Kompetenzbereich.\n\n• Echter Teamgeist: Dich erwartet ein attraktives Gesamtpaket und ein familiäres, engagiertes Arbeitsumfeld, in dem wir uns gegenseitig den Rücken stärken und neue Teammitglieder offen empfangen.\n\n• Traumhafte Kulisse: Das winterliche Oberengadin direkt vor der Haustür für eine Vielzahl von Freizeit- und Sportaktivitäten und den perfekten Freizeitausgleich.\n Weitere Auskünfte erteilt dir gerne Frau Tanja Kropf, Stationsleitung Pflege unter der Telefonnummer:\n +41 81 836 35 22.\n Wir freuen uns auf deine vollständige Bewerbung per E-Mail an:\n t.kropf@klinik-gut.ch\n Klinik Gut AG\nFrau Tanja Kropf\nPlazza Paracelsus 2a\n7500 St. Moritz\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+      "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n\nZur Ergänzung unseres Pflegeteams am Klinikstandort  St. Moritz  suchen wir für die  Wintersaison 2026/27 (1. November 2026 oder nach Vereinbarung bis 30. April 2027)\n eine/n Dipl. Pflegefachfrau/mann HF/FH 80-100 %\n Dein Wirkungsbereich:\n\n• Zielorientierte Betreuung: Du begleitest unsere Patientinnen und Patienten gemäss den definierten Zielen im Pflegeprozess.\n\n• Gelebte Qualität: Die Einhaltung der Pflegerichtlinien und Standards ist für dich absolut selbstverständlich.\n\n• Zukunft fördern: Die Unterstützung bei der Ausbildung unserer Lernenden und Studierenden ist dir ein echtes Anliegen.\n Damit überzeugst du uns:\n\n• Dein Fundament: Ausbildung als Dipl. Pflegefachperson HF/FH (Berufserfahrung ist ein Plus).\n\n• Dein Fokus: Hohe Pflegequalität und ein starker Servicegedanke.\n\n• Deine Persönlichkeit: Belastbar, flexibel, kommunikativ und ein echter Teamplayer.\n\n• Deine Arbeitsweise: Exakt, eigenverantwortliche und absolut zuverlässig.\n\n• Dein Mindset: Du gehst die Extrameile und bleibst auch in hektischen Momenten cool.\n Wir bieten dir:\n\n• Abwechslungsreicher Alltag: Ein vielseitiges Aufgabengebiet mit grosser Selbstständigkeit im eigenen Kompetenzbereich.\n\n• Echter Teamgeist: Dich erwartet ein attraktives Gesamtpaket und ein familiäres, engagiertes Arbeitsumfeld, in dem wir uns gegenseitig den Rücken stärken und neue Teammitglieder offen empfangen.\n\n• Traumhafte Kulisse: Das winterliche Oberengadin direkt vor der Haustür für eine Vielzahl von Freizeit- und Sportaktivitäten und den perfekten Freizeitausgleich.\n Weitere Auskünfte erteilt dir gerne Frau Tanja Kropf, Stationsleitung Pflege unter der Telefonnummer:\n +41 81 836 35 22.\n Wir freuen uns auf deine vollständige Bewerbung per E-Mail an:\n t.kropf@klinik-gut.ch\n Klinik Gut AG\nFrau Tanja Kropf\nPlazza Paracelsus 2a\n Ab 30.09.2026 Via Paracelsus 2a\n7500 St. Moritz\n PS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
       "descriptionByLocale": {
         "it": "Klinik Gut è una clinica privata stabilita per ortopedia e chirurgia incidente. Serviamo i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch, nonché nelle sedi di pratica a Chur, Buchs, Zurigo e Ascona. Per completare il nostro team di assistenza nella clinica di St. Moritz, stiamo cercando la stagione invernale 2026/27 (1 novembre 2026 o su appuntamento fino a 30. Aprile 2027 uno/n Dipl. Infermieristica professionale HF/FH 80-100 %\n• Si prende cura dei nostri pazienti secondo gli obiettivi definiti nel processo di cura.\n• La conformità con le linee guida e gli standard di cura è una questione naturalmente per voi.\n• L'assistenza nella formazione dei nostri studenti e studenti è certa per voi. I nostri requisiti:\n• Tu sei Dipl. Infermieristica professionale HF/FH e idealmente avete già esperienza professionale.\n• Si garantisce una qualità appropriata e individuale di cura per il paziente e portare un'idea di servizio pronunciata.\n• Sei una personalità resiliente, flessibile e comunicativa e goditi di lavorare in un team.\n• Il vostro metodo di lavoro preciso, auto-responsabile e affidabile completa il vostro profilo.\n• Ti piace andare il miglio in più e tenere una testa fresca anche in situazioni frenetiche Vi offriamo:\n• Occupazione contemporanea e condizioni di lavoro.\n• Interessante e variegato campo di responsabilità, lavoro indipendente nel settore delle competenze.\n• Si lavora in un team di famiglia che è caratterizzato da dedizione e volontà di eseguire ed è felice di sostenervi nei vostri compiti. Inoltre, nell'Alta Engadina potrete godere di una varietà di attività ricreative e sportive, nonché di un paesaggio meraviglioso. Per ulteriori informazioni si prega di contattare la sig.ra Tanja Kropf, Servizio di gestione della stazione al numero di telefono: +41 81 836 35 22. Attendiamo con ansia la vostra applicazione completa via e-mail a: t.kropf@klinik-gut.ch Klinik Gut AG Signora Tanja Kropf Plazza Paracelsus 2a 7500 St. Moritz PS: Siamo curiosi: Come avete incontrato il nostro posto? Fateci sapere nella vostra lettera di motivazione.",
         "en": "Klinik Gut is an established private clinic for orthopaedics and accident surgery. We serve our national and international customers at the clinic locations in St. Moritz and Fläsch, as well as in the practice locations in Chur, Buchs, Zurich and Ascona. To complement our care team at the clinic location in St. Moritz, we are looking for the winter season 2026/27 (1 November 2026 or by appointment until 30. April 2027 one/n Dipl. Nursing professional HF/FH 80-100 %\n• You look after our patients according to the goals defined in the care process.\n• Compliance with the care guidelines and standards is a matter of course for you.\n• Assistance in the training of our learners and students is certain for you. Our requirements:\n• You are Dipl. Nursing professional HF/FH and ideally you already have professional experience.\n• You ensure an appropriate and individual quality of care for the patient and bring a pronounced service idea.\n• You are a resilient, flexible and communicative personality and enjoy working in a team.\n• Your exact, self-responsible and reliable working method rounds off your profile.\n• You like to go the extra mile and keep a cool head even in hectic situations We offer you:\n• Contemporary employment and working conditions.\n• Interesting and varied area of responsibility, independent work in the area of competence.\n• You work in a family team that is characterized by dedication and willingness to perform and is happy to support you in your tasks. In addition, in the Upper Engadin you will enjoy a variety of leisure and sports activities as well as a wonderful landscape. For further information please contact Ms. Tanja Kropf, Station Management Care at the phone number: +41 81 836 35 22. We look forward to your full application by e-mail to: t.kropf@klinik-gut.ch Klinik Gut AG Ms Tanja Kropf Plazza Paracelsus 2a 7500 St. Moritz PS: We are curious: How did you come across our place? Let us know in your motivation letter.",
-        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n\nZur Ergänzung unseres Pflegeteams am Klinikstandort St. Moritz suchen wir für die Wintersaison 2026/27 (1. November 2026 oder nach Vereinbarung bis 30. April 2027)\neine/n Dipl. Pflegefachfrau/mann HF/FH 80-100 %\nDein Wirkungsbereich:\n\n• Zielorientierte Betreuung: Du begleitest unsere Patientinnen und Patienten gemäss den definierten Zielen im Pflegeprozess.\n\n• Gelebte Qualität: Die Einhaltung der Pflegerichtlinien und Standards ist für dich absolut selbstverständlich.\n\n• Zukunft fördern: Die Unterstützung bei der Ausbildung unserer Lernenden und Studierenden ist dir ein echtes Anliegen.\nDamit überzeugst du uns:\n\n• Dein Fundament: Ausbildung als Dipl. Pflegefachperson HF/FH (Berufserfahrung ist ein Plus).\n\n• Dein Fokus: Hohe Pflegequalität und ein starker Servicegedanke.\n\n• Deine Persönlichkeit: Belastbar, flexibel, kommunikativ und ein echter Teamplayer.\n\n• Deine Arbeitsweise: Exakt, eigenverantwortliche und absolut zuverlässig.\n\n• Dein Mindset: Du gehst die Extrameile und bleibst auch in hektischen Momenten cool.\nWir bieten dir:\n\n• Abwechslungsreicher Alltag: Ein vielseitiges Aufgabengebiet mit grosser Selbstständigkeit im eigenen Kompetenzbereich.\n\n• Echter Teamgeist: Dich erwartet ein attraktives Gesamtpaket und ein familiäres, engagiertes Arbeitsumfeld, in dem wir uns gegenseitig den Rücken stärken und neue Teammitglieder offen empfangen.\n\n• Traumhafte Kulisse: Das winterliche Oberengadin direkt vor der Haustür für eine Vielzahl von Freizeit- und Sportaktivitäten und den perfekten Freizeitausgleich.\nWeitere Auskünfte erteilt dir gerne Frau Tanja Kropf, Stationsleitung Pflege unter der Telefonnummer:\n+41 81 836 35 22.\nWir freuen uns auf deine vollständige Bewerbung per E-Mail an:\nt.kropf@klinik-gut.ch\nKlinik Gut AG\nFrau Tanja Kropf\nPlazza Paracelsus 2a\n7500 St. Moritz\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
+        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch, zudem in den Praxisstandorten Chur, Buchs, Zürich und Ascona.\n\nZur Ergänzung unseres Pflegeteams am Klinikstandort St. Moritz suchen wir für die Wintersaison 2026/27 (1. November 2026 oder nach Vereinbarung bis 30. April 2027)\neine/n Dipl. Pflegefachfrau/mann HF/FH 80-100 %\nDein Wirkungsbereich:\n\n• Zielorientierte Betreuung: Du begleitest unsere Patientinnen und Patienten gemäss den definierten Zielen im Pflegeprozess.\n\n• Gelebte Qualität: Die Einhaltung der Pflegerichtlinien und Standards ist für dich absolut selbstverständlich.\n\n• Zukunft fördern: Die Unterstützung bei der Ausbildung unserer Lernenden und Studierenden ist dir ein echtes Anliegen.\nDamit überzeugst du uns:\n\n• Dein Fundament: Ausbildung als Dipl. Pflegefachperson HF/FH (Berufserfahrung ist ein Plus).\n\n• Dein Fokus: Hohe Pflegequalität und ein starker Servicegedanke.\n\n• Deine Persönlichkeit: Belastbar, flexibel, kommunikativ und ein echter Teamplayer.\n\n• Deine Arbeitsweise: Exakt, eigenverantwortliche und absolut zuverlässig.\n\n• Dein Mindset: Du gehst die Extrameile und bleibst auch in hektischen Momenten cool.\nWir bieten dir:\n\n• Abwechslungsreicher Alltag: Ein vielseitiges Aufgabengebiet mit grosser Selbstständigkeit im eigenen Kompetenzbereich.\n\n• Echter Teamgeist: Dich erwartet ein attraktives Gesamtpaket und ein familiäres, engagiertes Arbeitsumfeld, in dem wir uns gegenseitig den Rücken stärken und neue Teammitglieder offen empfangen.\n\n• Traumhafte Kulisse: Das winterliche Oberengadin direkt vor der Haustür für eine Vielzahl von Freizeit- und Sportaktivitäten und den perfekten Freizeitausgleich.\nWeitere Auskünfte erteilt dir gerne Frau Tanja Kropf, Stationsleitung Pflege unter der Telefonnummer:\n+41 81 836 35 22.\nWir freuen uns auf deine vollständige Bewerbung per E-Mail an:\nt.kropf@klinik-gut.ch\nKlinik Gut AG\nFrau Tanja Kropf\nPlazza Paracelsus 2a\nAb 30.09.2026 Via Paracelsus 2a\n7500 St. Moritz\nPS: Wir sind neugierig: Wie bist du auf unsere Stelle gestossen? Lass es uns in deinem Motivationsschreiben wissen.",
         "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons nos clients nationaux et internationaux dans les cliniques de St. Moritz et Fläsch, ainsi que dans les cabinets de Chur, Buchs, Zurich et Ascona. Pour compléter notre équipe de soins à la clinique de St. Moritz, nous cherchons la saison d'hiver 2026/27 (1er novembre 2026 ou sur rendez-vous jusqu'à 30. Avril 2027 1/n Dipl. Professionnels des soins infirmiers HF/FH 80-100 %\n• Vous prenez soin de nos patients selon les objectifs définis dans le processus de soins.\n• Le respect des lignes directrices et des normes de soins est bien sûr une question pour vous.\n• L'aide à la formation de nos apprenants et étudiants est certaine pour vous. Nos exigences:\n• Vous êtes Dipl. Soins infirmiers professionnels HF/FH et idéalement vous avez déjà une expérience professionnelle.\n• Vous assurez une qualité appropriée et individuelle des soins pour le patient et apportez une idée de service prononcée.\n• Vous êtes une personnalité résiliente, flexible et communicative et aimez travailler en équipe.\n• Votre méthode de travail exacte, auto-responsable et fiable coupe votre profil.\n• Vous aimez aller au mille supplémentaire et garder une tête cool même dans des situations agitées Nous vous offrons:\n• Emploi et conditions de travail contemporains.\n• Intéressant et varié domaine de responsabilité, travail indépendant dans le domaine de compétence.\n• Vous travaillez dans une équipe familiale qui se caractérise par son dévouement et sa volonté d'accomplir et qui est heureuse de vous soutenir dans vos tâches. En outre, dans le Haut Engadin, vous pourrez profiter d'une variété d'activités de loisirs et de sports ainsi que d'un paysage merveilleux. Pour de plus amples renseignements, veuillez communiquer avec Mme Tanja Kropf, Services de gestion des stations, au numéro de téléphone suivant : +41 81 836 35 22. Nous attendons avec intérêt votre candidature complète par courriel à : T.kropf@klinik-gut.ch Klinik Gut AG Mme Tanja Kropf Plazza Paracelsus 2a 7500 St. Moritz PS: Nous sommes curieux: Comment avez-vous rencontré notre place? Faites-nous savoir dans votre lettre de motivation."
       },
       "needsRetranslation": false,
@@ -352,7 +366,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:27.942Z",
+      "crawledAt": "2026-09-29T21:23:55.416Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -370,11 +384,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz"
+        "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
+        "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz"
+          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
+          "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.979Z",
@@ -424,7 +440,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:27.931Z",
+      "crawledAt": "2026-09-29T21:23:55.403Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -442,11 +458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz"
+        "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
+        "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz"
+          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
+          "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.967Z",

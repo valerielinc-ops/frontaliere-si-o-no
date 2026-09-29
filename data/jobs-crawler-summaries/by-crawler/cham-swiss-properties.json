@@ -1,7 +1,7 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-09-29T09:23:36.630Z",
+  "generatedAt": "2026-09-29T21:25:01.023Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2064,
-  "avgDurationMs": 2064,
+  "durationMs": 3593,
+  "avgDurationMs": 3593,
   "durationHistory": [
-    2064
+    3593
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:23:31.717Z",
+      "crawledAt": "2026-09-29T21:24:52.596Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -50,11 +50,11 @@
       "applyUrl": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "hiringOrganizationName": "Cham Swiss Properties AG",
       "firstSeenAt": "2026-08-31T17:16:20.555Z",
-      "_qualityScore": 90,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 18,
+        "translation": 15,
         "completeness": 20
       }
     }
