@@ -7073,6 +7073,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.percorsi-impiego-pubblico.title': 'Lavorare nell\'Amministrazione federale: opportunità e formazione',
     'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Amministrazione federale offre 50 formazioni professionali, praticantati per neolaureati e sette settimane di vacanze.',
     'blog.article.percorsi-impiego-pubblico.imageAlt': 'Team al lavoro in un ufficio svizzero per l\'Amministrazione federale',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Cassa malati 2027: fino a 10\'000 franchi di differenza',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'Nel 2027 la media nazionale sarà 16\'450 franchi, ma tra Ginevra e Zugo la differenza per la stessa famiglia sfiora i 10\'000 franchi.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famiglia svizzera che esamina la fattura dell\'assicurazione malattia in Ticino',
 };
 
 export default blogMetaChIt;

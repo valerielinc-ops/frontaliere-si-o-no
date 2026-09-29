@@ -7073,6 +7073,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.percorsi-impiego-pubblico.title': 'Travailler au sein de l\'Administration fédérale : opportunités et formation',
     'blog.article.percorsi-impiego-pubblico.excerpt': 'L\'Administration fédérale offre 50 formations professionnelles, des stages pour les étudiants récemment diplômés et sept semaines de vacances.',
     'blog.article.percorsi-impiego-pubblico.imageAlt': 'Équipe au travail dans un bureau de l\'administration fédérale suisse',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.title': 'Caisse-maladie 2027 : jusqu’à 10\'000 francs de différence',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.excerpt': 'En 2027, la moyenne nationale sera de 16\'450 francs, mais entre Genève et Zoug, la différence pour la même famille frôle les 10\'000 francs.',
+    'blog.article.premi-cassa-malati-2027-differenze-cantoni.imageAlt': 'Famille suisse examinant la facture d\'assurance maladie au Tessin',
 };
 
 export default blogMetaChFr;

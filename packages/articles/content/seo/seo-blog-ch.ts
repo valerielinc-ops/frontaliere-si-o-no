@@ -91709,6 +91709,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-2027-differenze-cantoni': {
+    title: 'Cassa malati 2027: fino a 10\'000 franchi di differenza',
+    description: 'Nel 2027 la media dei premi cassa malati sarà di 16\'450 franchi, ma tra Ginevra e Zugo la differenza arriva a quasi 10\'000 franchi. Ecco i dati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, fino, franchi',
+    ogTitle: 'Cassa malati 2027: fino a 10\'000 franchi di differenza',
+    ogDescription: 'L\'UFSP ha pubblicato i dati per il 2027: una famiglia tipo in Ticino pagherà 21\'346 franchi, contro i 16\'450 della media nazionale. Scopri le differenze tra cantoni e come ottimizzare il premio.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-2027-differenze-cantoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati 2027: fino a 10'000 franchi di differenza",
+      "description": "Nel 2027 la media dei premi cassa malati sarà di 16'450 franchi, ma tra Ginevra e Zugo la differenza arriva a quasi 10'000 franchi. Ecco i dati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-2027-differenze-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera che esamina la fattura dell'assicurazione malattia in Ticino"
+      },
+      "datePublished": "2026-09-29T17:31:47+00:00",
+      "dateModified": "2026-09-29T17:31:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-2027-differenze-cantoni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
