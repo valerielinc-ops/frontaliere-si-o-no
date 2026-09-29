@@ -12260,6 +12260,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castelseprio-ticino-frontaliere.title': 'Leben in Castelseprio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.castelseprio-ticino-frontaliere.excerpt': 'Für diejenigen, die in Castelseprio leben, geltender Grenzgängervertrag ab dem 1. Januar 2024: Befreiung von 7\'500 € für alte und Selbstbehalt von 10\'000 € für neue.',
     'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Grenzgänger auf dem Weg ins Tessin bei Tagesanbruch, mit sanften Hügeln',
+    'blog.article.vivere-sangiano-lavorare-ticino.title': 'In Sangiano leben und im Tessin arbeiten: Budgetleitfaden',
+    'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Seit dem 1. Januar 2024 ist die neue Frontalieri-Vereinbarung in Kraft. Erfahren Sie, wie Sie Befreiungen, Selbstbehalte und Abzüge für Ihr Lebensprojekt unterscheiden können.',
+    'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Panoramablick auf Lugano, ein Ziel für viele Grenzgänger.',
 };
 
 export default blogMetaDe;

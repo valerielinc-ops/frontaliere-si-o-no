@@ -12263,6 +12263,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.castelseprio-ticino-frontaliere.title': 'Vivre à Castelseprio et travailler au Tessin en tant que frontalier',
     'blog.article.castelseprio-ticino-frontaliere.excerpt': 'Pour ceux qui vivent à Castelseprio, accord sur les travailleurs frontaliers en vigueur depuis le 1° gennaio 2024 : exonération de €7\'500 pour les anciens et franchise de €10\'000 pour les nouveaux.',
     'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Travailleur frontalier vers le Tessin à l\'aube, collines douces et lumière naturelle',
+    'blog.article.vivere-sangiano-lavorare-ticino.title': 'Vivre à Sangiano et travailler au Tessin : guide budgétaire',
+    'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'Le nouvel accord frontalier est en vigueur depuis le 1er janvier 2024. Découvrez comment distinguer les exonérations, les franchises et les retenues pour votre projet de vie.',
+    'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Vue panoramique sur Lugano, destination pour de nombreux frontaliers.',
 };
 
 export default blogMetaFr;

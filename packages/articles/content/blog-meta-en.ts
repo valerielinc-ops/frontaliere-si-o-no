@@ -12261,6 +12261,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castelseprio-ticino-frontaliere.title': 'Living in Castelseprio and working in Ticino as a border worker',
     'blog.article.castelseprio-ticino-frontaliere.excerpt': 'For those living in Castelseprio, border agreements in force from 1 January 2024: exemption of €7,500 for the old and deductible of €10,000 for the new.',
     'blog.article.castelseprio-ticino-frontaliere.imageAlt': 'Cross-border commuter heading to Ticino at dawn, with rolling hills and natural light',
+    'blog.article.vivere-sangiano-lavorare-ticino.title': 'Living in Sangiano and working in Ticino: budget guide',
+    'blog.article.vivere-sangiano-lavorare-ticino.excerpt': 'The new Frontier Agreement has been in force since 1 January 2024. Learn how to distinguish exemptions, deductibles and deductibles for your life project.',
+    'blog.article.vivere-sangiano-lavorare-ticino.imageAlt': 'Panoramic view of Lugano, a destination for many cross-border workers.',
 };
 
 export default blogMetaEn;
