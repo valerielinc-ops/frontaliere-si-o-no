@@ -586,3 +586,47 @@ describe('Prada Group crawler — post-parser counter (#7707)', () => {
     expect(updater).toContain('parsed: sourceCounts.parsed, newCount:');
   });
 });
+
+// Issue 5253: without the posting body the runner wrote four paragraphs of its
+// own ("Prada Group cerca <title>…", "Prada Group is looking for a <title>…",
+// "Prada Group sucht…", "Prada Group recherche…"). Text: the opening of the
+// live "Digital Client Service Advisor" posting (jobs.pradagroup.com, 2026-09-29).
+describe('buildPradaDescriptionFields — the posting body only', () => {
+  const updater = readFileSync('scripts/update-prada-jobs.mjs', 'utf8');
+  const POSTING_BODY = 'Founded in 1913 in Italy, the Prada Group was built on a tradition of excellence and with a vision of innovation. The Group, a world leader in the luxury sector, operates in more than 45 countries with the PRADA, Miu Miu, Versace, Church’s, Car Shoe and Luna Rossa brands, and has employees of over 100 nationalities.\n\nJOB PURPOSE\n\nA member of the Client Services team supporting client contacts through calls, chat, and email, while managing omni-channel client interactions across the EMEA region.';
+
+  it('publishes the body in the slot of its language', async () => {
+    const { buildPradaDescriptionFields } = await import('../scripts/update-prada-jobs.mjs');
+    const fields = buildPradaDescriptionFields(POSTING_BODY);
+    expect(fields).toEqual({ description: POSTING_BODY, descriptionByLocale: { en: POSTING_BODY }, sourceLang: 'en' });
+  });
+
+  it('gives a page without the posting body no description (main() then skips the job)', async () => {
+    const { buildPradaDescriptionFields } = await import('../scripts/update-prada-jobs.mjs');
+    for (const shell of ['', 'Prada Group Careers', 'Apply now for this role at Prada Group.']) {
+      expect(buildPradaDescriptionFields(shell)).toEqual({ description: '', descriptionByLocale: {}, sourceLang: 'en' });
+    }
+    expect(updater).not.toMatch(/Prada Group (?:cerca|is looking for|sucht|recherche) /);
+  });
+});
+
+// Stored records of the former four invented paragraphs (issue 5253):
+// dropped before the merge.
+describe('dropPradaFabricatedText', () => {
+  it('leaves no invented entry in a stored job', async () => {
+    const { dropPradaFabricatedText } = await import('../scripts/update-prada-jobs.mjs');
+    const job: any = {
+      sourceLang: 'it',
+      description: 'Prada Group cerca Sales Associate presso la sede di Mendrisio, Svizzera. Prada Group è una delle principali aziende del lusso al mondo.',
+      descriptionByLocale: {
+        it: 'Prada Group cerca Sales Associate presso la sede di Mendrisio, Svizzera. Prada Group è una delle principali aziende del lusso al mondo.',
+        en: 'Prada Group is looking for a Sales Associate at their Mendrisio, Switzerland location.',
+        de: 'Prada Group sucht eine/n Sales Associate am Standort Mendrisio, Schweiz.',
+        fr: 'Prada Group recherche un/une Sales Associate sur le site de Mendrisio, Suisse.',
+      },
+    };
+    expect(dropPradaFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+  });
+});

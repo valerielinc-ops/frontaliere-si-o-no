@@ -49,6 +49,9 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -75,6 +78,25 @@ function writeJobsFiles(jobs) {
   }
 }
 
+// The four paragraphs the runner used to write for a page without the posting
+// body ("Prada Group cerca…", "…is looking for…", "…sucht…", "…recherche…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+const PRADA_FABRICATED_RE = /^Prada Group (?:cerca|is looking for|sucht|recherche) /;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (PRADA_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropPradaFabricatedText(job) {
+  return dropFabricatedDescription(job, PRADA_FABRICATED_RE);
+}
+
 function mergeCompanyJobs(parsedJobs, companyExisting) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
@@ -86,6 +108,8 @@ function mergeCompanyJobs(parsedJobs, companyExisting) {
     byUrl.set(key, job);
   }
   const deduped = [...byUrl.values()];
+  const fossils = companyExisting.filter((job) => dropPradaFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented descriptions from ${fossils} stored Prada Group job(s); they will be retranslated`);
   const merged = mergePreserveLocaleData(companyExisting, deduped);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
@@ -93,29 +117,22 @@ function mergeCompanyJobs(parsedJobs, companyExisting) {
 }
 
 /**
- * Build rich synthetic descriptions in all 4 locales.
- * Each must be 200+ chars to safely exceed the 120-char MIN_DESCRIPTION_CHARS threshold.
+ * Description fields of a Prada posting: the detail text only, in the slot
+ * of its own language (issue 5253). Without the posting body (the
+ * SuccessFactors page is JS-rendered, or only the site-wide og:description
+ * came back) there is no description, and main() skips the job as it always
+ * did for a short one — instead of publishing the four paragraphs about
+ * Prada Group that this runner used to write in it/en/de/fr.
+ *
+ * @param {string} detailDesc
  */
-function buildPradaDescriptions(title, location, department) {
-  const dept = department ? ` nel reparto ${department}` : '';
-  const deptEn = department ? ` in the ${department} department` : '';
-  const deptDe = department ? ` in der Abteilung ${department}` : '';
-  const deptFr = department ? ` au département ${department}` : '';
-
-  return {
-    it: `Prada Group cerca ${title}${dept} presso la sede di ${location}, Svizzera. ` +
-        `Prada Group è una delle principali aziende del lusso al mondo, con boutique, uffici e attività commerciali in diverse località svizzere. ` +
-        `Il gruppo comprende i marchi Prada, Miu Miu, Church's e Car Shoe. Candidatura tramite il portale ufficiale jobs.pradagroup.com.`,
-    en: `Prada Group is looking for a ${title}${deptEn} at their ${location}, Switzerland location. ` +
-        `Prada Group is one of the world's leading luxury fashion companies, with boutiques, offices and commercial activities across Switzerland. ` +
-        `The group includes the Prada, Miu Miu, Church's and Car Shoe brands. Apply through the official careers portal at jobs.pradagroup.com.`,
-    de: `Prada Group sucht eine/n ${title}${deptDe} am Standort ${location}, Schweiz. ` +
-        `Die Prada Group ist eines der weltweit führenden Luxusmodeunternehmen mit Boutiquen, Büros und kommerziellen Aktivitäten in der ganzen Schweiz. ` +
-        `Zur Gruppe gehören die Marken Prada, Miu Miu, Church's und Car Shoe. Bewerbung über das offizielle Karriereportal jobs.pradagroup.com.`,
-    fr: `Prada Group recherche un/une ${title}${deptFr} sur le site de ${location}, Suisse. ` +
-        `Prada Group est l'une des principales entreprises de mode de luxe au monde, avec des boutiques, des bureaux et des activités commerciales partout en Suisse. ` +
-        `Le groupe comprend les marques Prada, Miu Miu, Church's et Car Shoe. Candidature via le portail officiel jobs.pradagroup.com.`,
-  };
+export function buildPradaDescriptionFields(detailDesc = '') {
+  const text = String(detailDesc || '').trim();
+  const isPostingBody = text.length >= 200
+    && !text.toLowerCase().includes('prada group careers')
+    && meetsSourceBodyFloor(text);
+  if (!isPostingBody) return { description: '', descriptionByLocale: {}, sourceLang: 'en' };
+  return sourceLocaleDescription(text, { defaultLang: 'en' });
 }
 
 async function main() {
@@ -149,11 +166,9 @@ async function main() {
     }
 
     const detail = await fetchPradaDetailPage(raw.url);
-    // SuccessFactors detail pages are 100% JS-rendered — description is usually empty.
-    // Use detail description only if truly substantial (200+ chars), otherwise build rich
-    // synthetic descriptions in all 4 locales to pass MIN_DESCRIPTION_CHARS (120).
-    let detailDesc = detail?.description || '';
-    const hasRealDescription = detailDesc.length >= 200 && !detailDesc.toLowerCase().includes('prada group careers');
+    // SuccessFactors detail pages are 100% JS-rendered — the description is
+    // often missing: see buildPradaDescriptionFields.
+    const { description, descriptionByLocale: descByLocale, sourceLang } = buildPradaDescriptionFields(detail?.description);
 
     // A non-empty detail location is more authoritative than the listing and
     // must independently pass the same target gate. A blank detail falls back
@@ -162,7 +177,6 @@ async function main() {
     const loc = detailLocation
       ? resolvePradaSwissLocation({ location: detailLocation, url: raw.url })
       : listingLocation;
-    const dept = raw.department || detail?.department || '';
     if (!loc) {
       console.log(`  ⏭️  ${raw.title}: detail location "${detailLocation}" is outside Switzerland — skipping`);
       continue;
@@ -175,12 +189,6 @@ async function main() {
     // Località della vacancy, non il capoluogo di ripiego (issue 5253).
     const fallbackAddress = resolveLocalityAddress({ city: loc, canton });
 
-    // Build rich locale-specific descriptions (200+ chars each)
-    const descByLocale = hasRealDescription
-      ? { en: detailDesc }
-      : buildPradaDescriptions(raw.title, loc, dept);
-
-    const description = descByLocale.it || descByLocale.en || Object.values(descByLocale)[0] || '';
     if (description.length < 30) {
       console.log(`  ⚠️  ${raw.title}: description too short (${description.length} chars) — skipping`);
       continue;
@@ -214,7 +222,7 @@ async function main() {
       postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url,
       source: 'Prada Group Dedicated Parser',
-      sourceLang: detectLang(description || raw.title, 'en'),
+      sourceLang,
       crawledAt: new Date().toISOString(),
     });
     // Updated inside the loop, not after it: the detail fetches above can abort

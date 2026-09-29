@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   STADLER_RAIL_KEY,
@@ -162,5 +163,67 @@ describe('Stadler Rail crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Issue 5253: a detail body under 50 words used to be DISCARDED and replaced
+// by "<title> bei Stadler Rail in <city>." plus a paragraph about Stadler
+// written by the parser. Now a body under the shared 50-word floor
+// (`scripts/lib/source-body-floor.mjs`) is not published either: the job gets
+// no description and takes the thin-source path (quarantine) instead of
+// becoming an indexable thin page. Fixture: the live "Lackierer:in" page
+// (49 words), minimized.
+describe('fetchAllStadlerRailJobs — the detail text only', () => {
+  const DETAIL = fs.readFileSync(new URL('./fixtures/stadler-rail-detail-short-lackierer.html', import.meta.url), 'utf8');
+  const LISTING = '<a class="jobTitle-link" href="/job/Altenrhein-Lackiererin-SG-S-9423/1327192555/">Lackierer:in</a>';
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
+  });
+
+  function stubSite(detailHtml: string) {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubGlobal('fetch', vi.fn(async (input) => new Response(
+      String(input).includes('/search/') ? LISTING : detailHtml,
+      { status: 200, headers: { 'content-type': 'text/html' } },
+    )));
+  }
+
+  it('gives the 49-word body of the live Lackierer:in page no indexable text, not a padded one', async () => {
+    expect(DETAIL).toContain('Carrosserielackierer:in oder Industrielackierer:in');
+    stubSite(DETAIL);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+  });
+
+  it('publishes a body from 50 words up as the source wrote it', async () => {
+    const longer = DETAIL.replace('Vielfältige Tagesaufgaben in unterschiedlichen Gruppe', 'Vielfältige Tagesaufgaben in unterschiedlichen Gruppen der Lackiererei am Standort Altenrhein');
+    stubSite(longer);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
+    const [job] = jobs;
+    expect(job.description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+    expect(job.description).toMatch(/^PROFIL\n\n- abgeschlossene Ausbildung als Carrosserielackierer:in/);
+    expect(job.descriptionByLocale).toEqual({ de: job.description });
+    expect(job.description).not.toMatch(/bei Stadler Rail in|Stadler ist ein weltweit tätiger/);
+  });
+
+  it('gives a posting without a body no description', async () => {
+    const withoutBody = DETAIL.replace(/<span itemprop="description"[\s\S]*?<\/div>\s*<\/span>/, '');
+    expect(withoutBody).not.toContain('itemprop="description"');
+    stubSite(withoutBody);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
   });
 });

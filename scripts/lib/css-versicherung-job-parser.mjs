@@ -47,6 +47,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -299,22 +300,13 @@ export async function fetchAllCssVersicherungJobs() {
     const address = jsonLd.jobLocation?.address || {};
     const { city, canton, postalCode, streetAddress, region } = resolveAddress(address);
 
-    let descriptionText = stripHtml(jsonLd.description || '');
+    // The JSON-LD text only (issue 5253). Under 50 words it used to get
+    // "<title> — CSS, <city>." and a CSS paragraph we wrote. A posting
+    // without text, or under the shared 50-word floor, now gets no
+    // description and takes the thin-source path (quarantine).
+    const sourceText = stripHtml(jsonLd.description || '');
+    const descriptionText = meetsSourceBodyFloor(sourceText) ? sourceText : '';
     const sourceLang = detectLang(descriptionText || title, 'de');
-
-    // Thin-content guard (Non-Negotiable #4): never index < 50 words —
-    // mirrors the enrichment pattern used by sibling parsers (e.g.
-    // afry-job-parser.mjs) rather than dropping the job outright.
-    const wordCount = descriptionText.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 50) {
-      descriptionText = [
-        descriptionText || `${title} — ${CSS_VERSICHERUNG_COMPANY_NAME}, ${city}.`,
-        'Die CSS ist eine der führenden Kranken- und Sachversicherungen der Schweiz mit rund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen in der ganzen Schweiz und rund 3000 Mitarbeitenden. Seit 1899 begleitet die CSS Menschen in der Schweiz mit Grundversicherung, Zusatzversicherungen und Vorsorgelösungen und bietet ihren Mitarbeitenden flexible Arbeitsmodelle, Weiterbildungsmöglichkeiten und ein dynamisches Arbeitsumfeld.',
-        'Bewirb dich direkt online über jobs.css.ch.',
-      ]
-        .filter(Boolean)
-        .join('\n\n');
-    }
 
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
@@ -339,7 +331,7 @@ export async function fetchAllCssVersicherungJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      descriptionByLocale: descriptionText ? { [sourceLang]: descriptionText } : {},
       location: city,
       canton,
       url: jobUrl,
