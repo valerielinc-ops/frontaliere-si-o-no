@@ -877,12 +877,7 @@ export function createUmantisListingParser(config) {
       const description = sourceText ? normalizeDescriptionBullets(sourceText) : '';
       if (!description) withoutSourceText++;
 
-      // The source language comes from the body. Without one it is the
-      // language the listing is crawled in, not a guess from the title: on
-      // the tenants' German titles that guess said «en»/«fr» (kispi-zurich,
-      // 3 of 3 jobs without text), and the merge reads the stored source
-      // slot under this language.
-      const sourceLang = description ? detectLang(description, defaultSourceLang) : defaultSourceLang;
+      const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
