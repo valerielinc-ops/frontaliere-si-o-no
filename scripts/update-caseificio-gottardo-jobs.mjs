@@ -49,6 +49,7 @@ import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-templat
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -251,10 +252,14 @@ function parseListingPage(html) {
 // Detail page fetching
 // ─────────────────────────────────────────────────────────────
 
-async function fetchDetailDescription(url) {
-  const html = await fetchPage(url);
-  if (!html) return '';
-
+/**
+ * Detail-page text: the content block, or the text after the h1, up to the
+ * first end marker (the contact box, `<footer`, a `footer` class). There is no
+ * length cap (issue 5253), so a page without any end marker gives no body
+ * rather than its tail (menus, language switcher, cookie UI): the title-only
+ * line is returned instead.
+ */
+export function extractCaseificioDetailDescription(html = '') {
   // Extract main content — find the area after the title heading
   // The page has the job title as an H1, then content divs with the description
   const titleSource = stripScriptsAndStyles(html);
@@ -271,10 +276,12 @@ async function fetchDetailDescription(url) {
   if (contentMatch) {
     description = stripHtml(contentMatch[1]);
   } else {
-    // Fallback: extract all text after h1 title until footer
+    // Fallback: the text after the h1 up to the contact box or the page
+    // footer (the same end markers as above). Without one there is no
+    // delimited body: safe-fail to the title-only line below.
     const afterTitle = html.split(/<\/h1>/i).slice(1).join('');
-    const beforeFooter = afterTitle.split(/Caseificio dimostrativo del Gottardo SA/i)[0] || afterTitle;
-    description = stripHtml(beforeFooter);
+    const end = afterTitle.search(/Caseificio dimostrativo del Gottardo|<footer|class="[^"]*footer/i);
+    description = end >= 0 ? stripHtml(afterTitle.slice(0, end)) : '';
   }
 
   // Clean up CSS/JS noise that may leak through
@@ -285,12 +292,13 @@ async function fetchDetailDescription(url) {
     .replace(/\s{3,}/g, '\n\n')
     .trim();
 
-  // Limit length
-  if (description.length > 3000) {
-    description = description.slice(0, 3000) + '…';
-  }
-
   return description || `${titleText}\n\nPer maggiori dettagli, consultare la pagina dell'offerta.`;
+}
+
+async function fetchDetailDescription(url) {
+  const html = await fetchPage(url);
+  if (!html) return '';
+  return extractCaseificioDetailDescription(html);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -744,4 +752,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Caseificio del Gottardo'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Caseificio del Gottardo'));
+}

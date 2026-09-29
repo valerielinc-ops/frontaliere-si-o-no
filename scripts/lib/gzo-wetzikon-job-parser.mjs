@@ -45,7 +45,8 @@
 import { createHash } from 'node:crypto';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { fetchHtml, htmlToText } from './hospital-custom-html-helpers.mjs';
+import { fetchHtml } from './hospital-custom-html-helpers.mjs';
+import { extractPublicjobsDetailDescription } from './publicjobs-detail-description.mjs';
 import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -248,30 +249,14 @@ function parseSwissDate(raw = '') {
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
- * Pull the longest plain-text block from a publicjobs.ch detail page.
- * Returns at most ~6'000 chars of cleaned description.
+ * The vacancy body (lead, description, benefits, applicant info) of a
+ * publicjobs.ch detail page.
  */
 async function fetchGzoDetailDescription(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return '';
-    const noScripts = String(html)
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '');
-    const candidateBlocks = [];
-    const blockRe = /<(?:article|main|section|div)[^>]*(?:id|class)="[^"]*(?:job|content|main|description|inserat|stellen)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|main|section|div)>/gi;
-    let m;
-    while ((m = blockRe.exec(noScripts)) !== null && candidateBlocks.length < 12) {
-      candidateBlocks.push(m[1]);
-    }
-    candidateBlocks.push(noScripts);
-    let best = '';
-    for (const blk of candidateBlocks) {
-      const text = htmlToText(blk);
-      if (text.length > best.length) best = text;
-      if (best.length > 1200) break;
-    }
-    return normalizeSpace(best).slice(0, 6000);
+    return extractPublicjobsDetailDescription(html);
   } catch (err) {
     console.warn(`  ⚠️ GZO detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return '';

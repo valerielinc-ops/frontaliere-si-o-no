@@ -132,7 +132,14 @@ function postingHtml(html) {
   const stopAt = scope.search(
     /<div\b[^>]*\bclass="[^"]*\b(?:jobs-contact|button-wrapper|jobs-form|jobs-similar)\b|<h2[^>]*>\s*Fragen zur Bewerbung/i,
   );
-  return stopAt > 0 ? scope.slice(0, stopAt) : scope;
+  if (stopAt > 0) return scope.slice(0, stopAt);
+  // From the intro there is no closing tag to rely on: without a stop marker,
+  // stop at the page footer/main end, or give no body — the text has no length
+  // cap (issue 5253), so the page tail is never published. The <main> scope
+  // above is already closed by </main>.
+  if (introAt < 0) return scope;
+  const pageEnd = scope.search(/<footer\b|<\/main>/i);
+  return pageEnd > 0 ? scope.slice(0, pageEnd) : '';
 }
 
 export function parseDetail(html = '') {
@@ -154,7 +161,6 @@ export function parseDetail(html = '') {
     const idx = body.indexOf(marker);
     if (idx > 200) body = body.slice(0, idx).trim();
   }
-  body = body.slice(0, 6000);
   // Site marker: the intro renders `<span>Arbeitsort: </span><span>{site}</span>`,
   // which becomes one "Arbeitsort: {site}" line.
   const siteMatch = body.match(/Arbeitsort\s*[:：]\s*([^\n.]+)/i);

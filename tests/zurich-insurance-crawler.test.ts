@@ -19,6 +19,7 @@ const pageOne = fixture('zurich-insurance-listing-page-1.html');
 const pageTwo = fixture('zurich-insurance-listing-page-2.html');
 const invalidPage = fixture('zurich-insurance-listing-invalid.html');
 const detailPage = fixture('zurich-insurance-detail.html');
+const longDetailPage = fixture('zurich-insurance-detail-long.html');
 const pageOne44 = pageOne.replace('of <b>45</b>', 'of <b>44</b>');
 const pageTwo44 = pageTwo
   .replace('of <b>45</b>', 'of <b>44</b>')
@@ -246,6 +247,53 @@ describe('Zurich Insurance Switzerland crawler', () => {
     expect(new Set(jobs.map((job) => job.canton))).toEqual(new Set(['ZH', 'VD', 'LU', 'GE']));
     expect(jobs.every((job) => !job.location.includes(', CH'))).toBe(true);
     expect(jobs.every((job) => Object.keys(job.slugByLocale).length === 1)).toBe(true);
+  });
+
+  it('publishes a long official description whole — no 6000-character cap (issue 5253)', async () => {
+    // Live posting 1366602257 (2026-09-29): 6.3k characters of text between
+    // the jobdescription span and p.job-location; the last 460 were cut.
+    const page = pageWithRows(pageOne, [rowOne], 1);
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: (url: string) => Promise.resolve(new URL(url).pathname === '/search/' ? page : longDetailPage),
+      detailDelayMs: 0,
+    });
+    const [job] = await crawler.fetchJobs();
+
+    expect(job.description.length).toBeGreaterThan(6000);
+    expect(job.description).toMatch(/• Recruiter name: Example Recruiter$/);
+    expect(job.description).not.toContain('Apply now');
+    expect(job.descriptionByLocale[job.sourceLang]).toBe(job.description);
+  });
+
+  it('writes no "Key details" stub when the detail page has no body (issue 5253)', async () => {
+    const page = pageWithRows(pageOne, [rowOne], 1);
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: (url: string) => Promise.resolve(
+        new URL(url).pathname === '/search/' ? page : '<html><body><p class="job-location"></p></body></html>',
+      ),
+      detailDelayMs: 0,
+    });
+    const [job] = await crawler.fetchJobs();
+
+    // Only source text is published; the thin-source check of the shared
+    // pipeline quarantines a job without a body.
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale[job.sourceLang]).toBe('');
+  });
+
+  it('reads the jobdescription span to its own end when p.job-location is missing — no window of the page after it', async () => {
+    const page = pageWithRows(pageOne, [rowOne], 1);
+    const noMarker = longDetailPage
+      .replace('<p class="job-location"></p>', '')
+      .replace('</body>', `<nav>${'<a>Careers menu</a>'.repeat(300)}</nav><div class="cookie">Accept all cookies</div></body>`);
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: (url: string) => Promise.resolve(new URL(url).pathname === '/search/' ? page : noMarker),
+      detailDelayMs: 0,
+    });
+    const [job] = await crawler.fetchJobs();
+
+    expect(job.description).toMatch(/• Recruiter name: Example Recruiter$/);
+    expect(job.description).not.toMatch(/Careers menu|Accept all cookies|Apply now/);
   });
 
   it('fails loud when an explicit page limit would truncate the declared total', async () => {

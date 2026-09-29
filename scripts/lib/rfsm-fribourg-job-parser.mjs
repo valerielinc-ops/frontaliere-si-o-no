@@ -178,7 +178,10 @@ export function extractBalancedJobDescription(html = '') {
     }
     i = nextClose + 7;
   }
-  return html.slice(bodyStart, i);
+  // The span never closes: no delimited body. Returning everything up to the
+  // last </span> of the page would publish its tail, now that the text has
+  // no length cap (issue 5253).
+  return '';
 }
 
 export function parseDetail(html = '') {
@@ -196,7 +199,7 @@ export function parseDetail(html = '') {
       .replace(/[ \t]*\n[ \t]*/g, '\n')
       .replace(/\n{3,}/g, '\n\n')
       .trim();
-    description = normalizeDescriptionBullets(cleaned).slice(0, 7000);
+    description = normalizeDescriptionBullets(cleaned);
   }
   return { title, shiftType, location, description };
 }

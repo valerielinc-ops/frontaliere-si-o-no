@@ -195,9 +195,9 @@ describe('Clinique de la Plaine crawler parser', () => {
       expect(parseDetailDescription('<div>no Divi here</div>')).toBe('');
     });
 
-    it('caps output at ~6000 chars', () => {
+    it('keeps a long description whole — the Divi blocks bound the text, not a 6000-char cap (issue 5253)', () => {
       const huge = `<div class="et_pb_text_inner">${'a'.repeat(20000)}</div>`;
-      expect(parseDetailDescription(huge).length).toBeLessThanOrEqual(6000);
+      expect(parseDetailDescription(huge).length).toBe(20000);
     });
   });
 });

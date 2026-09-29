@@ -69,7 +69,6 @@ const TENANT = 'planzer';
 const LISTING_URL = `https://live.solique.ch/${TENANT}/`;
 const PORTAL_BASE = 'https://live.solique.ch';
 const DETAIL_DELAY_MS = 300;
-const MAX_DETAIL_CHARS = 6000;
 
 function normalizeSpace(s = '') {
   return templateNormalizeSpace(String(s ?? ''));
@@ -338,7 +337,7 @@ function extractDetailContent(html = '') {
   const locationText = parseLocationBlock(html);
 
   return {
-    description: sections.join('\n\n').slice(0, MAX_DETAIL_CHARS),
+    description: sections.join('\n\n'),
     locationText,
   };
 }

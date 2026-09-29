@@ -31,6 +31,7 @@ import {
 } from './crawler-template.mjs';
 import { decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
@@ -217,14 +218,22 @@ function extractAlpiqRoleContentHtml(html) {
     /<(?:p|div)[^>]*>\s*<(?:strong|b)[^>]*>\s*Mission\s*<\/(?:strong|b)>/i,
   );
   const mainStart = cleanedHtml.search(/<main\b/i);
-  const start = missionMatch?.index ?? (mainStart >= 0 ? mainStart : 0);
+  // Without a length cap (issue 5253) the role block must be delimited on
+  // both sides. Archived pages without a Mission heading or <main> keep the
+  // role in their own <div class="job-detail">, read to its closing tag;
+  // anything else without a start or an end marker (facts/footer/</main>)
+  // gives no role text (the caller keeps the listing text) instead of a sweep
+  // of the page head or tail.
+  if (!missionMatch && mainStart < 0) return readClosedElement(cleanedHtml, 'class="job-detail"');
+  const start = missionMatch?.index ?? mainStart;
   const endCandidates = [
     cleanedHtml.indexOf('data-content-element="facts_container"', start),
     cleanedHtml.indexOf("data-content-element='facts_container'", start),
     cleanedHtml.indexOf('<footer', start),
     cleanedHtml.indexOf('</main>', start),
   ].filter((position) => position > start);
-  const end = endCandidates.length ? Math.min(...endCandidates) : cleanedHtml.length;
+  if (endCandidates.length === 0) return '';
+  const end = Math.min(...endCandidates);
   let roleHtml = cleanedHtml.slice(start, end);
 
   // The role block is followed by a legal disclaimer before the generic
@@ -276,11 +285,9 @@ export function parseAlpiqDetailHtml(html) {
 
   // Build full description
   const bodyText = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(roleHtml)));
-  const description = bodyText.slice(0, 3000);
-
   return {
     title,
-    description,
+    description: bodyText,
     sections,
     bullets,
   };

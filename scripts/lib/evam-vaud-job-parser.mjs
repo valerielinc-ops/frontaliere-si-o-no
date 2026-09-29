@@ -161,7 +161,7 @@ function buildJob(item) {
 
   const rawHtml = ld.description || item.content_html || '';
   const detail = htmlToMarkdown(rawHtml);
-  const description = (detail.markdown || '').slice(0, 5000);
+  const description = detail.markdown || '';
 
   const stableId = extractNumericId(url) || createHash('sha1').update(url).digest('hex').slice(0, 12);
   const slug = slugify(`${title} evam vaud ch`);

@@ -141,7 +141,7 @@ async function fetchDetailContent(detailUrl, fallbackTitle) {
     const body = extractDetailBody(html);
 
     const parts = [lead, body].filter(Boolean).map((s) => s.trim());
-    const description = parts.join('\n\n').slice(0, 6000);
+    const description = parts.join('\n\n');
     return { title: h1, description };
   } catch (err) {
     console.warn(`  ⚠️ Rennbahnklinik detail fetch failed (${detailUrl}): ${err?.message || err}`);

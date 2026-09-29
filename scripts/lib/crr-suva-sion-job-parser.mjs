@@ -94,16 +94,19 @@ export function parseListing(html) {
   return out;
 }
 
-function extractDetailBody(html) {
+export function extractDetailBody(html) {
   const h1End = html.search(/<\/h1>/i);
   if (h1End < 0) return '';
-  const tail = html.slice(h1End + '</h1>'.length, h1End + 30000);
+  const tail = html.slice(h1End + '</h1>'.length);
   const stopIdx = tail.search(/<footer|<aside|<div[^>]*class="[^"]*(?:footer|sidebar|partenaires)/i);
-  const block = stopIdx > 0 ? tail.slice(0, stopIdx) : tail;
+  // No end marker: no delimited body. The text has no length cap
+  // (issue 5253), so the page tail after the h1 is never published.
+  if (stopIdx <= 0) return '';
+  const block = tail.slice(0, stopIdx);
   const cleaned = block
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')
     .replace(/<div[^>]*class="[^"]*(?:share|partage|breadcrumb)[^"]*"[\s\S]*?<\/div>/gi, '');
-  return normalizeSpace(htmlToText(cleaned)).slice(0, 6000);
+  return normalizeSpace(htmlToText(cleaned));
 }
 
 function extractH1(html) {
