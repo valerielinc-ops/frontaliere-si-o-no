@@ -72,7 +72,8 @@ async function readBoundedResponse(response, maxBytes) {
         try { await reader.cancel(); } catch { /* the cap remains authoritative */ }
         throw new GitHubActionsReadError('github_response_too_large');
       }
-      chunks.push(value);
+      // A copy: a reader may hand back the same buffer on every read (#7483).
+      chunks.push(new Uint8Array(value));
     }
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

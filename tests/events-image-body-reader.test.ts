@@ -14,7 +14,7 @@
  * and the single image the success paths write is removed afterwards.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -142,6 +142,40 @@ describe('mirrorEventImage: streaming body with the cap applied during the downl
     const result = trackWritten(await mirrorEventImage(URL_OK, uniqueId('release')));
 
     expect(result).toMatch(/^\/images\/events\/test9729-release-.+\.(jpg|webp)$/);
+  });
+
+  it('keeps a copy of every chunk when the reader reuses its buffer (#7483, corpus #1906)', async () => {
+    // Not decodable as an image: sharp fails and the original bytes are stored
+    // as they were read, so the file on disk is the concatenated body.
+    const reused = Uint8Array.from([1, 2]);
+    let reads = 0;
+    const reader = {
+      read: async () => {
+        reads += 1;
+        if (reads === 1) return { done: false, value: reused };
+        if (reads === 2) {
+          reused.set([3, 4]);
+          return { done: false, value: reused };
+        }
+        return { done: true, value: undefined };
+      },
+      cancel: async () => {},
+      releaseLock() {},
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'image/jpeg' }),
+      body: { getReader: () => reader, cancel: async () => {} },
+    };
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(response));
+
+    const result = trackWritten(await mirrorEventImage(URL_OK, uniqueId('reused')));
+
+    expect(result).toMatch(/^\/images\/events\/test9729-reused-.+\.jpg$/);
+    const stored = readFileSync(path.join(EVENT_IMAGE_DIR, path.basename(result!)));
+    // Before the fix both entries aliased `reused`, so the file held [3, 4, 3, 4].
+    expect([...stored]).toEqual([1, 2, 3, 4]);
   });
 
   it('a releaseLock() that throws keeps the oversize verdict', async () => {

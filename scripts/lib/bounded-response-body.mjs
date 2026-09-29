@@ -62,9 +62,9 @@ export async function readBoundedResponseBytes(response, maxBytes) {
         return null;
       }
       if (value.byteLength === 0) continue;
-      chunks.push(value instanceof Uint8Array
-        ? value
-        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength));
+      // A copy, not a view: a reader may hand back the same buffer on every
+      // read (#7483), and the single-chunk shortcut below returns it as is.
+      chunks.push(new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
       size += value.byteLength;
     }
   } catch (error) {

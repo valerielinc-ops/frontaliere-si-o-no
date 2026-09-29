@@ -74,7 +74,8 @@ export async function readBoundedJsonResponse(
         try { await reader.cancel(); } catch { /* keep the size error authoritative */ }
         throw new Error('github_response_too_large');
       }
-      chunks.push(value);
+      // A copy: a reader may hand back the same buffer on every read (#7483).
+      chunks.push(new Uint8Array(value));
     }
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older
