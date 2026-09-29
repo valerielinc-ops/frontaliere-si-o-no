@@ -643,9 +643,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
         "de": "zusteller-in-briefe-und-pakete-post-pml6oq",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
       },
       "sourceLang": "de",
       "department": "",
@@ -667,11 +667,9 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt",
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
         ],
         "de": [
@@ -680,8 +678,6 @@
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
       ],
       "needsRetranslation": true,
@@ -1983,9 +1979,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "kundenberater-in-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "kundenberater-in-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -2007,18 +2003,14 @@
           "kundenberater-in-post"
         ],
         "en": [
-          "customer-advisor-in-die-schweizerische-post-emmenbrucke",
           "kundenberater-in-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
-          "conseiller-client-in-die-schweizerische-post-emmenbrucke",
           "kundenberater-in-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
-        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
-        "conseiller-client-in-die-schweizerische-post-emmenbrucke",
         "kundenberater-in-die-schweizerische-post-emmenbrucke"
       ],
       "needsRetranslation": true,
@@ -3952,8 +3944,7 @@
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-sins"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-k5dglc",
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post-k5dglc"
         ]
       },
       "previousSlugs": [
@@ -5493,7 +5484,7 @@
       },
       "slug": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
       "slugByLocale": {
-        "it": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
+        "it": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
         "en": "delivery-in-newspaper-the-message-in-the-hourly-wage-die-schweizerische-post-dottingen",
         "de": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
         "fr": "livraison-dans-les-journaux-le-message-dans-le-salaire-horaire-die-schweizerische-post-dottingen"
@@ -5533,13 +5524,11 @@
       "firstSeenAt": "2026-09-01T14:21:32.831Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-          "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen"
+          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-        "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen"
+        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
       ],
       "needsRetranslation": true
     },
@@ -8404,7 +8393,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -8428,7 +8417,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -8437,8 +8425,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -10245,8 +10232,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jcrrx3",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jcrrx3"
         ]
       },
       "previousSlugs": [
@@ -11935,8 +11921,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-u7nuce",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-u7nuce"
         ]
       },
       "previousSlugs": [
@@ -12566,7 +12551,7 @@
         "it": "apprendistato-come-automatikmonteur-in-cfc-die-schweizerische-post-zurich-mulligen",
         "en": "teaching-as-an-automatic-installer-in-efz-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-automatikmonteur-in-efz-post",
-        "fr": "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
+        "fr": "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -12588,13 +12573,11 @@
           "lehre-als-automatikmonteur-in-efz-post"
         ],
         "fr": [
-          "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
           "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
         "lehre-als-automatikmonteur-in-efz-post",
-        "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
         "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
       ],
       "id": "posta-svizzera-centro-regionale-e28dce826ade",
@@ -14279,7 +14262,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14303,12 +14286,12 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
+        "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
       ],
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,
@@ -15522,9 +15505,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sempach-station",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sempach-station",
         "en": "zusteller-in-briefe-und-pakete-post",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "zusteller-in-briefe-und-pakete-post"
@@ -15562,7 +15545,15 @@
       },
       "addressLocality": "Sempach Station",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-08-28T05:29:51.419Z"
+      "firstSeenAt": "2026-08-28T05:29:51.419Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Betriebsleiterin-Schichtleiterin-Sortierlogistik/74800-de_DE",
@@ -15586,12 +15577,12 @@
         "en": "Betriebsleiter:in / Shift Leader Sortierlogistik",
         "fr": "Betriebsleiter:in / Chef d'équipe Sortierlogistik"
       },
-      "slug": "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
+      "slug": "betriebsleiter-in-capo-turno-sortierlogistik-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
-        "it": "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
-        "en": "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
+        "it": "betriebsleiter-in-capo-turno-sortierlogistik-die-schweizerische-post-zurich-mulligen",
+        "en": "betriebsleiter-in-shift-leader-sortierlogistik-die-schweizerische-post-zurich-mulligen",
         "de": "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
-        "fr": "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+        "fr": "betriebsleiter-in-chef-d-equipe-sortierlogistik-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -15626,7 +15617,21 @@
       },
       "addressLocality": "Zürich-Mülligen",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-28T21:43:52.751Z"
+      "firstSeenAt": "2026-09-28T21:43:52.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+        ],
+        "en": [
+          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+        ],
+        "fr": [
+          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Abend/74855-de_DE",
@@ -15714,9 +15719,9 @@
         "en": "Associate Produktion Früh Innendienst",
         "fr": "Collaborateur/trice Produktion Früh Innendienst"
       },
-      "slug": "mitarbeiter-in-produktion-fruh-innendienst-post",
+      "slug": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
       "slugByLocale": {
-        "it": "mitarbeiter-in-produktion-fruh-innendienst-post",
+        "it": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
         "en": "mitarbeiter-in-produktion-fruh-innendienst-post",
         "de": "mitarbeiter-in-produktion-fruh-innendienst-post",
         "fr": "mitarbeiter-in-produktion-fruh-innendienst-post"
@@ -15754,7 +15759,15 @@
       },
       "addressLocality": "Niederurnen",
       "addressRegion": "GL",
-      "firstSeenAt": "2026-09-28T21:43:52.751Z"
+      "firstSeenAt": "2026-09-28T21:43:52.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-produktion-fruh-innendienst-post"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-produktion-fruh-innendienst-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete-Abend/74869-de_DE",
@@ -15778,9 +15791,9 @@
         "en": "Zusteller:in Briefe und Pakete Abend",
         "fr": "Zusteller:in Briefe und Pakete Abend"
       },
-      "slug": "zusteller-in-briefe-und-pakete-abend-post",
+      "slug": "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-abend-post",
+        "it": "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen",
         "en": "zusteller-in-briefe-und-pakete-abend-post",
         "de": "zusteller-in-briefe-und-pakete-abend-post",
         "fr": "zusteller-in-briefe-und-pakete-abend-post"
@@ -15818,7 +15831,15 @@
       },
       "addressLocality": "Niederurnen",
       "addressRegion": "GL",
-      "firstSeenAt": "2026-09-28T21:43:52.751Z"
+      "firstSeenAt": "2026-09-28T21:43:52.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-abend-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-abend-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Sendungsaufbereitung/74481-de_DE",
@@ -16042,9 +16063,9 @@
         "en": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
         "fr": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-f96dfd",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-f96dfd",
         "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
@@ -16082,7 +16103,15 @@
       },
       "addressLocality": "Glis",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-27T00:49:51.119Z"
+      "firstSeenAt": "2026-08-27T00:49:51.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73917-de_DE",

@@ -8,8 +8,8 @@
       "slugByLocale": {
         "fr": "coordinateur-de-commandes-f-m-d-dormakaba-ch",
         "it": "coordinatore-del-comando-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
+        "de": "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -56,8 +56,6 @@
       "previousSlugs": [
         "coordinateur-de-commandes-f-m-d-dormakaba-le-mont-sur-lausanne",
         "coordinateur-de-commandes-f-m-d-dormakaba-ch",
-        "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
-        "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne",
         "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -65,12 +63,10 @@
           "coordinateur-de-commandes-f-m-d-dormakaba-ch"
         ],
         "en": [
-          "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
           "coordinateur-de-commandes-f-m-d-dormakaba-ch",
           "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
-          "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne",
           "coordinateur-de-commandes-f-m-d-dormakaba-ch",
           "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
@@ -176,8 +172,8 @@
       "slugByLocale": {
         "fr": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
         "it": "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -229,8 +225,6 @@
         "technician-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
         "techniker-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-        "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
         "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -242,14 +236,12 @@
         "en": [
           "automatic-door-technician-f-m-d-dormakaba-le-mont-sur-lausanne",
           "technician-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
           "technicien-portes-automatiques-f-m-d-dormakaba-ch",
           "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
           "automatischer-turtechniker-m-m-d-dormakaba-le-mont-sur-lausanne",
           "techniker-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
-          "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
           "technicien-portes-automatiques-f-m-d-dormakaba-ch",
           "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
@@ -276,7 +268,7 @@
       "slugByLocale": {
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
-        "fr": "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
         "it": "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
       },
       "company": "dormakaba",
@@ -326,7 +318,6 @@
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
         "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-ch",
-        "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
@@ -336,7 +327,6 @@
           "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
-          "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
@@ -454,7 +444,7 @@
         "fr": "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
         "it": "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne",
         "en": "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "de": "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "de": "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -505,7 +495,6 @@
         "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
         "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
-        "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -521,7 +510,6 @@
         "de": [
           "projektleiter-automatische-turen-m-m-d-dormakaba-le-mont-sur-lausanne",
           "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
-          "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
           "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
@@ -548,8 +536,8 @@
       "slugByLocale": {
         "fr": "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
         "it": "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -602,7 +590,6 @@
         "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
         "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
-        "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -616,7 +603,6 @@
         "en": [
           "chef-de-projet-m-f-d-dormakaba-ch",
           "project-leader-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
           "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
@@ -624,7 +610,6 @@
           "chef-de-projet-m-f-d-dormakaba-ch",
           "projektleiter-m-w-d-dormakaba-le-mont-sur-lausanne",
           "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
           "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
@@ -1227,9 +1212,9 @@
       "slug": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "it": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "en": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "it": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1274,24 +1259,16 @@
         "fr": []
       },
       "previousSlugs": [
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ],
         "en": [
-          "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
           "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ],
         "de": [
-          "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne",
           "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ]
       },
@@ -1398,9 +1375,9 @@
       "slug": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
       "slugByLocale": {
         "de": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "it": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "en": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "fr": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
+        "it": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
+        "en": "technical-services-80-100-m-f-d-dormakaba-st-gallen",
+        "fr": "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1443,26 +1420,6 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      },
-      "previousSlugs": [
-        "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
-        "technical-services-80-100-m-f-d-dormakaba-st-gallen",
-        "services-techniques-80-100-h-f-d-dormakaba-st-gallen",
-        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
-          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
-        ],
-        "en": [
-          "technical-services-80-100-m-f-d-dormakaba-st-gallen",
-          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
-        ],
-        "fr": [
-          "services-techniques-80-100-h-f-d-dormakaba-st-gallen",
-          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
-        ]
       },
       "firstSeenAt": "2026-09-25T15:07:54.711Z",
       "salaryMin": 67000,
@@ -1568,9 +1525,9 @@
       "slug": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
       "slugByLocale": {
         "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "it": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "en": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "fr": "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
+        "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
+        "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1615,25 +1572,11 @@
         "de": []
       },
       "previousSlugs": [
-        "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-        "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
-        "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+        "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
-        ],
-        "en": [
-          "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
-        ],
         "fr": [
-          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-          "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
+          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-25T15:07:54.710Z",

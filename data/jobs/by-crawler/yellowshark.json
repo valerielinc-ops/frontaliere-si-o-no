@@ -2867,8 +2867,8 @@
       "slugByLocale": {
         "de": "elektroplaner-maschinenbau-m-w-80-100-therwil-bl-yellowshark-ch",
         "it": "progettista-elettrico-a-maschinenbau-m-w-d-80-100-yellowshark-ag-therwil",
-        "en": "elektroplaner-maschinenbau-m-w-80-100-therwil-bl-yellowshark-ch",
-        "fr": "elektroplaner-maschinenbau-m-w-80-100-therwil-bl-yellowshark-ch"
+        "en": "electrical-planner-maschinenbau-m-w-80-100-yellowshark-ag-therwil-bl",
+        "fr": "planificateur-trice-electrique-maschinenbau-m-w-80-100-yellowshark-ag-therwil-bl"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -2914,6 +2914,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-maschinenbau-m-w-80-100-therwil-bl-yellowshark-ch"
+        ],
+        "en": [
+          "elektroplaner-maschinenbau-m-w-80-100-therwil-bl-yellowshark-ch"
+        ],
+        "fr": [
           "elektroplaner-maschinenbau-m-w-80-100-therwil-bl-yellowshark-ch"
         ]
       },
@@ -5158,12 +5164,12 @@
     },
     {
       "id": "yellowshark-1e6cc2201214",
-      "slug": "hr-specialist-m-w-80-100-bern-be-yellowshark-ch",
+      "slug": "risorse-umane-specialista-m-w-80-100-yellowshark-ag-bern-be",
       "slugByLocale": {
         "de": "hr-specialist-m-w-80-100-bern-be-yellowshark-ch",
-        "it": "hr-specialist-m-w-80-100-bern-be-yellowshark-ch",
+        "it": "risorse-umane-specialista-m-w-80-100-yellowshark-ag-bern-be",
         "en": "hr-specialist-m-w-80-100-bern-be-yellowshark-ch",
-        "fr": "hr-specialist-m-w-80-100-bern-be-yellowshark-ch"
+        "fr": "ressources-humaines-specialiste-m-w-80-100-yellowshark-ag-bern-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -5219,7 +5225,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.761Z"
+      "firstSeenAt": "2026-09-28T21:58:25.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-m-w-80-100-bern-be-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-specialist-m-w-80-100-bern-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-m-w-80-100-bern-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-e81aa5557c73",
@@ -8188,12 +8205,12 @@
     },
     {
       "id": "yellowshark-bce19ba594bc",
-      "slug": "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch",
+      "slug": "ingegnere-di-servizio-100-m-f-d-yellowshark-ag-regensdorf-zh",
       "slugByLocale": {
         "de": "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch",
-        "it": "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch",
-        "en": "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch",
-        "fr": "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch"
+        "it": "ingegnere-di-servizio-100-m-f-d-yellowshark-ag-regensdorf-zh",
+        "en": "service-engineer-100-m-f-d-yellowshark-ag-regensdorf-zh",
+        "fr": "ingenieur-de-service-100-h-f-d-yellowshark-ag-regensdorf-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -8237,19 +8254,17 @@
         "de": []
       },
       "previousSlugs": [
-        "ingegnere-di-servizio-100-m-f-d-yellowshark-ag-regensdorf-zh",
-        "service-engineer-100-m-f-d-yellowshark-ag-regensdorf-zh",
-        "ingenieur-de-service-100-h-f-d-yellowshark-ag-regensdorf-zh"
+        "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-di-servizio-100-m-f-d-yellowshark-ag-regensdorf-zh"
+          "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch"
         ],
         "en": [
-          "service-engineer-100-m-f-d-yellowshark-ag-regensdorf-zh"
+          "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch"
         ],
         "fr": [
-          "ingenieur-de-service-100-h-f-d-yellowshark-ag-regensdorf-zh"
+          "serviceingenieur-100-m-w-d-regensdorf-zh-yellowshark-ch"
         ]
       },
       "salaryMin": 73500,
@@ -9216,10 +9231,10 @@
     },
     {
       "id": "yellowshark-6748e7e2adce",
-      "slug": "it-engineer-80-100-bassersdorf-zh-yellowshark-ch",
+      "slug": "it-ingegnere-80-100-yellowshark-ag-bassersdorf-zh",
       "slugByLocale": {
         "de": "it-engineer-80-100-bassersdorf-zh-yellowshark-ch",
-        "it": "it-engineer-80-100-bassersdorf-zh-yellowshark-ch",
+        "it": "it-ingegnere-80-100-yellowshark-ag-bassersdorf-zh",
         "en": "it-engineer-80-100-bassersdorf-zh-yellowshark-ch",
         "fr": "it-engineer-80-100-bassersdorf-zh-yellowshark-ch"
       },
@@ -9278,7 +9293,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.735Z"
+      "firstSeenAt": "2026-09-28T21:58:25.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-engineer-80-100-bassersdorf-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-engineer-80-100-bassersdorf-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-64bb1fbf6b92",
@@ -10448,10 +10471,10 @@
     },
     {
       "id": "yellowshark-f59f27d6777d",
-      "slug": "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch",
+      "slug": "senior-database-specialista-ingegnere-80-100-yellowshark-ag-zug-zg",
       "slugByLocale": {
         "de": "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch",
-        "it": "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch",
+        "it": "senior-database-specialista-ingegnere-80-100-yellowshark-ag-zug-zg",
         "en": "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch",
         "fr": "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch"
       },
@@ -10510,7 +10533,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.727Z"
+      "firstSeenAt": "2026-09-28T21:58:25.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-database-specialist-engineer-80-100-zug-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-45d1a02d100a",
@@ -13503,10 +13534,10 @@
     },
     {
       "id": "yellowshark-7d6c51a0050a",
-      "slug": "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch",
+      "slug": "it-consulente-dokumentenmanagement-digitalisierung-m-w-d-yellowshark-ag-zurich-zh",
       "slugByLocale": {
         "de": "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch",
-        "it": "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch",
+        "it": "it-consulente-dokumentenmanagement-digitalisierung-m-w-d-yellowshark-ag-zurich-zh",
         "en": "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch",
         "fr": "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch"
       },
@@ -13565,7 +13596,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.708Z"
+      "firstSeenAt": "2026-09-28T21:58:25.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-consultant-dokumentenmanagement-038-digitalisierung-m-w-d-zurich-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-0b6be98fd2ba",
@@ -13832,10 +13871,10 @@
     },
     {
       "id": "yellowshark-eeb9de7d2b4b",
-      "slug": "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch",
+      "slug": "consulente-klinikinformationssysteme-yellowshark-ag-zurich-zh",
       "slugByLocale": {
         "de": "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch",
-        "it": "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch",
+        "it": "consulente-klinikinformationssysteme-yellowshark-ag-zurich-zh",
         "en": "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch",
         "fr": "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch"
       },
@@ -13894,7 +13933,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.706Z"
+      "firstSeenAt": "2026-09-28T21:58:25.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-klinikinformationssysteme-zurich-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-75993965a721",
@@ -17521,10 +17568,10 @@
     },
     {
       "id": "yellowshark-52b39f5a55bd",
-      "slug": "it-engineer-80-100-dietikon-zh-yellowshark-ch",
+      "slug": "it-ingegnere-80-100-yellowshark-ag-dietikon-zh",
       "slugByLocale": {
         "de": "it-engineer-80-100-dietikon-zh-yellowshark-ch",
-        "it": "it-engineer-80-100-dietikon-zh-yellowshark-ch",
+        "it": "it-ingegnere-80-100-yellowshark-ag-dietikon-zh",
         "en": "it-engineer-80-100-dietikon-zh-yellowshark-ch",
         "fr": "it-engineer-80-100-dietikon-zh-yellowshark-ch"
       },
@@ -17583,7 +17630,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.683Z"
+      "firstSeenAt": "2026-09-28T21:58:25.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-engineer-80-100-dietikon-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-engineer-80-100-dietikon-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-2e7cc7c19869",
@@ -21422,12 +21477,12 @@
     },
     {
       "id": "yellowshark-1e2a5ad7d381",
-      "slug": "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch",
+      "slug": "montaggio-in-polimeccanica-m-f-100-yellowshark-ag-dubendorf-zh",
       "slugByLocale": {
         "de": "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch",
-        "it": "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch",
-        "en": "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch",
-        "fr": "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch"
+        "it": "montaggio-in-polimeccanica-m-f-100-yellowshark-ag-dubendorf-zh",
+        "en": "polymechanics-assembly-m-f-100-yellowshark-ag-dubendorf-zh",
+        "fr": "assemblage-polymecanique-h-f-100-yellowshark-ag-dubendorf-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -21471,19 +21526,17 @@
         "de": []
       },
       "previousSlugs": [
-        "montaggio-in-polimeccanica-m-f-100-yellowshark-ag-dubendorf-zh",
-        "polymechanics-assembly-m-f-100-yellowshark-ag-dubendorf-zh",
-        "assemblage-polymecanique-h-f-100-yellowshark-ag-dubendorf-zh"
+        "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montaggio-in-polimeccanica-m-f-100-yellowshark-ag-dubendorf-zh"
+          "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch"
         ],
         "en": [
-          "polymechanics-assembly-m-f-100-yellowshark-ag-dubendorf-zh"
+          "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch"
         ],
         "fr": [
-          "assemblage-polymecanique-h-f-100-yellowshark-ag-dubendorf-zh"
+          "polymechaniker-montage-m-w-100-dubendorf-zh-yellowshark-ch"
         ]
       },
       "salaryMin": 73500,
@@ -21988,10 +22041,10 @@
     },
     {
       "id": "yellowshark-405ba82bfc69",
-      "slug": "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch",
+      "slug": "senior-system-ingegnere-it-consulente-80-100-yellowshark-ag-zurich-zh",
       "slugByLocale": {
         "de": "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch",
-        "it": "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch",
+        "it": "senior-system-ingegnere-it-consulente-80-100-yellowshark-ag-zurich-zh",
         "en": "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch",
         "fr": "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch"
       },
@@ -22050,7 +22103,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.653Z"
+      "firstSeenAt": "2026-09-28T21:58:25.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-system-engineer-it-consultant-80-100-zurich-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-ca734d6875e4",
@@ -26445,10 +26506,10 @@
     },
     {
       "id": "yellowshark-aa3e4bfbed9a",
-      "slug": "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch",
+      "slug": "lead-servizio-clienti-operations-m-w-yellowshark-ag-grenchen-so",
       "slugByLocale": {
         "de": "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch",
-        "it": "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch",
+        "it": "lead-servizio-clienti-operations-m-w-yellowshark-ag-grenchen-so",
         "en": "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch",
         "fr": "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch"
       },
@@ -26507,7 +26568,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.626Z"
+      "firstSeenAt": "2026-09-28T21:58:25.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-customer-service-operations-m-w-grenchen-so-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-df553072e22c",
@@ -28718,10 +28787,10 @@
     },
     {
       "id": "yellowshark-b9d980291f44",
-      "slug": "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch",
+      "slug": "it-system-ingegnere-80-100-m-w-yellowshark-ag-luzern-lu",
       "slugByLocale": {
         "de": "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch",
-        "it": "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch",
+        "it": "it-system-ingegnere-80-100-m-w-yellowshark-ag-luzern-lu",
         "en": "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch",
         "fr": "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch"
       },
@@ -28780,7 +28849,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.612Z"
+      "firstSeenAt": "2026-09-28T21:58:25.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-system-engineer-80-8211-100-m-w-luzern-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-233154f02112",
@@ -30625,12 +30702,12 @@
     },
     {
       "id": "yellowshark-d9ced36cafa2",
-      "slug": "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch",
+      "slug": "risorse-umane-specialista-m-w-d-80-100-yellowshark-ag-lenzburg-ag",
       "slugByLocale": {
         "de": "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch",
-        "it": "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch",
+        "it": "risorse-umane-specialista-m-w-d-80-100-yellowshark-ag-lenzburg-ag",
         "en": "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch",
-        "fr": "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch"
+        "fr": "ressources-humaines-specialiste-m-w-d-80-100-yellowshark-ag-lenzburg-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -30687,7 +30764,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.601Z"
+      "firstSeenAt": "2026-09-28T21:58:25.601Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-m-w-d-80-100-lenzburg-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-68890a34d8ad",
@@ -34163,8 +34251,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-innendienst-m-w-d-80-100-zurich-zh-yellowshark-ch",
         "it": "addetto-a-alle-vendite-servizio-interno-m-w-d-80-100-yellowshark-ag-zurich",
-        "en": "mitarbeiter-in-verkauf-innendienst-m-w-d-80-100-zurich-zh-yellowshark-ch",
-        "fr": "mitarbeiter-in-verkauf-innendienst-m-w-d-80-100-zurich-zh-yellowshark-ch"
+        "en": "sales-associate-innendienst-m-w-d-80-100-yellowshark-ag-zurich-zh",
+        "fr": "vendeur-se-innendienst-m-w-d-80-100-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -34210,6 +34298,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-innendienst-m-w-d-80-100-zurich-zh-yellowshark-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-innendienst-m-w-d-80-100-zurich-zh-yellowshark-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-innendienst-m-w-d-80-100-zurich-zh-yellowshark-ch"
         ]
       },
@@ -39230,10 +39324,10 @@
     },
     {
       "id": "yellowshark-7a54b47ef7c4",
-      "slug": "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch",
+      "slug": "workplace-ingegnere-80-100-yellowshark-ag-zurich-zh",
       "slugByLocale": {
         "de": "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch",
-        "it": "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch",
+        "it": "workplace-ingegnere-80-100-yellowshark-ag-zurich-zh",
         "en": "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch",
         "fr": "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch"
       },
@@ -39292,7 +39386,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.546Z"
+      "firstSeenAt": "2026-09-28T21:58:25.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "workplace-engineer-80-8211-100-zurich-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-7ff3d43ea89c",
@@ -40051,7 +40153,7 @@
         "de": "hr-business-partner-stafa-zh-yellowshark-ch",
         "it": "hr-business-partner-stafa-zh-yellowshark-ch",
         "en": "hr-business-partner-stafa-zh-yellowshark-ch",
-        "fr": "hr-business-partner-stafa-zh-yellowshark-ch"
+        "fr": "partenaire-operationnel-rh-yellowshark-ag-stafa-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -40182,8 +40284,8 @@
       "slugByLocale": {
         "de": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-lenzburg-ag-yellowshark-ch",
         "it": "progettista-elettrico-a-gebaudetechnik-m-w-d-80-100-yellowshark-ag-lenzburg",
-        "en": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-lenzburg-ag-yellowshark-ch",
-        "fr": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-lenzburg-ag-yellowshark-ch"
+        "en": "electrical-planner-electrical-planner-gebaudetechnik-m-w-80-100-yellowshark-ag-lenzburg-ag",
+        "fr": "planificateur-trice-electrique-planificateur-trice-electrique-gebaudetechnik-m-w-80-100-yellowshark-ag-lenzburg-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -40229,6 +40331,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-lenzburg-ag-yellowshark-ch"
+        ],
+        "en": [
+          "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-lenzburg-ag-yellowshark-ch"
+        ],
+        "fr": [
           "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-lenzburg-ag-yellowshark-ch"
         ]
       },
@@ -41719,8 +41827,8 @@
       "slugByLocale": {
         "de": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-thun-be-yellowshark-ch",
         "it": "progettista-elettrico-a-gebaudetechnik-m-w-d-80-100-yellowshark-ag-thun",
-        "en": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-thun-be-yellowshark-ch",
-        "fr": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-thun-be-yellowshark-ch"
+        "en": "electrical-planner-electrical-planner-gebaudetechnik-m-w-80-100-yellowshark-ag-thun-be",
+        "fr": "planificateur-trice-electrique-planificateur-trice-electrique-gebaudetechnik-m-w-80-100-yellowshark-ag-thun-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -41765,6 +41873,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-thun-be-yellowshark-ch"
+        ],
+        "en": [
+          "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-thun-be-yellowshark-ch"
+        ],
+        "fr": [
           "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-thun-be-yellowshark-ch"
         ]
       },
@@ -41924,8 +42038,8 @@
       "slugByLocale": {
         "de": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-zurich-zh-yellowshark-ch",
         "it": "progettista-elettrico-a-gebaudetechnik-m-w-d-80-100-yellowshark-ag-zurich",
-        "en": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-zurich-zh-yellowshark-ch",
-        "fr": "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-zurich-zh-yellowshark-ch"
+        "en": "electrical-planner-electrical-planner-gebaudetechnik-m-w-80-100-yellowshark-ag-zurich-zh",
+        "fr": "planificateur-trice-electrique-planificateur-trice-electrique-gebaudetechnik-m-w-80-100-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -41971,6 +42085,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-zurich-zh-yellowshark-ch"
+        ],
+        "en": [
+          "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-zurich-zh-yellowshark-ch"
+        ],
+        "fr": [
           "elektroplaner-elektroplaner-gebaudetechnik-m-w-80-100-zurich-zh-yellowshark-ch"
         ]
       },
@@ -43616,12 +43736,12 @@
     },
     {
       "id": "yellowshark-b48596f678d5",
-      "slug": "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch",
+      "slug": "risorse-umane-specialista-m-w-d-80-100-yellowshark-ag-baden-ag",
       "slugByLocale": {
         "de": "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch",
-        "it": "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch",
+        "it": "risorse-umane-specialista-m-w-d-80-100-yellowshark-ag-baden-ag",
         "en": "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch",
-        "fr": "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch"
+        "fr": "ressources-humaines-specialiste-m-w-d-80-100-yellowshark-ag-baden-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -43678,7 +43798,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.516Z"
+      "firstSeenAt": "2026-09-28T21:58:25.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-m-w-d-80-100-baden-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-ff6920a2ddfd",
@@ -46786,12 +46917,12 @@
     },
     {
       "id": "yellowshark-52c65bd04ef7",
-      "slug": "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch",
+      "slug": "servizio-clienti-specialista-d-f-80-100-yellowshark-ag-frauenfeld-tg",
       "slugByLocale": {
         "de": "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch",
-        "it": "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch",
+        "it": "servizio-clienti-specialista-d-f-80-100-yellowshark-ag-frauenfeld-tg",
         "en": "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch",
-        "fr": "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch"
+        "fr": "service-client-specialiste-d-f-80-100-yellowshark-ag-frauenfeld-tg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -46848,7 +46979,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.489Z"
+      "firstSeenAt": "2026-09-28T21:58:25.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch"
+        ],
+        "fr": [
+          "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-specialist-d-f-80-100-frauenfeld-tg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-7412ff8ef041",
@@ -49248,12 +49390,12 @@
     },
     {
       "id": "yellowshark-dfec98d4c027",
-      "slug": "hr-manager-m-w-ebikon-lu-yellowshark-ch",
+      "slug": "risorse-umane-manager-m-w-yellowshark-ag-ebikon-lu",
       "slugByLocale": {
         "de": "hr-manager-m-w-ebikon-lu-yellowshark-ch",
-        "it": "hr-manager-m-w-ebikon-lu-yellowshark-ch",
+        "it": "risorse-umane-manager-m-w-yellowshark-ag-ebikon-lu",
         "en": "hr-manager-m-w-yellowshark-ag-ebikon",
-        "fr": "hr-manager-m-w-ebikon-lu-yellowshark-ch"
+        "fr": "ressources-humaines-manager-m-w-yellowshark-ag-ebikon-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -49310,7 +49452,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.472Z"
+      "firstSeenAt": "2026-09-28T21:58:25.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-manager-m-w-ebikon-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-manager-m-w-ebikon-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-manager-m-w-ebikon-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-f782497d85dc",
@@ -54110,10 +54263,10 @@
     },
     {
       "id": "yellowshark-d6c6463bd5c8",
-      "slug": "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch",
+      "slug": "finanza-operations-analista-80-100-yellowshark-ag-dubendorf-zh",
       "slugByLocale": {
         "de": "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch",
-        "it": "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch",
+        "it": "finanza-operations-analista-80-100-yellowshark-ag-dubendorf-zh",
         "en": "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch",
         "fr": "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch"
       },
@@ -54176,7 +54329,8 @@
       "previousSlugsByLocale": {
         "it": [
           "finanza-operations-analista-80-100-yellowshark-ag-dubendorf",
-          "finance-operations-analyste-80-100-yellowshark-ag-dubendorf"
+          "finance-operations-analyste-80-100-yellowshark-ag-dubendorf",
+          "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch"
         ],
         "fr": [
           "finance-operations-analyste-80-100-yellowshark-ag-dubendorf"
@@ -54184,15 +54338,16 @@
       },
       "previousSlugs": [
         "finanza-operations-analista-80-100-yellowshark-ag-dubendorf",
-        "finance-operations-analyste-80-100-yellowshark-ag-dubendorf"
+        "finance-operations-analyste-80-100-yellowshark-ag-dubendorf",
+        "finance-038-operations-analyst-80-100-dubendorf-zh-yellowshark-ch"
       ]
     },
     {
       "id": "yellowshark-64d4d7015547",
-      "slug": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
+      "slug": "finanza-specialista-m-w-100-yellowshark-ag-winterthur-zh",
       "slugByLocale": {
         "de": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
-        "it": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
+        "it": "finanza-specialista-m-w-100-yellowshark-ag-winterthur-zh",
         "en": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
         "fr": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
       },
@@ -54257,7 +54412,8 @@
           "finanza-specialista-m-w-100-yellowshark-ag-winterthur",
           "finance-specialist-m-w-100-yellowshark-ag-winterthur",
           "finance-specialiste-m-w-100-yellowshark-ag-winterthur",
-          "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh"
+          "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh",
+          "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
         ],
         "en": [
           "finance-specialist-m-w-100-yellowshark-ag-winterthur"
@@ -54270,7 +54426,8 @@
         "finanza-specialista-m-w-100-yellowshark-ag-winterthur",
         "finance-specialist-m-w-100-yellowshark-ag-winterthur",
         "finance-specialiste-m-w-100-yellowshark-ag-winterthur",
-        "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh"
+        "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh",
+        "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
       ]
     },
     {
@@ -56377,13 +56534,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-system-engineer-m-w-d-dietikon-zh-yellowshark-ch",
-        "ict-system-ingegnere-m-w-d-yellowshark-ag-dietikon"
+        "ict-system-engineer-m-w-d-dietikon-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-m-w-d-dietikon-zh-yellowshark-ch",
-          "ict-system-ingegnere-m-w-d-yellowshark-ag-dietikon"
+          "ict-system-engineer-m-w-d-dietikon-zh-yellowshark-ch"
         ],
         "fr": [
           "ict-system-engineer-m-w-d-dietikon-zh-yellowshark-ch"
@@ -56531,13 +56686,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-        "responsabile-finanziario-80-100-m-f-d-yellowshark-ag-baden"
+        "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-          "responsabile-finanziario-80-100-m-f-d-yellowshark-ag-baden"
+          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
         ],
         "en": [
           "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
@@ -56611,12 +56764,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "personalwesen-spezialist-m-w-d-yellowshark-ag-zug",
-          "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
+          "personalwesen-spezialist-m-w-d-yellowshark-ag-zug"
         ],
         "it": [
-          "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-          "risorse-umane-specialista-m-w-d-yellowshark-ag-zug"
+          "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
         ],
         "fr": [
           "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
@@ -56624,8 +56775,7 @@
       },
       "previousSlugs": [
         "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-        "personalwesen-spezialist-m-w-d-yellowshark-ag-zug",
-        "risorse-umane-specialista-m-w-d-yellowshark-ag-zug"
+        "personalwesen-spezialist-m-w-d-yellowshark-ag-zug"
       ],
       "firstSeenAt": "2026-09-25T15:03:04.708Z",
       "salaryMin": 69500,
@@ -56835,13 +56985,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leiter-system-engineer-m-w-80-100-wil-sg-sg-yellowshark-ch",
-        "team-leiter-system-ingegnere-m-w-d-80-100-yellowshark-ag-wil-sg"
+        "team-leiter-system-engineer-m-w-80-100-wil-sg-sg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leiter-system-engineer-m-w-80-100-wil-sg-sg-yellowshark-ch",
-          "team-leiter-system-ingegnere-m-w-d-80-100-yellowshark-ag-wil-sg"
+          "team-leiter-system-engineer-m-w-80-100-wil-sg-sg-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -56909,13 +57057,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-facility-manager-80-100-m-w-kloten-zh-yellowshark-ch",
-        "direttore-tecnico-della-struttura-80-100-m-f-yellowshark-ag-kloten"
+        "technischer-facility-manager-80-100-m-w-kloten-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-facility-manager-80-100-m-w-kloten-zh-yellowshark-ch",
-          "direttore-tecnico-della-struttura-80-100-m-f-yellowshark-ag-kloten"
+          "technischer-facility-manager-80-100-m-w-kloten-zh-yellowshark-ch"
         ],
         "fr": [
           "technischer-facility-manager-80-100-m-w-kloten-zh-yellowshark-ch"
@@ -56986,13 +57132,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vertriebsmitarbeiter-westschweiz-m-w-d-zurich-zh-yellowshark-ch",
-        "personale-commerciale-in-svizzera-occidentale-m-f-d-yellowshark-ag-zurich"
+        "vertriebsmitarbeiter-westschweiz-m-w-d-zurich-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vertriebsmitarbeiter-westschweiz-m-w-d-zurich-zh-yellowshark-ch",
-          "personale-commerciale-in-svizzera-occidentale-m-f-d-yellowshark-ag-zurich"
+          "vertriebsmitarbeiter-westschweiz-m-w-d-zurich-zh-yellowshark-ch"
         ],
         "en": [
           "vertriebsmitarbeiter-westschweiz-m-w-d-zurich-zh-yellowshark-ch"
@@ -57066,13 +57210,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategischer-einkaufer-m-w-80-100-aarau-ag-yellowshark-ch",
-        "acquirente-strategico-m-f-80-100-yellowshark-ag-aarau"
+        "strategischer-einkaufer-m-w-80-100-aarau-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategischer-einkaufer-m-w-80-100-aarau-ag-yellowshark-ch",
-          "acquirente-strategico-m-f-80-100-yellowshark-ag-aarau"
+          "strategischer-einkaufer-m-w-80-100-aarau-ag-yellowshark-ch"
         ],
         "en": [
           "strategischer-einkaufer-m-w-80-100-aarau-ag-yellowshark-ch"
@@ -57420,13 +57562,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "m365-engineer-80-100-aarau-ag-yellowshark-ch",
-        "m365-ingegnere-80-100-yellowshark-ag-aarau"
+        "m365-engineer-80-100-aarau-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "m365-engineer-80-100-aarau-ag-yellowshark-ch",
-          "m365-ingegnere-80-100-yellowshark-ag-aarau"
+          "m365-engineer-80-100-aarau-ag-yellowshark-ch"
         ],
         "fr": [
           "m365-engineer-80-100-aarau-ag-yellowshark-ch"
@@ -57497,13 +57637,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch",
-        "supporto-tecnico-m-f-100-yellowshark-ag-sempach-lu"
+        "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch",
-          "supporto-tecnico-m-f-100-yellowshark-ag-sempach-lu"
+          "it-support-techniker-m-w-100-sempach-lu-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -57571,13 +57709,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-system-038-cloud-engineer-m-w-80-100-zurich-zh-yellowshark-ch",
-        "ict-system-cloud-ingegnere-m-w-80-100-yellowshark-ag-zurich"
+        "ict-system-038-cloud-engineer-m-w-80-100-zurich-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-038-cloud-engineer-m-w-80-100-zurich-zh-yellowshark-ch",
-          "ict-system-cloud-ingegnere-m-w-80-100-yellowshark-ag-zurich"
+          "ict-system-038-cloud-engineer-m-w-80-100-zurich-zh-yellowshark-ch"
         ],
         "fr": [
           "ict-system-038-cloud-engineer-m-w-80-100-zurich-zh-yellowshark-ch"
@@ -57726,13 +57862,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzbuchhalter-m-w-80-100-regensdorf-zh-yellowshark-ch",
-        "contabilita-finanziaria-m-f-80-100-yellowshark-ag-regensdorf"
+        "finanzbuchhalter-m-w-80-100-regensdorf-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzbuchhalter-m-w-80-100-regensdorf-zh-yellowshark-ch",
-          "contabilita-finanziaria-m-f-80-100-yellowshark-ag-regensdorf"
+          "finanzbuchhalter-m-w-80-100-regensdorf-zh-yellowshark-ch"
         ],
         "en": [
           "finanzbuchhalter-m-w-80-100-regensdorf-zh-yellowshark-ch"
@@ -57873,14 +58007,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
-        "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich",
-        "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich-zh"
+        "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch",
-          "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich",
-          "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich-zh"
+          "betriebsinformatiker-in-cloud-ingegnere-yellowshark-ag-zurich"
         ],
         "fr": [
           "betriebsinformatiker-in-038-cloud-engineer-zurich-zh-yellowshark-ch"
@@ -58083,13 +58215,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-rechnungswesen-m-w-80-100-sursee-lu-yellowshark-ch",
-        "clerk-contabile-m-f-80-100-yellowshark-ag-sursee"
+        "sachbearbeiter-rechnungswesen-m-w-80-100-sursee-lu-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-rechnungswesen-m-w-80-100-sursee-lu-yellowshark-ch",
-          "clerk-contabile-m-f-80-100-yellowshark-ag-sursee"
+          "sachbearbeiter-rechnungswesen-m-w-80-100-sursee-lu-yellowshark-ch"
         ],
         "en": [
           "sachbearbeiter-rechnungswesen-m-w-80-100-sursee-lu-yellowshark-ch"
@@ -58162,13 +58292,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-security-engineer-devsecops-m-w-80-100-baden-ag-yellowshark-ch",
-        "senior-product-security-ingegnere-devsecops-m-w-80-100-yellowshark-ag-baden"
+        "senior-product-security-engineer-devsecops-m-w-80-100-baden-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-security-engineer-devsecops-m-w-80-100-baden-ag-yellowshark-ch",
-          "senior-product-security-ingegnere-devsecops-m-w-80-100-yellowshark-ag-baden"
+          "senior-product-security-engineer-devsecops-m-w-80-100-baden-ag-yellowshark-ch"
         ],
         "fr": [
           "senior-product-security-engineer-devsecops-m-w-80-100-baden-ag-yellowshark-ch"
@@ -58239,13 +58367,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-security-consultant-m-w-80-8211-100-zurich-zh-yellowshark-ch",
-        "senior-security-consulente-m-w-80-100-yellowshark-ag-zurich"
+        "senior-security-consultant-m-w-80-8211-100-zurich-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-security-consultant-m-w-80-8211-100-zurich-zh-yellowshark-ch",
-          "senior-security-consulente-m-w-80-100-yellowshark-ag-zurich"
+          "senior-security-consultant-m-w-80-8211-100-zurich-zh-yellowshark-ch"
         ],
         "fr": [
           "senior-security-consultant-m-w-80-8211-100-zurich-zh-yellowshark-ch"
@@ -58316,14 +58442,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch",
-        "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-d-100-yellowshark-ag-zurich",
-        "sicurezza-nel-settore-building-technology-m-f-100-yellowshark-ag-zurich-zh"
+        "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-d-100-yellowshark-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch",
-          "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-d-100-yellowshark-ag-zurich",
-          "sicurezza-nel-settore-building-technology-m-f-100-yellowshark-ag-zurich-zh"
+          "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-d-100-yellowshark-ag-zurich"
         ],
         "en": [
           "projektleiter-sicherheit-in-der-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch"
@@ -58396,13 +58520,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "programmierer-cnc-robotik-fertigungstechnik-m-w-buchs-ag-ag-yellowshark-ch",
-        "programmatore-cnc-robotica-ingegneria-manifatturiera-m-f-yellowshark-ag-buchs-ag"
+        "programmierer-cnc-robotik-fertigungstechnik-m-w-buchs-ag-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "programmierer-cnc-robotik-fertigungstechnik-m-w-buchs-ag-ag-yellowshark-ch",
-          "programmatore-cnc-robotica-ingegneria-manifatturiera-m-f-yellowshark-ag-buchs-ag"
+          "programmierer-cnc-robotik-fertigungstechnik-m-w-buchs-ag-ag-yellowshark-ch"
         ],
         "en": [
           "programmierer-cnc-robotik-fertigungstechnik-m-w-buchs-ag-ag-yellowshark-ch"
@@ -58474,13 +58596,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "plattformentwickler-infrastruktur-80-100-koniz-be-yellowshark-ch",
-        "platform-developer-infrastruttura-80-100-yellowshark-ag-koniz"
+        "plattformentwickler-infrastruktur-80-100-koniz-be-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plattformentwickler-infrastruktur-80-100-koniz-be-yellowshark-ch",
-          "platform-developer-infrastruttura-80-100-yellowshark-ag-koniz"
+          "plattformentwickler-infrastruktur-80-100-koniz-be-yellowshark-ch"
         ],
         "en": [
           "plattformentwickler-infrastruktur-80-100-koniz-be-yellowshark-ch"
@@ -58553,13 +58673,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktassistenz-80-100-gossau-sg-sg-yellowshark-ch",
-        "assistenza-prodotto-80-100-yellowshark-ag-gossau-sg"
+        "produktassistenz-80-100-gossau-sg-sg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktassistenz-80-100-gossau-sg-sg-yellowshark-ch",
-          "assistenza-prodotto-80-100-yellowshark-ag-gossau-sg"
+          "produktassistenz-80-100-gossau-sg-sg-yellowshark-ch"
         ],
         "en": [
           "produktassistenz-80-100-gossau-sg-sg-yellowshark-ch"
@@ -58698,13 +58816,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-key-account-manager-cham-zg-yellowshark-ch",
-        "gestione-account-chiave-junior-yellowshark-ag-cham"
+        "junior-key-account-manager-cham-zg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-key-account-manager-cham-zg-yellowshark-ch",
-          "gestione-account-chiave-junior-yellowshark-ag-cham"
+          "junior-key-account-manager-cham-zg-yellowshark-ch"
         ],
         "fr": [
           "junior-key-account-manager-cham-zg-yellowshark-ch"
@@ -58776,14 +58892,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "junior-projektleiter-accounting-80-100-opfikon-zh-yellowshark-ch",
-        "junior-projektleiter-accounting-80-100-yellowshark-ag-opfikon",
-        "junior-project-manager-contabilita-80-100-yellowshark-ag-opfikon-zh"
+        "junior-projektleiter-accounting-80-100-yellowshark-ag-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-projektleiter-accounting-80-100-opfikon-zh-yellowshark-ch",
-          "junior-projektleiter-accounting-80-100-yellowshark-ag-opfikon",
-          "junior-project-manager-contabilita-80-100-yellowshark-ag-opfikon-zh"
+          "junior-projektleiter-accounting-80-100-yellowshark-ag-opfikon"
         ],
         "fr": [
           "junior-projektleiter-accounting-80-100-opfikon-zh-yellowshark-ch"
@@ -58921,13 +59035,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-supporter-m-w-d-80-100-gossau-zh-zh-yellowshark-ch",
-        "supporto-it-m-f-d-80-100-yellowshark-ag-gossau-zh"
+        "it-supporter-m-w-d-80-100-gossau-zh-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-supporter-m-w-d-80-100-gossau-zh-zh-yellowshark-ch",
-          "supporto-it-m-f-d-80-100-yellowshark-ag-gossau-zh"
+          "it-supporter-m-w-d-80-100-gossau-zh-zh-yellowshark-ch"
         ],
         "fr": [
           "it-supporter-m-w-d-80-100-gossau-zh-zh-yellowshark-ch"
@@ -58998,13 +59110,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geomatiker-80-100-m-w-zurich-zh-yellowshark-ch",
-        "geomatica-80-100-m-f-yellowshark-ag-zurich"
+        "geomatiker-80-100-m-w-zurich-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geomatiker-80-100-m-w-zurich-zh-yellowshark-ch",
-          "geomatica-80-100-m-f-yellowshark-ag-zurich"
+          "geomatiker-80-100-m-w-zurich-zh-yellowshark-ch"
         ],
         "en": [
           "geomatiker-80-100-m-w-zurich-zh-yellowshark-ch"
@@ -59078,13 +59188,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch",
-        "progettazione-progettista-hlks-m-f-yellowshark-ag-baden"
+        "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch",
-          "progettazione-progettista-hlks-m-f-yellowshark-ag-baden"
+          "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch"
         ],
         "en": [
           "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch"
@@ -59236,13 +59344,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch",
-        "progettazione-progettista-hlks-m-f-yellowshark-ag-basel"
+        "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch",
-          "progettazione-progettista-hlks-m-f-yellowshark-ag-basel"
+          "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch"
         ],
         "en": [
           "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch"
@@ -59444,13 +59550,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch",
-        "progettista-elettrico-a-m-w-d-100-yellowshark-ag-thalwil"
+        "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch",
-          "progettista-elettrico-a-m-w-d-100-yellowshark-ag-thalwil"
+          "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch"
         ],
         "en": [
           "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch"
@@ -59524,13 +59628,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-kundenberatung-m-w-80-100-frauenfeld-tg-yellowshark-ch",
-        "servizio-clienti-tecnico-m-f-80-100-yellowshark-ag-frauenfeld-tg"
+        "technische-kundenberatung-m-w-80-100-frauenfeld-tg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-kundenberatung-m-w-80-100-frauenfeld-tg-yellowshark-ch",
-          "servizio-clienti-tecnico-m-f-80-100-yellowshark-ag-frauenfeld-tg"
+          "technische-kundenberatung-m-w-80-100-frauenfeld-tg-yellowshark-ch"
         ],
         "en": [
           "technische-kundenberatung-m-w-80-100-frauenfeld-tg-yellowshark-ch"
@@ -59603,13 +59705,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-verkaufsinnendienst-m-w-80-100-wettingen-ag-yellowshark-ch",
-        "ufficio-vendite-tecnico-m-f-80-100-yellowshark-ag-wettingen-ag"
+        "technischer-verkaufsinnendienst-m-w-80-100-wettingen-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-verkaufsinnendienst-m-w-80-100-wettingen-ag-yellowshark-ch",
-          "ufficio-vendite-tecnico-m-f-80-100-yellowshark-ag-wettingen-ag"
+          "technischer-verkaufsinnendienst-m-w-80-100-wettingen-ag-yellowshark-ch"
         ],
         "en": [
           "technischer-verkaufsinnendienst-m-w-80-100-wettingen-ag-yellowshark-ch"
@@ -59755,13 +59855,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeitung-buchhaltung-m-w-oftringen-ag-yellowshark-ch",
-        "gestione-della-proprieta-contabilita-m-f-yellowshark-ag-oftringen-ag"
+        "sachbearbeitung-buchhaltung-m-w-oftringen-ag-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-buchhaltung-m-w-oftringen-ag-yellowshark-ch",
-          "gestione-della-proprieta-contabilita-m-f-yellowshark-ag-oftringen-ag"
+          "sachbearbeitung-buchhaltung-m-w-oftringen-ag-yellowshark-ch"
         ],
         "en": [
           "sachbearbeitung-buchhaltung-m-w-oftringen-ag-yellowshark-ch"
@@ -59834,13 +59932,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-auftragsabwicklung-m-w-80-100-gossau-sg-sg-yellowshark-ch",
-        "lavorazione-dell-ordine-del-personale-m-f-80-100-yellowshark-ag-gossau-sg-sg"
+        "sachbearbeiter-auftragsabwicklung-m-w-80-100-gossau-sg-sg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-auftragsabwicklung-m-w-80-100-gossau-sg-sg-yellowshark-ch",
-          "lavorazione-dell-ordine-del-personale-m-f-80-100-yellowshark-ag-gossau-sg-sg"
+          "sachbearbeiter-auftragsabwicklung-m-w-80-100-gossau-sg-sg-yellowshark-ch"
         ],
         "en": [
           "sachbearbeiter-auftragsabwicklung-m-w-80-100-gossau-sg-sg-yellowshark-ch"
@@ -59914,14 +60010,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-elektroplanung-038-automation-m-w-80-100-oensingen-so-yellowshark-ch",
-        "projektleiter-elektroplanung-automation-m-w-d-80-100-yellowshark-ag-oensingen",
-        "project-manager-progettazione-elettrica-e-automazione-m-f-80-100-yellowshark-ag-oensingen-so"
+        "projektleiter-elektroplanung-automation-m-w-d-80-100-yellowshark-ag-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-elektroplanung-038-automation-m-w-80-100-oensingen-so-yellowshark-ch",
-          "projektleiter-elektroplanung-automation-m-w-d-80-100-yellowshark-ag-oensingen",
-          "project-manager-progettazione-elettrica-e-automazione-m-f-80-100-yellowshark-ag-oensingen-so"
+          "projektleiter-elektroplanung-automation-m-w-d-80-100-yellowshark-ag-oensingen"
         ],
         "en": [
           "projektleiter-elektroplanung-038-automation-m-w-80-100-oensingen-so-yellowshark-ch"

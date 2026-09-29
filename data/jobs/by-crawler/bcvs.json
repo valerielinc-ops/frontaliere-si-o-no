@@ -9,7 +9,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
+        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -53,22 +53,18 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
-        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-          "personale-credito-back-office-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -154,13 +150,11 @@
       },
       "previousSlugs": [
         "hr-business-partner-bcvs-sion",
-        "hr-business-partner-banque-cantonale-du-valais-sion",
-        "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+        "hr-business-partner-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-partner-bcvs-sion",
-          "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+          "hr-business-partner-bcvs-sion"
         ],
         "de": [
           "hr-business-partner-bcvs-sion"
@@ -253,13 +247,11 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny",
-        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
@@ -351,13 +343,11 @@
         ]
       },
       "previousSlugs": [
-        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
-        "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
+        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
-          "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
+          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
         ],
         "en": [
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
@@ -383,11 +373,11 @@
     },
     {
       "id": "bcvs-9ee203f89972",
-      "slug": "responsable-data-ia-bcvs-sion",
+      "slug": "gestione-dati-e-ia-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "responsable-data-ia-bcvs-sion",
-        "it": "responsable-data-ia-bcvs-sion",
-        "en": "responsable-data-ia-bcvs-sion",
+        "it": "gestione-dati-e-ia-banque-cantonale-du-valais-sion",
+        "en": "data-ia-manager-banque-cantonale-du-valais-sion",
         "de": "responsable-data-ia-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -456,16 +446,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:29:52.591Z"
+      "firstSeenAt": "2026-09-28T21:29:52.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-data-ia-bcvs-sion"
+        ],
+        "en": [
+          "responsable-data-ia-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-data-ia-bcvs-sion"
+      ]
     },
     {
       "id": "bcvs-06cbb126f58a",
-      "slug": "expert-e-ia-power-platform-bcvs-sion",
+      "slug": "esperto-della-piattaforma-ia-power-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "expert-e-ia-power-platform-bcvs-sion",
-        "it": "expert-e-ia-power-platform-bcvs-sion",
+        "it": "esperto-della-piattaforma-ia-power-banque-cantonale-du-valais-sion",
         "en": "expert-e-ia-power-platform-banque-cantonale-du-valais-sion",
-        "de": "expert-e-ia-power-platform-bcvs-sion"
+        "de": "ia-power-platform-experte-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -535,16 +536,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:29:52.155Z"
+      "firstSeenAt": "2026-09-28T21:29:52.155Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-e-ia-power-platform-bcvs-sion"
+        ],
+        "de": [
+          "expert-e-ia-power-platform-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "expert-e-ia-power-platform-bcvs-sion"
+      ]
     },
     {
       "id": "bcvs-a7ac7dab4c55",
-      "slug": "data-analyst-bi-expert-bcvs-sion",
+      "slug": "data-analista-bi-expert-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "data-analyst-bi-expert-bcvs-sion",
-        "it": "data-analyst-bi-expert-bcvs-sion",
+        "it": "data-analista-bi-expert-banque-cantonale-du-valais-sion",
         "en": "data-analyst-bi-expert-banque-cantonale-du-valais-sion",
-        "de": "data-analyst-bi-expert-bcvs-sion"
+        "de": "datenanalytiker-bi-experte-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -610,7 +622,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:29:51.717Z"
+      "firstSeenAt": "2026-09-28T21:29:51.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analyst-bi-expert-bcvs-sion"
+        ],
+        "de": [
+          "data-analyst-bi-expert-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "data-analyst-bi-expert-bcvs-sion"
+      ]
     }
   ]
 }
