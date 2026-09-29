@@ -12,6 +12,7 @@ import {
   KISPI_ZURICH_KEY,
   KISPI_ZURICH_COMPANY_NAME,
 } from './lib/kispi-zurich-job-parser.mjs';
+import { repairStoredUmantisJobs } from './lib/umantis-listing-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +25,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKispiZurichJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => repairStoredUmantisJobs(jobs, KISPI_ZURICH_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Kispi Zürich crawler failed: ${err?.message || err}`);
   process.exit(1);

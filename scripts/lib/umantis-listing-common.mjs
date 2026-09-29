@@ -39,6 +39,9 @@ import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mj
 import { slugify, stripHtml, fetchHtml as fetchHtmlResilient, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCrossHostRedirect, stripUmantisNonContent } from './umantis-detail-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
+import { dropTranslationsOfFabricatedSource } from './source-locale-description.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -336,6 +339,28 @@ function detectEmploymentType(art = '', title = '') {
   return 'OTHER';
 }
 
+/**
+ * The job's `contract` from the listing's «Befristung» column and the
+ * employment type the factory already reads from «Art» (and the title).
+ *
+ * These values used to reach the site also as «• Befristung: …» / «• Art: …»
+ * lines the crawler appended to the description, where the job board read
+ * «Teilzeit» and «befristet» out of the text. With the lines gone the
+ * structured field carries them, in the job board's own order
+ * (`normalizeJobContract`: part-time before temporary). «Unbefristet» (a
+ * permanent position) contains «befristet»: the previous test matched it and
+ * marked every permanent position of these tenants as temporary.
+ *
+ * @param {string} befristung      e.g. «Befristet», «Unbefristet»
+ * @param {string} employmentType  `detectEmploymentType(art, title)`
+ * @returns {'part-time'|'temporary'|'full-time'}
+ */
+export function umantisListingContract(befristung = '', employmentType = '') {
+  if (employmentType === 'PART_TIME') return 'part-time';
+  if (/(?:^|[^\p{L}])(?:befristet|temporär|temporair)/u.test(normalize(befristung))) return 'temporary';
+  return 'full-time';
+}
+
 function parseSwissDate(raw = '') {
   // DD.MM.YYYY → YYYY-MM-DD
   const m = String(raw || '').match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
@@ -508,8 +533,9 @@ export function isUmantisChromeFragment(text = '') {
  *      certainly isn't this job's body. We skip this check when no testable
  *      tokens exist (German compound titles can be a single long word).
  *
- * Failing detail content gets discarded so the synthesised bullet-fallback
- * takes over instead of letting page chrome land in the JSON.
+ * Failing detail content gets discarded (the job falls back to the listing's
+ * own teaser, or gets no description) instead of letting page chrome land in
+ * the JSON.
  *
  * @param {string} content   plain text extracted from the detail HTML
  * @param {string} title     listing-page job title
@@ -711,18 +737,12 @@ async function fetchUmantisDetail(detailUrl, title = '') {
  *                                           pages to a generic career center
  *                                           while Application/* remains the
  *                                           stable live job endpoint.
- * @param {boolean} [config.allowBoilerplateOnDeadDetail=false] When true and a
- *                                           Description/* URL 3xx-redirects
- *                                           cross-host (issue #1245), still emit
- *                                           the job using synthesised boilerplate
- *                                           rather than quarantining it. Use for
- *                                           tenants where the Umantis listing is
- *                                           the sole authoritative source but
- *                                           the detail URL has been deprecated
- *                                           (kispi-sg, paraplegie). When false
- *                                           (default), dead-detail jobs are
- *                                           quarantined so boilerplate-guard
- *                                           garbage can't enter the dataset.
+ *
+ * A job whose Description/* URL 3xx-redirects cross-host (issue #1245) is
+ * quarantined. The former `allowBoilerplateOnDeadDetail` opt-in emitted it
+ * with a description the crawler wrote from the listing metadata; its last
+ * users (kispi-sg, paraplegie) left the factory, and a description the
+ * source never published is not emitted any more (issue 5253).
  */
 export function createUmantisListingParser(config) {
   const {
@@ -738,7 +758,6 @@ export function createUmantisListingParser(config) {
     publicCareerUrl,
     defaultSourceLang = 'de',
     canonicalUrlMode = 'detail',
-    allowBoilerplateOnDeadDetail = false,
   } = config;
 
   const customBaseUrl = rawCustomBaseUrl
@@ -805,6 +824,7 @@ export function createUmantisListingParser(config) {
     const jobs = [];
     let detailHits = 0;
     let quarantinedDeadDetail = 0;
+    let withoutSourceText = 0;
 
     let skippedCivilService = 0;
     for (const entry of entries) {
@@ -830,70 +850,41 @@ export function createUmantisListingParser(config) {
 
       // Dead detail URL (issue #1245): the tenant deprecated
       // /Vacancies/{id}/Description/* and now 3xx-redirects it cross-host.
-      //
-      // Two handling modes:
-      //
-      // allowBoilerplateOnDeadDetail=false (default): QUARANTINE the job.
-      //   Used when the Umantis listing is unreliable after migration (the
-      //   ATS has moved elsewhere and the listing may go stale). Skipping
-      //   emit prevents boilerplate-guard garbage entering the dataset.
-      //
-      // allowBoilerplateOnDeadDetail=true: CONTINUE and let the description
-      //   synthesiser below build structured boilerplate from listing metadata.
-      //   Used for tenants (kispi-sg, paraplegie) where the Umantis listing
-      //   remains the authoritative vacancy source but the per-job
-      //   /Description/* URL has been retired — the listing metadata
-      //   (title, department, art, befristung, location) gives enough signal
-      //   for a structured, non-boilerplate-triggering description.
+      // QUARANTINE the job: the ATS has moved elsewhere and the listing may
+      // go stale, and there is no posting text to publish.
       if (deadDetail) {
         quarantinedDeadDetail++;
-        if (!allowBoilerplateOnDeadDetail) continue;
-        // Fall through — detailContent stays '' and the synthesiser takes over.
+        continue;
       }
       if (detailContent) detailHits++;
 
       const location = entry.location || defaultCity;
       const canton = inferSwissTargetCanton(location) || defaultCanton;
 
-      const metaBullets = [];
-      if (entry.department) metaBullets.push(`• Bereich: ${entry.department}`);
-      if (entry.art) metaBullets.push(`• Art: ${entry.art}`);
-      if (entry.befristung) metaBullets.push(`• Befristung: ${entry.befristung}`);
+      // The description is the posting's own text (issue 5253): the detail
+      // page's body or, when the detail could not be read, the listing's own
+      // teaser, each only above the shared 50-word floor. The crawler used to
+      // append the listing columns as «• Bereich: … / • Art: … /
+      // • Befristung: …» lines (its formatting, not the posting's text) and,
+      // with neither text, to write a description of its own («<Titel> bei
+      // <Firma> in <Ort> (<PLZ>, <Kanton>), Schweiz.», «• Standort: …»,
+      // «• Bewerbung über das Umantis-Karriereportal von …»). The columns now
+      // live only in structured fields (department, contract, employmentType,
+      // location). A posting without text gets no description: the merge
+      // keeps the source text an earlier run stored, otherwise the job takes
+      // the pipeline's thin-source path.
+      const sourceText = [detailContent, entry.snippet].find((text) => meetsSourceBodyFloor(text)) || '';
+      const description = sourceText ? normalizeDescriptionBullets(sourceText) : '';
+      if (!description) withoutSourceText++;
 
-      let description;
-      if (detailContent) {
-        // Detail page gave us real body content — keep it, then append the
-        // listing-page metadata as bullets so structured-content audits pass
-        // even when the detail extractor returned flat prose.
-        const parts = [detailContent];
-        if (metaBullets.length > 0) parts.push(metaBullets.join('\n'));
-        description = parts.join('\n\n');
-      } else if (entry.snippet) {
-        const parts = [entry.snippet];
-        if (metaBullets.length > 0) parts.push(metaBullets.join('\n'));
-        description = parts.join('\n\n');
-      } else {
-        // Synthesise a structured German fallback when neither the detail page
-        // (Cloudflare-walled tenants such as IPW 2906 return a JS challenge
-        // for every Vacancies/* request, regardless of UA) nor the listing
-        // snippet yields prose. We emit a one-line intro followed by a
-        // bullet list so the parser-quality `hasStructuredContent` check
-        // passes — without bullets the audit flags this as `parser strips
-        // list structure`.
-        const entity = entry.companyValue || companyName;
-        const intro = `${title} bei ${entity} in ${location} (${defaultPostalCode}, ${canton}), Schweiz.`;
-        const bullets = [...metaBullets];
-        bullets.push(`• Standort: ${location} (${canton})`);
-        bullets.push(`• Bewerbung über das Umantis-Karriereportal von ${companyName}`);
-        description = `${intro}\n\n${bullets.join('\n')}`;
-      }
-      description = normalizeDescriptionBullets(description);
-
-      const sourceLang = detectLang(description || title, defaultSourceLang);
+      // The source language comes from the body; without one, from the
+      // listing language the tenant is crawled in (not from the title).
+      const sourceLang = description ? detectLang(description, defaultSourceLang) : defaultSourceLang;
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
       const postedDate = parseSwissDate(entry.datum) || todayIso;
+      const employmentType = detectEmploymentType(entry.art, title);
 
       jobs.push({
         id: `${companyKey}-${urlHash}`,
@@ -927,8 +918,11 @@ export function createUmantisListingParser(config) {
         country: 'CH',
         postalCode: defaultPostalCode,
         category: detectCategory(title, entry.department),
-        contract: /befristet|temporär|temporair/i.test(entry.befristung) ? 'temporary' : 'full-time',
-        employmentType: detectEmploymentType(entry.art, title),
+        // The listing's «Bereich»/«Berufsgruppe» column (formerly a
+        // «• Bereich: …» line of the description).
+        department: entry.department || undefined,
+        contract: umantisListingContract(entry.befristung, employmentType),
+        employmentType,
         experienceLevel: detectExperienceLevel(title),
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
@@ -944,23 +938,96 @@ export function createUmantisListingParser(config) {
       console.log(`  ⏭️  Skipped ${skippedCivilService} Zivildienst/civil-service listing(s) (not relevant for cross-border workers)`);
     }
     if (quarantinedDeadDetail > 0) {
-      if (allowBoilerplateOnDeadDetail) {
-        console.warn(`  ⚠️  ${quarantinedDeadDetail}/${entries.length} job(s) have deprecated detail URL (cross-host 3xx, issue #1245). Using structured boilerplate from listing metadata (allowBoilerplateOnDeadDetail=true).`);
-      } else {
-        console.warn(`  ⚠️  Quarantined ${quarantinedDeadDetail}/${entries.length} job(s): detail URL deprecated (cross-host 3xx → source migrated away, issue #1245). Not emitting boilerplate for these.`);
-      }
+      console.warn(`  ⚠️  Quarantined ${quarantinedDeadDetail}/${entries.length} job(s): detail URL deprecated (cross-host 3xx → source migrated away, issue #1245). Not emitting boilerplate for these.`);
     }
-    // If EVERY discovered job has a dead detail URL AND we are NOT in
-    // allow-boilerplate mode, the tenant has migrated its ATS away from
-    // Umantis entirely. Exit cleanly with a clear WARNING.
-    if (jobs.length === 0 && quarantinedDeadDetail > 0 && !allowBoilerplateOnDeadDetail) {
+    // If EVERY discovered job has a dead detail URL, the tenant has migrated
+    // its ATS away from Umantis entirely. Exit cleanly with a clear WARNING.
+    if (jobs.length === 0 && quarantinedDeadDetail > 0) {
       console.warn(`  ⚠️  ${companyName}: ALL ${entries.length} listing(s) have a deprecated (cross-host-redirecting) Umantis detail URL — source appears to have migrated off Umantis. Emitting 0 jobs (no hard failure). Follow-up: per-tenant public-site/Prospective description extraction (issue #1245).`);
     }
-    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content${quarantinedDeadDetail > 0 ? `, ${quarantinedDeadDetail} quarantined dead-detail` : ''})`);
+    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content${quarantinedDeadDetail > 0 ? `, ${quarantinedDeadDetail} quarantined dead-detail` : ''}${withoutSourceText > 0 ? `, ${withoutSourceText} without source text` : ''})`);
     return jobs;
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain };
+}
+
+/* ── Stored jobs: text the factory once wrote ────────────── */
+
+/**
+ * Sentinel of the description the factory used to write when a job had no
+ * text: «<Titel> bei <Firma> in <Ort> (<PLZ>, <Kanton>), Schweiz.» followed by
+ * «• Standort: …» and this line, which no posting contains.
+ */
+export const UMANTIS_FABRICATED_DESCRIPTION_RE = /Bewerbung über das Umantis-Karriereportal von /;
+
+/**
+ * The listing columns the factory appended to the posting's text, as its own
+ * trailing block after a blank line: «• Bereich: …», «• Art: …»,
+ * «• Befristung: …» lines, and nothing after them.
+ */
+export const UMANTIS_LISTING_LABEL_LINES_RE =
+  /\n\n• (?:Bereich|Art|Befristung): [^\n]*(?:\n• (?:Bereich|Art|Befristung): [^\n]*)*\s*$/;
+
+/**
+ * Remove, from one STORED job, the listing-column lines the crawler appended
+ * to the posting's text (`labelLinesRe` matches that trailing block). The
+ * posting's own text stays in its slot (the merge keeps it when a later run
+ * cannot read the detail); the translations were made from the text with the
+ * lines, so they are dropped and the job is flagged for retranslation.
+ *
+ * @param {object} job
+ * @param {RegExp} [labelLinesRe]
+ * @returns {boolean} true when the job carried the lines.
+ */
+export function stripUmantisListingLabelLines(job, labelLinesRe = UMANTIS_LISTING_LABEL_LINES_RE) {
+  if (!job || typeof job !== 'object') return false;
+  let changed = dropTranslationsOfFabricatedSource(job, labelLinesRe);
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : {};
+  for (const [locale, value] of Object.entries(byLocale)) {
+    if (typeof value !== 'string' || !labelLinesRe.test(value)) continue;
+    byLocale[locale] = value.replace(labelLinesRe, '').trim();
+    changed = true;
+  }
+  if (typeof job.description === 'string' && labelLinesRe.test(job.description)) {
+    job.description = job.description.replace(labelLinesRe, '').trim();
+    changed = true;
+  }
+  if (changed) job.needsRetranslation = true;
+  return changed;
+}
+
+/**
+ * `prepareExistingJobs` of the Umantis runners: before the merge, remove from
+ * the stored jobs the text the crawler wrote itself, which the
+ * locale-preserving merge would otherwise keep — the whole synthesised
+ * description (and every translation of it) via `dropFabricatedDescription`,
+ * and the appended listing-column lines via `stripUmantisListingLabelLines`.
+ * The patterns default to the factory's; a tenant with its own parser
+ * (Kanton St. Gallen) passes its own. Returns the same array.
+ *
+ * @param {object[]} jobs
+ * @param {string} label  company name for the log line
+ * @param {{ fabricatedRe?: RegExp, labelLinesRe?: RegExp }} [patterns]
+ * @returns {object[]}
+ */
+export function repairStoredUmantisJobs(jobs, label, {
+  fabricatedRe = UMANTIS_FABRICATED_DESCRIPTION_RE,
+  labelLinesRe = UMANTIS_LISTING_LABEL_LINES_RE,
+} = {}) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  let fabricated = 0;
+  let labelled = 0;
+  for (const job of list) {
+    if (dropFabricatedDescription(job, fabricatedRe)) fabricated++;
+    else if (stripUmantisListingLabelLines(job, labelLinesRe)) labelled++;
+  }
+  if (fabricated + labelled > 0) {
+    console.log(`  🧹 ${label}: removed the crawler-written description from ${fabricated} and the listing-column lines from ${labelled} stored job(s); they will be retranslated`);
+  }
+  return list;
 }
 
 // Exported for tests

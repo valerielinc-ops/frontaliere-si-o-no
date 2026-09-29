@@ -1,13 +1,18 @@
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BOBST_KEY,
   BOBST_COMPANY_NAME,
   isBobstJob,
   isTrustedDomain,
   fetchAllBobstJobs,
+  BOBST_FABRICATED_DESCRIPTION_RE,
   __testables,
 } from '../scripts/lib/bobst-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 /* ── Stubbed Playwright runtime ────────────────────────────── */
 
@@ -423,6 +428,27 @@ describe('Bobst crawler parser', () => {
       expect(job.postedDate).toBe('05.05.2026');
       expect(job.slug).toMatch(/^senior-mechanical-engineer/);
       expect(job.slugByLocale).toHaveProperty(job.sourceLang);
+    });
+
+    // Issue 5253: a posting whose detail page cannot be read used to get a
+    // description the crawler wrote («<title> at Bobst, …, Switzerland. Bobst
+    // is a global supplier of … Apply via the Bobst careers portal.»). It now
+    // gets no description and takes the pipeline's thin-source path.
+    it('gives a posting without a readable detail no description', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => new Response('not found', { status: 404 })));
+      const row: RowShape = {
+        title: 'Senior Mechanical Engineer',
+        href: '/Vacancies/8895/Description/2',
+        cellText:
+          'Engineering | Online since: 05.05.2026 Senior Mechanical Engineer | Type: Full time | Term of employment: Permanent | Starting as: Mid | Department: Engineering | Switzerland (Mex)',
+      };
+      const { runtime } = makeRuntime({ pages: [[row], []] });
+      const [job] = await fetchAllBobstJobs({ _runtime: async () => runtime, _sleepMs: 0 });
+      expect(job.description).toBe('');
+      expect(job.descriptionByLocale).toEqual({ en: '' });
+      expect(job.sourceLang).toBe('en');
+      expect(job.slug).toBe('senior-mechanical-engineer-bobst-ch');
+      expect(BOBST_FABRICATED_DESCRIPTION_RE.test('Senior Mechanical Engineer at Bobst, Mex (VD canton), Switzerland. Bobst is a global supplier of substrate processing, printing and converting equipment for the packaging industry. Apply via the Bobst careers portal.')).toBe(true);
     });
 
     it('returns [] when the listing is empty', async () => {
