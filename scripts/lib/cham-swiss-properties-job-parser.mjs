@@ -43,10 +43,11 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, classAttrRx } from './crawler-template.mjs';
+import { slugify } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { detectEmploymentTypeFromOccupation } from './jobup-ch-feed-common.mjs';
 import { fetchHtml, decodeEntities, normalizeSpace } from './hospital-custom-html-helpers.mjs';
+import { fetchDualooDetail } from './dualoo-detail.mjs';
 
 /* Constants ─────────────────────────────────────────────── */
 
@@ -191,34 +192,6 @@ function parseDualooPortal(html) {
     });
   }
   return out;
-}
-
-async function fetchDualooDetail(detailUrl) {
-  try {
-    const html = await fetchHtml(detailUrl);
-    const sections = [];
-    const grab = (cls, label) => {
-      const rx = new RegExp(`${classAttrRx(cls)}[^>]*>([\\s\\S]*?)</div>`, 'i');
-      const mm = html.match(rx);
-      if (!mm) return;
-      const text = mm[1]
-        .replace(/<li[^>]*>/gi, '\n• ')
-        .replace(/<\/li>/gi, '')
-        .replace(/<br\s*\/?>/gi, '\n')
-        .replace(/<[^>]+>/g, ' ')
-        .replace(/&nbsp;/gi, ' ')
-        .replace(/\s+\n/g, '\n')
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      if (text) sections.push(`${label}\n${text}`);
-    };
-    grab('advertisementResponsibilitiesText', 'Aufgaben:');
-    grab('advertisementRequirementsText', 'Anforderungen:');
-    grab('advertisementBenefitsText', 'Wir bieten:');
-    return sections.join('\n\n');
-  } catch {
-    return '';
-  }
 }
 
 function extractCity(rawLocation) {

@@ -3,7 +3,7 @@
 // scripts/measure-newsletter-ai-phases.mjs for the model and its sources.
 import { describe, expect, it } from 'vitest';
 
-import { measureNewsletterAiLanes, measureNewsletterAiPhases } from '@/scripts/measure-newsletter-ai-phases.mjs';
+import { measureNewsletterAiLanes, measureNewsletterAiPhases, measureSubjectDesignsInLanes } from '@/scripts/measure-newsletter-ai-phases.mjs';
 
 const JOB_TIMEOUT_MINUTES = 360; // send-newsletter.yml timeout-minutes
 const results = await measureNewsletterAiPhases({ cohortCount: 700 });
@@ -13,7 +13,7 @@ describe('newsletter AI phases — 700 cohorts, 4 locales, one Codex request at 
   it.each(results.map((r: any) => [r.scenario, r]))('%s: POST stays within the call and time budget', (_id, r: any) => {
     expect(r.post.phase2Calls - r.post.phase2Retries).toBeLessThanOrEqual(4);
     expect(r.post.phase2Retries).toBeLessThanOrEqual(4);
-    expect(r.post.phase3Calls).toBeLessThanOrEqual(8);
+    expect(r.post.phase3Calls).toBeLessThanOrEqual(4); // one call per locale for both subjects
     expect(r.post.phase2Minutes).toBeLessThanOrEqual(r.budgetMinutes);
     expect(r.post.phase3Minutes).toBeLessThanOrEqual(r.budgetMinutes);
     expect(r.post.subjects).toBe(8);
@@ -60,11 +60,37 @@ describe('newsletter AI phases together — broker lanes', () => {
     }
   });
 
-  it('3 lanes: 119 s one after the other, 102 s together', async () => {
+  it('3 lanes: 148 s one after the other, 114 s together, 8 calls', async () => {
     for (const r of await measureNewsletterAiLanes({ lanes: 3 })) {
-      expect(r.sequential.seconds).toBe(119);
-      expect(r.together.seconds).toBe(102);
-      expect(r.sequential.calls).toBe(12);
+      expect(r.sequential.seconds).toBe(148);
+      expect(r.together.seconds).toBe(114);
+      expect(r.sequential.calls).toBe(8);
+    }
+  });
+});
+
+// The two subject designs with the phases together, as the sender runs them:
+// one call per locale for both subjects against one call per locale × variant
+// (replayed), with the one-call service time calibrated on real Codex
+// (LANE_SERVICE.subjectPairMs). Four calls fewer and fewer prompt characters,
+// for a few seconds more: the two-subject call reasons longer than two
+// one-subject calls running in parallel lanes.
+describe('newsletter subject designs — broker lanes, phases together', () => {
+  it('3 lanes: 102 s per variant (the #10292 figure), 114 s with one call', async () => {
+    for (const r of await measureSubjectDesignsInLanes({ lanes: 3 })) {
+      expect(r.perVariant.seconds).toBe(102);
+      expect(r.oneCall.seconds).toBe(114);
+      expect(r.perVariant.calls).toBe(12);
+      expect(r.oneCall.calls).toBe(8);
+      expect(r.oneCall.promptChars).toBeLessThan(r.perVariant.promptChars * 0.8);
+      expect(r.oneCall.subjects).toHaveLength(8);
+    }
+  });
+
+  it('1 lane: the extra time stays under half a minute', async () => {
+    for (const r of await measureSubjectDesignsInLanes({ lanes: 1 })) {
+      expect(r.extraSeconds).toBeGreaterThan(0);
+      expect(r.extraSeconds).toBeLessThan(30);
     }
   });
 });
