@@ -179,33 +179,94 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/ready/cv.pdf');
   });
 
-  it('keeps unscanned, pending and infected CVs out of the admin queue', async () => {
+  it('never hides a paid order and withholds only CV links with a bad or pending verdict', async () => {
     const database = makeDb({
       clean: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
         cvStorageKey: 'assisted-application-uploads/clean/cv.pdf', cvScanStatus: 'clean',
+        createdAt: '2026-09-15T10:05:00.000Z',
       },
-      missing: {
+      unscanned: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
-        cvStorageKey: 'assisted-application-uploads/missing/cv.pdf',
+        cvStorageKey: 'assisted-application-uploads/unscanned/cv.pdf',
+        cvFileCheck: { key: 'assisted-application-uploads/unscanned/cv.pdf', verdict: 'ok', detectedType: 'pdf' },
+        createdAt: '2026-09-15T10:04:00.000Z',
       },
       pending: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
         cvStorageKey: 'assisted-application-uploads/pending/cv.pdf', cvScanStatus: 'pending',
+        createdAt: '2026-09-15T10:03:00.000Z',
       },
       infected: {
         paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
         cvStorageKey: 'assisted-application-uploads/infected/cv.pdf', cvScanStatus: 'infected',
+        createdAt: '2026-09-15T10:02:00.000Z',
+      },
+      mismatch: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        cvStorageKey: 'assisted-application-uploads/mismatch/cv.pdf',
+        cvFileCheck: { key: 'assisted-application-uploads/mismatch/cv.pdf', verdict: 'type_mismatch', detectedType: null },
+        createdAt: '2026-09-15T10:01:00.000Z',
       },
     });
     mocks.getAdminDb.mockReturnValue(database.db);
 
     const result = await handleAssistedApplicationAdmin(request());
+    const byId = Object.fromEntries(result.body.orders.map((order: any) => [order.orderId, order]));
 
     expect(result.status).toBe(200);
-    expect(result.body.orders.map((order: any) => order.orderId)).toEqual(['clean']);
-    expect(mocks.resolveCvLink).toHaveBeenCalledTimes(1);
-    expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/clean/cv.pdf');
+    expect(Object.keys(byId).sort()).toEqual(['clean', 'infected', 'mismatch', 'pending', 'unscanned']);
+    expect(byId.clean).toMatchObject({ hasCv: true, cvUrl: 'https://storage.example.test/signed-cv', cvScanStatus: 'clean' });
+    expect(byId.unscanned).toMatchObject({ hasCv: true, cvUrl: 'https://storage.example.test/signed-cv', cvScanStatus: 'unscanned', cvFileCheck: 'ok' });
+    expect(byId.pending).toMatchObject({ hasCv: true, cvUrl: null, cvScanStatus: 'pending' });
+    expect(byId.infected).toMatchObject({ hasCv: true, cvUrl: null, cvScanStatus: 'infected' });
+    expect(byId.mismatch).toMatchObject({ hasCv: true, cvUrl: null, cvFileCheck: 'type_mismatch' });
+    expect(mocks.resolveCvLink).toHaveBeenCalledTimes(2);
+  });
+
+  it('lists paid orders still waiting for materials with the checkout email and email status', async () => {
+    const database = makeDb({
+      waiting: {
+        paymentStatus: 'paid', submissionStatus: 'awaiting_upload', customerEmail: 'buyer@example.com', locale: 'fr',
+        notifications: { customer_intro: { status: 'sent' } },
+        createdAt: '2026-09-24T09:21:59.000Z',
+      },
+      unpaid: { paymentStatus: 'pending', submissionStatus: 'awaiting_payment' },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const all = await handleAssistedApplicationAdmin(request());
+    const filtered = await handleAssistedApplicationAdmin(request({ query: { status: 'awaiting_upload' } }));
+
+    expect(all.body.orders.map((order: any) => order.orderId)).toEqual(['waiting']);
+    expect(all.body.orders[0]).toMatchObject({
+      submissionStatus: 'awaiting_upload',
+      customerEmail: 'buyer@example.com',
+      locale: 'fr',
+      hasCv: false,
+      cvScanStatus: null,
+      emails: { intro: 'sent', reminder: null, submitted: null },
+    });
+    expect(filtered.body.orders.map((order: any) => order.orderId)).toEqual(['waiting']);
+  });
+
+  it('records materials received by email as awaiting_upload → in_progress', async () => {
+    const database = makeDb({
+      waiting: { paymentStatus: 'paid', submissionStatus: 'awaiting_upload' },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'transitionStatus', orderId: 'waiting', submissionStatus: 'in_progress', submissionNotes: 'CV ricevuto via email.' },
+    }));
+
+    expect(result).toEqual({ status: 200, body: { ok: true, orderId: 'waiting', submissionStatus: 'in_progress' } });
+    expect(database.events.waiting[0].data).toMatchObject({
+      eventType: 'materials_received_by_email',
+      fromStatus: 'awaiting_upload',
+      toStatus: 'in_progress',
+    });
   });
 
   it('records a completed transition and rejects submitted → awaiting_upload', async () => {

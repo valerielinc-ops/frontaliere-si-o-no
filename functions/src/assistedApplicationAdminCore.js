@@ -32,7 +32,9 @@ const ALL_SUBMISSION_STATUSES = new Set([
 // Refund is deliberately not a generic transition: it must call Stripe first.
 const ALLOWED_TRANSITIONS = Object.freeze({
   awaiting_payment: new Set(),
-  awaiting_upload: new Set(['ready_for_manual_submission', 'blocked']),
+  // Materials that arrive by email (reply to Valerie) move the order on
+  // directly; the upload page keeps its own awaiting_upload → ready path.
+  awaiting_upload: new Set(['ready_for_manual_submission', 'in_progress', 'submitted', 'blocked']),
   ready_for_manual_submission: new Set(['in_progress', 'blocked', 'submitted']),
   in_progress: new Set(['submitted', 'blocked']),
   blocked: new Set(['in_progress']),
@@ -93,6 +95,32 @@ function refundReservationIsStale(value) {
   return pendingAt > 0 && Date.now() - pendingAt >= REFUND_RESERVATION_TTL_MS;
 }
 
+/**
+ * CV visibility policy (owner decision 2026-09-29): a paid order is never
+ * hidden from the queue, whatever its CV state. The CV link is withheld only
+ * when a scanner reported a problem or is still running; a file no scanner
+ * has seen is shown with an explicit `unscanned` badge — the same exposure as
+ * the CV attachments customers send by email. Uploads are type-checked by
+ * magic bytes server-side (assistedApplicationUpload.js) before they land.
+ */
+const CV_LINK_WITHHELD_SCAN_STATUSES = new Set(['pending', 'infected', 'rejected', 'error']);
+
+function cvScanStatusFor(data) {
+  if (!data?.cvStorageKey) return null;
+  return boundedString(data.cvScanStatus, 40).toLowerCase() || 'unscanned';
+}
+
+/** Server-side magic-byte verdict for the current CV (assistedApplicationCvCheck.js). */
+function cvFileCheckFor(data) {
+  const check = data?.cvFileCheck;
+  if (!data?.cvStorageKey || !check || check.key !== data.cvStorageKey) return null;
+  return boundedString(check.verdict, 40) || null;
+}
+
+function notificationStatus(data, key) {
+  return boundedString(data?.notifications?.[key]?.status, 40) || null;
+}
+
 function isAssistedApplicationStorageKey(orderId, value) {
   const key = boundedString(value, 600);
   const prefix = `assisted-application-uploads/${orderId}/`;
@@ -128,8 +156,17 @@ function serializeOrder(doc, cvUrl) {
     applicantName: optionalString(data.applicantName, 200) || null,
     applicantEmail: optionalString(data.applicantEmail, 320) || null,
     applicantPhone: optionalString(data.applicantPhone, 80) || null,
-    hasCv: Boolean(cvUrl),
+    customerEmail: optionalString(data.customerEmail, 320) || null,
+    locale: boundedString(data.locale, 8) || null,
+    hasCv: Boolean(data.cvStorageKey),
     cvUrl: cvUrl || null,
+    cvScanStatus: cvScanStatusFor(data),
+    cvFileCheck: cvFileCheckFor(data),
+    emails: {
+      intro: notificationStatus(data, 'customer_intro'),
+      reminder: notificationStatus(data, 'customer_materials_reminder'),
+      submitted: notificationStatus(data, 'customer_submitted'),
+    },
     cvUploadedAt: timestampToIso(data.cvUploadedAt),
     consentVersion: optionalString(data.consentVersion, 120) || null,
     consentedAt: timestampToIso(data.consentedAt),
@@ -143,22 +180,18 @@ function serializeOrder(doc, cvUrl) {
   };
 }
 
+/**
+ * The admin endpoint is the only path that turns a private Storage key into a
+ * client-visible signed URL; the browser can never self-attest a scan verdict
+ * (`cvScanStatus` is outside the candidate's writable keys in firestore.rules).
+ */
 async function cvUrlForOrder(orderId, data) {
   const key = data?.cvStorageKey;
   if (!isAssistedApplicationStorageKey(orderId, key)) return null;
+  if (CV_LINK_WITHHELD_SCAN_STATUSES.has(cvScanStatusFor(data))) return null;
+  const fileCheck = cvFileCheckFor(data);
+  if (fileCheck && fileCheck !== 'ok') return null;
   return resolveCvLink(key);
-}
-
-/**
- * The admin endpoint is the only path that turns a private Storage key into a
- * client-visible signed URL. Fail closed until an authorised scanner writes
- * the exact clean verdict; missing, pending and infected files stay invisible.
- * The scanner will use the Admin SDK, so this gate does not invent a provider
- * or let the browser self-attest a result.
- */
-function cvMayBeShownToAdmin(data) {
-  if (!data?.cvStorageKey) return true;
-  return boundedString(data.cvScanStatus, 40).toLowerCase() === 'clean';
 }
 
 function requestedStatus(req) {
@@ -181,8 +214,7 @@ export async function handleListAssistedApplications(db, status = null) {
     const isPaidOrder = data.paymentStatus === 'paid';
     const isRefundedOrder = submissionStatus === 'refunded' && data.paymentStatus === 'refunded';
     return (status ? submissionStatus === status : ASSISTED_APPLICATION_ADMIN_STATUSES.includes(submissionStatus))
-      && (isPaidOrder || isRefundedOrder)
-      && cvMayBeShownToAdmin(data);
+      && (isPaidOrder || isRefundedOrder);
   });
 
   const orders = await Promise.all(docs.map(async (doc) => {
@@ -201,6 +233,7 @@ function transitionErrorResponse(error) {
 }
 
 function transitionEventType(fromStatus, toStatus) {
+  if (fromStatus === 'awaiting_upload' && toStatus === 'in_progress') return 'materials_received_by_email';
   const eventType = EVENT_FOR_STATUS[toStatus];
   if (!eventType || fromStatus === toStatus) return null;
   return eventType;

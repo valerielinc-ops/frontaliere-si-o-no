@@ -14,6 +14,7 @@ export const ASSISTED_APPLICATION_ADMIN_ENDPOINT =
   `${FUNCTIONS_BASE}/manageAssistedApplicationAdmin`;
 
 export type AssistedApplicationAdminStatus =
+  | 'awaiting_upload'
   | 'ready_for_manual_submission'
   | 'in_progress'
   | 'submitted'
@@ -38,8 +39,17 @@ export interface AssistedApplicationAdminOrder {
   applicantName: string | null;
   applicantEmail: string | null;
   applicantPhone: string | null;
+  /** Stripe checkout email: the only contact before the customer sends materials. */
+  customerEmail: string | null;
+  locale: string | null;
   hasCv: boolean;
   cvUrl: string | null;
+  /** `unscanned` until a scanner writes a verdict; the link is withheld for bad verdicts. */
+  cvScanStatus: string | null;
+  /** Server-side magic-byte check of the stored CV (`ok`, `type_mismatch`, `missing`…). */
+  cvFileCheck: string | null;
+  /** Status of the automatic customer emails (`sent`, `failed`, `ambiguous`, `sending`). */
+  emails: { intro: string | null; reminder: string | null; submitted: string | null };
   cvUploadedAt: string | null;
   consentVersion: string | null;
   consentedAt: string | null;

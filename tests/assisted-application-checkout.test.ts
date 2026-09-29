@@ -190,6 +190,28 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     }));
   });
 
+  it('stores the concierge locale and resume link, and accepts the Offerwall-fallback variant', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    await handleCreateAssistedApplicationCheckout(request({
+      body: {
+        ...request().body,
+        experimentVariant: 'offerwall_fallback',
+        successUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/job-42/',
+        cancelUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/job-42/',
+      },
+    }));
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      locale: 'fr',
+      orderPageUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/job-42/?assisted_application_order_id=order-1',
+      experimentVariant: 'offerwall_fallback',
+    }));
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
+      metadata: expect.objectContaining({ locale: 'fr', experimentVariant: 'offerwall_fallback' }),
+    }), expect.anything());
+  });
+
   it('reuses the persisted request key, order and Stripe session on a retry', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 

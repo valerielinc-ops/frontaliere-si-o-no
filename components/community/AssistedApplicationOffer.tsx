@@ -6,6 +6,7 @@ import { useApplicationOfferBackdropDismiss } from '@/components/community/useAp
 import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   trackAssistedApplicationEvent,
+  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 
 export interface AssistedApplicationOfferProps {
@@ -13,7 +14,8 @@ export interface AssistedApplicationOfferProps {
   companyId: string;
   companyName: string;
   jobTitle: string;
-  variant: 'assisted_application';
+  /** `rewarded_ad` when the offer is the fallback of an Offerwall that could not load. */
+  variant: AssistedApplicationVariant;
   onChooseExternal: () => void;
   onChoosePaid: () => void | Promise<void>;
   onClose: () => void;

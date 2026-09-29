@@ -16,6 +16,10 @@ import { getConfigValue } from '@/services/firebase';
 import {
   ASSISTED_APPLICATION_EXPERIMENT_ID,
   ASSISTED_APPLICATION_EXPERIMENT_RC_KEY,
+  ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY,
+  isOfferwallLoadFailure,
+  parseOfferwallFallbackFlag,
+  useOfferwallPaidFallback,
   normalizeAssistedApplicationVariant,
   resolveAssistedApplicationVariant,
   shouldSuppressAssistedApplicationEvent,
@@ -138,5 +142,37 @@ describe('assisted application funnel events', () => {
       company_id: 'company-acme',
       price_eur_cents: 99,
     }));
+  });
+});
+
+describe('Offerwall paid fallback', () => {
+  it('treats only load failures as a reason to offer the paid path', () => {
+    for (const reason of ['offerwall_not_shown', 'no_fill', 'ready_timeout', 'gpt_ready_timeout', 'gpt_unavailable', 'slot_init_error', 'display_error', 'slot_not_ready']) {
+      expect(isOfferwallLoadFailure(reason)).toBe(true);
+    }
+    for (const reason of ['offerwall_closed_without_reward', 'ad_consent_missing', 'consent_denied', 'not_production', 'not_eligible', '', undefined]) {
+      expect(isOfferwallLoadFailure(reason)).toBe(false);
+    }
+  });
+
+  it('is off unless Remote Config says exactly true', async () => {
+    expect(parseOfferwallFallbackFlag(' TRUE ')).toBe(true);
+    expect(parseOfferwallFallbackFlag('1')).toBe(false);
+    expect(parseOfferwallFallbackFlag(undefined)).toBe(false);
+
+    getConfigValueMock.mockResolvedValue('true');
+    const enabled = renderHook(() => useOfferwallPaidFallback(true));
+    await waitFor(() => expect(enabled.result.current).toBe(true));
+    expect(getConfigValueMock).toHaveBeenCalledWith(ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY);
+
+    getConfigValueMock.mockClear();
+    const bypassed = renderHook(() => useOfferwallPaidFallback(false));
+    expect(bypassed.result.current).toBe(false);
+    expect(getConfigValueMock).not.toHaveBeenCalled();
+
+    getConfigValueMock.mockRejectedValue(new Error('offline'));
+    const failing = renderHook(() => useOfferwallPaidFallback(true));
+    await waitFor(() => expect(getConfigValueMock).toHaveBeenCalled());
+    expect(failing.result.current).toBe(false);
   });
 });

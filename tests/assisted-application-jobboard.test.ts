@@ -109,6 +109,31 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).not.toMatch(/rewarded-frontaliere-house|\.mp4\b/i);
   });
 
+  it('opens the paid offer only when the Offerwall chain failed to load and the flag is on', () => {
+    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string) => {');
+    const end = jobBoardSource.indexOf('const handleAssistedPaid = async () => {', start);
+    const handler = jobBoardSource.slice(start, end);
+    const fallback = handler.indexOf('if (offerwallPaidFallbackEnabled && isOfferwallLoadFailure(reason)) {');
+    const redirect = handler.indexOf("redirectExternalApplication(job, 'rewarded_application_inline_unavailable'");
+
+    expect(fallback).toBeGreaterThan(-1);
+    expect(fallback).toBeLessThan(redirect);
+    expect(handler.slice(fallback, redirect)).toMatch(
+      /setRewardedApplicationJob\(null\);[\s\S]*setAssistedOfferSource\('offerwall_fallback'\);\s*setAssistedApplicationJob\(job\);[\s\S]*'offerwall_paid_fallback_offered'[\s\S]*return;/,
+    );
+    expect(jobBoardSource).toMatch(
+      /useOfferwallPaidFallback\(\s*alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,\s*\)/,
+    );
+    expect(jobBoardSource).toContain(
+      "|| (assistedApplicationVariant === 'rewarded_ad' && assistedOfferSource === 'offerwall_fallback');",
+    );
+    expect(jobBoardSource).toContain('const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (');
+    expect(jobBoardSource).toContain('if (!job || !assistedOfferAvailable || assistedCheckoutBusy) return;');
+    expect(jobBoardSource).toContain(
+      "experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',",
+    );
+  });
+
   it('forces the rewarded treatment on every job-board section', () => {
     // Same shared matcher as the click-only Offerwall gate (owner decision
     // 2026-09-26: every canton, the Switzerland aggregator, every locale).

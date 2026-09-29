@@ -11,6 +11,57 @@ export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_
 export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v2';
 export const ASSISTED_APPLICATION_EXPERIMENT_RC_KEY = 'ASSISTED_APPLICATION_EXPERIMENT_VARIANT';
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
+
+/**
+ * Owner decision 2026-09-29: on the rewarded job-board arm, when the Offerwall
+ * and its GPT fallback cannot be LOADED, offer the 0,99 € assisted
+ * application (with the free external path next to it) instead of silently
+ * redirecting. Remote Config flag, local default OFF (services/firebase.ts).
+ */
+export const ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY = 'ASSISTED_APPLICATION_OFFERWALL_FALLBACK';
+
+/**
+ * `onUnavailable` reasons of RewardedApplicationOffer that mean "no ad could be
+ * loaded or shown". Deliberate user choices are NOT here: closing the
+ * Offerwall (`offerwall_closed_without_reward`), declining the ad consent card
+ * (`ad_consent_missing`) or having refused ads in the CMP (`consent_denied`);
+ * nor non-production / ineligible runs.
+ */
+export const OFFERWALL_LOAD_FAILURE_REASONS: ReadonlySet<string> = new Set([
+  'offerwall_not_shown',
+  'no_fill',
+  'ready_timeout',
+  'gpt_ready_timeout',
+  'gpt_unavailable',
+  'slot_init_error',
+  'display_error',
+  'slot_not_ready',
+]);
+
+export function isOfferwallLoadFailure(reason: unknown): boolean {
+  return typeof reason === 'string' && OFFERWALL_LOAD_FAILURE_REASONS.has(reason);
+}
+
+export function parseOfferwallFallbackFlag(value: unknown): boolean {
+  return String(value ?? '').trim().toLowerCase() === 'true';
+}
+
+/** Read once per mount; any failure keeps the fallback off. */
+export function useOfferwallPaidFallback(enabled = true): boolean {
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    if (!enabled) {
+      setActive(false);
+      return undefined;
+    }
+    let cancelled = false;
+    getConfigValue(ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY)
+      .then((value) => { if (!cancelled) setActive(parseOfferwallFallbackFlag(value)); })
+      .catch(() => { if (!cancelled) setActive(false); });
+    return () => { cancelled = true; };
+  }, [enabled]);
+  return active;
+}
 export const ASSISTED_APPLICATION_VARIANTS = ['control', 'assisted_application', 'rewarded_ad'] as const;
 export type AssistedApplicationVariant = (typeof ASSISTED_APPLICATION_VARIANTS)[number];
 
@@ -47,6 +98,8 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_consent_decided',
   'rewarded_offerwall_consent_declined',
   'external_apply_redirected',
+  // The Offerwall/GPT chain failed to load and the paid offer opened instead.
+  'offerwall_paid_fallback_offered',
   'checkout_started',
   'checkout_completed',
   'checkout_failed',

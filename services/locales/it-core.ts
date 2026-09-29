@@ -1,5 +1,8 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ 'whatsNew.v3969.title': 'Candidatura assistita: ti scrive Valerie',
+ 'whatsNew.v3969.assistedConcierge.title': 'Candidatura assistita più semplice',
+ 'whatsNew.v3969.assistedConcierge.desc': 'Dopo il pagamento ricevi subito un’email da Valerie con tutto quello che serve: puoi rispondere allegando il CV oppure caricarlo dalla pagina dell’ordine. Ti scriviamo anche quando la candidatura è stata inviata.',
  'whatsNew.v3968.title': 'Interesse alle candidature: controlli e promemoria',
  'whatsNew.v3968.applicationIntentPrivacy.title': 'Scelta separata per i segnali di candidatura',
  'whatsNew.v3968.applicationIntentPrivacy.desc': 'Dal profilo puoi bloccare separatamente i segnali di candidatura; se cancelli l’account, i dati collegati vengono rimossi o resi inutilizzabili.',
@@ -861,10 +864,11 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.fileSelected': 'CV selezionato — scegli un altro file',
  'jobBoard.assisted.fileCta': 'Carica il CV',
  'jobBoard.assisted.fileHint': 'File privato, accessibile solo al team autorizzato.',
+ 'jobBoard.assisted.emailAlternative': 'Preferisci l’email? Ti ho scritto da valerie@frontaliereticino.ch: rispondi a quel messaggio allegando il CV e ci penso io.',
  'jobBoard.assisted.uploading': 'Caricamento in corso…',
  'jobBoard.assisted.submit': 'Invia la candidatura assistita',
  'jobBoard.assisted.formError': 'Inserisci nome e un indirizzo email valido.',
- 'jobBoard.assisted.uploadError': 'Upload non riuscito. Controlla il file e riprova.',
+ 'jobBoard.assisted.uploadError': 'Upload non riuscito. Riprova con un PDF, DOC o DOCX, oppure rispondi all’email di valerie@frontaliereticino.ch allegando il CV.',
  'jobBoard.assisted.submitError': 'Non siamo riusciti a salvare la candidatura. Riprova.',
  'jobBoard.assisted.loadError': 'Non siamo riusciti a leggere lo stato dell’ordine. Riprova.',
  'jobBoard.assisted.retry': 'Riprova',

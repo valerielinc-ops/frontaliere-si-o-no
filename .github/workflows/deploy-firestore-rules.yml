@@ -1,4 +1,6 @@
 name: Deploy Firestore Rules & Indexes
+# Also ships storage.rules: before 2026-09-29 no workflow deployed it, so the
+# Storage paths it declares (assisted-application CV uploads) never went live.
 
 on:
   push:
@@ -7,6 +9,8 @@ on:
     paths:
       - 'firestore.rules'
       - 'firestore.indexes.json'
+      - 'storage.rules'
+      - 'scripts/ci/check-storage-cross-service-role.mjs'
   workflow_dispatch:
 
 permissions:
@@ -82,6 +86,16 @@ jobs:
       - name: Deploy Firestore security rules
         run: firebase deploy --only firestore:rules --project frontaliere-ticino
 
+      # storage.rules uses firestore.get() (cross-service rules): they only work
+      # when the Storage service agent holds roles/firebaserules.firestoreServiceAgent,
+      # which firebase-tools never grants in a non-interactive run. Fail loudly
+      # instead of shipping rules that deny every upload.
+      - name: Check Storage cross-service IAM role
+        run: node scripts/ci/check-storage-cross-service-role.mjs --project frontaliere-ticino
+
+      - name: Deploy Storage security rules
+        run: firebase deploy --only storage --project frontaliere-ticino
+
       # Before this, indexes in firestore.indexes.json were never shipped (only
       # firestore:rules was), so the file was dead config and prod indexes
       # drifted from it — a query relying on an undeployed index failed with
@@ -102,7 +116,7 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: ${{ github.workflow }}" \
-            --description "## Firestore rules deploy fallito
+            --description "## Firestore/Storage rules deploy fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
           **Trigger:** ${{ github.event_name }}" \

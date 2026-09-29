@@ -70,10 +70,19 @@ import { handleAssistedApplicationAdmin } from './src/assistedApplicationAdminCo
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
-import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
+import {
+  handleCreateConsultingCheckout,
+  handleConsultingDetailsSubmitted,
+  handleConsultingOrderPaid,
+  runConsultingPaidNoticeSweep,
+} from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
+import {
+  handleAssistedApplicationOrderWritten,
+  runAssistedApplicationNotificationSweep,
+} from './src/assistedApplicationNotifications.js';
 import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
@@ -1917,6 +1926,10 @@ export const notifyConsultingDetailsSubmitted = onDocumentWritten(
     const afterData = after.data();
     const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
     try {
+      // Paid → email the customer the intake link and the internal inbox, so a
+      // closed success page no longer strands a paying customer.
+      const paid = await handleConsultingOrderPaid(beforeData, afterData, event.params.orderId, { db: getAdminDb() });
+      if (!paid.ok) console.error('[notifyConsultingDetailsSubmitted] paid notice', paid.error);
       const result = await handleConsultingDetailsSubmitted(beforeData, afterData);
       if (!result.ok) console.error('[notifyConsultingDetailsSubmitted]', result.error);
     } catch (error) {
@@ -1924,6 +1937,20 @@ export const notifyConsultingDetailsSubmitted = onDocumentWritten(
         '[notifyConsultingDetailsSubmitted]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// Backstop for the paid-consultation notice above: retries a notice that
+// failed in the last 72 h (the trigger fires only once per write).
+export const sweepConsultingPaidNotices = onSchedule(
+  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await runConsultingPaidNoticeSweep({ db: getAdminDb() });
+      if (summary.sent > 0 || summary.failed > 0) console.log('[sweepConsultingPaidNotices]', summary);
+    } catch (error) {
+      console.error('[sweepConsultingPaidNotices]', error instanceof Error ? error.message : String(error));
     }
   },
 );
@@ -2195,6 +2222,52 @@ export const purgePublisherApplications = onSchedule(
  console.error('[purgePublisherApplications]', error instanceof Error ? error.message : String(error));
  }
  },
+);
+
+// Email concierge for the 0,99 € assisted application: on the payment, the
+// materials upload and the "submitted" transition, the customer gets an email
+// from valerie@ (and Valerie an internal notice). Transition-based, so the
+// handler's own `notifications.*` bookkeeping never re-triggers a send.
+export const notifyAssistedApplicationOrder = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return;
+    const before = event.data?.before?.exists ? event.data.before.data() : null;
+    try {
+      const result = await handleAssistedApplicationOrderWritten(
+        before,
+        after.data(),
+        event.params.orderId,
+        { db: getAdminDb() },
+      );
+      if (!result.ok) console.error('[notifyAssistedApplicationOrder]', event.params.orderId, result.error);
+    } catch (error) {
+      console.error(
+        '[notifyAssistedApplicationOrder]',
+        error instanceof Error ? error.message : String(error),
+      );
+    }
+  },
+);
+
+// Backstop for the trigger above (intro missed in the last 72 h) plus the
+// single 48 h "I still need your CV" reminder.
+export const sweepAssistedApplicationNotifications = onSchedule(
+  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationNotificationSweep({ db: getAdminDb() });
+      if (summary.intros > 0 || summary.reminders > 0 || summary.failed > 0) {
+        console.log('[sweepAssistedApplicationNotifications]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[sweepAssistedApplicationNotifications]',
+        error instanceof Error ? error.message : String(error),
+      );
+    }
+  },
 );
 
 // GDPR retention for the paid assisted-application CVs. The 90-day window is
