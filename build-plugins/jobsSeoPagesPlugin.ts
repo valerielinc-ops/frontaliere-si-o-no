@@ -10577,11 +10577,6 @@ ${staticAnalyticsHtml}
  // via companyEntries above.
  const overrideUrl = resolveCanonicalUrl(perLocaleSlugMap.it, itUrl);
  if (overrideUrl !== itUrl) return '';
- let alternateLinks = localeList.map((l) => {
- const sectionForLocale = buildCantonAwareSection(l, jobCantonForSitemap);
- const p = `${localePrefix[l]}/${sectionForLocale}/${perLocaleSlugMap[l]}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
- }).join('\n');
  const sitemapLocalePaths = new Map<typeof localeList[number], string>();
  for (const l of localeList) {
  const sectionForLocale = buildCantonAwareSection(l, jobCantonForSitemap);
@@ -10598,7 +10593,7 @@ ${staticAnalyticsHtml}
  sitemapLocalePaths.set(l, localePath);
  }
  if (!sitemapLocalePaths.has('it')) return '';
- alternateLinks = [...sitemapLocalePaths.entries()].map(([l, p]) =>
+ const alternateLinks = [...sitemapLocalePaths.entries()].map(([l, p]) =>
  ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${p}" />`,
  ).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
