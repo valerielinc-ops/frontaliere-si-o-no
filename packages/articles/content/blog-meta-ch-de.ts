@@ -7013,6 +7013,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stadler-nomina-nuovo-ceo.title': 'Stadler Rail: Philipp Brunner wird ab 2027 der neue CEO sein',
     'blog.article.stadler-nomina-nuovo-ceo.excerpt': 'Wechsel an der Spitze des Schweizer Eisenbahnkonzerns: Philipp Brunner folgt Markus Bernsteiner ab dem 1° gennaio 2027 nach. Halbjahresumsatz bei 2 Milliarden.',
     'blog.article.stadler-nomina-nuovo-ceo.imageAlt': 'Moderner Stadler-Zug in einer Schweizer Landschaft',
+    'blog.article.zugo-cybersecurity-de-escalation.title': 'Zug setzt auf Cybersicherheit: Deeskalation und Resilienz',
+    'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'Der Kanton Zug startet eine Initiative für Cybersicherheit mit dem Schwerpunkt auf präventiver Diplomatie, Mediation und Zusammenarbeit zwischen Staat und Privatsektor.',
+    'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Kompetenzzentrum für Cybersicherheit in Zug',
+    'blog.article.lindt-prungli-stime-2026.title': 'Lindt und Sprüngli senkt die Wachstumsschätzungen für 2026',
+    'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt und Sprüngli korrigiert das organische Umsatzwachstum für 2026 aufgrund der Hitze und der Preise nach unten auf 0 bis 2%.',
+    'blog.article.lindt-prungli-stime-2026.imageAlt': 'Lindt und Sprüngli Hauptsitz in Kilchberg',
+    'blog.article.compensi-lvamal-camera-bassa.title': 'Krankenkassen: Gehaltsobergrenze für Führungskräfte',
+    'blog.article.compensi-lvamal-camera-bassa.excerpt': 'Der Nationalrat genehmigt die Änderung des LVAMal: 157 Ja-Stimmen, 27 Nein-Stimmen und 8 Enthaltungen. Das Geschäft geht nun an den Ständerat.',
+    'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Schweizer Debatte über eine Obergrenze für die Vergütung von Krankenkassenleitern',
+    'blog.article.rincari-auto-abitazione-ticino.title': 'Starke Preissteigerungen bei Autos und Wohnraum, insbesondere im Ticino',
+    'blog.article.rincari-auto-abitazione-ticino.excerpt': 'Im August steigen die Wohn- und Mobilitätskosten in der Schweiz um 2,4%. Ticino verzeichnet mit 3% die höchste jährliche Teuerung.',
+    'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Preiserhöhungen für Auto und Wohnen im Tessin und der Schweiz',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Teuerung bei Wohnen und Mobilität: Ausgaben steigen in der Schweiz',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'Im agosto 2026 verzeichnen die Preise für Wohnen und Mobilität in der Schweiz ein +2,4%, mit einer monatlichen Mehrbelastung von 89 Franken für Familien.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Steigende Wohn- und Mobilitätskosten in der Schweiz',
 };
 
 export default blogMetaChDe;

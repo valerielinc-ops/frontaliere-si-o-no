@@ -26,10 +26,10 @@ const FUEL_COLORS: Record<VehicleFuelKey, string> = {
   electric: "bg-success",
   plugInHybrid: "bg-accent",
   hybrid: "bg-warning",
-  petrol: "bg-orange-400",
-  diesel: "bg-slate-500",
-  gas: "bg-purple-500",
-  other: "bg-slate-300 dark:bg-slate-600",
+  petrol: "bg-warning-strong",
+  diesel: "bg-info-strong",
+  gas: "bg-accent-strong",
+  other: "bg-neutral",
 };
 
 function formatNumber(value: number, locale: string): string {

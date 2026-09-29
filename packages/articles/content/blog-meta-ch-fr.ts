@@ -7013,6 +7013,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stadler-nomina-nuovo-ceo.title': 'Stadler Rail : Philipp Brunner sera le nouveau CEO à partir de 2027',
     'blog.article.stadler-nomina-nuovo-ceo.excerpt': 'Changement à la tête du groupe ferroviaire suisse : Philipp Brunner succède à Markus Bernsteiner à compter du 1° gennaio 2027. Chiffre d\'affaires semestriel à 2 milliards.',
     'blog.article.stadler-nomina-nuovo-ceo.imageAlt': 'Train moderne Stadler dans un paysage suisse',
+    'blog.article.zugo-cybersecurity-de-escalation.title': 'Zoug mise sur la cybersécurité : désescalade et résilience',
+    'blog.article.zugo-cybersecurity-de-escalation.excerpt': 'Le canton de Zoug lance une initiative pour la cybersécurité, misant sur la diplomatie préventive, la médiation et la collaboration entre l\'État et le secteur privé.',
+    'blog.article.zugo-cybersecurity-de-escalation.imageAlt': 'Centre de compétence pour la cybersécurité à Zoug',
+    'blog.article.lindt-prungli-stime-2026.title': 'Lindt et Sprüngli réduit ses prévisions de croissance pour 2026',
+    'blog.article.lindt-prungli-stime-2026.excerpt': 'Lindt et Sprüngli révise à la baisse la croissance organique du chiffre d’affaires 2026 entre 0 et 2 % en raison de la chaleur et des prix.',
+    'blog.article.lindt-prungli-stime-2026.imageAlt': 'Siege de Lindt et Sprungli a Kilchberg',
+    'blog.article.compensi-lvamal-camera-bassa.title': 'Caisses-maladie : plafonnement des salaires des dirigeants',
+    'blog.article.compensi-lvamal-camera-bassa.excerpt': 'La Chambre basse approuve la modification de la LVAMal : 157 voix pour, 27 contre et 8 abstentions. Le dossier passe maintenant au Conseil des États.',
+    'blog.article.compensi-lvamal-camera-bassa.imageAlt': 'Débat suisse sur un plafond pour la rémunération des dirigeants des caisses maladie',
+    'blog.article.rincari-auto-abitazione-ticino.title': 'Fortes hausses pour l\'automobile et le logement, surtout au Tessin',
+    'blog.article.rincari-auto-abitazione-ticino.excerpt': 'En août, les coûts du logement et de la mobilité augmentent de 2,4% en Suisse. Le Tessin enregistre la plus forte hausse annuelle avec 3%.',
+    'blog.article.rincari-auto-abitazione-ticino.imageAlt': 'Haussees des prix pour l\'auto et le logement au Tessin et en Suisse',
+    'blog.article.rincari-abitazione-mobilita-svizzera.title': 'Logement et mobilité : hausse des dépenses en Suisse',
+    'blog.article.rincari-abitazione-mobilita-svizzera.excerpt': 'En août 2026, les prix liés au logement et à la mobilité en Suisse affichent un +2,4%, avec un surcoût de 89 francs par mois pour les familles.',
+    'blog.article.rincari-abitazione-mobilita-svizzera.imageAlt': 'Augmentation des coûts du logement et de la mobilité en Suisse',
 };
 
 export default blogMetaChFr;
