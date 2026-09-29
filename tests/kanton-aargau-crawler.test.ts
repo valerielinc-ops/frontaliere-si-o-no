@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
+  fetchAllKantonAargauJobs,
   parseAgJobsApi,
   extractAgJobPosting,
   KANTON_AARGAU_KEY,
@@ -10,6 +11,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/kanton-aargau-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
 
 describe('Kanton Aargau crawler parser', () => {
   // -- Constants --
@@ -223,6 +225,64 @@ describe('Kanton Aargau crawler parser', () => {
 
     it('returns an empty body when the page has no JobPosting', () => {
       expect(extractAgJobPosting('<html><body><p>Seite nicht gefunden</p></body></html>').description).toBe('');
+    });
+  });
+
+  // Review of PR 10336: the board is published whole or not at all. A partial
+  // API answer or an unreadable vacancy page must fail the run (exit non-zero
+  // from the runner) so the pipeline keeps the slice it already has.
+  describe('fetchAllKantonAargauJobs — all-or-nothing snapshot', () => {
+    const fixture = (name: string) => readFileSync(resolve(__dirname, 'fixtures', 'kanton-aargau', name), 'utf8');
+    const api = (patch: Record<string, unknown> = {}) => JSON.stringify({ ...JSON.parse(fixture('jobs-proxy-sample.json')), ...patch });
+    const detailHtml = fixture('detail-juristisches-praktikum.html');
+    const serve = (routes: (url: string) => Response) => {
+      const fetchMock = vi.fn(async (input: string | URL) => routes(String(input)));
+      vi.stubGlobal('fetch', fetchMock);
+      return fetchMock;
+    };
+    const isApi = (url: string) => url.includes('/io/jobs-proxy/jobs');
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+      vi.restoreAllMocks();
+    });
+
+    it('fails when the API declares more vacancies than it returned', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      const fetchMock = serve((url) => (isApi(url) ? new Response(api({ total: 3 })) : new Response(detailHtml)));
+      await expect(fetchAllKantonAargauJobs()).rejects.toThrow(/reports 3 vacancies but returned 2/);
+      // No vacancy page is read: nothing partial is assembled.
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('fails with the HTTP status when a vacancy page answers 500, and publishes no stand-in', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      serve((url) => (isApi(url) ? new Response(api()) : new Response('oops', { status: 500 })));
+      const err = await fetchAllKantonAargauJobs().then(() => null, (e) => e);
+      expect(err).toBeInstanceOf(Error);
+      expect(err.message).toMatch(/HTTP 500 from https:\/\/jobs\.ag\.ch\//);
+      expect(err.status).toBe(500);
+      // A status means the source answered: the pipeline must not treat it as
+      // a connection-level soft exit.
+      expect(isConnectionLevelFetchError(err)).toBe(false);
+    });
+
+    it('fails when a vacancy page carries no ad body', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      serve((url) => (isApi(url) ? new Response(api()) : new Response('<html><body><p>Seite nicht gefunden</p></body></html>')));
+      await expect(fetchAllKantonAargauJobs()).rejects.toThrow(/has no ad body/);
+    });
+
+    it('publishes every vacancy with its page body when the board is complete', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      serve((url) => (isApi(url) ? new Response(api()) : new Response(detailHtml)));
+      const jobs = await fetchAllKantonAargauJobs();
+      expect(jobs).toHaveLength(2);
+      const body = extractAgJobPosting(detailHtml).description;
+      for (const job of jobs) {
+        expect(job.description.startsWith(body)).toBe(true);
+        expect(job.description).not.toContain(`${job.title} — Kanton Aargau.`);
+      }
     });
   });
 });

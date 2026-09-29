@@ -230,7 +230,13 @@ async function fetchText(url, accept) {
       signal: controller.signal,
       headers: { Accept: accept, 'User-Agent': USER_AGENT, 'Accept-Language': 'de-CH,de;q=0.9' },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
+    if (!res.ok) {
+      // Tag the status: the pipeline treats an error WITH a status as a real
+      // source break (exit non-zero), never as a connection-level soft exit.
+      const err = new Error(`HTTP ${res.status} from ${url}`);
+      err.status = res.status;
+      throw err;
+    }
     return await res.text();
   } finally {
     clearTimeout(timer);
@@ -244,30 +250,36 @@ export async function fetchAllKantonAargauJobs() {
   console.log(`   Source: ${JOBS_API_URL}`);
   console.log(`   Public: ${PUBLIC_CAREER_URL}\n`);
 
+  // A failed read is not an empty board: the error propagates unchanged, so
+  // the pipeline keeps the prior slice (connection-level: soft exit; HTTP
+  // status: exit non-zero) instead of retiring every job.
+  const body = await fetchText(JOBS_API_URL, 'application/json');
   let payload;
   try {
-    payload = JSON.parse(await fetchText(JOBS_API_URL, 'application/json'));
+    payload = JSON.parse(body);
   } catch (err) {
-    // A failed read is not an empty board: throw so the pipeline keeps the
-    // prior slice instead of retiring every job.
-    throw new Error(`Kanton Aargau job-market API unavailable: ${err?.message || err}`);
+    throw new Error(`Kanton Aargau job-market API returned invalid JSON: ${err?.message || err}`);
   }
   const entries = parseAgJobsApi(payload);
   const total = Number(payload?.total);
   console.log(`  ✓ ${entries.length} vacancies in the job market${Number.isFinite(total) ? ` (API total ${total})` : ''}\n`);
+  // The board is published whole or not at all: a partial snapshot would
+  // retire vacancies that are still open.
   if (Number.isFinite(total) && total > entries.length) {
-    console.warn(`  ⚠️ API reports ${total} vacancies but returned ${entries.length}.`);
+    throw new Error(`Kanton Aargau job-market API reports ${total} vacancies but returned ${entries.length} usable ones; keeping the existing slice.`);
   }
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const entry of entries) {
-    let detail = null;
-    try {
-      detail = extractAgJobPosting(await fetchText(entry.url, 'text/html,application/xhtml+xml'));
-    } catch (err) {
-      console.warn(`  ⚠️ detail ${entry.id}: ${err?.message || err}`);
+    // The vacancy text exists only on its own page. A page that cannot be read
+    // (the fetch error propagates) or that carries no ad body is fatal: a
+    // title-and-metadata stand-in would publish a JobPosting below the content
+    // floor in place of the ad the slice already holds.
+    const detail = extractAgJobPosting(await fetchText(entry.url, 'text/html,application/xhtml+xml'));
+    if (!detail.description) {
+      throw new Error(`Kanton Aargau vacancy ${entry.id} has no ad body at ${entry.url}; keeping the existing slice.`);
     }
     await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
 
@@ -279,11 +291,8 @@ export async function fetchAllKantonAargauJobs() {
       entry.department && `• Abteilung: ${entry.department}`,
       `• Arbeitsort: ${location}`,
     ].filter(Boolean).join('\n');
-    let description = detail?.description || '';
-    if (description) detailHits += 1;
-    description = description
-      ? `${description}\n\n${meta}`
-      : `${entry.title} — ${KANTON_AARGAU_COMPANY_NAME}.\n\n${meta}`;
+    detailHits += 1;
+    const description = `${detail.description}\n\n${meta}`;
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${entry.title} kanton-aargau ch`);
