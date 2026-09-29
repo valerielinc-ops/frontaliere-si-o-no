@@ -3,7 +3,7 @@
 // scripts/measure-newsletter-ai-phases.mjs for the model and its sources.
 import { describe, expect, it } from 'vitest';
 
-import { measureNewsletterAiPhases } from '@/scripts/measure-newsletter-ai-phases.mjs';
+import { measureNewsletterAiLanes, measureNewsletterAiPhases } from '@/scripts/measure-newsletter-ai-phases.mjs';
 
 const JOB_TIMEOUT_MINUTES = 360; // send-newsletter.yml timeout-minutes
 const results = await measureNewsletterAiPhases({ cohortCount: 700 });
@@ -44,5 +44,27 @@ describe('newsletter AI phases — 700 cohorts, 4 locales, one Codex request at 
     expect(r.post.phase3Minutes).toBe(30);
     expect(r.post.phase2DroppedAtDeadline).toBeGreaterThan(0);
     expect(r.post.cohortsOnFallback).toBe(700);
+  });
+});
+
+// Phases 2 and 3 together against broker lanes (codex-auth-broker.mjs
+// --max-concurrency), service times of run 36385271711: less wall time, the
+// same calls and prompt characters, the same subjects; no gain on one lane.
+describe('newsletter AI phases together — broker lanes', () => {
+  it.each([1, 3])('%i lane(s): same calls, prompts and subjects as one phase after the other', async (lanes) => {
+    for (const r of await measureNewsletterAiLanes({ lanes })) {
+      expect(r.together.calls).toBe(r.sequential.calls);
+      expect(r.together.promptChars).toBe(r.sequential.promptChars);
+      expect(r.together.subjects).toEqual(r.sequential.subjects);
+      expect(r.together.seconds).toBeLessThanOrEqual(r.sequential.seconds);
+    }
+  });
+
+  it('3 lanes: 119 s one after the other, 102 s together', async () => {
+    for (const r of await measureNewsletterAiLanes({ lanes: 3 })) {
+      expect(r.sequential.seconds).toBe(119);
+      expect(r.together.seconds).toBe(102);
+      expect(r.sequential.calls).toBe(12);
+    }
   });
 });

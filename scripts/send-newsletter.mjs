@@ -310,19 +310,45 @@ export async function composeCohortBriefings(cohorts, { locales, generate, excha
   let aiCohorts = 0;
   let fallbackCohorts = 0;
   for (const [key, cohort] of cohorts) {
-    let html = localeBriefings.get(cohort.locale);
-    if (html) {
-      aiCohorts++;
-    } else {
-      html = getFallbackBriefing(cohort.locale, exchangeRate);
-      fallbackCohorts++;
-    }
-    // Always inject job links — applies to both AI and fallback briefings
-    html = injectJobAndCompanyLinks(html, cohort.matchedJobs, cohort.locale);
-    html = injectToolLinks(html, cohort.locale);
-    briefingMap.set(key, html);
+    const localeHtml = localeBriefings.get(cohort.locale);
+    if (localeHtml) aiCohorts++;
+    else fallbackCohorts++;
+    briefingMap.set(key, cohortBriefingHtml(localeHtml, cohort, exchangeRate));
   }
   return { briefingMap, localeBriefings, aiCohorts, fallbackCohorts };
+}
+
+/**
+ * The briefing one cohort receives: the locale's AI text (or the static
+ * template), its own jobs linked and first, then the tool links. Job links are
+ * injected for both AI and fallback briefings.
+ */
+function cohortBriefingHtml(localeHtml, cohort, exchangeRate) {
+  const html = localeHtml || getFallbackBriefing(cohort.locale, exchangeRate);
+  return injectToolLinks(injectJobAndCompanyLinks(html, cohort.matchedJobs, cohort.locale), cohort.locale);
+}
+
+/** Characters of the cohort briefing a subject receives as its "Theme". */
+export const SUBJECT_THEME_CHARS = 100;
+
+const stripTags = (html) => String(html || '').replace(/<[^>]+>/g, '');
+
+/**
+ * The Theme of a locale's subjects: the start of its largest cohort's
+ * briefing. With `briefingMap` it is read from the finished Phase 2. With
+ * `briefingFor(locale)` (a promise of the locale's AI text or null) Phase 3
+ * runs next to Phase 2 and waits for that text only when the Theme depends on
+ * it: injectJobAndCompanyLinks puts the cohort's jobs paragraph first when the
+ * model does not name the jobs, which the briefing prompt forbids, and when
+ * that paragraph alone covers the Theme the briefing cannot change it.
+ */
+async function localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }) {
+  if (!rep) return '';
+  if (briefingMap) return stripTags(briefingMap.get(rep.key)).slice(0, SUBJECT_THEME_CHARS);
+  const jobsParagraph = stripTags(injectJobAndCompanyLinks('', rep.matchedJobs, rep.locale));
+  if (jobsParagraph.length >= SUBJECT_THEME_CHARS) return jobsParagraph.slice(0, SUBJECT_THEME_CHARS);
+  const localeHtml = briefingFor ? await briefingFor(rep.locale) : null;
+  return stripTags(cohortBriefingHtml(localeHtml, rep, exchangeRate)).slice(0, SUBJECT_THEME_CHARS);
 }
 
 /** Key of the subject for one (locale, A/B variant) pair. */
@@ -334,23 +360,32 @@ export function newsletterSubjectKey(loc, variant) {
  * Phase 3 composition: one AI subject per (locale, variant), written from the
  * locale's largest cohort; `generate(ctx)` → subject or null, null falling
  * back to the variant's static subject. At most locales × variants calls.
+ * Pass `briefingMap` (finished Phase 2) or `briefingFor` (Phase 2 running
+ * alongside, see localeSubjectTheme).
  */
-export async function composeLocaleSubjects(cohorts, { locales, variantIds, briefingMap, exchangeRate, generate }) {
+export async function composeLocaleSubjects(cohorts, { locales, variantIds, briefingMap = null, briefingFor = null, exchangeRate, generate }) {
   const localeRepresentatives = new Map();
   for (const [key, cohort] of cohorts) {
     const loc = cohort.locale;
     const existing = localeRepresentatives.get(loc);
     if (!existing || cohort.members.length > existing.members.length) {
-      localeRepresentatives.set(loc, { ...cohort, briefing: briefingMap.get(key) });
+      localeRepresentatives.set(loc, { ...cohort, key });
     }
   }
+  const themes = new Map();
+  const themeFor = (loc) => {
+    if (!themes.has(loc)) {
+      themes.set(loc, localeSubjectTheme(localeRepresentatives.get(loc), { briefingMap, briefingFor, exchangeRate }));
+    }
+    return themes.get(loc);
+  };
 
   const subjectMap = new Map();
   const localeVariantPairs = [];
   for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
   await pMap(localeVariantPairs, async ({ loc, variant }) => {
     const rep = localeRepresentatives.get(loc);
-    const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
+    const briefingText = await themeFor(loc);
     const subject = await generate({
       subscriber: rep?.subscriber || { locale: loc },
       exchangeRate,
@@ -2507,43 +2542,56 @@ async function main() {
   // fresh Monday campaign (run 35582069095).
   // From the cohorts, so no locale is asked for without a cohort to use it.
   const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
-  console.log(`🧠 Phase 2: AI briefings (1 per locale: ${locales.join(', ')})...`);
-  const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
-  const { briefingMap, localeBriefings, aiCohorts, fallbackCohorts } = await composeCohortBriefings(cohorts, {
-    locales,
-    exchangeRate,
-    generate: noAI ? null : (loc) => generateLocaleBriefing({
-      locale: loc,
-      exchangeRate, exchangeInsight,
-      weeklyFact: getWeeklyFact(loc),
-      featuredTool: getFeaturedToolForLocale(loc),
-    }, { deadlineMs: briefingDeadlineMs }),
-  });
-  console.log(`  ✓ ${localeBriefings.size}/${locales.length} locale AI briefings (${aiCohorts} cohorts on AI, ${fallbackCohorts} on the fallback template)`);
 
   // ── Phase 3: Generate 1 AI subject per locale × A/B variant ──
   // Subject-line A/B test: one subject per (locale, variant) so each subscriber
   // gets the subject for their deterministically-assigned variant (Phase 5).
   // Still cohort-cheap: at most locales × variants AI calls (≤8), not per-sub.
+  //
+  // Phases 2 and 3 run together. A subject reads only the first 100 characters
+  // of its locale's largest cohort briefing, and those are that cohort's jobs
+  // paragraph whenever it has jobs, so it waits for the locale's AI text only
+  // when the Theme depends on it (localeSubjectTheme). With parallel broker
+  // lanes the subjects fill the lanes the briefings leave idle.
   const variantIds = listVariantIds();
   const subjectKey = newsletterSubjectKey;
-  console.log(`✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
-  let subjectMap = new Map();
-
-  if (subjectOverride) {
-    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), subjectOverride);
-  } else if (noAI) {
-    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), getVariantFallback(v, loc));
-  } else {
+  console.log(`🧠 Phase 2: AI briefings (1 per locale: ${locales.join(', ')}), with ✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
+  const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
+  const localeBriefingCalls = new Map();
+  // One AI call per locale, shared by Phase 2 and by the subjects that wait for it.
+  const briefingFor = noAI ? null : (loc) => {
+    if (!localeBriefingCalls.has(loc)) {
+      localeBriefingCalls.set(loc, generateLocaleBriefing({
+        locale: loc,
+        exchangeRate, exchangeInsight,
+        weeklyFact: getWeeklyFact(loc),
+        featuredTool: getFeaturedToolForLocale(loc),
+      }, { deadlineMs: briefingDeadlineMs }));
+    }
+    return localeBriefingCalls.get(loc);
+  };
+  const phase2 = composeCohortBriefings(cohorts, { locales, exchangeRate, generate: briefingFor });
+  const phase3 = (async () => {
+    const subjects = new Map();
+    if (subjectOverride) {
+      for (const loc of locales) for (const v of variantIds) subjects.set(subjectKey(loc, v), subjectOverride);
+      return subjects;
+    }
+    if (noAI) {
+      for (const loc of locales) for (const v of variantIds) subjects.set(subjectKey(loc, v), getVariantFallback(v, loc));
+      return subjects;
+    }
     const subjectDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
-    subjectMap = await composeLocaleSubjects(cohorts, {
+    return composeLocaleSubjects(cohorts, {
       locales,
       variantIds,
-      briefingMap,
+      briefingFor,
       exchangeRate,
       generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs: subjectDeadlineMs }),
     });
-  }
+  })();
+  const [{ briefingMap, localeBriefings, aiCohorts, fallbackCohorts }, subjectMap] = await Promise.all([phase2, phase3]);
+  console.log(`  ✓ ${localeBriefings.size}/${locales.length} locale AI briefings (${aiCohorts} cohorts on AI, ${fallbackCohorts} on the fallback template)`);
   console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
   // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
