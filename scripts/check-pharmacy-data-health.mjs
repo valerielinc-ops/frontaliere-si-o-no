@@ -24,8 +24,10 @@
  *                    provenance dei campi secondari.
  *
  * NON pubblica nulla e non tocca pagine: è un osservatore interno. I dataset
- * dei turni arrivano da `data/pharmacy-duties-<canton>.json`; un dataset
- * mancante per una fonte `active` o oltre lo SLA è un problema osservabile.
+ * dei turni arrivano da `data/pharmacy-duties-<canton>.json`, oppure dal
+ * `dutiesPath`/`dutiesKey` dichiarato dal registry quando il connettore usa un
+ * contenitore multi-cantone; un dataset mancante per una fonte `active` o
+ * oltre lo SLA è un problema osservabile.
  *
  * Exit code: 0 se sano, 1 se degradato. Il report machine-readable finisce in
  * `data/pharmacy-data-health-report.json` per il workflow che apre l'issue.
@@ -594,7 +596,8 @@ function readJson(relPath) {
  * I dataset per-cantone seguono la convenzione `data/pharmacies-<key>.json` e
  * `data/pharmacy-duties-<key>.json`, con `<key>` la chiave del registry. Se
  * una fonte separa l'anagrafica dai turni, `anagraficaPath` nel registry indica
- * il snapshot canonico e la convenzione resta il fallback di compatibilità.
+ * il snapshot canonico; `dutiesPath` e `dutiesKey` fanno lo stesso per un
+ * contenitore di release condiviso. Le convenzioni restano il fallback.
  */
 export function loadDatasets(registry) {
   const datasets = {};
@@ -603,7 +606,12 @@ export function loadDatasets(registry) {
     const configuredPath = typeof entry?.anagraficaPath === 'string' ? entry.anagraficaPath : null;
     const a = (configuredPath && readJson(configuredPath)) || readJson(`data/pharmacies-${key}.json`);
     if (a) datasets[key] = a;
-    const d = readJson(`data/pharmacy-duties-${key}.json`);
+    const configuredDutiesPath = typeof entry?.dutiesPath === 'string' ? entry.dutiesPath : null;
+    const rawDuties = readJson(configuredDutiesPath || `data/pharmacy-duties-${key}.json`);
+    const configuredDutiesKey = typeof entry?.dutiesKey === 'string' ? entry.dutiesKey : null;
+    const d = configuredDutiesKey && rawDuties?.snapshots && typeof rawDuties.snapshots === 'object'
+      ? rawDuties.snapshots[configuredDutiesKey]
+      : rawDuties;
     if (d) duties[key] = d;
   }
   return { datasets, duties };
