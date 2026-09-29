@@ -113,24 +113,19 @@ export function buildHovalLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || '').trim() || 'Svizzera';
   const description = String(job.description || '').trim();
-  const department = String(job.department || '').trim();
 
-  const deptClause = department ? ` nel reparto ${department}` : '';
-  const itDesc = description
-    || `Hoval ha aperto una selezione per il ruolo ${title}${deptClause} con sede a ${location}. Soluzioni di riscaldamento e climatizzazione all'avanguardia. Per candidarti utilizza il modulo ufficiale nella pagina Hoval.`;
-  const enDesc = description
-    ? description
-    : `Hoval is hiring for the ${title} role based in ${location}. Leading heating and climate technology solutions. Apply through the official Hoval careers page.`;
-  const deDesc = description
-    ? description
-    : `Hoval sucht derzeit für die Position ${title} am Standort ${location}. Führende Heiz- und Klimatechniklösungen. Bewirb dich über die offizielle Karriereseite von Hoval.`;
-  const frDesc = description
-    ? description
-    : `Hoval recrute actuellement pour le poste ${title} basé à ${location}. Solutions de chauffage et de climatisation de pointe. Postulez via la page carrière officielle de Hoval.`;
+  // The posting's own text, in its own language slot (`job.sourceLang`, set
+  // by the runner); the translation step fills the other locales. Without
+  // a text there is no description: this used to publish a sentence about
+  // Hoval of its own in four languages ("… is hiring for the <title>
+  // role … Apply through the official … careers page."), which filled every
+  // locale so the translation step never replaced it.
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} hoval ${location}`),
       en: slugify(`${title} hoval ${location}`),

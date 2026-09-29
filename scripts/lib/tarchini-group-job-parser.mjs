@@ -134,21 +134,18 @@ export function buildTarchiniLocalizedContent(job = {}) {
   const location = String(job.location || 'Manno').trim();
   const description = String(job.description || '').trim();
 
-  const itDesc = description
-    || `Tarchini Group cerca un/una ${title} con sede a ${location}. Gruppo immobiliare attivo in Ticino nella progettazione, costruzione e gestione di stabili. Per candidarti invia il CV a risorseumane@tarchinigroup.com.`;
-  const enDesc = description
-    ? description
-    : `Tarchini Group is hiring for the ${title} role in ${location}, Ticino. Real estate group active in property development, construction and management. Apply by sending your CV to risorseumane@tarchinigroup.com.`;
-  const deDesc = description
-    ? description
-    : `Tarchini Group sucht derzeit für die Position ${title} in ${location}, Tessin. Immobiliengruppe in Planung, Bau und Verwaltung. Bewirb dich per E-Mail an risorseumane@tarchinigroup.com.`;
-  const frDesc = description
-    ? description
-    : `Tarchini Group recrute pour le poste ${title} à ${location}, Tessin. Groupe immobilier actif dans la planification, construction et gestion. Postulez par e-mail à risorseumane@tarchinigroup.com.`;
+  // The posting's own text, in its own language slot (`job.sourceLang`, set
+  // by the runner); the translation step fills the other locales. Without
+  // a text there is no description: this used to publish a sentence about
+  // Tarchini Group of its own in four languages ("… is hiring for the <title>
+  // role … Apply through the official … careers page."), which filled every
+  // locale so the translation step never replaced it.
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} tarchini-group ${location}`),
       en: slugify(`${title} tarchini-group ${location}`),

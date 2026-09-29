@@ -327,44 +327,39 @@ export async function enrichRelewantJob(parsed, timeoutMs = 15000) {
 }
 
 /**
- * Build localized content for a ReleWant job.
- * If the job was enriched with detail page data, uses the full description.
- * Falls back to a generic template if not enriched.
+ * Build localized content for a ReleWant job: the Zoho Recruit description
+ * with the posting's own fields (experience, industry, location, job type),
+ * in the slot of its language (`job.sourceLang`, set by the runner); the
+ * translation step fills the other locales.
+ *
+ * This used to copy that Italian text into the en/de/fr slots too, and — for a
+ * posting whose detail yielded under 100 characters — to publish a paragraph
+ * of its own in four languages ("ReleWant, an IT consulting firm based in …,
+ * is looking for a … Apply through the official portal."). A posting without
+ * text now gets no description and takes the pipeline's thin-source path.
  */
 export function buildRelewantLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || '').trim() || 'Switzerland';
   const markdown = String(job.description || '').trim();
 
-  let itDesc;
-  if (markdown && markdown.length > 100) {
+  let description = '';
+  if (markdown) {
     const introLine = `## ${title}\n\n**ReleWant** — ${city}, Svizzera`;
     const footerLines = [];
     if (job.workExperience) footerLines.push(`**Esperienza richiesta:** ${job.workExperience}`);
     if (job.industry) footerLines.push(`**Settore:** ${job.industry}`);
     footerLines.push(`**Sede:** ${city}, Svizzera`);
-    footerLines.push(`**Tipo:** ${job.jobType || 'A tempo pieno'}`);
+    if (job.jobType) footerLines.push(`**Tipo:** ${job.jobType}`);
 
-    itDesc = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
-  } else {
-    itDesc = `ReleWant, società di consulenza IT con sede a ${city}, cerca un profilo ${title}. ReleWant è specializzata in soluzioni informatiche innovative per il settore bancario e finanziario in Svizzera. Candidati tramite il portale ufficiale.`;
+    description = [introLine, '', markdown, '', '---', ...footerLines].join('\n');
   }
-
-  // For enriched jobs, set the Italian description on all locales
-  // (AI translation will fill the correct locale later)
-  const enDesc = job.enriched
-    ? itDesc
-    : `ReleWant, an IT consulting firm based in ${city}, is looking for a ${title}. ReleWant specialises in innovative IT solutions for the banking and financial sector in Switzerland. Apply through the official portal.`;
-  const deDesc = job.enriched
-    ? itDesc
-    : `ReleWant, ein IT-Beratungsunternehmen mit Sitz in ${city}, sucht ein Profil als ${title}. ReleWant ist auf innovative IT-Lösungen für den Bank- und Finanzsektor in der Schweiz spezialisiert. Bewirb dich über das offizielle Portal.`;
-  const frDesc = job.enriched
-    ? itDesc
-    : `ReleWant, société de conseil IT basée à ${city}, recherche un profil ${title}. ReleWant est spécialisée dans les solutions informatiques innovantes pour le secteur bancaire et financier en Suisse. Postulez via le portail officiel.`;
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} relewant ${city}`),
       en: slugify(`${title} relewant ${city}`),

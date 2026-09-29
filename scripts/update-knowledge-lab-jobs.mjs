@@ -204,7 +204,8 @@ async function fetchAllListings() {
 }
 
 function buildKnowledgeLabJob(row) {
-  const localized = buildKnowledgeLabLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'en');
+  const localized = buildKnowledgeLabLocalizedContent({ ...row, sourceLang });
   const canton = inferKnowledgeLabCanton(row);
   return {
     title: localized.titleByLocale.it,
@@ -224,12 +225,12 @@ function buildKnowledgeLabJob(row) {
     category: inferCategory(row.title, row.department),
     sector: inferSector(),
     source: 'knowledge-lab-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'en'),
+    sourceLang,
     postedDate: row.postedDate,
     employmentType: row.employmentType || 'full-time',
     contractType: row.employmentType || 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,

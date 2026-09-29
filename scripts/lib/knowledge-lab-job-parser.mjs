@@ -318,21 +318,19 @@ export function buildKnowledgeLabLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || '').trim() || 'Switzerland';
   const description = String(job.description || '').trim();
-  const department = String(job.department || '').trim();
 
-  const deptClause = department ? ` nel reparto ${department}` : '';
-  const itDesc = description
-    || `Knowledge Lab cerca un/una ${title}${deptClause} con sede a ${location}. Soluzioni IT innovative per il settore bancario e assicurativo. Candidati tramite il portale ufficiale Knowledge Lab.`;
-  const enDesc = description
-    || `Knowledge Lab is hiring for the ${title} role based in ${location}. Innovative IT solutions for banking and insurance. Apply through the official Knowledge Lab careers page.`;
-  const deDesc = description
-    || `Knowledge Lab sucht derzeit für die Position ${title} am Standort ${location}. Innovative IT-Lösungen für Bank- und Versicherungswesen. Bewirb dich über die offizielle Karriereseite.`;
-  const frDesc = description
-    || `Knowledge Lab recrute actuellement pour le poste ${title} basé à ${location}. Solutions IT innovantes pour la banque et l'assurance. Postulez via le portail officiel.`;
+  // The posting's own text, in its own language slot (`job.sourceLang`, set
+  // by the runner); the translation step fills the other locales. Without
+  // a text there is no description: this used to publish a sentence about
+  // Knowledge Lab of its own in four languages ("… is hiring for the <title>
+  // role … Apply through the official … careers page."), which filled every
+  // locale so the translation step never replaced it.
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} knowledge-lab ${location}`),
       en: slugify(`${title} knowledge-lab ${location}`),

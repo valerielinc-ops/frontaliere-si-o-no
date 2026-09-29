@@ -124,7 +124,9 @@ function inferCategory(title = '') {
 }
 
 function buildRelewantJob(parsed) {
-  const localized = buildRelewantLocalizedContent(parsed);
+  // Language of the posting text, not of the title alone.
+  const sourceLang = detectLang(`${parsed.title} ${parsed.description || ''}`, 'it');
+  const localized = buildRelewantLocalizedContent({ ...parsed, sourceLang });
   const canton = inferAnyCanton(parsed.city);
   return {
     title: localized.titleByLocale.it,
@@ -143,12 +145,12 @@ function buildRelewantJob(parsed) {
     category: inferCategory(parsed.title),
     sector: 'Consulenza IT',
     source: 'relewant-dedicated-crawler',
-    sourceLang: detectLang(parsed.title, 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     contractType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
