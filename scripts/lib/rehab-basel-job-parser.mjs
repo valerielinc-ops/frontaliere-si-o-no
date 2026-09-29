@@ -16,10 +16,13 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  locateTagByAttribute,
+  extractBalancedTagBlock,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { htmlToTextLines } from './html-to-text-lines.mjs';
 
 export const REHAB_BASEL_KEY = 'rehab-basel';
 export const REHAB_BASEL_COMPANY_NAME = 'REHAB Basel';
@@ -67,16 +70,51 @@ export function parseTalentsoftListing(html) {
   return out;
 }
 
+/**
+ * The posting's text on its Talentsoft detail page: every field of
+ * `#contenu-ficheoffre` ("Über uns", "Stellenbezeichnung", "Ihr
+ * Aufgabenbereich", "Ihr Profil", "Sie finden bei uns", "Stelle zu besetzen
+ * ab", …) as "<Überschrift>" followed by its text, lists kept. The block's
+ * header (logo, Kennziffer) and fields without text (the embedded video) are
+ * left out.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function parseRehabBaselDetail(html = '') {
+  const container = locateTagByAttribute(String(html || ''), 'id="contenu-ficheoffre"', { skipVoidTags: true });
+  if (!container) return '';
+  const block = extractBalancedTagBlock(container.rest, container.tagName, 80000);
+  const sections = [];
+  const fieldRe = /<h3[^>]*>((?:(?!<\/?h3)[\s\S])*?)<\/h3>\s*<(div|p)\s+id="fld[^"]*"[^>]*>/gi;
+  let m;
+  while ((m = fieldRe.exec(block))) {
+    const heading = normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
+    const body = extractBalancedTagBlock(block.slice(m.index + m[0].length), m[2], 40000)
+      .replace(/<iframe[\s\S]*?<\/iframe>/gi, '');
+    const text = htmlToTextLines(body);
+    if (!text) continue;
+    sections.push(heading ? `${heading}\n${text}` : text);
+  }
+  return sections.join('\n\n').trim();
+}
+
+/** Fragments only the crawler's former description wrote. */
+export const REHAB_BASEL_FABRICATED_DESCRIPTION_RE =
+  /Bewerbung über das Talentsoft-Karriereportal von REHAB Basel|— Klinik für Neurorehabilitation und Paraplegiologie, Basel \(4055, BS\), Schweiz\./;
+
+const DETAIL_DELAY_MS = 300;
+
 function parseSwissDate(raw) {
   const m = String(raw || '').match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
   if (!m) return '';
   return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
 }
 
-export async function fetchAllRehabBaselJobs() {
+export async function fetchAllRehabBaselJobs({ fetchPage = fetchHtml, delayMs = DETAIL_DELAY_MS } = {}) {
   console.log(`🏥 Fetching ${REHAB_BASEL_COMPANY_NAME} jobs`);
   console.log(`   Portal: ${LISTING_URL}\n`);
-  const html = await fetchHtml(LISTING_URL);
+  const html = await fetchPage(LISTING_URL);
   const items = parseTalentsoftListing(html);
   console.log(`  ✓ ${items.length} Talentsoft offers parsed`);
   if (!items.length) return [];
@@ -95,13 +133,19 @@ export async function fetchAllRehabBaselJobs() {
       skippedCivilService++;
       continue;
     }
-    const intro = `${title} bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.`;
-    const bullets = [];
-    if (it.ref) bullets.push(`• Referenz: ${it.ref}`);
-    bullets.push('• Standort: Basel (BS)');
-    bullets.push('• Fachgebiet: Neurorehabilitation und Paraplegiologie');
-    bullets.push('• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel');
-    const description = `${intro}\n\n${bullets.join('\n')}`;
+    // The description is the posting's own text on its detail page. The
+    // crawler used to never read that page and to write a description of its
+    // own ("<Titel> bei REHAB Basel — Klinik für …, Basel (4055, BS),
+    // Schweiz." and "• Referenz / • Standort / • Fachgebiet / • Bewerbung über
+    // das Talentsoft-Karriereportal…"). A detail without text gives no
+    // description and the job takes the pipeline's thin-source path.
+    if (jobs.length > 0 && delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
+    let description = '';
+    try {
+      description = parseRehabBaselDetail(await fetchPage(it.detailUrl));
+    } catch (err) {
+      console.warn(`  ⚠️ detail fetch failed for "${title}": ${err?.message || err}`);
+    }
     const postedDate = parseSwissDate(it.dateText) || todayIso;
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${REHAB_BASEL_KEY} basel`);
