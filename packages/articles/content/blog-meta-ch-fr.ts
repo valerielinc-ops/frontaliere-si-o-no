@@ -7094,6 +7094,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Primes santé: le ras-le-bol des lecteurs',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'Au Tessin, la hausse des primes pour 2027 compte parmi les plus modérées, mais la prime moyenne dépasse 500 francs. La hausse cumulée sur quatre ans dépasserait 40%.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Personne au Tessin examinant les factures d\'assurance maladie avec vue sur Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Soleure : taux des droits de succession et de donation sans impôt fédéral',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'À Soleure, la compétence est exclusivement cantonale et communale ; AFC/ESTV ne gère pas ce prélèvement.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Paysage du canton de Soleure avec collines et agglomérations',
+    'blog.article.sresi-prezzi-lugano-2026.title': 'Investissements immobiliers : le Tessin va à contre-courant',
+    'blog.article.sresi-prezzi-lugano-2026.excerpt': 'L\'indice SRESI descend à 47,5 points en 2026, contre 69,5 en 2025. Lugano est le seul centre où les prix sont attendus à la baisse.',
+    'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama de Lugano avec des immeubles résidentiels et le lac en arrière-plan',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E supprime 12 postes : les cadres sont principalement touchés',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E confirme 12 licenciements à Fribourg : neuf concernent des cadres. Le plan social prévoit des prestations et un soutien pour un nouvel emploi.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande, symbole suisse pour un article sur l\'emploi dans l\'énergie',
 };
 
 export default blogMetaChFr;

@@ -7094,6 +7094,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Premi cassa malati, lo sfogo dei lettori: «Ogni anno le stesse parole»',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'In Ticino, il rincaro dei premi per il 2027 è tra i più contenuti, ma il premio medio supera i 500 franchi. Il rincaro cumulato in quattro anni supererebbe il 40%.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Persona in Ticino esamina bollette della cassa malati con vista su Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Soletta: aliquote successione e donazione senza imposta federale',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Soletta la competenza è esclusivamente cantonale e comunale; AFC/ESTV non gestisce questo prelievo.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Paesaggio del Cantone di Soletta con colline e centri abitati',
+    'blog.article.sresi-prezzi-lugano-2026.title': 'Investimenti immobiliari: il Ticino va in controtendenza',
+    'blog.article.sresi-prezzi-lugano-2026.excerpt': 'L\'indice SRESI scende a 47,5 punti nel 2026 dai 69,5 del 2025. Lugano è l\'unico centro con aspettative di prezzi al ribasso.',
+    'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama di Lugano con edifici residenziali e lago sullo sfondo',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E taglia 12 posti: colpiti soprattutto i dirigenti',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E conferma 12 licenziamenti a Friburgo: nove riguardano quadri. Il piano sociale prevede prestazioni e supporto per un nuovo impiego.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande, immagine simbolica della Svizzera per una notizia sul lavoro nell\'energia',
 };
 
 export default blogMetaChIt;

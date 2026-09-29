@@ -21310,6 +21310,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'soletta-successione-donazione-aliquote',
+    category: 'fiscale',
+    date: '2026-09-29T20:00:46.355Z',
+    image: '/images/blog/soletta-successione-donazione-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'sresi-prezzi-lugano-2026',
+    category: 'novita',
+    date: '2026-09-29T20:14:25.748Z',
+    image: '/images/blog/sresi-prezzi-lugano-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'groupe-e-riorganizzazione-friburgo',
+    category: 'novita',
+    date: '2026-09-29T20:27:30.525Z',
+    image: '/images/blog/groupe-e-riorganizzazione-friburgo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

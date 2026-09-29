@@ -7094,6 +7094,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Krankenkassenprämien, der Frust der Leser: «Jedes Jahr dieselben Worte»',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'Im Tessin gehört der Prämienanstieg für 2027 zu den geringsten, doch die Durchschnittsprämie liegt über 500 Franken. Der kumulierte Anstieg über vier Jahre würde 40% übersteigen.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Person im Tessin prüft Krankenkassenrechnungen mit Blick auf Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Solothurn: Erbschafts- und Schenkungssteuersätze ohne Bundessteuer',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Solothurn liegt die Zuständigkeit ausschließlich beim Kanton und bei der Gemeinde; AFC/ESTV verwaltet diese Abgabe nicht.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Landschaft des Kantons Solothurn mit Hügeln und Siedlungen',
+    'blog.article.sresi-prezzi-lugano-2026.title': 'Immobilieninvestitionen: Das Tessin geht gegen den Trend',
+    'blog.article.sresi-prezzi-lugano-2026.excerpt': 'Der SRESI-Index sinkt 2026 von 69,5 im Jahr 2025 auf 47,5 Punkte. Lugano ist das einzige Zentrum, für das sinkende Preise erwartet werden.',
+    'blog.article.sresi-prezzi-lugano-2026.imageAlt': 'Panorama von Lugano mit Wohngebäuden und dem See im Hintergrund',
+    'blog.article.groupe-e-riorganizzazione-friburgo.title': 'Groupe E streicht 12 Stellen: Vor allem Führungskräfte betroffen',
+    'blog.article.groupe-e-riorganizzazione-friburgo.excerpt': 'Groupe E bestätigt 12 Entlassungen in Freiburg: Neun betreffen Führungskräfte. Der Sozialplan sieht Leistungen und Unterstützung bei der Suche nach einer neuen Stelle vor.',
+    'blog.article.groupe-e-riorganizzazione-friburgo.imageAlt': 'Castelgrande als Schweizer Wahrzeichen zu einer Meldung über Jobs im Energiesektor',
 };
 
 export default blogMetaChDe;
