@@ -21,6 +21,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { detectLanguage } from './detect-language.mjs';
 
 const HQ = getCompanyDefaults('ferrovia-retica');
 
@@ -372,7 +373,16 @@ export function buildJob(raw) {
   // "Ferrovia Retica (RhB)" slugifies to "ferrovia-retica-rhb" — this matches the
   // stable form that hardenJobLocaleFields produces from the company name.
   const baseSlug = slugify(`${title}-ferrovia-retica-rhb-${location}`);
-  const sourceLang = sourceLangFromUrl(raw.url);
+  // The URL locale is the language of the page CHROME, not of the vacancy:
+  // RhB's /it/job/ pages wrap German-written postings in Italian headings
+  // ("Cosa puoi fare • Begleitung unserer Reisezüge …"). Labelling that body
+  // 'it' made the pipeline "translate" the Italian slot from German into
+  // garbage ("Copuoi · …", "Ti 29 3 $ 3 $ 2 …") while the real text sat only
+  // in `description` (#5253). The detail body decides; the URL locale is the
+  // tie-breaker, and stays authoritative for the synthesized fallback text.
+  const urlLang = sourceLangFromUrl(raw.url);
+  const usesDetailBody = description === raw.description;
+  const sourceLang = usesDetailBody ? detectLanguage(description, urlLang) : urlLang;
 
   return {
     title,
@@ -387,6 +397,9 @@ export function buildJob(raw) {
     employmentType,
     category: detectCategory(title, description),
     description,
+    // ParsedJob contract: the source slot carries the crawled text. Without it
+    // the merge kept the previous (stale or corrupt) source-locale copy forever.
+    descriptionByLocale: { [sourceLang]: description },
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
     sourceLang,

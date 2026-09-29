@@ -19,7 +19,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
+import { parseMikronJobs, parseMikronJobDetail, dropMikronItalianFallback, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -104,13 +104,15 @@ function detectEmploymentType(title = '') {
 
 /**
  * Build a rich fallback description (>50 words) when detail page yields nothing.
+ * English only: it is the source-locale text of a job whose detail page could
+ * not be read, and the localization step translates it like any other source.
+ * It used to have an Italian twin that was written into `descriptionByLocale.it`
+ * of EVERY job, detail page or not — the Italian page of each vacancy showed a
+ * company blurb (always naming Agno) instead of the posting, and the audit's
+ * locale-first read saw 6/6 descriptions without any list.
  */
-function buildFallbackDescription(title, division, city = '', locale = 'en') {
-  const locationIt = city ? `a ${city}` : 'in Svizzera';
+function buildFallbackDescription(title, division, city = '') {
   const locationEn = city ? `in ${city}` : 'in Switzerland';
-  if (locale === 'it') {
-    return `Posizione aperta: ${title} presso Mikron Group ${locationIt}.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
-  }
   return `Open position: ${title} at Mikron Group ${locationEn}.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with several operating sites in the country. Its Swiss activities include Mikron Machining in Agno (TI) and Mikron Automation in Boudry (NE), with high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
 }
 
@@ -155,7 +157,6 @@ async function fetchMikronJobs() {
 
     // Fetch detail page for rich description
     let descEn = '';
-    let descIt = '';
     let rawLocation = p.location || '';
     if (p.url) {
       console.log(`    🔗 Fetching detail page: ${p.url}`);
@@ -188,11 +189,12 @@ async function fetchMikronJobs() {
 
     // Fallback: build a rich description (>50 words) if detail page failed
     if (!descEn || descEn.split(/\s+/).length < 50) {
-      descEn = buildFallbackDescription(title, p.division, city, 'en');
+      descEn = buildFallbackDescription(title, p.division, city);
     }
-    if (!descIt) {
-      descIt = buildFallbackDescription(title, p.division, city, 'it');
-    }
+    // The detail body is published in its own language (the Boudry postings
+    // are French under an English title): key it by the detected language so
+    // the French text is not stored as the `en` translation.
+    const sourceLang = detectLang(descEn || title, 'en');
 
     const employmentType = detectEmploymentType(title);
 
@@ -201,9 +203,9 @@ async function fetchMikronJobs() {
       location: city0, canton, country: 'CH',
       ...(postalCode && { postalCode }),
       ...(streetAddress && { streetAddress }),
-      description: descEn, descriptionByLocale: { en: descEn, it: descIt },
+      description: descEn, descriptionByLocale: { [sourceLang]: descEn },
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
       source: 'mikron-html-crawler', employmentType,
       experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
@@ -220,6 +222,8 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isMikronJob(j));
   const existingMikronJobs = allJobs.filter(isMikronJob);
+  const fossils = existingMikronJobs.filter((job) => dropMikronItalianFallback(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the Italian fallback blurb from ${fossils} stored job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingMikronJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));

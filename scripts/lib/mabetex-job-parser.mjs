@@ -34,6 +34,8 @@ export const MABETEX_COMPANY_DOMAIN = 'mabetex.com';
 
 export const MIN_DESC_LENGTH = 100;
 
+const MABETEX_COMPLETE_SNAPSHOT = 'complete-career-page';
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -306,5 +308,47 @@ export async function fetchAllMabetexJobs() {
     value: geoEligible,
     enumerable: false,
   });
+  // The career page is the whole inventory (no pagination, no detail pages):
+  // when every listing on it cleared the non-geographic gates, the Swiss rows
+  // above ARE the complete Swiss snapshot, including when there are none.
+  // Without this proof a page whose only vacancy is abroad ("Southwest
+  // Africa", 2026-09) returned [] and the template kept the stored legacy row
+  // forever (source-detail audit 2026-09-29: a 4.9k-char page dump published
+  // against a 277-char page footer).
+  Object.defineProperties(jobs, {
+    mabetexSnapshotState: {
+      value: listings.length > 0 && geoEligible === listings.length ? MABETEX_COMPLETE_SNAPSHOT : 'partial',
+      enumerable: false,
+    },
+    sourceListingCount: { value: listings.length, enumerable: false },
+  });
   return jobs;
+}
+
+
+/**
+ * Authoritative-snapshot validator for the crawler template (scope
+ * `empty-only`): a zero is published only when the career page was parsed
+ * end to end. A missing job section or a listing dropped by a non-geographic
+ * gate throws, which fails the run and preserves the existing slice.
+ *
+ * @param {object[]} jobs
+ * @returns {true}
+ */
+export function assertCompleteMabetexSnapshot(jobs) {
+  if (
+    !Array.isArray(jobs)
+    || Reflect.get(jobs, 'mabetexSnapshotState') !== MABETEX_COMPLETE_SNAPSHOT
+    || Number(Reflect.get(jobs, 'sourceListingCount')) < 1
+    || Reflect.get(jobs, 'discoveredCount') !== Reflect.get(jobs, 'sourceListingCount')
+  ) {
+    throw new Error(
+      'Mabetex snapshot is not a proven complete career page: '
+      + `rows=${Array.isArray(jobs) ? jobs.length : 'not-an-array'}, `
+      + `state=${Array.isArray(jobs) ? Reflect.get(jobs, 'mabetexSnapshotState') ?? '(unset)' : 'n/a'}, `
+      + `listings=${Array.isArray(jobs) ? Reflect.get(jobs, 'sourceListingCount') ?? '(unset)' : 'n/a'}, `
+      + `geoEligible=${Array.isArray(jobs) ? Reflect.get(jobs, 'discoveredCount') ?? '(unset)' : 'n/a'}`,
+    );
+  }
+  return true;
 }

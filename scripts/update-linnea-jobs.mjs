@@ -16,7 +16,8 @@
  *   1. Fetch https://www.linnea.ch/careers/ (server-side rendered HTML)
  *   2. Locate the "OPEN POSITIONS" section
  *   3. Parse each accordion item: title from <h4>, description from <article>
- *   4. Build job objects with synthetic descriptions
+ *   4. Build job objects (description = the accordion article, verbatim);
+ *      an explicit "No open positions at this time" page retires stored jobs
  *   5. Merge into data/jobs.json (add new, update existing, prune stale)
  *   6. Run the base crawler for AI localization of descriptions (4 locales)
  *   7. Post-process: fix company name, location, canton
@@ -38,7 +39,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
-  parseAccordionJobs,
+  classifyLinneaCareersPage,
   normalizeSpace,
   slugify,
   detectCategory,
@@ -47,6 +48,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -141,18 +143,20 @@ async function fetchLinneaJobs() {
   const html = await fetchPage(LINNEA_CAREERS_URL, 25000);
   if (!html) {
     console.error('❌ Failed to fetch Linnea careers page.');
-    return [];
+    return { state: 'unknown', jobs: [] };
   }
 
   console.log(`  📄 Page fetched (${html.length} chars)`);
 
-  // Parse accordion jobs
-  const parsedJobs = parseAccordionJobs(html);
-  console.log(`  📋 Accordion items found: ${parsedJobs.length}`);
+  // Parse accordion jobs. `empty` is the page's own "No open positions at this
+  // time" statement; `unknown` (template drift, unparseable items) keeps the
+  // stored rows exactly as before.
+  const { state, jobs: parsedJobs } = classifyLinneaCareersPage(html);
+  console.log(`  📋 Accordion items found: ${parsedJobs.length} (page state: ${state})`);
 
   if (parsedJobs.length === 0) {
     console.log('  ℹ️ No active job listings found on Linnea careers page.');
-    return [];
+    return { state, jobs: [] };
   }
 
   // Build job objects
@@ -162,8 +166,13 @@ async function fetchLinneaJobs() {
     // Use query param for stable canonical URL (hash fragments get stripped by shared crawler)
     const canonicalUrl = `${LINNEA_CAREERS_URL}?position=${parsed.idx}`;
 
-    const descEn = buildDescription(parsed, 'en');
-    const descIt = buildDescription(parsed, 'it');
+    // The accordion article IS the vacancy text: publish it as-is in its own
+    // language. The former EN company blurb appended here and the IT wrapper
+    // ("Posizione aperta presso Linnea SA…" around untranslated English) were
+    // text the source never published; the base crawler translates the other
+    // locales from this source slot.
+    const description = parsed.descriptionText;
+    const sourceLang = detectLang(description || parsed.title, 'en');
 
     const employmentType = /full\s*time/i.test(parsed.contractType) ? 'FULL_TIME'
       : /part\s*time/i.test(parsed.contractType) ? 'PART_TIME'
@@ -178,10 +187,9 @@ async function fetchLinneaJobs() {
       location: parsed.location || 'Riazzino',
       canton: HQ.canton,
       country: 'CH',
-      description: descEn,
+      description,
       descriptionByLocale: {
-        en: descEn,
-        it: descIt,
+        [sourceLang]: description,
       },
       titleByLocale: {
         en: parsed.title,
@@ -197,7 +205,7 @@ async function fetchLinneaJobs() {
       employmentType,
       experienceLevel: detectExperienceLevel(parsed.title),
       sector: 'Farmaceutica / Ingredienti botanici',
-      sourceLang: detectLang(descEn || parsed.title, 'it'),
+      sourceLang,
       _targetScope: { canton: HQ.canton, location: 'Riazzino' },
     };
 
@@ -205,25 +213,7 @@ async function fetchLinneaJobs() {
   }
 
   console.log(`\n📋 Total unique Linnea jobs discovered: ${jobs.length}`);
-  return jobs;
-}
-
-// ─────────────────────────────────────────────────────────────
-// Description building
-// ─────────────────────────────────────────────────────────────
-
-function buildDescription(parsed, locale = 'en') {
-  const rawDesc = parsed.descriptionText || '';
-
-  if (locale === 'en') {
-    return `${rawDesc}\n\nLinnea SA is a leading pharmaceutical company specializing in botanical ingredients and active pharmaceutical ingredients (APIs), headquartered in Riazzino, Ticino, Switzerland. Founded in 1982, the company operates a GMP-certified manufacturing site.`.trim();
-  }
-
-  if (locale === 'it') {
-    return `Posizione aperta presso Linnea SA a Riazzino.\nRuolo: ${parsed.title}.\n\n${rawDesc}\n\nLinnea SA è un'azienda farmaceutica leader specializzata in ingredienti botanici e principi attivi farmaceutici (API), con sede a Riazzino, Ticino, Svizzera. Fondata nel 1982, l'azienda opera in un sito di produzione certificato GMP.`.trim();
-  }
-
-  return rawDesc;
+  return { state, jobs };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -428,7 +418,40 @@ async function main() {
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(LINNEA_KEY, DATA_JOBS).filter(isLinneaJob))
 
   // Phase 1: Fetch and parse jobs
-  const discoveredJobs = await fetchLinneaJobs();
+  const { state: pageState, jobs: discoveredJobs } = await fetchLinneaJobs();
+
+  if (pageState === 'empty') {
+    // The source says nothing is open: retire every stored row (archived to the
+    // expired slice so indexed URLs land on the soft-expired page) and persist
+    // the zero, as the TPL Lugano runner does for its authoritative empty marker.
+    const priorJobs = readExistingCrawlerJobs(LINNEA_KEY, DATA_JOBS).filter(isLinneaJob);
+    const retiredDiff = computeCrawlDiff(beforeSnapshot, new Map());
+    const archived = archiveRemovedJobsToSlice(priorJobs, LINNEA_KEY);
+    writeJobsCrawlerSlice(LINNEA_KEY, [], { skipShrinkGuard: true, preserveExistingSlugs: true });
+    writeSummaryCrawlerSlice({
+      key: LINNEA_KEY,
+      label: 'Linnea SA',
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: 0,
+      written: 0,
+      sourceProvenEmpty: true,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: retiredDiff.removedJobs.length,
+      unchangedCount: 0,
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: retiredDiff.removedJobs.slice(0, 30),
+      unchangedJobs: [],
+      durationMs: getCrawlerElapsedMs(),
+    });
+    printCrawlChangeSummary(retiredDiff, 'Linnea SA');
+    writeCrawlChangeSummaryToGH(retiredDiff, 'Linnea SA');
+    await assembleJobsDataset();
+    console.log(`ℹ️ Linnea careers page states "No open positions": retired ${priorJobs.length} stored job(s), archived ${archived}.`);
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Linnea jobs discovered.');

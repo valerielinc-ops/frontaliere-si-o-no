@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const { launchChromiumMock } = vi.hoisted(() => ({ launchChromiumMock: vi.fn() }));
@@ -8,6 +9,7 @@ vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
 
 import {
   buildDennerJobRecord,
+  parseDennerDetailJob,
   fetchDennerJobUrls,
   main as runDennerCrawler,
 } from '../scripts/update-denner-jobs.mjs';
@@ -105,6 +107,22 @@ describe('Denner Playwright pagination', () => {
       postedDate: '2026-09-22',
       crawledAt: '2026-09-22T00:00:00.000Z',
     });
+  });
+
+  it('publishes each store posting with its own workplace and street address', () => {
+    const read = (id: string) => fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'denner', `detail-workplace-${id}.html`),
+      'utf8',
+    );
+    const base = 'https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/';
+    const a = parseDennerDetailJob(`${base}d7c16630-5c4c-447f-9d2e-b923551e8393`, read('d7c16630'));
+    const b = parseDennerDetailJob(`${base}fed0b7f3-e12e-4f6c-a55f-7bd9dc8dd1b9`, read('fed0b7f3'));
+
+    expect(a).toMatchObject({ location: 'Winterthur', postalCode: '8405', streetAddress: 'Hinterdorfstrasse 40', sourceLang: 'de' });
+    expect(b).toMatchObject({ location: 'Winterthur', postalCode: '8400', streetAddress: 'Schützenstrasse 39' });
+    expect(a.description.startsWith('Arbeitsort: Denner AG, Filiale 691, Hinterdorfstrasse 40, 8405 Winterthur\n\nFrischprodukte')).toBe(true);
+    expect(b.description.startsWith('Arbeitsort: Denner AG, Filiale 1375, Schützenstrasse 39, 8400 Winterthur\n\n')).toBe(true);
+    expect(a.description).not.toBe(b.description);
   });
 
   it('rejects a non-authoritative snapshot when pagination stalls', async () => {

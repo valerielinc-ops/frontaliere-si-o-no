@@ -36,6 +36,8 @@ import {
   parseTalentsListing,
   parseTalentsJobPage,
   fetchAllGiardinoJobs,
+  buildTalentsDescription,
+  talentsPageLang,
   TALENTS_URL,
   TALENTS_EN_URL,
   MIN_DESCRIPTION_WORDS,
@@ -800,12 +802,40 @@ const talentsBoard = (cards: string[], count: number | null = cards.length) => `
 <div class="jobs-grid"><!--JOBS-START-->${cards.join('')}<!--JOBS-ENDE--></div></section>
 <a href="job-not-a-card.html">stray link</a></body></html>`;
 
+const GERMAN_COPY = {
+  lead: 'Lead.',
+  startLabel: 'Start',
+  start: 'Wintersaison, ab Mitte Dezember.',
+  big: 'Das Haus steht für Gastfreundschaft.',
+  aboutJob: [
+    'Du betreust unsere Gäste mit Leidenschaft.',
+    'Du arbeitest eng mit der Küche zusammen.',
+    'Gemeinsam mit dem Team sorgst du für reibungslose Abläufe, berätst unsere Gäste persönlich und trägst dazu bei, dass jeder Besuch zu einem besonderen Erlebnis wird.',
+  ],
+  aboutYou: ['Berufsausbildung in der Hotellerie', 'Sehr gute Deutschkenntnisse'],
+  culture: ['Regelmässige Schulungen', 'Mitarbeiterbenefits'],
+};
+const ENGLISH_COPY = {
+  lead: 'Guide our guests through the evening.',
+  startLabel: 'Start',
+  start: 'Winter season, from mid-December.',
+  big: 'The house stands for hospitality.',
+  aboutJob: [
+    'You look after our guests with passion.',
+    'You work closely with the kitchen.',
+    'Together with the team you ensure smooth operations, advise our guests personally and help to make every visit a special experience.',
+  ],
+  aboutYou: ['Professional training in hospitality', 'Very good German'],
+  culture: ['Regular training', 'Employee benefits'],
+};
+
 const talentsJobPage = ({
   h1,
   ldTitle,
   intro,
   datePosted,
-}: { h1: string; ldTitle: string; intro: string; datePosted: string }) => `<!doctype html><html><head>
+  copy = GERMAN_COPY,
+}: { h1: string; ldTitle: string; intro: string; datePosted: string; copy?: typeof GERMAN_COPY }) => `<!doctype html><html><head>
 <script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'JobPosting',
@@ -814,18 +844,19 @@ const talentsJobPage = ({
   hiringOrganization: { '@type': 'Organization', name: 'Giardino Group' },
   datePosted,
 })}</script></head><body><main>
-<section class="job-hero"><div><h1>${h1}</h1><p class="lead">Lead.</p></div></section>
+<section class="job-hero"><div><h1>${h1}</h1><p class="lead">${copy.lead}</p>
+<div class="job-eckdaten"><div><span style="display:block">${copy.startLabel}</span><span style="display:block">${copy.start}</span></div></div>
+<div class="cta-row"><a class="btn btn-primary" href="#bewerben">Apply</a></div></div></section>
 <section><div class="aboutus"><p class="eyebrow"><span class="num">#</span>aboutus</p>
-<p class="big">Das Haus steht für Gastfreundschaft.</p><p class="intro">${intro}</p></div></section>
+<p class="big">${copy.big}</p><p class="intro">${intro}</p></div></section>
 <section><div class="container detail-grid"><div><div>
 <h2 class="detail-h"><span class="hash">#</span>aboutthejob</h2>
-<p class="detail-text">Du betreust unsere Gäste mit Leidenschaft.</p>
-<p class="detail-text">Du arbeitest eng mit der Küche zusammen.</p>
-<p class="detail-text">Gemeinsam mit dem Team sorgst du für reibungslose Abläufe, berätst unsere Gäste persönlich und trägst dazu bei, dass jeder Besuch zu einem besonderen Erlebnis wird.</p></div>
+${copy.aboutJob.map((text) => `<p class="detail-text">${text}</p>`).join('\n')}</div>
 <div><h2 class="detail-h"><span class="hash">#</span>aboutyou</h2>
-<ul class="detail-list"><li>Berufsausbildung in der Hotellerie</li><li>Sehr gute Deutschkenntnisse</li></ul></div></div>
+<ul class="detail-list">${copy.aboutYou.map((text) => `<li>${text}</li>`).join('')}</ul></div></div>
 <aside class="offer"><div class="offer-box"><h2 class="detail-h"><span class="hash">#</span>talentculture</h2>
-<ul><li>Regelmässige Schulungen</li><li>Mitarbeiterbenefits</li></ul></div></aside></div></section>
+<ul>${copy.culture.map((text) => `<li>${text}</li>`).join('')}</ul></div></aside></div></section>
+<section id="bewerben"><p class="prose">Then we look forward to your application.</p></section>
 </main></body></html>`;
 
 const DE_BOARD = talentsBoard([
@@ -852,6 +883,23 @@ const DETAIL_PAGES: Record<string, string> = {
     ldTitle: 'Night Auditor',
     intro: 'Für die Wintersaison suchen wir eine/n Night Auditor.',
     datePosted: POSTED,
+  }),
+};
+// The English pages of the two translated ads (the permalinks the jobs publish).
+const EN_DETAIL_PAGES: Record<string, string> = {
+  [`${TALENTS_EN_URL}job-restaurant-manager.html`]: talentsJobPage({
+    h1: 'Restaurant Manager (m/f)',
+    ldTitle: 'Restaurant Manager',
+    intro: 'For our restaurant at Hotel Giardino Mountain in Champfèr-St. Moritz we are looking for a Restaurant Manager.',
+    datePosted: POSTED,
+    copy: ENGLISH_COPY,
+  }),
+  [`${TALENTS_EN_URL}job-chef-de-partie-kopie.html`]: talentsJobPage({
+    h1: 'Night Auditor (m/f)',
+    ldTitle: 'Night Auditor',
+    intro: 'For the winter season we are looking for a Night Auditor.',
+    datePosted: POSTED,
+    copy: ENGLISH_COPY,
   }),
 };
 
@@ -933,6 +981,46 @@ describe('parseTalentsJobPage', () => {
   it('returns null on a page without a JobPosting (an unknown job page redirects to the board)', () => {
     expect(parseTalentsJobPage(DE_BOARD)).toBeNull();
   });
+
+  it('reads the hero lead, the facts and the #aboutus paragraph', () => {
+    expect(page?.lead).toBe('Lead.');
+    expect(page?.facts).toEqual([{ label: 'Start', value: 'Wintersaison, ab Mitte Dezember.' }]);
+    expect(page?.aboutUs).toBe('Das Haus steht für Gastfreundschaft.');
+  });
+});
+
+describe('buildTalentsDescription (#5253)', () => {
+  const page = parseTalentsJobPage(EN_DETAIL_PAGES[`${TALENTS_EN_URL}job-restaurant-manager.html`]);
+
+  it('publishes the page content in page order, with the page language headings', () => {
+    const description = buildTalentsDescription(page, 'en');
+    const order = [
+      'Guide our guests through the evening.',
+      '- Start: Winter season, from mid-December.',
+      'The house stands for hospitality.',
+      'we are looking for a Restaurant Manager',
+      '## About the job',
+      '## About you',
+      '## Talent culture',
+    ];
+    const positions = order.map((marker) => description.indexOf(marker));
+    expect(positions.every((index) => index >= 0)).toBe(true);
+    expect([...positions].sort((a, b) => a - b)).toEqual(positions);
+    expect(description).toMatch(/^- Very good German$/m);
+  });
+
+  it('adds no sentence of its own and leaves the application call out', () => {
+    const description = buildTalentsDescription(page, 'en');
+    expect(description).not.toContain('Giardino Group sucht');
+    expect(description).not.toContain('look forward to your application');
+    expect(description).not.toMatch(/\bApply\b/);
+  });
+
+  it('derives the page language from the Talents path', () => {
+    expect(talentsPageLang('https://giardinohotels.ch/talents/en/job-chef-de-rang.html')).toBe('en');
+    expect(talentsPageLang('https://giardinohotels.ch/talents/job-chef-de-rang.html')).toBe('de');
+    expect(talentsPageLang('not a url')).toBe('de');
+  });
 });
 
 describe('detectTalentsHotel', () => {
@@ -957,6 +1045,7 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
       [TALENTS_URL]: DE_BOARD,
       [TALENTS_EN_URL]: EN_BOARD,
       ...DETAIL_PAGES,
+      ...EN_DETAIL_PAGES,
     });
     const jobs = await fetchAllGiardinoJobs({ fetchPage });
 
@@ -965,17 +1054,22 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
     expect(requested.some((url) => url.includes('wp-json'))).toBe(false);
 
     const [manager, auditor] = jobs;
+    // #5253: the description is read from the page the job links to, in that
+    // page's language — not from the German page behind an English link.
     expect(manager).toMatchObject({
       title: 'Restaurant Manager',
       location: 'Champfèr',
       canton: 'GR',
       postedDate: POSTED,
       url: 'https://giardinohotels.ch/talents/en/job-restaurant-manager.html',
-      requirements: ['Berufsausbildung in der Hotellerie', 'Sehr gute Deutschkenntnisse'],
-      sourceLang: 'de',
+      requirements: ['Professional training in hospitality', 'Very good German'],
+      sourceLang: 'en',
       companyKey: 'giardino',
     });
-    expect(manager.description).toContain('## Anforderungen');
+    expect(manager.descriptionByLocale).toEqual({ en: manager.description });
+    expect(manager.description).toContain('## About you');
+    expect(manager.description).toContain('The house stands for hospitality.');
+    expect(manager.description).not.toContain('Giardino Group sucht');
     expect(manager.description.split(/\s+/).length).toBeGreaterThanOrEqual(MIN_DESCRIPTION_WORDS);
     expect(manager.id).toMatch(/^giardino-[0-9a-f]{12}$/);
 
@@ -1003,6 +1097,29 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
       location: 'Minusio',
       canton: 'TI',
       url: 'https://giardinohotels.ch/talents/job-rang-hide-seek.html',
+      sourceLang: 'de',
+    });
+    expect(jobs[2].description).toContain('## Anforderungen');
+  });
+
+  it('degrades an unreadable English page to the German page AND its permalink', async () => {
+    const { fetchPage } = stubFetchPage({
+      [TALENTS_URL]: DE_BOARD,
+      [TALENTS_EN_URL]: EN_BOARD,
+      ...DETAIL_PAGES,
+      [`${TALENTS_EN_URL}job-chef-de-partie-kopie.html`]: EN_DETAIL_PAGES[`${TALENTS_EN_URL}job-chef-de-partie-kopie.html`],
+    });
+    const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    const manager = jobs.find((job) => job.title === 'Restaurant Manager');
+    expect(manager).toMatchObject({
+      url: 'https://giardinohotels.ch/talents/job-restaurant-manager.html',
+      sourceLang: 'de',
+    });
+    expect(manager!.description).toContain('Du betreust unsere Gäste');
+    const auditor = jobs.find((job) => job.title === 'Night Auditor');
+    expect(auditor).toMatchObject({
+      url: 'https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html',
+      sourceLang: 'en',
     });
   });
 

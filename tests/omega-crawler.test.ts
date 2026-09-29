@@ -20,6 +20,7 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
 const listHtml = readFileSync(path.join(FIXTURES, 'omega-swatchgroup-list.html'), 'utf8');
 const detailHtml = readFileSync(path.join(FIXTURES, 'omega-swatchgroup-detail.html'), 'utf8');
+const nestedDivDetailHtml = readFileSync(path.join(FIXTURES, 'omega-swatchgroup-detail-nested-div.html'), 'utf8');
 
 describe('OMEGA SA crawler parser', () => {
   // ── Constants ──
@@ -128,6 +129,35 @@ describe('OMEGA SA crawler parser', () => {
 
     it('recognizes the OMEGA brand logo', () => {
       expect(detail.isOmegaBrand).toBe(true);
+    });
+  });
+
+  // ── parseDetailPage: list items wrapped in <div> (job 33260, 2026-09-29) ──
+  // The section regex used to stop at the first inner `</div>`, so the
+  // published "Job description" kept 1 of its 9 bullets and the audit read
+  // the row as incomplete against the source body.
+  describe('parseDetailPage — nested <div> inside list items', () => {
+    const detail = parseDetailPage(nestedDivDetailHtml);
+
+    it('reads every bullet of a section to its balanced closing tag', () => {
+      const bullets = detail.sections.body.text.split('\n').filter((line) => line.startsWith('• '));
+      expect(bullets).toHaveLength(9);
+      expect(detail.sections.body.text).toContain('Support local trainers in assessing boutique sales staff performance');
+      expect(detail.sections.profile.text).toContain('Digital proficiency with capability to structure lessons');
+      expect(detail.sections['prof-requ'].text).toContain('Willing and flexible to travel up to 50%');
+      expect(detail.sections.languages.text).toContain('Good knowledge of French');
+    });
+
+    it('keeps each bullet on the same line as its text', () => {
+      for (const key of ['body', 'profile', 'prof-requ']) {
+        expect(detail.sections[key].text).not.toMatch(/^•\s*$/m);
+      }
+    });
+
+    it('does not let one section swallow the next', () => {
+      expect(detail.sections.body.text).not.toContain('Proven work experience');
+      expect(detail.sections.body.heading).toBe('Job description');
+      expect(detail.sections.profile.heading).toBe('Profile');
     });
   });
 

@@ -545,14 +545,81 @@ export function parseTalentsJobPage(html = '') {
   const title = stripGenderMarker(decodeWpEntities(extractH1Title(page)))
     || stripGenderMarker(decodeWpEntities(String(posting.title || '')));
   const introMatch = page.match(/<p[^>]*class="[^"]*\bintro\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
+  const leadMatch = page.match(/<p[^>]*class="[^"]*\blead\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
+  const aboutUsMatch = page.match(/<p[^>]*class="[^"]*\bbig\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
   const datePosted = String(posting.datePosted || '').slice(0, 10);
 
   return {
     title,
-    intro: introMatch ? normalizeSpace(stripHtml(introMatch[1])) : '',
+    intro: introMatch ? normalizeSpace(decodeWpEntities(stripHtml(introMatch[1]))) : '',
+    lead: leadMatch ? normalizeSpace(decodeWpEntities(stripHtml(leadMatch[1]))) : '',
+    aboutUs: aboutUsMatch ? normalizeSpace(decodeWpEntities(stripHtml(aboutUsMatch[1]))) : '',
+    facts: parseJobFacts(page),
     datePosted: /^\d{4}-\d{2}-\d{2}$/.test(datePosted) ? datePosted : '',
     sections: parseContentSections(page),
   };
+}
+
+/**
+ * The hero "Eckdaten" of a Talents ad: label/value pairs such as
+ * Start → "Wintersaison 2026/2027 …" and Pensum/Workload → "100%".
+ */
+function parseJobFacts(page = '') {
+  const start = page.search(/class="[^"]*\bjob-eckdaten\b/i);
+  if (start < 0) return [];
+  const rest = page.slice(start);
+  const end = rest.search(/class="[^"]*\bcta-row\b|<\/section>/i);
+  const region = end >= 0 ? rest.slice(0, end) : rest;
+  const facts = [];
+  for (const match of region.matchAll(/<div>\s*<span[^>]*>([\s\S]*?)<\/span>\s*<span[^>]*>([\s\S]*?)<\/span>\s*<\/div>/gi)) {
+    const label = normalizeSpace(decodeWpEntities(stripHtml(match[1])));
+    const value = normalizeSpace(decodeWpEntities(stripHtml(match[2])));
+    if (label && value) facts.push({ label, value });
+  }
+  return facts;
+}
+
+const TALENTS_SECTION_HEADINGS = {
+  de: { aboutJob: 'Aufgaben', aboutYou: 'Anforderungen', talentCulture: 'Benefits' },
+  en: { aboutJob: 'About the job', aboutYou: 'About you', talentCulture: 'Talent culture' },
+};
+
+/** Locale of a Talents page from its path: /talents/en/… is English, /talents/… German. */
+export function talentsPageLang(url = '') {
+  try {
+    return /^\/talents\/en\//i.test(new URL(url).pathname) ? 'en' : 'de';
+  } catch {
+    return 'de';
+  }
+}
+
+/**
+ * Description of a Talents ad from its OWN detail page, in page order: the
+ * hero lead and facts (start, workload), the #aboutus hotel paragraph and the
+ * intro naming the position, then #aboutthejob / #aboutyou / #talentculture.
+ * Everything is read from the page whose URL the job publishes, in that page's
+ * language — the former builder read the German page, published the English
+ * permalink and opened with a sentence of its own ("Giardino Group sucht für
+ * das …"), so the published text matched neither the linked page's language
+ * nor its content (#5253).
+ */
+export function buildTalentsDescription(detail, lang = 'de') {
+  const headings = TALENTS_SECTION_HEADINGS[lang] || TALENTS_SECTION_HEADINGS.de;
+  const sections = detail?.sections || { aboutJob: '', aboutYou: [], talentCulture: [] };
+  const parts = [];
+  if (detail?.lead) parts.push(detail.lead);
+  const facts = Array.isArray(detail?.facts) ? detail.facts : [];
+  if (facts.length) parts.push(facts.map(({ label, value }) => `- ${label}: ${value}`).join('\n'));
+  const context = [detail?.aboutUs, detail?.intro].filter(Boolean);
+  if (context.length) parts.push(context.join('\n\n'));
+  if (sections.aboutJob) parts.push(`## ${headings.aboutJob}\n${sections.aboutJob}`);
+  if (sections.aboutYou.length > 0) {
+    parts.push(`## ${headings.aboutYou}\n${sections.aboutYou.map((r) => `- ${r}`).join('\n')}`);
+  }
+  if (sections.talentCulture.length > 0) {
+    parts.push(`## ${headings.talentCulture}\n${sections.talentCulture.map((b) => `- ${b}`).join('\n')}`);
+  }
+  return parts.join('\n\n').trim();
 }
 
 /** A board card in the shape buildEnglishIndex()/resolvePublicUrl() read. */
@@ -642,20 +709,35 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
   const enIndex = buildEnglishIndex((await fetchEnglishCards(fetchPage)).map(toIndexItem), listing.cards.map(toIndexItem));
   console.log(`  🌐 English permalinks available: ${enIndex.bySlug.size}`);
 
+  const readDetail = async (url) => {
+    try {
+      return parseTalentsJobPage(await fetchPage(url));
+    } catch (err) {
+      console.warn(`⚠️ ${url}: detail page unavailable (${err?.message || err}).`);
+      return null;
+    }
+  };
+
   const jobs = [];
   for (const card of listing.cards) {
+    // Public URL — English permalink when translated, German one otherwise.
+    // The description is read from THAT page, so the published text is the
+    // text of the page the job links to (#5253). An English page that cannot
+    // be read degrades to the German page AND its permalink, the same
+    // degradation as a failed English board: text and link stay coherent.
+    let publicUrl = resolvePublicUrl(toIndexItem(card), enIndex);
+    let detail = await readDetail(publicUrl);
+    if (!detail && publicUrl !== card.url) {
+      publicUrl = card.url;
+      detail = await readDetail(card.url);
+    }
     // Detail page — required: without it the ad would be a thin card-only
     // page. Skip it this run; miss grace keeps the previous record.
-    let detail = null;
-    try {
-      detail = parseTalentsJobPage(await fetchPage(card.url));
-    } catch (err) {
-      console.warn(`⚠️ ${card.url}: detail page unavailable (${err?.message || err}).`);
-    }
     if (!detail) {
       console.warn(`⚠️ ${card.url}: no JobPosting on the detail page — ad skipped this run.`);
       continue;
     }
+    const sourceLang = talentsPageLang(publicUrl);
 
     // Clean title from the detail <h1>, fallback to the card title
     const title = normalizeSpace(detail.title || card.title);
@@ -671,15 +753,12 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
     // Parsed content sections
     const sections = detail.sections;
 
-    // Build structured description
-    const description = buildDescription(sections, title, hotelKey, city);
+    // Structured description from the linked page itself
+    const description = buildTalentsDescription(detail, sourceLang);
     if (countWords(description) < MIN_DESCRIPTION_WORDS) {
-      console.warn(`⚠️ ${card.url}: description under ${MIN_DESCRIPTION_WORDS} words — ad skipped this run.`);
+      console.warn(`⚠️ ${publicUrl}: description under ${MIN_DESCRIPTION_WORDS} words — ad skipped this run.`);
       continue;
     }
-
-    // Public URL — English permalink when translated, German one otherwise
-    const publicUrl = resolvePublicUrl(toIndexItem(card), enIndex);
 
     // Stable ID from the German file name — the board's only per-ad identifier
     const idHash = createHash('sha1')
@@ -687,7 +766,6 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
       .digest('hex')
       .slice(0, 12);
 
-    const sourceLang = 'de'; // Content is always in German
     const jobSlug = slugify(`${title} giardino-group ${city}`);
 
     // Posted date from the JobPosting JSON-LD

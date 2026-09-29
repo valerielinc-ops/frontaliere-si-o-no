@@ -12,7 +12,7 @@
  */
 
 import { isSwissLocationText } from './target-swiss-locations.mjs';
-import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
@@ -239,6 +239,71 @@ function dedupeByUrl(jobs = []) {
 }
 
 /**
+ * Inner HTML of the first `<div>` matched by `openRx`, read to its balanced
+ * closing tag (nested divs included). '' when absent or unbalanced.
+ */
+function balancedDivInner(html, openRx) {
+  const open = openRx.exec(html);
+  if (!open) return '';
+  const start = open.index + open[0].length;
+  const tagRx = /<\/?div\b[^>]*>/gi;
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let tag;
+  while ((tag = tagRx.exec(html))) {
+    if (tag[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return html.slice(start, tag.index);
+    } else {
+      depth += 1;
+    }
+  }
+  return '';
+}
+
+/**
+ * The vacancy body of the current mikron.com template: `<div id="job-content">`
+ * holds the h1, an "Apply" button, the `job-attributes` table (Division /
+ * Function / Related location) and then the posting itself (intro, h3
+ * sections, lists), followed by a second "Apply" button. Only the posting is
+ * returned, as line-preserving text; the title, buttons and attribute table
+ * are page chrome that used to open every published description
+ * ("Polymecanic Team Leader Apply Division Automation Function …").
+ */
+function mikronJobContentText(html = '') {
+  let body = balancedDivInner(html, /<div[^>]*\bid=["']job-content["'][^>]*>/i);
+  if (!body) return '';
+  const attributes = /<div[^>]*\bclass=["'][^"']*\bjob-attributes\b[^"']*["'][^>]*>/i.exec(body);
+  if (attributes) {
+    const inner = balancedDivInner(body.slice(attributes.index), /<div[^>]*>/i);
+    const end = attributes.index + attributes[0].length + inner.length;
+    body = body.slice(0, attributes.index) + body.slice(body.indexOf('</div>', end) + '</div>'.length);
+  }
+  body = body
+    .replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '')
+    .replace(/<a\b[^>]*href=["'][^"']*\/apply\?[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, '');
+  return normalizeDescriptionSpace(htmlToText(body)).replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * The Italian company blurb the runner used to write into
+ * `descriptionByLocale.it` of every job ("Posizione aperta: <title> presso
+ * Mikron Group …"). The locale-preserving merge keeps an existing non-source
+ * translation forever, so the fossil has to be removed from the stored jobs
+ * explicitly; the localization step then translates the real posting.
+ * Returns true when the job was changed.
+ */
+const MIKRON_IT_FALLBACK_RE = /^Posizione aperta: [\s\S]*? presso Mikron Group [\s\S]*Mikron Group è un leader globale/;
+
+export function dropMikronItalianFallback(job) {
+  const it = job?.descriptionByLocale?.it;
+  if (typeof it !== 'string' || !MIKRON_IT_FALLBACK_RE.test(it.trim())) return false;
+  delete job.descriptionByLocale.it;
+  job.needsRetranslation = true;
+  return true;
+}
+
+/**
  * Parse a Mikron job detail page for description.
  *
  * The detail pages on mikron.com typically have:
@@ -286,7 +351,7 @@ export function parseMikronJobDetail(html = '') {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
 
-  const description = normalizeSpace(htmlToText(contentHtml));
+  const description = mikronJobContentText(html) || normalizeSpace(htmlToText(contentHtml));
 
   const locationMatch = html.match(/(?:location|standort)[:\s]*(Switzerland\s*,\s*[A-Za-z]+)/i);
   const location = locationMatch ? normalizeSpace(locationMatch[1]) : '';

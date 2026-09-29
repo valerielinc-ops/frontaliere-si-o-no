@@ -265,6 +265,49 @@ describe('buildJob', () => {
     expect(frJob!.sourceLang).toBe('fr');
   });
 
+  // #5253: RhB's /it/job/ pages wrap German-written postings in Italian
+  // headings. Text from https://www.rhb.ch/it/job/quereinsteiger-in-zugbegleitung-100-samedan_2026-2260/
+  const GERMAN_BODY_ON_IT_PAGE = [
+    'Cosa puoi fare',
+    '• Begleitung unserer Reisezüge und Betreuung der einheimischen und internationalen Kunden während der Fahrt',
+    '• Erteilen von Bahnauskünften und touristischen Informationen',
+    '• Kontrolle und Verkauf von Fahrausweisen und weiteren Zusatzdienstleistungen im Zug',
+    'Ecco perché sei la persona giusta',
+    '• Souveränes, sehr gepflegtes Auftreten sowie kundenorientiertes Denken und Handeln',
+    '• Kommunikative Persönlichkeit mit sehr guten Deutschkenntnissen und mindestens einer Fremdsprache',
+    '• Bereitschaft zu unregelmässigen Diensten und Wochenendeinsätzen',
+    'Cosa ti offriamo',
+    '• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland',
+    '• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen',
+  ].join('\n');
+
+  it('labels a German detail body served on an /it/ page as de and fills the source slot', () => {
+    const job = buildJob({
+      title: 'Quereinsteiger/in Zugbegleitung (100%) Samedan',
+      location: 'Samedan',
+      description: GERMAN_BODY_ON_IT_PAGE,
+      url: 'https://www.rhb.ch/it/job/quereinsteiger-in-zugbegleitung-100-samedan_2026-2260/',
+    });
+    expect(job!.description).toBe(GERMAN_BODY_ON_IT_PAGE);
+    expect(job!.sourceLang).toBe('de');
+    expect(job!.descriptionByLocale).toEqual({ de: GERMAN_BODY_ON_IT_PAGE });
+    expect(job!.titleByLocale).toEqual({ de: 'Quereinsteiger/in Zugbegleitung (100%) Samedan' });
+  });
+
+  it('keeps it for an Italian detail body and always fills the source description slot', () => {
+    const italianBody = Array(8).fill(
+      'La Ferrovia Retica cerca un responsabile officina per la sede di Poschiavo con esperienza nella manutenzione.',
+    ).join(' ');
+    const job = buildJob({
+      title: 'Responsabile officina (80-100%)',
+      location: 'Poschiavo',
+      description: italianBody,
+      url: 'https://www.rhb.ch/it/job/responsabile-officina-80-100_2026-0042/',
+    });
+    expect(job!.sourceLang).toBe('it');
+    expect(job!.descriptionByLocale).toEqual({ it: italianBody });
+  });
+
   it('falls back to sourceLang de when the URL carries no locale segment', () => {
     const job = buildJob({ title: 'Test Job', location: 'Chur' });
     expect(job!.sourceLang).toBe('de');

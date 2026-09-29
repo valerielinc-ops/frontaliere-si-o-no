@@ -4,10 +4,13 @@
  * Tests parseMikronJobs(), parseMikronJobDetail(), isSwissLocation(),
  * and utility functions using HTML fixtures.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   parseMikronJobs,
   parseMikronJobDetail,
+  dropMikronItalianFallback,
   isSwissLocation,
   htmlToText,
   slugify,
@@ -288,5 +291,46 @@ describe('parseMikronJobDetail — rich descriptions', () => {
     expect(result.description).toContain('CNC');
     expect(result.description).toContain('precision');
     expect(result.title).toBe('CNC Operator (100%)');
+  });
+});
+
+// ─── Current mikron.com template (fixture minimized from the live page, 2026-09-29) ──
+
+describe('parseMikronJobDetail — #job-content template', () => {
+  const DETAIL = fs.readFileSync(path.join(__dirname, 'fixtures', 'mikron', 'detail-job-content.html'), 'utf8');
+
+  it('returns the posting without title, Apply buttons or the attribute table', () => {
+    const { description } = parseMikronJobDetail(DETAIL);
+    expect(description.startsWith('En tant que Team Leader des polymécaniciens')).toBe(true);
+    expect(description).not.toMatch(/\bApply\b/);
+    expect(description).not.toContain('Related location');
+    expect(description).not.toContain('Polymecanic Team Leader');
+    expect(description).not.toContain('Mühlebrücke');
+  });
+
+  it('keeps section headings and line-start bullets for every section', () => {
+    const { description } = parseMikronJobDetail(DETAIL);
+    expect(description).toContain('Responsabilités principales\nManagement & Leadership (30%) :\n• Encadrer');
+    expect(description).toContain('Profil\n• CFC de polymécanicien');
+    expect(description).toContain('Ce que nous offrons\n• Un rôle clé');
+    expect(description).not.toMatch(/\n\n• /);
+  });
+});
+
+describe('dropMikronItalianFallback', () => {
+  const blurb = "Posizione aperta: Polymecanic Team Leader presso Mikron Group a Boudry. Divisione: Automation.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera).";
+
+  it('removes the fabricated Italian company blurb and asks for a real translation', () => {
+    const job: any = { descriptionByLocale: { fr: 'En tant que Team Leader…', it: blurb } };
+    expect(dropMikronItalianFallback(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ fr: 'En tant que Team Leader…' });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('leaves a real Italian translation alone', () => {
+    const job: any = { descriptionByLocale: { fr: 'En tant que…', it: 'In qualità di Team Leader dei polimeccanici, assumi la responsabilità…' } };
+    expect(dropMikronItalianFallback(job)).toBe(false);
+    expect(job.descriptionByLocale.it).toContain('In qualità di Team Leader');
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });
