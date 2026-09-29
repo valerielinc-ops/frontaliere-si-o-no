@@ -8,7 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
-import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
+import { enrichCoopSourceBackedJobs, withoutRepublishedCoopVacancies } from './lib/coop-job-parser.mjs';
 import {
   fetchAllJumboJobs,
   isJumboJob,
@@ -24,9 +24,11 @@ runStandardCrawlerPipeline({
   companyKey: JUMBO_KEY,
   companyLabel: JUMBO_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: async () => enrichCoopSourceBackedJobs(await fetchAllJumboJobs(), {
+  // The same ad republished under two UUIDs (same store address, same body and
+  // facts) is one vacancy: keep the earliest-seen record.
+  fetchJobs: async () => withoutRepublishedCoopVacancies(await enrichCoopSourceBackedJobs(await fetchAllJumboJobs(), {
     allowedHosts: ['jobs.coopjobs.ch'],
-  }),
+  }), 'JUMBO'),
   isCompanyJob: isJumboJob,
   isTrustedDomain,
   defaultSourceLang: 'de',

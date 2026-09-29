@@ -8,7 +8,7 @@
  * Crawlers tested:
  *  1. grand-hotel-kronenhof (no fallback body since issue 5253: see grand-hotel-kronenhof-crawler.test.ts)
  *  2. afry — no longer padded: see its section
- *  3. volg-fenaco
+ *  3. volg-fenaco (no fallback body since issue 5253: see volg-crawler.test.ts)
  *  4. agie-charmilles (GF Machining Solutions) — no longer padded: see its section
  *  5. mks-pamp
  *  6. centiel
@@ -95,60 +95,8 @@ describe('AFRY — the posting text, never a padded paragraph', () => {
 });
 
 // ─── 3. Volg/fenaco ────────────────────────────────────────────────────────
-// The buildJob function is not exported, so we replicate the logic.
-
-describe('Volg/fenaco — fallback descriptions >= 50 words', () => {
-  function getCompanyBoilerplate(company: string): string {
-    const c = company.toLowerCase();
-    if (c.includes('volg')) return [
-      'Volg ist spezialisiert auf Dorfläden und kleine Verkaufsflächen in der Deutschschweiz und Romandie.',
-      'Wir setzen auf Kundennähe und bieten bequeme Einkaufsmöglichkeiten mit persönlicher Interaktion.',
-      'Unsere Mitarbeitenden sind das Herzstück des Ladens — unser Motto ist «frisch und fründlich».',
-      'Als Tochterunternehmen der fenaco Genossenschaft gehören wir zu einem der grössten Arbeitgeber der Schweiz mit über 11.000 Mitarbeitenden.',
-      '',
-      'Wir bieten: Abwechslungsreiche Aufgaben, familiäres Arbeitsumfeld, direkten Kundenkontakt,',
-      '6 Wochen Ferien, SBB-Vergünstigungen, Weiterbildung an der Volg Academy,',
-      'ausgezeichnete Karrieremöglichkeiten und eine fundierte Berufsausbildung für Lernende.',
-    ].join('\n');
-    if (c.includes('landi')) return [
-      'LANDI ist Teil der fenaco Genossenschaft, der grössten Agrargenossenschaft der Schweiz.',
-      'Wir betreiben TopShop-Verkaufsstellen, Tankstellen und Fachgeschäfte in der ganzen Schweiz.',
-      'Die fenaco Genossenschaft beschäftigt über 11.000 Mitarbeitende und ist einer der bedeutendsten Arbeitgeber im ländlichen Raum.',
-      'Unsere LANDI-Läden bieten ein breites Sortiment an landwirtschaftlichen Produkten, Bau- und Gartenbedarf, Lebensmitteln und Treibstoffen.',
-      '',
-      'Wir bieten ein dynamisches Arbeitsumfeld mit direktem Kundenkontakt,',
-      'umfassende Weiterbildungsmöglichkeiten, attraktive Anstellungsbedingungen im Detailhandel,',
-      'mindestens 5 Wochen Ferien, Personalrabatte auf das gesamte Sortiment',
-      'und eine praxisorientierte Berufsausbildung für Lernende.',
-    ].join('\n');
-    return [
-      'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.',
-      'Wir bieten vielfältige Karrieremöglichkeiten in Landwirtschaft, Detailhandel,',
-      'Logistik und Lebensmittelproduktion mit attraktiven Anstellungsbedingungen,',
-      'umfassenden Sozialleistungen und individuellen Weiterbildungsmöglichkeiten.',
-      'Als genossenschaftliches Unternehmen im Besitz der Schweizer Landwirtschaft vereinen wir über 80 Tochtergesellschaften.',
-      'Wir bieten sichere Arbeitsplätze, moderne Infrastruktur und die Möglichkeit, einen Beitrag zur Schweizer Landwirtschaft zu leisten.',
-    ].join('\n');
-  }
-
-  it('Volg apprenticeship listing fallback is >= 50 words', () => {
-    const metaLine = 'Lehrstelle als Detailhandelsfachmann/-frau — VOLG, Zuoz (Graubünden). Pensum: 100%. Bewerbung über https://jobs.fenaco.com';
-    const desc = `${metaLine}\n\n${getCompanyBoilerplate('VOLG')}`;
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('LANDI apprenticeship listing fallback is >= 50 words', () => {
-    const metaLine = 'Lehrstelle als Logistiker — LANDI, Chur (Graubünden). Pensum: 100%. Bewerbung über https://jobs.fenaco.com';
-    const desc = `${metaLine}\n\n${getCompanyBoilerplate('LANDI')}`;
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('generic fenaco subsidiary fallback is >= 50 words', () => {
-    const metaLine = 'Chauffeur — TRAVECO, Brig (Wallis). Pensum: 100%. Bewerbung über https://jobs.fenaco.com';
-    const desc = `${metaLine}\n\n${getCompanyBoilerplate('UFA')}`;
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
+// No fallback body any more: a vacancy without a detail body keeps the source
+// text read before or is not published (tests/volg-crawler.test.ts, issue 5253).
 
 // ─── 4. AGIE Charmilles ────────────────────────────────────────────────────
 // No longer padded: a posting without detail text gets NO description (the

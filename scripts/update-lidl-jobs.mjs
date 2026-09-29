@@ -53,6 +53,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   hasListContent,
+  restoreLidlSourceLocaleStructure,
   MIN_LIDL_FULL_DESC,
   LIDL_SEARCH_API_BASE,
   LIDL_SEARCH_JOBS_KEY,
@@ -63,6 +64,7 @@ import {
   extractLidlApiHitFields,
 } from './lib/lidl-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -306,7 +308,9 @@ function buildJobFromApiFields(fields, detailUrl) {
   // The LiCa API bundles the whole job body (intro + tasks + profile + offer)
   // into descResponsibilities (mapped to fields.descriptionHtml).
   const body = stripHtmlToPlain(fields?.descriptionHtml || '');
-  if (!body || body.length < 50) return null;
+  // Shared 50-word floor (source-body-floor.mjs), not a character count:
+  // discovery withholds a thinner vacancy before it gets here.
+  if (!meetsSourceBodyFloor(body)) return null;
 
   const meta = buildSeedMetaFromFields(fields);
   // Reject jobs whose location does not resolve to a Swiss canton. Discovery
@@ -586,7 +590,16 @@ export async function fetchLidlJobDetailUrls(options = {}) {
 
   const detailUrls = [];
   const jobsFromApi = [];
+  // A vacancy whose LiCa body is under the shared 50-word floor would be a
+  // thin page: it is not seeded, so it is not published in this run (the
+  // next run whose body clears the floor publishes it). It is accounted for,
+  // not a discovery failure.
+  let withheldThinBody = 0;
   for (const item of selectedByKey.values()) {
+    if (!meetsSourceBodyFloor(stripHtmlToPlain(item.fields?.descriptionHtml || ''))) {
+      withheldThinBody += 1;
+      continue;
+    }
     detailUrls.push(item.detailUrl);
     seedMetaByUrl[item.detailUrl] = buildSeedMetaFromFields(item.fields);
     // Build job directly from API fields (rich description available)
@@ -600,17 +613,20 @@ export async function fetchLidlJobDetailUrls(options = {}) {
   detailUrls.sort((a, b) => a.localeCompare(b));
   // Source-declared foreign hits are valid drops and stay visible separately;
   // unresolved CH geography has already failed closed above.
-  const accounted = detailUrls.length + duplicateIdentity + droppedForeign + droppedMalformed;
+  const accounted = detailUrls.length + duplicateIdentity + droppedForeign + droppedMalformed + withheldThinBody;
   if (accounted !== rawFetched
       || droppedMalformed !== 0
       || jobsFromApi.length !== detailUrls.length
       || Object.keys(seedMetaByUrl).length !== detailUrls.length) {
     throw new Error(
-      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, foreign=${droppedForeign}, unresolved-CH=0, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
+      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, foreign=${droppedForeign}, unresolved-CH=0, malformed=${droppedMalformed}, thin-body=${withheldThinBody}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
     );
   }
   if (droppedForeign > 0) {
     console.log(`  🌍 Dropped ${droppedForeign} source-declared foreign Lidl hit(s).`);
+  }
+  if (withheldThinBody > 0) {
+    console.log(`  ⏸️ Withheld ${withheldThinBody} Lidl hit(s) whose body is under the 50-word floor.`);
   }
   console.log(`✅ Total unique Lidl detail URLs discovered: ${detailUrls.length}`);
   console.log(`✅ Jobs built from API data: ${jobsFromApi.length}`);
@@ -624,6 +640,7 @@ export async function fetchLidlJobDetailUrls(options = {}) {
     droppedForeign,
     unresolvedSwiss: 0,
     droppedMalformed,
+    withheldThinBody,
     sourceZero: totalCount === 0,
   };
 }
@@ -745,18 +762,20 @@ function mergeApiDescriptions(jobsFromApi) {
   }
 
   let enriched = 0;
+  let restructured = 0;
   const MAX_SANE_DESC = 8000; // Descriptions >8k chars are likely full-page HTML garbage
   for (const job of jobs) {
     if (!isLidlJob(job)) continue;
-    const currentDesc = String(job.description || '').trim();
-    const isSaneLength = currentDesc.length >= MIN_LIDL_FULL_DESC && currentDesc.length <= MAX_SANE_DESC;
-    // Skip jobs that already have a real, well-sized description with structure
-    if (isSaneLength && hasListContent(currentDesc)) continue;
-
     // Match by reqId first, then by URL path
     const reqId = extractReqId(job.url);
     const apiJob = (reqId && apiByReqId.get(reqId)) || apiByPath.get(normalizeLidlDetailPath(job.url));
     if (!apiJob) continue;
+    if (restoreLidlSourceLocaleStructure(job, apiJob)) restructured++;
+
+    const currentDesc = String(job.description || '').trim();
+    const isSaneLength = currentDesc.length >= MIN_LIDL_FULL_DESC && currentDesc.length <= MAX_SANE_DESC;
+    // Skip jobs that already have a real, well-sized description with structure
+    if (isSaneLength && hasListContent(currentDesc)) continue;
 
     const apiDesc = String(apiJob.description || '').trim();
     // Only skip if current desc is sane AND longer than API (bloated descs always lose)
@@ -775,12 +794,13 @@ function mergeApiDescriptions(jobsFromApi) {
     enriched++;
   }
 
-  if (enriched > 0) {
+  if (enriched > 0 || restructured > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
       writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
     }
-    console.log(`✨ Enriched ${enriched} Lidl jobs with API descriptions.`);
+    if (enriched > 0) console.log(`✨ Enriched ${enriched} Lidl jobs with API descriptions.`);
+    if (restructured > 0) console.log(`📋 Restored the API list structure in ${restructured} Lidl source-language descriptions.`);
   }
   return enriched;
 }

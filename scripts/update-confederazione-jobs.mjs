@@ -26,14 +26,16 @@
  * 1. Fetches the unfiltered national listing via API (no region filter)
  * 2. Infers per-job canton from the location text (inferAnyCanton, 26 cantons)
  * 3. Keeps only jobs that resolve to a Swiss canton (drops "Estero"/foreign)
- * 4. All data is in the API response (no detail page fetching needed)
+ * 4. The API carries tasks, requirements, benefits and unit profile; each
+ *    detail page adds the role summary, key facts and additional information
  * 5. Skips jobs already covered by VTG / Agroscope crawlers
  * 6. Merges into data/jobs.json
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -63,6 +65,14 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
+import {
+  composeFederalJobDescription,
+  federalApiDescription,
+  parseFederalJobDetailExtras,
+} from './lib/federal-job-detail.mjs';
+import { preferEnrichedDescription } from './lib/enriched-description-fallback.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -217,11 +227,10 @@ function parseApiJob(j = {}) {
   // Employment type from field 25
   const employmentCategory = (attrs['25'] || [])[0] || '';
 
-  // Build description from szas fields
-  const parts = [];
-  if (szas.sza_tasks) parts.push(stripHtml(szas.sza_tasks));
-  if (szas.sza_requirements) parts.push(stripHtml(szas.sza_requirements));
-  const description = parts.join('\n\n');
+  // Tasks, requirements, benefits and the unit profile — the full API text.
+  // Only tasks + requirements used to be published (23-35 % of the detail
+  // page); `enrichWithDetailPages` adds the page-only sections on top.
+  const description = federalApiDescription(szas);
 
   return {
     id: String(j.id || ''),
@@ -294,45 +303,19 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
   // cantons (the city is virtually always present; rare last-resort token).
   const regionLabel = getCantonDisplayName(canton, 'it') || canton;
   const city = String(job.city || regionLabel).trim();
-  const dept = String(job.subDepartment || job.department || 'Confederazione Svizzera').trim();
   const description = String(job.description || '').trim();
-  const deptShort = dept.replace(/\s*\([^)]*\)\s*/g, '').trim();
 
-  // Ensure description meets 50-word threshold
-  const descWordCount = description.split(/\s+/).filter(Boolean).length;
-  let sourceDesc = '';
-
-  if (descWordCount >= 50) {
-    sourceDesc = description;
-  } else if (sourceLang === 'it') {
-    const pensumText = job.pensum ? ` Grado di occupazione: ${job.pensum}.` : '';
-    const fieldText = job.fieldOfActivity ? ` Settore: ${job.fieldOfActivity}.` : '';
-    sourceDesc = [
-      `${title} — ${deptShort}, ${city}.`,
-      `Posizione nell'Amministrazione federale svizzera (Confederazione Svizzera).`,
-      description ? description : '',
-      `${fieldText}${pensumText}`,
-      `La Confederazione Svizzera è uno dei maggiori datori di lavoro del Paese, con condizioni di impiego moderne, opportunità di formazione continua, orari di lavoro flessibili e prestazioni sociali competitive. L'Amministrazione federale si impegna per le pari opportunità e promuove un ambiente di lavoro inclusivo e diversificato.`,
-      `Candidati online su jobs.admin.ch.`,
-    ].filter(Boolean).join('\n');
-  } else if (sourceLang === 'de') {
-    const pensumText = job.pensum ? ` Beschäftigungsgrad: ${job.pensum}.` : '';
-    const fieldText = job.fieldOfActivity ? ` Bereich: ${job.fieldOfActivity}.` : '';
-    sourceDesc = [
-      `${title} — ${deptShort}, ${city}.`,
-      `Stelle in der Schweizerischen Bundesverwaltung (Schweizerische Eidgenossenschaft).`,
-      description ? description : '',
-      `${fieldText}${pensumText}`,
-      `Die Schweizerische Eidgenossenschaft ist einer der grössten Arbeitgeber des Landes mit modernen Anstellungsbedingungen, Weiterbildungsmöglichkeiten, flexiblen Arbeitszeiten und wettbewerbsfähigen Sozialleistungen. Die Bundesverwaltung setzt sich für Chancengleichheit ein und fördert ein inklusives und vielfältiges Arbeitsumfeld.`,
-      `Bewerben Sie sich online auf jobs.admin.ch.`,
-    ].filter(Boolean).join('\n');
-  } else {
-    sourceDesc = description || title;
-  }
+  // Only the source's own text: the full API/page text. The old padding for
+  // bodies under 50 words ("Posizione nell'Amministrazione federale
+  // svizzera…", a generic employer paragraph, "Candidati online su
+  // jobs.admin.ch.") and the title-as-body fallback published text the
+  // posting does not contain (1/261 jobs of slice 995a6583431); an empty body
+  // is handled in mergeJobs (stored source text, else not published).
+  const sourceDesc = description;
 
   return {
     titleByLocale: { [sourceLang]: title },
-    descriptionByLocale: { [sourceLang]: sourceDesc || title },
+    descriptionByLocale: sourceDesc ? { [sourceLang]: sourceDesc } : {},
     // Slug-only guard: `job.city` can be the literal "undefined"/"null" string
     // (truthy) → `-undefined` in an active slug (#952, class #900/#901). Fallback is
     // the localized region label, region-correct. addressLocality untouched.
@@ -459,6 +442,52 @@ async function fetchAllListings() {
   return allJobs;
 }
 
+/* ── Detail enrichment ─────────────────────────────────────── */
+
+const DETAIL_CONCURRENCY = 3;
+
+function readCoveredViewkeys() {
+  // Viewkeys published by the dedicated VTG/Agroscope slices (see mergeJobs).
+  const covered = new Set();
+  for (const coveredKey of COVERED_KEYS) {
+    for (const job of readExistingCrawlerJobs(coveredKey)) {
+      const vk = extractViewkey(job.url);
+      if (vk) covered.add(vk);
+    }
+  }
+  return covered;
+}
+
+/**
+ * Add the jobs.admin.ch page-only sections ("Auf den Punkt gebracht", key
+ * facts, "Zusätzliche Informationen", notes) to each listing, with the page's
+ * own section headings from its JSON-LD. A page that cannot be read leaves
+ * the listing on its API text; `mergeJobs` then keeps a previously enriched
+ * text (preferEnrichedDescription) instead of shrinking it for one run.
+ */
+async function enrichWithDetailPages(listings, coveredViewkeys = new Set()) {
+  let enriched = 0;
+  let failed = 0;
+  await mapPool(listings, DETAIL_CONCURRENCY, async (row) => {
+    const vk = extractViewkey(row.directLink);
+    if (!row.directLink || (vk && coveredViewkeys.has(vk))) return;
+    try {
+      const extras = parseFederalJobDetailExtras(await fetchHtml(row.directLink));
+      const base = extras.roleText || row.description;
+      const description = composeFederalJobDescription(base, extras);
+      if (description && description !== row.description) {
+        row.description = description;
+        row.detailEnriched = true;
+        enriched += 1;
+      }
+    } catch {
+      failed += 1;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  });
+  console.log(`  Detail pages enriched: ${enriched}/${listings.length}${failed ? ` (${failed} unreadable, API text kept)` : ''}`);
+}
+
 /* ── Job Building ─────────────────────────────────────────── */
 
 function buildJob(row) {
@@ -502,10 +531,47 @@ function buildJob(row) {
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
+    detailEnriched: row.detailEnriched === true,
   };
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
+
+// Sentences of the padding the crawler used to add under 50 words (removed in
+// issue 5253). A stored body that still carries them is not source text.
+const RETIRED_FEDERAL_FILLER_RE = /Posizione nell'Amministrazione federale svizzera|Stelle in der Schweizerischen Bundesverwaltung|Candidati online su jobs\.admin\.ch|Bewerben Sie sich online auf jobs\.admin\.ch/;
+
+export function isRetiredFederalFiller(text = '') {
+  return RETIRED_FEDERAL_FILLER_RE.test(String(text || ''));
+}
+
+/**
+ * The source body a Confederation job may be published with, or null.
+ *
+ * The publish boundary enforces the 50-word floor on SOURCE text only (the
+ * padding that used to lift a short body over 50 words is gone): this run's
+ * body when it clears the floor; otherwise the body an earlier run read from
+ * the source, when that one clears it and is not the retired filler;
+ * otherwise nothing — the job is not published this run.
+ *
+ * @param {object} job   freshly built job (`sourceLang`, `descriptionByLocale`)
+ * @param {object|null} prev  stored record for the same stable id, if any
+ * @returns {{ sourceLang: string, body: string } | null}
+ */
+export function confederazionePublishableBody(job, prev) {
+  const freshLang = job?.sourceLang || '';
+  const fresh = String(job?.descriptionByLocale?.[freshLang] || '');
+  if (freshLang && meetsSourceBodyFloor(fresh) && !isRetiredFederalFiller(fresh)) {
+    return { sourceLang: freshLang, body: fresh };
+  }
+  const storedLang = prev?.sourceLang || freshLang;
+  const stored = String(prev?.descriptionByLocale?.[storedLang] || '');
+  if (storedLang && meetsSourceBodyFloor(stored) && !isRetiredFederalFiller(stored)) {
+    return { sourceLang: storedLang, body: stored };
+  }
+  return null;
+}
+
 
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
@@ -513,13 +579,7 @@ function mergeJobs(discoveredJobs) {
   // Collect viewkeys from the dedicated slices themselves. Reading only the
   // Confederazione slice here made this set permanently empty and let the
   // broad crawler republish VTG/Agroscope vacancies under a second company.
-  const coveredViewkeys = new Set();
-  for (const coveredKey of COVERED_KEYS) {
-    for (const job of readExistingCrawlerJobs(coveredKey)) {
-      const vk = extractViewkey(job.url);
-      if (vk) coveredViewkeys.add(vk);
-    }
-  }
+  const coveredViewkeys = readCoveredViewkeys();
 
   // Filter out jobs whose viewkey is already covered by another crawler
   const newJobs = discoveredJobs.filter((job) => {
@@ -548,12 +608,46 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = newJobs.map((job) => {
+  let unpublished = 0;
+  const mergedTarget = newJobs.map((fresh) => {
+    const { detailEnriched, ...job } = fresh;
     const key = extractStableJobId(job?.url);
     const prev = key ? existingByUrl.get(key) : null;
     if (!prev) {
+      if (!confederazionePublishableBody(job, null)) {
+        // Under 50 words of source text (or none) and nothing stored: not
+        // published — no padding is ever counted (NN #4, issue 5253).
+        unpublished += 1;
+        return null;
+      }
       added += 1;
       return job;
+    }
+    if (!detailEnriched && job.sourceLang) {
+      // Detail page unreadable this run: keep the stored enriched source text
+      // when it still contains the whole fresh API text.
+      const kept = preferEnrichedDescription(
+        prev.descriptionByLocale?.[job.sourceLang] || '',
+        job.descriptionByLocale?.[job.sourceLang] || '',
+      );
+      if (kept && kept !== job.descriptionByLocale?.[job.sourceLang]) {
+        job.descriptionByLocale = { ...job.descriptionByLocale, [job.sourceLang]: kept };
+        if (job.sourceLang === 'it' || !job.descriptionByLocale.it) job.description = kept;
+      }
+    }
+    const publishable = confederazionePublishableBody(job, prev);
+    if (!publishable) {
+      // Under 50 words of source text this run and no stored source body that
+      // clears the floor: not published this run.
+      unpublished += 1;
+      return null;
+    }
+    if (publishable.sourceLang !== job.sourceLang
+      || publishable.body !== job.descriptionByLocale?.[job.sourceLang]) {
+      // The short body of this run is dropped, not kept next to the stored one.
+      job.sourceLang = publishable.sourceLang;
+      job.descriptionByLocale = { [publishable.sourceLang]: publishable.body };
+      job.description = publishable.body;
     }
     updated += 1;
     // When merging slugByLocale, discard any pre-existing IT slug that contains German words
@@ -595,7 +689,10 @@ function mergeJobs(discoveredJobs) {
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     return merged;
-  });
+  }).filter(Boolean);
+  if (unpublished > 0) {
+    console.log(`  ⏭️  ${unpublished} job(s) without any body from the source — not published.`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
@@ -702,6 +799,8 @@ async function main() {
     console.log(`  ${cat}: ${count}`);
   }
 
+  await enrichWithDetailPages(listings, readCoveredViewkeys());
+
   const jobs = listings.map(buildJob);
 
   const { total, added, updated, diff} = mergeJobs(jobs);
@@ -755,4 +854,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Confederazione'));
+// Importable by tests (mergeJobs) without running the crawl.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'Confederazione'));
+}

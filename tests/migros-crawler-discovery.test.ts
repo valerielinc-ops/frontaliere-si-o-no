@@ -1,6 +1,10 @@
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  collapseMigrosRepostsInFiles,
+  dedupeMigrosReposts,
   extractMigrosListingDetailPaths,
   extractMigrosListingPageNumbers,
   fetchMigrosHttpJobDetailUrls,
@@ -94,5 +98,69 @@ describe('Migros browser-free SSR discovery', () => {
         ? PAGE_1
         : { body: PAGE_2, status: 200, url: LISTING_URL },
     })).rejects.toThrow('resolved page 2');
+  });
+});
+
+describe('Migros double publications (audit-parser-quality issue 5253)', () => {
+  // Live pair of 2026-09-29: the Gossau SG flower-shop ad published twice under
+  // two UUIDs with identical visible text and workplace card.
+  const base = 'https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/fachverkauferin-blumen/';
+  const body = 'Hast du ein Auge für Schönheit?\n\n**Luogo di lavoro:** Genossenschaft Migros Ostschweiz, M Gossau, 9200 Gossau SG';
+  const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+  const job = (uuid: string, extra: Record<string, unknown> = {}) => ({
+    companyKey: 'migros-ticino',
+    url: `${base}${uuid}`,
+    title: 'Fachverkäufer*in Blumen',
+    location: 'Gossau SG',
+    description: body,
+    ...extra,
+  });
+
+  it('keeps one of two identical postings, preferring the one seen first', () => {
+    const other = { companyKey: 'coop-ticino', url: 'https://jobs.coopjobs.ch/x', title: 'Fachverkäufer*in Blumen', location: 'Gossau SG', description: body };
+    const { jobs, reposts } = dedupeMigrosReposts([
+      job('c922adc5-d69b-4d00-a717-5002ad249e33', { firstSeenAt: daysAgoIso(7) }),
+      job('43315b46-0af4-46e8-9361-b737a9683d5d', { firstSeenAt: daysAgoIso(8) }),
+      other,
+    ], (candidate) => candidate.companyKey === 'migros-ticino');
+
+    expect(jobs.map((kept) => kept.url)).toEqual([`${base}43315b46-0af4-46e8-9361-b737a9683d5d`, other.url]);
+    expect(reposts).toEqual([{ url: `${base}c922adc5-d69b-4d00-a717-5002ad249e33`, keptUrl: `${base}43315b46-0af4-46e8-9361-b737a9683d5d` }]);
+  });
+
+  it('keeps same-title openings whose published body differs (another store)', () => {
+    const { jobs, reposts } = dedupeMigrosReposts([
+      job('6742a08c-0d7a-4936-8cae-1ca7cf0c1b00'),
+      job('db244148-aa13-400f-a02f-585bb86eadc2', { description: body.replace('M Gossau', 'M Gossau Bahnhof') }),
+    ], () => true);
+
+    expect(jobs).toHaveLength(2);
+    expect(reposts).toEqual([]);
+  });
+
+  it('writes the same deduplicated list to the data file and to its public copy (review #10333)', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'migros-reposts-'));
+    try {
+      const dataJobsPath = path.join(dir, 'jobs.json');
+      const publicJobsPath = `${dataJobsPath}.public.json`;
+      const stored = [
+        job('c922adc5-d69b-4d00-a717-5002ad249e33', { firstSeenAt: daysAgoIso(7) }),
+        job('43315b46-0af4-46e8-9361-b737a9683d5d', { firstSeenAt: daysAgoIso(8) }),
+      ];
+      fs.writeFileSync(dataJobsPath, JSON.stringify(stored));
+      fs.writeFileSync(publicJobsPath, JSON.stringify(stored));
+
+      const reposts = collapseMigrosRepostsInFiles({ dataJobsPath, publicJobsPath });
+      const data = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+      const pub = JSON.parse(fs.readFileSync(publicJobsPath, 'utf8'));
+
+      expect(reposts.map((r: { url: string }) => r.url)).toEqual([`${base}c922adc5-d69b-4d00-a717-5002ad249e33`]);
+      expect(pub).toEqual(data);
+      for (const list of [data, pub]) {
+        expect(list.map((kept: { url: string }) => kept.url)).not.toContain(`${base}c922adc5-d69b-4d00-a717-5002ad249e33`);
+      }
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
