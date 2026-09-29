@@ -61,8 +61,17 @@ describe('main data writers use the shared retry contract', () => {
       'node scripts/ci/restore-data-integrity-files.mjs',
     );
     expect(read('.github/workflows/deploy.yml')).toContain('--stash-dirty');
-    expect(read('scripts/lib/append-build-history-row.sh')).toContain(
-      'git-push-with-retry.sh --max-attempts 5 --stash-dirty',
-    );
+    const buildHistoryWriter = read('scripts/lib/append-build-history-row.sh');
+    expect(buildHistoryWriter).toContain('git-push-with-retry.sh --max-attempts 5 --stash-dirty');
+    expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
+    expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
+  });
+
+  it('keeps generated build snapshots out of history checkpoint commits', () => {
+    const deploy = read('.github/workflows/deploy.yml');
+    expect(deploy).toContain('node scripts/ci/assert-accumulator-write.mjs "$accumulator"');
+    expect(deploy).toContain('git commit --only \\');
+    expect(deploy).toContain('-m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})" \\');
+    expect(deploy).toContain('-- data/dist-size-history.jsonl data/url-first-seen.json');
   });
 });
