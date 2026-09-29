@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  extractSeeSpitalDetailDescription,
   SEE_SPITAL_KEY,
   SEE_SPITAL_COMPANY_NAME,
   isSeeSpitalJob,
@@ -124,6 +127,31 @@ describe('See-Spital crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // Issue 5253: only the expander sections were published; the lead sentence
+  // with the title block and the «Benefits» article of the ad were dropped.
+  describe('extractSeeSpitalDetailDescription (real page, minimised)', () => {
+    const html = readFileSync(resolve(__dirname, 'fixtures', 'see-spital', 'detail-unterassistenz-chirurgie.html'), 'utf8');
+    const text = extractSeeSpitalDetailDescription(html);
+
+    it('keeps lead sentence, every expander section and the benefits article', () => {
+      expect(text.startsWith('Die Klinik Chirurgie evaluiert laufend Bewerbungen für die Stelle als Unterassistent*in / PJ Absolvent*in Chirurgie')).toBe(true);
+      expect(text).toContain('Ihr Aufgabengebiet:');
+      expect(text).toContain('Ihr Profil:');
+      expect(text).toContain('Was wir Ihnen bieten:');
+      expect(text).toContain('Benefits');
+      expect(text).toContain('Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)');
+      expect(text).toContain('• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt');
+    });
+
+    it('does not read contacts, apply button or location block', () => {
+      expect(text).not.toMatch(/Ansprechperson|Kontaktperson|Jetzt bewerben|Mehr anzeigen|Standort Horgen/);
+    });
+
+    it('returns empty without the expander layout', () => {
+      expect(extractSeeSpitalDetailDescription('<html><body><div id="root"></div></body></html>')).toBe('');
     });
   });
 });

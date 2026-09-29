@@ -29,6 +29,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
@@ -296,12 +297,6 @@ function parseDetailDate(raw = '') {
   return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
-/* ── Fallback description ─────────────────────────────────── */
-
-function buildFallbackDescription(title, location) {
-  return `${title} bei Stadler Rail in ${location || 'der Schweiz'}.\n\nStadler ist ein weltweit tätiger Schweizer Hersteller von Schienenfahrzeugen mit Hauptsitz in Bussnang (Kanton Thurgau). Das 1942 gegründete Unternehmen entwickelt und produziert Voll-, Regional- und S-Bahnen, Strassenbahnen, Lokomotiven sowie Zahnradbahnen und beschäftigt mehrere tausend Mitarbeitende in der Schweiz. Stadler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in einem innovativen Schweizer Industrieunternehmen.`;
-}
-
 /* ── Fetch listings ───────────────────────────────────────── */
 
 /**
@@ -399,12 +394,13 @@ export async function fetchAllStadlerRailJobs() {
       ? HQ_REGION
       : (detail?.addressRegion || '').split(/\s+/)[0] || '';
 
-    let description = '';
-    if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-      description = detail.description;
-    } else {
-      description = buildFallbackDescription(title, location);
-    }
+    // The detail text only (issue 5253). A body under 50 words used to be
+    // DISCARDED for "<title> bei Stadler Rail in <city>." and a company
+    // paragraph we wrote. Now a body under the shared 50-word floor is not
+    // published: the job gets no description and takes the thin-source path
+    // (quarantine) of the pipeline.
+    const body = String(detail?.description || '').trim();
+    const description = meetsSourceBodyFloor(body) ? body : '';
 
     const sourceLang = detectLang(description || title, 'de');
     const publicUrl = listing.url;
@@ -424,7 +420,7 @@ export async function fetchAllStadlerRailJobs() {
       title,
       titleByLocale: { [sourceLang]: title },
       description,
-      descriptionByLocale: { [sourceLang]: description },
+      descriptionByLocale: description ? { [sourceLang]: description } : {},
       location,
       canton,
       url: publicUrl,

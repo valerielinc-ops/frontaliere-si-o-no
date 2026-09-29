@@ -145,20 +145,16 @@ export function parseTzmListing(html = '') {
 
 /* ── Description builder ───────────────────────────────────── */
 
-function buildTzmDescription({ title, pdfText = '', pdfUrl = '' }) {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${TZM_COMPANY_NAME} sucht eine engagierte Persönlichkeit für die Position: ${title}.`,
-      'Das Therapiezentrum Meggen (TZM) ist eine sozialpsychiatrische Therapiestation in Meggen am Vierwaldstättersee (Kanton Luzern). Die Institution bietet stationäre und ambulante Behandlungen, integrative Psychotherapie und Milieutherapie für Erwachsene an.',
-    ],
-    pdfText,
-    fallbackText: `Stellenausschreibung ${title} im ${TZM_COMPANY_NAME}. Die vollständigen Angaben zu Aufgaben, Anforderungen, Pensum und Bewerbungsweg entnehmen Sie dem offiziellen PDF.`,
-    footerLines: [
-      `Stellenausschreibung (PDF): ${pdfUrl}`,
-      `Karriereseite: ${PUBLIC_CAREER_URL}`,
-      'Sektor: Gesundheitswesen / Psychotherapie / Sozialpsychiatrie',
-    ],
-  });
+/**
+ * The description of one posting is the text of its PDF and nothing else. The
+ * crawler used to wrap it in lines of its own about the centre ("… sucht eine
+ * engagierte Persönlichkeit…", a paragraph on the TZM), "Stellenausschreibung
+ * (PDF): …", "Karriereseite: …", "Sektor: …", and to substitute a sentence of
+ * its own when the PDF had no text. A PDF without readable text now gives no
+ * description and the job takes the pipeline's thin-source path.
+ */
+export function buildTzmDescription({ title, pdfText = '' }) {
+  const description = buildPdfBackedDescription({ pdfText });
   const warnings = [];
   if (pdfText && description.length < MIN_TZM_DESC_LENGTH) {
     warnings.push(
@@ -167,6 +163,10 @@ function buildTzmDescription({ title, pdfText = '', pdfUrl = '' }) {
   }
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former intro, fallback and footer wrote (see `buildTzmDescription`). */
+export const TZM_FABRICATED_DESCRIPTION_RE =
+  /ist eine sozialpsychiatrische Therapiestation in Meggen|entnehmen Sie dem offiziellen PDF\.|(?:^|\n)Karriereseite: https?:|(?:^|\n)Sektor: Gesundheitswesen \/ Psychotherapie/;
 
 /* ── Main fetch ────────────────────────────────────────────── */
 

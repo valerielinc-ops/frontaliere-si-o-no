@@ -42,6 +42,7 @@ import {
   parseRelewantJob,
   enrichRelewantJob,
   buildRelewantLocalizedContent,
+  dropRelewantFabricatedText,
   isRelewantSwissRelevant,
 } from './lib/relewant-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
@@ -124,7 +125,9 @@ function inferCategory(title = '') {
 }
 
 function buildRelewantJob(parsed) {
-  const localized = buildRelewantLocalizedContent(parsed);
+  // Language of the posting text, not of the title alone.
+  const sourceLang = detectLang(`${parsed.title} ${parsed.description || ''}`, 'it');
+  const localized = buildRelewantLocalizedContent({ ...parsed, sourceLang });
   const canton = inferAnyCanton(parsed.city);
   return {
     title: localized.titleByLocale.it,
@@ -143,12 +146,12 @@ function buildRelewantJob(parsed) {
     category: inferCategory(parsed.title),
     sector: 'Consulenza IT',
     source: 'relewant-dedicated-crawler',
-    sourceLang: detectLang(parsed.title, 'it'),
+    sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     contractType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -163,6 +166,8 @@ async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropRelewantFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former header/footer wrapper from ${fossils} stored ReleWant job(s) (description and every locale); their translations will be rebuilt`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -176,14 +181,20 @@ async function mergeJobs(discoveredJobs) {
     }
     updated += 1;
     // Clear translations only when the source description changed significantly.
-    // Otherwise preserve existing translated locales (en/de/fr) and only update
-    // the source locale (it) from the fresh job data.
+    // Otherwise preserve the existing translated locales and only update the
+    // source-language slot from the fresh job data.
     const prevLen = (prev.description || '').length;
     const newLen = (job.description || '').length;
     const sourceChanged = Math.abs(newLen - prevLen) > 100;
+    // The source slot is the one of the language detected for THIS crawl
+    // (`job.sourceLang`), not a literal `it`: an English/German/French posting
+    // must refresh its own slot.
+    const sourceLang = job.sourceLang || prev.sourceLang || 'it';
+    const freshSource = (job.descriptionByLocale || {})[job.sourceLang];
     const mergedDescByLocale = sourceChanged
       ? { ...(job.descriptionByLocale || {}) }
-      : { ...(prev.descriptionByLocale || {}), it: (job.descriptionByLocale || {}).it ?? (prev.descriptionByLocale || {}).it };
+      : { ...(prev.descriptionByLocale || {}), [sourceLang]: freshSource ?? (prev.descriptionByLocale || {})[sourceLang] };
+    if (mergedDescByLocale[sourceLang] === undefined) delete mergedDescByLocale[sourceLang];
     const updatedJob = {
       ...prev,
       ...job,

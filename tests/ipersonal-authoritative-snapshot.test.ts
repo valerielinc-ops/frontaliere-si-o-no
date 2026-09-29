@@ -253,9 +253,14 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
     expect(template).toContain('skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified');
     const fetchIndex = template.indexOf('const fetchResult = await fetchJobs()');
     const validationIndex = template.indexOf('evaluateAuthoritativeSnapshot(\n    parsedJobs');
-    const mergeIndex = template.indexOf('mergePreserveLocaleData(companyExisting, parsedJobs');
+    // The merge input is `mergeExisting`: the stored jobs, or what the opt-in
+    // `prepareExistingJobs` hook returns for them. Both the hook and the merge
+    // must still run after the authoritative-snapshot validation.
+    const prepareIndex = template.indexOf('prepareExistingJobs(companyExisting)');
+    const mergeIndex = template.indexOf('mergePreserveLocaleData(mergeExisting, parsedJobs');
     expect(fetchIndex).toBeGreaterThan(-1);
     expect(validationIndex).toBeGreaterThan(fetchIndex);
-    expect(mergeIndex).toBeGreaterThan(validationIndex);
+    expect(prepareIndex).toBeGreaterThan(validationIndex);
+    expect(mergeIndex).toBeGreaterThan(prepareIndex);
   });
 });

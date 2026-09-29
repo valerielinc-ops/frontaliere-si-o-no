@@ -10,6 +10,8 @@ import {
   detectCategory,
   detectExperienceLevel,
   MIN_DESC_LENGTH,
+  buildSinteticaDescriptionFields,
+  dropSinteticaFabricatedText,
 } from '@/scripts/lib/sintetica-job-parser.mjs';
 import {
   detectSinteticaSite,
@@ -281,5 +283,57 @@ describe('detectSinteticaSite', () => {
     expect(site.canton).toBe('TI');
     expect(site.postalCode).toBe('6850');
     expect(site.streetAddress).toBe('Via Penate 5');
+  });
+});
+
+// ─── Description = the NCore posting, nothing of the runner's ─────────────
+
+// Minimized from the stored "CMC Senior Specialist" job (slice of 2026-09-29).
+const SINTETICA_BODY = 'CMC Senior Specialist - Mendrisio site (Ticino)\n\nFounded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica’s mission is to continuously strive to improve therapies by improving the formulations and usability of its products for the benefit of physicians and patients.';
+
+describe('buildSinteticaDescriptionFields', () => {
+  it('publishes the detail body alone, keyed by its language', () => {
+    const fields = buildSinteticaDescriptionFields({ detailBody: SINTETICA_BODY, snippet: 'Short listing teaser.' });
+    expect(fields.description).toBe(SINTETICA_BODY);
+    expect(fields.sourceLang).toBe('en');
+    expect(fields.descriptionByLocale).toEqual({ en: SINTETICA_BODY });
+    expect(fields.description).not.toMatch(/— Sintetica SA, Mendrisio \(TI\)\.|posizione aperta presso Sintetica/);
+  });
+
+  it('keeps a short real text and gives a posting without text no description', () => {
+    expect(buildSinteticaDescriptionFields({ detailBody: 'Laboratory technician, 100%.' }).description).toBe('Laboratory technician, 100%.');
+    expect(buildSinteticaDescriptionFields({ detailBody: '', snippet: '' }).description).toBe('');
+  });
+});
+
+describe('dropSinteticaFabricatedText', () => {
+  it('removes the header line and every slot translated from it', () => {
+    const wrapped = `CMC Senior Specialist - Mendrisio site (Ticino) — Sintetica SA, Mendrisio (TI).\n\n${SINTETICA_BODY}`;
+    const job: any = {
+      sourceLang: 'en',
+      description: wrapped,
+      descriptionByLocale: { en: wrapped, it: 'CMC Senior Specialist - Sito Mendrisio (Ticino) — Sintetica SA, Mendrisio (TI).\n\nFondata nel 1921…' },
+    };
+    expect(dropSinteticaFabricatedText(job)).toBe(true);
+    expect(job.description).toBe(SINTETICA_BODY);
+    expect(job.descriptionByLocale).toEqual({ en: SINTETICA_BODY });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('empties a description that was the substituted company sentence', () => {
+    const job: any = {
+      sourceLang: 'it',
+      description: "Quality Control Technician - Mendrisio Site (Ticino) — posizione aperta presso Sintetica SA al sito di Mendrisio (TI), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.",
+      descriptionByLocale: { de: 'Übersetzung.' },
+    };
+    expect(dropSinteticaFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+  });
+
+  it('leaves a clean job alone', () => {
+    const job: any = { sourceLang: 'en', description: SINTETICA_BODY, descriptionByLocale: { en: SINTETICA_BODY, it: 'Fondata nel 1921.' } };
+    expect(dropSinteticaFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.it).toBe('Fondata nel 1921.');
   });
 });

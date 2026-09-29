@@ -11,7 +11,9 @@ import {
   isTrustedDomain,
   TZM_KEY,
   TZM_COMPANY_NAME,
+  TZM_FABRICATED_DESCRIPTION_RE,
 } from './lib/therapiezentrum-meggen-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,6 +26,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isTzmJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, TZM_FABRICATED_DESCRIPTION_RE, TZM_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Therapiezentrum Meggen crawler failed: ${err?.message || err}`);
   process.exit(1);
