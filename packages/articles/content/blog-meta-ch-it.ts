@@ -6980,6 +6980,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilaterali III: il Consiglio degli Stati apre il dibattito',
     'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'Il Consiglio degli Stati ha approvato l\'entrata in materia sul pacchetto di stabilizzazione Svizzera-Ue con 29 voti contro 15.',
     'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'Il Palazzo federale a Berna durante i dibattiti parlamentari sui Bilaterali III',
+    'blog.article.sviluppo-rapido-rete-elettrica.title': 'Rete elettrica: via libera all\'accelerazione dei lavori',
+    'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'Il Parlamento approva la revisione della legge sugli impianti elettrici per rinnovare oltre il 60% delle linee ad altissima tensione e semplificare l\'iter.',
+    'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'Tralicci dell\'alta tensione in un paesaggio svizzero.',
 };
 
 export default blogMetaChIt;

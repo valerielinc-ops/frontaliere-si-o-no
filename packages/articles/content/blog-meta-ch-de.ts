@@ -6980,6 +6980,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilaterale III: Der Ständerat eröffnet die Debatte',
     'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'Der Ständerat hat mit 29 zu 15 Stimmen Eintreten auf das Stabilisierungspaket Schweiz-EU beschlossen.',
     'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'Das Bundeshaus in Bern während der parlamentarischen Debatten',
+    'blog.article.sviluppo-rapido-rete-elettrica.title': 'Stromnetz: grünes Licht für die Beschleunigung der Arbeiten',
+    'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'Das Parlament verabschiedet die Überarbeitung des Gesetzes über elektrische Anlagen, um über 60 % der Höchstspannungsleitungen zu erneuern und das Verfahren zu vereinfachen.',
+    'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'Hochspannungsmasten in einer Schweizer Landschaft.',
 };
 
 export default blogMetaChDe;

@@ -90500,6 +90500,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sviluppo-rapido-rete-elettrica': {
+    title: 'Rete elettrica: via libera all\'accelerazione dei lavori',
+    description: 'Il Parlamento svizzero ha approvato la revisione della legge sugli impianti elettrici per rinnovare la rete ad altissima tensione e semplificare l\'iter.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rete, elettrica, libera, accelerazione',
+    ogTitle: 'Rete elettrica: via libera all\'accelerazione dei lavori',
+    ogDescription: 'Il Parlamento ha dato il via libera alla revisione della legge sugli impianti elettrici per accelerare il rinnovo della rete ad altissima tensione in Svizzera.',
+    canonicalPath: '/articoli-svizzera/sviluppo-rapido-rete-elettrica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rete elettrica: via libera all'accelerazione dei lavori",
+      "description": "Il Parlamento svizzero ha approvato la revisione della legge sugli impianti elettrici per rinnovare la rete ad altissima tensione e semplificare l'iter.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sviluppo-rapido-rete-elettrica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tralicci dell'alta tensione in un paesaggio svizzero."
+      },
+      "datePublished": "2026-09-29T01:23:01+00:00",
+      "dateModified": "2026-09-29T01:23:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sviluppo-rapido-rete-elettrica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

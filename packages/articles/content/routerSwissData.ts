@@ -2349,6 +2349,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ia-lavoro-donne-uomini-2030': { it: 'ia-lavoro-donne-uomini-2030', en: 'ia-work-women-men-2030', de: 'ia-arbeit-frauen-manner-2030', fr: 'ia-travail-femmes-hommes-2030' },
  'bilaterali-iii-svizzera-ue': { it: 'bilaterali-iii-svizzera-ue', en: 'switzerland-eu-bilaterals-iii', de: 'schweiz-eu-bilateralen-iii', fr: 'suisse-ue-bilaterales-iii' },
  'consiglio-stati-bilaterali-iii': { it: 'consiglio-stati-bilaterali-iii', en: 'council-states-bilateral-iii', de: 'staenderat-bilaterale-iii', fr: 'conseil-des-etats-bilaterales-iii' },
+ 'sviluppo-rapido-rete-elettrica': { it: 'sviluppo-rapido-rete-elettrica', en: 'rapid-power-grid-development', de: 'schnellerer-stromnetzausbau', fr: 'developpement-rapide-reseau-electrique' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

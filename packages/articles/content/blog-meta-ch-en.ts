@@ -6980,6 +6980,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-stati-bilaterali-iii.title': 'Bilateral Agreements III: the Council of States opens the debate',
     'blog.article.consiglio-stati-bilaterali-iii.excerpt': 'The Council of States approved taking up the Switzerland-EU stabilization package for consideration by 29 votes to 15.',
     'blog.article.consiglio-stati-bilaterali-iii.imageAlt': 'The Federal Palace in Bern during parliamentary debates on Bilateral III',
+    'blog.article.sviluppo-rapido-rete-elettrica.title': 'Electricity grid: green light to accelerate works',
+    'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'The Parliament approves the revision of the law on electrical systems to renew more than 60% of the very high voltage lines and simplify the process.',
+    'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'High-voltage power pylons in a Swiss landscape.',
 };
 
 export default blogMetaChEn;
