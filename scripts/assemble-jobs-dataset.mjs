@@ -3433,19 +3433,6 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
   }
 
   const jobTclKey = (job) => `${(job.title || '').toLowerCase().trim()}||${(job.company || '').toLowerCase().trim()}||${(job.location || '').toLowerCase().trim()}`;
-  const hasSharedLocaleKey = (left, right) => {
-    const leftSlugs = left?.slugByLocale;
-    const rightSlugs = right?.slugByLocale;
-    if (
-      !leftSlugs
-      || typeof leftSlugs !== 'object'
-      || Array.isArray(leftSlugs)
-      || !rightSlugs
-      || typeof rightSlugs !== 'object'
-      || Array.isArray(rightSlugs)
-    ) return false;
-    return Object.keys(leftSlugs).some((locale) => Object.prototype.hasOwnProperty.call(rightSlugs, locale));
-  };
   const hasEqualNonEmptyLocaleSlug = (left, right) => {
     const leftSlugs = left?.slugByLocale;
     const rightSlugs = right?.slugByLocale;
@@ -3534,12 +3521,9 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     const expiredItSlug = String(ej.slugByLocale?.it ?? '').trim();
     const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
     const hasSameItSlug = Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
-    // Legacy archives sometimes carry only de/fr/en locale maps. A matching
-    // non-empty locale value is the strongest fallback evidence. A genuine
-    // retranslation may change that value, so retain the old key-only
-    // behaviour only when none of the expired locale slugs is claimed by an
-    // active posting; a foreign active owner must never be hidden by the
-    // fallback.
+    // Legacy archives sometimes carry only de/fr/en locale maps. Without an
+    // Italian slug, require one equal non-empty locale value as the durable
+    // same-posting evidence; a shared locale key alone is not proof.
     const hasMatchingLocaleSlug = hasEqualNonEmptyLocaleSlug(ej, match);
     // An exact Italian slug is independent, decisive evidence. Do not let an
     // unrelated non-Italian owner turn that valid proof into a rejection.
@@ -3548,8 +3532,8 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       match
       && !expiredItSlug
       && !matchItSlug
-      && !overlapCandidate
-      && (hasMatchingLocaleSlug || hasSharedLocaleKey(ej, match)),
+      && hasMatchingLocaleSlug
+      && !overlapCandidate,
     );
     if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
 
@@ -3561,7 +3545,6 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       match,
       overlapSlug: proofOverlapSlug,
       overlapJob: proofOverlapSlug ? overlapJob : null,
-      legacyLocaleFallback: legacySamePosting && !hasMatchingLocaleSlug,
     });
 
     // Merge expired slugs into active job's previousSlugs (journaled + capped,
@@ -3631,7 +3614,6 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
             match: evidence?.match,
             overlapSlug: evidence?.overlapSlug || null,
             overlapJob: evidence?.overlapJob || null,
-            legacyLocaleFallback: evidence?.legacyLocaleFallback === true,
           };
         });
         writeJson(fp, cleaned, {

@@ -927,14 +927,20 @@ describe('crawler slice integrity guard', () => {
       title: 'Store Manager',
       company: 'Rituals Cosmetics',
       location: 'Zürich',
-      slugByLocale: { de: 'store-manager-zurich-new' },
+      slugByLocale: {
+        de: 'store-manager-zurich-new',
+        en: 'store-manager-zurich-canonical',
+      },
     };
     const removed = {
       url: 'https://example.test/expired',
       title: activeMatch.title,
       company: activeMatch.company,
       location: activeMatch.location,
-      slugByLocale: { de: 'store-manager-zurich-old' },
+      slugByLocale: {
+        de: 'store-manager-zurich-old',
+        en: 'store-manager-zurich-canonical',
+      },
       description: 'x'.repeat(1_400_000),
     };
     const retained = {
@@ -957,9 +963,8 @@ describe('crawler slice integrity guard', () => {
       entries: [{
         expired: removed,
         match: activeMatch,
-        overlapSlug: null,
-        overlapJob: null,
-        legacyLocaleFallback: true,
+        overlapSlug: 'store-manager-zurich-canonical',
+        overlapJob: activeMatch,
       }],
     };
 
@@ -987,7 +992,6 @@ describe('crawler slice integrity guard', () => {
         expired: foreignRemoved,
         overlapSlug: 'foreign-owner-slug',
         overlapJob: foreignOwner,
-        legacyLocaleFallback: false,
       }],
     };
 

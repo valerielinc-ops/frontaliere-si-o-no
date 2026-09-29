@@ -47,7 +47,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
         slug: 'verkaeufer-in-food-baetterkinden-new',
         slugByLocale: {
           de: 'verkaeufer-in-food-baetterkinden-new',
-          it: 'verkaeufer-in-food-baetterkinden',
+          en: 'verkaeufer-in-food-baetterkinden',
         },
       },
     ];
@@ -59,7 +59,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
         slug: 'verkaeufer-in-food-baetterkinden-old',
         slugByLocale: {
           de: 'verkaeufer-in-food-baetterkinden-old',
-          it: 'verkaeufer-in-food-baetterkinden',
+          en: 'verkaeufer-in-food-baetterkinden',
         },
       },
     ];
