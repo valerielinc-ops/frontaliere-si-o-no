@@ -41,6 +41,7 @@ import {
 } from './lib/pkb-private-bank-job-parser.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -191,6 +192,18 @@ async function runBaseCrawler() {
 // Main
 // ──────────────────────────────────────────────────────────────
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropPkbFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(PKB_KEY, DATA_JOBS).filter(isPkbJob),
+    companyKey: PKB_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(PKB_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(PKB_KEY, 'PKB');
@@ -201,6 +214,7 @@ async function main() {
   const parsedJobs = await fetchAndParsePkbJobs();
   if (parsedJobs.length === 0) {
     console.log('⚠️ No valid jobs parsed — keeping existing PKB jobs unchanged.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

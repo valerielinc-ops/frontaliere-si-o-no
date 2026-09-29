@@ -57,6 +57,7 @@ import {
   dropKnowledgeLabFabricatedText,
 } from './lib/knowledge-lab-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -323,6 +324,18 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropKnowledgeLabFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Knowledge Lab');
@@ -335,6 +348,7 @@ async function main() {
   const listings = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No listings found on the public Freshteam portal — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -346,6 +360,7 @@ async function main() {
 
   if (swissJobs.length === 0) {
     console.log('⚠️ No Swiss-canton jobs found — skipping merge.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

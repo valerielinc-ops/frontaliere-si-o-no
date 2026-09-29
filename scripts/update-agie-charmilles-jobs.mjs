@@ -56,6 +56,7 @@ import {
 } from './lib/agie-charmilles-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -270,6 +271,18 @@ function validateLocales() {
   });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropAgieCharmillesFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'AGIE Charmilles');
@@ -281,6 +294,7 @@ async function main() {
   const listings = await fetchAllListings();
   if (listings.length === 0) {
     console.log('⚠️ No CH-wide job listings found — skipping.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

@@ -67,6 +67,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -695,6 +696,18 @@ function validateLocales() {
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropAilFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'AIL SA');
@@ -718,6 +731,7 @@ async function main() {
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
@@ -742,6 +756,7 @@ async function main() {
   const stats = logStats(beforeSnapshot);
   if (stats.total === 0) {
     console.log('ℹ️ No AIL jobs found after crawl. No error — exiting OK.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

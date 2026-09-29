@@ -52,6 +52,7 @@ import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -135,6 +136,18 @@ export function buildPradaDescriptionFields(detailDesc = '') {
   return sourceLocaleDescription(text, { defaultLang: 'en' });
 }
 
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropPradaFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   // `sourceCounts.parsed` (issue #7707): the post-parser, pre-pipeline count.
@@ -153,6 +166,7 @@ async function main() {
   sourceCounts.discovered = rawJobs.length;
   if (rawJobs.length === 0) {
     console.log('\u26a0\ufe0f No jobs found on Prada Group careers page. Keeping existing jobs.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 

@@ -56,6 +56,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -329,6 +330,18 @@ function updateAdapterConfig(seedUrls) {
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
+// The zero-job exits keep the stored slice: remove from it the text the
+// crawler once wrote, as the merge does (stored-jobs-soft-exit.mjs).
+function cleanStoredJobsOnSoftExit() {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => { for (const job of jobs) dropBpsSuisseFabricatedText(job); },
+    storedJobs: readExistingCrawlerJobs(BPS_KEY, DATA_JOBS).filter(isBpsJob),
+    companyKey: BPS_KEY,
+    companyLabel: BPS_COMPANY_NAME,
+    write: (jobs) => writeJobsCrawlerSlice(BPS_KEY, jobs),
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(BPS_KEY, 'BPS Suisse');
@@ -339,6 +352,7 @@ async function main() {
   const discoveredJobs = await fetchJobs();
   if (discoveredJobs.length === 0) {
     console.log('ℹ️ No BPS Suisse job URLs discovered. Exiting OK.');
+    await cleanStoredJobsOnSoftExit();
     return;
   }
 
