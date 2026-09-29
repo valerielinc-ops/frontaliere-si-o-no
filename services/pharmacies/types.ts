@@ -223,6 +223,10 @@ export interface PharmacySourceEntry extends PharmacySourceConfig {
   anagraficaPath?: string;
   /** Official source URL for the canonical anagraphic snapshot. */
   anagraficaSourceUrl?: string;
+  /** Canonical duty snapshot when the source uses a shared multi-canton file. */
+  dutiesPath?: string;
+  /** Snapshot key inside `dutiesPath`, when the file wraps several releases. */
+  dutiesKey?: string;
 }
 
 export interface PharmacySourcesRegistry {

@@ -105,6 +105,34 @@ export default function PharmacyDutyCoverageMatrix({
       </div>
     </section>
 
+    {matrix.operationalCantons.length > 0 && <section className="space-y-4" aria-labelledby="pharmacy-duty-coverage-operational-heading">
+      <div className="space-y-2">
+        <h3 id="pharmacy-duty-coverage-operational-heading" className="font-display text-xl font-bold text-heading">{copy.operationalHeading}</h3>
+        <p className="max-w-3xl text-sm leading-6 text-muted">{copy.operationalLede}</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {matrix.operationalCantons.map((canton) => <article key={canton.code} className="overflow-hidden rounded-2xl border border-edge bg-surface" data-coverage-kind="swiss-canton" data-canton-code={canton.code} data-canton-coverage-type={canton.coverageType} data-canton-release-id={canton.releaseId}>
+          <header className="border-b border-edge bg-surface-alt px-5 py-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h4 className="font-display text-lg font-bold text-heading">{canton.name} · {canton.coverageName}</h4>
+                <p className="text-xs font-semibold uppercase tracking-wide text-success">{copy.coverageTypeLabel(canton.coverageType)}</p>
+              </div>
+              <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={canton.sourceUrl} rel="nofollow noopener">{copy.openSource}<span aria-hidden="true"> ↗</span></a>
+            </div>
+          </header>
+          {canton.duties.length > 0
+            ? <ul className="divide-y divide-edge">
+              {canton.duties.map((duty) => <li key={duty.id} className="space-y-2 px-5 py-4" data-duty-id={duty.id} data-duty-canton={canton.code}>
+                <p className="text-sm font-semibold text-heading">{copy.pharmacy}: <span>{duty.pharmacyName}</span></p>
+                <p className="text-sm text-body"><span className="font-semibold">{copy.interval}:</span> <time dateTime={duty.startsAt}>{formatDutyDateTime(duty.startsAt)}</time> – <time dateTime={duty.endsAt}>{formatDutyDateTime(duty.endsAt)}</time></p>
+              </li>)}
+            </ul>
+            : <p className="px-5 py-4 text-sm text-muted" role="status">{copy.noIntervals}</p>}
+        </article>)}
+      </div>
+    </section>}
+
     <section className="space-y-4" aria-labelledby="pharmacy-duty-coverage-italy-heading">
       <div className="space-y-2">
         <h3 id="pharmacy-duty-coverage-italy-heading" className="font-display text-xl font-bold text-heading">{copy.italyHeading}</h3>
@@ -139,10 +167,10 @@ export default function PharmacyDutyCoverageMatrix({
 
     <section className="space-y-4" aria-labelledby="pharmacy-duty-coverage-source-only-heading">
       <div className="space-y-2">
-        <h3 id="pharmacy-duty-coverage-source-only-heading" className="font-display text-xl font-bold text-heading">{copy.sourceOnlyHeading}</h3>
+        <h3 id="pharmacy-duty-coverage-source-only-heading" className="font-display text-xl font-bold text-heading">{copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length)}</h3>
         <p className="max-w-3xl text-sm leading-6 text-muted">{copy.sourceOnlyLede}</p>
       </div>
-      <ul className="divide-y divide-edge border-y border-edge" aria-label={copy.sourceOnlyHeading}>
+      <ul className="divide-y divide-edge border-y border-edge" aria-label={copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length)}>
         {matrix.sourceOnlyCantons.map((canton) => <li key={canton.code} className="grid gap-4 px-1 py-4 sm:grid-cols-[minmax(10rem,1fr)_minmax(0,2fr)]" data-coverage-kind="source-only-canton" data-canton-code={canton.code} data-source-status={canton.status || 'unavailable'} data-source-type={canton.sourceType || 'unavailable'}>
           <div className="space-y-1">
             <h4 className="font-display text-lg font-semibold text-heading">{canton.name}</h4>

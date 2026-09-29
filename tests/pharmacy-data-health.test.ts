@@ -17,12 +17,14 @@ import {
   findBorderSourceMismatches,
   normalizeIdentityField,
   formatReport,
+  loadDatasets,
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
 import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import borderSources from '../data/pharmacy-border-sources.json';
 import borderDuties from '../data/pharmacy-duties-ticino.json';
+import liveSourceRegistry from '../data/pharmacy-sources-registry.json';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const PHARMACY_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'pharmacy-data-health-monitor.yml');
@@ -89,6 +91,13 @@ describe('evaluateCoverage', () => {
     expect(cov.cantonsWithDuties).toBe(0);
     expect(cov.byStatus).toEqual({ active: 1 });
     expect(cov.entries[0]).toMatchObject({ key: 'ticino', pharmacyCount: 2, cityCount: 2, regionsConfigured: 4 });
+  });
+});
+
+describe('loadDatasets', () => {
+  it('loads a shared Swiss canton duty snapshot through its registry path and key', () => {
+    const loaded = loadDatasets(liveSourceRegistry);
+    expect(loaded.duties.jura?.duties.length).toBeGreaterThan(0);
   });
 });
 

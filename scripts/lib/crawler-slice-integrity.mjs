@@ -325,6 +325,56 @@ function titleCompanyLocationKey(job) {
   return fields.every(Boolean) ? fields.join('|') : null;
 }
 
+/** The stable route key used by the expired-slice ghost reconciler. */
+function expiredEntryIdentity(entry) {
+  const slug = String(entry?.slug ?? '').trim();
+  if (slug) return slug;
+  const id = String(entry?.id ?? '').trim();
+  return id || null;
+}
+
+function uniqueExpiredEntryIdentities(entries) {
+  const identities = new Set();
+  for (const entry of entries) {
+    const identity = expiredEntryIdentity(entry);
+    if (!identity || identities.has(identity)) return null;
+    identities.add(identity);
+  }
+  return identities;
+}
+
+/** Build the same active-job index used by assemble-jobs-dataset's ghost pass. */
+function buildGhostActiveIndex(activeJobs) {
+  if (!Array.isArray(activeJobs) || activeJobs.length === 0) return null;
+  const activeByTCL = new Map();
+  const activeSlugSet = new Set();
+  for (const job of activeJobs) {
+    const key = `${(job?.title || '').toLowerCase().trim()}||${(job?.company || '').toLowerCase().trim()}||${(job?.location || '').toLowerCase().trim()}`;
+    if (!activeByTCL.has(key)) activeByTCL.set(key, job);
+    if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const slug of Object.values(job.slugByLocale)) activeSlugSet.add(slug);
+    }
+    for (const slug of job?.previousSlugs || []) activeSlugSet.add(slug);
+    if (job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const slugs of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(slugs)) for (const slug of slugs) activeSlugSet.add(slug);
+      }
+    }
+  }
+  return { activeByTCL, activeSlugSet };
+}
+
+function isGhostExpiredEntry(entry, activeIndex) {
+  const expiredSlugs = entry?.slugByLocale && typeof entry.slugByLocale === 'object'
+    ? Object.values(entry.slugByLocale)
+    : [];
+  const hasSlugOverlap = expiredSlugs.some((slug) => activeIndex.activeSlugSet.has(slug));
+  const key = `${(entry?.title || '').toLowerCase().trim()}||${(entry?.company || '').toLowerCase().trim()}||${(entry?.location || '').toLowerCase().trim()}`;
+  const match = activeIndex.activeByTCL.get(key);
+  const sameItSlug = match && entry?.slugByLocale?.it === match?.slugByLocale?.it;
+  return Boolean(match && (hasSlugOverlap || sameItSlug));
+}
+
 function terminalCountryCodes(location) {
   const entries = String(location ?? '')
     .split('|')
@@ -657,6 +707,43 @@ function isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, { re
   return proofEntries.some((entry) => isValidCrossCrawlerDedupEntry(entry, removedJob));
 }
 
+/**
+ * Prove the assembler's expired-ghost cleanup before allowing a large archive
+ * shrink. The proof is tied to the exact entries being removed: every removed
+ * entry must be named by the reconciler and independently match an active job
+ * by title/company/location plus a current or historical slug.
+ */
+export function isProvenGhostExpiredPrune(filePath, previousRaw, nextRaw, proof) {
+  if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const previousEntries = parseJobs(previousRaw);
+  const nextEntries = parseJobs(nextRaw);
+  if (!Array.isArray(previousEntries) || !Array.isArray(nextEntries) || previousEntries.length <= nextEntries.length) {
+    return false;
+  }
+
+  const previousIds = uniqueExpiredEntryIdentities(previousEntries);
+  const nextIds = uniqueExpiredEntryIdentities(nextEntries);
+  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) {
+    return false;
+  }
+
+  const removedEntries = previousEntries.filter((entry) => !nextIds.has(expiredEntryIdentity(entry)));
+  if (removedEntries.length !== previousEntries.length - nextEntries.length) return false;
+
+  const ghostEntryIds = new Set(
+    Array.isArray(proof?.ghostEntryIds)
+      ? proof.ghostEntryIds.map((value) => String(value ?? '').trim()).filter(Boolean)
+      : [],
+  );
+  const activeIndex = buildGhostActiveIndex(proof?.activeJobs);
+  if (ghostEntryIds.size === 0 || !activeIndex) return false;
+
+  return removedEntries.every((entry) => {
+    const identity = expiredEntryIdentity(entry);
+    return Boolean(identity && ghostEntryIds.has(identity) && isGhostExpiredEntry(entry, activeIndex));
+  });
+}
+
 /** `data/jobs/by-crawler/<key>.json` -> `data/jobs/expired/by-crawler/<key>.json`, or null. */
 export function pairedExpiredSlicePath(filePath) {
   const normalized = normalizedPath(filePath);
@@ -967,7 +1054,7 @@ export function assertCrawlerSliceWriteSafe(
   filePath,
   previousRaw,
   nextRaw,
-  { dedupReferenceJobs = null, housekeepingProof = null } = {},
+  { dedupReferenceJobs = null, housekeepingProof = null, expiredGhostProof = null } = {},
 ) {
   const previousBytes = Buffer.byteLength(String(previousRaw), 'utf8');
   const nextBytes = Buffer.byteLength(String(nextRaw), 'utf8');
@@ -982,6 +1069,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, dedupReferenceJobs)) {
     return { previousBytes, nextBytes, reason: 'proven-cross-crawler-dedup' };
+  }
+  if (isProvenGhostExpiredPrune(filePath, previousRaw, nextRaw, expiredGhostProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-ghost-expired-prune' };
   }
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
