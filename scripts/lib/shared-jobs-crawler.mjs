@@ -126,6 +126,7 @@ import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mj
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import { hasConcatenatedWords, hasUsableTitle } from './translation-quality.mjs';
+import { assessComposedFromInputs, assessVerbatimRestructure } from './ai-output-fidelity.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
@@ -1408,7 +1409,12 @@ function stripDescriptionBoilerplate(text) {
 //  • Only runs if the text is flat (no existing ## headings + \n\n)
 //  • Only runs if text ≥ 100 chars (short descriptions don't need it)
 //  • Returns original text on any failure (network, quota, malformed output)
-//  • Validates output length to avoid truncated results
+//  • Accepts an answer — fresh OR read back from the persistent cache — only if
+//    it is the input plus markdown (assessVerbatimRestructure in
+//    ai-output-fidelity.mjs): no reasoning preamble/prompt echo, ≥ 90 % of its
+//    tokens from the input, ≥ 90 % of the input's tokens kept. The old "≥ 70 %
+//    of the input length" check let a model's 12 000-character reasoning
+//    through (swiss-medical-network montchoisi-motionlab, 2026-09).
 
 /** @type {number} */
 let structureDescriptionCalls = 0;
@@ -1435,6 +1441,18 @@ export function resolveLocalePromptContext(sourceLang) {
   };
 }
 
+// Every heading the prompts suggest, in every locale: answers produced before
+// the prompts were localized carry Italian headings on German text, and the
+// model may pick any of them. They are structure, not added content.
+const _SECTION_HEADING_VOCABULARY = [...new Set(
+  Object.values(_LOCALE_SECTION_HEADINGS).flatMap((h) => Object.values(h)),
+)];
+
+/** Formatter invariant for one (input, answer) pair — see ai-output-fidelity.mjs. */
+function assessStructuredDescription(rawText, answer) {
+  return assessVerbatimRestructure(rawText, answer, { headingVocabulary: _SECTION_HEADING_VOCABULARY });
+}
+
 async function structureJobDescription(rawText, sourceLang = 'it') {
   if (!rawText || rawText.length < 100) return rawText;
   const { langName } = resolveLocalePromptContext(sourceLang);
@@ -1442,7 +1460,15 @@ async function structureJobDescription(rawText, sourceLang = 'it') {
   const cacheKey = buildAiCacheKey('structure-desc-v2', [rawText, sourceLang]);
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {
-    return fromCache === AI_CACHE_RAW_SENTINEL ? rawText : fromCache;
+    if (fromCache === AI_CACHE_RAW_SENTINEL) return rawText;
+    // The cache travels between runs (actions/cache, rolling key) and an entry
+    // never expires while it is being read, so an answer accepted by the old
+    // length-only check would be replayed — and re-translated — forever. The
+    // invariant applies to what the cache returns exactly as to a fresh answer.
+    const cachedVerdict = assessStructuredDescription(rawText, fromCache);
+    if (cachedVerdict.ok) return fromCache;
+    deleteCachedAiResponse(cacheKey);
+    console.warn(`  ⚠️ structureJobDescription: dropped cached answer (${cachedVerdict.reason})`);
   }
 
   // Already has markdown structure → skip
@@ -1492,11 +1518,14 @@ ${rawText}`;
     }
     // Strip code fences if the model wrapped output; sanitize control chars
     const cleaned = _sanitizeAiOutput(result).replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
-    // Validate: output should be at least 70% of input length (guard against truncation)
-    if (cleaned.length >= rawText.length * 0.7) {
+    // Validate: the answer must be the input plus markdown — this also covers
+    // truncation (token recall) that the old 70 %-length check was for.
+    const verdict = assessStructuredDescription(rawText, cleaned);
+    if (verdict.ok) {
       setCachedAiResponse(cacheKey, cleaned);
       return cleaned;
     }
+    console.warn(`  ⚠️ structureJobDescription: rejected AI answer (${verdict.reason}) — keeping the source text`);
   } catch { /* ignore — return original */ }
   setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
   return rawText;
@@ -1514,6 +1543,10 @@ ${rawText}`;
 //  • Only runs if additional structured data is available
 //  • Returns original description on any failure
 //  • Rate-limited to ENRICH_THIN_MAX_PER_RUN per crawler run
+//  • Accepts an answer — fresh or cached — only without a reasoning preamble
+//    and with every sentence/bullet anchored in the data it was given
+//    (assessComposedFromInputs in ai-output-fidelity.mjs): the prompt forbids
+//    inventing information, and nothing else enforced it.
 
 /** @type {number} */
 let enrichThinCalls = 0;
@@ -1543,9 +1576,24 @@ async function aiEnrichThinDescription(job, sourceLangHint) {
     workPercentage,
     sourceLang,
   ]);
+  // Everything the prompt below carries: a composed sentence must be anchored
+  // in at least one of these.
+  const composeInputs = [
+    job.title, job.company, job.location, job.contract, desc,
+    ...responsibilities, ...requirements, ...benefits, workPercentage,
+  ].map((x) => String(x || ''));
+  const assessComposed = (answer) => assessComposedFromInputs(composeInputs, answer, {
+    allowedWords: _SECTION_HEADING_VOCABULARY,
+  });
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {
-    return fromCache === AI_CACHE_RAW_SENTINEL ? job.description : fromCache;
+    if (fromCache === AI_CACHE_RAW_SENTINEL) return job.description;
+    // Same replay hazard as structureJobDescription: a cached answer is
+    // re-judged, and one that fails is dropped and recomputed.
+    const cachedVerdict = assessComposed(fromCache);
+    if (cachedVerdict.ok) return fromCache;
+    deleteCachedAiResponse(cacheKey);
+    console.warn(`  ⚠️ aiEnrichThinDescription: dropped cached answer (${cachedVerdict.reason})`);
   }
 
   // Already rich enough → skip
@@ -1625,8 +1673,12 @@ ${contextParts.join('\n\n')}`;
     const cleaned = _sanitizeAiOutput(result).replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
     // Must be at least as long as original and reasonably sized
     if (cleaned.length >= desc.length && cleaned.length >= 200) {
-      setCachedAiResponse(cacheKey, cleaned);
-      return cleaned;
+      const verdict = assessComposed(cleaned);
+      if (verdict.ok) {
+        setCachedAiResponse(cacheKey, cleaned);
+        return cleaned;
+      }
+      console.warn(`  ⚠️ aiEnrichThinDescription: rejected AI answer (${verdict.reason}) — keeping the source text`);
     }
   } catch { /* ignore — return original */ }
   setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
@@ -6740,6 +6792,13 @@ export { main as runSharedCrawlerPipeline };
 // in-memory Map that must be reset between test cases (#3080).
 export const __testables = {
   aiValidateJobDetailPage,
+  // AI formatter/composer and the cache they read back from (fidelity guard).
+  structureJobDescription,
+  aiEnrichThinDescription,
+  enrichJobLocales,
+  buildAiCacheKey,
+  getCachedAiResponse,
+  AI_CACHE_RAW_SENTINEL,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
   crawlWorkdayJobs,
