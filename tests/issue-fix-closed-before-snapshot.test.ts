@@ -11,9 +11,10 @@ import YAML from 'yaml';
 // verificabile». Una issue chiusa e' «niente da fare», non un guasto.
 
 type Step = { id?: string; name?: string; if?: string; run?: string };
+type Job = { if?: string; outputs?: Record<string, string>; steps: Step[] };
 
 const workflowSource = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
-const workflow = YAML.parse(workflowSource) as { jobs: { fix: { steps: Step[] } } };
+const workflow = YAML.parse(workflowSource) as { jobs: { risk_policy: Job; fix: Job } };
 const steps = workflow.jobs.fix.steps;
 const snapshotIndex = steps.findIndex((step) => step.id === 'issue_snapshot');
 const snapshotStep = steps[snapshotIndex];
@@ -103,5 +104,53 @@ describe('issue-fix: issue chiusa fra label e snapshot', () => {
       if (step.id) gatedIds.add(step.id);
     }
     expect(ungated).toEqual([]);
+  });
+});
+
+// Il gemello nel job `risk_policy` (run 36272477075): #9934 chiusa da un commit
+// alle 21:16:56 e `agent:fix` riapplicata alle 21:18:23. Il jq del preflight
+// pretendeva OPEN e il job usciva 5 prima ancora di arrivare al job `fix`.
+describe('issue-fix: issue chiusa prima del preflight risk_policy', () => {
+  const riskStep = workflow.jobs.risk_policy.steps.find((step) => step.id === 'risk')!;
+
+  function runRisk(issueJson: Record<string, unknown>) {
+    const dir = mkdtempSync(join(tmpdir(), 'issue-fix-risk-'));
+    tempDirs.push(dir);
+    writeFileSync(join(dir, 'issue.json'), JSON.stringify(issueJson));
+    const outputFile = join(dir, 'github-output');
+    writeFileSync(outputFile, '');
+    const fakeGh = 'gh() { [ "$1 $2" = "issue view" ] && cat "$RUNNER_TEMP/issue.json"; }\n';
+    const result = spawnSync('bash', ['-c', fakeGh + riskStep.run!], {
+      encoding: 'utf8',
+      env: {
+        PATH: process.env.PATH,
+        RUNNER_TEMP: dir,
+        GITHUB_OUTPUT: outputFile,
+        REPO: 'valerielinc-ops/frontaliere-si-o-no',
+        ISSUE_NUMBER: '9934',
+      },
+    });
+    return { status: result.status, stdout: result.stdout, output: readFileSync(outputFile, 'utf8') };
+  }
+
+  it('chiude verde con closed=true, senza decisione ne\' fingerprint', () => {
+    const result = runRisk(issue({ number: 9934, state: 'CLOSED' }));
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('::notice::issue #9934 chiusa prima del preflight: niente da fare');
+    expect(result.output).toBe('closed=true\n');
+  });
+
+  it('resta fail-closed se il numero non combacia, anche con stato chiuso', () => {
+    const result = runRisk(issue({ number: 9935, state: 'CLOSED' }));
+    expect(result.status).not.toBe(0);
+    expect(result.output).toBe('');
+  });
+
+  it('espone closed come output del job e il job fix lo rispetta', () => {
+    expect(workflow.jobs.risk_policy.outputs?.closed).toBe('${{ steps.risk.outputs.closed }}');
+    // Senza questa clausola `blocked` vuoto passerebbe `!= 'true'` e il job
+    // `fix` partirebbe con un fingerprint vuoto, fallendo nello snapshot.
+    expect(workflow.jobs.fix.if).toContain("needs.risk_policy.outputs.closed != 'true'");
+    expect(workflow.jobs.fix.if).toContain("needs.risk_policy.outputs.blocked != 'true'");
   });
 });
