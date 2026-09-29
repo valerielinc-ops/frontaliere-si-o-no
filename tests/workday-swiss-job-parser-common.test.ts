@@ -426,7 +426,8 @@ describe('createWorkdaySwissParser — detail URL is required for vacancy identi
         }), { status: 200 });
       }
       detailCalls.push(urlStr);
-      return new Response('', { status: 404 });
+      // A real vacancy body: a req without one is not published (issue 5253).
+      return new Response(JSON.stringify({ jobPostingInfo: { jobDescription: ROLE_BODY } }), { status: 200 });
     });
 
     const parser = createWorkdaySwissParser({
@@ -496,7 +497,9 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
           ],
         }), { status: 200 });
       }
-      return new Response('', { status: 404 });
+      // A body without a structured location: the listing's own locality
+      // decides, and a req without a body is not published (issue 5253).
+      return new Response(JSON.stringify({ jobPostingInfo: { jobDescription: ROLE_BODY } }), { status: 200 });
     });
 
     const parser = createWorkdaySwissParser({
@@ -854,7 +857,7 @@ describe('createWorkdaySwissParser — canton-only segments', () => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     mockFacetTenant(
       [{ title: 'Quality Engineer Production', externalPath: '/job/Conters-Graubunden/Quality-Engineer_JR10665', locationsText: 'Conters, Graubunden', bulletFields: ['JR10665'] }],
-      { '/job/Conters-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Conters, Graubunden', country: { descriptor: 'Switzerland' } } },
+      { '/job/Conters-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Conters, Graubunden', country: { descriptor: 'Switzerland' }, jobDescription: ROLE_BODY } },
     );
     const jobs = await makeParser().fetchAllJobs();
     expect(jobs).toHaveLength(1);
@@ -866,7 +869,7 @@ describe('createWorkdaySwissParser — canton-only segments', () => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     mockFacetTenant(
       [{ title: 'Quality Engineer Production', externalPath: '/job/Seewis-Graubunden/Quality-Engineer_JR10665', locationsText: 'Seewis, Graubunden', bulletFields: ['JR10665'] }],
-      { '/job/Seewis-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Seewis, Graubunden', country: { descriptor: 'Switzerland' } } },
+      { '/job/Seewis-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Seewis, Graubunden', country: { descriptor: 'Switzerland' }, jobDescription: ROLE_BODY } },
     );
     const jobs = await makeParser().fetchAllJobs();
     expect(jobs.map((job: any) => [job.location, job.canton])).toEqual([['Seewis', 'GR']]);
