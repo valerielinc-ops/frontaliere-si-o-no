@@ -293,6 +293,7 @@ describe('corpus retention discipline (#5330)', () => {
       expect(typeof on.gcFreed).toBe('number');
       expect(logs.some((line) =>
         line.includes(`candidate=${named}`) && line.includes('gcFreed='))).toBe(true);
+      expect(logs.some((line) => line.includes(`candidate=${named} gcFreed=`))).toBe(true);
     } finally {
       console.log = originalLog;
     }
