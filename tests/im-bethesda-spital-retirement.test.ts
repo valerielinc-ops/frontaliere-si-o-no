@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { migrateRetiredImBethesdaJobs } from '../scripts/migrate-retired-im-bethesda-spital.mjs';
 
 const ROOT = process.cwd();
 const readJson = <T>(relativePath: string): T =>
@@ -50,5 +51,59 @@ describe('retired duplicate crawler im-bethesda-spital', () => {
     ]) {
       expect(readFileSync(resolve(ROOT, relativePath), 'utf8')).not.toContain('update-im-bethesda-spital-jobs');
     }
+  });
+
+  it('moves every retired route onto the canonical crawler without losing one', () => {
+    const PAGE = 'https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html';
+    const canonical = [{
+      id: 'bethesda-spital-f45b429950e8',
+      url: 'https://recruitingapp-2998.umantis.com/Vacancies/415/Description/1',
+      title: 'Oberärztin / Oberarzt Klinik für Frauenmedizin (60 - 100%)',
+      company: 'Bethesda Spital',
+      companyKey: 'bethesda-spital',
+      companyDomain: 'bethesda-spital.ch',
+      source: 'Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)',
+      slug: 'oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-bethesda-spital-basel',
+      slugByLocale: { de: 'oberarztin-oberarzt-klinik-fur-frauenmedizin-60-100-bethesda-spital-basel' },
+    }];
+    const retired = [
+      {
+        id: 'im-bethesda-spital-aaa',
+        url: `${PAGE}#job-b68fafd8c3cf`,
+        title: canonical[0].title,
+        company: '& im Bethesda Spital',
+        companyKey: 'im-bethesda-spital',
+        slug: 'oberarztin-oberarzt-klinik-per-frauenmedizin-60-100-im-bethesda-spital-basel',
+        slugByLocale: { it: 'oberarztin-oberarzt-klinik-per-frauenmedizin-60-100-im-bethesda-spital-basel' },
+      },
+      {
+        // On listing page 2 only: absent from the canonical slice until the
+        // paginated crawl, so it is rehomed with the factory's id/url.
+        id: 'im-bethesda-spital-bbb',
+        url: `${PAGE}#job-f8eccc37df02`,
+        title: 'Assistenzärztin/Assistenzarzt Klinik Rheumatologie und Schmerzmedizin 100%',
+        company: '& im Bethesda Spital',
+        companyKey: 'im-bethesda-spital',
+        slug: 'assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel',
+        slugByLocale: { it: 'assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel' },
+      },
+    ];
+
+    const result = migrateRetiredImBethesdaJobs(canonical, retired);
+
+    expect(result.collapsed).toBe(1);
+    expect(result.rehomed).toBe(1);
+    expect(result.routesAfter).toBe(result.routesBefore);
+    expect(result.jobs).toHaveLength(2);
+    expect(result.jobs[0].previousSlugsByLocale?.it).toContain(retired[0].slugByLocale.it);
+    expect(result.jobs[1]).toMatchObject({
+      companyKey: 'bethesda-spital',
+      company: 'Bethesda Spital',
+      url: 'https://recruitingapp-2998.umantis.com/Vacancies/328/Description/1',
+      applyUrl: 'https://recruitingapp-2998.umantis.com/Vacancies/328/Application/CheckLogin/1',
+      slug: retired[1].slug,
+    });
+    expect(() => migrateRetiredImBethesdaJobs(canonical, [{ ...retired[0], url: `${PAGE}#job-unknown` }]))
+      .toThrow(/unknown retired record/);
   });
 });
