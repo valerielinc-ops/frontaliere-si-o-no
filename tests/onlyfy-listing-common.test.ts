@@ -1,5 +1,12 @@
-import { describe, it, expect } from 'vitest';
-import { parseOnlyfyListing } from '../scripts/lib/onlyfy-listing-common.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import {
+  parseOnlyfyListing,
+  onlyfyFullAdUrl,
+  extractOnlyfyJobAdText,
+} from '../scripts/lib/onlyfy-listing-common.mjs';
+import { fetchAllSpitexZuerichJobs } from '../scripts/lib/spitex-zuerich-job-parser.mjs';
 
 // Redesigned onlyfy.jobs card markup (2026). Both spitex-zuerich and
 // vitrea-gesundheit sit on this portal; the old `<strong class="job-title">`
@@ -78,4 +85,74 @@ describe('parseOnlyfyListing', () => {
       j.url.match(/\/job\/([a-z0-9-]+)/i)?.[1] || j.url;
     expect(matchKey(rows[0])).toBe('abc123-def456-ghi789');
   });
+});
+
+// Job-ad documents fetched live on 2026-09-29 (`/job/show/{handle}/full`),
+// minimized; contact persons replaced by placeholders. The public detail URL
+// is a client-rendered shell whose server HTML has no role text.
+const readFixture = (tenant: string) => fs.readFileSync(
+  path.join(__dirname, 'fixtures', tenant, 'job-ad-full.html'),
+  'utf8',
+);
+
+describe('onlyfyFullAdUrl', () => {
+  it('maps a public detail URL to its ad document', () => {
+    expect(onlyfyFullAdUrl('https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls'))
+      .toBe('https://spitex-zuerich.onlyfy.jobs/job/show/ypv2le9p78ygmhn2pogybj1gphgx2ls/full?lang=de&mode=candidate');
+    expect(onlyfyFullAdUrl('https://vamed-ag-ch.onlyfy.jobs/job/abc123-def456'))
+      .toBe('https://vamed-ag-ch.onlyfy.jobs/job/show/abc123-def456/full?lang=de&mode=candidate');
+  });
+
+  it('returns an empty string for anything that is not a job URL', () => {
+    expect(onlyfyFullAdUrl('https://spitex-zuerich.onlyfy.jobs/')).toBe('');
+    expect(onlyfyFullAdUrl('not a url')).toBe('');
+  });
+});
+
+describe('extractOnlyfyJobAdText', () => {
+  it('reads the prescreen template ad (spitex-zuerich) without buttons or contact card', () => {
+    const text = extractOnlyfyJobAdText(readFixture('spitex-zuerich'));
+    expect(text.startsWith('Es freut uns, dass du dich für einen Praktikumsplatz')).toBe(true);
+    expect(text).toContain('WARUM ES SICH LOHNT, BEI UNS DEIN PRAKTIKUM ZU ABSOLVIEREN\n• Auf deinen aktuellen Bildungsstand');
+    expect(text).toContain('DAS ERWARTET DICH BEI UNS\n• Ressourcen- und zielorientierte');
+    expect(text).toContain('DU BRINGST MIT\n• Abschluss des Studiums Bachelor of Science in Pflege FH');
+    expect(text).not.toMatch(/Bändliweg|bewegte-jobs|\+41 00 000/);
+    expect(text).not.toMatch(/^•\s*$/m);
+  });
+
+  it('reads the component template ad (vitrea-gesundheit) up to the apply button, never the hidden StepStone copy', () => {
+    const text = extractOnlyfyJobAdText(readFixture('vitrea-gesundheit'));
+    expect(text).toContain('Darauf darfst du dich freuen:\n• Pflegeteam aktiv und vorbildlich');
+    expect(text).toContain('Darüber freuen wir uns:\n• Abgeschlossene Ausbildung als Pflegefachperson auf Tertiärstufe');
+    expect(text).toContain('Darum Rehaklinik Zihlschlacht:');
+    expect(text).not.toMatch(/Jetzt bewerben|Fragen zum Bewerbungsprozess|Vorname Nachname|Einleitung/);
+    // One copy of the ad, not the visible one plus the StepStone export.
+    expect(text.match(/Darauf darfst du dich freuen/g)).toHaveLength(1);
+  });
+
+  it('returns an empty string for a page without an ad template', () => {
+    expect(extractOnlyfyJobAdText('<html><body><main>Alle Jobs</main></body></html>')).toBe('');
+  });
+});
+
+describe('fetchAllSpitexZuerichJobs', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('publishes the ad from the job-ad document, not the synthesised stub', async () => {
+    const listing = NEW_MARKUP;
+    const requested: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      requested.push(String(url));
+      const body = String(url).includes('/job/show/') ? readFixture('spitex-zuerich') : listing;
+      return new Response(body, { status: 200, headers: { 'content-type': 'text/html' } });
+    }));
+    const jobs = await fetchAllSpitexZuerichJobs();
+    expect(jobs).toHaveLength(2);
+    expect(requested).toContain('https://spitex-zuerich.onlyfy.jobs/job/show/m6pttk2bqih13nqd4pbab9zfy4ntcpd/full?lang=de&mode=candidate');
+    expect(jobs[0].description.startsWith('Es freut uns, dass du dich')).toBe(true);
+    expect(jobs[0].description).toContain('• Arbeitszeit: Teilzeit / Vollzeit');
+    expect(jobs[0].description).not.toMatch(/Bewerbung über das softgarden|gemeinnützige Non-Profit-Organisation/);
+  }, 20000);
 });

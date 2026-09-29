@@ -101,8 +101,16 @@ jobs:
       # silenzio. Per questo il confine ora e' un lookback fisso.
       # Misurato: 35 run rosse consecutive sul sito (161,6 h), 34 sul corpus.
       # Emette collection_ok, batch_prs (csv), batch_count, deferred_count,
-      # max_turns e daily_key (Europe/Zurich). collection_ok è distinto dal batch
+      # max_turns, daily_key (Europe/Zurich) e quarantined_prs/quarantined_count.
+      # collection_ok è distinto dal batch
       # vuoto: un errore di raccolta non può essere interpretato come "nessuna PR".
+      # Quarantena (run 36461728260, 36495756021, 36520419253): una PR con marker
+      # la cui persistenza è `false` in modo definitivo da oltre 6h esce dal
+      # batch, perché Codex la salterebbe per il marker e la verifica resterebbe
+      # rossa a ogni run. Resta visibile: `::warning::`, riga nello step summary,
+      # output `quarantined_prs` e issue «Post-merge follow-up: marker di triage
+      # in quarantena» (github-issue-creator, un solo commento per PR). Un
+      # verdetto `null` (lettura indisponibile) resta in retry.
       # Vedi scripts/ci/collect-followup-batch.mjs.
       - name: Collect follow-up batch
         id: collect
