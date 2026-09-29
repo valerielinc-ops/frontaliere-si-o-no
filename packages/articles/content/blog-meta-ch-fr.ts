@@ -7010,6 +7010,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finma-conclude-julius-baer.title': 'Affaire Signa, la FINMA clôt la procédure concernant Julius Bär',
     'blog.article.finma-conclude-julius-baer.excerpt': 'L\'autorité de surveillance clôt le dossier lié au groupe immobilier Signa. 250 millions de francs de capital supplémentaire et de nouveaux rapports sur les risques sont requis.',
     'blog.article.finma-conclude-julius-baer.imageAlt': 'Siège d\'une institution bancaire dans le quartier financier de Zurich',
+    'blog.article.stadler-nomina-nuovo-ceo.title': 'Stadler Rail : Philipp Brunner sera le nouveau CEO à partir de 2027',
+    'blog.article.stadler-nomina-nuovo-ceo.excerpt': 'Changement à la tête du groupe ferroviaire suisse : Philipp Brunner succède à Markus Bernsteiner à compter du 1° gennaio 2027. Chiffre d\'affaires semestriel à 2 milliards.',
+    'blog.article.stadler-nomina-nuovo-ceo.imageAlt': 'Train moderne Stadler dans un paysage suisse',
 };
 
 export default blogMetaChFr;

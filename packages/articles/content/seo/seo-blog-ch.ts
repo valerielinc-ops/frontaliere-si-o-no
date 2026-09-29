@@ -90890,6 +90890,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stadler-nomina-nuovo-ceo': {
+    title: 'Stadler Rail: Philipp Brunner sarà il nuovo CEO dal 2027',
+    description: 'Cambio al vertice per il costruttore ferroviario Stadler: Philipp Brunner nominato nuovo CEO a partire dal 1° gennaio 2027. Dati economici e prospettive.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stadler, rail, philipp, brunner',
+    ogTitle: 'Stadler Rail: Philipp Brunner nuovo CEO dal 2027',
+    ogDescription: 'Il gruppo ferroviario svizzero Stadler annuncia la successione al vertice: Philipp Brunner prenderà il posto di Markus Bernsteiner dal 2027. Analisi dei risultati finanziari 2026.',
+    canonicalPath: '/articoli-svizzera/stadler-nomina-nuovo-ceo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stadler Rail: Philipp Brunner sarà il nuovo CEO dal 2027",
+      "description": "Cambio al vertice per il costruttore ferroviario Stadler: Philipp Brunner nominato nuovo CEO a partire dal 1° gennaio 2027. Dati economici e prospettive.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stadler-nomina-nuovo-ceo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno moderno Stadler in un paesaggio svizzero"
+      },
+      "datePublished": "2026-09-29T07:01:35+00:00",
+      "dateModified": "2026-09-29T07:01:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stadler-nomina-nuovo-ceo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
