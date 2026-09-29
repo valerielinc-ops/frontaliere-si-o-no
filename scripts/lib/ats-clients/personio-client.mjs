@@ -54,6 +54,13 @@
  * same helper Decathlon/Straumann use for the identical "listing carries
  * only metadata" pattern, AGENTS.md rule #6). Tenants whose feed already
  * carries full descriptions still need the detail request for address data.
+ *
+ * RENDERED PAGE FIRST (lotto F, #5253): that same detail response is now the
+ * primary description source. The job page's rendered blocks are the full
+ * vacancy — company block included, in the language the published URL shows
+ * — while the feed sections omit the company block and can be in another
+ * language. Feed sections, then JSON-LD, remain the fallbacks when the page
+ * renders no recognisable block (see `extractPersonioRenderedJob`).
  */
 
 import { XMLParser } from 'fast-xml-parser';
@@ -62,6 +69,7 @@ import {
   extractJobPostingAddress,
   extractJobPostingDescription,
 } from '../jobposting-jsonld.mjs';
+import { decodeEntities, extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
 
 /* ── Constants ───────────────────────────────────────────────── */
 
@@ -170,8 +178,92 @@ export function normalizePersonioJob(rawPosition, options = {}) {
   };
 }
 
-async function fetchPersonioJobDetailData(url, options = {}) {
-  if (!url) return { descriptionHtml: '', locationDetail: null };
+/**
+ * Read the vacancy exactly as the public job page `/job/{id}` renders it:
+ * the title heading plus every content block, in page order.
+ *
+ * WHY THE RENDERED PAGE, NOT THE FEED (lotto F, #5253). The page is the URL
+ * we publish, and it differs from both machine-readable surfaces:
+ *   - it carries the tenant's company block (`detail-content-block-about-us`,
+ *     «Über uns» / «About us»), which the XML feed and `search.json` do not
+ *     return as a job section — felfel, kellerhals-carrard, lalive and
+ *     sune-egge were all publishing without it;
+ *   - it renders ONE language chosen by Personio, independent of
+ *     `Accept-Language`, while `/xml` without `?language=` answers in the
+ *     tenant's feed language. felfel 2342381 exists in DE and EN: the feed
+ *     gave the German body, the published URL shows the English one — same
+ *     vacancy, two languages, 0.11 word overlap with its own page;
+ *   - `search.json?language=de` returns an EMPTY description for a position
+ *     that only exists in English (kellerhals-carrard 2811560), so the parser
+ *     fell back to a 244-character placeholder;
+ *   - the JSON-LD `description` is absent on several `.jobs.personio.com`
+ *     tenants (amina, lalive) and on others carries empty headings.
+ * Blocks are matched on Personio's stable semantic classes
+ * (`jb-description-item`, `detail-content-block-about-us`,
+ * `detail-block-title`, `rich-text-content`), never on the hashed CSS-module
+ * names (`page_jobDescriptionItem__eMzRv`) that change with every build.
+ *
+ * @param {string} html
+ * @returns {{ title: string, descriptionHtml: string }}
+ */
+export function extractPersonioRenderedJob(html = '') {
+  const source = String(html || '');
+  const titleMatch = /<h1\b[^>]*\bclass=["'][^"']*\bjob-position-title\b[^"']*["'][^>]*>([\s\S]*?)<\/h1>/i.exec(source);
+  const title = titleMatch
+    ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ' ')))
+    : '';
+  const parts = [];
+  const blockRe = /<div\b[^>]*\bclass=["'][^"']*\b(?:jb-description-item|detail-content-block-about-us)\b[^"']*["'][^>]*>/gi;
+  let block;
+  while ((block = blockRe.exec(source)) !== null) {
+    const inner = extractBalancedTagBlock(source.slice(block.index + block[0].length), 'div', 200_000);
+    const heading = /<h2\b[^>]*\bclass=["'][^"']*\bdetail-block-title\b[^"']*["'][^>]*>([\s\S]*?)<\/h2>/i.exec(inner);
+    const name = heading ? normalizeSpace(decodeEntities(heading[1].replace(/<[^>]+>/g, ' '))) : '';
+    const body = /<div\b[^>]*\bclass=["'][^"']*\brich-text-content\b[^"']*["'][^>]*>/i.exec(inner);
+    const value = body
+      ? normalizeSpace(extractBalancedTagBlock(inner.slice(body.index + body[0].length), 'div', 200_000))
+      : '';
+    if (!value.replace(/<[^>]+>/g, '').trim()) continue;
+    parts.push(name ? `## ${name}\n\n${value}` : value);
+  }
+  return { title, descriptionHtml: parts.join('\n\n').trim() };
+}
+
+/**
+ * Choose the title/body pair a parser publishes for one position.
+ *
+ * The published URL is the job page, so its rendered body — company block
+ * included, in the language the page actually shows — wins whenever the page
+ * rendered one; the title follows it so title and body never disagree on
+ * language. Otherwise the listing's own fields (XML sections or `search.json`
+ * description) are kept, and the JSON-LD description only fills an empty one.
+ *
+ * @param {{ title?: string, renderedDescriptionHtml?: string, descriptionHtml?: string }} detail
+ *   result of `fetchPersonioJobDetailData`
+ * @param {{ title?: string, descriptionHtml?: string }} listing fields from the feed
+ * @returns {{ title: string, descriptionHtml: string }}
+ */
+export function preferRenderedPersonioContent(detail, listing = {}) {
+  const title = String(listing?.title || '');
+  if (detail?.renderedDescriptionHtml) {
+    return { title: detail.title || title, descriptionHtml: detail.renderedDescriptionHtml };
+  }
+  return { title, descriptionHtml: listing?.descriptionHtml || detail?.descriptionHtml || '' };
+}
+
+/**
+ * Fetch one public job page and return everything the per-company parsers
+ * read from it: the rendered vacancy (title + full body, see
+ * `extractPersonioRenderedJob`), the JSON-LD description fallback and the
+ * JSON-LD workplace address.
+ *
+ * @param {string} url public `/job/{id}` URL (`.jobs.personio.de` or `.com`)
+ * @param {{ timeoutMs?: number, userAgent?: string }} [options]
+ * @returns {Promise<{ title: string, renderedDescriptionHtml: string, descriptionHtml: string, locationDetail: object|null }>}
+ */
+export async function fetchPersonioJobDetailData(url, options = {}) {
+  const empty = { title: '', renderedDescriptionHtml: '', descriptionHtml: '', locationDetail: null };
+  if (!url) return empty;
   const { timeoutMs = DEFAULT_TIMEOUT_MS, userAgent = POLITE_UA } = options;
   try {
     const res = await httpFetchWithRetry(
@@ -179,25 +271,50 @@ async function fetchPersonioJobDetailData(url, options = {}) {
       { headers: { 'User-Agent': userAgent, Accept: 'text/html' } },
       { timeout: timeoutMs, label: `personio detail ${url}` },
     );
-    if (!res.ok) return { descriptionHtml: '', locationDetail: null };
+    if (!res.ok) return empty;
     const html = await res.text();
+    const rendered = extractPersonioRenderedJob(html);
     return {
+      title: rendered.title,
+      renderedDescriptionHtml: rendered.descriptionHtml,
       descriptionHtml: extractJobPostingDescription(html),
       locationDetail: extractJobPostingAddress(html),
     };
   } catch {
-    return { descriptionHtml: '', locationDetail: null };
+    return empty;
   }
+}
+
+/**
+ * `search.json` flavour of the same preference, for the parsers that read
+ * Personio's JSON listing (`{ id, name, description, office, … }`) instead of
+ * the XML feed: fetch the record's public job page and return the record with
+ * `name`/`description` taken from what that page renders. Call it only for a
+ * record the parser keeps, so tenant-wide listings (sune-egge filters one
+ * office out of a multi-site tenant) do not pay a request per foreign row.
+ *
+ * @param {Record<string, any>} record one `search.json` entry
+ * @param {string} publicUrl the `/job/{id}` URL the parser publishes
+ * @param {{ timeoutMs?: number, userAgent?: string }} [options]
+ * @returns {Promise<Record<string, any>>}
+ */
+export async function withRenderedPersonioPage(record, publicUrl, options = {}) {
+  const detail = await fetchPersonioJobDetailData(publicUrl, options);
+  const { title, descriptionHtml } = preferRenderedPersonioContent(detail, {
+    title: record?.name,
+    descriptionHtml: record?.description,
+  });
+  return { ...record, name: title, description: descriptionHtml };
 }
 
 /**
  * Fetch and parse every open position from a Personio tenant's public XML
  * feed. Single request, no pagination.
  *
- * Positions whose `<jobDescriptions>` came back empty in the feed get a
- * second, per-position request to their public detail page to recover the
- * real description (see module doc, #3497) — tenants whose feed is already
- * fully populated pay zero extra requests.
+ * Every position with a public URL gets a second request to its detail page:
+ * the rendered page body replaces the feed sections when present, the JSON-LD
+ * description fills an empty feed otherwise, and the JSON-LD address is
+ * always read (see module doc, #3497 and #5253).
  *
  * @param {string} subdomain e.g. "felfel", "yapeal-ag", "igroove"
  * @param {Object} [options]
@@ -251,7 +368,7 @@ export async function fetchPersonioJobs(subdomain, options = {}) {
   for (const job of jobs) {
     if (!job.applyUrl) continue;
     const detail = await fetchPersonioJobDetailData(job.applyUrl, { timeoutMs, userAgent });
-    if (!job.descriptionHtml) job.descriptionHtml = detail.descriptionHtml;
+    Object.assign(job, preferRenderedPersonioContent(detail, job));
     job.locationDetail = detail.locationDetail;
   }
 
