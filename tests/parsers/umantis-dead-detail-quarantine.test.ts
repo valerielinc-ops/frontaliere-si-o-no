@@ -140,7 +140,7 @@ describe('createUmantisListingParser — quarantine vs hard-fail', () => {
     + '<li>Sie betreuen Patientinnen und Patienten ganzheitlich und planen die Pflege gemeinsam mit dem interprofessionellen Team</li>'
     + '<li>Sie übernehmen die Tagesverantwortung auf der Station und begleiten Lernende und Studierende in ihrer Ausbildung</li>'
     + '<li>Sie verfügen über ein Diplom als Pflegefachperson HF oder FH und bringen Freude an der Arbeit im Team mit</li>'
-    + '<li>Wir bieten fortschrittliche Anstellungsbedingungen, Weiterbildung und ein wertschätzendes Arbeitsumfeld</li></ul></li></body></html>`;
+    + '<li>Wir bieten fortschrittliche Anstellungsbedingungen, Weiterbildung und ein wertschätzendes Arbeitsumfeld</li></ul></li></body></html>';
 
   function makeFactory() {
     return createUmantisListingParser({
