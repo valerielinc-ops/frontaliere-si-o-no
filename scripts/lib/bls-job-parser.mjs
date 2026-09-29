@@ -14,7 +14,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { fetchHtml as sharedFetchHtml, slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -202,24 +202,14 @@ function normalizeApiJobUrl(rawUrl = '') {
  */
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,*/*',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return sharedFetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml,*/*',
+      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
 }
 
 /**

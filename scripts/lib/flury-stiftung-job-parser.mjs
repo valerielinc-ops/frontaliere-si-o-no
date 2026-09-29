@@ -20,7 +20,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -184,23 +184,14 @@ function extractPensum(title = '') {
  */
 async function fetchListingPage() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(CAREER_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'de-CH,de;q=0.9',
+    },
+  });
 }
 
 /**

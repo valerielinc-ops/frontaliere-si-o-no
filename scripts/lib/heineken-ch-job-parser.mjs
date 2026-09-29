@@ -30,7 +30,7 @@
  *   - HEINEKEN_CH_KEY / HEINEKEN_CH_COMPANY_NAME / HEINEKEN_CH_COMPANY_DOMAIN
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
@@ -539,18 +539,13 @@ async function fetchListingRows(context) {
 async function fetchListingRowsHttp() {
   let html;
   try {
-    const res = await fetch(LISTING_URL, {
+    html = await fetchHtml(LISTING_URL, {
       headers: {
         'User-Agent': BROWSER_UA,
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'de,de-CH;q=0.9,en;q=0.8',
       },
     });
-    if (!res.ok) {
-      console.warn(`⚠️ Heineken HTTP listing fallback: HTTP ${res.status}`);
-      return [];
-    }
-    html = await res.text();
   } catch (err) {
     console.warn(`⚠️ Heineken HTTP listing fallback failed: ${err?.message || err}`);
     return [];

@@ -24,7 +24,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { fetchHtml, slugify } from './crawler-template.mjs';
 import {
   USER_AGENT,
   decodeEntities,
@@ -103,19 +103,13 @@ async function postListing({ offset = 0, limit = 100, lang = 'de', timeoutMs } =
 
 async function fetchDetail(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
   try {
-    const res = await fetch(url, {
+    return await fetchHtml(url, {
+      timeoutMs: t,
       headers: { Accept: 'text/html,application/xhtml+xml,*/*', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
   } catch (err) {
     return '';
-  } finally {
-    clearTimeout(timer);
   }
 }
 

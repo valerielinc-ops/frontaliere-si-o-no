@@ -17,8 +17,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -166,24 +165,14 @@ function detectExperienceLevel(title = '') {
  */
 async function fetchListingPage() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from listing page`);
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), CAREER_URL, { timeoutMs });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(CAREER_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'de-CH,de;q=0.9',
+    },
+  });
 }
 
 /**
@@ -271,24 +260,14 @@ export function parseJobCards(html = '') {
  */
 async function fetchDetailPage(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from detail page: ${url}`);
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'de-CH,de;q=0.9',
+    },
+  });
 }
 
 /**

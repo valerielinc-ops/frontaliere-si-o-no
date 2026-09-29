@@ -19,7 +19,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
 const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
@@ -80,22 +80,14 @@ export function extractLombardiJobsFromHtml(html) {
  * Fetch and parse the listing page to extract the embedded _jobs JSON.
  */
 export async function parseLombardiListingPage(timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(LISTING_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
-    return extractLombardiJobsFromHtml(html);
-  } finally {
-    clearTimeout(timer);
-  }
+  const html = await fetchHtml(LISTING_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html',
+      'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
+  return extractLombardiJobsFromHtml(html);
 }
 
 /**
@@ -233,23 +225,17 @@ export function parseLombardiDetailHtml(html) {
  */
 export async function parseLombardiDetailPage(annuncioId, timeoutMs = 15000) {
   const url = `${DETAIL_URL}${annuncioId}`;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    const html = await fetchHtml(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html',
         'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) return null;
-    const html = await res.text();
     return parseLombardiDetailHtml(html);
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 

@@ -51,7 +51,7 @@ import {
   ALDI_SEARCH_API,
 } from './lib/aldi-suisse-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -230,21 +230,14 @@ async function fetchAndParseDetailPages(listings) {
     const batch = listings.slice(i, i + concurrency);
     const results = await Promise.allSettled(
       batch.map(async (listing) => {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
         try {
-          const res = await fetch(listing.url, {
-            signal: controller.signal,
+          const html = await fetchHtml(listing.url, {
+            timeoutMs,
             headers: { Accept: 'text/html', 'User-Agent': UA },
-            redirect: 'follow',
           });
-          if (!res.ok) return null;
-          const html = await res.text();
           return { listing, html };
         } catch {
           return null;
-        } finally {
-          clearTimeout(timer);
         }
       })
     );
