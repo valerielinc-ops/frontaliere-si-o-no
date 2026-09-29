@@ -24,8 +24,8 @@
  *
  * Both metrics use the same target-market filter as the hourly revenue monitor.
  * This keeps a foreign bot fleet from inflating the active-user denominator
- * without changing the revenue numerator; the country scope is included in
- * the JSON output so every alert states what was measured.
+ * without corresponding ad revenue; the country scope is included in the JSON
+ * output so every alert states what was measured.
  *
  * Auth: same 3-legged OAuth2 pattern as scripts/user-value-report.mjs and
  * scripts/canary-rpm.mjs (load via scripts/load-rc-env.mjs in CI, or:
