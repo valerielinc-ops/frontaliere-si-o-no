@@ -2617,6 +2617,26 @@ describe('source detail on a document several postings share (ehnv, klinik-gut)'
     expect(summary.sharedDocumentSamples).toEqual({ fragmentAnchored: 0, clientRoute: 0, anchorMissing: 1 });
   });
 
+  it('resolves every non-text fragment as an element id before calling it an app route', async () => {
+    // HTML ids may contain `/`, `=`, `?`, `&` or start with a digit.
+    const text = 'source text long enough to compare '.repeat(8);
+    const [route] = await check(text, 'https://x.test/#offer/4094', `<html><body><div id="offer/4094">${text}</div><div id="offer/4095">${role('Andere').repeat(3)}</div></body></html>`);
+    expect(route.sourceScope).toBe('fragment-anchor');
+    expect(route.descriptionMismatch).toBe(false);
+    expect(fragmentAnchoredBlock(`<section id="4367"><p>${text}</p></section>`, 'https://x.test/jobs#4367')).toContain('source text');
+    expect(fragmentAnchoredBlock(`<li id="job?id=7&amp;lang=de">${text}</li>`, 'https://x.test/jobs#job?id=7&lang=de')).toContain('source text');
+    // absent from the page: a path or key=value is an app route (informational),
+    // anything else is an anchor the page does not have (WARNING)
+    expect(fragmentKind('https://x.test/#offer/4094')).toBe('client-route');
+    expect(fragmentKind('https://x.test/#job.id=3137592')).toBe('client-route');
+    expect(fragmentKind('https://x.test/#4367')).toBe('anchor');
+    expect(fragmentKind('https://x.test/#job-a,b')).toBe('anchor');
+    const [absent] = await check(text, 'https://x.test/#offer/4094', '<html><body><div id="app"></div></body></html>');
+    expect(absent.sourceScope).toBe('client-route');
+    const [missing] = await check(text, 'https://x.test/jobs#4367', '<html><body><p>Liste</p></body></html>');
+    expect(missing.sourceScope).toBe('anchor-missing');
+  });
+
   it('addresses a heading-per-ad list page through a text fragment (klinik-seeschau)', async () => {
     // Joomla list: every ad is an <h2> + body, no id, no per-ad URL.
     const page = `<html><body><main><ul>

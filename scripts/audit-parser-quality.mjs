@@ -1339,17 +1339,20 @@ export function sharedSourceDocuments(jobs = []) {
 }
 
 /**
- * What a fragment on a shared document is. A route of a single-page app
- * (`offer/4094/…`, `fr/sites/CX_1/job/5725`, `position,id=…`, `job.id=…`)
- * carries separators an element id is never written with; the page has no
- * static place for the posting at all. Anything else is an anchor: it names,
- * or claims to name, an element of the page.
+ * What a fragment on a shared document is, once `fragmentAnchoredBlock` has
+ * found no element with that id in the fetched page (an HTML id may contain
+ * `/`, `=`, `?`, `&` or start with a digit, so the syntax alone never decides
+ * that a fragment is not an element). A fragment written as a path or a
+ * key=value pair (`offer/4094/…`, `fr/sites/CX_1/job/5725`, `position,id=…`,
+ * `job.id=…`, `!/…`) and absent from the page is the route of a single-page
+ * app: the page has no static place for the posting. Anything else absent
+ * from the page is an anchor the page does not have.
  */
 export function fragmentKind(url = '') {
   const fragment = urlFragment(url);
   if (!fragment) return 'none';
   if (fragment.startsWith(':~:text=')) return 'text-fragment';
-  return /^[A-Za-z][\w:.-]*$/.test(fragment) ? 'anchor' : 'client-route';
+  return /[/=]/.test(fragment) || fragment.startsWith('!') ? 'client-route' : 'anchor';
 }
 
 /**
@@ -1392,10 +1395,15 @@ export function textFragmentBlock(html = '', url = '') {
  */
 export function fragmentAnchoredBlock(html = '', url = '') {
   const fragment = urlFragment(url);
-  if (!fragment || !/^[A-Za-z][\w:.-]*$/.test(fragment)) return '';
+  // An HTML id is any non-empty string without whitespace: `offer/4094`,
+  // `4367` and `a&b` are all valid, so the id is looked up in the page for
+  // every fragment that is not a text directive. In the markup `&` may be
+  // written `&amp;`.
+  if (!fragment || fragment.startsWith(':~:') || /\s/.test(fragment)) return '';
   const source = String(html || '');
-  const escaped = fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const opening = new RegExp(`<([a-z][a-z0-9]*)\\b[^>]*\\bid\\s*=\\s*["']${escaped}["'][^>]*>`, 'i').exec(source);
+  const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const spellings = [...new Set([fragment, fragment.replace(/&/g, '&amp;')])].map(escape).join('|');
+  const opening = new RegExp(`<([a-z][a-z0-9]*)\\b[^>]*\\bid\\s*=\\s*["'](?:${spellings})["'][^>]*>`, 'i').exec(source);
   if (!opening || /\/\s*>$/.test(opening[0])) return '';
   const tag = opening[1].toLowerCase();
   const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
