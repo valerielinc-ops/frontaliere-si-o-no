@@ -21310,6 +21310,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'soletta-successione-donazione-aliquote',
+    category: 'fiscale',
+    date: '2026-09-29T20:00:46.355Z',
+    image: '/images/blog/soletta-successione-donazione-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

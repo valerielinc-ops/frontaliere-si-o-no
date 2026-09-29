@@ -7094,6 +7094,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Primes santé: le ras-le-bol des lecteurs',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'Au Tessin, la hausse des primes pour 2027 compte parmi les plus modérées, mais la prime moyenne dépasse 500 francs. La hausse cumulée sur quatre ans dépasserait 40%.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Personne au Tessin examinant les factures d\'assurance maladie avec vue sur Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Soleure : taux des droits de succession et de donation sans impôt fédéral',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'À Soleure, la compétence est exclusivement cantonale et communale ; AFC/ESTV ne gère pas ce prélèvement.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Paysage du canton de Soleure avec collines et agglomérations',
 };
 
 export default blogMetaChFr;

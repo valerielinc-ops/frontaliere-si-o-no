@@ -7094,6 +7094,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.title': 'Health insurance premiums, readers vent: «The same words every year»',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.excerpt': 'In Ticino, the premium increase for 2027 is among the most limited, but the average premium exceeds 500 francs. The cumulative increase over four years would exceed 40%.',
     'blog.article.premi-cassa-malati-ticino-rincaro-lettori.imageAlt': 'Person in Ticino examining health insurance bills with a view of Lugano.',
+    'blog.article.soletta-successione-donazione-aliquote.title': 'Solothurn: inheritance and gift tax rates without federal tax',
+    'blog.article.soletta-successione-donazione-aliquote.excerpt': 'In Solothurn, responsibility lies exclusively with the canton and municipalities; AFC/ESTV does not administer this tax.',
+    'blog.article.soletta-successione-donazione-aliquote.imageAlt': 'Solothurn canton landscape with hills and settlements',
 };
 
 export default blogMetaChEn;

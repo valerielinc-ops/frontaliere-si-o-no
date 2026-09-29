@@ -91982,6 +91982,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soletta-successione-donazione-aliquote': {
+    title: 'Soletta: aliquote successione e donazione senza imposta federale',
+    description: 'In Soletta, le aliquote di successione e donazione sono di competenza cantonale e comunale. AFC/ESTV non gestisce questo prelievo. Scopri come verificare',
+    keywords: 'frontalieri, ticino, svizzera, italia, soletta, aliquote, successione, donazione',
+    ogTitle: 'Soletta: aliquote successione e donazione senza imposta federale',
+    ogDescription: 'In Svizzera non esiste un\'imposta federale su successioni e donazioni. Nel Cantone di Soletta, la competenza è esclusivamente cantonale e comunale. Il Comune applica un moltiplicatore sull\'aliquota cantonale. Verifica la normativa specifica',
+    canonicalPath: '/articoli-svizzera/soletta-successione-donazione-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Soletta: aliquote successione e donazione senza imposta federale",
+      "description": "In Soletta, le aliquote di successione e donazione sono di competenza cantonale e comunale. AFC/ESTV non gestisce questo prelievo. Scopri come verificare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-successione-donazione-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del Cantone di Soletta con colline e centri abitati"
+      },
+      "datePublished": "2026-09-29T20:00:46+00:00",
+      "dateModified": "2026-09-29T20:00:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-successione-donazione-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
