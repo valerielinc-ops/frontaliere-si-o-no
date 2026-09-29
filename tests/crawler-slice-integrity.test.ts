@@ -13,6 +13,7 @@ import {
   isProvenCrossCrawlerDedupPrune,
   isProvenGhostExpiredPrune,
   isProvenGhostExpiredReconciliation,
+  isProvenExpiredRouteCollapse,
   isProvenHousekeepingPrune,
   isProvenRetiredScratchArchiveDelete,
   isSafeBuehlerForeignPruneJobs,
@@ -919,6 +920,274 @@ describe('crawler slice integrity guard', () => {
     expect(() => assertCrawlerSliceWriteSafe(proof.path, previous, next, {
       housekeepingProof: proof,
     })).toThrow(/catastrophic truncation avoided/);
+  });
+
+  it('keeps locale-only retranslation proof separate from a foreign locale owner', () => {
+    const activeMatch = {
+      url: 'https://example.test/active-a',
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+      slugByLocale: {
+        de: 'store-manager-zurich-new',
+        en: 'store-manager-zurich-canonical',
+      },
+    };
+    const removed = {
+      url: 'https://example.test/expired',
+      title: activeMatch.title,
+      company: activeMatch.company,
+      location: activeMatch.location,
+      slugByLocale: {
+        de: 'store-manager-zurich-old',
+        en: 'store-manager-zurich-canonical',
+      },
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      url: 'https://example.test/retained',
+      title: 'Visual Merchandiser',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+      description: 'retained',
+    };
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const validProof = {
+      schemaVersion: 1,
+      type: 'ghost-expired-reconciliation',
+      path: filePath,
+      baseRaw: previous,
+      candidateRaw: next,
+      entries: [{
+        expired: removed,
+        match: activeMatch,
+        overlapSlug: 'store-manager-zurich-canonical',
+        overlapJob: activeMatch,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, previous, next, validProof)).toBe(true);
+
+    const foreignOwner = {
+      url: 'https://example.test/active-b',
+      title: 'Different title',
+      company: 'Different company',
+      location: 'Lugano',
+      slugByLocale: { de: 'foreign-owner-slug' },
+    };
+    const foreignRemoved = {
+      ...removed,
+      slugByLocale: { de: 'foreign-owner-slug' },
+    };
+    const foreignPrevious = prettyJson([foreignRemoved, retained]);
+    const foreignNext = prettyJson([retained]);
+    const foreignProof = {
+      ...validProof,
+      baseRaw: foreignPrevious,
+      candidateRaw: foreignNext,
+      entries: [{
+        ...validProof.entries[0],
+        expired: foreignRemoved,
+        overlapSlug: 'foreign-owner-slug',
+        overlapJob: foreignOwner,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, foreignPrevious, foreignNext, foreignProof)).toBe(false);
+
+    const nonStringMatch = {
+      ...activeMatch,
+      slugByLocale: { de: {}, fr: 'active-slug' },
+    };
+    const nonStringRemoved = {
+      ...removed,
+      slugByLocale: { de: {}, fr: 'expired-slug' },
+    };
+    const nonStringPrevious = prettyJson([nonStringRemoved, retained]);
+    const nonStringProof = {
+      ...validProof,
+      baseRaw: nonStringPrevious,
+      candidateRaw: next,
+      entries: [{
+        expired: nonStringRemoved,
+        match: nonStringMatch,
+        overlapSlug: null,
+        overlapJob: null,
+      }],
+    };
+
+    expect(isProvenGhostExpiredReconciliation(filePath, nonStringPrevious, next, nonStringProof)).toBe(false);
+  });
+
+  it('combines a proven ghost prune with the later expired-route canonicalization', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-expired-route-collapse-'));
+    const fileLabel = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const filePath = join(root, fileLabel);
+    const previousPath = join(root, 'previous.json');
+    const basePath = join(root, 'base.json');
+    const nextPath = join(root, 'next.json');
+    const routeProofPath = join(root, 'route-proof.json');
+    const proofDir = join(root, 'proofs');
+    const ghost = {
+      companyKey: 'rituals-cosmetics',
+      slug: 'legacy-stockist-route',
+      title: 'Stockist (h/f)',
+      company: 'Rituals Cosmetics Switzerland',
+      location: 'Carouge',
+      slugByLocale: { it: 'legacy-stockist-route' },
+      description: 'x'.repeat(1_100_000),
+    };
+    const duplicateA = {
+      companyKey: 'rituals-cosmetics',
+      slug: 'current-stockist-route',
+      slugByLocale: { it: 'current-stockist-route' },
+      previousSlugsByLocale: { it: ['shared-stockist-route'] },
+      expiredAt: '2026-09-28T10:00:00.000Z',
+      description: 'kept',
+    };
+    const duplicateB = {
+      companyKey: 'rituals-cosmetics',
+      slug: 'legacy-stockist-route-2',
+      slugByLocale: { it: 'legacy-stockist-route-2' },
+      previousSlugsByLocale: { it: ['shared-stockist-route'] },
+      expiredAt: '2026-09-27T10:00:00.000Z',
+      description: 'y'.repeat(10_000),
+    };
+    const previous = json([ghost, duplicateA, duplicateB]);
+    const base = json([duplicateA, duplicateB]);
+    const activeJobs = [{
+      title: ghost.title,
+      company: ghost.company,
+      location: ghost.location,
+      slugByLocale: { it: 'current-stockist-route' },
+      previousSlugs: [ghost.slug],
+    }];
+    const ghostProof = {
+      schemaVersion: 1,
+      type: 'ghost-expired-reconciliation',
+      path: fileLabel,
+      baseRaw: previous,
+      candidateRaw: base,
+      entries: [{
+        expired: ghost,
+        match: activeJobs[0],
+        overlapSlug: ghost.slug,
+        overlapJob: activeJobs[0],
+      }],
+    };
+
+    try {
+      mkdirSync(join(root, 'data/jobs/expired/by-crawler'), { recursive: true });
+      writeFileSync(filePath, base);
+      writeFileSync(previousPath, previous);
+      writeFileSync(basePath, base);
+      execFileSync(process.execPath, [
+        resolve(import.meta.dirname, '../scripts/ci/canonicalize-expired-archive-slice.mjs'),
+        filePath,
+        fileLabel,
+        routeProofPath,
+      ], { encoding: 'utf8' });
+      const next = readFileSync(filePath, 'utf8');
+      writeFileSync(nextPath, next);
+      const routeProof = JSON.parse(readFileSync(routeProofPath, 'utf8'));
+
+      expect(isProvenExpiredRouteCollapse(
+        fileLabel,
+        previous,
+        next,
+        base,
+        routeProof,
+        ghostProof,
+      )).toBe(true);
+      expect(assertCrawlerSliceWriteSafe(fileLabel, previous, next, {
+        canonicalizationBaseRaw: base,
+        canonicalizationProof: routeProof,
+        housekeepingProof: ghostProof,
+      }).reason).toBe('proven-expired-route-collapse');
+
+      const unrelatedPrevious = json([
+        {
+          ...ghost,
+          slug: 'unrelated-large-row',
+          title: 'Unrelated large row',
+          slugByLocale: { it: 'unrelated-large-row' },
+        },
+        duplicateA,
+        duplicateB,
+      ]);
+      expect(() => assertCrawlerSliceWriteSafe(fileLabel, unrelatedPrevious, next, {
+        canonicalizationBaseRaw: base,
+        canonicalizationProof: routeProof,
+        housekeepingProof: ghostProof,
+      })).toThrow(/catastrophic truncation avoided/);
+
+      const unprovenFiller = {
+        companyKey: 'unrelated-company',
+        slug: 'unproven-intermediate-row',
+        slugByLocale: { it: 'unproven-intermediate-row' },
+        description: 'z'.repeat(300_000),
+      };
+      const unprovenPrevious = json([ghost, unprovenFiller, duplicateA, duplicateB]);
+      const unprovenBase = json([unprovenFiller, duplicateA, duplicateB]);
+      const unprovenBasePath = join(root, 'unproven-base.json');
+      const unprovenRouteProofPath = join(root, 'unproven-route-proof.json');
+      writeFileSync(unprovenBasePath, unprovenBase);
+      execFileSync(process.execPath, [
+        resolve(import.meta.dirname, '../scripts/ci/canonicalize-expired-archive-slice.mjs'),
+        unprovenBasePath,
+        fileLabel,
+        unprovenRouteProofPath,
+      ], { encoding: 'utf8' });
+      const unprovenNext = readFileSync(unprovenBasePath, 'utf8');
+      const unprovenRouteProof = JSON.parse(readFileSync(unprovenRouteProofPath, 'utf8'));
+      expect(() => assertCrawlerSliceWriteSafe(fileLabel, unprovenPrevious, unprovenNext, {
+        canonicalizationBaseRaw: unprovenBase,
+        canonicalizationProof: unprovenRouteProof,
+      })).toThrow(/catastrophic truncation avoided/);
+
+      const env = {
+        GITHUB_RUN_ID: 'expired-route-proof-run',
+        GITHUB_RUN_ATTEMPT: '1',
+      };
+      expect(writeHousekeepingProofFile(filePath, [{
+        operation: 'reconcile-ghost-expired',
+        removedCount: 1,
+      }], {
+        baseRaw: previous,
+        candidateRaw: base,
+        metadata: ghostProof,
+        proofDir,
+        cwd: root,
+        baseSha: 'expired-route-proof-head',
+        env,
+      })).toBe(true);
+      const housekeepingPath = join(proofDir, `${fileLabel}.housekeeping-proof.json`);
+      const cliPath = resolve(import.meta.dirname, '../scripts/lib/crawler-slice-integrity.mjs');
+      const cli = execFileSync(process.execPath, [
+        cliPath,
+        fileLabel,
+        previousPath,
+        nextPath,
+        housekeepingPath,
+        '-',
+        basePath,
+        basePath,
+        routeProofPath,
+      ], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          ...env,
+          HOUSEKEEPING_BASE_SHA: 'expired-route-proof-head',
+        },
+      });
+      expect(cli).toContain('allowed proven-expired-route-collapse');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('writes source-verified shrink evidence in the sidecar format used by the commit guard', () => {

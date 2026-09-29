@@ -45,7 +45,14 @@ import {
 mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/cerbios-pharma-job-parser.mjs';
+import {
+  parseListingPage,
+  parseDetailPage,
+  buildJob,
+  stripHtml,
+  CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE,
+} from './lib/cerbios-pharma-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -133,7 +140,14 @@ function jobMatchKey(job = {}) {
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isCompanyJob(job));
-  const targetExisting = existing.filter(isCompanyJob);
+  // Same cleanup as `prepareExistingJobs` of the standard pipeline: remove
+  // the builder's former paragraph (and the translations made from it) from
+  // the stored jobs, which the merge below would otherwise keep.
+  const targetExisting = dropFabricatedDescriptions(
+    existing.filter(isCompanyJob),
+    CERBIOS_PHARMA_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

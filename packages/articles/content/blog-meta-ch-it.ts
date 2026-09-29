@@ -7061,6 +7061,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-armi-industria-difesa.title': 'Armi, esportazioni più facili: voto il 29 novembre',
     'blog.article.voto-armi-industria-difesa.excerpt': 'Il Consiglio federale sostiene la revisione della legge sul materiale bellico: il voto è previsto il 29 novembre per rafforzare industria e posti di lavoro.',
     'blog.article.voto-armi-industria-difesa.imageAlt': 'Stabilimento industriale svizzero con bandiera nazionale sul dibattito per l\'export di armi.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Investimenti immobiliari: fiducia buona, Ticino negativo',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'Nel 2026 lo SRESI segna 47,5 punti, giù dai 69,5 del 2025; Ticino e Lugano in territorio negativo, mentre Zurigo, Svizzera centrale e Lago Lemano guidano le aspettative di aumento.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Vista aerea di Lugano con lago, montagne e edifici residenziali moderni, luce mattutina soffusa',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.title': 'Premi cassa malati 2027 in Ticino: +3,7% e EFAS dal 2028',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.excerpt': 'Lukas Engelberger: il sistema è buono e costa. In Ticino i premi salgono del 3,7%, con EFAS atteso dal 2028.',
+    'blog.article.lucas-engelberger-premi-cassa-malati-2027.imageAlt': 'Corridoio di un ospedale svizzero a Berna, luce naturale e atmosfera professionale',
 };
 
 export default blogMetaChIt;

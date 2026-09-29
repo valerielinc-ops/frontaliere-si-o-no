@@ -71,6 +71,10 @@ export function parseCsvpListing(html) {
   return out;
 }
 
+/** Fragments only the crawler's former footer wrote. */
+export const CSVP_POSCHIAVO_FABRICATED_DESCRIPTION_RE =
+  /(?:^|\n)Dettagli \(PDF\): https?:|Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo \(GR\)\./;
+
 export async function fetchAllCsvpPoschiavoJobs() {
   console.log(`🏥 Fetching ${CSVP_POSCHIAVO_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
@@ -89,7 +93,9 @@ export async function fetchAllCsvpPoschiavoJobs() {
     // postings happened to carry a richer inline intro, but IT/admin roles put
     // everything in the PDF and would otherwise trip the boilerplate guard
     // (#1393-class: 1/1 jobs boilerplate-only). Falls back to the thin intro if
-    // the PDF is unreachable/image-only.
+    // the PDF is unreachable/image-only. Only the source's own text is
+    // published: the crawler no longer adds "Dettagli (PDF): …" or a line on
+    // the hospital (`CSVP_POSCHIAVO_FABRICATED_DESCRIPTION_RE`).
     let pdfText = '';
     if (it.pdfUrl) {
       try {
@@ -99,20 +105,10 @@ export async function fetchAllCsvpPoschiavoJobs() {
         console.warn(`   ⚠️ PDF extraction failed for ${it.pdfUrl}: ${err?.message || err}`);
       }
     }
-    const description = buildPdfBackedDescription({
-      introLines: [it.intro],
-      pdfText,
-      fallbackText: it.intro,
-      footerLines: [
-        it.pdfUrl ? `Dettagli (PDF): ${it.pdfUrl}` : '',
-        'Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).',
-      ].filter(Boolean),
-    });
-    // Detect the source locale from the stable Italian listing fields (title +
-    // intro), NOT the now-PDF-backed description: a German-leaning PDF could
-    // otherwise flip sourceLang to 'de' and route the text to descriptionByLocale.de
-    // while the boilerplate guard reads descriptionByLocale.it.
-    const sourceLang = detectLang(`${title} ${it.intro || ''}`.trim() || description, 'it');
+    const description = buildPdfBackedDescription({ pdfText, fallbackText: it.intro });
+    // The description is keyed by its own language (a German PDF goes to `de`);
+    // without any text, by the language of the Italian listing fields.
+    const sourceLang = detectLang(description || `${title} ${it.intro || ''}`.trim(), 'it');
     const jobSlug = slugify(`${title} ${CSVP_POSCHIAVO_KEY} poschiavo`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({

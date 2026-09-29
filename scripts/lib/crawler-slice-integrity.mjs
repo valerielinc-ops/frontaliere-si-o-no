@@ -9,6 +9,7 @@ import {
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { localeMapKey } from './locale-map-diff.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
 const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
@@ -70,6 +71,12 @@ const BUEHLER_LEGACY_FOREIGN_LOCATION_KEYS = new Set([
 
 function normalizedPath(filePath) {
   return String(filePath ?? '').replace(/\\/g, '/');
+}
+
+function proofPathMatches(filePath, proofPath) {
+  const normalizedFile = normalizedPath(filePath);
+  const normalizedProof = normalizedPath(proofPath);
+  return normalizedFile === normalizedProof || normalizedFile.endsWith(`/${normalizedProof}`);
 }
 
 function sha256(raw) {
@@ -241,12 +248,20 @@ export function loadCrossCrawlerDedupProofFile(
  *
  * @param {string} slicePath
  * @param {unknown[]} entries
- * @param {{baseRaw?: string, candidateRaw?: string, proofDir?: string, env?: NodeJS.ProcessEnv, cwd?: string, baseSha?: string}} [options]
+ * @param {{baseRaw?: string, candidateRaw?: string, proofDir?: string, env?: NodeJS.ProcessEnv, cwd?: string, baseSha?: string, metadata?: object}} [options]
  */
 export function writeHousekeepingProofFile(
   slicePath,
   entries,
-  { baseRaw, candidateRaw, proofDir, env = process.env, cwd = process.cwd(), baseSha = '' } = {},
+  {
+    baseRaw,
+    candidateRaw,
+    proofDir,
+    env = process.env,
+    cwd = process.cwd(),
+    baseSha = '',
+    metadata = null,
+  } = {},
 ) {
   if (!Array.isArray(entries) || entries.length === 0) return false;
   if (typeof baseRaw !== 'string' || typeof candidateRaw !== 'string') return false;
@@ -273,6 +288,7 @@ export function writeHousekeepingProofFile(
       baseSha: resolvedBaseSha,
       runId,
       runAttempt,
+      ...(metadata && typeof metadata === 'object' && !Array.isArray(metadata) ? { metadata } : {}),
       entries,
     }, null, 2)}\n`, 'utf8');
     fs.renameSync(temporaryPath, target.proofPath);
@@ -356,6 +372,15 @@ function expiredEntryIdentity(entry) {
   if (slug) return slug;
   const id = String(entry?.id ?? '').trim();
   return id || null;
+}
+
+/** Identity shared with the expired-route canonicalization proof. */
+function expiredArchiveIdentity(entry) {
+  const slug = String(entry?.slug ?? '').trim();
+  if (slug) return `slug:${String(entry?.companyKey ?? '').trim()}:${slug}`;
+  const id = String(entry?.id ?? '').trim();
+  if (id) return `id:${id}`;
+  return `locale:${localeMapKey(entry?.slugByLocale)}`;
 }
 
 function uniqueExpiredEntryIdentities(entries) {
@@ -993,6 +1018,25 @@ function expiredGhostOverlapSlugs(job) {
   ));
 }
 
+function hasEqualNonEmptyLocaleSlug(left, right) {
+  const leftSlugs = left?.slugByLocale;
+  const rightSlugs = right?.slugByLocale;
+  if (
+    !leftSlugs
+    || typeof leftSlugs !== 'object'
+    || Array.isArray(leftSlugs)
+    || !rightSlugs
+    || typeof rightSlugs !== 'object'
+    || Array.isArray(rightSlugs)
+  ) return false;
+  return Object.entries(leftSlugs).some(([locale, value]) => {
+    if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+    const leftValue = value.trim();
+    const rightValue = rightSlugs[locale].trim();
+    return Boolean(leftValue && rightValue && leftValue === rightValue);
+  });
+}
+
 function isValidGhostExpiredProofEntry(entry, removedJob) {
   const expired = entry?.expired;
   const match = entry?.match;
@@ -1017,30 +1061,59 @@ function isValidGhostExpiredProofEntry(entry, removedJob) {
 
   const expiredItSlug = String(expired?.slugByLocale?.it ?? '').trim();
   const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
-  return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+  if (expiredItSlug || matchItSlug) {
+    return Boolean(expiredItSlug && matchItSlug && expiredItSlug === matchItSlug);
+  }
+  // The writer records the first active owner of every expired locale slug in
+  // overlapSlug/overlapJob. If no Italian slug is available, require an exact
+  // non-empty locale value rather than accepting a shared locale key alone.
+  return hasEqualNonEmptyLocaleSlug(expired, match);
+}
+
+function expiredGhostProofMetadata(proof) {
+  if (
+    proof
+    && typeof proof === 'object'
+    && !Array.isArray(proof)
+    && proof.schemaVersion === 1
+    && proof.type === 'ghost-expired-reconciliation'
+  ) {
+    return proof;
+  }
+  const metadata = proof?.metadata;
+  if (
+    metadata
+    && typeof metadata === 'object'
+    && !Array.isArray(metadata)
+    && metadata.schemaVersion === 1
+    && metadata.type === 'ghost-expired-reconciliation'
+  ) {
+    return metadata;
+  }
+  return null;
 }
 
 /**
  * Prove the narrow expired-slice rewrite performed by reconcileGhostExpired.
  *
  * The assembler removes only archived records that have a title/company/
- * location match with an active record and either share a reachable slug or
- * carry the exact same non-empty Italian slug. Bind the proof to the exact
- * before/after bytes and require the candidate to be an unchanged subset, so
- * a degraded reader or an unrelated archive rewrite remains fail-closed.
+ * location match with an active record and either share a reachable slug,
+ * carry the exact same non-empty Italian slug, or carry one exact non-empty
+ * non-Italian locale slug. Bind the proof to the exact before/after bytes and
+ * require the candidate to be an unchanged subset, so a degraded reader or
+ * an unrelated archive rewrite remains fail-closed.
  */
 export function isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, proof) {
   if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
-  if (!proof || typeof proof !== 'object' || Array.isArray(proof)) return false;
+  const ghostProof = expiredGhostProofMetadata(proof);
   if (
-    proof.schemaVersion !== 1
-    || proof.type !== 'ghost-expired-reconciliation'
-    || !pathMatchesProofTarget(filePath, proof.path)
-    || typeof proof.baseRaw !== 'string'
-    || typeof proof.candidateRaw !== 'string'
-    || proof.baseRaw !== previousRaw
-    || proof.candidateRaw !== nextRaw
-    || !Array.isArray(proof.entries)
+    !ghostProof
+    || !pathMatchesProofTarget(filePath, ghostProof.path)
+    || typeof ghostProof.baseRaw !== 'string'
+    || typeof ghostProof.candidateRaw !== 'string'
+    || ghostProof.baseRaw !== previousRaw
+    || ghostProof.candidateRaw !== nextRaw
+    || !Array.isArray(ghostProof.entries)
   ) {
     return false;
   }
@@ -1068,11 +1141,11 @@ export function isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRa
 
   const removedEntries = previousEntries.filter((entry) => !nextIds.has(ghostReconciliationEntryIdentity(entry)));
   if (removedEntries.length !== previousEntries.length - nextEntries.length) return false;
-  if (proof.entries.length !== removedEntries.length) return false;
+  if (ghostProof.entries.length !== removedEntries.length) return false;
 
   const removedById = new Map(removedEntries.map((entry) => [ghostReconciliationEntryIdentity(entry), entry]));
   const provenIds = new Set();
-  for (const entry of proof.entries) {
+  for (const entry of ghostProof.entries) {
     const identity = ghostReconciliationEntryIdentity(entry?.expired);
     if (!identity || provenIds.has(identity) || !removedById.has(identity)) return false;
     if (!isValidGhostExpiredProofEntry(entry, removedById.get(identity))) return false;
@@ -1086,6 +1159,171 @@ export function isProvenExpiredGhostPrune(filePath, previousRaw, nextRaw, proof)
   return isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, proof);
 }
 
+const EXPIRED_ROUTE_LOCALES = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Keep this byte-floor copy of the archive route contract independent from
+ * `expired-jobs-archive.mjs`: that writer imports `atomic-write-json.mjs`,
+ * which imports this guard. Importing the writer back here would create a
+ * cycle in the write path itself.
+ */
+function expiredLocaleRouteKeys(job = {}) {
+  const routes = new Set();
+  const previousByLocale = job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+    ? job.previousSlugsByLocale
+    : {};
+  const localeAwareAll = new Set(
+    Object.values(previousByLocale).flatMap((slugs) => (Array.isArray(slugs) ? slugs : [])),
+  );
+  const legacy = Array.isArray(job?.previousSlugs)
+    ? job.previousSlugs.filter((slug) => !localeAwareAll.has(slug))
+    : [];
+
+  for (const locale of EXPIRED_ROUTE_LOCALES) {
+    const localeSlug = job?.slugByLocale?.[locale];
+    const current = localeSlug || (locale === 'it' ? job?.slug : '');
+    if (current) routes.add(`${locale}:${current}`);
+    if (locale === 'it' && job?.slug && (!localeSlug || localeSlug === job.slug)) {
+      routes.add(`it:${job.slug}`);
+    }
+    for (const slug of (Array.isArray(previousByLocale[locale]) ? previousByLocale[locale] : [])) {
+      if (slug) routes.add(`${locale}:${slug}`);
+    }
+    for (const slug of legacy) {
+      if (slug) routes.add(`${locale}:${slug}`);
+    }
+  }
+  return routes;
+}
+
+function routeUnionDigest(entries) {
+  return sha256(JSON.stringify(
+    [...new Set(entries.flatMap((entry) => [...expiredLocaleRouteKeys(entry)]))].sort(),
+  ));
+}
+
+function uniqueArchiveIdentities(entries) {
+  const identities = entries.map(expiredArchiveIdentity);
+  if (
+    identities.some((identity) => !identity)
+    || new Set(identities).size !== identities.length
+  ) {
+    return null;
+  }
+  return identities;
+}
+
+/**
+ * Prove that a final expired-slice shrink includes a deterministic route
+ * canonicalization performed after a prior, separately-proven cleanup.
+ *
+ * `git-commit-data.sh` canonicalizes the merged candidate after assembly. The
+ * final byte-floor comparison therefore sees both transformations at once:
+ * the ghost removal (whose evidence is in the housekeeping sidecar) and the
+ * route collapse. The route proof binds the exact pre/post canonicalization
+ * snapshots and repeats the route-union check made by the canonicalizer;
+ * neither an arbitrary archive truncation nor an identity replacement can use
+ * this exception.
+ */
+export function isProvenExpiredRouteCollapse(
+  filePath,
+  previousRaw,
+  nextRaw,
+  canonicalizationBaseRaw,
+  routeProof,
+  housekeepingProof = null,
+) {
+  if (!EXPIRED_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const baseRaw = typeof canonicalizationBaseRaw === 'string'
+    ? canonicalizationBaseRaw
+    : routeProof?.baseDigest === sha256(previousRaw)
+      ? previousRaw
+      : null;
+  if (
+    !routeProof
+    || typeof routeProof !== 'object'
+    || Array.isArray(routeProof)
+    || routeProof.kind !== 'expired-route-collapse'
+    || typeof baseRaw !== 'string'
+    || routeProof.baseDigest !== sha256(baseRaw)
+    || routeProof.candidateDigest !== sha256(nextRaw)
+    || (routeProof.path && !proofPathMatches(filePath, routeProof.path))
+  ) {
+    return false;
+  }
+
+  const baseEntries = parseJobs(baseRaw);
+  const previousEntries = parseJobs(previousRaw);
+  const nextEntries = parseJobs(nextRaw);
+  if (!baseEntries || !previousEntries || !nextEntries) return false;
+
+  const baseIdentities = uniqueArchiveIdentities(baseEntries);
+  const nextIdentities = uniqueArchiveIdentities(nextEntries);
+  if (!baseIdentities || !nextIdentities || baseEntries.length <= nextEntries.length) return false;
+  if (
+    routeProof.baseEntryCount !== baseEntries.length
+    || routeProof.candidateEntryCount !== nextEntries.length
+    || routeProof.collapsed !== baseEntries.length - nextEntries.length
+    || !Array.isArray(routeProof.removedIdentities)
+    || routeProof.removedIdentities.length !== baseEntries.length - nextEntries.length
+    || new Set(routeProof.removedIdentities).size !== routeProof.removedIdentities.length
+  ) {
+    return false;
+  }
+
+  const baseIdentitySet = new Set(baseIdentities);
+  const nextIdentitySet = new Set(nextIdentities);
+  if ([...nextIdentitySet].some((identity) => !baseIdentitySet.has(identity))) return false;
+  const removedIdentities = baseIdentities.filter((identity) => !nextIdentitySet.has(identity));
+  const proofRemovedIdentitySet = new Set(routeProof.removedIdentities);
+  if (
+    removedIdentities.length !== routeProof.removedIdentities.length
+    || removedIdentities.some((identity) => !proofRemovedIdentitySet.has(identity))
+  ) {
+    return false;
+  }
+
+  const baseRoutes = new Set(baseEntries.flatMap((entry) => [...expiredLocaleRouteKeys(entry)]));
+  const nextRoutes = new Set(nextEntries.flatMap((entry) => [...expiredLocaleRouteKeys(entry)]));
+  if (
+    baseRoutes.size === 0
+    || baseRoutes.size !== nextRoutes.size
+    || [...baseRoutes].some((route) => !nextRoutes.has(route))
+    || routeProof.routeCount !== baseRoutes.size
+    || routeProof.routeDigest !== routeUnionDigest(baseEntries)
+  ) {
+    return false;
+  }
+
+  const removedEntries = baseEntries.filter((entry) => {
+    const identity = expiredArchiveIdentity(entry);
+    return !nextIdentitySet.has(identity);
+  });
+  if (removedEntries.some((entry) => expiredLocaleRouteKeys(entry).size === 0)) return false;
+
+  // If assembly or a concurrent merge changed the candidate before the commit
+  // helper canonicalized it, that intermediate transition must carry its own
+  // positive evidence even when it is below the ordinary catastrophic-shrink
+  // threshold. Otherwise a small arbitrary loss could be hidden by a later
+  // route collapse that preserves only the surviving route union.
+  if (sha256(previousRaw) !== sha256(baseRaw)) {
+    const priorProof = isProvenExpiredGhostPrune(
+      filePath,
+      previousRaw,
+      baseRaw,
+      housekeepingProof,
+    ) || isProvenRetiredScratchArchiveDelete(
+      filePath,
+      previousRaw,
+      baseRaw,
+      housekeepingProof,
+    );
+    if (!priorProof) return false;
+  }
+
+  return true;
+}
+
 /**
  * Guard the final bytes written for a crawler slice. The semantic exception
  * is deliberately narrower than the byte guard and is shared by all writers
@@ -1095,7 +1333,13 @@ export function assertCrawlerSliceWriteSafe(
   filePath,
   previousRaw,
   nextRaw,
-  { dedupReferenceJobs = null, housekeepingProof = null, expiredGhostProof = null } = {},
+  {
+    dedupReferenceJobs = null,
+    housekeepingProof = null,
+    expiredGhostProof = null,
+    canonicalizationBaseRaw = null,
+    canonicalizationProof = null,
+  } = {},
 ) {
   const previousBytes = Buffer.byteLength(String(previousRaw), 'utf8');
   const nextBytes = Buffer.byteLength(String(nextRaw), 'utf8');
@@ -1122,6 +1366,17 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenRetiredScratchArchiveDelete(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-retired-scratch-archive-delete' };
+  }
+  if (isProvenExpiredRouteCollapse(
+    filePath,
+    previousRaw,
+    nextRaw,
+    canonicalizationBaseRaw,
+    canonicalizationProof
+      || (housekeepingProof?.kind === 'expired-route-collapse' ? housekeepingProof : null),
+    housekeepingProof,
+  )) {
+    return { previousBytes, nextBytes, reason: 'proven-expired-route-collapse' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };
@@ -1210,14 +1465,69 @@ export function loadHousekeepingProof(filePath, { proofPath, basePath = '-', can
 }
 
 /**
+ * Load the short-lived proof emitted by the post-merge expired-route
+ * canonicalizer. Unlike housekeeping evidence, this proof has no run-sidecar
+ * contract: it lives in the same merge scratch directory as the exact base
+ * and candidate snapshots it names.
+ */
+export function loadExpiredRouteCollapseProof(
+  filePath,
+  { proofPath, canonicalizationBasePath, candidatePath } = {},
+) {
+  if (!proofPath || !fs.existsSync(proofPath)) {
+    throw new HousekeepingProofError(`missing expired-route canonicalization proof for ${filePath}`);
+  }
+  if (!canonicalizationBasePath || canonicalizationBasePath === '-' || !candidatePath) {
+    throw new HousekeepingProofError(`expired-route canonicalization proof for ${filePath} needs both snapshots`);
+  }
+  let proof;
+  try {
+    proof = JSON.parse(fs.readFileSync(proofPath, 'utf8'));
+  } catch (error) {
+    throw new HousekeepingProofError(
+      `unreadable expired-route canonicalization proof for ${filePath}: ${error?.message ?? error}`,
+    );
+  }
+  if (
+    !proof
+    || proof.schemaVersion !== 1
+    || proof.kind !== 'expired-route-collapse'
+    || (proof.path && !proofPathMatches(filePath, proof.path))
+  ) {
+    throw new HousekeepingProofError(`invalid or path-mismatched expired-route canonicalization proof for ${filePath}`);
+  }
+  const baseRaw = fs.readFileSync(canonicalizationBasePath, 'utf8');
+  const candidateRaw = fs.readFileSync(candidatePath, 'utf8');
+  if (proof.baseDigest !== sha256(baseRaw)) {
+    throw new HousekeepingProofError(`stale expired-route canonicalization proof: base digest mismatch for ${filePath}`);
+  }
+  if (proof.candidateDigest !== sha256(candidateRaw)) {
+    throw new HousekeepingProofError(`stale expired-route canonicalization proof: candidate digest mismatch for ${filePath}`);
+  }
+  return { proof, baseRaw };
+}
+
+/**
  * CLI body, exported for tests. The housekeeping proof is consulted only when
  * the staged blob is a catastrophic shrink: an ordinary prune needs no proof,
  * so a stale sidecar must not turn it into a failure.
  */
 export function runCrawlerSliceIntegrityCli(argv, { env = process.env, stdout = console.log, stderr = console.error } = {}) {
-  const [filePath, previousPath, nextPath, housekeepingProofPath, basePath, candidatePath] = argv;
+  const [
+    filePath,
+    previousPath,
+    nextPath,
+    housekeepingProofPath,
+    basePath,
+    candidatePath,
+    canonicalizationBasePath,
+    canonicalizationProofPath,
+  ] = argv;
   if (!filePath || !previousPath || !nextPath) {
-    stderr('usage: crawler-slice-integrity.mjs <file> <previous> <next> [housekeeping-proof] [base|-] [candidate]');
+    stderr(
+      'usage: crawler-slice-integrity.mjs <file> <previous> <next> '
+      + '[housekeeping-proof] [base|-] [candidate] [canonicalization-base] [canonicalization-proof]',
+    );
     return CRAWLER_SLICE_INTEGRITY_EXIT.usage;
   }
   let previousRaw;
@@ -1232,7 +1542,13 @@ export function runCrawlerSliceIntegrityCli(argv, { env = process.env, stdout = 
   const previousBytes = Buffer.byteLength(previousRaw, 'utf8');
   const nextBytes = Buffer.byteLength(nextRaw, 'utf8');
   let housekeepingProof = null;
-  if (housekeepingProofPath && isCatastrophicAccumulatorShrink(previousBytes, nextBytes)) {
+  let canonicalizationProof = null;
+  let canonicalizationBaseRaw = null;
+  if (
+    housekeepingProofPath
+    && housekeepingProofPath !== '-'
+    && isCatastrophicAccumulatorShrink(previousBytes, nextBytes)
+  ) {
     try {
       housekeepingProof = loadHousekeepingProof(filePath, {
         proofPath: housekeepingProofPath,
@@ -1247,8 +1563,28 @@ export function runCrawlerSliceIntegrityCli(argv, { env = process.env, stdout = 
         : CRAWLER_SLICE_INTEGRITY_EXIT.unreadableInput;
     }
   }
+  if (canonicalizationProofPath && isCatastrophicAccumulatorShrink(previousBytes, nextBytes)) {
+    try {
+      const loaded = loadExpiredRouteCollapseProof(filePath, {
+        proofPath: canonicalizationProofPath,
+        canonicalizationBasePath,
+        candidatePath: nextPath,
+      });
+      canonicalizationProof = loaded.proof;
+      canonicalizationBaseRaw = loaded.baseRaw;
+    } catch (error) {
+      stderr(error instanceof Error ? error.message : String(error));
+      return error instanceof HousekeepingProofError
+        ? CRAWLER_SLICE_INTEGRITY_EXIT.invalidHousekeepingProof
+        : CRAWLER_SLICE_INTEGRITY_EXIT.unreadableInput;
+    }
+  }
   try {
-    const result = assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw, { housekeepingProof });
+    const result = assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw, {
+      housekeepingProof,
+      canonicalizationBaseRaw,
+      canonicalizationProof,
+    });
     if (result.reason) stdout(`crawler slice integrity: allowed ${result.reason} for ${filePath}`);
     return CRAWLER_SLICE_INTEGRITY_EXIT.ok;
   } catch (error) {
