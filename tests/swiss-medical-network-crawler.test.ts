@@ -17,7 +17,7 @@ import {
   TICINO_CLINICS,
   CLINIC_ADDRESSES,
 } from '@/scripts/lib/swiss-medical-network-job-parser.mjs';
-import { isDedicatedClinicOwnedPosting } from '@/scripts/update-swiss-medical-network-jobs.mjs';
+import { buildJobFromApi, isDedicatedClinicOwnedPosting } from '@/scripts/update-swiss-medical-network-jobs.mjs';
 
 describe('Swiss Medical Network umbrella ownership', () => {
   const obachPosting = {
@@ -306,5 +306,26 @@ describe('parseSmartRecruiterDetail', () => {
     const result = parseSmartRecruiterDetail('');
     expect(result.title).toBe('');
     expect(result.description).toBe('');
+  });
+});
+
+describe('buildJobFromApi — the posting text, never a substitute paragraph', () => {
+  const posting = { title: 'TSO ou instrumentiste au bloc opératoire', city: 'Genolier', canton: 'VD' };
+  // A real 18-word posting (minimized from the SmartRecruiters detail of the
+  // stored job 744000152145969): the runner used to replace every text under
+  // 50 words with "Open position: … at Swiss Medical Network …".
+  const SHORT_POSTING = '• Préparation et instrumentation de toutes les opérations pratiquées dans les différentes spécialités\n\n• Réception et retour du matériel en prêt';
+
+  it('keeps a short real posting, keyed by its language', () => {
+    const job = buildJobFromApi(posting, SHORT_POSTING, 'https://jobs.smartrecruiters.com/x', 'https://jobs.smartrecruiters.com/x');
+    expect(job.description).toBe(SHORT_POSTING);
+    expect(job.sourceLang).toBe('fr');
+    expect(job.descriptionByLocale).toEqual({ fr: SHORT_POSTING });
+  });
+
+  it('gives a posting without text no description', () => {
+    const job = buildJobFromApi(posting, '', '', '');
+    expect(job.description).toBe('');
+    expect(JSON.stringify(job)).not.toMatch(/Open position:|Posizione aperta:|leading private healthcare group/);
   });
 });

@@ -120,12 +120,9 @@ function buildMarkdown(title, sections) {
 
 export function parseSwisscomJobDescription(html = '', title = '') {
   const sourceHtml = String(html || '').trim();
-  if (!sourceHtml) {
-    return {
-      description: normalizeSpace(title) ? `# ${normalizeSpace(title)}` : '',
-      requirements: [],
-    };
-  }
+  // No Workday text, no description: a bare "# <title>" heading is not a
+  // posting and would slip past the thin-source guard once the title is long.
+  if (!sourceHtml) return { description: '', requirements: [] };
 
   const dom = new JSDOM(`<body>${sourceHtml}</body>`);
   const body = dom.window.document.body;

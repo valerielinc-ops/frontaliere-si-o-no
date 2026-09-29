@@ -39,6 +39,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
+import { sourceLocaleDescription } from './source-locale-description.mjs';
 
 export const PKB_KEY = 'pkb-private-bank';
 export const COMPANY_NAME = 'PKB Private Bank SA';
@@ -347,8 +348,11 @@ export function buildPkbJob(url, parsed) {
   const slug = slugify(`${parsed.title}-pkb-private-bank-${parsed.location || HQ.city}`);
   if (!slug || slug.length < 3) return null;
 
-  const description = parsed.description
-    || `Posizione aperta presso PKB Private Bank SA a ${parsed.location || HQ.city} (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.`;
+  // The Arca24 detail text, in its own language slot. Without it there is no
+  // description: this used to publish "Posizione aperta presso PKB Private
+  // Bank SA a … PKB è una banca privata svizzera indipendente fondata nel
+  // 1958 …" instead, a paragraph PKB never published.
+  const { description, descriptionByLocale, sourceLang } = sourceLocaleDescription(parsed.description, { defaultLang: 'it' });
 
   return {
     title: parsed.title,
@@ -374,7 +378,8 @@ export function buildPkbJob(url, parsed) {
     source: 'PKB Dedicated Parser (Arca24)',
     titleByLocale: { it: parsed.title },
     slugByLocale: { it: slug },
-    descriptionByLocale: { it: description },
+    descriptionByLocale,
+    sourceLang,
   };
 }
 

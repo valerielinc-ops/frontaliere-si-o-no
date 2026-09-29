@@ -200,12 +200,12 @@ async function buildArtisaJob(row) {
     category: inferCategory(row.title),
     sector: 'Immobiliare & Architettura',
     source: 'artisa-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${localized.descriptionByLocale.it}`, 'it'),
+    sourceLang: localized.sourceLang,
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -280,35 +280,40 @@ function updateAdapterConfig(jobs) {
   });
 }
 
+/**
+ * Fill the locales the translation step could not produce with a copy of the
+ * posting's own text and flag the job for translate-pending, the same stand-in
+ * the shared locale hardening uses (an identical copy is treated as
+ * untranslated). It used to fill them with the builder's template ("## Open
+ * position / Artisa Group is currently hiring for …"), text Artisa never
+ * published that the translation step then took for a real translation.
+ * Reads THIS run's working set (issue #7706), never the published slice.
+ */
 function repairLocalizedDescriptions() {
   const jobs = readCurrentRunJobs(DATA_JOBS);
   let repaired = 0;
   const nextJobs = jobs.map((job) => {
     if (!isTargetJob(job)) return job;
-    const localized = buildArtisaLocalizedContent({
-      title: job.title,
-      location: job.location,
-    });
-    const descriptionByLocale = {
-      ...localized.descriptionByLocale,
-      ...(job.descriptionByLocale || {}),
-    };
+    const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
+    const source = String(descriptionByLocale[job.sourceLang] || job.description || '').trim()
+      || Object.values(descriptionByLocale).map((value) => String(value || '').trim()).find(Boolean)
+      || '';
+    if (!source) return job;
+    let changed = false;
     for (const locale of LOCALES) {
       if (!String(descriptionByLocale[locale] || '').trim()) {
-        descriptionByLocale[locale] = localized.descriptionByLocale[locale] || localized.descriptionByLocale.it;
+        descriptionByLocale[locale] = source;
         repaired += 1;
+        changed = true;
       }
     }
-    return {
-      ...job,
-      description: descriptionByLocale.it || job.description,
-      descriptionByLocale,
-    };
+    if (!changed) return job;
+    return { ...job, description: job.description || source, descriptionByLocale, needsRetranslation: true };
   });
   writeJson(DATA_JOBS, nextJobs);
   writeJson(PUBLIC_JOBS, nextJobs);
   if (repaired > 0) {
-    console.log(`🩹 Artisa locale repair: restored ${repaired} missing localized descriptions.`);
+    console.log(`🩹 Artisa locale repair: ${repaired} untranslated locale(s) hold the source text until translate-pending runs.`);
   }
 }
 

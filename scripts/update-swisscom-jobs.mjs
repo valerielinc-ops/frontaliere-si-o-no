@@ -300,8 +300,14 @@ function detectEmploymentType(timeType = '') {
   return 'FULL_TIME';
 }
 
-function buildFallbackDescription(title, descriptionText, location) {
-  const base = descriptionText || `Posizione aperta presso Swisscom a ${location}.`;
+/**
+ * The raw Workday description under its title, used when the structured parse
+ * yields nothing. Without any Workday text there is no description: the runner
+ * used to publish "Posizione aperta presso Swisscom a <city>." instead, a
+ * sentence Swisscom never wrote.
+ */
+function buildFallbackDescription(title, descriptionText) {
+  const base = String(descriptionText || '').trim();
   if (!base) return '';
   if (base.startsWith('# ')) return base;
   if (!title) return base;
@@ -389,8 +395,13 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
   const parsedDescription = parseSwisscomJobDescription(descriptionHtml, title);
   const publicUrl = buildPublicUrl(externalPath);
 
-  const descIt = parsedDescription.description || buildFallbackDescription(title, descriptionText, city);
-  const reqIt = Array.isArray(parsedDescription.requirements) ? parsedDescription.requirements : [];
+  const description = parsedDescription.description || buildFallbackDescription(title, descriptionText);
+  const requirements = Array.isArray(parsedDescription.requirements) ? parsedDescription.requirements : [];
+  // Swisscom's Ticino postings are published in German and French as well as
+  // Italian: the text goes in the slot of its own language (it used to be
+  // stored as `it` whatever its language, so the German text sat in the
+  // Italian slot and the German slot was never refreshed by the crawl).
+  const sourceLang = detectLang(description || title, 'it');
 
   const slug = buildSwisscomRegeneratedSlug({ title, url: publicUrl }, city);
   const employmentType = detectEmploymentType(info.timeType || '');
@@ -406,13 +417,13 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
     addressLocality: city,
     canton,
     country: 'CH',
-    description: descIt,
+    description,
     descriptionByLocale: {
-      it: descIt,
+      [sourceLang]: description,
     },
-    requirements: reqIt,
+    requirements,
     requirementsByLocale: {
-      it: reqIt,
+      [sourceLang]: requirements,
     },
     titleByLocale: {
       it: title,
@@ -429,7 +440,7 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
     experienceLevel: detectExperienceLevel(title),
     sector: 'Tecnologia & IT',
     _targetScope: { canton, location: city },
-    sourceLang: detectLang(descIt || title, 'it'),
+    sourceLang,
   };
 
   if (jobReqId) {
