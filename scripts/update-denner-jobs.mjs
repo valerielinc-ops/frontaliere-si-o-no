@@ -124,6 +124,45 @@ function writeJobsFiles(jobs) {
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
+/**
+ * The record builder files the title, description and requirements under
+ * `it` whatever the language of the posting (137/146 German, 9/146 French in
+ * the 2026-09-29 slice). Re-key them to the posting's `sourceLang` before the
+ * merge, so the fresh German title is no longer offered to the Italian slot
+ * (issue 5253; same rule as posta/postfinance). Kept outside the builder on
+ * purpose: the builder is being reworked by lot G (workplace line).
+ */
+export function rekeyDennerSourceSlots(job = {}) {
+  const lang = job?.sourceLang;
+  if (!lang || lang === 'it') return job;
+  const rekey = (map = {}) => {
+    const { it, ...rest } = map || {};
+    return it === undefined || rest[lang] !== undefined ? map : { ...rest, [lang]: it };
+  };
+  return {
+    ...job,
+    titleByLocale: rekey(job.titleByLocale),
+    descriptionByLocale: rekey(job.descriptionByLocale),
+    requirementsByLocale: rekey(job.requirementsByLocale),
+  };
+}
+
+/**
+ * After the merge: an `it` title that is a verbatim copy of a non-Italian
+ * source title is not a translation (30/146 jobs showed the German title on
+ * the Italian page). Remove it and ask the translation step for the real one.
+ * Slugs are left untouched: the published `it` slugs stay where they are.
+ */
+export function dropStaleDennerItalianTitle(job = {}) {
+  const lang = job?.sourceLang;
+  const itTitle = String(job?.titleByLocale?.it || '').trim();
+  if (!lang || lang === 'it' || !itTitle) return job;
+  const sourceTitle = String(job.titleByLocale?.[lang] || job.title || '').trim();
+  if (itTitle !== sourceTitle) return job;
+  const { it, ...rest } = job.titleByLocale;
+  return { ...job, titleByLocale: rest, needsRetranslation: true };
+}
+
 function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(DENNER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
@@ -134,8 +173,8 @@ function mergeCompanyJobs(parsedJobs) {
     const k = String(job?.url || '').trim().replace(/\/+$/, '');
     if (k) byUrl.set(k, job);
   }
-  const deduped = [...byUrl.values()];
-  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const deduped = [...byUrl.values()].map(rekeyDennerSourceSlots);
+  const merged = mergePreserveLocaleData(companyExisting, deduped).map(dropStaleDennerItalianTitle);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
