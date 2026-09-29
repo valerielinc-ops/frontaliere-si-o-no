@@ -26,14 +26,15 @@
  * 1. Fetches the unfiltered national listing via API (no region filter)
  * 2. Infers per-job canton from the location text (inferAnyCanton, 26 cantons)
  * 3. Keeps only jobs that resolve to a Swiss canton (drops "Estero"/foreign)
- * 4. All data is in the API response (no detail page fetching needed)
+ * 4. The API carries tasks, requirements, benefits and unit profile; each
+ *    detail page adds the role summary, key facts and additional information
  * 5. Skips jobs already covered by VTG / Agroscope crawlers
  * 6. Merges into data/jobs.json
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -63,6 +64,13 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
+import {
+  composeFederalJobDescription,
+  federalApiDescription,
+  parseFederalJobDetailExtras,
+} from './lib/federal-job-detail.mjs';
+import { preferEnrichedDescription } from './lib/enriched-description-fallback.mjs';
+import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -214,11 +222,10 @@ function parseApiJob(j = {}) {
   // Employment type from field 25
   const employmentCategory = (attrs['25'] || [])[0] || '';
 
-  // Build description from szas fields
-  const parts = [];
-  if (szas.sza_tasks) parts.push(stripHtml(szas.sza_tasks));
-  if (szas.sza_requirements) parts.push(stripHtml(szas.sza_requirements));
-  const description = parts.join('\n\n');
+  // Tasks, requirements, benefits and the unit profile — the full API text.
+  // Only tasks + requirements used to be published (23-35 % of the detail
+  // page); `enrichWithDetailPages` adds the page-only sections on top.
+  const description = federalApiDescription(szas);
 
   return {
     id: String(j.id || ''),
@@ -443,6 +450,52 @@ async function fetchAllListings() {
   return allJobs;
 }
 
+/* ── Detail enrichment ─────────────────────────────────────── */
+
+const DETAIL_CONCURRENCY = 3;
+
+function readCoveredViewkeys() {
+  // Viewkeys published by the dedicated VTG/Agroscope slices (see mergeJobs).
+  const covered = new Set();
+  for (const coveredKey of COVERED_KEYS) {
+    for (const job of readExistingCrawlerJobs(coveredKey)) {
+      const vk = extractViewkey(job.url);
+      if (vk) covered.add(vk);
+    }
+  }
+  return covered;
+}
+
+/**
+ * Add the jobs.admin.ch page-only sections ("Auf den Punkt gebracht", key
+ * facts, "Zusätzliche Informationen", notes) to each listing, with the page's
+ * own section headings from its JSON-LD. A page that cannot be read leaves
+ * the listing on its API text; `mergeJobs` then keeps a previously enriched
+ * text (preferEnrichedDescription) instead of shrinking it for one run.
+ */
+async function enrichWithDetailPages(listings, coveredViewkeys = new Set()) {
+  let enriched = 0;
+  let failed = 0;
+  await mapPool(listings, DETAIL_CONCURRENCY, async (row) => {
+    const vk = extractViewkey(row.directLink);
+    if (!row.directLink || (vk && coveredViewkeys.has(vk))) return;
+    try {
+      const extras = parseFederalJobDetailExtras(await fetchHtml(row.directLink));
+      const base = extras.roleText || row.description;
+      const description = composeFederalJobDescription(base, extras);
+      if (description && description !== row.description) {
+        row.description = description;
+        row.detailEnriched = true;
+        enriched += 1;
+      }
+    } catch {
+      failed += 1;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  });
+  console.log(`  Detail pages enriched: ${enriched}/${listings.length}${failed ? ` (${failed} unreadable, API text kept)` : ''}`);
+}
+
 /* ── Job Building ─────────────────────────────────────────── */
 
 function buildJob(row) {
@@ -486,6 +539,7 @@ function buildJob(row) {
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
+    detailEnriched: row.detailEnriched === true,
   };
 }
 
@@ -497,13 +551,7 @@ function mergeJobs(discoveredJobs) {
   // Collect viewkeys from the dedicated slices themselves. Reading only the
   // Confederazione slice here made this set permanently empty and let the
   // broad crawler republish VTG/Agroscope vacancies under a second company.
-  const coveredViewkeys = new Set();
-  for (const coveredKey of COVERED_KEYS) {
-    for (const job of readExistingCrawlerJobs(coveredKey)) {
-      const vk = extractViewkey(job.url);
-      if (vk) coveredViewkeys.add(vk);
-    }
-  }
+  const coveredViewkeys = readCoveredViewkeys();
 
   // Filter out jobs whose viewkey is already covered by another crawler
   const newJobs = discoveredJobs.filter((job) => {
@@ -532,12 +580,25 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = newJobs.map((job) => {
+  const mergedTarget = newJobs.map((fresh) => {
+    const { detailEnriched, ...job } = fresh;
     const key = extractStableJobId(job?.url);
     const prev = key ? existingByUrl.get(key) : null;
     if (!prev) {
       added += 1;
       return job;
+    }
+    if (!detailEnriched && job.sourceLang) {
+      // Detail page unreadable this run: keep the stored enriched source text
+      // when it still contains the whole fresh API text.
+      const kept = preferEnrichedDescription(
+        prev.descriptionByLocale?.[job.sourceLang] || '',
+        job.descriptionByLocale?.[job.sourceLang] || '',
+      );
+      if (kept && kept !== job.descriptionByLocale?.[job.sourceLang]) {
+        job.descriptionByLocale = { ...job.descriptionByLocale, [job.sourceLang]: kept };
+        if (job.sourceLang === 'it' || !job.descriptionByLocale.it) job.description = kept;
+      }
     }
     updated += 1;
     // When merging slugByLocale, discard any pre-existing IT slug that contains German words
@@ -685,6 +746,8 @@ async function main() {
   for (const [cat, count] of Object.entries(byType)) {
     console.log(`  ${cat}: ${count}`);
   }
+
+  await enrichWithDetailPages(listings, readCoveredViewkeys());
 
   const jobs = listings.map(buildJob);
 

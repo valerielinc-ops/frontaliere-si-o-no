@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   parseRuagListingLinks,
@@ -47,9 +48,61 @@ describe('ruag-job-parser', () => {
     expect(parsed.canton).toBe('UR');
     expect(parsed.applyUrl).toBe('https://jobs.ruag.ch/apply/ats/8719');
     expect(parsed.similarLinks).toHaveLength(1);
-    expect(parsed.description).toContain('Ambito di lavoro');
-    expect(parsed.description).toContain('Responsabilita');
-    expect(parsed.description).toContain('Requisiti');
+    // Section headings come from the page itself (verbatim), not from a
+    // parser-side Italian label table that never matched the German pages.
+    expect(parsed.description).toContain('## Il tuo ambito di lavoro');
+    expect(parsed.description).toContain('Presso la nostra sede di Lodrino');
+    // Template without `.jobInfoList`: the JSON-LD lists are the fallback.
+    expect(parsed.description).toContain('## Responsabilita');
+    expect(parsed.description).toContain('- Lavorazione di metalli');
+    expect(parsed.description).toContain('## Requisiti');
+    expect(parsed.description).toContain('## I tuoi vantaggi');
+    expect(parsed.description).toContain('- Usa jobs.ruag.ch');
+    expect(parsed.description).toContain('Sonja Schwyn');
+  });
+
+  it('keeps every role section of the current jobs.ruag.ch template and no page chrome', () => {
+    // Minimized from the live German detail page (2026-09-29, contact anonymized).
+    const html = readFileSync(new URL('./fixtures/ruag-detail-jobinfo-template.html', import.meta.url), 'utf8');
+    const parsed = parseRuagJobDetail(html, 'https://jobs.ruag.ch/offene-stellen/betriebselektrikerin-facility-manager-technics/190b7508-d7e8-403d-b49f-7c2f57a59965');
+    const d = parsed.description;
+
+    expect(parsed.location).toBe('Schattdorf');
+    // introduction, tasks, profile, encouragement note, workplace, division
+    // blurb, benefit cards, application notes, contact — in page order.
+    const markers = [
+      'Rund 3000 Mitarbeitende von RUAG',
+      '## Das kannst du bewegen',
+      '- Revisionen, Reparaturen und Servicearbeiten',
+      '## Das bringst du mit',
+      '- Führerausweis Kategorie B',
+      'Erfüllst du nicht alle Voraussetzungen hundertprozentig?',
+      '## Arbeitsort',
+      'Militärstrasse 22, 6467 Schattdorf',
+      '## Über den Bereich',
+      '## Deine Vorteile',
+      '- Lohn und Nebenleistungen: Wir bieten dir',
+      '## So funktioniert unser Bewerbungsprozess',
+      '- Vor Anstellungsbeginn wirst du darum gebeten',
+      '## Deine Ansprechperson',
+      'Erika Muster',
+    ];
+    let cursor = -1;
+    for (const marker of markers) {
+      const at = d.indexOf(marker);
+      expect(at, marker).toBeGreaterThan(cursor);
+      cursor = at;
+    }
+    // The print-only contact card repeats section#contact: rendered once.
+    expect(d.split('Erika Muster')).toHaveLength(2);
+    // Cookie placeholders, contact form, similar-job teasers stay out.
+    for (const chrome of ['Externer Inhalt von YouTube', 'Cookies zulassen', 'Ich wünsche eine Kontaktaufnahme', 'Weitere Stellen', 'Datenschutzerklärung']) {
+      expect(d).not.toContain(chrome);
+    }
+    // Keyword classification keeps reading the role lists, not the benefit
+    // cards ("Homeoffice-Optionen" is on every page).
+    expect(parsed.roleText).toContain('HLKSE');
+    expect(parsed.roleText).not.toContain('Homeoffice');
   });
 
   it('matches Ticino and Grigioni locations', () => {

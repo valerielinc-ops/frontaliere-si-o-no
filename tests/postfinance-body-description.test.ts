@@ -78,4 +78,27 @@ describe('PostFinance body-description extractor', () => {
     const result = extractPostFinanceBodyDescription(html);
     expect(result).toBe(longBody);
   });
+
+  it('reads the body to its balanced closing tag and keeps list items as bullets (job 74128)', () => {
+    // Minimised from https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE:
+    // the intro sits in an inline <span>, so a non-greedy `…</span>` match
+    // published only that paragraph; the recruiter contact block is the page's
+    // only itemprop="description" span and must not win.
+    const html = `
+      <div class="joblayouttoken"><span class="rtltextaligneligible">Bern|Bern|BE|Schweiz|CHE</span></div>
+      <div class="joblayouttoken"><span xml:lang="de-DE" lang="de-DE" class="rtltextaligneligible"><p><span>Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software &amp; Specification Engineer.</span></p>\r\n<p><strong>Das kannst du bewirken</strong></p>\r\n<ul>\r\n<li>Du übernimmst Verantwortung für den Betrieb, die Wartung und die Weiterentwicklung unserer Requirements-Management-Plattformen</li>\r\n<li>Du betreibst unser etabliertes Requirements-Management-Tool Polarion</li>\r\n</ul>\r\n<p><strong>Das bringst du mit</strong></p>\r\n<ul>\r\n<li>Mehrjährige Erfahrung als Software Engineer mit DevOps-Mindset</li>\r\n</ul></span></div>
+      <div class="joblayouttoken"><span xml:lang="de-DE" lang="de-DE" itemprop="description" class="rtltextaligneligible"><div id="contactDetails"><div>PF</div><div class="contactOne"><div class="cName">Ansprechperson</div><div class="cPhone">[[cust_secondRecruiterPhone]]</div></div></div></span></div>
+    `;
+
+    const result = extractPostFinanceBodyDescription(html);
+
+    expect(result).toContain('Senior DevOps Software & Specification Engineer.');
+    expect(result).toContain('Das kannst du bewirken');
+    expect(result).toContain('\n- Du übernimmst Verantwortung für den Betrieb');
+    expect(result).toContain('\n- Du betreibst unser etabliertes Requirements-Management-Tool Polarion');
+    expect(result).toContain('Das bringst du mit');
+    expect(result).toContain('\n- Mehrjährige Erfahrung als Software Engineer');
+    expect(result).not.toContain('cust_secondRecruiterPhone');
+    expect(result).not.toMatch(/[\r<>]/);
+  });
 });

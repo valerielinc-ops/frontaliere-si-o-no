@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   parseRittmeyerListingsPage,
@@ -8,6 +9,7 @@ import {
 import {
   resolveRittmeyerSiteAddress,
   RITTMEYER_SITES,
+  scrubRittmeyerLegacyLocaleCopies,
 } from '../scripts/update-rittmeyer-jobs.mjs';
 
 describe('rittmeyer-job-parser', () => {
@@ -76,7 +78,72 @@ describe('rittmeyer-job-parser', () => {
     const localized = buildRittmeyerLocalizedContent(detail);
     expect(localized.slugByLocale.it).toContain('sales-project-engineer-a-ticino-rittmeyer-ag-tessin');
     expect(localized.descriptionByLocale.it).toContain('## La tua area di competenza');
-    expect(localized.descriptionByLocale.en).toContain('## Main responsibilities');
+    // Only the source slot is built: copying the source text under translated
+    // headings into en/de/fr made the translation step skip those locales.
+    expect(Object.keys(localized.descriptionByLocale)).toEqual(['it']);
+    expect(Object.keys(localized.titleByLocale)).toEqual(['it']);
+  });
+
+  it('reads the German posting by its language-neutral eyebrows and uses the JSON-LD intro', () => {
+    // Minimized from the live page (2026-09-29). Its meta description belongs
+    // to another vacancy ("Projekte in der Wasser- und Energieversorgung"),
+    // the JSON-LD description is this posting's own intro.
+    const html = readFileSync(new URL('./fixtures/rittmeyer-detail-eyebrow-de.html', import.meta.url), 'utf8');
+    const detail = parseRittmeyerJobDetail(html);
+    expect(detail.summary).toMatch(/^Bist du bereit für eine spannende Herausforderung in der Welt der Wasserkraft/);
+    expect(detail.summary).not.toContain('Wasser- und Energieversorgung von Anfang bis Ende');
+    expect(detail.responsibilitiesHeading).toBe('Was du bei uns bewegen kannst');
+    expect(detail.responsibilities).toHaveLength(5);
+    expect(detail.requirementsHeading).toBe('Was du mitbringst');
+    expect(detail.requirements).toHaveLength(7);
+    expect(detail.benefitsHeading).toBe('Was wir dir bieten');
+    expect(detail.company).toContain('Als Teil der BRUGG-Gruppe');
+
+    const d = buildRittmeyerLocalizedContent(detail, 'de').descriptionByLocale.de;
+    const markers = [
+      'Bist du bereit',
+      'Als Teil der BRUGG-Gruppe',
+      '## Wichtige Eckdaten',
+      '- Pensum: 100%',
+      '## Was du bei uns bewegen kannst',
+      '- Du erstellst und entwickelst anlagenspezifische Applikationssoftware',
+      '## Was du mitbringst',
+      '- Eine Reisebereitschaft von etwa 30 %',
+      '## Was wir dir bieten',
+      '- Jobs mit Zukunft:',
+    ];
+    let cursor = -1;
+    for (const marker of markers) {
+      const at = d.indexOf(marker);
+      expect(at, marker).toBeGreaterThan(cursor);
+      cursor = at;
+    }
+    // Blog/team teasers after the benefits are page chrome.
+    expect(d).not.toContain('Lerne dein Team kennen');
+  });
+
+  it('drops the legacy placeholder titles and untranslated locale copies, keeps real translations', () => {
+    const scrubbed = scrubRittmeyerLegacyLocaleCopies({
+      title: 'Teamleiter Lager & Logistik (a)',
+      sourceLang: 'de',
+      titleByLocale: {
+        it: 'Team Leader Magazzino e Logistica (a)',
+        en: 'Sales Project Engineer (m/f/x) Ticino',
+        de: 'Teamleiter Lager & Logistik (a)',
+        fr: 'Ingenieur commercial projets Tessin',
+      },
+      descriptionByLocale: {
+        de: 'Wir suchen eine engagierte Führungspersönlichkeit für unser Lager und die Logistik in Baar.',
+        it: 'Cerchiamo una personalità dirigenziale impegnata per il nostro magazzino e la logistica a Baar.',
+        en: '## Overview\nWir suchen eine engagierte Führungspersönlichkeit für unser Lager und die Logistik in Baar.',
+        fr: '## Aperçu\nWir suchen eine engagierte Führungspersönlichkeit für unser Lager und die Logistik in Baar.',
+      },
+    });
+    expect(scrubbed.titleByLocale).toEqual({
+      it: 'Team Leader Magazzino e Logistica (a)',
+      de: 'Teamleiter Lager & Logistik (a)',
+    });
+    expect(Object.keys(scrubbed.descriptionByLocale).sort()).toEqual(['de', 'it']);
   });
 });
 

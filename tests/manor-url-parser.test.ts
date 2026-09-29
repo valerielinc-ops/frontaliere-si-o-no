@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+  buildManorJobDescriptions,
+  dedupeManorReposts,
   extractCityFromUrl,
   extractTitleFromUrl,
   parseJobPage,
+  readManorDescriptionLang,
   resolveManorLocation,
   stripSiteTitleSuffix,
 } from '../scripts/update-manor-jobs.mjs';
@@ -137,5 +140,102 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect([job.slug, ...(job.previousSlugs || [])]).toContain(
       BIEL_PREVIOUS_SLUG,
     );
+  });
+});
+
+// Minimized from the live jobs2web detail pages (2026-09-29): the vacancy body
+// is the `jobdescription` span, its language the `lang` of the itemprop span.
+function manorDetailPage({ title, lang, body }: { title: string; lang: string; body: string }) {
+  return `
+    <meta property="og:title" content="${title}" />
+    <span xml:lang="${lang}" lang="${lang}" itemprop="description" data-careersite-propertyid="description" class="rtltextaligneligible">
+                <span class="jobdescription">${body}
+                </span>
+    </span>
+  `;
+}
+
+describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () => {
+  it('keeps an apostrophe inside a double-quoted og:title instead of cutting the role there', () => {
+    const page = manorDetailPage({
+      title: "Buyer (Women's Fashion) 100%",
+      lang: 'fr-FR',
+      body: "• Minimum of 5 years' experience in a similar senior buying role, preferably within womenswear.",
+    });
+
+    expect(parseJobPage(page, BIEL_URL).title).toBe("Buyer (Women's Fashion) 100%");
+    expect(readManorDescriptionLang(page)).toBe('fr');
+  });
+
+  it('keeps a short portal body ahead of the store context instead of replacing it', () => {
+    const page = manorDetailPage({
+      title: 'Mitarbeiter*in Verkauf 40%',
+      lang: 'de-DE',
+      body: 'Muss englisch verstehen und sprechen können \nFlexibel einsetzbar',
+    });
+    const parsed = parseJobPage(page, BIEL_URL);
+    const built = buildManorJobDescriptions({
+      title: parsed.title,
+      city: 'Luzern',
+      canton: 'LU',
+      pageDescription: parsed.description,
+      pageLang: parsed.descriptionLang,
+    });
+
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      expect(built.descriptionByLocale[locale]).toMatch(/^Muss englisch verstehen und sprechen können\s+Flexibel einsetzbar\n\n/);
+    }
+    expect(built.descriptionByLocale.it).toContain('presso Manor, con sede a Luzern');
+    expect(built.descriptionByLocale.de).toContain('bei Manor, gelegen in Luzern');
+    expect(built.description).toBe(built.descriptionByLocale.it);
+  });
+
+  it('does not carry a portal placeholder such as "Voir JD" into the description', () => {
+    const built = buildManorJobDescriptions({
+      title: 'Head of Retail Media 100%',
+      city: 'Basel',
+      canton: 'BS',
+      pageDescription: 'Voir JD',
+      pageLang: 'fr',
+    });
+
+    expect(built.description).not.toContain('Voir JD');
+    expect(built.description).toMatch(/^Head of Retail Media 100% presso Manor/);
+  });
+
+  it('publishes a substantial body in its own language slot, not the generic paragraph', () => {
+    const body = 'Sens de l’accueil, rigueur dans les encaissements, rapidité, esprit d’équipe et disponibilité durant la période des fêtes.';
+    const built = buildManorJobDescriptions({
+      title: 'Collaborateur/trice caisse (Parfumerie) 100%',
+      city: 'Fribourg',
+      canton: 'FR',
+      pageDescription: body,
+      pageLang: 'fr',
+    });
+
+    expect(built.sourceLang).toBe('fr');
+    expect(built.descriptionByLocale.fr).toBe(body);
+    expect(built.descriptionByLocale.it).toBe(body);
+    expect(built.descriptionByLocale.en).toContain('at Manor, located in Fribourg');
+  });
+
+  it('collapses one vacancy re-posted under several requisition ids, keeping the lowest id', () => {
+    const repost = (id: string, description: string) => ({
+      url: `https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/${id}/`,
+      title: 'Mitarbeiter*in Logistik Kommissionierung 100%',
+      location: 'Hochdorf',
+      description,
+    });
+    const body = 'Körperlich fit\nArbeitsstart ab 06:00 Uhr\n\nMitarbeiter*in Logistik Kommissionierung 100% presso Manor';
+    const { jobs, reposts } = dedupeManorReposts([
+      repost('1363666255', body),
+      repost('1362291455', body),
+      repost('1363666055', body),
+      repost('1368627455', 'Körperlich fit\nArbeitsstart ab 07:00 Uhr'),
+    ]);
+
+    expect(jobs.map((job) => job.url.match(/(\d+)\/$/)?.[1])).toEqual(['1362291455', '1368627455']);
+    expect(reposts).toHaveLength(2);
+    expect(reposts.every((r) => r.keptUrl.includes('1362291455'))).toBe(true);
   });
 });

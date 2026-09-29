@@ -69,7 +69,12 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
+import {
+  extractRtlTextAlignEligibleSpans,
+  htmlBlockToTextWithBullets,
+  keyPostDescriptionBySourceLocale,
+  parsePostJobDetail,
+} from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchJson, stripScriptsAndStyles } from './lib/crawler-template.mjs';
@@ -468,22 +473,6 @@ function decodeHtmlEntities(text = '') {
 }
 
 /**
- * Strip inner HTML tags, decode entities, and collapse whitespace.
- */
-function htmlToText(fragment = '') {
-  return decodeHtmlEntities(
-    String(fragment)
-      .replace(/<\s*br\s*\/?>/gi, '\n')
-      .replace(/<\/(p|li|ul|ol|div|h[1-6])\s*>/gi, '\n')
-      .replace(/<[^>]+>/g, ''),
-  )
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n[ \t]+/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
-
-/**
  * Extract the full job description from a SuccessFactors PostFinance HTML page.
  *
  * The page renders the description inside one of multiple
@@ -495,18 +484,25 @@ function htmlToText(fragment = '') {
  * Strategy: collect all `rtltextaligneligible` spans, score them by the
  * length of their plain-text content, prefer those that contain `<p>` or
  * `<li>` tags (paragraph-style content), and return the longest one.
+ *
+ * Each span is read to its BALANCED closing tag and its list items keep a
+ * line-start "- " marker (shared Post-platform helpers in
+ * `postch-job-parser.mjs`). The former non-greedy `([\s\S]*?)<\/span>` match
+ * stopped the body at its first inline child span — 74128 published only its
+ * opening paragraph — and `</li>` → newline alone turned every list into loose
+ * paragraphs (17/19 vacancies without a single bullet on 2026-09-29).
  */
 export function extractPostFinanceBodyDescription(html = '') {
   if (!html || typeof html !== 'string') return '';
 
-  // Match all rtltextaligneligible spans (multiline, non-greedy).
-  const spanRe = /<span[^>]*class="[^"]*rtltextaligneligible[^"]*"[^>]*>([\s\S]*?)<\/span>/gi;
   const candidates = [];
-  let match;
-  while ((match = spanRe.exec(html)) !== null) {
-    const inner = match[1];
+  for (const inner of extractRtlTextAlignEligibleSpans(html)) {
     const hasParagraph = /<p[\s>]|<li[\s>]|<ul[\s>]|<ol[\s>]/i.test(inner);
-    const text = htmlToText(inner);
+    const text = decodeHtmlEntities(htmlBlockToTextWithBullets(inner))
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
     if (text.length > 0) {
       candidates.push({ text, length: text.length, hasParagraph });
     }
@@ -774,9 +770,10 @@ async function buildJobFromRecruitingApiEntry(entry) {
   const scrapedDescription = scraped?.description && scraped.description.length >= 150
     ? scraped.description
     : '';
-  const descriptionIt = scrapedDescription || buildPostFinanceFallbackDescription({
+  const description = scrapedDescription || buildPostFinanceFallbackDescription({
     title, city, canton, category, workloadMin, workloadMax,
   });
+  const sourceLang = detectLang(description || title, 'en');
 
   const slug = slugify(title, 'postfinance');
 
@@ -789,12 +786,14 @@ async function buildJobFromRecruitingApiEntry(entry) {
     location: city,
     canton,
     country: 'CH',
-    description: descriptionIt,
-    descriptionByLocale: { it: descriptionIt },
+    description,
+    // Keyed by the language the body is written in, never hard-wired to `it`:
+    // see keyPostDescriptionBySourceLocale().
+    descriptionByLocale: { [sourceLang]: description },
     titleByLocale: { it: title },
     slug,
     slugByLocale: { it: slug },
-    sourceLang: detectLang(descriptionIt || title, 'en'),
+    sourceLang,
     department: category,
     category: category || 'servizi-finanziari',
     datePosted: entry.unifiedStandardStart || new Date().toISOString().split('T')[0],
@@ -918,9 +917,10 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
     const title = detail.title;
     const slug = slugify(title, 'postfinance');
 
-    const descriptionIt = detail.description && detail.description.length > 30
+    const description = detail.description && detail.description.length > 30
       ? detail.description
       : buildPostFinanceFallbackDescription({ title, city, canton, category: '', workloadMin: null, workloadMax: null });
+    const sourceLang = detectLang(description || title, 'en');
 
     // Mark as needsRetranslation if description came from meta tags (thin content)
     const needsRetranslation = !detail.hasJsonLd || detail.description?.length < 100;
@@ -934,12 +934,12 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       location: city,
       canton,
       country: 'CH',
-      description: descriptionIt,
-      descriptionByLocale: { it: descriptionIt },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
       titleByLocale: { it: title },
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(descriptionIt || title, 'en'),
+      sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-finanziari',
       datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
@@ -1012,6 +1012,14 @@ async function mergePostFinanceJobs(discoveredJobs) {
     matchKey: postFinanceMatchKey,
   }).map((job) => ({
     ...job,
+    // Before the localization pass, so a legacy source-language copy in the
+    // Italian slot does not make that slot look already translated.
+    descriptionByLocale: keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      job.sourceLang || detectLang(job.description || job.title, 'en'),
+      (text) => detectLang(text, ''),
+    ),
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     country: 'CH',
@@ -1102,8 +1110,18 @@ function postProcessPostFinanceJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
-      job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
+    // Sync the SOURCE-language slot with the scraped body and drop a
+    // mis-keyed copy of it from other slots; forcing `it = description` here
+    // wrote German text into the Italian slot after every localization pass.
+    const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'en');
+    const keyedDescriptions = keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      sourceLang,
+      (text) => detectLang(text, ''),
+    );
+    if (JSON.stringify(keyedDescriptions) !== JSON.stringify(job.descriptionByLocale || {})) {
+      job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
     if (!job.titleByLocale || job.titleByLocale.it !== job.title) {

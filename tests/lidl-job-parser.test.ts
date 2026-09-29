@@ -23,6 +23,7 @@ import {
   getLidlSearchPageCount,
   extractLidlSearchLanguagePartitions,
   extractLidlApiHitFields,
+  restoreLidlSourceLocaleStructure,
 } from '../scripts/lib/lidl-job-parser.mjs';
 import {
   assertLidlAdapterParity,
@@ -536,6 +537,7 @@ const LIDL_VERIFIED_LOCATIONS = [
   ['Bevaix', '2022', 'NE'],
   ['Niederuzwil', '9244', 'SG'],
   ['Romont', '1680', 'FR'],
+  ['Lüchingen', '9450', 'SG'],
 ] as const;
 
 function licaEnvelope(
@@ -800,5 +802,41 @@ describe('Lidl adapter persistence', () => {
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('restoreLidlSourceLocaleStructure', () => {
+  // Minimised from team.lidl.ch/fr/jobs/…-collombey-muraz-709685 (2026-09-29):
+  // the LiCa API body keeps one item per line, the stored `fr` slot had the
+  // list collapsed into prose after the base crawler.
+  const apiBody = [
+    'Introduction',
+    'Tu es passionné par la vente ?',
+    'Ta mission',
+    '',
+    '- Responsable d\'équipe selon la planification',
+    '',
+    '- Assurer la satisfaction des clients et les standards de la vente dans nos magasins',
+    '',
+    '- Encaissement',
+    'Notre offre',
+    'Chez Lidl Suisse, il y a de la place pour les ambitions et les innovations.',
+  ].join('\n');
+  const collapsed = 'Introduction\nTu es passionné par la vente ? Ta mission\n- Responsable d\'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Encaissement Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations.';
+  const apiJob = { sourceLang: 'fr', description: apiBody };
+
+  it('puts the structured API body back into its own language slot', () => {
+    const job = { descriptionByLocale: { fr: collapsed, it: 'Introduzione\n- Responsabile di squadra\n- Cassa' } };
+    expect(restoreLidlSourceLocaleStructure(job, apiJob)).toBe(true);
+    expect(job.descriptionByLocale.fr).toBe(apiBody);
+    expect(job.descriptionByLocale.it).toBe('Introduzione\n- Responsabile di squadra\n- Cassa');
+  });
+
+  it('leaves a slot that already carries the list, and an API body without one', () => {
+    const structured = { descriptionByLocale: { fr: apiBody } };
+    expect(restoreLidlSourceLocaleStructure(structured, apiJob)).toBe(false);
+    const flatApi = { descriptionByLocale: { fr: collapsed } };
+    expect(restoreLidlSourceLocaleStructure(flatApi, { sourceLang: 'fr', description: 'Texte sans liste.' })).toBe(false);
+    expect(flatApi.descriptionByLocale.fr).toBe(collapsed);
   });
 });

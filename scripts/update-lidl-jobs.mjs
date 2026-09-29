@@ -53,6 +53,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   hasListContent,
+  restoreLidlSourceLocaleStructure,
   MIN_LIDL_FULL_DESC,
   LIDL_SEARCH_API_BASE,
   LIDL_SEARCH_JOBS_KEY,
@@ -139,6 +140,8 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['bevaix|2022', 'NE'],
   ['niederuzwil|9244', 'SG'],
   ['romont|1680', 'FR'],
+  // Village of Altstätten SG; geo.admin.ch zipcode 9450 = Lüchingen / Altstätten SG.
+  ['luchingen|9450', 'SG'],
 ]);
 
 function isLidlJob(job) {
@@ -744,18 +747,20 @@ function mergeApiDescriptions(jobsFromApi) {
   }
 
   let enriched = 0;
+  let restructured = 0;
   const MAX_SANE_DESC = 8000; // Descriptions >8k chars are likely full-page HTML garbage
   for (const job of jobs) {
     if (!isLidlJob(job)) continue;
-    const currentDesc = String(job.description || '').trim();
-    const isSaneLength = currentDesc.length >= MIN_LIDL_FULL_DESC && currentDesc.length <= MAX_SANE_DESC;
-    // Skip jobs that already have a real, well-sized description with structure
-    if (isSaneLength && hasListContent(currentDesc)) continue;
-
     // Match by reqId first, then by URL path
     const reqId = extractReqId(job.url);
     const apiJob = (reqId && apiByReqId.get(reqId)) || apiByPath.get(normalizeLidlDetailPath(job.url));
     if (!apiJob) continue;
+    if (restoreLidlSourceLocaleStructure(job, apiJob)) restructured++;
+
+    const currentDesc = String(job.description || '').trim();
+    const isSaneLength = currentDesc.length >= MIN_LIDL_FULL_DESC && currentDesc.length <= MAX_SANE_DESC;
+    // Skip jobs that already have a real, well-sized description with structure
+    if (isSaneLength && hasListContent(currentDesc)) continue;
 
     const apiDesc = String(apiJob.description || '').trim();
     // Only skip if current desc is sane AND longer than API (bloated descs always lose)
@@ -774,12 +779,13 @@ function mergeApiDescriptions(jobsFromApi) {
     enriched++;
   }
 
-  if (enriched > 0) {
+  if (enriched > 0 || restructured > 0) {
     writeJsonAtomic(DATA_JOBS, jobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
       writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
     }
-    console.log(`✨ Enriched ${enriched} Lidl jobs with API descriptions.`);
+    if (enriched > 0) console.log(`✨ Enriched ${enriched} Lidl jobs with API descriptions.`);
+    if (restructured > 0) console.log(`📋 Restored the API list structure in ${restructured} Lidl source-language descriptions.`);
   }
   return enriched;
 }

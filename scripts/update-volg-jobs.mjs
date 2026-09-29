@@ -64,7 +64,7 @@ import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
+import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -179,10 +179,13 @@ function parseJobListings(html) {
     const companyLocation = rawCompany.replace(/\s+/g, ' ').trim();
     const meta = rawMeta.replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
 
-    // Parse "COMPANY, CITY" (e.g., "VOLG, Zuoz")
-    const companyParts = companyLocation.split(',').map((s) => s.trim());
+    // Parse "COMPANY, CITY" (e.g., "VOLG, Zuoz"). The city is the LAST
+    // segment: multi-part employer names ("Kunz Landtechnik, Serco Retail AG,
+    // Reiden", "fenaco Getreide, Ölsaaten, Futtermittel, Bern") used to publish
+    // "Serco Retail AG, Reiden" as the location of 10/555 vacancies.
+    const companyParts = companyLocation.split(',').map((s) => s.trim()).filter(Boolean);
     const company = companyParts[0] || '';
-    const city = companyParts.slice(1).join(', ').trim() || '';
+    const city = companyParts.length > 1 ? companyParts.at(-1) : '';
 
     // Parse meta: "60-80%, Teilzeit" or "100%, unbefristet"
     const workloadMatch = meta.match(/([\d-]+%)/);
@@ -475,7 +478,7 @@ export { parseDetailPage };
  * Applies quality guards: body ratio >= 25% and title overlap >= 0.6.
  */
 async function enrichWithDetails(jobs) {
-  const enriched = await enrichCoopSourceBackedJobs(jobs, {
+  const sourceBacked = await enrichCoopSourceBackedJobs(jobs, {
     allowedHosts: ['jobs.fenaco.com'],
     concurrency: 4,
     onDropSummary: (drop) => { volgSummaryCounts.detailDrop = drop; },
@@ -484,8 +487,12 @@ async function enrichWithDetails(jobs) {
     // network/DNS/TLS failures remain fail-closed in the shared helper.
     preserveListingOnTransientFailure: true,
   });
+  // The same ad published twice under two UUIDs (same address, same body and
+  // facts) is one vacancy: keep the earliest-seen record.
+  const { kept: enriched, collapsed } = collapseRepublishedCoopVacancies(sourceBacked);
+  for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished vacancy ${url} collapsed into ${keptUrl}`);
   jobs.splice(0, jobs.length, ...enriched);
-  console.log(`  📄 Detail pages: ${enriched.length} source-backed`);
+  console.log(`  📄 Detail pages: ${enriched.length} source-backed${collapsed.length ? ` (${collapsed.length} republished duplicate(s) collapsed)` : ''}`);
 }
 
 /* ── Build Job Objects ─────────────────────────────────────── */
@@ -720,6 +727,26 @@ const META_LABELS = {
   it: { workload: 'Grado di occupazione', contract: 'Contratto', apply: 'Candidati su' },
 };
 
+// The career center publishes each vacancy under a language-specific path;
+// the path is the page's own language declaration. Detecting the language from
+// a short title labelled 14/555 postings wrongly (German "Lehrstelle als
+// Detailhandelsfachmann/-frau EFZ" as `it`, French "Vendeuse / Vendeur LANDI
+// (f/h/d)" as `en`), which filed the source text under a foreign locale.
+const DETAIL_PATH_LANG = {
+  'offene-stellen': 'de',
+  'postes-vacants': 'fr',
+  'posti-vacanti': 'it',
+};
+
+export function sourceLangFromDetailUrl(url = '') {
+  try {
+    const [segment] = new URL(String(url || '')).pathname.split('/').filter(Boolean);
+    return DETAIL_PATH_LANG[String(segment || '').toLowerCase()] || '';
+  } catch {
+    return '';
+  }
+}
+
 function buildJob(raw) {
   const { url, title, company, city, workload, contractTerms, canton } = raw;
   const { employmentType, contractType } = mapEmploymentType(workload, contractTerms);
@@ -731,7 +758,7 @@ function buildJob(raw) {
   // wins the source-locale merge slot; a wrong sourceLang points that slot at
   // the wrong language every run).
   const localeFallback = resolveCantonLocale(canton);
-  const sourceLang = detectLang(title, localeFallback);
+  const sourceLang = sourceLangFromDetailUrl(url) || detectLang(title, localeFallback);
   const today = new Date().toISOString().slice(0, 10);
   const postalCode = getPostalCode(city, canton);
   const labels = META_LABELS[localeFallback] || META_LABELS.de;

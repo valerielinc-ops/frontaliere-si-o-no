@@ -211,10 +211,21 @@ function htmlBlockToText(value = '') {
  * gate.
  *
  * Idempotent on bullet-free text.
+ *
+ * The SuccessFactors rich-text editor writes CRLF line endings and `&nbsp;`
+ * spacer paragraphs INSIDE list items (`<li>\r\n<p>item</p></li>`). Neither
+ * `\r` nor U+00A0 is matched by `[ \t]`, so before this normalisation the
+ * marker came out as `- \r\n\nitem`: the "- " line was never joined to its
+ * item, downstream whitespace cleaning dropped the orphan markers and the
+ * published list collapsed into loose paragraphs (115/216 Post.ch vacancies
+ * on 2026-09-29, e.g. every "Lehre als Logistiker:in" apprenticeship).
  */
-function htmlBlockToTextWithBullets(value = '') {
+export function htmlBlockToTextWithBullets(value = '') {
   if (!value) return '';
   const withBullets = String(value || '')
+    .replace(/\r\n?/g, '\n')
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
+    .replace(/\u00a0/g, ' ')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
@@ -259,6 +270,73 @@ function extractBalancedRtlTextAlignEligibleInner(block = '') {
   // Keep a partial body rather than falling back to the short first nested
   // span when a source response omits the outer closing tag.
   return block.slice(rtlContentStart);
+}
+
+/**
+ * Every top-level `.rtltextaligneligible` span of a SuccessFactors NES page,
+ * each read to its BALANCED closing tag (nested spans stay inside their
+ * parent). PostFinance pages carry no `#search-wrapper` token list the
+ * position-based reader above relies on, so their caller scans all spans; a
+ * non-greedy `([\s\S]*?)<\/span>` stopped the rich body at its first inline
+ * child span and published only the opening paragraph.
+ */
+export function extractRtlTextAlignEligibleSpans(html = '') {
+  const source = String(html || '');
+  const opening = /<span[^>]*class=["'][^"']*\brtltextaligneligible\b[^"']*["'][^>]*>/gi;
+  const spans = [];
+  let match;
+  while ((match = opening.exec(source)) !== null) {
+    const inner = extractBalancedRtlTextAlignEligibleInner(source.slice(match.index));
+    spans.push(inner);
+    opening.lastIndex = match.index + match[0].length + inner.length;
+  }
+  return spans;
+}
+
+const POST_DESCRIPTION_LOCALES = ['it', 'en', 'de', 'fr'];
+
+function comparableLocaleText(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/**
+ * Key a Post-platform description under the language it is written in.
+ *
+ * `job.post.ch` serves a vacancy only in the languages it was written in, so
+ * a German or French body used to be stored as `descriptionByLocale.it` (and
+ * re-forced there after every localization pass). The Italian site then
+ * rendered German/French text, and the translation step never filled the
+ * Italian slot because it looked occupied: 214/216 Post.ch and 18/19
+ * PostFinance vacancies on 2026-09-29. A non-source slot that holds the
+ * source text — the same text, or text `detectLanguage` reads as the source
+ * language — is a mis-keyed copy, not a translation, and is dropped so the
+ * localization pass can write the real one. Real translations stay.
+ *
+ * @param {Record<string, string>} descriptionByLocale
+ * @param {string} description   the source-language body
+ * @param {string} sourceLang    it | en | de | fr
+ * @param {(text: string) => string} [detectLanguage]
+ */
+export function keyPostDescriptionBySourceLocale(
+  descriptionByLocale = {},
+  description = '',
+  sourceLang = '',
+  detectLanguage = null,
+) {
+  const out = { ...(descriptionByLocale && typeof descriptionByLocale === 'object' ? descriptionByLocale : {}) };
+  const text = String(description || '').trim();
+  const lang = String(sourceLang || '').trim().toLowerCase();
+  if (!text || !POST_DESCRIPTION_LOCALES.includes(lang)) return out;
+  const sourceText = comparableLocaleText(text);
+  for (const locale of POST_DESCRIPTION_LOCALES) {
+    if (locale === lang || !out[locale]) continue;
+    const slot = String(out[locale]);
+    const sameText = comparableLocaleText(slot) === sourceText;
+    const sameLanguage = typeof detectLanguage === 'function' && detectLanguage(slot) === lang;
+    if (sameText || sameLanguage) delete out[locale];
+  }
+  out[lang] = text;
+  return out;
 }
 
 /**

@@ -22,16 +22,57 @@ function slugify(value = '') {
     .replace(/-{2,}/g, '-'), 180);
 }
 
-function listFromSection(document, headingText) {
-  const heading = [...document.querySelectorAll('h2')].find(
-    (node) => normalizeSpace(node.textContent || '') === headingText
-  );
-  if (!heading) return [];
-  const container = heading.closest('.specificPrintColumn');
-  if (!container) return [];
-  return [...container.querySelectorAll('li')]
+/**
+ * karriere.rittmeyer.com marks every content block with a language-neutral
+ * eyebrow (`#Impact`, `#Requirements`, `#Benefits`, `#Learn more`) while the
+ * visible heading is translated per page ("Was du bei uns bewegen kannst",
+ * "Ton domaine d'activité", "La tua area di competenza"). Matching on the
+ * eyebrow reads the same block on German, French and Italian postings.
+ */
+function eyebrowBlock(document, eyebrow) {
+  const marker = [...document.querySelectorAll('p.font-eyebrow')]
+    .find((node) => normalizeSpace(node.textContent || '').toLowerCase() === eyebrow.toLowerCase());
+  return marker?.closest('.specificPrintColumn') || null;
+}
+
+// Pages without eyebrows (older template) are still matched on the Italian
+// heading text the parser originally targeted.
+function headingBlock(document, headingText) {
+  const heading = [...document.querySelectorAll('h2, h3')]
+    .find((node) => normalizeSpace(node.textContent || '') === headingText);
+  return heading?.closest('.specificPrintColumn') || null;
+}
+
+function blockHeading(block) {
+  return normalizeSpace(block?.querySelector('h1, h2, h3')?.textContent || '');
+}
+
+function blockListItems(block) {
+  if (!block) return [];
+  return [...block.querySelectorAll('li')]
     .map((item) => normalizeSpace(item.textContent || ''))
     .filter(Boolean);
+}
+
+function blockParagraphs(block) {
+  if (!block) return [];
+  return [...block.querySelectorAll('p:not(.font-eyebrow), div.etx-text > div')]
+    .map((node) => normalizeSpace(node.textContent || ''))
+    .filter(Boolean);
+}
+
+function readJobPostingDescription(document) {
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const parsed = JSON.parse(script.textContent || '');
+      const nodes = Array.isArray(parsed) ? parsed : [parsed];
+      const posting = nodes.find((node) => node?.['@type'] === 'JobPosting');
+      if (posting?.description) return normalizeSpace(String(posting.description).replace(/<[^>]+>/g, ' '));
+    } catch {
+      // ignore malformed JSON-LD
+    }
+  }
+  return '';
 }
 
 export function parseRittmeyerListingsPage(html = '') {
@@ -81,7 +122,14 @@ export function isRittmeyerTicinoListing(listing = {}) {
 export function parseRittmeyerJobDetail(html = '') {
   const document = new JSDOM(html).window.document;
   const title = normalizeSpace(document.querySelector('h1')?.textContent || '');
-  const summary = normalizeSpace(document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
+  // The JSON-LD description is the posting's own intro paragraph. The meta
+  // description is NOT per-vacancy on this site: "Projektingenieur (a)
+  // Wasserkraftwerke" and "Teamleiter Lager & Logistik (a)" both carry the
+  // "Projektleiter (a) Wasser- und Energieversorgung" blurb there, which is
+  // how two unrelated jobs ended up with one identical body (audit run
+  // 36528331656). It stays only as a last-resort fallback.
+  const summary = readJobPostingDescription(document)
+    || normalizeSpace(document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
   const applyUrl =
     [...document.querySelectorAll('a[href*="onlyfy.jobs/job/"]')].map((link) => link.href).find(Boolean) || '';
 
@@ -95,8 +143,10 @@ export function parseRittmeyerJobDetail(html = '') {
     }
   }
 
-  const responsibilities = listFromSection(document, 'La tua area di competenza');
-  const requirements = listFromSection(document, 'Ciò che porti con te');
+  const impact = eyebrowBlock(document, '#Impact') || headingBlock(document, 'La tua area di competenza');
+  const requirementsBlock = eyebrowBlock(document, '#Requirements') || headingBlock(document, 'Ciò che porti con te');
+  const benefitsBlock = eyebrowBlock(document, '#Benefits');
+  const companyBlock = eyebrowBlock(document, '#Learn more');
   const benefits = [...document.querySelectorAll('.CardIcon__item')]
     .map((card) => {
       const texts = [...card.querySelectorAll('p')]
@@ -116,117 +166,80 @@ export function parseRittmeyerJobDetail(html = '') {
     area: facts.Bereich || '',
     location: facts.Schweiz || '',
     workload: facts.Pensum || '',
-    responsibilities,
-    requirements,
+    company: blockParagraphs(companyBlock).join('\n\n'),
+    responsibilitiesHeading: blockHeading(impact),
+    responsibilities: blockListItems(impact),
+    requirementsHeading: blockHeading(requirementsBlock),
+    requirements: blockListItems(requirementsBlock),
+    benefitsHeading: blockHeading(benefitsBlock)
+      || blockParagraphs(benefitsBlock).find((line) => !/^#/.test(line))
+      || '',
     benefits,
   };
 }
 
-function renderLocale(detail, locale) {
-  const isItalian = locale === 'it';
-  const headings = {
-    it: {
-      intro: 'Panoramica',
-      facts: 'Dettagli principali',
-      responsibilities: 'La tua area di competenza',
-      requirements: 'Ciò che porti con te',
-      benefits: 'Cosa ti offriamo',
-      area: 'Area',
-      location: 'Località',
-      workload: 'Percentuale',
-      apply: 'Candidatura',
-      applyBody: 'Candidati tramite il portale ufficiale Rittmeyer/Onlyfy.',
-    },
-    en: {
-      intro: 'Overview',
-      facts: 'Key details',
-      responsibilities: 'Main responsibilities',
-      requirements: 'What you bring',
-      benefits: 'What Rittmeyer offers',
-      area: 'Team',
-      location: 'Location',
-      workload: 'Workload',
-      apply: 'Application',
-      applyBody: 'Apply through the official Rittmeyer/Onlyfy portal.',
-    },
-    de: {
-      intro: 'Überblick',
-      facts: 'Wichtige Eckdaten',
-      responsibilities: 'Dein Verantwortungsbereich',
-      requirements: 'Das bringst du mit',
-      benefits: 'Was Rittmeyer bietet',
-      area: 'Bereich',
-      location: 'Standort',
-      workload: 'Pensum',
-      apply: 'Bewerbung',
-      applyBody: 'Bewirb dich über das offizielle Rittmeyer-/Onlyfy-Portal.',
-    },
-    fr: {
-      intro: 'Aperçu',
-      facts: 'Points clés',
-      responsibilities: 'Vos responsabilités',
-      requirements: 'Votre profil',
-      benefits: 'Ce que propose Rittmeyer',
-      area: 'Domaine',
-      location: 'Lieu',
-      workload: 'Taux',
-      apply: 'Candidature',
-      applyBody: 'Postulez via le portail officiel Rittmeyer/Onlyfy.',
-    },
-  }[locale];
+// Labels for the three facts the page shows under German labels on every
+// posting (Bereich / Schweiz / Pensum), rendered in the posting's language.
+const FACT_LABELS = {
+  it: { facts: 'Dettagli principali', area: 'Area', location: 'Località', workload: 'Percentuale' },
+  en: { facts: 'Key details', area: 'Team', location: 'Location', workload: 'Workload' },
+  de: { facts: 'Wichtige Eckdaten', area: 'Bereich', location: 'Standort', workload: 'Pensum' },
+  fr: { facts: 'Points clés', area: 'Domaine', location: 'Lieu', workload: 'Taux' },
+};
 
+/**
+ * The posting in its own language, section headings as the page prints them:
+ * intro, company paragraph, key facts, tasks, profile, benefits.
+ */
+export function renderRittmeyerDescription(detail = {}, sourceLang = 'it') {
+  const labels = FACT_LABELS[sourceLang] || FACT_LABELS.de;
   const sections = [];
-  if (detail.summary) {
-    sections.push(`## ${headings.intro}\n${detail.summary}`);
-  }
+  if (detail.summary) sections.push(detail.summary);
+  if (detail.company) sections.push(detail.company);
 
   const facts = [
-    detail.area ? `- ${headings.area}: ${detail.area}` : '',
-    detail.location ? `- ${headings.location}: ${detail.location}` : '',
-    detail.workload ? `- ${headings.workload}: ${detail.workload}` : '',
+    detail.area ? `- ${labels.area}: ${detail.area}` : '',
+    detail.location ? `- ${labels.location}: ${detail.location}` : '',
+    detail.workload ? `- ${labels.workload}: ${detail.workload}` : '',
   ].filter(Boolean);
   if (facts.length > 0) {
-    sections.push(`## ${headings.facts}\n${facts.join('\n')}`);
+    sections.push(`## ${labels.facts}\n${facts.join('\n')}`);
   }
 
-  if (detail.responsibilities.length > 0) {
-    sections.push(`## ${headings.responsibilities}\n${detail.responsibilities.map((item) => `- ${item}`).join('\n')}`);
-  }
-  if (detail.requirements.length > 0) {
-    sections.push(`## ${headings.requirements}\n${detail.requirements.map((item) => `- ${item}`).join('\n')}`);
-  }
-  if (detail.benefits.length > 0) {
-    sections.push(`## ${headings.benefits}\n${detail.benefits.map((item) => `- ${item}`).join('\n')}`);
-  }
-  if (detail.applyUrl) {
-    sections.push(`## ${headings.apply}\n${headings.applyBody}`);
-  }
+  const list = (heading, items) => {
+    if (!items?.length) return;
+    const body = items.map((item) => `- ${item}`).join('\n');
+    sections.push(heading ? `## ${heading}\n${body}` : body);
+  };
+  list(detail.responsibilitiesHeading, detail.responsibilities);
+  list(detail.requirementsHeading, detail.requirements);
+  list(detail.benefitsHeading, detail.benefits);
 
   return sections.join('\n\n').trim();
 }
 
-export function buildRittmeyerLocalizedContent(detail = {}) {
+/**
+ * Only the source-language slot is filled. The previous builder wrote the
+ * same source text into all four locales under translated headings and
+ * hard-coded placeholder titles ("Sales Project Engineer (m/f/x) Ticino",
+ * "Verkaufsprojektingenieur:in Tessin", "Ingenieur commercial projets
+ * Tessin") for every job — so the translation step saw every locale as
+ * filled and never translated, and unrelated jobs shared one English/French
+ * title. The translation pipeline fills the other locales from this slot.
+ */
+export function buildRittmeyerLocalizedContent(detail = {}, sourceLang = 'it') {
   const title = String(detail.title || '').trim();
   const locationLabel = detail.location || 'Ticino';
-  const localizedTitles = {
-    it: title,
-    en: 'Sales Project Engineer (m/f/x) Ticino',
-    de: 'Verkaufsprojektingenieur:in Tessin',
-    fr: 'Ingenieur commercial projets Tessin',
-  };
   return {
-    titleByLocale: localizedTitles,
-    slugByLocale: {
-      it: slugify(`${localizedTitles.it} Rittmeyer AG ${locationLabel}`),
-      en: slugify(`${localizedTitles.en} Rittmeyer AG Ticino`),
-      de: slugify(`${localizedTitles.de} Rittmeyer AG Tessin`),
-      fr: slugify(`${localizedTitles.fr} Rittmeyer AG Tessin`),
-    },
-    descriptionByLocale: {
-      it: renderLocale(detail, 'it'),
-      en: renderLocale(detail, 'en'),
-      de: renderLocale(detail, 'de'),
-      fr: renderLocale(detail, 'fr'),
-    },
+    titleByLocale: { [sourceLang]: title },
+    slugByLocale: { [sourceLang]: slugify(`${title} Rittmeyer AG ${locationLabel}`) },
+    descriptionByLocale: { [sourceLang]: renderRittmeyerDescription(detail, sourceLang) },
   };
 }
+
+/** Locale titles the old builder stamped on every job (see above). */
+export const RITTMEYER_LEGACY_PLACEHOLDER_TITLES = Object.freeze([
+  'Sales Project Engineer (m/f/x) Ticino',
+  'Verkaufsprojektingenieur:in Tessin',
+  'Ingenieur commercial projets Tessin',
+]);

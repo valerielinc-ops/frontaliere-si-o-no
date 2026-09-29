@@ -36,7 +36,11 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parsePostJobDetail, extractPostJobIdFromUrl } from './lib/postch-job-parser.mjs';
+import {
+  parsePostJobDetail,
+  extractPostJobIdFromUrl,
+  keyPostDescriptionBySourceLocale,
+} from './lib/postch-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
@@ -555,9 +559,10 @@ async function fetchPostJobs() {
       ? record.cust_brandCompanyJobSearch[0]
       : '';
 
-    const descriptionIt = detail.description && detail.description.length > 30
+    const description = detail.description && detail.description.length > 30
       ? detail.description
       : `Posizione aperta presso ${brandCompany || POST_COMPANY_NAME}. Ruolo: ${title}. Sede: ${city}, Svizzera.`;
+    const sourceLang = detectLang(description || title, 'it');
 
     const job = {
       url: sourceUrl,
@@ -568,12 +573,14 @@ async function fetchPostJobs() {
       location: city,
       canton,
       country: 'CH',
-      description: descriptionIt,
-      descriptionByLocale: { it: descriptionIt },
+      description,
+      // Keyed by the language the body is written in (job.post.ch serves a
+      // vacancy only in its own languages): see keyPostDescriptionBySourceLocale().
+      descriptionByLocale: { [sourceLang]: description },
       titleByLocale: { it: title },
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(descriptionIt || title, 'it'),
+      sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-postali',
       datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
@@ -675,7 +682,16 @@ async function mergePostJobs(discoveredJobs) {
         source: 'postch-careers-crawler',
         workload: discovered.workload || existing.workload,
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
+        // mergeLocaleTextMap keeps every non-source slot of the existing
+        // record, including the legacy source-language copy the runner used to
+        // write into `it`; drop it before the localization pass.
+        descriptionByLocale: keyPostDescriptionBySourceLocale(
+          mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
+          discovered.description || existing.description,
+          discovered.sourceLang,
+          (text) => detectLang(text, ''),
+        ),
+        sourceLang: discovered.sourceLang || existing.sourceLang,
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
@@ -771,8 +787,19 @@ function postProcessPostJobs() {
     job.country = 'CH';
     // Discovery guarantees a resolved Swiss city; do NOT default an empty
     // location to any specific (target) city — that would mis-place the job.
-    if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
-      job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
+    // Sync the SOURCE-language slot with the scraped body and drop a
+    // mis-keyed copy of it from other slots; forcing `it = description` here
+    // wrote German/French text into the Italian slot after every localization
+    // pass (214/216 vacancies on 2026-09-29).
+    const sourceLang = job.sourceLang || detectLang(job.description || job.title, 'it');
+    const keyedDescriptions = keyPostDescriptionBySourceLocale(
+      job.descriptionByLocale,
+      job.description,
+      sourceLang,
+      (text) => detectLang(text, ''),
+    );
+    if (JSON.stringify(keyedDescriptions) !== JSON.stringify(job.descriptionByLocale || {})) {
+      job.descriptionByLocale = keyedDescriptions;
       fixed++;
     }
     if (!job.titleByLocale || job.titleByLocale.it !== job.title) {

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchAllJobs } from '../scripts/update-volg-jobs.mjs';
+import { fetchAllJobs, sourceLangFromDetailUrl } from '../scripts/update-volg-jobs.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -101,6 +101,36 @@ describe('Volg source pagination', () => {
 
     await expect(fetchAllJobs()).rejects.toThrow(/did not advance/);
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('Volg listing geography and source language', () => {
+  it('takes the city from the last segment of a multi-part employer label', async () => {
+    const html = `<span class="total">2</span>
+      <a class="job job-1" href="https://jobs.fenaco.com/offene-stellen/werkstattleitung-w-m-d/69eba901-9bba-4dca-9e87-019ce171fd8c">
+        <h3 class="job-title">Werkstattleitung (w/m/d)</h3>
+        <div class="company-name">Kunz Landtechnik, Serco Retail AG, Reiden</div>
+        <span class="place-of-work">80-100%, unbefristet</span>
+      </a>
+      <a class="job job-2" href="https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-landi-f-h-d/a5605337-eb60-4611-8e71-12e9572b965f">
+        <h3 class="job-title">Vendeuse / Vendeur LANDI (f/h/d)</h3>
+        <div class="company-name">LANDI, Châtel-Saint-Denis</div>
+        <span class="place-of-work">100%, unbefristet</span>
+      </a>`;
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(html, { status: 200 })));
+
+    const jobs = await fetchAllJobs();
+    expect(jobs.map((job) => [job.company, job.city])).toEqual([
+      ['Kunz Landtechnik', 'Reiden'],
+      ['LANDI', 'Châtel-Saint-Denis'],
+    ]);
+  });
+
+  it('reads the source language from the detail path, not from a short title', () => {
+    expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-landi-f-h-d/a5605337-eb60-4611-8e71-12e9572b965f')).toBe('fr');
+    expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-efz/1')).toBe('de');
+    expect(sourceLangFromDetailUrl('https://jobs.fenaco.com/posti-vacanti/venditrice/1')).toBe('it');
+    expect(sourceLangFromDetailUrl('https://example.test/job/1')).toBe('');
   });
 });
 

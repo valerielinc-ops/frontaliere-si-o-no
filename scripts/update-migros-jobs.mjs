@@ -123,6 +123,40 @@ function isMigrosJob(job) {
 }
 
 /**
+ * Collapse re-posts of one Migros vacancy. The portal occasionally publishes
+ * the same ad twice under two UUIDs — e.g. "Fachverkäufer*in Blumen" at the
+ * same Gossau SG store (c922adc5-… and 43315b46-…): identical visible text,
+ * same date, same workplace card. Title + location + full published body
+ * (which carries the store since the workplace line) is one vacancy for a job
+ * seeker: keep the one first seen (then the smallest URL) and drop the rest.
+ * Jobs of other crawlers in the scratch file are passed through untouched.
+ *
+ * @param {object[]} jobs
+ * @param {(job: object) => boolean} [isTarget]
+ * @returns {{ jobs: object[], reposts: { url: string, keptUrl: string }[] }}
+ */
+export function dedupeMigrosReposts(jobs = [], isTarget = isMigrosJob) {
+  const normalizedText = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const rank = (job) => `${job?.firstSeenAt || '9999'}\u0000${job?.url || ''}`;
+  const keptByKey = new Map();
+  for (const job of jobs) {
+    if (!isTarget(job)) continue;
+    const key = [job.title, job.location, job.description].map(normalizedText).join('\u0000');
+    const kept = keptByKey.get(key);
+    if (!kept || rank(job) < rank(kept)) keptByKey.set(key, job);
+  }
+  const keptSet = new Set(keptByKey.values());
+  const reposts = [];
+  const out = jobs.filter((job) => {
+    if (!isTarget(job) || keptSet.has(job)) return true;
+    const key = [job.title, job.location, job.description].map(normalizedText).join('\u0000');
+    reposts.push({ url: job.url, keptUrl: keptByKey.get(key)?.url || '' });
+    return false;
+  });
+  return { jobs: out, reposts };
+}
+
+/**
  * Check whether a URL belongs to one of Migros' trusted domains.
  */
 function isTrustedMigrosDomain(rawUrl = '') {
@@ -714,6 +748,17 @@ async function main() {
     if (patched > 0) {
       writeJsonAtomic(DATA_JOBS, allJobs);
       console.log(`  🏷️ Set sourceLang on ${patched} Migros job(s).`);
+    }
+  }
+
+  // Step 3b': collapse the portal's double publications of one vacancy.
+  {
+    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const allJobs = Array.isArray(raw) ? raw : [];
+    const { jobs: uniqueJobs, reposts } = dedupeMigrosReposts(allJobs);
+    if (reposts.length > 0) {
+      writeJsonAtomic(DATA_JOBS, uniqueJobs);
+      console.log(`  🧹 Collapsed ${reposts.length} Migros repost(s) of an identical vacancy: ${reposts.map((r) => `${r.url} → ${r.keptUrl}`).join(', ')}`);
     }
   }
 

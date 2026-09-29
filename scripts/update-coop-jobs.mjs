@@ -54,7 +54,9 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasCorrectLocaleCoverage, normalizeSpace, mergeLocaleTextMap, fingerprintJob } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
-  fetchCoopJsonLd,
+  fetchCoopDetailPage,
+  collapseRepublishedCoopVacancies,
+  composeCoopFamilyDescription,
   coopDescHtmlToMarkdown,
   validateCoopDescription,
   titleOverlap,
@@ -819,10 +821,10 @@ async function postProcessCoopJobs() {
     12,
     Math.max(1, Number(process.env.JOBS_COOP_DETAIL_CONCURRENCY) || 8),
   );
-  async function fetchCoopJsonLdResilient(url) {
+  async function fetchCoopDetailResilient(url) {
     for (let attempt = 0; attempt < 4; attempt += 1) {
-      const ld = await fetchCoopJsonLd(url, timeoutMs);
-      if (ld) return ld; // got JSON-LD (description handled downstream)
+      const detail = await fetchCoopDetailPage(url, timeoutMs);
+      if (detail) return detail; // got JSON-LD (+ page facts; description handled downstream)
       await sleep(400 * (attempt + 1)); // backoff only when the fetch itself failed (e.g. 503 under load)
     }
     return null;
@@ -833,7 +835,7 @@ async function postProcessCoopJobs() {
   // description) to a single job object in place. Safe to run from concurrent
   // workers because each call mutates only its own `job` (Node is single-threaded;
   // there is no shared mutable state between jobs here).
-  function repairJobFromJsonLd(job, jsonLd) {
+  function repairJobFromJsonLd(job, jsonLd, page = null) {
     let changed = false;
     // Snapshot BEFORE any mutation below: gates the needsRetranslation flag
     // further down (issue #3442). Coop's detail page is re-fetched every
@@ -888,7 +890,10 @@ async function postProcessCoopJobs() {
     const descLen = (job.description || '').length;
     const ldDesc = (jsonLd.description || '').trim();
     if (ldDesc) {
-      const markdown = coopDescHtmlToMarkdown(ldDesc);
+      // The JSON-LD body plus the vacancy's own facts the page shows around it
+      // (store address, Pensum, Stellenantritt): without them every store of a
+      // city published the same text for the same role.
+      const markdown = composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
       const validation = validateCoopDescription(markdown, ldDesc.length);
 
       // Replace if: current is shorter than JSON-LD markdown, current is too
@@ -986,14 +991,15 @@ async function postProcessCoopJobs() {
   // Fetch + repair one job. Quarantines jobs that resolve no real description.
   async function processOne(job) {
     const descLen = (job.description || '').length;
-    const jsonLd = await fetchCoopJsonLdResilient(job.url);
+    const detail = await fetchCoopDetailResilient(job.url);
+    const jsonLd = detail?.jsonLd || null;
     if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
       // No real source description available → quarantine (don't publish a
       // boilerplate-padded thin page).
       if (descLen < 250) quarantineUrls.add(job.url);
       if (!jsonLd) return;
     }
-    if (repairJobFromJsonLd(job, jsonLd)) repaired += 1;
+    if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
 
   // Bounded-concurrency pool over the Coop jobs. A shared index cursor feeds
@@ -1029,12 +1035,24 @@ async function postProcessCoopJobs() {
     if (applyCoopLocationCantonPreference(job)) reconciled += 1;
   }
 
-  if (repaired > 0 || dropped > 0 || reconciled > 0) {
+  // The same ad published under several UUIDs (same store address, same
+  // text) is one vacancy for the reader: keep the earliest-seen record.
+  const { collapsed } = collapseRepublishedCoopVacancies(allJobs.filter(isCoopJob));
+  if (collapsed.length > 0) {
+    const collapsedUrls = new Set(collapsed.map(({ url }) => url));
+    const kept = allJobs.filter((j) => !(isCoopJob(j) && collapsedUrls.has(j.url)));
+    allJobs.length = 0;
+    allJobs.push(...kept);
+    for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished Coop vacancy ${url} collapsed into ${keptUrl}`);
+  }
+
+  if (repaired > 0 || dropped > 0 || reconciled > 0 || collapsed.length > 0) {
     writeJsonAtomic(DATA_JOBS, allJobs);
     writeJsonAtomic(PUBLIC_JOBS, allJobs);
     console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs`
       + (dropped ? ` · quarantined ${dropped} without a real source description` : '')
-      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : ''));
+      + (reconciled ? ` · aligned ${reconciled} location/canton stamps` : '')
+      + (collapsed.length ? ` · collapsed ${collapsed.length} republished duplicate(s)` : ''));
   } else {
     console.log(`  ✅ All ${coopJobs.length} Coop jobs passed validation`);
   }

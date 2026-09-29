@@ -57,6 +57,7 @@ import {
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml, normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import { decodeEntities, htmlToText } from './lib/hospital-custom-html-helpers.mjs';
+import { readAttr } from './lib/html-attr.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -152,6 +153,83 @@ function buildDescriptionDe(title, city, canton) {
 function buildDescriptionFr(title, city, canton) {
   const region = getCantonDisplayName(canton, 'fr');
   return `${title} chez Manor, situé à ${city}, Canton de ${region}, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client.`;
+}
+
+const MANOR_DESCRIPTION_BUILDERS = {
+  it: buildDescriptionIt,
+  en: buildDescriptionEn,
+  de: buildDescriptionDe,
+  fr: buildDescriptionFr,
+};
+
+// "Voir JD", "-", "" — a body with fewer than three real words is a portal
+// placeholder, not vacancy content worth carrying.
+function hasVacancyWords(text) {
+  return (String(text || '').match(/\p{L}{2,}/gu) || []).length >= 3;
+}
+
+/**
+ * Localized descriptions for one Manor vacancy.
+ *
+ * Manor's jobs2web body is often only a short requirement list
+ * ("Körperlich fit / Arbeitsstart ab 06:00 Uhr"). Below 100 characters the
+ * crawler used to REPLACE it with the generic store paragraph, so the only
+ * vacancy-specific words on the page were dropped and every same-title opening
+ * in a store collapsed onto one identical text. The portal's own words now
+ * lead, followed by the store context. A substantial body is published as-is,
+ * and it also fills the slot of its own language — that slot used to carry the
+ * generic paragraph while the real text sat only in `it`.
+ */
+export function buildManorJobDescriptions({ title, city, canton, pageDescription = '', pageLang = '' }) {
+  const source = String(pageDescription || '').trim();
+  const templates = Object.fromEntries(
+    MANOR_LOCALES.map((locale) => [locale, MANOR_DESCRIPTION_BUILDERS[locale](title, city, canton)]),
+  );
+  const declaredLang = MANOR_DESCRIPTION_LANGS.has(pageLang) ? pageLang : 'de';
+  if (source.length >= 100) {
+    // The declared portal tag is a fallback only: Manor has labelled an
+    // Italian body `fr-FR` (Lugano Polydesigner 3D, req 1367443255).
+    const sourceLang = detectLang(source, declaredLang);
+    return {
+      description: source,
+      descriptionByLocale: { ...templates, it: source, [sourceLang]: source },
+      sourceLang,
+    };
+  }
+  const lead = hasVacancyWords(source) ? `${source}\n\n` : '';
+  const descriptionByLocale = Object.fromEntries(
+    MANOR_LOCALES.map((locale) => [locale, `${lead}${templates[locale]}`]),
+  );
+  return {
+    description: descriptionByLocale.it,
+    descriptionByLocale,
+    sourceLang: detectLang(descriptionByLocale.it || title, 'de'),
+  };
+}
+
+/**
+ * Manor re-posts one vacancy under several requisition ids (three
+ * "Mitarbeiter*in Logistik Kommissionierung 100%" in Hochdorf, same body).
+ * Identical title + store + published body is one vacancy for a job seeker:
+ * keep the lowest requisition id and drop the repeats.
+ */
+export function dedupeManorReposts(jobs = []) {
+  const normalized = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const idOf = (job) => Number(extractJobId(String(job?.url || '')) || Number.MAX_SAFE_INTEGER);
+  const sorted = [...jobs].sort((a, b) => idOf(a) - idOf(b));
+  const keptByKey = new Map();
+  const reposts = [];
+  for (const job of sorted) {
+    const key = [normalized(job.title), normalized(job.location), normalized(job.description)].join('\u0000');
+    const kept = keptByKey.get(key);
+    if (kept) {
+      reposts.push({ url: job.url, keptUrl: kept.url });
+      continue;
+    }
+    keptByKey.set(key, job);
+  }
+  const keptSet = new Set(keptByKey.values());
+  return { jobs: jobs.filter((job) => keptSet.has(job)), reposts };
 }
 
 /* ── HTTP helpers ──────────────────────────────────────────── */
@@ -253,9 +331,28 @@ function extractJobId(url) {
 
 /* ── Job detail page parser ────────────────────────────────── */
 function readHtmlAttribute(tag, attribute) {
-  const escaped = attribute.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const match = String(tag || '').match(new RegExp(`\\b${escaped}\\s*=\\s*["']([^"']*)["']`, 'i'));
-  return match ? decodeEntities(match[1]).trim() : '';
+  // Quote-balanced shared reader: a double-quoted value may contain an
+  // apostrophe (`content="Buyer (Women's Fashion) 100%"`), which the old local
+  // `["']([^"']*)["']` regex cut at ("Buyer (Women").
+  return decodeEntities(readAttr(String(tag || ''), attribute)).trim();
+}
+
+const MANOR_DESCRIPTION_LANGS = new Set(['it', 'en', 'de', 'fr']);
+
+/**
+ * Language the portal declares for the vacancy body
+ * (`<span lang="fr-FR" itemprop="description">`). Used as the detection
+ * fallback: a 40-character requirement list is too short to guess from, but
+ * the tag itself is not always right (an Italian body tagged `fr-FR`).
+ */
+export function readManorDescriptionLang(html) {
+  for (const match of String(html || '').matchAll(/<[^>]+>/g)) {
+    const tag = match[0];
+    if (readHtmlAttribute(tag, 'itemprop').toLowerCase() !== 'description') continue;
+    const lang = readHtmlAttribute(tag, 'lang').toLowerCase().split(/[-_]/)[0];
+    if (MANOR_DESCRIPTION_LANGS.has(lang)) return lang;
+  }
+  return '';
 }
 
 function readMetaContent(html, key) {
@@ -322,6 +419,7 @@ export function parseJobPage(html, url) {
   return {
     title,
     description: rawDesc,
+    descriptionLang: readManorDescriptionLang(html),
     postedDate,
     location,
     addressLocality,
@@ -362,7 +460,7 @@ export function resolveManorLocation(pageData = {}, urlCity = '') {
   return { location, canton };
 }
 
-async function fetchManorJobs() {
+export async function fetchManorJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const delayMs = Number(process.env.MANOR_CRAWL_DELAY_MS) || 1500;
 
@@ -448,14 +546,13 @@ async function fetchManorJobs() {
     const addressLocality = resolvedCity;
     const addressRegion = canton;
 
-    // Use page description if substantial, otherwise template
-    const pageDesc = (pageData.description || '').trim();
-    const descIt = pageDesc.length >= 100
-      ? pageDesc
-      : buildDescriptionIt(title, resolvedCity, canton);
-    const descEn = buildDescriptionEn(title, resolvedCity, canton);
-    const descDe = buildDescriptionDe(title, resolvedCity, canton);
-    const descFr = buildDescriptionFr(title, resolvedCity, canton);
+    const { description: descIt, descriptionByLocale, sourceLang } = buildManorJobDescriptions({
+      title,
+      city: resolvedCity,
+      canton,
+      pageDescription: pageData.description,
+      pageLang: pageData.descriptionLang,
+    });
 
     const baseSlug = normalizeKey(`manor ${title} ${resolvedCity}`);
 
@@ -474,12 +571,7 @@ async function fetchManorJobs() {
       category,
       description: descIt,
       descriptionIt: descIt,
-      descriptionByLocale: {
-        it: descIt,
-        en: descEn,
-        de: descDe,
-        fr: descFr,
-      },
+      descriptionByLocale,
       postedDate: pageData.postedDate || '',
       source: 'company-website',
       slug: baseSlug,
@@ -489,7 +581,7 @@ async function fetchManorJobs() {
       titleByLocale: {
         it: title,
       },
-      sourceLang: detectLang(descIt || title, 'de'),
+      sourceLang,
     };
 
     console.log(`  ✅ ${title} — Manor @ ${city} (id: ${jobId})`);
@@ -502,6 +594,12 @@ async function fetchManorJobs() {
   }
 
   console.log(`📋 Detail pages fetched: ${targetUrls.length - detailFailures}/${targetUrls.length}`);
+  const { jobs: uniqueJobs, reposts } = dedupeManorReposts(jobs);
+  if (reposts.length > 0) {
+    console.log(`📋 Collapsed ${reposts.length} Manor repost(s) of an identical vacancy (same title, store and body): ${reposts.map((r) => `${extractJobId(r.url)}→${extractJobId(r.keptUrl)}`).join(', ')}`);
+  }
+  jobs.length = 0;
+  jobs.push(...uniqueJobs);
   console.log(`📋 Total unique Manor Swiss jobs discovered: ${jobs.length}`);
   if (skipped.missingTitle || skipped.unresolvedCanton) {
     console.warn(`⚠️ Skipped Manor listings: ${JSON.stringify(skipped)}`);
