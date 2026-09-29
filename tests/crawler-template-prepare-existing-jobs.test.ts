@@ -30,6 +30,8 @@ const mocks = vi.hoisted(() => ({
   registerCrawlerSummaryGuard: vi.fn(),
   markCrawlerSummaryAbortKind: vi.fn(),
   isConnectionLevelFetchError: vi.fn(() => false),
+  detectBoilerplateDescriptions: vi.fn(() => ({ boilerplateJobs: [], totalJobs: 1, boilerplateCount: 0, ratio: 0 })),
+  isSystemicBoilerplateFailure: vi.fn(() => false),
 }));
 
 vi.mock('../scripts/jobs-url-helper.mjs', () => ({
@@ -59,6 +61,8 @@ vi.mock('../scripts/assemble-jobs-dataset.mjs', () => ({
   markCrawlerSummaryAbortKind: mocks.markCrawlerSummaryAbortKind,
   assembleJobsDataset: mocks.assembleJobsDataset,
   readExistingCrawlerJobs: mocks.readExistingCrawlerJobs,
+  detectBoilerplateDescriptions: mocks.detectBoilerplateDescriptions,
+  isSystemicBoilerplateFailure: mocks.isSystemicBoilerplateFailure,
 }));
 
 vi.mock('../scripts/lib/dedicated-crawler-common.mjs', () => ({
@@ -170,9 +174,13 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
     const [existing] = mocks.mergePreserveLocaleData.mock.calls[0];
     expect(existing).toEqual([expect.objectContaining({ id: 'stored-1', tag: 'seen' })]);
   });
+});
 
-  it('does not call the hook on a run that keeps the stored slice (no jobs parsed)', async () => {
-    const prepareExistingJobs = vi.fn();
+// A run that parses no job keeps the stored slice. The hook still runs on the
+// stored jobs, so the crawler's own text does not outlive the fix while the
+// source stays empty; the slice is rewritten only when the hook changed it.
+describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no job', () => {
+  async function runEmpty(extra: Record<string, unknown> = {}) {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'prepare-existing-root-'));
     try {
       await runStandardCrawlerPipeline({
@@ -180,13 +188,62 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
         companyLabel: 'Prepare Existing Test',
         root,
         fetchJobs: async () => [],
-        isCompanyJob: () => true,
-        prepareExistingJobs,
+        isCompanyJob: (job: { companyKey?: string }) => job.companyKey === COMPANY_KEY,
+        ...extra,
       });
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
-    expect(prepareExistingJobs).not.toHaveBeenCalled();
+  }
+  const dropStelle = (jobs: object[]) => dropFabricatedDescriptions(jobs, /Stelle: Pflege\./, 'Prepare Existing Test');
+
+  it('rewrites the stored slice without the crawler text, and does nothing else', async () => {
+    await runEmpty({ prepareExistingJobs: dropStelle });
+
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledTimes(1);
+    const [key, jobs, options] = mocks.writeJobsCrawlerSliceVerified.mock.calls[0];
+    expect(key).toBe(COMPANY_KEY);
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      id: 'stored-1',
+      slug: 'stored-job',
+      url: 'https://example.com/stored-job',
+      description: '',
+      descriptionByLocale: {},
+      needsRetranslation: true,
+    });
+    expect(options).toMatchObject({ preserveExistingSlugs: false });
+    expect(options).not.toHaveProperty('skipShrinkGuard');
+    // Still the soft exit: no merge, no retirement, no localization, no assembly.
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
+    expect(mocks.runDedicatedBaseCrawler).not.toHaveBeenCalled();
+    expect(mocks.assembleJobsDataset).not.toHaveBeenCalled();
+  });
+
+  it('writes nothing when the hook finds no crawler text in the stored jobs', async () => {
+    const prepareExistingJobs = vi.fn((jobs: object[]) => dropFabricatedDescriptions(jobs, /Karriereseite: /, 'Prepare Existing Test'));
+    await runEmpty({ prepareExistingJobs });
+    expect(prepareExistingJobs).toHaveBeenCalledTimes(1);
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+  });
+
+  it('writes nothing without the option (unchanged behaviour)', async () => {
+    await runEmpty();
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
+  });
+
+  it('keeps the prior slice when the rewrite would trip the systemic boilerplate guard', async () => {
+    mocks.isSystemicBoilerplateFailure.mockReturnValueOnce(true);
+    await runEmpty({ prepareExistingJobs: dropStelle });
+    expect(mocks.detectBoilerplateDescriptions).toHaveBeenCalledTimes(1);
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+  });
+
+  it('stays a soft exit when the rewrite fails', async () => {
+    mocks.writeJobsCrawlerSliceVerified.mockRejectedValueOnce(new Error('shrink guard'));
+    await expect(runEmpty({ prepareExistingJobs: dropStelle })).resolves.toBeUndefined();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledTimes(1);
   });
 });
