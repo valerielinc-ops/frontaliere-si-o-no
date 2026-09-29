@@ -145,7 +145,9 @@ async function readJson(response) {
         try { await reader.cancel(); } catch { /* the size verdict stays authoritative */ }
         throw tooLarge();
       }
-      chunks.push(Buffer.from(value.buffer, value.byteOffset, value.byteLength));
+      // A copy, not a view over `value.buffer`: a reader may hand back the
+      // same buffer on every read (#7483).
+      chunks.push(Buffer.from(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
       size += value.byteLength;
     }
   } finally {
