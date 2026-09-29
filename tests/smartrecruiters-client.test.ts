@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchSmartRecruitersJobs } from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
+import { fetchSmartRecruitersJobs, smartRecruitersPostingUrls } from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -247,5 +247,29 @@ describe('SmartRecruiters strict source pagination', () => {
       paginationIntegrityProven: true,
       totalFound: null,
     });
+  });
+});
+
+// ── #5253: the vacancy URL is the ad page, not the `?oga=true` apply flow ──
+describe('smartRecruitersPostingUrls', () => {
+  const posting = {
+    id: '744000149266409',
+    postingUrl: 'https://jobs.smartrecruiters.com/Ardentis1/744000149266409-charge-e-de-relation-patient-80-vevey',
+    applyUrl: 'https://jobs.smartrecruiters.com/Ardentis1/744000149266409-charge-e-de-relation-patient-80-vevey?oga=true',
+  };
+
+  it('returns postingUrl as the page and keeps applyUrl as the apply link', () => {
+    expect(smartRecruitersPostingUrls(posting, 'Ardentis1')).toEqual({
+      pageUrl: posting.postingUrl,
+      applyUrl: posting.applyUrl,
+    });
+  });
+
+  it('falls back to the id-based public page, then to applyUrl, never to nothing when either exists', () => {
+    expect(smartRecruitersPostingUrls({ id: '744000149266409', applyUrl: posting.applyUrl }, 'Ardentis1').pageUrl)
+      .toBe('https://jobs.smartrecruiters.com/Ardentis1/744000149266409');
+    expect(smartRecruitersPostingUrls({ applyUrl: posting.applyUrl }).pageUrl).toBe(posting.applyUrl);
+    expect(smartRecruitersPostingUrls({ postingUrl: posting.postingUrl }).applyUrl).toBe(posting.postingUrl);
+    expect(smartRecruitersPostingUrls(null)).toEqual({ pageUrl: '', applyUrl: '' });
   });
 });

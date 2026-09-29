@@ -2370,6 +2370,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-patrimonio-finanziario-mondiale': { it: 'svizzera-patrimonio-finanziario-mondiale', en: 'switzerland-global-financial-wealth', de: 'schweiz-globales-finanzvermoegen', fr: 'suisse-patrimoine-financier-mondial' },
  'lavoratori-svizzeri-ia-benefici': { it: 'lavoratori-svizzeri-ia-benefici', en: 'swiss-workers-ai-benefits', de: 'schweizer-arbeitnehmer-ki-vorteile', fr: 'travailleurs-suisses-ia-benefices' },
  'cioccolato-mercato-svizzera': { it: 'cioccolato-mercato-svizzera', en: 'chocolate-market-switzerland', de: 'schokolade-markt-schweiz', fr: 'chocolat-marche-suisse' },
+ 'lindt-prezzi-cacao-2026': { it: 'lindt-prezzi-cacao-2026', en: 'lindt-prices-cocoa-2026', de: 'lindt-preise-kakao-2026', fr: 'lindt-prix-cacao-2026' },
+ 'classifica-ompi-alta-tecnologia': { it: 'classifica-ompi-alta-tecnologia', en: 'switzerland-innovation-ranking', de: 'schweiz-innovationsranking', fr: 'classement-innovation-suisse' },
+ 'soletta-licenza-estera-esami': { it: 'soletta-licenza-estera-esami', en: 'solothurn-driving-licence-conversion', de: 'solothurn-fuehrerausweis-umtausch', fr: 'soleure-permis-conduire-conversion' },
+ 'accessibilita-mezzi-pubblici-uft': { it: 'accessibilita-mezzi-pubblici-uft', en: 'public-transport-accessibility-swiss', de: 'barrierefreiheit-oeffentlicher-verkehr-schweiz', fr: 'accessibilite-transports-publics-suisse' },
+ 'reazioni-partiti-aumento-premi-2027': { it: 'reazioni-partiti-aumento-premi-2027', en: 'party-reactions-2027-premium-increase', de: 'parteireaktionen-2027-premiumerhoehung', fr: 'reactions-partis-hausse-premiums-2027' },
+ 'voto-armi-industria-difesa': { it: 'voto-armi-industria-difesa', en: 'swiss-arms-export-vote', de: 'schweizer-waffenexport-vote', fr: 'vote-exportations-armes-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

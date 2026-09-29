@@ -17,6 +17,7 @@ import {
   buildFartDescription,
   countMeaningfulParagraphs,
   MIN_FART_DESC_LENGTH,
+  FART_FABRICATED_DESCRIPTION_RE,
 } from '@/scripts/lib/fart-job-parser.mjs';
 
 // ─── Fixtures: raw PDF text ────────────────────────────────────────────────
@@ -143,7 +144,7 @@ describe('buildFartDescription — Addetto al Reparto Verifica regression', () =
     expect(countMeaningfulParagraphs(description)).toBeGreaterThanOrEqual(3);
   });
 
-  it('includes the job title intro line', () => {
+  it('keeps the title as the bando itself writes it', () => {
     const { description } = buildFartDescription(
       'Addetto al Reparto Verifica e Pulizia del Garage Autolinee 100% (M/F)',
       PDF_RAW_ADDETTO_PULIZIA
@@ -160,12 +161,15 @@ describe('buildFartDescription — Addetto al Reparto Verifica regression', () =
     expect(description).toContain('Patente di guida');
   });
 
-  it('includes the footer contact information', () => {
+  it('keeps the bando\'s own contact lines and adds no line of the crawler', () => {
     const { description } = buildFartDescription(
       'Addetto al Reparto Verifica e Pulizia del Garage Autolinee 100% (M/F)',
       PDF_RAW_ADDETTO_PULIZIA
     );
-    expect(description).toContain('fart@centovalli.ch');
+    expect(description).toContain('E-mail: fart@centovalli.ch');
+    expect(description).not.toMatch(FART_FABRICATED_DESCRIPTION_RE);
+    expect(description).not.toContain('pubblica il seguente concorso');
+    expect(description).not.toContain('Settore: Trasporti pubblici');
   });
 
   it('emits no warnings for a full-length PDF', () => {
@@ -189,15 +193,14 @@ describe('buildFartDescription — MIN_FART_DESC_LENGTH guard', () => {
     expect(warnings.some((w: string) => w.includes('too short'))).toBe(true);
   });
 
-  it('does not emit a warning when no PDF text is provided (fallback is expected)', () => {
+  it('does not emit a warning when no PDF text is provided', () => {
     const { warnings } = buildFartDescription('Autista', '');
     expect(warnings).toHaveLength(0);
   });
 
-  it('uses fallback text when rawPdfText is empty', () => {
+  it('writes no description of its own when the PDF has no text', () => {
     const { description } = buildFartDescription('Autista', '');
-    expect(description).toContain('Concorso Autista');
-    expect(description).toContain('FART');
+    expect(description).toBe('');
   });
 });
 

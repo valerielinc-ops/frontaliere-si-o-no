@@ -89,7 +89,12 @@ export function parseFartListingPage(html = '') {
 }
 
 /**
- * Build a full description from a job title and raw (un-normalized) PDF text.
+ * Build the description of one concorso from its raw (un-normalized) PDF
+ * text: the bando's own text and nothing else. The crawler used to wrap it in
+ * lines of its own ("FART pubblica il seguente concorso.", "Posizione: …",
+ * "Bando ufficiale disponibile in PDF.", "Settore: …", "Sede: …",
+ * "Contatto: …") and to substitute "Concorso <titolo> presso FART…" when the
+ * PDF had no text; a bando without readable text now gets no description.
  *
  * Passes the raw PDF text to buildPdfBackedDescription so normalizePdfJobText()
  * is applied exactly once — avoiding the double-normalization that previously
@@ -103,20 +108,7 @@ export function parseFartListingPage(html = '') {
  * @returns {{ description: string, warnings: string[] }}
  */
 export function buildFartDescription(title = '', rawPdfText = '') {
-  const description = buildPdfBackedDescription({
-    introLines: [
-      `${COMPANY_NAME} pubblica il seguente concorso.`,
-      `Posizione: ${title}.`,
-    ],
-    pdfText: rawPdfText,
-    fallbackText: `Concorso ${title} presso ${COMPANY_NAME}. Consultare il bando PDF ufficiale per dettagli completi su requisiti, mansioni e candidatura.`,
-    footerLines: [
-      'Bando ufficiale disponibile in PDF.',
-      'Settore: Trasporti pubblici / Ferrovia',
-      'Sede: Via Domenico Galli 9, 6600 Locarno (TI), Svizzera',
-      'Contatto: fart@centovalli.ch | Tel. +41 (0)91 756 04 00',
-    ],
-  });
+  const description = buildPdfBackedDescription({ pdfText: rawPdfText });
 
   const warnings = [];
   if (rawPdfText && description.length < MIN_FART_DESC_LENGTH) {
@@ -128,6 +120,10 @@ export function buildFartDescription(title = '', rawPdfText = '') {
 
   return { description, warnings };
 }
+
+/** Fragments only the crawler's former wrapper wrote (see `buildFartDescription`). */
+export const FART_FABRICATED_DESCRIPTION_RE =
+  /pubblica il seguente concorso\.|Consultare il bando PDF ufficiale per dettagli completi|(?:^|\n)Bando ufficiale disponibile in PDF\.|(?:^|\n)Contatto: fart@centovalli\.ch/;
 
 /**
  * Count meaningful paragraphs in a description string.

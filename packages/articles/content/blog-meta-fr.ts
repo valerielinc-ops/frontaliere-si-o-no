@@ -12283,6 +12283,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cst-clausola-salvaguardia-tassa.title': 'CSt : clause de sauvegarde renforcée avec taxe incitative',
     'blog.article.cst-clausola-salvaguardia-tassa.excerpt': 'Le Conseil des Etats a renforcé la clause de sauvegarde pour l\'immigration en introduisant une taxe d\'incitation de 2 000 à 4 000 francs et de nouveaux indicateurs.',
     'blog.article.cst-clausola-salvaguardia-tassa.imageAlt': 'Vue panoramique de Lugano et de son lac avec les montagnes en arrière-plan, un symbole du Tessin.',
+    'blog.article.stangata-premi-cassa-malati-ticino.title': 'Primes d\'assurance-maladie dans le canton du Tessin 2027 : hausse de 3,7%',
+    'blog.article.stangata-premi-cassa-malati-ticino.excerpt': 'En 2027, les primes d\'assurance-maladie dans le canton du Tessin augmentent de 3,7%, portant la prime moyenne à 520 francs par mois, la plus élevée de Suisse.',
+    'blog.article.stangata-premi-cassa-malati-ticino.imageAlt': 'Primes d\'assurance-maladie au Tessin pour 2027',
+    'blog.article.lamal-premi-ticino-triplicati.title': 'LAMal, 30 ans de hausses : les primes ont triplé',
+    'blog.article.lamal-premi-ticino-triplicati.excerpt': 'La LAMal, introduite en 1996, a vu la prime moyenne tripler. Pour 2027, le DFI indique +5% en Suisse et +3,7% au Tessin.',
+    'blog.article.lamal-premi-ticino-triplicati.imageAlt': 'Vue sur Lugano et le Tessin pour un article sur les primes LAMal',
+    'blog.article.mobilita-lombardia-ticino-2026.title': 'Feu vert pour l\'accord Lombardie-Tessin',
+    'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Le projet de loi n ° 197 sur la mobilité transfrontalière a été ratifié. Accord quinquennal pour les trains, les bus et les tarifs entre l\'Italie et la Suisse.',
+    'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Train transfrontalier entre la Lombardie et le Tessin',
 };
 
 export default blogMetaFr;

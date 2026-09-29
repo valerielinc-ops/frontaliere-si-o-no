@@ -49,6 +49,8 @@ import {
   buildArtificialyLocalizedContent,
 } from './lib/artificialy-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -185,7 +187,8 @@ async function fetchAllListings() {
 }
 
 function buildArtificialyJob(row) {
-  const localized = buildArtificialyLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, 'it');
+  const localized = buildArtificialyLocalizedContent({ ...row, sourceLang });
   const canton = inferArtificialyCanton(row);
   const detailUrl = row.applyUrl || `${CAREER_URLS[0]}`;
   return {
@@ -205,16 +208,35 @@ function buildArtificialyJob(row) {
     category: inferArtificialyCategory(row.title),
     sector: 'Intelligenza Artificiale',
     source: 'artificialy-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
+    sourceLang,
     postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
     validThrough: row.validThrough || '',
     employmentType: 'full-time',
     contractType: 'full-time',
-    description: localized.descriptionByLocale.it,
+    description: localized.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
   };
+}
+
+// The sentence the builder used to write, in all four slots, for a posting without text:
+// "Artificialy cerca <title> con sede a <place>. Azienda svizzera specializzata…".
+// Only ever recognised, to be removed from stored records (issue 5253).
+const ARTIFICIALY_FABRICATED_RE = /Artificialy cerca [^\n]* con sede a [^\n]*\. Azienda svizzera specializzata in intelligenza artificiale/;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (ARTIFICIALY_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropArtificialyFabricatedText(job) {
+  return dropFabricatedDescription(job, ARTIFICIALY_FABRICATED_RE);
 }
 
 function jobMatchKey(job = {}) {
@@ -225,6 +247,8 @@ function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropArtificialyFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented description from ${fossils} stored Artificialy job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
@@ -359,4 +383,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Artificialy'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => exitCrawlerOnError(error, 'Artificialy'));
+}
