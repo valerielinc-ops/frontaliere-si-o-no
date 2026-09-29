@@ -2356,6 +2356,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soletta-avvio-impresa-obblighi': { it: 'soletta-avvio-impresa-obblighi', en: 'solothurn-business-startup-costs', de: 'geschaeftsstart-solothurn-kosten', fr: 'creation-entreprise-soleure-couts' },
  'swiss-starlink-aereo-internet': { it: 'swiss-starlink-aereo-internet', en: 'swiss-starlink-airplane-internet', de: 'swiss-starlink-flugzeug-internet', fr: 'swiss-starlink-avion-internet' },
  'avvio-impresa-soletta-adempimenti': { it: 'avvio-impresa-soletta-adempimenti', en: 'starting-business-solothurn-requirements', de: 'unternehmen-solothurn-handelsregister', fr: 'creer-entreprise-soleure-registre' },
+ 'licenza-estera-soletta-prove': { it: 'licenza-estera-soletta-prove', en: 'foreign-licence-solothurn-tests', de: 'auslaendischer-fuehrerausweis-solothurn-pruefungen', fr: 'permis-etranger-soleure-examens' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

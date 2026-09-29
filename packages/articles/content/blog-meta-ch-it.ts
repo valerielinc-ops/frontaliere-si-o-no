@@ -7001,6 +7001,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avvio-impresa-soletta-adempimenti.title': 'Aprire un\'attività a Soletta: registro e costi',
     'blog.article.avvio-impresa-soletta-adempimenti.excerpt': 'Nel Cantone di Soletta, forma giuridica, registro e capitale minimo si intrecciano con tre livelli fiscali e contributi AVS/AI/IPG del 5.3% per il dipendente.',
     'blog.article.avvio-impresa-soletta-adempimenti.imageAlt': 'Avvio di un\'attività nel Cantone di Soletta tra registro di commercio e costi',
+    'blog.article.licenza-estera-soletta-prove.title': 'Patente estera a Soletta: conversione ed esami',
+    'blog.article.licenza-estera-soletta-prove.excerpt': 'La guida alla patente nel Cantone di Soletta copre conversione della licenza estera, esami teorico e pratico, corsi obbligatori e ufficio competente.',
+    'blog.article.licenza-estera-soletta-prove.imageAlt': 'Conversione della patente estera e prove di guida nel Cantone di Soletta',
 };
 
 export default blogMetaChIt;
