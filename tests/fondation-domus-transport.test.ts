@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
 
@@ -15,6 +15,8 @@ import {
 const CAREER_URL = 'https://www.fondation-domus.ch/emploi-formation/offres-d-emploi';
 
 describe('Fondation Domus transport', () => {
+  beforeEach(() => fetchHtml.mockReset());
+
   it('uses the shared resilient HTML transport for the career page', async () => {
     fetchHtml.mockResolvedValueOnce(`
       <html><body>
@@ -39,5 +41,27 @@ describe('Fondation Domus transport', () => {
         }),
       }),
     );
+  });
+
+  it('uses the same transport for JobUp detail enrichment', async () => {
+    const jobUpUrl = 'https://www.jobup.ch/fr/emplois/detail/12345/';
+    fetchHtml
+      .mockResolvedValueOnce(`
+        <html><body>
+          <h3>Educateur social</h3>
+          <h5>Lieu de travail</h5><div>Ardon</div>
+          <a href="${jobUpUrl}">Postuler</a>
+        </body></html>
+      `)
+      .mockResolvedValueOnce(`<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        description: 'Long enough source description for the Fondation Domus detail enrichment test.',
+      })}</script>`);
+
+    const jobs = await fetchAllFondationDomusJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+    expect(fetchHtml.mock.calls[1][0]).toBe(jobUpUrl);
   });
 });
