@@ -44,6 +44,7 @@
 
 import crypto from 'node:crypto';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { HERE_MONTHLY_FREE_TIER_BUDGET } from '../functions/src/lib/hereBudget.js';
 
 const HERE_TOKEN_URL = 'https://account.api.here.com/oauth2/token';
 const HERE_USAGE_HOST = 'https://usage.bam.api.here.com';
@@ -92,6 +93,21 @@ export function monthBounds(monthKey) {
   const start = new Date(nominalUtcMidnight.getTime() - romeOffsetMs).toISOString().slice(0, 19);
   const end = new Date().toISOString().slice(0, 19);
   return { start, end };
+}
+
+/**
+ * Resolve the alert/seed threshold without allowing Remote Config to raise
+ * the application's free-tier safety ceiling.
+ */
+export function hereReconciliationBudget(env = process.env, warn = console.warn) {
+  const configured = intFromEnv('HERE_MONTHLY_BUDGET', HERE_MONTHLY_FREE_TIER_BUDGET, { env, warn });
+  if (configured > HERE_MONTHLY_FREE_TIER_BUDGET) {
+    warn(
+      `::warning::[here-budget] HERE_MONTHLY_BUDGET=${configured} exceeds the hard `
+      + `free-tier ceiling ${HERE_MONTHLY_FREE_TIER_BUDGET}; using ${HERE_MONTHLY_FREE_TIER_BUDGET}`,
+    );
+  }
+  return Math.min(configured, HERE_MONTHLY_FREE_TIER_BUDGET);
 }
 
 // ─── HERE OAuth 1.0a-signed token request ──────────────────────
@@ -246,7 +262,9 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const monthKey = currentMonthKey();
-  const budget = args.budget ?? intFromEnv('HERE_MONTHLY_BUDGET', 4000);
+  const budget = args.budget == null
+    ? hereReconciliationBudget()
+    : Math.min(args.budget, HERE_MONTHLY_FREE_TIER_BUDGET);
 
   let realBilled;
   let source;
