@@ -946,6 +946,50 @@ describe('crawler slice integrity guard', () => {
     }).reason).toBe('proven-ghost-expired-prune');
   });
 
+  it('rejects a top-level slug owned by a different active posting', () => {
+    const activeOwner = {
+      slug: 'shared-slug',
+      title: 'Other role',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+    };
+    const activeMatch = {
+      slug: 'other-it',
+      slugByLocale: { it: 'other-it' },
+      title: 'Store Manager',
+      company: 'Rituals Cosmetics',
+      location: 'Zürich',
+    };
+    const removed = {
+      slug: 'shared-slug',
+      slugByLocale: { it: '' },
+      title: activeMatch.title,
+      company: activeMatch.company,
+      location: activeMatch.location,
+      description: 'x'.repeat(1_400_000),
+    };
+    const retained = {
+      slug: 'visual-merchandiser-lugano',
+      title: 'Visual Merchandiser',
+      company: 'Rituals Cosmetics',
+      location: 'Lugano',
+      description: 'retained',
+    };
+    const prettyJson = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+    const previous = prettyJson([removed, retained]);
+    const next = prettyJson([retained]);
+    const filePath = 'data/jobs/expired/by-crawler/rituals-cosmetics.json';
+    const proof = {
+      activeJobs: [activeOwner, activeMatch],
+      ghostEntryIds: [removed.slug],
+    };
+
+    expect(isProvenGhostExpiredPrune(filePath, previous, next, proof)).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next, {
+      expiredGhostProof: proof,
+    })).toThrow(/catastrophic truncation avoided/);
+  });
+
   it('rejects ghost evidence whose slug owner is a different posting', () => {
     const activeMatch = {
       url: 'https://example.test/active-a',

@@ -372,22 +372,26 @@ function uniqueExpiredEntryIdentities(entries) {
 function buildGhostActiveIndex(activeJobs) {
   if (!Array.isArray(activeJobs) || activeJobs.length === 0) return null;
   const activeByTCL = new Map();
-  const activeSlugSet = new Set();
+  const activeSlugOwners = new Map();
+  const registerActiveSlug = (slug, job) => {
+    if (typeof slug !== 'string' || !slug) return;
+    if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+  };
   for (const job of activeJobs) {
     const key = `${(job?.title || '').toLowerCase().trim()}||${(job?.company || '').toLowerCase().trim()}||${(job?.location || '').toLowerCase().trim()}`;
     if (!activeByTCL.has(key)) activeByTCL.set(key, job);
-    if (typeof job?.slug === 'string') activeSlugSet.add(job.slug);
+    registerActiveSlug(job?.slug, job);
     if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const slug of Object.values(job.slugByLocale)) activeSlugSet.add(slug);
+      for (const slug of Object.values(job.slugByLocale)) registerActiveSlug(slug, job);
     }
-    for (const slug of job?.previousSlugs || []) activeSlugSet.add(slug);
+    for (const slug of job?.previousSlugs || []) registerActiveSlug(slug, job);
     if (job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
       for (const slugs of Object.values(job.previousSlugsByLocale)) {
-        if (Array.isArray(slugs)) for (const slug of slugs) activeSlugSet.add(slug);
+        if (Array.isArray(slugs)) for (const slug of slugs) registerActiveSlug(slug, job);
       }
     }
   }
-  return { activeByTCL, activeSlugSet };
+  return { activeByTCL, activeSlugOwners };
 }
 
 function isGhostExpiredEntry(entry, activeIndex) {
@@ -397,8 +401,13 @@ function isGhostExpiredEntry(entry, activeIndex) {
   const expiredSlugs = localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
     ? localeSlugs
     : [entry?.slug];
-  const hasSlugOverlap = expiredSlugs.some((slug) => activeIndex.activeSlugSet.has(slug));
   const key = `${(entry?.title || '').toLowerCase().trim()}||${(entry?.company || '').toLowerCase().trim()}||${(entry?.location || '').toLowerCase().trim()}`;
+  const hasSlugOverlap = expiredSlugs.some((slug) => {
+    const owner = activeIndex.activeSlugOwners.get(slug);
+    if (!owner) return false;
+    const ownerKey = `${(owner?.title || '').toLowerCase().trim()}||${(owner?.company || '').toLowerCase().trim()}||${(owner?.location || '').toLowerCase().trim()}`;
+    return ownerKey === key;
+  });
   const match = activeIndex.activeByTCL.get(key);
   const sameItSlug = match && entry?.slugByLocale?.it === match?.slugByLocale?.it;
   return Boolean(match && (hasSlugOverlap || sameItSlug));
