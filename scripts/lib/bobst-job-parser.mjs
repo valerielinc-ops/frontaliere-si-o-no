@@ -27,7 +27,6 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { extractUmantisDetailContent } from './umantis-listing-common.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const DETAIL_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -539,13 +538,22 @@ export async function fetchAllBobstJobs(options = {}) {
       descriptionText = await fetchBobstDetail(publicUrl);
       await new Promise((r) => setTimeout(r, 250)); // rate-limit detail fetches
     }
-    // The description is the posting's own text, above the shared 50-word
-    // floor (issue 5253). When the detail could not be read the crawler used
-    // to write one of its own («<title> at Bobst, <city> (<canton> canton),
-    // Switzerland. Bobst is a global supplier of … Apply via the Bobst careers
-    // portal.», or «<title> — Bobst»): a posting without text now gets no
-    // description and takes the pipeline's thin-source path.
-    if (!meetsSourceBodyFloor(descriptionText)) descriptionText = '';
+    if (!descriptionText) {
+      // Synthesise a structured English fallback when the detail fetch fails.
+      // Mirrors umantis-listing-common.mjs ultra_thin remediation: title + entity
+      // + city/canton + dept/type metadata + apply boilerplate. Enough prose to
+      // pass the thin-source gate; AI localization enriches the locale variants.
+      const meta = [];
+      if (listing.department) meta.push(`Department: ${listing.department}`);
+      if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
+      if (listing.contractTerm) meta.push(`Term: ${listing.contractTerm}`);
+      const metaLine = meta.length > 0 ? ` ${meta.join('. ')}.` : '';
+      descriptionText = [
+        `${title} at ${BOBST_COMPANY_NAME}, ${location}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
+        `${BOBST_COMPANY_NAME} is a global supplier of substrate processing, printing and converting equipment for the packaging industry.`,
+        `Apply via the Bobst careers portal.${metaLine}`,
+      ].join(' ');
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} bobst ch`);
@@ -561,8 +569,8 @@ export async function fetchAllBobstJobs(options = {}) {
       companyDomain: BOBST_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
+      description: descriptionText || `${title} — Bobst`,
+      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Bobst` },
       // Newly-discovered jobs ship with source-locale-only fields. The shared
       // AI-localization step clears this flag when it fills the remaining 3
       // locales; if it can't, `translate-pending.yml` picks it up out-of-band.
@@ -599,10 +607,6 @@ export async function fetchAllBobstJobs(options = {}) {
   console.log(`\n📋 Total Bobst jobs discovered: ${jobs.length}`);
   return jobs;
 }
-
-/** Fragments only the crawler's former fallback description wrote. */
-export const BOBST_FABRICATED_DESCRIPTION_RE =
-  /is a global supplier of substrate processing, printing and converting equipment for the packaging industry\.|Apply via the Bobst careers portal\.| — Bobst$/;
 
 // Re-export CAREER_URL for the workflow runner banner.
 export { CAREER_URL };

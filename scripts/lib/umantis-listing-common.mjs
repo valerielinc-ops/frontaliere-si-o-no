@@ -340,25 +340,24 @@ function detectEmploymentType(art = '', title = '') {
 }
 
 /**
- * The job's `contract` from the listing's «Befristung» column (English
- * boards: «Employment period») and the employment type the parser already
- * reads from «Art»/«Type» (and the title).
+ * The job's `contract` from the listing's «Befristung» column and the
+ * employment type the parser already reads from «Art» (and the title).
  *
  * These values used to reach the site also as «• Befristung: …» / «• Art: …»
  * lines the crawler appended to the description, where the job board read
  * «Teilzeit» and «befristet» out of the text. With the lines gone the
  * structured field carries them, in the job board's own order
- * (`normalizeJobContract`: part-time before temporary). «Unbefristet» and
- * «unlimited» (a permanent position) contain «befristet» and «limited»: the
- * previous tests matched them and marked permanent positions as temporary.
+ * (`normalizeJobContract`: part-time before temporary). «Unbefristet» (a
+ * permanent position) contains «befristet»: the previous test matched it and
+ * marked every permanent position of these tenants as temporary.
  *
- * @param {string} befristung      e.g. «Befristet», «Unbefristet», «unlimited»
+ * @param {string} befristung      e.g. «Befristet», «Unbefristet»
  * @param {string} employmentType  e.g. `detectEmploymentType(art, title)`
  * @returns {'part-time'|'temporary'|'full-time'}
  */
 export function umantisListingContract(befristung = '', employmentType = '') {
   if (employmentType === 'PART_TIME') return 'part-time';
-  if (/(?:^|[^\p{L}])(?:befristet|temporär|temporair|limited|temporary)/u.test(normalize(befristung))) return 'temporary';
+  if (/(?:^|[^\p{L}])(?:befristet|temporär|temporair)/u.test(normalize(befristung))) return 'temporary';
   return 'full-time';
 }
 

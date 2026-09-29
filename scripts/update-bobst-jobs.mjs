@@ -14,9 +14,7 @@ import {
   isTrustedDomain,
   BOBST_KEY,
   BOBST_COMPANY_NAME,
-  BOBST_FABRICATED_DESCRIPTION_RE,
 } from './lib/bobst-job-parser.mjs';
-import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -29,7 +27,6 @@ runStandardCrawlerPipeline({
   isCompanyJob: isBobstJob,
   isTrustedDomain,
   defaultSourceLang: 'en',
-  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, BOBST_FABRICATED_DESCRIPTION_RE, BOBST_COMPANY_NAME),
 }).catch((err) => {
   console.error(`❌ Bobst crawler failed: ${err?.message || err}`);
   process.exit(1);

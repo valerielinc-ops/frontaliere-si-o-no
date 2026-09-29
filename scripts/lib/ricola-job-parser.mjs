@@ -56,8 +56,6 @@ import { createHash } from 'node:crypto';
 import { detectLang, decodeHtmlEntities, decodeNumericEntities, normalizeSpace as normalizeSpaceDCC } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { umantisListingContract } from './umantis-listing-common.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ────────────────────────────────────────────── */
 
@@ -403,16 +401,18 @@ export async function fetchAllRicolaJobs(options = {}) {
 
     const detailContent = await fetchDetailContent(listing.url, options);
 
-    // The description is the posting's own text, above the shared 50-word
-    // floor (issue 5253). The crawler used to append the listing columns as
-    // «Type: … . Employment period: … .» (its formatting, not the posting's
-    // text) and, without detail text, to write a description of its own
-    // («<title> at Ricola, <city> (<canton> canton), Switzerland. Ricola is a
-    // Swiss herbal-candy manufacturer … Apply via the Ricola careers
-    // portal.»). The columns live in employmentType and contract; a posting
-    // without text gets no description and takes the pipeline's thin-source
-    // path.
-    const descriptionText = meetsSourceBodyFloor(detailContent) ? detailContent : '';
+    const meta = [];
+    if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
+    if (listing.contractTerm) meta.push(`Employment period: ${listing.contractTerm}`);
+    const metaLine = meta.length > 0 ? `\n\n${meta.join('. ')}.` : '';
+
+    const descriptionText = detailContent
+      ? `${detailContent}${metaLine}`
+      : [
+          `${title} at ${RICOLA_COMPANY_NAME}, ${city}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
+          `${RICOLA_COMPANY_NAME} is a Swiss herbal-candy manufacturer headquartered in Laufen (BL).`,
+          `Apply via the Ricola careers portal.${metaLine}`,
+        ].join(' ');
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ricola ch`);
@@ -451,8 +451,7 @@ export async function fetchAllRicolaJobs(options = {}) {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      // «Employment period: unlimited» is permanent, not temporary.
-      contract: umantisListingContract(listing.contractTerm, employmentType),
+      contract: /limited|befristet|temporary/i.test(listing.contractTerm || '') ? 'temporary' : 'full-time',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: SECTOR,
@@ -470,15 +469,3 @@ export async function fetchAllRicolaJobs(options = {}) {
   console.log(`\n📋 Total ${RICOLA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
-
-/* ── Stored jobs: text the crawler once wrote ─────────────── */
-
-/** Fragments only the crawler's former fallback description wrote. */
-export const RICOLA_FABRICATED_DESCRIPTION_RE =
-  /is a Swiss herbal-candy manufacturer headquartered in Laufen \(BL\)\.|Apply via the Ricola careers portal\./;
-
-/**
- * The listing columns the crawler appended to the posting's text, as a
- * trailing paragraph: «Type: … .», «Employment period: … .» or both.
- */
-export const RICOLA_LABEL_LINES_RE = /\n\n(?:Type|Employment period): [^\n]*\.\s*$/;

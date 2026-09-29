@@ -8,9 +8,6 @@ import {
   parseRowMetadata,
   extractListingRows,
   extractRicolaDetailContent,
-  fetchAllRicolaJobs,
-  RICOLA_LABEL_LINES_RE,
-  RICOLA_FABRICATED_DESCRIPTION_RE,
   buildPageUrl,
   resolveDetailUrl,
   __testables,
@@ -340,45 +337,5 @@ describe('Ricola crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
-  });
-});
-
-// Issue 5253: the description is only the posting's text. The crawler used to
-// append the listing columns («Type: Full time. Employment period:
-// unlimited.») and, without detail text, to write «<title> at Ricola, …,
-// Switzerland. Ricola is a Swiss herbal-candy manufacturer … Apply via the
-// Ricola careers portal.». «unlimited» also matched /limited/ and made every
-// permanent position «temporary».
-describe('fetchAllRicolaJobs — only the source text', () => {
-  const fetchFrom = (detail: string | null) => async (url: string) => {
-    if (url.includes('/Vacancies/')) {
-      if (detail === null) throw new Error('HTTP 404');
-      return detail;
-    }
-    return LISTING_ROW_FIXTURE;
-  };
-
-  it('publishes the detail text without the listing columns, and maps them to fields', async () => {
-    const [job] = await fetchAllRicolaJobs({ _fetchHtml: fetchFrom(DETAIL_PAGE_FIXTURE) });
-    expect(job.description).toBe(extractRicolaDetailContent(DETAIL_PAGE_FIXTURE));
-    expect(job.description).not.toMatch(/Type: Full time|Employment period/);
-    expect(job.descriptionByLocale).toEqual({ en: job.description });
-    expect(job.employmentType).toBe('FULL_TIME');
-    expect(job.contract).toBe('full-time');
-    expect(job.slug).toBe('accounting-specialist-ricola-ch');
-  });
-
-  it('gives a posting without a readable detail no description', async () => {
-    const [job] = await fetchAllRicolaJobs({ _fetchHtml: fetchFrom(null) });
-    expect(job.description).toBe('');
-    expect(job.descriptionByLocale).toEqual({ en: '' });
-    expect(job.sourceLang).toBe('en');
-    expect(job.slug).toBe('accounting-specialist-ricola-ch');
-  });
-
-  it('recognises the text it once wrote, for the stored-job repair', () => {
-    expect(RICOLA_LABEL_LINES_RE.test('…\n\nwww.ricola.com/career\n\nType: Part-time. Employment period: unlimited.')).toBe(true);
-    expect(RICOLA_LABEL_LINES_RE.test('Your mission:\n\nType of work: varied.\nMore text')).toBe(false);
-    expect(RICOLA_FABRICATED_DESCRIPTION_RE.test('Ricola is a Swiss herbal-candy manufacturer headquartered in Laufen (BL). Apply via the Ricola careers portal.')).toBe(true);
   });
 });

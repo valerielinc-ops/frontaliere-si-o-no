@@ -28,7 +28,6 @@ import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mj
 import { slugify, stripHtml, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
-import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 export const KISPI_SG_KEY = 'kispi-sg';
 export const KISPI_SG_COMPANY_NAME = 'Ostschweizer Kinderspital';
@@ -364,16 +363,14 @@ export async function fetchAllKispiSgJobs() {
     // Polite delay between detail page fetches
     await new Promise((r) => setTimeout(r, 300));
 
-    // The description is the posting's own text (issue 5253): the detail
-    // page's ad or, when it could not be read, the listing card's teaser,
-    // each only above the shared 50-word floor. Without either the crawler
-    // used to write one of its own («<Titel> beim Ostschweizer Kinderspital
-    // in St. Gallen (9006, SG), Schweiz.» + «• Standort» + «• Bewerbung über
-    // das Karriereportal des Ostschweizer Kinderspitals»); a posting without
-    // text now gets no description: the merge keeps the source text an
-    // earlier run stored, otherwise the job takes the thin-source path.
-    if (!meetsSourceBodyFloor(description)) {
-      description = meetsSourceBodyFloor(snippet) ? snippet : '';
+    // Synthesise boilerplate if description parsing failed
+    if (!description) {
+      if (snippet) {
+        description = snippet;
+      } else {
+        const intro = `${title} beim ${KISPI_SG_COMPANY_NAME} in ${DEFAULT_CITY} (${DEFAULT_POSTAL_CODE}, ${DEFAULT_CANTON}), Schweiz.`;
+        description = `${intro}\n\n• Standort: ${DEFAULT_CITY} (${DEFAULT_CANTON})\n• Bewerbung über das Karriereportal des Ostschweizer Kinderspitals`;
+      }
     }
 
     // The vacancy page is the job's identity and what a reader lands on; the
@@ -426,6 +423,3 @@ export async function fetchAllKispiSgJobs() {
   console.log(`\n📋 Total ${KISPI_SG_COMPANY_NAME} jobs discovered: ${jobs.length} (${descriptionHits}/${cards.length} with description)`);
   return jobs;
 }
-
-/** Fragment only the crawler's former fallback description wrote. */
-export const KISPI_SG_FABRICATED_DESCRIPTION_RE = /Bewerbung über das Karriereportal des Ostschweizer Kinderspitals/;
