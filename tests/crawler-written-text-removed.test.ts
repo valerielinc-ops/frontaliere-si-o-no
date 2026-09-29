@@ -123,6 +123,7 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['lib/canton-ticino-osc-job-parser.mjs', /buildFallbackDescription|Il concorso è pubblicato dalla Sezione delle risorse umane/],
     ['lib/aarreha-schinznach-job-parser.mjs', /summaryPieces|Zentrum für interdisziplinäre Rehabilitation in Schinznach-Bad/],
     ['lib/victorinox-job-parser.mjs', /summaryPieces|Hersteller des Original Schweizer Offiziersmessers/],
+    ['lib/molecular-partners-job-parser.mjs', /summaryPieces|clinical-stage biotech company developing DARPin therapeutics/],
     ['lib/kispi-job-parser.mjs', /`\$\{title\} — \$\{KISPI_COMPANY_NAME\}/],
     ['lib/kispi-sg-job-parser.mjs', /Synthesise boilerplate|Bewerbung über das Karriereportal des Ostschweizer Kinderspitals/],
     ['lib/planzer-job-parser.mjs', /`Marke der Planzer-Gruppe: |`(Aufgaben|Profil|Benefits):\\n|summaryPieces/],
