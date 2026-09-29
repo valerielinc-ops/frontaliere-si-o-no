@@ -1604,6 +1604,7 @@ jobs:
           RUN_ADSENSE: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
           RUN_LOOKBEHIND: ${{ steps.body_contract.outcome != 'failure' && github.event_name == 'pull_request' }}
           RUN_NUMBER_ENV_FALLBACK: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group') }}
+          RUN_HARDCODED_SECRETS: ${{ steps.body_contract.outcome != 'failure' }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-source-guards"
@@ -1631,6 +1632,9 @@ jobs:
           fi
           if [ "$RUN_NUMBER_ENV_FALLBACK" = "true" ]; then
             start_gate number-env-fallback node scripts/ci/check-number-env-fallback.mjs
+          fi
+          if [ "$RUN_HARDCODED_SECRETS" = "true" ]; then
+            start_gate hardcoded-secrets node scripts/ci/scan-site-hardcoded-secrets.mjs
           fi
           failures=0
           for i in "${!pids[@]}"; do
