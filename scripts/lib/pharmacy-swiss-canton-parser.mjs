@@ -155,7 +155,8 @@ function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weeken
 
 function delemontIdentity(name, sourceUrl, fetchedAt) {
   const known = DELEMONT_IDENTITY_NAMES.find((candidate) => normalizeKey(candidate) === normalizeKey(name));
-  const cleanName = known || normalizeWhitespace(name);
+  if (!known) throw new Error(`Delémont pharmacy identity is not allowlisted: ${name}`);
+  const cleanName = known;
   const id = `ju-delemont-${normalizeKey(cleanName).toLocaleLowerCase('en-US').replace(/[^a-z0-9]+/g, '-')}`;
   return identity(id, cleanName, 'Delémont', sourceUrl, fetchedAt);
 }
@@ -270,8 +271,9 @@ function classifyColour(rawPixels) {
     else if (green > 90 && green > red * 1.12 && green > blue * 1.02) counts.green += 1;
     else if (blue > 90 && blue > red * 1.05 && blue > green * 1.02) counts.blue += 1;
   }
-  const [colour, count] = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
-  return count >= 4 ? colour : null;
+  const ranked = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const [colour, count] = ranked[0];
+  return count >= 4 && count > ranked[1][1] ? colour : null;
 }
 
 async function colourForWord(word, image) {
@@ -309,6 +311,7 @@ export async function parseMoutierCalendar({ bboxHtml, imagePath, sourceUrl, fet
     const year = header.month === 1 && header.yMin > 700 ? calendarYear + 1 : calendarYear;
     const dateKey = isoDate(year, header.month, word.value);
     if (!dateKey) continue;
+    if (entries.has(dateKey)) throw new Error(`Moutier calendar contains duplicate coloured date: ${dateKey}`);
     entries.set(dateKey, colour);
   }
   const expectedDates = [];
@@ -372,4 +375,11 @@ export function parseJuraCalendars({ delemontText, delemontSourceUrl, ajoieText,
   return { rows, pharmacies, coverageName: JURA_COVERAGE_NAME };
 }
 
-export { JURA_COVERAGE_NAME, JURA_SOURCE_URL, extractAjoieRows, extractDelemontRows, localIso };
+export {
+  JURA_COVERAGE_NAME,
+  JURA_SOURCE_URL,
+  classifyColour,
+  extractAjoieRows,
+  extractDelemontRows,
+  localIso,
+};
