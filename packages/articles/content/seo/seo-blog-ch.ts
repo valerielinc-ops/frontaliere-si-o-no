@@ -90539,6 +90539,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-iniziativa-neutralita': {
+    title: 'Neutralita, la stampa sottolinea la sconfitta dell\'UDC',
+    description: 'Oltre il 70% e tutti i Cantoni bocciano l\'iniziativa sulla neutralita. La stampa elvetica legge il voto come una sconfitta per Christoph Blocher e l\'UDC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralita, stampa, sottolinea, sconfitta',
+    ogTitle: 'Neutralita, la stampa sottolinea la sconfitta dell\'UDC',
+    ogDescription: 'Il voto sull\'iniziativa della neutralita vede la bocciatura di tutti i Cantoni con oltre il 70% dei voti contrari. La stampa svizzera analizza la sconfitta di Blocher e l\'avallo alla linea del Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/voto-iniziativa-neutralita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralita, la stampa sottolinea la sconfitta dell'UDC",
+      "description": "Oltre il 70% e tutti i Cantoni bocciano l'iniziativa sulla neutralita. La stampa elvetica legge il voto come una sconfitta per Christoph Blocher e l'UDC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-iniziativa-neutralita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Iniziativa sulla neutralita respinta in Svizzera"
+      },
+      "datePublished": "2026-09-29T02:03:55+00:00",
+      "dateModified": "2026-09-29T02:03:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-iniziativa-neutralita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

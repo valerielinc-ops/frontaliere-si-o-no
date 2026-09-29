@@ -6983,6 +6983,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sviluppo-rapido-rete-elettrica.title': 'Réseau électrique : feu vert à l\'accélération des travaux',
     'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'Le Parlement approuve la révision de la loi sur les installations électriques afin de rénover plus de 60 % des lignes à très haute tension et de simplifier la procédure.',
     'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'Pylônes à haute tension dans un paysage suisse.',
+    'blog.article.voto-iniziativa-neutralita.title': 'Neutralité, la presse souligne la défaite de l\'UDC',
+    'blog.article.voto-iniziativa-neutralita.excerpt': 'Plus de 70 % des votants et l\'ensemble des cantons ont rejeté l\'initiative sur la neutralité. La campagne a été soutenue par Christoph Blocher.',
+    'blog.article.voto-iniziativa-neutralita.imageAlt': 'Initiative sur la neutralite rejetee en Suisse',
 };
 
 export default blogMetaChFr;

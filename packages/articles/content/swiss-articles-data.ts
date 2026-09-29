@@ -20977,6 +20977,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voto-iniziativa-neutralita',
+    category: 'novita',
+    date: '2026-09-29T02:03:55.548Z',
+    image: '/images/blog/voto-iniziativa-neutralita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

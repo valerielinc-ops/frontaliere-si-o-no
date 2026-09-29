@@ -2350,6 +2350,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bilaterali-iii-svizzera-ue': { it: 'bilaterali-iii-svizzera-ue', en: 'switzerland-eu-bilaterals-iii', de: 'schweiz-eu-bilateralen-iii', fr: 'suisse-ue-bilaterales-iii' },
  'consiglio-stati-bilaterali-iii': { it: 'consiglio-stati-bilaterali-iii', en: 'council-states-bilateral-iii', de: 'staenderat-bilaterale-iii', fr: 'conseil-des-etats-bilaterales-iii' },
  'sviluppo-rapido-rete-elettrica': { it: 'sviluppo-rapido-rete-elettrica', en: 'rapid-power-grid-development', de: 'schnellerer-stromnetzausbau', fr: 'developpement-rapide-reseau-electrique' },
+ 'voto-iniziativa-neutralita': { it: 'voto-iniziativa-neutralita', en: 'neutrality-initiative-vote', de: 'neutralitaetsinitiative-abstimmung', fr: 'vote-initiative-neutralite' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

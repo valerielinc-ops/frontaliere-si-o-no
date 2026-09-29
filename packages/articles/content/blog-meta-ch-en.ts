@@ -6983,6 +6983,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sviluppo-rapido-rete-elettrica.title': 'Electricity grid: green light to accelerate works',
     'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'The Parliament approves the revision of the law on electrical systems to renew more than 60% of the very high voltage lines and simplify the process.',
     'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'High-voltage power pylons in a Swiss landscape.',
+    'blog.article.voto-iniziativa-neutralita.title': 'Neutrality, the press highlights the UDC\'s defeat',
+    'blog.article.voto-iniziativa-neutralita.excerpt': 'Over 70% of voters and all cantons rejected the neutrality initiative. The campaign was supported by Christoph Blocher.',
+    'blog.article.voto-iniziativa-neutralita.imageAlt': 'Neutrality initiative rejected in Switzerland',
 };
 
 export default blogMetaChEn;

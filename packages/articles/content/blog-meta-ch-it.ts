@@ -6983,6 +6983,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sviluppo-rapido-rete-elettrica.title': 'Rete elettrica: via libera all\'accelerazione dei lavori',
     'blog.article.sviluppo-rapido-rete-elettrica.excerpt': 'Il Parlamento approva la revisione della legge sugli impianti elettrici per rinnovare oltre il 60% delle linee ad altissima tensione e semplificare l\'iter.',
     'blog.article.sviluppo-rapido-rete-elettrica.imageAlt': 'Tralicci dell\'alta tensione in un paesaggio svizzero.',
+    'blog.article.voto-iniziativa-neutralita.title': 'Neutralita, la stampa sottolinea la sconfitta dell\'UDC',
+    'blog.article.voto-iniziativa-neutralita.excerpt': 'Oltre il 70% dei votanti e tutti i Cantoni hanno respinto l\'iniziativa sulla neutralita. La campagna e stata sostenuta da Christoph Blocher.',
+    'blog.article.voto-iniziativa-neutralita.imageAlt': 'Iniziativa sulla neutralita respinta in Svizzera',
 };
 
 export default blogMetaChIt;
