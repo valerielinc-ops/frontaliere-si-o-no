@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from '../../build-plugins/jobSectorLanding';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
 const DIST = path.resolve(__dirname, '../../dist');
@@ -131,6 +132,45 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     expect(html).toMatch(
       /<link\s+rel=["']?canonical["']?\s+href=["']?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/infermieri\/["']?/,
     );
+  });
+});
+
+describe('cathedral — Switzerland aggregate sector hubs', () => {
+  it('emits for every sector and locale', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    if (!fs.existsSync(DIST)) return;
+    const aggregateSections = {
+      it: 'cerca-lavoro-svizzera',
+      en: 'find-jobs-switzerland',
+      de: 'jobs-in-schweiz',
+      fr: 'trouver-emploi-suisse',
+    } as const;
+    // A locale-shard build owns only one locale. Run the complete matrix
+    // assertion only when the four aggregate roots are present in dist.
+    if (!Object.values(aggregateSections).every((section) => fs.existsSync(path.join(DIST, section)))) return;
+
+    const missing: string[] = [];
+    const nonIndexable: string[] = [];
+    for (const locale of Object.keys(aggregateSections) as Array<keyof typeof aggregateSections>) {
+      const section = aggregateSections[locale];
+      for (const sector of SECTOR_HUB_KEYS) {
+        const slug = SECTOR_HUB_SLUG[locale][sector];
+        const file = path.join(DIST, section, slug, 'index.html');
+        if (!fs.existsSync(file)) {
+          missing.push(`${locale}/${section}/${slug}`);
+          continue;
+        }
+        const html = fs.readFileSync(file, 'utf-8');
+        const expectedCanonical = `https://frontaliereticino.ch/${locale === 'it' ? '' : `${locale}/`}${section}/${slug}/`;
+        if (!html.includes(`href="${expectedCanonical}"`) && !html.includes(`href='${expectedCanonical}'`)) {
+          nonIndexable.push(`${locale}/${section}/${slug} (canonical)`);
+        }
+        if (/name=["']?robots["']?[^>]*noindex/i.test(html)) {
+          nonIndexable.push(`${locale}/${section}/${slug} (noindex)`);
+        }
+      }
+    }
+    expect(missing, `national sector hubs missing:\n${missing.join('\n')}`).toEqual([]);
+    expect(nonIndexable, `national sector hubs not indexable:\n${nonIndexable.join('\n')}`).toEqual([]);
   });
 });
 

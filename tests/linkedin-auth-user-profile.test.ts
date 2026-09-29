@@ -149,7 +149,7 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
    * The two grants that must NOT have moved, pinned so the next narrowing pass
    * has to argue with a test instead of a silence.
    *
-   * `write` stays public because anonymous subscription is the product (App.tsx's
+   * `create` stays public because anonymous subscription is the product (App.tsx's
    * unsubscribe fall-through also depends on it), and `get` stays public because
    * the anonymous subscribe path READS before it writes —
    * `captureNewsletterSubscriber` and `isNewsletterOptedOut`, the latter with
@@ -157,10 +157,10 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
    * signed-in user. `isNewsletterOptedOut` fails closed, so denying that read
    * would suppress subscriptions without raising anything.
    */
-  it('keeps anonymous subscribe working: get and write stay public', () => {
+  it('keeps anonymous subscribe working: get and create stay public', () => {
     const own = directRules(subBlock);
     expect(own).toContain('allow get: if true');
-    expect(own).toContain('allow write: if true');
+    expect(own).toContain('allow create: if true');
   });
 
   /**

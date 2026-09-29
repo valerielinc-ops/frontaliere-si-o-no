@@ -1,4 +1,21 @@
-import { domainToASCII } from 'node:url';
+/**
+ * Browser-compatible IDN normalization for a host-shaped value.
+ *
+ * `URL` is available in both Node and the browser. Keeping this helper free of
+ * `node:url` lets Vite bundle the shared host logic without externalizing a
+ * Node-only module into the browser.
+ */
+function domainToASCIICompat(host) {
+  try {
+    const parsed = new URL(`https://${host}`);
+    if (parsed.pathname !== '/' || parsed.search || parsed.hash || parsed.username || parsed.password || parsed.port) {
+      return '';
+    }
+    return parsed.hostname;
+  } catch {
+    return '';
+  }
+}
 
 /**
  * Canonical ASCII form of a host — the ONE spelling every host comparison in
@@ -31,7 +48,7 @@ export function canonicalJobHost(rawHost = '') {
     // `example.ch` are the same name and must not be two keys.
     .replace(/\.$/, '');
   if (!host) return '';
-  return domainToASCII(host) || host;
+  return domainToASCIICompat(host) || host;
 }
 
 /**
