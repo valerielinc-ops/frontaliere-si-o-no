@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-09-28T21:13:18.573Z",
+  "generatedAt": "2026-09-29T09:17:43.297Z",
   "total": 30,
   "newCount": 0,
-  "updatedCount": 30,
+  "updatedCount": 29,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2340,
-  "avgDurationMs": 2340,
+  "unchangedCount": 1,
+  "durationMs": 1550,
+  "avgDurationMs": 1550,
   "durationHistory": [
-    2340
+    1550
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -302,39 +302,6 @@
       "validThrough": "",
       "id": "the-living-circle-7b5a07cc5ac3",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Kaderpraktikum Human Resources 100% (all genders)",
-      "slug": "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/67094610/Kaderpraktikum-Human-Resources-100%25-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67094610/Kaderpraktikum-Human-Resources-100%25-all-genders-/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-31",
-      "employmentType": "other",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-9c5896ad75e0",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -1006,5 +973,44 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Kaderpraktikum Human Resources 100% (all genders)",
+      "slug": "risorse-umane-100-tutti-i-generi-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67094610/Kaderpraktikum-Human-Resources-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67094610/Kaderpraktikum-Human-Resources-100%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-31",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-9c5896ad75e0",
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ]
 }
