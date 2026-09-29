@@ -616,13 +616,43 @@ export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, r
 
   const referenceIds = new Set(reference.map(jobIdentity).filter(Boolean));
   if (removed.some((job) => referenceIds.has(jobIdentity(job)))) return false;
+  const evidence = { reference, proof };
+  return removed.every((job) => isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, job, evidence));
+}
+
+/**
+ * Prove one record is a cross-crawler duplicate without requiring a complete
+ * file-level rewrite proof.
+ *
+ * `prune-dedup-from-slices` sees every record that disappeared between a raw
+ * slice and the final assembled dataset. Some of those records may have been
+ * filtered or normalized by assembly rather than removed by monolithic dedup.
+ * Callers must therefore retain any record without this positive evidence.
+ */
+export function isProvenCrossCrawlerDedupRemoval(filePath, removedJob, referenceJobs) {
+  if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const evidence = crossCrawlerDedupEvidence(referenceJobs);
+  return isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, evidence);
+}
+
+function isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, { reference, proof }) {
+  if (
+    !ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))
+    || !Array.isArray(reference)
+    || !removedJob
+    || !jobIdentity(removedJob)
+  ) {
+    return false;
+  }
+  const referenceIds = new Set(reference.map(jobIdentity).filter(Boolean));
+  if (referenceIds.has(jobIdentity(removedJob))) return false;
+
   const referenceKeys = new Set(reference.map(titleCompanyLocationKey).filter(Boolean));
+  const key = titleCompanyLocationKey(removedJob);
+  if (key !== null && referenceKeys.has(key)) return true;
+
   const proofEntries = Array.isArray(proof?.entries) ? proof.entries : [];
-  return removed.every((job) => {
-    const key = titleCompanyLocationKey(job);
-    if (key !== null && referenceKeys.has(key)) return true;
-    return proofEntries.some((entry) => isValidCrossCrawlerDedupEntry(entry, job));
-  });
+  return proofEntries.some((entry) => isValidCrossCrawlerDedupEntry(entry, removedJob));
 }
 
 /** `data/jobs/by-crawler/<key>.json` -> `data/jobs/expired/by-crawler/<key>.json`, or null. */

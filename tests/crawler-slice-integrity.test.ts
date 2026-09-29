@@ -9,6 +9,7 @@ import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
   clearCrossCrawlerDedupProofFile,
+  isProvenCrossCrawlerDedupRemoval,
   isProvenCrossCrawlerDedupPrune,
   isProvenHousekeepingPrune,
   isProvenRetiredScratchArchiveDelete,
@@ -417,6 +418,23 @@ describe('crawler slice integrity guard', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('proves individual duplicate removals but keeps assembly-only omissions unproven', () => {
+    const duplicate = dedupJob('https://buehler.example/duplicate', 'Engineer', 'x'.repeat(20));
+    const retained = dedupJob('https://other-crawler.example/engineer', 'Engineer', 'kept elsewhere');
+    const unrelated = dedupJob('https://buehler.example/unrelated', 'Unique position', 'not a duplicate');
+
+    expect(isProvenCrossCrawlerDedupRemoval(
+      'data/jobs/by-crawler/buehler.json',
+      duplicate,
+      [retained],
+    )).toBe(true);
+    expect(isProvenCrossCrawlerDedupRemoval(
+      'data/jobs/by-crawler/buehler.json',
+      unrelated,
+      [retained],
+    )).toBe(false);
   });
 
   it('accepts a run-bound dedup decision when the final reference no longer contains the winner', () => {
