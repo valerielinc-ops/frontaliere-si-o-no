@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadler-rail",
-  "assembledAt": "2026-09-28T21:57:07.329Z",
+  "assembledAt": "2026-09-29T05:49:04.435Z",
   "jobs": [
     {
       "id": "stadler-rail-41ff7da5abc2",
@@ -86,7 +86,7 @@
         "it": "hr-business-partner-in-stadler-rail-ch",
         "en": "hr-business-partner-in-stadler-rail-ch",
         "de": "hr-business-partner-in-stadler-rail-ch",
-        "fr": "partenaire-d-affaires-rh-in-stadler-rail-wallisellen"
+        "fr": "hr-business-partner-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -135,7 +135,7 @@
         "hr-business-partner-stadler-rail-ch",
         "partenaire-d-affaires-rh-stadler-rail-winterthur",
         "hr-business-partner-stadler-rail-winterthur",
-        "hr-business-partner-stadler-rail-wallisellen"
+        "partenaire-d-affaires-rh-in-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -155,7 +155,7 @@
         ],
         "fr": [
           "partenaire-principal-de-l-entreprise-des-rh-stadler-rail-winterthur",
-          "hr-business-partner-stadler-rail-wallisellen"
+          "partenaire-d-affaires-rh-in-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:33.161Z",
@@ -171,7 +171,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-904549149e09",
@@ -546,9 +547,9 @@
       "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
-        "en": "disposal-of-materials-stadler-rail-st-margrethen",
+        "en": "material-dispatcher-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
+        "fr": "detecteur-de-materiau-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -594,8 +595,8 @@
         "materialdisponent-in-stadler-rail-st-margrethen",
         "materiale-di-spedizione-in-stadler-rail-st-margrethen",
         "material-dispatch-in-stadler-rail-st-margrethen",
-        "material-dispatcher-stadler-rail-st-margrethen",
-        "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+        "disposal-of-materials-stadler-rail-st-margrethen",
+        "expedition-du-materiel-en-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -606,11 +607,11 @@
         "en": [
           "materialdisponent-in-stadler-rail-st-margrethen",
           "material-dispatch-in-stadler-rail-st-margrethen",
-          "material-dispatcher-stadler-rail-st-margrethen"
+          "disposal-of-materials-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen",
-          "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+          "expedition-du-materiel-en-stadler-rail-st-margrethen"
         ]
       },
       "firstSeenAt": "2026-09-01T14:23:53.477Z",
@@ -851,7 +852,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f88d451d5423",
@@ -1832,7 +1834,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e3e2ec7606fc",
@@ -1909,7 +1912,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-2970b1afb240",
@@ -2057,7 +2061,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7bf65fb1aa4",
@@ -2134,7 +2139,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3dcac4e17cb8",
@@ -2324,7 +2330,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4b285db0e2fd",
@@ -2400,7 +2407,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c86e3c865be9",
@@ -2640,7 +2648,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87002d739d12",
@@ -2955,7 +2964,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-674be6778582",
@@ -3032,7 +3042,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d7608ccc7cf7",
@@ -3103,7 +3114,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-08c6c912614a",
@@ -3425,7 +3437,7 @@
       "slug": "pittore-in-stadler-rail-altenrhein",
       "slugByLocale": {
         "it": "pittore-in-stadler-rail-altenrhein",
-        "en": "painter-in-stadler-rail-altenrhein",
+        "en": "painters-stadler-rail-altenrhein",
         "de": "lackierer-in-stadler-rail-ch",
         "fr": "peintre-stadler-rail-altenrhein"
       },
@@ -3470,7 +3482,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lackierer-in-stadler-rail-ch",
-        "painters-stadler-rail-altenrhein"
+        "painter-in-stadler-rail-altenrhein"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3478,7 +3490,7 @@
         ],
         "en": [
           "lackierer-in-stadler-rail-ch",
-          "painters-stadler-rail-altenrhein"
+          "painter-in-stadler-rail-altenrhein"
         ],
         "fr": [
           "lackierer-in-stadler-rail-ch"
@@ -3639,7 +3651,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87ed84d1c807",
@@ -3741,7 +3754,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-110e94231742",
@@ -3814,7 +3828,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
@@ -3887,7 +3902,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-68fab4616d19",
@@ -3960,7 +3976,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-61d84f561ebf",
@@ -4075,7 +4092,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e0b57e3beec0",
@@ -5045,7 +5063,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b8229e9c2e3f",
@@ -5375,7 +5394,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-08dfd9c92f96",
@@ -5555,8 +5575,8 @@
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
-        "en": "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
-        "de": "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
+        "en": "system-engineer-cbtc-stadler-rail-wallisellen",
+        "de": "system-engineer-cbtc-stadler-rail-ch",
         "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
@@ -5609,7 +5629,8 @@
         "system-commissioning-ingenieur-stadler-rail-wallisellen",
         "software-system-ingegnere-stadler-rail-wallisellen",
         "software-system-engineer-stadler-rail-ch",
-        "software-system-ingenieur-stadler-rail-wallisellen"
+        "software-system-ingenieur-stadler-rail-wallisellen",
+        "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5628,12 +5649,13 @@
         "en": [
           "senior-system-sales-engineer-stadler-rail-ch",
           "system-commissioning-engineer-stadler-rail-ch",
-          "system-engineer-cbtc-stadler-rail-ch"
+          "system-engineer-cbtc-stadler-rail-ch",
+          "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
         ],
         "de": [
           "leitender-systemverkaufsingenieur-stadler-rail-wallisellen",
           "software-system-engineer-stadler-rail-ch",
-          "system-engineer-cbtc-stadler-rail-ch"
+          "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
         ],
         "fr": [
           "system-engineer-cbtc-stadler-rail-ch",
@@ -5662,7 +5684,7 @@
       "slug": "system-engineer-cbtc-stadler-rail-ch-2",
       "slugByLocale": {
         "it": "system-engineer-cbtc-stadler-rail-ch-2",
-        "en": "system-engineer-cbtc-stadler-rail-ch-3kv656",
+        "en": "system-engineer-cbtc-stadler-rail-ch",
         "de": "system-engineer-cbtc-stadler-rail-ch-2",
         "fr": "system-engineer-cbtc-stadler-rail-ch-2"
       },
@@ -5706,14 +5728,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-engineer-cbtc-stadler-rail-ch"
+        "system-engineer-cbtc-stadler-rail-ch",
+        "system-engineer-cbtc-stadler-rail-ch-3kv656"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch"
         ],
         "en": [
-          "system-engineer-cbtc-stadler-rail-ch"
+          "system-engineer-cbtc-stadler-rail-ch-3kv656"
         ]
       },
       "needsRetranslation": false,
@@ -5801,7 +5824,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-077ae81e60d3",
@@ -6242,7 +6266,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-38dada227e6c",
@@ -6412,7 +6437,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4aa1fccd8842",
@@ -6807,7 +6833,7 @@
       "id": "stadler-rail-d8c44e4aefd7",
       "slug": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "project-manager-in-electric-stadler-rail-bussnang",
+        "it": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
         "en": "project-manager-in-electric-stadler-rail-bussnang",
         "de": "teilprojektleiter-in-elektro-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-en-electric-stadler-rail-bussnang"
@@ -6856,7 +6882,8 @@
         "introduzione-operativa-al-sottoproject-manager-stadler-rail-bussnang",
         "sub-project-manager-in-operation-stadler-rail-bussnang",
         "teilprojektleiter-in-betriebseinfuhrung-stadler-rail-ch",
-        "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang"
+        "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang",
+        "project-manager-in-electric-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6864,7 +6891,8 @@
           "introduzione-operativa-al-sottoproject-manager-stadler-rail-bussnang",
           "sub-project-manager-in-operation-stadler-rail-bussnang",
           "teilprojektleiter-in-betriebseinfuhrung-stadler-rail-ch",
-          "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang"
+          "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang",
+          "project-manager-in-electric-stadler-rail-bussnang"
         ],
         "en": [
           "teilprojektleiter-in-elektro-stadler-rail-ch",
@@ -7043,7 +7071,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-efe3f0d5b003",
@@ -7122,7 +7151,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1c70f2c73470",
@@ -7273,16 +7303,17 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-cd0a1fb9c2ae",
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "recruiting-stadler-rail-wallisellen",
+        "en": "testing-commissioning-engineer-stadler-rail-wallisellen",
         "de": "testing-commissioning-ingenieur-stadler-rail-wallisellen",
-        "fr": "recrutement-stadler-rail-wallisellen"
+        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7331,16 +7362,16 @@
           "testing-commissioning-engineer-stadler-rail-ch"
         ],
         "en": [
-          "testing-commissioning-engineer-stadler-rail-wallisellen"
+          "recruiting-stadler-rail-wallisellen"
         ],
         "fr": [
-          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+          "recrutement-stadler-rail-wallisellen"
         ]
       },
       "previousSlugs": [
         "testing-commissioning-engineer-stadler-rail-ch",
-        "testing-commissioning-ingenieur-stadler-rail-wallisellen",
-        "testing-commissioning-engineer-stadler-rail-wallisellen"
+        "recruiting-stadler-rail-wallisellen",
+        "recrutement-stadler-rail-wallisellen"
       ],
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
       "salaryMin": 83000,
@@ -8115,7 +8146,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-ccd827e87b38",
@@ -8646,7 +8678,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-51a1609cc970",
@@ -8723,7 +8756,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1efa92004264",
@@ -8886,7 +8920,7 @@
       "id": "stadler-rail-46a5813ca2ad",
       "slug": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "elettricista-in-completamento-stadler-rail-bussnang",
+        "it": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
         "en": "electrician-in-completion-stadler-rail-bussnang",
         "de": "elektriker-in-fertigstellung-stadler-rail-ch",
         "fr": "electricien-en-achevement-stadler-rail-bussnang"
@@ -8933,7 +8967,8 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-fertigstellung-stadler-rail-ch",
-          "anderungselektriker-in-fertigstellung-stadler-rail-ch"
+          "anderungselektriker-in-fertigstellung-stadler-rail-ch",
+          "elettricista-in-completamento-stadler-rail-bussnang"
         ],
         "en": [
           "elektriker-in-fertigstellung-stadler-rail-ch"
@@ -8947,7 +8982,8 @@
       },
       "previousSlugs": [
         "elektriker-in-fertigstellung-stadler-rail-ch",
-        "anderungselektriker-in-fertigstellung-stadler-rail-ch"
+        "anderungselektriker-in-fertigstellung-stadler-rail-ch",
+        "elettricista-in-completamento-stadler-rail-bussnang"
       ],
       "firstSeenAt": "2026-07-21T11:24:44.736Z",
       "salaryMin": 64500,
@@ -9193,7 +9229,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-089c6bb48167",
@@ -9270,10 +9307,10 @@
       "id": "stadler-rail-8aa4f06b29fb",
       "slug": "lackierer-in-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "verniciatore-in-stadler-rail-bussnang",
-        "en": "painters-in-stadler-rail-bussnang",
+        "it": "lackierer-in-stadler-rail-bussnang",
+        "en": "lackierer-in-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "peintres-en-stadler-rail-bussnang"
+        "fr": "lackierer-in-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -9315,11 +9352,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lackierer-in-stadler-rail-ch"
+        "lackierer-in-stadler-rail-ch",
+        "verniciatore-in-stadler-rail-bussnang",
+        "painters-in-stadler-rail-bussnang",
+        "peintres-en-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lackierer-in-stadler-rail-ch"
+          "lackierer-in-stadler-rail-ch",
+          "verniciatore-in-stadler-rail-bussnang"
+        ],
+        "en": [
+          "painters-in-stadler-rail-bussnang"
+        ],
+        "fr": [
+          "peintres-en-stadler-rail-bussnang"
         ]
       },
       "needsRetranslation": true,
@@ -9563,7 +9610,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-fbca01063b41",
@@ -9789,7 +9837,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e45d900e1405",
@@ -10181,7 +10230,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-59e9c2c910f3",
@@ -11012,7 +11062,8 @@
           "maxValue": 153000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-583268bb096d",
@@ -11089,7 +11140,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e866cd037d5b",
@@ -11562,7 +11614,7 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
+        "en": "contract-manager-procurement-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
         "fr": "gestion-des-marches-stadler-rail-bussnang"
       },
@@ -11607,7 +11659,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
-        "contract-manager-procurement-stadler-rail-bussnang"
+        "contract-manager-procurement-stadler-rail-bussnang",
+        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11615,7 +11668,7 @@
         ],
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
-          "contract-manager-procurement-stadler-rail-bussnang"
+          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang"
@@ -12445,7 +12498,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1f1b872b6c58",
@@ -12825,82 +12879,17 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "stadler-rail-fad1bfc65d48",
-      "slug": "system-engineer-cbtc-stadler-rail-ch",
-      "slugByLocale": {
-        "fr": "system-engineer-cbtc-stadler-rail-ch",
-        "it": "system-engineer-cbtc-stadler-rail-ch",
-        "en": "system-engineer-cbtc-stadler-rail-ch",
-        "de": "system-engineer-cbtc-stadler-rail-ch"
       },
-      "company": "Stadler Rail",
-      "companyKey": "stadler-rail",
-      "companyDomain": "stadlerrail.com",
-      "title": "System Engineer CBTC",
-      "titleByLocale": {
-        "fr": "System Ingénieur CBTC",
-        "en": "System Engineer CBTC",
-        "it": "System Ingegnere CBTC",
-        "de": "System Ingenieur CBTC"
-      },
-      "description": "EXPÉRIENCES\n\n-Formation technique achevée en tant qu'ingénieur en génie électrique, mécanique ou informatique (EPF/TU/HES) ou qualification comparable\n\n-Plusieurs années d'expérience dans le domaine de la signalisation ferroviaire sont souhaitées. L'expérience dans les projets ESTW est un grand avantage\n\n-Connaissance des principes et pratiques de la signalisation ferroviaire (enclenchements électriques)\n\n-Expérience de l'utilisation de l'outil IBM Doors Next Generation (DNG) Tool\n\n-Bonne maîtrise du français et de l'anglais, l'allemand est un avantage\n\n-Esprit d'équipe, autonome, orienté vers les objectifs et les solutions\n\n-Disponibilité pour déplacements professionnels (jusqu'à 25%)\n\nRESPONSABILITÉS\n\n• Alignement des exigences du client sur le produit générique et création d'une Description du système spécifique au projet\n\n• Création de documentation spécifique au projet comme les spécifications d'interface, les manuels client, les notes de version, la BoM, etc\n\n• Configuration des sous-systèmes CBTC en fonction des exigences du système et des caractéristiques du projet\n\n• Soutenir le montage, le montage, le test et la mise en service ainsi que l'homologation et toute autre activité de projet nécessaire\n\n• Coordination avec les équipes internes, les clients, les fournisseurs, les sous-traitants et les autres parties prenantes\n\n• Travailler dans les équipes d'appel d'offres pour compléter la partie technique des offres, en s'assurant que les exigences des clients sont satisfaites pendant que la solution est alignée sur le produit générique",
-      "descriptionByLocale": {
-        "fr": "EXPÉRIENCES\n\n-Formation technique achevée en tant qu'ingénieur en génie électrique, mécanique ou informatique (EPF/TU/HES) ou qualification comparable\n\n-Plusieurs années d'expérience dans le domaine de la signalisation ferroviaire sont souhaitées. L'expérience dans les projets ESTW est un grand avantage\n\n-Connaissance des principes et pratiques de la signalisation ferroviaire (enclenchements électriques)\n\n-Expérience de l'utilisation de l'outil IBM Doors Next Generation (DNG) Tool\n\n-Bonne maîtrise du français et de l'anglais, l'allemand est un avantage\n\n-Esprit d'équipe, autonome, orienté vers les objectifs et les solutions\n\n-Disponibilité pour déplacements professionnels (jusqu'à 25%)\n\nRESPONSABILITÉS\n\n• Alignement des exigences du client sur le produit générique et création d'une Description du système spécifique au projet\n\n• Création de documentation spécifique au projet comme les spécifications d'interface, les manuels client, les notes de version, la BoM, etc\n\n• Configuration des sous-systèmes CBTC en fonction des exigences du système et des caractéristiques du projet\n\n• Soutenir le montage, le montage, le test et la mise en service ainsi que l'homologation et toute autre activité de projet nécessaire\n\n• Coordination avec les équipes internes, les clients, les fournisseurs, les sous-traitants et les autres parties prenantes\n\n• Travailler dans les équipes d'appel d'offres pour compléter la partie technique des offres, en s'assurant que les exigences des clients sont satisfaites pendant que la solution est alignée sur le produit générique",
-        "it": "EXPÉRIENCES\n\n-Formation technique achevée en tant qu'ingénieur en génie électrique, mécanique ou informatique (EPF/TU/HES) ou qualification comparable\n\n-Plusieurs années d'expérience dans le domaine de la signalisation ferroviaire sont souhaitées. L'expérience dans les projets ESTW est un grand avantage\n\n-Connaissance des principes et pratiques de la signalisation ferroviaire (enclenchements électriques)\n\n-Expérience de l'utilisation de l'outil IBM Doors Next Generation (DNG) Tool\n\n-Bonne maîtrise du français et de l'anglais, l'allemand est un avantage\n\n-Esprit d'équipe, autonome, orienté vers les objectifs et les solutions\n\n-Disponibilité pour déplacements professionnels (jusqu'à 25%)\n\nRESPONSABILITÉS\n\n• Alignement des exigences du client sur le produit générique et création d'une Description du système spécifique au projet\n\n• Création de documentation spécifique au projet comme les spécifications d'interface, les manuels client, les notes de version, la BoM, etc\n\n• Configuration des sous-systèmes CBTC en fonction des exigences du système et des caractéristiques du projet\n\n• Soutenir le montage, le montage, le test et la mise en service ainsi que l'homologation et toute autre activité de projet nécessaire\n\n• Coordination avec les équipes internes, les clients, les fournisseurs, les sous-traitants et les autres parties prenantes\n\n• Travailler dans les équipes d'appel d'offres pour compléter la partie technique des offres, en s'assurant que les exigences des clients sont satisfaites pendant que la solution est alignée sur le produit générique",
-        "en": "EXPÉRIENCES\n\n-Formation technique achevée en tant qu'ingénieur en génie électrique, mécanique ou informatique (EPF/TU/HES) ou qualification comparable\n\n-Plusieurs années d'expérience dans le domaine de la signalisation ferroviaire sont souhaitées. L'expérience dans les projets ESTW est un grand avantage\n\n-Connaissance des principes et pratiques de la signalisation ferroviaire (enclenchements électriques)\n\n-Expérience de l'utilisation de l'outil IBM Doors Next Generation (DNG) Tool\n\n-Bonne maîtrise du français et de l'anglais, l'allemand est un avantage\n\n-Esprit d'équipe, autonome, orienté vers les objectifs et les solutions\n\n-Disponibilité pour déplacements professionnels (jusqu'à 25%)\n\nRESPONSABILITÉS\n\n• Alignement des exigences du client sur le produit générique et création d'une Description du système spécifique au projet\n\n• Création de documentation spécifique au projet comme les spécifications d'interface, les manuels client, les notes de version, la BoM, etc\n\n• Configuration des sous-systèmes CBTC en fonction des exigences du système et des caractéristiques du projet\n\n• Soutenir le montage, le montage, le test et la mise en service ainsi que l'homologation et toute autre activité de projet nécessaire\n\n• Coordination avec les équipes internes, les clients, les fournisseurs, les sous-traitants et les autres parties prenantes\n\n• Travailler dans les équipes d'appel d'offres pour compléter la partie technique des offres, en s'assurant que les exigences des clients sont satisfaites pendant que la solution est alignée sur le produit générique",
-        "de": "EXPÉRIENCES\n\n-Formation technique achevée en tant qu'ingénieur en génie électrique, mécanique ou informatique (EPF/TU/HES) ou qualification comparable\n\n-Plusieurs années d'expérience dans le domaine de la signalisation ferroviaire sont souhaitées. L'expérience dans les projets ESTW est un grand avantage\n\n-Connaissance des principes et pratiques de la signalisation ferroviaire (enclenchements électriques)\n\n-Expérience de l'utilisation de l'outil IBM Doors Next Generation (DNG) Tool\n\n-Bonne maîtrise du français et de l'anglais, l'allemand est un avantage\n\n-Esprit d'équipe, autonome, orienté vers les objectifs et les solutions\n\n-Disponibilité pour déplacements professionnels (jusqu'à 25%)\n\nRESPONSABILITÉS\n\n• Alignement des exigences du client sur le produit générique et création d'une Description du système spécifique au projet\n\n• Création de documentation spécifique au projet comme les spécifications d'interface, les manuels client, les notes de version, la BoM, etc\n\n• Configuration des sous-systèmes CBTC en fonction des exigences du système et des caractéristiques du projet\n\n• Soutenir le montage, le montage, le test et la mise en service ainsi que l'homologation et toute autre activité de projet nécessaire\n\n• Coordination avec les équipes internes, les clients, les fournisseurs, les sous-traitants et les autres parties prenantes\n\n• Travailler dans les équipes d'appel d'offres pour compléter la partie technique des offres, en s'assurant que les exigences des clients sont satisfaites pendant que la solution est alignée sur le produit générique"
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "url": "https://careers.stadlerrail.com/job/Wallisellen-System-Engineer-CBTC-ZH-Z-8304/1369743255/",
-      "source": "Stadler Rail Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-28T21:26:32.301Z",
-      "addressLocality": "Wallisellen",
-      "postalCode": "8304",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Rail vehicle manufacturing",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-28",
-      "applyUrl": "https://careers.stadlerrail.com/job/Wallisellen-System-Engineer-CBTC-ZH-Z-8304/1369743255/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-15T11:32:23.026Z"
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-bec09f5bef4f",
-      "slug": "system-test-engineer-stadler-rail-ch",
+      "slug": "system-test-ingegnere-stadler-rail-wallisellen",
       "slugByLocale": {
         "en": "system-test-engineer-stadler-rail-ch",
-        "it": "system-test-engineer-stadler-rail-ch",
-        "de": "system-test-engineer-stadler-rail-ch",
-        "fr": "system-test-engineer-stadler-rail-ch"
+        "it": "system-test-ingegnere-stadler-rail-wallisellen",
+        "de": "system-test-ingenieur-stadler-rail-wallisellen",
+        "fr": "system-test-ingenieur-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12957,7 +12946,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T23:29:48.086Z"
+      "firstSeenAt": "2026-06-30T23:29:48.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-test-engineer-stadler-rail-ch"
+        ],
+        "de": [
+          "system-test-engineer-stadler-rail-ch"
+        ],
+        "fr": [
+          "system-test-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "system-test-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-98f449272157",
@@ -13320,7 +13323,8 @@
       },
       "previousSlugs": [
         "project-manager-railway-signalling-stadler-rail-ch"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
