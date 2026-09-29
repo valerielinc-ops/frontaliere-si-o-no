@@ -203,12 +203,13 @@ import {
 } from '@/services/jobGateExperiment';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
- isOfferwallLoadFailure,
+ shouldOfferPaidFallback,
  trackAssistedApplicationEvent,
  useAssistedApplicationVariant,
  useOfferwallPaidFallback,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
+import { hasTransientUserActivation, watchNewTabOpened } from '@/services/userActivation';
 import {
  getRewardedApplicationAccessExpiresAt,
  REWARDED_APPLICATION_ACCESS_TTL_HOURS,
@@ -2552,6 +2553,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
  // The open rewarded offer resumes a click after the Offerwall recovery reload.
  const [rewardedApplicationResumed, setRewardedApplicationResumed] = useState(false);
+ // The resumed click already holds the access: the offer shows only its
+ // "open" card, since no click activation survives the reload.
+ const [rewardedApplicationOpenCardOnly, setRewardedApplicationOpenCardOnly] = useState(false);
+ // The reason of a direct hand-off (no ad, paid fallback off) whose new tab
+ // waits for confirmation: the offer's "open" card retries that hand-off.
+ const rewardedDirectHandoffReasonRef = useRef<string | null>(null);
  // Synchronous twin of the two application offers' state: a double click on
  // "Candidati" runs handleApply twice before React re-renders, and the second
  // run must not emit a second apply/offer event pair (or a second rewarded
@@ -2561,7 +2568,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
  }, [assistedApplicationJob, rewardedApplicationJob]);
  useEffect(() => {
-  if (!rewardedApplicationJob) setRewardedApplicationResumed(false);
+  if (!rewardedApplicationJob) {
+   setRewardedApplicationResumed(false);
+   setRewardedApplicationOpenCardOnly(false);
+   rewardedDirectHandoffReasonRef.current = null;
+  }
  }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
@@ -7206,15 +7217,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
  };
 
- const handleRewardedApplicationContinue = () => {
+ const handleRewardedApplicationContinue = (): Promise<boolean> => {
   const job = rewardedApplicationJob;
-  if (!job) return;
-  setRewardedApplicationJob(null);
-  // This callback fires on Google's reward (the Offerwall entitlement or the
-  // GPT grant), with no further click, so use the current tab: a late
-  // window.open is commonly blocked by the browser.
-  void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
-   handoff: 'rewarded_granted',
+  if (!job) return Promise.resolve(true);
+  // The offer calls this after Google's reward only while the page holds a
+  // click's activation (at once, or from its "open" button), so the employer
+  // opens in a new tab and the visitor keeps the site (owner decision
+  // 2026-09-29). The offer stays mounted until that tab takes the foreground:
+  // a popup blocked despite the activation brings its "open" card back.
+  const opened = watchNewTabOpened();
+  const directReason = rewardedDirectHandoffReasonRef.current;
+  if (rewardedApplicationOpenCardOnly) {
+   // A resumed click whose access was granted before the reload: its apply
+   // signals were recorded then, so no second hand-off event.
+   void redirectExternalApplication(job, 'rewarded_application_entitlement', false, false);
+  } else if (directReason !== null) {
+   // The "open" card of a direct hand-off whose new tab was blocked: the
+   // click retries it, already counted as a hand-off the first time.
+   void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', false, false, {
+    handoff: 'direct_external',
+    reason: directReason,
+   });
+  } else {
+   void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, false, {
+    handoff: 'rewarded_granted',
+   });
+  }
+  return opened.then((ok) => {
+   if (ok) setRewardedApplicationJob(null);
+   return ok;
   });
  };
 
@@ -7236,14 +7267,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   void intentSettled.then(() => window.location.reload());
  };
 
- const handleRewardedApplicationUnavailable = (reason: string) => {
+ const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // The Offerwall and its GPT fallback could not LOAD: when enabled, the same
-  // click opens the paid offer, which keeps the free external path one tap
-  // away. A deliberate user choice (closed Offerwall, declined consent) still
-  // goes straight to the employer below.
-  if (offerwallPaidFallbackEnabled && isOfferwallLoadFailure(reason)) {
+  // The Offerwall and its GPT fallback could not LOAD, or the visitor refused
+  // the ad (ads refused in the CMP, consent card declined, Offerwall closed
+  // without its reward): when enabled, the same click opens the paid offer,
+  // whose free external button opens the employer in a new tab.
+  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason)) {
    setRewardedApplicationJob(null);
    setAssistedCheckoutError(null);
    setAssistedOfferSource('offerwall_fallback');
@@ -7255,13 +7286,33 @@ const JobBoard: React.FC<JobBoardProps> = ({
    });
    return;
   }
-  // No Google creative to show (no-fill, timeout, consent, eligibility): the
+  // Paid fallback off, or an ineligible run (bots, non-production hosts): the
   // offer has already tracked the technical detail, and the same click goes
-  // straight to the employer. No retry, no local video, no second click.
-  setRewardedApplicationJob(null);
-  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+  // straight to the employer. No retry, no local video, no second click. A
+  // new tab needs a click's activation; without one (a late asynchronous
+  // outcome) the browser would block it, so the current tab is used.
+  if (!hasTransientUserActivation()) {
+   setRewardedApplicationJob(null);
+   void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+    handoff: 'direct_external',
+    reason,
+   });
+   return undefined;
+  }
+  // Inside a click's activation the employer opens in a new tab. The offer
+  // stays mounted until that tab takes the foreground: a popup blocked
+  // anyway brings the offer's "open" card, whose click retries the same
+  // hand-off, so the visitor never loses the employer silently (PR #10366
+  // review). Watch before window.open: the new tab can hide the page at once.
+  rewardedDirectHandoffReasonRef.current = reason;
+  const opened = watchNewTabOpened();
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, false, {
    handoff: 'direct_external',
    reason,
+  });
+  return opened.then((ok) => {
+   if (ok) setRewardedApplicationJob(null);
+   return ok;
   });
  };
 
@@ -7453,8 +7504,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
     access_expires_at: accessExpiresAt,
     access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
    });
-   // No click behind this hand-off: a new tab would be blocked.
-   void redirectExternalApplication(selectedJob, 'rewarded_application_entitlement', false, true);
+   // No click behind this hand-off: a new tab would be blocked, and this tab
+   // would take the visitor off the site. The offer shows only its "open"
+   // card, whose click opens the new tab.
+   applicationOfferOpenRef.current = true;
+   setRewardedApplicationOpenCardOnly(true);
+   setRewardedApplicationResumed(true);
+   setRewardedApplicationJob(selectedJob);
    return;
   }
   trackAssistedApplicationEvent('rewarded_application_offer_resumed', context);
@@ -7842,6 +7898,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
     resumed={rewardedApplicationResumed}
+    startInHandoff={rewardedApplicationOpenCardOnly}
     onReload={handleRewardedApplicationReload}
    />
   </Suspense>

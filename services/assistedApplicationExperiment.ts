@@ -42,6 +42,27 @@ export function isOfferwallLoadFailure(reason: unknown): boolean {
   return typeof reason === 'string' && OFFERWALL_LOAD_FAILURE_REASONS.has(reason);
 }
 
+/**
+ * `onUnavailable` reasons of a visitor who refused the ad (owner decision
+ * 2026-09-29: they get the paid offer too): ads refused in the CMP, the
+ * consent card declined, or the Offerwall closed without its reward.
+ */
+export const OFFERWALL_AD_REFUSAL_REASONS: ReadonlySet<string> = new Set([
+  'consent_denied',
+  'ad_consent_missing',
+  'offerwall_closed_without_reward',
+]);
+
+/**
+ * The paid offer replaces the direct hand-off when no ad could be loaded or
+ * the visitor refused it. Ineligible and non-production runs (bots, dev
+ * hosts) keep the direct hand-off.
+ */
+export function shouldOfferPaidFallback(reason: unknown): boolean {
+  return isOfferwallLoadFailure(reason)
+    || (typeof reason === 'string' && OFFERWALL_AD_REFUSAL_REASONS.has(reason));
+}
+
 export function parseOfferwallFallbackFlag(value: unknown): boolean {
   return String(value ?? '').trim().toLowerCase() === 'true';
 }
@@ -98,6 +119,15 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_consent_decided',
   'rewarded_offerwall_consent_declined',
   'external_apply_redirected',
+  // New-tab hand-off after the reward (RewardedApplicationOffer). Distinct
+  // names instead of a parameter: GA4 reads them without a custom dimension.
+  // `auto`: opened at once inside the click's activation; `shown`: the "open"
+  // card; `clicked`: its button; `unconfirmed`: no new tab took the foreground
+  // (blocked popup), so the card came back.
+  'rewarded_application_handoff_auto',
+  'rewarded_application_handoff_shown',
+  'rewarded_application_handoff_clicked',
+  'rewarded_application_handoff_unconfirmed',
   // The Offerwall/GPT chain failed to load and the paid offer opened instead.
   'offerwall_paid_fallback_offered',
   'checkout_started',

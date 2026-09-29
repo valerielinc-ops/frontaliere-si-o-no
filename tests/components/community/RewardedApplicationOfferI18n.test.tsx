@@ -41,6 +41,7 @@ import RewardedApplicationOffer, {
   shortenRewardedOfferJobTitle,
 } from '@/components/community/RewardedApplicationOffer';
 import { ensureLocaleLoaded, itReady, setLocale, type Locale } from '@/services/i18n';
+import { setUserActivation } from '../../helpers/userActivation';
 
 const baseProps = {
   jobId: 'job-1',
@@ -119,6 +120,9 @@ beforeAll(async () => {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  // A reward inside a click's activation opens the employer at once; the
+  // `handoff` card without one is covered in RewardedApplicationOffer.test.tsx.
+  setUserActivation(true);
   // The Offerwall is released only with ad consent (services/offerwallRecovery.ts).
   window.localStorage.setItem('frontaliere_ads_consent', 'granted');
   mocks.gptProps = null;
@@ -126,6 +130,7 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  setUserActivation(null);
   document.body.style.overflow = '';
 });
 
