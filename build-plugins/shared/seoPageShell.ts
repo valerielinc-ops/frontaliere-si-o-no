@@ -56,7 +56,7 @@
 
 import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
-import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from '../jobBoardGpt';
+import { jobBoardHeadTags } from '../jobBoardGpt';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { normalizeShellTitle } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
@@ -273,7 +273,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${extraHeadHtml ?? ''}${isJobBoardPageUrl(canonicalUrl) ? `\n${GPT_BOOTSTRAP_TAG}` : ''}`,
+    extraHeadHtml: `${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
     jsonLdScripts: jsonLdScripts ?? [],
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,

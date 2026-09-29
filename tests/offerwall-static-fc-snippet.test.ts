@@ -1,11 +1,10 @@
 /**
  * Offerwall FC snippet for STATIC pages — regression + drift guard.
  *
- * Static SEO heads do NOT carry index.html's inline Offerwall block. The
- * article owner (ogPagesPlugin) and the job-board owners
- * (staticPagesPlugin/jobsSeoPagesPlugin) therefore need the publisher-id
- * MESSAGING loader at PARSE TIME: relying on the network-code loader pulled in
- * by adsbygoogle.js AFTER hydration can fetch the Offerwall message without
+ * Static SEO heads do NOT carry index.html's inline Offerwall block. Every
+ * static job-board emitter therefore needs the publisher-id MESSAGING loader
+ * at PARSE TIME: relying on the network-code loader pulled in by
+ * adsbygoogle.js AFTER hydration can fetch the Offerwall message without
  * rendering its overlay. The custom newsletter choice is intentionally not
  * emitted; Ad Manager owns the available choices.
  *
@@ -81,11 +80,10 @@ describe('OFFERWALL_FC_SNIPPET — parity with index.html (drift guard)', () => 
   });
 });
 
-describe('OFFERWALL_FC_SNIPPET — wired into the static-page owners', () => {
-  // The GAM Offerwall is scoped to the article sections. Those pages are emitted
-  // by ogPagesPlugin (canonicalPrefix '/articoli-frontaliere/') — NOT staticPagesPlugin,
-  // which skips them ("already exist"). The snippet MUST be injected by ogPagesPlugin
-  // or the Offerwall never renders on article pages (the 2026-06-16 miss).
+describe('OFFERWALL_FC_SNIPPET — wired into every static-page owner', () => {
+  // The GAM Offerwall is scoped to the article sections and job-board pages.
+  // Keep this list in sync with the source emitters: a GPT-only head passes
+  // the ad-loading smoke test but fails the consent probe with fc_not_requested.
   const read = (p: string) => readFileSync(resolve(__dirname, '..', p), 'utf8');
 
   it('ogPagesPlugin imports and injects OFFERWALL_FC_SNIPPET into the article <head>', () => {
@@ -110,13 +108,34 @@ describe('OFFERWALL_FC_SNIPPET — wired into the static-page owners', () => {
 
   it('staticPagesPlugin injects the snippet for every job-board section and blog detail', () => {
     const src = read('build-plugins/staticPagesPlugin.ts');
-    expect(src).toMatch(/const jobBoardOfferwallTag = isJobBoardPageUrl\(fullUrl\)/);
+    expect(src).toMatch(/jobBoardHeadTags\(fullUrl\)/);
     expect(src).toMatch(/isBlogDetailPage\s*\?\s*`\\n\s*\$\{OFFERWALL_FC_SNIPPET\}`/);
   });
 
-  it('jobsSeoPagesPlugin applies the same CMP contract to active job pages', () => {
+  it('jobsSeoPagesPlugin applies the same CMP contract to every job-page template', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
-    expect(src).toMatch(/GPT_BOOTSTRAP_TAG,\s*isJobBoardPageUrl/);
-    expect(src).toMatch(/const jobBoardOfferwallTag = isJobBoardPageUrl\(canonicalUrl\)/);
+    expect(src).toMatch(/import \{ JOB_BOARD_HEAD_TAGS \} from ['"]\.\/jobBoardGpt['"]/);
+    expect(src).toMatch(/staticAnalyticsHtml[^\n]*JOB_BOARD_HEAD_TAGS/);
+    expect(src).not.toMatch(/jobBoardOfferwallTag/);
+  });
+
+  it('seoHubsPlugin applies the shared contract to paginated job hubs', () => {
+    const src = read('build-plugins/seoHubsPlugin.ts');
+    expect(src).toMatch(/import \{ jobBoardHeadTags \} from ['"]\.\/jobBoardGpt['"]/);
+    expect(src).toMatch(/const jobBoardHeadTag = jobBoardHeadTags\(canonicalUrl\)/);
+  });
+
+  it('recency and sector job hubs use the same shared contract', () => {
+    for (const plugin of ['jobRecencyPagesPlugin.ts', 'jobSectorPagesPlugin.ts']) {
+      const src = read(`build-plugins/${plugin}`);
+      expect(src, `${plugin} must use the shared job-board head contract`).toMatch(
+        /jobBoardHeadTags\(canonicalUrl\)/,
+      );
+    }
+  });
+
+  it('the shared SEO shell carries the contract for every job-board consumer', () => {
+    const src = read('build-plugins/shared/seoPageShell.ts');
+    expect(src).toMatch(/extraHeadHtml:[^\n]*jobBoardHeadTags\(canonicalUrl\)/);
   });
 });

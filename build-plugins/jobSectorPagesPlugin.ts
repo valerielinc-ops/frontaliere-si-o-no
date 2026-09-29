@@ -34,7 +34,7 @@ import {
   robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
-import { GPT_BOOTSTRAP_TAG } from './jobBoardGpt';
+import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -548,7 +548,7 @@ ${alternates}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
-    ${GPT_BOOTSTRAP_TAG}
+    ${jobBoardHeadTags(canonicalUrl)}
   </head>
   <body>
     ${rootShell(hasSpaBundle)}

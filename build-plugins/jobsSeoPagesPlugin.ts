@@ -18,11 +18,11 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT, OFFERWALL_FC_SNIPPET } from './constants';
+import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { GPT_BOOTSTRAP_TAG, isJobBoardPageUrl } from './jobBoardGpt';
+import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -1469,8 +1469,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `script[src*=".../adsbygoogle.js"]` before injecting, and both only push
  // `<ins>` elements lacking `data-adsbygoogle-status`.
  // Partnerize: fuori dal ternario perche' la doc chiede il tag su OGNI pagina,
- // anche su quelle che caricano il bundle SPA e saltano gtag.
- const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}\n ${GPT_BOOTSTRAP_TAG}`;
+ // anche su quelle che caricano il bundle SPA e saltano gtag. Tutti gli
+ // emitter di questo plugin sono job-board paths: keep GPT and Funding
+ // Choices together or live consent reports fc_not_requested.
+ const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}${JOB_BOARD_HEAD_TAGS}`;
 
  /* ── Per-closeBundle memoization caches ──────────────────────────────
   * Scoped to a single closeBundle invocation so watch-mode rebuilds do not
@@ -3255,9 +3257,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
- const jobBoardOfferwallTag = isJobBoardPageUrl(canonicalUrl)
-  ? `\n ${OFFERWALL_FC_SNIPPET}`
-  : '';
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
  // winner URL (company hub) when this slug is in the override map.
  // The page itself is still emitted with its own URL (breadcrumbs,
@@ -3853,7 +3852,7 @@ ${hreflangHtml}
  ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
  ${seedScript}
  ${SPA_ACTION_REDIRECT_SCRIPT}
-${jobBoardOfferwallTag}${staticAnalyticsHtml}
+${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}
