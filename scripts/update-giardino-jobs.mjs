@@ -15,7 +15,9 @@ import {
   isTrustedDomain,
   GIARDINO_KEY,
   GIARDINO_COMPANY_NAME,
+  GIARDINO_INVENTED_INTRO_RE,
 } from './lib/giardino-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -28,6 +30,10 @@ runStandardCrawlerPipeline({
   isCompanyJob: isGiardinoJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  // Stored descriptions opened by the former builder's own sentence
+  // ("Giardino Group sucht für das …") and the translations made from them
+  // go before the merge; the fresh crawl publishes the linked page's text.
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, GIARDINO_INVENTED_INTRO_RE, GIARDINO_COMPANY_NAME),
   // Publish a zero only when the Talents board itself renders `jobs-count` 0
   // with an empty JOBS block (issue #6694). `empty-only` keeps the ordinary
   // miss-grace path for a non-empty batch; an unrecognised page or a board

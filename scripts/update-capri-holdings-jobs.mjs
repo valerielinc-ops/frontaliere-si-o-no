@@ -39,11 +39,11 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
-  detectLang,
   normalize,
   normalizeKey,
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { dropFabricatedLocaleText, sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { isChCountry } from './lib/ch-country-guard.mjs';
 import {
@@ -57,6 +57,8 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -516,7 +518,29 @@ export function assertUniqueWorkdayPostings(
 /**
  * Fetch all Swiss Capri Holdings jobs across both brand sites.
  */
-async function fetchCapriHoldingsJobs() {
+/**
+ * Description fields of one posting: the Workday `jobDescription` text in its
+ * own language. The runner used to write an Italian company blurb of its own
+ * into `descriptionByLocale.it` of every job ("Posizione aperta presso <brand>
+ * (Capri Holdings) a …"), which the source never published.
+ * Under the shared word floor (50 words) nothing is emitted: the merge keeps
+ * the stored source body, or the job is not published this run.
+ */
+export function buildCapriDescriptionFields(title, descriptionText, brand, city) {
+  // Only the posting's own text over the shared word floor: nothing under it
+  // (the merge keeps the stored source body, or omits the job this run).
+  return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
+}
+
+// Fossil of the removed Italian builder in stored jobs (see source-locale-description.mjs).
+const CAPRI_IT_BLURB_RE = /^Posizione aperta presso [\s\S]*\(Capri Holdings\)[\s\S]*gruppo globale della moda di lusso/;
+
+/** Remove the fabricated Italian blurb from a stored job. */
+export function dropCapriFabricatedText(job) {
+  return dropFabricatedLocaleText(job, 'it', CAPRI_IT_BLURB_RE);
+}
+
+export async function fetchCapriHoldingsJobs() {
   console.log(`🔍 Fetching Capri Holdings jobs from Workday API`);
   console.log(`   Tenant: capri.wd1.myworkdayjobs.com`);
   console.log(`   Sites: ${WORKDAY_SITES.map((s) => s.site).join(', ')}\n`);
@@ -577,8 +601,7 @@ async function fetchCapriHoldingsJobs() {
     const publicUrl = `${WORKDAY_PUBLIC_BASE}/${listing._site}${externalPath}`;
     const brand = listing.brand || 'Capri Holdings';
     const resolvedCity = city;
-    const descEn = descriptionText || `${title} position at ${brand} in ${resolvedCity}.`;
-    const descIt = `Posizione aperta presso ${brand} (Capri Holdings) a ${resolvedCity === 'Switzerland' ? 'Svizzera' : resolvedCity}.\nRuolo: ${title}.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.`;
+    const { description, descriptionByLocale, sourceLang } = buildCapriDescriptionFields(title, descriptionText, brand, resolvedCity);
     const slug = slugify(title, 'capri-holdings');
     const locationText = `${locationRaw} ${listingLocationSignal}`;
     const sourcePostalCode = getWorkdaySourceField(info, ['postalCode', 'postal_code', 'zipCode', 'zip'])
@@ -607,8 +630,8 @@ async function fetchCapriHoldingsJobs() {
       addressCountry: 'CH',
       postalCode: structuredAddress.postalCode,
       streetAddress: structuredAddress.streetAddress,
-      description: descEn,
-      descriptionByLocale: { en: descEn, it: descIt },
+      description,
+      descriptionByLocale,
       titleByLocale: { en: title },
       slug,
       slugByLocale: { en: slug, it: slugify(title, 'capri-holdings') },
@@ -617,7 +640,7 @@ async function fetchCapriHoldingsJobs() {
       source: 'capri-holdings-workday-crawler',
       employmentType: detectEmploymentType(info.timeType || ''),
       experienceLevel: detectExperienceLevel(title),
-      sourceLang: detectLang(descEn || title, 'en'),
+      sourceLang,
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
       _targetScope: { canton: addressCanton, location: addressCity },
@@ -644,6 +667,15 @@ async function mergeJobs(discoveredJobs) {
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCapriJobs = allJobs.filter((j) => !isCapriJob(j));
   const existingCapriJobs = allJobs.filter(isCapriJob);
+  const fossils = existingCapriJobs.filter((job) => dropCapriFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Dropped the fabricated Italian Capri blurb from ${fossils} stored job(s); they will be retranslated`);
+  // Under the shared word floor the builder emits no body: keep the stored
+  // source body (fossils already dropped above), or omit the job this run.
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingCapriJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  }
+  discoveredJobs = withBody;
 
   const existingKeys = new Set(
     existingCapriJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

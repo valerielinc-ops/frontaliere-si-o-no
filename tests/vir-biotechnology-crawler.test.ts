@@ -13,6 +13,8 @@ import {
   htmlToText,
   slugify,
   normalizeSpace,
+  buildVirDescriptionFields,
+  dropVirFabricatedText,
 } from '@/scripts/lib/vir-biotechnology-job-parser.mjs';
 
 // ─── Mock Greenhouse API response ─────────────────────────────────────────────
@@ -184,5 +186,46 @@ describe('parseCity', () => {
 
   it('extracts city from "City, State, Country"', () => {
     expect(parseCity('San Francisco, California, United States')).toBe('San Francisco');
+  });
+});
+
+// ─── Source-locale description, no fabricated Italian blurb ────────────────────
+
+describe('buildVirDescriptionFields', () => {
+  it('publishes only the posting text, keyed by its language', () => {
+    const [first] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    // Over the shared 50-word floor, as the live Greenhouse postings are.
+    const parsed = { ...first, description: Array(4).fill(first.description).join(' ') };
+    const fields = buildVirDescriptionFields(parsed);
+    expect(fields.sourceLang).toBe('en');
+    expect(Object.keys(fields.descriptionByLocale)).toEqual(['en']);
+    expect(fields.description).toContain('Senior Scientist to join our antibody discovery team');
+    expect(fields.description).not.toMatch(/Posizione aperta/);
+  });
+
+  it('emits no body without posting text or under the word floor', () => {
+    expect(buildVirDescriptionFields({ title: 'Research Associate', city: 'Bellinzona', description: '' }).description).toBe('');
+    const [first] = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
+    expect(buildVirDescriptionFields(first).description).toBe('');
+  });
+});
+
+describe('dropVirFabricatedText', () => {
+  it('removes the stored Italian blurb and asks for a real translation', () => {
+    const job: any = {
+      descriptionByLocale: {
+        en: 'We are seeking a Senior Scientist…',
+        it: "Posizione aperta presso Vir Biotechnology (Humabs BioMed) a Bellinzona.\nRuolo: Senior Scientist.\n\nVir Biotechnology è un'azienda biotecnologica globale. Humabs BioMed SA ha attività di ricerca in Svizzera.",
+      },
+    };
+    expect(dropVirFabricatedText(job)).toBe(true);
+    expect(job.descriptionByLocale).toEqual({ en: 'We are seeking a Senior Scientist…' });
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps a real Italian translation', () => {
+    const job: any = { descriptionByLocale: { en: 'x', it: 'Cerchiamo un Senior Scientist per il team di scoperta degli anticorpi.' } };
+    expect(dropVirFabricatedText(job)).toBe(false);
+    expect(job.needsRetranslation).toBeUndefined();
   });
 });

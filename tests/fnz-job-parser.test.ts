@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import { resolveFnzSwissLocation, hasFnzSwissPrimaryLocation } from '../scripts/lib/fnz-job-parser.mjs';
-import { resolveFnzLocation } from '../scripts/update-fnz-jobs.mjs';
+import { resolveFnzLocation, buildFnzDescriptionFields, dropFnzFabricatedText } from '../scripts/update-fnz-jobs.mjs';
 import { isCantonOnlyLabel } from '../scripts/lib/target-swiss-locations.mjs';
 
 const fnzCrawlerSource = fs.readFileSync(
@@ -215,5 +215,33 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     expect(fnzCrawlerSource).not.toMatch(
       /if \(pages >= MAX_PAGES\) \{[\s\S]*?console\.warn[\s\S]*?break;/u,
     );
+  });
+});
+
+// Fixture: the start of a live Workday `jobDescription` (Chiasso, 2026-09-29).
+describe('FNZ description fields', () => {
+  const text = fs.readFileSync(new URL('./fixtures/fnz/workday-description-chiasso.txt', import.meta.url), 'utf8').trim();
+
+  it('publishes the Workday text alone, keyed by its language', () => {
+    const fields = buildFnzDescriptionFields('Solution Consultant CRM', text, 'Chiasso');
+    expect(fields.description).toBe(text);
+    expect(fields.descriptionByLocale).toEqual({ en: text });
+    expect(fields.description).not.toContain('FNZ is a global fintech platform provider');
+  });
+
+  it('removes the Italian blurb and the translations of the blurb-appended source from a stored job', () => {
+    const job: any = {
+      sourceLang: 'en',
+      descriptionByLocale: {
+        en: `${text}\n\nFNZ is a global fintech platform provider that partners with financial institutions, wealth managers, and asset managers.`,
+        it: 'Posizione aperta presso FNZ a Chiasso.\nRuolo: Solution Consultant CRM.\n\nFNZ è un provider globale di piattaforme fintech che collabora con istituzioni finanziarie.',
+        fr: 'Description du rôle …',
+      },
+    };
+    expect(dropFnzFabricatedText(job)).toBe(true);
+    expect(Object.keys(job.descriptionByLocale)).toEqual(['en']);
+    expect(job.needsRetranslation).toBe(true);
+    const clean: any = { sourceLang: 'en', descriptionByLocale: { en: text, it: 'Descrizione del ruolo …' } };
+    expect(dropFnzFabricatedText(clean)).toBe(false);
   });
 });

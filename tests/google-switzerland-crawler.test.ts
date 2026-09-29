@@ -9,6 +9,7 @@ import {
   parseGoogleListingHtml,
   parseGoogleDeclaredTotal,
   extractGoogleDetailDescription,
+  googleDetailCalloutText,
   resolveAddress,
   resolveSwissGoogleLocation,
 } from '../scripts/lib/google-switzerland-job-parser.mjs';
@@ -26,6 +27,15 @@ const LISTING_HTML = readFileSync(
 // body sections, and the start of the legal footer.
 const DETAIL_HTML = readFileSync(
   path.join(__dirname, 'fixtures', 'google-switzerland-detail.html'),
+  'utf8',
+);
+
+// Trimmed real detail page of an internship (fetched live 2026-09-29, "Data
+// Science PhD Intern, 2027"): the info callout above the body (deadline,
+// eligibility, required documents), the four body sections and the start of
+// the legal footer.
+const INTERN_DETAIL_HTML = readFileSync(
+  path.join(__dirname, 'fixtures', 'google-switzerland-detail-intern-callout.html'),
   'utf8',
 );
 
@@ -214,6 +224,21 @@ describe('Google Switzerland crawler parser', () => {
     it('returns "" when no body section is present', () => {
       expect(extractGoogleDetailDescription('<html><body><div id="app"></div></body></html>')).toBe('');
       expect(extractGoogleDetailDescription('')).toBe('');
+    });
+
+    it('keeps the info callout that precedes the first body heading', () => {
+      const body = extractGoogleDetailDescription(INTERN_DETAIL_HTML);
+      expect(body.startsWith('Please complete your application before 23rd October 2026.')).toBe(true);
+      expect(body).toContain('This internship is intended for students enrolled in their penultimate/final year');
+      expect(body).toMatch(/\n1\. In the “Resume Section:” attach an updated CV or resume\n2\. In the “Education Section:”/);
+      expect(body.indexOf('Minimum qualifications')).toBeGreaterThan(body.indexOf('Please include your expected graduation date'));
+      expect(body).toContain('• Provide research on topics including Google');
+      expect(body).not.toMatch(/Information collected and processed|equal opportunity|WIZ_global_data/);
+    });
+
+    it('reads no callout when the page has none (regular postings start at the body)', () => {
+      expect(googleDetailCalloutText(DETAIL_HTML)).toBe('');
+      expect(extractGoogleDetailDescription(DETAIL_HTML).startsWith('Minimum qualifications')).toBe(true);
     });
   });
 

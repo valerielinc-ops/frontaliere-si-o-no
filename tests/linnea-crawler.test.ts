@@ -9,7 +9,12 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { parseAccordionJobs, htmlToText, MIN_DESC_LENGTH } from '@/scripts/lib/linnea-job-parser.mjs';
+import {
+  parseAccordionJobs,
+  htmlToText,
+  MIN_DESC_LENGTH,
+  classifyLinneaCareersPage,
+} from '@/scripts/lib/linnea-job-parser.mjs';
 
 // ─── Fixture: real accordion HTML structure from linnea.ch/careers/ ───────────
 // Mirrors the actual HTML served by WordPress + Foundation on 2026-03-18.
@@ -249,6 +254,59 @@ describe('parseAccordionJobs — guards', () => {
   it('skips items whose description is shorter than MIN_DESC_LENGTH', () => {
     const jobs = parseAccordionJobs(FIXTURE_SHORT_DESC);
     expect(jobs).toHaveLength(0);
+  });
+});
+
+// ─── Fixture: the careers page with nothing open (linnea.ch/careers/, 2026-09-29) ───
+// Minimised from the live page: the OPEN POSITIONS section renders an explicit
+// sentence and no accordion. The stored ERP vacancy (crawled 2026-04-13) had
+// stayed published because the runner read this page as "structure changed".
+const FIXTURE_NO_OPEN_POSITIONS = `
+<section id="join">
+  <div class="row animation animate__fadeIn animate__delay-500ms">
+    <div class="large-12 columns">
+      <h2>OPEN POSITIONS</h2>
+      <hr class="grey">
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <h4 class="animation animate__fadeIn animate__delay-500ms">No open positions at this time.</h4>
+    </div>
+  </div>
+  <div class="row animation animate__fadeIn animate__delay-500ms">
+    <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12 columns">
+      <p>Please feel free to send us your application documents on your own initiative.</p>
+      <p><a rel="nofollow" class="btn green">SEND YOUR CV NOW</a></p>
+    </div>
+  </div>
+</section>
+<section id="raising"><div class="row"><article><h2>Education, Community and Thought Leadership</h2></article></div></section>
+`;
+
+describe('classifyLinneaCareersPage', () => {
+  it('reads the explicit "No open positions" section as an authoritative empty page', () => {
+    expect(classifyLinneaCareersPage(FIXTURE_NO_OPEN_POSITIONS)).toEqual({ state: 'empty', jobs: [] });
+  });
+
+  it('returns the parsed vacancies when the accordion is present', () => {
+    const { state, jobs } = classifyLinneaCareersPage(FIXTURE_ERP_ACCORDION);
+    expect(state).toBe('jobs');
+    expect(jobs).toHaveLength(1);
+  });
+
+  it('keeps unknown (never empty) when the section is missing or its items are unparseable', () => {
+    expect(classifyLinneaCareersPage('<html><body><p>No jobs here.</p></body></html>').state).toBe('unknown');
+    expect(classifyLinneaCareersPage('').state).toBe('unknown');
+    // Accordion items present but all rejected by the length guard: a template
+    // change, not a statement that nothing is open.
+    expect(classifyLinneaCareersPage(FIXTURE_SHORT_DESC).state).toBe('unknown');
+  });
+
+  it('does not treat the sentence as empty when an accordion item is still rendered', () => {
+    const mixed = FIXTURE_SHORT_DESC.replace('<h2>OPEN POSITIONS</h2>', '<h2>OPEN POSITIONS</h2><h4>No open positions at this time.</h4>');
+    expect(mixed).toContain('No open positions');
+    expect(classifyLinneaCareersPage(mixed).state).toBe('unknown');
   });
 });
 

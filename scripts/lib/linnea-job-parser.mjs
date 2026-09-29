@@ -178,3 +178,43 @@ export function parseAccordionJobs(html) {
 
   return jobs;
 }
+
+/**
+ * Sentence the careers page renders in the OPEN POSITIONS section when the
+ * company has nothing open (observed 2026-09-29:
+ * `<h4>No open positions at this time.</h4>` and no accordion at all).
+ */
+export const LINNEA_NO_OPEN_POSITIONS_RE = /\bNo open positions at this time\b/i;
+
+/**
+ * Classify the careers page into one of three states.
+ *
+ *  - `jobs`:    at least one accordion vacancy parsed.
+ *  - `empty`:   the OPEN POSITIONS section renders the explicit "no open
+ *               positions" sentence and carries no accordion item at all —
+ *               the source itself says there is nothing open, so every
+ *               stored Linnea job is retired.
+ *  - `unknown`: anything else (fetch failure, section missing, accordion
+ *               items present but unparseable). The runner keeps the stored
+ *               jobs: a changed template must never masquerade as zero.
+ *
+ * Before this distinction the runner treated the explicit empty page like a
+ * broken fetch and kept the last vacancy forever (the ERP System
+ * Administrator row crawled 2026-04-13 was still published on 2026-09-29,
+ * five months after it left the page).
+ *
+ * @param {string} html
+ * @returns {{ state: 'jobs'|'empty'|'unknown', jobs: ReturnType<typeof parseAccordionJobs> }}
+ */
+export function classifyLinneaCareersPage(html = '') {
+  const jobs = parseAccordionJobs(html);
+  if (jobs.length > 0) return { state: 'jobs', jobs };
+  const start = String(html || '').indexOf('OPEN POSITIONS');
+  if (start < 0) return { state: 'unknown', jobs };
+  const end = html.indexOf('</section>', start);
+  const section = html.slice(start, end > start ? end : undefined);
+  if (!/data-accordion-item/i.test(section) && LINNEA_NO_OPEN_POSITIONS_RE.test(section)) {
+    return { state: 'empty', jobs };
+  }
+  return { state: 'unknown', jobs };
+}

@@ -66,6 +66,7 @@ import {
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { fetchHtml, htmlToText, decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { resolveSwissStructuredAddress } from './swiss-structured-address.mjs';
+import { readAttr } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -373,7 +374,40 @@ export function extractGoogleDetailDescription(html) {
       break;
     }
   }
-  return htmlToText(body).trim();
+  const callout = googleDetailCalloutText(html, start.index);
+  const text = htmlToText(body).trim();
+  return callout ? `${callout}\n\n${text}` : text;
+}
+
+// How far above the first body heading the posting's info callout may sit.
+// It is rendered immediately before the body (separated only by `<br/>`); the
+// bound keeps a callout elsewhere in the ~1MB app shell from being claimed.
+const CALLOUT_MAX_DISTANCE = 20000;
+
+/**
+ * Some postings (internships, programmes) open with an info callout ABOVE the
+ * first body heading: application deadline, eligibility, required documents,
+ * start dates. Starting the body at "Minimum qualifications" dropped it — a
+ * PhD internship lost its whole eligibility/application paragraph (2041 of
+ * 5648 chars published). The callout element carries its full text, line
+ * breaks included, in `data-liveregiontext` (prefixed by the icon's "Info"
+ * label), which is steadier than its obfuscated inner class names.
+ */
+export function googleDetailCalloutText(html = '', bodyStart = html.length) {
+  const before = String(html || '').slice(0, bodyStart);
+  const at = before.lastIndexOf('data-announce-callout="true"');
+  if (at < 0 || bodyStart - at > CALLOUT_MAX_DISTANCE) return '';
+  const tagStart = before.lastIndexOf('<', at);
+  const tagEnd = html.indexOf('>', at);
+  if (tagStart < 0 || tagEnd < 0) return '';
+  const live = decodeEntities(readAttr(html.slice(tagStart, tagEnd + 1), 'data-liveregiontext'));
+  return live
+    .replace(/^\s*Info\s+/, '')
+    .split('\n')
+    .map((line) => normalizeSpace(line))
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 /* ── Fetch (Jina-rendered — fallback, see module header) ──────────── */
