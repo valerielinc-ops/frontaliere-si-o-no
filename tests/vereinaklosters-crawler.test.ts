@@ -67,7 +67,7 @@ describe('Vereina crawler parser', () => {
       expect(isTrustedDomain('https://careers.hotelcareer.ch/job/456')).toBe(true);
     });
 
-  it('trusts the reviewed secondary public job board', () => {
+    it('trusts the reviewed secondary public job board', () => {
       expect(isTrustedDomain('https://local-job.ch/job/chef-de-rang-m-w-3795033/')).toBe(true);
     });
 
