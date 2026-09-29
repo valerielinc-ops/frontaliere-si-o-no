@@ -13,7 +13,7 @@ describe('newsletter AI phases — 700 cohorts, 4 locales, one Codex request at 
   it.each(results.map((r: any) => [r.scenario, r]))('%s: POST stays within the call and time budget', (_id, r: any) => {
     expect(r.post.phase2Calls - r.post.phase2Retries).toBeLessThanOrEqual(4);
     expect(r.post.phase2Retries).toBeLessThanOrEqual(4);
-    expect(r.post.phase3Calls).toBeLessThanOrEqual(8);
+    expect(r.post.phase3Calls).toBeLessThanOrEqual(4); // one call per locale for both subjects
     expect(r.post.phase2Minutes).toBeLessThanOrEqual(r.budgetMinutes);
     expect(r.post.phase3Minutes).toBeLessThanOrEqual(r.budgetMinutes);
     expect(r.post.subjects).toBe(8);

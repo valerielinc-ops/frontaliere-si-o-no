@@ -1167,16 +1167,10 @@ export function buildLocaleBriefingPrompt(ctx) {
 }
 
 /**
- * Build a prompt for AI to generate a personalized email subject line.
- *
- * @param {object} ctx
- * @param {object} ctx.subscriber — { locale, preferences, locationInterest }
- * @param {object} ctx.exchangeRate — { rate }
- * @param {Array}  ctx.matchedJobs — [{ title }]
- * @param {string} [ctx.briefingSummary] — First line of the AI briefing, if available
- * @returns {{ system: string, user: string }}
+ * The parts buildSubjectPrompt and buildSubjectVariantsPrompt share: language,
+ * proven patterns, voice and the user hints.
  */
-export function buildSubjectPrompt(ctx) {
+function subjectPromptParts(ctx) {
   const locale = nlNormLocale(ctx.subscriber?.locale);
   const langName = LOCALE_NAMES[locale] || 'Italian';
 
@@ -1230,30 +1224,6 @@ export function buildSubjectPrompt(ctx) {
     fr: `Use "tu" voice, never "nous"`,
   };
 
-  // A/B test: bias the subject toward the assigned variant's style (concrete vs
-  // curious). Empty string when ctx.variant is unset/unknown → prompt unchanged.
-  const variantDirective = getVariantStyleDirective(ctx.variant, locale);
-
-  const system = [
-    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
-    `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
-    `ABSOLUTE LANGUAGE RULE: The subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
-    ``,
-    `PROVEN PATTERNS (pick one and adapt — stay in ${langName}):`,
-    examples,
-    ...(variantDirective ? [``, variantDirective] : []),
-    ``,
-    `RULES:`,
-    `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
-    `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
-    `- ${voiceByLocale[locale] || voiceByLocale.it}`,
-    `- NO exact numbers (exchange rates, percentages)`,
-    `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
-    `- Do not label the reader or audience as "frontaliere", "frontalier", "Grenzgänger", "cross-border worker" or any local equivalent; lead with the topic or benefit instead`,
-    `- ONE hook only. Make the reader NEED to open the email.`,
-    `- Output ONLY the subject line in ${langName}. No quotes, no translation, no explanation.`,
-  ].join('\n');
-
   const hints = [];
   if (ctx.exchangeRate) {
     const pct = ctx.exchangeRate.previousRate
@@ -1270,7 +1240,107 @@ export function buildSubjectPrompt(ctx) {
   if (ctx.subscriber?.locationInterest) hints.push(`Reader location: ${ctx.subscriber.locationInterest}`);
   if (ctx.briefingSummary) hints.push(`Theme: ${ctx.briefingSummary.slice(0, 80)}`);
 
-  return { system, user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers' };
+  return {
+    locale,
+    langName,
+    examples,
+    voice: voiceByLocale[locale] || voiceByLocale.it,
+    user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers',
+  };
+}
+
+/** The rules every subject line follows, whether a call asks for one or several. */
+function subjectRules({ langName, voice }) {
+  return [
+    `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
+    `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
+    `- ${voice}`,
+    `- NO exact numbers (exchange rates, percentages)`,
+    `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
+    `- Do not label the reader or audience as "frontaliere", "frontalier", "Grenzgänger", "cross-border worker" or any local equivalent; lead with the topic or benefit instead`,
+    `- ONE hook only. Make the reader NEED to open the email.`,
+  ];
+}
+
+/**
+ * Build a prompt for AI to generate a personalized email subject line.
+ *
+ * @param {object} ctx
+ * @param {object} ctx.subscriber — { locale, preferences, locationInterest }
+ * @param {object} ctx.exchangeRate — { rate }
+ * @param {Array}  ctx.matchedJobs — [{ title }]
+ * @param {string} [ctx.briefingSummary] — First line of the AI briefing, if available
+ * @returns {{ system: string, user: string }}
+ */
+export function buildSubjectPrompt(ctx) {
+  const parts = subjectPromptParts(ctx);
+  const { locale, langName, examples } = parts;
+
+  // A/B test: bias the subject toward the assigned variant's style (concrete vs
+  // curious). Empty string when ctx.variant is unset/unknown → prompt unchanged.
+  const variantDirective = getVariantStyleDirective(ctx.variant, locale);
+
+  const system = [
+    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
+    `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
+    `ABSOLUTE LANGUAGE RULE: The subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
+    ``,
+    `PROVEN PATTERNS (pick one and adapt — stay in ${langName}):`,
+    examples,
+    ...(variantDirective ? [``, variantDirective] : []),
+    ``,
+    `RULES:`,
+    ...subjectRules(parts),
+    `- Output ONLY the subject line in ${langName}. No quotes, no translation, no explanation.`,
+  ].join('\n');
+
+  return { system, user: parts.user };
+}
+
+/**
+ * ONE prompt for every A/B variant of a locale's subject (`ctx.variants`, ids
+ * from newsletter-subject-variants.mjs): the model writes one subject per
+ * variant, each in that variant's style only, and returns them as a JSON
+ * object keyed by variant id. Patterns, rules and hints are those of
+ * buildSubjectPrompt. `jsonSchema` is the callLLM option with which
+ * schema-capable providers (Codex `--output-schema`, Gemini, OpenAI strict)
+ * return exactly those keys.
+ *
+ * @param {object} ctx — as buildSubjectPrompt, plus `variants: string[]`
+ * @returns {{ system: string, user: string, jsonSchema: { name: string, schema: object } }}
+ */
+export function buildSubjectVariantsPrompt(ctx) {
+  const parts = subjectPromptParts(ctx);
+  const { locale, langName, examples } = parts;
+  const variants = [...new Set(ctx.variants || [])];
+  const keys = variants.map((id) => `"${id}"`).join(', ');
+
+  const system = [
+    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
+    `Write ${variants.length} email subject lines in ${langName}, one for each A/B variant below. Each one STRICTLY 35-50 characters including emoji. Count carefully.`,
+    `ABSOLUTE LANGUAGE RULE: Every subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
+    ``,
+    `PROVEN PATTERNS (pick one for each subject and adapt — stay in ${langName}):`,
+    examples,
+    ``,
+    `A/B VARIANTS — write each subject in its own variant's style only:`,
+    ...variants.map((id) => `- key "${id}": ${getVariantStyleDirective(id, locale)}`),
+    ``,
+    `RULES (for every subject):`,
+    ...subjectRules(parts),
+    `- Output ONLY a JSON object with exactly the keys ${keys}; each value is that variant's subject line in ${langName}, with no surrounding quotes, no translation, no explanation.`,
+  ].join('\n');
+
+  const jsonSchema = {
+    name: 'newsletter_subjects',
+    schema: {
+      type: 'object',
+      properties: Object.fromEntries(variants.map((id) => [id, { type: 'string' }])),
+      required: variants,
+      additionalProperties: false,
+    },
+  };
+  return { system, user: parts.user, jsonSchema };
 }
 
 /**
