@@ -168,9 +168,11 @@ describe('Stadler Rail crawler parser', () => {
 
 // Issue 5253: a detail body under 50 words used to be DISCARDED and replaced
 // by "<title> bei Stadler Rail in <city>." plus a paragraph about Stadler
-// written by the parser. Fixture: the live "Lackierer:in" page (49 words),
-// minimized; the second case keeps only the headings of an empty posting, as
-// the live "Lehrstelle Anlagen-Apparatebauer:in EFZ" page serves them.
+// written by the parser. Now a body under the shared 50-word floor
+// (`scripts/lib/source-body-floor.mjs`) is not published either: the job gets
+// no description and takes the thin-source path (quarantine) instead of
+// becoming an indexable thin page. Fixture: the live "Lackierer:in" page
+// (49 words), minimized.
 describe('fetchAllStadlerRailJobs — the detail text only', () => {
   const DETAIL = fs.readFileSync(new URL('./fixtures/stadler-rail-detail-short-lackierer.html', import.meta.url), 'utf8');
   const LISTING = '<a class="jobTitle-link" href="/job/Altenrhein-Lackiererin-SG-S-9423/1327192555/">Lackierer:in</a>';
@@ -188,16 +190,26 @@ describe('fetchAllStadlerRailJobs — the detail text only', () => {
     )));
   }
 
-  it('publishes a body under 50 words as the source wrote it', async () => {
+  it('gives the 49-word body of the live Lackierer:in page no indexable text, not a padded one', async () => {
+    expect(DETAIL).toContain('Carrosserielackierer:in oder Industrielackierer:in');
     stubSite(DETAIL);
 
     const jobs = await fetchAllStadlerRailJobs();
 
     expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
+  });
+
+  it('publishes a body from 50 words up as the source wrote it', async () => {
+    const longer = DETAIL.replace('Vielfältige Tagesaufgaben in unterschiedlichen Gruppe', 'Vielfältige Tagesaufgaben in unterschiedlichen Gruppen der Lackiererei am Standort Altenrhein');
+    stubSite(longer);
+
+    const jobs = await fetchAllStadlerRailJobs();
+
+    expect(jobs).toHaveLength(1);
     const [job] = jobs;
-    const words = job.description.split(/\s+/).filter(Boolean).length;
-    expect(words).toBeGreaterThan(40);
-    expect(words).toBeLessThan(50);
+    expect(job.description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
     expect(job.description).toMatch(/^PROFIL\n\n- abgeschlossene Ausbildung als Carrosserielackierer:in/);
     expect(job.descriptionByLocale).toEqual({ de: job.description });
     expect(job.description).not.toMatch(/bei Stadler Rail in|Stadler ist ein weltweit tätiger/);

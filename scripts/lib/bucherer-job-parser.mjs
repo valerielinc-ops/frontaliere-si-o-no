@@ -43,6 +43,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
@@ -225,13 +226,15 @@ function resolveAddress(rawLoc = {}) {
 /* ── Description: the posting text only ──────────────────────────── */
 
 /**
- * The Dayforce text of the posting, whatever its length (issue 5253). Under
- * 50 words it used to be REPLACED by "Bucherer cerca un/una <title> per la
- * sede di <location>." and five sentences about Bucherer written by the
- * parser; a posting without text now gets no description (thin-source path).
+ * The Dayforce text of the posting (issue 5253). Under 50 words it used to
+ * be REPLACED by "Bucherer cerca un/una <title> per la sede di <location>."
+ * and five sentences about Bucherer written by the parser. Now a text under
+ * the shared 50-word floor is not published: the posting gets no description
+ * and takes the thin-source path (quarantine).
  */
 function resolveDescription(rawHtml) {
-  return stripHtml(rawHtml || '').trim();
+  const text = stripHtml(rawHtml || '').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
 }
 
 /* ── Fetch (Playwright, Cloudflare-gated) ─────────────────────── */

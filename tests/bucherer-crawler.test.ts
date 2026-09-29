@@ -282,11 +282,11 @@ describe('Bucherer crawler parser', () => {
 
     // Issue 5253: these two cases used to assert a >= 50-word fallback ("Bucherer
     // cerca un/una <title>…" + five sentences about Bucherer written by the
-    // parser) — the ripiego this lot removes. A short text now stays as the
-    // source wrote it and a posting without text gets no description (the
-    // pipeline's thin-source path). Text: the opening of the live "Client
-    // Advisor mit SAV-Aufgaben – St. Moritz" posting (2026-09-29).
-    it('keeps a too-short crawled description as the source wrote it', () => {
+    // parser) — the ripiego this lot removes. A text under the shared 50-word
+    // floor, or no text, now gives no description (the pipeline's thin-source
+    // path). Text: the opening of the live "Client Advisor mit SAV-Aufgaben –
+    // St. Moritz" posting (2026-09-29).
+    it('gives a too-short crawled description no indexable text, not the old fallback', () => {
       const posting = {
         jobPostingId: '921',
         jobTitle: 'Client Advisor mit SAV-Aufgaben 100% (m/w/d) – St. Moritz',
@@ -294,10 +294,8 @@ describe('Bucherer crawler parser', () => {
         postingLocations: [{ cityName: 'St. Moritz', stateCode: 'GR', isoCountryCode: 'CH' }],
       };
       const jobs = parsePostings([posting]);
-      expect(jobs[0].description).toMatch(/^Ihre Rolle bei uns\s+Sie betreuen unsere anspruchsvollen/);
-      expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeLessThan(50);
-      expect(jobs[0].description).not.toContain('Bucherer AG');
-      expect(jobs[0].descriptionByLocale).toEqual({ de: jobs[0].description });
+      expect(jobs[0].description).toBe('');
+      expect(jobs[0].descriptionByLocale).toEqual({});
     });
 
     it('gives a posting without a crawled description no description', () => {

@@ -29,6 +29,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
@@ -393,11 +394,13 @@ export async function fetchAllStadlerRailJobs() {
       ? HQ_REGION
       : (detail?.addressRegion || '').split(/\s+/)[0] || '';
 
-    // The detail text, whatever its length (issue 5253). A body under 50
-    // words used to be DISCARDED for "<title> bei Stadler Rail in <city>."
-    // and a company paragraph we wrote; a posting without text now gets no
-    // description and takes the thin-source path of the pipeline.
-    const description = String(detail?.description || '').trim();
+    // The detail text only (issue 5253). A body under 50 words used to be
+    // DISCARDED for "<title> bei Stadler Rail in <city>." and a company
+    // paragraph we wrote. Now a body under the shared 50-word floor is not
+    // published: the job gets no description and takes the thin-source path
+    // (quarantine) of the pipeline.
+    const body = String(detail?.description || '').trim();
+    const description = meetsSourceBodyFloor(body) ? body : '';
 
     const sourceLang = detectLang(description || title, 'de');
     const publicUrl = listing.url;

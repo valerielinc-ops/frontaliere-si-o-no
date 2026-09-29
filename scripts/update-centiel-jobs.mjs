@@ -54,8 +54,10 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -339,10 +341,13 @@ export function buildJob(row) {
   const url = row.pdfUrl || CAREERS_URL;
 
   // Pick PDF text over inline summary when meaningfully richer. That text is
-  // the whole description, whatever its length (issue 5253): under 50 words
-  // it used to get "<title> — Centiel, Cadro (Lugano)…", a paragraph about
-  // Centiel, the workplace address and "Apply via: …", all written by us.
-  const description = selectDescriptionBody(row.pdfText, row.inlineSummary).trim();
+  // the whole description (issue 5253): under 50 words it used to get
+  // "<title> — Centiel, Cadro (Lugano)…", a paragraph about Centiel, the
+  // workplace address and "Apply via: …", all written by us. Now a text under
+  // the shared 50-word floor is not published: the job gets no description
+  // and takes the thin-source path (quarantine).
+  const body = selectDescriptionBody(row.pdfText, row.inlineSummary).trim();
+  const description = meetsSourceBodyFloor(body) ? body : '';
 
   return {
     title: row.title,
@@ -378,10 +383,31 @@ function jobMatchKey(job = {}) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
+// The paragraph and lines the runner used to add to a text under 50 words
+// ("Centiel is a Swiss company headquartered in Cadro…", "Apply via: …").
+// Only ever recognised, to be removed from stored records (issue 5253).
+const CENTIEL_FABRICATED_RE = /Centiel is a Swiss company headquartered in Cadro \(Lugano\), specializing|Apply via: https:\/\/www\.centiel\.com\/careers\//;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (CENTIEL_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropCentielFabricatedText(job) {
+  return dropFabricatedDescription(job, CENTIEL_FABRICATED_RE);
+}
+
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
+  const fossils = targetExisting.filter((job) => dropCentielFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former padding from ${fossils} stored Centiel job(s); they will be retranslated`);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 

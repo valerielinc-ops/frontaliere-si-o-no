@@ -27,6 +27,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -295,14 +296,14 @@ export async function fetchAllCordenpharmaJobs() {
     }
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
 
-    // The detail text only, whatever its length (issue 5253). Under 50 words
-    // it used to get "<title> — CordenPharma, <location>." and a CordenPharma
-    // paragraph we wrote; a posting without text now gets no description and
-    // takes the thin-source path of the pipeline.
+    // The detail text only (issue 5253). Under 50 words it used to get
+    // "<title> — CordenPharma, <location>." and a CordenPharma paragraph we
+    // wrote. Now a text under the shared 50-word floor is not published: the
+    // job gets no description and takes the thin-source path (quarantine).
     const sourceLang = ['it', 'en', 'de', 'fr'].includes(listing.language)
       ? listing.language
       : detectLang(descriptionText || title, 'de');
-    const description = descriptionText;
+    const description = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
     const jobSlug = slugify(`${title} cordenpharma ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);

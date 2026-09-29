@@ -203,7 +203,8 @@ describe('CordenPharma crawler parser', () => {
 // <location>." and a CordenPharma paragraph it wrote ("With around 3,000
 // employees worldwide, CordenPharma helps…"); a failed detail fetch published
 // those lines alone. Text: the opening of the live "Analytical Project Leader
-// (APL)" posting (career.cordenpharma.com, 2026-09-29), trimmed below 50 words.
+// (APL)" posting (career.cordenpharma.com, 2026-09-29), trimmed below and above
+// 50 words: a text under the shared 50-word floor is not published.
 describe('fetchAllCordenpharmaJobs — the detail text only', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
@@ -211,6 +212,7 @@ describe('fetchAllCordenpharmaJobs — the detail text only', () => {
 
   const URL_20922 = 'https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd';
   const SHORT_TEXT = 'CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen.';
+  const LONG_TEXT = `${SHORT_TEXT} Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides.`;
   const LISTING = `<html><body><script>DvinciData = ${JSON.stringify({
     jobPublications: [{
       position: 'Analytical Project Leader (APL), 100% (m/w/d)',
@@ -228,15 +230,26 @@ describe('fetchAllCordenpharmaJobs — the detail text only', () => {
     })));
   }
 
-  it('keeps a detail text under 50 words as the source wrote it', async () => {
+  it('publishes a detail text from 50 words up as the source wrote it', async () => {
+    expect(LONG_TEXT.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    stubSite(`<div id="liquidDesignIntroductionPublication"><p>${LONG_TEXT}</p></div>`);
+
+    const jobs = await fetchAllCordenpharmaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toBe(LONG_TEXT);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: LONG_TEXT });
+  });
+
+  it('gives a detail text under 50 words no indexable text, not a padded one', async () => {
     expect(SHORT_TEXT.split(/\s+/).length).toBeLessThan(50);
     stubSite(`<div id="liquidDesignIntroductionPublication"><p>${SHORT_TEXT}</p></div>`);
 
     const jobs = await fetchAllCordenpharmaJobs();
 
     expect(jobs).toHaveLength(1);
-    expect(jobs[0].description).toBe(SHORT_TEXT);
-    expect(jobs[0].descriptionByLocale).toEqual({ de: SHORT_TEXT });
+    expect(jobs[0].description).toBe('');
+    expect(jobs[0].descriptionByLocale).toEqual({});
   });
 
   it('gives a posting whose detail has no text no description', async () => {

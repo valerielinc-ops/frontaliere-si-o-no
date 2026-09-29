@@ -50,6 +50,8 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -76,6 +78,25 @@ function writeJobsFiles(jobs) {
   }
 }
 
+// The four paragraphs the runner used to write for a page without the posting
+// body ("Prada Group cerca…", "…is looking for…", "…sucht…", "…recherche…").
+// Only ever recognised, to be removed from stored records (issue 5253).
+const PRADA_FABRICATED_RE = /^Prada Group (?:cerca|is looking for|sucht|recherche) /;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (PRADA_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropPradaFabricatedText(job) {
+  return dropFabricatedDescription(job, PRADA_FABRICATED_RE);
+}
+
 function mergeCompanyJobs(parsedJobs, companyExisting) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
@@ -87,6 +108,8 @@ function mergeCompanyJobs(parsedJobs, companyExisting) {
     byUrl.set(key, job);
   }
   const deduped = [...byUrl.values()];
+  const fossils = companyExisting.filter((job) => dropPradaFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented descriptions from ${fossils} stored Prada Group job(s); they will be retranslated`);
   const merged = mergePreserveLocaleData(companyExisting, deduped);
   const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
@@ -105,7 +128,9 @@ function mergeCompanyJobs(parsedJobs, companyExisting) {
  */
 export function buildPradaDescriptionFields(detailDesc = '') {
   const text = String(detailDesc || '').trim();
-  const isPostingBody = text.length >= 200 && !text.toLowerCase().includes('prada group careers');
+  const isPostingBody = text.length >= 200
+    && !text.toLowerCase().includes('prada group careers')
+    && meetsSourceBodyFloor(text);
   if (!isPostingBody) return { description: '', descriptionByLocale: {}, sourceLang: 'en' };
   return sourceLocaleDescription(text, { defaultLang: 'en' });
 }

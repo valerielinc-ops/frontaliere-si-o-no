@@ -21,7 +21,7 @@ vi.mock("@/scripts/lib/atomic-write-json.mjs", async (importOriginal) => {
   return { ...actual, writeJsonAtomic };
 });
 
-import { buildJob, main, parseCareersPage } from "../scripts/update-centiel-jobs.mjs";
+import { buildJob, dropCentielFabricatedText, main, parseCareersPage } from "../scripts/update-centiel-jobs.mjs";
 
 const LIVE_LISTINGS = [
   [
@@ -239,11 +239,12 @@ describe("Centiel careers parser", () => {
   );
 });
 
-// Issue 5253: the selected text is the whole description, whatever its
-// length. Between 30 words (the fail-closed floor of main()) and 50 words
-// buildJob used to wrap it in "<title> — Centiel, Cadro (Lugano)…", a
-// paragraph about Centiel, the workplace address and "Apply via: …".
-// Text: the opening of the live "Tecnico Collaudatore" PDF (2026-09-29).
+// Issue 5253: between 30 words (the fail-closed floor of main()) and 50 words
+// buildJob used to wrap the selected text in "<title> — Centiel, Cadro
+// (Lugano)…", a paragraph about Centiel, the workplace address and "Apply
+// via: …". Now a text under the shared 50-word floor gives no description
+// (thin-source path); from 50 words up it is published as it is. Text: the
+// opening of the live "Tecnico Collaudatore" PDF (2026-09-29).
 describe("Centiel buildJob — the posting text only", () => {
   const SHORT_PDF_TEXT = [
     "Tecnico collaudatore",
@@ -262,15 +263,26 @@ describe("Centiel buildJob — the posting text only", () => {
     workingRate: "100%",
   };
 
-  it("publishes a text under 50 words as it is", () => {
+  const LONG_PDF_TEXT = `${SHORT_PDF_TEXT} ed è il risultato dell’innovazione sviluppata dai pionieri del\nprimo UPS senza trasformatore e del primo UPS modulare trifase al mondo.`;
+
+  it("gives a text between 30 and 50 words no indexable text, not the old padding", () => {
     const words = SHORT_PDF_TEXT.split(/\s+/).filter(Boolean).length;
     expect(words).toBeGreaterThanOrEqual(30);
     expect(words).toBeLessThan(50);
 
     const job = buildJob(row);
 
-    expect(job.description).toBe(SHORT_PDF_TEXT);
-    expect(job.descriptionByLocale).toEqual({ en: SHORT_PDF_TEXT });
+    expect(job.description).toBe("");
+    expect(job.descriptionByLocale).toEqual({});
+  });
+
+  it("publishes a text from 50 words up as it is", () => {
+    expect(LONG_PDF_TEXT.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+
+    const job = buildJob({ ...row, pdfText: LONG_PDF_TEXT });
+
+    expect(job.description).toBe(LONG_PDF_TEXT);
+    expect(job.descriptionByLocale).toEqual({ en: LONG_PDF_TEXT });
     expect(job.description).not.toMatch(/Apply via:|Via alla Stampa 15|specializing in the design and manufacture/);
   });
 
@@ -279,5 +291,37 @@ describe("Centiel buildJob — the posting text only", () => {
 
     expect(job.description).toBe("");
     expect(job.descriptionByLocale).toEqual({});
+  });
+});
+
+// Stored records of the former padding: before the merge the runner drops
+// the padded source slot, the translations made from it and the flat
+// description, so the merge cannot keep them (issue 5253).
+describe("dropCentielFabricatedText", () => {
+  const PADDED = [
+    "After-Sales Technician — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.",
+    "Reporting to: Technical Director.",
+    "\nProvide technical support for UPS systems.",
+    "\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions.",
+    "\nWorkplace: Cadro (Lugano), Via alla Stampa 15, CH-6965.",
+    "Apply via: https://www.centiel.com/careers/",
+  ].join("\n");
+
+  it("leaves no padded entry in a stored job", () => {
+    const job: any = {
+      sourceLang: "en",
+      description: PADDED,
+      descriptionByLocale: { en: PADDED, it: "Tecnico post-vendita — Centiel … Candidati: https://www.centiel.com/careers/" },
+    };
+    expect(dropCentielFabricatedText(job)).toBe(true);
+    expect(job.description).toBe("");
+    expect(job.descriptionByLocale).toEqual({});
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it("leaves a stored job with the posting text alone", () => {
+    const job: any = { sourceLang: "en", description: "Job profile Product Manager", descriptionByLocale: { en: "Job profile Product Manager", it: "Profilo" } };
+    expect(dropCentielFabricatedText(job)).toBe(false);
+    expect(job.descriptionByLocale.it).toBe("Profilo");
   });
 });

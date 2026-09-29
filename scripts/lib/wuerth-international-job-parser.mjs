@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { classifyMalformedRowDrift } from './malformed-row-observability.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -253,16 +254,18 @@ export function parseDetailPage(html) {
 /* ── Description: the posting text only ──────────────────── */
 
 /**
- * The detail text of a posting, whatever its length (issue 5253). Under 50
- * words it used to be REPLACED by buildFallbackDescription: "<title> bei
- * Würth International AG in <location>, Kanton Graubünden, Schweiz." and a
- * paragraph about the Würth group written by the parser. A posting without
- * text now gets no description and takes the thin-source path.
+ * The detail text of a posting (issue 5253). Under 50 words it used to be
+ * REPLACED by buildFallbackDescription: "<title> bei Würth International AG
+ * in <location>, Kanton Graubünden, Schweiz." and a paragraph about the Würth
+ * group written by the parser. Now a text under the shared 50-word floor is
+ * not published: the posting gets no description and takes the thin-source
+ * path (quarantine).
  *
  * @param {{ description?: string } | null} detail  parseDetailPage output
  */
 export function wuerthDescriptionFromDetail(detail) {
-  return String(detail?.description || '').trim();
+  const text = String(detail?.description || '').trim();
+  return meetsSourceBodyFloor(text) ? text : '';
 }
 
 /* ── Job identification ───────────────────────────────────── */

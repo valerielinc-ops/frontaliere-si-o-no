@@ -522,8 +522,8 @@ describe('isTrustedDomain', () => {
 // text under 50 words with "<title> bei Würth International AG in <location>…"
 // and a paragraph about the Würth group written by the parser (>= 50 words,
 // title, location, company, entry level). That ripiego is gone: the detail
-// text is published whatever its length, and a posting without text gets no
-// description (the pipeline's thin-source path).
+// text is published from the shared 50-word floor up, and a shorter text or
+// none gives no description (the pipeline's thin-source path).
 
 describe('wuerthDescriptionFromDetail', () => {
   it('publishes the detail text of the live fixture as it is', () => {
@@ -532,10 +532,10 @@ describe('wuerthDescriptionFromDetail', () => {
     expect(wuerthDescriptionFromDetail(detail)).toContain('Beratung');
   });
 
-  it('keeps a detail text under 50 words instead of replacing it', () => {
+  it('gives a detail text under 50 words no indexable text instead of replacing it', () => {
     // The first task of the fixture posting (Steuerexperte, Chur).
     const short = '• Beratung der Geschaeftspartner und der Geschaeftsleitungen sowie Unterstuetzung in allen direktsteuerlichen Belangen';
-    expect(wuerthDescriptionFromDetail({ description: short })).toBe(short);
+    expect(wuerthDescriptionFromDetail({ description: short })).toBe('');
   });
 
   it('gives a posting without detail text no description', () => {

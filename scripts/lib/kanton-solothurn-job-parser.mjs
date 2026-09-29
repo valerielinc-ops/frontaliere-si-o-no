@@ -62,6 +62,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -333,17 +334,18 @@ export async function fetchAllKantonSolothurnJobs() {
     const address = jsonLd.jobLocation?.address || {};
     const { city, canton, postalCode, streetAddress, region } = resolveAddress(address);
 
-    const descriptionText = stripHtml(
+    // The JSON-LD text only (issue 5253). Under 50 words it used to get
+    // "<title> — Kanton Solothurn, <city>." and a paragraph about the canton
+    // we wrote. A posting without text, or under the shared 50-word floor,
+    // now gets no description and takes the thin-source path (quarantine).
+    const sourceText = stripHtml(
       [jsonLd.description, jsonLd.responsibilities, jsonLd.qualifications]
         .filter(Boolean)
         .join('\n\n'),
     );
+    const descriptionText = meetsSourceBodyFloor(sourceText) ? sourceText : '';
     const sourceLang = detectLang(descriptionText || title, 'de');
 
-    // The JSON-LD text only, whatever its length (issue 5253). Under 50 words
-    // it used to get "<title> — Kanton Solothurn, <city>." and a paragraph
-    // about the canton we wrote; a posting without text now gets no
-    // description and takes the thin-source path of the pipeline.
     const employmentType =
       String(jsonLd.employmentType || '').toUpperCase().trim() || detectEmploymentType(title);
     const applyUrl = String(jsonLd.url || '').trim() || jobUrl;

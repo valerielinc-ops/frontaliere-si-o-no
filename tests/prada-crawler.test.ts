@@ -609,3 +609,24 @@ describe('buildPradaDescriptionFields — the posting body only', () => {
     expect(updater).not.toMatch(/Prada Group (?:cerca|is looking for|sucht|recherche) /);
   });
 });
+
+// Stored records of the former four invented paragraphs (issue 5253):
+// dropped before the merge.
+describe('dropPradaFabricatedText', () => {
+  it('leaves no invented entry in a stored job', async () => {
+    const { dropPradaFabricatedText } = await import('../scripts/update-prada-jobs.mjs');
+    const job: any = {
+      sourceLang: 'it',
+      description: 'Prada Group cerca Sales Associate presso la sede di Mendrisio, Svizzera. Prada Group è una delle principali aziende del lusso al mondo.',
+      descriptionByLocale: {
+        it: 'Prada Group cerca Sales Associate presso la sede di Mendrisio, Svizzera. Prada Group è una delle principali aziende del lusso al mondo.',
+        en: 'Prada Group is looking for a Sales Associate at their Mendrisio, Switzerland location.',
+        de: 'Prada Group sucht eine/n Sales Associate am Standort Mendrisio, Schweiz.',
+        fr: 'Prada Group recherche un/une Sales Associate sur le site de Mendrisio, Suisse.',
+      },
+    };
+    expect(dropPradaFabricatedText(job)).toBe(true);
+    expect(job.description).toBe('');
+    expect(job.descriptionByLocale).toEqual({});
+  });
+});

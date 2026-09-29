@@ -19,6 +19,8 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseApiResponse, buildJobFromApi, buildCasaleDescriptionFields, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -90,10 +92,31 @@ async function fetchJobs() {
   });
 }
 
+// The text the runner used to publish INSTEAD of an offer under 220 characters:
+// "<title> — posizione aperta presso Casale SA a Lugano… Casale SA è un'azienda globale…".
+// Only ever recognised, to be removed from stored records (issue 5253).
+const CASALE_FABRICATED_RE = /posizione aperta presso Casale SA a Lugano|Casale SA è un'azienda globale di ingegneria con sede a Lugano/;
+
+/**
+ * Remove, from a stored job, the text this runner used to write itself
+ * (CASALE_FABRICATED_RE): the slots that carry it, the flat
+ * `description`, and the translations made from it, flagging the job for
+ * retranslation (`dropFabricatedDescription`). The merge keeps stored locale
+ * slots, so without this they would outlive the fix; the runner calls it on
+ * its stored jobs right before the merge.
+ *
+ * @returns {boolean} true when the job changed.
+ */
+export function dropCasaleFabricatedText(job) {
+  return dropFabricatedDescription(job, CASALE_FABRICATED_RE);
+}
+
 async function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonCompanyJobs = (Array.isArray(existing) ? existing : []).filter((j) => !isCompanyJob(j));
   const existingCompanyJobs = (Array.isArray(existing) ? existing : []).filter(isCompanyJob);
+  const fossils = existingCompanyJobs.filter((job) => dropCasaleFabricatedText(job)).length;
+  if (fossils > 0) console.log(`  🧹 Removed the former invented description from ${fossils} stored Casale job(s); they will be retranslated`);
 
   const existingKeys = new Set(existingCompanyJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
   const discoveredKeys = new Set(discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean));
@@ -147,4 +170,6 @@ async function main() {
   console.log('\n✅ Casale SA crawler complete.');
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Casale'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Casale'));
+}

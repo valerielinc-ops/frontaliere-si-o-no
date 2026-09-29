@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
@@ -315,17 +316,19 @@ export async function fetchBaronieDetailPage(url, timeoutMs = 15000) {
 /**
  * Build localized content for a Baronie job from parsed detail data.
  *
- * The description is the detail text only, of any length, in the slot of its
- * own language (`sourceLang`, detected by the runner) — issue 5253. The
- * builder used to key it as `it` whatever its language, and to replace a
- * text of 100 characters or less with "<company>, azienda svizzera del
- * gruppo Baronie specializzata nella produzione di cioccolato premium, cerca
- * un profilo <title>…", a paragraph we wrote. A posting without text now
- * gets no description and takes the thin-source path of the pipeline.
+ * The description is the detail text only, in the slot of its own language
+ * (`sourceLang`, detected by the runner) — issue 5253. The builder used to
+ * key it as `it` whatever its language, and to replace a text of 100
+ * characters or less with "<company>, azienda svizzera del gruppo Baronie
+ * specializzata nella produzione di cioccolato premium, cerca un profilo
+ * <title>…", a paragraph we wrote. A posting without text, or under the
+ * shared 50-word floor, now gets no description and takes the thin-source
+ * path of the pipeline.
  */
 export function buildBaronieLocalizedContent({ title, location, detailMarkdown, sourceLang }) {
   const city = normalizeSpace(location) || 'Caslano';
-  const description = String(detailMarkdown || '').trim();
+  const text = String(detailMarkdown || '').trim();
+  const description = meetsSourceBodyFloor(text) ? text : '';
   const lang = String(sourceLang || '').trim() || 'en';
 
   return {

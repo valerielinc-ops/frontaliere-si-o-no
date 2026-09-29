@@ -14,6 +14,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -267,11 +268,13 @@ export async function fetchAllBcvJobs() {
       }
 
       const address = resolveAddress(urlCity);
-      // The detail text only, whatever its length (issue 5253). Under 50
-      // words it used to get "<title> — BCV, <city>.", a paragraph about the
-      // BCV and "Postulez en ligne…", all written by the parser; a posting
-      // without text now gets no description (thin-source path).
-      const description = String(parsed.description || '').trim();
+      // The detail text only (issue 5253). Under 50 words it used to get
+      // "<title> — BCV, <city>.", a paragraph about the BCV and "Postulez en
+      // ligne…", all written by the parser. Now a text under the shared
+      // 50-word floor is not published: the job gets no description and
+      // takes the thin-source path (quarantine).
+      const body = String(parsed.description || '').trim();
+      const description = meetsSourceBodyFloor(body) ? body : '';
 
       const sourceLang = detectLang(description || parsed.title, 'fr');
       const jobSlug = slugify(`${parsed.title} bcv ${address.city || 'lausanne'}`);

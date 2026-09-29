@@ -19,6 +19,7 @@ import {
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 
@@ -295,13 +296,14 @@ export function inferArtificialyCategory(title = '') {
  * pages carried the same untranslated text and translation never replaced
  * them, and without a text it wrote "Artificialy cerca <title> con sede a
  * <place>. Azienda svizzera specializzata in intelligenza artificiale…" in
- * all four. A posting without text now gets no description and takes the
- * thin-source path of the pipeline.
+ * all four. A posting without text, or under the shared 50-word floor, now
+ * gets no description and takes the thin-source path of the pipeline.
  */
 export function buildArtificialyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || 'Lugano').trim();
-  const description = String(job.description || '').trim();
+  const text = String(job.description || '').trim();
+  const description = meetsSourceBodyFloor(text) ? text : '';
   const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
