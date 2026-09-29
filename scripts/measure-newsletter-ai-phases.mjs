@@ -16,23 +16,27 @@
  *
  * PRE replays the removed Phase 2 (batches of ≤3 cohorts per locale, one call
  * each, no deadline); POST runs the shipped composeCohortBriefings /
- * composeLocaleSubjects with generateLocaleBriefing / generateAISubject.
+ * composeLocaleSubjects with generateLocaleBriefing / generateAISubjects.
  *
  *   node scripts/measure-newsletter-ai-phases.mjs [--json]
  *
  * With `--lanes N` it measures instead Phases 2 and 3 one after the other
  * against the two together, on a broker with N parallel lanes
- * (measureNewsletterAiLanes), counting calls and prompt characters too.
+ * (measureNewsletterAiLanes), counting calls and prompt characters too, and
+ * the two subject designs with the phases together: one call per locale ×
+ * variant against one call per locale (measureSubjectDesignsInLanes).
  *
  *   node scripts/measure-newsletter-ai-phases.mjs --lanes 3
  */
 import {
   AI_PHASE_BUDGET_MS,
+  acceptAISubject,
   composeCohortBriefings,
   composeLocaleSubjects,
-  generateAISubject,
+  generateAISubjects,
   generateLocaleBriefing,
 } from './send-newsletter.mjs';
+import { buildSubjectPrompt } from '../services/newsletter-content.mjs';
 
 export const MEASURED_SERVICE_MS = 116_000;
 export const CODEX_CEILING_MS = 600_000;
@@ -40,6 +44,12 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const VARIANTS = ['concreto', 'curioso'];
 const PRE_BATCH_SIZE = 3;
 const EXCHANGE = { rate: 1.0595, previousRate: 1.0557 };
+
+/** A subjects answer: the JSON object, one subject per variant, that the one-call prompt asks for. */
+function subjectAnswer(opts) {
+  const variants = opts.jsonSchema?.schema?.required || [];
+  return JSON.stringify(Object.fromEntries(variants.map((v) => [v, '💼 Nuove offerte a Lugano questa settimana'])));
+}
 
 function cohortsFor(total) {
   const cohorts = new Map();
@@ -111,7 +121,7 @@ function serializedBroker(clock, { serviceMs, shortFirstAttempt = false }) {
       throw new Error('Codex CLI timed out at the caller deadline');
     }
     const system = messages[0]?.content || '';
-    if (/email subject line/i.test(system)) return '💼 Nuove offerte a Lugano questa settimana';
+    if (/email subject line/i.test(system)) return subjectAnswer(opts);
     const words = shortFirstAttempt && attempt === 1 ? 40 : 90;
     return `<p>${Array.from({ length: words }, (_, w) => `parola${w}`).join(' ')}.</p>`;
   }
@@ -185,7 +195,7 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
       variantIds: VARIANTS,
       briefingMap: phase2.briefingMap,
       exchangeRate: EXCHANGE,
-      generate: (ctx) => generateAISubject(ctx, { deadlineMs: subjectDeadlineMs, llm: broker.llm }),
+      generate: (ctx) => generateAISubjects(ctx, { deadlineMs: subjectDeadlineMs, llm: broker.llm }),
     });
     return {
       phase2Calls,
@@ -208,22 +218,41 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
  * first come first served, with a service time per request kind. It counts the
  * calls and the prompt characters sent, a proxy of the input tokens.
  */
-function lanedBroker(clock, { lanes, briefingMs, subjectMs }) {
+function lanedBroker(clock, { lanes, briefingMs, subjectMs, subjectPairMs }) {
   const freeAt = Array(lanes).fill(clock.now);
   const stats = { calls: 0, promptChars: 0 };
-  async function llm(messages) {
+  async function llm(messages, opts = {}) {
     stats.calls++;
     stats.promptChars += messages.reduce((n, m) => n + String(m.content || '').length, 0);
     const subject = /email subject line/i.test(messages[0]?.content || '');
+    // A subject call with the variants schema writes every variant at once.
+    const serviceMs = !subject ? briefingMs : opts.jsonSchema ? subjectPairMs : subjectMs;
     const lane = freeAt.indexOf(Math.min(...freeAt));
     const start = Math.max(clock.now, freeAt[lane]);
-    const end = start + (subject ? subjectMs : briefingMs);
+    const end = start + serviceMs;
     freeAt[lane] = end;
     await clock.at(end);
-    if (subject) return '💼 Nuove offerte a Lugano questa settimana';
+    if (subject) return opts.jsonSchema ? subjectAnswer(opts) : '💼 Nuove offerte a Lugano questa settimana';
     return `<p>${Array.from({ length: 90 }, (_, w) => `parola${w}`).join(' ')}.</p>`;
   }
   return { llm, stats };
+}
+
+/**
+ * The subjects of every variant from one call PER VARIANT, the design before
+ * generateAISubjects: the removed generateAISubject replayed with the same
+ * prompt builder (buildSubjectPrompt) and the same acceptance (acceptAISubject).
+ */
+function perVariantSubjects(llm, deadlineMs) {
+  return async (ctx) => Object.fromEntries(await Promise.all(ctx.variants.map(async (variant) => {
+    const { system, user } = buildSubjectPrompt({ ...ctx, variant });
+    try {
+      const raw = await llm([{ role: 'system', content: system }, { role: 'user', content: user }], { temperature: 0.8, maxTokens: 80, deadlineMs });
+      return [variant, acceptAISubject(raw)];
+    } catch {
+      return [variant, null];
+    }
+  })));
 }
 
 /** Cohorts whose jobs paragraph alone covers the subject Theme (3 long titles). */
@@ -245,9 +274,9 @@ function cohortsWithLongJobs(total) {
  * reading each locale's briefing through `briefingFor` as send-newsletter.mjs
  * does.
  */
-async function lanedPhases({ cohorts, lanes, briefingMs, subjectMs, together }) {
+async function lanedPhases({ cohorts, lanes, briefingMs, subjectMs, subjectPairMs, together, subjectDesign = 'one-call' }) {
   const clock = virtualClock();
-  const broker = lanedBroker(clock, { lanes, briefingMs, subjectMs });
+  const broker = lanedBroker(clock, { lanes, briefingMs, subjectMs, subjectPairMs });
   return withVirtualTime(clock, async () => {
     const t0 = clock.now;
     const deadlineMs = clock.now + AI_PHASE_BUDGET_MS;
@@ -262,7 +291,9 @@ async function lanedPhases({ cohorts, lanes, briefingMs, subjectMs, together }) 
       variantIds: VARIANTS,
       ...source,
       exchangeRate: EXCHANGE,
-      generate: (subjectCtx) => generateAISubject(subjectCtx, { deadlineMs, llm: broker.llm }),
+      generate: subjectDesign === 'per-variant'
+        ? perVariantSubjects(broker.llm, deadlineMs)
+        : (subjectCtx) => generateAISubjects(subjectCtx, { deadlineMs, llm: broker.llm }),
     });
     let subjects;
     if (together) {
@@ -284,8 +315,12 @@ async function lanedPhases({ cohorts, lanes, briefingMs, subjectMs, together }) 
 }
 
 // Service times of the per-locale design, run 36385271711 (2026-09-28): one
-// briefing in 34 s, two subjects in 35 s one after the other.
-export const LANE_SERVICE = Object.freeze({ briefingMs: 34_000, subjectMs: 17_000 });
+// briefing in 34 s, two subjects in 35 s one after the other (17 s each). A
+// call for both subjects takes 2.36 times one subject: median 58.5 s of 12 real
+// one-call requests over 24.8 s of 40 real one-subject requests, same inputs
+// (scripts/measurements/newsletter-subjects-real-2026-09-29.json and
+// newsletter-subject-theme-real-2026-09-29.json), so 17 s × 2.36 ≈ 40 s.
+export const LANE_SERVICE = Object.freeze({ briefingMs: 34_000, subjectMs: 17_000, subjectPairMs: 40_000 });
 
 /**
  * The phases one after the other and together, on the same cohorts, prompts
@@ -299,6 +334,21 @@ export async function measureNewsletterAiLanes({ lanes = 3, cohortCount = 700 } 
     const sequential = await lanedPhases({ cohorts, lanes, ...LANE_SERVICE, together: false });
     const together = await lanedPhases({ cohorts, lanes, ...LANE_SERVICE, together: true });
     results.push({ input, lanes, sequential, together, savedSeconds: sequential.seconds - together.seconds });
+  }
+  return results;
+}
+
+/**
+ * The two subject designs with Phases 2 and 3 together on `lanes` broker
+ * lanes, as send-newsletter.mjs runs them: one call per locale × variant (the
+ * replayed design before) against one call per locale for every variant.
+ */
+export async function measureSubjectDesignsInLanes({ lanes = 3, cohortCount = 700 } = {}) {
+  const results = [];
+  for (const [input, cohorts] of [['short-jobs-paragraph', cohortsFor(cohortCount)], ['long-jobs-paragraph', cohortsWithLongJobs(cohortCount)]]) {
+    const perVariant = await lanedPhases({ cohorts, lanes, ...LANE_SERVICE, together: true, subjectDesign: 'per-variant' });
+    const oneCall = await lanedPhases({ cohorts, lanes, ...LANE_SERVICE, together: true, subjectDesign: 'one-call' });
+    results.push({ input, lanes, perVariant, oneCall, extraSeconds: oneCall.seconds - perVariant.seconds });
   }
   return results;
 }
@@ -332,6 +382,11 @@ if (import.meta.url === `file://${process.argv[1]}` && process.argv.includes('--
   console.log('|---|---|---|---|');
   for (const r of results) {
     console.log(`| ${r.input} | ${r.sequential.seconds}, ${r.sequential.calls}, ${r.sequential.promptChars} | ${r.together.seconds}, ${r.together.calls}, ${r.together.promptChars} | ${r.savedSeconds} |`);
+  }
+  console.log(`\n| input (${lanes} lanes, together) | one call per variant: s, calls, prompt chars | one call per locale: s, calls, prompt chars | extra s |`);
+  console.log('|---|---|---|---|');
+  for (const r of await measureSubjectDesignsInLanes({ lanes })) {
+    console.log(`| ${r.input} | ${r.perVariant.seconds}, ${r.perVariant.calls}, ${r.perVariant.promptChars} | ${r.oneCall.seconds}, ${r.oneCall.calls}, ${r.oneCall.promptChars} | ${r.extraSeconds} |`);
   }
   process.exit(0);
 }

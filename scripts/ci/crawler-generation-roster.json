@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 625,
+  "crawlerCount": 624,
   "groups": {
     "10": [
       "atec-personal",
@@ -596,7 +596,6 @@
       "groupe-mutuel",
       "guess-europe",
       "guggerbach",
-      "im-bethesda-spital",
       "kzu",
       "lonza",
       "medtronic",
@@ -959,7 +958,6 @@
     "igroove": "data/jobs/by-crawler/igroove.json",
     "igs-bern": "data/jobs/by-crawler/igs-bern.json",
     "ikea": "data/jobs/by-crawler/ikea.json",
-    "im-bethesda-spital": "data/jobs/by-crawler/im-bethesda-spital.json",
     "imad": "data/jobs/by-crawler/imad.json",
     "imerys": "data/jobs/by-crawler/imerys.json",
     "implenia": "data/jobs/by-crawler/implenia.json",
@@ -1304,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:c93baeaf49bf2ea48a59fe8e37f65d0562b75e6e142896f32cd5462ecd0a5760"
+  "digest": "sha256:ce18be902d7c896fe4a39f6a8af05e499e85a63464512f7076191420d5ac1680"
 }
