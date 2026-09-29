@@ -60,6 +60,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, fetchHtml, normalizeSpace as templateNormalizeSpace } from './crawler-template.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { dropFabricatedSourceText } from './stored-slice-repair.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -402,30 +403,10 @@ const PLANZER_BRAND_LINE_RE = /^Marke der Planzer-Gruppe: [^\n]*\n+/;
  * @returns {boolean}
  */
 export function dropPlanzerFabricatedText(job) {
-  const byLocale = job?.descriptionByLocale && typeof job.descriptionByLocale === 'object'
-    ? job.descriptionByLocale
-    : null;
-  const sourceLang = job?.sourceLang || 'de';
-  const source = String((byLocale && byLocale[sourceLang]) || job?.description || '');
-  if (!PLANZER_FABRICATED_SOURCE_RE.test(source)) return false;
-  let changed = false;
-  if (byLocale) {
-    for (const locale of Object.keys(byLocale)) {
-      if (locale === sourceLang) continue;
-      delete byLocale[locale];
-      changed = true;
-    }
-    if (typeof byLocale[sourceLang] === 'string' && PLANZER_BRAND_LINE_RE.test(byLocale[sourceLang])) {
-      byLocale[sourceLang] = byLocale[sourceLang].replace(PLANZER_BRAND_LINE_RE, '');
-      changed = true;
-    }
-  }
-  if (typeof job.description === 'string' && PLANZER_BRAND_LINE_RE.test(job.description)) {
-    job.description = job.description.replace(PLANZER_BRAND_LINE_RE, '');
-    changed = true;
-  }
-  if (changed) job.needsRetranslation = true;
-  return changed;
+  return dropFabricatedSourceText(job, {
+    pattern: PLANZER_FABRICATED_SOURCE_RE,
+    strip: (text) => text.replace(PLANZER_BRAND_LINE_RE, ''),
+  });
 }
 
 /* ── Fetch all jobs ────────────────────────────────────────── */

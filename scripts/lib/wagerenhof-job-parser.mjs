@@ -124,20 +124,6 @@ function pickLocationHints(title = '', description = '') {
   return { city: DEFAULT_CITY, canton: inferred || DEFAULT_CANTON, postal: DEFAULT_POSTAL };
 }
 
-function buildFallbackDescription(title) {
-  return [
-    `${title} bei ${WAGERENHOF_COMPANY_NAME} in Uster (ZH).`,
-    '',
-    'Die Stiftung Wagerenhof ist eine Wohn-, Arbeits- und Lebensgemeinschaft für rund 1\'000 Menschen mit kognitiven Beeinträchtigungen. Im Wagerenhof leben und arbeiten Fachmitarbeitende, Mitarbeitende an geschützten Arbeitsplätzen sowie Bewohnerinnen und Bewohner Hand in Hand.',
-    '',
-    'Was der Wagerenhof bietet:',
-    '• Interdisziplinäre Zusammenarbeit über Bereiche und Stufen hinweg',
-    '• Sinnstiftende Tätigkeit in einem engagierten Team',
-    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
-    '• Faire Anstellungsbedingungen',
-  ].join('\n');
-}
-
 export async function fetchAllWagerenhofJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   console.log(`🏡 Fetching ${WAGERENHOF_COMPANY_NAME} jobs`);
@@ -166,9 +152,11 @@ export async function fetchAllWagerenhofJobs() {
     }
 
     const title = detail.title || it.title;
-    const description = detail.description && detail.description.split(/\s+/).length >= 40
-      ? detail.description
-      : buildFallbackDescription(title);
+    // Only the posting's own text (issue 5253): a thin or missing detail body
+    // is published as the page states it and the shared pipeline's
+    // thin-source check quarantines it, instead of a company paragraph and a
+    // benefit list written by the crawler.
+    const description = detail.description || '';
 
     const hints = pickLocationHints(title, description);
     const haystack = `${title} ${description}`;

@@ -47,6 +47,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { dropFabricatedSourceText } from './stored-slice-repair.mjs';
 
 export const SOLINA_KEY = 'solina';
 export const SOLINA_COMPANY_NAME = 'Stiftung Solina';
@@ -61,7 +62,24 @@ const LISTING_PATHS = [
 ];
 const POLITE_DELAY_MS = 250;
 
-const SOLINA_CONTEXT = 'Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.';
+// Lines the parser used to write around the page text (issue 5253).
+const SOLINA_FABRICATED_RE = /(?:^|\n)Pensum \/ Standort: |Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte/;
+const SOLINA_FABRICATED_LINES_RE = /\n*(?:Pensum \/ Standort: [^\n]*|Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte[^\n]*)\n*/g;
+
+/**
+ * Repair a STORED job written with the old "Pensum / Standort:" line and
+ * company sentence: remove both from its source text and drop the
+ * translations of them (see `stored-slice-repair.mjs`).
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function dropSolinaFabricatedText(job) {
+  return dropFabricatedSourceText(job, {
+    pattern: SOLINA_FABRICATED_RE,
+    strip: (text) => text.replace(SOLINA_FABRICATED_LINES_RE, '\n\n').trim(),
+  });
+}
 
 /* ── Matchers ─────────────────────────────────────────────── */
 
@@ -240,14 +258,12 @@ export async function fetchAllSolinaJobs() {
       const canton = inferCantonFromLocation(city);
       const applyUrl = extractApplyUrl(html) || url;
 
+      // Only the page's text (issue 5253): the title and the vacancy body, no
+      // "Pensum / Standort:" line assembled from the meta description and no
+      // company sentence of the crawler's. Without a body the description
+      // stays empty and the shared pipeline's thin-source check quarantines it.
       const body = extractMainContent(html);
-      const headerLine = [pensum, city].filter(Boolean).join(', ');
-      const description = [
-        title,
-        headerLine ? `Pensum / Standort: ${headerLine}` : '',
-        body,
-        SOLINA_CONTEXT,
-      ].filter(Boolean).join('\n\n');
+      const description = body ? [title, body].join('\n\n') : '';
 
       const sourceLang = detectLang(description || title, 'de');
       const jobSlug = slugify(`${title} ${SOLINA_KEY} ${city}`);
