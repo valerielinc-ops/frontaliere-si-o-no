@@ -224,35 +224,54 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── Build job from API data ───────────────────────────────── */
 
-function buildDescription(listing, detail) {
+// Section headings in the posting's language (German postings used to get
+// the French "Mission / Profil / Offre").
+const SECTION_LABELS = {
+  fr: { mission: 'Mission', profil: 'Profil', offer: 'Offre' },
+  de: { mission: 'Ihre Aufgaben', profil: 'Ihr Profil', offer: 'Wir bieten' },
+};
+
+/**
+ * The posting's sections in the language it is published in. The API is
+ * queried with `language=fr` and answers with the French fields; an
+ * Oberwallis posting written only in German leaves them empty and carries its
+ * text in the `*_de` twins (`description_de`, `mission_de`, `profil_de`,
+ * `offer_de`). Reading only the French fields published such a vacancy with
+ * its title as the whole description (ATSANN0004863, 2026-09-29).
+ */
+export function selectHvsSections(listing = {}, detail = {}) {
+  const text = (value) => stripHtml(value || '');
+  const fr = {
+    lang: 'fr',
+    intro: text(listing.u_description),
+    mission: text(detail?.mission),
+    profil: text(detail?.profil),
+    offer: text(detail?.offer),
+  };
+  const de = {
+    lang: 'de',
+    intro: text(listing.u_description_de || detail?.description_de),
+    mission: text(detail?.mission_de),
+    profil: text(detail?.profil_de),
+    offer: text(detail?.offer_de),
+  };
+  const hasBody = (sections) => Boolean(sections.mission || sections.profil || sections.offer);
+  if (!hasBody(fr) && hasBody(de)) return de;
+  if (!fr.intro && !hasBody(fr) && de.intro) return de;
+  return fr;
+}
+
+function buildDescription(listing, sections, lang) {
+  const labels = SECTION_LABELS[lang] || SECTION_LABELS.fr;
   const parts = [];
-
-  // Intro from listing description
-  const intro = stripHtml(listing.u_description || '');
-  if (intro) parts.push(intro);
-
-  // Mission / tasks from detail
-  if (detail?.mission) {
-    const missionText = stripHtml(detail.mission);
-    if (missionText) parts.push(`Mission:\n${missionText}`);
+  if (sections.intro) parts.push(sections.intro);
+  for (const key of ['mission', 'profil', 'offer']) {
+    if (sections[key]) parts.push(`${labels[key]}:\n${sections[key]}`);
   }
-
-  // Profile / requirements from detail
-  if (detail?.profil) {
-    const profilText = stripHtml(detail.profil);
-    if (profilText) parts.push(`Profil:\n${profilText}`);
-  }
-
-  // Offer / benefits from detail
-  if (detail?.offer) {
-    const offerText = stripHtml(detail.offer);
-    if (offerText) parts.push(`Offre:\n${offerText}`);
-  }
-
   return parts.join('\n\n') || normalizeSpace(listing.u_titre || '');
 }
 
-function buildJobFromApi(listing, detail) {
+export function buildJobFromApi(listing, detail) {
   const sysId = listing.sys_id;
   const number = listing.number || '';
   const title = normalizeSpace(listing.u_titre || detail?.titre || '');
@@ -262,10 +281,17 @@ function buildJobFromApi(listing, detail) {
 
   // Detect source language (FR for Valais romand, DE for Oberwallis)
   const hasDe = !!(listing.u_titre_de && listing.u_titre_de.trim());
-  const descText = stripHtml(listing.u_description || '');
-  const sourceLang = hasDe && !listing.u_description ? 'de' : detectLang(descText || title, 'fr');
+  const sections = selectHvsSections(listing, detail);
+  // Detect on the whole posting, not on the one-line intro: "Das Spital
+  // Wallis sucht … eine/n: Pflegefachperson / Experte/-in Notfallpflege
+  // 80–100%" alone reads as Italian to detectLang, and so did one French
+  // posting — both were published with sourceLang `it`.
+  const bodyText = [sections.intro, sections.mission, sections.profil, sections.offer].filter(Boolean).join('\n');
+  const sourceLang = sections.lang === 'de' || (hasDe && !listing.u_description)
+    ? 'de'
+    : detectLang(bodyText || title, 'fr');
 
-  const description = buildDescription(listing, detail);
+  const description = buildDescription(listing, sections, sourceLang);
   const employmentType = buildEmploymentType(
     listing.u_tx_occupation_min,
     listing.u_tx_occupation_max,

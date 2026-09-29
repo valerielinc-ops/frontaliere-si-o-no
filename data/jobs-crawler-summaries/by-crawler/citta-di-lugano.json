@@ -1,16 +1,16 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-09-28T21:14:23.927Z",
-  "total": 15,
+  "generatedAt": "2026-09-29T09:15:08.717Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 11781,
-  "avgDurationMs": 11781,
+  "removedCount": 7,
+  "unchangedCount": 0,
+  "durationMs": 6763,
+  "avgDurationMs": 6763,
   "durationHistory": [
-    11781
+    6763
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -70,7 +70,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -111,7 +111,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "operations",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -152,7 +152,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "operations",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -193,7 +193,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "administration",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -234,7 +234,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "logistics",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -275,7 +275,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "PART_TIME",
       "category": "technology",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -316,7 +316,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "education",
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-29",
       "source": "company-website",
       "slug": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di-lugano",
       "sourceLang": "it",
@@ -343,8 +343,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "un/a costruttore/trice stradale al 100% presso la Manutenzione infrastrutture della Divisione spazi urbani",
       "company": "Città di Lugano",
@@ -632,5 +631,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

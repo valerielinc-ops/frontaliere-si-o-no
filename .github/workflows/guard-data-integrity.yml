@@ -52,25 +52,13 @@ jobs:
           fetch-depth: 0
           filter: blob:none
           persist-credentials: true
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          # The guard may receive any data/public-data path in a push. Keep
+          # both trees materialized, while excluding only assets and article
+          # sources that guard-data-integrity.mjs never reads.
           sparse-checkout: |
             /*
             !/public/images/
-            !/data/jobs/
-            !/data/translation-cache/
             !/packages/articles/content/
-            !/docs/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile

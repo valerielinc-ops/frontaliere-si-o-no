@@ -31,7 +31,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -207,7 +207,11 @@ async function fetchDetailPage(detailUrl) {
     const res = await fetch(detailUrl, {
       signal: controller.signal,
       headers: {
-        Accept: 'text/html,application/xhtml+xml',
+        // link.ostendis.com answers 406 to a bare `text/html,application/xhtml+xml`
+        // (measured 2026-09-29: 18/18 detail pages refused, every job fell back
+        // to the metadata boilerplate). The browser-style list with a `*/*`
+        // fallback is accepted.
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'User-Agent': USER_AGENT,
         'Accept-Language': 'de-CH,de;q=0.9',
       },
@@ -217,6 +221,28 @@ async function fetchDetailPage(detailUrl) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Ostendis publications end with the "Jetzt (online) bewerben" button followed
+ * by the employer's postal/phone footer ("Regionalspital Surselva AG -
+ * Personaldienst - Spitalstrasse 6 - 7130 Ilanz - +41 81 926 59 22"). Cut the
+ * text at the LAST line that is exactly that button label, and only when what
+ * follows is footer-sized — an apply sentence inside the body ("… oder direkt
+ * über "Jetzt bewerben"") is never a line of its own and stays.
+ */
+const OSTENDIS_APPLY_BUTTON_LINE_RE = /^Jetzt (?:online )?bewerben$/i;
+const OSTENDIS_FOOTER_MAX_CHARS = 240;
+
+export function stripOstendisApplyFooter(text = '') {
+  const lines = String(text || '').split('\n');
+  for (let i = lines.length - 1; i >= 0; i -= 1) {
+    if (!OSTENDIS_APPLY_BUTTON_LINE_RE.test(lines[i].trim())) continue;
+    const tail = lines.slice(i + 1).join(' ').trim();
+    if (tail.length > OSTENDIS_FOOTER_MAX_CHARS) break;
+    return lines.slice(0, i).join('\n').trim();
+  }
+  return String(text || '').trim();
 }
 
 /**
@@ -243,9 +269,14 @@ export function parseDetailPageJsonLd(html = '') {
     const data = JSON.parse(jsonLdMatch[1]);
     if (data['@type'] !== 'JobPosting') return result;
 
-    // Extract description (HTML → plain text)
+    // Extract description (HTML → plain text). Line structure is kept so the
+    // `<li>` bullets survive (`normalizeSpace` used to flatten 18/18 rows into
+    // prose); the Ostendis template's trailing apply button + postal footer is
+    // page chrome, not part of the vacancy.
     if (data.description) {
-      result.description = normalizeSpace(stripHtml(data.description));
+      result.description = stripOstendisApplyFooter(
+        normalizeDescriptionSpace(stripHtml(data.description)),
+      );
     }
 
     // datePosted

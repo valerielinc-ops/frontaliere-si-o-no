@@ -543,11 +543,23 @@ function pushBranch(branch) {
  * @returns {'lgtm'|'blocking'|'none'|'unknown'} `unknown` = API illeggibile.
  */
 export function latestReviewerVerdict(reviews, head) {
-  if (!Array.isArray(reviews)) return 'unknown';
-  const bot = reviews
+  return latestReviewerSnapshot(reviews, head).verdict;
+}
+
+/**
+ * Ultima review terminale del bot, con una chiave stabile per il controllo
+ * TOCTOU appena prima del push. `PENDING` non è un verdetto e `DISMISSED` non
+ * è più valido: se restano solo quelle forme la risposta è `unknown`, così il
+ * chiamante non ribasa alla cieca mentre GitHub sta aggiornando la review.
+ */
+export function latestReviewerSnapshot(reviews, head) {
+  if (!Array.isArray(reviews)) return { verdict: 'unknown', key: null };
+  const botReviews = reviews
     .map((review, index) => ({ review, index }))
     .filter(({ review }) => review && isReviewerBot(review.user));
-  if (!bot.length) return 'none';
+  if (!botReviews.length) return { verdict: 'none', key: null };
+  const bot = botReviews.filter(({ review }) => isTerminalReviewState(review.state));
+  if (!bot.length) return { verdict: 'unknown', key: null };
   const onHead = bot.filter(({ review }) => head && review.commit_id === head);
   const pool = onHead.length ? onHead : bot;
   const at = ({ review }) => {
@@ -557,7 +569,28 @@ export function latestReviewerVerdict(reviews, head) {
   // Ordine cronologico per `submitted_at`; a parità (o se manca a entrambe)
   // vince la posizione successiva nell'API, che è già cronologica.
   const latest = pool.reduce((best, cur) => (at(cur) - at(best) < 0 ? best : cur));
-  return String(latest.review.body || '').includes('## LGTM') ? 'lgtm' : 'blocking';
+  const review = latest.review;
+  const key = String(
+    review.id ?? `${review.commit_id || ''}|${review.submitted_at || ''}|${review.body || ''}|${latest.index}`,
+  );
+  return {
+    verdict: String(review.body || '').includes('## LGTM') ? 'lgtm' : 'blocking',
+    key,
+  };
+}
+
+const TERMINAL_REVIEW_STATES = new Set(['APPROVED', 'CHANGES_REQUESTED', 'COMMENTED']);
+
+export function isTerminalReviewState(state) {
+  return TERMINAL_REVIEW_STATES.has(String(state || '').toUpperCase());
+}
+
+export function reviewerSnapshotChanged(before, after) {
+  return !before || !after
+    || before.verdict === 'unknown'
+    || after.verdict === 'unknown'
+    || before.verdict !== after.verdict
+    || before.key !== after.key;
 }
 
 /**
@@ -573,9 +606,10 @@ export function needsHumanBlocksAutorebase({ labels = [], verdict }) {
   return hasNeedsHuman && (verdict === 'blocking' || verdict === 'unknown');
 }
 
-function readReviewerVerdict(num, head) {
+function readReviewerSnapshot(num, head) {
   const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
-  return latestReviewerVerdict(reviews, head);
+  const snapshot = latestReviewerSnapshot(reviews, head);
+  return typeof snapshot === 'string' ? { verdict: snapshot, key: null } : snapshot;
 }
 
 /** Esiste ALMENO una review claude-bot (LGTM o 🔴, qualunque esito)? Serve a
@@ -1995,7 +2029,8 @@ async function processPR(pr) {
 
   // GATE frugalità: solo near-merge. Conta l'ULTIMO verdetto del reviewer,
   // non un LGTM qualsiasi della storia della PR (`latestReviewerVerdict`).
-  const reviewerVerdict = readReviewerVerdict(num, head);
+  const reviewerSnapshot = readReviewerSnapshot(num, head);
+  const reviewerVerdict = reviewerSnapshot.verdict;
   const lgtm = reviewerVerdict === 'lgtm';
   let nearMerge =
     labels.includes('collision-risk') ||
@@ -2110,14 +2145,21 @@ async function processPR(pr) {
         git(['config', 'user.email', 'valerielinc@gmail.com']);
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
         if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
-          const pushed = pushBranch(branch);
-          if (pushed !== null) {
-            if (!inheritedRescue) commentStuckRedRescue(num, stuckRedReason);
-            // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
-            // nuova HEAD: il vecchio LGTM non viene riusato.
-            console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
-            if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+          const reviewerBeforePush = readReviewerSnapshot(num, head);
+          if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+            console.log(`PR #${num}: review cambiata o non verificabile dopo il merge import-union → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
+            git(['reset', '--hard', head], { allowFail: true });
             done = true;
+          } else {
+            const pushed = pushBranch(branch);
+            if (pushed !== null) {
+              if (!inheritedRescue) commentStuckRedRescue(num, stuckRedReason);
+              // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
+              // nuova HEAD: il vecchio LGTM non viene riusato.
+              console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
+              if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+              done = true;
+            }
           }
         }
         if (!done) git(['merge', '--abort'], { allowFail: true });
@@ -2326,6 +2368,18 @@ async function processPR(pr) {
       handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
       return;
     }
+  }
+
+  // Ultimo controllo TOCTOU della review: fra il verdetto usato per decidere
+  // il merge di main e questo punto può essere arrivata una review nuova,
+  // oppure quella precedente può essere stata dismissata. Anche un verdetto
+  // uguale non basta: confrontiamo la chiave della review, così una nuova
+  // review bloccante non passa solo perché la precedente era già bloccante.
+  const reviewerBeforePush = readReviewerSnapshot(num, head);
+  if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+    console.log(`PR #${num}: review cambiata o non verificabile dopo il merge locale → reset alla HEAD ${head.slice(0, 8)}, nessun push; riprovo al prossimo tick.`);
+    git(['reset', '--hard', head], { allowFail: true });
+    return;
   }
 
   // Push via PAT. TOCTOU: tra mergeable-check e push un nuovo commit potrebbe
