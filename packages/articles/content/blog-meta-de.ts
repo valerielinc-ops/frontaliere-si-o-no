@@ -12292,6 +12292,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.premi-lamal-ticino-de-rosa.title': 'KVG-Prämien Tessin 2027: Erhöhung auf 3,7% und 519,90 Franken',
     'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'Im Jahr 2027 wird die Prämienerhöhung im Tessin 3,7% bei 519,90 Franken pro Monat betragen. Der Direktor des DSS, Raffaele De Rosa, kommentiert die Maßnahmen und die Gesundheitsausgaben.',
     'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'Ansicht von Bellinzona mit mittelalterlichen Burgen',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.title': 'Entente Varese-Ticino: S40/S50 alle 30 Minuten und RE50 Malpensa',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.excerpt': 'Der Regionalrat hat die Vereinbarung ratifiziert: S40 und S50 alle 30 Minuten zwischen Varese und Mendrisio. RE50 für Malpensa und Lugano geplant.',
+    'blog.article.intesa-mobilita-varese-ticino-malpensa.imageAlt': 'Bahnhof Mendrisio: neue S40/S50-Verbindung alle 30 Minuten nach Varese und Malpensa',
 };
 
 export default blogMetaDe;
