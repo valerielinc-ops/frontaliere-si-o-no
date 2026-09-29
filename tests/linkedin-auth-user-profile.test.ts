@@ -30,8 +30,8 @@ describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () =>
   });
 
   it('always updates lastLoginAt and updatedAt on login', () => {
-    expect(source).toContain('lastLoginAt: admin.firestore.FieldValue.serverTimestamp()');
-    expect(source).toContain('updatedAt: admin.firestore.FieldValue.serverTimestamp()');
+    expect(source).toContain('lastLoginAt: FieldValue.serverTimestamp()');
+    expect(source).toContain('updatedAt: FieldValue.serverTimestamp()');
   });
 
   it('creates the base terms relationship when the subscriber document is missing', () => {

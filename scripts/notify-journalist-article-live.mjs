@@ -30,6 +30,7 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { FieldValue } from 'firebase-admin/firestore';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 import { checkArticleIdExists } from './create-article.mjs';
 import { slugify } from './publish-journalist-article.mjs';
@@ -55,7 +56,7 @@ async function initDb() {
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return { db: admin.firestore(), FieldValue: admin.firestore.FieldValue };
+  return { db: admin.firestore(), FieldValue: FieldValue };
 }
 
 /** True only when EVERY locale URL present on the doc is live (checkLink —

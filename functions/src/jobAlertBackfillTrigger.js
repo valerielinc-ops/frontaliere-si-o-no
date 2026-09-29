@@ -26,6 +26,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import {
   MAX_ALERTS_PER_USER,
   ALERT_ID,
@@ -100,10 +101,10 @@ export async function handleNewsletterSubscriberCreated(
     active: true,
     // A fresh, consented backfill after account deletion is a new job-alert
     // registration. Clear only the lifecycle marker; keep historical evidence.
-    account_deleted_at: admin.firestore.FieldValue.delete(),
+    account_deleted_at: FieldValue.delete(),
     ...(patch || {}),
-    updated_at: admin.firestore.FieldValue.serverTimestamp(),
-    created_at: admin.firestore.FieldValue.serverTimestamp(),
+    updated_at: FieldValue.serverTimestamp(),
+    created_at: FieldValue.serverTimestamp(),
   };
   const existingParent = await subscriberRef.get();
   if (existingParent.exists) delete parentPayload.created_at;
@@ -123,8 +124,8 @@ export async function handleNewsletterSubscriberCreated(
   await alertsRef.doc(ALERT_ID).set(
     {
       ...alertPayload,
-      backfilled_at: admin.firestore.FieldValue.serverTimestamp(),
-      ...(existingBackfillDoc ? {} : { createdAt: admin.firestore.FieldValue.serverTimestamp() }),
+      backfilled_at: FieldValue.serverTimestamp(),
+      ...(existingBackfillDoc ? {} : { createdAt: FieldValue.serverTimestamp() }),
     },
     { merge: true },
   );

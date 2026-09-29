@@ -9,6 +9,7 @@
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { forensicsFields } from './lib/requestForensics.js';
 
@@ -107,7 +108,7 @@ export async function handleApplicationIntentReminderUnsubscribe({
     applicationIntentReminder: {
       optedIn: false,
       optedOut: true,
-      unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+      unsubscribed_at: FieldValue.serverTimestamp(),
       ...forensicFields,
     },
   }, { merge: true });

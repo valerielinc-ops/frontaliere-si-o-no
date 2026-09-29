@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -134,33 +135,32 @@ const NON_PROMOTABLE_STATUSES = new Set([
 ]);
 
 function buildSubscriberUpdate(eventType, data, currentStatus) {
- const FieldValue = admin.firestore.FieldValue;
  const update = {
  email: normalizeEmailAddress(data.email),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
  };
 
  if (eventType === 'send') {
- update.last_sent_at = admin.firestore.FieldValue.serverTimestamp();
- update.lastSentAt = admin.firestore.FieldValue.serverTimestamp();
+ update.last_sent_at = FieldValue.serverTimestamp();
+ update.lastSentAt = FieldValue.serverTimestamp();
  update.send_count = FieldValue.increment(1);
  update.sendCount = FieldValue.increment(1);
  }
  if (eventType === 'delivered') {
- update.last_delivered_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_delivered_at = FieldValue.serverTimestamp();
  Object.assign(update, softBounceRecoveryFields());
  }
  if (eventType === 'open') {
- update.last_open_at = admin.firestore.FieldValue.serverTimestamp();
- update.lastOpenAt = admin.firestore.FieldValue.serverTimestamp();
+ update.last_open_at = FieldValue.serverTimestamp();
+ update.lastOpenAt = FieldValue.serverTimestamp();
  update.open_count = FieldValue.increment(1);
  update.openCount = FieldValue.increment(1);
  Object.assign(update, softBounceRecoveryFields());
  }
  if (eventType === 'click') {
- update.last_click_at = admin.firestore.FieldValue.serverTimestamp();
- update.lastClickAt = admin.firestore.FieldValue.serverTimestamp();
+ update.last_click_at = FieldValue.serverTimestamp();
+ update.lastClickAt = FieldValue.serverTimestamp();
  update.click_count = FieldValue.increment(1);
  update.clickCount = FieldValue.increment(1);
  update.last_clicked_url = sanitizeString(data.link_url || data.target_url);
@@ -171,7 +171,7 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  // provider bounce payload, which this constructed `data` object doesn't
  // carry) — see the `type === 'bounce'` block right after this call.
  if (eventType === 'complaint') {
- update.last_complained_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_complained_at = FieldValue.serverTimestamp();
  update.status = 'complained';
  update.isActive = false;
  update.active = false;
@@ -182,11 +182,11 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  update.active = false;
  }
  if (eventType === 'failed') {
- update.last_failed_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_failed_at = FieldValue.serverTimestamp();
  update.fail_count = FieldValue.increment(1);
  }
  if (eventType === 'delivery_delayed') {
- update.last_delay_at = admin.firestore.FieldValue.serverTimestamp();
+ update.last_delay_at = FieldValue.serverTimestamp();
  update.delay_count = FieldValue.increment(1);
  }
  // Only promote to confirmed if the subscriber already has a non-pending status.
@@ -353,7 +353,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  if (type === 'open' || type === 'click' || type === 'send') {
  await refreshEngagementScore(
  db.collection('newsletter_subscribers').doc(email),
- admin.firestore.FieldValue,
+ FieldValue,
  );
  }
 
@@ -365,25 +365,25 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  variant,
  locale,
  source_channel: sourceChannel,
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- ...(type === 'send' ? { sent_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'delivered' ? { delivered_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'open' ? { opened_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
+ updated_at: FieldValue.serverTimestamp(),
+ ...(type === 'send' ? { sent_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'delivered' ? { delivered_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'open' ? { opened_at: FieldValue.serverTimestamp() } : {}),
  ...(type === 'click'
  ? {
- clicked_at: admin.firestore.FieldValue.serverTimestamp(),
+ clicked_at: FieldValue.serverTimestamp(),
  last_clicked_url: linkUrl,
  last_clicked_label: linkLabel,
  last_clicked_section: sectionId,
- clicked_links: admin.firestore.FieldValue.increment(1),
+ clicked_links: FieldValue.increment(1),
  }
  : {}),
- ...(type === 'bounce' ? { bounced_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'complaint' ? { complained_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'suppressed' ? { suppressed_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'failed' ? { failed_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'delivery_delayed' ? { delayed_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
- ...(type === 'scheduled' ? { scheduled_at: admin.firestore.FieldValue.serverTimestamp() } : {}),
+ ...(type === 'bounce' ? { bounced_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'complaint' ? { complained_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'suppressed' ? { suppressed_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'failed' ? { failed_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'delivery_delayed' ? { delayed_at: FieldValue.serverTimestamp() } : {}),
+ ...(type === 'scheduled' ? { scheduled_at: FieldValue.serverTimestamp() } : {}),
  }, { merge: true });
 
  await db.collection('newsletter_subscribers').doc(email).collection('events').add({
@@ -400,7 +400,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  link_label: linkLabel,
  target_url: linkUrl,
  metadata: rawEvent,
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
 
@@ -412,7 +412,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  if (type === 'open' || type === 'click') {
  await refreshPreferredSendHour(
  db.collection('newsletter_subscribers').doc(email),
- admin.firestore.FieldValue,
+ FieldValue,
  );
  }
 
@@ -425,7 +425,6 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  * alert_deliveries/{alertId} subcollection, events/{auto-id} subcollection.
  */
 async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
  const data = rawEvent?.data || {};
 

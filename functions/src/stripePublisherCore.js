@@ -30,6 +30,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getRemoteConfigValue, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade } from './emailCascade.js';
 import {
@@ -161,7 +162,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
   if (!customerId) {
     const customer = await stripe.customers.create({ email: decoded.email || undefined, metadata: { publisherUid: uid } });
     customerId = customer.id;
-    await pubRef.set({ stripeCustomerId: customerId, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    await pubRef.set({ stripeCustomerId: customerId, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   }
 
   // ── Piano Azienda prepaid: flat AZIENDA_PLAN_CHF, illimitato (unitsPurchased: null). ──
@@ -174,8 +175,8 @@ async function handlePrepaidCheckout(decoded, uid, body) {
       publisherUid: uid, jobIds: [], plan: 'azienda', units: null,
       prepaid: true, unitsPurchased: null, unitsUsed: 0,
       amountChf: AZIENDA_PLAN_CHF, currency: 'CHF', status: 'created', stripeCustomerId: customerId,
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     });
 
     const session = await stripe.checkout.sessions.create({
@@ -186,7 +187,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
       metadata: { orderId: orderRef.id, publisherUid: uid, plan: 'azienda', prepaid: '1' },
       subscription_data: { metadata: { orderId: orderRef.id, publisherUid: uid, plan: 'azienda', prepaid: '1' } },
     });
-    await orderRef.update({ stripeCheckoutSessionId: session.id, updatedAt: admin.firestore.FieldValue.serverTimestamp() });
+    await orderRef.update({ stripeCheckoutSessionId: session.id, updatedAt: FieldValue.serverTimestamp() });
 
     return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, plan: 'azienda', amountChf: AZIENDA_PLAN_CHF } };
   }
@@ -219,8 +220,8 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     currency: 'CHF',
     status: 'created',
     stripeCustomerId: customerId,
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    createdAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   });
 
   const session = await stripe.checkout.sessions.create({
@@ -238,7 +239,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
 
   await orderRef.update({
     stripeCheckoutSessionId: session.id,
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   });
 
   return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, units, amountChf: netChf } };
@@ -301,15 +302,15 @@ export async function handleCreatePublisherCheckout(req) {
     if (!customerIdA) {
       const customer = await stripeA.customers.create({ email: decoded.email || undefined, metadata: { publisherUid: uid } });
       customerIdA = customer.id;
-      await pubRefA.set({ stripeCustomerId: customerIdA, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+      await pubRefA.set({ stripeCustomerId: customerIdA, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     }
 
     const orderRefA = db().collection('orders').doc();
     await orderRefA.set({
       publisherUid: uid, jobIds: ownedJobIds, plan: 'azienda', units: null,
       amountChf: AZIENDA_PLAN_CHF, currency: 'CHF', status: 'created', stripeCustomerId: customerIdA,
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     });
 
     const sessionA = await stripeA.checkout.sessions.create({
@@ -320,14 +321,14 @@ export async function handleCreatePublisherCheckout(req) {
       metadata: { orderId: orderRefA.id, publisherUid: uid, plan: 'azienda' },
       subscription_data: { metadata: { orderId: orderRefA.id, publisherUid: uid, plan: 'azienda' } },
     });
-    await orderRefA.update({ stripeCheckoutSessionId: sessionA.id, updatedAt: admin.firestore.FieldValue.serverTimestamp() });
+    await orderRefA.update({ stripeCheckoutSessionId: sessionA.id, updatedAt: FieldValue.serverTimestamp() });
 
     const batchA = db().batch();
     for (const jobId of ownedJobIds) {
       batchA.update(db().collection('publisher_jobs').doc(jobId), {
         status: 'pending_payment', tier: 'azienda', orderId: orderRefA.id,
-        pendingPaymentAt: admin.firestore.FieldValue.serverTimestamp(),
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        pendingPaymentAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
       });
     }
     await batchA.commit();
@@ -376,7 +377,7 @@ export async function handleCreatePublisherCheckout(req) {
       metadata: { publisherUid: uid },
     });
     customerId = customer.id;
-    await pubRef.set({ stripeCustomerId: customerId, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    await pubRef.set({ stripeCustomerId: customerId, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   }
 
   const couponId = await ensureVolumeCoupon(stripe, rate);
@@ -392,8 +393,8 @@ export async function handleCreatePublisherCheckout(req) {
     currency: 'CHF',
     status: 'created',
     stripeCustomerId: customerId,
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    createdAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   });
 
   const session = await stripe.checkout.sessions.create({
@@ -411,7 +412,7 @@ export async function handleCreatePublisherCheckout(req) {
 
   await orderRef.update({
     stripeCheckoutSessionId: session.id,
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   });
 
   // Mark the jobs as awaiting payment (still not public). `pendingPaymentAt`
@@ -422,8 +423,8 @@ export async function handleCreatePublisherCheckout(req) {
     batch.update(db().collection('publisher_jobs').doc(jobId), {
       status: 'pending_payment',
       orderId: orderRef.id,
-      pendingPaymentAt: admin.firestore.FieldValue.serverTimestamp(),
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      pendingPaymentAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     });
   }
   await batch.commit();
@@ -675,7 +676,7 @@ export async function handleAttachPublisherJob(req) {
         .filter(({ order }) => order.status === 'active' && order.prepaid === true);
       if (!liveOrders.length) throw new AttachClaimError('no_credits');
 
-      const ts = admin.firestore.FieldValue.serverTimestamp();
+      const ts = FieldValue.serverTimestamp();
       const unlimitedEntry = liveOrders.find(({ order }) => order.plan === 'azienda' && order.unitsPurchased == null);
 
       // Per-order mutable residuals + claim buckets for the assignment below.
@@ -721,9 +722,9 @@ export async function handleAttachPublisherJob(req) {
           bucket.jobIds.push(jobRef.id);
           jobIdsInAdOrder[i] = jobRef.id;
         }
-        const orderUpdate = { jobIds: admin.firestore.FieldValue.arrayUnion(...bucket.jobIds), updatedAt: ts };
+        const orderUpdate = { jobIds: FieldValue.arrayUnion(...bucket.jobIds), updatedAt: ts };
         if (!unlimitedEntry && bucket.unitsClaimed > 0) {
-          orderUpdate.unitsUsed = admin.firestore.FieldValue.increment(bucket.unitsClaimed);
+          orderUpdate.unitsUsed = FieldValue.increment(bucket.unitsClaimed);
         }
         tx.update(bucket.ref, orderUpdate);
       }
@@ -802,7 +803,7 @@ export async function handleArchivePublisherAd(req) {
   const job = snap.data();
   if (job.publisherUid !== decoded.uid) return { status: 403, body: { ok: false, error: 'not_owner' } };
 
-  const ts = admin.firestore.FieldValue.serverTimestamp();
+  const ts = FieldValue.serverTimestamp();
   await jobRef.set({ status: 'archived', archivedAt: ts, updatedAt: ts }, { merge: true });
 
   // Detach from the order so renewal never re-flips it to 'paid'. Best-effort:
@@ -811,7 +812,7 @@ export async function handleArchivePublisherAd(req) {
   if (orderId) {
     try {
       await db().collection('orders').doc(orderId).update({
-        jobIds: admin.firestore.FieldValue.arrayRemove(jobId),
+        jobIds: FieldValue.arrayRemove(jobId),
         updatedAt: ts,
       });
     } catch (error) {
@@ -847,7 +848,7 @@ export async function handleRestorePublisherAd(req) {
   if (job.publisherUid !== decoded.uid) return { status: 403, body: { ok: false, error: 'not_owner' } };
   if (job.status !== 'archived') return { status: 409, body: { ok: false, error: 'not_archived' } };
 
-  const ts = admin.firestore.FieldValue.serverTimestamp();
+  const ts = FieldValue.serverTimestamp();
 
   // Free tier: no billing — just re-list it. (Anti-spam cap is a create-time
   // trigger; a restore is an update, so an already-known ad is not re-capped.)
@@ -883,7 +884,7 @@ export async function handleRestorePublisherAd(req) {
     // Re-attach to the order so renewals keep it live, then flip back to paid.
     if (orderRef) {
       try {
-        await orderRef.update({ jobIds: admin.firestore.FieldValue.arrayUnion(jobId), updatedAt: ts });
+        await orderRef.update({ jobIds: FieldValue.arrayUnion(jobId), updatedAt: ts });
       } catch (error) {
         console.error('[restorePublisherAd] order re-attach failed', error instanceof Error ? error.message : String(error));
       }
@@ -908,7 +909,7 @@ async function setJobsStatus(jobIds, status, extra = {}) {
   for (const jobId of jobIds) {
     batch.set(
       db().collection('publisher_jobs').doc(String(jobId)),
-      { status, updatedAt: admin.firestore.FieldValue.serverTimestamp(), ...extra },
+      { status, updatedAt: FieldValue.serverTimestamp(), ...extra },
       { merge: true },
     );
   }
@@ -992,8 +993,8 @@ async function storeRenewal(stripe, subscriptionId, jobIds, orderRef) {
   const sub = await stripe.subscriptions.retrieve(subscriptionId);
   const periodEnd = sub?.current_period_end; // unix seconds
   if (!periodEnd) return;
-  const renewsAt = admin.firestore.Timestamp.fromMillis(periodEnd * 1000);
-  const ts = admin.firestore.FieldValue.serverTimestamp();
+  const renewsAt = Timestamp.fromMillis(periodEnd * 1000);
+  const ts = FieldValue.serverTimestamp();
   if (orderRef) {
     await db().collection('orders').doc(String(orderRef)).set({ renewsAt, updatedAt: ts }, { merge: true });
   }
@@ -1048,7 +1049,7 @@ export async function handleStripeWebhook(req) {
   if (seen.exists) return { status: 200, body: { received: true, duplicate: true } };
 
   const obj = event.data?.object || {};
-  const ts = admin.firestore.FieldValue.serverTimestamp();
+  const ts = FieldValue.serverTimestamp();
 
   // Reader no-ads subscription events (#3655, part 2/2 of #2961) are a fully
   // separate domain (reader_subscriptions collection, no publisher_jobs/orders
