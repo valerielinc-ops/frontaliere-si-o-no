@@ -13,7 +13,7 @@
  *   - Slug generation
  *   - Job shape validation
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,6 +28,7 @@ import {
   detectCategory,
   parseListingPage,
   parseDetailPage,
+  fetchAllSpitalThusisJobs,
 } from '../scripts/lib/spital-thusis-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -483,4 +484,35 @@ describe('job shape', () => {
     expect(validJob.streetAddress).toBe('Alte Strasse 31');
     expect(validJob.addressCountry).toBe('CH');
   });
+});
+
+// Only the posting's own text is published (issue 5253): a detail page without
+// a body used to be replaced by a stub ("{title} — Spital Thusis (Gesundheit
+// Mittelbünden). Arbeitsort: Thusis (GR). Pensum: …"). Shapes of the Rukzuk
+// pages of spitalthusis.ch.
+describe('fetchAllSpitalThusisJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    delete process.env.JOBS_CRAWLER_DELAY_MS;
+  });
+
+  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
+    process.env.JOBS_CRAWLER_DELAY_MS = '1';
+    const listing = '<div><h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/physiotherapeut-in/">Physiotherapeut/in 80 - 100%</a></h2>'
+      + '<h2 class="teaserHeadline"><a href="/karriere-jobs/offene-stellen/koch-in/">Koch/Köchin 100%</a></h2></div>';
+    const detail = '<html><body><h2>Physiotherapeut/in 80 - 100%</h2><p>Wir suchen per sofort oder nach Vereinbarung eine/n Physiotherapeut/in.</p>'
+      + '<h4>Dein Aufgabengebiet:</h4><ul><li>Therapeutische Behandlung und Beratung ambulanter Patienten</li><li>Selbständige Therapieplanung und Dokumentation</li></ul>'
+      + '<h4>Wir bieten:</h4><ul><li>Moderne Infrastruktur</li></ul></body></html>';
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('physiotherapeut-in')) return new Response(detail, { status: 200 });
+      if (u.includes('koch-in')) return new Response('<html><body><h2>Koch/Köchin 100%</h2></body></html>', { status: 200 });
+      return new Response(listing, { status: 200 });
+    }));
+
+    const jobs = await fetchAllSpitalThusisJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Physiotherapeut/in 80 - 100%']);
+    expect(jobs[0].description).toContain('Therapeutische Behandlung');
+    for (const job of jobs) expect(job.description).not.toMatch(/— Spital Thusis \(Gesundheit Mittelbünden\)/);
+  }, 20_000);
 });

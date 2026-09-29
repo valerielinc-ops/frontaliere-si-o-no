@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   KANTON_GR_KEY,
   KANTON_GR_COMPANY_NAME,
   isKantonGrJob,
   isTrustedDomain,
+  fetchAllKantonGrJobs,
 } from '../scripts/lib/kanton-gr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -178,4 +179,36 @@ describe('Kantonale Verwaltung Graubünden crawler parser', () => {
       expect(validJob.url).toContain('apply.refline.ch/514915');
     });
   });
+});
+
+// Only the posting's own text is published (issue 5253): a detail page without
+// a body used to be replaced by a stub of listing metadata ("{title} --
+// Kantonale Verwaltung Graubünden. Amt: … Arbeitsort: … Pensum: …"). Shapes of
+// the Refline tenant (listing table, #bDescription/#bDuty detail blocks).
+describe('fetchAllKantonGrJobs — listing without a vacancy body', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    delete process.env.JOBS_CRAWLER_DELAY_MS;
+  });
+
+  it('publishes the listing with a body and skips the one without, never inventing text', async () => {
+    process.env.JOBS_CRAWLER_DELAY_MS = '1';
+    const row = (id: string, title: string) => `<tr class="even"><td class="position"><a href="https://apply.refline.ch/845721/${id}/pub/1/index.html">${title}</a></td>`
+      + '<td class="department">Amt für Informatik</td><td class="workplace">Chur</td><td class="deadline">15.10.2026</td></tr>';
+    const listing = `<table>${row('0101', 'Systemingenieur/in 80-100%')}${row('0102', 'Sachbearbeiter/in 60%')}</table>`;
+    const detail = (withBody: boolean) => '<html><body><h1 id="bTitle">x</h1><h2 id="bSubTitle">Amt für Informatik | 80-100% | Chur</h2>'
+      + (withBody ? '<div id="bDescription"><p>Sie betreiben die Server- und Netzwerkinfrastruktur der kantonalen Verwaltung.</p></div><div id="bDuty"><ul><li>Betrieb der Serverlandschaft</li><li>Projektarbeit im Team</li></ul></div>' : '')
+      + '</body></html>';
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('search.html')) return new Response(listing, { status: 200 });
+      if (u.includes('apprentice.html') || u.includes('stage.html')) return new Response('<table></table>', { status: 200 });
+      return new Response(detail(u.includes('/0101/')), { status: 200 });
+    }));
+
+    const jobs = await fetchAllKantonGrJobs();
+    expect(jobs.map((job) => job.title)).toEqual(['Systemingenieur/in 80-100%']);
+    expect(jobs[0].description).toContain('Betrieb der Serverlandschaft');
+    for (const job of jobs) expect(job.description).not.toMatch(/-- Kantonale Verwaltung Graubünden/);
+  }, 20_000);
 });

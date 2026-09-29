@@ -412,13 +412,18 @@ describe('parseOstendisJob', () => {
     expect(job.description).toBe('Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.');
   });
 
-  it('falls back to title-based description with boilerplate when detail is short', () => {
-    const job = parseOstendisJob(sampleEntry, { description: 'Short' });
-    expect(job.description).toContain('Hausärztin / Hausarzt');
-    expect(job.description).toContain('Regionalspital Surselva');
-    expect(job.description).toContain('Ärzte');
-    expect(job.description).toContain('Grund- und Notfallversorgung');
-    expect(job.description.length).toBeGreaterThanOrEqual(150);
+  // Only the posting's own text is published (issue 5253): a detail without a
+  // body used to be replaced by a stub of metadata plus the hospital summary.
+  it('builds no job when the detail page has no vacancy text', () => {
+    expect(parseOstendisJob(sampleEntry, { description: 'Short' })).toBeNull();
+    expect(parseOstendisJob(sampleEntry, {})).toBeNull();
+  });
+
+  it('publishes a short real body as it is, without the hospital summary', () => {
+    const body = 'Wir suchen eine Hausärztin für unsere Gruppenpraxis in Ilanz.';
+    const job = parseOstendisJob(sampleEntry, { description: body });
+    expect(job.description).toBe(body);
+    expect(job.description).not.toContain('Grund- und Notfallversorgung');
   });
 
   it('uses detail page datePosted', () => {
@@ -431,8 +436,8 @@ describe('parseOstendisJob', () => {
     expect(job.employmentType).toBe('FULL_TIME');
   });
 
-  it('infers employment type from title when detail unavailable', () => {
-    const job = parseOstendisJob(sampleEntry, {});
+  it('infers employment type from title when the detail gives none', () => {
+    const job = parseOstendisJob(sampleEntry, { description: sampleDetail.description });
     expect(job.employmentType).toBe('FULL_TIME'); // 50-100% → max 100 ≥ 90
   });
 
@@ -486,13 +491,13 @@ describe('parseOstendisJob', () => {
 
   it('defaults location to Ilanz when city is empty', () => {
     const entryNoCity = { ...sampleEntry, city: '' };
-    const job = parseOstendisJob(entryNoCity, {});
+    const job = parseOstendisJob(entryNoCity, { description: sampleDetail.description });
     expect(job.location).toBe('Ilanz');
   });
 
   it('defaults postal code to 7130 when missing', () => {
     const entryNoZip = { ...sampleEntry, zip: '' };
-    const job = parseOstendisJob(entryNoZip, {});
+    const job = parseOstendisJob(entryNoZip, { description: sampleDetail.description });
     expect(job.postalCode).toBe('7130');
   });
 
@@ -525,7 +530,7 @@ describe('parseOstendisJob', () => {
 
   it('handles single percentage in title', () => {
     const singlePct = { ...sampleEntry, title: 'Koch 100%' };
-    const job = parseOstendisJob(singlePct, {});
+    const job = parseOstendisJob(singlePct, { description: sampleDetail.description });
     expect(job.pensumMin).toBe(100);
     expect(job.pensumMax).toBe(100);
     expect(job.pensum).toBe('100%');
@@ -534,7 +539,7 @@ describe('parseOstendisJob', () => {
 
   it('sets part-time contract for low pensum', () => {
     const partTime = { ...sampleEntry, title: 'Sekretärin 40-60%' };
-    const job = parseOstendisJob(partTime, {});
+    const job = parseOstendisJob(partTime, { description: sampleDetail.description });
     expect(job.contract).toBe('part-time');
     expect(job.employmentType).toBe('PART_TIME');
   });

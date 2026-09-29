@@ -45,8 +45,6 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 const BROWSER_USER_AGENT = process.env.JOBS_CRAWLER_BROWSER_USER_AGENT
   || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36';
 
-const COMPANY_BOILERPLATE = "Vista Augenpraxen & Kliniken ist eine schweizweit tätige Gruppe für Augenheilkunde mit Standorten in den Kantonen Zürich, Basel-Stadt, Basel-Landschaft, Aargau, Bern und weiteren. Wir bieten ein interdisziplinäres Team, moderne Infrastruktur und attraktive Anstellungsbedingungen für Fachpersonen in Augenoptik, Pflege, MTRA/MPA, Ophthalmologie und Verwaltung.";
-
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
@@ -206,14 +204,13 @@ export function parseVistaOstendisJob(entry, detailData = {}) {
   const idSource = entry.id ? String(entry.id) : publicUrl;
   const urlHash = createHash('sha1').update(idSource).digest('hex').slice(0, 12);
 
-  let descriptionText = detailData.description || '';
-  if (!descriptionText || descriptionText.length < 150) {
-    const parts = [`${title} bei ${VISTA_COMPANY_NAME}`];
-    if (entry.department) parts.push(`Abteilung: ${entry.department}`);
-    parts.push(`Arbeitsort: ${location} (${postalCode}, ${canton})`);
-    parts.push(COMPANY_BOILERPLATE);
-    descriptionText = parts.join('. ');
-  }
+  // Only the posting's own text is published (issue 5253): a detail page
+  // without a body used to be replaced by a stub of metadata plus the
+  // company boilerplate ("{title} bei Vista. Abteilung: … Arbeitsort: …");
+  // no job is built from it any more. A short real body is published as it
+  // is.
+  const descriptionText = detailData.description || '';
+  if (descriptionText.trim().length < 30) return null;
 
   const employmentType = detailData.employmentType || inferEmploymentType(title);
   const rangeMatch = normalize(title).match(/(\d+)\s*[-–]\s*(\d+)\s*%/);
@@ -311,7 +308,10 @@ export async function fetchAllVistaJobs() {
     }
 
     const job = parseVistaOstendisJob(entry, detailData);
-    if (!job) continue;
+    if (!job) {
+      console.log(`  ⏭️ Not published (no title or no vacancy text on the detail page): ${title || '(no title)'}`);
+      continue;
+    }
 
     jobs.push(job);
     console.log(`  ✅ ${title.substring(0, 60)} — ${job.location} (${job.canton}, ${job.employmentType})`);
