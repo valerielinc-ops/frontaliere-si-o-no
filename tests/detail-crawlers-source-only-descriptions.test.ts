@@ -72,7 +72,7 @@ describe('Flury Stiftung — the PDF text is the description', () => {
     const listing = `<div class="table-responsive"><div class="caption"><caption>Spital Schiers</caption></div>
       <table><tbody><tr><td><span class="file file--mime-application-pdf file--application-pdf"><a href="/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf" type="application/pdf" title="x">Applikationsmanager*in 80 – 100 %</a></span></td></tr>
       <tr><td><span class="file file--mime-application-pdf file--application-pdf"><a href="/sites/default/files/2026-08/Scan.pdf" type="application/pdf" title="y">Pflegefachperson HF 80%</a></span></td></tr></tbody></table></div>`;
-    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, status: 200, text: async () => listing })));
+    fetchHtml.mockResolvedValueOnce(listing);
     const extractPdf = vi.fn(async (url: string) => (url.endsWith('Scan.pdf')
       ? { text: '', rawText: '', thin: true, totalPages: 1 }
       : { text: pdfText, rawText: pdfText, thin: false, totalPages: 1 }));
