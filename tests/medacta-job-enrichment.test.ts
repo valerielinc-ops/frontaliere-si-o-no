@@ -2,13 +2,24 @@ import { describe, expect, it } from 'vitest';
 import {
   inferMedactaCategory,
   inferMedactaContract,
-  buildMedactaLocalizedDescriptions,
   extractMedactaDetailMarkdown,
   isMedactaTemplateDescription,
   isMedactaDetailBacked,
   detailBackedMedactaLocales,
+  resolveMedactaDescriptionAction,
   MEDACTA_DETAIL_SOURCE,
 } from '../scripts/lib/medacta-job-enrichment.mjs';
+
+// Openings of the category template the crawler published before 2026-09-29,
+// as stored for the Demand Planner (medacta-105851) in the committed slice:
+// invented text (the same tasks for every role of a category), never the
+// vacancy's. Pinned here because the generator is gone.
+const LEGACY_TEMPLATE_BY_LOCALE = {
+  it: '## Panoramica Ruolo\nMedacta International SA sta cercando Demand Planner con sede a Castel San Pietro, Mendrisio. Reparto: Operations & Supply Chain. Ticino\n## Mansioni Principali\n- Eseguirai attivita operative e tecniche su impianti, processi o linee produttive.',
+  en: '## Role Overview\nMedacta International SA is hiring Demand Planner in Castel San Pietro, Mendrisio. Department: Operations & Supply Chain. Ticino\n## Main Responsibilities\n- Perform technical activities on equipment, production flows, or industrial processes.',
+  de: '## Rollenubersicht\nMedacta International SA sucht Demand Planner in Castel San Pietro, Mendrisio. Abteilung: Operations & Supply Chain. Ticino\n## Hauptaufgaben',
+  fr: '## Apercu Du Poste\nMedacta International SA recrute Demand Planner a Castel San Pietro, Mendrisio. Departement: Operations & Supply Chain. Ticino\n## Responsabilites Principales',
+};
 
 // Allibo detail page (joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=105851),
 // minimised from the live page of 2026-09-29: meta teaser + microdata body.
@@ -52,28 +63,6 @@ describe('medacta-job-enrichment', () => {
     expect(inferMedactaContract({ rawContract: '', title: 'Thesis R&D Orthopedics' })).toBe('internship');
   });
 
-  it('builds rich localized descriptions with markdown sections for all locales', () => {
-    const descriptions = buildMedactaLocalizedDescriptions({
-      title: 'Manutentore Elettromeccanico',
-      location: 'Castel San Pietro/Rancate',
-      category: 'engineering',
-      departmentLabel: 'General Services',
-      isUrgent: false,
-      metaDescription: 'Lavora con noi! Medacta International SA sta cercando Manutentore Elettromeccanico su Svizzera',
-    });
-
-    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      const text = descriptions[locale] || '';
-      expect(text.length).toBeGreaterThan(220);
-      expect(text).toContain('## ');
-      expect(text).toContain('Manutentore Elettromeccanico');
-    }
-
-    expect(descriptions.it).not.toBe(descriptions.en);
-    expect(descriptions.it).not.toBe(descriptions.de);
-    expect(descriptions.it).not.toBe(descriptions.fr);
-  });
-
   // The crawler read only og:description (the one-line teaser) and published
   // the category template: a Demand Planner got "Eseguirai attivita operative
   // e tecniche su impianti" — overlap 0.08 with the real page.
@@ -107,29 +96,49 @@ describe('medacta-job-enrichment', () => {
     expect(extractMedactaDetailMarkdown('<html><body><p>captcha</p></body></html>')).toBe('');
   });
 
-  it('tells the category template apart from a real vacancy body', () => {
-    const template = buildMedactaLocalizedDescriptions({ title: 'Demand Planner', category: 'engineering' });
+  it('tells the retired category template apart from a real vacancy body', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      expect(isMedactaTemplateDescription(template[locale])).toBe(true);
+      expect(isMedactaTemplateDescription(LEGACY_TEMPLATE_BY_LOCALE[locale])).toBe(true);
     }
     expect(isMedactaTemplateDescription(extractMedactaDetailMarkdown(DEMAND_PLANNER_DETAIL_HTML))).toBe(false);
   });
 
   it('keeps a detail-backed body and drops the stale template locales so translation regenerates them', () => {
     const body = extractMedactaDetailMarkdown(DEMAND_PLANNER_DETAIL_HTML);
-    const template = buildMedactaLocalizedDescriptions({ title: 'Demand Planner', category: 'engineering' });
     const job = {
       source: MEDACTA_DETAIL_SOURCE,
       sourceLang: 'en',
       description: body,
-      descriptionByLocale: { ...template, fr: 'Medacta International recherche un Demand Planner. Le Demand Planner gère de grands ensembles de données et analyse les tendances de la demande.' },
+      descriptionByLocale: { ...LEGACY_TEMPLATE_BY_LOCALE, fr: 'Medacta International recherche un Demand Planner. Le Demand Planner gère de grands ensembles de données et analyse les tendances de la demande.' },
     };
     expect(isMedactaDetailBacked(job)).toBe(true);
     const locales = detailBackedMedactaLocales(job);
     expect(Object.keys(locales).sort()).toEqual(['en', 'fr']);
     expect(locales.en).toBe(body);
-    // Without the detail source the template path stays in charge.
+    // A record of the template era is not source-backed, whatever its source tag.
     expect(isMedactaDetailBacked({ ...job, source: 'Allibo ATS API + structured enrichment' })).toBe(false);
-    expect(isMedactaDetailBacked({ ...job, description: template.it })).toBe(false);
+    expect(isMedactaDetailBacked({ ...job, description: LEGACY_TEMPLATE_BY_LOCALE.it })).toBe(false);
+  });
+
+  // No invented fallback: without a body read from the source the job keeps
+  // the body of an earlier run, or is not published at all.
+  it('publishes only source text: detail body, else the stored source body, else nothing', () => {
+    const body = extractMedactaDetailMarkdown(DEMAND_PLANNER_DETAIL_HTML);
+    const sourceBacked = { source: MEDACTA_DETAIL_SOURCE, sourceLang: 'en', description: body };
+    const templateEra = {
+      source: 'Allibo ATS API + structured enrichment',
+      sourceLang: 'it',
+      description: LEGACY_TEMPLATE_BY_LOCALE.it,
+    };
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: body, existing: templateEra })).toBe('detail');
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: body, existing: null })).toBe('detail');
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: '', existing: sourceBacked })).toBe('keep');
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: '', existing: templateEra })).toBe('drop');
+    expect(resolveMedactaDescriptionAction({ detailMarkdown: '', existing: null })).toBe('drop');
+    // The meta teaser is not a body.
+    expect(resolveMedactaDescriptionAction({
+      detailMarkdown: 'Lavora con noi! Medacta International SA sta cercando Demand Planner su Ticino',
+      existing: null,
+    })).toBe('drop');
   });
 });
