@@ -15668,9 +15668,9 @@
         "en": "Zusteller:in Abend",
         "fr": "Zusteller:in Abend"
       },
-      "slug": "zusteller-in-abend-post",
+      "slug": "serata-di-consegna-die-schweizerische-post-kriens",
       "slugByLocale": {
-        "it": "zusteller-in-abend-post",
+        "it": "serata-di-consegna-die-schweizerische-post-kriens",
         "en": "zusteller-in-abend-post",
         "de": "zusteller-in-abend-die-schweizerische-post-kriens",
         "fr": "zusteller-in-abend-post"
@@ -15708,7 +15708,15 @@
       },
       "addressLocality": "Kriens",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-09-28T21:43:52.751Z"
+      "firstSeenAt": "2026-09-28T21:43:52.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-abend-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-abend-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Produktion-Fr%C3%BCh-Innendienst/74872-de_DE",
@@ -15735,7 +15743,7 @@
       "slug": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
       "slugByLocale": {
         "it": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
-        "en": "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen",
+        "en": "employee-production-early-interior-service-die-schweizerische-post-niederurnen",
         "de": "mitarbeiter-in-produktion-fruh-innendienst-post",
         "fr": "collaborateur-trice-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
       },
@@ -15778,14 +15786,16 @@
           "mitarbeiter-in-produktion-fruh-innendienst-post"
         ],
         "en": [
-          "mitarbeiter-in-produktion-fruh-innendienst-post"
+          "mitarbeiter-in-produktion-fruh-innendienst-post",
+          "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
         ],
         "fr": [
           "mitarbeiter-in-produktion-fruh-innendienst-post"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-produktion-fruh-innendienst-post"
+        "mitarbeiter-in-produktion-fruh-innendienst-post",
+        "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
       ]
     },
     {
@@ -15810,9 +15820,9 @@
         "en": "Zusteller:in Briefe und Pakete Abend",
         "fr": "Zusteller:in Briefe und Pakete Abend"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen",
+      "slug": "lettere-di-consegna-e-pacchetti-sera-die-schweizerische-post-niederurnen",
       "slugByLocale": {
-        "it": "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen",
+        "it": "lettere-di-consegna-e-pacchetti-sera-die-schweizerische-post-niederurnen",
         "en": "zusteller-in-briefe-und-pakete-abend-post",
         "de": "zusteller-in-briefe-und-pakete-abend-post",
         "fr": "zusteller-in-briefe-und-pakete-abend-post"
@@ -15853,11 +15863,13 @@
       "firstSeenAt": "2026-09-28T21:43:52.751Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-abend-post"
+          "zusteller-in-briefe-und-pakete-abend-post",
+          "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-abend-post"
+        "zusteller-in-briefe-und-pakete-abend-post",
+        "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen"
       ]
     },
     {
@@ -15954,12 +15966,12 @@
         "en": "Customer service team Breitenrain",
         "fr": "Équipe de service clientèle Breitenrain"
       },
-      "slug": "kundenberater-in-team-breitenrain-post",
+      "slug": "servizio-clienti-breitenrain-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "kundenberater-in-team-breitenrain-post",
-        "en": "kundenberater-in-team-breitenrain-post",
+        "it": "servizio-clienti-breitenrain-die-schweizerische-post-bern",
+        "en": "customer-service-team-breitenrain-die-schweizerische-post-bern",
         "de": "kundenberater-in-team-breitenrain-post",
-        "fr": "kundenberater-in-team-breitenrain-post"
+        "fr": "equipe-de-service-clientele-breitenrain-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -15993,7 +16005,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-28T21:43:52.751Z"
+      "firstSeenAt": "2026-09-28T21:43:52.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-team-breitenrain-post"
+        ],
+        "en": [
+          "kundenberater-in-team-breitenrain-post"
+        ],
+        "fr": [
+          "kundenberater-in-team-breitenrain-post"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-team-breitenrain-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin-Team-PostParc/74865-de_DE",
@@ -16017,12 +16043,12 @@
         "en": "Customer service team PostParc",
         "fr": "Équipe du service à la clientèle PostParc"
       },
-      "slug": "kundenberater-in-team-postparc-post",
+      "slug": "servizio-clienti-postparc-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "kundenberater-in-team-postparc-post",
-        "en": "kundenberater-in-team-postparc-post",
+        "it": "servizio-clienti-postparc-die-schweizerische-post-bern",
+        "en": "customer-service-team-postparc-die-schweizerische-post-bern",
         "de": "kundenberater-in-team-postparc-post",
-        "fr": "kundenberater-in-team-postparc-post"
+        "fr": "equipe-du-service-a-la-clientele-postparc-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -16056,7 +16082,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-28T21:43:52.751Z"
+      "firstSeenAt": "2026-09-28T21:43:52.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-team-postparc-post"
+        ],
+        "en": [
+          "kundenberater-in-team-postparc-post"
+        ],
+        "fr": [
+          "kundenberater-in-team-postparc-post"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-team-postparc-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73917-de_DE",
