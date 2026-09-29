@@ -95,7 +95,7 @@ describe('assisted application JobBoard handoff', () => {
 
   it('hands off to the employer after the reward, and on a failure without the paid fallback', () => {
     expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationUnavailable = \(reason: string\) => \{[\s\S]*?const sameTab = !hasTransientUserActivation\(\);[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, sameTab, \{\s*handoff: 'direct_external',\s*reason,\s*\}\);/,
+      /const handleRewardedApplicationUnavailable = \(reason: string\): Promise<boolean> \| undefined => \{[\s\S]*?if \(!hasTransientUserActivation\(\)\) \{\s*setRewardedApplicationJob\(null\);\s*void redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true, \{\s*handoff: 'direct_external',\s*reason,\s*\}\);\s*return undefined;/,
     );
     expect(jobBoardSource).toMatch(
       /'external_apply_redirected',\s*\{ \.\.\.assistedApplicationJobContext\(job, assistedApplicationVariant\), surface, \.\.\.extraParams \},/,
@@ -106,22 +106,27 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).not.toMatch(/rewarded-frontaliere-house|\.mp4\b/i);
   });
 
-  it('falls back to this tab when the direct hand-off new tab is blocked despite the activation', () => {
+  it('keeps the offer until the direct hand-off new tab is confirmed, and retries it from the open card', () => {
     // PR #10366 review: a popup blocked with navigator.userActivation.isActive
-    // must not lose the employer after the offer has been unmounted.
-    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string) => {');
+    // must leave the offer on screen with its "open" card, not lose the employer.
+    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {');
     const end = jobBoardSource.indexOf('const handleAssistedPaid = async () => {', start);
     const handler = jobBoardSource.slice(start, end);
-    const direct = handler.slice(handler.indexOf('const sameTab = !hasTransientUserActivation();'));
+    const direct = handler.slice(handler.indexOf('rewardedDirectHandoffReasonRef.current = reason;'));
     expect(start).toBeGreaterThan(-1);
-    // Watching starts before window.open, and only for the new-tab branch.
-    expect(direct).toContain('const opened = sameTab ? null : watchNewTabOpened();');
-    expect(direct.indexOf('const opened = sameTab ? null : watchNewTabOpened();')).toBeLessThan(
-      direct.indexOf("redirectExternalApplication(job, 'rewarded_application_inline_unavailable'"),
+    expect(handler.indexOf('rewardedDirectHandoffReasonRef.current = reason;')).toBeGreaterThan(-1);
+    // Watching starts before window.open; the offer unmounts only on a confirmed tab.
+    expect(direct.indexOf('const opened = watchNewTabOpened();')).toBeGreaterThan(-1);
+    expect(direct.indexOf('const opened = watchNewTabOpened();')).toBeLessThan(
+      direct.indexOf("redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, false, {"),
     );
-    expect(direct).toMatch(
-      /void opened\?\.then\(\(ok\) => \{\s*if \(ok\) return;\s*trackAssistedApplicationEvent\('rewarded_application_handoff_unconfirmed', \{[\s\S]*?handoff_mode: 'direct_external',[\s\S]*?const destination = buildReferralUrl\(job\);\s*if \(destination\) window\.location\.assign\(destination\);\s*\}\);/,
+    expect(direct).toMatch(/return opened\.then\(\(ok\) => \{\s*if \(ok\) setRewardedApplicationJob\(null\);\s*return ok;\s*\}\);/);
+    expect(direct).not.toContain('window.location.assign');
+    // The card's click retries the same direct hand-off in a new tab.
+    expect(jobBoardSource).toMatch(
+      /\} else if \(directReason !== null\) \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', false, false, \{\s*handoff: 'direct_external',\s*reason: directReason,\s*\}\);/,
     );
+    expect(jobBoardSource).toMatch(/if \(!rewardedApplicationJob\) \{[\s\S]*?rewardedDirectHandoffReasonRef\.current = null;/);
   });
 
   it('opens the employer in a new tab after the reward and from the free button of the paid offer', () => {
@@ -176,7 +181,7 @@ describe('assisted application JobBoard handoff', () => {
   });
 
   it('opens the paid offer when the Offerwall chain failed to load or the ad was refused, with the flag on', () => {
-    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string) => {');
+    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {');
     const end = jobBoardSource.indexOf('const handleAssistedPaid = async () => {', start);
     const handler = jobBoardSource.slice(start, end);
     const fallback = handler.indexOf('if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason)) {');

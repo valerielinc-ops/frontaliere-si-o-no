@@ -2556,6 +2556,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // The resumed click already holds the access: the offer shows only its
  // "open" card, since no click activation survives the reload.
  const [rewardedApplicationOpenCardOnly, setRewardedApplicationOpenCardOnly] = useState(false);
+ // The reason of a direct hand-off (no ad, paid fallback off) whose new tab
+ // waits for confirmation: the offer's "open" card retries that hand-off.
+ const rewardedDirectHandoffReasonRef = useRef<string | null>(null);
  // Synchronous twin of the two application offers' state: a double click on
  // "Candidati" runs handleApply twice before React re-renders, and the second
  // run must not emit a second apply/offer event pair (or a second rewarded
@@ -2568,6 +2571,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (!rewardedApplicationJob) {
    setRewardedApplicationResumed(false);
    setRewardedApplicationOpenCardOnly(false);
+   rewardedDirectHandoffReasonRef.current = null;
   }
  }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
@@ -7222,10 +7226,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // 2026-09-29). The offer stays mounted until that tab takes the foreground:
   // a popup blocked despite the activation brings its "open" card back.
   const opened = watchNewTabOpened();
+  const directReason = rewardedDirectHandoffReasonRef.current;
   if (rewardedApplicationOpenCardOnly) {
    // A resumed click whose access was granted before the reload: its apply
    // signals were recorded then, so no second hand-off event.
    void redirectExternalApplication(job, 'rewarded_application_entitlement', false, false);
+  } else if (directReason !== null) {
+   // The "open" card of a direct hand-off whose new tab was blocked: the
+   // click retries it, already counted as a hand-off the first time.
+   void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', false, false, {
+    handoff: 'direct_external',
+    reason: directReason,
+   });
   } else {
    void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, false, {
     handoff: 'rewarded_granted',
@@ -7255,7 +7267,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   void intentSettled.then(() => window.location.reload());
  };
 
- const handleRewardedApplicationUnavailable = (reason: string) => {
+ const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {
   const job = rewardedApplicationJob;
   if (!job) return;
   // The Offerwall and its GPT fallback could not LOAD, or the visitor refused
@@ -7279,25 +7291,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // straight to the employer. No retry, no local video, no second click. A
   // new tab needs a click's activation; without one (a late asynchronous
   // outcome) the browser would block it, so the current tab is used.
-  setRewardedApplicationJob(null);
-  const sameTab = !hasTransientUserActivation();
-  // Watch before window.open: the new tab can hide the page at once.
-  const opened = sameTab ? null : watchNewTabOpened();
-  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, sameTab, {
+  if (!hasTransientUserActivation()) {
+   setRewardedApplicationJob(null);
+   void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+    handoff: 'direct_external',
+    reason,
+   });
+   return undefined;
+  }
+  // Inside a click's activation the employer opens in a new tab. The offer
+  // stays mounted until that tab takes the foreground: a popup blocked
+  // anyway brings the offer's "open" card, whose click retries the same
+  // hand-off, so the visitor never loses the employer silently (PR #10366
+  // review). Watch before window.open: the new tab can hide the page at once.
+  rewardedDirectHandoffReasonRef.current = reason;
+  const opened = watchNewTabOpened();
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, false, {
    handoff: 'direct_external',
    reason,
   });
-  // A popup blocked despite the activation falls back to this tab's
-  // hand-off, so the visitor never silently loses the employer.
-  void opened?.then((ok) => {
-   if (ok) return;
-   trackAssistedApplicationEvent('rewarded_application_handoff_unconfirmed', {
-    ...assistedApplicationJobContext(job, assistedApplicationVariant),
-    handoff_mode: 'direct_external',
-    reason,
-   });
-   const destination = buildReferralUrl(job);
-   if (destination) window.location.assign(destination);
+  return opened.then((ok) => {
+   if (ok) setRewardedApplicationJob(null);
+   return ok;
   });
  };
 

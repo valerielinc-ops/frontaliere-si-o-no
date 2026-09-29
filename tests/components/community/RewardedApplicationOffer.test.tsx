@@ -241,6 +241,56 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     if (detail) expect(event).toEqual(expect.objectContaining({ detail }));
   });
 
+  it('keeps the offer while the parent opens the employer directly, and shows the open card when the tab is blocked', async () => {
+    // PR #10366 review: a direct hand-off (no ad, paid fallback off) opened in
+    // a new tab the browser blocks must not lose the employer.
+    let resolveOpened: (ok: boolean) => void = () => {};
+    const onUnavailable = vi.fn(() => new Promise<boolean>((resolve) => { resolveOpened = resolve; }));
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} onContinue={onContinue} />);
+
+    callProp('onUnavailable', 'no_fill', { requestId: 5 } satisfies Info);
+    callProp('onUnavailable', 'no_fill', { requestId: 5 } satisfies Info);
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
+    expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
+
+    await act(async () => {
+      resolveOpened(false);
+      await Promise.resolve();
+    });
+
+    const card = screen.getByTestId('rewarded-application-handoff');
+    expect(card).toHaveTextContent('Apri «Fisioterapista diplomato»');
+    expect(card).toHaveTextContent('L’offerta si apre in una nuova scheda e questa pagina resta aperta.');
+    expect(card).not.toHaveTextContent('sbloccata');
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_mode: 'direct_external', reason: 'no_fill' }),
+    ]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ handoff_reason: 'tab_not_opened' }),
+    ]);
+
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
+  });
+
+  it('shows no open card when the parent confirms the direct hand-off tab', async () => {
+    const onUnavailable = vi.fn(() => Promise.resolve(true));
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+
+    callProp('onUnavailable', 'no_fill', { requestId: 5 } satisfies Info);
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
+    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([]);
+  });
+
   it('continues to the employer on the authoritative Google reward, with no further click inside a click activation', () => {
     const onContinue = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);

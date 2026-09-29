@@ -4214,6 +4214,9 @@ Règles :
   'jobBoard.rewardedOffer.handoffTitleJob': 'Candidature à « {jobTitle} » débloquée',
   'jobBoard.rewardedOffer.handoffText': 'Merci ! L’offre s’ouvre dans un nouvel onglet et cette page reste ouverte.',
   'jobBoard.rewardedOffer.handoffOpen': 'Ouvrir l’offre',
+  'jobBoard.rewardedOffer.handoffDirectTitle': 'Ouvrir l’offre',
+  'jobBoard.rewardedOffer.handoffDirectTitleJob': 'Ouvrir « {jobTitle} »',
+  'jobBoard.rewardedOffer.handoffDirectText': 'L’offre s’ouvre dans un nouvel onglet et cette page reste ouverte.',
   'whatsNew.v3966.rewardedApply.title': 'Une vidéo débloque les redirections directes pendant 1 heure',
   'whatsNew.v3966.rewardedApply.desc': 'Pour certains clics vers des offres externes, vous pouvez regarder une courte vidéo une seule fois, puis ouvrir directement le site de l’entreprise pendant l’heure suivante, sans revoir l’Offerwall.',
 };

@@ -91,8 +91,12 @@ export function shortenRewardedOfferJobTitle(title: string | null | undefined): 
  * `gpt_ready`: the GPT slot is ready; the visitor is asked to opt in.
  * `gpt_retry`: the GPT video was closed before its reward.
  * `gpt_done`: GPT reward granted, the employer is opening in a new tab.
- * `handoff`: reward granted without a click's activation left on the page,
- * so the new tab waits for the visitor's click on the "open" button.
+ * `direct_done`: no ad (unavailable or refused, paid fallback off); the
+ * parent is opening the employer in a new tab and keeps the offer until
+ * that tab takes the foreground.
+ * `handoff`: the new tab waits for the visitor's click on the "open"
+ * button: reward granted without a click's activation left on the page,
+ * or a new tab (after a reward or a direct hand-off) the browser blocked.
  */
 type OfferPhase =
   | 'checking'
@@ -106,6 +110,7 @@ type OfferPhase =
   | 'gpt_ready'
   | 'gpt_retry'
   | 'gpt_done'
+  | 'direct_done'
   | 'handoff';
 
 /**
@@ -162,7 +167,13 @@ export interface RewardedApplicationOfferProps {
    * its "open" card again and waits for a click.
    */
   onContinue: () => void | Promise<boolean>;
-  onUnavailable: (reason: string) => void;
+  /**
+   * No ad for this click. When the parent opens the employer in a new tab
+   * itself it returns whether that tab took the foreground, and keeps the
+   * offer mounted meanwhile: `false` brings the "open" card (no-reward
+   * copy), whose click calls `onContinue`.
+   */
+  onUnavailable: (reason: string) => void | Promise<boolean>;
   onDismiss?: () => void;
   /** This offer reopens a click after the recovery reload: never reload again. */
   resumed?: boolean;
@@ -386,7 +397,9 @@ export default function RewardedApplicationOffer({
   // still block the tab with the activation reported (Safari is the doubt):
   // when the parent sees no new tab take the foreground, the card comes back.
   const handoffDoneRef = useRef(false);
-  const handoffPhaseRef = useRef<'offerwall_done' | 'gpt_done'>('gpt_done');
+  const handoffPhaseRef = useRef<'offerwall_done' | 'gpt_done' | 'direct_done'>('gpt_done');
+  // The card's copy: access unlocked by a reward, or a direct hand-off.
+  const [handoffKind, setHandoffKind] = useState<'reward' | 'direct'>('reward');
   const handoffContext = () => (handoffPhaseRef.current === 'offerwall_done' ? offerwallContext() : eventContext());
   const showHandoff = (reason: 'no_activation' | 'tab_not_opened') => {
     trackAssistedApplicationEvent('rewarded_application_handoff_shown', { ...handoffContext(), handoff_reason: reason });
@@ -416,6 +429,33 @@ export default function RewardedApplicationOffer({
       return;
     }
     showHandoff('no_activation');
+  };
+
+  // No ad for this click: the parent offers the paid application or hands
+  // off to the employer. A new tab it opens keeps this offer on screen until
+  // the tab takes the foreground; a blocked one brings the "open" card, so
+  // the visitor never loses the employer silently. Reported once: the parent
+  // may keep the offer mounted while later callbacks still arrive.
+  const unavailableReportedRef = useRef(false);
+  const reportUnavailable = (reason: string) => {
+    if (unavailableReportedRef.current) return;
+    unavailableReportedRef.current = true;
+    const opened = onUnavailable(reason);
+    if (!(opened instanceof Promise)) return;
+    handoffDoneRef.current = true;
+    handoffPhaseRef.current = 'direct_done';
+    setHandoffKind('direct');
+    setPhase('direct_done');
+    void opened.then((ok) => {
+      if (ok || !mountedRef.current) return;
+      trackAssistedApplicationEvent('rewarded_application_handoff_unconfirmed', {
+        ...eventContext(),
+        handoff_mode: 'direct_external',
+        reason,
+      });
+      handoffDoneRef.current = false;
+      showHandoff('tab_not_opened');
+    });
   };
 
   // Only Google's rewardedSlotGranted reaches this handler (directly, or via
@@ -551,7 +591,7 @@ export default function RewardedApplicationOffer({
   const continueWithoutVideo = () => {
     if (!mountedRef.current || phaseRef.current !== 'consent') return;
     trackAssistedApplicationEvent('rewarded_offerwall_consent_declined', offerwallContext());
-    onUnavailable('ad_consent_missing');
+    reportUnavailable('ad_consent_missing');
   };
 
   useEffect(() => {
@@ -651,7 +691,7 @@ export default function RewardedApplicationOffer({
           closed_ms: result.closedMs,
           fc_root: result.root,
         });
-        onUnavailable('offerwall_closed_without_reward');
+        reportUnavailable('offerwall_closed_without_reward');
         return;
       }
       if (!(result.reason === 'appear_timeout' && appearTimeoutTrackedRef.current)) {
@@ -665,7 +705,7 @@ export default function RewardedApplicationOffer({
         // group, or access already granted) and no GPT fallback to offer
         // (ineligible, or its slot already failed): the parent offers the
         // paid application, or hands off to the employer.
-        onUnavailable('offerwall_not_shown');
+        reportUnavailable('offerwall_not_shown');
         return;
       }
       // Nothing was released for this click: the GPT request runs as before.
@@ -700,7 +740,7 @@ export default function RewardedApplicationOffer({
     // request is ineligible. Do not ask the visitor to reload the same empty
     // auction: report the reason and let the parent offer the paid
     // application or hand off to the employer.
-    onUnavailable(reason);
+    reportUnavailable(reason);
   };
 
   // Bound the neutral loading screen of the GPT path (see
@@ -787,8 +827,11 @@ export default function RewardedApplicationOffer({
   );
   const closeLabel = t('jobBoard.rewardedOffer.close');
   const consentTitle = titled('jobBoard.rewardedOffer.consentTitleJob', 'jobBoard.rewardedOffer.consentTitle');
-  const handoffTitle = titled('jobBoard.rewardedOffer.handoffTitleJob', 'jobBoard.rewardedOffer.handoffTitle');
-  const loadingText = phase === 'offerwall_done' || phase === 'gpt_done' ? redirectLabel : loadingLabel;
+  const handoffTitle = handoffKind === 'direct'
+    ? titled('jobBoard.rewardedOffer.handoffDirectTitleJob', 'jobBoard.rewardedOffer.handoffDirectTitle')
+    : titled('jobBoard.rewardedOffer.handoffTitleJob', 'jobBoard.rewardedOffer.handoffTitle');
+  const handoffText = t(handoffKind === 'direct' ? 'jobBoard.rewardedOffer.handoffDirectText' : 'jobBoard.rewardedOffer.handoffText');
+  const loadingText = phase === 'offerwall_done' || phase === 'gpt_done' || phase === 'direct_done' ? redirectLabel : loadingLabel;
   const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'consent' && phase !== 'handoff';
 
   const cardClass = 'w-full max-w-sm space-y-4 rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
@@ -951,7 +994,7 @@ export default function RewardedApplicationOffer({
               {handoffTitle}
             </h2>
             <p id="rewarded-application-handoff-text" className="mt-1 text-sm leading-relaxed text-body">
-              {t('jobBoard.rewardedOffer.handoffText')}
+              {handoffText}
             </p>
           </div>
           <button
