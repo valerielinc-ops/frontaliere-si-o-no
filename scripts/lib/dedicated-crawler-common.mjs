@@ -5494,6 +5494,30 @@ function extractUuidLikeId(raw = '') {
   return uuidMatch?.[0] ? uuidMatch[0].toLowerCase() : '';
 }
 
+/**
+ * The start text of the text directive of a URL fragment (`…:~:text=<start>`,
+ * with optional `prefix-,` / `,end` / `,-suffix` parts), decoded, lowercased
+ * and whitespace-collapsed; '' when the fragment carries none.
+ *
+ * @param {string} fragment URL fragment without the leading `#`
+ * @returns {string}
+ */
+function textFragmentIdentity(fragment = '') {
+  const at = String(fragment || '').indexOf(':~:');
+  if (at < 0) return '';
+  const textParam = fragment.slice(at + 3).split('&').find((part) => part.startsWith('text='));
+  if (!textParam) return '';
+  const parts = textParam.slice('text='.length).split(',');
+  const start = parts.find((part) => part && !part.endsWith('-')) || '';
+  let text = '';
+  try {
+    text = decodeURIComponent(start);
+  } catch {
+    text = start;
+  }
+  return normalizeSpace(text).toLowerCase();
+}
+
 export function extractJobIdentityFromUrl(rawUrl = '') {
   let u;
   try {
@@ -5635,6 +5659,20 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   }
   const hashRaw = normalizeSpace(u.hash.replace(/^#/, ''));
   if (hashRaw) {
+    // A text fragment (`#:~:text=<title>`) is how a page that lists every ad
+    // under its own heading, with no id and no page per ad, addresses one of
+    // them (klinik-seeschau since #10334, oscam's concorsi without a PDF).
+    // Every other rule below reads `text=…` as nothing, so all the ads of such
+    // a page fell back to the hash-stripped canonicalizeJobUrl and shared ONE
+    // fingerprint — one slug-registry entry for several postings. The text is
+    // the posting's identity there. Only on a URL without a query: a query
+    // already tells the documents apart and keeps its current key (la-fonte
+    // `?role=…#:~:text=…`, grischapersonal and leukerbad `?jobid=…`).
+    const textDirective = u.search ? '' : textFragmentIdentity(hashRaw);
+    if (textDirective) {
+      const pathKey = (u.pathname.replace(/\/+$/, '') || '/').toLowerCase();
+      return `${registrableDomain(host)}|${pathKey}#text=${textDirective}`;
+    }
     const keyedMatch = hashRaw.match(/(?:job[._-]?id|id)=(\w+)/i);
     if (keyedMatch?.[1]) return `${registrableDomain(host)}|${keyedMatch[1].toLowerCase()}`;
     if (hashRaw.length > 3 && /^[\w-]+$/.test(hashRaw)) {
