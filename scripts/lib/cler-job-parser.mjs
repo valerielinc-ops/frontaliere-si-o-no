@@ -5,6 +5,7 @@
 import { JSDOM } from 'jsdom';
 import { extractStableJobId } from './job-match-key.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /**
  * Validate the Cler listing envelope and reconcile it with the source total.
@@ -119,6 +120,112 @@ export function dedupeClerJobsByStableId(items, getUrl = (it) => it?.url) {
     }
   }
   return [...byKey.values()];
+}
+
+/**
+ * Collapse, in the stored slice, records that are the same Cler requisition
+ * (`extractStableJobId`) under different locale / career-section paths.
+ *
+ * `dedupeClerJobsByStableId` runs on the API listing and `mergeJobs` dedupes
+ * the discovered jobs, but the shared base crawler that runs AFTER them
+ * (`runDedicatedBaseCrawler`, adapter seeds = the it/de/fr/en listing pages)
+ * re-adds the same requisition under another path: the committed slice of
+ * 2026-09-29 carried `…/de/…-2743` + `…/fr/…-2743` and
+ * `…/jobs-und-karriere/…-2719` + `…/jobs-und-karriere-2026/…-2719`, each
+ * pair with the same id, title, location and body (dup 4/12).
+ *
+ * Survivor per requisition: the URL the dedicated discovery published this
+ * run, else the newest career-section path, else the first record. Returns
+ * the survivors (input order) and the dropped records with their survivor, so
+ * the caller can carry the dropped slugs into the survivor's history.
+ *
+ * @param {Array<object>} jobs
+ * @param {Set<string>} [preferredUrls]
+ * @returns {{ jobs: object[], dropped: Array<{ dropped: object, kept: object }> }}
+ */
+export function collapseClerDuplicateRequisitions(jobs = [], preferredUrls = new Set()) {
+  const groups = new Map();
+  const order = [];
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    const key = extractStableJobId(job?.url || '');
+    if (!key) { order.push({ single: job }); continue; }
+    if (!groups.has(key)) { groups.set(key, []); order.push({ key }); }
+    groups.get(key).push(job);
+  }
+  const rank = (job) => [
+    preferredUrls.has(job?.url) ? 1 : 0,
+    clerCareerSectionYear(job?.url || ''),
+  ];
+  const better = (a, b) => {
+    const [ra, rb] = [rank(a), rank(b)];
+    for (let i = 0; i < ra.length; i += 1) if (ra[i] !== rb[i]) return ra[i] > rb[i];
+    return false;
+  };
+  const out = [];
+  const dropped = [];
+  for (const entry of order) {
+    if (entry.single) { out.push(entry.single); continue; }
+    const group = groups.get(entry.key);
+    let kept = group[0];
+    for (const job of group.slice(1)) if (better(job, kept)) kept = job;
+    out.push(kept);
+    for (const job of group) if (job !== kept) dropped.push({ dropped: job, kept });
+  }
+  return { jobs: out, dropped };
+}
+
+/**
+ * The stand-in earlier runs published when a detail page gave no usable
+ * body: "## <title>\n\nBanca Cler — per i dettagli consultare la pagina
+ * dell'offerta." (and its translations, which keep the "Banca Cler —" lead).
+ * It is not source text and is never published again; it is recognised only
+ * to clear stale copies from stored records.
+ */
+export function isClerPlaceholderDescription(text = '') {
+  const value = String(text || '').trim();
+  if (!value) return false;
+  if (/per i dettagli consultare la pagina dell['’]offerta/i.test(value)) return true;
+  return value.length < 300 && /^##[^\n]*\n+\s*Banca Cler\s*[—–-]/.test(value);
+}
+
+/**
+ * Source text of a stored record (source-locale slot, then description) that
+ * clears the shared word floor, or null.
+ */
+export function storedClerSourceText(record) {
+  if (!record) return null;
+  const lang = String(record.sourceLang || '').trim();
+  for (const candidate of [record.descriptionByLocale?.[lang], record.description]) {
+    const text = String(candidate || '').trim();
+    if (text && !isClerPlaceholderDescription(text) && meetsSourceBodyFloor(text)) return { text, lang };
+  }
+  return null;
+}
+
+/**
+ * Source-only rule for a discovered job whose detail page gave no body (or
+ * one under the shared word floor): the stored source text of the same
+ * requisition, or `null` (not published this run). A job with a body is
+ * returned unchanged.
+ */
+export function resolveClerJobBody(job, prev) {
+  if (meetsSourceBodyFloor(job?.description || '')) return job;
+  const stored = storedClerSourceText(prev);
+  if (!stored) return null;
+  const lang = stored.lang || job.sourceLang;
+  return { ...job, description: stored.text, sourceLang: lang, descriptionByLocale: { [lang]: stored.text } };
+}
+
+/** Remove placeholder copies from every locale slot (in place). */
+export function clearClerPlaceholderSlots(job) {
+  let removed = 0;
+  for (const [locale, text] of Object.entries(job?.descriptionByLocale || {})) {
+    if (isClerPlaceholderDescription(text)) {
+      delete job.descriptionByLocale[locale];
+      removed += 1;
+    }
+  }
+  return removed;
 }
 
 // Localized labels Cler exposes in `.JobDetail__item`. Multilingual to survive

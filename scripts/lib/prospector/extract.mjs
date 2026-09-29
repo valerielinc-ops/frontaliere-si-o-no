@@ -828,6 +828,7 @@ function distinctBodyTexts(html, bodyRanges, chromeRanges = []) {
  * @param {{ recordUrl?: string }} [opts]
  * @returns {{
  *   title: string,
+ *   company: string,
  *   location: string,
  *   addressCountry: string,
  *   locationCandidates: Array<{
@@ -903,6 +904,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     for (const candidate of renderedPostalAddressCandidates(html, title)) locationCandidates.push(candidate);
   }
   const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});
+  const company = structuredRecords.find((record) => record.company)?.company || '';
   const structuredLocationClasses = structuredRecords.map((record) => {
     const decisions = locationEvidenceCandidates(record)
       .map((candidate) => evaluateSourceBackedSwissGeography([candidate]));
@@ -1050,6 +1052,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   descriptions.sort((a, b) => b.length - a.length);
   return {
     title,
+    company,
     location,
     addressCountry: primaryLocation.addressCountry || structured.addressCountry || '',
     locationCandidates,
