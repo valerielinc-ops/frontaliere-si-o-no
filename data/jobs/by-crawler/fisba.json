@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fisba",
-  "assembledAt": "2026-09-28T21:43:01.795Z",
+  "assembledAt": "2026-09-29T09:40:54.036Z",
   "jobs": [
     {
       "id": "fisba-ab0ce5b2ce1c",
@@ -33,7 +33,7 @@
       "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:42:57.215Z",
+      "crawledAt": "2026-09-29T09:40:49.619Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:42:57.214Z",
+      "crawledAt": "2026-09-29T09:40:49.618Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:42:57.214Z",
+      "crawledAt": "2026-09-29T09:40:49.618Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:42:57.211Z",
+      "crawledAt": "2026-09-29T09:40:49.615Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -301,6 +301,7 @@
         ]
       },
       "firstSeenAt": "2026-09-25T15:09:05.587Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
