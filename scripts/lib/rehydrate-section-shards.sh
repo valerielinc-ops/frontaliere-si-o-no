@@ -44,6 +44,10 @@ set -uo pipefail
 # rehydrate_section() call for a given batch+locale wins an atomic `mkdir`
 # lock and downloads; every other concurrent call for the same batch+locale
 # polls for the "done" marker instead of re-downloading.
+# Both network edges in this fallback are bounded and retried once, matching
+# rehydrate-locale-shards.sh: an unavailable/slow artifact or shard repository
+# must reach the existing fail-soft path, not hold all four workers until the
+# job-level timeout (#7421).
 ensure_batch_downloaded() {
   local batch="$1" loc="$2"
   local dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
@@ -53,18 +57,36 @@ ensure_batch_downloaded() {
     return 0
   fi
   if mkdir "$lock" 2>/dev/null; then
-    rm -rf "$dl"; mkdir -p "$dl"
-    gh run download "$DEPLOY_RUN_ID" --name "shard-batch-$batch-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null || true
+    local batch_download_ok=1
+    for attempt in 1 2; do
+      rm -rf "$dl"; mkdir -p "$dl"
+      if timeout 180 gh run download "$DEPLOY_RUN_ID" --name "shard-batch-$batch-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null \
+          && find "$dl" -maxdepth 1 -type f -name "*-dist-$loc.tar" -print -quit | grep -q .; then
+        batch_download_ok=0
+        break
+      fi
+      if [ "$attempt" -eq 1 ]; then
+        echo "[rehydrate] section batch $batch $loc artifact download attempt 1 failed/stalled — retrying"
+        sleep 5
+      fi
+    done
+    if [ "$batch_download_ok" -ne 0 ]; then
+      rm -rf "$dl"
+      echo "[rehydrate] section batch $batch $loc artifact absent after retry — falling back to git clone"
+    fi
     touch "$done"
     return 0
   fi
   # Loser: another concurrent section in this batch is already downloading —
   # poll for the marker instead of racing a second `gh run download`. Capped
-  # wait (not an infinite block): if the winner's download hangs/fails, every
-  # tar-path check below simply misses and falls through to the existing
+  # wait (not an infinite block): if the winner's bounded download fails,
+  # every tar-path check below simply misses and falls through to the existing
   # git-clone fallback, same as an absent artifact today.
   local waited=0
-  while [ ! -f "$done" ] && [ "$waited" -lt 120 ]; do
+  # The owner gets two 180-second attempts plus the five-second backoff above;
+  # wait long enough for that bounded operation to finish before starting a
+  # duplicate clone from a losing worker.
+  while [ ! -f "$done" ] && [ "$waited" -lt 390 ]; do
     sleep 1
     waited=$((waited + 1))
   done
@@ -220,11 +242,22 @@ rehydrate_section() {
     # checkout) for a verified ZERO reduction in transferred bytes on TODAY's
     # repo layout. Left as a plain clone; the real fix for this defect is the
     # cross-job cache above, which needs no change to this command at all.
-    if ! git clone --depth 1 --single-branch --branch main \
-         "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
-      echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
+    clone_ok=1
+    for attempt in 1 2; do
+      rm -rf "$tmp"
+      if timeout 300 git clone --depth 1 --single-branch --branch main \
+           "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+        clone_ok=0
+        break
+      fi
+      echo "[rehydrate] $section-$loc git clone attempt $attempt failed/stalled"
+      [ "$attempt" -eq 1 ] && sleep 5
+    done
+    if [ "$clone_ok" -ne 0 ]; then
+      echo "::warning::$section-$loc shard clone failed after retry — validators may flag $loc $section pages missing"
       # report what the tar path already emptied
       trunk_replace_end "$section-$loc"
+      rm -rf "$tmp"
       continue
     fi
     if [ -d "$tmp/$sub" ]; then
