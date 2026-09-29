@@ -13,6 +13,7 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -405,8 +406,16 @@ export async function fetchAllLonzaJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
- console.log(`\n📋 Total unique Lonza jobs discovered: ${jobs.length}`);
- return jobs;
+ // Lonza sometimes opens a second Workday req with the very same ad (title,
+ // site and text identical: R76184-1/R76397, R78157-1/R79043 on 2026-09-29).
+ // One advertisement, one page.
+ const { jobs: unique, dropped } = dropIdenticalPostings(jobs);
+ if (dropped.length > 0) {
+  console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);
+ }
+
+ console.log(`\n📋 Total unique Lonza jobs discovered: ${unique.length}`);
+ return unique;
 }
 
 export const __internals = {

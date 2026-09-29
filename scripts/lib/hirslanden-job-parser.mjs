@@ -37,6 +37,7 @@ import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
 import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
+import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -664,6 +665,15 @@ export async function fetchAllHirslandenJobs() {
     deduped.push(job);
   }
 
-  console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${deduped.length}`);
-  return deduped;
+  // The same requisition (same Referenznummer, same text, same clinic) is
+  // occasionally re-posted under a second SuccessFactors job id: 5 such pairs
+  // on 2026-09-29 (e.g. 1124147801/1123876301, Referenznummer 43018). One
+  // vacancy, one page.
+  const { jobs: unique, dropped } = dropIdenticalPostings(deduped);
+  if (dropped.length > 0) {
+    console.log(`  🧹 Dropped ${dropped.length} double publication(s) (same title, clinic and text under another job id).`);
+  }
+
+  console.log(`\n📋 Total unique ${HIRSLANDEN_COMPANY_NAME} jobs discovered: ${unique.length}`);
+  return unique;
 }
