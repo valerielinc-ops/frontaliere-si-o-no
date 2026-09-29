@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -305,9 +306,21 @@ const LEGACY_HEADING_RE = new RegExp(
 export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
   const placeholders = new Set(RITTMEYER_LEGACY_PLACEHOLDER_TITLES);
   const titleByLocale = { ...(job.titleByLocale || {}) };
+  const sourceTitle = String(titleByLocale[job.sourceLang] || job.title || '').trim();
+  let removed = 0;
   for (const [locale, value] of Object.entries(titleByLocale)) {
-    if (placeholders.has(String(value || '').trim()) && String(value).trim() !== String(job.title || '').trim()) {
+    const text = String(value || '').trim();
+    if (placeholders.has(text) && text !== String(job.title || '').trim()) {
       delete titleByLocale[locale];
+      removed += 1;
+      continue;
+    }
+    // The old builder also copied the SOURCE title into every locale
+    // ("Titel Deutsch" in `it`): an untranslated copy keeps the translation
+    // step from ever filling that slot (review #10333).
+    if (job.sourceLang && locale !== job.sourceLang && sourceTitle && text === sourceTitle) {
+      delete titleByLocale[locale];
+      removed += 1;
     }
   }
   const descriptionByLocale = { ...(job.descriptionByLocale || {}) };
@@ -315,9 +328,15 @@ export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
     if (locale === job.sourceLang || !value) continue;
     if (detectLang(String(value), locale) !== locale || LEGACY_HEADING_RE.test(String(value))) {
       delete descriptionByLocale[locale];
+      removed += 1;
     }
   }
-  return { ...job, titleByLocale, descriptionByLocale };
+  return {
+    ...job,
+    titleByLocale,
+    descriptionByLocale,
+    ...(removed > 0 ? { needsRetranslation: true } : {}),
+  };
 }
 
 function jobMatchKey(job = {}) {
@@ -468,4 +487,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Rittmeyer'));
+// Importable by tests (scrubRittmeyerLegacyLocaleCopies) without running the
+// crawl or writing the slice.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Rittmeyer'));
+}

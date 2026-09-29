@@ -803,6 +803,30 @@ export function coopStoredBody(description = '') {
   return body.join('\n').trim();
 }
 
+/**
+ * The source body a Coop-family detail page publishes: the JSON-LD
+ * description plus the page's own facts and sections, exactly as
+ * `repairJobFromJsonLd` composes it (source text only, never our scaffold).
+ */
+export function coopDetailSourceBody(jsonLd, page = null) {
+  const ldDesc = String(jsonLd?.description || '').trim();
+  if (!ldDesc) return '';
+  return composeCoopFamilyDescription(coopDescHtmlToMarkdown(ldDesc), page);
+}
+
+/**
+ * Quarantine decision for one Coop job (issue 5253 review): the 50-word
+ * source floor is applied to the COMPOSED body the job would publish, not to
+ * the bare JSON-LD — a 49-word JSON-LD whose page facts and sections carry the
+ * vacancy past the floor is a publishable posting. Without a publishable
+ * detail body, the stored body (scaffold aside) keeps the job; otherwise it
+ * is quarantined.
+ */
+export function coopDetailNeedsQuarantine(job, jsonLd, page = null) {
+  if (jsonLd && meetsSourceBodyFloor(coopDetailSourceBody(jsonLd, page))) return false;
+  return !meetsSourceBodyFloor(coopStoredBody(job?.description));
+}
+
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
 
@@ -1013,13 +1037,8 @@ async function postProcessCoopJobs() {
   async function processOne(job) {
     const detail = await fetchCoopDetailResilient(job.url);
     const jsonLd = detail?.jsonLd || null;
-    if (!jsonLd || !meetsSourceBodyFloor(jsonLd.description)) {
-      // No real source description available → quarantine (don't publish a
-      // boilerplate-padded thin page) unless the stored body already meets
-      // the source-body floor.
-      if (!meetsSourceBodyFloor(coopStoredBody(job.description))) quarantineUrls.add(job.url);
-      if (!jsonLd) return;
-    }
+    if (coopDetailNeedsQuarantine(job, jsonLd, detail?.page || null)) quarantineUrls.add(job.url);
+    if (!jsonLd) return;
     if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
 

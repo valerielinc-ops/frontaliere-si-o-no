@@ -165,6 +165,18 @@ describe('rittmeyer-job-parser', () => {
     });
     expect(Object.keys(legacy.descriptionByLocale)).toEqual(['de']);
   });
+
+  it('drops the source title copied into another locale and flags the retranslation (review #10333)', () => {
+    const scrubbed = scrubRittmeyerLegacyLocaleCopies({
+      title: 'Titel Deutsch',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Titel Deutsch', it: 'Titel Deutsch' },
+      descriptionByLocale: { de: 'Wir suchen eine engagierte Persönlichkeit für unser Team in Baar.' },
+    });
+    expect(scrubbed.titleByLocale).not.toHaveProperty('it');
+    expect(scrubbed.titleByLocale.de).toBe('Titel Deutsch');
+    expect(scrubbed.needsRetranslation).toBe(true);
+  });
 });
 
 // ─── Site resolver (regression: Camorino jobs were getting Baar HQ postal) ──

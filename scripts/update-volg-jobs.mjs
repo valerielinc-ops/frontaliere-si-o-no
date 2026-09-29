@@ -65,6 +65,7 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -626,14 +627,27 @@ export function resolveVolgJobBodies(freshJobs = [], existingJobs = []) {
  * retranslation from the real source slot.
  */
 export function stripVolgInventedSlots(job) {
-  const slots = job?.descriptionByLocale;
-  if (!slots || typeof slots !== 'object') return job;
-  if (!Object.values(slots).some((text) => isVolgInventedText(text))) return job;
+  if (!job || typeof job !== 'object') return job;
+  const slots = job.descriptionByLocale && typeof job.descriptionByLocale === 'object' ? job.descriptionByLocale : {};
+  const slotsInvented = Object.values(slots).some((text) => isVolgInventedText(text));
+  const flatInvented = isVolgInventedText(job.description);
+  if (!slotsInvented && !flatInvented) return job;
   const sourceLang = job.sourceLang;
   const sourceText = String(slots[sourceLang] || '').trim();
-  const kept = sourceLang && sourceText && !isVolgInventedText(sourceText) ? { [sourceLang]: slots[sourceLang] } : {};
-  return { ...job, descriptionByLocale: kept, needsRetranslation: true };
+  const realSource = sourceLang && !isVolgInventedText(sourceText) && meetsSourceBodyFloor(sourceText) ? sourceText : '';
+  // The flat `description` is what a grace-retained record publishes: it must
+  // be the real source body too (review #10333), or the record goes.
+  const flat = flatInvented ? realSource : job.description;
+  if (!realSource && (!flat || isVolgInventedText(flat))) return null;
+  const kept = realSource ? { [sourceLang]: slots[sourceLang] } : {};
+  return { ...job, description: flat, descriptionByLocale: slotsInvented ? kept : slots, needsRetranslation: true };
 }
+
+// One pattern for the stored-record scrub (drop-fabricated-description.mjs):
+// the listing line or the opening sentence of any retired company paragraph.
+export const VOLG_INVENTED_TEXT_RX = new RegExp(
+  [VOLG_LISTING_LINE_RX.source, ...VOLG_INVENTED_TEXT_MARKERS.map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))].join('|'),
+);
 
 // Per-city postal code table for known Volg/LANDI/fenaco locations.
 // Used as a fast lookup; cities outside the table fall back to a
@@ -758,6 +772,10 @@ function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  // Stored records first lose the text this crawler once invented (slots,
+  // translations made from it and the flat description), so nothing merged
+  // or retained from them republishes it.
+  dropFabricatedDescriptions(targetExisting, VOLG_INVENTED_TEXT_RX, 'Volg/fenaco');
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
@@ -788,7 +806,7 @@ function mergeJobs(discoveredJobs) {
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     delete merged._enrichedFromDetail;
     return stripVolgInventedSlots(merged);
-  });
+  }).filter(Boolean);
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);

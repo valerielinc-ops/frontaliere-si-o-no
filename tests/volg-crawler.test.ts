@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
 import {
   buildJob,
   fetchAllJobs,
@@ -8,7 +9,11 @@ import {
   resolveVolgJobBodies,
   sourceLangFromDetailUrl,
   stripVolgInventedSlots,
+  VOLG_INVENTED_TEXT_RX,
 } from '../scripts/update-volg-jobs.mjs';
+
+// First sentence of the retired fenaco company paragraph (VOLG_INVENTED_TEXT_MARKERS).
+const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -210,11 +215,30 @@ describe('Volg publishes only source text', () => {
     expect(cleaned.descriptionByLocale).toEqual({ de: stale.descriptionByLocale.de });
     expect(cleaned.needsRetranslation).toBe(true);
 
-    const inventedSource = stripVolgInventedSlots(staleByTail('a903536a7c83'));
-    expect(inventedSource.descriptionByLocale).toEqual({});
+    // Invented source slot and no real source body anywhere: not published.
+    expect(stripVolgInventedSlots(staleByTail('a903536a7c83'))).toBeNull();
 
     const clean = { ...staleByTail('33a95efbbde8'), description: staleByTail('33a95efbbde8').descriptionByLocale.de };
     expect(stripVolgInventedSlots(clean)).toBe(clean);
+  });
+
+  it('a grace-retained record with the invented text and no valid source body is neither published nor kept (review #10333)', () => {
+    const marker = VOLG_INVENTED_TEXT_MARKERS_FOR_TEST;
+    const retained = {
+      url: 'https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-volg/00000000-0000-0000-0000-000000000001',
+      sourceLang: 'de',
+      crawlerMissStreak: 1,
+      description: `Verkäufer:in — VOLG, Zuoz (Graubünden). Pensum: 100%.\n\n${marker}`,
+      descriptionByLocale: { de: `Verkäufer:in — VOLG, Zuoz (Graubünden).\n\n${marker}` },
+    };
+    expect(stripVolgInventedSlots({ ...retained })).toBeNull();
+
+    // The stored-record scrub (drop-fabricated-description.mjs) empties the
+    // flat description, so nothing retained republishes the marker either.
+    const stored = JSON.parse(JSON.stringify(retained));
+    expect(dropFabricatedDescription(stored, VOLG_INVENTED_TEXT_RX)).toBe(true);
+    expect(stored.description).not.toContain(marker);
+    expect(Object.values(stored.descriptionByLocale || {}).join(' ')).not.toContain(marker);
   });
 
   it('no longer pads thin bodies with the shared company paragraph', () => {
