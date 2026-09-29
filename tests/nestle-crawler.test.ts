@@ -8,6 +8,10 @@ import {
 } from '../scripts/lib/nestle-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { detectSuccessFactorsKind } from '../scripts/lib/ats-clients/successfactors-client.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseNestleDetailDescription, fetchAllNestleJobs } from '../scripts/lib/nestle-job-parser.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -163,5 +167,70 @@ describe('Nestlé crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+// Pinned fixture: the description property block of jobdetails.nestle.com's
+// Basel "Anlagenführer/in Abfüllung" page. Its body is full of nested
+// `<span style=…>` headings; the former `<span class="jobdescription">(…?)</span>`
+// regex stopped after "Positions Übersicht", fell under the 50-word floor and
+// the parser published the synthetic "Key details" stub (40/108 rows,
+// audit run 36528331656).
+describe('parseNestleDetailDescription', () => {
+  const fixture = fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'nestle-sf-detail-anlagenfuehrer.html'),
+    'utf8',
+  );
+
+  it('reads the whole vacancy body past the nested heading spans', () => {
+    const text = parseNestleDetailDescription(fixture);
+    expect(text).toContain('Positions Übersicht');
+    expect(text).toContain('Ein Tag im Leben eines/-r Anlagenführer/in');
+    expect(text).toContain('Das macht Sie erfolgreich');
+    expect(text).toContain('Möchten auch Sie Teil der Thomy-Familie werden?');
+    expect(text.split(/\s+/).length).toBeGreaterThan(300);
+    expect(text).not.toContain('Key details');
+  });
+
+  it('keeps the lists as line-start bullets and does not cap the length', () => {
+    const text = parseNestleDetailDescription(fixture);
+    expect(text).toMatch(/^• Min\. 25 Tage Ferien pro Jahr/m);
+    expect(text).toMatch(/^• Bereitschaft zu flexiblen Arbeitseinsätzen/m);
+    expect(text.length).toBeGreaterThan(3000);
+    expect(text).not.toMatch(/\r|\n{3,}| /);
+  });
+
+  it('returns empty for a page without the description block', () => {
+    expect(parseNestleDetailDescription('<html><body><h1>x</h1></body></html>')).toBe('');
+  });
+});
+
+// Only the posting's own text is published (issue 5253). A detail page
+// without a vacancy body used to go out as the synthetic "Key details" stub;
+// such a listing is not published any more. Search row shape from
+// jobdetails.nestle.com (2026-09-29).
+describe('fetchAllNestleJobs — listing without a vacancy body', () => {
+  it('publishes the posting with a body and skips the one without, never inventing text', async () => {
+    const fixture = fs.readFileSync(
+      path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'nestle-sf-detail-anlagenfuehrer.html'),
+      'utf8',
+    );
+    const row = (id: string, title: string) => `<tr class="data-row"><td class="colTitle"><a class="jobTitle-link" href="/job/Basel-${id}/${id}/">${title}</a></td><td class="colFacility"></td><td class="colLocation"><span class="jobLocation">Basel, CH</span></td><td class="colDate"><span class="jobDate">Sep 20, 2026</span></td></tr>`;
+    const searchHtml = `<table>${row('1255000101', 'Anlagenführer/in Abfüllung')}${row('1255000102', 'Schichtleiter/in Produktion')}</table>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => new Response(
+      url.includes('/search/') ? searchHtml
+        : url.includes('1255000101') ? fixture
+          : '<html><body><span data-careersite-propertyid="description"><p>Jetzt bewerben</p></span></body></html>',
+      { status: 200, headers: { 'content-type': 'text/html' } },
+    )));
+    try {
+      const jobs = await fetchAllNestleJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Anlagenführer/in Abfüllung');
+      expect(jobs[0].description).toContain('Das macht Sie erfolgreich');
+      for (const job of jobs) expect(job.description).not.toContain('Key details');
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

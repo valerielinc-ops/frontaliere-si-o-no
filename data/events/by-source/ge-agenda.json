@@ -3,7 +3,7 @@
   "sourceKey": "ge-agenda",
   "sourceName": "Ville de Genève Agenda",
   "canton": "GE",
-  "assembledAt": "2026-09-28T12:43:19.943Z",
+  "assembledAt": "2026-09-29T12:17:34.336Z",
   "events": [
     {
       "id": "ge-agenda:restons-dynamiques-echauffement-musique",
@@ -51,7 +51,7 @@
     {
       "id": "ge-agenda:truc",
       "title": "Le Truc sur le feu",
-      "startDate": "2026-09-24",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -63,7 +63,7 @@
       "imageUrl": "/images/events/ge-agenda-truc.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -72,12 +72,19 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "le-truc-sur-le-feu-2026-09-24"
+        }
+      ]
     },
     {
       "id": "ge-agenda:princesse-chevalier",
       "title": "La princesse eSt le chevalier",
-      "startDate": "2026-09-25",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -89,7 +96,7 @@
       "imageUrl": "/images/events/ge-agenda-princesse-chevalier.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -98,7 +105,14 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "la-princesse-est-le-chevalier-2026-09-25"
+        }
+      ]
     },
     {
       "id": "ge-agenda:causette-stock-debats-emission-radio",
@@ -120,7 +134,7 @@
     {
       "id": "ge-agenda:parcours-vitalite",
       "title": "Parcours vitalité",
-      "startDate": "2026-09-26",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-02",
       "category": "Sport",
       "region": "Genève",
@@ -132,7 +146,7 @@
       "imageUrl": "/images/events/ge-agenda-parcours-vitalite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -141,7 +155,14 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "parcours-vitalite-2026-09-26"
+        }
+      ]
     },
     {
       "id": "ge-agenda:entre-danse-saveurs-escale-portugal",
@@ -158,7 +179,7 @@
       "imageUrl": "/images/events/ge-agenda-entre-danse-saveurs-escale-portugal.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -668,8 +689,7 @@
     {
       "id": "ge-agenda:retrospective-jose-luis-guerin",
       "title": "Rétrospective José Luis Guerín",
-      "startDate": "2026-09-28",
-      "endDate": "2026-09-29",
+      "startDate": "2026-09-29",
       "category": "Projection",
       "region": "Genève",
       "description": "À l’occasion de la venue du réalisateur José Luis Guerín le mercredi 16 septembre à 20H00, Les Cinémas du Grütli consacrent une rétrospective à cette figure majeure du cinéma espagnol.",
@@ -680,7 +700,7 @@
       "imageUrl": "/images/events/ge-agenda-retrospective-jose-luis-guerin.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -694,6 +714,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "retrospective-jose-luis-guerin-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "retrospective-jose-luis-guerin-2026-09-27"
         }
       ]
@@ -701,7 +726,7 @@
     {
       "id": "ge-agenda:visite-guidee-petits-grands",
       "title": "Visite guidée pour petits & grands",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-09-30",
       "category": "Visite commentée",
       "region": "Genève",
@@ -713,7 +738,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-guidee-petits-grands.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -727,6 +752,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "visite-guidee-pour-petits-grands-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "visite-guidee-pour-petits-grands-2026-09-27"
         }
       ]
@@ -734,7 +764,7 @@
     {
       "id": "ge-agenda:programmation-familles-jardins-jonction",
       "title": "Programmation familles aux Jardins de la Jonction",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-09-30",
       "category": "Atelier",
       "region": "Genève",
@@ -746,7 +776,7 @@
       "imageUrl": "/images/events/ge-agenda-programmation-familles-jardins-jonction.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -760,6 +790,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "programmation-familles-aux-jardins-de-la-jonction-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "programmation-familles-aux-jardins-de-la-jonction-2026-09-27"
         }
       ]
@@ -767,7 +802,7 @@
     {
       "id": "ge-agenda:exposition-botanic-circus",
       "title": "Exposition Botanic Circus",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-09-30",
       "category": "Exposition",
       "region": "Genève",
@@ -779,7 +814,7 @@
       "imageUrl": "/images/events/ge-agenda-exposition-botanic-circus.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -793,6 +828,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "exposition-botanic-circus-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "exposition-botanic-circus-2026-09-27"
         }
       ]
@@ -800,7 +840,7 @@
     {
       "id": "ge-agenda:design-enfance-enfants-rencontrent",
       "title": "« Design ton enfance » : quand deux enfants se rencontrent",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-01",
       "category": "Atelier",
       "region": "Genève",
@@ -812,7 +852,7 @@
       "imageUrl": "/images/events/ge-agenda-design-enfance-enfants-rencontrent.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -826,6 +866,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "design-ton-enfance-quand-deux-enfants-se-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "design-ton-enfance-quand-deux-enfants-se-2026-09-27"
         }
       ]
@@ -833,7 +878,7 @@
     {
       "id": "ge-agenda:exposition-photographique-peuples-autochtones-face-defis-contemporains",
       "title": "Exposition photographique : Les peuples autochtones face aux défis contemporains",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-01",
       "category": "Exposition",
       "region": "Genève",
@@ -845,7 +890,7 @@
       "imageUrl": "/images/events/ge-agenda-exposition-photographique-peuples-autochtones-face-defis-contemporains.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -859,6 +904,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "exposition-photographique-les-peuples-autochtones-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "exposition-photographique-les-peuples-autochtones-2026-09-27"
         }
       ]
@@ -866,7 +916,7 @@
     {
       "id": "ge-agenda:florian-luthi-fantomes-meteores",
       "title": "Florian Luthi. Fantômes Météores",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-02",
       "category": "Exposition",
       "region": "Genève",
@@ -878,7 +928,7 @@
       "imageUrl": "/images/events/ge-agenda-florian-luthi-fantomes-meteores.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -889,6 +939,11 @@
         "name": "Ville de Genève Agenda"
       },
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "florian-luthi-fantomes-meteores-2026-09-28"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -904,7 +959,7 @@
     {
       "id": "ge-agenda:vendredis-bien",
       "title": "Les Vendredis du Bien-être",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-02",
       "category": "Animation",
       "region": "Genève",
@@ -916,7 +971,7 @@
       "imageUrl": "/images/events/ge-agenda-vendredis-bien.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -930,6 +985,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "les-vendredis-du-bien-etre-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "les-vendredis-du-bien-etre-2026-09-27"
         }
       ]
@@ -937,7 +997,7 @@
     {
       "id": "ge-agenda:dansons-albums",
       "title": "Dansons les albums",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Atelier",
       "region": "Genève",
@@ -949,7 +1009,7 @@
       "imageUrl": "/images/events/ge-agenda-dansons-albums.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -963,6 +1023,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "dansons-les-albums-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "dansons-les-albums-2026-09-27"
         }
       ]
@@ -970,7 +1035,7 @@
     {
       "id": "ge-agenda:visite-commentee-gratuite",
       "title": "Visite commentée gratuite",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Visite commentée",
       "region": "Genève",
@@ -982,7 +1047,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-commentee-gratuite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -996,6 +1061,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "visite-commentee-gratuite-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "visite-commentee-gratuite-2026-09-27"
         }
       ]
@@ -1003,7 +1073,7 @@
     {
       "id": "ge-agenda:petits-minis-rendez-0",
       "title": "Petits et Minis Rendez-vous",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Visite commentée",
       "region": "Genève",
@@ -1015,7 +1085,7 @@
       "imageUrl": "/images/events/ge-agenda-petits-minis-rendez-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1029,6 +1099,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "petits-et-minis-rendez-vous-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "petits-et-minis-rendez-vous-2026-09-27"
         }
       ]
@@ -1036,7 +1111,7 @@
     {
       "id": "ge-agenda:tenders-buttons",
       "title": "Tenders buttons",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Exposition",
       "region": "Genève",
@@ -1048,7 +1123,7 @@
       "imageUrl": "/images/events/ge-agenda-tenders-buttons.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1062,6 +1137,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "tenders-buttons-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "tenders-buttons-2026-09-27"
         }
       ]
@@ -1069,7 +1149,7 @@
     {
       "id": "ge-agenda:programmation-familles-jardins-jonction-0",
       "title": "Programmation familles aux Jardins de la Jonction",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Atelier",
       "region": "Genève",
@@ -1081,7 +1161,7 @@
       "imageUrl": "/images/events/ge-agenda-programmation-familles-jardins-jonction-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1102,7 +1182,7 @@
     {
       "id": "ge-agenda:raconter-mort",
       "title": "Raconter la mort",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Exposition",
       "region": "Genève",
@@ -1114,7 +1194,7 @@
       "imageUrl": "/images/events/ge-agenda-raconter-mort.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1128,6 +1208,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "raconter-la-mort-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "raconter-la-mort-2026-09-27"
         }
       ]
@@ -1135,7 +1220,7 @@
     {
       "id": "ge-agenda:acacias-entre-hier-demain-exposition-photographique-plein",
       "title": "Aux Acacias - entre hier et demain: exposition photographique en plein air",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-04",
       "category": "Exposition",
       "region": "Genève",
@@ -1147,7 +1232,7 @@
       "imageUrl": "/images/events/ge-agenda-acacias-entre-hier-demain-exposition-photographique-plein.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1161,6 +1246,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "aux-acacias-entre-hier-et-demain-exposition-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "aux-acacias-entre-hier-et-demain-exposition-2026-09-27"
         }
       ]
@@ -1168,7 +1258,7 @@
     {
       "id": "ge-agenda:chuter-blesser-session-1",
       "title": "Chuter sans se blesser - Session 1",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-07",
       "category": "Sport",
       "region": "Genève",
@@ -1180,7 +1270,7 @@
       "imageUrl": "/images/events/ge-agenda-chuter-blesser-session-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1194,6 +1284,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "chuter-sans-se-blesser-session-1-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "chuter-sans-se-blesser-session-1-2026-09-27"
         }
       ]
@@ -1201,7 +1296,7 @@
     {
       "id": "ge-agenda:avez-memes-38",
       "title": "VOUS AVEZ LES MÊMES EN 38 ?",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-07",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -1213,7 +1308,7 @@
       "imageUrl": "/images/events/ge-agenda-avez-memes-38.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1227,6 +1322,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "vous-avez-les-memes-en-38-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "vous-avez-les-memes-en-38-2026-09-27"
         }
       ]
@@ -1234,7 +1334,7 @@
     {
       "id": "ge-agenda:visites-flash-afterwork-exposition-sylvia-sleigh",
       "title": "Visites Flash Afterwork de l’exposition Sylvia Sleigh",
-      "startDate": "2026-09-27",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-07",
       "category": "Visite commentée",
       "region": "Genève",
@@ -1246,12 +1346,28 @@
       "imageUrl": "/images/events/ge-agenda-visites-flash-afterwork-exposition-sylvia-sleigh.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "visites-flash-afterwork-de-lexposition-sylvia-2026-09-27"
+        }
+      ]
     },
     {
       "id": "ge-agenda:seniors-divertir-3-balades-sante-sein-quartiers",
       "title": "Seniors, se divertir | 3 balades santé au sein des quartiers",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-09",
       "category": "Animation",
       "region": "Genève",
@@ -1263,7 +1379,7 @@
       "imageUrl": "/images/events/ge-agenda-seniors-divertir-3-balades-sante-sein-quartiers.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1277,6 +1393,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "seniors-se-divertir-3-balades-sante-au-sein-des-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "seniors-se-divertir-3-balades-sante-au-sein-des-2026-09-27"
         }
       ]
@@ -1284,7 +1405,7 @@
     {
       "id": "ge-agenda:marees-mineures",
       "title": "Marées mineures",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-10",
       "category": "Exposition",
       "region": "Genève",
@@ -1296,7 +1417,7 @@
       "imageUrl": "/images/events/ge-agenda-marees-mineures.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1310,6 +1431,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "marees-mineures-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "marees-mineures-2026-09-27"
         }
       ]
@@ -1317,7 +1443,7 @@
     {
       "id": "ge-agenda:exposition-marisa-cornejo-taller-fragilidad",
       "title": "Exposition de Marisa Cornejo, \"El Taller de la Fragilidad\"",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-10",
       "category": "Exposition",
       "region": "Genève",
@@ -1329,7 +1455,7 @@
       "imageUrl": "/images/events/ge-agenda-exposition-marisa-cornejo-taller-fragilidad.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1343,6 +1469,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "exposition-de-marisa-cornejo-el-taller-de-la-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "exposition-de-marisa-cornejo-el-taller-de-la-2026-09-27"
         }
       ]
@@ -1350,7 +1481,7 @@
     {
       "id": "ge-agenda:oncle-vania",
       "title": "ONCLE VANIA",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-11",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -1362,7 +1493,7 @@
       "imageUrl": "/images/events/ge-agenda-oncle-vania.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1376,6 +1507,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "oncle-vania-2026-09-28"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "oncle-vania-2026-09-27"
         }
       ]
@@ -1383,7 +1519,7 @@
     {
       "id": "ge-agenda:cycle-ateliers-ecriture-agnes-abecassis",
       "title": "Cycle de six ateliers d'écriture avec Agnès Abécassis",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-12",
       "category": "Atelier",
       "region": "Genève",
@@ -1395,7 +1531,7 @@
       "imageUrl": "/images/events/ge-agenda-cycle-ateliers-ecriture-agnes-abecassis.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1406,6 +1542,11 @@
         "name": "Ville de Genève Agenda"
       },
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "cycle-de-six-ateliers-decriture-avec-agnes-2026-09-28"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -1628,7 +1769,7 @@
       "imageUrl": "/images/events/ge-agenda-ateliers-creation-cosmetiques-naturels-seniors.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1654,7 +1795,7 @@
       "imageUrl": "/images/events/ge-agenda-seniors-mouvement-exercices.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1680,7 +1821,7 @@
       "imageUrl": "/images/events/ge-agenda-seniors-mouvement-cours-danse.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1694,7 +1835,7 @@
     {
       "id": "ge-agenda:loose-ends",
       "title": "Loose Ends",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-01",
       "category": "Concert",
       "region": "Genève",
@@ -1706,7 +1847,7 @@
       "imageUrl": "/images/events/ge-agenda-loose-ends.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1715,12 +1856,19 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "loose-ends-2026-09-28"
+        }
+      ]
     },
     {
       "id": "ge-agenda:matins-tango-petit-dejeuner-convivial-initiation-tango-argentin",
       "title": "Matins Tango : Petit-déjeuner convivial et initiation au tango argentin",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-02",
       "category": "Atelier",
       "region": "Genève",
@@ -1732,7 +1880,7 @@
       "imageUrl": "/images/events/ge-agenda-matins-tango-petit-dejeuner-convivial-initiation-tango-argentin.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1741,12 +1889,19 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "matins-tango-petit-dejeuner-convivial-et-2026-09-28"
+        }
+      ]
     },
     {
       "id": "ge-agenda:quoiquil-arrive-respire",
       "title": "Quoiqu'il arrive. Respire.",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-10",
       "category": "Spectacle - Théâtre",
       "region": "Genève",
@@ -1758,7 +1913,7 @@
       "imageUrl": "/images/events/ge-agenda-quoiquil-arrive-respire.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1767,7 +1922,14 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "quoiquil-arrive-respire-2026-09-28"
+        }
+      ]
     },
     {
       "id": "ge-agenda:atelier-alimentation-apres-60",
@@ -1783,7 +1945,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-alimentation-apres-60.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1808,7 +1970,7 @@
       "imageUrl": "/images/events/ge-agenda-journee-souffle-vie.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1833,7 +1995,7 @@
       "imageUrl": "/images/events/ge-agenda-journee-coeur-mesurez-sante-cardio-vasculaire.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1858,7 +2020,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-integrer-activite-physique-quotidien.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1883,7 +2045,7 @@
       "imageUrl": "/images/events/ge-agenda-cartes-memoires-quartier.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1908,7 +2070,7 @@
       "imageUrl": "/images/events/ge-agenda-journee-mondiale-coeur-coeur-femmes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1933,7 +2095,7 @@
       "imageUrl": "/images/events/ge-agenda-midis-durabilite-heds-geneve-sensibilisation-numerique-responsable-soutenable.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1958,7 +2120,7 @@
       "imageUrl": "/images/events/ge-agenda-journee-coeur-dela-organe-symbole-culturel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -1983,7 +2145,7 @@
       "imageUrl": "/images/events/ge-agenda-prevoir-sereines-sereins-atelier-gestion-administrative.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2008,7 +2170,7 @@
       "imageUrl": "/images/events/ge-agenda-cartes-memoires-passe.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2033,7 +2195,7 @@
       "imageUrl": "/images/events/ge-agenda-meg-journee-mondiale-coeur.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2058,7 +2220,7 @@
       "imageUrl": "/images/events/ge-agenda-journee-predire-sante-cardiovasculaire-boule-cristal.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2083,7 +2245,7 @@
       "imageUrl": "/images/events/ge-agenda-dance-party-gouter-repas-intergenerationnels.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2108,7 +2270,7 @@
       "imageUrl": "/images/events/ge-agenda-afterwork-engage-edition-automne.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2133,7 +2295,7 @@
       "imageUrl": "/images/events/ge-agenda-querido-film-rodrigo-sorogoyen.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2158,7 +2320,7 @@
       "imageUrl": "/images/events/ge-agenda-blue-zone-quoi-vieillesse-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2183,7 +2345,7 @@
       "imageUrl": "/images/events/ge-agenda-cours-tango-argentin-debutant-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2208,7 +2370,7 @@
       "imageUrl": "/images/events/ge-agenda-repas-99-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2234,7 +2396,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-guidee-sasa-mamco.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2260,7 +2422,7 @@
       "imageUrl": "/images/events/ge-agenda-parabole-seum.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2286,7 +2448,7 @@
       "imageUrl": "/images/events/ge-agenda-agenda-tentacules.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2312,7 +2474,7 @@
       "imageUrl": "/images/events/ge-agenda-escape-game-plein-vieille-ville.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2338,7 +2500,7 @@
       "imageUrl": "/images/events/ge-agenda-escape-game-exterieur-parc-bastions.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2364,7 +2526,7 @@
       "imageUrl": "/images/events/ge-agenda-escape-game-plein-vieille-ville-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2396,7 +2558,7 @@
       "imageUrl": "/images/events/ge-agenda-restons-dynamiques-echauffement-musique-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2421,7 +2583,7 @@
       "imageUrl": "/images/events/ge-agenda-prevoir-sereines-sereins-atelier-gestion-administrative-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2446,7 +2608,7 @@
       "imageUrl": "/images/events/ge-agenda-journee-mondiale-agees-theme-desirs-creation-sonore-vinyles.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2471,7 +2633,7 @@
       "imageUrl": "/images/events/ge-agenda-coeur-ville-etonnante-biodiversite-decouvrir-ensemble-eaux-vives.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2496,7 +2658,7 @@
       "imageUrl": "/images/events/ge-agenda-hier-aujourhui-souvenez.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2521,7 +2683,7 @@
       "imageUrl": "/images/events/ge-agenda-arbres-jardin-botanique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2546,7 +2708,7 @@
       "imageUrl": "/images/events/ge-agenda-imagine-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2571,7 +2733,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-decouverte-creations-cosmetiques-naturels-seniors-huile-massage-relaxante-sels-bain-fleurs.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2596,7 +2758,7 @@
       "imageUrl": "/images/events/ge-agenda-mutinerie-bord-cyclone.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2621,7 +2783,7 @@
       "imageUrl": "/images/events/ge-agenda-cycage-retrouver-confiance-plaisir-velo.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2646,7 +2808,7 @@
       "imageUrl": "/images/events/ge-agenda-generations-couleurs-ateliers-grands-parents-petits-enfants.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2671,7 +2833,7 @@
       "imageUrl": "/images/events/ge-agenda-ateliers-gouter-intergenerationnels.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2696,7 +2858,7 @@
       "imageUrl": "/images/events/ge-agenda-aperopera-autour-company.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2721,7 +2883,7 @@
       "imageUrl": "/images/events/ge-agenda-physiotherapie-formation-sante-publique-regards-croises-avenir-canton-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2746,7 +2908,7 @@
       "imageUrl": "/images/events/ge-agenda-nuits-ete.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2771,7 +2933,7 @@
       "imageUrl": "/images/events/ge-agenda-blue-zone-quoi-vieillesse.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2796,7 +2958,7 @@
       "imageUrl": "/images/events/ge-agenda-physiotherapie-formation-sante-publique-regards-croises-avenir-canton-geneve-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2828,7 +2990,7 @@
       "imageUrl": "/images/events/ge-agenda-radical-film-christopher-zalla.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2853,7 +3015,7 @@
       "imageUrl": "/images/events/ge-agenda-premiere-tombeaux-ouverts-gael-metroz.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2878,7 +3040,7 @@
       "imageUrl": "/images/events/ge-agenda-jazz-night-hemu-manhattan-cocktails.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2904,7 +3066,7 @@
       "imageUrl": "/images/events/ge-agenda-watchmatch-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2937,7 +3099,7 @@
       "imageUrl": "/images/events/ge-agenda-watchmatch.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2963,7 +3125,7 @@
       "imageUrl": "/images/events/ge-agenda-segolene-romier-meilleur-avenir.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -2988,7 +3150,7 @@
       "imageUrl": "/images/events/ge-agenda-cafe-biblio.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3013,7 +3175,7 @@
       "imageUrl": "/images/events/ge-agenda-restons-dynamiques-petit-dejeuner-sain-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3045,7 +3207,7 @@
       "imageUrl": "/images/events/ge-agenda-poivre-seniors-table.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3070,7 +3232,7 @@
       "imageUrl": "/images/events/ge-agenda-restons-dynamiques-petit-dejeuner-sain.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3095,7 +3257,7 @@
       "imageUrl": "/images/events/ge-agenda-cours-tango-argentin-niveau-debutant-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3120,7 +3282,7 @@
       "imageUrl": "/images/events/ge-agenda-tresors-caches-arts-graphiques-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3145,7 +3307,7 @@
       "imageUrl": "/images/events/ge-agenda-diffusion-documentaire-casa-susanna.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3170,7 +3332,7 @@
       "imageUrl": "/images/events/ge-agenda-souverainete-numerique-inclusion-numerique-citoyenne-sociale-seniors.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3195,7 +3357,7 @@
       "imageUrl": "/images/events/ge-agenda-ateliers-prevention-chutes-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3220,7 +3382,7 @@
       "imageUrl": "/images/events/ge-agenda-securite-seniors-strategies-mieux-vivre-quotidien.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3245,7 +3407,7 @@
       "imageUrl": "/images/events/ge-agenda-dansant-parc-baleine-demonstration-danses-gouter.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3270,7 +3432,7 @@
       "imageUrl": "/images/events/ge-agenda-viens-asseoir-ecoute.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3295,7 +3457,7 @@
       "imageUrl": "/images/events/ge-agenda-autour-table-vignettes-restaurant.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3320,7 +3482,7 @@
       "imageUrl": "/images/events/ge-agenda-generation-autre-art-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3345,7 +3507,7 @@
       "imageUrl": "/images/events/ge-agenda-capoeira-toutes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3370,7 +3532,7 @@
       "imageUrl": "/images/events/ge-agenda-exposition-observatoires-carte-blanche-john-armleder-5.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3395,7 +3557,7 @@
       "imageUrl": "/images/events/ge-agenda-pilates-face-oeuvres-5.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3420,7 +3582,7 @@
       "imageUrl": "/images/events/ge-agenda-apero-chantant-generation-lettres-20.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3445,7 +3607,7 @@
       "imageUrl": "/images/events/ge-agenda-cafe-mortel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3470,7 +3632,7 @@
       "imageUrl": "/images/events/ge-agenda-jean-felzine-vostok-session-france.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3495,7 +3657,7 @@
       "imageUrl": "/images/events/ge-agenda-projection-fossiles-chroniques-terre-universite-geneve-suivi-table-ronde.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3520,7 +3682,7 @@
       "imageUrl": "/images/events/ge-agenda-former-horloger-face-mecanisation-ecole-horlogerie-geneve-preservation-savoir-faire-xixe-siecle.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3545,7 +3707,7 @@
       "imageUrl": "/images/events/ge-agenda-observatoires-exposition-john-armleder.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3570,7 +3732,7 @@
       "imageUrl": "/images/events/ge-agenda-visites-croisees-mamco-mah-male-gazefemale-gaze.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3595,7 +3757,7 @@
       "imageUrl": "/images/events/ge-agenda-operation-vermillon-trauma-guerre-mere-fils.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3620,7 +3782,7 @@
       "imageUrl": "/images/events/ge-agenda-nudite-regard-heroique-regard-erotique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3645,7 +3807,7 @@
       "imageUrl": "/images/events/ge-agenda-ouverture-saison-2026-2027.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3670,7 +3832,7 @@
       "imageUrl": "/images/events/ge-agenda-urban-climate-circles-atelier-art-science-imagination-action-rencontrent.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3695,7 +3857,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-courts-metrages-sante-mentale-rapport-monde.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3720,7 +3882,7 @@
       "imageUrl": "/images/events/ge-agenda-milonga-brava-nicole-mazza-matias-mono.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3745,7 +3907,7 @@
       "imageUrl": "/images/events/ge-agenda-lancement-livre-chats-errants-mah-mah-stray-cats-dernier-volet-intervention-espace-public-katharina-hohmann.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3770,7 +3932,7 @@
       "imageUrl": "/images/events/ge-agenda-ensemble-symphonique-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3795,7 +3957,7 @@
       "imageUrl": "/images/events/ge-agenda-premiere-minotaure-andrei-zviaguintsev.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3821,7 +3983,7 @@
       "imageUrl": "/images/events/ge-agenda-soirees-artistes-complices-anna-marija-adomaityte-jerson-diasonama-maud-blandel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3847,7 +4009,7 @@
       "imageUrl": "/images/events/ge-agenda-origine-rouge.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3873,7 +4035,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-animatou-grand-week-ouverture.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3899,7 +4061,7 @@
       "imageUrl": "/images/events/ge-agenda-visites-guidees-itineraires-memoriels-historiques-artistiques-saisonniers-saisonnieres-ville-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3924,7 +4086,7 @@
       "imageUrl": "/images/events/ge-agenda-japon.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3949,7 +4111,7 @@
       "imageUrl": "/images/events/ge-agenda-coeur-ville-etonnante-biodiversite-decouvrir-ensemble-plainpalais-jonction.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3974,7 +4136,7 @@
       "imageUrl": "/images/events/ge-agenda-ateliers-prevention-chutes-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -3999,7 +4161,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-exploratoire-dessin-academie-livret-corps-livre.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4024,7 +4186,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-entretenir-memoire-sante-cerebrale.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4049,7 +4211,7 @@
       "imageUrl": "/images/events/ge-agenda-cartes-casseroles-jass-convivial-atelier-culinaire-entre-generations.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4074,7 +4236,7 @@
       "imageUrl": "/images/events/ge-agenda-apres-midi-rencontres-solidarite-prevention-musique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4099,7 +4261,7 @@
       "imageUrl": "/images/events/ge-agenda-air.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4124,7 +4286,7 @@
       "imageUrl": "/images/events/ge-agenda-vernissage-exposition-bonjour-petites-histoires-creer-lien-bibliotheque-cite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4149,7 +4311,7 @@
       "imageUrl": "/images/events/ge-agenda-47-film-marcel-barrena.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4174,7 +4336,7 @@
       "imageUrl": "/images/events/ge-agenda-concert-ensemble-danse-folklorique-ukrainienne-svitanok-suivi-atelier-danse-agees.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4199,7 +4361,7 @@
       "imageUrl": "/images/events/ge-agenda-cours-tango-argentin-debutant-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4224,7 +4386,7 @@
       "imageUrl": "/images/events/ge-agenda-summer-pearl-concert-chat-noir.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4249,7 +4411,7 @@
       "imageUrl": "/images/events/ge-agenda-shems-bendali-quintet-casbah-qassioun-moderne.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4274,7 +4436,7 @@
       "imageUrl": "/images/events/ge-agenda-pietro-quartet-hommage-pierre-losego-jazz-mainstreambebop.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4300,7 +4462,7 @@
       "imageUrl": "/images/events/ge-agenda-electron.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4326,7 +4488,7 @@
       "imageUrl": "/images/events/ge-agenda-afrik-rire-geneva-festival.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4352,7 +4514,7 @@
       "imageUrl": "/images/events/ge-agenda-carte-blanche-andreas-fulgosi-lapczinsky-theorem.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4378,7 +4540,7 @@
       "imageUrl": "/images/events/ge-agenda-operation-vermillon-exposition.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4404,7 +4566,7 @@
       "imageUrl": "/images/events/ge-agenda-vivant-patrick-mohr-theatre-spirale.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4430,7 +4592,7 @@
       "imageUrl": "/images/events/ge-agenda-table-amour-manon-kruttli-jonas-buhler.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4455,7 +4617,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-creez-tablette-chocolat.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4480,7 +4642,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-exposition-debat-mouvant-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4505,7 +4667,7 @@
       "imageUrl": "/images/events/ge-agenda-panoplie-libraires.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4530,7 +4692,7 @@
       "imageUrl": "/images/events/ge-agenda-ballet-adultes-niveaux-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4555,7 +4717,7 @@
       "imageUrl": "/images/events/ge-agenda-connexion-mouvement-session-decouverte.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4580,7 +4742,7 @@
       "imageUrl": "/images/events/ge-agenda-liotard-marie-antoinette-visages-enquete.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4605,7 +4767,7 @@
       "imageUrl": "/images/events/ge-agenda-clou-rouge-arrete-peissy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4630,7 +4792,7 @@
       "imageUrl": "/images/events/ge-agenda-simulation-assemblee-citoyenne-habitantes-habitants-deliberaient.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4655,7 +4817,7 @@
       "imageUrl": "/images/events/ge-agenda-balade-long-arve-4.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4680,7 +4842,7 @@
       "imageUrl": "/images/events/ge-agenda-blue-zone-quoi-vieillesse-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4705,7 +4867,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-soudure-dechets-electroniques-fablab-onfait-bibliotheque-cite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4730,7 +4892,7 @@
       "imageUrl": "/images/events/ge-agenda-musee-pages-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4755,7 +4917,7 @@
       "imageUrl": "/images/events/ge-agenda-mots-valises-bien-atelier-collaboratif-parents-enfants.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4780,7 +4942,7 @@
       "imageUrl": "/images/events/ge-agenda-bingo-belotte.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4805,7 +4967,7 @@
       "imageUrl": "/images/events/ge-agenda-traces-vegetaux.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4830,7 +4992,7 @@
       "imageUrl": "/images/events/ge-agenda-democratie-droit-partir-oeuvre-giorgio-agamben.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4855,7 +5017,7 @@
       "imageUrl": "/images/events/ge-agenda-invente-activite-museale-democratieavec-conseil-enfants-amusen.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4880,7 +5042,7 @@
       "imageUrl": "/images/events/ge-agenda-grand-troc.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4905,7 +5067,7 @@
       "imageUrl": "/images/events/ge-agenda-odyssees-rencontre-intergenerationnelle-partager-dialoguer-temoigner.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4918,7 +5080,7 @@
     },
     {
       "id": "ge-agenda:explorer-geneve-democratie-philanthropie-institutions-internationales",
-      "title": "Explorer Genève: Démocratie, Philanthropie et Institutions internationales",
+      "title": "Complet - Explorer Genève: Démocratie, Philanthropie et Institutions internationales",
       "startDate": "2026-10-03",
       "category": "Visite commentée",
       "region": "Genève",
@@ -4930,7 +5092,7 @@
       "imageUrl": "/images/events/ge-agenda-explorer-geneve-democratie-philanthropie-institutions-internationales.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4939,7 +5101,14 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "explorer-geneve-democratie-philanthropie-et-2026-10-03"
+        }
+      ]
     },
     {
       "id": "ge-agenda:bonjour-animatou",
@@ -4955,7 +5124,7 @@
       "imageUrl": "/images/events/ge-agenda-bonjour-animatou.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -4980,7 +5149,7 @@
       "imageUrl": "/images/events/ge-agenda-place-lieu-amener-jeunes-engager-politique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5005,7 +5174,7 @@
       "imageUrl": "/images/events/ge-agenda-requiem-mozart-orchestre-concertus-dirige-matthieu-schweyer-alida-barbasini-young-daniel-duri-seong.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5030,7 +5199,7 @@
       "imageUrl": "/images/events/ge-agenda-moos-mood-concert-chat-noir.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5055,7 +5224,7 @@
       "imageUrl": "/images/events/ge-agenda-acacias-fete-journee-fete-vernets.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5080,7 +5249,7 @@
       "imageUrl": "/images/events/ge-agenda-corredora-film-laura-garcia-alonso.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5105,7 +5274,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-metal-extreme-adelon-sprint-fulminator-session.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5130,7 +5299,7 @@
       "imageUrl": "/images/events/ge-agenda-acacias-fete-open.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5156,7 +5325,7 @@
       "imageUrl": "/images/events/ge-agenda-jonction.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5182,7 +5351,7 @@
       "imageUrl": "/images/events/ge-agenda-fete-science-invite-telepherique-saleve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5208,7 +5377,7 @@
       "imageUrl": "/images/events/ge-agenda-balade-musicale-europe.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5233,7 +5402,7 @@
       "imageUrl": "/images/events/ge-agenda-parcours-immersif-enfants-familles-futur-quoi.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5258,7 +5427,7 @@
       "imageUrl": "/images/events/ge-agenda-verre-dela-matiere-collections-cirva-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5283,7 +5452,7 @@
       "imageUrl": "/images/events/ge-agenda-histoires-terre-extinction-dinosaures-passe.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5308,7 +5477,7 @@
       "imageUrl": "/images/events/ge-agenda-promenade-botanique-lancy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5333,7 +5502,7 @@
       "imageUrl": "/images/events/ge-agenda-marie-ducate-simultanes-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5358,7 +5527,7 @@
       "imageUrl": "/images/events/ge-agenda-rallye-rose-piste-cycliste-solidaire-octobre-rose.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5383,7 +5552,7 @@
       "imageUrl": "/images/events/ge-agenda-tender-buttons-6.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5408,7 +5577,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-destination-futurs-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5433,7 +5602,7 @@
       "imageUrl": "/images/events/ge-agenda-anniversaire.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5458,7 +5627,7 @@
       "imageUrl": "/images/events/ge-agenda-balade-geneve-tram-historique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5508,7 +5677,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-photo-tissage.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5533,7 +5702,7 @@
       "imageUrl": "/images/events/ge-agenda-dimanches-cite-seniors-fanfare-loup.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5558,7 +5727,7 @@
       "imageUrl": "/images/events/ge-agenda-fleurs-croquer-atelier-floral-gourmand-intergenerationnel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5583,7 +5752,7 @@
       "imageUrl": "/images/events/ge-agenda-espace-lecture-histoires-peanser-futur-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5608,7 +5777,7 @@
       "imageUrl": "/images/events/ge-agenda-transatlantic-echoes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5633,7 +5802,7 @@
       "imageUrl": "/images/events/ge-agenda-cine-dimanche-animatou-arco.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5658,7 +5827,7 @@
       "imageUrl": "/images/events/ge-agenda-eclipse-jean-sebastien-keith-jarrett.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5683,7 +5852,7 @@
       "imageUrl": "/images/events/ge-agenda-choeur-liederkranz-concordia-orchestre-fanny-utiger-soprano-oscar-esmerode-tenor-sacha-michon-baryton-stanislava-nankova-direction.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5708,7 +5877,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-chopin-2026-concert-ouverture.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5733,7 +5902,7 @@
       "imageUrl": "/images/events/ge-agenda-pionnieres-delaurentis-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5765,7 +5934,7 @@
       "imageUrl": "/images/events/ge-agenda-pionnieres-delaurentis.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5791,7 +5960,7 @@
       "imageUrl": "/images/events/ge-agenda-fete-theatre.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5817,7 +5986,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-chopin-geneve-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5842,7 +6011,7 @@
       "imageUrl": "/images/events/ge-agenda-stage-autodefense-feministe-peux-55.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5867,7 +6036,7 @@
       "imageUrl": "/images/events/ge-agenda-cafe-sante-repondre-defis-grand-saisir-chances.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5892,7 +6061,7 @@
       "imageUrl": "/images/events/ge-agenda-digitalise-youth-young-voices-shaping-digital-democracy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5917,7 +6086,7 @@
       "imageUrl": "/images/events/ge-agenda-seniors-informer-former-stage-autodefense-feministe.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5942,7 +6111,7 @@
       "imageUrl": "/images/events/ge-agenda-crash-test-mobiliser-dela-toujours-memes-jusquou-aider.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5967,7 +6136,7 @@
       "imageUrl": "/images/events/ge-agenda-medias-confiance-intelligence-artificielle.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -5992,7 +6161,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-prepro-chiara-gabriel.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6017,7 +6186,7 @@
       "imageUrl": "/images/events/ge-agenda-ombre-everest-andrea-sherpa-zimmerman.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6043,7 +6212,7 @@
       "imageUrl": "/images/events/ge-agenda-godinat-jacquemet-massy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6068,7 +6237,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-guidee-publique-quoi-democratie-suisse.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6093,7 +6262,7 @@
       "imageUrl": "/images/events/ge-agenda-pilates-face-oeuvres-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6118,7 +6287,7 @@
       "imageUrl": "/images/events/ge-agenda-semaine-sante-mentale-etudier-tdah.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6143,7 +6312,7 @@
       "imageUrl": "/images/events/ge-agenda-communiquer-greenwashing.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6168,7 +6337,7 @@
       "imageUrl": "/images/events/ge-agenda-sortir-participation-citoyenne-tiroirs-grace.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6193,7 +6362,7 @@
       "imageUrl": "/images/events/ge-agenda-youth-climate-activism-what-left.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6218,7 +6387,7 @@
       "imageUrl": "/images/events/ge-agenda-cafe-scientifique-jeux-video-sante-mentale-recherche.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6243,7 +6412,7 @@
       "imageUrl": "/images/events/ge-agenda-rendez-citoyens-democratie-augmentee.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6268,7 +6437,7 @@
       "imageUrl": "/images/events/ge-agenda-asile-prejuges-information-coeur-debat-democratique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6293,7 +6462,7 @@
       "imageUrl": "/images/events/ge-agenda-concert-maya-khaldi-youmna-saba.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6318,7 +6487,7 @@
       "imageUrl": "/images/events/ge-agenda-modeselektor-classics-live-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6343,7 +6512,7 @@
       "imageUrl": "/images/events/ge-agenda-votation-2032-campagne-synthetique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6368,7 +6537,7 @@
       "imageUrl": "/images/events/ge-agenda-archives-manquantes-combler-effacements-memoire-queer-soiree-ouverture-table-ronde.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6393,7 +6562,7 @@
       "imageUrl": "/images/events/ge-agenda-understanding-addressing-affective-polarisation.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6418,7 +6587,7 @@
       "imageUrl": "/images/events/ge-agenda-modeselektor-classic-live-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6444,7 +6613,7 @@
       "imageUrl": "/images/events/ge-agenda-building-bridges-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6469,7 +6638,7 @@
       "imageUrl": "/images/events/ge-agenda-armures-paillettes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6494,7 +6663,7 @@
       "imageUrl": "/images/events/ge-agenda-decider-emploi-jeunes-confiance-democratique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6519,7 +6688,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-interactif-decider-emploi-jeunes-confiance-democratique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6544,7 +6713,7 @@
       "imageUrl": "/images/events/ge-agenda-art-jardin.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6569,7 +6738,7 @@
       "imageUrl": "/images/events/ge-agenda-seniors-conferences-informatiques-intelligence-artificielle-genie-grille-pain.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6594,7 +6763,7 @@
       "imageUrl": "/images/events/ge-agenda-fruits-farfelus-graines-rigolotes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6619,7 +6788,7 @@
       "imageUrl": "/images/events/ge-agenda-mercredi-comedie-electron.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6644,7 +6813,7 @@
       "imageUrl": "/images/events/ge-agenda-exploring-creation-process-exhibition-futur-quoi.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6669,7 +6838,7 @@
       "imageUrl": "/images/events/ge-agenda-origami.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6694,7 +6863,7 @@
       "imageUrl": "/images/events/ge-agenda-cafe-quartier-libraire-passionne.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6719,7 +6888,7 @@
       "imageUrl": "/images/events/ge-agenda-seniors-informer-former-decouvrons-nature-ensemble.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6744,7 +6913,7 @@
       "imageUrl": "/images/events/ge-agenda-delivre-secrets-barroux-dessine-animaux-sauvages.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6769,7 +6938,7 @@
       "imageUrl": "/images/events/ge-agenda-visites-flash-afterwork-exposition-sylvia-sleigh-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6794,7 +6963,7 @@
       "imageUrl": "/images/events/ge-agenda-balade-litteraire-musiques-litteratures.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6819,7 +6988,7 @@
       "imageUrl": "/images/events/ge-agenda-decouvrez-histoire-decidim-logiciel-participation-citoyenne-barcelone-bibliotheque-vivante.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6844,7 +7013,7 @@
       "imageUrl": "/images/events/ge-agenda-accompagner-entree-sortie-scolarite-logiques-institutionnelles-collectives-individuelles-epreuve-transitions.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6869,7 +7038,7 @@
       "imageUrl": "/images/events/ge-agenda-seance-information-filieres-bachelor-haute-ecole-sante-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6894,7 +7063,7 @@
       "imageUrl": "/images/events/ge-agenda-decide-lance-clarifier-motivations-affirmer-legitimite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6919,7 +7088,7 @@
       "imageUrl": "/images/events/ge-agenda-intersexes-histoire-encre-invisible-conference-discussion.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6944,7 +7113,7 @@
       "imageUrl": "/images/events/ge-agenda-johann-rosenmuller-allemagne-lumiere-venise-ensemble-temenos-geneve-7-octobre-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6969,7 +7138,7 @@
       "imageUrl": "/images/events/ge-agenda-bugge-wesseltoft-marcol-savoy-trio.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -6994,7 +7163,7 @@
       "imageUrl": "/images/events/ge-agenda-forum-public-quartiers-solidaires-initiatives-vie-quartier.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7036,7 +7205,7 @@
       "imageUrl": "/images/events/ge-agenda-choisir-renoncer.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7061,7 +7230,7 @@
       "imageUrl": "/images/events/ge-agenda-cine-relax-animatou-futur-quoi.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7086,7 +7255,7 @@
       "imageUrl": "/images/events/ge-agenda-book-launch-defending-democracy-european-parliament.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7111,7 +7280,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-relax-coeur-exposition-futur-quoi-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7136,7 +7305,7 @@
       "imageUrl": "/images/events/ge-agenda-cours-tango-argentin-niveau-debutant-3.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7161,7 +7330,7 @@
       "imageUrl": "/images/events/ge-agenda-projection-discussion-democracy-noir-dawn.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7186,7 +7355,7 @@
       "imageUrl": "/images/events/ge-agenda-when-film-becomes-civic-courage.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7211,7 +7380,7 @@
       "imageUrl": "/images/events/ge-agenda-america-votes-2026-midterms-future-democracy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7236,7 +7405,7 @@
       "imageUrl": "/images/events/ge-agenda-collision-enquete-futur-collisionneur-cern.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7261,7 +7430,7 @@
       "imageUrl": "/images/events/ge-agenda-informer-aujourhui.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7311,7 +7480,7 @@
       "imageUrl": "/images/events/ge-agenda-rencontre-jardin-retour-automne.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7336,7 +7505,7 @@
       "imageUrl": "/images/events/ge-agenda-tango-sante-2.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7361,7 +7530,7 @@
       "imageUrl": "/images/events/ge-agenda-bacchanales.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7393,7 +7562,7 @@
       "imageUrl": "/images/events/ge-agenda-climat-emballe-faim-persiste-cultivons-autrement.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7418,7 +7587,7 @@
       "imageUrl": "/images/events/ge-agenda-cite-seniors-fete-20-exposition-photographique-voyage-urbain-entre-passe-present.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7443,7 +7612,7 @@
       "imageUrl": "/images/events/ge-agenda-tess-giordano-vostok-session.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7468,7 +7637,7 @@
       "imageUrl": "/images/events/ge-agenda-entre-preserver-intervenir-avenir-plantes-menacees-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7493,7 +7662,7 @@
       "imageUrl": "/images/events/ge-agenda-horizons-finlandais.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7518,7 +7687,7 @@
       "imageUrl": "/images/events/ge-agenda-mahself.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7543,7 +7712,7 @@
       "imageUrl": "/images/events/ge-agenda-rachel-marks-mah-pozzi.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7568,7 +7737,7 @@
       "imageUrl": "/images/events/ge-agenda-course-equipe-afterwork-team-building-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7593,7 +7762,7 @@
       "imageUrl": "/images/events/ge-agenda-cosmic-murmures.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7618,7 +7787,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-chopin-2026-recital-piano-mertol-demirelli.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7643,7 +7812,7 @@
       "imageUrl": "/images/events/ge-agenda-seance-speciale-silence-agneaux.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7668,7 +7837,7 @@
       "imageUrl": "/images/events/ge-agenda-milonga-brava-ricardo-astrada-constanza-vieyto.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7693,7 +7862,7 @@
       "imageUrl": "/images/events/ge-agenda-detroit-legends-cybotron-dopplereffekt.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7718,7 +7887,7 @@
       "imageUrl": "/images/events/ge-agenda-detroit-legends-cybotron-live-dopplereffekt-live.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7744,7 +7913,7 @@
       "imageUrl": "/images/events/ge-agenda-repas.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7769,7 +7938,7 @@
       "imageUrl": "/images/events/ge-agenda-employer-personne-domicile-toute-simplicite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7794,7 +7963,7 @@
       "imageUrl": "/images/events/ge-agenda-fake-until-make-partie-regards-croises-manipulation-opinion-fakes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7819,7 +7988,7 @@
       "imageUrl": "/images/events/ge-agenda-rencontre-figures-politiques-lanceennes-maria-roth-bernasconi-philippe-roch.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7844,7 +8013,7 @@
       "imageUrl": "/images/events/ge-agenda-wonderdays-nature-company-fresque-biodiversite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7869,7 +8038,7 @@
       "imageUrl": "/images/events/ge-agenda-hommage-sofia-gubaidulina-conference-concert.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7894,7 +8063,7 @@
       "imageUrl": "/images/events/ge-agenda-femme-parfaite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7919,7 +8088,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-chopin-2026-recital-piano-adam-kaldunski.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7960,7 +8129,7 @@
       "imageUrl": "/images/events/ge-agenda-dinaa-groove-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -7985,7 +8154,7 @@
       "imageUrl": "/images/events/ge-agenda-tribute-marley-emma-lamadji-mathias-liengme-valentin-liechti.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8010,7 +8179,7 @@
       "imageUrl": "/images/events/ge-agenda-demo-crazy-night-rencontres-engagement-citoyen-troinex.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8035,7 +8204,7 @@
       "imageUrl": "/images/events/ge-agenda-adhd.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8061,7 +8230,7 @@
       "imageUrl": "/images/events/ge-agenda-electron-palladium-club-culture.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8087,7 +8256,7 @@
       "imageUrl": "/images/events/ge-agenda-fete-theatre-peau-douce-mathis-josselin-gabrielle-pialoux.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8113,7 +8282,7 @@
       "imageUrl": "/images/events/ge-agenda-skiff.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8138,7 +8307,7 @@
       "imageUrl": "/images/events/ge-agenda-gigue-gyres-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8163,7 +8332,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-realisez-truffes-chocolat.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8188,7 +8357,7 @@
       "imageUrl": "/images/events/ge-agenda-stage-chansons-cuba-atelier-adultes-amanda-cepero.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8213,7 +8382,7 @@
       "imageUrl": "/images/events/ge-agenda-parcours-linguistiques-decouverte-multiples-visages-geneve-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8238,7 +8407,7 @@
       "imageUrl": "/images/events/ge-agenda-femmes.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8263,7 +8432,7 @@
       "imageUrl": "/images/events/ge-agenda-cite-seniors-fete-20-fete-theatre-patrimoine-histoires-existent-moitie.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8288,7 +8457,7 @@
       "imageUrl": "/images/events/ge-agenda-composer-cinema-muet-conference-autour-realisatrice-actrice-musidora-bibliotheque-cite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8313,7 +8482,7 @@
       "imageUrl": "/images/events/ge-agenda-mots-photographies-cohabitation-texte-image-exposition.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8338,7 +8507,7 @@
       "imageUrl": "/images/events/ge-agenda-comite-citoyen-calim.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8363,7 +8532,7 @@
       "imageUrl": "/images/events/ge-agenda-ateliers-modele-vivant-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8388,7 +8557,7 @@
       "imageUrl": "/images/events/ge-agenda-respirations-leman-chansons-1.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8413,7 +8582,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-ecriture-creative-artiste-stephanie-barbetta.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8438,7 +8607,7 @@
       "imageUrl": "/images/events/ge-agenda-delivre-secrets-barroux-dessine-animaux-sauvages-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8463,7 +8632,7 @@
       "imageUrl": "/images/events/ge-agenda-serait-verdict.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8488,7 +8657,7 @@
       "imageUrl": "/images/events/ge-agenda-chococoncert-mysteres-violon.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8513,7 +8682,7 @@
       "imageUrl": "/images/events/ge-agenda-boum-albums.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8538,7 +8707,7 @@
       "imageUrl": "/images/events/ge-agenda-jour-coeur-republique.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8563,7 +8732,7 @@
       "imageUrl": "/images/events/ge-agenda-futur-quartier-grosselin-rencontre-entre-conseil-administratif-jeunes-carougeois.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8588,7 +8757,7 @@
       "imageUrl": "/images/events/ge-agenda-atelier-9-11ans-apprivoisele-conflit.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8613,7 +8782,7 @@
       "imageUrl": "/images/events/ge-agenda-tetsu-yujo.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8638,7 +8807,7 @@
       "imageUrl": "/images/events/ge-agenda-stage-autodefense-feministe-peux-adolescent.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8663,7 +8832,7 @@
       "imageUrl": "/images/events/ge-agenda-terre-hommes-suisse.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8688,7 +8857,7 @@
       "imageUrl": "/images/events/ge-agenda-et-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8713,7 +8882,7 @@
       "imageUrl": "/images/events/ge-agenda-composer-peindre-feminin-memes-combats-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8738,7 +8907,7 @@
       "imageUrl": "/images/events/ge-agenda-concert-caritatif-misatango-profit-orphelins-ukraine.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8763,7 +8932,7 @@
       "imageUrl": "/images/events/ge-agenda-musique-seigneur-anneaux-hommage-howard-shore-ensemble-sinfonietta-bern.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8788,7 +8957,7 @@
       "imageUrl": "/images/events/ge-agenda-fete-ouverture-festival-everybods-perfect-diamanda-callas-geca.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8813,7 +8982,7 @@
       "imageUrl": "/images/events/ge-agenda-fete-depart-information-bibliotheque-filigrane-samedi-10-octobre-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8838,7 +9007,7 @@
       "imageUrl": "/images/events/ge-agenda-hommage-luciano-pavarotti-gala-opera.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8863,7 +9032,7 @@
       "imageUrl": "/images/events/ge-agenda-double-concert-neko-recover.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8888,7 +9057,7 @@
       "imageUrl": "/images/events/ge-agenda-meryl.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8913,7 +9082,7 @@
       "imageUrl": "/images/events/ge-agenda-stormy.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8939,7 +9108,7 @@
       "imageUrl": "/images/events/ge-agenda-electron-palladium-euphorie-collective.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8965,7 +9134,7 @@
       "imageUrl": "/images/events/ge-agenda-fondations-reflexes-mouvement-developpement-moteur-plongeon-pratique-projet-h107avec-francoise-stabler.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -8991,7 +9160,7 @@
       "imageUrl": "/images/events/ge-agenda-stage-decouverte-teinture-laine.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9017,7 +9186,7 @@
       "imageUrl": "/images/events/ge-agenda-radio-dojo-caroline-bernard.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9043,7 +9212,7 @@
       "imageUrl": "/images/events/ge-agenda-art-occupe.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9068,7 +9237,7 @@
       "imageUrl": "/images/events/ge-agenda-liotard-marie-antoinette-visages-enquete-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9093,7 +9262,7 @@
       "imageUrl": "/images/events/ge-agenda-marche-temps-profond.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9118,7 +9287,7 @@
       "imageUrl": "/images/events/ge-agenda-nudite-regard-heroique-regard-erotique-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9143,7 +9312,7 @@
       "imageUrl": "/images/events/ge-agenda-volcans-bouillonnants-imprevisibles.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9168,7 +9337,7 @@
       "imageUrl": "/images/events/ge-agenda-visites-croisees-mamco-mah-male-gazefemale-gaze-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9193,7 +9362,7 @@
       "imageUrl": "/images/events/ge-agenda-cine-gouter-paddington-2014-duree-1h35.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9218,7 +9387,7 @@
       "imageUrl": "/images/events/ge-agenda-urbansgemeinde.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9243,7 +9412,7 @@
       "imageUrl": "/images/events/ge-agenda-visite-createurs-creatrices-exposition.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9268,7 +9437,7 @@
       "imageUrl": "/images/events/ge-agenda-marche-espoir-kilometre-bonus-musee-histoire-sciences.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9293,7 +9462,16 @@
       "imageUrl": "/images/events/ge-agenda-marche-espoir-2026.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-27T11:32:02.926Z"
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
     },
     {
       "id": "ge-agenda:dimanches-cite-seniors-dansez-nicolas-tankoff-0",
@@ -9309,7 +9487,7 @@
       "imageUrl": "/images/events/ge-agenda-dimanches-cite-seniors-dansez-nicolas-tankoff-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9334,7 +9512,7 @@
       "imageUrl": "/images/events/ge-agenda-eloge-vieillesse.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9359,7 +9537,7 @@
       "imageUrl": "/images/events/ge-agenda-cine-dimanche-everybods-perfect-mundo-para.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9384,7 +9562,7 @@
       "imageUrl": "/images/events/ge-agenda-kohan-jordan.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9409,7 +9587,7 @@
       "imageUrl": "/images/events/ge-agenda-transformations.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9434,7 +9612,7 @@
       "imageUrl": "/images/events/ge-agenda-louis-schwizgebel-musiciens-espoir.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9459,7 +9637,7 @@
       "imageUrl": "/images/events/ge-agenda-yamma-teiman.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9484,7 +9662,7 @@
       "imageUrl": "/images/events/ge-agenda-reya-penaber.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9509,7 +9687,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-chopin-2026-recital-piano-krzysztof-wiercinski.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9535,7 +9713,7 @@
       "imageUrl": "/images/events/ge-agenda-greve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9560,7 +9738,7 @@
       "imageUrl": "/images/events/ge-agenda-employer-personne-domicile-toute-simplicite-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9585,7 +9763,7 @@
       "imageUrl": "/images/events/ge-agenda-ultimo-azul-voyages-tereza.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9610,7 +9788,7 @@
       "imageUrl": "/images/events/ge-agenda-premiere-petit-soldat-stephane-brize.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9635,7 +9813,7 @@
       "imageUrl": "/images/events/ge-agenda-messidor.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9660,7 +9838,7 @@
       "imageUrl": "/images/events/ge-agenda-habiter-nuit-affects-resistances-conversation-chowra-makaremi-cagla-aykac.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9685,7 +9863,7 @@
       "imageUrl": "/images/events/ge-agenda-soiree-prepro-keysha-sylvan-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9710,7 +9888,7 @@
       "imageUrl": "/images/events/ge-agenda-autechre-twentytwentysix.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9735,7 +9913,7 @@
       "imageUrl": "/images/events/ge-agenda-yoga-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9760,7 +9938,7 @@
       "imageUrl": "/images/events/ge-agenda-lancement-geneve-prospective.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9785,7 +9963,7 @@
       "imageUrl": "/images/events/ge-agenda-imprimes-reformes-romands.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9810,7 +9988,7 @@
       "imageUrl": "/images/events/ge-agenda-geneve-democratie-defis-innovations.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9835,7 +10013,7 @@
       "imageUrl": "/images/events/ge-agenda-dance-first-think-later-vernissage.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9860,7 +10038,7 @@
       "imageUrl": "/images/events/ge-agenda-festival-chopin-2026-recital-piano-mateusz-krzyzowski.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9885,7 +10063,7 @@
       "imageUrl": "/images/events/ge-agenda-iran-arriere-cour-historique-liberte-iran.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9910,7 +10088,7 @@
       "imageUrl": "/images/events/ge-agenda-hodler-regard-ecrivain-peintre.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9935,7 +10113,7 @@
       "imageUrl": "/images/events/ge-agenda-morocco.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9960,7 +10138,7 @@
       "imageUrl": "/images/events/ge-agenda-improvisation-grains-folie.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9985,7 +10163,7 @@
       "imageUrl": "/images/events/ge-agenda-rock-stage-heavy-christophe-godin-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -9999,7 +10177,7 @@
     {
       "id": "ge-agenda:cycle-ateliers-ecriture-agnes-abecassis-0",
       "title": "Cycle de six ateliers d'écriture avec Agnès Abécassis",
-      "startDate": "2026-09-28",
+      "startDate": "2026-09-29",
       "endDate": "2026-10-14",
       "category": "Atelier",
       "region": "Genève",
@@ -10011,7 +10189,7 @@
       "imageUrl": "/images/events/ge-agenda-cycle-ateliers-ecriture-agnes-abecassis-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10020,7 +10198,14 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "cycle-de-six-ateliers-decriture-avec-agnes-2026-09-28-2"
+        }
+      ]
     },
     {
       "id": "ge-agenda:where-everybody",
@@ -10037,7 +10222,7 @@
       "imageUrl": "/images/events/ge-agenda-where-everybody.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10062,7 +10247,7 @@
       "imageUrl": "/images/events/ge-agenda-samedi-sauve-apprenez-sauver-vies.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10087,7 +10272,7 @@
       "imageUrl": "/images/events/ge-agenda-tant-quhomme-rejoins-equipe-benevoles-masculinites.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10112,7 +10297,7 @@
       "imageUrl": "/images/events/ge-agenda-fredz-lenaig.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10137,7 +10322,7 @@
       "imageUrl": "/images/events/ge-agenda-rendez-publics-projet-h107-lieu-creation-arts-vivants-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10163,7 +10348,7 @@
       "imageUrl": "/images/events/ge-agenda-other-place.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10188,7 +10373,7 @@
       "imageUrl": "/images/events/ge-agenda-nuit-belle-programme-musee-histoire-sciences.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10213,7 +10398,7 @@
       "imageUrl": "/images/events/ge-agenda-nuit-belle-promenade-long-arve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10238,7 +10423,7 @@
       "imageUrl": "/images/events/ge-agenda-nuit-belle-trame-noire-quest.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10263,7 +10448,7 @@
       "imageUrl": "/images/events/ge-agenda-nuit-belle-spectacle-quoiquil-arrive-respire.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10289,7 +10474,7 @@
       "imageUrl": "/images/events/ge-agenda-ivan-hadoum.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10315,7 +10500,7 @@
       "imageUrl": "/images/events/ge-agenda-maspalomas.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10340,7 +10525,7 @@
       "imageUrl": "/images/events/ge-agenda-parcours-mini-meg-futur-quoi.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10365,7 +10550,7 @@
       "imageUrl": "/images/events/ge-agenda-armures-paillettes-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10390,7 +10575,7 @@
       "imageUrl": "/images/events/ge-agenda-viens-decouvrir-dessiner-fleurs-maniere-peintre-suisse-ferdinand-hodler.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10415,7 +10600,7 @@
       "imageUrl": "/images/events/ge-agenda-eveil-sensoriel-futur-quoi.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10440,7 +10625,7 @@
       "imageUrl": "/images/events/ge-agenda-cite-seniors-fete-20-regards-croises-evolution-espaces-publics-conference.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10465,7 +10650,7 @@
       "imageUrl": "/images/events/ge-agenda-herbier-jean-jacques-rousseau-5.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10490,7 +10675,7 @@
       "imageUrl": "/images/events/ge-agenda-cite-seniors-fete-20-47-histoire-squats-geneve-conference-causerie-balades.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10515,7 +10700,7 @@
       "imageUrl": "/images/events/ge-agenda-monde-formes-couleurs.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10540,7 +10725,7 @@
       "imageUrl": "/images/events/ge-agenda-creation-jeux-video-marion-bareil-bibliotheque-cite.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10565,7 +10750,7 @@
       "imageUrl": "/images/events/ge-agenda-femme-henry-fevrier-orchestre-chambre-geneve.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10574,7 +10759,14 @@
       "performer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda"
-      }
+      },
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "la-femme-nue-dhenry-fevrier-lorchestre-de-chambre-2026-10-2"
+        }
+      ]
     },
     {
       "id": "ge-agenda:jazz-night-latina-edwin-sanz",
@@ -10590,7 +10782,7 @@
       "imageUrl": "/images/events/ge-agenda-jazz-night-latina-edwin-sanz.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10615,7 +10807,7 @@
       "imageUrl": "/images/events/ge-agenda-cabinet-emerveille-invite-meg.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10640,7 +10832,7 @@
       "imageUrl": "/images/events/ge-agenda-femme-henry-fevrier-orchestre-chambre-geneve-0.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10665,7 +10857,7 @@
       "imageUrl": "/images/events/ge-agenda-charles-esten-jenn-bostic.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10690,7 +10882,7 @@
       "imageUrl": "/images/events/ge-agenda-spectacle-improvisation-perches-jouer.webp",
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-09-28T12:43:19.943Z",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",
@@ -10715,6 +10907,358 @@
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
       "crawledAt": "2026-09-28T12:43:19.943Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:atelier-creez-creation-halloween-chocolat",
+      "title": "Atelier Créez votre création d'Halloween en chocolat",
+      "startDate": "2026-10-01",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Partagez un moment convivial lors d'un atelier chocolat au centre de Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-creez-creation-halloween-chocolat",
+      "imageUrl": "/images/events/ge-agenda-atelier-creez-creation-halloween-chocolat.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:atelier-creez-creation-halloween-chocolat-0",
+      "title": "Atelier Créez votre création d'Halloween en chocolat",
+      "startDate": "2026-10-02",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Partagez un moment convivial lors d'un atelier chocolat au centre de Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-creez-creation-halloween-chocolat-0",
+      "imageUrl": "/images/events/ge-agenda-atelier-creez-creation-halloween-chocolat-0.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:club-8-years-collectif-nocturne",
+      "title": "LE SKI CLUB 8 YEARS x Collectif Nocturne",
+      "startDate": "2026-10-02",
+      "category": "Clubbing",
+      "region": "Genève",
+      "description": "Le Ski Club - Deborah aime la bagarre - Bowmore - Nouvelle Generation French / Bass Music / Techno",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/club-8-years-collectif-nocturne",
+      "imageUrl": "/images/events/ge-agenda-club-8-years-collectif-nocturne.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:store-vetements-seconde-main-enfants",
+      "title": "POP-UP STORE VÊTEMENTS SECONDE MAIN ENFANTS",
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-03",
+      "category": "Marché – Stand",
+      "region": "Genève",
+      "description": "TooSmall organise son pop-up store automne-hiver 2026 dénicher des vêtements de seconde main pour les enfants de 0 à 12 ans, sortie en famille ! boissons Maison Loulou exposition Celeste Hay.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/store-vetements-seconde-main-enfants",
+      "imageUrl": "/images/events/ge-agenda-store-vetements-seconde-main-enfants.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:dimanche-futur",
+      "title": "Dimanche du futur",
+      "startDate": "2026-10-04",
+      "category": "Animation",
+      "region": "Genève",
+      "description": "Les dimanches du futur au MEG. Chaque premiers dimanche du mois de juin à décembre 2026.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/dimanche-futur",
+      "imageUrl": "/images/events/ge-agenda-dimanche-futur.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:votation-2032",
+      "title": "Votation 2032",
+      "startDate": "2026-10-06",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "​Pendant trois heures, cet atelier de prospective simule une campagne de votation genevoise. L'atelier forme aux outils d'IA générative et au débat démocratique à l'ère du numérique.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/votation-2032",
+      "imageUrl": "/images/events/ge-agenda-votation-2032.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:atelier-creez-creation-halloween-chocolat-1",
+      "title": "Atelier Créez votre création d'Halloween en chocolat",
+      "startDate": "2026-10-08",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Partagez un moment convivial lors d'un atelier chocolat au centre de Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-creez-creation-halloween-chocolat-1",
+      "imageUrl": "/images/events/ge-agenda-atelier-creez-creation-halloween-chocolat-1.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:rencontre-discussion-penser-futur-relation-temps",
+      "title": "Rencontre et discussion: Penser le futur dans sa relation au temps.",
+      "startDate": "2026-10-08",
+      "category": "Conférence - Rencontre",
+      "region": "Genève",
+      "description": "Une discussion ouverte à tous et toute qui explore la question du futur dans sa relation au temps. Exposition temporaire. Jeudi 8 octobre de 18h30 à 19h30.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/rencontre-discussion-penser-futur-relation-temps",
+      "imageUrl": "/images/events/ge-agenda-rencontre-discussion-penser-futur-relation-temps.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:mouvements-singuliers-jeudi-8-dimanche-11-octobre-2026",
+      "title": "Mouvements Singuliers / du jeudi 8 au dimanche 11 octobre 2026",
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-11",
+      "category": "Festival",
+      "region": "Genève",
+      "description": "Expositions arts plastiques et arts vivants - Débat / échanges - Représentations théâtrales et musicales.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/mouvements-singuliers-jeudi-8-dimanche-11-octobre-2026",
+      "imageUrl": "/images/events/ge-agenda-mouvements-singuliers-jeudi-8-dimanche-11-octobre-2026.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:atelier-creez-creation-halloween-chocolat-2",
+      "title": "Atelier Créez votre création d'Halloween en chocolat",
+      "startDate": "2026-10-09",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Partagez un moment convivial lors d'un atelier chocolat au centre de Genève",
+      "comune": "Genève",
+      "comuneMatch": "exact",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-creez-creation-halloween-chocolat-2",
+      "imageUrl": "/images/events/ge-agenda-atelier-creez-creation-halloween-chocolat-2.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:grand-tasting-dialogue-vigneronnes-vignerons",
+      "title": "Grand Tasting: dialogue avec vigneronnes et vignerons",
+      "startDate": "2026-10-10",
+      "category": "Manifestation – Salon",
+      "region": "Genève",
+      "description": "Au Grand Tasting le 10 octobre à Plainpalais, plus de 50 vigneronnes et vignerons présentent leur domaine et leur savoir-faire. Une journée d'échanges et de découverte du vin, ouverte au grand public.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/grand-tasting-dialogue-vigneronnes-vignerons",
+      "imageUrl": "/images/events/ge-agenda-grand-tasting-dialogue-vigneronnes-vignerons.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:chants-oiseaux",
+      "title": "Chants d'oiseaux",
+      "startDate": "2026-10-10",
+      "category": "Concert",
+      "region": "Genève",
+      "description": "Et si la musique nous faisait entrer dans la tête d'un oiseau ? De Harvey à Bauckholt et Meier Wiratunga, chants, cris et vols deviennent matière à une fascinante expérience sonore.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/chants-oiseaux",
+      "imageUrl": "/images/events/ge-agenda-chants-oiseaux.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:yoshi-samourai-peur-rien-autres-contes-japonais",
+      "title": "« Yoshi la samouraï qui n'a peur de rien ” et autres contes japonais",
+      "startDate": "2026-10-14",
+      "category": "Animation",
+      "region": "Genève",
+      "description": "Dans le cadre des Mercredis famille de la Fondation - Un mercredi après-midi pour s'émerveiller, s'amuser et créer! Découvrez le musée de la Fondation Martin Bodmer autrement, en famille.",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/yoshi-samourai-peur-rien-autres-contes-japonais",
+      "imageUrl": "/images/events/ge-agenda-yoshi-samourai-peur-rien-autres-contes-japonais.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda",
+        "url": "https://www.geneve.ch/agenda"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ville de Genève Agenda"
+      }
+    },
+    {
+      "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster",
+      "title": "Atelier chocolat pour les enfants - Chocolate monster",
+      "startDate": "2026-10-14",
+      "category": "Atelier",
+      "region": "Genève",
+      "description": "Chocolat créatif",
+      "comune": "Genève",
+      "comuneMatch": "region",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-chocolat-enfants-chocolate-monster",
+      "imageUrl": "/images/events/ge-agenda-atelier-chocolat-enfants-chocolate-monster.webp",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "crawledAt": "2026-09-29T12:17:34.336Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ville de Genève Agenda",

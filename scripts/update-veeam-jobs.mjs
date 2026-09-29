@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllVeeamJobs,
   isVeeamJob,
@@ -25,6 +26,13 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllVeeamJobs,
   isCompanyJob: isVeeamJob,
+  // Publish a zero only when the Greenhouse board answered with open jobs and
+  // none of them is Swiss (see `provenEmptySwissBatch`). `empty-only` keeps
+  // the ordinary miss-grace path for a non-empty batch; an unproven zero keeps
+  // the previous slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(VEEAM_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {

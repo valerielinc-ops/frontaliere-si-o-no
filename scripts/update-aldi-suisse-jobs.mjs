@@ -166,8 +166,11 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
 
   // REST row holds the canonical structured fields; the detail page only
   // supplies the prose body + bullet requirements.
-  let description = parsed.body || '';
-  if (description.length > 8000) description = description.slice(0, 8000);
+  // Only the posting's own text is published. A detail page that parsed to
+  // no body (expired vacancy, template drift) yields no job rather than the
+  // old invented "Posizione aperta presso ALDI SUISSE. {title}." filler.
+  const description = parsed.body || '';
+  if (!description) return null;
   const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
   const location = listing.city || parsed.location || '';
   const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');
@@ -188,8 +191,8 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
     companyDomain: 'aldi.ch',
     title: rawTitle,
     titleByLocale: { it: rawTitle },
-    description: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.`,
-    descriptionByLocale: { it: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.` },
+    description,
+    descriptionByLocale: { it: description },
     requirements: requirements.slice(0, 20),
     requirementsByLocale: { it: requirements.slice(0, 20) },
     location,
@@ -267,7 +270,7 @@ async function fetchAndParseDetailPages(listings) {
   }
 
   if (droppedNoCanton > 0) {
-    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no fixed-canton default)`);
+    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no fixed-canton default) or no posting body`);
   }
 
   return jobs;

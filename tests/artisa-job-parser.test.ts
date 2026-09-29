@@ -94,21 +94,21 @@ describe('buildArtisaLocalizedContent', () => {
       detailDescription: '## Posizione\nDescrizione ricca dal form Smartsheet con tutti i dettagli del ruolo.',
     });
     expect(result.descriptionByLocale.it).toContain('Descrizione ricca dal form Smartsheet');
-    // Other locales should be empty (to be filled by AI translation)
-    expect(result.descriptionByLocale.en).toBe('');
-    expect(result.descriptionByLocale.de).toBe('');
-    expect(result.descriptionByLocale.fr).toBe('');
+    expect(result.description).toBe(result.descriptionByLocale.it);
+    expect(result.sourceLang).toBe('it');
+    // Only the source slot: the other locales are filled by the translation step
+    expect(Object.keys(result.descriptionByLocale)).toEqual(['it']);
   });
 
-  it('falls back to generic description when no detailDescription', () => {
+  it('gives a vacancy without form text no description instead of a template', () => {
     const result = buildArtisaLocalizedContent({
       title: 'Architetto qualificato',
       location: 'Lugano',
     });
-    expect(result.descriptionByLocale.it).toContain('Posizione aperta');
-    expect(result.descriptionByLocale.en).toContain('Open position');
-    expect(result.descriptionByLocale.de).toContain('Offene Stelle');
-    expect(result.descriptionByLocale.fr).toContain('Poste ouvert');
+    expect(result.description).toBe('');
+    expect(result.descriptionByLocale).toEqual({});
+    expect(JSON.stringify(result)).not.toMatch(/Posizione aperta|Open position|Offene Stelle|Poste ouvert/);
+    expect(result.slugByLocale.it).toContain('architetto-qualificato');
   });
 });
 

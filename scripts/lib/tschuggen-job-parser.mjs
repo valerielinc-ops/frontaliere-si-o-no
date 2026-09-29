@@ -25,7 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { mergeUmantisListing } from './umantis-listing-merge.mjs';
 
@@ -325,47 +325,51 @@ export function parseTschuggenDetailPage(html = '', fallbackTitle = '') {
     }
   }
 
-  // Collect description blocks: all <p> content within <div class="col-12">
-  // Strategy: find all <p>...</p> blocks in content area, skip very short or empty ones
-  const blocks = [];
-  const pRegex = /<p>([\s\S]*?)<\/p>/g;
-  let pMatch;
-  let inContent = false;
-
-  // Only parse content after the <div id="content"> marker
+  // Walk the content column in page order: each `<h2>` heading followed by
+  // its `<p>` body. Line breaks inside a paragraph are the ad's list items
+  // («- Abgeschlossene Berufsausbildung…<br>- …»), so they are kept as lines
+  // and the dash items become bullets. Joining every paragraph with « | » on
+  // one line published 4 of 5 descriptions without any structure (issue 5253).
   const contentStart = html.indexOf('<div id="content">');
-  const contentHtml = contentStart >= 0 ? html.substring(contentStart) : html;
-
-  while ((pMatch = pRegex.exec(contentHtml)) !== null) {
-    const rawContent = pMatch[1];
-    // Strip base64 images and HTML tags, then clean up
-    const cleaned = normalizeSpace(
-      stripHtml(
-        decodeEntities(
-          rawContent.replace(/<img[^>]*>/g, '')
-        )
-      )
-    );
-    if (cleaned.length > 15) {
-      blocks.push(cleaned);
-    }
-  }
-
-  // Also extract section headings (h2) for context
-  const h2Regex = /<h2[^>]*>([\s\S]*?)<\/h2>/g;
-  let h2Match;
+  const contentHtml = stripScriptsAndStyles(contentStart >= 0 ? html.substring(contentStart) : html)
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    // Inside a paragraph an inline icon image is the template's bullet marker
+    // (benefits list), and a `display:block` span starts a new line.
+    .replace(/<img[^>]*>/gi, '\n- ')
+    .replace(/<span\b[^>]*display\s*:\s*block[^>]*>/gi, '\n');
   const sections = [];
-
-  const contentHtml2 = contentStart >= 0 ? html.substring(contentStart) : html;
-  while ((h2Match = h2Regex.exec(contentHtml2)) !== null) {
-    const heading = normalizeSpace(stripHtml(decodeEntities(h2Match[1])));
-    if (heading.length > 2) {
-      sections.push(heading);
+  const parts = [];
+  for (const m of contentHtml.matchAll(/<(h2|p)\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+    if (m[1].toLowerCase() === 'h2') {
+      const heading = normalizeSpace(stripHtml(decodeEntities(m[2]))
+        .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+        // Section icons (🎯 📄) are decoration, not part of the heading.
+        .replace(/\p{Extended_Pictographic}|\uFE0F/gu, ''));
+      if (heading.length > 2) {
+        sections.push(heading);
+        parts.push({ heading });
+      }
+      continue;
     }
+    const text = normalizeDescriptionSpace(stripHtml(decodeEntities(m[2].replace(/<h2\b[\s\S]*?<\/h2>/gi, ' '))))
+      .split('\n')
+      .map((line) => line.replace(/^[-–]\s*/, '• ').trim())
+      .filter(Boolean)
+      .join('\n');
+    if (text.length > 15) parts.push({ text });
   }
-
-  // Build description: join all meaningful blocks
-  const description = blocks.join(' | ');
+  const blocks = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i].heading) {
+      if (parts[i + 1]?.text) {
+        blocks.push(`${parts[i].heading}\n${parts[i + 1].text}`);
+        i += 1;
+      }
+      continue;
+    }
+    blocks.push(parts[i].text);
+  }
+  const description = blocks.join('\n\n');
 
   return { title, description, hotelName, sections };
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 626,
+  "crawlerCount": 624,
   "groups": {
     "10": [
       "atec-personal",
@@ -174,7 +174,6 @@
       "kanton-solothurn",
       "klinik-adelheid",
       "mabetex",
-      "my",
       "octapharma",
       "pfister",
       "recruitingapp-2563",
@@ -597,7 +596,6 @@
       "groupe-mutuel",
       "guess-europe",
       "guggerbach",
-      "im-bethesda-spital",
       "kzu",
       "lonza",
       "medtronic",
@@ -960,7 +958,6 @@
     "igroove": "data/jobs/by-crawler/igroove.json",
     "igs-bern": "data/jobs/by-crawler/igs-bern.json",
     "ikea": "data/jobs/by-crawler/ikea.json",
-    "im-bethesda-spital": "data/jobs/by-crawler/im-bethesda-spital.json",
     "imad": "data/jobs/by-crawler/imad.json",
     "imerys": "data/jobs/by-crawler/imerys.json",
     "implenia": "data/jobs/by-crawler/implenia.json",
@@ -1072,7 +1069,6 @@
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
     "mueller-steinmaur": "data/jobs/by-crawler/mueller-steinmaur.json",
-    "my": "data/jobs/by-crawler/my.json",
     "nant": "data/jobs/by-crawler/nant.json",
     "neoproconseils": "data/jobs/by-crawler/neoproconseils.json",
     "nestle": "data/jobs/by-crawler/nestle.json",
@@ -1306,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:f0bc788effb635b763933c21762a9e92407722d5f43acadf2fc4384f7105e120"
+  "digest": "sha256:ce18be902d7c896fe4a39f6a8af05e499e85a63464512f7076191420d5ac1680"
 }

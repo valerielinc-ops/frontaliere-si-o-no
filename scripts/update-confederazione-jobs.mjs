@@ -78,7 +78,10 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { recordUniquePageProgress } from './lib/pagination-identity.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
+} from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -335,10 +338,13 @@ async function fetchNationalListings() {
   const maxPages = 1000;
   let declaredTotal = null;
   let pageCount = 0;
-  const sourceIdentities = new Set();
+  const progress = createMutableFeedPaginationTracker({
+    getIdentity: (job) => job?.viewkey || job?.id,
+    source: 'Confederazione API',
+  });
 
-  while (true) {
-    const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
+  const fetchPage = async (pageOffset) => {
+    const url = `${API_BASE}?lang=it&offset=${pageOffset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
     const data = await fetchJson(url, {
@@ -351,16 +357,25 @@ async function fetchNationalListings() {
     const rawItems = data?.jobs;
     assertJsonListShape(data, { key: 'jobs', source: 'confederazione:CH' });
     if (!Array.isArray(rawItems)) {
-      throw new Error(`Confederazione API pagination failed at offset ${offset}: expected jobs array.`);
+      throw new Error(`Confederazione API pagination failed at offset ${pageOffset}: expected jobs array.`);
     }
-    const items = rawItems.map(parseApiJob);
-    recordUniquePageProgress(sourceIdentities, items, {
-      getIdentity: (job) => job?.viewkey || job?.id,
-      source: 'Confederazione API',
-      page: `offset ${offset}`,
-    });
+    return { data, items: rawItems.map(parseApiJob) };
+  };
 
-    const rawTotal = data?.total;
+  while (true) {
+    let page = await fetchPage(offset);
+    const recorded = await recordMutableFeedPageWithRetry({
+      tracker: progress,
+      items: page.items,
+      page: `offset ${offset}`,
+      reload: async () => {
+        page = await fetchPage(offset);
+        return page.items;
+      },
+    });
+    const items = recorded.items;
+
+    const rawTotal = page.data?.total;
     if (rawTotal !== undefined && rawTotal !== null && rawTotal !== '') {
       const pageTotal = Number(rawTotal);
       if (!Number.isFinite(pageTotal) || pageTotal < 0) {
@@ -381,11 +396,11 @@ async function fetchNationalListings() {
     allItems.push(...items);
     pageCount += 1;
 
-    if (declaredTotal !== null && sourceIdentities.size >= declaredTotal) break;
+    if (progress.hasReached(declaredTotal)) break;
     if (items.length === 0) {
-      if (declaredTotal !== null && sourceIdentities.size < declaredTotal) {
+      if (declaredTotal !== null && progress.scannedRows < declaredTotal) {
         throw new Error(
-          `Confederazione API pagination incomplete: received ${sourceIdentities.size} of ${declaredTotal} declared jobs.`,
+          `Confederazione API pagination incomplete: received ${progress.scannedRows} of ${declaredTotal} declared rows (${progress.uniqueCount} unique).`,
         );
       }
       break;
@@ -393,13 +408,14 @@ async function fetchNationalListings() {
     if (pageCount >= maxPages) {
       throw new Error(
         `Confederazione API pagination incomplete after ${pageCount} pages: ` +
-          `${sourceIdentities.size} jobs received${declaredTotal !== null ? ` of ${declaredTotal} declared` : ''}.`,
+          `${progress.scannedRows} rows received (${progress.uniqueCount} unique)` +
+          `${declaredTotal !== null ? ` of ${declaredTotal} declared` : ''}.`,
       );
     }
     offset += limit;
   }
 
-  console.log(`  CH: ${declaredTotal ?? 'unknown'} declared jobs; ${sourceIdentities.size} unique source records read from API`);
+  console.log(`  CH: ${declaredTotal ?? 'unknown'} declared jobs; ${progress.scannedRows} source rows (${progress.uniqueCount} unique records) read from API`);
   return allItems;
 }
 

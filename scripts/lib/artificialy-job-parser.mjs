@@ -19,6 +19,7 @@ import {
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 
@@ -288,22 +289,27 @@ export function inferArtificialyCategory(title = '') {
 
 /**
  * Build localized content for an Artificialy job.
+ *
+ * The description is the posting text only, in the slot of its own language
+ * (`sourceLang`, detected by the runner) — issue 5253. The builder used to
+ * copy it into all four slots, so the Italian, English, German and French
+ * pages carried the same untranslated text and translation never replaced
+ * them, and without a text it wrote "Artificialy cerca <title> con sede a
+ * <place>. Azienda svizzera specializzata in intelligenza artificiale…" in
+ * all four. A posting without text, or under the shared 50-word floor, now
+ * gets no description and takes the thin-source path of the pipeline.
  */
 export function buildArtificialyLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || 'Lugano').trim();
-  const description = String(job.description || '').trim();
-
-  const fallbackDesc = `Artificialy cerca ${title} con sede a ${location}. Azienda svizzera specializzata in intelligenza artificiale con sedi a Lugano e Zurigo. Candidati online su artificialy.com.`;
+  const text = String(job.description || '').trim();
+  const description = meetsSourceBodyFloor(text) ? text : '';
+  const sourceLang = String(job.sourceLang || '').trim() || 'it';
 
   return {
+    description,
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
-    },
+    descriptionByLocale: description ? { [sourceLang]: description } : {},
     slugByLocale: {
       it: slugify(`${title} artificialy ${location}`),
       en: slugify(`${title} artificialy ${location}`),

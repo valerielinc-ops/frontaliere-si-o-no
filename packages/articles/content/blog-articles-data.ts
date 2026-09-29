@@ -36844,6 +36844,42 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'cst-clausola-salvaguardia-tassa',
+ category: 'novita',
+ date: '2026-09-29T11:47:01.534Z',
+ image: '/images/blog/cst-clausola-salvaguardia-tassa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'stangata-premi-cassa-malati-ticino',
+ category: 'novita',
+ date: '2026-09-29T12:24:49.493Z',
+ image: '/images/blog/stangata-premi-cassa-malati-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'lamal-premi-ticino-triplicati',
+ category: 'novita',
+ date: '2026-09-29T14:13:39.946Z',
+ image: '/images/blog/lamal-premi-ticino-triplicati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'mobilita-lombardia-ticino-2026',
+ category: 'novita',
+ date: '2026-09-29T15:04:17.294Z',
+ image: '/images/blog/mobilita-lombardia-ticino-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -81,6 +81,32 @@ export function richTextToLines(html = '') {
     .trim();
 }
 
+/**
+ * Drop the CMS template's untouched placeholder pairs from a rich-text body.
+ *
+ * An ad whose editor never filled the template renders every section as its
+ * heading followed by `Text <heading>` (`Einleitung` / `Text Einleitung`,
+ * `Wir bieten` / `Text wir bieten`, measured on `_j_3940215`, 2026-09-29; the
+ * ABACUS portal behind the apply button carries the same `Text Einleitung`).
+ * Publishing those 157 characters shipped a vacancy whose whole body is
+ * template filler. Each heading/`Text <heading>` pair is removed; real prose
+ * that merely starts with the word "Text" survives because it does not repeat
+ * the heading above it.
+ */
+export function stripTemplatePlaceholders(text = '') {
+  const fold = (value) => String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  const out = [];
+  for (const line of String(text || '').split('\n')) {
+    const placeholder = /^text\s+(.+)$/i.exec(line.trim());
+    if (placeholder && out.length && fold(out[out.length - 1]) === fold(placeholder[1])) {
+      out.pop();
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join('\n').trim();
+}
+
 export function slugify(value = '') {
   return truncateSlugAtWordBoundary(String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-'), 180);
@@ -263,15 +289,21 @@ export function parseDavosKlostersBergbahnenDetailHtml(html) {
   // i.e. the job body immediately following the title/meta-list, never the
   // page-level alert banner above the title.
   let description = '';
+  let placeholderOnly = false;
   const wysiwygMatch = bodyScope.match(/<div[^>]*class="[^"]*\bwysiwyg\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|$)/i);
   if (wysiwygMatch) {
-    description = richTextToLines(wysiwygMatch[1]);
+    const raw = richTextToLines(wysiwygMatch[1]);
+    description = stripTemplatePlaceholders(raw);
+    placeholderOnly = Boolean(raw) && !description;
   }
 
   // Fallback: still bounded to the per-job scope — take the text after the
   // title but cut off at the first footer / nav / notification boundary so we
   // never re-absorb the shared page chrome the wysiwyg scoping just excluded.
-  if (!description || description.length < 30) {
+  // Not for a body that was ALL template placeholders: the region after the
+  // title is then only the contact teaser and the "Ähnliche Jobs" list, i.e.
+  // chrome, and an empty description is the truthful reading.
+  if (!placeholderOnly && (!description || description.length < 30)) {
     const cut = bodyScope.search(/<footer[\s>]|<nav[\s>]|class="[^"]*(?:footer|site-alert|notification|megamenu)/i);
     const region = cut >= 0 ? bodyScope.slice(0, cut) : bodyScope;
     const text = richTextToLines(region);

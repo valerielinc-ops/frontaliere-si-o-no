@@ -497,8 +497,12 @@ export async function fetchAllIntegraBiosciencesJobs() {
     }
     const contract = (pensumMax && pensumMax < 90) ? 'part-time' : 'full-time';
 
-    // Source language: titles are often German or English (mixed)
-    const sourceLang = detectLang(title, 'en');
+    // Source language of the vacancy body read from the detail page; the
+    // title (often English on German postings) only when no body was read.
+    const sourceLang = detectLang(
+      detail.description && detail.description.length >= 30 ? detail.description : title,
+      'en',
+    );
 
     const job = {
       // ── Required fields ──

@@ -1,14 +1,15 @@
 /**
  * Thin Description Guard — Tests for crawler description minimum word count.
  *
- * Verifies that all 8 crawlers that had thin description issues produce
- * descriptions with >= 50 words when detail pages return empty/thin content.
+ * Verifies that the crawlers that had thin description issues produce
+ * descriptions with >= 50 words when detail pages return empty/thin content
+ * (mks-pamp: returns none instead — source-only rule, see its section).
  *
  * Crawlers tested:
- *  1. grand-hotel-kronenhof (Kulm Group)
- *  2. afry
+ *  1. grand-hotel-kronenhof (no fallback body since issue 5253: see grand-hotel-kronenhof-crawler.test.ts)
+ *  2. afry — no longer padded: see its section
  *  3. volg-fenaco (no fallback body since issue 5253: see volg-crawler.test.ts)
- *  4. agie-charmilles (GF Machining Solutions)
+ *  4. agie-charmilles (GF Machining Solutions) — no longer padded: see its section
  *  5. mks-pamp
  *  6. centiel
  *  7. confederazione-ticino
@@ -49,70 +50,47 @@ function wordCount(s: string): number {
 }
 
 // ─── 1. Grand Hotel Kronenhof ──────────────────────────────────────────────
-// The buildJob function is not exported, so we replicate the fallback logic.
-
-describe('Grand Hotel Kronenhof — fallback descriptions >= 50 words', () => {
-  function buildKronenhofFallback(title: string, company: string, city: string) {
-    const durationLabel = 'Saisonstelle / Seasonal';
-    const workload = '100%';
-    const metaLine = [
-      `${title} — ${company}, ${city} (Engadin, Graubünden).`,
-      `Pensum: ${workload}. Vertrag: ${durationLabel}.`,
-    ].filter(Boolean).join(' ');
-
-    return [
-      metaLine,
-      `Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels im Engadin: das Grand Hotel Kronenhof in Pontresina und das Kulm Hotel in St. Moritz.`,
-      `Beide Häuser stehen für Schweizer Luxushotellerie auf höchstem Niveau mit einer langen Tradition, erstklassigem Service und einem engagierten internationalen Team.`,
-      `Als Arbeitgeber bieten wir: Personalunterkunft in der Engadiner Bergwelt, vergünstigte Verpflegung, umfassende Weiterbildungsmöglichkeiten, attraktive Mitarbeitervergünstigungen und ein inspirierendes Arbeitsumfeld in einer der schönsten Regionen der Schweiz.`,
-      `Die Kulm Gruppe beschäftigt rund 500 Mitarbeitende und bietet vielfältige Karrieremöglichkeiten in Gastronomie, Küche, Housekeeping, Front Office, Spa, Events und Administration.`,
-      `Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies`,
-    ].join(' ');
-  }
-
-  it('Kronenhof hotel job fallback is >= 50 words', () => {
-    const desc = buildKronenhofFallback('Breakfast Cook (m/w/d)', 'Grand Hotel Kronenhof', 'Pontresina');
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('Kulm hotel job fallback is >= 50 words', () => {
-    const desc = buildKronenhofFallback('Team Assistant Concierge (m/w/d)', 'Kulm Hotel St. Moritz', 'St. Moritz');
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
+// No fallback body any more: a vacancy without a detail body keeps the source
+// text read before or is not published (tests/grand-hotel-kronenhof-crawler.test.ts,
+// issue 5253).
 
 // ─── 2. AFRY ───────────────────────────────────────────────────────────────
+// No longer padded: a short posting keeps its own text and a posting without
+// text gets NO description (the pipeline's thin-source path) instead of a
+// paragraph about AFRY that the source never published.
 
-describe('AFRY — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail description is empty', () => {
+describe('AFRY — the posting text, never a padded paragraph', () => {
+  it('gives a posting without text no description', () => {
     const result = buildAfryLocalizedContent({
       title: 'Geologo Junior (f/m/d) 80-100%',
       location: 'Airolo',
       description: '',
       competenceArea: 'Civil & Structural Engineering',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('produces >= 50 words when detail description is thin (< 50 words)', () => {
+  it('keeps a thin posting as it is', () => {
     const result = buildAfryLocalizedContent({
       title: 'Projektingenieur:in Kunstbauten 80-100%',
       location: 'Chur',
       description: 'Planning and execution of bridge construction projects.',
       competenceArea: 'Civil Engineering',
+      sourceLang: 'en',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({ en: 'Planning and execution of bridge construction projects.' });
   });
 
-  it('uses original description when >= 50 words', () => {
+  it('uses the original description when >= 50 words', () => {
     const richDesc = Array(60).fill('word').join(' ');
     const result = buildAfryLocalizedContent({
       title: 'Test Engineer',
       location: 'Bellinzona',
       description: richDesc,
       competenceArea: 'Testing',
+      sourceLang: 'en',
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(result.descriptionByLocale.en).toBe(richDesc);
   });
 });
 
@@ -121,28 +99,30 @@ describe('AFRY — fallback descriptions >= 50 words', () => {
 // text read before or is not published (tests/volg-crawler.test.ts, issue 5253).
 
 // ─── 4. AGIE Charmilles ────────────────────────────────────────────────────
+// No longer padded: a posting without detail text gets NO description (the
+// pipeline's thin-source path) instead of a company paragraph in four
+// languages that the source never published.
 
-describe('AGIE Charmilles — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail description is empty', () => {
+describe('AGIE Charmilles — the detail text, never a padded paragraph', () => {
+  it('gives a posting without detail text no description', () => {
     const result = buildAgieCharmillesLocalizedContent({
       title: 'Software Engineer Expert - R&D',
       city: 'Losone',
       detailDescription: '',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
-    expect(wordCount(result.descriptionByLocale.en)).toBeGreaterThanOrEqual(MIN_WORDS);
-    expect(wordCount(result.descriptionByLocale.de)).toBeGreaterThanOrEqual(MIN_WORDS);
-    expect(wordCount(result.descriptionByLocale.fr)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.description).toBe('');
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('uses detail description when >= 50 words', () => {
-    const richDesc = Array(60).fill('word').join(' ');
+  it('uses the detail description whatever its length, in its own slot only', () => {
+    const shortDesc = 'Wartung und Inbetriebnahme von Drahterodiermaschinen beim Kunden.';
     const result = buildAgieCharmillesLocalizedContent({
-      title: 'PLC Engineer',
-      city: 'Losone',
-      detailDescription: richDesc,
+      title: 'Servicetechniker',
+      city: 'Biel/Bienne',
+      language: 'de',
+      detailDescription: shortDesc,
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(result.descriptionByLocale).toEqual({ de: shortDesc });
   });
 
   it('parseAgieCharmillesDetailPage returns empty for thin HTML', () => {
@@ -153,28 +133,32 @@ describe('AGIE Charmilles — fallback descriptions >= 50 words', () => {
 
 // ─── 5. MKS PAMP ──────────────────────────────────────────────────────────
 
-describe('MKS PAMP — fallback descriptions >= 50 words', () => {
-  it('produces >= 50 words when detail and RSS descriptions are thin', () => {
+// Source-only rule (lot D, 2026-09-29): a thin or empty posting no longer gets
+// a company paragraph padded to 50 words — the builder returns no description
+// and the runner keeps the stored source text or does not publish the job
+// (covered in tests/mks-pamp-crawler.test.ts).
+describe('MKS PAMP — no padded fallback, source text only', () => {
+  it('returns no description when detail and RSS descriptions are thin', () => {
     const result = buildMksPampLocalizedContent({
       title: 'HR Business Partner',
       city: 'Castel San Pietro',
       descriptionHtml: '<p>Manage HR functions.</p>',
       detailDescription: '',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('produces >= 50 words with empty descriptions', () => {
+  it('returns no description with empty descriptions', () => {
     const result = buildMksPampLocalizedContent({
       title: 'Metal & Inventory Controller',
       city: 'Castel San Pietro',
       descriptionHtml: '',
       detailDescription: '',
     });
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
-  it('strips HTML from descriptionHtml before counting words', () => {
+  it('counts words after stripping HTML: tag-heavy thin content is still thin', () => {
     const htmlDesc = '<p><strong>Some</strong> <em>HTML</em> content with <b>tags</b> but only a few real words.</p>';
     const result = buildMksPampLocalizedContent({
       title: 'Test Role',
@@ -182,8 +166,7 @@ describe('MKS PAMP — fallback descriptions >= 50 words', () => {
       descriptionHtml: htmlDesc,
       detailDescription: '',
     });
-    // HTML-heavy but thin content should trigger fallback
-    expect(wordCount(result.descriptionByLocale.it)).toBeGreaterThanOrEqual(MIN_WORDS);
+    expect(result.descriptionByLocale).toEqual({});
   });
 
   it('uses detail description when >= 50 words', () => {
@@ -194,116 +177,36 @@ describe('MKS PAMP — fallback descriptions >= 50 words', () => {
       descriptionHtml: '',
       detailDescription: richDesc,
     });
-    expect(result.descriptionByLocale.it).toContain(richDesc);
+    expect(result.description).toContain(richDesc);
+    expect(result.descriptionByLocale[result.sourceLang]).toBe(result.description);
+    expect(wordCount(result.description)).toBeGreaterThanOrEqual(MIN_WORDS);
   });
 });
 
 // ─── 6. Centiel ────────────────────────────────────────────────────────────
-// buildJob is not exported, so we replicate the enrichment logic.
-
-describe('Centiel — fallback descriptions >= 50 words', () => {
-  function buildCentielDescription(title: string, desc: string, reportingTo: string, workingRate: string) {
-    const wc = desc.split(/\s+/).filter(Boolean).length;
-    if (wc >= 50) return desc;
-    const parts = [
-      `${title} — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.`,
-      reportingTo ? `Reporting to: ${reportingTo}.` : '',
-      workingRate ? `Working rate: ${workingRate}.` : '',
-      desc ? `\n${desc}` : '',
-      `\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.`,
-      `\nWorkplace: Cadro (Lugano), Via alla Stampa 15, CH-6965.`,
-      `Apply via: https://www.centiel.com/careers/`,
-    ];
-    return parts.filter(Boolean).join('\n').trim();
-  }
-
-  it('enriches thin After-Sales Technician description', () => {
-    const desc = buildCentielDescription(
-      'After-Sales Technician',
-      'Provide technical support for UPS systems.',
-      'Technical Director',
-      '100%',
-    );
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('produces >= 50 words even with empty original description', () => {
-    const desc = buildCentielDescription('Test Engineer', '', '', '');
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
+// A copy of the runner's padding used to be tested here ("<title> — Centiel,
+// Cadro (Lugano)…", a paragraph about Centiel and "Apply via: …" below 50
+// words): it tested the copy, not update-centiel-jobs.mjs, whose own tests
+// are in tests/centiel-crawler.test.ts (issue 5253).
 
 // ─── 7. Confederazione Ticino ──────────────────────────────────────────────
-// buildLocalizedContent is not exported, so we replicate the logic.
+// Same: a copy of update-confederazione-jobs.mjs's padding ("Posizione
+// nell'Amministrazione federale svizzera…", a paragraph about the federal
+// administration, "Candidati online su jobs.admin.ch.") tested the copy,
+// not the runner. The runner's padding is removed, with its tests, by lot D
+// in #10333 (issue 5253).
 
-describe('Confederazione Ticino — fallback descriptions >= 50 words', () => {
-  function buildConfederazioneDescription(
-    title: string, dept: string, city: string, description: string,
-    sourceLang: string, pensum: string, fieldOfActivity: string,
-  ) {
-    const descWordCount = description.split(/\s+/).filter(Boolean).length;
-    if (descWordCount >= 50) return description;
+// ─── 8. ensureMinimumDescriptionWordCount (volg, spruengli, empa; USI) ─────
+// It no longer pads (issue 5253): below 50 words it used to append a company
+// paragraph from COMPANY_BOILERPLATE_IT behind a "## title / **company** —
+// place" header. The removal of those stored paragraphs is tested in
+// tests/company-boilerplate-fossils.test.ts.
 
-    if (sourceLang === 'de') {
-      const pensumText = pensum ? ` Beschäftigungsgrad: ${pensum}.` : '';
-      const fieldText = fieldOfActivity ? ` Bereich: ${fieldOfActivity}.` : '';
-      return [
-        `${title} — ${dept}, ${city}.`,
-        `Stelle in der Schweizerischen Bundesverwaltung (Schweizerische Eidgenossenschaft).`,
-        description || '',
-        `${fieldText}${pensumText}`,
-        `Die Schweizerische Eidgenossenschaft ist einer der grössten Arbeitgeber des Landes mit modernen Anstellungsbedingungen, Weiterbildungsmöglichkeiten, flexiblen Arbeitszeiten und wettbewerbsfähigen Sozialleistungen. Die Bundesverwaltung setzt sich für Chancengleichheit ein und fördert ein inklusives und vielfältiges Arbeitsumfeld.`,
-        `Bewerben Sie sich online auf jobs.admin.ch.`,
-      ].filter(Boolean).join('\n');
-    }
-
-    const pensumText = pensum ? ` Grado di occupazione: ${pensum}.` : '';
-    const fieldText = fieldOfActivity ? ` Settore: ${fieldOfActivity}.` : '';
-    return [
-      `${title} — ${dept}, ${city}.`,
-      `Posizione nell'Amministrazione federale svizzera (Confederazione Svizzera).`,
-      description || '',
-      `${fieldText}${pensumText}`,
-      `La Confederazione Svizzera è uno dei maggiori datori di lavoro del Paese, con condizioni di impiego moderne, opportunità di formazione continua, orari di lavoro flessibili e prestazioni sociali competitive. L'Amministrazione federale si impegna per le pari opportunità e promuove un ambiente di lavoro inclusivo e diversificato.`,
-      `Candidati online su jobs.admin.ch.`,
-    ].filter(Boolean).join('\n');
-  }
-
-  it('enriches German apprenticeship listing (49 words -> >= 50)', () => {
-    const shortDesc = 'Kaufmännische Aufgaben in verschiedenen Bereichen erlernen und erledigen\nRechnungen verbuchen und bearbeiten\nTägliche Korrespondenz bearbeiten\nVerantwortung für kleinere Projekte übernehmen\nSitzungen und/oder kleinere Anlässe organisieren und daran teilnehmen\n\nSekundarschulabschluss\nFreude an Sprachen und Zahlen sowie an kaufmännischen Arbeiten\nTeamgeist und Verantwortungsbewusstsein\nInteressierte, offene, initiative und motivierte Person\nSelbstständige Arbeitsweise';
-    const desc = buildConfederazioneDescription(
-      'Lernende Kauffrau EFZ / Lernender Kaufmann EFZ',
-      'Bundesamt für Umwelt',
-      'Bellinzona',
-      shortDesc,
-      'de',
-      '100%',
-      'Verwaltung',
-    );
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-
-  it('enriches Italian thin description', () => {
-    const desc = buildConfederazioneDescription(
-      'Apprendista impiegato/a di commercio AFC',
-      'Ufficio federale',
-      'Bellinzona',
-      'Mansioni amministrative in diversi settori.',
-      'it',
-      '100%',
-      'Amministrazione',
-    );
-    expect(wordCount(desc)).toBeGreaterThanOrEqual(MIN_WORDS);
-  });
-});
-
-// ─── 8. USI (via ensureMinimumDescriptionWordCount) ────────────────────────
-
-describe('ensureMinimumDescriptionWordCount — patches thin descriptions', () => {
-  it('patches job with thin description using company boilerplate', () => {
+describe('ensureMinimumDescriptionWordCount — no padding', () => {
+  it('leaves a thin description of a company that had a paragraph as the source wrote it', () => {
     const jobs = [{
       title: 'PhD Researcher',
-      company: 'USI',
+      company: 'USI – Università della Svizzera italiana',
       location: 'Lugano',
       canton: 'TI',
       addressRegion: 'TI',
@@ -311,13 +214,10 @@ describe('ensureMinimumDescriptionWordCount — patches thin descriptions', () =
       titleByLocale: { it: 'PhD Researcher' },
       descriptionByLocale: { it: 'Short description only.' },
     }];
-    // Note: ensureMinimumDescriptionWordCount relies on getCompanyBoilerplateIT
-    // which may not have a USI entry. In that case, the function returns 0 patches.
-    // The USI crawler also has its own ensureMinimumDescriptionWordCount call.
     const patched = ensureMinimumDescriptionWordCount(jobs, MIN_WORDS);
-    // If USI boilerplate exists, it should patch; otherwise it stays thin
-    // Either way, the function should not crash
-    expect(patched).toBeGreaterThanOrEqual(0);
+    expect(patched).toBe(0);
+    expect(jobs[0].description).toBe('Short description only.');
+    expect(jobs[0].descriptionByLocale).toEqual({ it: 'Short description only.' });
   });
 
   it('does not modify jobs already >= 50 words', () => {

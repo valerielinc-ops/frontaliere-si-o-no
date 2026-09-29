@@ -44,6 +44,7 @@ import {
   parseHitachiEnergyListingJson,
   parseHitachiEnergyDetailPage,
   buildHitachiEnergyLocalizedContent,
+  publishableHitachiEnergyRows,
   isHitachiEnergySwissRelevant,
   inferHitachiEnergyCanton,
   hasMorePages,
@@ -410,7 +411,11 @@ async function main() {
     console.log(`🔄 Deduplicated: ${enrichedListings.length} → ${deduplicated.length} unique jobs`);
   }
 
-  const allBuilt = deduplicated.map(buildHitachiJob);
+  const { rows: withBody, withoutBody } = publishableHitachiEnergyRows(deduplicated);
+  if (withoutBody > 0) {
+    console.log(`  ⏭️ ${withoutBody} listing(s) without vacancy text on the detail page — not published.`);
+  }
+  const allBuilt = withBody.map(buildHitachiJob);
   const jobs = allBuilt.filter((job) => {
     const loc = String(job.addressLocality || job.location || '');
     if (isLocationExplicitlyForeign(loc)) {

@@ -30,13 +30,61 @@
  *   - SEE_SPITAL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
+import {
+  extractUmantisDetailContent,
+  fetchUmantisDetailResult,
+  stripUmantisNonContent,
+} from './umantis-detail-helpers.mjs';
+
+/* ── Detail body ───────────────────────────────────────────── */
+
+function textBlock(fragment = '') {
+  // Source newlines are markup whitespace (the templates hard-wrap long list
+  // items); structure comes from the tags `stripHtml` turns into line breaks.
+  return normalizeDescriptionSpace(stripHtml(String(fragment).replace(/\s*[\r\n]+\s*/g, ' ')))
+    .replace(/\n{2,}(?=• )/g, '\n');
+}
+
+/**
+ * The whole See-Spital ad from a tenant-2939 detail page.
+ *
+ * The expander sections (Aufgabengebiet / Profil / Was wir Ihnen bieten /
+ * Unterlagen) are what `extractUmantisDetailContent` reads. Around them the
+ * page also carries the lead sentence with the title block, and a «Benefits»
+ * article (employment terms, training, discounts, insurance, work-life
+ * balance) that is part of every ad; both were missing from the published
+ * description (issue 5253). Contacts, apply button and location map are not
+ * read.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function extractSeeSpitalDetailDescription(html = '') {
+  const sections = extractUmantisDetailContent(html);
+  if (!sections) return '';
+  const page = stripUmantisNonContent(html);
+  const intro = textBlock([
+    page.match(/<p\b[^>]*class="intro-text"[^>]*>([\s\S]*?)<\/p\s*>/i)?.[1] || '',
+    page.match(/<section\b[^>]*class="main"[^>]*>[\s\S]*?<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/i)?.[1] || '',
+  ].join('\n'));
+  let benefits = '';
+  const benefitsStart = page.search(/<h2\b[^>]*>\s*Benefits\s*<\/h2\s*>/i);
+  if (benefitsStart >= 0) {
+    const articleEnd = page.indexOf('</article>', benefitsStart);
+    benefits = textBlock(page.slice(benefitsStart, articleEnd >= 0 ? articleEnd : undefined)
+      // «Mehr anzeigen» toggles are page furniture.
+      .replace(/<(?:a|button)\b[^>]*>[\s\S]*?<\/(?:a|button)\s*>/gi, ' '));
+  }
+  return normalizeDescriptionBullets([intro, sections, benefits].filter(Boolean).join('\n\n'));
+}
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const SEE_SPITAL_KEY = 'see-spital';
+/** Pause between detail requests (same as the shared Umantis helper). */
+const DETAIL_DELAY_MS = 250;
 export const SEE_SPITAL_COMPANY_NAME = 'See-Spital';
 export const SEE_SPITAL_COMPANY_DOMAIN = 'see-spital.ch';
 
@@ -343,8 +391,10 @@ export async function fetchAllSeeSpitalJobs() {
     let detailContent = '';
     let deadDetail = false;
     try {
-      ({ content: detailContent, deadDetail } =
-        await fetchUmantisDetailContentResult(BASE_URL, listing.vacancyId, { lang: 'ger' }));
+      const detail = await fetchUmantisDetailResult(BASE_URL, listing.vacancyId, { lang: 'ger' });
+      deadDetail = detail.deadDetail;
+      detailContent = deadDetail ? '' : extractSeeSpitalDetailDescription(detail.html);
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     } catch (err) {
       detailContent = '';
       deadDetail = false;

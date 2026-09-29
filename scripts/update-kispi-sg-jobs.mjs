@@ -9,6 +9,7 @@ import {
   fetchAllKispiSgJobs,
   isKispiSgJob,
   isTrustedDomain,
+  matchKispiSgJob,
   KISPI_SG_KEY,
   KISPI_SG_COMPANY_NAME,
 } from './lib/kispi-sg-job-parser.mjs';
@@ -23,6 +24,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllKispiSgJobs,
   isCompanyJob: isKispiSgJob,
   isTrustedDomain,
+  matchKey: matchKispiSgJob,
   defaultSourceLang: 'de',
 }).catch((err) => {
   console.error(`❌ ${KISPI_SG_COMPANY_NAME} crawler failed: ${err?.message || err}`);

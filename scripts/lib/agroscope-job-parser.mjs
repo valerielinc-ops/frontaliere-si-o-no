@@ -32,7 +32,9 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * itself a numeric ID subject to the same kind of silent drift that broke
  * `1083812`.
  *
- * No detail page fetching needed — the API returns full descriptions in `szas.*`.
+ * The API carries the listing fields below; the description is read from the
+ * rendered vacancy page by the runner (`update-agroscope-jobs.mjs`), since the
+ * listing text is only tasks + requirements.
  *   szas.sza_tasks, szas.sza_requirements, szas.sza_benefits, szas.sza_apply_link,
  *   szas.sza_company_profil, szas.sza_contact, szas.sza_location.city, szas.sza_location.region
  *
