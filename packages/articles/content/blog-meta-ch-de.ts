@@ -7061,6 +7061,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-armi-industria-difesa.title': 'Waffen, einfachere Exporte: Abstimmung am 29. November',
     'blog.article.voto-armi-industria-difesa.excerpt': 'Der Bundesrat unterstützt die Revision des Kriegsmaterialgesetzes: Die Abstimmung ist für den 29 novembre vorgesehen, um Industrie und Arbeitsplätze zu stärken.',
     'blog.article.voto-armi-industria-difesa.imageAlt': 'Schweizer Industriegelände mit Nationalflagge zum politischen Streit über Waffenexporte.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.title': 'Immobilieninvestitionen: Vertrauen gut, Tessin negativ',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.excerpt': 'Im Jahr 2026 erzielte der SRESI 47,5 Punkte, gegenüber 69,5 im Jahr 2025; Tessin und Lugano im negativen Bereich, während Zürich, die Zentralschweiz und der Genfersee die Erwartungen für eine Steigerung anführen.',
+    'blog.article.investimenti-immobiliari-fiducia-ticino.imageAlt': 'Luftaufnahme von Lugano mit See, Bergen und modernen Wohngebäuden bei weichem Morgenlicht',
 };
 
 export default blogMetaChDe;

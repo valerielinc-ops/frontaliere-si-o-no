@@ -91553,6 +91553,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-investimenti-immobiliari-fiducia-ticino': {
+    title: 'Investimenti immobiliari: fiducia buona, Ticino negativo',
+    description: 'Lo SRESI 2026 scende a 47,5 punti dai 69,5 del 2025; il Ticino e Lugano sono in territorio negativo, mentre Zurigo, Svizzera centrale e il Lago Lemano guidano',
+    keywords: 'frontalieri, ticino, svizzera, italia, investimenti, immobiliari, fiducia, buona',
+    ogTitle: 'Investimenti immobiliari: fiducia buona, Ticino negativo',
+    ogDescription: 'L\'indice SRESI 2026 mostra un calo a 47,5 punti rispetto al picco di 69,5 nel 2025. Mentre il mercato nazionale prevede una crescita moderata dei prezzi, il Ticino e Lugano si trovano in territorio negativo, con aspettative di ribasso. Zurigo',
+    canonicalPath: '/articoli-svizzera/investimenti-immobiliari-fiducia-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Investimenti immobiliari: fiducia buona, Ticino negativo",
+      "description": "Lo SRESI 2026 scende a 47,5 punti dai 69,5 del 2025; il Ticino e Lugano sono in territorio negativo, mentre Zurigo, Svizzera centrale e il Lago Lemano guidano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/investimenti-immobiliari-fiducia-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con lago, montagne e edifici residenziali moderni, luce mattutina soffusa"
+      },
+      "datePublished": "2026-09-29T15:53:09+00:00",
+      "dateModified": "2026-09-29T15:53:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/investimenti-immobiliari-fiducia-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
