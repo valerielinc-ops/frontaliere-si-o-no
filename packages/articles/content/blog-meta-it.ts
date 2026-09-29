@@ -12291,6 +12291,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilita-lombardia-ticino-2026.title': 'Via libera all\'Intesa Lombardia-Ticino',
     'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Ratificato il Progetto di Legge n. 197 per la mobilità transfrontaliera. Accordo quinquennale per treni, autobus e tariffe tra Italia e Svizzera.',
     'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Treno transfrontaliero tra Lombardia e Ticino',
+    'blog.article.premi-lamal-ticino-de-rosa.title': 'Premi LAMal Ticino 2027: aumento al 3,7% e 519,90 franchi',
+    'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'Nel 2027 l\'aumento dei premi in Ticino sarà del 3,7% con 519,90 franchi al mese. Il direttore del DSS Raffaele De Rosa commenta le misure e la spesa sanitaria.',
+    'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'Vista di Bellinzona con i castelli medievali',
 };
 
 export default blogMetaIt;

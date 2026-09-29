@@ -12289,6 +12289,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-lombardia-ticino-2026.title': 'Grünes Licht für das Abkommen Lombardei-Tessin',
     'blog.article.mobilita-lombardia-ticino-2026.excerpt': 'Der Gesetzentwurf Nr. 197 über die grenzüberschreitende Mobilität wurde ratifiziert. Fünfjahresabkommen für Züge, Busse und Tarife zwischen Italien und der Schweiz.',
     'blog.article.mobilita-lombardia-ticino-2026.imageAlt': 'Grenzüberschreitender Zug zwischen der Lombardei und dem Tessin',
+    'blog.article.premi-lamal-ticino-de-rosa.title': 'KVG-Prämien Tessin 2027: Erhöhung auf 3,7% und 519,90 Franken',
+    'blog.article.premi-lamal-ticino-de-rosa.excerpt': 'Im Jahr 2027 wird die Prämienerhöhung im Tessin 3,7% bei 519,90 Franken pro Monat betragen. Der Direktor des DSS, Raffaele De Rosa, kommentiert die Maßnahmen und die Gesundheitsausgaben.',
+    'blog.article.premi-lamal-ticino-de-rosa.imageAlt': 'Ansicht von Bellinzona mit mittelalterlichen Burgen',
 };
 
 export default blogMetaDe;
