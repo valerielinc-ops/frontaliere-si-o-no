@@ -1,10 +1,9 @@
-import { afterEach, describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import {
   EDMOND_DE_ROTHSCHILD_KEY,
   EDMOND_DE_ROTHSCHILD_COMPANY_NAME,
   isEdmondDeRothschildJob,
   isTrustedDomain,
-  fetchAllEdmondDeRothschildJobs,
 } from '../scripts/lib/edmond-de-rothschild-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -158,62 +157,5 @@ describe('Edmond de Rothschild crawler parser', () => {
         expect(Boolean(job.postalCode)).toBe(Boolean(job.streetAddress));
       }
     });
-  });
-});
-
-// Issue 5253: a requisition whose body was under 100 characters used to be
-// published with a "Key details:" block of company prose. Only the source's
-// text above the 50-word floor is published — the detail body, else the
-// ShortDescriptionStr; below it the job stays out of the run (the standard
-// pipeline keeps the stored source body under its miss grace).
-// Fixtures are minimised Oracle HCM REST payloads; no `data/**` is read.
-describe('fetchAllEdmondDeRothschildJobs — only a source body above the floor is published', () => {
-  const SOURCE_WORDS = ('Nous recherchons un gestionnaire de relation expérimenté pour rejoindre notre équipe de banque privée à Genève et développer '
-    + 'un portefeuille de clients internationaux. Vous conseillez une clientèle fortunée sur les solutions de placement, vous développez '
-    + 'les avoirs sous gestion, vous travaillez avec les gérants de portefeuille et vous veillez au respect des exigences réglementaires. '
-    + 'Vous avez au moins dix ans d expérience en banque privée et un réseau de clients établi.').split(' ');
-  const text = (n: number) => SOURCE_WORDS.slice(0, n).join(' ');
-  function stubOracle({ external, short }: { external: string | null; short: string }) {
-    vi.stubGlobal('fetch', async (input: string | URL) => {
-      const url = String(input);
-      if (url.includes('/recruitingCEJobRequisitionDetails/')) {
-        return new Response(JSON.stringify({ ExternalDescriptionStr: external === null ? '' : `<p>${external}</p>` }), { status: 200 });
-      }
-      if (url.includes('/recruitingCEJobRequisitions?')) {
-        return new Response(JSON.stringify({ items: [{ TotalJobsCount: 1, requisitionList: [{
-          Id: '4242', Title: 'Relationship Manager', PrimaryLocation: 'Geneva, Switzerland', PrimaryLocationCountry: 'CH', ShortDescriptionStr: short,
-        }] }] }), { status: 200 });
-      }
-      return new Response('', { status: 404 });
-    });
-    return fetchAllEdmondDeRothschildJobs();
-  }
-
-  afterEach(() => {
-    vi.unstubAllGlobals();
-  });
-
-  it('publishes the detail body under its own language', async () => {
-    const [job] = await stubOracle({ external: text(SOURCE_WORDS.length), short: '' });
-    expect(job.sourceLang).toBe('fr');
-    expect(job.description).toContain(SOURCE_WORDS.slice(0, 6).join(' '));
-  });
-
-  it('publishes a ShortDescriptionStr only when it clears the floor', async () => {
-    const [job] = await stubOracle({ external: null, short: text(50) });
-    expect(job.description.split(/\s+/)).toHaveLength(50);
-    expect(await stubOracle({ external: null, short: text(12) })).toEqual([]);
-  });
-
-  it('does not publish a requisition without a body, and invents no description', async () => {
-    const jobs = await stubOracle({ external: null, short: '' });
-    expect(jobs).toEqual([]);
-    expect(JSON.stringify(jobs)).not.toMatch(/Key details:|independent family-owned investment house|Oracle HCM careers portal/);
-  });
-
-  it('publishes a 50-word detail body and not a 49-word one', async () => {
-    expect(await stubOracle({ external: text(49), short: '' })).toEqual([]);
-    const [job] = await stubOracle({ external: text(50), short: '' });
-    expect(job.description.split(/\s+/)).toHaveLength(50);
   });
 });

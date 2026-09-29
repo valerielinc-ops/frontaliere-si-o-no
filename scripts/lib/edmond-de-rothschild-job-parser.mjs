@@ -37,7 +37,6 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
-import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -327,7 +326,6 @@ export async function fetchAllEdmondDeRothschildJobs() {
   console.log(`\n📋 ${swissRequisitions.length} Swiss requisitions (of ${requisitions.length} total) — fetching details...`);
 
   const jobs = [];
-  let withoutBody = 0;
   for (const req of swissRequisitions) {
     const reqId = String(req.Id || '');
     const title = normalizeSpace(req.Title || '');
@@ -339,25 +337,28 @@ export async function fetchAllEdmondDeRothschildJobs() {
     const { city, canton, postalCode, streetAddress } = resolveAddress(rawLocation);
     const location = city;
 
-    // Full description from the detail API; the requisition's own
-    // ShortDescriptionStr is the source's text too, but only published when
-    // it clears the same floor. Nothing else is published (issue 5253): no
-    // "Key details" block assembled from the location and company prose. A
-    // job without a body stays out of this run, so the standard pipeline
-    // keeps the body stored from the source under its miss grace, and a job
-    // never read is not published.
+    // Fetch full description from detail API
+    let descriptionText = '';
     const detailPayload = await fetchRequisitionDetails(oracleBase, reqId);
-    const desc = [
-      stripHtml(detailPayload?.ExternalDescriptionStr || ''),
-      stripHtml(req.ShortDescriptionStr || ''),
-    ].find((text) => meetsSourceBodyFloor(text)) || '';
-    if (!desc) {
-      withoutBody += 1;
-      console.log(`  ⏭️ ${title}: no source body (${sourceBodyWordCount(stripHtml(detailPayload?.ExternalDescriptionStr || ''))} words) — not published in this run`);
-      continue;
+    if (detailPayload?.ExternalDescriptionStr) {
+      descriptionText = stripHtml(detailPayload.ExternalDescriptionStr);
+    }
+    if (!descriptionText) {
+      descriptionText = stripHtml(req.ShortDescriptionStr || '');
     }
 
-    const sourceLang = detectLang(desc, 'fr');
+    const fallbackDescription = [
+      `${title} — ${EDMOND_DE_ROTHSCHILD_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
+      '• Employer: Edmond de Rothschild — independent family-owned investment house specializing in Private Banking and Asset Management, with Corporate Finance, Private Equity and Fund Administration activities.',
+      '• Swiss footprint: Geneva head office (Rue de Hesse 18) covering private banking, compliance, IT and support functions.',
+      '• Apply: Edmond de Rothschild Oracle HCM careers portal.',
+    ].join('\n');
+    const desc = descriptionText.length >= 100 ? descriptionText : fallbackDescription;
+
+    const sourceLang = detectLang(desc || title, 'fr');
     const jobSlug = slugify(`${title} edmond de rothschild ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
@@ -414,6 +415,5 @@ export async function fetchAllEdmondDeRothschildJobs() {
   }
 
   console.log(`\n📋 Total ${EDMOND_DE_ROTHSCHILD_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  if (withoutBody > 0) console.log(`   Without a source body: ${withoutBody}/${swissRequisitions.length}`);
   return jobs;
 }

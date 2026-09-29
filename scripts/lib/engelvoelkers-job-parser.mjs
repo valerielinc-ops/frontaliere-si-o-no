@@ -17,6 +17,7 @@ import { JSDOM } from 'jsdom';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
 
 const BASE_URL = 'https://www.engelvoelkers.com';
 const LISTING_PATH = '/ch/it/azienda/carriera/offerte-di-lavoro';
@@ -322,30 +323,37 @@ export function engelvoelkersPublishableBody(job = {}, prev = null) {
 }
 
 /**
+ * The retired builder's own text in a stored slot: its synthesized block or its
+ * invented sentence. Shared cleanup: `dropFabricatedDescription`
+ * (drop-fabricated-description.mjs) removes the matching slots, the
+ * translations made from them and the flat description.
+ */
+export const ENGELVOELKERS_FABRICATED_DESCRIPTION_RE = new RegExp(
+  `${LEGACY_DETAILS_BLOCK_RE.source.replace(/^\\n\*/, '')}|${LEGACY_INVENTED_SENTENCE_RE.source}`,
+);
+
+/**
  * Drop the retired builder's output from a stored record before the merge:
- * every slot that carries the synthesized block or the invented sentence (they
- * were copies of the source plus that block, never translations), and title
- * copies of the source title in the other locales. Marks the record for
- * retranslation when anything was dropped.
+ * the description slots it wrote (shared cleanup, see above) and the copies of
+ * the source title it wrote into the other locales. Returns a cleaned copy.
  */
 export function scrubEngelvoelkersLegacySlots(prev = {}) {
   if (!prev || typeof prev !== 'object') return prev;
-  const descriptionByLocale = { ...(prev.descriptionByLocale || {}) };
-  const titleByLocale = { ...(prev.titleByLocale || {}) };
-  const sourceTitle = String(titleByLocale[prev.sourceLang] || prev.title || '').trim();
-  let removed = 0;
-  for (const [locale, text] of Object.entries(descriptionByLocale)) {
-    if (isEngelvoelkersLegacyText(text)) { delete descriptionByLocale[locale]; removed++; }
-  }
-  for (const [locale, text] of Object.entries(titleByLocale)) {
-    if (locale !== prev.sourceLang && sourceTitle && String(text || '').trim() === sourceTitle) {
-      delete titleByLocale[locale];
-      removed++;
+  const job = {
+    ...prev,
+    descriptionByLocale: { ...(prev.descriptionByLocale || {}) },
+    titleByLocale: { ...(prev.titleByLocale || {}) },
+  };
+  let changed = dropFabricatedDescription(job, ENGELVOELKERS_FABRICATED_DESCRIPTION_RE);
+  const sourceTitle = String(job.titleByLocale[job.sourceLang] || job.title || '').trim();
+  for (const [locale, text] of Object.entries(job.titleByLocale)) {
+    if (locale !== job.sourceLang && sourceTitle && String(text || '').trim() === sourceTitle) {
+      delete job.titleByLocale[locale];
+      changed = true;
     }
   }
-  const description = isEngelvoelkersLegacyText(prev.description) ? '' : prev.description;
-  if (!removed && description === prev.description) return prev;
-  return { ...prev, description, descriptionByLocale, titleByLocale, needsRetranslation: true };
+  if (!changed) return prev;
+  return { ...job, needsRetranslation: true };
 }
 
 /**
