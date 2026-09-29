@@ -131,10 +131,15 @@ export function extractBurkhalterContentDescription(html = '') {
   return relevantLines.join('\n').trim();
 }
 
-/** Description of one detail page: JSON-LD first, visible content second. */
-export function extractBurkhalterDetailDescription(html = '', { maxChars = 5000 } = {}) {
+/**
+ * Description of one detail page: JSON-LD first, visible content second.
+ * Never truncated: a character cap cuts the tail of the posting (benefits,
+ * contact), which is exactly the incomplete-description class issue 5253
+ * measures; the extraction is already bounded to the vacancy content.
+ */
+export function extractBurkhalterDetailDescription(html = '') {
   const description = extractBurkhalterJsonLdDescription(html) || extractBurkhalterContentDescription(html);
-  return description.slice(0, maxChars).trim();
+  return description.trim();
 }
 
 /**

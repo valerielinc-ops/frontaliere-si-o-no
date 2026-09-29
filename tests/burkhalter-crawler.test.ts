@@ -50,6 +50,18 @@ describe('Burkhalter detail description (thin 9/245, missing-locales 6/245)', ()
   it('returns an empty string for a page it cannot read (the runner then retries)', () => {
     expect(extractBurkhalterDetailDescription('<html><body>429 Too Many Requests</body></html>')).toBe('');
   });
+
+  it('never truncates a long posting: the tail (benefits, contact) stays published', () => {
+    const body = '<p>Wir suchen eine engagierte Person für unser Team.</p>'.repeat(150);
+    const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Elektroinstallateur/in EFZ',
+      description: `${body}<p>Unser Angebot: fünf Wochen Ferien.</p>`,
+    })}</script></head><body></body></html>`;
+    const md = extractBurkhalterDetailDescription(html);
+    expect(md.length).toBeGreaterThan(5000);
+    expect(md).toContain('Unser Angebot: fünf Wochen Ferien.');
+  });
 });
 
 // Stub texts stored in the slice of 2026-09-29 (…/techniker-in-gebaeudeautomation-msrl-1664 and a
