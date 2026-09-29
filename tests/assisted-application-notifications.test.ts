@@ -71,6 +71,7 @@ vi.mock('../functions/src/emailCascade.js', () => ({
 
 const {
   buildCustomerEmail,
+  buildOwnerEmail,
   buildOrderPageUrl,
   localeFromSiteUrl,
   handleAssistedApplicationOrderWritten,
@@ -78,6 +79,7 @@ const {
   sendPaidOrderNotifications,
   NOTIFICATION_KEYS,
 } = await import('../functions/src/assistedApplicationNotifications.js');
+const { renderBrandedEmail } = await import('../functions/src/assistedApplicationEmailLayout.js');
 
 const NOW = Date.parse('2026-09-30T10:00:00Z');
 const HOUR = 60 * 60 * 1000;
@@ -154,6 +156,69 @@ describe('assisted application concierge copy', () => {
     expect(localeFromSiteUrl('https://www.frontaliereticino.ch/en/find-jobs-ticino/')).toBe('en');
     expect(localeFromSiteUrl('https://frontaliereticino.ch/cerca-lavoro-ticino/')).toBe('it');
     expect(localeFromSiteUrl('https://evil.example/fr/')).toBeNull();
+  });
+});
+
+describe('brand shell', () => {
+  const PAGES: Record<string, string> = {
+    it: '/cerca-lavoro-ticino/', fr: '/fr/trouver-emploi-tessin/', de: '/de/jobs-im-tessin/', en: '/en/find-jobs-ticino/',
+  };
+  const BADGES: Record<string, string> = {
+    it: 'Candidatura assistita', fr: 'Candidature assistée', de: 'Begleitete Bewerbung', en: 'Assisted application',
+  };
+
+  it('wraps every customer email in the job-alert brand shell, in the customer’s language', () => {
+    for (const locale of ['it', 'fr', 'de', 'en']) {
+      const order = paidOrder({ orderPageUrl: `https://frontaliereticino.ch${PAGES[locale]}?assisted_application_order_id=order-1` });
+      const heroes = new Set<string>();
+      for (const kind of ['intro', 'recovery', 'reminder', 'received', 'submitted']) {
+        const { html } = buildCustomerEmail(kind, order, 'order-1', { nowMs: NOW });
+        expect(html.startsWith('<!DOCTYPE html>')).toBe(true);
+        expect(html).toContain(`<html lang="${locale}">`);
+        expect(html).toContain('#0f172a'); // BRAND_DARK bands
+        expect(html).toContain('</span> Frontaliere Ticino');
+        expect(html).toContain(BADGES[locale].replace(/'/g, '&#39;'));
+        expect(html).toContain('Infermiere/a cure acute — Clinica Esempio');
+        expect(html).toContain('order-1');
+        expect(html).toContain('valerie@frontaliereticino.ch'); // data-controller line in the footer
+        expect(html).not.toMatch(/undefined|\[object/);
+        heroes.add(html.match(/<title>([^<]+) — Frontaliere Ticino<\/title>/)?.[1] || '');
+      }
+      expect(heroes.size).toBe(5); // one title per kind
+    }
+  });
+
+  it('turns the order link into a button and the reply path into the highlighted box', () => {
+    const url = 'https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order-1';
+    const { html } = buildCustomerEmail('intro', paidOrder({ orderPageUrl: url }), 'order-1', { nowMs: NOW });
+    expect(html).toMatch(new RegExp(`<a href="${url.replace(/[.?/]/g, '\\$&')}"[^>]*>Apri il tuo ordine</a>`));
+    expect(html).toContain('Cosa mi serve');
+    expect(html).toContain('<strong>Il modo più semplice: rispondi a questa email</strong>');
+    expect(html).toContain('La tua candidatura è in buone mani');
+  });
+
+  it('brands Valerie’s internal notice and keeps the reply-to-customer link', () => {
+    const { html } = buildOwnerEmail('new_order', paidOrder(), 'order-1', { nowMs: NOW });
+    expect(html).toContain('Nuova candidatura pagata');
+    expect(html).toContain('Candidatura assistita · interno');
+    expect(html).toMatch(/<a href="mailto:candidate%40example\.com[^"]*"[^>]*>Rispondi al cliente<\/a>/);
+  });
+
+  it('escapes every plain-text argument of the shell', () => {
+    const html = renderBrandedEmail({
+      heroTitle: '<script>x</script>',
+      heroSubtitle: 'a & <b>',
+      badge: '"quoted"',
+      preheader: '<i>pre</i>',
+      bodyHtml: '<p>trusted</p>',
+      footerLines: ['<img src=x>'],
+    });
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;x&lt;/script&gt;');
+    expect(html).toContain('a &amp; &lt;b&gt;');
+    expect(html).toContain('&quot;quoted&quot;');
+    expect(html).not.toContain('<img src=x>');
+    expect(html).toContain('<p>trusted</p>');
   });
 });
 
