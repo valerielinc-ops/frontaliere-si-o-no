@@ -132,6 +132,7 @@ describe('no crawler-written stand-in, and the common 50-word floor', () => {
     ['lib/igs-bern-job-parser.mjs', /fallbackDesc|Soteria Bern und weitere Angebote/],
     ['lib/privatklinik-wyss-job-parser.mjs', /fallbackDesc/],
     ['lib/suedhang-job-parser.mjs', /fallbackDesc|Klinik für Suchttherapien\./],
+    ['lib/sonnweid-job-parser.mjs', /\[fallback, detail\.body\]|` Eintritt: \$\{r\.eintritt\}\.`/],
   ])('%s', (file, pattern) => {
     const text = source(file);
     expect(text).not.toMatch(pattern);
