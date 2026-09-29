@@ -103,7 +103,7 @@ import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
-import { createAnalyticsEmissionId } from './analyticsEmissionId';
+import { createAnalyticsEmissionId as createAnalyticsEmissionIdSource } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
  isIndexedDbError,
@@ -451,7 +451,7 @@ function maybeEmitL2UsefulAction(eventName: string, params: Record<string, any>)
 }
 
 const log = (eventName: string, params?: Record<string, any>) => {
- const enrichedParams = enrichEventParams(params);
+ const enrichedParams = enrichEventParams(eventName, params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
  const pagePath = enrichedParams.page_path || window.location.pathname;
@@ -586,7 +586,7 @@ function readStoredAttribution(): AttributionContext | null {
  * reports joinable even when the event itself is emitted by a nested widget.
  * The explicit event fields still win, so existing callers keep their intent.
  */
-function enrichEventParams(params?: Record<string, any>): Record<string, any> {
+function enrichEventParams(eventName: string, params?: Record<string, any>): Record<string, any> {
  const eventPath = typeof params?.page_path === 'string' && params.page_path
   ? params.page_path
   : currentScreen !== '/' || typeof window === 'undefined' || window.location.pathname === '/'
@@ -597,9 +597,15 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
  const landingPath = sessionLandingPath
   || storedAttribution?.landing_path
   || normalizeAnalyticsPath(typeof window !== 'undefined' ? window.location.pathname : '/');
- const emissionId = params?.emission_id === undefined
-  ? createAnalyticsEmissionId()
-  : params.emission_id;
+ // `chatbot_question` has an explicit privacy contract: its payload is only
+ // the closed question schema plus numeric measurements. Do not add the
+ // otherwise-global opaque event identity to that contract.
+ const { emission_id: explicitEmissionId, ...eventParams } = params || {};
+ const emissionId = eventName === 'chatbot_question'
+  ? undefined
+  : explicitEmissionId === undefined
+   ? createAnalyticsEmissionIdSource()
+   : explicitEmissionId;
 
  return {
   page_path: eventPath,
@@ -610,8 +616,8 @@ function enrichEventParams(params?: Record<string, any>): Record<string, any> {
   route_family: pageContext.routeFamily,
   ...eventPageTelemetry(eventPath, pageContext),
   landing_path: landingPath,
-  ...(params || {}),
-  emission_id: emissionId,
+  ...eventParams,
+  ...(emissionId === undefined ? {} : { emission_id: emissionId }),
  };
 }
 
@@ -1189,9 +1195,19 @@ export const Analytics = {
  emissionId?: string | null,
  ) => {
  const staticPageViewEmissionId = consumeStaticGtagPageViewEmissionId(path);
- const pageViewEmissionId = emissionId === undefined
+ // Both fallback branches below must resolve to one identity for this act.
+ // The local memo keeps the generated fallback stable, while the static
+ // bootstrap identity remains authoritative when it is available.
+ let generatedPageViewEmissionId: string | undefined;
+ const createAnalyticsEmissionId = (): string => {
+  if (staticPageViewEmissionId) return staticPageViewEmissionId;
+  generatedPageViewEmissionId ??= createAnalyticsEmissionIdSource();
+  return generatedPageViewEmissionId;
+ };
+ const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
+ const resolvedPageViewEmissionId = emissionId === undefined
   ? staticPageViewEmissionId || createAnalyticsEmissionId()
-  : emissionId;
+  : pageViewEmissionId;
  const now = Date.now();
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
@@ -1212,7 +1228,7 @@ export const Analytics = {
   route_family: pageContext.routeFamily,
   ...eventPageTelemetry(path, pageContext),
   engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
- emission_id: pageViewEmissionId,
+ emission_id: resolvedPageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
  if (pageContext.pageTemplate === 'job_detail') {
@@ -1223,7 +1239,7 @@ export const Analytics = {
  tagClarity('content_group', pageContext.contentGroup);
  // Reset dead-click counter for new page
  _deadClickCount = 0;
- return pageViewEmissionId;
+ return resolvedPageViewEmissionId;
  },
 
  /**
@@ -2005,7 +2021,7 @@ export const Analytics = {
  * Link esterno cliccato — uses outbound_click (not 'click' which is GA4 reserved)
  */
  trackExternalLink: (url: string, label?: string) => {
- const emissionId = createAnalyticsEmissionId();
+ const emissionId = createAnalyticsEmissionIdSource();
  log('outbound_click', {
   link_url: url,
   link_text: label || url,
@@ -2061,7 +2077,7 @@ export const Analytics = {
    destination_host: destinationHost,
    handoff_surface: details.surface || 'job_board_apply',
    application_status: 'redirect_only',
-   emission_id: details.emissionId || createAnalyticsEmissionId(),
+   emission_id: details.emissionId || createAnalyticsEmissionIdSource(),
   });
   return true;
  },
