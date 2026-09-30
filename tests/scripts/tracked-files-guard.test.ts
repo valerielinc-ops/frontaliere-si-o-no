@@ -41,8 +41,15 @@ describe('trackedChanges', () => {
     expect(trackedChanges(before, after)).toEqual(['wip.ts']);
   });
 
-  it('does not report a file the run restored', () => {
-    expect(trackedChanges(before, new Map([['data/steady.json', 'h2']]))).toEqual([]);
+  it('reports an already dirty file that the run reverted to HEAD', () => {
+    // wip.ts had uncommitted work (h1); after the run its content is HEAD's (hHEAD):
+    // the run wrote it, and a developer would have lost the work silently.
+    const after = new Map([['wip.ts', 'hHEAD'], ['data/steady.json', 'h2']]);
+    expect(trackedChanges(before, after)).toEqual(['wip.ts']);
+  });
+
+  it('treats an already dirty path missing from the second snapshot as changed', () => {
+    expect(trackedChanges(before, new Map([['data/steady.json', 'h2']]))).toEqual(['wip.ts']);
   });
 
   it('allows snapshot files only in snapshot update mode', () => {
@@ -82,6 +89,38 @@ describe('snapshotTrackedState on a real repository', () => {
     } finally {
       rmSync(plain, { recursive: true, force: true });
     }
+  });
+});
+
+describe('a file that was already dirty before the run', () => {
+  const repo = mkdtempSync(join(tmpdir(), 'tracked-guard-dirty-'));
+  afterAll(() => rmSync(repo, { recursive: true, force: true }));
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: repo, encoding: 'utf8' });
+  const commit = (message: string) => git(
+    '-c', 'core.hooksPath=/dev/null', '-c', 'commit.gpgsign=false',
+    '-c', 'user.email=guard@example.test', '-c', 'user.name=guard',
+    'commit', '-q', '-am', message,
+  );
+  git('init', '-q');
+  writeFileSync(join(repo, 'wip.ts'), 'export const v = 1;\n');
+  git('add', '.');
+  commit('init');
+
+  it('is reported when the run reverts it to HEAD, deleting uncommitted work', () => {
+    writeFileSync(join(repo, 'wip.ts'), 'export const v = 2; // uncommitted work\n');
+    const before = snapshotTrackedState(repo)!;
+    expect([...before.keys()]).toEqual(['wip.ts']);
+    git('checkout', '--', 'wip.ts'); // what a misbehaving test would do
+    const after = snapshotTrackedState(repo, { alsoHash: before.keys() })!;
+    expect(trackedChanges(before, after)).toEqual(['wip.ts']);
+  });
+
+  it('is not reported when only the commit status changed (committed during the run)', () => {
+    writeFileSync(join(repo, 'wip.ts'), 'export const v = 3;\n');
+    const before = snapshotTrackedState(repo)!;
+    commit('committed while the tests ran');
+    const after = snapshotTrackedState(repo, { alsoHash: before.keys() })!;
+    expect(trackedChanges(before, after)).toEqual([]);
   });
 });
 

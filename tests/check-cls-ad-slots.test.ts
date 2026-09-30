@@ -13,9 +13,10 @@
  *     invariant holds and any future violation turns the suite red;
  *  2. the CLI exits 0 on the clean tree and 1 when a violation is injected.
  */
-import { describe, it, expect } from 'vitest';
+import { afterAll, describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { findViolations, ALLOWED, AD_MARKER, stripComments } from '../scripts/ci/check-cls-ad-slots.mjs';
@@ -51,25 +52,18 @@ describe('check-cls-ad-slots — CLI gate', () => {
     // Fixture must be a TOP-LEVEL build-plugins/*.ts (not a subdir) — that is the
     // #1910 file class and the case the original `**/*.ts` pathspec bug silently
     // skipped. A subdir fixture would pass even with the bug.
-    const file = path.join(ROOT, 'build-plugins', '_clsgate_bad.ts');
-    fs.writeFileSync(
-      file,
-      'export const X = `<ins class="adsbygoogle" style="min-height:280px"></ins>`;\n',
-    );
+    const repo = fixtureRepo({
+      'build-plugins/_clsgate_bad.ts':
+        'export const X = `<ins class="adsbygoogle" style="min-height:280px"></ins>`;\n',
+    });
+    expect(findViolations({ cwd: repo })).toContain('build-plugins/_clsgate_bad.ts');
+    let exitCode = 0;
     try {
-      // git grep only sees tracked files → stage the temp file.
-      execFileSync('git', ['add', '-f', file], { cwd: ROOT });
-      expect(findViolations()).toContain('build-plugins/_clsgate_bad.ts');
-      let exitCode = 0;
-      try {
-        execFileSync('node', [SCRIPT], { cwd: ROOT, encoding: 'utf-8' });
-      } catch (e: unknown) {
-        exitCode = (e as { status?: number }).status ?? -1;
-      }
-      expect(exitCode).toBe(1);
-    } finally {
-      execFileSync('git', ['rm', '-f', '--quiet', file], { cwd: ROOT });
+      execFileSync('node', [SCRIPT], { cwd: repo, encoding: 'utf-8' });
+    } catch (e: unknown) {
+      exitCode = (e as { status?: number }).status ?? -1;
     }
+    expect(exitCode).toBe(1);
   });
 
   it('does NOT flag a build-plugin that names adsbygoogle only in a comment (#2127)', () => {
@@ -77,24 +71,46 @@ describe('check-cls-ad-slots — CLI gate', () => {
     // (`// …load adsbygoogle.js post-hydration`) tripped the bare-substring grep on
     // PRs that never touched ad markup, failing the full-tree gate until each branch
     // reworded prose. Comment-awareness must let this through.
-    const file = path.join(ROOT, 'build-plugins', '_clsgate_commentonly.ts');
-    fs.writeFileSync(
-      file,
-      [
+    const repo = fixtureRepo({
+      'build-plugins/_clsgate_commentonly.ts': [
         '// Loader note: the SPA <AdSenseBanner> loads adsbygoogle.js post-hydration.',
         '/* block comment also naming adsbygoogle should not count */',
         'export const Y = `<div class="ad-wrap"></div>`; // trailing note: adsbygoogle',
         '',
       ].join('\n'),
-    );
-    try {
-      execFileSync('git', ['add', '-f', file], { cwd: ROOT });
-      expect(findViolations()).not.toContain('build-plugins/_clsgate_commentonly.ts');
-    } finally {
-      execFileSync('git', ['rm', '-f', '--quiet', file], { cwd: ROOT });
-    }
+    });
+    expect(findViolations({ cwd: repo })).not.toContain('build-plugins/_clsgate_commentonly.ts');
   });
 });
+
+/**
+ * A throwaway git repository in os.tmpdir() with the sanctioned emitter (the gate's
+ * positive control: build-plugins/ must grep at least one match) plus `files`,
+ * all committed. The fixtures used to be written into the real build-plugins/ and
+ * `git add -f`-ed into the real index, then `git rm`-ed in a `finally`: every run
+ * touched the developer's index, and a test killed in between left the fixture
+ * staged for the next commit.
+ */
+const fixtureRepos: string[] = [];
+afterAll(() => {
+  for (const dir of fixtureRepos) fs.rmSync(dir, { recursive: true, force: true });
+});
+
+function fixtureRepo(files: Record<string, string>): string {
+  const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'cls-ad-slots-'));
+  fixtureRepos.push(repo);
+  const all: Record<string, string> = {
+    'build-plugins/lib/adSlotHtml.ts': 'export const ad = `<ins class="adsbygoogle"></ins>`;\n',
+    ...files,
+  };
+  for (const [rel, content] of Object.entries(all)) {
+    fs.mkdirSync(path.dirname(path.join(repo, rel)), { recursive: true });
+    fs.writeFileSync(path.join(repo, rel), content);
+  }
+  execFileSync('git', ['init', '-q'], { cwd: repo });
+  execFileSync('git', ['add', '-A'], { cwd: repo });
+  return repo;
+}
 
 describe('check-cls-ad-slots — stripComments', () => {
   it('blanks line, trailing, and block comments but keeps code', () => {

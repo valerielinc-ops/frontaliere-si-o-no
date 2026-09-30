@@ -40,6 +40,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { auditReportPath } from './lib/auditReport.mjs';
+import { orphanPagesAuditReportPath } from './lib/orphan-pages-report-path.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -179,12 +180,11 @@ export const GATES = [
     // (line 627) does not contain, so it fell through to `/(\d+)\s+orphan/`,
     // which matches the first incidental "N orphan…" in the log. Issue #5169.
     extractCurrent: () => {
-      // ORPHAN_PAGES_AUDIT_REPORT sposta insieme lettore e scrittore
-      // (audit-orphan-pages-in-sitemaps.mjs la usa come default di --out): i
-      // test la puntano in os.tmpdir() invece di riscrivere il report tracciato.
-      const reportPath = process.env.ORPHAN_PAGES_AUDIT_REPORT
-        ? path.resolve(process.env.ORPHAN_PAGES_AUDIT_REPORT)
-        : path.join(PROJECT_ROOT, 'data', 'orphan-pages-audit.json');
+      // ORPHAN_PAGES_AUDIT_REPORT sposta insieme lettore e scrittore, con la
+      // stessa risoluzione (scripts/lib/orphan-pages-report-path.mjs: relativo
+      // alla root del repo, non alla directory corrente): i test la puntano in
+      // os.tmpdir() invece di riscrivere il report tracciato.
+      const reportPath = orphanPagesAuditReportPath(PROJECT_ROOT);
       const report = JSON.parse(readFileSync(reportPath, 'utf8'));
       // The report is git-TRACKED, so a run that crashed before writing would
       // leave the committed copy behind and this reader would score the gate

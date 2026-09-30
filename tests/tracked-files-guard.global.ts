@@ -30,7 +30,9 @@ export function setup(project?: GuardProject) {
     return undefined;
   }
   return () => {
-    const after = snapshotTrackedState(ROOT);
+    // I file già sporchi prima si rifotografano anche se ora sono puliti: la run
+    // potrebbe averli riportati a HEAD, cancellando lavoro non committato.
+    const after = snapshotTrackedState(ROOT, { alsoHash: before.keys() });
     if (!after) return;
     const update = project?.config?.update;
     const changed = trackedChanges(before, after, {

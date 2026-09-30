@@ -80,6 +80,7 @@ import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
+import { orphanPagesAuditReportPath } from './lib/orphan-pages-report-path.mjs';
 import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 import { flatString } from './lib/flat-string.mjs';
 
@@ -111,14 +112,12 @@ for (const a of argv) {
 const FEATURE_FILTER = typeof args.get('feature') === 'string' ? args.get('feature') : null;
 const LIMIT = Number(args.get('limit') ?? 20);
 const FORCE_SOURCE_MODE = args.has('source-mode');
-// Default di --out: ORPHAN_PAGES_AUDIT_REPORT se impostata (la stessa env che
-// sposta il lettore in cathedral-seo-gates-check.mjs), altrimenti il report
-// tracciato.
+// Default di --out: la stessa risoluzione del lettore in
+// cathedral-seo-gates-check.mjs (ORPHAN_PAGES_AUDIT_REPORT rispetto alla root
+// del repo, altrimenti il report tracciato), da un unico modulo.
 const OUT_PATH = args.get('out')
   ? resolvePath(String(args.get('out')))
-  : process.env.ORPHAN_PAGES_AUDIT_REPORT
-    ? resolvePath(process.env.ORPHAN_PAGES_AUDIT_REPORT)
-    : join(DATA_DIR, 'orphan-pages-audit.json');
+  : orphanPagesAuditReportPath(ROOT);
 const REBASELINE = args.has('rebaseline');
 const GATE = args.get('gate'); // string | true | undefined
 const GATE_BASELINE = GATE === 'baseline';
