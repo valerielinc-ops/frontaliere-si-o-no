@@ -1,0 +1,24 @@
+{
+  "companyKey": "autogrill-schweiz-ag",
+  "companyName": "Autogrill Schweiz-AG",
+  "companyHost": "careers.avoltaworld.com",
+  "platform": "avoltaworld.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers.avoltaworld.com/search/?createNewAlert=false&amp;optionsFacetsDD_location=CH&amp;optionsFacetsDD_customfield1=Autogrill"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Betriebsassistent Stellvertretery",
+    "Shiftleader Caresquick Ruisbroek",
+    "Crew Member Gastronomy Starbucks",
+    "Horecamedewerker Metropole Rotterdam The Hague Airport",
+    "Country Logistics Assistant"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-30T13:45:59.501Z"
+}
