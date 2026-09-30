@@ -38,13 +38,14 @@ jobs:
       # Checkout BLOBLESS (filter=blob:none): scarica l'intero commit-graph (così
       # `$BEFORE` è sempre presente, anche a molti commit di distanza) MA NON i
       # blob dei file upfront. I blob vengono recuperati on-demand solo quando il
-      # guard legge i pochi file toccati a BEFORE/AFTER — la truncation-detection
-      # e `git checkout --ignore-skip-worktree-bits "$BEFORE" -- "$f"` restano
-      # corretti anche per i file esclusi dalla sparse checkout. Il vecchio
+      # guard legge i pochi file toccati a BEFORE/AFTER. Il vecchio
       # `fetch-depth: 0` full-clone scaricava TUTTI i blob dell'intera storia
       # data-heavy (~GB) e sforava il timeout di 8 min in fase di checkout, prima
       # ancora che il detector girasse (issue #4120: lo step "Detect" veniva
       # saltato — il timeout era 100% nel checkout). Blobless → checkout in secondi.
+      # Il profilo sparse precedente escludeva però alberi oggi raggiunti dalla
+      # chiusura runtime del guard e lasciava comunque ~6,8 GB sopra la soglia
+      # di crossover: il checkout blobless completo è sicuro per costruzione.
       - name: Checkout (blobless — full commit graph, blob on demand)
         uses: actions/checkout@v7
         with:
@@ -52,14 +53,6 @@ jobs:
           fetch-depth: 0
           filter: blob:none
           persist-credentials: true
-          # The guard may receive any data/public-data path in a push. Keep
-          # both trees materialized, while excluding only assets and article
-          # sources that guard-data-integrity.mjs never reads.
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/packages/articles/content/
-          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a

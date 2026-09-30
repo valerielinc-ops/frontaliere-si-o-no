@@ -3,6 +3,12 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 
 const FUNCTIONS_SRC = resolve('functions/src');
+const FIREBASE_CONFIG = JSON.parse(readFileSync(resolve('firebase.json'), 'utf8')) as {
+  functions?: Array<{ source?: string; runtime?: string }>;
+};
+const FUNCTIONS_PACKAGE = JSON.parse(readFileSync(resolve('functions/package.json'), 'utf8')) as {
+  engines?: { node?: string };
+};
 
 function javascriptFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -30,5 +36,15 @@ describe('firebase-admin v14 Cloud Functions imports', () => {
       .map((path) => relative(resolve('.'), path));
 
     expect(offenders).toEqual([]);
+  });
+
+  it('deploys Functions with the Node runtime required by their package', () => {
+    const functionsConfig = FIREBASE_CONFIG.functions?.find(({ source }) => source === 'functions');
+    const packageMajor = String(FUNCTIONS_PACKAGE.engines?.node || '').match(/\d+/u)?.[0];
+    const runtimeMajor = functionsConfig?.runtime?.match(/^nodejs(\d+)$/u)?.[1];
+
+    expect(packageMajor, 'functions/package.json must declare a Node engine').toBeDefined();
+    expect(runtimeMajor, 'firebase.json must declare a concrete Node runtime').toBeDefined();
+    expect(runtimeMajor).toBe(packageMajor);
   });
 });
