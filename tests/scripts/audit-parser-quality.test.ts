@@ -2631,6 +2631,32 @@ describe('duplicate listings: two declared postal codes are two workplaces (denn
   });
 });
 
+describe('duplicate listings: two declared street addresses are two workplaces', () => {
+  const body = 'Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden.';
+  const posting = (streetAddress: string) => ({
+    title: 'Elektroinstallateur/in EFZ',
+    location: 'Davos Platz',
+    postalCode: '7270',
+    streetAddress,
+    description: body,
+  });
+
+  it('does not count two same-role postings at different source streets', () => {
+    const jobs = [posting('Obere Strasse 19'), posting('Brämabüelstrasse 4A')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('still counts the same source street published twice', () => {
+    const jobs = [posting('Obere Strasse 19'), posting('Obere Strasse 19')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
+  });
+
+  it('keeps the fail-closed collision when one record lacks a street', () => {
+    const jobs = [posting('Obere Strasse 19'), posting('')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
+  });
+});
+
 describe('source detail on a document several postings share (ehnv, klinik-gut)', () => {
   const role = (name: string) => `Aufgaben: ${name} — Betreuung der Patientinnen und Patienten, interdisziplinäre Zusammenarbeit und sorgfältige Dokumentation im klinischen Informationssystem. Anforderungen: abgeschlossene Ausbildung und Freude an der Arbeit im Team. `;
 
