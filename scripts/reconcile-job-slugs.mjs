@@ -39,6 +39,9 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import {
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -208,6 +211,92 @@ function detectSlugLocale(slug) {
   return 'it';
 }
 
+function normalizedGhostField(value) {
+  return String(value ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * The expired-slice integrity guard only accepts a removal when the archived
+ * record and its active owner agree on title/company/location. Keep the
+ * lookup here aligned with that guard instead of treating any shared slug as
+ * sufficient evidence.
+ */
+function expiredGhostComparisonKey(job) {
+  const fields = [job?.title, job?.company, job?.location].map(normalizedGhostField);
+  return fields.every(Boolean) ? fields.join('|') : null;
+}
+
+function expiredGhostOverlapSlugs(job) {
+  const localeSlugs = job?.slugByLocale && typeof job.slugByLocale === 'object'
+    ? Object.values(job.slugByLocale)
+    : [];
+  return localeSlugs.some((slug) => typeof slug === 'string' && slug.trim())
+    ? localeSlugs.filter((slug) => typeof slug === 'string' && slug.trim())
+    : [job?.slug].filter((slug) => typeof slug === 'string' && slug.trim());
+}
+
+function activeReachableSlugs(job) {
+  return [
+    job?.slug,
+    ...Object.values(job?.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {}),
+    ...(Array.isArray(job?.previousSlugs) ? job.previousSlugs : []),
+    ...Object.values(
+      job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+        ? job.previousSlugsByLocale
+        : {},
+    ).flatMap((slugs) => (Array.isArray(slugs) ? slugs : [])),
+  ].filter((slug) => typeof slug === 'string' && slug.trim());
+}
+
+function hasEqualNonEmptyLocaleSlug(left, right) {
+  const leftSlugs = left?.slugByLocale;
+  const rightSlugs = right?.slugByLocale;
+  if (
+    !leftSlugs
+    || typeof leftSlugs !== 'object'
+    || Array.isArray(leftSlugs)
+    || !rightSlugs
+    || typeof rightSlugs !== 'object'
+    || Array.isArray(rightSlugs)
+  ) return false;
+  return Object.entries(leftSlugs).some(([locale, value]) => {
+    if (typeof value !== 'string' || typeof rightSlugs[locale] !== 'string') return false;
+    const leftValue = value.trim();
+    const rightValue = rightSlugs[locale].trim();
+    return Boolean(leftValue && rightValue && leftValue === rightValue);
+  });
+}
+
+/**
+ * Find the active owner evidence accepted by the expired-slice shrink guard.
+ * The returned shape is the entry payload consumed by
+ * `isProvenGhostExpiredReconciliation` through the atomic writer.
+ */
+function findExpiredGhostProof(entry, index) {
+  const expiredKey = expiredGhostComparisonKey(entry);
+  if (!expiredKey || !index) return null;
+
+  for (const slug of expiredGhostOverlapSlugs(entry)) {
+    const owner = index.activeSlugOwners.get(slug);
+    if (owner && expiredGhostComparisonKey(owner) === expiredKey) {
+      return { match: owner, overlapSlug: slug, overlapJob: owner };
+    }
+  }
+
+  const match = index.activeByGhostKey.get(expiredKey);
+  if (!match) return null;
+  const expiredItSlug = nonEmptySlug(entry?.slugByLocale?.it);
+  const matchItSlug = nonEmptySlug(match?.slugByLocale?.it);
+  if (expiredItSlug || matchItSlug) {
+    return expiredItSlug && matchItSlug && expiredItSlug === matchItSlug
+      ? { match, overlapSlug: null, overlapJob: null }
+      : null;
+  }
+  return hasEqualNonEmptyLocaleSlug(entry, match)
+    ? { match, overlapSlug: null, overlapJob: null }
+    : null;
+}
+
 // ─── Active Job Index ────────────────────────────────────────────────────────
 
 /**
@@ -234,6 +323,8 @@ function detectSlugLocale(slug) {
 function buildActiveIndex(activeJobs) {
   const byCompanyKey = Object.create(null); // companyKey → [job]
   const allSlugSet = new Set();             // all current + previous slugs
+  const activeByGhostKey = new Map();       // exact title/company/location owner
+  const activeSlugOwners = new Map();       // first active owner of each route
   const slugTokenCache = new WeakMap();     // job → Map<slugString, Set<token>>
   const titleTokenCache = new WeakMap();    // job → Map<locale, Set<token>>
   // Inverted index: slug-token → Set<job>. Used by findBestMatch's
@@ -260,6 +351,12 @@ function buildActiveIndex(activeJobs) {
   const titleTokenToJobs = new Map();       // token → Set<job>
 
   for (const job of activeJobs) {
+    const ghostKey = expiredGhostComparisonKey(job);
+    if (ghostKey && !activeByGhostKey.has(ghostKey)) activeByGhostKey.set(ghostKey, job);
+    for (const slug of activeReachableSlugs(job)) {
+      if (!activeSlugOwners.has(slug)) activeSlugOwners.set(slug, job);
+    }
+
     // Index by company key
     const ck = job.companyKey || normalizeCompany(job.company);
     if (ck) {
@@ -359,6 +456,8 @@ function buildActiveIndex(activeJobs) {
   return {
     byCompanyKey,
     allSlugSet,
+    activeByGhostKey,
+    activeSlugOwners,
     slugTokenCache,
     titleTokenCache,
     slugTokenToJobs,
@@ -993,7 +1092,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
   let mergedCount = 0;
   let skippedCount = 0;
   const updatedJobs = new Map();
-  const reconciledIds = new Set();
+  const candidateReconciledIds = new Set();
   let processed = 0;
 
   for (const ej of expiredJobs) {
@@ -1008,7 +1107,8 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
     // Already reconciled: slugs are known to an active job — remove from expired
     if (expSlugs.some((s) => index.allSlugSet.has(s))) {
-      reconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+      const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+      candidateReconciledIds.add(id);
       skippedCount++;
       continue;
     }
@@ -1097,13 +1197,30 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
     for (const s of uniqueNew) index.allSlugSet.add(s);
     updatedJobs.set(resolveJobDiffKey(job), job);
-    reconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
+    candidateReconciledIds.add(ej.slug || ej.id || localeMapKey(ej.slugByLocale));
     mergedCount++;
 
     const prefix = dryRun ? '⏭️ [dry-run]' : '✅';
     console.log(
       `${prefix} expired "${primarySlug}" → "${job.slug || job.slugByLocale?.it}" (${job.company || 'unknown'}, score: ${score.toFixed(3)}, method: ${method}, +${uniqueNew.length} slugs)`,
     );
+  }
+
+  // Only remove entries whose final active owner satisfies the same exact
+  // title/company/location + route proof required by the slice byte guard.
+  // Build the index once after all merges; rebuilding it inside the loop made
+  // the 30k-job active dataset quadratic on large GSC sweeps.
+  const reconciledIds = new Set();
+  if (dryRun) {
+    for (const id of candidateReconciledIds) reconciledIds.add(id);
+  } else {
+    const finalIndex = buildActiveIndex(activeJobs);
+    for (const ej of expiredJobs) {
+      const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
+      if (candidateReconciledIds.has(id) && findExpiredGhostProof(ej, finalIndex)) {
+        reconciledIds.add(id);
+      }
+    }
   }
 
   // Remove reconciled entries from expired list
@@ -1256,25 +1373,51 @@ function updateCrawlerSlices(updatedJobs) {
  * Without this, reconciled expired jobs reappear on next assembleExpiredJobs().
  * @param {Set<string>} reconciledIds - IDs of expired entries that were reconciled
  */
-function updateExpiredCrawlerSlices(reconciledIds) {
+function updateExpiredCrawlerSlices(reconciledIds, activeJobs) {
   if (!reconciledIds?.size) return;
 
   const files = listSliceFileNames(DATA_EXPIRED_SLICES_DIR);
+  const activeIndex = buildActiveIndex(activeJobs);
   let totalRemoved = 0;
 
   for (const file of files) {
     const slicePath = path.join(DATA_EXPIRED_SLICES_DIR, file);
+    const previousRaw = fs.readFileSync(slicePath, 'utf8');
     const entries = readJson(slicePath, []);
     if (!Array.isArray(entries) || entries.length === 0) continue;
 
+    const proofEntries = [];
     const filtered = entries.filter((ej) => {
       const id = ej.slug || ej.id || localeMapKey(ej.slugByLocale);
-      return !reconciledIds.has(id);
+      if (!reconciledIds.has(id)) return true;
+      const proof = findExpiredGhostProof(ej, activeIndex);
+      if (!proof) return true;
+      proofEntries.push({ expired: ej, ...proof });
+      return false;
     });
 
     const removed = entries.length - filtered.length;
     if (removed > 0) {
-      writeJson(slicePath, filtered);
+      const candidateRaw = `${JSON.stringify(filtered, null, 2)}\n`;
+      const proofMetadata = {
+        schemaVersion: 1,
+        type: 'ghost-expired-reconciliation',
+        path: path.relative(ROOT, slicePath).split(path.sep).join('/'),
+        baseRaw: previousRaw,
+        candidateRaw,
+        entries: proofEntries,
+      };
+      writeJson(slicePath, filtered, { housekeepingProof: proofMetadata });
+      if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
+        const committedCandidateRaw = fs.readFileSync(slicePath, 'utf8');
+        writeHousekeepingProofFile(slicePath, [
+          { operation: 'reconcile-expired-slugs', removedCount: removed },
+        ], {
+          baseRaw: previousRaw,
+          candidateRaw: committedCandidateRaw,
+          metadata: { ...proofMetadata, candidateRaw: committedCandidateRaw },
+        });
+      }
       totalRemoved += removed;
       console.log(`💾 Updated expired slice: ${file} (removed ${removed} reconciled)`);
     }
@@ -1359,7 +1502,7 @@ if (isDirectRun) {
       console.log(`💾 Wrote ${DATA_EXPIRED} (${expiredResult.updatedExpired.length} remaining)`);
 
       // Remove reconciled entries from expired per-crawler slices
-      updateExpiredCrawlerSlices(expiredResult.reconciledIds);
+      updateExpiredCrawlerSlices(expiredResult.reconciledIds, activeJobs);
     } else {
       console.log('ℹ️  No changes — all files untouched');
     }
