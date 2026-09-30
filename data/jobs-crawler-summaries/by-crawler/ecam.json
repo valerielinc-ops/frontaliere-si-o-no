@@ -1,21 +1,23 @@
 {
   "key": "ecam",
   "label": "Ente Case Anziani Mendrisiotto (ECAM)",
-  "generatedAt": "2026-09-29T21:40:31.032Z",
+  "generatedAt": "2026-09-30T21:37:35.646Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7348,
-  "avgDurationMs": 7348,
+  "durationMs": 6450,
+  "avgDurationMs": 6450,
   "durationHistory": [
-    7348
+    6450
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T21:40:21.465Z",
+      "crawledAt": "2026-09-30T21:37:25.102Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -47,13 +49,12 @@
       "postedDate": "2026-08-07",
       "validThrough": "2026-09-18",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:54:37.539Z",
-      "_qualityScore": 77,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 15,
+        "richness": 24,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -69,7 +70,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T21:40:22.719Z",
+      "crawledAt": "2026-09-30T21:37:25.547Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -85,13 +86,12 @@
       "postedDate": "2026-01-01",
       "validThrough": "2026-12-31",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T14:54:38.347Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 17
       }
     }
