@@ -50,6 +50,7 @@ export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
   '/packages/articles/content/routerBlogData.ts',
   '/packages/articles/content/routerSwissData.ts',
   '/packages/articles/content/blogImageCdnMirror.ts',
+  '/packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts',
   '/packages/articles/content/blog-meta-it.ts',
   '/packages/articles/content/blog-meta-en.ts',
   '/packages/articles/content/blog-meta-de.ts',
