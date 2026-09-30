@@ -48,6 +48,16 @@ describe('L2 read-only demand outcome export', () => {
       .not.toContain('/it-query/');
   });
 
+  it('measures a nursing orphan query on its existing canonical landing', () => {
+    expect(landingPathsFromGsc({
+      clusters: [{
+        canonicalSlug: 'nursing-jobs',
+        canonicalQuery: 'nursing jobs',
+        locale: 'de',
+      }],
+    })).toEqual(['/en/nursing-jobs-switzerland/']);
+  });
+
   it('builds bounded GA4 session reports and keeps useful actions once per session', () => {
     const landingReport = buildL2LandingSessionReportBody({
       startDate: '2026-09-04',

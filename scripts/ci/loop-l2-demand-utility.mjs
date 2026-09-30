@@ -7,6 +7,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
+import { resolveNursingOrphanQueryTarget } from '../lib/nursing-landing-path.mjs';
 import {
   actionClassForPolicy,
   buildOutcome,
@@ -147,7 +148,8 @@ export function validateDemandSnapshot(payload, {
       canonicalSlug: slug,
       totalImpressions: impressions,
       totalClicks: clicks,
-      landingPath: buildOrphanLandingPath(cluster.locale, slug),
+      landingPath: resolveNursingOrphanQueryTarget(cluster.canonicalQuery, slug)?.path
+        || buildOrphanLandingPath(cluster.locale, slug),
     });
   }
 
