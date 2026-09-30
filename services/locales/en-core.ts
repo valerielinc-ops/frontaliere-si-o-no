@@ -851,6 +851,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Save answers",
  'jobBoard.assisted.review.answersSaved': "Answers saved.",
+ 'jobBoard.assisted.review.answersStillOpen': "Answers saved, but a required answer (*) is still missing.",
  'jobBoard.assisted.review.letterTitle': "Cover letter",
  'jobBoard.assisted.review.letterPdf': "Download the PDF",
  'jobBoard.assisted.review.cvTitle': "The CV we send",

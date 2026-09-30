@@ -101,6 +101,9 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   return {
     ok: true,
     stale,
+    // The link of the round the candidate just sent back: the next version is
+    // being prepared, which is what the page says (not "an older version").
+    preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
     round: current,
     roundsLeft: Math.max(0, MAX_REVIEW_ROUNDS - current),

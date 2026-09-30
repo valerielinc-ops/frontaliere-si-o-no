@@ -891,6 +891,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Salva le risposte",
  'jobBoard.assisted.review.answersSaved': "Risposte salvate.",
+ 'jobBoard.assisted.review.answersStillOpen': "Risposte salvate, ma manca ancora una risposta obbligatoria (*).",
  'jobBoard.assisted.review.letterTitle': "Lettera di presentazione",
  'jobBoard.assisted.review.letterPdf': "Scarica il PDF",
  'jobBoard.assisted.review.cvTitle': "Il CV che inviamo",

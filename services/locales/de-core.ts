@@ -854,6 +854,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.no': "Nein",
  'jobBoard.assisted.review.saveAnswers': "Antworten speichern",
  'jobBoard.assisted.review.answersSaved': "Antworten gespeichert.",
+ 'jobBoard.assisted.review.answersStillOpen': "Antworten gespeichert, aber eine Pflichtantwort (*) fehlt noch.",
  'jobBoard.assisted.review.letterTitle': "Motivationsschreiben",
  'jobBoard.assisted.review.letterPdf': "PDF herunterladen",
  'jobBoard.assisted.review.cvTitle': "Der Lebenslauf, den wir senden",

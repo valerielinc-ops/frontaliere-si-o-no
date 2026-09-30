@@ -823,6 +823,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.no': "Non",
  'jobBoard.assisted.review.saveAnswers': "Enregistrer les réponses",
  'jobBoard.assisted.review.answersSaved': "Réponses enregistrées.",
+ 'jobBoard.assisted.review.answersStillOpen': "Réponses enregistrées, mais il manque encore une réponse obligatoire (*).",
  'jobBoard.assisted.review.letterTitle': "Lettre de motivation",
  'jobBoard.assisted.review.letterPdf': "Télécharger le PDF",
  'jobBoard.assisted.review.cvTitle': "Le CV que nous envoyons",

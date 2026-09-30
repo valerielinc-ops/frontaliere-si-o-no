@@ -123,6 +123,11 @@ describe('candidate review API', () => {
     const rejected = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'reject', feedback: 'Più breve e meno formale' } }, deps());
     expect(rejected).toMatchObject({ status: 200, body: { state: 'regenerating' } });
     expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ round: 2, feedback: [{ round: 1, text: 'Più breve e meno formale' }] });
+    // Reopened right after sending the changes: the new version is being prepared, not "an older version".
+    const reopened = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(reopened.body).toMatchObject({ stale: true, preparingNext: true, state: 'regenerating', round: 2 });
+    // The old link still cannot act.
+    expect(await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'approve' } }, deps())).toMatchObject({ status: 409 });
   });
 
   it('confirms a portal handoff only from the handoff state', async () => {

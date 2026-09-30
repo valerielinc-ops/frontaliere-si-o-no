@@ -36,6 +36,8 @@ export interface ReviewQuestion {
 export interface ReviewPayload {
   ok: true;
   stale: boolean;
+  /** The link's round was just sent back: its next version is being prepared. */
+  preparingNext?: boolean;
   state: string;
   round: number;
   roundsLeft: number;
