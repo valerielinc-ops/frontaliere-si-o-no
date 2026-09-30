@@ -28,10 +28,10 @@ export const JOBPOSTING_PUBLIC_VARIANTS = Object.freeze([
   'runtime',
 ]);
 
-const emitter = (id, sourceFile, requiredBuilders, variants, kind) => Object.freeze({
+const emitter = (id, sourceFile, allowedBuilders, variants, kind) => Object.freeze({
   id,
   sourceFile,
-  requiredBuilders: Object.freeze(requiredBuilders),
+  allowedBuilders: Object.freeze(allowedBuilders),
   localePrefixes: JOBPOSTING_LOCALE_PREFIXES,
   variants: Object.freeze(variants),
   kind,
@@ -201,7 +201,6 @@ export function inspectJobPostingEmitter(rootDir, emitterEntry) {
     calledBuilders: [...calledBuilders].sort(),
     directDeclarations,
     hasBuilderImport: importedBuilders.size > 0,
-    hasBuilderImportText: DIRECT_JOBPOSTING_SOURCE_RE.test(source) || importedBuilders.size > 0,
   };
 }
 
@@ -295,17 +294,10 @@ export function checkJobPostingEmitterCensus(rootDir = process.cwd()) {
       const lines = inspection.directDeclarations.map((declaration) => declaration.line).join(', ');
       failures.push(`${entry.sourceFile} declares JobPosting directly at line(s) ${lines}; use the canonical builder`);
     }
-    const requiredBuilders = new Set(entry.requiredBuilders);
-    const calledRequired = inspection.calledBuilders.filter((builder) => requiredBuilders.has(builder));
-    if (calledRequired.length === 0) {
-      failures.push(`${entry.sourceFile} does not call one of ${[...requiredBuilders].join(', ')}`);
-    }
-    for (const requiredBuilder of requiredBuilders) {
-      if (inspection.calledBuilders.includes(requiredBuilder)) continue;
-      // An emitter may legitimately use either canonical builder. The
-      // manifest can require both only when both paths are present in the
-      // module, so the per-entry requirement is an OR, not an AND.
-      if (requiredBuilders.size > 1) continue;
+    const allowedBuilders = new Set(entry.allowedBuilders);
+    const calledAllowed = inspection.calledBuilders.filter((builder) => allowedBuilders.has(builder));
+    if (calledAllowed.length === 0) {
+      failures.push(`${entry.sourceFile} does not call one of ${[...allowedBuilders].join(', ')}`);
     }
   }
   for (const requiredVariant of JOBPOSTING_PUBLIC_VARIANTS) {
