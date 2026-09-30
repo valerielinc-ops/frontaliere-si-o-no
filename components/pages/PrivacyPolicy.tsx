@@ -687,8 +687,11 @@ export const PrivacyPolicy: React.FC = () => {
                 i dati personali nei registri e ne cancella i registri al termine; le prove di ciò che è stato
                 inviato sono conservate cifrate e cancellate con il CV (90 giorni). Prima dell'invio la bozza è
                 controllata da un'operatrice e sottoposta alla tua approvazione: se non rispondi entro 12 ore
-                parte così com'è, come indicato nelle email. OpenAI e GitHub possono trattare i dati anche
-                fuori dall'UE/Svizzera.
+                parte così com'è, come indicato nelle email. All'azienda comunichiamo un indirizzo email
+                dedicato alla tua candidatura (c-…@candidature.frontaliereticino.ch): i messaggi che vi
+                arrivano sono classificati automaticamente, conservati cifrati per 90 giorni e inoltrati
+                subito a te con i loro allegati, con risposta diretta al selezionatore. OpenAI e GitHub
+                possono trattare i dati anche fuori dall'UE/Svizzera.
               </li>
             </ul>
             <p className="text-sm italic">

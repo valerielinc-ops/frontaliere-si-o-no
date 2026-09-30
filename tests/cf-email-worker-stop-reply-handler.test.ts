@@ -495,6 +495,103 @@ describe('worker email() — assisted-application CV replies', () => {
     expect(message.forward).toHaveBeenCalledWith('inbox@example.com');
   });
 
+  it('still reads a STOP in a reply too large for the CV endpoint (size unknown until read)', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const raw = `Content-Type: multipart/mixed; boundary=x\r\n\r\n--x\r\nContent-Type: text/plain\r\n\r\nPlease unsubscribe me from this list.\r\n--x\r\n${'A'.repeat(9.5 * 1024 * 1024)}`;
+    const message = fakeMessage({ from: 'maria@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: newsletter', rawText: raw, headers: { 'content-type': 'multipart/mixed; boundary=x' } });
+    const ctx = fakeCtx();
+    await worker.email(message, env, ctx);
+    await Promise.all(ctx.waited);
+    expect(fetchMock.mock.calls.some(([url]) => url === env.ASSISTED_CV_FN_URL)).toBe(false);
+    expect(fetchMock.mock.calls.some(([url]) => url === env.STOP_REPLY_FN_URL)).toBe(true);
+  });
+
+  it('rejects every employer reply the inbound function did not accept, after a copy to the owner inbox', async () => {
+    const aliasEnv = { ...env, ASSISTED_INBOUND_FN_URL: 'https://fn.example/inbound' };
+    const aliasMail = () => ({
+      ...fakeMessage({ from: 'hr@ats.example', to: 'c-abcdefghjk@candidature.frontaliereticino.ch', subject: 'Einladung', rawText: 'Guten Tag' }),
+      setReject: vi.fn(),
+    });
+    // 503 from the function: the owner's inbox gets a marked copy, and the
+    // message is still rejected, so the employer's server retries or reports it.
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('busy', { status: 503 })));
+    const unavailable = aliasMail();
+    await worker.email(unavailable, aliasEnv, fakeCtx());
+    expect(unavailable.forward).toHaveBeenCalledTimes(1);
+    const [to, headers] = unavailable.forward.mock.calls[0] as any;
+    expect(to).toBe('inbox@example.com');
+    expect(headers.get('X-Frontaliere-Alias-Fallback')).toBe('http_503 c-abcdefghjk@candidature.frontaliereticino.ch');
+    expect(unavailable.setReject).toHaveBeenCalledWith('Temporary failure, please retry later');
+    // Connection refused: same copy, same reject.
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('connection refused')));
+    const refused = aliasMail();
+    await worker.email(refused, aliasEnv, fakeCtx());
+    expect((refused.forward.mock.calls[0] as any)[1].get('X-Frontaliere-Alias-Fallback')).toBe('network c-abcdefghjk@candidature.frontaliereticino.ch');
+    expect(refused.setReject).toHaveBeenCalledWith('Temporary failure, please retry later');
+    // A failing copy does not skip the reject either.
+    const copyFails = aliasMail();
+    copyFails.forward.mockRejectedValue(new Error('unverified'));
+    await worker.email(copyFails, aliasEnv, fakeCtx());
+    expect(copyFails.setReject).toHaveBeenCalledWith('Temporary failure, please retry later');
+    // Network error and no fallback inbox: rejected, so the sender's MTA reports it.
+    const unreachable = aliasMail();
+    await worker.email(unreachable, { ...aliasEnv, FORWARD_TO: '' }, fakeCtx());
+    expect(unreachable.forward).not.toHaveBeenCalled();
+    expect(unreachable.setReject).toHaveBeenCalledWith('Temporary failure, please retry later');
+  });
+
+  it('hands a multipart alias message with an attachment to the inbound function whole, never to the CV endpoint', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const aliasEnv = { ...env, ASSISTED_INBOUND_FN_URL: 'https://fn.example/inbound' };
+    const raw = 'Content-Type: multipart/mixed; boundary=x\r\n\r\n--x\r\nContent-Type: text/plain\r\n\r\nUnterlagen\r\n--x\r\nContent-Type: application/pdf; name=vertrag.pdf\r\nContent-Disposition: attachment; filename=vertrag.pdf\r\n\r\nJVBERi0x\r\n--x--\r\n';
+    // The real raw stream is one-shot: a second reader gets nothing.
+    let consumed = false;
+    const message = {
+      ...fakeMessage({ from: 'hr@arbeitgeber.ch', to: 'c-abcdefghjk@candidature.frontaliereticino.ch', subject: 'Unterlagen', headers: { 'content-type': 'multipart/mixed; boundary=x' } }),
+      raw: {
+        getReader() {
+          return {
+            async read() {
+              if (consumed) return { done: true, value: undefined };
+              consumed = true;
+              return { done: false, value: new TextEncoder().encode(raw) };
+            },
+            releaseLock() {},
+          };
+        },
+      },
+      setReject: vi.fn(),
+    };
+    await worker.email(message, aliasEnv, fakeCtx());
+    const call = fetchMock.mock.calls.find(([url]) => url === aliasEnv.ASSISTED_INBOUND_FN_URL);
+    expect(new TextDecoder().decode(call![1].body)).toBe(raw);
+    expect(fetchMock.mock.calls.some(([url]) => url === env.ASSISTED_CV_FN_URL)).toBe(false);
+    expect(message.setReject).not.toHaveBeenCalled();
+    expect(message.forward).not.toHaveBeenCalled();
+  });
+
+  it('hands employer mail on an order alias to the inbound function, even when automatic, and never to the human inbox', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const aliasEnv = { ...env, ASSISTED_INBOUND_FN_URL: 'https://fn.example/inbound' };
+    const message = fakeMessage({
+      from: 'noreply@ats.example',
+      to: 'c-abcdefghjk@candidature.frontaliereticino.ch',
+      subject: 'We have received your application',
+      rawText: 'Auto-Submitted: auto-generated\r\n\r\nThanks',
+      headers: { 'auto-submitted': 'auto-generated' },
+    });
+    const ctx = fakeCtx();
+    await worker.email(message, aliasEnv, ctx);
+    await Promise.all(ctx.waited);
+    const call = fetchMock.mock.calls.find(([url]) => url === aliasEnv.ASSISTED_INBOUND_FN_URL);
+    expect(call![1].headers).toMatchObject({ 'x-envelope-to': 'c-abcdefghjk@candidature.frontaliereticino.ch', 'x-stop-secret': SECRET });
+    expect(message.forward).not.toHaveBeenCalled();
+    expect(fetchMock.mock.calls.some(([url]) => url === env.REPLY_TRACK_FN_URL)).toBe(false);
+  });
+
   it('does not send plain replies or oversized messages to the CV endpoint', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
     vi.stubGlobal('fetch', fetchMock);
