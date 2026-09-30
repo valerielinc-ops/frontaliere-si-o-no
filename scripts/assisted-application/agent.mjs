@@ -73,7 +73,8 @@ async function main() {
   const order = orderSnapshot.data() || {};
   const flow = flowSnapshot.data() || {};
   const previousDraft = draftSnapshot.exists ? draftSnapshot.data() || null : null;
-  maskValues(personalValuesOf(order, previousDraft?.profile || {}));
+  // With what the candidate typed on the review page (a new phone, a new name...).
+  maskValues([personalValuesOf(order, previousDraft?.profile || {}), Object.values(flow.formOverrides || {})]);
 
   // A run that no longer matches the flow (superseded round, state moved on)
   // must not write anything.

@@ -5,7 +5,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 
 const { atsReport, keywordCoverage, structuralCheck, titlePhrases } = await import('../functions/src/assistedApplicationAts.js');
 const { assessLegitimacy, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
-const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText, withoutWorkload } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -117,6 +117,21 @@ describe('tailored ATS CV (career-ops modes/pdf.md)', () => {
     const text = tailoredCvPlainText(cv, { identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' }, profile });
     expect(text).toContain('KURZPROFIL');
     expect(buildTailoredCvPdf(cv, { identity: { name: 'Maria Rossi', email: 'x@y.ch', phone: '' }, profile }).subarray(0, 5).toString()).toBe('%PDF-');
+  });
+
+  // Giro di prova 2026-09-30: "Infermiere/a diplomato/a 80-100%" copied into the headline dropped the tailored CV.
+  it('keeps the posting’s workload out of the headline, so the title alone never fails the fact gate', () => {
+    for (const [title, role] of [
+      ['Infermiere/a diplomato/a 80-100%', 'Infermiere/a diplomato/a'],
+      ['Pflegefachperson HF 80 - 100 %', 'Pflegefachperson HF'],
+      ['Buchhalter/in (100%)', 'Buchhalter/in'],
+      ['Mitarbeiter Verkauf 60% bis 80%', 'Mitarbeiter Verkauf'],
+      ['Infirmier·ère 80 à 100 %', 'Infirmier·ère'],
+      ['Fahrer Kat. C1', 'Fahrer Kat. C1'],
+    ]) expect(withoutWorkload(title)).toBe(role);
+    const cv = sanitizeTailoredCv({ ...raw, headline: 'Pflegefachfrau HF 80-100%' }, { profile, cvText: CV_TEXT, language: 'de' });
+    expect(cv.headline).toBe('Pflegefachfrau HF');
+    expect(checkTailoredCvFacts(cv, { cvText: CV_TEXT, profile, answers: {} }).ok).toBe(true);
   });
 
   it('refuses a number the posting has and the CV has not', () => {
@@ -254,6 +269,16 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 1, sendCascade, by: 'candidate' });
     expect(await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 2, sendCascade, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
+
+    // Signed with the name the candidate corrected on the review page.
+    const corrected = followupStore();
+    await corrected.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi' } }, { merge: true });
+    await corrected.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    const signed = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await sendFollowup({ db: corrected.db, orderId: ORDER, nowMs: T0 + 1, sendCascade: signed, by: 'candidate' });
+    const [[[item]]] = signed.mock.calls as any;
+    expect(item.payload.from).toContain('Maria Luisa Rossi');
+    expect(item.payload.text).toMatch(/\n\nMaria Luisa Rossi/);
 
     // A contended transaction is retried: the retry sees the other sender's claim and backs off.
     const raced = followupStore();

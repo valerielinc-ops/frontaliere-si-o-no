@@ -112,6 +112,12 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(document.inputs?.broker_max_concurrency?.default).toBe('3');
     expect(action).toContain('--max-concurrency "$broker_max_concurrency"');
     expect(action).toMatch(/\[1-6\]\) ;;\n\s+\*\) broker_max_concurrency=3 ;;/);
+    // Tetto per richiesta: 10 minuti salvo un job che deve lasciar finire una
+    // richiesta lenta; il valore applicato torna come output, non in GITHUB_ENV.
+    expect(document.inputs?.broker_max_timeout_ms?.default).toBe('600000');
+    expect(action).toContain('--max-timeout-ms "$broker_max_timeout_ms"');
+    expect(action).toContain('printf \'max_timeout_ms=%s\\n\' "$broker_max_timeout_ms" >> "$GITHUB_OUTPUT"');
+    expect(action).toMatch(/-gt 10800000 \]; then\n\s+broker_max_timeout_ms=600000/);
     expect(action).not.toContain('CODEX_AUTH_BROKER_SOCKET=');
     expect(action).not.toContain('CODEX_AUTH_FILE=');
   });

@@ -2397,11 +2397,13 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
 
 // Candidate review page API (signed link from the review e-mails, no login).
 export const assistedApplicationReview = onRequest(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  // 512MiB: an edit by the candidate rebuilds the letter PDF.
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
   async (req, res) => {
     try {
       const { status, body } = await handleAssistedApplicationReview(req, {
         db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         runEffect: (context) => runAutomationEffect(context),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
         // A follow-up the candidate sends right away (af1 link).
