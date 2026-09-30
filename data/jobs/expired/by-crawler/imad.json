@@ -1,5 +1,68 @@
 [
   {
+    "slug": "candidatura-spontanea-altro-imad-geneva",
+    "title": "Candidature spontanée / Autres",
+    "titleByLocale": {
+      "it": "Applicazione spontanea / Altro",
+      "en": "Candidature spontanée / Autres",
+      "de": "Spontane Anwendung / Sonstige",
+      "fr": "Candidature spontanée / Autres"
+    },
+    "company": "imad",
+    "companyKey": "imad",
+    "location": "Geneva",
+    "addressLocality": "Geneva",
+    "descriptionByLocale": {
+      "it": "• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro.",
+      "en": "• Please attach to your file: an up-to-date resume, a cover letter, a copy of your diplomas and your work certificates.",
+      "de": "• Bitte fügen Sie Ihrer Datei bei: einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen.",
+      "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
+    },
+    "slugByLocale": {
+      "it": "candidatura-spontanea-altro-imad-geneva",
+      "en": "candidature-spontanee-autres-imad-geneva",
+      "de": "spontane-anwendung-sonstige-imad-geneva",
+      "fr": "candidature-spontanee-autres-imad-geneva"
+    },
+    "sector": "Sanità / Cure a domicilio",
+    "expiredAt": "2026-09-30T21:17:05.464Z",
+    "previousSlugs": [
+      "candidature-spontanee-autres-imad-geneva",
+      "spontaneous-application-others-imad-geneva",
+      "initiativbewerbung-sonstiges-imad-geneva"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "candidature-spontanee-autres-imad-geneva"
+      ],
+      "en": [
+        "spontaneous-application-others-imad-geneva"
+      ],
+      "de": [
+        "candidature-spontanee-autres-imad-geneva",
+        "initiativbewerbung-sonstiges-imad-geneva"
+      ]
+    },
+    "salaryMin": 86500,
+    "salaryMax": 120500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres",
+    "firstSeenAt": "2026-09-26T14:05:46.791Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres",
+        "firstSeenAt": "2026-09-26T14:05:46.791Z",
+        "title": "Candidature spontanée / Autres"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+        "firstSeenAt": "2026-09-26T14:05:46.791Z",
+        "title": "Candidature spontanée / Autres"
+      }
+    ]
+  },
+  {
     "slug": "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva",
     "title": "Diététicienne clinicienne spécialisée / Centre des Pratiques Interprofessionnelles – Direction des opérations / à 100% / en CDI",
     "titleByLocale": {
@@ -251,56 +314,6 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000149302577-infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi?oga=true"
-  },
-  {
-    "slug": "candidatura-spontanea-altro-imad-geneva",
-    "title": "Candidature spontanée / Autres",
-    "titleByLocale": {
-      "it": "Applicazione spontanea / Altro",
-      "en": "Spontaneous application / Other",
-      "de": "Spontane Anwendung / Sonstige",
-      "fr": "Candidature spontanée / Autres"
-    },
-    "company": "imad",
-    "companyKey": "imad",
-    "location": "Geneva",
-    "addressLocality": "Geneva",
-    "descriptionByLocale": {
-      "it": "• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro.",
-      "en": "• Please attach to your file: an up-to-date resume, a cover letter, a copy of your diplomas and your work certificates.",
-      "de": "• Bitte fügen Sie Ihrer Datei bei: einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen.",
-      "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
-    },
-    "slugByLocale": {
-      "it": "candidatura-spontanea-altro-imad-geneva",
-      "en": "spontaneous-application-others-imad-geneva",
-      "de": "initiativbewerbung-sonstiges-imad-geneva",
-      "fr": "candidature-spontanee-autres-imad-geneva"
-    },
-    "sector": "Sanità / Cure a domicilio",
-    "expiredAt": "2026-09-29T21:19:49.066Z",
-    "previousSlugs": [
-      "candidature-spontanee-autres-imad-geneva",
-      "spontane-anwendung-sonstige-imad-geneva"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "candidature-spontanee-autres-imad-geneva"
-      ],
-      "en": [
-        "candidature-spontanee-autres-imad-geneva"
-      ],
-      "de": [
-        "candidature-spontanee-autres-imad-geneva",
-        "spontane-anwendung-sonstige-imad-geneva"
-      ]
-    },
-    "salaryMin": 86500,
-    "salaryMax": 120500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-    "firstSeenAt": "2026-09-26T14:05:46.791Z"
   },
   {
     "slug": "infermiera-ere-eiso-interprofessional-team-specializzato-in-oncologia-80-in-cdi-imad-geneva",

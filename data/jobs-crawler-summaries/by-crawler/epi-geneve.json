@@ -1,21 +1,23 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-09-29T21:11:53.298Z",
-  "total": 9,
+  "generatedAt": "2026-09-30T21:12:31.968Z",
+  "total": 8,
   "discovered": null,
   "parsed": 8,
   "lastFetchOutcome": null,
-  "written": 9,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 8,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5378,
-  "avgDurationMs": 5378,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5670,
+  "avgDurationMs": 5670,
   "durationHistory": [
-    5378
+    5670
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000151571609-un-e-socio-educateur-trice-pool-c-70-cdm-jusqu-au-31-aout-2027?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.298Z",
+      "crawledAt": "2026-09-30T21:12:17.229Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -69,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000151539236--un-e-socio-educateur-trice-jalouvre-70-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.330Z",
+      "crawledAt": "2026-09-30T21:12:17.281Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin",
@@ -107,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000149312383-un-e-socio-educateur-trice-minoteries-50-cdm-jusqu-au-31-aout-2027?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.337Z",
+      "crawledAt": "2026-09-30T21:12:17.260Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de la Maladière 4",
@@ -145,7 +147,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000148248824-un-e-maitre-sse-d-hotel-assistant-e-socioprofessionnel-le-restauration-horaires-continus-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.284Z",
+      "crawledAt": "2026-09-30T21:12:17.256Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance",
@@ -183,7 +185,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000147877299-un-e-assistant-e-socioprofessionnel-le-planification-de-process-d-industrie-legere-atelier-conditionnement-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.345Z",
+      "crawledAt": "2026-09-30T21:12:17.287Z",
       "addressLocality": "Meinier",
       "addressRegion": "GE",
       "streetAddress": "Chemin de la Pallanterie 10",
@@ -221,7 +223,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000143292499-un-e-agent-e-technico-commercial-e-services-socioprofessionnels-secteur-commercial-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.352Z",
+      "crawledAt": "2026-09-30T21:12:17.295Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Champ-des-Filles 4A",
@@ -259,7 +261,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.357Z",
+      "crawledAt": "2026-09-30T21:12:17.290Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -297,7 +299,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:11:40.362Z",
+      "crawledAt": "2026-09-30T21:12:17.300Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -324,8 +326,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "epi-geneve-b7f196b7ea9a",
       "slug": "un-assistente-socio-educativo-train-bleu-60-70-cdi-etablissements-publics-pour-l-integration-geneve-ge-switzerland",
@@ -369,5 +370,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

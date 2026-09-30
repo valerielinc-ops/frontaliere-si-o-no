@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "slug": "concorso-contabile-clinica-varini-orselina",
+    "title": "Concorso: Contabile",
+    "titleByLocale": {
+      "it": "Concorso: Contabile",
+      "en": "Accountant Position",
+      "de": "Buchhalter/in",
+      "fr": "Comptable"
+    },
+    "company": "Clinica Varini",
+    "companyKey": "clinica-varini",
+    "location": "Orselina",
+    "addressLocality": "Orselina",
+    "descriptionByLocale": {},
+    "slugByLocale": {
+      "it": "concorso-contabile-clinica-varini-orselina",
+      "en": "accountant-position-clinica-varini-orselina",
+      "de": "buchhalter-in-clinica-varini-orselina",
+      "fr": "comptable-clinica-varini-orselina"
+    },
+    "sector": "Sanità / Clinica privata",
+    "expiredAt": "2026-09-30T21:13:09.814Z",
+    "postalCode": "6644",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://clinicavarini.ch/wp-content/uploads/20260508_concorso_contabile.pdf",
+    "firstSeenAt": "2026-05-20T05:41:08.122Z"
+  },
+  {
+    "slug": "concorso-direttore-direttrice-sanitario-clinica-varini-orselina",
+    "title": "Concorso: Direttore/Direttrice Sanitario",
+    "titleByLocale": {
+      "it": "Concorso: Direttore/Direttrice Sanitario",
+      "en": "Competition: Director",
+      "de": "Wettbewerb: Direktor",
+      "fr": "Concours: Directeur"
+    },
+    "company": "Clinica Varini",
+    "companyKey": "clinica-varini",
+    "location": "Orselina",
+    "addressLocality": "Orselina",
+    "descriptionByLocale": {},
+    "slugByLocale": {
+      "it": "concorso-direttore-direttrice-sanitario-clinica-varini-orselina",
+      "en": "director-of-health-clinica-varini-orselina",
+      "de": "gesundheitsdirektor-in-clinica-varini-orselina",
+      "fr": "directeur-directrice-de-la-sante-clinica-varini-orselina"
+    },
+    "sector": "Sanità / Clinica privata",
+    "expiredAt": "2026-09-30T21:13:09.813Z",
+    "previousSlugs": [
+      "competition-director-clinica-varini-orselina",
+      "concours-directeur-clinica-varini-orselina",
+      "wettbewerb-direktor-clinica-varini-orselina"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "competition-director-clinica-varini-orselina"
+      ],
+      "de": [
+        "wettbewerb-direktor-clinica-varini-orselina"
+      ],
+      "fr": [
+        "concours-directeur-clinica-varini-orselina"
+      ]
+    },
+    "postalCode": "6644",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://clinicavarini.ch/wp-content/uploads/20260311_concorso_dir_sanitario.pdf",
+    "firstSeenAt": "2026-05-21T11:31:18.518Z"
+  }
+]
