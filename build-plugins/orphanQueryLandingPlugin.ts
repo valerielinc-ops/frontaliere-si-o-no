@@ -934,11 +934,9 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           const flatPath = path.join(distDir, urlPath.replace(/\/+$/, '') + '.html');
           collector.add(indexPath, bridgeHtml);
           collector.add(flatPath, bridgeHtml);
-          routes.push({
-            locale: cluster.locale,
-            slug: cluster.canonicalSlug,
-            path: urlPath,
-          });
+          // Historical nursing aliases stay collector-only: publishing this
+          // noindex bridge through routes would make it eligible for orphan
+          // hub/sitemap navigation despite its canonical redirect target.
           pagesGenerated++;
           canonicalBridges++;
           continue;
