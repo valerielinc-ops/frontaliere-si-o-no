@@ -1160,7 +1160,9 @@ describe('technical operations audit', () => {
       /^\.github\/workflows\/crawler-group-\d+(?:-logic)?\.yml$/u.test(item.file)
       && item.rule === 'workflow.output-not-produced',
     )).toEqual([]);
-  }, 45_000);
+  // The inventory scan is ~21 s in isolation and can reach ~50 s when the
+  // full suite shares the runner with other filesystem-heavy workers.
+  }, 90_000);
 
   it('renderizza conteggi e severità nel report', () => {
     const report = {
