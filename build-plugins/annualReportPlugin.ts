@@ -921,7 +921,7 @@ function renderReport(opts: {
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
-      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="https://www.bfs.admin.ch/" rel="nofollow" target="_blank" style="${LINK_ACCENT_STYLE}">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow" target="_blank" style="${LINK_ACCENT_STYLE}">ISTAT</a></p>
+      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="https://www.bfs.admin.ch/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE}">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE}">ISTAT</a></p>
     </section>
     <section class="s-ixDYj7">
       <h2 style="${H2_STYLE}">${esc(copy.relatedH2)}</h2>
