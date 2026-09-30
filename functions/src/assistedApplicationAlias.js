@@ -21,7 +21,9 @@ import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
 export const ALIAS_DOMAIN = 'candidature.frontaliereticino.ch';
 export const ALIASES_COLLECTION = 'assisted_application_aliases';
-export const EMAIL_WORKER_NAME = 'frontaliere-stop-reply-handler';
+import { EMAIL_WORKER_NAME } from './emailWorkerName.js';
+
+export { EMAIL_WORKER_NAME };
 const ZONE_NAME = 'frontaliereticino.ch';
 const CF_API = 'https://api.cloudflare.com/client/v4';
 const ALPHABET = 'abcdefghijkmnpqrstuvwxyz23456789';
