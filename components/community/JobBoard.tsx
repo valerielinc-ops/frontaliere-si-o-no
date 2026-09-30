@@ -7721,7 +7721,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const category = (t(categoryTranslationKey(selectedJob)) || '').trim();
  Analytics.trackJobAlertCtaClick('job_detail_button', 'open', category);
- requestJobAlertOpen(category || undefined);
+ requestJobAlertOpen(category || undefined, 'job_detail_button');
  backToList();
  }}
  className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] text-xs font-semibold font-display rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
@@ -10687,6 +10687,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobSlug={selectedJob.slug ?? null}
  sourceJobUrl={selectedJob.url ?? null}
  sourceJobTitle={selectedJob.title ?? null}
+ onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', selectedJob.title)}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
  Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
