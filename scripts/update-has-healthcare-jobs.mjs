@@ -310,8 +310,26 @@ export function buildDescription(detail) {
   return meetsSourceBodyFloor(text) ? text : '';
 }
 
-/** Fragments only the crawler's former description builder wrote. */
-export const HAS_FABRICATED_DESCRIPTION_RE = /, con sede a Biasca \(TI\), è alla ricerca di: |(?:^|\n)Settore: Farmaceutico \/ API \(Active Pharmaceutical Ingredients\)/;
+// Complete lines only: the old builder's intro, emoji labels, and structured
+// location/sector lines. The section bodies between them are source text.
+export const HAS_FABRICATED_DESCRIPTION_RE = /^(?:HAS Healthcare Advanced Synthesis, con sede a Biasca \(TI\), è alla ricerca di: [^\r\n]+|📋 Competenze richieste:|🎯 Mansioni principali:|🎁 Cosa offriamo:|🗣️ Lingue richieste: [^\r\n]+|🎓 Titolo di studio: [^\r\n]+|Settore: Farmaceutico \/ API \(Active Pharmaceutical Ingredients\)|Sede: Via Industria 24, Biasca \(TI\), Svizzera)[ \t]*\r?$/m;
+const HAS_FABRICATED_LINE_RE = /^(?:HAS Healthcare Advanced Synthesis, con sede a Biasca \(TI\), è alla ricerca di: [^\r\n]+|📋 Competenze richieste:|🎯 Mansioni principali:|🎁 Cosa offriamo:|🗣️ Lingue richieste: [^\r\n]+|🎓 Titolo di studio: [^\r\n]+|Settore: Farmaceutico \/ API \(Active Pharmaceutical Ingredients\)|Sede: Via Industria 24, Biasca \(TI\), Svizzera)[ \t]*\r?\n?/gm;
+
+export function stripHasFabricatedDescription(text = '') {
+  return String(text)
+    .replace(HAS_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function prepareExistingHasJobs(jobs) {
+  return dropFabricatedDescriptions(
+    jobs,
+    HAS_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+    { strip: stripHasFabricatedDescription },
+  );
+}
 
 // ─────────────────────────────────────────────────────────────
 // Category & experience detection
@@ -443,7 +461,7 @@ async function mergeJobs(discoveredJobs) {
   // Stored jobs of the old builder: their crawler-written description and the
   // translations of it go before the locale-preserving merge; one left
   // without any source text is not published (issue 5253).
-  const existingTargetJobs = dropFabricatedDescriptions(allJobs.filter(isTargetJob), HAS_FABRICATED_DESCRIPTION_RE, 'HAS Healthcare')
+  const existingTargetJobs = prepareExistingHasJobs(allJobs.filter(isTargetJob))
     .filter((job) => String(job.description || '').trim() || Object.values(job.descriptionByLocale || {}).some((text) => String(text || '').trim()));
 
   const existingKeys = new Set(
@@ -511,7 +529,7 @@ async function mergeJobs(discoveredJobs) {
 
 async function rewriteStoredHasJobsWithoutThinSource(storedJobs) {
   return rewritePreparedStoredJobs({
-    prepare: (jobs) => dropFabricatedDescriptions(jobs, HAS_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+    prepare: prepareExistingHasJobs,
     storedJobs,
     companyKey: COMPANY_KEY,
     companyLabel: COMPANY_NAME,

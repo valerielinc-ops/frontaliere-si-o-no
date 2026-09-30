@@ -67,6 +67,7 @@ const {
   appendPosted,
   loadPlaceIds,
   lookupPlaceId,
+  FB_SCHEDULE_CONCURRENCY,
   run,
 } = scheduler as unknown as {
   pickNextSlots: (
@@ -89,6 +90,7 @@ const {
     location: string | null | undefined,
     placeIds: Record<string, string>,
   ) => string | null;
+  FB_SCHEDULE_CONCURRENCY: number;
   run: (opts: {
     env?: Record<string, string | undefined>;
     now?: Date;
@@ -664,6 +666,57 @@ describe('run() — DRY_RUN mode', () => {
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('job-X');
     expect(ledger.posted[0].fbPostId).toBe('pid_postid_1');
+  });
+
+  it('keeps Graph scheduling bounded instead of processing the batch serially', async () => {
+    const tmp = setupTmp(
+      Array.from({ length: 6 }, (_, i) => ({
+        id: `job-${i}`,
+        title: 'Operaio',
+        slug: `operaio-${i}`,
+      })),
+    );
+    let activeGraphCalls = 0;
+    let maxActiveGraphCalls = 0;
+    let feedCall = 0;
+
+    const fetchSpy = vi.fn(async (url: string | URL | Request, init?: RequestInit) => {
+      const u = String(url);
+      if (u.includes('/scheduled_posts')) {
+        return new Response(JSON.stringify({ data: [] }), { status: 200 });
+      }
+
+      activeGraphCalls += 1;
+      maxActiveGraphCalls = Math.max(maxActiveGraphCalls, activeGraphCalls);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+      activeGraphCalls -= 1;
+
+      if (u.includes('scrape=true')) {
+        return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      }
+      if (u.includes('graph.facebook.com') && !init?.method) {
+        return new Response(
+          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og.webp' }] } }),
+          { status: 200 },
+        );
+      }
+      feedCall += 1;
+      return new Response(JSON.stringify({ id: `post-${feedCall}` }), { status: 200 });
+    });
+
+    const result = await run({
+      env: { FB_JOB_VOLUME: '24', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.scheduled).toBe(6);
+    expect(maxActiveGraphCalls).toBeGreaterThan(1);
+    expect(maxActiveGraphCalls).toBeLessThanOrEqual(FB_SCHEDULE_CONCURRENCY);
+    expect(loadPosted(tmp).posted).toHaveLength(6);
   });
 
   it('soft-fails when credentials are missing (no fetch, ok=false)', async () => {

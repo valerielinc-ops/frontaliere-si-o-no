@@ -34,6 +34,7 @@ import {
   codexPrompt,
   documentsSystemPrompt,
   documentsUserText,
+  applicationEmailSubject,
   letterSubject,
   matchSystemPrompt,
   matchUserText,
@@ -58,7 +59,9 @@ import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
 const MAX_SOURCE_CHARS = 30_000;
 const MAX_POSTING_EXCERPT = 6_000;
-const CODEX_TIMEOUT_MS = 600_000;
+// A slow call at effort max must finish rather than fail the draft: the
+// broker of assisted-application-agent.yml allows 30 min per request.
+const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
 export class DraftAbort extends Error {
@@ -204,9 +207,10 @@ export async function buildDraft(ctx) {
     ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
+  const emailSubject = applicationEmailSubject(language, title, identity.name, documents.emailSubject);
   const factCheck = checkDraftFacts({
     coverLetter: letterBody,
-    emailSubject: documents.emailSubject,
+    emailSubject,
     emailBody: documents.emailBody,
     motivationShort: documents.motivationShort,
     whyCompany: documents.whyCompany,
@@ -265,7 +269,7 @@ export async function buildDraft(ctx) {
     coverLetter: { ...documents.coverLetter, text: letterBody, subject: letterSubject(language, title) },
     applicationEmail: {
       to: channel.email || '',
-      subject: documents.emailSubject || letterSubject(language, title),
+      subject: emailSubject,
       body: `${documents.emailBody}\n\n${signature}`.trim(),
     },
     formAnswers: buildFormAnswers({ identity, profile, documents, answers }),

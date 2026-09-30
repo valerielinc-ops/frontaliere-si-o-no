@@ -242,3 +242,19 @@ describe('job posting fetch', () => {
     expect(htmlToText('<ul><li>Uno</li><li>Due &amp; tre</li></ul><style>p{}</style>')).toBe('- Uno\n- Due & tre');
   });
 });
+
+describe('application e-mail subject', () => {
+  // Giro di prova 2026-09-30: the model's subject was just "Infermiere/a 80-100%".
+  it('names the position and the candidate, and keeps a reference the posting asks for', async () => {
+    const { applicationEmailSubject } = await import('../functions/src/assistedApplicationAiPrompts.js');
+    expect(applicationEmailSubject('it', 'Infermiere/a diplomato/a 80-100%', 'Luigi Prova', 'Infermiere/a 80-100%'))
+      .toBe('Candidatura per la posizione di Infermiere/a diplomato/a 80-100% – Luigi Prova');
+    expect(applicationEmailSubject('de', 'Pflegefachperson HF', 'Maria Rossi', 'Bewerbung Kennziffer 4711'))
+      .toBe('Bewerbung als Pflegefachperson HF – Maria Rossi (Kennziffer 4711)');
+    expect(applicationEmailSubject('fr', 'Infirmier', 'Luca Bianchi', 'Candidature réf. INF-2026-17'))
+      .toBe('Candidature au poste de Infirmier – Luca Bianchi (réf. INF-2026-17)');
+    // "Referenzen" is not a reference number.
+    expect(applicationEmailSubject('de', 'Koch', 'Anna Keller', 'Bewerbung mit Referenzen')).toBe('Bewerbung als Koch – Anna Keller');
+    expect(applicationEmailSubject('en', 'Nurse', '', '')).toBe('Application for the position of Nurse');
+  });
+});

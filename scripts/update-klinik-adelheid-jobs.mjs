@@ -12,6 +12,7 @@ import {
   KLINIK_ADELHEID_KEY,
   KLINIK_ADELHEID_COMPANY_NAME,
   KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE,
+  stripKlinikAdelheidFabricatedDescription,
 } from './lib/klinik-adelheid-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
@@ -26,7 +27,12 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKlinikAdelheidJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
-  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE, KLINIK_ADELHEID_COMPANY_NAME),
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(
+    jobs,
+    KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE,
+    KLINIK_ADELHEID_COMPANY_NAME,
+    { strip: stripKlinikAdelheidFabricatedDescription },
+  ),
 }).catch((err) => {
   console.error(`❌ Klinik Adelheid crawler failed: ${err?.message || err}`);
   process.exit(1);

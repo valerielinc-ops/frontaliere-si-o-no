@@ -48,7 +48,12 @@ async function reviewUrlFor(order, orderId, round, locale, deps) {
 export function automationEmailKey(effect, flow) {
   const round = Number(flow?.round) || 1;
   if (effect.kind === 'owner_review') return `auto_owner_review_r${round}${effect.held ? '_held' : ''}`;
-  if (effect.kind === 'owner_takeover') return `auto_owner_takeover_${String(effect.reason || 'x').replace(/[^a-z_]/g, '')}_r${round}`;
+  if (effect.kind === 'owner_takeover') {
+    // A known code names the message; a raw runner error only its step.
+    const reason = String(effect.reason || 'x');
+    const code = /^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`;
+    return `auto_owner_takeover_${code}_r${round}`;
+  }
   if (effect.kind === 'candidate_action_needed') return `auto_candidate_action_${(flow?.history || []).length}`;
   if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed') {
     return `auto_${effect.kind}`;
@@ -83,6 +88,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         deadlineAt: flow.deadlineAt,
         flags: effect.flags || [],
         reason: effect.reason,
+        stage: effect.stage,
+        attempts: effect.attempts,
         verdict: VERDICT_LABELS[draft.verdict] || draft.verdict,
         summary: draft.summaryIt,
         channel: draft.channel?.label,

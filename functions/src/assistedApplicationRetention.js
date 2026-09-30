@@ -69,8 +69,9 @@ async function candidateDocs(collection, field, cutoff) {
  * The automated flow (assistedApplicationAutomation.js) adds more personal
  * data next to the CV: generated cover letters and encrypted run evidence in
  * the order's Storage folder, the AI draft (profile, CV text) and the flow
- * (answers, feedback) in private subcollections. They share the CV's
- * retention: the whole order folder and those documents go with it.
+ * (answers, feedback) in private subcollections, and the opens and clicks of
+ * the candidate's e-mails (assistedApplicationEmailEvents.js). They share the
+ * CV's retention: the whole order folder and those documents go with it.
  */
 async function purgeAutomationData(bucket, orderRef, orderId) {
   if (typeof bucket.deleteFiles === 'function') {
@@ -80,7 +81,7 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
   for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID], ['automation', FOLLOWUP_DOC_ID]]) {
     await orderRef.collection(collection).doc(id).delete();
   }
-  for (const name of ['automation_events', 'inbox']) {
+  for (const name of ['automation_events', 'inbox', 'email_events']) {
     const docs = await orderRef.collection(name).get();
     for (const doc of docs.docs || []) await doc.ref.delete();
   }
@@ -163,6 +164,7 @@ export async function purgeExpiredAssistedApplicationFiles(
         followupDueAt: null,
         interviewPrep: null,
         candidateAlias: null,
+        emailEngagement: null,
         retentionPurgedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });

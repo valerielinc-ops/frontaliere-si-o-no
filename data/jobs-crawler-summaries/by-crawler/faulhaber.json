@@ -1,21 +1,23 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-29T21:16:22.228Z",
-  "total": 4,
+  "generatedAt": "2026-09-30T21:13:40.498Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
-  "written": 4,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 61274,
-  "avgDurationMs": 61274,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 60037,
+  "avgDurationMs": 60037,
   "durationHistory": [
-    61274
+    60037
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,8 +46,8 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:16:03.788Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-30T21:13:23.053Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:33:48.674Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -80,8 +82,8 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T21:15:41.247Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-30T21:12:59.620Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -116,8 +118,8 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:15:52.948Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-30T21:13:12.342Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -128,8 +130,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
       "slug": "candidatura-faulhaber-croglio",
@@ -170,5 +171,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

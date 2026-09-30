@@ -23,7 +23,9 @@ on:
         description: 'draft | submit'
         required: true
         type: choice
-        options: [draft, submit]
+        # dry_run: fill the portal pages (or prepare the e-mail) and stop
+        # before the final click; nothing is sent and the flow never moves.
+        options: [draft, submit, dry_run]
       round:
         description: 'Review round the run belongs to'
         required: true
@@ -43,8 +45,11 @@ permissions:
 jobs:
   agent:
     runs-on: ubuntu-latest
-    # Draft at Codex effort max: 4 calls, measured 9-15 min on 2026-09-30.
-    timeout-minutes: 60
+    # Draft at Codex effort max: 4 calls, measured 6-15 min on 2026-09-30,
+    # but one call of round 2 of the trial ran past 10 min. Each call may now
+    # take up to 30 min (broker_max_timeout_ms): three calls in a row, plus
+    # setup, stay under this; the Functions watchdog (RUN_WATCHDOG_MS) waits longer.
+    timeout-minutes: 120
     steps:
       - name: Validate inputs
         env:
@@ -112,10 +117,12 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '3600000'
           broker_max_concurrency: '2'
+          # A slow draft must finish (owner decision 2026-09-30): 30 min per call.
+          broker_max_timeout_ms: '1800000'
 
       # The portal runner drives Chromium (headless) for portals without an account.
       - name: Install Chromium for the portal runner
-        if: inputs.mode == 'submit'
+        if: inputs.mode == 'submit' || inputs.mode == 'dry_run'
         run: npx playwright install --with-deps chromium
 
       - name: Run agent
@@ -124,6 +131,10 @@ jobs:
           MODE: ${{ inputs.mode }}
           ROUND: ${{ inputs.round }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+          CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+          # The trial run printed MaxListenersExceededWarning on a PassThrough
+          # with no stack: the trace names the library that adds the listeners.
+          NODE_OPTIONS: --trace-warnings
         run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
 
       - name: Cleanup Codex auth broker

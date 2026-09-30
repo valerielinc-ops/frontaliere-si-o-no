@@ -12,6 +12,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
 import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
@@ -167,6 +168,13 @@ export async function persistMailerooEvent(db, event) {
   const data = event.event_data || {};
   const clickedUrl = data.original_url || data.url || '';
   const bounceReason = data.reason || data.reject_reason || '';
+
+  // Candidate e-mails of an assisted application: recorded on the order, never
+  // as newsletter engagement or a job ranking click.
+  // Opens and clicks find the campaign in the reference record written at send.
+  if (parseAssistedCampaign(campaignId)) {
+    return recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'maileroo', messageId, occurredAt, url: clickedUrl });
+  }
 
   if (type === 'click' && clickedUrl) {
     await recordJobEmailRankingClick(db, {

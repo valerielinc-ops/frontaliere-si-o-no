@@ -18,6 +18,7 @@ import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { buildCandidateAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml, replySubject } from './assistedApplicationEmployerMail.js';
+import { assistedEmailTracking, assistedMailerooRefOnSent } from './assistedApplicationEmailEvents.js';
 import {
   DAY_MS,
   FOLLOWUP_REVIEW_MS,
@@ -131,10 +132,10 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
       orderId,
     });
     await sendCascade([{
-      payload: { from: ASSISTED_APPLICATION_SENDER, to: [to], subject: email.subject, html: email.html, text: email.text, tracking: false },
+      payload: { from: ASSISTED_APPLICATION_SENDER, to: [to], subject: email.subject, html: email.html, text: email.text, ...assistedEmailTracking(orderId, `followup_review_${n}`) },
       recipient: { email: to },
       meta: { orderId, key: `followup_review_${n}` },
-    }], { delayMs: 0 });
+    }], { delayMs: 0, onSent: assistedMailerooRefOnSent(db) });
   }
   return { ok: true, drafted: n };
 }
@@ -173,7 +174,9 @@ export async function sendFollowup({ db, orderId, nowMs, sendCascade, by }) {
       html: textToHtml(text),
       ...(identity.email ? { replyTo: identity.email } : {}),
       ...(messageId ? { headers: { 'In-Reply-To': messageId, References: messageId } } : {}),
+      // Sent in the candidate's name: no link rewriting and no open pixel.
       tracking: false,
+      openTracking: false,
     },
     recipient: { email: claimed.to },
     meta: { orderId, key: `employer_followup_${pending.n}` },
