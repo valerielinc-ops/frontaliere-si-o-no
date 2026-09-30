@@ -24,7 +24,7 @@ import {
 } from './dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './source-locale-slots.mjs';
 import { fetchHtml } from './crawler-template.mjs';
-import { extractDetailFields } from './prospector/extract.mjs';
+import { extractDetailFields, renderedVacancySourceLength } from './prospector/extract.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 
@@ -240,7 +240,7 @@ export function parsePemsaDetailHtml(html, url = '') {
               parsed.sectionCount,
               countRenderedDescriptionSections(description),
             ),
-            descriptionSourceLength: parsed.sourceTextLength,
+            descriptionSourceLength: renderedVacancySourceLength(html, data.title || ''),
             datePosted: normalizeSpace(data.datePosted || ''),
             validThrough: normalizeSpace(data.validThrough || ''),
             employmentType: normalizeSpace(data.employmentType || ''),

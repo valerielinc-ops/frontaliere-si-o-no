@@ -73,13 +73,16 @@ const REDUCED_RENDERED_DETAIL_FIXTURE = `
   </main>
 </body></html>`;
 
-const TRUNCATED_SOURCE_BODY = 'S'.repeat(1000);
+const TRUNCATED_DETAIL_TITLE = 'Installatore di prova';
 const TRUNCATED_RENDERED_BODY = 'S'.repeat(100);
-const TRUNCATED_SOURCE_DETAIL_FIXTURE = [
-  { '@type': 'JobPosting', title: 'Installatore di prova', description: TRUNCATED_SOURCE_BODY },
-  { '@type': 'JobPosting', title: 'Installatore di prova', description: TRUNCATED_SOURCE_BODY },
-].map((job) => `<script type="application/ld+json">${JSON.stringify(job)}</script>`).join('')
-  + `<h1>Installatore di prova</h1><div class="job-description">${TRUNCATED_RENDERED_BODY}</div>`;
+const TRUNCATED_RENDERED_UNRECOGNISED = 'R'.repeat(
+  1000 - TRUNCATED_DETAIL_TITLE.length - TRUNCATED_RENDERED_BODY.length - 2,
+);
+const TRUNCATED_SOURCE_DETAIL_FIXTURE = `<script type="application/ld+json">${JSON.stringify({
+  '@type': 'JobPosting',
+  title: TRUNCATED_DETAIL_TITLE,
+  description: 'Teaser JSON-LD breve della posizione.',
+})}</script><main><h1>${TRUNCATED_DETAIL_TITLE}</h1><div class="job-description">${TRUNCATED_RENDERED_BODY}</div><div class="unlabelled-vacancy-copy">${TRUNCATED_RENDERED_UNRECOGNISED}</div></main>`;
 
 // The runner's flow (update-pemsa-jobs.mjs mergeJobs): the stored records lose
 // the crawler-written text first, then each one is merged with its fresh job.
@@ -143,6 +146,27 @@ describe('PEMSA detail parser — rendered source body', () => {
     expect(parsed?.description).not.toContain('Italia');
     expect(parsed?.description.length).toBeGreaterThan(200);
     expect(parsed?.descriptionSectionCount).toBeGreaterThanOrEqual(2);
+    expect(parsed?.descriptionSourceLength).toBeGreaterThan(parsed?.description.length);
+  });
+
+  it('does not warn when the complete rendered body is measured', () => {
+    const parsed = parsePemsaDetailHtml(
+      REDUCED_RENDERED_DETAIL_FIXTURE,
+      'https://www.pemsa.ch/it/job/installatore-di-prova-2697000/',
+    );
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      buildPemsaLocalizedContent({
+        title: parsed?.title,
+        description: parsed?.description,
+        descriptionSourceLength: parsed?.descriptionSourceLength,
+        descriptionSectionCount: parsed?.descriptionSectionCount,
+      });
+      expect(warn).not.toHaveBeenCalled();
+    } finally {
+      warn.mockRestore();
+    }
   });
 
   it('measures the raw source body before extraction and warns below 20%', () => {
