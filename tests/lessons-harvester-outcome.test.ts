@@ -177,6 +177,13 @@ esac
 describe('lessons-harvester.yml — il gate dichiarato e\' quello reale', () => {
   const prompt = String(steps[codexIndex].with.prompt);
 
+  it('materializza TypeScript nel workspace per il sandbox Codex', () => {
+    const dependencyStep = steps.find((step) => step.name === 'Provide sibling-checker dependency (typescript only)');
+    expect(dependencyStep?.run).toContain('cp -a -- "$deps_dir/node_modules/typescript" node_modules/typescript');
+    expect(dependencyStep?.run).toContain('test ! -L node_modules/typescript');
+    expect(dependencyStep?.run).not.toContain('ln -sfn "$deps_dir/node_modules/typescript" node_modules/typescript');
+  });
+
   it('nessuna promessa di gate umano che nessun meccanismo applica', () => {
     expect(WORKFLOW).not.toMatch(/never auto-merged|Human-gated|la rivede un umano/u);
     expect(prompt).toContain('auto-merge nativo');

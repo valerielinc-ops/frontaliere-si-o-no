@@ -62,7 +62,7 @@ export function stemToken(tok) {
 export const LOCALE_HINTS = {
   it: ['lavoro','lavori','offerta','offerte','assunzione','assume','assunzioni','aziende','stipendio','posti','posto','cerca','cerco','ticino','svizzera','italiani','lugano','mendrisio','chiasso','bellinzona','locarno','frontaliere','concorso','concorsi'],
   de: ['jobs','job','stellen','stelle','arbeit','arbeits','schweiz','tessin','stellenangebote','stellenangebot','mitarbeiter','mitarbeiterin','suche','offene','stellensuche','als','bei','für'],
-  en: ['jobs','job','work','switzerland','swiss','ticino','employment','careers','career','vacancies','vacancy','hiring','engineer','developer','nurse','nurses'],
+  en: ['jobs','job','work','switzerland','swiss','ticino','employment','careers','career','vacancies','vacancy','hiring','engineer','developer','nurse','nurses','nursing'],
   fr: ['emploi','emplois','travail','suisse','tessin','offres','offre','recherche','poste','postes','carriere','postuler','chauffeur'],
 };
 

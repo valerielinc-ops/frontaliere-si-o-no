@@ -176,6 +176,45 @@ describe('issue 9577/10529 — inline_card separates actionable and passive visi
   });
 });
 
+describe('issue 10528 — job_detail_button shown/created parity', () => {
+  it('the direct detail CTA owns the impression for its own creation surface', () => {
+    const button = fs.readFileSync(path.join(ROOT, 'components/community/JobDetailJobAlertButton.tsx'), 'utf-8');
+    expect(button).toContain('useImpressionTracker');
+    expect(button).toMatch(/ref=\{impressionRef\}/);
+    expect(button).toContain('onImpression');
+
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    const start = board.indexOf('<JobDetailJobAlertButton');
+    const directCta = board.slice(start, start + 1400);
+    expect(directCta).toContain("onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button'");
+    expect(directCta).toContain("surface: 'job_detail_button'");
+  });
+
+  it('the applied-receipt handoff keeps job_detail_button through the form and auth replay', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    const receiptStart = board.indexOf('const appliedNoticeJsx');
+    const receipt = board.slice(receiptStart, board.indexOf(') : null;', receiptStart));
+    expect(receipt).toContain("requestJobAlertOpen(category || undefined, 'job_detail_button')");
+
+    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain("setCtaOrigin(req.origin ?? 'inline_card')");
+    expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
+    expect(form).toContain("persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct')");
+
+    const pending = fs.readFileSync(path.join(ROOT, 'services/pendingJobAlert.ts'), 'utf-8');
+    expect(pending).toContain("'job_detail_button'");
+
+    const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
+    expect(boardFilter).toContain('requestJobAlertOpen(keywordLabel, formOrigin)');
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8'))
+      .toContain('formOrigin="job_board_filters"');
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
+      .toContain("origin: 'end_card'");
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertStickyBanner.tsx'), 'utf-8'))
+      .toContain("origin: 'sticky_banner'");
+  });
+});
+
 describe('#7311 — the created event carries the funnel surface dimension', () => {
   it('job_alert_created reports cta_surface, the dimension the other funnel events use', () => {
     const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');

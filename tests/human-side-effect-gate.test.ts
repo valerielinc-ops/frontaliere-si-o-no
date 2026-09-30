@@ -213,8 +213,6 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Generate and upload fuel prices/u,
     /Persist daily snapshot/u,
     /Snapshot fuel history/u,
-    // #10574: il commit diretto e il dispatch del deploy sono diventati una PR
-    // di pubblicazione, con la stessa guardia dry_run.
     /Open PR with fuel price cache/u,
   ],
   'backfill-expired-from-history.yml': [

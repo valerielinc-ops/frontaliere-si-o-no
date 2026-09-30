@@ -32,7 +32,7 @@ export default function JobAlertEndCard({ keyword, userId = null, authResolved =
  });
  const handleClick = () => {
  Analytics.trackJobAlertCtaClick('end_card', 'open', keyword);
- window.dispatchEvent(new CustomEvent('openJobAlert'));
+ window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword, origin: 'end_card' } }));
  };
 
  const heading = keyword && keyword.length >= 2

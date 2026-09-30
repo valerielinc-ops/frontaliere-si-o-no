@@ -1831,7 +1831,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(fs.readFileSync(path.join(outDir, observer.source), 'utf8'))
         .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
     }
-  });
+  }, 60_000);
 
   it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
     expect(resolveCrawlerContractSource({

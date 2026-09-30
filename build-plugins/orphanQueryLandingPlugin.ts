@@ -41,6 +41,7 @@ import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
   BASE_URL,
+  buildCanonicalBridgePage,
   countHtmlBodyWords,
   MIN_INDEXABLE_WORDS,
 } from './constants';
@@ -79,6 +80,10 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
+import {
+  resolveNursingOrphanQueryTarget,
+  type NursingOrphanQueryTarget,
+} from './nursingLandingsData';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -91,6 +96,29 @@ export function buildOrphanLandingHubPath(locale: OrphanLandingLocale): string {
 
 export function buildOrphanLandingHubUrl(locale: OrphanLandingLocale): string {
   return `${BASE_URL}${buildOrphanLandingHubPath(locale)}`;
+}
+
+/**
+ * A GSC query that is already covered by an evergreen nursing landing must not
+ * create a second indexable doorway. Keep the historical orphan URL alive as a
+ * noindex canonical bridge so crawlers and users converge on the real page.
+ */
+export function buildNursingOrphanCanonicalBridge(target: NursingOrphanQueryTarget): string {
+  const canonicalUrl = `${BASE_URL}${target.path}`;
+  const html = buildCanonicalBridgePage({
+    canonicalUrl,
+    pathLabel: target.path,
+    title: 'Nursing jobs search moved | Frontaliere Ticino',
+    description: 'This search is covered by the canonical nursing jobs landing page.',
+    body: 'This search is covered by the canonical nursing jobs landing page. Open it for current Swiss nursing vacancies, salary guidance and cross-border requirements.',
+    ctaLabel: 'Open nursing jobs in Switzerland',
+    lang: target.locale,
+    noindex: true,
+  });
+  return html.replace(
+    '</head>',
+    ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`,
+  );
 }
 
 export function renderOrphanLandingHubHreflang(
@@ -861,6 +889,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       const routes: OrphanLandingRoute[] = [];
       let pagesGenerated = 0;
       let pagesIndexable = 0;
+      let canonicalBridges = 0;
 
       // Track every indexable cluster per locale so the hub index can list
       // ALL of them (closing the BFS-orphan gap when cron-published
@@ -896,6 +925,23 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         // rendered indexability (matchingJobs>=3 && wordCount>=MIN) — not
         // derivable without rendering. No-op in the default all-locale build.
         if (!shouldEmitLocale(cluster.locale) && !EMIT_LOCALES.has('it')) continue;
+
+        const nursingTarget = resolveNursingOrphanQueryTarget(cluster.canonicalQuery, cluster.canonicalSlug);
+        if (nursingTarget) {
+          const urlPath = buildOrphanLandingPath(cluster.locale, cluster.canonicalSlug);
+          const bridgeHtml = buildNursingOrphanCanonicalBridge(nursingTarget);
+          const indexPath = path.join(distDir, urlPath, 'index.html');
+          const flatPath = path.join(distDir, urlPath.replace(/\/+$/, '') + '.html');
+          collector.add(indexPath, bridgeHtml);
+          collector.add(flatPath, bridgeHtml);
+          // Historical nursing aliases stay collector-only: publishing this
+          // noindex bridge through routes would make it eligible for orphan
+          // hub/sitemap navigation despite its canonical redirect target.
+          pagesGenerated++;
+          canonicalBridges++;
+          continue;
+        }
+
         const render = renderClusterPage(cluster);
 
         // Enforce quality gates. We still WRITE the page (so existing
@@ -955,6 +1001,10 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       };
       for (const cluster of clusters) {
         if (hubHreflangAvailability[cluster.locale]) continue;
+        // Canonical nursing aliases emit a noindex bridge only; they are not
+        // indexable orphan entries and must not make an orphan hub appear
+        // available when no real cluster exists for that locale.
+        if (resolveNursingOrphanQueryTarget(cluster.canonicalQuery, cluster.canonicalSlug)) continue;
         const availabilityRender = renderClusterPage(cluster);
         if (availabilityRender.indexable) {
           hubHreflangAvailability[cluster.locale] = true;
@@ -1103,7 +1153,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         const hubHtml = buildSeoPageHtml({
           disableAutoAds: false,
           locale: loc,
-          title: clampSiteSuffix(copy.title, 'Frontaliere Ticino'),
+          title: clampSiteSuffix(copy.title, 'Frontaliere Ticino', 60),
           description: copy.description,
           canonicalUrl,
           robots: 'index,follow',
@@ -1156,7 +1206,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       const t0 = Date.now();
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex, ${canonicalBridges} canonical nursing bridges) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
     },
   };

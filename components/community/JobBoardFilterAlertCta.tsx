@@ -4,6 +4,7 @@ import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobBoardFilterAlertCtaStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -44,6 +45,8 @@ export interface JobBoardFilterAlertCtaProps {
   onErrored?: (error: unknown) => void;
   /** Called when an anonymous visitor hands off to the mounted JobAlertForm. */
   onAnonymousOpen?: () => void;
+  /** Surface to preserve when an anonymous tap is handed to JobAlertForm. */
+  formOrigin?: PendingJobAlertOrigin;
   /** Fired ONCE, the first time this CTA is genuinely visible in the viewport.
    * Deliberately not a mount callback: this surface renders inside a long job
    * list most visitors never scroll to, and firing on mount is what inflated the
@@ -64,6 +67,7 @@ export default function JobBoardFilterAlertCta({
   onSubscribed,
   onErrored,
   onAnonymousOpen,
+  formOrigin,
   onImpression,
   subscribe = subscribeJobAlertOneTap,
 }: JobBoardFilterAlertCtaProps) {
@@ -75,12 +79,14 @@ export default function JobBoardFilterAlertCta({
     // JobAlertForm owns auth, email capture, and pending-intent replay. Keep
     // the request queued for a lazy mount, and also notify an already-mounted
     // list form so the tap opens it immediately.
-    requestJobAlertOpen(keywordLabel);
+    requestJobAlertOpen(keywordLabel, formOrigin);
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: keywordLabel } }));
+      window.dispatchEvent(new CustomEvent('openJobAlert', {
+        detail: { keyword: keywordLabel, origin: formOrigin },
+      }));
     }
     onAnonymousOpen?.();
-  }, [keywordLabel, onAnonymousOpen]);
+  }, [formOrigin, keywordLabel, onAnonymousOpen]);
 
   const handleClick = useCallback(async () => {
     if (!keywordLabel) return;

@@ -62,6 +62,8 @@ const DETAIL_FIELDS = new Set([
  'titleByLocale', 'slugByLocale',
  'sector', 'experienceLevel',
  'validThrough', 'benefits',
+ // Posting age for the assisted application's legitimacy check (career-ops Block G).
+ 'postedDate', 'firstSeenAt',
  'contactPerson', 'contactPhone',
  'pensum', 'pensumMin', 'pensumMax',
  'workModel', 'remote',
