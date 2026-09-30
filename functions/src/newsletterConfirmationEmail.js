@@ -11,7 +11,6 @@
  * opt-out may request it.
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';

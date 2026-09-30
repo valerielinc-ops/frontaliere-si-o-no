@@ -80,9 +80,9 @@ function readPreviousSnapshot() {
 
 async function main() {
   // Firebase Admin SDK — dynamic import
-  let admin;
   try {
-    admin = await import('firebase-admin');
+    await import('firebase-admin/app');
+    await import('firebase-admin/firestore');
   } catch {
     console.warn('⚠️  firebase-admin not installed — writing empty popularity data');
     writeFallback();
@@ -98,15 +98,17 @@ async function main() {
 
   try {
     // Initialize Firebase Admin if not already initialized
-    if (!admin.default.apps?.length) {
-      admin.default.initializeApp({
-        credential: admin.default.credential.cert(
+    const firebaseApp = await import('firebase-admin/app');
+    const firebaseFirestore = await import('firebase-admin/firestore');
+    if (!firebaseApp.getApps().length) {
+      firebaseApp.initializeApp({
+        credential: firebaseApp.cert(
           JSON.parse(fs.readFileSync(credPath, 'utf-8')),
         ),
       });
     }
 
-    const db = admin.default.firestore();
+    const db = firebaseFirestore.getFirestore();
     const forceFull = process.argv.includes('--full');
     const previous = forceFull ? null : readPreviousSnapshot();
     const scanStartedAt = new Date();

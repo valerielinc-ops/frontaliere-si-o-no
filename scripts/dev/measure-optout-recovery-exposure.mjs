@@ -25,7 +25,8 @@
  * stamps or rewriting statuses on personal data is the owner's decision, not a
  * side effect of a measurement.
  */
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
 import {
   positiveEventStatusFields,
@@ -52,10 +53,10 @@ function statusOnlyVerdict(status, bounceSeverity) {
   return { status: 'active' };
 }
 
-if (!admin.apps?.length) {
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
+if (!getApps().length) {
+  initializeApp({ credential: applicationDefault() });
 }
-const db = admin.firestore();
+const db = getFirestore();
 
 const totals = { scanned: 0, stamped: 0, before: 0, after: 0, alreadyRecovered: 0, camelOnly: 0 };
 

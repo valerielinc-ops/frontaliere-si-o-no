@@ -25,7 +25,8 @@ describe('snapshot-border-wait-history script', () => {
   it('script exists and is executable ES module', () => {
     expect(fs.existsSync(scriptPath)).toBe(true);
     const raw = fs.readFileSync(scriptPath, 'utf-8');
-    expect(raw).toContain("import admin from 'firebase-admin';");
+    expect(raw).toContain("from 'firebase-admin/app'");
+    expect(raw).toContain("from 'firebase-admin/firestore'");
     expect(raw).toContain('trafficCurrent');
     expect(raw).toContain('trafficHistory');
   });

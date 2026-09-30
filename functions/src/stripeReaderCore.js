@@ -53,7 +53,7 @@
  * duplicated.
  */
 
-import admin from 'firebase-admin';
+import { getAuth } from 'firebase-admin/auth';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { verifyCaller, getStripe, db } from './stripePublisherCore.js';
@@ -97,18 +97,18 @@ class SessionAlreadyClaimedError extends Error {}
 // handleClaimReaderCheckout.
 async function resolveOrCreateReaderUid(email) {
   try {
-    const userRecord = await admin.auth().getUserByEmail(email);
+    const userRecord = await getAuth().getUserByEmail(email);
     return { uid: userRecord.uid, createdAtMs: Date.parse(userRecord.metadata.creationTime) };
   } catch (err) {
     if (err?.code !== 'auth/user-not-found') throw err;
     try {
-      const newUser = await admin.auth().createUser({ email });
+      const newUser = await getAuth().createUser({ email });
       return { uid: newUser.uid, createdAtMs: Date.parse(newUser.metadata.creationTime) };
     } catch (createErr) {
       // Lost a race with a concurrent create (e.g. duplicate webhook
       // delivery) — the user now exists, re-resolve instead of failing.
       if (createErr?.code !== 'auth/email-already-exists') throw createErr;
-      const userRecord = await admin.auth().getUserByEmail(email);
+      const userRecord = await getAuth().getUserByEmail(email);
       return { uid: userRecord.uid, createdAtMs: Date.parse(userRecord.metadata.creationTime) };
     }
   }
@@ -318,7 +318,7 @@ export async function handleClaimReaderCheckout(req) {
     throw err;
   }
 
-  const authToken = await admin.auth().createCustomToken(uid);
+  const authToken = await getAuth().createCustomToken(uid);
   return { status: 200, body: { ok: true, authToken } };
 }
 

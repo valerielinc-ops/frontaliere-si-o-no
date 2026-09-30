@@ -56,14 +56,15 @@ const HEAD_CONCURRENCY = 5;
 const MAX_BROKEN_URLS_STORED = 10;
 
 async function initDb() {
-  const admin = (await import('firebase-admin')).default;
-  if (!admin.apps?.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return admin.firestore();
+  return getFirestore();
 }
 
 /** Same-quote-flexible <a href> extraction as scripts/validate-internal-links.mjs,

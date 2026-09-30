@@ -34,13 +34,14 @@ import {
   sendPaidOrderNotifications,
 } from '../functions/src/assistedApplicationNotifications.js';
 
-// The same firebase-admin instance the functions modules resolve. A bare
-// `import 'firebase-admin'` from scripts/ picks the root copy, while
+// The same firebase-admin module the functions modules resolve. A bare
+// modular imports from scripts/ pick the root copy, while
 // functions/src resolves functions/node_modules when it is installed: the app
 // initialised here would then not exist for getRemoteConfigValue (Stripe key,
 // email provider keys) nor match the FieldValue sentinels of the order writes.
 export const FUNCTIONS_ADMIN_REQUIRE = createRequire(new URL('../functions/src/', import.meta.url));
-const admin = FUNCTIONS_ADMIN_REQUIRE('firebase-admin');
+const { applicationDefault, getApps, initializeApp } = FUNCTIONS_ADMIN_REQUIRE('firebase-admin/app');
+const { getFirestore } = FUNCTIONS_ADMIN_REQUIRE('firebase-admin/firestore');
 
 export function parseArgs(argv) {
   const args = { orders: [], apply: false, testTo: '', variant: 'recovery' };
@@ -113,8 +114,8 @@ export async function resolvePresentation(order, { apply, lookup = presentationF
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  if (!admin.apps.length) admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  const db = admin.firestore();
+  if (!getApps().length) initializeApp({ credential: applicationDefault() });
+  const db = getFirestore();
   const collection = db.collection(ASSISTED_APPLICATIONS_COLLECTION);
 
   const docs = args.orders.length > 0

@@ -13,7 +13,13 @@
  * - trafficHistory/{slug}/snapshots/{snapshotId} → append-only historical record
  */
 
-import admin from 'firebase-admin';
+import {
+ applicationDefault,
+ getApp,
+ getApps,
+ initializeApp,
+} from 'firebase-admin/app';
+import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { slugifyCrossingName, BORDER_CROSSINGS } from './borderCrossingsData.js';
 import {
   TRAFFIC_PROVIDER_SPECS,
@@ -615,10 +621,10 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
 // ─── Firebase Admin init ──────────────────────────────────────
 
 export function ensureAdminApp() {
- if (!admin.apps.length) {
- admin.initializeApp({ credential: admin.credential.applicationDefault() });
+ if (!getApps().length) {
+ initializeApp({ credential: applicationDefault() });
  }
- return admin;
+ return getApp();
 }
 
 // ─── Legacy HERE budget helpers ─────────────────────────────────
@@ -886,9 +892,9 @@ export async function runTrafficCollection(options = {}) {
  * - trafficHistory/{slug}/snapshots/{snapshotId} → historical append-only
  */
 export async function saveTrafficToFirestore(crossingResults) {
- const adm = ensureAdminApp();
- const db = adm.firestore();
- const now = adm.firestore.Timestamp.now();
+ ensureAdminApp();
+ const db = getFirestore();
+ const now = Timestamp.now();
  // Use the current timestamp (ms) as a chronologically sortable document ID.
  const snapshotId = Date.now().toString();
 

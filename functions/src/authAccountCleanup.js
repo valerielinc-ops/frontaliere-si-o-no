@@ -27,7 +27,7 @@
  * ceiling, not a server-guaranteed one.
  */
 
-import admin from 'firebase-admin';
+import { getFirestore } from 'firebase-admin/firestore';
 import {
  APPLICATION_INTENTS_COLLECTION,
  APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION,
@@ -147,7 +147,7 @@ async function collectApplicationIntentRefs(db, uid) {
  * any other personal fields must not survive account deletion.
  */
 export async function tombstoneApplicationIntentDataForDeletedUser(uid, injectedDb) {
- const db = injectedDb || admin.firestore();
+ const db = injectedDb || getFirestore();
  const tombstone = buildApplicationIntentAccountTombstone(uid);
  if (!tombstone) {
   return {
@@ -198,7 +198,7 @@ export async function tombstoneApplicationIntentDataForDeletedUser(uid, injected
  * it is a public historical petition metric, not account data.
  */
 export async function cleanupPetitionSignatureForDeletedUser(uid, injectedDb) {
-  const db = injectedDb || admin.firestore();
+  const db = injectedDb || getFirestore();
   await db.collection('petition_signatures').doc(uid).delete();
   return { deletedPetitionSignature: true };
 }
@@ -235,7 +235,7 @@ export async function isDeletedEmailAccount(db, rawEmail) {
  * @returns {Promise<{deletedSavedJobs: number}>}
  */
 export async function cleanupSavedJobsForDeletedUser(uid, injectedDb) {
-  const db = injectedDb || admin.firestore();
+  const db = injectedDb || getFirestore();
   const savedJobsRef = db.collection('users').doc(uid).collection('savedJobs');
 
   let deletedSavedJobs = 0;
@@ -303,7 +303,7 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
  * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean, deletedPetitionSignature: boolean, tombstonedApplicationIntents: number, deletedApplicationIntentReminderDeliveries: number, tombstonedApplicationIntentAccount: boolean}>}
  */
 export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
- const db = injectedDb || admin.firestore();
+  const db = injectedDb || getFirestore();
  const { uid, email } = user || {};
  const applicationIntent = await tombstoneApplicationIntentDataForDeletedUser(uid, db);
  const subscriberEmails = await collectHistoricalSubscriberEmails(db, uid, email);

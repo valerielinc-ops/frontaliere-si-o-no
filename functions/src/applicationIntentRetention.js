@@ -7,8 +7,7 @@
  * Documents without a demonstrable expiry are never deleted by this job.
  */
 
-import admin from 'firebase-admin';
-import { Timestamp } from 'firebase-admin/firestore';
+import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 
 export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
 export const APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION = 'application_intent_reminder_deliveries';
@@ -155,7 +154,7 @@ export async function purgeExpiredApplicationIntents(
   // time instead of aging the expiry a second time.
   const cutoffMs = nowMs;
   const cutoff = Timestamp.fromMillis(cutoffMs);
-  const db = injectedDb || admin.firestore();
+  const db = injectedDb || getFirestore();
   const collection = db.collection(APPLICATION_INTENTS_COLLECTION);
 
   const totals = { purged: 0, skipped: 0, scanned: 0, pages: 0, hasMore: false };

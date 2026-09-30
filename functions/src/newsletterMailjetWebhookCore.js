@@ -1,5 +1,4 @@
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -353,7 +352,7 @@ export async function handleMailjetWebhookRequest({ body, query, webhookSecret, 
  return { processed: 0, results: [] };
  }
 
- const db = injectedDb || admin.firestore();
+ const db = injectedDb || getFirestore();
  const results = [];
 
  for (const eventData of events) {

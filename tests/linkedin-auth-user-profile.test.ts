@@ -91,8 +91,8 @@ describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () =>
   it('passes the same fail-closed emailVerified to createUser and enrichSubscriberProfile', () => {
     const handlerFn = source.slice(source.indexOf('export async function handleLinkedInCallback'));
     const createUserCall = handlerFn.slice(
-      handlerFn.indexOf('admin.auth().createUser({'),
-      handlerFn.indexOf('});', handlerFn.indexOf('admin.auth().createUser({'))
+      handlerFn.indexOf('getAuth().createUser({'),
+      handlerFn.indexOf('});', handlerFn.indexOf('getAuth().createUser({'))
     );
     expect(createUserCall).toContain('emailVerified,');
     const enrichCall = handlerFn.slice(

@@ -43,7 +43,6 @@
  * SOFT_ESCALATION_THRESHOLD times before it can suppress anyone.
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { isDeletedEmailAccount } from './authAccountCleanup.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';

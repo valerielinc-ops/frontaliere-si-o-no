@@ -208,8 +208,6 @@ async function run() {
       console.warn('↷ Firestore: GOOGLE_APPLICATION_CREDENTIALS non impostato — suppression scritta solo nel send-log locale.');
     } else {
       const { getFirestoreDb } = await import('./lib/firestore-admin.mjs');
-      const adminMod = await import('firebase-admin');
-      const admin = adminMod.default || adminMod;
       db = await getFirestoreDb();
       serverTimestamp = FieldValue.serverTimestamp();
     }

@@ -7,7 +7,6 @@
  * Stripe webhook in stripePublisherCore.js.
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';

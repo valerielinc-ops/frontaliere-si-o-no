@@ -115,9 +115,9 @@ async function writeJournalistAnalyticsBack(db, entries) {
 }
 
 async function main() {
-  let admin;
   try {
-    admin = await import('firebase-admin');
+    await import('firebase-admin/app');
+    await import('firebase-admin/firestore');
   } catch {
     console.warn('⚠️  firebase-admin not installed — writing empty trending data');
     writeFallback();
@@ -132,15 +132,17 @@ async function main() {
   }
 
   try {
-    if (!admin.default.apps?.length) {
-      admin.default.initializeApp({
-        credential: admin.default.credential.cert(
+    const firebaseApp = await import('firebase-admin/app');
+    const firebaseFirestore = await import('firebase-admin/firestore');
+    if (!firebaseApp.getApps().length) {
+      firebaseApp.initializeApp({
+        credential: firebaseApp.cert(
           JSON.parse(fs.readFileSync(credPath, 'utf-8')),
         ),
       });
     }
 
-    const db = admin.default.firestore();
+    const db = firebaseFirestore.getFirestore();
 
     // The loop below keeps a document only if it was viewed inside the 30-day
     // half-weight window, so the window belongs in the query. Documents with

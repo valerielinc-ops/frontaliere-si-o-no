@@ -15,7 +15,8 @@
  * no-op for the common case.
  */
 
-import admin from 'firebase-admin';
+import { getAuth } from 'firebase-admin/auth';
+import { getFirestore } from 'firebase-admin/firestore';
 // Pragmatic email shape check (server-side) — single source of truth shared
 // with adminEmployerInsights.js, journalistRoleCore.js and
 // stripePublisherCore.js.
@@ -34,7 +35,7 @@ export async function syncAuthAccountForSubscriber(rawEmail, deps = {}) {
     return { created: false, reason: 'invalid_email' };
   }
 
- const db = deps.db || admin.firestore();
+ const db = deps.db || getFirestore();
  try {
     // A tombstone marks the end of the previous Auth lifecycle, not a ban on
     // the address. Reading it still matters: a transient Firestore failure must
@@ -55,7 +56,7 @@ export async function syncAuthAccountForSubscriber(rawEmail, deps = {}) {
     };
   }
 
-  const auth = deps.auth || admin.auth();
+ const auth = deps.auth || getAuth();
 
   try {
     await auth.getUserByEmail(email);

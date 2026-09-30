@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
-if (!admin.apps?.length) {
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
+if (!getApps().length) {
+  initializeApp({ credential: applicationDefault() });
 }
-const db = admin.firestore();
+const db = getFirestore();
 
 const DAYS = parseInt(process.env.DAYS || '30', 10);
 const now = new Date();

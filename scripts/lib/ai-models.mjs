@@ -2538,7 +2538,7 @@ let _firestoreDb = null;     // Firestore instance (null until initScoreStore)
  */
 let _scoreStoreReadOnly = false;
 let _readOnlySkipLogged = false;
-let _firestoreFieldValue = null; // admin.firestore.FieldValue (atomic increments)
+let _firestoreFieldValue = null; // firebase-admin/firestore FieldValue (atomic increments)
 let _storeInitialized = false;
 let _persistTimer = null;    // Debounce timer
 let _mutationCount = 0;      // Mutations since last persist
@@ -3146,24 +3146,24 @@ export async function initScoreStore() {
   _storeInitialized = true;
 
   try {
-    // Lazy-import firebase-admin (same pattern as load-rc-env.mjs)
-    const adminMod = await import('firebase-admin');
-    const admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
+    // Lazy-import Firebase Admin (same pattern as load-rc-env.mjs)
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
       if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
         console.warn('⚠️  [ScoreStore] No GOOGLE_APPLICATION_CREDENTIALS — using in-memory scores only');
         return;
       }
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+      initializeApp({ credential: applicationDefault() });
     }
-    _firestoreDb = admin.firestore();
+    _firestoreDb = getFirestore();
     // Atomic counter increments (see _pendingCounterDeltas). Captured here and
     // not re-imported at write time because this is the only place that already
-    // holds the admin module. There is no REST fallback to worry about: unlike
-    // load-rc-env.mjs, this store has NO REST path — when `import('firebase-admin')`
+    // holds the Firestore module. There is no REST fallback to worry about: unlike
+    // load-rc-env.mjs, this store has NO REST path — when the modular import
     // fails the catch below sets `_firestoreDb = null` and the run is memory-only,
     // so `FieldValue` is available on exactly the paths that persist at all.
-    _firestoreFieldValue = admin.firestore?.FieldValue || null;
+    _firestoreFieldValue = FieldValue;
 
     // Load all persisted scores from the single aggregate doc (1 read).
     // If the aggregate doesn't exist yet, fall back to the legacy per-model

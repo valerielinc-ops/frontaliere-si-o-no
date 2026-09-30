@@ -32,7 +32,7 @@ export const ENTRYPOINTS = [
 
 const BUILTINS = new Set(builtinModules);
 const ALLOWED_PACKAGES = new Map([
-  ['scripts/load-rc-env.mjs', new Set(['firebase-admin'])],
+  ['scripts/load-rc-env.mjs', new Set(['firebase-admin/app', 'firebase-admin/remote-config'])],
 ]);
 
 function regexLiteralEnd(source, start) {

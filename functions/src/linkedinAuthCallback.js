@@ -13,8 +13,8 @@
  * Returns 503 when LINKEDIN_SIGNIN_CLIENT_ID is not configured in Remote Config.
  */
 
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { getAuth } from 'firebase-admin/auth';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { buildSignupAttributionFields, sanitizeSignupPath } from './lib/signupAttribution.js';
@@ -133,7 +133,7 @@ async function fetchLinkedInBasicProfile(accessToken) {
  */
 export async function enrichSubscriberProfile(email, profileData, attribution = null) {
  try {
- const db = admin.firestore();
+ const db = getFirestore();
  const ts = () => FieldValue.serverTimestamp();
  const normalizedEmail = email.trim().toLowerCase();
  const subRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
@@ -362,7 +362,7 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  let uid;
  let isNewUser = false;
  try {
- const existing = await admin.auth().getUserByEmail(email);
+ const existing = await getAuth().getUserByEmail(email);
  uid = existing.uid;
 
  // Backfill displayName / photoURL only if not already set
@@ -370,11 +370,11 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  if (!existing.displayName && displayName) updates.displayName = displayName;
  if (!existing.photoURL && photoURL) updates.photoURL = photoURL;
  if (Object.keys(updates).length > 0) {
- await admin.auth().updateUser(uid, updates);
+ await getAuth().updateUser(uid, updates);
  }
  } catch (err) {
  if (err.code === 'auth/user-not-found') {
- const created = await admin.auth().createUser({
+ const created = await getAuth().createUser({
  email,
  emailVerified,
  ...(displayName ? { displayName } : {}),
@@ -403,6 +403,6 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  }, attribution);
 
  // ── Mint Firebase custom token ─────────────────────────────────────────────
- const customToken = await admin.auth().createCustomToken(uid, { linkedIn: true });
+ const customToken = await getAuth().createCustomToken(uid, { linkedIn: true });
  return { customToken };
 }

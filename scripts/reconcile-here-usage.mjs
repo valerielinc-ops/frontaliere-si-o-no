@@ -225,16 +225,16 @@ async function fetchHereMonthToDateUsage({ token, realmId, monthKey }) {
 // firebase-admin is imported lazily so the pure helpers above (and their unit
 // tests) load without the dependency / without needing Firestore credentials.
 async function ensureAdminApp() {
-  const { default: admin } = await import('firebase-admin');
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore, Timestamp } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({ credential: applicationDefault() });
   }
-  return admin;
+  return { db: getFirestore(), Timestamp };
 }
 
 async function seedCounter({ monthKey, realBilled, source, dryRun }) {
-  const adm = await ensureAdminApp();
-  const db = adm.firestore();
+  const { db, Timestamp } = await ensureAdminApp();
   const ref = db.collection('meta').doc('hereTransactionBudget');
   return db.runTransaction(async (tx) => {
     const snap = await tx.get(ref);
@@ -249,7 +249,7 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
           month: monthKey,
           count: reconciled,
           reconciledBilled: realBilled,
-          reconciledAt: adm.firestore.Timestamp.now(),
+          reconciledAt: Timestamp.now(),
           source,
         },
         { merge: true },

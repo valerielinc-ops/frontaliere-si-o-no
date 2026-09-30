@@ -1,5 +1,10 @@
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import {
+ applicationDefault,
+ getApp,
+ getApps,
+ initializeApp,
+} from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -24,14 +29,15 @@ function sanitizeString(value) {
 }
 
 export function ensureAdminApp() {
- if (!admin.apps.length) {
- admin.initializeApp({ credential: admin.credential.applicationDefault() });
+ if (!getApps().length) {
+ initializeApp({ credential: applicationDefault() });
  }
- return admin;
+ return getApp();
 }
 
 export function getAdminDb() {
- return ensureAdminApp().firestore();
+ ensureAdminApp();
+ return getFirestore();
 }
 
 function getHeader(headers, key) {

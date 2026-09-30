@@ -25,7 +25,6 @@
  * (AGENTS.md Non-Negotiable #6) — both are covered by unit tests.
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 

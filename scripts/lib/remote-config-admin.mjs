@@ -15,12 +15,12 @@ const RC_API = 'https://firebaseremoteconfig.googleapis.com/v1';
 const RC_REQUEST_TIMEOUT_MS = 30_000;
 
 export async function getRemoteConfig() {
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getRemoteConfig: getAdminRemoteConfig } = await import('firebase-admin/remote-config');
+  if (!getApps().length) {
+    initializeApp({ credential: applicationDefault() });
   }
-  return admin.remoteConfig();
+  return getAdminRemoteConfig();
 }
 
 export async function fetchRcTemplate(rc) {

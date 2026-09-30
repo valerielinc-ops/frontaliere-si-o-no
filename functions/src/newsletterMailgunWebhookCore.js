@@ -1,5 +1,4 @@
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -343,7 +342,7 @@ export async function handleMailgunWebhookRequest({ body, signingKey }) {
  throw new Error('Invalid Mailgun webhook signature');
  }
 
- const db = admin.firestore();
+ const db = getFirestore();
  const result = await persistMailgunEvent(db, eventData);
 
  console.log(`[mailgunWebhook] ${result.reason || result.type || 'skipped'}`);

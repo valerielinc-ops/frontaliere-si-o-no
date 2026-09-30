@@ -17,7 +17,8 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
   it('walks the complete closure and reports only the documented guarded package', () => {
     const output = execFileSync(process.execPath, [SCRIPT], { cwd: ROOT, encoding: 'utf8' });
     expect(output).toMatch(/dependency-free import closure OK: \d+ files/);
-    expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin');
+    expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin/app');
+    expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin/remote-config');
 
     const { files } = scanImportClosure();
     expect(files).toEqual(expect.arrayContaining([

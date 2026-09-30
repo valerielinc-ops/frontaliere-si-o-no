@@ -127,7 +127,25 @@ vi.mock('firebase-admin', () => {
   };
 });
 vi.mock('firebase-admin/firestore', () => ({
+  getFirestore: () => ({
+    collection: () => makeCollection(),
+    runTransaction: async (fn: (tx: unknown) => Promise<unknown>) =>
+      fn({
+        get: async (ref: { __id: string }) => ({
+          id: ref.__id,
+          exists: store[ref.__id] != null,
+          data: () => store[ref.__id],
+        }),
+        set: (ref: { __id: string }, data: Record<string, unknown>) => {
+          store[ref.__id] = data;
+        },
+      }),
+  }),
   FieldValue: { serverTimestamp: () => '__ts__' },
+}));
+
+vi.mock('firebase-admin/auth', () => ({
+  getAuth: () => ({ verifyIdToken, getUserByEmail, createUser, createCustomToken }),
 }));
 
 const getRemoteConfigValueMock = vi.fn(async (key: string) => {

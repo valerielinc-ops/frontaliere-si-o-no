@@ -26,7 +26,6 @@
  * The source doubles as the newsletter acquisitionSource tag.
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';

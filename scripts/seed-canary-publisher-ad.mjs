@@ -74,25 +74,25 @@ const DESCRIPTION_MD = [
 ].join('\n');
 
 async function initAdmin() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getAuth } = await import('firebase-admin/auth');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return a;
+  return { auth: getAuth(), db: getFirestore() };
 }
 
 async function main() {
-  const admin = await initAdmin();
-  const db = admin.firestore();
+  const { auth, db } = await initAdmin();
 
   // Resolve the owner's real Firebase Auth uid (gates edit permission).
   let ownerUid;
   try {
-    const user = await admin.auth().getUserByEmail(OWNER_EMAIL);
+    const user = await auth.getUserByEmail(OWNER_EMAIL);
     ownerUid = user.uid;
   } catch (e) {
     console.error(`❌ Could not resolve owner uid for ${OWNER_EMAIL}: ${e?.message || e}`);

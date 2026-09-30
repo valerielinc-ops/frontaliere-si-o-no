@@ -30,6 +30,7 @@ import { classifySunset } from './lib/subscriberSunset.mjs';
 import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { localeOf } from './lib/subscriberLocale.mjs';
+import { pathToFileURL } from 'node:url';
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -45,15 +46,15 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || 'Frontaliere Ticino <newslette
 let db;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  db = a.firestore();
+  db = getFirestore();
 }
 
 /**
@@ -219,7 +220,9 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('[newsletter-sunset] fatal:', err?.stack || err?.message || err);
-  process.exit(1);
-});
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  main().catch((err) => {
+    console.error('[newsletter-sunset] fatal:', err?.stack || err?.message || err);
+    process.exit(1);
+  });
+}

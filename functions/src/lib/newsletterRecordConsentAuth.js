@@ -44,7 +44,7 @@
  * forgery this gate exists to stop. The verified cohort (social sign-in, and
  * anyone Firebase actually verified) gets the full server-written proof + IP.
  *
- * EVERYTHING BELOW IS PURE: no Firestore, no `admin.auth()`, no `req`. The
+ * EVERYTHING BELOW IS PURE: no Firestore, no Admin Auth client, no `req`. The
  * caller verifies the token and hands the decoded claims in, so every branch
  * is testable without an emulator or a signed token.
  */

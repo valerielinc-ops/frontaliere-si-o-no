@@ -74,14 +74,15 @@ function parseArgs(argv) {
 }
 
 async function getFirestoreAdmin() {
-  const admin = await import('firebase-admin');
-  if (!admin.default.apps?.length) {
-    admin.default.initializeApp({
-      credential: admin.default.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return { db: admin.default.firestore(), FieldValue: admin.default.firestore.FieldValue };
+  return { db: getFirestore(), FieldValue };
 }
 
 const norm = (v) => String(v || '').trim().toLowerCase();

@@ -37,7 +37,10 @@ const flags = Object.fromEntries(
 async function getDb() {
   let admin;
   try {
-    admin = await import('firebase-admin');
+    admin = {
+      app: await import('firebase-admin/app'),
+      firestore: await import('firebase-admin/firestore'),
+    };
   } catch {
     throw new Error('firebase-admin not installed');
   }
@@ -47,15 +50,15 @@ async function getDb() {
     throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file not found');
   }
 
-  if (!admin.default.apps?.length) {
-    admin.default.initializeApp({
-      credential: admin.default.credential.cert(
+  if (!admin.app.getApps().length) {
+    admin.app.initializeApp({
+      credential: admin.app.cert(
         JSON.parse(fs.readFileSync(credPath, 'utf-8')),
       ),
     });
   }
 
-  return admin.default.firestore();
+  return admin.firestore.getFirestore();
 }
 
 const COLL = 'deploy_registry';

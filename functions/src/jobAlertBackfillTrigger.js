@@ -25,8 +25,7 @@
  * path; see `resolveSignalTier` in `jobAlertBackfillCore.js`).
  */
 
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import {
   MAX_ALERTS_PER_USER,
   ALERT_ID,
@@ -37,7 +36,7 @@ import {
 } from './jobAlertBackfillCore.js';
 
 export function getAdminDb() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 /**

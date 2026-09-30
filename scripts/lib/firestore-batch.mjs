@@ -96,9 +96,9 @@ function estimateBytes(value) {
  * partial restore instead of hiding it behind the original write error.
  *
  * @template T
- * @param {import('firebase-admin').firestore.Firestore} db
+ * @param {import('firebase-admin/firestore').Firestore} db
  * @param {T[]} items
- * @param {(batch: import('firebase-admin').firestore.WriteBatch, item: T) => void} applyFn
+ * @param {(batch: import('firebase-admin/firestore').WriteBatch, item: T) => void} applyFn
  * @param {{ chunkSize?: number, maxBatchOps?: number, maxBatchBytes?: number }} [opts]
  * @returns {Promise<number>} total items committed
  */

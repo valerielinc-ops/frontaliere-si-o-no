@@ -197,19 +197,19 @@ function slugifyHeaderValue(value) {
 // ─── Firebase Admin ─────────────────────────────────────────
 
 let db;
-let adminSdk;
+let firestoreFieldValue;
 
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  adminSdk = a;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  db = a.firestore();
+  firestoreFieldValue = FieldValue;
+  db = getFirestore();
 }
 
 // ─── AI Model Chain ─────────────────────────────────────────
@@ -1873,7 +1873,7 @@ async function resolveWinnersForCampaign(database, campaignId) {
 
 async function persistDelivery(recipient, messageId, meta) {
   if (!db) return;
-  const FieldValue = adminSdk?.firestore?.FieldValue;
+  const FieldValue = firestoreFieldValue;
   try {
     const email = normalizeEmail(recipient.email);
     const locale = nlNormLocale(recipient.locale);

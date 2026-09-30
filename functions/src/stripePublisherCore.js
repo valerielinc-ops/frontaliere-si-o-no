@@ -29,8 +29,8 @@
  * of duplicating (same functions bundle, no deploy boundary between the two).
  */
 
-import admin from 'firebase-admin';
-import { FieldValue, Timestamp } from 'firebase-admin/firestore';
+import { getAuth } from 'firebase-admin/auth';
+import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { getRemoteConfigValue, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade } from './emailCascade.js';
 import {
@@ -72,7 +72,7 @@ export async function getStripe() {
 }
 
 export function db() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 export async function verifyCaller(req) {
@@ -80,7 +80,7 @@ export async function verifyCaller(req) {
   const match = header.match(/^Bearer\s+(.+)$/i);
   if (!match) return null;
   try {
-    return await admin.auth().verifyIdToken(match[1]);
+    return await getAuth().verifyIdToken(match[1]);
   } catch {
     return null;
   }
