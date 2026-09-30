@@ -66,6 +66,38 @@ describe('pagination source identity contract', () => {
     })).toThrow('duplicate source identity "b"');
   });
 
+  it('deduplicates an identical row in a mutable page but rejects changed content', () => {
+    const seen = new Set<string>();
+    const fingerprints = new Map<string, string>();
+    const fingerprint = (item: { id: string, title: string }) => JSON.stringify(item);
+
+    expect(recordUniquePageProgress(seen, [
+      { id: 'a', title: 'same' },
+      { id: 'a', title: 'same' },
+      { id: 'b', title: 'new' },
+    ], {
+      getIdentity: (item) => item.id,
+      getFingerprint: fingerprint,
+      fingerprints,
+      source: 'mutable feed',
+      page: 1,
+      allowPreviouslySeen: true,
+      allowIdenticalDuplicates: true,
+    })).toEqual(['a', 'b']);
+    expect([...seen]).toEqual(['a', 'b']);
+
+    expect(() => recordUniquePageProgress(seen, [{ id: 'a', title: 'changed' }, { id: 'c', title: 'new' }], {
+      getIdentity: (item) => item.id,
+      getFingerprint: fingerprint,
+      fingerprints,
+      source: 'mutable feed',
+      page: 2,
+      allowPreviouslySeen: true,
+      allowIdenticalDuplicates: true,
+    })).toThrow('conflicting content');
+    expect([...seen]).toEqual(['a', 'b']);
+  });
+
   it('counts mutable-feed rows separately from unique identities', () => {
     const tracker = createMutableFeedPaginationTracker({
       getIdentity: (item: { id: string }) => item.id,
@@ -78,6 +110,36 @@ describe('pagination source identity contract', () => {
     expect(tracker.uniqueCount).toBe(3);
     expect(tracker.hasReached(4)).toBe(true);
     expect(tracker.hasReached(5)).toBe(false);
+  });
+
+  it('deduplicates identical rows while preserving row totals and coverage checks', () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      getFingerprint: (item: { id: string, title: string }) => JSON.stringify(item),
+      source: 'Confederazione API',
+    });
+
+    tracker.record([{ id: 'a', title: 'same' }, { id: 'a', title: 'same' }, { id: 'b', title: 'new' }], 0);
+    expect(tracker.scannedRows).toBe(3);
+    expect(tracker.uniqueCount).toBe(2);
+    expect(tracker.hasReached(3)).toBe(true);
+    expect(tracker.hasMinimumUniqueCoverage(3, 0.9)).toBe(false);
+    expect(tracker.hasMinimumUniqueCoverage(2, 0.9)).toBe(true);
+  });
+
+  it('accepts an identical identity at a mutable page boundary and rejects a changed one', () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      getFingerprint: (item: { id: string, title: string }) => JSON.stringify(item),
+      source: 'Confederazione API',
+    });
+
+    tracker.record([{ id: 'a', title: 'same' }], 0);
+    expect(tracker.record([{ id: 'a', title: 'same' }, { id: 'b', title: 'new' }], 1)).toEqual(['a', 'b']);
+    expect(tracker.uniqueCount).toBe(2);
+
+    expect(() => tracker.record([{ id: 'a', title: 'changed' }, { id: 'c', title: 'new' }], 2))
+      .toThrow('conflicting content');
   });
 
   it('re-reads a semantic no-progress page with a bounded retry', async () => {
@@ -146,8 +208,10 @@ describe('pagination source identity contract', () => {
     expect(postauto).toContain('recordMutableFeedPageWithRetry({');
     expect(postauto).toContain('progress.hasReached(totalJobs)');
     expect(confederazione).toContain('createMutableFeedPaginationTracker({');
+    expect(confederazione).toContain('getFingerprint: (job) => JSON.stringify(job)');
     expect(confederazione).toContain('recordMutableFeedPageWithRetry({');
     expect(confederazione).toContain('progress.hasReached(declaredTotal)');
+    expect(confederazione).toContain('progress.hasMinimumUniqueCoverage(declaredTotal');
     expect(confederazione).toContain('progress.scannedRows < declaredTotal');
     expect(confederazione).not.toContain('recordUniquePageProgress(sourceIdentities, items');
     expect(confederazione).not.toContain('sourceIdentities.size >= declaredTotal');
