@@ -41,6 +41,7 @@ jobs:
           repository: valerielinc-ops/frontaliere-si-o-no
           ref: main
           fetch-depth: 1
+          persist-credentials: false
           sparse-checkout: |
             data/jobs/by-crawler
             data/jobs/expired/by-crawler

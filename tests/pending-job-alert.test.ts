@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import {
   savePendingJobAlert,
+  peekPendingJobAlert,
   consumePendingJobAlert,
   clearPendingJobAlert,
 } from '@/services/pendingJobAlert';
@@ -43,6 +44,13 @@ describe('pendingJobAlert', () => {
     savePendingJobAlert(config, 'inline_card');
     expect(consumePendingJobAlert()).toEqual(pending);
     expect(consumePendingJobAlert()).toBeNull();
+  });
+
+  it('peeks without consuming, so the app can return from profile auth', () => {
+    savePendingJobAlert(config, 'inline_card');
+    expect(peekPendingJobAlert()).toEqual(pending);
+    expect(localStorage.getItem('pending_job_alert')).not.toBeNull();
+    expect(consumePendingJobAlert()).toEqual(pending);
   });
 
   it('returns null when nothing is pending', () => {

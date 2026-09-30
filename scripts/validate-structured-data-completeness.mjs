@@ -14,6 +14,10 @@ import { readdirSync, statSync, existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
+import {
+  toStructuredDataJobPostingError,
+  validateMandatoryJobPostingFields,
+} from './lib/jobposting-mandatory-fields.mjs';
 
 const DIST = join(process.cwd(), 'dist');
 
@@ -119,24 +123,15 @@ function validateDataset(schema, filePath) {
 }
 
 function validateJobPosting(schema, filePath) {
-  const errors = [];
   const type = schema['@type'];
-  if (type !== 'JobPosting') return errors;
+  if (type !== 'JobPosting') return [];
+  const errors = validateMandatoryJobPostingFields(schema)
+    .map((error) => toStructuredDataJobPostingError(error, filePath));
 
-  // Mandatory Google fields
-  const checks = [
-    ['title', schema.title],
-    ['datePosted', schema.datePosted],
-    ['hiringOrganization.name', schema.hiringOrganization?.name],
-    ['employmentType', schema.employmentType],
-    // GSC quality issue: missing validThrough flagged as non-critical but counted
-    // in the JobPosting "Issues" report — treat as deploy-blocking error.
-    ['validThrough', schema.validThrough],
-  ];
-  for (const [field, value] of checks) {
-    if (!isNonEmpty(value)) {
-      errors.push({ file: filePath, type: 'JobPosting', field, message: `JobPosting missing "${field}"` });
-    }
+  // Consumer-specific: GSC reports validThrough separately from the nine
+  // mandatory fields and this gate intentionally keeps it deploy-blocking.
+  if (!isNonEmpty(schema.validThrough)) {
+    errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: 'JobPosting missing "validThrough"' });
   }
 
   // validThrough must parse to a valid date. Past dates are allowed —
@@ -149,25 +144,12 @@ function validateJobPosting(schema, filePath) {
     }
   }
 
-  // Description must be >= 30 chars
-  const desc = String(schema.description || '').trim();
-  if (desc.length < 30) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'description', message: `JobPosting description too short (${desc.length} chars, need >= 30)` });
-  }
-
-  // jobLocation.address must exist with addressLocality
+  // Consumer-specific address quality checks. The shared contract already
+  // reports missing jobLocation/address/postalCode/streetAddress.
   const address = schema.jobLocation?.address;
-  if (!address) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation', message: 'JobPosting missing "jobLocation.address"' });
-  } else {
+  if (address && typeof address === 'object') {
     if (!isNonEmpty(address.addressLocality)) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressLocality', message: 'JobPosting missing "addressLocality"' });
-    }
-    if (!isNonEmpty(address.postalCode)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.postalCode', message: 'JobPosting missing "postalCode"' });
-    }
-    if (!isNonEmpty(address.streetAddress)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.streetAddress', message: 'JobPosting missing "streetAddress"' });
     }
     // GSC quality issue: missing addressRegion flagged as non-critical but
     // counted in the JobPosting "Issues" report — treat as deploy-blocking.
@@ -175,35 +157,6 @@ function validateJobPosting(schema, filePath) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: 'JobPosting missing "addressRegion"' });
     } else if (!/^[A-Z]{2}$/.test(String(address.addressRegion).trim())) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: `JobPosting addressRegion "${address.addressRegion}" is not a 2-letter Swiss canton code` });
-    }
-  }
-
-  // baseSalary must be present and valid
-  const bs = schema.baseSalary;
-  if (!bs || typeof bs !== 'object') {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary', message: 'JobPosting missing "baseSalary"' });
-  } else {
-    const val = bs.value;
-    if (!val || typeof val !== 'object') {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value', message: 'JobPosting baseSalary missing "value"' });
-    } else {
-      const minVal = Number(val.minValue);
-      if (!Number.isFinite(minVal) || minVal <= 0) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.minValue', message: 'JobPosting baseSalary.value.minValue missing or invalid' });
-      }
-      // FRO-maxValue: maxValue is now MANDATORY — GSC flags missing maxValue as quality issue.
-      const maxVal = Number(val.maxValue);
-      if (!Number.isFinite(maxVal) || maxVal <= 0) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue missing or invalid' });
-      } else if (Number.isFinite(minVal) && maxVal < minVal) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue < minValue' });
-      }
-      if (!isNonEmpty(val.unitText)) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.unitText', message: 'JobPosting baseSalary.value.unitText missing' });
-      }
-    }
-    if (!isNonEmpty(bs.currency)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.currency', message: 'JobPosting baseSalary.currency missing' });
     }
   }
 
