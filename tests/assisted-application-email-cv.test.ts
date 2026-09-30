@@ -103,6 +103,14 @@ describe('MIME reader', () => {
 });
 
 describe('CV by e-mail reply', () => {
+  it('does nothing while the automation flag is off: the e-mail reaches Valerie as today', async () => {
+    const database = store();
+    const bucket = fakeBucket();
+    const result = await handleAssistedApplicationEmailCv(request(rawMessage()), { db: database.db, bucket, secret: SECRET, isEnabled: async () => false });
+    expect(result.body).toEqual({ ok: true, matched: false, reason: 'automation_off' });
+    expect(bucket.files.size).toBe(0);
+  });
+
   it('rejects a request without the worker secret', async () => {
     const result = await handleAssistedApplicationEmailCv(request(rawMessage(), 'wrong'), { db: store().db, bucket: fakeBucket(), secret: SECRET });
     expect(result.status).toBe(403);
