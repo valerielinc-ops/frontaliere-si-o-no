@@ -103,6 +103,7 @@ import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-descr
 
 const COMPANY_KEY = 'prepare-existing-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
+const SOURCE_BODY = Array(60).fill('source').join(' ');
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -122,8 +123,8 @@ async function runPipeline(extra: Record<string, unknown> = {}) {
         url: 'https://example.com/stored-job',
         companyKey: COMPANY_KEY,
         sourceLang: 'de',
-        description: 'Ihre Aufgaben: Pflege der Patientinnen und Patienten.',
-        descriptionByLocale: { de: 'Ihre Aufgaben: Pflege der Patientinnen und Patienten.' },
+        description: SOURCE_BODY,
+        descriptionByLocale: { de: SOURCE_BODY },
       }],
       isCompanyJob: (job: { companyKey?: string }) => job.companyKey === COMPANY_KEY,
       ...extra,
@@ -174,6 +175,72 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
     const [existing] = mocks.mergePreserveLocaleData.mock.calls[0];
     expect(existing).toEqual([expect.objectContaining({ id: 'stored-1', tag: 'seen' })]);
   });
+
+  it('quarantines a non-empty standard-pipeline result without a source body', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-1',
+      slug: 'stored-job',
+      url: 'https://example.com/stored-job',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: '',
+      descriptionByLocale: { de: '' },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-1',
+        slug: 'stored-job',
+        url: 'https://example.com/stored-job',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: '',
+        descriptionByLocale: { de: '' },
+      }],
+      prepareExistingJobs: (jobs) => jobs,
+    });
+
+    expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({
+        housekeepingProof: [expect.objectContaining({
+          job: expect.objectContaining({ url: 'https://example.com/stored-job', slug: 'stored-job' }),
+          reason: 'thin-source-quarantine',
+          definitive: true,
+        })],
+      }),
+    );
+  });
+
+  it('uses a stored source body when a non-empty standard-pipeline result is thin', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-1',
+      slug: 'stored-job',
+      url: 'https://example.com/stored-job',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: SOURCE_BODY,
+      descriptionByLocale: { de: SOURCE_BODY },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-1',
+        slug: 'stored-job',
+        url: 'https://example.com/stored-job',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: 'short fresh detail',
+        descriptionByLocale: { de: 'short fresh detail' },
+      }],
+    });
+
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalledWith(
+      expect.arrayContaining([expect.objectContaining({ description: SOURCE_BODY })]),
+      [expect.objectContaining({ description: SOURCE_BODY, sourceLang: 'de' })],
+      {},
+    );
+  });
 });
 
 // A run that parses no job keeps the stored slice. The hook still runs on the
@@ -203,30 +270,38 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledTimes(1);
     const [key, jobs, options] = mocks.writeJobsCrawlerSliceVerified.mock.calls[0];
     expect(key).toBe(COMPANY_KEY);
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({
-      id: 'stored-1',
-      slug: 'stored-job',
-      url: 'https://example.com/stored-job',
-      description: '',
-      descriptionByLocale: {},
-      needsRetranslation: true,
+    expect(jobs).toEqual([]);
+    expect(options).toMatchObject({
+      preserveExistingSlugs: false,
+      housekeepingProof: [expect.objectContaining({
+        job: expect.objectContaining({ url: 'https://example.com/stored-job', slug: 'stored-job' }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      })],
     });
-    expect(options).toMatchObject({ preserveExistingSlugs: false });
     expect(options).not.toHaveProperty('skipShrinkGuard');
-    // Still the soft exit: no merge, no retirement or localization; the
-    // cleaned slice is assembled before the process returns.
+    // Still the soft exit: no merge or direct template retirement/localization;
+    // the verified writer receives the proof before the process returns.
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
     expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
     expect(mocks.runDedicatedBaseCrawler).not.toHaveBeenCalled();
     expect(mocks.assembleJobsDataset).toHaveBeenCalledTimes(1);
   });
 
-  it('writes nothing when the hook finds no crawler text in the stored jobs', async () => {
+  it('quarantines a stored job that has no source body even when the hook finds no crawler text', async () => {
     const prepareExistingJobs = vi.fn((jobs: object[]) => dropFabricatedDescriptions(jobs, /Karriereseite: /, 'Prepare Existing Test'));
     await runEmpty({ prepareExistingJobs });
     expect(prepareExistingJobs).toHaveBeenCalledTimes(1);
-    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({
+        housekeepingProof: [expect.objectContaining({
+          job: expect.objectContaining({ url: 'https://example.com/stored-job', slug: 'stored-job' }),
+          definitive: true,
+        })],
+      }),
+    );
   });
 
   it('writes nothing without the option (unchanged behaviour)', async () => {
@@ -235,11 +310,19 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
   });
 
-  it('keeps the prior slice when the rewrite would trip the systemic boilerplate guard', async () => {
+  it('evaluates the systemic guard on publishable jobs before all-thin quarantine', async () => {
+    mocks.detectBoilerplateDescriptions.mockImplementationOnce((jobs: object[]) => {
+      expect(jobs).toEqual([]);
+      return { boilerplateJobs: [{ slug: 'stored-job' }], totalJobs: 1, boilerplateCount: 1, ratio: 1 };
+    });
     mocks.isSystemicBoilerplateFailure.mockReturnValueOnce(true);
     await runEmpty({ prepareExistingJobs: dropStelle });
     expect(mocks.detectBoilerplateDescriptions).toHaveBeenCalledTimes(1);
-    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({ housekeepingProof: expect.any(Array) }),
+    );
   });
 
   it('stays a soft exit when the rewrite fails', async () => {

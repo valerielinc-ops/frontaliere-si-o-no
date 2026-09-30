@@ -18,6 +18,7 @@ import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -200,7 +201,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(PKB_KEY, DATA_JOBS).filter(isPkbJob),
     companyKey: PKB_KEY,
     companyLabel: COMPANY_NAME,
-    write: (jobs) => writeJobsCrawlerSlice(PKB_KEY, jobs),
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(PKB_KEY, jobs, options),
   });
 }
 
