@@ -456,7 +456,7 @@ describe('mapEventRecord', () => {
     expect(event.organizer).toEqual({
       '@type': 'Organization',
       name: 'MySwitzerland',
-      url: 'https://www.myswitzerland.com/',
+      url: 'https://www.myswitzerland.com/en/',
     });
     expect(event.performer).toEqual({ '@type': 'Organization', name: 'Lugano' });
     expect(imageSourceUrl).toBe('https://cdn.myswitzerland.com/images/abc.jpg');
