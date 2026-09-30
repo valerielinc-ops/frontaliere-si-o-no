@@ -13684,10 +13684,15 @@ ${staticAnalyticsHtml}
   staticBodyParts.push(`<section><h2>${esc(disambiguationHeading[locale] || disambiguationHeading.it)}</h2>${parts.join('')}</section>`);
  }
 
- // --- Description section ---
+ // --- Description section -----------------------------------------------
+ // The archive is the historical source of truth. Do not turn a complete
+ // archived listing into a 2,000-character teaser: old job URLs are kept
+ // precisely because their original content can still answer a search or a
+ // bookmarked visit. Use the shared description serializer so markdown and
+ // crawler-supplied HTML remain safe and readable in the static HTML.
  if (jobDescription && jobDescription.length > 30) {
- const descText = jobDescription.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
- staticBodyParts.push(`<section><h2>${locale === 'it' ? 'Descrizione originale' : locale === 'en' ? 'Original description' : locale === 'de' ? 'Originalbeschreibung' : 'Description originale'}</h2><div>${descText.slice(0, 2000)}</div></section>`);
+ const descriptionHtml = plainTextToHtml(jobDescription);
+ staticBodyParts.push(`<section><h2>${locale === 'it' ? 'Descrizione originale' : locale === 'en' ? 'Original description' : locale === 'de' ? 'Originalbeschreibung' : 'Description originale'}</h2><div>${descriptionHtml}</div></section>`);
  }
 
  // --- Job details section ---
