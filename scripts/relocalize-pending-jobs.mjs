@@ -48,6 +48,7 @@ import {
   addPreviousSlugForLocale,
   captureLostSlugs,
   DEFAULT_PREV_SLUG_CAP,
+  localeTextCoverage,
   normalizeForLengthComparison,
   normalizeCompanyKey,
 } from './lib/dedicated-crawler-common.mjs';
@@ -490,6 +491,20 @@ function writeCompanySkipState(state) {
 }
 
 /**
+ * Return true when at least one target locale is missing a usable title or
+ * description. The caller checks an unchanged give-up suppression first, so
+ * this coverage signal cannot turn a suppressed job into an every-run loop.
+ */
+export function hasMissingTargetLocaleCoverage(job) {
+  const titles = job?.titleByLocale || {};
+  const descriptions = job?.descriptionByLocale || {};
+  return (
+    localeTextCoverage(titles, MIN_TITLE_CHARS) < LOCALES.length ||
+    localeTextCoverage(descriptions, MIN_DESC_CHARS) < LOCALES.length
+  );
+}
+
+/**
  * Check if a job needs translation work.
  * Returns true if the job has needsRetranslation flag or incomplete locale coverage.
  */
@@ -506,6 +521,9 @@ export function needsTranslation(job) {
   // the work pool unless the source content changed since we suppressed it
   // (re-crawl brings fresh text worth a new attempt).
   if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) return false;
+  // Non-suppressed jobs with audit-visible missing locale coverage must be
+  // queued even when a later quality predicate does not classify the gap.
+  if (hasMissingTargetLocaleCoverage(job)) return true;
   return isIncomplete(job);
 }
 
