@@ -129,6 +129,7 @@ jobs:
         # trasformare un failure di Vitest in un successo di `tee`.
         timeout-minutes: 40
         run: |
+          set -o pipefail
           set +e
           ./node_modules/.bin/firebase emulators:exec \
             --only firestore \
