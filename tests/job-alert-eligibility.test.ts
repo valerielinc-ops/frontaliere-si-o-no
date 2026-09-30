@@ -1,10 +1,25 @@
-import { describe, expect, it } from 'vitest';
-import { resolveJobAlertEligibility } from '../services/jobAlertEligibility';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { getJobAlertEligibility, resolveJobAlertEligibility } from '../services/jobAlertEligibility';
+import { invalidateUserAlertsCache } from '../services/userAlertsCache';
+
+const { getUserAlertsMock } = vi.hoisted(() => ({
+  getUserAlertsMock: vi.fn(),
+}));
+
+vi.mock('../services/jobAlertService', () => ({
+  getUserAlerts: getUserAlertsMock,
+  MAX_ALERTS_PER_USER: 3,
+}));
 
 const alert = (keywords: string[], active = true, specificCompanyKey: string | null = null) => ({
   active,
   keywords,
   specificCompanyKey,
+});
+
+beforeEach(() => {
+  getUserAlertsMock.mockReset();
+  invalidateUserAlertsCache();
 });
 
 describe('job-alert CTA eligibility', () => {
@@ -54,5 +69,35 @@ describe('job-alert CTA eligibility', () => {
       'Tecnologia',
       1,
     )).toEqual({ eligible: true, reason: null });
+  });
+
+  it('rereads after a successful create invalidates the session snapshot', async () => {
+    let currentAlerts = [];
+    getUserAlertsMock.mockImplementation(async () => currentAlerts);
+
+    await expect(getJobAlertEligibility('user-1', 'Tecnologia'))
+      .resolves.toEqual({ eligible: true, reason: null });
+
+    currentAlerts = [alert(['Tecnologia'])];
+    invalidateUserAlertsCache();
+
+    await expect(getJobAlertEligibility('user-1', 'Tecnologia'))
+      .resolves.toEqual({ eligible: false, reason: 'already_subscribed' });
+    expect(getUserAlertsMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('rereads after a successful delete invalidates the session snapshot', async () => {
+    let currentAlerts = [alert(['Tecnologia'])];
+    getUserAlertsMock.mockImplementation(async () => currentAlerts);
+
+    await expect(getJobAlertEligibility('user-1', 'Tecnologia'))
+      .resolves.toEqual({ eligible: false, reason: 'already_subscribed' });
+
+    currentAlerts = [];
+    invalidateUserAlertsCache();
+
+    await expect(getJobAlertEligibility('user-1', 'Tecnologia'))
+      .resolves.toEqual({ eligible: true, reason: null });
+    expect(getUserAlertsMock).toHaveBeenCalledTimes(2);
   });
 });

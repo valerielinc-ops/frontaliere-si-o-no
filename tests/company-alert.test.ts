@@ -1394,6 +1394,8 @@ describe('the CTA reaches every job-detail surface (#5012)', () => {
     expect(cache).toContain('export function fetchUserAlertsCached');
     expect(readRepoFile('components/community/CompanyFollowCta.tsx'))
       .toContain("import { invalidateUserAlertsCache } from '@/services/userAlertsCache'");
+    expect(readRepoFile('components/pages/FollowedCompaniesPage.tsx'))
+      .toContain("import { invalidateUserAlertsCache } from '@/services/userAlertsCache'");
     const board = readRepoFile('components/community/JobBoard.tsx');
     expect(board).toContain("from '@/services/userAlertsCache'");
     expect(board.includes('let cachedUserAlerts')).toBe(false);

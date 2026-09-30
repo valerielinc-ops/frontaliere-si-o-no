@@ -45,6 +45,7 @@ import type { JobAlert, findCompanyAlert } from '@/services/jobAlertService';
 import { rankEmployerSuggestions } from '@/services/employerSuggestions';
 import CompanyFollowCta from '@/components/community/CompanyFollowCta';
 import { reportCaughtError } from '@/services/errorReporter';
+import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 
 /**
  * The cadences a followed employer can carry, in escalating patience.
@@ -338,6 +339,7 @@ export const FollowedCompaniesPage: React.FC = () => {
       // weak-intent matches from its stored sourceJobTitle — an unsubscribe
       // that keeps sending email is a GDPR problem (#5151).
       await deleteAlert(alert.email, alert.id);
+      invalidateUserAlertsCache();
       setAlerts((prev) => (prev || []).filter((a) => a.id !== alert.id));
     } catch (err) {
       reportCaughtError(err, 'followedCompanies.unfollow');
@@ -391,6 +393,7 @@ export const FollowedCompaniesPage: React.FC = () => {
       if (!alert.email) { failed.push(alert); continue; }
       try {
         await deleteAlert(alert.email, alert.id);
+        invalidateUserAlertsCache();
       } catch (err) {
         reportCaughtError(err, 'followedCompanies.unfollowAll');
         failed.push(alert);
