@@ -377,7 +377,8 @@
       },
       "previousSlugs": [
         "ict-system-spezialist-in-professional-1318-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "WMS/HMS-Praktikant/-in EFZ in Chiasso",
@@ -444,7 +445,8 @@
       },
       "previousSlugs": [
         "wms-hms-praktikant-in-efz-in-chiasso-confederazione-chiasso"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Spezialist/-in Senior (1327)",
@@ -517,7 +519,8 @@
       },
       "previousSlugs": [
         "ict-system-spezialist-in-senior-1327-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Spezialist/-in Expert (802)",
@@ -651,7 +654,8 @@
       },
       "previousSlugs": [
         "ict-system-spezialist-in-senior-1130-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Jurist/-in der Qualitätssicherungsstelle",
@@ -777,7 +781,8 @@
       },
       "previousSlugs": [
         "wms-hms-praktikant-in-efz-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Intelligence Officer China (321020)",
@@ -1332,7 +1337,8 @@
       "previousSlugs": [
         "pki-operations-security-officer-confederazione-bern",
         "pki-operations-specialist-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in",
@@ -1378,11 +1384,15 @@
       "id": "confederazione-ticino-160794b69a91",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-confederazione-bern",
+          "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-08av62",
+          "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-confederazione-bern"
+        "wissenschaftliche-r-mitarbeiter-in-confederazione-bern",
+        "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-08av62",
+        "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-bern-8jk0ft"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2094,7 +2104,8 @@
       "firstSeenAt": "2026-09-23T23:59:04.439Z",
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-confederazione-bern"
+          "jurist-in-confederazione-bern",
+          "jurist-in-confederazione-svizzera-bern-bw4wll"
         ],
         "en": [
           "jurist-in-confederazione-bern"
@@ -2107,7 +2118,8 @@
         ]
       },
       "previousSlugs": [
-        "jurist-in-confederazione-bern"
+        "jurist-in-confederazione-bern",
+        "jurist-in-confederazione-svizzera-bern-bw4wll"
       ]
     },
     {
@@ -2351,7 +2363,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:09:20.522Z"
+      "firstSeenAt": "2026-09-25T15:09:20.522Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sektionschef/-in Internationale und nationale Angelegenheiten (INA)",
@@ -2672,7 +2685,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Eisenbahn-, Flug- und Industrielärm",
@@ -2811,7 +2825,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:09:20.522Z"
+      "firstSeenAt": "2026-09-25T15:09:20.522Z",
+      "needsRetranslation": true
     },
     {
       "title": "Intelligence Specialist SOCMINT",
@@ -2883,7 +2898,8 @@
       },
       "previousSlugs": [
         "intelligence-specialist-socmint-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT System Engineer (Senior)",
@@ -2955,7 +2971,8 @@
       },
       "previousSlugs": [
         "ict-system-engineer-senior-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Digitale Transformation",
@@ -3028,7 +3045,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-digitale-transformation-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Bahnangebotsplaner/in mit Schwerpunkt Tessin/Italien und Kapazitätssicherung",
@@ -3103,7 +3121,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T23:59:04.439Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/bahnangebotsplaner-in-mit-schwerpunkt-tessin-italien-und-kapazitaetssicherung/e2cc8372-ed0b-472f-8fd2-da7ac90b49be"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/bahnangebotsplaner-in-mit-schwerpunkt-tessin-italien-und-kapazitaetssicherung/e2cc8372-ed0b-472f-8fd2-da7ac90b49be",
+      "needsRetranslation": true
     },
     {
       "title": "BIM-Manager/-in und Fachspezialist/-in Erhaltungsplanung",
@@ -3457,7 +3476,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-im-bereich-biologische-sicherheit-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter/-in technischer Dienst",
@@ -3532,7 +3552,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-technischer-dienst/d1b47bf4-b0b9-4732-a103-1c2ddf279f37"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-technischer-dienst/d1b47bf4-b0b9-4732-a103-1c2ddf279f37",
+      "needsRetranslation": true
     },
     {
       "title": "Intelligence Officer China (322020)",
@@ -3822,7 +3843,8 @@
       },
       "previousSlugs": [
         "kanzleimitarbeiter-in-sekretar-in-confederazione-luzern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Radioaktivität und Strahlenschutz",
@@ -3964,7 +3986,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/senior-projektleiter-in-sicherheitskommunikation/37290f4d-91bd-465e-a35e-0ae89fef558f"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/senior-projektleiter-in-sicherheitskommunikation/37290f4d-91bd-465e-a35e-0ae89fef558f",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent/-in",
@@ -4096,7 +4119,8 @@
       },
       "previousSlugs": [
         "ict-helpdesk-mitarbeiter-in-professional-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Steuerspezialist/-in Erhebung MWST, Team 2",
@@ -4169,7 +4193,8 @@
       },
       "previousSlugs": [
         "steuerspezialist-in-erhebung-mwst-team-2-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/-in",
@@ -4247,7 +4272,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektleiter-in/cf889402-7228-4fde-bdbb-67d94962cf0c"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektleiter-in/cf889402-7228-4fde-bdbb-67d94962cf0c",
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/-in Verkehr und Siedlung im Programm Agglomerationsverkehr",
@@ -4392,7 +4418,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/03098cce-fd6b-4ec4-939a-8038489644f9"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/03098cce-fd6b-4ec4-939a-8038489644f9",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System Spezialist/in Security und Encryption",
@@ -4467,7 +4494,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-security-und-encryption/08ffc9b0-364a-4b79-84c0-7be7209b1dd0"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-security-und-encryption/08ffc9b0-364a-4b79-84c0-7be7209b1dd0",
+      "needsRetranslation": true
     },
     {
       "title": "Finanzcontroller/in",
@@ -4619,7 +4647,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme/ae48e507-21c5-48f4-b9e6-24a79b82bcfe"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme/ae48e507-21c5-48f4-b9e6-24a79b82bcfe",
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Nationale Überwachungssysteme für übertragbare Krankheiten",
@@ -4695,7 +4724,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-fuer-uebertragbare-krankheiten/d1305fc7-73d1-453f-8453-8c2c5844a842"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-fuer-uebertragbare-krankheiten/d1305fc7-73d1-453f-8453-8c2c5844a842",
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in im Bereich Betäubungsmittelvollzug",
@@ -4770,7 +4800,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-im-bereich-betaeubungsmittelvollzug/1b3ee892-9ec7-4b6b-ac33-8997f792d7f2"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-im-bereich-betaeubungsmittelvollzug/1b3ee892-9ec7-4b6b-ac33-8997f792d7f2",
+      "needsRetranslation": true
     },
     {
       "title": "Datenschutzberater/-in",
@@ -4848,7 +4879,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/datenschutzberater-in/bd0eff09-e00c-4f0c-970c-88d059ef7fd2"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/datenschutzberater-in/bd0eff09-e00c-4f0c-970c-88d059ef7fd2",
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in HR Recruiting (1341)",
@@ -4923,7 +4955,8 @@
         "university-intern-hr-recruiting-1341-confederazione-svizzera-zollikofen",
         "hochschulpraktikant-in-hr-recruiting-1341-confederazione-zollikofen"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-hr-recruiting-1341/68cf0380-a294-403e-be3d-d0df5034f007"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-hr-recruiting-1341/68cf0380-a294-403e-be3d-d0df5034f007",
+      "needsRetranslation": true
     },
     {
       "title": "SAP BTP & Frontend Spezialist (Fiori / Build Workzone) - Wirtschaftsinformatiker Professional",
@@ -5064,7 +5097,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-nichtionisierende-strahlung-confederazione-ittigen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Mediamatiker/-in",
@@ -5137,7 +5171,8 @@
       },
       "previousSlugs": [
         "mediamatiker-in-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in im Bereich Datengrundlagen und Analysen",
@@ -5212,7 +5247,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-im-bereich-datengrundlagen-und-analysen/01625f27-63c4-48a6-9410-c17e204a2c31"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-im-bereich-datengrundlagen-und-analysen/01625f27-63c4-48a6-9410-c17e204a2c31",
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/r Mitarbeiter/in Sektion Arzneimittelüberprüfungen periodisch",
@@ -5287,7 +5323,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-sektion-arzneimittelueberpruefungen-periodisch/2ce6bb8c-70e0-4779-bdaf-defec5367c38"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-sektion-arzneimittelueberpruefungen-periodisch/2ce6bb8c-70e0-4779-bdaf-defec5367c38",
+      "needsRetranslation": true
     },
     {
       "title": "2 Wissenschaftliche Mitarbeiter/-innen Arzneimittelrecht Krankenversicherung",
@@ -5362,7 +5399,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/2-wissenschaftliche-mitarbeiter-innen-arzneimittelrecht-krankenversicherung/417fb89d-9c9e-4d46-938d-74efc53a30c5"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/2-wissenschaftliche-mitarbeiter-innen-arzneimittelrecht-krankenversicherung/417fb89d-9c9e-4d46-938d-74efc53a30c5",
+      "needsRetranslation": true
     },
     {
       "title": "Gerichtsschreiber/-in Abt. I mit Hauptsprache Italienisch",
@@ -5579,7 +5617,8 @@
       },
       "firstSeenAt": "2026-07-29T11:37:13.748Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/servicetechniker-in-gebaeudetechnik/c5d61906-48aa-464a-98db-f05a07c0cbae"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/servicetechniker-in-gebaeudetechnik/c5d61906-48aa-464a-98db-f05a07c0cbae",
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in Ereignis- und Krisenmanagement",
@@ -5654,7 +5693,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-ereignis-und-krisenmanagement/2163ec25-3b00-438b-99a9-8245419305df"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-ereignis-und-krisenmanagement/2163ec25-3b00-438b-99a9-8245419305df",
+      "needsRetranslation": true
     },
     {
       "title": "Gebäudebetreiber/-in",
@@ -5736,7 +5776,8 @@
         "operateur-du-batiment-in-confederazione-svizzera-bern",
         "gestionnaires-de-batiments-confederazione-svizzera-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/gebaeudebetreiber-in/9179c97d-42da-47ce-a807-cde901582a3e"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/gebaeudebetreiber-in/9179c97d-42da-47ce-a807-cde901582a3e",
+      "needsRetranslation": true
     },
     {
       "title": "Steuerprüfer/-in Externe Prüfung MWST (BS/BL/SO)",
@@ -5809,7 +5850,8 @@
       },
       "previousSlugs": [
         "steuerprufer-in-externe-prufung-mwst-bs-bl-so-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Fachreferent/-in Data Compliance",
@@ -5882,7 +5924,8 @@
       },
       "previousSlugs": [
         "fachreferent-in-data-compliance-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in Luftreinhaltung und Klimagasinventar",
@@ -5957,7 +6000,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-luftreinhaltung-und-klimagasinventar/ecb763e3-ef80-4054-a187-551420dd4813"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-luftreinhaltung-und-klimagasinventar/ecb763e3-ef80-4054-a187-551420dd4813",
+      "needsRetranslation": true
     },
     {
       "title": "HR-Spezialist/in",
@@ -6035,7 +6079,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-spezialist-in/d66e666b-3082-4d2b-953c-71798a583ec8"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-spezialist-in/d66e666b-3082-4d2b-953c-71798a583ec8",
+      "needsRetranslation": true
     },
     {
       "title": "Übersetzungspraktikum Französisch und Auftragsverwaltung",
@@ -6110,7 +6155,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/uebersetzungspraktikum-franzoesisch-und-auftragsverwaltung/04309974-455a-454f-9196-7538a81d4d08"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/uebersetzungspraktikum-franzoesisch-und-auftragsverwaltung/04309974-455a-454f-9196-7538a81d4d08",
+      "needsRetranslation": true
     },
     {
       "title": "Paralegal",
@@ -6256,7 +6302,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-direktion-fuer-voelkerrecht-schweizerisches-seeschifffahrtsamt/5724fc32-8c7a-466d-addb-c370fc498b72"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-direktion-fuer-voelkerrecht-schweizerisches-seeschifffahrtsamt/5724fc32-8c7a-466d-addb-c370fc498b72",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende Kauffrau / Lernender Kaufmann EFZ",
@@ -6331,7 +6378,8 @@
         "apprendista-kauffrau-apprendista-kaufmann-cfc-confederazione-svizzera-bern",
         "lernende-kauffrau-lernender-kaufmann-efz-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-lernender-kaufmann-efz/19aa59d2-c970-46f6-bf4d-bd463d230b6d"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-lernender-kaufmann-efz/19aa59d2-c970-46f6-bf4d-bd463d230b6d",
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Rechtsdienst",
@@ -6404,7 +6452,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-rechtsdienst-confederazione-thun"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "WMS-Praktikant/-in",
@@ -6477,7 +6526,8 @@
       },
       "previousSlugs": [
         "wms-praktikant-in-confederazione-basel"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Epidemiologe / Wissenschaftliche/-r Mitarbeiter/-in",
@@ -6552,7 +6602,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/epidemiologe-wissenschaftliche-r-mitarbeiter-in/6f6c543a-44ff-460a-ba7b-d44ea6c58823"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/epidemiologe-wissenschaftliche-r-mitarbeiter-in/6f6c543a-44ff-460a-ba7b-d44ea6c58823",
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Nationale Überwachungssysteme (Interoperabilität & Gesundheitsdatenstandards)",
@@ -6627,7 +6678,8 @@
         }
       },
       "firstSeenAt": "2026-09-23T11:54:13.398Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-interoperabilitaet-gesundheitsdatenstandards/f04157db-99f5-489e-9fda-5db72ede0727"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-interoperabilitaet-gesundheitsdatenstandards/f04157db-99f5-489e-9fda-5db72ede0727",
+      "needsRetranslation": true
     },
     {
       "title": "Steuerspezialist/-in Erhebung MWST, Team 6",
@@ -6700,7 +6752,8 @@
       },
       "previousSlugs": [
         "steuerspezialist-in-erhebung-mwst-team-6-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/-in für grosskalibrige Munition",
@@ -6775,7 +6828,8 @@
         }
       },
       "firstSeenAt": "2026-09-11T13:51:30.043Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektleiter-in-fuer-grosskalibrige-munition/54119111-a980-43d3-8597-e9fd348e9a01"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektleiter-in-fuer-grosskalibrige-munition/54119111-a980-43d3-8597-e9fd348e9a01",
+      "needsRetranslation": true
     },
     {
       "title": "Intelligence Specialist Cyber",
@@ -6853,7 +6907,8 @@
       "previousSlugs": [
         "quality-assurance-specialist-cyber-confederazione-svizzera-bern",
         "intelligence-specialist-cyber-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kaufmann / Kauffrau EFZ",
@@ -6928,7 +6983,8 @@
         "apprendista-kaufmann-kauffrau-cfc-confederazione-svizzera-zofingen",
         "lernende-r-kaufmann-kauffrau-efz-confederazione-zofingen"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-kauffrau-efz/e2e4d280-1685-4d8b-a551-a6db885f9dc7"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-kauffrau-efz/e2e4d280-1685-4d8b-a551-a6db885f9dc7",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Architekt/-in Senior (1335)",
@@ -6998,7 +7054,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-senior-1335-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Fachspezialist/-in internationale Steuerfragen (OECD Mindeststeuer)",
@@ -7076,7 +7133,8 @@
         "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern-1cwgg6",
         "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer/76017d47-7169-4e72-9f66-861cfbe2ef36"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer/76017d47-7169-4e72-9f66-861cfbe2ef36",
+      "needsRetranslation": true
     },
     {
       "title": "Steuerprüfer/-in Externe Prüfung MWST (SZ/UR/SG)",
@@ -7149,7 +7207,8 @@
       },
       "previousSlugs": [
         "steuerprufer-in-externe-prufung-mwst-sz-ur-sg-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Product Owner",
@@ -7433,7 +7492,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-abteilung-afrika-und-sektion-horn-und-nordafrika/60383214-e294-40cb-9863-deb1de891089"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-abteilung-afrika-und-sektion-horn-und-nordafrika/60383214-e294-40cb-9863-deb1de891089",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
@@ -7895,7 +7955,8 @@
       },
       "previousSlugs": [
         "stellvertreter-in-der-chefin-der-abteilungskanzlei-confederazione-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Programmbeauftragte/r Gesundheit",
@@ -7968,7 +8029,8 @@
       },
       "previousSlugs": [
         "programmbeauftragte-r-gesundheit-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "User Experience Architekt/-in & Business Analyst/-in Senior",
@@ -8112,7 +8174,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-senior-999-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Leiter/-in Asylregion Tessin und Zentralschweiz",
@@ -8187,7 +8250,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-asylregion-tessin-und-zentralschweiz/566c6ce3-9d3c-4f63-a57d-82ebaa1e6a9c"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-asylregion-tessin-und-zentralschweiz/566c6ce3-9d3c-4f63-a57d-82ebaa1e6a9c",
+      "needsRetranslation": true
     },
     {
       "title": "Chef/-in Fachbereich Grundlagen Zivilschutz und Ausbildung",
@@ -8262,7 +8326,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/chef-in-fachbereich-grundlagen-zivilschutz-und-ausbildung/7c0cf054-a887-4e35-84bc-ad4e52050ffb"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/chef-in-fachbereich-grundlagen-zivilschutz-und-ausbildung/7c0cf054-a887-4e35-84bc-ad4e52050ffb",
+      "needsRetranslation": true
     },
     {
       "title": "Reinigungsfachkraft",
@@ -8340,7 +8405,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/reinigungsfachkraft/3f25a410-c16d-405c-a9a0-298c9752d5c6"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/reinigungsfachkraft/3f25a410-c16d-405c-a9a0-298c9752d5c6",
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in Heilmittelrecht",
@@ -8413,7 +8479,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-heilmittelrecht-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikantin/-praktikant Abteilung Wasser",
@@ -8486,7 +8553,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikantin-praktikant-abteilung-wasser-confederazione-ittigen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Recruiter/-in senior",
@@ -8559,7 +8627,8 @@
       },
       "previousSlugs": [
         "recruiter-in-senior-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Data Scientist",
@@ -8705,7 +8774,8 @@
         }
       },
       "firstSeenAt": "2026-09-10T23:24:09.818Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-abteilungskanzlei-iv/fa7a5448-bca2-4d9d-b545-2b72b1a675fa"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-abteilungskanzlei-iv/fa7a5448-bca2-4d9d-b545-2b72b1a675fa",
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/r Mitarbeiter/in Ressourcenmanagement Bund (ResMaB)",
@@ -8780,7 +8850,8 @@
         }
       },
       "firstSeenAt": "2026-09-10T23:24:09.818Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-ressourcenmanagement-bund-resmab/ee61bb92-669a-41a7-9e24-789ebd4d77b7"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-ressourcenmanagement-bund-resmab/ee61bb92-669a-41a7-9e24-789ebd4d77b7",
+      "needsRetranslation": true
     },
     {
       "title": "Jurist/-in Rechtsmittel und Anklagen",
@@ -8855,7 +8926,8 @@
         }
       },
       "firstSeenAt": "2026-09-10T23:24:09.818Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in-rechtsmittel-und-anklagen/3ba7ac67-8ebc-4cd1-b518-142179521eb6"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in-rechtsmittel-und-anklagen/3ba7ac67-8ebc-4cd1-b518-142179521eb6",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent/-in Zentrale Eingangsbearbeitung",
@@ -8928,7 +9000,8 @@
       },
       "previousSlugs": [
         "assistent-in-zentrale-eingangsbearbeitung-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Informationssicherheitsbeauftragte/-r /CISO BABS",
@@ -9001,7 +9074,8 @@
       },
       "previousSlugs": [
         "informationssicherheitsbeauftragte-r-ciso-babs-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "HR Business Partner (befristet auf 2 Jahre)",
@@ -9076,7 +9150,8 @@
         }
       },
       "firstSeenAt": "2026-09-09T23:24:31.749Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-befristet-auf-2-jahre/638fc775-c3f6-40ba-ade2-944376a595e5"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-befristet-auf-2-jahre/638fc775-c3f6-40ba-ade2-944376a595e5",
+      "needsRetranslation": true
     },
     {
       "title": "Fachassistent/-in Grenzkontrolle",
@@ -9292,7 +9367,8 @@
       },
       "previousSlugs": [
         "juristische-r-hochschulpraktikant-in-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Gerichtsschreiber/Gerichtsschreiberin",
@@ -9365,7 +9441,8 @@
       },
       "previousSlugs": [
         "gerichtsschreiber-gerichtsschreiberin-confederazione-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in für die Begleitung von Wasserbauprojekten",
@@ -9440,7 +9517,8 @@
         }
       },
       "firstSeenAt": "2026-09-08T13:52:49.908Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-fuer-die-begleitung-von-wasserbauprojekten/623a3ea3-67a8-42ec-a4ab-e08a0bc252f6"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-fuer-die-begleitung-von-wasserbauprojekten/623a3ea3-67a8-42ec-a4ab-e08a0bc252f6",
+      "needsRetranslation": true
     },
     {
       "title": "Senior ICT-Architekt/-in Plattform- und Softwarearchitektur",
@@ -9515,7 +9593,8 @@
         }
       },
       "firstSeenAt": "2026-09-08T23:42:00.772Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/senior-ict-architekt-in-plattform-und-softwarearchitektur/b155846f-b6c2-47a6-8c27-0f3adabbf492"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/senior-ict-architekt-in-plattform-und-softwarearchitektur/b155846f-b6c2-47a6-8c27-0f3adabbf492",
+      "needsRetranslation": true
     },
     {
       "title": "Laborant/-in EFZ Fachrichtung Biologie",
@@ -9588,7 +9667,8 @@
       },
       "previousSlugs": [
         "laborant-in-efz-fachrichtung-biologie-confederazione-spiez"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Fachspezialist/-in Strategie und Entwicklung Betrieb Nationalstrasse",
@@ -9663,7 +9743,8 @@
         }
       },
       "firstSeenAt": "2026-09-08T13:52:49.908Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/fachspezialist-in-strategie-und-entwicklung-betrieb-nationalstrasse/2cf4176d-185d-4b8b-9d9c-331e10ea4fbd"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/fachspezialist-in-strategie-und-entwicklung-betrieb-nationalstrasse/2cf4176d-185d-4b8b-9d9c-331e10ea4fbd",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende Kauffrau / Lernender Kaufmann EFZ",
@@ -9964,7 +10045,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-zentrale-kanzlei-+-scancenter/caaf1e70-a146-4d0a-b7af-732affe34f8f"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-zentrale-kanzlei-+-scancenter/caaf1e70-a146-4d0a-b7af-732affe34f8f",
+      "needsRetranslation": true
     },
     {
       "title": "Applikationsverantwortliche/-r II",
@@ -10041,7 +10123,8 @@
       "previousSlugs": [
         "applikationsverantwortliche-r-ii-confederazione-svizzera-genf",
         "applikationsverantwortliche-r-ii-confederazione-genf"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "DevOps Engineer & Fullstack Entwickler/-in (Java) Professional",
@@ -10100,7 +10183,8 @@
         }
       },
       "firstSeenAt": "2026-09-07T15:18:57.695Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-engineer-fullstack-entwickler-in-java-professional/169f5e39-1b8d-4e6c-a0a0-1e1b278df230"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-engineer-fullstack-entwickler-in-java-professional/169f5e39-1b8d-4e6c-a0a0-1e1b278df230",
+      "needsRetranslation": true
     },
     {
       "title": "DevOps Engineer & Fullstack Entwickler/-in (Java) Senior",
@@ -10159,7 +10243,8 @@
         }
       },
       "firstSeenAt": "2026-09-07T15:18:57.695Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-engineer-fullstack-entwickler-in-java-senior/af4a0093-e16d-4e5b-9362-08572d656e41"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-engineer-fullstack-entwickler-in-java-senior/af4a0093-e16d-4e5b-9362-08572d656e41",
+      "needsRetranslation": true
     },
     {
       "title": "HMS-Praktikant/in PAVV",
@@ -10232,7 +10317,8 @@
       },
       "previousSlugs": [
         "hms-praktikant-in-pavv-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Product Manager Communication(1293)",
@@ -10300,7 +10386,8 @@
       },
       "previousSlugs": [
         "product-manager-communication-1293-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in und Anwendungsverantwortliche/r Initiale Fahrzeugdaten",
@@ -10375,7 +10462,8 @@
         }
       },
       "firstSeenAt": "2026-09-04T13:49:35.220Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektleiter-in-und-anwendungsverantwortliche-r-initiale-fahrzeugdaten/ec25f206-aaac-414e-b9eb-4e7c3244efe2"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektleiter-in-und-anwendungsverantwortliche-r-initiale-fahrzeugdaten/ec25f206-aaac-414e-b9eb-4e7c3244efe2",
+      "needsRetranslation": true
     },
     {
       "title": "Vizedirektor/in und Leiter/in Direktionsbereich Internationale Rechtshilfe",
@@ -10604,7 +10692,8 @@
         "hochschulpraktikant-in-information-kommunikation-confederazione-winterthur"
       ],
       "retranslationAttempts": 1,
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-information-+-kommunikation/47dd4ad6-6ebc-4894-9043-b878ba69f161"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-information-+-kommunikation/47dd4ad6-6ebc-4894-9043-b878ba69f161",
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/-in",
@@ -10751,7 +10840,8 @@
       },
       "previousSlugs": [
         "verfahrensleiter-in-strafverfahren-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Controlling und Strategie",
@@ -10824,7 +10914,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-controlling-und-strategie-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Intelligence Officer für den Schichtdienst (24/7) im Bundeslagezentrum",
@@ -10899,7 +10990,8 @@
         }
       },
       "firstSeenAt": "2026-09-06T23:12:01.853Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/intelligence-officer-fuer-den-schichtdienst-24-7-im-bundeslagezentrum/05b056cd-00f4-420e-9bb9-e7f1fe727519"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/intelligence-officer-fuer-den-schichtdienst-24-7-im-bundeslagezentrum/05b056cd-00f4-420e-9bb9-e7f1fe727519",
+      "needsRetranslation": true
     },
     {
       "title": "BIM-Manager/-in und Projektleiter/-in",
@@ -11039,7 +11131,8 @@
       },
       "previousSlugs": [
         "fachspezialist-in-controlling-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Sektion Qualität und Weitergabepflicht (Jurist/-in)",
@@ -11114,7 +11207,8 @@
         "wissenschaftliche-r-collaboratore-trice-in-sektion-qualitat-e-weitergabepflicht-jurist-in-confederazione-svizzera-bern",
         "wissenschaftliche-r-mitarbeiter-in-sektion-qualitat-und-weitergabepflicht-jurist-in-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-sektion-qualitaet-und-weitergabepflicht-jurist-in/bbb8fbf2-afc6-44b9-a086-224d58c7ba4b"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-sektion-qualitaet-und-weitergabepflicht-jurist-in/bbb8fbf2-afc6-44b9-a086-224d58c7ba4b",
+      "needsRetranslation": true
     },
     {
       "title": "Steuerprüfer/-in Externe Prüfung MWST (GR/SG/GL)",
@@ -11187,7 +11281,8 @@
       },
       "previousSlugs": [
         "steuerprufer-in-externe-prufung-mwst-gr-sg-gl-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter/-in Gebäudebetrieb",
@@ -11329,7 +11424,8 @@
         "wissenschaftliche-r-collaboratore-trice-in-energie-confederazione-svizzera-bern",
         "wissenschaftliche-r-mitarbeiter-in-energie-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-energie/ec40d8a8-d9ee-4708-ab52-bb645128247a"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-energie/ec40d8a8-d9ee-4708-ab52-bb645128247a",
+      "needsRetranslation": true
     },
     {
       "title": "ICT System Specialist - Platform Engineer",
@@ -11402,7 +11498,8 @@
       },
       "previousSlugs": [
         "ict-system-specialist-platform-engineer-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in HR des Generalsekretariats GS-EDI",
@@ -11477,7 +11574,8 @@
         "hochschulpraktikant-in-hr-des-generalsekretariats-gs-edi-confederazione-svizzera-bern",
         "hochschulpraktikant-in-hr-des-generalsekretariats-gs-edi-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-hr-des-generalsekretariats-gs-edi/f8e03d46-1b58-41fd-8d6d-2dd3b2895ff4"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-hr-des-generalsekretariats-gs-edi/f8e03d46-1b58-41fd-8d6d-2dd3b2895ff4",
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in Kommunikation (1321)",
@@ -11693,7 +11791,8 @@
       },
       "previousSlugs": [
         "teamleiter-in-inkasso-estv-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Gerichtsschreiber/-in Abt. III mit Hauptsprache Deutsch",
@@ -11760,7 +11859,8 @@
       },
       "previousSlugs": [
         "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Juristische/-r Mitarbeiter/-in",
@@ -11835,7 +11935,8 @@
         }
       },
       "firstSeenAt": "2026-09-03T23:36:55.216Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/juristische-r-mitarbeiter-in/d776e748-62e8-4a9f-a891-2e068428d007"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/juristische-r-mitarbeiter-in/d776e748-62e8-4a9f-a891-2e068428d007",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Berater/-in Senior (1313, 1338)",
@@ -11907,7 +12008,8 @@
         "ict-berater-in-senior-1313-1338-confederazione-zollikofen"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-berater-in-senior-1313-1338/5e5105d5-e865-4664-8f2d-9c508ae0d194"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-berater-in-senior-1313-1338/5e5105d5-e865-4664-8f2d-9c508ae0d194",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in und Anwendungsverantwortliche/r Prüm EUCARIS",
@@ -11980,7 +12082,8 @@
       },
       "previousSlugs": [
         "projektleiter-in-und-anwendungsverantwortliche-r-prum-eucaris-confederazione-ittigen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/-in Koordination Zivilschutz",
@@ -12120,7 +12223,8 @@
       },
       "previousSlugs": [
         "inspektor-in-arbeitsbereich-romandie-und-tessin-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Recht",
@@ -12195,7 +12299,8 @@
         "hochschulpraktikant-in-recht-confederazione-bern"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-recht/d07320b9-0ac3-44b0-b377-db903084a148"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-recht/d07320b9-0ac3-44b0-b377-db903084a148",
+      "needsRetranslation": true
     },
     {
       "title": "Bauingenieur/-in, Umweltingenieur/-in",
@@ -12327,7 +12432,8 @@
       },
       "previousSlugs": [
         "steuerprufer-in-externe-prufung-mwst-zh-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sektionsleiter/-in Richtplanung",
@@ -12459,7 +12565,8 @@
       },
       "previousSlugs": [
         "teamleiter-in-externe-prufung-mwst-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur/-in - Windows Client Platform & Security",
@@ -12518,7 +12625,8 @@
       },
       "firstSeenAt": "2026-08-18T22:15:47.584Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-windows-client-platform-security/7d19c11f-2726-4428-81cc-a6f3c07c2dc9"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-windows-client-platform-security/7d19c11f-2726-4428-81cc-a6f3c07c2dc9",
+      "needsRetranslation": true
     },
     {
       "title": "Chef/-in Gruppe Kulturgüterschutz",
@@ -12650,7 +12758,8 @@
       },
       "previousSlugs": [
         "jurist-in-strommarkt-und-regulierung-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Architekt/-in Senior (1320)",
@@ -12720,7 +12829,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-senior-1320-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Datenbank Spezialist/in mit Schwerpunkt Datenanalyse",
@@ -12853,7 +12963,8 @@
         "senior-system-engineer-microsoft-confederazione-zollikofen"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/senior-system-engineer-microsoft/c08c708f-376a-44c3-b672-f897e852eed1"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/senior-system-engineer-microsoft/c08c708f-376a-44c3-b672-f897e852eed1",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Fachfrau/-mann Information und Dokumentation EFZ",
@@ -12930,7 +13041,8 @@
       },
       "firstSeenAt": "2026-08-12T10:16:25.909Z",
       "salarySource": "reported",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-fachfrau-mann-information-und-dokumentation-efz/f3eb02c2-434b-4f92-8a85-0ef49ec12da2"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-fachfrau-mann-information-und-dokumentation-efz/f3eb02c2-434b-4f92-8a85-0ef49ec12da2",
+      "needsRetranslation": true
     },
     {
       "title": "Immobilientreuhänder/-in Verkauf und Baurechte",
@@ -13003,7 +13115,8 @@
       },
       "previousSlugs": [
         "immobilientreuhander-in-verkauf-und-baurechte-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in AB-BA",
@@ -13236,7 +13349,8 @@
         "ict-system-ingenieur-in-confederazione-bern"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in/c745261d-6b97-4e4e-965f-89b38924517f"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in/c745261d-6b97-4e4e-965f-89b38924517f",
+      "needsRetranslation": true
     },
     {
       "title": "Senior ICT-Architekt/-in Softwarearchitektur",
@@ -13458,7 +13572,8 @@
       },
       "previousSlugs": [
         "fachreferent-in-digitale-polizeisysteme-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Netzwerkspezialist/-in (724-27, 1155)",
@@ -13751,7 +13866,8 @@
       },
       "firstSeenAt": "2026-08-07T01:19:03.720Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lehrstelle-fachmann-frau-reinigungstechnik-efz/73ca9796-36ed-4952-9543-0d831d0ceaa8"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lehrstelle-fachmann-frau-reinigungstechnik-efz/73ca9796-36ed-4952-9543-0d831d0ceaa8",
+      "needsRetranslation": true
     },
     {
       "title": "BIM-Manager/-in und Projektleiter/-in",
@@ -13897,7 +14013,8 @@
       },
       "previousSlugs": [
         "fachspezialist-in-internationale-leistungsabrechnungen-arbeitslosenversicherung-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Kontrolle Holzdeklarationspflicht",
@@ -13970,7 +14087,8 @@
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-kontrolle-holzdeklarationspflicht-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Fachmann/-frau Betriebsunterhalt EFZ, Fachrichtung Hausdienst",
@@ -14106,7 +14224,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-senior-740-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kauffrau/-mann EFZ",
@@ -14181,7 +14300,8 @@
         }
       },
       "firstSeenAt": "2026-09-04T13:49:35.220Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/7080fae6-ea4a-4833-82c9-78fd61008d45"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/7080fae6-ea4a-4833-82c9-78fd61008d45",
+      "needsRetranslation": true
     },
     {
       "title": "Erlebnistag Informatik",
@@ -14328,7 +14448,8 @@
       },
       "previousSlugs": [
         "lernende-r-informatiker-in-fachrichtung-plattformentwicklung-efz-confederazione-thun"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "WMS/HMS-Praktikant/-in Abteilung Strahlenschutz",
@@ -14401,7 +14522,8 @@
       },
       "previousSlugs": [
         "wms-hms-praktikant-in-abteilung-strahlenschutz-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "WMS/HMS-Praktikant/-in Vollzug Gesundheitsberufe",
@@ -14474,7 +14596,8 @@
       },
       "previousSlugs": [
         "wms-hms-praktikant-in-vollzug-gesundheitsberufe-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Laborant/-in EFZ Biologie",
@@ -14616,7 +14739,8 @@
       },
       "firstSeenAt": "2026-07-31T22:10:10.592Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-ict-fachfrau-mann-efz-per-1-august-2027/edec9ad3-9d30-4be5-816a-6c2923722472"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-ict-fachfrau-mann-efz-per-1-august-2027/edec9ad3-9d30-4be5-816a-6c2923722472",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Architekt/-in Senior Plattformen, Daten und KI",
@@ -14689,7 +14813,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-senior-plattformen-daten-und-ki-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Gruppenleiter/-in Influenzavirus Infektionen und virale Vektoren",
@@ -14829,7 +14954,8 @@
       },
       "previousSlugs": [
         "fachspezialist-in-land-und-rechtserwerb-confederazione-zofingen-schweiz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Praktikant/Praktikantin (HMS 3+1 oder EFZ 2+1)",
@@ -14902,7 +15028,8 @@
       },
       "previousSlugs": [
         "praktikant-praktikantin-hms-3-1-oder-efz-2-1-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/r Logistiker/in EFZ (Fachrichtung Lager)",
@@ -14977,7 +15104,8 @@
       },
       "firstSeenAt": "2026-07-31T22:10:10.592Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-logistiker-in-efz-fachrichtung-lager/7d34d64a-eff7-4636-987b-eb2806320e7c"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-logistiker-in-efz-fachrichtung-lager/7d34d64a-eff7-4636-987b-eb2806320e7c",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur/-in Senior Container Plattform",
@@ -15050,7 +15178,8 @@
       },
       "previousSlugs": [
         "ict-system-ingenieur-in-senior-container-plattform-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Steuerspezialist/-in Erhebung MWST, Team 8",
@@ -15123,7 +15252,8 @@
       },
       "previousSlugs": [
         "steuerspezialist-in-erhebung-mwst-team-8-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Fachspezialist/-in Hauptbuch",
@@ -15196,7 +15326,8 @@
       },
       "previousSlugs": [
         "fachspezialist-in-hauptbuch-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur/-in (1142, 1143, 1147)",
@@ -15270,7 +15401,8 @@
       },
       "previousSlugs": [
         "ict-system-ingenieur-in-1142-1143-1147-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Security-Ingenieur/-in (1192, 1193)",
@@ -15341,7 +15473,8 @@
       },
       "previousSlugs": [
         "ict-security-ingenieur-in-1192-1193-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur-/in (1029, 1278)",
@@ -15411,7 +15544,8 @@
       },
       "previousSlugs": [
         "ict-system-ingenieur-in-1029-1278-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur/-in Expert (819)",
@@ -15530,7 +15664,8 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
       "salarySource": "reported",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1144-1145-1146/e38ec5bd-63e1-496f-89ae-f7037e87b084"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1144-1145-1146/e38ec5bd-63e1-496f-89ae-f7037e87b084",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur/-in (1177)",
@@ -15597,7 +15732,8 @@
       },
       "previousSlugs": [
         "ict-system-ingenieur-in-1177-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Koch/Köchin EFZ",
@@ -15733,7 +15869,8 @@
       },
       "previousSlugs": [
         "ict-system-ingenieur-in-1305-1306-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wirtschaftsinformatiker/in Senior",
@@ -15806,7 +15943,8 @@
       },
       "previousSlugs": [
         "wirtschaftsinformatiker-in-senior-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Steuerspezialist/-in Erhebung DVS",
@@ -15879,7 +16017,8 @@
       },
       "previousSlugs": [
         "steuerspezialist-in-erhebung-dvs-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Berater/-in Expert SAP Analytics (1207,1290)",
@@ -15955,7 +16094,8 @@
         "ict-berater-in-expert-sap-analytics-1207-1290-confederazione-zollikofen"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-berater-in-expert-sap-analytics-1207-1290/83892861-0330-4c69-85b3-ddd45b1b5593"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-berater-in-expert-sap-analytics-1207-1290/83892861-0330-4c69-85b3-ddd45b1b5593",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Architekt/-in Senior (1093)",
@@ -16022,7 +16162,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-senior-1093-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT-Change-Manager/-in Senior",
@@ -16149,7 +16290,8 @@
         }
       },
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-test-ingenieur-in-senior-1250-1251/2f3b42e4-7813-416b-9d41-75e1c431cdb6"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-test-ingenieur-in-senior-1250-1251/2f3b42e4-7813-416b-9d41-75e1c431cdb6",
+      "needsRetranslation": true
     },
     {
       "title": "ICT-System-Ingenieur/-in Senior (1257 & 1258)",
@@ -16560,7 +16702,8 @@
       },
       "previousSlugs": [
         "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-confederazione-spiez"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Polymechaniker/-in EFZ",
@@ -16697,7 +16840,8 @@
         }
       },
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektingenieur-in-gebaeudetechnik/e10fe9a1-357c-4c1f-b4f1-aec1068fd294"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/projektingenieur-in-gebaeudetechnik/e10fe9a1-357c-4c1f-b4f1-aec1068fd294",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kauffrau/-mann EFZ",
@@ -16766,7 +16910,8 @@
       },
       "firstSeenAt": "2026-07-31T22:10:10.592Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/ef10ccd2-07b8-43f2-b32c-4aea3f2aea6d"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/ef10ccd2-07b8-43f2-b32c-4aea3f2aea6d",
+      "needsRetranslation": true
     },
     {
       "title": "Wirtschaftsinformatiker/-in (1023/1024)",
@@ -16833,7 +16978,8 @@
       },
       "previousSlugs": [
         "wirtschaftsinformatiker-in-1023-1024-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Entwickler/-in digitales Business",
@@ -17154,7 +17300,8 @@
         }
       },
       "firstSeenAt": "2026-06-11T22:26:29.096Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1229-1230-1232/5a4ee7a3-bd41-49cc-9f2c-de933cbfd876"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1229-1230-1232/5a4ee7a3-bd41-49cc-9f2c-de933cbfd876",
+      "needsRetranslation": true
     },
     {
       "title": "ICT Sicherheits-Officer (728-30, 1162)",
@@ -17221,7 +17368,8 @@
       },
       "previousSlugs": [
         "ict-sicherheits-officer-728-30-1162-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
@@ -17354,7 +17502,8 @@
       },
       "previousSlugs": [
         "wirtschaftsinformatiker-in-sap-mdg-1180-1304-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Wirtschaftsinformatiker/-in SAP FI (1287)",
@@ -17421,7 +17570,8 @@
       },
       "previousSlugs": [
         "wirtschaftsinformatiker-in-sap-fi-1287-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kauffrau/-mann EBA",
@@ -17490,7 +17640,8 @@
         }
       },
       "firstSeenAt": "2026-07-31T22:10:10.592Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-eba/50fd6b8c-2ed7-4a9b-8c08-01e918985916"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-eba/50fd6b8c-2ed7-4a9b-8c08-01e918985916",
+      "needsRetranslation": true
     },
     {
       "title": "Product Owner Operational IT Service Management (915)",
@@ -17770,7 +17921,8 @@
       },
       "previousSlugs": [
         "ict-architekt-in-cyber-1072-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Fachmann/-frau Betriebsunterhalt EFZ, Fachrichtung Hausdienst",
@@ -17839,7 +17991,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     },
     {
       "title": "System-Architekt",
@@ -17911,7 +18064,8 @@
       },
       "previousSlugs": [
         "system-architekt-confederazione-zollikofen-mobiles-arbeiten"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/-in",
@@ -18050,7 +18204,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ",
@@ -18119,7 +18274,8 @@
         }
       },
       "firstSeenAt": "2026-07-31T22:10:10.592Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lehrstelle-fachmann-frau-betriebsunterhalt-efz/92191499-d33c-453e-b07a-c2bdb1e43de9"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lehrstelle-fachmann-frau-betriebsunterhalt-efz/92191499-d33c-453e-b07a-c2bdb1e43de9",
+      "needsRetranslation": true
     },
     {
       "title": "Product Owner SAP Front-End Technologie (889)",
@@ -18253,7 +18409,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     },
     {
       "title": "PKI Security Officer Operator",
@@ -18393,7 +18550,8 @@
       },
       "previousSlugs": [
         "ict-system-engineer-sap-basis-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kaufmann/-frau EFZ",
@@ -18462,7 +18620,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Logistiker/-in EFZ, Berufsfeld Lager",
@@ -18531,7 +18690,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kaufmann/-frau EFZ",
@@ -18608,7 +18768,8 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:19:25.178Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz/ecc799ec-2530-4e77-8bc1-0a059cfa079f"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz/ecc799ec-2530-4e77-8bc1-0a059cfa079f",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Mediamatiker/-in EFZ",
@@ -18674,7 +18835,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kauffrau/-mann EFZ",
@@ -18740,7 +18902,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:49:35.220Z"
+      "firstSeenAt": "2026-09-04T13:49:35.220Z",
+      "needsRetranslation": true
     },
     {
       "title": "Wirtschaftsinformatiker/-in im SAP-Umfeld",
@@ -18807,7 +18970,8 @@
       },
       "previousSlugs": [
         "wirtschaftsinformatiker-in-im-sap-umfeld-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Fachmann/-frau Betriebsunterhalt EFZ, Fachrichtung Hausdienst",
@@ -18946,7 +19110,8 @@
       },
       "previousSlugs": [
         "datenbank-spezialist-in-senior-1291-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT DevOps Engineer Data & Analytics Senior",
@@ -19006,7 +19171,8 @@
       "firstSeenAt": "2026-07-22T11:19:28.644Z",
       "salarySource": "estimated",
       "retranslationAttempts": 0,
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b",
+      "needsRetranslation": true
     },
     {
       "title": "Staatsanwältin/Staatsanwalt des Bundes (Cyberkriminalität)",
@@ -19079,7 +19245,8 @@
       },
       "previousSlugs": [
         "staatsanwaltin-staatsanwalt-des-bundes-cyberkriminalitat-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Koch/Köchin EFZ",
@@ -19221,7 +19388,8 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-jurist-in-1310-confederazione-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Business Owner Identity and Access Services (1154)",
@@ -19358,7 +19526,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:40:06.658Z"
+      "firstSeenAt": "2026-09-29T21:40:06.658Z",
+      "needsRetranslation": true
     }
   ]
 }

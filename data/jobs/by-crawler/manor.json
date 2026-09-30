@@ -676,9 +676,9 @@
       "slug": "collaboratore-trice-in-kasse-30-manor-ag-winterthur",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-30-manor-ag-winterthur",
-        "en": "manor-mitarbeiter-in-kasse-30-winterthur",
-        "de": "manor-mitarbeiter-in-kasse-30-winterthur",
-        "fr": "manor-mitarbeiter-in-kasse-30-winterthur"
+        "en": "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo",
+        "de": "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo",
+        "fr": "manor-mitarbeiter-in-kasse-30-winterthur-ipfbvo"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 30%",
@@ -698,6 +698,15 @@
           "manor-mitarbeiter-in-kasse-30-winterthur",
           "manor-mitarbeiter-in-kasse-30-winterthur-2",
           "collaboratore-trice-in-kasse-30-manor-ag-winterthur"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
+        ],
+        "de": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -2583,14 +2592,18 @@
         "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf",
         "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
         "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-        "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs",
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
           "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
           "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-          "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+          "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs",
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e"
         ],
         "en": [
           "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf"
@@ -5875,9 +5888,9 @@
       "slug": "collaboratore-trice-in-logistik-100-manor-ag-hochdorf",
       "slugByLocale": {
         "it": "collaboratore-trice-in-logistik-100-manor-ag-hochdorf",
-        "en": "manor-mitarbeiter-in-logistik-100-hochdorf",
-        "de": "manor-mitarbeiter-in-logistik-100-hochdorf",
-        "fr": "manor-mitarbeiter-in-logistik-100-hochdorf"
+        "en": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmirq",
+        "de": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmirq",
+        "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-2zmirq"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
@@ -5892,6 +5905,15 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-logistik-100-hochdorf"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-logistik-100-hochdorf"
+        ],
+        "de": [
+          "manor-mitarbeiter-in-logistik-100-hochdorf"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-logistik-100-hochdorf"
         ]
       },
@@ -11335,9 +11357,6 @@
           "manor-kellermeister-in-40-st-gallen-kellermeisterin-40"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 342,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "needsRetranslation": true,
@@ -12337,9 +12356,6 @@
         ]
       },
       "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 158,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-24T22:01:54.783Z",
       "crawledAt": "",
       "salaryMin": 62000,
@@ -13034,8 +13050,7 @@
       },
       "employmentType": "FULL_TIME",
       "applyUrl": "https://positions.manor.ch/job/St_-Gallen-Mitarbeiterin-Visual-Merchandising-30/1365236855/",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf 80%",
@@ -13328,9 +13343,6 @@
         ]
       },
       "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 112,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-19T22:18:55.568Z",
       "crawledAt": "",
       "salaryMin": 62000,
@@ -13694,9 +13706,6 @@
         ]
       },
       "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 114,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
       "salaryMin": 49800,

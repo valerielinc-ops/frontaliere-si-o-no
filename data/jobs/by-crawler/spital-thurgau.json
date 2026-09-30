@@ -4863,7 +4863,7 @@
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "en": "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen-7b0100",
-        "fr": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "fr": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r13v9m",
         "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -4911,15 +4911,30 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+          "dipl-pflegefachmann-frau-forensik-stgag-ch",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
+          "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen",
+          "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
-          "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen-76008b"
+          "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen-76008b",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+          "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen-76008b"
+        "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen-76008b",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
+        "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen",
+        "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
       ],
       "needsRetranslation": true,
       "salaryMin": 81500,

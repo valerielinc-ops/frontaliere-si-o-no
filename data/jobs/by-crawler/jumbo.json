@@ -550,7 +550,7 @@
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-jumbo-arbon",
         "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon-2",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon",
+        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon-x1t39v",
         "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon-2"
       },
       "company": "JUMBO",
@@ -610,7 +610,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon-2",
@@ -640,7 +639,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-4492f2d8-ead",

@@ -196,7 +196,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:22.804Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -300,7 +299,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:58.238Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -451,7 +449,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T23:07:16.808Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -553,7 +550,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:07.186Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -657,7 +653,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:09:02.199Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -761,7 +756,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:07.167Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -855,7 +849,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:07.169Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -981,7 +974,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:15.855Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -1188,7 +1180,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:05.967Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1372,7 +1363,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:50:11.396Z",
-      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800,
       "salarySource": "estimated",
@@ -1470,7 +1460,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:50:11.390Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -1652,7 +1641,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:14:32.097Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1844,7 +1832,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:40:47.372Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1946,7 +1933,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:36.862Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -2142,7 +2128,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:12.854Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2440,7 +2425,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:13:48.475Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2538,7 +2522,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:12.849Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -2836,7 +2819,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:14:32.103Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2959,8 +2941,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
