@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-09-30T10:53:50.699Z",
+  "assembledAt": "2026-09-30T21:21:17.346Z",
   "jobs": [
     {
       "id": "company-213hk3",
@@ -159,7 +159,8 @@
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hk0",
@@ -467,7 +468,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4277"
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4277",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hlr",
