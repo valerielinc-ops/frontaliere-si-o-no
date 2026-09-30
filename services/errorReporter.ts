@@ -42,6 +42,19 @@ const recentlyReported = new Map<string, number>();
 const MAX_REPORTS_PER_SESSION = 25;
 let reportsThisSession = 0;
 
+let analyticsModulePromise: Promise<typeof import('./analytics')> | null = null;
+
+function loadAnalytics(): Promise<typeof import('./analytics')> {
+ if (!analyticsModulePromise) {
+ const promise = import('./analytics').catch((error) => {
+ analyticsModulePromise = null;
+ throw error;
+ });
+ analyticsModulePromise = promise;
+ }
+ return analyticsModulePromise;
+}
+
 // Benign-noise deny-list lives in `services/benignErrorPatterns.ts` — the
 // single source of truth shared with the global error handlers in
 // `services/analytics.ts` so the two app_error pipelines cannot drift.
@@ -176,7 +189,7 @@ function reportCaughtErrorUnsafe(
  const resolvedType = originRedactedThirdParty ? 'cross_origin_script' : (options.type || 'api_error');
  const resolvedEndpoint = options.apiEndpoint || context;
  const resolvedStatus = options.statusCode ?? 0;
- void import('./analytics')
+ void loadAnalytics()
    .then(({ Analytics }) => {
      Analytics.trackAppError(resolvedType, {
        message: `[${context}] ${message}`,

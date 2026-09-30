@@ -185,7 +185,7 @@ describe('errorReporter.ts — module-cycle guard', () => {
     expect(errorReporterSrc).not.toMatch(
       /import\s+\{\s*Analytics\s*\}\s+from\s+['"]\.\/analytics['"]/
     );
-    expect(errorReporterSrc).toMatch(/void import\(['"]\.\/analytics['"]\)/);
+    expect(errorReporterSrc).toMatch(/import\(['"]\.\/analytics['"]\)/);
   });
 });
 
