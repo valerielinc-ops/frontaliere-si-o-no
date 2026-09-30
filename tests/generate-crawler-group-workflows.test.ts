@@ -2271,8 +2271,10 @@ describe('cross-repo crawler execution artifacts', () => {
 
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
-      expect(Object.keys(doc.jobs)).toHaveLength(1);
-      const job: any = Object.values(doc.jobs)[0];
+      expect(Object.keys(doc.jobs)).toHaveLength(artifact.file === 'translate-pending.yml' ? 2 : 1);
+      const job: any = artifact.file === 'translate-pending.yml'
+        ? doc.jobs.translate
+        : Object.values(doc.jobs)[0];
       if (artifact.members.length > 0) {
         expect(doc.on.workflow_dispatch.inputs.site_code_commit).toMatchObject({
           required: false,
@@ -2339,7 +2341,9 @@ describe('cross-repo crawler execution artifacts', () => {
     let diagnosticReporters = 0;
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
-      const job: any = Object.values(doc.jobs)[0];
+      const job: any = artifact.file === 'translate-pending.yml'
+        ? doc.jobs.translate
+        : Object.values(doc.jobs)[0];
       const reporters = job.steps.filter((step: any) => step.uses === './.github/actions/report-failure');
       expect(reporters, artifact.file).toHaveLength(1);
       for (const reporter of reporters) {
