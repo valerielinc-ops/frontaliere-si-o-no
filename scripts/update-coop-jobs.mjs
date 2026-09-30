@@ -326,12 +326,14 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
     || fallbackCanton;
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
+  const sourceReference = normalizeSpace(String(job?.szas?.sza_reference_code || '').trim());
   return {
     location,
     canton,
     ...(workplaceCity ? { preferWorkplaceLocation: true } : {}),
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
+    ...(sourceReference ? { sourceReference } : {}),
     ...(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt
       ? { postedDate: dateOnly(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt) }
       : {}),
