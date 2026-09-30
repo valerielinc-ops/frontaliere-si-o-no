@@ -2397,6 +2397,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'revisione-legge-materiale-bellico': { it: 'revisione-legge-materiale-bellico', en: 'revision-war-material-act', de: 'revision-kriegsmaterialgesetz', fr: 'revision-loi-materiel-de-guerre' },
  'revisione-legge-armi-votazione-novembre': { it: 'revisione-legge-armi-votazione-novembre', en: 'switzerland-weapons-exports-law-revision', de: 'schweiz-waffenexporte-gesetzesrevision', fr: 'suisse-loi-export-armes-revision' },
  'sonno-deputati-sessioni-federali': { it: 'sonno-deputati-sessioni-federali', en: 'sleep-deputies-federal-sessions', de: 'schlaf-abgeordnete-bundessitzungen', fr: 'sommeil-deputes-sessions-federales' },
+ 'fisco-eredita-soletta': { it: 'fisco-eredita-soletta', en: 'solothurn-inheritance-gift-tax', de: 'erbschafts-schenkungssteuer-solothurn', fr: 'impot-succession-donation-soleure' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

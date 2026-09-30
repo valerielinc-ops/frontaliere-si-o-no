@@ -7124,6 +7124,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sonno-deputati-sessioni-federali.title': 'Parliament: short sleep during session, power naps proposed',
     'blog.article.sonno-deputati-sessioni-federali.excerpt': '16 parliamentarians sleep 6h10min during sessions (-50min). Rasch (University of Fribourg) proposes power-nap rooms at the Federal Palace.',
     'blog.article.sonno-deputati-sessioni-federali.imageAlt': 'Rest room at Federal Palace with comfortable armchairs and soft lighting',
+    'blog.article.fisco-eredita-soletta.title': 'Canton of Solothurn: inheritance and gift tax',
+    'blog.article.fisco-eredita-soletta.excerpt': 'Swiss taxation at three levels: for the Canton of Solothurn, kinship, exemptions, declaration and deadlines matter.',
+    'blog.article.fisco-eredita-soletta.imageAlt': 'Swiss cantonal building and tax documents for inheritances and gifts',
 };
 
 export default blogMetaChEn;

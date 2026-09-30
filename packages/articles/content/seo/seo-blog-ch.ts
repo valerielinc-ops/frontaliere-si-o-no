@@ -92372,6 +92372,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fisco-eredita-soletta': {
+    title: 'Canton Soletta: imposta di successione e donazione',
+    description: 'Aliquote, parentela, esenzioni e termini per leggere l\'imposta di successione e donazione nel Cantone di Soletta nel quadro fiscale svizzero. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, canton, soletta, imposta, successione',
+    ogTitle: 'Soletta: imposta di successione e donazione',
+    ogDescription: 'Il quadro svizzero distingue imposta federale diretta, fiscalità cantonale e comunale. Per Soletta la lettura passa da grado di parentela, coniuge, discendenti, dichiarazione e termini, senza confondere le competenze.',
+    canonicalPath: '/articoli-svizzera/fisco-eredita-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canton Soletta: imposta di successione e donazione",
+      "description": "Aliquote, parentela, esenzioni e termini per leggere l'imposta di successione e donazione nel Cantone di Soletta nel quadro fiscale svizzero. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fisco-eredita-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio cantonale svizzero e documenti fiscali per successioni e donazioni"
+      },
+      "datePublished": "2026-09-30T00:20:55+00:00",
+      "dateModified": "2026-09-30T00:20:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fisco-eredita-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

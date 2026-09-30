@@ -7124,6 +7124,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sonno-deputati-sessioni-federali.title': 'Parlamento: sonno breve in sessione, proposti power nap',
     'blog.article.sonno-deputati-sessioni-federali.excerpt': '16 parlamentari dormono 6h10min in sessione (-50min). Rasch (Uni Friburgo) propone stanze per power nap a Palazzo federale.',
     'blog.article.sonno-deputati-sessioni-federali.imageAlt': 'Stanza per il riposo a Palazzo federale con poltrone comode e luce soffusa',
+    'blog.article.fisco-eredita-soletta.title': 'Canton Soletta: imposta di successione e donazione',
+    'blog.article.fisco-eredita-soletta.excerpt': 'Fiscalità svizzera a tre livelli: per il Cantone di Soletta contano parentela, esenzioni, dichiarazione e termini.',
+    'blog.article.fisco-eredita-soletta.imageAlt': 'Edificio cantonale svizzero e documenti fiscali per successioni e donazioni',
 };
 
 export default blogMetaChIt;
