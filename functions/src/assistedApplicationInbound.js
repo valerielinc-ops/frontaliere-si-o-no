@@ -193,14 +193,18 @@ const PROCESSING_STALE_MS = 10 * 60 * 1000;
  * A portal account of the order (scripts/assisted-application/lib/portal/
  * account.mjs) still waiting for its verification claims this message: its
  * link is on that portal's site (the runner opens no other), or it carries a
- * code. Unclaimed messages go to the candidate as usual.
+ * code and comes from that portal's site (or its ATS family). Unclaimed
+ * messages go to the candidate as usual; the runner still reads a code from
+ * the inbox, so forwarding a doubtful one never blocks it.
  */
-async function claimedByPortalAccount(orderRef, classification) {
+export async function claimedByPortalAccount(orderRef, classification, sender = '') {
   const snapshot = await orderRef.collection('automation').doc(PORTAL_ACCOUNTS_DOC_ID).get();
   const waiting = Object.values(snapshot.data() || {}).filter((entry) => entry?.passwordEnc && !entry.verifiedAt);
   if (!waiting.length) return false;
   if (classification.verificationUrl && waiting.some((entry) => sameSite(classification.verificationUrl, entry.host))) return true;
-  return Boolean(classification.verificationCode);
+  const senderDomain = String(sender || '').split('@')[1] || '';
+  return Boolean(classification.verificationCode && senderDomain)
+    && waiting.some((entry) => sameSite(`https://${senderDomain}/`, entry.host));
 }
 
 /**
@@ -255,7 +259,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // candidate, only when an account of this order waits for it: a link on
     // that portal's site, or a code. Anything else reaches the candidate.
     const consumedByRunner = classification.category === 'verification'
-      && await claimedByPortalAccount(orderRef, classification);
+      && await claimedByPortalAccount(orderRef, classification, sender);
     if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
     else if (to) {
       const attachments = [];

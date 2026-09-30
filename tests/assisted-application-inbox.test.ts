@@ -229,6 +229,15 @@ describe('employer messages on the alias', () => {
     const [coded] = none.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => none.store.read(path)!);
     expect(coded).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
 
+    // A code while only an unrelated portal's account waits: the sender is not that portal, so it is forwarded.
+    const unrelated = await setupInbound();
+    await unrelated.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null } });
+    const sendUnrelated = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await deliver({ store: unrelated.store, alias: unrelated.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendUnrelated, classify: verification('', '482913') });
+    const [unclaimed] = unrelated.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => unrelated.store.read(path)!);
+    expect(unclaimed).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
+
     // A link on the waiting account's site is kept for the runner.
     const same = await setupInbound();
     await same.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
