@@ -26,42 +26,6 @@ export function sourceBodyForJob(job = {}) {
   return localizedText || String(job?.description || '').trim();
 }
 
-function storedJobsByKey(storedJobs, keyOfJob) {
-  const storedByKey = new Map();
-  for (const job of Array.isArray(storedJobs) ? storedJobs : []) {
-    const key = keyOfJob(job);
-    if (key) storedByKey.set(key, job);
-  }
-  return storedByKey;
-}
-
-function hasValidStoredSourceBody(job) {
-  const sourceLang = String(job?.sourceLang || '').trim();
-  return Boolean(sourceLang && meetsSourceBodyFloor(sourceBodyForJob(job)));
-}
-
-/**
- * Return thin discovered jobs that the keeper will omit because their stored
- * source body is missing or below the shared floor. Callers use this before
- * filtering so the verified slice writer can receive quarantine evidence.
- *
- * @param {object[]} discoveredJobs
- * @param {object[]} storedJobs
- * @param {(job: object) => string} keyOfJob
- * @returns {object[]}
- */
-export function findThinSourceJobsWithoutStoredBody(
-  discoveredJobs = [],
-  storedJobs = [],
-  keyOfJob = (job) => job?.url,
-) {
-  const storedByKey = storedJobsByKey(storedJobs, keyOfJob);
-  return (Array.isArray(discoveredJobs) ? discoveredJobs : []).filter((job) => {
-    if (meetsSourceBodyFloor(sourceBodyForJob(job))) return false;
-    return !hasValidStoredSourceBody(storedByKey.get(keyOfJob(job)));
-  });
-}
-
 /**
  * Build the definitive proof accepted by the verified slice writer for a
  * thin-source removal. Use the writer's own removed-job objects so the URL
@@ -105,14 +69,18 @@ export function keepStoredSourceBodiesByKey(
   storedJobs = [],
   keyOfJob = (job) => job?.url,
 ) {
-  const storedByKey = storedJobsByKey(storedJobs, keyOfJob);
+  const storedByKey = new Map();
+  for (const job of Array.isArray(storedJobs) ? storedJobs : []) {
+    const key = keyOfJob(job);
+    if (key) storedByKey.set(key, job);
+  }
 
   return (Array.isArray(discoveredJobs) ? discoveredJobs : []).flatMap((job) => {
     if (meetsSourceBodyFloor(sourceBodyForJob(job))) return [job];
     const previous = storedByKey.get(keyOfJob(job));
-    if (!hasValidStoredSourceBody(previous)) return [];
-    const previousLang = String(previous.sourceLang || '').trim();
+    const previousLang = String(previous?.sourceLang || '').trim();
     const previousBody = sourceBodyForJob(previous);
+    if (!previousLang || !meetsSourceBodyFloor(previousBody)) return [];
     const kept = {
       ...job,
       description: previousBody,
@@ -130,6 +98,49 @@ export function keepStoredSourceBodiesByKey(
     }
     return [kept];
   });
+}
+
+/**
+ * Collect the source-body records that must be quarantined after the stored
+ * body fallback has had its chance.
+ *
+ * Prefer a thin record already present in the merged result: its URL and
+ * route history are the identities the slice writer will actually remove.
+ * A thin discovery that was dropped before the merge is included only when
+ * no merged record has the same key.
+ *
+ * @param {object[]} discoveredJobs fresh records, including thin bodies
+ * @param {object[]} mergedJobs records after the source-body fallback/merge
+ * @param {(job: object) => string} keyOfJob stable job identity
+ * @returns {object[]} thin records eligible for quarantine proof
+ */
+export function collectThinSourceJobsForQuarantine(
+  discoveredJobs = [],
+  mergedJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const mergedByKey = new Map();
+  for (const job of Array.isArray(mergedJobs) ? mergedJobs : []) {
+    const key = keyOfJob(job);
+    if (key !== undefined && key !== null && key !== '') mergedByKey.set(key, job);
+  }
+
+  const thinJobs = [...mergedByKey.values()]
+    .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const mergedKeys = new Set(mergedByKey.keys());
+  for (const job of Array.isArray(discoveredJobs) ? discoveredJobs : []) {
+    const key = keyOfJob(job);
+    if (
+      key !== undefined
+      && key !== null
+      && key !== ''
+      && !mergedKeys.has(key)
+      && !meetsSourceBodyFloor(sourceBodyForJob(job))
+    ) {
+      thinJobs.push(job);
+    }
+  }
+  return thinJobs;
 }
 
 /**

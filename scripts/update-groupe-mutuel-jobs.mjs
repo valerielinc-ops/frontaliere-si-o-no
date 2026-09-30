@@ -59,7 +59,7 @@ import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mj
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import {
   buildThinSourceHousekeepingProof,
-  findThinSourceJobsWithoutStoredBody,
+  collectThinSourceJobsForQuarantine,
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
@@ -647,23 +647,13 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   // validation are handled independently by
   // postProcessGroupeMutuelJobs() right after this function runs, so no
   // constant-field overrides need to be reapplied here.
-  const droppedThinSourceJobs = findThinSourceJobsWithoutStoredBody(
-    discoveredJobs,
-    existingGmJobs,
-    jobMatchKey,
-  );
   const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingGmJobs, jobMatchKey);
   const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, sourceBodyJobs);
-  const thinSourceJobsByKey = new Map(
-    mergedGmJobs
-      .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)))
-      .map((job) => [jobMatchKey(job), job]),
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    discoveredJobs,
+    mergedGmJobs,
+    jobMatchKey,
   );
-  for (const job of droppedThinSourceJobs) {
-    const key = jobMatchKey(job);
-    if (!thinSourceJobsByKey.has(key)) thinSourceJobsByKey.set(key, job);
-  }
-  const thinSourceJobs = [...thinSourceJobsByKey.values()];
   const cleanGmJobs = mergedGmJobs
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.datePosted || b.postedDate || '').localeCompare(String(a.datePosted || a.postedDate || '')));
