@@ -1,8 +1,10 @@
 // Coverage for scripts/lib/rehydrate-section-shards.sh's git-clone fallback
-// (issue #4881 defect C). The script itself is not sourced/invoked directly
-// here: its bottom-level loop reads the real scripts/lib/section-shard-slugs.json
-// and clones real github.com URLs, which isn't something a unit test should
-// depend on (network, credentials, flakiness). Instead this file:
+// (issue #4881 defect C). The production fan-out is not sourced/invoked
+// directly here: its bottom-level loop reads the real
+// scripts/lib/section-shard-slugs.json and clones real github.com URLs, which
+// isn't something a unit test should depend on (network, credentials,
+// flakiness). The sourceable release helper is exercised separately for the
+// orphan-lock regression. Instead this file:
 //   1. Proves, against a real local git fixture, the reason the fix does NOT
 //      add partial-clone + cone sparse-checkout: cone mode always
 //      materializes every root-level file regardless of the directory
@@ -113,6 +115,36 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toContain(
       'find "$REHYDRATE_STATE_ROOT" -maxdepth 2 -type f -name \'*-dist-*.tar\' -delete',
     );
+  });
+
+  it('bounds an orphaned release lock and lets final cleanup reclaim its tar', () => {
+    const lockTest = join(tmpdir(), `rehydrate-section-lock-${process.pid}-${Date.now()}.sh`);
+    const lockTestRoot = mkdtempSync(join(tmpdir(), 'rehydrate-section-lock-root-'));
+    writeFileSync(lockTest, `#!/usr/bin/env bash
+set -u
+export RUNNER_TEMP="$1"
+export REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS=1
+source "$2"
+printf '1\\n' > "$(rehydrate_batch_state_file 1 it)"
+mkdir -p "$(rehydrate_batch_state_file 1 it).lock" "$RUNNER_TEMP/shard-batch-1-dist-it"
+touch "$RUNNER_TEMP/shard-batch-1-dist-it/section-dist-it.tar"
+start=$(date +%s)
+rehydrate_batch_release 1 it
+elapsed=$(( $(date +%s) - start ))
+test "$elapsed" -le 3
+test -f "$(rehydrate_batch_state_file 1 it)"
+rehydrate_batch_cleanup_transport_tars
+test ! -e "$RUNNER_TEMP/shard-batch-1-dist-it/section-dist-it.tar"
+test ! -e "$(rehydrate_batch_state_file 1 it)"
+test ! -e "$(rehydrate_batch_state_file 1 it).lock"
+`, 'utf8');
+    try {
+      sh(`chmod 700 "${lockTest}"`);
+      sh(`timeout 5 bash "${lockTest}" "${lockTestRoot}" "${resolve('scripts/lib/rehydrate-section-shards.sh')}"`);
+    } finally {
+      rmSync(lockTest, { force: true });
+      rmSync(lockTestRoot, { recursive: true, force: true });
+    }
   });
 
   it('checks the cross-job clone cache BEFORE the network clone, with a continue on hit', () => {
