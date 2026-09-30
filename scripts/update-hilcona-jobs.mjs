@@ -21,7 +21,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { collectThinSourceJobsForQuarantine, keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -65,7 +65,7 @@ function mergeCompanyJobs(parsedJobs) {
   // Non-source slots the merge kept that are not in their own language go
   // back to the translation pipeline.
   for (const job of merged) dropStaleLocaleDescriptions(job);
-  const thinSourceJobs = merged.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(deduped, merged, jobMatchKey);
   const clean = merged
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
@@ -126,8 +126,7 @@ async function main() {
   const parsedJobs = [];
   for (const raw of rawJobs) {
     const detail = await fetchHilconaDetailPage(raw.url);
-    if (!detail?.description || !meetsSourceBodyFloor(detail.description)) { console.log(`  ⚠️  ${raw.title}: source body below 50 words — quarantining`); continue; }
-    const description = detail.description;
+    const description = detail?.description || '';
     // The Bell Food sitemap is international. A real Swiss municipality is
     // therefore required before this job can enter a canton slice; falling
     // back to the Landquart HQ silently relabelled foreign workplaces as Swiss.
@@ -158,7 +157,8 @@ async function main() {
       url: raw.url, source: 'Hilcona Dedicated Parser', crawledAt: new Date().toISOString(),
       sourceLang,
     });
-    console.log(`  ✅ ${raw.title} — ${loc}`);
+    if (meetsSourceBodyFloor(description)) console.log(`  ✅ ${raw.title} — ${loc}`);
+    else console.log(`  ⚠️  ${raw.title}: source body below 50 words — quarantining`);
   }
 
   if (parsedJobs.length === 0) {
@@ -190,12 +190,11 @@ async function main() {
   const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
   const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
   const housekeepingProof = thinQuarantineJobs.length > 0
-    && thinQuarantineJobs.length === (diff.removedJobs || []).length
     ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
     : undefined;
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
     isTargetJob: isCompanyJob,
-    ...(housekeepingProof ? { housekeepingProof } : {}),
+    ...(housekeepingProof ? { housekeepingProof, verifyUnprovenHousekeeping: true } : {}),
   });
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Hilcona', generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0,30), updatedJobs: diff.updatedJobs.slice(0,30), removedJobs: diff.removedJobs.slice(0,30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();

@@ -21,7 +21,7 @@ import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { collectThinSourceJobsForQuarantine, keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -66,7 +66,7 @@ function mergeCompanyJobs(parsedJobs) {
   // Non-source slots the merge kept that are not in their own language go
   // back to the translation pipeline.
   for (const job of merged) dropStaleLocaleDescriptions(job);
-  const thinSourceJobs = merged.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(deduped, merged, jobMatchKey);
   const clean = merged
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
@@ -110,8 +110,7 @@ async function main() {
   const parsedJobs = [];
   for (const raw of rawJobs) {
     const detail = await fetchDavosKlostersBergbahnenDetailPage(raw.url);
-    if (!detail?.description || !isDavosKlostersBergbahnenSourceBodyPublishable(detail.description)) { console.log(`  ⚠️  ${raw.title}: source body below 50 words — quarantining`); continue; }
-    const description = detail.description;
+    const description = detail?.description || '';
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-davos-klosters-bergbahnen-${safeLocationToken(raw.location)}`);
     // The language the body is written in, not a fixed `de` key.
@@ -130,7 +129,8 @@ async function main() {
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, source: 'Davos Klosters Bergbahnen Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
-    console.log(`  ✅ ${raw.title} — ${raw.location}`);
+    if (isDavosKlostersBergbahnenSourceBodyPublishable(description)) console.log(`  ✅ ${raw.title} — ${raw.location}`);
+    else console.log(`  ⚠️  ${raw.title}: source body below 50 words — quarantining`);
   }
 
   if (parsedJobs.length === 0) {
@@ -168,12 +168,11 @@ async function main() {
   const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
   const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
   const housekeepingProof = thinQuarantineJobs.length > 0
-    && thinQuarantineJobs.length === (diff.removedJobs || []).length
     ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
     : undefined;
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
     isTargetJob: isCompanyJob,
-    ...(housekeepingProof ? { housekeepingProof } : {}),
+    ...(housekeepingProof ? { housekeepingProof, verifyUnprovenHousekeeping: true } : {}),
   });
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Davos Klosters Bergbahnen', generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0,30), updatedJobs: diff.updatedJobs.slice(0,30), removedJobs: diff.removedJobs.slice(0,30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();

@@ -33,7 +33,7 @@ import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { collectThinSourceJobsForQuarantine, keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -93,7 +93,7 @@ function mergeCompanyJobs(parsedJobs) {
   const deduped = [...byUrl.values()];
   const sourceBodyJobs = keepStoredSourceBodiesByKey(deduped, companyExisting, jobMatchKey);
   const merged = mergePreserveLocaleData(companyExisting, sourceBodyJobs);
-  const thinSourceJobs = merged.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(deduped, merged, jobMatchKey);
   const clean = merged
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
@@ -165,7 +165,6 @@ async function main() {
     // company sentence that used to stand in for a missing description, and
     // the copy of a non-Italian description in the `it` slot, are gone.
     const { description: desc, descriptionByLocale, sourceLang } = sourceLocaleDescription(raw.description);
-    if (!meetsSourceBodyFloor(desc)) return null;
     const sourceLocation = normalizeSpace(raw.location || '');
     const sourcePostalCode = normalizeSpace(
       raw.postalCode || raw.zipCode || raw.zip || sourceLocation.match(/\b(\d{4})\b/)?.[1] || '',
@@ -201,7 +200,7 @@ async function main() {
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     };
-  }).filter(Boolean);
+  });
 
   if (parsedJobs.length === 0) {
     console.warn('⚠️ Alpiq: all detail bodies are below the 50-word source-body floor; quarantining thin-source rows.');
@@ -234,12 +233,11 @@ async function main() {
   const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
   const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
   const housekeepingProof = thinQuarantineJobs.length > 0
-    && thinQuarantineJobs.length === (diff.removedJobs || []).length
     ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
     : undefined;
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, sj, {
     isTargetJob: isCompanyJob,
-    ...(housekeepingProof ? { housekeepingProof } : {}),
+    ...(housekeepingProof ? { housekeepingProof, verifyUnprovenHousekeeping: true } : {}),
   });
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Alpiq', generatedAt: new Date().toISOString(), total: sj.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();

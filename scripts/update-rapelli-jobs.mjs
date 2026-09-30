@@ -50,7 +50,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { collectThinSourceJobsForQuarantine, keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -100,7 +100,7 @@ function mergeCompanyJobs(parsedJobs) {
   // Non-source slots the merge kept that are not in their own language go
   // back to the translation pipeline.
   for (const job of merged) dropStaleLocaleDescriptions(job);
-  const thinSourceJobs = merged.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(deduped, merged, jobMatchKey);
   const clean = merged
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
@@ -130,7 +130,7 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
 
 export function buildRapelliJobRecord({ raw = {}, detail = {}, now = new Date() } = {}) {
   const description = detail.description || '';
-  if (!raw.url || !raw.title || description.length < 120) return null;
+  if (!raw.url || !raw.title) return null;
 
   const location = raw.location || 'Stabio';
   const jobSlug = slugify(`${raw.title}-rapelli-${safeLocationToken(raw.location)}`);
@@ -189,14 +189,11 @@ async function main() {
   const parsedJobs = [];
   for (const raw of rawJobs) {
     const detail = await fetchRapelliDetailPage(raw.url);
-    if (!detail?.description || !meetsSourceBodyFloor(detail.description)) {
-      console.log(`  ⚠️  ${raw.title}: source body below 50 words — quarantining`);
-      continue;
-    }
     const job = buildRapelliJobRecord({ raw, detail });
     if (!job) continue;
     parsedJobs.push(job);
-    console.log(`  \u2705 ${raw.title} \u2014 ${raw.location}`);
+    if (meetsSourceBodyFloor(job.description)) console.log(`  \u2705 ${raw.title} \u2014 ${raw.location}`);
+    else console.log(`  ⚠️  ${raw.title}: source body below 50 words — quarantining`);
   }
 
   if (parsedJobs.length === 0) {
@@ -244,12 +241,11 @@ async function main() {
   const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
   const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
   const housekeepingProof = thinQuarantineJobs.length > 0
-    && thinQuarantineJobs.length === (diff.removedJobs || []).length
     ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
     : undefined;
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
     isTargetJob: isCompanyJob,
-    ...(housekeepingProof ? { housekeepingProof } : {}),
+    ...(housekeepingProof ? { housekeepingProof, verifyUnprovenHousekeeping: true } : {}),
   });
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rapelli', generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();

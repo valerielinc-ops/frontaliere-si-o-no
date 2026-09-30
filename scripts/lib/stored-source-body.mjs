@@ -71,6 +71,49 @@ export function keepStoredSourceBodiesByKey(
 }
 
 /**
+ * Collect the source-body records that must be quarantined after the stored
+ * body fallback has had its chance.
+ *
+ * Prefer a thin record already present in the merged result: its URL and
+ * route history are the identities the slice writer will actually remove.
+ * A thin discovery that was dropped before the merge is included only when
+ * no merged record has the same key.
+ *
+ * @param {object[]} discoveredJobs fresh records, including thin bodies
+ * @param {object[]} mergedJobs records after the source-body fallback/merge
+ * @param {(job: object) => string} keyOfJob stable job identity
+ * @returns {object[]} thin records eligible for quarantine proof
+ */
+export function collectThinSourceJobsForQuarantine(
+  discoveredJobs = [],
+  mergedJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const mergedByKey = new Map();
+  for (const job of Array.isArray(mergedJobs) ? mergedJobs : []) {
+    const key = keyOfJob(job);
+    if (key !== undefined && key !== null && key !== '') mergedByKey.set(key, job);
+  }
+
+  const thinJobs = [...mergedByKey.values()]
+    .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const mergedKeys = new Set(mergedByKey.keys());
+  for (const job of Array.isArray(discoveredJobs) ? discoveredJobs : []) {
+    const key = keyOfJob(job);
+    if (
+      key !== undefined
+      && key !== null
+      && key !== ''
+      && !mergedKeys.has(key)
+      && !meetsSourceBodyFloor(sourceBodyForJob(job))
+    ) {
+      thinJobs.push(job);
+    }
+  }
+  return thinJobs;
+}
+
+/**
  * @param {object[]} discoveredJobs  fresh jobs; `description` is '' when the
  *   source body was under the floor
  * @param {object[]} storedJobs      stored jobs of the same crawler
