@@ -208,7 +208,9 @@ const LEADING = 15;
 
 /**
  * Lay out blocks top-to-bottom and return a PDF Buffer.
- * @param {Array<{text:string, bold?:boolean, size?:number, gapBefore?:number, align?:'left'|'right'}>} blocks
+ * A `bullet` block draws "•" at the margin and hangs every line of its text
+ * after it (the tailored CV's experience bullets).
+ * @param {Array<{text:string, bold?:boolean, size?:number, gapBefore?:number, align?:'left'|'right', bullet?:boolean}>} blocks
  */
 export function renderPdf(blocks, { title = '' } = {}) {
   const maxWidth = PAGE_WIDTH - MARGIN * 2;
@@ -217,19 +219,24 @@ export function renderPdf(blocks, { title = '' } = {}) {
   for (const block of blocks) {
     const size = block.size || BODY_SIZE;
     const leading = Math.max(LEADING, size * 1.4);
+    const indent = block.bullet ? size * 1.2 : 0;
     y -= block.gapBefore || 0;
-    for (const line of wrapText(block.text, size, maxWidth)) {
+    wrapText(block.text, size, maxWidth - indent).forEach((line, index) => {
       if (y - leading < MARGIN) {
         pages.push([]);
         y = PAGE_HEIGHT - MARGIN;
       }
       y -= leading;
-      if (!line) continue;
-      const x = block.align === 'right' ? PAGE_WIDTH - MARGIN - textWidth(line, size) : MARGIN;
+      if (!line) return;
+      const font = block.bold ? 'F2' : 'F1';
+      if (block.bullet && index === 0) {
+        pages[pages.length - 1].push(`BT /F1 ${size} Tf ${MARGIN.toFixed(2)} ${y.toFixed(2)} Td ${pdfHexString('•')} Tj ET`);
+      }
+      const x = block.align === 'right' ? PAGE_WIDTH - MARGIN - textWidth(line, size) : MARGIN + indent;
       pages[pages.length - 1].push(
-        `BT /${block.bold ? 'F2' : 'F1'} ${size} Tf ${x.toFixed(2)} ${y.toFixed(2)} Td ${pdfHexString(line)} Tj ET`,
+        `BT /${font} ${size} Tf ${x.toFixed(2)} ${y.toFixed(2)} Td ${pdfHexString(line)} Tj ET`,
       );
-    }
+    });
   }
 
   // Object numbers: 1 catalog, 2 pages, 3 Helvetica, 4 Helvetica-Bold, 5 info,

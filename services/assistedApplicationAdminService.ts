@@ -41,6 +41,11 @@ export interface AutomationQuestionView {
 }
 
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
+export interface AtsReportView {
+  structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
+  keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null };
+}
+
 export interface AssistedApplicationAutomationView {
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
@@ -79,6 +84,18 @@ export interface AssistedApplicationAutomationView {
     editedAt: number | null;
     cvTextMethod: string | null;
     coverLetterUrl: string | null;
+    /** career-ops ATS check: structural grade and keyword coverage, of the candidate's CV and of the tailored one. */
+    ats: { original: AtsReportView; tailored?: AtsReportView } | null;
+    /** career-ops Block G. */
+    legitimacy: {
+      tier: 'high_confidence' | 'caution' | 'suspicious';
+      ageDays: number | null;
+      signals: Array<{ key: string; weight: 'positive' | 'neutral' | 'concerning'; reliability: string; detail: string }>;
+      notes: Array<{ key: string; quote?: string; detail?: string }>;
+    } | null;
+    legitimacyAcknowledgedAt: number | null;
+    tailoredCv: { status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null } | null;
+    cvChoice: 'tailored' | 'original';
   } | null;
 }
 

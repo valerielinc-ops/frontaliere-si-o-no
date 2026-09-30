@@ -84,9 +84,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       forwarded: item.forwarded?.status || null,
     }));
   if (!flow && !draft && !inbox.length && !accounts.length) return null;
-  const letterUrl = draft?.coverLetterPdfKey && signUrl && isAssistedApplicationCvKey(orderId, draft.coverLetterPdfKey)
-    ? await signUrl(draft.coverLetterPdfKey).catch(() => null)
-    : null;
+  const signed = (key) => (key && signUrl && isAssistedApplicationCvKey(orderId, key) ? signUrl(key).catch(() => null) : null);
+  const [letterUrl, tailoredCvUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey)]);
   return {
     inbox,
     accounts,
@@ -123,6 +122,11 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       editedAt: draft.editedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
       coverLetterUrl: letterUrl,
+      ats: draft.ats || null,
+      legitimacy: draft.legitimacy || null,
+      legitimacyAcknowledgedAt: draft.legitimacyAcknowledgedAt || null,
+      tailoredCv: draft.tailoredCv ? { status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl } : null,
+      cvChoice: flow?.cvChoice || 'tailored',
     } : null,
   };
 }
@@ -214,6 +218,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const acknowledgements = {};
       if (raw.acknowledgeFactWarnings === true) acknowledgements.factCheckAcknowledgedAt = nowMs;
       if (raw.acknowledgeKnockOut === true) acknowledgements.knockOutAcknowledgedAt = nowMs;
+      if (raw.acknowledgeLegitimacy === true) acknowledgements.legitimacyAcknowledgedAt = nowMs;
       if (Object.keys(acknowledgements).length) {
         await draftRefFor(db, orderId).set({ ...acknowledgements, acknowledgedBy: adminEmail }, { merge: true });
       }

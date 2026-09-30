@@ -26,11 +26,25 @@ const STATE_LABELS: Record<string, string> = {
   failed: 'Fallita',
 };
 
+const LEGITIMACY_TIERS: Record<string, string> = {
+  high_confidence: 'affidabile',
+  caution: 'da verificare',
+  suspicious: 'sospetto',
+};
+
+const TAILORED_CV_LABELS: Record<string, string> = {
+  ready: 'pronto, verrà inviato',
+  fact_check_failed: 'scartato dal controllo dei fatti: parte il CV originale',
+  failed: 'non generato: parte il CV originale',
+  skipped: 'non generato',
+};
+
 const HELD_LABELS: Record<string, string> = {
   fact_check: 'fatti non verificati nei testi',
   knock_out: 'requisito indispensabile mancante',
   no_posting: 'testo dell’annuncio non recuperato',
   channel_unknown: 'canale di candidatura sconosciuto',
+  legitimacy: 'annuncio sospetto (Block G)',
   max_rounds: '3 rifiuti del candidato',
   draft_failed: 'bozza non generata',
   posting_closed: 'annuncio chiuso (rimborso automatico)',
@@ -75,6 +89,7 @@ export default function AssistedApplicationAutomationPanel({
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
   const [ackFacts, setAckFacts] = useState(false);
   const [ackKnockOut, setAckKnockOut] = useState(false);
+  const [ackLegitimacy, setAckLegitimacy] = useState(false);
 
   useEffect(() => {
     setLetter(draft?.coverLetter?.text || '');
@@ -217,6 +232,42 @@ export default function AssistedApplicationAutomationPanel({
             {draft.job?.applyUrl && <a className="mt-1 inline-block text-xs text-link hover:underline" href={draft.job.applyUrl} target="_blank" rel="noreferrer">Pagina di candidatura</a>}
           </div>
 
+          {(draft.ats || draft.legitimacy || draft.tailoredCv) && (
+            <div className="grid gap-2 text-xs text-body sm:grid-cols-2">
+              {draft.ats && (
+                <div className="rounded-lg border border-edge bg-surface p-3">
+                  <p className="font-semibold uppercase tracking-wide text-muted">ATS (career-ops)</p>
+                  <p className="mt-1">CV del candidato: <strong>{draft.ats.original.structural.grade}</strong> ({draft.ats.original.structural.score}/100) · parole chiave {draft.ats.original.keywords.coverage ?? '—'}%</p>
+                  {draft.ats.tailored && <p>CV adattato: <strong>{draft.ats.tailored.structural.grade}</strong> ({draft.ats.tailored.structural.score}/100) · parole chiave {draft.ats.tailored.keywords.coverage ?? '—'}%</p>}
+                  {draft.ats.original.keywords.missing.length > 0 && <p className="mt-1 text-muted">Mancano nel CV: {draft.ats.original.keywords.missing.join(', ')}</p>}
+                  {draft.ats.original.structural.issues.length > 0 && <p className="text-muted">Problemi: {draft.ats.original.structural.issues.map((issue) => `${issue.code} (${issue.severity})`).join(', ')}</p>}
+                </div>
+              )}
+              {draft.legitimacy && (
+                <div className={`rounded-lg border p-3 ${draft.legitimacy.tier === 'suspicious' ? 'border-danger-border bg-danger-subtle/50' : 'border-edge bg-surface'}`}>
+                  <p className="font-semibold uppercase tracking-wide text-muted">Legittimità annuncio (Block G)</p>
+                  <p className="mt-1"><strong>{LEGITIMACY_TIERS[draft.legitimacy.tier] || draft.legitimacy.tier}</strong>{draft.legitimacy.ageDays !== null ? ` · ${draft.legitimacy.ageDays} giorni` : ' · data non nota'}</p>
+                  <p className="text-muted">{draft.legitimacy.signals.filter((signal) => signal.weight !== 'neutral').map((signal) => `${signal.weight === 'positive' ? '+' : '−'} ${signal.key}`).join(' · ') || 'nessun segnale netto'}</p>
+                  {draft.legitimacy.notes.length > 0 && <p className="text-muted">Note: {draft.legitimacy.notes.map((note) => (note.quote ? `${note.key} «${note.quote}»` : note.key)).join(' · ')}</p>}
+                  {draft.legitimacy.tier === 'suspicious' && !draft.legitimacyAcknowledgedAt && (
+                    <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackLegitimacy} onChange={(event) => setAckLegitimacy(event.target.checked)} /> Ho verificato l’annuncio: invia comunque</label>
+                  )}
+                </div>
+              )}
+              {draft.tailoredCv && (
+                <div className="rounded-lg border border-edge bg-surface p-3 sm:col-span-2">
+                  <p className="font-semibold uppercase tracking-wide text-muted">CV adattato ATS</p>
+                  <p className="mt-1">
+                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : 'CV adattato'}
+                    {draft.tailoredCv.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.url} target="_blank" rel="noreferrer">apri il PDF</a></>}
+                  </p>
+                  {draft.tailoredCv.unsupported.length > 0 && <p className="text-muted">Fatti non trovati: {draft.tailoredCv.unsupported.map((item) => item.token).join(', ')}</p>}
+                  {draft.tailoredCv.dropped.length > 0 && <p className="text-muted">Competenze scartate (non nel CV): {draft.tailoredCv.dropped.join(', ')}</p>}
+                </div>
+              )}
+            </div>
+          )}
+
           <details className="rounded-lg border border-edge bg-surface p-3 text-xs">
             <summary className="cursor-pointer font-semibold text-strong">Requisiti e prove ({draft.requirements.length})</summary>
             <ul className="mt-2 space-y-1.5">
@@ -287,7 +338,7 @@ export default function AssistedApplicationAutomationPanel({
       {flow && (
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeKnockOut: ackKnockOut }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeKnockOut: ackKnockOut, acknowledgeLegitimacy: ackLegitimacy }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}
