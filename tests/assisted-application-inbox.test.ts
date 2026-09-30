@@ -190,6 +190,9 @@ describe('employer messages on the alias', () => {
     });
     const [first] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
     expect(first).toMatchObject({ category: 'verification', verificationCode: '482913' });
+    // The portal runner reads it from the inbox: the candidate never gets it.
+    expect(first.forwarded).toEqual({ status: 'skipped', reason: 'portal_verification' });
+    expect(sendCascade).not.toHaveBeenCalled();
 
     const again = await setupInbound();
     await deliver({

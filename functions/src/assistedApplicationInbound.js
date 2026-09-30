@@ -235,7 +235,12 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
 
     const to = customerEmailFor(order);
     let forwarded = null;
-    if (to) {
+    // A portal's account verification (a verbatim link or code) is read by the
+    // runner that created the account on the alias: never the candidate's inbox.
+    const consumedByRunner = classification.category === 'verification'
+      && Boolean(classification.verificationUrl || classification.verificationCode);
+    if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
+    else if (to) {
       const attachments = [];
       let total = 0;
       for (const attachment of message.attachments) {

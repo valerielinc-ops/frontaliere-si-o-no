@@ -14,6 +14,7 @@ import { assertAdmin } from './adminEmployerInsights.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
+import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import {
   AUTOMATION_ADMIN_ACTIONS,
@@ -575,6 +576,8 @@ async function handleMutate(db, req, adminEmail) {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
         bucket: getStorage().bucket(STORAGE_BUCKET),
+        // Read only by automationRevealAccount (portal accounts on the alias).
+        runKey: () => getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
       });
       return { status: 200, body };
     } catch (error) {
