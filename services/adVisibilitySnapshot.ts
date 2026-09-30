@@ -17,6 +17,8 @@
  * it is hidden by design until Google triggers it.
  */
 
+import { isManualSlot } from './adSlotKinds';
+
 export interface AdVisibility {
   ads_total: number;
   ads_visible: number;
@@ -34,13 +36,6 @@ function isRendered(el: Element, doc: Document): boolean {
   }
   const rect = el.getBoundingClientRect();
   return rect.width > 0 && rect.height > 0;
-}
-
-function isManualSlot(el: Element): boolean {
-  return el.hasAttribute('data-ad-slot')
-    && !el.hasAttribute('data-anchor-status')
-    && !el.hasAttribute('data-vignette-loaded')
-    && !el.closest('.google-auto-placed');
 }
 
 export function collectAdVisibility(doc: Document = document): AdVisibility {
