@@ -34,8 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildSubjectVariantsPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
-import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
-import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
+import { inferInterest } from '../services/newsletter-segments.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
@@ -72,7 +71,8 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // localePathPrefix aliased to the `localePrefix` name this script has always
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
-import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
+import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle } from './lib/articleContent.mjs';
+import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
 import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
@@ -1115,8 +1115,8 @@ function buildPublishedAtLookup() {
   return (id) => map.get(id) || null;
 }
 
-// getBlogSlug / loadBlogMeta / localizeArticle / localePathPrefix /
-// loadArticlePerformanceWinners live in ./lib/articleContent.mjs (shared with
+// getBlogSlug / loadBlogMeta / localizeArticle / localePathPrefix live in
+// ./lib/articleContent.mjs (shared with
 // the dormant-tier win-back runner, scripts/newsletter-winback-campaign.mjs,
 // so the slug/meta-file parsing logic can't drift between the two senders).
 
@@ -1313,65 +1313,6 @@ async function pickFeaturedArticle() {
   getArticle.articleId = bestId;
   getArticle.persistRotation = () => saveRecentlyFeaturedArticle(bestId);
   return getArticle;
-}
-
-// loadArticlePerformanceWinners lives in ./lib/articleContent.mjs (imported above).
-
-/**
- * Resolve per-subscriber article content for the newsletter body:
- *   - hot/warm         → a single novelty pick matched to the subscriber's
- *     inferred interest (jobs / articles / utility), from real winners.
- *   - cool/cold/dormant → the single best-ranked winner from the flat
- *     (non-cluster-preferred) candidate list, same for dormant since the
- *     win-back sequence is a SEPARATE additional send
- *     (scripts/newsletter-winback-campaign.mjs), not a substitute for this
- *     regular weekly one.
- * The live template (services/newsletter-template.mjs, NOT the dead/unimported
- * scripts/newsletter-template.mjs) only renders a single `data.article`
- * object — there is no multi-article digest section — so every strategy
- * resolves to one article; `selectArticleCandidates`'s 'digest' mode still
- * differentiates cool/cold from hot/warm (flat vs cluster-preferred ranking),
- * we just take its top candidate instead of a multi-item list.
- * Falls back to the single globally-rotated `featuredArticleFn` whenever no
- * performance-ranked winner localizes for the subscriber's locale (missing
- * blog meta, etc.) — so the section is never left broken/empty.
- *
- * @param {Record<string, any>} subscriber
- * @param {string} locale
- * @param {(locale: string) => object|null} featuredArticleFn
- * @returns {{ segment: string, article: object|null }}
- */
-function resolveArticleContent(subscriber, locale, featuredArticleFn) {
-  const segmentInfo = describeSegment(subscriber);
-  const winners = loadArticlePerformanceWinners();
-  // Content strategy: dormant gets the same candidate ranking as cool/cold for
-  // THIS regular send (segment id stays 'dormant' for tagging/reporting).
-  const contentInfo = segmentInfo.strategy === CONTENT_STRATEGIES.WINBACK
-    ? { strategy: CONTENT_STRATEGIES.DIGEST, interest: null }
-    : segmentInfo;
-
-  // (#4299) hot_utility/warm_utility subscribers get genuinely
-  // time-of-year-relevant content (TFR calculator in Jan, Italian tax
-  // return in spring, 3a pillar deadline in autumn, ...) FIRST — a real
-  // seasonal pick beats the generic fiscale/pratico-clustered winner
-  // article the ranking below would otherwise pick.
-  if (contentInfo.interest === INTERESTS.UTILITY) {
-    const seasonal = getSeasonalUtilityContent(new Date(), locale);
-    if (seasonal) return { segment: segmentInfo.segmentId, article: seasonal };
-  }
-
-  const selection = selectArticleCandidates(contentInfo, winners);
-
-  let article = null;
-  if (selection.mode !== 'none') {
-    for (const slug of selection.slugs) {
-      const localized = localizeArticle(slug, locale);
-      if (localized) { article = localized; break; }
-    }
-  }
-  if (!article) article = featuredArticleFn(locale);
-
-  return { segment: segmentInfo.segmentId, article };
 }
 
 /**
@@ -2341,7 +2282,12 @@ async function main() {
     const previewSubscriber = segmentOverride
       ? synthesizeSubscriberForSegment(segmentOverride)
       : { engagementLevel: 'hot' }; // legacy default profile when --segment is omitted
-    const articleContent = resolveArticleContent(previewSubscriber, locale, featuredArticle);
+    const articleContent = resolveNewsletterArticle({
+      subscriber: previewSubscriber,
+      locale,
+      campaignId,
+      featuredArticleFn: featuredArticle,
+    });
     if (segmentOverride) console.error(`🎯 Preview segment: ${articleContent.segment}`);
 
     const html = buildNewsletter({
@@ -2680,11 +2626,16 @@ async function main() {
       || getVariantFallback(variant, locale);
 
     // Segment content assembly (#4299): engagement level x inferred interest
-    // picks the best-ranked article from real article-performance winners —
+    // picks a campaign-rotated article from real article-performance winners —
     // cluster-preferred for hot/warm, flat-ranked for cool/cold/dormant —
     // falling back to the globally-rotated featuredArticle when nothing
     // localizes.
-    const articleContent = resolveArticleContent(subscriber, locale, featuredArticle);
+    const articleContent = resolveNewsletterArticle({
+      subscriber,
+      locale,
+      campaignId,
+      featuredArticleFn: featuredArticle,
+    });
     const rankingDeliveryId = buildJobEmailDeliveryId({
       surface: 'newsletter',
       surfaceId: 'newsletter_weekly',
