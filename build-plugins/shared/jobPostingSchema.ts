@@ -76,6 +76,7 @@ import {
 } from './salaryDefaults';
 import { truncateCodeUnits } from './safeTruncate';
 import { sanitizeBrowserJobTitle } from './literalMarkdown';
+export { MANDATORY_JOBPOSTING_FIELDS } from '../../scripts/lib/jobposting-mandatory-fields.mjs';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -903,19 +904,3 @@ function assertMandatoryFieldsComplete(schema: JobPostingSchema): void {
     );
   }
 }
-
-/**
- * Ordered list of all 9 mandatory JobPosting field paths. Exposed for
- * use by external validators (e.g. `scripts/validate-jobposting-schema.mjs`).
- */
-export const MANDATORY_JOBPOSTING_FIELDS: readonly string[] = [
-  'title',
-  'description',
-  'datePosted',
-  'employmentType',
-  'hiringOrganization.name',
-  'jobLocation',
-  'jobLocation.address.postalCode',
-  'jobLocation.address.streetAddress',
-  'baseSalary',
-];
