@@ -53,6 +53,11 @@ import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-ht
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
 import { MAX_HTML_BYTES } from './audit-page-weight.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
+import {
+  isNonEmptyString,
+  toStructuredDataJobPostingError,
+  validateMandatoryJobPostingFields,
+} from './lib/jobposting-mandatory-fields.mjs';
 
 // See audit-text-html-ratio.mjs's identical constant for the rationale.
 // Currently dormant here (this standalone `npm run audit:dist-multi` tool
@@ -121,10 +126,6 @@ const TITLE_UNIQ_MAX_COLLISIONS_REPORTED = 20;
 
 // validate-jobposting-schema constants.
 const JOBPOSTING_MAX_ERRORS = 60;
-const JOBPOSTING_EMPLOYMENT_TYPES = new Set([
-  'FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY',
-  'INTERN', 'VOLUNTEER', 'PER_DIEM', 'OTHER',
-]);
 
 // validate-structured-data-completeness constants.
 const SD_MAX_ERRORS_TO_PRINT = 60;
@@ -667,76 +668,23 @@ class TitleUniqAudit {
   }
 }
 
-// ───── validate-jobposting-schema helpers (verbatim) ─────────────────────────
+// ───── validate-jobposting-schema helpers ────────────────────────────────────
 
-function jpIsNonEmptyString(x) {
-  return typeof x === 'string' && x.trim().length > 0;
-}
-
-function jpIsValidIsoDate(x) {
-  if (!jpIsNonEmptyString(x)) return false;
-  return !Number.isNaN(new Date(x).getTime());
-}
-
-/** Verbatim from validate-jobposting-schema.validateJobPosting. */
-function validateJobPostingStrict(schema) {
+/**
+ * The nine mandatory fields come from the shared contract. This audit keeps
+ * only the standalone validator's additional address-quality checks here.
+ */
+function checkJobPostingSchemaAddressDetails(schema) {
   const errors = [];
-
-  if (!jpIsNonEmptyString(schema.title)) errors.push('title missing/empty');
-
-  if (!jpIsNonEmptyString(schema.description)) errors.push('description missing/empty');
-  else if (schema.description.length < 50) errors.push(`description too short (${schema.description.length} < 50)`);
-
-  if (!jpIsValidIsoDate(schema.datePosted)) errors.push('datePosted missing/invalid');
-
-  if (!jpIsNonEmptyString(schema.employmentType)) errors.push('employmentType missing/empty');
-  else if (!JOBPOSTING_EMPLOYMENT_TYPES.has(schema.employmentType)) {
-    errors.push(`employmentType="${schema.employmentType}" not in schema.org enum`);
+  const address = schema?.jobLocation?.address;
+  if (!address || typeof address !== 'object') return errors;
+  if (!isNonEmptyString(address.addressLocality)) errors.push('jobLocation.address.addressLocality missing/empty');
+  if (!isNonEmptyString(address.addressRegion)) errors.push('jobLocation.address.addressRegion missing/empty');
+  if (!isNonEmptyString(address.addressCountry)) {
+    errors.push('jobLocation.address.addressCountry missing/empty');
+  } else if (!/^[A-Z]{2}$/.test(String(address.addressCountry).trim())) {
+    errors.push(`jobLocation.address.addressCountry="${address.addressCountry}" is not a 2-letter ISO 3166-1 alpha-2 code`);
   }
-
-  if (!schema.hiringOrganization || typeof schema.hiringOrganization !== 'object') {
-    errors.push('hiringOrganization missing');
-  } else if (!jpIsNonEmptyString(schema.hiringOrganization.name)) {
-    errors.push('hiringOrganization.name missing/empty');
-  }
-
-  const loc = schema.jobLocation;
-  if (!loc || typeof loc !== 'object') {
-    errors.push('jobLocation missing');
-  } else {
-    const addr = loc.address;
-    if (!addr || typeof addr !== 'object') {
-      errors.push('jobLocation.address missing');
-    } else {
-      if (!jpIsNonEmptyString(addr.postalCode)) errors.push('jobLocation.address.postalCode missing/empty');
-      else if (!/^\d{4,5}$/.test(String(addr.postalCode).trim())) errors.push(`jobLocation.address.postalCode="${addr.postalCode}" invalid`);
-      if (!jpIsNonEmptyString(addr.streetAddress)) errors.push('jobLocation.address.streetAddress missing/empty');
-      if (!jpIsNonEmptyString(addr.addressLocality)) errors.push('jobLocation.address.addressLocality missing/empty');
-      if (!jpIsNonEmptyString(addr.addressRegion)) errors.push('jobLocation.address.addressRegion missing/empty');
-      if (!jpIsNonEmptyString(addr.addressCountry)) {
-        errors.push('jobLocation.address.addressCountry missing/empty');
-      } else if (!/^[A-Z]{2}$/.test(String(addr.addressCountry).trim())) {
-        errors.push(`jobLocation.address.addressCountry="${addr.addressCountry}" is not a 2-letter ISO 3166-1 alpha-2 code`);
-      }
-    }
-  }
-
-  const sal = schema.baseSalary;
-  if (!sal || typeof sal !== 'object') {
-    errors.push('baseSalary missing');
-  } else {
-    if (!jpIsNonEmptyString(sal.currency)) errors.push('baseSalary.currency missing/empty');
-    if (!sal.value || typeof sal.value !== 'object') {
-      errors.push('baseSalary.value missing');
-    } else {
-      const min = Number(sal.value.minValue);
-      const max = Number(sal.value.maxValue);
-      if (!(min > 0)) errors.push(`baseSalary.value.minValue=${sal.value.minValue} must be > 0`);
-      if (!(max >= min)) errors.push(`baseSalary.value.maxValue=${sal.value.maxValue} must be >= minValue`);
-      if (!jpIsNonEmptyString(sal.value.unitText)) errors.push('baseSalary.value.unitText missing/empty');
-    }
-  }
-
   return errors;
 }
 
@@ -762,7 +710,10 @@ class JobPostingAudit {
     this.pagesWithJobPosting++;
     for (const posting of postings) {
       this.schemaCount++;
-      const errors = validateJobPostingStrict(posting);
+      const errors = [
+        ...validateMandatoryJobPostingFields(posting).map(({ message }) => message),
+        ...checkJobPostingSchemaAddressDetails(posting),
+      ];
       if (errors.length > 0) {
         this.failures.push({ file: relFromCwd, errors });
       }
@@ -833,21 +784,15 @@ function sdValidateDataset(schema, filePath) {
   return errors;
 }
 
-function sdValidateJobPosting(schema, filePath) {
+/**
+ * Structured-data completeness checks beyond the shared nine-field contract.
+ * `validThrough` and address-region quality are consumer-specific; the shared
+ * contract is added by StructuredDataAudit below.
+ */
+function validateStructuredDataJobPostingExtras(schema, filePath) {
   const errors = [];
-  const type = schema['@type'];
-  if (type !== 'JobPosting') return errors;
-  const checks = [
-    ['title', schema.title],
-    ['datePosted', schema.datePosted],
-    ['hiringOrganization.name', schema.hiringOrganization?.name],
-    ['employmentType', schema.employmentType],
-    ['validThrough', schema.validThrough],
-  ];
-  for (const [field, value] of checks) {
-    if (!sdIsNonEmpty(value)) {
-      errors.push({ file: filePath, type: 'JobPosting', field, message: `JobPosting missing "${field}"` });
-    }
+  if (!sdIsNonEmpty(schema.validThrough)) {
+    errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: 'JobPosting missing "validThrough"' });
   }
   if (sdIsNonEmpty(schema.validThrough)) {
     const vt = new Date(String(schema.validThrough));
@@ -855,53 +800,15 @@ function sdValidateJobPosting(schema, filePath) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: `JobPosting validThrough "${schema.validThrough}" is not a valid ISO date` });
     }
   }
-  const desc = String(schema.description || '').trim();
-  if (desc.length < 30) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'description', message: `JobPosting description too short (${desc.length} chars, need >= 30)` });
-  }
   const address = schema.jobLocation?.address;
-  if (!address) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation', message: 'JobPosting missing "jobLocation.address"' });
-  } else {
+  if (address && typeof address === 'object') {
     if (!sdIsNonEmpty(address.addressLocality)) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressLocality', message: 'JobPosting missing "addressLocality"' });
-    }
-    if (!sdIsNonEmpty(address.postalCode)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.postalCode', message: 'JobPosting missing "postalCode"' });
-    }
-    if (!sdIsNonEmpty(address.streetAddress)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.streetAddress', message: 'JobPosting missing "streetAddress"' });
     }
     if (!sdIsNonEmpty(address.addressRegion)) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: 'JobPosting missing "addressRegion"' });
     } else if (!/^[A-Z]{2}$/.test(String(address.addressRegion).trim())) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: `JobPosting addressRegion "${address.addressRegion}" is not a 2-letter Swiss canton code` });
-    }
-  }
-  const bs = schema.baseSalary;
-  if (!bs || typeof bs !== 'object') {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary', message: 'JobPosting missing "baseSalary"' });
-  } else {
-    const val = bs.value;
-    if (!val || typeof val !== 'object') {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value', message: 'JobPosting baseSalary missing "value"' });
-    } else {
-      const minVal = Number(val.minValue);
-      if (!Number.isFinite(minVal) || minVal <= 0) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.minValue', message: 'JobPosting baseSalary.value.minValue missing or invalid' });
-      }
-      const maxVal = Number(val.maxValue);
-      if (!Number.isFinite(maxVal) || maxVal <= 0) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue missing or invalid' });
-      } else if (Number.isFinite(minVal) && maxVal < minVal) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue < minValue' });
-      }
-      if (!sdIsNonEmpty(val.unitText)) {
-        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.unitText', message: 'JobPosting baseSalary.value.unitText missing' });
-      }
-    }
-    if (!sdIsNonEmpty(bs.currency)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.currency', message: 'JobPosting baseSalary.currency missing' });
     }
   }
   return errors;
@@ -1301,7 +1208,13 @@ class StructuredDataAudit {
       }
       if (schema['@type'] === 'JobPosting') {
         this.jobPostingCount++;
-        if (!isBridge) errors.push(...sdValidateJobPosting(schema, file));
+        if (!isBridge) {
+          errors.push(
+            ...validateMandatoryJobPostingFields(schema)
+              .map((error) => toStructuredDataJobPostingError(error, file)),
+            ...validateStructuredDataJobPostingExtras(schema, file),
+          );
+        }
       }
       if (schema['@type'] === 'Event') {
         this.eventCount++;
