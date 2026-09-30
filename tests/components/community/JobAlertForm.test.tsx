@@ -21,9 +21,11 @@ import { render, screen, fireEvent, cleanup, within, waitFor, act } from '@testi
 import JobAlertForm from '@/components/community/JobAlertForm';
 const ALERT_CTA_SURFACES = ['inline_card'];
 
-const { createAlertMock, getUserAlertsMock } = vi.hoisted(() => ({
+const { createAlertMock, deleteAlertMock, getUserAlertsMock, invalidateUserAlertsCacheMock } = vi.hoisted(() => ({
   createAlertMock: vi.fn(async () => ({ id: 'x' })),
+  deleteAlertMock: vi.fn(async () => undefined),
   getUserAlertsMock: vi.fn(async () => []),
+  invalidateUserAlertsCacheMock: vi.fn(),
 }));
 
 // Mock the service so the form can dynamic-import it without trying to talk
@@ -33,8 +35,12 @@ const { createAlertMock, getUserAlertsMock } = vi.hoisted(() => ({
 vi.mock('@/services/jobAlertService', () => ({
   createAlert: createAlertMock,
   getUserAlerts: getUserAlertsMock,
-  deleteAlert: vi.fn(async () => undefined),
+  deleteAlert: deleteAlertMock,
   updateAlert: vi.fn(async () => undefined),
+}));
+
+vi.mock('@/services/userAlertsCache', () => ({
+  invalidateUserAlertsCache: invalidateUserAlertsCacheMock,
 }));
 
 const { analyticsMock } = vi.hoisted(() => ({
@@ -98,7 +104,10 @@ function getFieldset(): HTMLFieldSetElement {
 }
 
 beforeEach(() => {
-  // nothing to set up beyond the per-file mocks
+  createAlertMock.mockClear();
+  deleteAlertMock.mockClear();
+  getUserAlertsMock.mockClear();
+  invalidateUserAlertsCacheMock.mockClear();
 });
 
 afterEach(() => {
@@ -422,6 +431,44 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
     expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({ surface: 'inline_card', authPath: 'direct' });
     await waitFor(() => expect(ctaActions()).toEqual(['inline_card:open', 'inline_card:accept', 'inline_card:success']));
+  });
+
+  it('invalidates shared eligibility after a successful direct create', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('contabile');
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(invalidateUserAlertsCacheMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('invalidates shared eligibility after a successful delete', async () => {
+    getUserAlertsMock.mockResolvedValueOnce([{
+      id: 'existing-alert',
+      userId: 'user-1',
+      email: 'foo@example.com',
+      keywords: ['contabile'],
+      locations: [],
+      contractTypes: [],
+      sectors: [],
+      cantonFilter: null,
+      frequency: 'daily',
+      frequencyOverride: false,
+      locale: 'it',
+      specificJobId: null,
+      specificCompanyKey: null,
+      active: true,
+      createdAt: new Date(),
+      lastMatchedAt: null,
+      matchCount: 0,
+    }]);
+    render(<JobAlertForm authUser={authUser} />);
+
+    const deleteButton = await screen.findByTitle('Elimina');
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => expect(deleteAlertMock).toHaveBeenCalledWith('foo@example.com', 'existing-alert'));
+    expect(invalidateUserAlertsCacheMock).toHaveBeenCalledTimes(1);
   });
 
   it('a failed signed-in create reports accept→error', async () => {

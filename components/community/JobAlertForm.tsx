@@ -20,6 +20,7 @@ import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import {
   loadGatingState,
   saveGatingState,
@@ -315,6 +316,10 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     ): Promise<JobAlert> => {
       const { createAlert } = await loadJobAlertService();
       const alert = await createAlert(uid, email, config);
+      // The eligibility CTAs share a session cache with this form. Invalidate
+      // only after the write succeeds so a failed create cannot discard a
+      // still-valid snapshot.
+      invalidateUserAlertsCache();
       setAlerts((prev) => [alert, ...prev]);
       track((a) =>
         a.trackJobAlertCreated({
@@ -479,6 +484,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  try {
  const { deleteAlert } = await loadJobAlertService();
  await deleteAlert(email, alertId);
+ invalidateUserAlertsCache();
  // FRO-334: Track alert deletion
  track((a) => a.trackJobAlertDeleted());
  setAlerts((prev) => prev.filter((a) => a.id !== alertId));
