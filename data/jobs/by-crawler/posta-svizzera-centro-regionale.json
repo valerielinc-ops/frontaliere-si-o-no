@@ -660,7 +660,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
       },
@@ -684,7 +684,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
         ],
         "fr": [
@@ -697,8 +696,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-pml6oq",
-        "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt",
-        "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-c1df0e0fd267",
@@ -1928,9 +1926,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "kundenberater-in-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "conseillers-clients-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -1952,20 +1950,16 @@
           "kundenberater-in-post"
         ],
         "en": [
-          "customer-advisor-in-die-schweizerische-post-emmenbrucke",
           "kundenberater-in-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
           "kundenberater-in-die-schweizerische-post-emmenbrucke",
-          "conseiller-client-in-die-schweizerische-post-emmenbrucke",
           "conseillers-clients-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
         "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
-        "conseiller-client-in-die-schweizerische-post-emmenbrucke",
         "conseillers-clients-die-schweizerische-post-emmenbrucke"
       ],
       "needsRetranslation": true,
@@ -5079,7 +5073,7 @@
       },
       "slug": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
       "slugByLocale": {
-        "it": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
+        "it": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
         "en": "delivery-in-newspaper-the-message-in-the-hourly-wage-die-schweizerische-post-dottingen",
         "de": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
         "fr": "livraison-dans-les-journaux-le-message-dans-le-salaire-horaire-die-schweizerische-post-dottingen"
@@ -5119,13 +5113,11 @@
       "firstSeenAt": "2026-09-01T14:21:32.831Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-          "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen"
+          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-        "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen"
+        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
       ],
       "needsRetranslation": true
     },
@@ -5663,8 +5655,7 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-xbcarh",
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post-xbcarh"
         ]
       },
       "previousSlugs": [
@@ -7903,7 +7894,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -7927,7 +7918,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -7936,8 +7926,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -9736,13 +9725,11 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jcrrx3",
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jcrrx3"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -11270,13 +11257,11 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-u7nuce",
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-u7nuce"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-75fff2a9f2ee",
       "salaryMin": 48000,
@@ -11892,7 +11877,7 @@
         "it": "apprendistato-come-automatikmonteur-in-cfc-die-schweizerische-post-zurich-mulligen",
         "en": "teaching-as-an-automatic-installer-in-efz-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-automatikmonteur-in-efz-post",
-        "fr": "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
+        "fr": "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -11914,13 +11899,11 @@
           "lehre-als-automatikmonteur-in-efz-post"
         ],
         "fr": [
-          "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
           "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
         "lehre-als-automatikmonteur-in-efz-post",
-        "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
         "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
       ],
       "id": "posta-svizzera-centro-regionale-e28dce826ade",
@@ -13233,7 +13216,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -13257,7 +13240,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
@@ -15584,9 +15566,9 @@
         "en": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
         "fr": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-f18995",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-f18995",
         "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
@@ -15624,7 +15606,15 @@
       },
       "addressLocality": "Rapperswil SG",
       "addressRegion": "SG",
-      "firstSeenAt": "2026-08-27T00:49:51.119Z"
+      "firstSeenAt": "2026-08-27T00:49:51.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EBA-%28Sortierzentrum-oder-Inhouse-in-einem-Distributionsgebiet%29/73961-de_DE",
