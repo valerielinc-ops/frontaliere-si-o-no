@@ -13,6 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
+#     [--force] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -24,6 +25,8 @@ BRANCH=""
 COMMIT_MESSAGE=""
 TITLE=""
 BODY_FILE=""
+FORCE_ADD=false
+RECONCILE_COMPAT=false
 PATHS=()
 
 while [ "$#" -gt 0 ]; do
@@ -31,6 +34,11 @@ while [ "$#" -gt 0 ]; do
     --path)
       [ "$#" -ge 2 ] || { echo "::error::--path requires a value"; exit 2; }
       PATHS+=("$2")
+      case "$2" in
+        data/seo-404-compat|data/seo-404-compat/*)
+          RECONCILE_COMPAT=true
+          ;;
+      esac
       shift 2
       ;;
     --branch)
@@ -52,6 +60,10 @@ while [ "$#" -gt 0 ]; do
       [ "$#" -ge 2 ] || { echo "::error::--body-file requires a value"; exit 2; }
       BODY_FILE="$2"
       shift 2
+      ;;
+    --force)
+      FORCE_ADD=true
+      shift
       ;;
     *)
       echo "::error::Unknown argument: $1"
@@ -83,14 +95,24 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
 
 git checkout -B "$BRANCH"
-git add -A -- "${PATHS[@]}"
+if [ "$FORCE_ADD" = true ]; then
+  # Some refreshes intentionally publish generated cache paths that remain
+  # ignored in the normal checkout (for example the fuel cache/history). Keep
+  # the force explicit at the publisher boundary so an ignored path can never
+  # disappear silently from an otherwise successful refresh PR.
+  git add -A -f -- "${PATHS[@]}"
+else
+  git add -A -- "${PATHS[@]}"
+fi
 if git diff --cached --quiet; then
   echo "No refresh changes to publish."
   exit 0
 fi
 
-git config user.name "Valerie Linc"
-git config user.email "valerielinc@gmail.com"
+# Data-refresh commits belong to the installed site automation identity, not a
+# personal account. Keep the author stable across scheduled PRs.
+git config user.name "frontaliere-automation[bot]"
+git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
 git commit -m "$COMMIT_MESSAGE"
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
@@ -98,6 +120,39 @@ git commit -m "$COMMIT_MESSAGE"
 # branch with an explicit lease: a surprising concurrent writer is a failure,
 # not a reason to overwrite its head.
 REMOTE_HEAD="$(git ls-remote origin "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+
+if [ "$RECONCILE_COMPAT" = true ]; then
+  # The 404 producers share the sharded compat accumulator but publish through
+  # two independent stable PR branches. Reconcile both the pending stable
+  # branch and the newest main before pushing, otherwise this run starts from
+  # the checkout's main snapshot and force-replaces an unmerged sweep. The
+  # custom driver performs the store's deterministic 3-way SET merge, keeping
+  # distinct additions in the same shard deduped and sorted.
+  git fetch --no-tags origin main
+  git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
+
+  COMPAT_SHARD_ATTR="$(git check-attr merge -- data/seo-404-compat/part-00.json)"
+  if [ "$COMPAT_SHARD_ATTR" != "data/seo-404-compat/part-00.json: merge: compat-shard" ]; then
+    echo "::error::data/seo-404-compat shards are not assigned merge=compat-shard: ${COMPAT_SHARD_ATTR}" >&2
+    exit 1
+  fi
+
+  merge_refresh_ref() {
+    local ref="$1"
+    if ! git merge --no-edit "$ref"; then
+      git merge --abort 2>/dev/null || true
+      echo "::error::Unable to reconcile refresh branch with ${ref}" >&2
+      exit 1
+    fi
+  }
+
+  if [ -n "$REMOTE_HEAD" ]; then
+    git fetch --no-tags origin "refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
+    merge_refresh_ref "origin/${BRANCH}"
+  fi
+  merge_refresh_ref origin/main
+fi
+
 PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 if [ -n "$REMOTE_HEAD" ]; then
   git -c http.https://github.com/.extraheader= push \

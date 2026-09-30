@@ -10,6 +10,7 @@ describe('protected data refreshes publish through pull requests', () => {
     '.github/workflows/refresh-job-popularity.yml',
     '.github/workflows/refresh-article-trending.yml',
     '.github/workflows/monitor-telegram-member-count.yml',
+    '.github/workflows/newsletter-qa.yml',
   ];
 
   it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
@@ -20,6 +21,14 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
     expect(workflow).not.toMatch(/git\s+push\b/);
+  });
+
+  it('publishes Newsletter QA artifacts through its stable report PR', () => {
+    const workflow = read('.github/workflows/newsletter-qa.yml');
+    expect(workflow).toContain('persist-credentials: false');
+    expect(workflow).toContain('--path docs/newsletter-qa/');
+    expect(workflow).toContain('--branch chore/refresh-newsletter-qa');
+    expect(workflow).not.toContain('scripts/lib/git-commit-data.sh');
   });
 
   it('keeps the shared publisher on the PR path, never main', () => {

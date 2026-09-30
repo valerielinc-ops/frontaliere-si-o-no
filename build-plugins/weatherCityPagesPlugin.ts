@@ -170,7 +170,7 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
     ? `Jeden Morgen dasselbe Pendlerszenario: Wie ist das Wetter an der Grenze? Wo sind Warnungen aktiv? Welche Übergänge sind frei? Diese Seite sammelt aktuelle Wetterbedingungen für die ${WEATHER_CITIES.length} Städte am Grenzcluster. Aktualisierung alle 4 Stunden.`
     : `Chaque matin, le même scénario de trajet: quel est le temps à la frontière, où sont les alertes, quels passages sont fluides. Cette page rassemble les conditions météo actuelles pour les ${WEATHER_CITIES.length} villes du cluster frontalier. Mise à jour toutes les 4 heures.`;
   const localePathHub = locale === 'it' ? '' : `/${locale}`;
-  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   // Per-locale hub URLs for hreflang
   const hubHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${HUB_SLUG.it}/`,
@@ -277,7 +277,7 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
   const attributionHtml = attributionBlock(locale, generatedAt);
 
   const localePathCity = locale === 'it' ? '' : `/${locale}`;
-  const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   const hubUrlCity = `https://frontaliereticino.ch${localePathCity}/${HUB_SLUG[locale]}/`;
   const cityHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${HUB_SLUG.it}/${city.slug.it}/`,
@@ -345,7 +345,7 @@ function attributionBlock(locale: Locale, generatedAt?: string): string {
 
 function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
-  const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   return `<nav aria-label="Breadcrumb" class="max-w-3xl mx-auto py-3 text-sm"><ol class="flex flex-wrap items-center gap-1 text-muted"><li><a href="${localePath}/" class="hover:text-link">${homeText}</a></li><li class="text-muted">›</li><li><a href="${localePath}/${HUB_SLUG[locale]}/" class="hover:text-link">${escapeHtml(HUB_TITLE[locale])}</a></li><li class="text-muted">›</li><li class="text-heading font-medium" aria-current="page">${escapeHtml(city.name)}</li></ol></nav>`;
 }
 
