@@ -26,6 +26,72 @@ export function sourceBodyForJob(job = {}) {
   return localizedText || String(job?.description || '').trim();
 }
 
+function storedJobsByKey(storedJobs, keyOfJob) {
+  const storedByKey = new Map();
+  for (const job of Array.isArray(storedJobs) ? storedJobs : []) {
+    const key = keyOfJob(job);
+    if (key) storedByKey.set(key, job);
+  }
+  return storedByKey;
+}
+
+function hasValidStoredSourceBody(job) {
+  const sourceLang = String(job?.sourceLang || '').trim();
+  return Boolean(sourceLang && meetsSourceBodyFloor(sourceBodyForJob(job)));
+}
+
+/**
+ * Return thin discovered jobs that the keeper will omit because their stored
+ * source body is missing or below the shared floor. Callers use this before
+ * filtering so the verified slice writer can receive quarantine evidence.
+ *
+ * @param {object[]} discoveredJobs
+ * @param {object[]} storedJobs
+ * @param {(job: object) => string} keyOfJob
+ * @returns {object[]}
+ */
+export function findThinSourceJobsWithoutStoredBody(
+  discoveredJobs = [],
+  storedJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const storedByKey = storedJobsByKey(storedJobs, keyOfJob);
+  return (Array.isArray(discoveredJobs) ? discoveredJobs : []).filter((job) => {
+    if (meetsSourceBodyFloor(sourceBodyForJob(job))) return false;
+    return !hasValidStoredSourceBody(storedByKey.get(keyOfJob(job)));
+  });
+}
+
+/**
+ * Build the definitive proof accepted by the verified slice writer for a
+ * thin-source removal. Use the writer's own removed-job objects so the URL
+ * identity is exact even when a stable ID survived a source URL rewrite.
+ *
+ * @param {object[]} removedJobs
+ * @param {object[]} thinSourceJobs
+ * @param {(job: object) => string} keyOfJob
+ * @returns {object[]|undefined}
+ */
+export function buildThinSourceHousekeepingProof(
+  removedJobs = [],
+  thinSourceJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const removed = Array.isArray(removedJobs) ? removedJobs : [];
+  const thinKeys = new Set(
+    (Array.isArray(thinSourceJobs) ? thinSourceJobs : [])
+      .map(keyOfJob)
+      .filter(Boolean),
+  );
+  const quarantined = removed.filter((job) => thinKeys.has(keyOfJob(job)));
+  if (quarantined.length === 0 || quarantined.length !== removed.length) return undefined;
+  return quarantined.map((job) => ({
+    job,
+    reason: 'thin-source-quarantine',
+    definitive: true,
+  }));
+}
+
 /**
  * Shared implementation for callers whose merge identity is job-shaped.
  *
@@ -39,18 +105,14 @@ export function keepStoredSourceBodiesByKey(
   storedJobs = [],
   keyOfJob = (job) => job?.url,
 ) {
-  const storedByKey = new Map();
-  for (const job of Array.isArray(storedJobs) ? storedJobs : []) {
-    const key = keyOfJob(job);
-    if (key) storedByKey.set(key, job);
-  }
+  const storedByKey = storedJobsByKey(storedJobs, keyOfJob);
 
   return (Array.isArray(discoveredJobs) ? discoveredJobs : []).flatMap((job) => {
     if (meetsSourceBodyFloor(sourceBodyForJob(job))) return [job];
     const previous = storedByKey.get(keyOfJob(job));
-    const previousLang = String(previous?.sourceLang || '').trim();
+    if (!hasValidStoredSourceBody(previous)) return [];
+    const previousLang = String(previous.sourceLang || '').trim();
     const previousBody = sourceBodyForJob(previous);
-    if (!previousLang || !meetsSourceBodyFloor(previousBody)) return [];
     const kept = {
       ...job,
       description: previousBody,

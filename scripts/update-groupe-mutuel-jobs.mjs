@@ -57,7 +57,12 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { groupeMutuelSourceContent, GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE } from './lib/groupe-mutuel-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import {
+  buildThinSourceHousekeepingProof,
+  findThinSourceJobsWithoutStoredBody,
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -642,9 +647,23 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   // validation are handled independently by
   // postProcessGroupeMutuelJobs() right after this function runs, so no
   // constant-field overrides need to be reapplied here.
+  const droppedThinSourceJobs = findThinSourceJobsWithoutStoredBody(
+    discoveredJobs,
+    existingGmJobs,
+    jobMatchKey,
+  );
   const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingGmJobs, jobMatchKey);
   const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, sourceBodyJobs);
-  const thinSourceJobs = mergedGmJobs.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const thinSourceJobsByKey = new Map(
+    mergedGmJobs
+      .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)))
+      .map((job) => [jobMatchKey(job), job]),
+  );
+  for (const job of droppedThinSourceJobs) {
+    const key = jobMatchKey(job);
+    if (!thinSourceJobsByKey.has(key)) thinSourceJobsByKey.set(key, job);
+  }
+  const thinSourceJobs = [...thinSourceJobsByKey.values()];
   const cleanGmJobs = mergedGmJobs
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.datePosted || b.postedDate || '').localeCompare(String(a.datePosted || a.postedDate || '')));
@@ -881,12 +900,12 @@ async function main() {
   const _sliceJobs = Array.isArray(_sliceRaw)
     ? _sliceRaw.filter(isGroupeMutuelJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     : [];
-  const removedKeys = new Set((crawlDiff.removedJobs || []).map(jobMatchKey).filter(Boolean));
-  const thinQuarantineJobs = mergeStats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
-  const housekeepingProof = thinQuarantineJobs.length > 0
-    && thinQuarantineJobs.length === (crawlDiff.removedJobs || []).length
-    ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
-    : undefined;
+  const removedJobs = crawlDiff.removedJobs || [];
+  const housekeepingProof = buildThinSourceHousekeepingProof(
+    removedJobs,
+    mergeStats.thinSourceJobs,
+    jobMatchKey,
+  );
   await writeJobsCrawlerSliceVerified(GROUPE_MUTUEL_KEY, _sliceJobs, {
     isTargetJob: isGroupeMutuelJob,
     ...(housekeepingProof ? { housekeepingProof } : {}),
