@@ -13,13 +13,14 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { extractDetailFields, isSufficientVacancyDescription } from './prospector/extract.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
 import {
   fetchHtml as sharedFetchHtml,
   normalizeDescriptionSpace,
   slugify,
   stripHtml,
 } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -285,7 +286,7 @@ export function extractBmsBuildingDetailFields(html = '', pageUrl = '', opts = {
     return {
       ...base,
       title: normalizeSpace(details.querySelector('.job-title')?.textContent || base.title || ''),
-      description: isSufficientVacancyDescription(description) ? description : '',
+      description: meetsSourceBodyFloor(description) ? description : '',
     };
   } finally {
     dom.window.close();

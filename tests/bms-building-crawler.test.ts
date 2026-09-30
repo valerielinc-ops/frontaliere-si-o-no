@@ -86,6 +86,30 @@ describe('BMS Building Materials crawler parser', () => {
 
       expect(detail.description).toBe('');
     });
+
+    it('uses the shared 50-word source-body floor', () => {
+      const bodyWithWords = (count: number) => Array.from(
+        { length: count },
+        (_, index) => `SourceWord${index + 1}`,
+      ).join(' ');
+      const detailHtml = (body: string) => `
+        <div class="tx-webx-jobs">
+          <div class="details"><p>${body}</p></div>
+        </div>`;
+
+      const belowFloor = extractBmsBuildingDetailFields(
+        detailHtml(bodyWithWords(49)),
+        'https://jobs.bmsuisse.ch/jobs/detail/49-word-body/',
+      );
+      const atFloorBody = bodyWithWords(50);
+      const atFloor = extractBmsBuildingDetailFields(
+        detailHtml(atFloorBody),
+        'https://jobs.bmsuisse.ch/jobs/detail/50-word-body/',
+      );
+
+      expect(belowFloor.description).toBe('');
+      expect(atFloor.description).toBe(atFloorBody);
+    });
   });
 
   describe('stored navigation repair', () => {
