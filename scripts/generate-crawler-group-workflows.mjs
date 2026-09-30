@@ -1646,6 +1646,11 @@ function crawlerGenerationMembers(group) {
           typeof env.JOBS_SLICE_FILE !== 'string' || env.JOBS_SLICE_FILE.length === 0) {
         throw new Error(`${crawler.slug}: missing crawler generation identity or primary slice`);
       }
+      if (env.CRAWLER_SLICE_ONLY !== '1') {
+        throw new Error(
+          `${crawler.slug}: grouped crawler must set CRAWLER_SLICE_ONLY=1; per-worker global assembly is not allowed`,
+        );
+      }
       return {
         crawlerId: env.JOBS_HOUSEKEEPING_SCOPE,
         primarySlice: env.JOBS_SLICE_FILE,

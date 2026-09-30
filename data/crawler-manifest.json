@@ -613,6 +613,7 @@
       "runStep": {
         "name": "Run AFRY dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-afry-jobs.mjs"
@@ -673,6 +674,7 @@
       "runStep": {
         "name": "Run AGIE Charmilles dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-agie-charmilles-jobs.mjs"
@@ -733,6 +735,7 @@
       "runStep": {
         "name": "Run Agroscope dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-agroscope-jobs.mjs"
@@ -1189,7 +1192,8 @@
         "env": {
           "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_ALTEN_STRICT": "${{ github.event.inputs.strict_localization || '1' }}"
+          "JOBS_ALTEN_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1"
         },
         "run": "xvfb-run -a npm run jobs:update:alten"
       },
@@ -2354,6 +2358,7 @@
       "runStep": {
         "name": "Run Artificialy dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-artificialy-jobs.mjs"
@@ -2808,6 +2813,7 @@
       "runStep": {
         "name": "Run AXA Svizzera dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-axa-jobs.mjs"
@@ -14743,7 +14749,8 @@
         "name": "Run dedicated Grace La Margna crawler",
         "env": {
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_GRACE_STRICT": "${{ github.event.inputs.strict_localization || '1' }}"
+          "JOBS_GRACE_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "CRAWLER_SLICE_ONLY": "1"
         },
         "run": "xvfb-run -a npm run jobs:update:grace"
       },
@@ -16307,6 +16314,7 @@
       "runStep": {
         "name": "Run Hitachi Energy dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-hitachi-energy-jobs.mjs"
@@ -17157,6 +17165,7 @@
       "runStep": {
         "name": "Run Hoval dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-hoval-jobs.mjs"
@@ -20796,6 +20805,7 @@
       "runStep": {
         "name": "Run Knowledge Lab dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-knowledge-lab-jobs.mjs"
@@ -28760,6 +28770,7 @@
       "runStep": {
         "name": "Run PwC dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-pwc-jobs.mjs"
@@ -36708,6 +36719,7 @@
       "runStep": {
         "name": "Run Tarchini Group dedicated crawler",
         "env": {
+          "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
         "run": "node scripts/update-tarchini-group-jobs.mjs"
