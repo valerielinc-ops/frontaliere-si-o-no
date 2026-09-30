@@ -54,14 +54,24 @@ describe('404 discovery workflows publish protected data through PRs', () => {
 
   it.each(WORKFLOWS)('$path escapes Markdown backticks in its generated body', ({ path }) => {
     const workflow = read(path);
-    const bodyStart = workflow.indexOf('cat > "$body" <<EOF');
+    const bodyStart = workflow.indexOf("cat <<'EOF'");
     const bodyEnd = workflow.indexOf('\n          EOF', bodyStart);
     expect(bodyStart).toBeGreaterThanOrEqual(0);
     expect(bodyEnd).toBeGreaterThan(bodyStart);
     const generatedBody = workflow.slice(bodyStart, bodyEnd);
 
-    expect(generatedBody).toContain('\\`data/');
-    expect(generatedBody).toContain('\\`vitest (unit + integration)\\`');
-    expect(generatedBody).not.toMatch(/(^|[^\\])`/u);
+    expect(workflow).toContain('} > "$body"');
+    expect(generatedBody).toContain('`data/');
+    expect(generatedBody).toContain('`vitest (unit + integration)`');
+    expect(generatedBody).not.toContain('\\`');
+  });
+
+  it('assigns the compat shard merge driver in the repository attributes contract', () => {
+    const attributes = read('.gitattributes');
+    const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+
+    expect(attributes).toMatch(/^data\/seo-404-compat\/part-\*\.json merge=compat-shard$/m);
+    expect(publisher).toContain('git check-attr merge -- data/seo-404-compat/part-00.json');
+    expect(publisher).toContain('data/seo-404-compat/part-00.json: merge: compat-shard');
   });
 });

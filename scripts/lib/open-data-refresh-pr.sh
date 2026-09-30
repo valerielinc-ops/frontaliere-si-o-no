@@ -131,6 +131,12 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   git fetch --no-tags origin main
   git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
 
+  COMPAT_SHARD_ATTR="$(git check-attr merge -- data/seo-404-compat/part-00.json)"
+  if [ "$COMPAT_SHARD_ATTR" != "data/seo-404-compat/part-00.json: merge: compat-shard" ]; then
+    echo "::error::data/seo-404-compat shards are not assigned merge=compat-shard: ${COMPAT_SHARD_ATTR}" >&2
+    exit 1
+  fi
+
   merge_refresh_ref() {
     local ref="$1"
     if ! git merge --no-edit "$ref"; then
