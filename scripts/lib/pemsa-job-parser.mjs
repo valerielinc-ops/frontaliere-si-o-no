@@ -24,6 +24,7 @@ import {
 } from './dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './source-locale-slots.mjs';
 import { fetchHtml } from './crawler-template.mjs';
+import { extractDetailFields, renderedVacancySourceLength } from './prospector/extract.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/';
 
@@ -51,6 +52,15 @@ function stripHtml(html = '') {
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function countRenderedDescriptionSections(text = '') {
+  const lines = String(text || '')
+    .split('\n')
+    .map((line) => normalizeSpace(line))
+    .filter(Boolean);
+  return lines.filter((line, index) => !line.startsWith('- ')
+    && lines[index + 1]?.startsWith('- ')).length;
 }
 
 /**
@@ -197,6 +207,22 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
       },
     });
 
+    return parsePemsaDetailHtml(html, url);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Parse one fetched detail page. PEMSA's JSON-LD carries only the intro and
+ * the rendered detail body carries the remaining mission/profile sections.
+ * Use the same balanced, chrome-aware extractor as the source-detail audit so
+ * forms, footer text and related jobs cannot become vacancy content.
+ */
+export function parsePemsaDetailHtml(html, url = '') {
+  try {
+    const rendered = extractDetailFields(html, url, { recordUrl: url });
+
     const ldBlocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
     for (const block of ldBlocks) {
       const jsonStr = block.replace(/<script[^>]*>/, '').replace(/<\/script>/, '');
@@ -206,11 +232,15 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
           const loc = data.jobLocation?.address || {};
           const rawDesc = data.description || '';
           const parsed = parseDescriptionToMarkdown(rawDesc);
+          const description = String(rendered.description || parsed.text || '').trim();
           return {
             title: normalizeSpace(data.title || ''),
-            description: parsed.text,
-            descriptionSectionCount: parsed.sectionCount,
-            descriptionSourceLength: parsed.sourceTextLength,
+            description,
+            descriptionSectionCount: Math.max(
+              parsed.sectionCount,
+              countRenderedDescriptionSections(description),
+            ),
+            descriptionSourceLength: renderedVacancySourceLength(html, data.title || ''),
             datePosted: normalizeSpace(data.datePosted || ''),
             validThrough: normalizeSpace(data.validThrough || ''),
             employmentType: normalizeSpace(data.employmentType || ''),

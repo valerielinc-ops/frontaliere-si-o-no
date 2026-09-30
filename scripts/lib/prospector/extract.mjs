@@ -1566,6 +1566,39 @@ function vacancyContentRegion(html = '', title = '') {
 }
 
 /**
+ * Length of the plain text in the rendered vacancy region, before any detail
+ * extractor selects or normalises its description sections. Prefer the
+ * title-owned `<main>`/`<article>` region; when a page has neither, the
+ * document fallback above removes page chrome and application forms. This is
+ * deliberately independent of `extractDetailFields().description`, so it can
+ * expose a truncated render.
+ *
+ * @param {string} html
+ * @param {string} [title]
+ * @returns {number}
+ */
+export function renderedVacancySourceLength(html = '', title = '') {
+  const selected = vacancyContainerRegion(html, title);
+  const wanted = textOf(title).toLowerCase();
+  // Some pages put related-job `<article>` cards inside the vacancy's
+  // `<main>`. Prefer that owning main when it carries the title, otherwise
+  // retain the ordinary container selection and its documented limits.
+  const owningMain = selected?.outermost.find((region) => /^<main\b/i.test(region.raw)
+    && (!wanted || textOf(region.content).toLowerCase().includes(wanted)));
+  const root = owningMain || selected;
+  let region = root?.content || vacancyContentRegion(html, title);
+  if (root) {
+    region = region
+      .replace(/<footer\b[\s\S]*?<\/footer>/gi, ' ')
+      .replace(/<header\b[\s\S]*?<\/header>/gi, ' ')
+      .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ');
+  } else {
+    region = region.replace(/<form\b[\s\S]*?(?:<\/form>|$)/gi, ' ');
+  }
+  return textOf(region).length;
+}
+
+/**
  * Location evidence read from a rendered postal address inside the vacancy
  * body, in document order. Returns [] when the page carries none — an empty
  * result must stay empty so the caller keeps dropping the row.
