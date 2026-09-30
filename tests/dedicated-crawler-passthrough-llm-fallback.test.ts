@@ -59,6 +59,12 @@ const SOURCE = [
   'and you will own the quality of the published content end to end.',
 ].join(' ');
 
+const ROMANSH_SOURCE = [
+  "RTR è in'unitad d'interpresa da la SRG SSR e la chasa da medias per la Svizra rumantscha.",
+  "Nus tschertgain ina persuna che sustegna ils projects e las activitads da l'interpresa.",
+  "L'emprendissadi porscha ina buna pussaivladad da far emprimas experientschas praticas.",
+].join(' ');
+
 function makeCtx(overrides: Record<string, unknown> = {}) {
   const cache = new Map<string, unknown>();
   return {
@@ -208,5 +214,34 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
 
     expect(out).toBe(deepl);
     expect(ctx.callLLM).not.toHaveBeenCalled();
+  });
+
+  it('instrada il romancio direttamente al modello e non ai motori gratuiti', async () => {
+    const translated = 'RTR sucht eine Person fuer Projekte und Aktivitaeten des Unternehmens. '
+      + 'Die Ausbildung bietet eine gute Moeglichkeit, erste praktische Erfahrungen zu sammeln '
+      + 'und die Arbeit in einem professionellen Umfeld kennenzulernen.';
+    const { ctx } = makeCtx();
+    vi.mocked(ctx.callLLM).mockResolvedValue(translated);
+
+    const out = await aiTranslateJobDescriptionDCC(
+      { description: ROMANSH_SOURCE, locale: 'de', sourceLang: 'rm' }, ctx,
+    );
+
+    expect(ctx.callLLM).toHaveBeenCalledTimes(1);
+    expect(ctx.callLLM.mock.calls[0][0][0].content).toContain('Romansh (Rumantsch)');
+    expect(freeTranslateWithRetryDetailed).not.toHaveBeenCalled();
+    expect(freeTranslateWithRetry).not.toHaveBeenCalled();
+    expect(out.toLowerCase()).toBe(translated.toLowerCase());
+  });
+
+  it('lascia in coda il titolo romancio quando il modello non e\' disponibile', async () => {
+    const { ctx } = makeCtx({ isAnyModelAvailable: () => false });
+
+    await expect(aiTranslateJobTitleDCC(
+      { title: 'Fufragnadi - emprendissadi da prova', locale: 'it', sourceLang: 'rm' },
+      ctx,
+    )).resolves.toBe('');
+    expect(ctx.callLLM).not.toHaveBeenCalled();
+    expect(freeTranslateWithRetry).not.toHaveBeenCalled();
   });
 });

@@ -67,6 +67,17 @@ import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
+function isUnsupportedSourceLang(sourceLang) {
+  const normalized = String(sourceLang || '').trim().toLowerCase();
+  return Boolean(normalized) && !DEFAULT_LOCALES.includes(normalized);
+}
+
+function sourceLanguageLabel(sourceLang) {
+  return String(sourceLang || '').trim().toLowerCase() === 'rm'
+    ? 'Romansh (Rumantsch)'
+    : String(sourceLang || '').trim();
+}
+
 function translationOutcome(ctx) {
   return typeof ctx?.recordTranslationAttribution === 'function'
     ? { onAttribution: ctx.recordTranslationAttribution }
@@ -97,6 +108,18 @@ async function translateJobFieldWithFallback({
   context = {},
   minChars = 0,
 }) {
+  if (isUnsupportedSourceLang(sourceLang)) {
+    if (kind === 'title') {
+      return aiTranslateJobTitleDCC({ title: text, locale: targetLang, sourceLang }, context);
+    }
+    return aiTranslateJobDescriptionDCC({
+      description: text,
+      locale: targetLang,
+      sourceLang,
+      minChars,
+    }, context);
+  }
+
   const local = await translateTextWithLocalPipeline({
     text,
     sourceLang,
@@ -1438,6 +1461,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     if (!pinnedLang && baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
       titleSourceLang = sourceLang;
     }
+    const sourceLocaleIsPublished = DEFAULT_LOCALES.includes(sourceLang);
 
     if (!job.titleByLocale || typeof job.titleByLocale !== 'object') {
       job.titleByLocale = {};
@@ -1606,7 +1630,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // routes the slot to a real translation.
       if (String(job.titleByLocale[locale] || '').trim().length < 3 && baseTitle) {
         const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
-        if (placeholder) {
+        if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
           job.titleByLocale[locale] = placeholder;
           job.needsRetranslation = true;
           jobChanged = true;
@@ -1618,7 +1642,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         // Apply source description fallback before continuing so the locale isn't left empty.
         if (isPlaceholderDescription(descValue)) {
           delete job.descriptionByLocale[locale];
-          if (baseDesc && baseDesc.length >= 120) {
+          if (baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
             job.descriptionByLocale[locale] = baseDesc;
             job.needsRetranslation = true;
           }
@@ -1650,7 +1674,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           jobChanged = true;
         }
         // Fallback: if description is still empty, copy source description as placeholder.
-        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120) {
+        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
           job.descriptionByLocale[locale] = baseDesc;
           job.needsRetranslation = true;
           jobChanged = true;
@@ -1771,6 +1795,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     // is the same instrument every gate downstream uses; a slot it calls clean
     // is left alone. The other three triggers are unchanged.
     for (const locale of DEFAULT_LOCALES) {
+      if (!DEFAULT_LOCALES.includes(titleSourceLang)) continue;
       if (locale === titleSourceLang) continue;
       const currentTitle = String(job.titleByLocale[locale] || '').trim();
       const shouldRepairTitle =
@@ -2332,6 +2357,42 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     && !unusable(text)
     && isAcceptableTranslation(cleanDesc, text);
 
+  // Argos/Opus/NLLB and the free cascade only support the site's four
+  // published locales. Keep an unsupported source (currently Romansh) out of
+  // those paths: a passthrough or heuristic result would publish the source
+  // text under it/fr/de/en. The cloud LLM is the only translation provider
+  // allowed to handle this source; when it is unavailable the empty result
+  // deliberately leaves the job queued with needsRetranslation.
+  if (isUnsupportedSourceLang(sourceLang)) {
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
+    const cacheKey = buildAiCacheKey
+      ? buildAiCacheKey('translate-desc-unsupported-source-v1', [cleanDesc, locale, sourceLang])
+      : null;
+    if (cacheKey && getCachedAiResponse) {
+      const cached = getCachedAiResponse(cacheKey);
+      if (acceptableDescription(cached)) return cached;
+    }
+    const prompt = [
+      `Translate this job description from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
+      'Rules:',
+      '- Keep company names, product names, acronyms, and proper nouns unchanged.',
+      '- Do not invent or add facts.',
+      '- Preserve every paragraph, section, bullet, and detail without summarizing.',
+      '- Return only the translated text, without markdown fences or commentary.',
+      '',
+      cleanDesc,
+    ].join('\n');
+    try {
+      const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
+      const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
+      if (acceptableDescription(translated)) {
+        if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
+        return translated;
+      }
+    } catch { /* leave the job queued for the next LLM attempt */ }
+    return '';
+  }
+
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanDesc, sourceLang, targetLang: locale, kind: 'description', minChars: floor,
@@ -2516,6 +2577,39 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
 
+  // The local/free translation engines do not support an unsupported source
+  // such as Romansh. Use the cloud LLM directly, and leave the slot empty when
+  // it is unavailable instead of copying or heuristically rewriting the
+  // source title into a published locale.
+  if (isUnsupportedSourceLang(sourceLang)) {
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
+    const cacheKey = buildAiCacheKey
+      ? buildAiCacheKey('translate-title-unsupported-source-v1', [cleanTitle, locale, sourceLang])
+      : null;
+    if (cacheKey && getCachedAiResponse) {
+      const cached = getCachedAiResponse(cacheKey);
+      if (cached && cached !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(cached)
+          && cached.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(cached);
+    }
+    const prompt = [
+      `Translate this job title from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
+      '- Translate the role naturally and completely.',
+      '- Keep brand names, company names, acronyms, and proper nouns unchanged.',
+      '- Return only the translated title, without quotes or commentary.',
+      `Title: ${cleanTitle}`,
+    ].join('\n');
+    try {
+      const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
+      const translated = _rb((ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, '')));
+      if (hasUsableTitle(translated) && translated.toLowerCase() !== cleanTitle.toLowerCase()
+          && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
+        if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
+        return translated;
+      }
+    } catch { /* leave the job queued for the next LLM attempt */ }
+    return '';
+  }
+
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: MIN_TITLE_CHARS,
@@ -2639,16 +2733,19 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   const floor = Math.max(minChars, 40);
   if (!description || description.length < Math.max(floor, 180)) return null;
   const targetLocales = locales.slice(0, maxLocales).filter((l) => l !== sourceLang);
+  const unsupportedSource = isUnsupportedSourceLang(sourceLang);
 
   // Local pipeline first
-  const localPipeline = await localizeJobContentWithPipeline({
-    title, company, location, description, requirements, sourceLang, targetLocales,
-  });
+  const localPipeline = unsupportedSource
+    ? null
+    : await localizeJobContentWithPipeline({
+        title, company, location, description, requirements, sourceLang, targetLocales,
+      });
   if (localPipeline) return localPipeline;
 
   if (!buildAiCacheKey || !getCachedAiResponse) return null;
 
-  const cacheKey = buildAiCacheKey('localize-job-v2', [
+  const cacheKey = buildAiCacheKey(unsupportedSource ? 'localize-job-unsupported-source-v1' : 'localize-job-v2', [
     nsFn(title || ''), nsFn(company || ''), nsFn(location || ''),
     sourceLang || 'en', targetLocales.join(','),
     JSON.stringify((requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
@@ -2656,6 +2753,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   ]);
   const fromCache = getCachedAiResponse(cacheKey);
   if (fromCache === AI_CACHE_RAW_SENTINEL) {
+    if (unsupportedSource) return null;
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
     const sentinelOut = {
@@ -2693,6 +2791,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     const hasBadLocale = targetLocales.some((locale) => {
       const localeData = fromCache[locale];
       if (!localeData?.description) return true; // missing = bad
+      if (unsupportedSource) {
+        const cachedTitle = nsFn(localeData.title || '');
+        if (!hasUsableTitle(cachedTitle) || cachedTitle.toLowerCase() === nsFn(title || '').toLowerCase()) return true;
+      }
       const cleanLocale = cleanFn(localeData.description);
       // Exact copy check
       if (cleanLocale.toLowerCase() === cleanSourceLower) return true;
@@ -2717,6 +2819,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   }
 
   if (!hasLiveTranslationModel(ctx)) {
+    if (unsupportedSource) return null;
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
     const out = {
@@ -2740,7 +2843,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
 
   const prompt = [
     'You are a multilingual job content editor for SEO.',
-    `Translate this job posting into these locales: ${targetLocales.join(', ')}. Do NOT include the source locale (${sourceLang}) — it will be kept as-is.`,
+    `Translate this job posting into these locales: ${targetLocales.join(', ')}. Do NOT include the source locale (${sourceLanguageLabel(sourceLang)}) — it will be kept as-is.`,
     'CRITICAL: preserve the COMPLETE original content — every section, paragraph, bullet point, and detail MUST appear in each translation. Do NOT omit, condense, or truncate any part of the description.',
     'Keep company, role, location and requirements consistent with source.',
     `Return STRICT JSON only with keys: ${targetLocales.join(',')}.`,
@@ -2752,7 +2855,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     `title: ${title}`,
     `company: ${company}`,
     `location: ${location}`,
-    `sourceLanguage: ${sourceLang}`,
+    `sourceLanguage: ${sourceLanguageLabel(sourceLang)}`,
     `requirements: ${JSON.stringify((requirements || []).slice(0, 8))}`,
     `description: ${description}`,
   ].join('\n');
@@ -2777,10 +2880,15 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
         : [];
-      if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+      const titleIsUsable = hasUsableTitle(localizedTitle)
+        && (!unsupportedSource || localizedTitle.toLowerCase() !== nsFn(title || '').toLowerCase());
+      if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)
+          && (!unsupportedSource || titleIsUsable)) {
+        out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+      }
     }
     const missingLocales = targetLocales.filter((l) => !out[l]);
-    if (missingLocales.length > 0 && cleanedSource.length >= floor) {
+    if (!unsupportedSource && missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
         const desc = await freeTranslateObserved(ctx, { text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
@@ -2796,6 +2904,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       return out;
     }
   } catch {
+    if (unsupportedSource) {
+      setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
+      return null;
+    }
     const cleanedFallback = cleanFn(description || '');
     if (cleanedFallback.length >= floor) {
       const fallbackOut = {
@@ -3079,7 +3191,9 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(forced))) {
           return { locale, title: forced };
         }
-        const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
+        const fallback = isUnsupportedSourceLang(titleSourceLang)
+          ? ''
+          : heuristicTranslateJobTitle(sourceTitle, locale);
         if (hasUsableTitle(fallback) && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
           return { locale, title: fallback };
@@ -7184,6 +7298,12 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
       }
       if (out[locale] === undefined) delete out[locale];
     }
+    if (!LOCALES.includes(sourceLocale)) {
+      const av = normalizeLocaleTextKeepLines(String(a?.[sourceLocale] || ''));
+      const bv = normalizeLocaleTextKeepLines(String(b?.[sourceLocale] || ''));
+      const sourceValue = bv.length >= minChars ? bv : (av.length >= minChars ? av : '');
+      if (sourceValue) out[sourceLocale] = sourceValue;
+    }
     return out;
   }
 
@@ -7248,7 +7368,7 @@ export function repairRelabeledSourceLocale(map = {}, { prevLang, nextLang, sour
   return { map: out, removedMislabeledCopy };
 }
 
-export function mergeLocaleRequirementsMap(a = {}, b = {}) {
+export function mergeLocaleRequirementsMap(a = {}, b = {}, sourceLocale = null) {
   const out = {};
   for (const locale of LOCALES) {
     const merged = mergeRequirements(
@@ -7256,6 +7376,13 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
       Array.isArray(b?.[locale]) ? b[locale] : [],
     );
     if (merged.length > 0) out[locale] = merged;
+  }
+  if (sourceLocale && !LOCALES.includes(sourceLocale)) {
+    const merged = mergeRequirements(
+      Array.isArray(a?.[sourceLocale]) ? a[sourceLocale] : [],
+      Array.isArray(b?.[sourceLocale]) ? b[sourceLocale] : [],
+    );
+    if (merged.length > 0) out[sourceLocale] = merged;
   }
   return out;
 }
@@ -7460,7 +7587,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.requirementsByLocale = old.requirementsByLocale;
     } else if (old.requirementsByLocale && fresh.requirementsByLocale) {
       fresh.requirementsByLocale = mergeLocaleRequirementsMap(
-        old.requirementsByLocale, fresh.requirementsByLocale
+        old.requirementsByLocale, fresh.requirementsByLocale, srcLang
       );
     }
 
@@ -7567,6 +7694,9 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // Preserve sourceLang from existing
     if (old.sourceLang && !fresh.sourceLang) {
       fresh.sourceLang = old.sourceLang;
+    }
+    if (old.sourceLangOriginal && !fresh.sourceLangOriginal) {
+      fresh.sourceLangOriginal = old.sourceLangOriginal;
     }
 
     // Preserve an authoritative source reference when a later listing row
@@ -8485,7 +8615,10 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         : prev.source,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120, next.sourceLang || prev.sourceLang || null),
-      requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
+      requirementsByLocale: mergeLocaleRequirementsMap(
+        prev.requirementsByLocale || {}, next.requirementsByLocale || {},
+        next.sourceLang || prev.sourceLang || null,
+      ),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
       previousSlugs: mergedPreviousSlugsCapped,
       previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale, mergeJobId, 'mergeAndDeduplicate'),

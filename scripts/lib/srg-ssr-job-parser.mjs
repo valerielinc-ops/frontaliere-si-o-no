@@ -50,6 +50,18 @@ const ORG_LABELS = {
   swistxt: 'SwisTXT',
 };
 
+const PUBLISHED_LOCALES = ['de', 'it', 'fr', 'en'];
+const ROMANSH_DISTINCTIVE_MARKERS = [
+  'emprendissadi',
+  'fufragnadi',
+  'infurmaziun',
+  'pussaivlad',
+  'spetgas',
+  'cuntanschain',
+];
+const ROMANSH_IDENTITY_MARKERS = ['rumantsch'];
+const ROMANSH_FUNCTION_MARKERS = ['ils', 'las', 'cun', 'nus', 'da', 'è'];
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -58,6 +70,44 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function bodyTokens(value = '') {
+  return new Set(String(value || '').toLowerCase().normalize('NFC').match(/\p{L}+/gu) || []);
+}
+
+function hasRomanshMarker(tokens, marker) {
+  return [...tokens].some((token) => token === marker || token.startsWith(marker));
+}
+
+/**
+ * Detect Romansh from the posting body only. Titles such as «Praticanta /
+ * praticant» are too short and too close to Italian to be evidence. The
+ * strong markers are distinctive compounds; the function-word markers only
+ * corroborate them (or need four independent hits on their own), so ordinary
+ * Italian prose containing «da»/«è» is not reclassified.
+ */
+export function detectSrgSsrBodyLanguage(description = '', fallback = 'de') {
+  const tokens = bodyTokens(description);
+  const distinctiveHits = ROMANSH_DISTINCTIVE_MARKERS.filter((marker) => hasRomanshMarker(tokens, marker)).length;
+  const identityHits = ROMANSH_IDENTITY_MARKERS.filter((marker) => hasRomanshMarker(tokens, marker)).length;
+  const functionHits = ROMANSH_FUNCTION_MARKERS.filter((marker) => tokens.has(marker)).length;
+  if (distinctiveHits >= 2 || (distinctiveHits >= 1 && functionHits >= 1)
+      || (identityHits >= 1 && functionHits >= 3) || functionHits >= 4) return 'rm';
+  return detectLang(description, fallback);
+}
+
+/**
+ * Prefer a same-ID localized body when the source exposed one. The current
+ * RTR pages do not expose such a sibling (the `lang` query parameter changes
+ * neither the body nor the JSON-LD), so an unpaired Romansh body remains an
+ * explicitly declared `rm` source and is queued for LLM translation.
+ */
+export function resolveSrgSsrSourceLang({ description = '', localizedDescriptions = {}, fallback = 'de' } = {}) {
+  for (const locale of PUBLISHED_LOCALES) {
+    if (String(localizedDescriptions?.[locale] || '').trim()) return locale;
+  }
+  return detectSrgSsrBodyLanguage(description, fallback);
 }
 
 /**
@@ -127,6 +177,69 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+export function isRtrJob(job) {
+  return normalize(job?.url || '').includes('jobs.srgssr.ch/rtr/')
+    || normalize(job?._srgMeta?.org || '') === 'rtr';
+}
+
+function normalizeComparableText(value = '') {
+  return normalizeSpace(value).toLowerCase();
+}
+
+/**
+ * Repair historical RTR rows whose Romansh body was stored as Italian/French.
+ * Text slots that are still the source body are removed; translated slots are
+ * retained for the LLM repair queue. Slugs are deliberately untouched.
+ */
+export function prepareSrgSsrExistingJobs(jobs) {
+  if (!Array.isArray(jobs)) return jobs;
+  return jobs.map((job) => {
+    if (!job || !isRtrJob(job)) return job;
+    const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+      ? job.descriptionByLocale
+      : {};
+    const sourceBody = [job.description, ...Object.values(descriptions)]
+      .map((value) => String(value || '').trim())
+      .find((value) => detectSrgSsrBodyLanguage(value, 'de') === 'rm');
+    if (!sourceBody) return job;
+
+    const title = String(job.title || '').trim();
+    const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+      ? { ...job.titleByLocale }
+      : {};
+    for (const locale of PUBLISHED_LOCALES) {
+      if (normalizeComparableText(titleByLocale[locale]) === normalizeComparableText(title)) {
+        delete titleByLocale[locale];
+      }
+    }
+    if (title) titleByLocale.rm = title;
+
+    const descriptionByLocale = { ...descriptions };
+    for (const locale of PUBLISHED_LOCALES) {
+      const value = String(descriptionByLocale[locale] || '').trim();
+      if (value && detectSrgSsrBodyLanguage(value, 'de') === 'rm') delete descriptionByLocale[locale];
+    }
+    descriptionByLocale.rm = sourceBody;
+
+    const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+      ? { ...job.slugByLocale }
+      : {};
+    const sourceSlug = String(slugByLocale.rm || job.slug || slugByLocale.it || '').trim();
+    if (sourceSlug) slugByLocale.rm = sourceSlug;
+
+    return {
+      ...job,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      description: sourceBody,
+      titleByLocale,
+      descriptionByLocale,
+      slugByLocale,
+      needsRetranslation: true,
+    };
+  });
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -449,7 +562,10 @@ export async function fetchAllSrgSsrJobs() {
       const employmentType = employmentTypeRaw || deriveEmploymentType(pct);
 
       // Source language detection
-      const sourceLang = detectLang(description || title, 'de');
+      const sourceLang = resolveSrgSsrSourceLang({ description });
+      const sourceLocaleFields = sourceLang === 'rm'
+        ? { sourceLangOriginal: 'rm', needsRetranslation: true }
+        : {};
 
       // Posting date from JSON-LD
       const datePosted = String(jsonLd?.datePosted || '').trim() ||
@@ -482,6 +598,7 @@ export async function fetchAllSrgSsrJobs() {
         url: listing.url,
         source: 'SRG SSR Dedicated Parser',
         sourceLang,
+        ...sourceLocaleFields,
         crawledAt: new Date().toISOString(),
 
         // ── Recommended fields ──
