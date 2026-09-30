@@ -258,7 +258,7 @@ function runSiblingGate(effectiveBodyFile) {
       encoding: 'utf8',
       // Managed Node runtimes reject a child stdin pipe with EPERM. The
       // sibling gate receives its bounded payload through the environment.
-      stdio: ['ignore', 'pipe', 'pipe'],
+      stdio: ['ignore', 'inherit', 'inherit'],
     },
   );
   if (result.stdout) process.stdout.write(result.stdout);
