@@ -346,7 +346,7 @@ export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirects(url, {
-  fetchImpl = undiciFetch,
+  fetchImpl = fetch,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
@@ -376,7 +376,7 @@ export async function fetchFollowingValidatedRedirects(url, {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirectsWithUrl(url, {
-  fetchImpl = undiciFetch,
+  fetchImpl = fetch,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
@@ -387,7 +387,23 @@ export async function fetchFollowingValidatedRedirectsWithUrl(url, {
   for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount++) {
     if (validateUrl) await validateUrl(current);
     if (beforeRequest) await beforeRequest(current, { redirectCount });
-    const res = await fetchImpl(current, { ...currentOptions, redirect: 'manual' });
+    const requestOptionsForHop = { ...currentOptions, redirect: 'manual' };
+    let res;
+    try {
+      res = await fetchImpl(current, requestOptionsForHop);
+    } catch (error) {
+      // Node's built-in fetch and the npm Undici package do not always accept
+      // each other's Agent instances. Keep the caller's fetch (including test
+      // doubles) as the first choice, but retry this one compatibility error
+      // with the same Undici copy that created the policy Agent.
+      if (fetchImpl === globalThis.fetch
+        && requestOptionsForHop.dispatcher
+        && error?.message === 'invalid onRequestStart method') {
+        res = await undiciFetch(current, requestOptionsForHop);
+      } else {
+        throw error;
+      }
+    }
     const effectiveUrl = res.url || current;
     if (validateUrl) await validateUrl(effectiveUrl);
     if (res.status < 300 || res.status >= 400) return { response: res, effectiveUrl };
