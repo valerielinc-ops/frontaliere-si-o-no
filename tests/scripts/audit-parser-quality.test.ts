@@ -760,6 +760,32 @@ describe('source-detail fidelity checks', () => {
     });
   });
 
+  it('recognises the Swiss site in Microsoft multi-location JSON-LD with a country-suffixed region', () => {
+    const description = 'A complete source vacancy description with responsibilities and qualifications. '.repeat(8);
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Procurement Manager',
+      description,
+      jobLocation: [
+        { address: { addressLocality: 'Milan', addressRegion: 'Lombardy,IT', addressCountry: 'IT' } },
+        { address: { addressLocality: 'Madrid', addressRegion: 'MD,ES', addressCountry: 'ES' } },
+        { address: { addressLocality: 'Zürich', addressRegion: 'ZH,CH', addressCountry: 'CH' } },
+      ],
+    })}</script>`;
+
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: 'Zürich, ZH',
+      evidence: 'jsonld',
+    });
+    const result = compareSourceDetail(
+      { location: 'Zürich', description },
+      { location: 'Zürich, ZH', description },
+      { crawlerKey: 'microsoft', locationEvidence: 'jsonld' },
+    );
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(false);
+  });
+
   it('does not mistake Swiss canton codes for foreign country evidence', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',

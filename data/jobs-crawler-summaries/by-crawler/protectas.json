@@ -1,7 +1,7 @@
 {
   "key": "protectas",
   "label": "Protectas SA",
-  "generatedAt": "2026-09-30T15:48:46.354Z",
+  "generatedAt": "2026-09-30T21:37:17.750Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -10,16 +10,17 @@
   "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3288,
-  "avgDurationMs": 3288,
+  "durationMs": 4053,
+  "avgDurationMs": 4053,
   "durationHistory": [
-    3288
+    4053
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "protectas-01bf4e1f2262",
       "slug": "agente-di-sicurezza-ausiliario-luganese-contratto-orario-ronde-sorveglianza-lugano",
@@ -32,7 +33,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-30T15:48:36.865Z",
+      "crawledAt": "2026-09-30T21:37:07.980Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -46,17 +47,16 @@
       "featured": false,
       "postedDate": "2026-09-30",
       "applyUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
-      "needsRetranslation": true,
-      "_qualityScore": 59,
+      "firstSeenAt": "2026-09-30T15:48:36.865Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

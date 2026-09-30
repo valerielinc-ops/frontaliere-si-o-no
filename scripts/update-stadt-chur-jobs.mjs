@@ -18,7 +18,7 @@ dns.setDefaultResultOrder('ipv4first');
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -34,6 +34,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -57,6 +58,7 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -114,7 +116,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '30000', 10);
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0; +https://frontaliereticino.ch)';
-const DETAIL_DELAY_MS = 800;
+const DETAIL_DELAY_MS = 1_000;
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 5000;
 
@@ -243,16 +245,26 @@ function mapEmploymentType(title = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchDetailPage(url) {
+  let relayFallback = false;
   try {
     const res = await fetchWithRetry(url, {
       headers: { 'User-Agent': UA, Accept: 'text/html' },
     }, 2);
-    if (!res.ok) return null;
-    return await res.text();
+    if (res.ok) return await res.text();
+    relayFallback = res.status === 403;
+    if (!relayFallback) return null;
+    console.warn(`  ⚠️ Detail fetch returned HTTP 403 for ${url}`);
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed for ${url}: ${err.message}`);
-    return null;
+    relayFallback = true;
   }
+
+  if (relayFallback) {
+    const relayed = await fetchSourceViaRelay(url);
+    if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
+    if (relayed) console.warn(`  ⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+  }
+  return null;
 }
 
 // Direct detail-page fetches hit the same datacenter-egress block as the feed
@@ -530,7 +542,19 @@ async function main() {
   console.log('═══════════════════════════════════════');
   console.log('Phase 1: Fetch Atom feed');
   console.log('═══════════════════════════════════════');
-  const entries = await fetchFeed();
+  let entries;
+  try {
+    entries = await fetchFeed();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ ${COMPANY_NAME}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    const stored = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+    await rewriteStoredJobsWithoutThinSource(stored);
+    return;
+  }
 
   if (entries.length === 0) {
     console.log('ℹ️ No jobs found in feed — cleaning stored thin-source rows only.');

@@ -126,6 +126,10 @@ jobs:
       - name: Commit history
         # `if: always()`: la serie va persistita anche nei giri che allarmano.
         if: always()
+        env:
+          # State-only writer: isolate the owned docs directory and bound the
+          # shared-main contention retry below this job's timeout.
+          MAX_PUSH_ATTEMPTS: '5'
         run: |
           set -uo pipefail
           ec=0

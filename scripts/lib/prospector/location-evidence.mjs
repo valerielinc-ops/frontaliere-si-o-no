@@ -633,6 +633,22 @@ function structuredText(value) {
 }
 
 /**
+ * Some JSON-LD producers append the ISO country code to `addressRegion`
+ * (`ZH,CH`, `Lombardy,IT`) while also supplying `addressCountry`. Keep the
+ * region as the source declares it, but remove only that redundant terminal
+ * country segment before the structured geography resolver validates it.
+ */
+function schemaAddressRegion(addressRegion, addressCountry) {
+  const region = structuredText(addressRegion);
+  const country = structuredText(addressCountry).toUpperCase();
+  if (!region || !/^[A-Z]{2,3}$/.test(country)) return region;
+  const parts = region.split(',').map((part) => part.trim()).filter(Boolean);
+  return parts.length > 1 && parts.at(-1)?.toUpperCase() === country
+    ? parts.slice(0, -1).join(', ')
+    : region;
+}
+
+/**
  * Preserve every schema.org JobPosting location and its country/address
  * evidence. Dedicated crawlers use the same representation as the generic
  * Prospector runtime so a foreign first entry cannot hide a later CH place.
@@ -648,8 +664,8 @@ export function schemaJobLocationCandidates(jobLocation) {
     for (const address of addresses) {
       if (!address || typeof address !== 'object') continue;
       const addressLocality = structuredText(address.addressLocality);
-      const addressRegion = structuredText(address.addressRegion);
       const addressCountry = structuredText(address.addressCountry);
+      const addressRegion = schemaAddressRegion(address.addressRegion, addressCountry);
       const placeName = structuredText(address.name || place.name);
       const location = [addressLocality || placeName, addressRegion].filter(Boolean).join(', ');
       if (!location && !addressCountry) continue;

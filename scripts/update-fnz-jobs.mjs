@@ -35,6 +35,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -61,6 +62,7 @@ import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -705,6 +707,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: FNZ_KEY,
+    companyLabel: FNZ_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(FNZ_KEY, jobs, {
+      isTargetJob: isFnzJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
@@ -725,7 +741,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No FNZ jobs discovered.');
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(FNZ_KEY, DATA_JOBS).filter(isFnzJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;

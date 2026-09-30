@@ -1,4 +1,5 @@
 import { onRequest } from 'firebase-functions/v2/https';
+import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
 import {
  ensureAdminApp,
  handleResendWebhookRequest,
@@ -129,6 +130,24 @@ import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
 ensureAdminApp();
+
+// Narrow, authenticated fetch relay for the two job sources that reject
+// datacenter egress. Cloud Run IAM rejects unauthenticated callers before the
+// container starts; the workflow-side OIDC token remains a second factor in
+// the handler. No source headers supplied by the caller are forwarded upstream.
+export const jobsSourceRelay = onRequest(
+  {
+    invoker: 'private',
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 15,
+    minInstances: 0,
+    maxInstances: 1,
+    concurrency: 1,
+    cors: false,
+  },
+  handleJobsSourceRelay,
+);
 
 /**
  * Authenticated petition signature endpoint.

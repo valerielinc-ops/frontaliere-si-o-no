@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-09-29T21:12:01.175Z",
+  "assembledAt": "2026-09-30T23:30:57.037Z",
   "jobs": [
     {
       "id": "cedes-38194b91f772",
@@ -45,7 +45,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:11:57.172Z",
+      "crawledAt": "2026-09-30T23:30:52.389Z",
       "previousSlugs": [
         "lead-buyer-electronics-cedes-landquart",
         "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart"
@@ -121,7 +121,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:11:56.868Z",
+      "crawledAt": "2026-09-30T23:30:52.085Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart",
@@ -142,6 +142,7 @@
           "unsolicited-applications-cedes-landquart"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,

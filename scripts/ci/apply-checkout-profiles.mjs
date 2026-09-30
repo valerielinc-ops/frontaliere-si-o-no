@@ -20,6 +20,7 @@ const DRY = process.argv.includes('--dry-run');
 const CHECK = process.argv.includes('--check');
 const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : null;
 const MARK = '# checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs';
+const FULL_CHECKOUT_MARK = '# checkout profile: intentionally full';
 
 // `data/blog-articles-data.ts` is a symlink into the article package. A
 // typecheck profile must carry both names: Git checks out the symlink at the
@@ -151,10 +152,12 @@ export function missingTypecheckSparsePaths(text, file = 'workflow.yml') {
  *
  * Ritorna `{ text, status }`:
  *   - `patched`  blocco inserito o aggiornato;
- *   - `manual`   il passo ha gia' uno sparse-checkout scritto a mano → NON si
- *                tocca. Alcuni sono piu' snelli di quanto questo script sappia
+ *   - `manual`   il passo ha gia' uno sparse-checkout scritto a mano, oppure
+ *                porta il marcatore `FULL_CHECKOUT_MARK` → NON si tocca.
+ *                Alcuni profili sono piu' snelli di quanto questo script sappia
  *                produrre (`measure-deploy-delta.yml` si porta giu' un solo file
- *                .py), e sovrascriverli sarebbe una regressione;
+ *                .py), mentre altri hanno misure runtime che giustificano il
+ *                checkout pieno: sovrascriverli sarebbe una regressione;
  *   - `nostep`   nessun passo di checkout in questo job.
  *
  * Il blocco viene ACCODATO in fondo al `with:` esistente, non anteposto: cosi'
@@ -194,6 +197,7 @@ export function patchJobCheckout(text, jobId, patterns) {
   // farebbe passare il secondo per generato — sovrascrivendolo.
   const stepText = text.slice(stepNode.range[0], stepNode.range[2]);
   const generated = hasSparse && stepText.includes(MARK);
+  if (stepText.includes(FULL_CHECKOUT_MARK)) return { text, status: 'manual' };
   if (hasSparse && !generated) return { text, status: 'manual' };
 
   // `patterns` vuoto significa RIMUOVI: il job e' finito sopra la soglia di

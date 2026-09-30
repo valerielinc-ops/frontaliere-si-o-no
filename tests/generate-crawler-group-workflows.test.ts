@@ -48,6 +48,35 @@ function crawlerResultSteps(steps: any[]) {
     && !step.id.startsWith('crawler-generation-'));
 }
 
+function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId = '400') {
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-queue-guard-fixture-'));
+  const binDir = path.join(scratch, 'bin');
+  fs.mkdirSync(binDir);
+  const outputPath = path.join(scratch, 'github-output');
+  fs.writeFileSync(path.join(binDir, 'gh'), ghScript, { mode: 0o755 });
+  const fixtureRun = `PATH=${binDir}:$PATH\n${guardRun}`;
+
+  try {
+    const stdout = execFileSync('bash', ['-e', '-c', fixtureRun], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH ?? ''}`,
+        BASH_ENV: '/dev/null',
+        GITHUB_OUTPUT: outputPath,
+        GITHUB_REPOSITORY: 'nanakokyobashi-rgb/frontaliere-articles',
+        GITHUB_RUN_ID: runId,
+        GITHUB_EVENT_NAME: 'schedule',
+        TRANSLATION_MANUAL_OVERRIDE: 'false',
+        GH_TOKEN: 'fixture-token',
+      },
+    });
+    return { stdout, output: fs.readFileSync(outputPath, 'utf8') };
+  } finally {
+    fs.rmSync(scratch, { recursive: true, force: true });
+  }
+}
+
 function makeCrawlers(n: number, durationFn: (i: number) => number): Crawler[] {
   return Array.from({ length: n }, (_, i) => ({ slug: `crawler-${i}`, durationMs: durationFn(i) }));
 }
@@ -2454,7 +2483,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');
     expect(guardStep.run).toContain('status_total_count');
     expect(guardStep.run).toContain('status_returned_count');
-    expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi');
+    expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed');
     expect(guardStep.run).toContain('remaining_seconds');
     expect(guardStep.run).toContain('call_timeout_seconds');
     expect(guardStep.run).toContain('api_retry_limit=3');
@@ -2472,7 +2501,154 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('workflow_dispatch');
     expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     expect(guardStep.run).toContain('run=false');
-    expect(guardStep.run).toContain('continuing with the heavy run to preserve throughput');
+    expect(guardStep.run).toContain('current_run_path');
+    expect(guardStep.run).toContain('skipping the heavy run to keep the queue bounded');
+    expect(guardStep.run).not.toContain('fail_open');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ammette il pesante quando la run corrente è l’unica attiva', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued"|*"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('admits the oldest waiting run');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ammette il pesante quando l’altra run in_progress ha già il job translate in corso', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued"|*"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"},{"name":"translate_queue_guard","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"pending"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('1 heavy run(s) currently active and 0 waiting behind it');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non entra in fail_closed quando total_count coincide con le righe restituite per ogni status', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":501,"created_at":"2026-09-30T09:00:00Z","status":"queued"}]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":400,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=1');
+    expect(output).not.toContain('waiting_runs=-1');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('salta il pesante con piu run pending anche se la lista non contiene ancora la run corrente', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=pending")
+    printf '%s\n' '{"total_count":2,"workflow_runs":[{"id":101,"created_at":"2026-09-30T09:00:00Z","status":"pending"},{"id":102,"created_at":"2026-09-30T09:30:00Z","status":"pending"}]}'
+    ;;
+  *"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+    expect(stdout).toContain('found older run 101');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=2');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non ammette il pesante quando la discovery API fallisce', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(
+      guardStep.run,
+      '#!/usr/bin/env bash\nexit 1\n',
+    );
+    expect(stdout).toContain('skipping the heavy run to keep the queue bounded');
+    expect(output).toContain('run=false');
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {

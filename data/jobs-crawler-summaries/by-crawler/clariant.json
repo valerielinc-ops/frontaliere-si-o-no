@@ -1,23 +1,26 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-09-29T21:14:08.657Z",
+  "generatedAt": "2026-09-30T21:13:55.334Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4900,
-  "avgDurationMs": 4900,
+  "durationMs": 4501,
+  "avgDurationMs": 4501,
   "durationHistory": [
-    4900
+    4501
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clariant-d6a32aa77d6b",
       "slug": "intern-ai-for-sustainability-reporting-clariant-pratteln",
@@ -30,7 +33,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:14:00.480Z",
+      "crawledAt": "2026-09-30T21:13:46.459Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -46,16 +49,15 @@
       "postedDate": "2026-09-29",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "jobReqId": "41889",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-09-29T21:14:00.480Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "clariant-e621ca88dbc5",
       "slug": "senior-manager-national-tax-tax-governance-clariant-pratteln",
@@ -68,7 +70,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:14:01.075Z",
+      "crawledAt": "2026-09-30T21:13:47.246Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",

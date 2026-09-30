@@ -30,6 +30,7 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -52,6 +53,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -548,6 +550,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: DXT_KEY,
+    companyLabel: DXT_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(DXT_KEY, jobs, {
+      isTargetJob: isDxtJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -570,7 +586,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No DXT Lugano jobs discovered.');
     console.log('   The careers page may have changed structure or have no current openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(DXT_KEY, DATA_JOBS).filter(isDxtJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
