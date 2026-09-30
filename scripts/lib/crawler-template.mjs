@@ -171,6 +171,7 @@ import {
   buildThinSourceHousekeepingProof,
   buildSourceBodyFailureHousekeepingProof,
   collectThinSourceJobsForQuarantine,
+  dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './stored-source-body.mjs';
@@ -1193,6 +1194,11 @@ export async function runStandardCrawlerPipeline(config) {
     mergeExisting,
     sourceBodyMatchKey,
   );
+  const mergeExistingForSourceBodies = dropFailedSourceJobsWithoutValidBody(
+    mergeExisting,
+    parsedJobs,
+    sourceBodyMatchKey,
+  );
   if (!authoritativeEmptySnapshot && sourceBodyJobs.length === 0) {
     const allRowsFailedExtraction = Array.isArray(parsedJobs)
       && parsedJobs.length > 0
@@ -1244,7 +1250,7 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  const merged = mergePreserveLocaleData(mergeExisting, sourceBodyJobs, mergeOpts);
+  const merged = mergePreserveLocaleData(mergeExistingForSourceBodies, sourceBodyJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;

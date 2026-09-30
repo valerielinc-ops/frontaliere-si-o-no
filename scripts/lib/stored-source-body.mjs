@@ -110,6 +110,38 @@ export function keepStoredSourceBodiesByKey(
 }
 
 /**
+ * Remove stored rows for source extractions that failed in this run when no
+ * valid source body exists to keep publishing. A failed discovery is already
+ * absent from keepStoredSourceBodiesByKey(); this second filter prevents the
+ * merge from re-adding the old empty/thin row through its existing-jobs input.
+ *
+ * @param {object[]} existingJobs stored jobs passed to the merge
+ * @param {object[]} discoveredJobs fresh jobs, including failed extractions
+ * @param {(job: object) => string} keyOfJob stable job identity
+ * @returns {object[]}
+ */
+export function dropFailedSourceJobsWithoutValidBody(
+  existingJobs = [],
+  discoveredJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const failedKeys = new Set(
+    (Array.isArray(discoveredJobs) ? discoveredJobs : [])
+      .filter(hasSourceBodyFailure)
+      .map(keyOfJob)
+      .filter(Boolean),
+  );
+  if (failedKeys.size === 0) return Array.isArray(existingJobs) ? existingJobs : [];
+
+  return (Array.isArray(existingJobs) ? existingJobs : []).filter((job) => {
+    const key = keyOfJob(job);
+    if (!failedKeys.has(key)) return true;
+    const sourceLang = String(job?.sourceLang || '').trim();
+    return Boolean(sourceLang) && meetsSourceBodyFloor(sourceBodyForJob(job));
+  });
+}
+
+/**
  * Collect the source-body records that must be quarantined after the stored
  * body fallback has had its chance.
  *

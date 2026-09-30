@@ -52,6 +52,7 @@ import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
 import {
   buildSourceBodyFailureHousekeepingProof,
+  dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodiesByKey,
 } from './lib/stored-source-body.mjs';
 import {
@@ -381,8 +382,14 @@ async function mergeJobs(discoveredJobs) {
     );
   }
 
+  const mergeExistingTargetJobs = dropFailedSourceJobsWithoutValidBody(
+    existingTargetJobs,
+    discoveredJobs,
+    jobMatchKey,
+  );
+
   const existingByKey = new Map();
-  for (const job of existingTargetJobs) {
+  for (const job of mergeExistingTargetJobs) {
     existingByKey.set(jobMatchKey(job), job);
   }
 

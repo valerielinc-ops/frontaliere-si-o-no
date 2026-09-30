@@ -7,6 +7,7 @@ import {
   buildSourceBodyFailureHousekeepingProof,
   buildThinSourceHousekeepingProof,
   collectThinSourceJobsForQuarantine,
+  dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodies,
   keepStoredSourceBodiesByKey,
 } from '@/scripts/lib/stored-source-body.mjs';
@@ -206,5 +207,41 @@ describe('keepStoredSourceBodies', () => {
     };
     expect(keepStoredSourceBodiesByKey([failed], [], jobKey)).toEqual([]);
     expect(collectThinSourceJobsForQuarantine([failed], [], jobKey)).toEqual([]);
+  });
+
+  it('removes a failed identity from the merge when its stored body is under the floor', () => {
+    const failed = {
+      url: 'https://source.example/jobs/pdf-failure-thin-history',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+    };
+    const stored = {
+      ...failed,
+      description: BODY_35,
+      descriptionByLocale: { it: BODY_35 },
+      sourceBodyFailureReason: undefined,
+    };
+
+    expect(dropFailedSourceJobsWithoutValidBody([stored], [failed], jobKey)).toEqual([]);
+  });
+
+  it('keeps a failed identity in the merge when its stored body clears the floor', () => {
+    const failed = {
+      url: 'https://source.example/jobs/pdf-failure-valid-history',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+    };
+    const stored = {
+      ...failed,
+      description: BODY,
+      descriptionByLocale: { it: BODY },
+      sourceBodyFailureReason: undefined,
+    };
+
+    expect(dropFailedSourceJobsWithoutValidBody([stored], [failed], jobKey)).toEqual([stored]);
   });
 });

@@ -29,6 +29,7 @@ import {
 import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
 import {
   buildSourceBodyFailureHousekeepingProof,
+  dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodiesByKey,
 } from './lib/stored-source-body.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -59,14 +60,18 @@ function writeJobsFiles(jobs) {
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
-function mergeCompanyJobs(parsedJobs) {
+function mergeCompanyJobs(parsedJobs, discoveredJobs = []) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
-  const companyExisting = dropFabricatedDescriptions(
-    allJobs.filter((j) => isCompanyJob(j)),
-    CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE,
-    COMPANY_NAME,
+  const companyExisting = dropFailedSourceJobsWithoutValidBody(
+    dropFabricatedDescriptions(
+      allJobs.filter((j) => isCompanyJob(j)),
+      CITTA_DI_BELLINZONA_FABRICATED_DESCRIPTION_RE,
+      COMPANY_NAME,
+    ),
+    discoveredJobs,
+    (job) => String(job?.url || '').trim().replace(/\/+$/, ''),
   );
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
@@ -166,7 +171,7 @@ async function main() {
       + 'publishable source body; extraction failures are not thin-source quarantine.',
     );
   }
-  const published = mergeCompanyJobs(sourceBodyJobs);
+  const published = mergeCompanyJobs(sourceBodyJobs, parsedJobs);
   printPublishedJobUrls(published, 'Bellinzona');
   writeJobsSummary(published, 'Bellinzona');
   const after = snapshotJobSlugs(published);
