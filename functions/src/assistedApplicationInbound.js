@@ -24,6 +24,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { sameSite } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
+import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { decryptJson, encryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
@@ -281,7 +282,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
           text: forward.text,
           ...(replyTo ? { replyTo } : {}),
           ...(attachments.length ? { attachments } : {}),
-          tracking: false,
+          // Opens only: the employer's own links stay as the employer wrote them.
+          ...assistedEmailTracking(orderId, 'employer_message_forward', { clicks: false }),
         },
         recipient: { email: to },
         meta: { orderId, key: 'employer_message_forward' },

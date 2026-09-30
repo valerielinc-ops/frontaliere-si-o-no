@@ -131,6 +131,46 @@ function notificationStatus(data, key) {
   return boundedString(data?.notifications?.[key]?.status, 40) || null;
 }
 
+function eventCount(value) {
+  const count = Number(value);
+  return Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
+}
+
+/**
+ * Every e-mail the candidate received, with what the providers reported back
+ * (assistedApplicationEmailEvents.js): delivery, opens, clicks, bounces.
+ */
+function candidateEmailsFor(data) {
+  const engagement = data?.emailEngagement && typeof data.emailEngagement === 'object' ? data.emailEngagement : {};
+  const notifications = data?.notifications && typeof data.notifications === 'object' ? data.notifications : {};
+  const keys = new Set([
+    ...Object.keys(notifications).filter((key) => /^(customer_|auto_candidate_)/.test(key)),
+    ...Object.keys(engagement),
+  ]);
+  return [...keys]
+    .filter((key) => /^[a-z0-9_]{1,80}$/.test(key))
+    .map((key) => {
+      const events = engagement[key] || {};
+      const sent = notifications[key] || {};
+      return {
+        key,
+        status: boundedString(sent.status, 40) || null,
+        sentAt: timestampToIso(sent.sentAt),
+        delivered: eventCount(events.delivered),
+        opens: eventCount(events.opens),
+        clicks: eventCount(events.clicks),
+        bounces: eventCount(events.bounces),
+        complaints: eventCount(events.complaints),
+        firstOpenAt: timestampToIso(events.firstOpenAt),
+        lastOpenAt: timestampToIso(events.lastOpenAt),
+        lastClickAt: timestampToIso(events.lastClickAt),
+        lastClickUrl: optionalString(events.lastClickUrl, 300) || null,
+      };
+    })
+    .sort((a, b) => String(a.sentAt || a.firstOpenAt || '').localeCompare(String(b.sentAt || b.firstOpenAt || '')))
+    .slice(0, 40);
+}
+
 function isAssistedApplicationStorageKey(orderId, value) {
   const key = boundedString(value, 600);
   const prefix = `assisted-application-uploads/${orderId}/`;
@@ -177,6 +217,7 @@ function serializeOrder(doc, cvUrl) {
       reminder: notificationStatus(data, 'customer_materials_reminder'),
       submitted: notificationStatus(data, 'customer_submitted'),
     },
+    candidateEmails: candidateEmailsFor(data),
     cvUploadedAt: timestampToIso(data.cvUploadedAt),
     consentVersion: optionalString(data.consentVersion, 120) || null,
     consentedAt: timestampToIso(data.consentedAt),

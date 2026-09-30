@@ -359,6 +359,41 @@ describe('Codex auth broker runtime contract', () => {
     expect(fs.existsSync(root)).toBe(false);
   });
 
+  // A job where a slow request must finish (the assisted application at effort
+  // max) raises the per-request cap; every other job keeps the 10 minutes.
+  it('caps a request at 10 minutes unless the job passes --max-timeout-ms', async () => {
+    const startBroker = async (extra: string[]) => {
+      const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+      fs.chmodSync(root, 0o700);
+      roots.push(root);
+      const socketPath = path.join(root, 'auth.sock');
+      const prefix = codexPrefix(root);
+      const fakeCodex = writeFakeCodex(prefix);
+      const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...extra, ...codexAttestationArgs(fakeCodex, prefix)], {
+        stdio: ['pipe', 'ignore', 'pipe'],
+        env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+      });
+      children.push(child);
+      child.stdin.end('{"access_token":"runtime-only-secret"}');
+      await waitForSocket(socketPath, child);
+      return socketPath;
+    };
+    const standard = await startBroker([]);
+    await expect(request(standard, { op: 'exec', prompt: 'slow', timeoutMs: 600_001, schema: null }))
+      .resolves.toEqual({ ok: false, error: 'invalid timeout' });
+
+    const patient = await startBroker(['--max-timeout-ms', '1800000']);
+    const response = await request(patient, { op: 'exec', prompt: 'slow', timeoutMs: 1_800_000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    await expect(request(patient, { op: 'exec', prompt: 'slow', timeoutMs: 1_800_001, schema: null }))
+      .resolves.toEqual({ ok: false, error: 'invalid timeout' });
+
+    // Out of bounds: the default applies.
+    const bounded = await startBroker(['--max-timeout-ms', '99999999']);
+    await expect(request(bounded, { op: 'exec', prompt: 'slow', timeoutMs: 600_001, schema: null }))
+      .resolves.toEqual({ ok: false, error: 'invalid timeout' });
+  });
+
   // The socket file appears at bind(), a moment before listen(): a client that
   // waits for the path to exist could connect in between and get ECONNREFUSED
   // (corpus twin, PR 1773, run 36038787680). The broker listens on a temporary

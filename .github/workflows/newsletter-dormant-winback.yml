@@ -47,28 +47,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
+        # Full checkout intenzionale: il profilo sparse precedente dichiarava
+        # 1.192 MB ma impiegava 158 s (run 35980901661); il checkout completo
+        # da 6.829 MB ha impiegato 141 s (run 36760319341), quindi è 17 s più
+        # rapido sul runner reale.
+        # Il confronto misura lo stesso step Checkout su due run del workflow;
+        # non include npm ci o gli step applicativi successivi.
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

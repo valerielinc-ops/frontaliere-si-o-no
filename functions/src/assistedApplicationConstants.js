@@ -40,5 +40,6 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   // plus the owner's edits of the AI draft and a CV she uploads for the customer.
   'automation_transition',
   'automation_draft_edited',
+  'automation_candidate_edited',
   'cv_uploaded_by_owner',
 ]);

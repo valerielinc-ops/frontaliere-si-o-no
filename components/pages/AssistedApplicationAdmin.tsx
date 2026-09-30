@@ -21,6 +21,7 @@ import {
   updateAssistedApplicationStatus,
   type AssistedApplicationAdminOrder,
   type AssistedApplicationAdminStatus,
+  type AssistedApplicationCandidateEmail,
 } from '@/services/assistedApplicationAdminService';
 import { trackAssistedApplicationEvent } from '@/services/assistedApplicationExperiment';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
@@ -118,6 +119,56 @@ const EMAIL_STATUS_LABELS: Record<string, string> = {
 
 function emailStatusLabel(status: string | null): string {
   return status ? EMAIL_STATUS_LABELS[status] || status : 'non inviata';
+}
+
+const CANDIDATE_EMAIL_LABELS: Array<[RegExp, (match: RegExpMatchArray) => string]> = [
+  [/^customer_intro$/, () => 'Benvenuto'],
+  [/^customer_materials_received$/, () => 'CV ricevuto'],
+  [/^customer_materials_reminder$/, () => 'Promemoria 48 h'],
+  [/^customer_submitted$/, () => 'Conferma invio'],
+  [/^auto_candidate_review_r(\d+)(_held)?$/, (m) => `Revisione della bozza, round ${m[1]}${m[2] ? ' (con domande)' : ''}`],
+  [/^auto_candidate_reminder_r(\d+)$/, (m) => `Promemoria revisione, round ${m[1]}`],
+  [/^auto_candidate_action_\d+$/, () => 'Serve una risposta del candidato'],
+  [/^auto_candidate_handoff$/, () => 'Invio dal portale affidato al candidato'],
+  [/^auto_candidate_handoff_reminder$/, () => 'Promemoria invio dal portale'],
+  [/^auto_candidate_posting_closed$/, () => 'Annuncio chiuso e rimborso'],
+  [/^followup_review_(\d+)$/, (m) => `Follow-up ${m[1]} da rivedere`],
+  [/^interview_prep$/, () => 'Preparazione al colloquio'],
+  [/^employer_message_forward$/, () => 'Risposta del datore inoltrata'],
+];
+
+function candidateEmailLabel(key: string): string {
+  for (const [pattern, label] of CANDIDATE_EMAIL_LABELS) {
+    const match = key.match(pattern);
+    if (match) return label(match);
+  }
+  return key;
+}
+
+/** Delivery, opens and clicks of each e-mail the candidate received. */
+function CandidateEmails({ emails }: { emails: AssistedApplicationCandidateEmail[] }) {
+  if (!emails.length) return <span className="block text-xs text-subtle">Nessuna email al candidato finora</span>;
+  return (
+    <ul className="space-y-1.5">
+      {emails.map((email) => {
+        const facts = [
+          email.sentAt ? `inviata ${formatDate(email.sentAt)}` : null,
+          email.delivered ? 'consegnata' : null,
+          email.opens ? `aperta ${email.opens}× (prima ${formatDate(email.firstOpenAt)})` : 'non ancora aperta',
+          email.clicks ? `${email.clicks} clic (ultimo ${formatDate(email.lastClickAt)})` : null,
+          email.bounces ? 'rimbalzata' : null,
+          email.complaints ? 'segnalata come spam' : null,
+        ].filter(Boolean);
+        return (
+          <li key={email.key} className="text-xs">
+            <span className="font-semibold text-strong">{candidateEmailLabel(email.key)}</span>
+            <span className={`block ${email.bounces || email.complaints ? 'text-danger' : email.opens ? 'text-success' : 'text-subtle'}`}>{facts.join(' · ')}</span>
+            {email.lastClickUrl && <span className="block truncate text-subtle" title={email.lastClickUrl}>{email.lastClickUrl}</span>}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 function CvLink({ order }: { order: AssistedApplicationAdminOrder }) {
@@ -344,6 +395,10 @@ export default function AssistedApplicationAdmin() {
                     <span className="block text-xs text-subtle">Benvenuto: {emailStatusLabel(order.emails?.intro ?? null)}</span>
                     <span className="block text-xs text-subtle">Promemoria 48 h: {emailStatusLabel(order.emails?.reminder ?? null)}</span>
                     <span className="block text-xs text-subtle">Conferma invio: {emailStatusLabel(order.emails?.submitted ?? null)}</span>
+                  </DataRow>
+                  <DataRow label="Aperture e clic del candidato">
+                    <CandidateEmails emails={order.candidateEmails || []} />
+                    <span className="mt-1 block text-[11px] text-muted">Le aperture sono indicative: alcuni client aprono ogni email alla consegna.</span>
                   </DataRow>
                 </dl>
 

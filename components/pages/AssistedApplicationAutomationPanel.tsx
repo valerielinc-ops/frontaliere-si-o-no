@@ -350,6 +350,12 @@ export default function AssistedApplicationAutomationPanel({
             </label>
           ))}
 
+          {(draft.candidateEditedAt || Object.keys(flow?.formOverrides || {}).length > 0) && (
+            <p className="rounded-lg border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
+              Il candidato ha modificato {draft.candidateEditedAt ? `i testi (${formatMs(draft.candidateEditedAt)})` : 'i suoi dati'}
+              {Object.keys(flow?.formOverrides || {}).length > 0 && `; campi: ${Object.keys(flow?.formOverrides || {}).join(', ')}`}.
+            </p>
+          )}
           <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
             Lettera ({draft.language})
             <textarea value={letter} onChange={(event) => setLetter(event.target.value)} rows={10} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />

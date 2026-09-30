@@ -21,6 +21,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
 import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 function sanitizeString(value) {
@@ -242,6 +243,13 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  const linkLabel = sanitizeString(data.link_label || data.click?.link_label);
  const sectionId = sanitizeString(data.section_id || data.click?.section_id);
  const occurredAt = sanitizeString(data.created_at) || new Date().toISOString();
+
+ // Candidate e-mails of an assisted application: recorded on the order, never
+ // as newsletter engagement or a job ranking click.
+ if (parseAssistedCampaign(tags.campaign_id)) {
+ const result = await recordAssistedEmailEvent(db, { campaign: tags.campaign_id, type, provider: 'resend', messageId, occurredAt, url: linkUrl });
+ return { handled: true, email, type, collection: 'assisted_applications', ...result };
+ }
 
  // Job ranking links carry their own surface/job attribution. Persisting this
  // before routing keeps newsletter and job-alert clicks on one idempotent path.

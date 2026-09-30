@@ -121,10 +121,56 @@ permissions:
 
 jobs:
   newsletter:
+    # `workflow_run` fires for every completed source run, including failed
+    # runs and manual dispatches. Only successful scheduled runs can carry the
+    # primary handoff marker; keep the other events as a clean no-op before
+    # any artifact lookup or checkout.
+    if: >-
+      github.event_name != 'workflow_run'
+      || (github.event.workflow_run.event == 'schedule'
+          && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
     steps:
+      # The primary marker is intentionally absent from the secondary
+      # job-alert slot. Probe first so actions/download-artifact never emits a
+      # misleading error annotation for that expected no-op.
+      - name: Locate primary job-alert handoff
+        id: locate_jobalert_handoff
+        if: github.event_name == 'workflow_run'
+        uses: actions/github-script@v9
+        env:
+          HANDOFF_NAME: newsletter-handoff-${{ github.event.workflow_run.id }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const runId = Number(process.env.SOURCE_RUN_ID);
+            if (!Number.isSafeInteger(runId) || runId <= 0) {
+              core.setFailed(`Invalid source workflow run id: ${process.env.SOURCE_RUN_ID}`);
+              return;
+            }
+
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: runId,
+                per_page: 100,
+              },
+            );
+            const handoff = artifacts.find(
+              (artifact) => artifact.name === process.env.HANDOFF_NAME && !artifact.expired,
+            );
+            core.setOutput('found', handoff ? 'true' : 'false');
+            core.info(
+              handoff
+                ? `Found ${process.env.HANDOFF_NAME} on source run ${runId}.`
+                : `No ${process.env.HANDOFF_NAME} on source run ${runId}; treating it as an inert trigger.`,
+            );
+
       - name: Checkout
         uses: actions/checkout@v7
 
@@ -135,8 +181,7 @@ jobs:
 
       - name: Download primary job-alert handoff
         id: download_jobalert_handoff
-        if: github.event_name == 'workflow_run'
-        continue-on-error: true
+        if: github.event_name == 'workflow_run' && steps.locate_jobalert_handoff.outputs.found == 'true'
         uses: actions/download-artifact@v8
         with:
           name: newsletter-handoff-${{ github.event.workflow_run.id }}

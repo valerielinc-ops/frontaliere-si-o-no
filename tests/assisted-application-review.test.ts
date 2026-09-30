@@ -87,7 +87,8 @@ describe('candidate review API', () => {
     expect(approve).toMatchObject({ status: 409, body: { error: 'questions_open' } });
 
     const bad = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'Z', unknown: 'x' } } }, deps());
-    expect(bad).toMatchObject({ status: 400, body: { error: 'no_valid_answers' } });
+    // An option that does not exist: the field says so, nothing is saved.
+    expect(bad).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { work_permit: 'Scegli una delle opzioni.' } } });
 
     const answered = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, deps());
     expect(answered).toMatchObject({ status: 200, body: { state: 'candidate_review' } });
@@ -110,9 +111,9 @@ describe('candidate review API', () => {
       expect.objectContaining({ id: 'birth_date', minDate: null, suggested: null }),
     ]);
     const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
-    expect(await answer({ availability: '1985-09-12' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
-    expect(await answer({ availability: '2026-02-30' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
-    expect(await answer({ availability: 'domani' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
+    expect(await answer({ availability: '1985-09-12' })).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { availability: 'La data non può essere nel passato.' } } });
+    expect(await answer({ availability: '2026-02-30' })).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { availability: 'Inserisci una data valida.' } } });
+    expect(await answer({ availability: 'domani' })).toMatchObject({ status: 400, body: { error: 'invalid_answers' } });
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
     expect(await answer({ availability: '2026-11-01', birth_date: '1985-09-12' })).toMatchObject({ status: 200 });
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ availability: '2026-11-01', birth_date: '1985-09-12' });
@@ -121,6 +122,29 @@ describe('candidate review API', () => {
       expect(minDateFor({ type: 'date', question }, T0)).toBe('2026-09-30');
     }
     expect(minDateFor({ type: 'date', question: 'Geburtsdatum' }, T0)).toBeNull();
+  });
+
+  it('checks each answer with the rule written with its question, and says which field to fix', async () => {
+    const notice = {
+      id: 'notice_period', question: 'Qual è il tuo periodo di preavviso?', why: '', type: 'text', options: [], required: true,
+      validation: { pattern: '^\\d{1,2}\\s?(mesi|mese|settimane)$', minLength: 0, maxLength: 40, min: null, max: null, minDate: '', example: '3 mesi', message: 'Indica il preavviso in mesi o settimane, per esempio 3 mesi.' },
+    };
+    const years = {
+      id: 'years', question: 'Anni di esperienza in geriatria?', why: '', type: 'number', options: [], required: false,
+      validation: { pattern: '', minLength: 0, maxLength: 10, min: 0, max: 50, minDate: '', example: '5', message: 'Un numero di anni tra 0 e 50.' },
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [notice, years] }));
+    const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    // The page receives the rule and checks it while the candidate types.
+    expect(view.body.questions[0].validation).toMatchObject({ example: '3 mesi', maxLength: 40 });
+    const save = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+    expect(await save({ notice_period: 'boh', years: '120' })).toMatchObject({
+      status: 400,
+      body: { error: 'invalid_answers', fields: { notice_period: 'Indica il preavviso in mesi o settimane, per esempio 3 mesi.', years: 'Un numero di anni tra 0 e 50.' } },
+    });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
+    expect(await save({ notice_period: '3 mesi', years: '12' })).toMatchObject({ status: 200 });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ notice_period: '3 mesi', years: '12' });
   });
 
   it('turns feedback into a new round', async () => {
@@ -134,6 +158,47 @@ describe('candidate review API', () => {
     expect(reopened.body).toMatchObject({ stale: true, preparingNext: true, state: 'regenerating', round: 2 });
     // The old link still cannot act.
     expect(await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'approve' } }, deps())).toMatchObject({ status: 409 });
+  });
+
+  it('lets the candidate correct the letter and their data before approving', async () => {
+    const saved: string[] = [];
+    const bucket = { file: (key: string) => ({ save: async () => { saved.push(key); } }) };
+    const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(view.body.can.edit).toBe(true);
+    const fields = Object.fromEntries(view.body.formAnswers.map((field: any) => [field.key, field]));
+    expect(fields.email).toMatchObject({ editable: false, locked: 'alias' });
+    expect(fields.workPermit).toMatchObject({ editable: false, locked: 'question' });
+    expect(fields.phone).toMatchObject({ editable: true, inLetter: true });
+
+    const letter = `Gentili Signori,\n\n${'Ho assistito 20 persone al giorno in reparto per sei anni, con turni di notte e di giorno. '.repeat(3)}\n\nCordiali saluti`;
+    const edit = (body: Record<string, unknown>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'edit', ...body } }, { ...deps(), bucket });
+    expect(await edit({ coverLetterText: letter, fields: { phone: 'chiamami' } })).toMatchObject({
+      status: 400,
+      body: { error: 'invalid_edits', fields: { phone: 'Un numero di telefono, per esempio +41 91 123 45 67.' } },
+    });
+    expect(saved).toEqual([]);
+
+    expect(await edit({ coverLetterText: letter, fields: { phone: '+41 91 000 00 00' } })).toMatchObject({
+      status: 200, body: { ok: true, state: 'candidate_review', changed: ['fields', 'coverLetter'] },
+    });
+    const stored = store.read(`${BASE}/ai_drafts/current`);
+    expect(stored.coverLetter.text).toContain('20 persone');
+    // The PDF is rebuilt with the new text and the new phone in the header.
+    expect(saved).toEqual([expect.stringMatching(/ai-cover-letter-r1-candidate-/)]);
+    expect(stored.coverLetterPdfKey).toBe(saved[0]);
+    expect(stored.factSources.candidate).toContain('20 persone');
+    expect(stored.candidateEditedAt).toBe(T0);
+    expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ state: 'candidate_review', formOverrides: { phone: '+41 91 000 00 00' } });
+    const after = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(after.body.formAnswers.find((field: any) => field.key === 'phone').value).toBe('+41 91 000 00 00');
+    expect(after.body.editedAt).toBe(T0);
+  });
+
+  it('accepts edits only while the candidate reviews the current round', async () => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'owner_review' }, { merge: true });
+    const refused = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'edit', fields: { phone: '+41 91 000 00 00' } } }, deps());
+    expect(refused).toMatchObject({ status: 409, body: { error: 'not_allowed' } });
+    expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toBeUndefined();
   });
 
   it('confirms a portal handoff only from the handoff state', async () => {
