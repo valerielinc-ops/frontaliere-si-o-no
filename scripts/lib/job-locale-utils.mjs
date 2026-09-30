@@ -806,7 +806,9 @@ export function titleLooksUntranslatedFromSource(title, sourceLang, targetLocale
  * an Italian title like "Prompt engineer da remoto" as EN (job-title hints are
  * dominated by English loanwords) and then "repairs" the IT slot via
  * heuristicTranslateJobTitle → "Prompt Ingegnere da remoto" — destroying the
- * paid, publisher-written copy. Both heuristic sites
+ * paid, publisher-written copy. The same pin also carries an explicitly
+ * declared source language that is outside the site's four published locales
+ * (for example `sourceLangOriginal: 'rm'` for Romansh). Both heuristic sites
  * (shared-jobs-crawler ensureLocaleFields and dedicated-crawler-common
  * hardenJobLocaleFields) consult this pin before trusting detection.
  *
@@ -814,7 +816,10 @@ export function titleLooksUntranslatedFromSource(title, sourceLang, targetLocale
  * @returns {string|null} the declared source locale to pin, or null to detect
  */
 export function pinnedTitleSourceLang(job) {
-  if (!job || job.source !== 'publisher-submitted') return null;
+  if (!job) return null;
   const lang = String(job.sourceLang || '').trim().toLowerCase();
+  const original = String(job.sourceLangOriginal || '').trim().toLowerCase();
+  if (original && original === lang && !DEFAULT_JOB_LOCALES.includes(original)) return original;
+  if (job.source !== 'publisher-submitted') return null;
   return DEFAULT_JOB_LOCALES.includes(lang) ? lang : null;
 }

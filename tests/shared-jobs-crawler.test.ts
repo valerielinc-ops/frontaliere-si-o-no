@@ -2,9 +2,33 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { looksLikeShortLabelValue, extractCompanyFromText, extractLocationFromText, __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
+import {
+  looksLikeShortLabelValue,
+  extractCompanyFromText,
+  extractLocationFromText,
+  ensureLocaleFields,
+  __testables,
+} from '../scripts/lib/shared-jobs-crawler.mjs';
 
 const { buildKnownJobUrlsSet } = __testables;
+
+describe('shared locale normalization', () => {
+  it('does not heuristically publish an unsupported Romansh source into supported slots', () => {
+    const romansh = 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.';
+    const out = ensureLocaleFields({
+      title: 'Fufragnadi',
+      description: romansh,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Fufragnadi' },
+      descriptionByLocale: { rm: romansh },
+      slugByLocale: { rm: 'fufragnadi' },
+    });
+
+    expect(out.titleByLocale).toEqual({ rm: 'Fufragnadi' });
+    expect(out.descriptionByLocale).toEqual({ rm: romansh });
+  });
+});
 
 describe('crawlWorkdayJobs — concrete Swiss location default (#9210)', () => {
   it('drops country-only records and keeps records with a concrete Swiss locality by default', async () => {

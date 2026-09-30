@@ -215,6 +215,19 @@ describe('submit mode', () => {
     expect(items[0].payload).toMatchObject({ tracking: false, openTracking: false });
   });
 
+  it('a dry run prepares the e-mail, keeps it encrypted next to the order, and sends nothing', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const sendCascade = vi.fn();
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, dryRun: true,
+    });
+    expect(event).toEqual({ type: 'dry_run_ready', channel: 'email' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect([...bucket.files.keys()].some((key) => key.includes('dry-run-email'))).toBe(true);
+  });
+
   it('fills the portal form with the corrections the candidate made on the review page', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
