@@ -112,13 +112,26 @@ describe('Burkhalter source-only merge (no `<title> presso …` stub)', () => {
       sourceLang: 'de',
       description: STUB,
       descriptionByLocale: { de: SOURCE, en: STUB },
+      addressLocality: 'Davos',
       postalCode: '7270',
       streetAddress: 'Obere Strasse 19',
     };
-    const merged = mergeBurkhalterRecord(prev, { url: 'u', sourceLang: 'de', description: '', descriptionByLocale: {} });
+    const merged = mergeBurkhalterRecord(prev, {
+      url: 'u',
+      sourceLang: 'de',
+      description: '',
+      descriptionByLocale: {},
+      addressLocality: 'Zurich',
+      postalCode: '',
+      streetAddress: '',
+    });
     expect(merged?.description).toBe(SOURCE);
     expect(merged?.descriptionByLocale).toEqual({ de: SOURCE });
-    expect(merged).toMatchObject({ postalCode: '7270', streetAddress: 'Obere Strasse 19' });
+    expect(merged).toMatchObject({
+      addressLocality: 'Davos',
+      postalCode: '7270',
+      streetAddress: 'Obere Strasse 19',
+    });
   });
 
   it('does not publish a job with no body this run and only stubs stored', () => {

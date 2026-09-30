@@ -213,8 +213,9 @@ export function mergeBurkhalterRecord(prev, job, mergeLocales = (p, n) => ({
   ...n,
   descriptionByLocale: { ...(p.descriptionByLocale || {}), ...(n.descriptionByLocale || {}) },
 })) {
+  const detailUnavailable = !String(job.description || '').trim();
   let next = job;
-  if (!String(job.description || '').trim()) {
+  if (detailUnavailable) {
     const stored = storedBurkhalterSourceText(prev);
     if (!stored) return null;
     next = {
@@ -225,10 +226,11 @@ export function mergeBurkhalterRecord(prev, job, mergeLocales = (p, n) => ({
     };
   }
   const merged = prev ? mergeLocales(prev, next) : { ...next };
-  // A transient detail-page miss must not erase a workplace address read on a
-  // previous source fetch. A newly read non-empty field still replaces it.
-  for (const field of ['postalCode', 'streetAddress']) {
-    if (!String(merged[field] || '').trim() && String(prev?.[field] || '').trim()) {
+  // A transient detail-page miss must preserve the complete workplace address
+  // from the previous source fetch, including when its raw city differs.
+  // A newly read non-empty field still replaces it.
+  for (const field of ['addressLocality', 'postalCode', 'streetAddress']) {
+    if (String(prev?.[field] || '').trim() && (detailUnavailable || !String(merged[field] || '').trim())) {
       merged[field] = prev[field];
     }
   }
