@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-09-29T21:36:50.676Z",
+  "assembledAt": "2026-09-30T21:35:51.707Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -47,7 +47,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:36:46.702Z",
+      "crawledAt": "2026-09-30T21:35:46.317Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
@@ -126,7 +126,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:36:46.148Z",
+      "crawledAt": "2026-09-30T21:35:45.620Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch",
@@ -205,7 +205,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:36:45.587Z",
+      "crawledAt": "2026-09-30T21:35:45.061Z",
       "jobReqId": "J-020112",
       "previousSlugs": [
         "material-scientist-pcb-materials-huntsman-ch",
@@ -284,7 +284,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:36:44.835Z",
+      "crawledAt": "2026-09-30T21:35:44.467Z",
       "jobReqId": "J-020110",
       "previousSlugs": [
         "laboratory-technician-pcb-materials-huntsman-ch",
@@ -363,7 +363,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:36:43.681Z",
+      "crawledAt": "2026-09-30T21:35:43.602Z",
       "jobReqId": "J-019784",
       "previousSlugs": [
         "operateur-pilote-huntsman-ch",
@@ -382,6 +382,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:39:26.585Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -396,90 +397,6 @@
         }
       },
       "addressRegion": "VS"
-    },
-    {
-      "id": "huntsman-e4bfe7796d55",
-      "slug": "tirocinante-digital-ingegnere-huntsman-corporation-monthey",
-      "slugByLocale": {
-        "it": "tirocinante-digital-ingegnere-huntsman-corporation-monthey",
-        "en": "intern-digital-engineer-huntsman-ch",
-        "de": "praktikant-digital-ingenieur-huntsman-corporation-basel",
-        "fr": "stagiaire-digital-ingenieur-huntsman-corporation-basel"
-      },
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "Intern Digital Engineer",
-      "titleByLocale": {
-        "it": "Stagista Ingegneri digitali",
-        "en": "Intern Digital Engineer",
-        "de": "Interner Digitaler Ingenieur",
-        "fr": "Ingénieur numérique stagiaire"
-      },
-      "description": "Job Description :\n\nINTERNSHIP DIGITAL ENGINEER\n\nAt Huntsman we're looking for an Internship Digital Engineer who is eager to explore how AI, data and digital tools can solve real business challenges and support smarter decision-making across our Supply Chain organization.\n\nRole Overview:\n This is a unique opportunity to work on an innovative enterprise AI solution on Databricks, combining hands-on technical development with exposure to real business processes. You will help prototype AI-driven tools, build knowledge repositories, and contribute to real-time decision-assist capabilities designed to support live meetings and operational discussions for our Business and Supply Chain.\n\nYou will collaborate with experienced digital, data and supply chain experts, gaining practical experience in areas such as LLM agents, domain modelling, data engineering, real-time audio integration and user feedback loops.\n\nDo you think you’re the right fit for this opportunity? Apply today!\n\nRole Responsibilities:\n As an Internship Digital Engineer, you will be responsible for:\n\n• Support the development of AI-driven tools using Databricks, LLM agents and business data sources.\n\n• Help build knowledge repositories and data structures for business insights, operational rules and contextual information.\n\n• Contribute to privacy and data quality measures, including business knowledge capture.\n\n• Prototype real-time meeting support features, including Speech-to-Text integration and decision-assist UI concepts.\n\n• Collect and analyse user feedback to improve AI recommendations, prompts and agent performance.\n\nExperience and Competencies:\n We are looking for motivated students with a strong interest in AI, data engineering and digital transformation.\n\nWhat we are looking for:\n\n• Currently studying Computer Science, Artificial Intelligence, Data Science, Software Engineering, Business or a related field.\n\n• Good written and spoken English skills.\n\n• Some experience with Python, SQL, data analysis or machine learning through studies, projects or internships.\n\n• Interest in AI tools and concepts such as LLMs, automation, prompt engineering, RAG or AI agents.\n\n• Familiarity with tools such as Databricks, cloud platforms, Git, Streamlit or Dash would be an advantage.\n\n• Curious, proactive and analytical mindset, with good communication skills and a willingness to learn.\n\nWhat next?\n If you would like to join an innovative, collaborative and multicultural team, please apply now. Your application will be forwarded to a Talent Acquisition Partner, who will strive to get back to you as soon as they can. We understand that applying for a new job is a big decision and we will work hard to keep you updated and support you along the way.\n\nAbout Us:\n At Huntsman, we pride ourselves on being a people-oriented organization.\n Our family-like atmosphere is cultivated by our diverse groups of team members around the world.\n We welcome the talent, experience and fresh ideas that employees at all stages of their careers, from interns to seasoned professionals, bring to Huntsman.\n In return, we offer you the opportunity to become an integral part of a dynamic, industry-leading company, where safety and ethics always come first.\n\nAdditional Locations:\n\nMonthey\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro :\n\nINGEGNERIA DIGITALE INTERNATIONAL\n\nIn Huntsman stiamo cercando un ingegnere digitale stage che è desideroso di esplorare come AI, dati e strumenti digitali possono risolvere le sfide reali del business e supportare decisioni più intelligenti in tutta la nostra organizzazione Supply Chain.\n\nPanoramica dei ruoli: Questa è un'opportunità unica per lavorare su una soluzione innovativa di business AI su Databreck, combinando lo sviluppo tecnico pratico con l'esposizione a processi aziendali reali. Aiuterai i prototipi di strumenti basati su AI, costruirai repository di conoscenze e contribuirà a capacità di decision assist in tempo reale, progettate per supportare incontri live e discussioni operative per la nostra Business and Supply Chain.\n\nCollabora con esperti esperti di digitale, dati e supply chain, acquisendo esperienza pratica in settori quali agenti LLM, modellazione di domini, ingegneria dei dati, integrazione audio in tempo reale e loop di feedback degli utenti.\n\nPensi che tu.re la giusta misura per questa opportunità? Applica oggi!\n\nResponsabilità di ruolo: In qualità di ingegnere digitale di stage, sarete responsabili di:\n\n• Sostenere lo sviluppo di strumenti basati su AI utilizzando Databricks, agenti LLM e fonti di dati aziendali.\n\n• contribuire a creare archivi di conoscenze e strutture di dati per informazioni aziendali, regole operative e informazioni contestuali.\n\n• Contribuire a misure di privacy e qualità dei dati, compresa la conoscenza aziendale.\n\n• Prototype meeting caratteristiche di supporto per riunioni in tempo reale, tra cui l'integrazione vocale-testo e i concetti di decisione-assist UI.\n\n• Raccogliere e analizzare il feedback degli utenti per migliorare le raccomandazioni, le richieste e le prestazioni degli agenti.\n\nEsperienza e Competenze: Siamo alla ricerca di studenti motivati con un forte interesse per l'AI, l'ingegneria dei dati e la trasformazione digitale.\n\nCosa stiamo cercando:\n\n• Attualmente studia Informatica, Intelligenza Artificiale, Dati Scienza, Ingegneria del Software, Affari o un campo correlato.\n\n• Buone abilità scritte e parlate in inglese.\n\n• Qualche esperienza con Python, SQL, analisi dei dati o apprendimento automatico attraverso studi, progetti o stage.\n\n• Interesse per gli strumenti e i concetti di AI come LLM, automazione, prompt engineering, RAG o agenti di AI.\n\n• Fa 1ster con strumenti come Databricks, piattaforme cloud, Git, Streamlit o Dash sarebbe un vantaggio.\n\n• Curiosa, proattiva e analitica mentalità, con buone capacità comunicative e la volontà di imparare.\n\nSe vuoi unirti a un team innovativo, collaborativo e multiculturale, ti preghiamo di fare domanda. La tua candidatura verrà inoltrata a un Partner di Acquisizione di un Paese che si impegnerà a farti sapere il più presto possibile. Sappiamo che richiedere un nuovo lavoro è una decisione importante e ci adopereremo per tenerti aggiornato e supportarti lungo il percorso.\n\nChi Siamo: In Huntsman, siamo orgogliosi di essere un'organizzazione orientata al popolo. La nostra atmosfera familiare è coltivata dai nostri diversi gruppi di membri del team in tutto il mondo. Accogliamo il talento, l'esperienza e le idee fresche che i dipendenti in tutte le fasi della loro carriera, dai tirocinanti ai professionisti esperti, portano a Huntsman. In cambio, vi offriamo l'opportunità di diventare parte integrante di un'azienda dinamica, leader del settore, dove la sicurezza ed etica sempre prima di tutto.\n\nLocalità aggiuntive:\n\nMonthey\n\nHuntsman Corporation è un produttore globale di prodotti chimici differenziati e speciali. L'azienda gestisce un importante sito di produzione a Monthey (Valais), Svizzera.",
-        "en": "Job Description :\n\nINTERNSHIP DIGITAL ENGINEER\n\nAt Huntsman we're looking for an Internship Digital Engineer who is eager to explore how AI, data and digital tools can solve real business challenges and support smarter decision-making across our Supply Chain organization.\n\nRole Overview:\nThis is a unique opportunity to work on an innovative enterprise AI solution on Databricks, combining hands-on technical development with exposure to real business processes. You will help prototype AI-driven tools, build knowledge repositories, and contribute to real-time decision-assist capabilities designed to support live meetings and operational discussions for our Business and Supply Chain.\n\nYou will collaborate with experienced digital, data and supply chain experts, gaining practical experience in areas such as LLM agents, domain modelling, data engineering, real-time audio integration and user feedback loops.\n\nDo you think you’re the right fit for this opportunity? Apply today!\n\nRole Responsibilities:\nAs an Internship Digital Engineer, you will be responsible for:\n\n• Support the development of AI-driven tools using Databricks, LLM agents and business data sources.\n\n• Help build knowledge repositories and data structures for business insights, operational rules and contextual information.\n\n• Contribute to privacy and data quality measures, including business knowledge capture.\n\n• Prototype real-time meeting support features, including Speech-to-Text integration and decision-assist UI concepts.\n\n• Collect and analyse user feedback to improve AI recommendations, prompts and agent performance.\n\nExperience and Competencies:\nWe are looking for motivated students with a strong interest in AI, data engineering and digital transformation.\n\nWhat we are looking for:\n\n• Currently studying Computer Science, Artificial Intelligence, Data Science, Software Engineering, Business or a related field.\n\n• Good written and spoken English skills.\n\n• Some experience with Python, SQL, data analysis or machine learning through studies, projects or internships.\n\n• Interest in AI tools and concepts such as LLMs, automation, prompt engineering, RAG or AI agents.\n\n• Familiarity with tools such as Databricks, cloud platforms, Git, Streamlit or Dash would be an advantage.\n\n• Curious, proactive and analytical mindset, with good communication skills and a willingness to learn.\n\nWhat next?\nIf you would like to join an innovative, collaborative and multicultural team, please apply now. Your application will be forwarded to a Talent Acquisition Partner, who will strive to get back to you as soon as they can. We understand that applying for a new job is a big decision and we will work hard to keep you updated and support you along the way.\n\nAbout Us:\nAt Huntsman, we pride ourselves on being a people-oriented organization.\nOur family-like atmosphere is cultivated by our diverse groups of team members around the world.\nWe welcome the talent, experience and fresh ideas that employees at all stages of their careers, from interns to seasoned professionals, bring to Huntsman.\nIn return, we offer you the opportunity to become an integral part of a dynamic, industry-leading company, where safety and ethics always come first.\n\nAdditional Locations:\n\nMonthey\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-        "de": "Beschreibung der Aufgabe :\n\nINTERNESSION DIGITAL ENGINEER\n\nBei Huntsman suchen wir einen Praktikant Digital Engineer, der sich bemüht zu erforschen, wie KI, Daten und digitale Tools echte geschäftliche Herausforderungen lösen und intelligentere Entscheidungen in unserer Supply Chain-Organisation unterstützen können.\n\nRollenübersicht: Dies ist eine einzigartige Gelegenheit, an einer innovativen Enterprise-KI-Lösung auf Databricks zu arbeiten, die praktische technische Entwicklung mit der Exposition gegenüber realen Geschäftsprozessen kombiniert. Sie helfen Prototypen KI-getriebene Werkzeuge, bauen Wissens-Repositorien und tragen zu Echtzeit-Entscheidungsassistenz-Funktionen bei, die Live-Meetings und operative Diskussionen für unsere Business- und Supply Chain unterstützen.\n\nSie arbeiten mit erfahrenen Experten aus den Bereichen Digital, Daten und Supply Chain zusammen und sammeln praktische Erfahrungen in Bereichen wie LLM-Agenten, Domainmodellierung, Datentechnik, Echtzeit-Audiointegration und User-Feedback-Schleifen.\n\nDenken Sie, Sie, sind die richtige fit für diese Gelegenheit? Bewerben Sie sich heute!\n\nRollenverantwortung: Als Digitalingenieur im Praktikum sind Sie verantwortlich für:\n\n• Unterstützung der Entwicklung von KI-getriebenen Tools mit Databricks, LLM-Agenten und Business-Datenquellen.\n\n• Hilfe beim Aufbau von Wissens- und Datenstrukturen für Unternehmenseinblicke, betriebliche Regeln und kontextuelle Informationen.\n\n• Beitrag zu Maßnahmen zur Privatsphäre und Datenqualität, einschließlich der Erfassung von Unternehmenswissen.\n\n• Unterstützung für die Echtzeit-Meeting-Features von Prototype, einschließlich Sprach-Text-Integration und Entscheidungsunterstützung für UI-Konzepte.\n\n• Sammeln und analysieren Sie Benutzerfeedback, um AI-Empfehlungen, Aufforderungen und Agentenleistung zu verbessern.\n\nErfahrung und Kompetenzen: Wir suchen motivierte Studierende mit einem starken Interesse an KI, Datentechnik und digitaler Transformation.\n\nWas wir suchen:\n\n• Derzeit Studium der Informatik, Künstliche Intelligenz, Datenwissenschaft, Software Engineering, Wirtschaft oder einem verwandten Bereich.\n\n• Gute schriftliche und gesprochene Englischkenntnisse.\n\n• Einige Erfahrungen mit Python, SQL, Datenanalyse oder maschinellem Lernen durch Studien, Projekte oder Praktika.\n\n• Interesse an KI-Tools und -Konzepten wie LLMs, Automatisierung, Prompt Engineering, RAG oder KI-Agenten.\n\n• Die Vertrautheit mit Tools wie Databricks, Cloud-Plattformen, Git, Streamlit oder Dash wäre ein Vorteil.\n\n• Neugierige, proaktive und analytische Denkweise, mit guten Kommunikationsfähigkeiten und Lernbereitschaft.\n\nWenn Sie sich einem innovativen, kollaborativen und multikulturellen Team anschließen möchten, bewerben Sie sich bitte jetzt. Ihre Bewerbung wird an einen Talent Acquisition Partner weitergeleitet, der sich bemüht, sich so schnell wie möglich an Sie zu wenden. Wir verstehen, dass die Bewerbung um einen neuen Job eine große Entscheidung ist und wir werden hart daran arbeiten, Sie auf dem Laufenden zu halten und Sie auf dem Weg zu unterstützen.\n\nÜber uns: Bei Huntsman sind wir stolz darauf, eine menschorientierte Organisation zu sein. Unsere familiäre Atmosphäre wird von unseren verschiedenen Teammitgliedern auf der ganzen Welt gepflegt. Wir begrüßen die Talente, Erfahrungen und frischen Ideen, die Mitarbeiter in allen Phasen ihrer Karriere, von Internen bis hin zu erfahrenen Profis, zu Huntsman bringen. Im Gegenzug bieten wir Ihnen die Möglichkeit, ein integraler Bestandteil eines dynamischen, branchenführenden Unternehmens zu werden, in dem Sicherheit und Ethik immer an erster Stelle stehen.\n\nWeitere Standorte:\n\n- Nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein, nein nein, nein nein, nein nein nein, nein nein nein, nein nein nein, nein nein! nein, nein! nein, nein! nein, nein nein! nein! nein!\n\nHuntsman Corporation ist ein weltweit tätiger Hersteller von differenzierten und Spezialchemikalien. Das Unternehmen betreibt einen großen Produktionsstandort in Monthey (Valais), Schweiz.",
-        "fr": "Description du poste :\n\nENGINÉ NUMÉRO D'INTERNUS\n\nChez Huntsman, nous recherchons un ingénieur numérique stagiaire qui est impatient d'explorer comment l'IA, les données et les outils numériques peuvent résoudre de vrais défis commerciaux et soutenir la prise de décisions plus intelligentes dans notre organisation de la chaîne d'approvisionnement.\n\nAperçu du rôle : C'est une occasion unique de travailler sur une solution innovante d'IA entreprise sur Databricks, combinant le développement technique pratique et l'exposition aux processus opérationnels réels. Vous aiderez à prototyper des outils d'IA, à construire des référentiels de connaissances et à contribuer aux capacités d'assist de décision en temps réel conçues pour soutenir des réunions en direct et des discussions opérationnelles pour notre chaîne d'affaires et d'approvisionnement.\n\nVous collaborerez avec des experts expérimentés en matière de digital, de données et de chaîne d'approvisionnement, en acquérant une expérience pratique dans des domaines tels que les agents LLM, la modélisation de domaine, l'ingénierie des données, l'intégration audio en temps réel et les boucles de rétroaction des utilisateurs.\n\nPensez-vous que vous, êtes la bonne personne pour cette opportunité? Postuler aujourd'hui!\n\nResponsabilités liées au rôle : En tant qu'ingénieur en numérique stagiaire, vous serez responsable :\n\n• Appuyer le développement d'outils axés sur l'IA à l'aide de Databricks, d'agents LLM et de sources de données d'entreprise.\n\n• Aider à développer des structures de connaissances et de données pour les informations sur les affaires, les règles opérationnelles et les informations contextuelles.\n\n• Contribuer à la protection de la vie privée et à la qualité des données, y compris la saisie des connaissances commerciales.\n\n• Prototyper des fonctionnalités de support de réunion en temps réel, y compris l'intégration de la parole au texte et les concepts d'interface utilisateur d'assistation de décision.\n\n• Recueillir et analyser les commentaires des utilisateurs pour améliorer les recommandations, les appels et les performances des agents.\n\nExpérience et compétences : Nous recherchons des étudiants motivés qui s'intéressent fortement à l'IA, à l'ingénierie des données et à la transformation numérique.\n\nCe que nous cherchons :\n\n• En cours d'étude en informatique, en intelligence artificielle, en sciences des données, en génie logiciel, en affaires ou dans un domaine connexe.\n\n• Bonnes compétences en anglais écrit et parlé.\n\n• Une expérience avec Python, SQL, analyse de données ou apprentissage automatique par des études, des projets ou des stages.\n\n• Intérêt pour les outils et concepts d'IA tels que les LLM, l'automatisation, l'ingénierie rapide, les agents RAG ou AI.\n\n• La connaissance d'outils tels que Databricks, plateformes cloud, Git, Streamlit ou Dash serait un avantage.\n\n• Curieux, proactif et analytique, avec de bonnes compétences en communication et une volonté d'apprendre.\n\nSi vous souhaitez vous joindre à une équipe innovante, collaborative et multiculturelle, veuillez postuler maintenant. Votre candidature sera transmise à un associé d'acquisition de talents qui s'efforcera de vous contacter dès que possible. Nous comprenons que postuler pour un nouveau poste est une grande décision et nous travaillerons dur pour vous tenir à jour et vous soutenir sur la voie.\n\nÀ propos de nous : Chez Huntsman, nous sommes fiers d'être une organisation axée sur les gens. Notre atmosphère familiale est cultivée par nos divers groupes de membres d'équipes dans le monde entier. Nous accueillons avec plaisir le talent, l'expérience et les idées nouvelles que les employés à toutes les étapes de leur carrière, des stagiaires aux professionnels chevronnés, apportent à Huntsman. En retour, nous vous offrons la possibilité de devenir partie intégrante d'une entreprise dynamique et leader dans l'industrie, où la sécurité et l'éthique viennent toujours en premier.\n\nAutres lieux :\n\nMonthey\n\nHuntsman Corporation est un fabricant mondial de produits chimiques différenciés et spécialisés. L'entreprise exploite un site de production majeur à Monthey (Valais), Suisse."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Basel",
-      "canton": "BS",
-      "addressLocality": "Basel",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern-Digital-Engineer_J-020117",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern-Digital-Engineer_J-020117",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-29T05:12:48.871Z",
-      "jobReqId": "J-020117",
-      "previousSlugs": [
-        "tirocinante-digital-ingegnere-huntsman-corporation-basel",
-        "intern-digital-engineer-huntsman-ch",
-        "tirocinante-digital-ingegnere-huntsman-corporation-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tirocinante-digital-ingegnere-huntsman-corporation-basel",
-          "intern-digital-engineer-huntsman-ch",
-          "tirocinante-digital-ingegnere-huntsman-corporation-monthey"
-        ],
-        "de": [
-          "intern-digital-engineer-huntsman-ch"
-        ],
-        "fr": [
-          "intern-digital-engineer-huntsman-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T22:22:16.058Z",
-      "salaryMin": 50000,
-      "salaryMax": 76000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 50000,
-          "maxValue": 76000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
     }
   ]
 }
