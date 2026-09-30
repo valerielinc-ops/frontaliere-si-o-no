@@ -45,10 +45,6 @@ on:
         description: Collect raw companyServed rows for the translation-thinking-ab measurement
         type: boolean
         default: false
-concurrency:
-  group: jobs-data-pipeline
-  cancel-in-progress: false
-  queue: max
 permissions:
   actions: read
   contents: read
@@ -59,6 +55,53 @@ env:
   TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
   TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
 jobs:
+  translate_queue_guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+    outputs:
+      run: ${{ steps.translate_queue_guard.outputs.run }}
+    steps:
+      - name: Skip duplicate queued translation run
+        id: translate_queue_guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: |-
+          set -euo pipefail
+          fail_open() {
+            echo "::warning::translate-pending queue guard could not inspect GitHub Actions; continuing with the heavy run to preserve throughput."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"
+            exit 0
+          }
+          runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100"
+          if ! runs_json="$(gh api --paginate --slurp "$runs_path" 2>/dev/null)"; then fail_open; fi
+          if ! printf "%s" "$runs_json" | jq -e 'type == "array" and all(.[]; (.workflow_runs | type) == "array")' >/dev/null; then fail_open; fi
+          if ! waiting_runs="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting")] | length')"; then fail_open; fi
+          if ! in_progress_ids="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_open; fi
+          queued_heavy_runs=0
+          while IFS= read -r run_id; do
+            [ -z "$run_id" ] && continue
+            jobs_path="/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100"
+            if ! jobs_json="$(gh api "$jobs_path" 2>/dev/null)"; then fail_open; fi
+            if ! printf "%s" "$jobs_json" | jq -e 'type == "object" and (.jobs | type) == "array"' >/dev/null; then fail_open; fi
+            if printf "%s" "$jobs_json" | jq -e 'any(.jobs[]; .name == "translate" and (.status == "queued" or .status == "pending" or .status == "waiting"))' >/dev/null; then
+              queued_heavy_runs=$((queued_heavy_runs + 1))
+            fi
+          done <<< "$in_progress_ids"
+          if [ "$waiting_runs" -gt 0 ] || [ "$queued_heavy_runs" -gt 0 ]; then
+            total_waiting=$((waiting_runs + queued_heavy_runs))
+            echo "::warning::translate-pending queue guard found ${total_waiting} waiting heavy run(s); skipping this duplicate. The waiting run will process the backlog."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "waiting_runs=$total_waiting" >> "$GITHUB_OUTPUT"
+          else
+            echo "✅ translate-pending queue guard found no other waiting heavy run."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "waiting_runs=0" >> "$GITHUB_OUTPUT"
+          fi
   translate:
     runs-on: ubuntu-latest
     timeout-minutes: 350
@@ -628,3 +671,9 @@ jobs:
           priority: "2"
           labels: Bug
           context: "La pipeline di traduzione è a fasi (fetch → translate → verify → commit): lo step fallito qui sopra dice a quale fase si è fermata, e i job non tradotti restano in coda per il prossimo cron."
+    needs: translate_queue_guard
+    if: needs.translate_queue_guard.outputs.run == 'true'
+    concurrency:
+      group: jobs-data-pipeline
+      cancel-in-progress: false
+      queue: max
