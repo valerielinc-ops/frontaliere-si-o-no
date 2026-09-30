@@ -108,8 +108,14 @@ describe('parseNewsletterAutologin (shared source of truth)', () => {
 describe('promptOneTap suppression wiring', () => {
  it('promptOneTap bails out while a newsletter autologin is in flight', () => {
  const source = readFileSync(resolve(root, 'services/authService.ts'), 'utf8');
- // Guard sits before any Firebase/GIS work at the top of promptOneTap.
- expect(source).toContain('if (isNewsletterAutologinInFlight()) return;');
- expect(source).toContain("from '@/services/newsletterAutologinSignal'");
+ // Guard sits before any Firebase/GIS work at the top of promptOneTap. The
+ // implementation also records the blocked One Tap metric, so keep the
+ // assertion structural instead of requiring a one-line `if` statement.
+ expect(source).toMatch(
+ /if\s*\(\s*isNewsletterAutologinInFlight\(\)\s*\)\s*\{[\s\S]*?\breturn\s*;/,
+ );
+ expect(source).toMatch(
+  /from\s+['"](?:@\/services\/|\.\/)?newsletterAutologinSignal['"]/,
+ );
  });
 });
