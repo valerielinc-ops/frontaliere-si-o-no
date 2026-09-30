@@ -8,7 +8,16 @@ import YAML from 'yaml';
 const workflow = YAML.parse(
   readFileSync(new URL('../.github/workflows/housekeeping-jobs-logic.yml', import.meta.url), 'utf8'),
 ) as {
-  jobs: { housekeeping: { steps: Array<{ name?: string; run?: string }> } };
+  jobs: {
+    housekeeping: {
+      steps: Array<{
+        name?: string;
+        run?: string;
+        uses?: string;
+        with?: Record<string, unknown>;
+      }>;
+    };
+  };
 };
 
 const housekeepingScript = workflow.jobs.housekeeping.steps.find(
@@ -61,6 +70,15 @@ afterEach(() => {
 });
 
 describe('housekeeping lane routing', () => {
+  it('disables persisted checkout credentials before the PAT bootstrap', () => {
+    const checkout = workflow.jobs.housekeeping.steps.find(
+      (step) => step.name === 'Checkout source repository',
+    );
+
+    expect(checkout?.uses).toBe('actions/checkout@v7');
+    expect(checkout?.with?.['persist-credentials']).toBe(false);
+  });
+
   it('reads the whole slice so a late matcher error cannot be hidden by an early match', () => {
     expect(housekeepingScript).toContain('grep -Ei -- "$lane_pattern" "$slice" >/dev/null');
     expect(housekeepingScript).not.toContain('grep -Eqi');

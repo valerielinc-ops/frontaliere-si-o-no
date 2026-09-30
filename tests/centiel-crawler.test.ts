@@ -21,7 +21,13 @@ vi.mock("@/scripts/lib/atomic-write-json.mjs", async (importOriginal) => {
   return { ...actual, writeJsonAtomic };
 });
 
-import { buildJob, dropCentielFabricatedText, main, parseCareersPage } from "../scripts/update-centiel-jobs.mjs";
+import {
+  buildJob,
+  dropCentielFabricatedText,
+  main,
+  parseCareersPage,
+  prepareExistingJobs,
+} from "../scripts/update-centiel-jobs.mjs";
 
 const LIVE_LISTINGS = [
   [
@@ -326,5 +332,30 @@ describe("dropCentielFabricatedText", () => {
     const job: any = { sourceLang: "en", description: "Job profile Product Manager", descriptionByLocale: { en: "Job profile Product Manager", it: "Profilo" } };
     expect(dropCentielFabricatedText(job)).toBe(false);
     expect(job.descriptionByLocale.it).toBe("Profilo");
+  });
+});
+
+describe("prepareExistingJobs", () => {
+  it("re-homes an Italian source body from the old en slot and keeps slugs", () => {
+    const body = [
+      "Centiel presenta una posizione tecnica nel Canton Ticino.",
+      "La persona selezionata seguirà la progettazione, la produzione e il collaudo",
+      "di sistemi UPS e soluzioni per la protezione dell'alimentazione.",
+      "Il ruolo collabora con i team tecnici e commerciali e richiede esperienza",
+      "nel settore, autonomia operativa e disponibilità a lavorare presso la sede.",
+    ].join(" ");
+    const job: any = {
+      companyKey: "centiel",
+      sourceLang: "en",
+      description: body,
+      descriptionByLocale: { en: body },
+      slugByLocale: { en: "old-en-slug", it: "old-it-slug" },
+    };
+
+    prepareExistingJobs([job]);
+
+    expect(job.sourceLang).toBe("it");
+    expect(job.descriptionByLocale).toEqual({ it: body });
+    expect(job.slugByLocale).toEqual({ en: "old-en-slug", it: "old-it-slug" });
   });
 });

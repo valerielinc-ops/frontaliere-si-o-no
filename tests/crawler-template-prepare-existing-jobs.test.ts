@@ -213,6 +213,130 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
     );
   });
 
+  it('records a failed PDF without thin-source quarantine and keeps no empty row', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-1',
+      slug: 'stored-job',
+      url: 'https://example.com/stored-job',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: '',
+      descriptionByLocale: { de: '' },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'stored-1',
+        slug: 'stored-job',
+        url: 'https://example.com/stored-job',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: '',
+        descriptionByLocale: { de: '' },
+        sourceBodyFailureReason: 'pdf-extraction-failed',
+        sourceBodyFailureMessage: 'no text extracted',
+      }],
+      prepareExistingJobs: (jobs) => jobs,
+    });
+
+    expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({
+        housekeepingProof: [expect.objectContaining({
+          job: expect.objectContaining({ url: 'https://example.com/stored-job' }),
+          reason: 'pdf-extraction-failed',
+          definitive: true,
+        })],
+      }),
+    );
+    expect(mocks.writeJobsCrawlerSliceVerified.mock.calls[0][2].housekeepingProof)
+      .not.toEqual(expect.arrayContaining([
+        expect.objectContaining({ reason: 'thin-source-quarantine' }),
+      ]));
+  });
+
+  it('does not re-add a failed PDF row whose stored body is below the floor when a sibling survives', async () => {
+    const thinBody = Array(35).fill('stored').join(' ');
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-failed',
+      slug: 'failed-pdf',
+      url: 'https://example.com/failed-pdf',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: thinBody,
+      descriptionByLocale: { de: thinBody },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-failed',
+        slug: 'failed-pdf',
+        url: 'https://example.com/failed-pdf',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: '',
+        descriptionByLocale: { de: '' },
+        sourceBodyFailureReason: 'pdf-extraction-failed',
+      }, {
+        id: 'fresh-rich',
+        slug: 'fresh-rich',
+        url: 'https://example.com/fresh-rich',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: SOURCE_BODY,
+        descriptionByLocale: { de: SOURCE_BODY },
+      }],
+    });
+
+    const [existing, fresh] = mocks.mergePreserveLocaleData.mock.calls[0];
+    expect(existing).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ url: 'https://example.com/failed-pdf' }),
+    ]));
+    expect(fresh).toEqual([expect.objectContaining({ url: 'https://example.com/fresh-rich' })]);
+    const jobs = mocks.writeJobsCrawlerSliceVerified.mock.calls[0][1];
+    expect(jobs).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ url: 'https://example.com/failed-pdf' }),
+    ]));
+    expect(mocks.writeJobsCrawlerSliceVerified.mock.calls[0][2]).toMatchObject({
+      housekeepingProof: [expect.objectContaining({
+        job: expect.objectContaining({ url: 'https://example.com/failed-pdf' }),
+        reason: 'pdf-extraction-failed',
+        definitive: true,
+      })],
+    });
+  });
+
+  it('keeps the failed PDF row when its stored source body clears the floor', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-failed',
+      slug: 'failed-pdf',
+      url: 'https://example.com/failed-pdf',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: SOURCE_BODY,
+      descriptionByLocale: { de: SOURCE_BODY },
+    }]);
+    mocks.mergePreserveLocaleData.mockImplementationOnce((_existing: object[], fresh: object[]) => fresh);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-failed',
+        slug: 'failed-pdf',
+        url: 'https://example.com/failed-pdf',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: '',
+        descriptionByLocale: { de: '' },
+        sourceBodyFailureReason: 'pdf-extraction-failed',
+      }],
+    });
+
+    const jobs = mocks.writeJobsCrawlerSliceVerified.mock.calls[0][1];
+    expect(jobs).toEqual([expect.objectContaining({
+      url: 'https://example.com/failed-pdf',
+      description: SOURCE_BODY,
+    })]);
+  });
+
   it('uses a stored source body when a non-empty standard-pipeline result is thin', async () => {
     mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
       id: 'stored-1',
