@@ -44,32 +44,64 @@ interface Blob {
   size: number;
 }
 
-/** Every committed blob and its size, straight from the object database. */
-function committedBlobs(): Blob[] {
-  const out = execFileSync('git', ['ls-tree', '-r', '-l', 'HEAD'], {
-    cwd: REPO_ROOT,
-    encoding: 'utf-8',
-    maxBuffer: 1024 * 1024 * 256,
-  });
+interface Listing {
+  blobs: Blob[];
+  /** Blob committati che questo checkout non ha in locale (clone parziale). */
+  unmeasured: number;
+}
+
+/**
+ * Every committed blob and its size, straight from the object database.
+ *
+ * `-l` legge la dimensione di OGNI blob. Nel checkout di tests.yml (sparse,
+ * `filter: tree:0`) i blob fuori dal profilo non sono in locale, e git li
+ * scaricava uno alla volta dalla rete: il worker restava appeso per ore dentro
+ * un `execFileSync`, che nessun timeout di Vitest interrompe (run 35481674287
+ * del 2026-09-20, cancellata dopo 6 ore, e 36733687811 del 2026-09-30: tutti gli
+ * altri file finiti, un `git-remote-https` orfano). Con GIT_NO_LAZY_FETCH git
+ * risponde `BAD` per quei blob in un secondo; qui li si conta come non
+ * misurati. Un clone completo (full-suite-dispatch, monitor) li misura tutti.
+ */
+function committedBlobs(): Listing | null {
+  let out: string;
+  try {
+    out = execFileSync('git', ['ls-tree', '-r', '-l', 'HEAD'], {
+      cwd: REPO_ROOT,
+      encoding: 'utf-8',
+      maxBuffer: 1024 * 1024 * 256,
+      env: { ...process.env, GIT_NO_LAZY_FETCH: '1' },
+      // Tetto sul comando sincrono: se git tornasse a bloccarsi, il test deve
+      // fallire in fretta, non tenere fermo il job fino al suo timeout.
+      timeout: 120_000,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch (err) {
+    const e = err as { code?: string; signal?: string | null };
+    // Un timeout non è «nessun contesto git»: è un guasto, e va visto.
+    if (e.code === 'ETIMEDOUT' || e.signal) throw err;
+    return null; // no git context (export/tarball) — nothing to assert against
+  }
   const blobs: Blob[] = [];
+  let unmeasured = 0;
   for (const line of out.split('\n')) {
     if (!line) continue;
-    // <mode> blob <sha> <size>\t<path>
-    const m = /^\d+ blob [0-9a-f]+\s+(\d+)\t(.+)$/.exec(line);
+    // <mode> blob <sha> <size>\t<path>; <size> è `BAD` per un blob assente.
+    const m = /^\d+ blob [0-9a-f]+\s+(\S+)\t(.+)$/.exec(line);
     if (!m) continue;
+    if (!/^\d+$/.test(m[1])) {
+      unmeasured += 1;
+      continue;
+    }
     blobs.push({ size: Number(m[1]), path: m[2] });
   }
-  return blobs;
+  return { blobs, unmeasured };
 }
 
 describe('committed blobs stay pushable', () => {
   it('no committed file is within 5 MB of GitHub 100 MB push limit', () => {
-    let blobs: Blob[];
-    try {
-      blobs = committedBlobs();
-    } catch {
-      return; // no git context (export/tarball) — nothing to assert against
-    }
+    const listing = committedBlobs();
+    if (!listing) return;
+    const { blobs } = listing;
     if (blobs.length === 0) return;
 
     const over = blobs
@@ -87,11 +119,11 @@ describe('committed blobs stay pushable', () => {
   });
 
   it('reports the current headroom, so the next one is seen coming', () => {
-    let blobs: Blob[];
-    try {
-      blobs = committedBlobs();
-    } catch {
-      return;
+    const listing = committedBlobs();
+    if (!listing) return;
+    const { blobs, unmeasured } = listing;
+    if (unmeasured > 0) {
+      console.log(`${unmeasured} committed blobs not present in this partial checkout: not measured here (a full clone measures them)`);
     }
     if (blobs.length === 0) return;
 

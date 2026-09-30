@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { createHmac } from 'node:crypto';
 // @ts-expect-error — Cloudflare Worker module, no types
-import worker, { isStopReply, isAutoReply, extractSenderEmail, hmacHex } from '../infra/cloudflare-email-worker/stop-reply-handler.js';
+import worker, { isStopReply, isAutoReply, extractSenderEmail, hmacHex, isAssistedAlias } from '../infra/cloudflare-email-worker/stop-reply-handler.js';
 
 // The worker binds TWO Email Routing addresses to the same script
 // (scripts/cf-email-worker-setup.mjs's ROUTING_RULES) and branches on
@@ -449,6 +449,20 @@ describe('worker email() — newsletter mailbox branch', () => {
     expect(calledUrls.some((u: string) => u.startsWith('https://example.test/'))).toBe(true);
     expect(calledUrls.some((u: string) => u.includes('disiscrivi-newsletter'))).toBe(false);
     expect(message.forward).toHaveBeenCalledWith('ops@example.com');
+  });
+});
+
+describe('isAssistedAlias (mirror of functions/src/assistedApplicationAlias.js)', () => {
+  it('recognises both alias shapes and nothing that only looks like one', () => {
+    expect(isAssistedAlias('c-abcdefghjk@candidature.frontaliereticino.ch')).toBe(true);
+    expect(isAssistedAlias('luigi.prova.k7m2@candidature.frontaliereticino.ch')).toBe(true);
+    expect(isAssistedAlias('Maria.De.Luca.x9ab@Candidature.Frontaliereticino.ch')).toBe(true);
+    expect(isAssistedAlias('luigi.dangelo-mueller.k7m2@candidature.frontaliereticino.ch')).toBe(true);
+    expect(isAssistedAlias('luigi.prova@candidature.frontaliereticino.ch')).toBe(false);
+    expect(isAssistedAlias('luigi.prova.k7m2@frontaliereticino.ch')).toBe(false);
+    expect(isAssistedAlias('luigi.prova.k7m1@candidature.frontaliereticino.ch')).toBe(false);
+    expect(isAssistedAlias(`${'a'.repeat(40)}.k7m2@candidature.frontaliereticino.ch`)).toBe(false);
+    expect(isAssistedAlias('valerie@frontaliereticino.ch')).toBe(false);
   });
 });
 

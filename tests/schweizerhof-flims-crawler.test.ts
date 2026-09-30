@@ -7,6 +7,7 @@ import {
 } from '../scripts/lib/schweizerhof-flims-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('Schweizerhof crawler parser', () => {
   // ── Constants ──
@@ -80,7 +81,10 @@ describe('Schweizerhof crawler parser', () => {
     });
   });
 
-  it('uses the official HCM4all ATS index as its production source', () => {
+  // Legge la spec VIVA in data/prospector/crawlers/ (loadSpec), che il bot
+  // prospector riscrive: fuori dal gate delle PR, nel monitor post-merge
+  // (replay del 2026-09-30: l'esito cambia con i dati di 7 e 14 giorni fa).
+  it.skipIf(SKIP_LIVE_DATA)('uses the official HCM4all ATS index as its production source', () => {
     const spec = loadSpec('schweizerhof-flims');
 
     expect(spec.companyHost).toBe('romantikhotels.hcm4all.de');
