@@ -132,10 +132,12 @@ import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchest
 ensureAdminApp();
 
 // Narrow, authenticated fetch relay for the two job sources that reject
-// datacenter egress. The workflow-side OIDC token is verified in the handler;
-// no source headers supplied by the caller are forwarded upstream.
+// datacenter egress. Cloud Run IAM rejects unauthenticated callers before the
+// container starts; the workflow-side OIDC token remains a second factor in
+// the handler. No source headers supplied by the caller are forwarded upstream.
 export const jobsSourceRelay = onRequest(
   {
+    invoker: 'private',
     region: 'europe-west6',
     memory: '256MiB',
     timeoutSeconds: 15,

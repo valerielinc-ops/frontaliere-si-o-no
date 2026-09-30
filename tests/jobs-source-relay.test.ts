@@ -55,6 +55,12 @@ afterEach(() => {
 });
 
 describe('jobsSourceRelay', () => {
+  it('declares private IAM invocation before application authentication', () => {
+    const source = readFileSync('functions/index.js', 'utf8');
+
+    expect(source).toMatch(/export const jobsSourceRelay = onRequest\(\s*\{\s*invoker: 'private',/u);
+  });
+
   it('returns 403 for a host outside the allowlist', async () => {
     const fetchImpl = vi.fn();
     const handler = authenticatedHandler(fetchImpl);
