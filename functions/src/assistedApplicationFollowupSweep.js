@@ -174,7 +174,9 @@ export async function sendFollowup({ db, orderId, nowMs, sendCascade, by }) {
       html: textToHtml(text),
       ...(identity.email ? { replyTo: identity.email } : {}),
       ...(messageId ? { headers: { 'In-Reply-To': messageId, References: messageId } } : {}),
+      // Sent in the candidate's name: no link rewriting and no open pixel.
       tracking: false,
+      openTracking: false,
     },
     recipient: { email: claimed.to },
     meta: { orderId, key: `employer_followup_${pending.n}` },

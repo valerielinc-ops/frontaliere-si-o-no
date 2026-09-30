@@ -385,10 +385,19 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         )}
 
         {data && (!data.stale || data.preparingNext) && WAITING_STATES.has(data.state) && (
-          <div className="flex items-start gap-3 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status">
-            <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-info" aria-hidden="true" />
-            <p className="text-sm leading-relaxed text-body">{t(`jobBoard.assisted.review.waiting.${data.state}`)}</p>
-          </div>
+          // A waiting state is saved work in a queue, not a request in flight:
+          // the candidate can close the page, the e-mail tells them what happened.
+          data.state === 'submitting' ? (
+            <div className="flex items-start gap-3 rounded-xl border border-success-border bg-success-subtle p-4" role="status">
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
+              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.waiting.submitting')}</p>
+            </div>
+          ) : (
+            <div className="flex items-start gap-3 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status">
+              <Clock3 className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
+              <p className="text-sm leading-relaxed text-body">{t(`jobBoard.assisted.review.waiting.${data.state}`)}</p>
+            </div>
+          )
         )}
 
         {data && data.state === 'submitted' && (
