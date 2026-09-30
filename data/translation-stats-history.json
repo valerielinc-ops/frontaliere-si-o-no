@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-10T17:01:09.853Z",
-    "label": "after",
-    "total": 32497,
-    "needsRetranslation": 6018,
-    "suppressed": 157,
-    "incomplete": 6493,
-    "complete": 26004,
-    "slotsPresent": 26004,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 26004,
-    "sourceCopyExcused": 735,
-    "slotsPresentByLength": 32372,
-    "languageVerified": 26960,
-    "missingByLocale": {
-      "it": 63,
-      "en": 53,
-      "de": 70,
-      "fr": 79
-    },
-    "queueAge": {
-      "count": 6018,
-      "withTimestamp": 6018,
-      "oldestAgeDays": 150.3,
-      "p50AgeDays": 10.4,
-      "p90AgeDays": 68.3,
-      "buckets": {
-        "0-1d": 49,
-        "1-2d": 128,
-        "2-7d": 1681,
-        "0-7d": 1858,
-        "7-30d": 2382,
-        "30-90d": 1378,
-        "90-180d": 400,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1270
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 501
-      },
-      {
-        "company": "Roche",
-        "pending": 463
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 349
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 276
-      },
-      {
-        "company": "Sulzer",
-        "pending": 161
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 154
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 145
-      },
-      {
-        "company": "PEMSA",
-        "pending": 144
-      },
-      {
-        "company": "Manor AG",
-        "pending": 106
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-11T01:21:59.335Z",
     "label": "before",
     "total": 32602,
@@ -19852,6 +19769,100 @@
       "seed": 20260908,
       "requested": 120,
       "queuedCandidates": 10351,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3596
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1918
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1712
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 975
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 810
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 749
+      },
+      {
+        "company": "Galaxus",
+        "pending": 642
+      },
+      {
+        "company": "VOLG",
+        "pending": 562
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 398
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 270
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-30T13:07:09.231Z",
+    "label": "before",
+    "total": 31777,
+    "needsRetranslation": 16830,
+    "suppressed": 149,
+    "incomplete": 22666,
+    "complete": 9111,
+    "slotsPresent": 9111,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 9111,
+    "sourceCopyExcused": 347,
+    "slotsPresentByLength": 31402,
+    "languageVerified": 16360,
+    "missingByLocale": {
+      "it": 4470,
+      "en": 4592,
+      "de": 882,
+      "fr": 4391
+    },
+    "queueAge": {
+      "count": 16830,
+      "withTimestamp": 16830,
+      "oldestAgeDays": 505.5,
+      "p50AgeDays": 10.6,
+      "p90AgeDays": 88,
+      "buckets": {
+        "0-1d": 926,
+        "1-2d": 2112,
+        "2-7d": 4965,
+        "0-7d": 8003,
+        "7-30d": 4026,
+        "30-90d": 3353,
+        "90-180d": 1442,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 10338,
       "sampled": 120,
       "processed": 0,
       "residual": 0,
