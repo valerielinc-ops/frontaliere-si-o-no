@@ -314,13 +314,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "apprentice-micromechanic-m-f-d-chopard-fleurier"
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-          "apprentice-micromechanic-m-f-d-chopard-fleurier"
+          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
         ],
         "en": [
           "apprenti-micromecanicien-h-f-d-chopard-fleurier"
@@ -395,13 +393,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-crm-chopard-meyrin",
-        "global-responsabile-crm-chopard-meyrin"
+        "global-head-of-crm-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-crm-chopard-meyrin",
-          "global-responsabile-crm-chopard-meyrin"
+          "global-head-of-crm-chopard-meyrin"
         ],
         "de": [
           "global-head-of-crm-chopard-meyrin"
@@ -427,10 +423,10 @@
     },
     {
       "id": "chopard-cbc25eff9178",
-      "slug": "communication-executive-assistant-h-f-chopard-meyrin",
+      "slug": "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin",
       "slugByLocale": {
         "fr": "communication-executive-assistant-h-f-chopard-meyrin",
-        "it": "communication-executive-assistant-h-f-chopard-meyrin",
+        "it": "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin",
         "en": "communication-executive-assistant-h-f-chopard-meyrin",
         "de": "communication-executive-assistant-h-f-chopard-meyrin"
       },
@@ -490,7 +486,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:11:42.946Z"
+      "firstSeenAt": "2026-09-29T21:11:42.946Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communication-executive-assistant-h-f-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "communication-executive-assistant-h-f-chopard-meyrin"
+      ]
     },
     {
       "id": "chopard-bc33f961df14",
