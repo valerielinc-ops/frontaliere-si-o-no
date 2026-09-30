@@ -7118,6 +7118,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.revisione-legge-materiale-bellico.title': 'Arms exports: law revision put to a vote',
     'blog.article.revisione-legge-materiale-bellico.excerpt': 'The Federal Council proposes relaxing the rules on exports of war materiel. Vote scheduled for 29 novembre.',
     'blog.article.revisione-legge-materiale-bellico.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.revisione-legge-armi-votazione-novembre.title': 'Bern eases arms export restrictions',
+    'blog.article.revisione-legge-armi-votazione-novembre.excerpt': 'Popular vote on 29 novembre on the revision of the law on war materiel: more flexibility for exports and re-exports to 17 EU countries and other states',
+    'blog.article.revisione-legge-armi-votazione-novembre.imageAlt': 'View of Lugano with Swiss flag and weapons export documents',
+    'blog.article.sonno-deputati-sessioni-federali.title': 'Parliament: short sleep during session, power naps proposed',
+    'blog.article.sonno-deputati-sessioni-federali.excerpt': '16 parliamentarians sleep 6h10min during sessions (-50min). Rasch (University of Fribourg) proposes power-nap rooms at the Federal Palace.',
+    'blog.article.sonno-deputati-sessioni-federali.imageAlt': 'Rest room at Federal Palace with comfortable armchairs and soft lighting',
+    'blog.article.fisco-eredita-soletta.title': 'Canton of Solothurn: inheritance and gift tax',
+    'blog.article.fisco-eredita-soletta.excerpt': 'Swiss taxation at three levels: for the Canton of Solothurn, kinship, exemptions, declaration and deadlines matter.',
+    'blog.article.fisco-eredita-soletta.imageAlt': 'Swiss cantonal building and tax documents for inheritances and gifts',
 };
 
 export default blogMetaChEn;

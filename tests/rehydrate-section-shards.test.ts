@@ -108,6 +108,20 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(cacheBlock).toContain('continue');
   });
 
+  it('bounds artifact downloads and clone fallbacks with the same retry contract as the locale sibling', () => {
+    const downloadIdx = script.indexOf('gh run download "$DEPLOY_RUN_ID"');
+    const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
+    expect(downloadIdx).toBeGreaterThan(-1);
+    expect(cloneIdx).toBeGreaterThan(downloadIdx);
+    expect(script.slice(downloadIdx - 30, downloadIdx)).toContain('timeout 180');
+    expect(script.slice(cloneIdx - 30, cloneIdx)).toContain('timeout 300');
+    expect(script).toMatch(/batch_download_ok=1[\s\S]*for attempt in 1 2; do/);
+    expect(script).toMatch(/clone_ok=1[\s\S]*for attempt in 1 2; do/);
+    // The losing workers must wait for both bounded download attempts before
+    // paying for a duplicate clone themselves.
+    expect(script).toContain('[ "$waited" -lt 390 ]');
+  });
+
   it('does NOT use partial clone / sparse-checkout for the network fallback (proven not to help, see the test above)', () => {
     // The rejection is documented in a comment (which legitimately mentions
     // both strings by name) — check the LIVE code only, same

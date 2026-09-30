@@ -21382,6 +21382,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'revisione-legge-armi-votazione-novembre',
+    category: 'novita',
+    date: '2026-09-29T23:20:15.498Z',
+    image: '/images/blog/revisione-legge-armi-votazione-novembre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'sonno-deputati-sessioni-federali',
+    category: 'novita',
+    date: '2026-09-29T23:53:14.492Z',
+    image: '/images/blog/sonno-deputati-sessioni-federali.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'fisco-eredita-soletta',
+    category: 'fiscale',
+    date: '2026-09-30T00:20:55.906Z',
+    image: '/images/blog/fisco-eredita-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
