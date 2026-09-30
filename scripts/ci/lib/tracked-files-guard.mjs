@@ -54,8 +54,13 @@ export function parsePorcelainZ(porcelain) {
  * Fotografia dei file tracciati sporchi: path → hash del contenuto nel working
  * tree (`missing` se il file non c'è più).
  *
+ * `alsoHash` aggiunge l'hash di path che possono essere tornati puliti: il
+ * teardown ci passa i file già sporchi prima della run, così un file che la run
+ * ha riportato al contenuto di HEAD resta confrontabile invece di sparire dalla
+ * fotografia.
+ *
  * @param {string} root radice del repo
- * @param {{ git?: (args: string[]) => string }} [deps]
+ * @param {{ git?: (args: string[]) => string, alsoHash?: Iterable<string> }} [deps]
  * @returns {Map<string, string> | null} null se `git` non è utilizzabile
  */
 export function snapshotTrackedState(root, deps = {}) {
@@ -72,7 +77,8 @@ export function snapshotTrackedState(root, deps = {}) {
     return null;
   }
   const state = new Map();
-  for (const rel of parsePorcelainZ(porcelain)) {
+  for (const rel of [...parsePorcelainZ(porcelain), ...(deps.alsoHash ?? [])]) {
+    if (state.has(rel)) continue;
     const abs = path.join(root, rel);
     state.set(rel, existsSync(abs)
       ? createHash('sha1').update(readFileSync(abs)).digest('hex')
@@ -84,9 +90,17 @@ export function snapshotTrackedState(root, deps = {}) {
 const SNAPSHOT_RE = /(^|\/)__snapshots__\/[^/]+\.snap$/;
 
 /**
- * I file che la run ha modificato: sporchi dopo ma non prima, oppure sporchi
- * in entrambe le fotografie con un contenuto diverso. Un file tornato pulito
- * non conta: il working tree è come prima.
+ * I file di cui la run ha cambiato il CONTENUTO: sporchi dopo ma non prima,
+ * oppure presenti in entrambe le fotografie con un hash diverso. Il secondo
+ * caso comprende un file già sporco prima della run che la run ha riportato a
+ * HEAD (un `git checkout -- file`, una rigenerazione dai dati committati): è
+ * una scrittura della run, e in locale cancella lavoro non committato. Un file
+ * sporco prima e con lo stesso contenuto dopo (per esempio committato durante
+ * la run) non conta.
+ *
+ * `after` deve contenere l'hash dei file sporchi in `before` anche se sono
+ * tornati puliti (`snapshotTrackedState(root, { alsoHash: before.keys() })`);
+ * un path di `before` assente da `after` è trattato come cambiato.
  *
  * @param {Map<string, string>} before
  * @param {Map<string, string>} after
@@ -95,8 +109,9 @@ const SNAPSHOT_RE = /(^|\/)__snapshots__\/[^/]+\.snap$/;
  */
 export function trackedChanges(before, after, options = {}) {
   const changed = [];
-  for (const [rel, hash] of after) {
-    if (before.get(rel) === hash) continue;
+  for (const rel of new Set([...before.keys(), ...after.keys()])) {
+    if (before.has(rel) && after.has(rel) && before.get(rel) === after.get(rel)) continue;
+    if (!before.has(rel) && !after.has(rel)) continue;
     if (options.allowSnapshotUpdates && SNAPSHOT_RE.test(rel)) continue;
     changed.push(rel);
   }
