@@ -39,6 +39,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, m
 import {
   parsePostJobDetail,
   extractPostJobIdFromUrl,
+  formatPostJobLocation,
   keyPostDescriptionBySourceLocale,
   keyPostTitleBySourceLocale,
   isPublishablePostDetail,
@@ -570,6 +571,7 @@ async function fetchPostJobs() {
     // "Posizione aperta presso …" was never source text).
     const description = String(detail.description || '').trim();
     const sourceLang = detectLang(description || title, 'it');
+    const publishedLocation = formatPostJobLocation(detail.places, city);
 
     const job = {
       url: sourceUrl,
@@ -577,7 +579,7 @@ async function fetchPostJobs() {
       title,
       company: brandCompany || detail.hiringOrg || POST_COMPANY_NAME,
       companyKey: POST_KEY,
-      location: city,
+      location: publishedLocation,
       canton,
       country: 'CH',
       description,

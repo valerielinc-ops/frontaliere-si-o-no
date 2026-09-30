@@ -35,6 +35,25 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Publish every physical locality declared by Post.ch, in source order.
+ * This follows the repository convention used by other JSON-LD parsers:
+ * multiple localities are joined with `, ` while the first place remains the
+ * primary structured-data locality for canton resolution.
+ */
+export function formatPostJobLocation(places = [], fallback = '') {
+  const seen = new Set();
+  const localities = [];
+  for (const place of Array.isArray(places) ? places : []) {
+    const locality = normalizeSpace(place?.city || '');
+    const key = locality.toLowerCase();
+    if (!locality || seen.has(key)) continue;
+    seen.add(key);
+    localities.push(locality);
+  }
+  return localities.length > 0 ? localities.join(', ') : normalizeSpace(fallback);
+}
+
 function decodeHtml(value = '') {
   return String(value || '')
     .replace(/&amp;/g, '&')

@@ -273,6 +273,7 @@ describe('Volg source-detail wiring', () => {
     expect(runner).toContain('enrichCoopSourceBackedJobs');
     expect(runner).toContain("allowedHosts: ['jobs.fenaco.com']");
     expect(runner).toContain('preserveListingOnTransientFailure: true');
+    expect(runner).toContain('allowIdenticalSourcePostingsWithoutAddress: true');
     expect(runner).not.toContain('Promise.allSettled');
   });
 });
