@@ -56,6 +56,7 @@ export function personalValuesOf(order = {}, profile = {}) {
   return [
     order.applicantName, order.applicantEmail, order.applicantPhone, order.customerEmail,
     profile.fullName, profile.email, profile.phone, profile.location, profile.linkedin, profile.website,
+    profile.address?.street, profile.address?.postalCode, profile.address?.city, profile.dateOfBirth, profile.nationality,
   ].filter(Boolean);
 }
 
