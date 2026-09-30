@@ -1,23 +1,26 @@
 {
   "key": "saint-gobain-weber-isover",
   "label": "Saint-Gobain Weber/Isover Suisse",
-  "generatedAt": "2026-09-29T21:35:54.680Z",
+  "generatedAt": "2026-09-30T21:35:12.643Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3579,
-  "avgDurationMs": 3579,
+  "durationMs": 5735,
+  "avgDurationMs": 5735,
   "durationHistory": [
-    3579
+    5735
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "saint-gobain-weber-isover-83fbeed91d21",
       "slug": "fachspezialist-in-vorgehangte-hinterluftete-fassade-vhf-100-saint-gobain-weber-isover",
@@ -31,7 +34,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/51f7101d-3a03-432c-acc6-c6a10ef559f7/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:35:49.860Z",
+      "crawledAt": "2026-09-30T21:35:02.989Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,57 +51,15 @@
       "postedDate": "2026-09-22",
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/51f7101d-3a03-432c-acc6-c6a10ef559f7/",
       "firstSeenAt": "2026-09-24T00:06:58.316Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 14,
+        "translation": 20,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "saint-gobain-weber-isover-83fbeed91d21",
-      "slug": "specialist-in-ventilated-curtain-wall-facade-vcf-100-saint-gobain-weber-isover-volketswil",
-      "company": "Saint-Gobain Weber AG",
-      "companyKey": "saint-gobain-weber-isover",
-      "companyDomain": "ch.weber",
-      "title": "Specialist in ventilated curtain wall facade (VCF), 100%",
-      "location": "Volketswil",
-      "canton": "ZH",
-      "url": "https://www.jobs.ch/en/vacancies/detail/51f7101d-3a03-432c-acc6-c6a10ef559f7/",
-      "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-29T09:33:13.868Z",
-      "addressLocality": "Volketswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8604",
-      "streetAddress": "Volketswil",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Materiali da Costruzione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/51f7101d-3a03-432c-acc6-c6a10ef559f7/",
-      "firstSeenAt": "2026-09-24T00:06:58.316Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
