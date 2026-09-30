@@ -387,7 +387,7 @@ async function classifyStopIntent(subject, message, patterns, prefix = null) {
 // order waiting for it. The reply is forwarded to the human inbox as always.
 export const ASSISTED_CV_MAX_BYTES = 9 * 1024 * 1024;
 
-// Order aliases of the automated assisted application (c-xxxxxxxxxx@ALIAS_DOMAIN):
+// Order aliases of the automated assisted application (nome.cognome.xxxx@ALIAS_DOMAIN, or c-xxxxxxxxxx@ without a name):
 // every message goes to assistedApplicationInbound, which classifies it and
 // forwards it to the candidate. Handled BEFORE the auto-reply filter (an ATS
 // acknowledgement is automatic by nature) and never forwarded to the human
@@ -398,7 +398,10 @@ export const ASSISTED_INBOUND_MAX_BYTES = 12 * 1024 * 1024;
 export const ASSISTED_INBOUND_TIMEOUT_MS = 25_000;
 
 export function isAssistedAlias(address) {
-  return /^c-[a-z2-9]{10}@candidature\.frontaliereticino\.ch$/.test(String(address || '').toLowerCase());
+  const value = String(address || '').toLowerCase();
+  // Same shapes as functions/src/assistedApplicationAlias.js: c-xxxxxxxxxx or nome.cognome.xxxx.
+  return value.split('@')[0].length <= 40
+    && /^(?:c-[a-z2-9]{10}|[a-z]+(?:-[a-z]+)*(?:\.[a-z]+(?:-[a-z]+)*){0,3}\.[a-z2-9]{4})@candidature\.frontaliereticino\.ch$/.test(value);
 }
 
 export function mayCarryAttachment(message) {
