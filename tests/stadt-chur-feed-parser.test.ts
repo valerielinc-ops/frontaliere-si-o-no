@@ -12,6 +12,7 @@ import {
 import { meetsSourceBodyFloor, sourceBodyWordCount } from '@/scripts/lib/source-body-floor.mjs';
 import { keepStoredSourceBodiesByKey } from '@/scripts/lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from '@/scripts/lib/stored-jobs-soft-exit.mjs';
+import { buildJob } from '@/scripts/update-stadt-chur-jobs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Real morss (open-source proxy) passthrough of jobs.chur.ch, captured 2026-07-12.
@@ -235,6 +236,21 @@ describe('stadt-chur feed parser', () => {
       url: thinJob.url,
       description: BODY_60,
     });
+  });
+
+  it('uses rich feed content when the detail page is unavailable', () => {
+    const content = `<p>${BODY_60}</p>`;
+    const job = buildJob({
+      title: 'Fixture Stelle',
+      link: 'https://jobs.chur.ch/Fixture-Stelle-de-j1999.html',
+      summary: SUMMARY_35,
+      content,
+      category: 'Verwaltung',
+      updated: '2026-09-30T08:00:00Z',
+    });
+
+    expect(job.description).toBe(BODY_60);
+    expect(meetsSourceBodyFloor(job.description)).toBe(true);
   });
 
   it('keeps the runner summary on the merge stats contract before assembly', () => {
