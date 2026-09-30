@@ -12,6 +12,7 @@ import {
   OSCAM_CASTELROTTO_KEY,
   OSCAM_CASTELROTTO_COMPANY_NAME,
   OSCAM_CASTELROTTO_FABRICATED_DESCRIPTION_RE,
+  oscamCastelrottoMatchKey,
 } from './lib/oscam-castelrotto-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
@@ -25,6 +26,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllOscamCastelrottoJobs,
   isCompanyJob: isOscamCastelrottoJob,
   isTrustedDomain,
+  matchKey: oscamCastelrottoMatchKey,
   defaultSourceLang: 'it',
   // Jobs stored with the parser's former wrapper around the bando are cleaned
   // before the merge, with the translations made from it.
