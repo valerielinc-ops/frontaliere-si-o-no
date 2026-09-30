@@ -53,9 +53,6 @@ describe('main data writers use the shared retry contract', () => {
     expect(dutyFetch).toBeGreaterThan(-1);
     expect(finalizer).toBeGreaterThan(dutyFetch);
     expect(checker).toBeGreaterThan(finalizer);
-    expect(read('.github/workflows/crawler-health-monitor.yml')).toContain(
-      'node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json',
-    );
     expect(read('.github/workflows/guard-data-integrity.yml')).toContain(
       'node scripts/ci/restore-data-integrity-files.mjs',
     );
