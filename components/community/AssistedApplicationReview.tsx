@@ -52,11 +52,12 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   );
 }
 
-function QuestionField({ question, value, onChange, disabled }: {
+function QuestionField({ question, value, onChange, disabled, error }: {
   question: ReviewQuestion;
   value: string;
   onChange: (value: string) => void;
   disabled: boolean;
+  error?: string;
 }) {
   const { t } = useTranslation();
   const inputClass = 'mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading';
@@ -84,8 +85,10 @@ function QuestionField({ question, value, onChange, disabled }: {
           disabled={disabled}
           maxLength={500}
           className={inputClass}
+          aria-invalid={error ? true : undefined}
         />
       )}
+      {error && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{error}</span>}
     </label>
   );
 }
@@ -94,6 +97,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const { t, locale } = useTranslation();
   const [data, setData] = useState<ReviewPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // What the answer check found wrong, per question id.
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState('');
@@ -135,12 +140,14 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     if (busy) return;
     setBusy(action);
     setError(null);
+    setFieldErrors({});
     try {
       await sendReviewAction(token, action, extra);
       setDone(action);
       await load();
     } catch (reason) {
       setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      if (reason instanceof ReviewRequestError) setFieldErrors(reason.fields || {});
     } finally {
       setBusy(null);
     }
@@ -263,11 +270,12 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 value={answers[question.id] || ''}
                 onChange={(value) => setAnswers((current) => ({ ...current, [question.id]: value }))}
                 disabled={Boolean(busy)}
+                error={fieldErrors[question.id]}
               />
             ))}
             <button type="submit" disabled={Boolean(busy)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle disabled:opacity-60">
               {busy === 'answers' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-              {t('jobBoard.assisted.review.saveAnswers')}
+              {busy === 'answers' ? t('jobBoard.assisted.review.checkingAnswers') : t('jobBoard.assisted.review.saveAnswers')}
             </button>
             {done === 'answers' && (openRequired.length
               ? <p className="text-xs text-warning" role="status">{t('jobBoard.assisted.review.answersStillOpen')}</p>

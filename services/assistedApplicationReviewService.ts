@@ -74,7 +74,7 @@ export interface ReviewAtsView {
 }
 
 export class ReviewRequestError extends Error {
-  constructor(public readonly code: string) {
+  constructor(public readonly code: string, public readonly fields: Record<string, string> = {}) {
     super(code);
   }
 }
@@ -90,7 +90,10 @@ export function readReviewToken(search: string = typeof window === 'undefined' ?
 
 async function parse(response: Response): Promise<any> {
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data?.ok) throw new ReviewRequestError(String(data?.error || `http_${response.status}`));
+  if (!response.ok || !data?.ok) {
+    const fields = data?.fields && typeof data.fields === 'object' ? data.fields as Record<string, string> : {};
+    throw new ReviewRequestError(String(data?.error || `http_${response.status}`), fields);
+  }
   return data;
 }
 

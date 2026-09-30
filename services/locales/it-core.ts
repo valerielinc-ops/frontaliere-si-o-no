@@ -926,6 +926,8 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.error.stale_link': "Questa versione è stata sostituita: apri il link dell’email più recente.",
  'jobBoard.assisted.review.error.feedback_required': "Scrivi cosa vuoi cambiare.",
  'jobBoard.assisted.review.error.no_valid_answers': "Compila almeno una risposta.",
+ 'jobBoard.assisted.review.checkingAnswers': "Controllo le risposte…",
+ 'jobBoard.assisted.review.error.invalid_answers': "Alcune risposte vanno corrette: trovi l’indicazione sotto il campo.",
  'jobBoard.assisted.review.error.invalid_date': "Controlla la data: dev'essere una data valida e, per l'inizio del lavoro, oggi o più avanti.",
  'jobBoard.assisted.review.error.questions_open': "Rispondi prima alle domande con *.",
  'jobBoard.assisted.review.error.network': "Connessione non riuscita. Riprova.",

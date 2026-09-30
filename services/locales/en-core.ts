@@ -886,6 +886,8 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.error.stale_link': "This version has been replaced: open the link in the most recent email.",
  'jobBoard.assisted.review.error.feedback_required': "Please write what you would like to change.",
  'jobBoard.assisted.review.error.no_valid_answers': "Please fill in at least one answer.",
+ 'jobBoard.assisted.review.checkingAnswers': "Checking your answers…",
+ 'jobBoard.assisted.review.error.invalid_answers': "Some answers need a fix: you’ll find the hint under the field.",
  'jobBoard.assisted.review.error.invalid_date': "Please check the date: it must be a valid date and, for your start date, today or later.",
  'jobBoard.assisted.review.error.questions_open': "Please answer the questions marked * first.",
  'jobBoard.assisted.review.error.network': "Connection failed. Please try again.",

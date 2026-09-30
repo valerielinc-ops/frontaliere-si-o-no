@@ -97,6 +97,7 @@ import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmail
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
 import { codexStructured } from './src/lib/codexStructured.js';
+import { checkAnswersWithAi } from './src/assistedApplicationAnswerCheck.js';
 import { sendEmailCascade as sendAssistedApplicationCascade } from './src/emailCascade.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './src/assistedApplicationCvCheck.js';
 import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/storage';
@@ -2397,12 +2398,14 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
 
 // Candidate review page API (signed link from the review e-mails, no login).
 export const assistedApplicationReview = onRequest(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  // 90 s: saving answers waits for the Codex check (at most 45 s, then saved anyway).
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 90, cors: true },
   async (req, res) => {
     try {
       const { status, body } = await handleAssistedApplicationReview(req, {
         db: getAdminDb(),
         runEffect: (context) => runAutomationEffect(context),
+        checkAnswers: (input) => checkAnswersWithAi({ ...input, codex: (request) => codexStructured(request) }),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
         // A follow-up the candidate sends right away (af1 link).
         sendCascade: async (emails, options) => {

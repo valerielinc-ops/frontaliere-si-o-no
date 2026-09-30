@@ -25,10 +25,11 @@ const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
 
 class ReviewError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -223,7 +224,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       if (!result.ok && result.error === 'not_pending') throw new ReviewError('not_allowed', 409);
       return { status: 200, body: { ok: true, sent: Boolean(result.sent), stopped: Boolean(result.stopped) } };
     }
-    const { flow, draft } = await loadAll(deps.db, orderId);
+    const { order, flow, draft } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
     if (action === 'cv_choice') {
@@ -237,6 +238,18 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (action === 'answers') {
       const answers = sanitizeAnswers(body.answers, draft, nowMs);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
+      // The answers are dynamic (one set per posting): Codex checks each one is
+      // usable for its question (assistedApplicationAnswerCheck.js).
+      if (deps.checkAnswers) {
+        const check = await deps.checkAnswers({
+          questions: (draft?.questions || []).filter((question) => Object.hasOwn(answers, question.id)),
+          answers,
+          locale: order?.locale || 'it',
+          job: { title: draft?.job?.title || order?.jobTitle || '', company: order?.companyName || '' },
+          todayIso: zurichToday(nowMs),
+        });
+        if (!check.ok) throw new ReviewError('invalid_answers', 400, { fields: check.fields });
+      }
       await flowRefFor(deps.db, orderId).set({ answers: { ...(flow.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
     }
     const event = {
@@ -252,7 +265,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
-    if (error instanceof ReviewError) return { status: error.status, body: { ok: false, error: error.code } };
+    if (error instanceof ReviewError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;
   }
 }

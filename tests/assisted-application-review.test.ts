@@ -118,6 +118,19 @@ describe('candidate review API', () => {
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ availability: '2026-11-01', birth_date: '1985-09-12' });
   });
 
+  it('saves answers only when the AI check finds them usable, and says which field to fix', async () => {
+    const checkAnswers = vi.fn(async () => ({ ok: false, fields: { work_permit: 'Scegli il tuo permesso.' }, checkedBy: 'codex' }));
+    const refused = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, { ...deps(), checkAnswers });
+    expect(refused).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { work_permit: 'Scegli il tuo permesso.' } } });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
+    expect(checkAnswers).toHaveBeenCalledWith(expect.objectContaining({
+      answers: { work_permit: 'G' }, locale: 'it', todayIso: '2026-09-30', questions: [expect.objectContaining({ id: 'work_permit' })],
+    }));
+    const accepted = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, { ...deps(), checkAnswers: async () => ({ ok: true, fields: {}, checkedBy: 'codex' }) });
+    expect(accepted.status).toBe(200);
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ work_permit: 'G' });
+  });
+
   it('turns feedback into a new round', async () => {
     const empty = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'reject', feedback: 'no' } }, deps());
     expect(empty).toMatchObject({ status: 400, body: { error: 'feedback_required' } });
