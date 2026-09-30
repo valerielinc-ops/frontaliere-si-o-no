@@ -1,21 +1,23 @@
 {
   "key": "1a-hunkeler",
   "label": "1a-hunkeler",
-  "generatedAt": "2026-09-29T21:23:13.082Z",
+  "generatedAt": "2026-09-30T21:22:59.838Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4999,
-  "avgDurationMs": 4999,
+  "durationMs": 5297,
+  "avgDurationMs": 5297,
   "durationHistory": [
-    4999
+    5297
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "source": "1a-hunkeler Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:23:06.745Z",
+      "crawledAt": "2026-09-30T21:22:52.051Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -47,12 +49,13 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:03:10.340Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 21,
         "completeness": 20
       }
     }
