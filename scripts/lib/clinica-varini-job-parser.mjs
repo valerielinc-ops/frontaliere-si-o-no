@@ -56,6 +56,9 @@ export const MIN_VARINI_DESC_LENGTH = 400;
 const JOB_PDF_RE = /concorso|bando|posto|annuncio/i;
 const NON_JOB_PDF_RE =
   /(comunicato|stampa|press|informativa|privacy|policy|testi\/|attestato|presidente|vernissage)/i;
+const KNOWN_NON_JOB_FILENAME_RE =
+  /(?:^|[^a-z0-9])(?:comunicat(?:o|i)(?:[_\s-]+stampa)?|press(?:[_\s-]+release)?|informativa|privacy|policy|testi|attestato|presidente|vernissage)(?=$|[^a-z0-9])/i;
+const VARINI_UPLOADS_PATH_PREFIX = '/wp-content/uploads/';
 const PDF_ANCHOR_RE = /<a\b[^>]*\bhref\s*=\s*(["'])([^"'<>]+?\.pdf(?:[?#][^"'<>]*)?)\1[^>]*>/gi;
 
 function decodeFilename(raw = '') {
@@ -82,6 +85,9 @@ function collectPdfLinks(html = '') {
     }
     if (!['http:', 'https:'].includes(parsed.protocol)) continue;
     parsed.protocol = 'https:';
+    if (!isTrustedDomain(parsed.href) || !parsed.pathname.startsWith(VARINI_UPLOADS_PATH_PREFIX)) {
+      continue;
+    }
 
     const href = parsed.href;
     if (seen.has(href)) continue;
@@ -94,8 +100,13 @@ function collectPdfLinks(html = '') {
   return links;
 }
 
-function isKnownNonJobPdf({ href = '', filename = '' } = {}) {
-  return NON_JOB_PDF_RE.test(filename) || NON_JOB_PDF_RE.test(href);
+function isKnownNonJobPdf({ filename = '' } = {}) {
+  const decodedFilename = decodeFilename(filename);
+  // Authoritative evidence must come from an explicit institutional-document
+  // family in the basename. A job token wins over a coincidental non-job word
+  // (for example, "concorso_addetto_stampa.pdf"). Do not inspect the href:
+  // directory names and query strings are not evidence about the document.
+  return !JOB_PDF_RE.test(decodedFilename) && KNOWN_NON_JOB_FILENAME_RE.test(decodedFilename);
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -185,7 +196,7 @@ export function parseClinicaVariniListing(html = '') {
     if (href.startsWith('//')) href = `https:${href}`;
     else if (href.startsWith('/')) href = `https://clinicavarini.ch${href}`;
 
-    const filename = decodeURIComponent(href.split('/').pop() || '');
+    const filename = decodeFilename(href.split('/').pop() || '');
     if (!JOB_PDF_RE.test(filename)) continue;
     if (NON_JOB_PDF_RE.test(filename) || NON_JOB_PDF_RE.test(href)) continue;
     if (seen.has(href)) continue;

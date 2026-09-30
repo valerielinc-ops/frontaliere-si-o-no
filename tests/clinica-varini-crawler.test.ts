@@ -58,6 +58,34 @@ describe('Clinica Varini crawler parser', () => {
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
+  it('ignores off-domain PDFs as empty-source evidence', () => {
+    const jobs = parseClinicaVariniListing(
+      '<a href="https://cdn.example/privacy.pdf">Privacy</a>',
+    );
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('does not prove empty when a job-token filename also contains a non-job word', () => {
+    const jobs = parseClinicaVariniListing([
+      '<a href="/wp-content/uploads/2026/09/20260930_concorso_addetto_stampa.pdf">Concorso</a>',
+      '<a href="/wp-content/uploads/2026/09/comunicato_stampa.pdf">Comunicato</a>',
+    ].join('\n'));
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('keeps malformed percent-encoding fail-closed without throwing', () => {
+    const jobs = parseClinicaVariniListing(
+      "<a href='/wp-content/uploads/%E0%A4.pdf'>Documento</a>",
+    );
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
   it('keeps an unrecognised page fail-closed', () => {
     const jobs = parseClinicaVariniListing('<html><body><h1>Service unavailable</h1></body></html>');
 
