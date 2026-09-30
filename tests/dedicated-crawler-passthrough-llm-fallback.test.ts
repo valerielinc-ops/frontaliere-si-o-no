@@ -244,4 +244,22 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
     expect(ctx.callLLM).not.toHaveBeenCalled();
     expect(freeTranslateWithRetry).not.toHaveBeenCalled();
   });
+
+  it('riusa la cache romancia valida anche quando il modello non e disponibile', async () => {
+    const title = 'Fufragnadi - emprendissadi da prova';
+    const cachedTitle = 'Ausbildung bei RTR';
+    const { cache, ctx } = makeCtx({ isAnyModelAvailable: () => false });
+    cache.set('translate-desc-unsupported-source-v1:' + ROMANSH_SOURCE.toLowerCase() + '|de|rm', TRANSLATED_DE);
+    cache.set('translate-title-unsupported-source-v1:' + title.toLowerCase() + '|de|rm', cachedTitle);
+
+    await expect(aiTranslateJobDescriptionDCC(
+      { description: ROMANSH_SOURCE, locale: 'de', sourceLang: 'rm' }, ctx,
+    )).resolves.toBe(TRANSLATED_DE);
+    await expect(aiTranslateJobTitleDCC(
+      { title, locale: 'de', sourceLang: 'rm' }, ctx,
+    )).resolves.toBe(cachedTitle);
+    expect(ctx.callLLM).not.toHaveBeenCalled();
+    expect(freeTranslateWithRetryDetailed).not.toHaveBeenCalled();
+    expect(freeTranslateWithRetry).not.toHaveBeenCalled();
+  });
 });

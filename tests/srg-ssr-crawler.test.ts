@@ -214,6 +214,23 @@ describe('SRG SSR crawler parser', () => {
       expect(detectSrgSsrBodyLanguage(italianBody)).toBe('it');
     });
 
+    it('does not classify Italian, French, or German broadcaster prose as Romansh', () => {
+      const falsePositives = [
+        'La RSI è un partner da anni del progetto LAS dedicato al rumantsch.',
+        'La RSI presenta il nuovo progetto editoriale e ne racconta gli obiettivi al pubblico.',
+        'La RTS présente ses offres et explique les prochaines étapes aux personnes intéressées.',
+        'Das SRF informiert über das Projekt und beschreibt die nächsten Schritte für das Team.',
+      ];
+
+      for (const body of falsePositives) {
+        expect(detectSrgSsrBodyLanguage(body)).not.toBe('rm');
+      }
+    });
+
+    it('requires corroboration for a distinctive Romansh marker', () => {
+      expect(detectSrgSsrBodyLanguage("L'infurmaziun è da far cun ils candidats.", 'de')).toBe('rm');
+    });
+
     it('repairs historical RTR copies without changing published slugs', () => {
       const historical = {
         id: 'srg-ssr-rtr-rm-1',

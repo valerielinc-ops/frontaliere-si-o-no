@@ -2364,7 +2364,6 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   // allowed to handle this source; when it is unavailable the empty result
   // deliberately leaves the job queued with needsRetranslation.
   if (isUnsupportedSourceLang(sourceLang)) {
-    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
     const cacheKey = buildAiCacheKey
       ? buildAiCacheKey('translate-desc-unsupported-source-v1', [cleanDesc, locale, sourceLang])
       : null;
@@ -2372,6 +2371,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       const cached = getCachedAiResponse(cacheKey);
       if (acceptableDescription(cached)) return cached;
     }
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
     const prompt = [
       `Translate this job description from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
       'Rules:',
@@ -2582,7 +2582,6 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // it is unavailable instead of copying or heuristically rewriting the
   // source title into a published locale.
   if (isUnsupportedSourceLang(sourceLang)) {
-    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
     const cacheKey = buildAiCacheKey
       ? buildAiCacheKey('translate-title-unsupported-source-v1', [cleanTitle, locale, sourceLang])
       : null;
@@ -2591,6 +2590,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       if (cached && cached !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(cached)
           && cached.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(cached);
     }
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
     const prompt = [
       `Translate this job title from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
       '- Translate the role naturally and completely.',

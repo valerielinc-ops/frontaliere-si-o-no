@@ -51,16 +51,22 @@ const ORG_LABELS = {
 };
 
 const PUBLISHED_LOCALES = ['de', 'it', 'fr', 'en'];
-const ROMANSH_DISTINCTIVE_MARKERS = [
+const ROMANSH_LEXICAL_MARKERS = [
   'emprendissadi',
   'fufragnadi',
   'infurmaziun',
   'pussaivlad',
   'spetgas',
   'cuntanschain',
+  'cun',
+  'nus',
+  'vus',
 ];
 const ROMANSH_IDENTITY_MARKERS = ['rumantsch'];
-const ROMANSH_FUNCTION_MARKERS = ['ils', 'las', 'cun', 'nus', 'da', 'è'];
+const ROMANSH_WEAK_MARKERS = ['dal'];
+const ROMANSH_ARTICLE_NOUN_SUFFIX = /(?:ad|ads|ans|as|ats|ers|ins|iuns|aziuns|ezzas|assas|azzas)$/;
+const ROMANSH_STRONG_ENDING = /(?:aziun|aziuns|iun|iuns)$/;
+const ROMANSH_WEAK_ENDING = /(?:ment|ments)$/;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -73,27 +79,51 @@ function normalizeSpace(s = '') {
 }
 
 function bodyTokens(value = '') {
-  return new Set(String(value || '').toLowerCase().normalize('NFC').match(/\p{L}+/gu) || []);
+  return String(value || '').toLowerCase().normalize('NFC').match(/\p{L}+/gu) || [];
 }
 
 function hasRomanshMarker(tokens, marker) {
-  return [...tokens].some((token) => token === marker || token.startsWith(marker));
+  return tokens.some((token) => token === marker || token.startsWith(marker));
+}
+
+function hasRomanshArticleNoun(tokens) {
+  for (let index = 0; index < tokens.length - 1; index += 1) {
+    if ((tokens[index] === 'ils' || tokens[index] === 'las')
+        && ROMANSH_ARTICLE_NOUN_SUFFIX.test(tokens[index + 1])) return true;
+  }
+  return false;
+}
+
+function hasTokenSequence(tokens, sequence) {
+  for (let index = 0; index <= tokens.length - sequence.length; index += 1) {
+    if (sequence.every((token, offset) => tokens[index + offset] === token)) return true;
+  }
+  return false;
 }
 
 /**
  * Detect Romansh from the posting body only. Titles such as «Praticanta /
- * praticant» are too short and too close to Italian to be evidence. The
- * strong markers are distinctive compounds; the function-word markers only
- * corroborate them (or need four independent hits on their own), so ordinary
- * Italian prose containing «da»/«è» is not reclassified.
+ * praticant» are too short and too close to Italian to be evidence. Require a
+ * distinctive lexical/structural marker plus an independent confirmation:
+ * identity words and generic function words never classify a body by
+ * themselves.
  */
 export function detectSrgSsrBodyLanguage(description = '', fallback = 'de') {
   const tokens = bodyTokens(description);
-  const distinctiveHits = ROMANSH_DISTINCTIVE_MARKERS.filter((marker) => hasRomanshMarker(tokens, marker)).length;
+  const distinctiveHits = [
+    ROMANSH_LEXICAL_MARKERS.some((marker) => hasRomanshMarker(tokens, marker)),
+    hasRomanshArticleNoun(tokens),
+    hasTokenSequence(tokens, ['la', 'finala']),
+    tokens.some((token) => ROMANSH_STRONG_ENDING.test(token)
+      && !ROMANSH_LEXICAL_MARKERS.some((marker) => token === marker || token.startsWith(marker))),
+  ].filter(Boolean).length;
   const identityHits = ROMANSH_IDENTITY_MARKERS.filter((marker) => hasRomanshMarker(tokens, marker)).length;
-  const functionHits = ROMANSH_FUNCTION_MARKERS.filter((marker) => tokens.has(marker)).length;
-  if (distinctiveHits >= 2 || (distinctiveHits >= 1 && functionHits >= 1)
-      || (identityHits >= 1 && functionHits >= 3) || functionHits >= 4) return 'rm';
+  const weakConfirmationHits = [
+    identityHits > 0,
+    ROMANSH_WEAK_MARKERS.some((marker) => tokens.includes(marker)),
+    tokens.some((token) => ROMANSH_WEAK_ENDING.test(token)),
+  ].filter(Boolean).length;
+  if (distinctiveHits >= 2 || (distinctiveHits >= 1 && weakConfirmationHits >= 1)) return 'rm';
   return detectLang(description, fallback);
 }
 
