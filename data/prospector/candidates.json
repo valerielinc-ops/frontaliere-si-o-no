@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-30T13:52:51.375Z",
+  "updatedAt": "2026-09-30T13:53:50.421Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -648676,12 +648676,12 @@
     },
     "pantr@zug": {
       "key": "pantr@zug",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-09-30T13:51:27.521Z",
+      "updatedAt": "2026-09-30T13:53:50.405Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -648753,7 +648753,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "10549",
+      "promotionBranch": "prospector/promote-2026-09-30"
     },
     "paola-bajada@celerina-schlarigna": {
       "key": "paola-bajada@celerina-schlarigna",

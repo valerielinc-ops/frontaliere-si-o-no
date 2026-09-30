@@ -26,7 +26,7 @@ describe('sync-pharmacy-duties workflow', () => {
     expect(WORKFLOW).toContain('workflow_dispatch: {}');
     expect(WORKFLOW).toContain("cron: '*/15 * * * *'");
     expect(WORKFLOW).toContain('uses: ./.github/workflows/sync-pharmacies-border.yml');
-    expect(WORKFLOW).toContain('permissions:\n      contents: write\n    uses: ./.github/workflows/sync-pharmacies-border.yml');
+    expect(WORKFLOW).toContain('permissions:\n      contents: write\n      pull-requests: write\n    uses: ./.github/workflows/sync-pharmacies-border.yml');
     expect(WORKFLOW).not.toContain('git push');
     expect(WORKFLOW).not.toContain('node scripts/sync-pharmacy-duties.mjs');
   });
@@ -42,13 +42,17 @@ describe('sync-pharmacy-duties workflow', () => {
     expect(parsed.jobs?.sync?.steps).toBeUndefined();
   });
 
-  it('keeps retry and ruleset-bypass auth in the called writer', () => {
+  it('keeps PR publishing auth in the called writer', () => {
     const credentials = BORDER_WORKFLOW.indexOf('node scripts/load-rc-env.mjs');
-    const pushHelper = BORDER_WORKFLOW.indexOf('bash scripts/lib/git-push-with-retry.sh');
+    const publisher = BORDER_WORKFLOW.indexOf('bash scripts/lib/open-data-refresh-pr.sh');
     expect(credentials).toBeGreaterThan(-1);
-    expect(pushHelper).toBeGreaterThan(credentials);
-    expect(BORDER_WORKFLOW).toContain('--regenerate-cmd');
+    expect(publisher).toBeGreaterThan(credentials);
+    expect(BORDER_WORKFLOW).toContain('pull-requests: write');
+    expect(BORDER_WORKFLOW).toContain('GH_TOKEN: ${{ env.GITHUB_PAT }}');
     expect(BORDER_WORKFLOW).toContain('node scripts/sync-pharmacy-duties.mjs');
-    expect(BORDER_WORKFLOW).toContain('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
+    expect(BORDER_WORKFLOW).toContain('--path data/pharmacies-ticino-complete.json');
+    expect(BORDER_WORKFLOW).toContain('--path data/pharmacy-duties-ticino-status.json');
+    expect(BORDER_WORKFLOW).not.toContain('bash scripts/lib/git-push-with-retry.sh');
+    expect(BORDER_WORKFLOW).not.toContain('--regenerate-cmd');
   });
 });

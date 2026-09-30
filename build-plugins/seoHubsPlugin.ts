@@ -2004,7 +2004,7 @@ export function buildThinCantonHubHtml(args: {
     ? `<div class="s-USY9TF"><a href="${esc(cta.href)}" class="s-cta">${esc(cta.label)}</a></div>`
     : '';
 
-  const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
+  const homeLabel = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' }[locale];
 
   const hubCrumbName = `${cantonLabel} · ${CANTON_HUB_LABELS[locale][hub]}`;
   const breadcrumbLd = inlineScriptJson({

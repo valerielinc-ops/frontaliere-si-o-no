@@ -252,8 +252,17 @@ function runSiblingGate(effectiveBodyFile) {
   const result = spawnSync(
     process.execPath,
     [SIBLING_GATE],
-    { cwd: process.cwd(), env: process.env, input: payload, stdio: ['pipe', 'inherit', 'inherit'] },
+    {
+      cwd: process.cwd(),
+      env: { ...process.env, SIBLING_GATE_PAYLOAD: payload },
+      encoding: 'utf8',
+      // Managed Node runtimes reject a child stdin pipe with EPERM. The
+      // sibling gate receives its bounded payload through the environment.
+      stdio: ['ignore', 'inherit', 'inherit'],
+    },
   );
+  if (result.stdout) process.stdout.write(result.stdout);
+  if (result.stderr) process.stderr.write(result.stderr);
   return result.error ? BODY_FILE_INFRA : (result.status ?? BODY_FILE_INFRA);
 }
 

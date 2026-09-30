@@ -26,7 +26,7 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
-import { isAutomationEnabled } from './assistedApplicationAutomation.js';
+import { isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import {
   brandButton,
   brandCallout,
@@ -799,7 +799,7 @@ export async function sendPaidOrderNotifications(
 ) {
   // Callers that do not say (the hourly backstop, the owner recovery script)
   // get the copy that matches the automation flag, like the trigger does.
-  const automationOn = typeof automation === 'boolean' ? automation : await isAutomationEnabled();
+  const automationOn = typeof automation === 'boolean' ? automation : await isAutomationEnabledFor(orderId);
   // `orderPatch` only changes what the email shows (e.g. the locale recovered
   // from Stripe for a test send); it is never written by this function.
   const view = (order) => (orderPatch ? { ...order, ...orderPatch } : order);
@@ -834,7 +834,7 @@ export async function handleAssistedApplicationOrderWritten(
   before,
   after,
   orderId,
-  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabled } = {},
+  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabledFor } = {},
 ) {
   if (!after) return { ok: true, skipped: 'deleted' };
   const results = [];
@@ -850,14 +850,14 @@ export async function handleAssistedApplicationOrderWritten(
   }
 
   if (isPaid(after) && !isPaid(before)) {
-    results.push(...await sendPaidOrderNotifications(db, orderId, { nowMs, automation: await automationEnabled() }));
+    results.push(...await sendPaidOrderNotifications(db, orderId, { nowMs, automation: await automationEnabled(orderId) }));
   }
 
   const fromStatus = before?.submissionStatus || null;
   const toStatus = after.submissionStatus || null;
   if (isPaid(after) && fromStatus !== toStatus) {
     if (toStatus === 'ready_for_manual_submission' && fromStatus === 'awaiting_upload') {
-      const receivedAutomation = await automationEnabled();
+      const receivedAutomation = await automationEnabled(orderId);
       results.push(await sendOrderNotification({
         db,
         orderId,

@@ -707,7 +707,7 @@ describe('crawler slice integrity guard', () => {
     const previous = json({ crawlerKey: 'convit-holding', jobs: [removedA, removedB, retained] });
     const next = json({ crawlerKey: 'convit-holding', jobs: [retained] });
     const proof = [
-      { job: removedA, definitive: true, reason: 'http-404' },
+      { job: removedA, definitive: true, reason: 'pdf-extraction-failed' },
       { job: removedB, definitive: true, reason: 'redirect-to-generic-listing' },
     ];
 

@@ -32,11 +32,33 @@ const OTHER_OWNER_FLAGS: Record<string, string> = {
   channel_unknown: 'Canale di candidatura sconosciuto: il candidato completerà sul portale, procedi',
 };
 
+const FOLLOWUP_STATES: Record<string, string> = {
+  scheduled: 'programmato',
+  awaiting_candidate: 'in attesa del candidato (12 ore)',
+  sending: 'in invio',
+  done: 'completati',
+  stopped: 'fermati',
+};
+
+const LEGITIMACY_TIERS: Record<string, string> = {
+  high_confidence: 'affidabile',
+  caution: 'da verificare',
+  suspicious: 'sospetto',
+};
+
+const TAILORED_CV_LABELS: Record<string, string> = {
+  ready: 'pronto, verrà inviato',
+  fact_check_failed: 'scartato dal controllo dei fatti: parte il CV originale',
+  failed: 'non generato: parte il CV originale',
+  skipped: 'non generato',
+};
+
 const HELD_LABELS: Record<string, string> = {
   fact_check: 'fatti non verificati nei testi',
   knock_out: 'requisito indispensabile mancante',
   no_posting: 'testo dell’annuncio non recuperato',
   channel_unknown: 'canale di candidatura sconosciuto',
+  legitimacy: 'annuncio sospetto (Block G)',
   max_rounds: '3 rifiuti del candidato',
   draft_failed: 'bozza non generata',
   posting_closed: 'annuncio chiuso (rimborso automatico)',
@@ -105,6 +127,21 @@ export default function AssistedApplicationAutomationPanel({
     }
   };
 
+  // Kept in memory only for this view: the password never goes to the order list.
+  const [revealed, setRevealed] = useState<Record<string, string>>({});
+  const reveal = async (host: string) => {
+    if (busy) return;
+    setBusy('automationRevealAccount');
+    try {
+      const body = await runAutomationAdminAction(user, order.orderId, 'automationRevealAccount', { host });
+      setRevealed((current) => ({ ...current, [host]: String(body.password || '') }));
+    } catch (error) {
+      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Password non disponibile.' });
+    } finally {
+      setBusy(null);
+    }
+  };
+
   const upload = async (file: File | undefined) => {
     if (!file || busy) return;
     setBusy('uploadCv');
@@ -166,10 +203,50 @@ export default function AssistedApplicationAutomationPanel({
               <li key={`${item.receivedAt}-${item.subject}`}>
                 <strong>{INBOX_LABELS[item.category] || item.category}</strong> · {formatMs(item.receivedAt)} · {item.summaryIt || item.subject}
                 {item.interviewWhen ? ` · quando: ${item.interviewWhen}` : ''}
-                {item.forwarded !== 'sent' ? ' · inoltro al candidato NON riuscito' : ''}
+                {item.forwarded === 'skipped' ? ' · letto dal runner (verifica account portale), non inoltrato' : item.forwarded !== 'sent' ? ' · inoltro al candidato NON riuscito' : ''}
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {(automation?.followup || automation?.interviewPrep) && (
+        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
+          {automation?.followup && (
+            <p className="mt-1">
+              <strong>Solleciti:</strong> {FOLLOWUP_STATES[automation.followup.state || ''] || automation.followup.state} · inviati {automation.followup.sent}/2
+              {automation.followup.dueAt ? ` · prossimo passo ${formatMs(automation.followup.dueAt)}` : ''}
+              {automation.followup.stopReason ? ` · motivo: ${automation.followup.stopReason}` : ''}
+            </p>
+          )}
+          {automation?.followup?.pending && (
+            <p className="mt-1 whitespace-pre-line rounded bg-surface-alt p-2 text-subtle">{automation.followup.pending.body}</p>
+          )}
+          {automation?.interviewPrep && (
+            <p className="mt-1"><strong>Preparazione colloquio:</strong> {automation.interviewPrep.status}{automation.interviewPrep.sentAt ? ` il ${formatMs(automation.interviewPrep.sentAt)}` : ''} · {automation.interviewPrep.questions} domande, {automation.interviewPrep.stories} storie</p>
+          )}
+        </div>
+      )}
+
+      {(automation?.accounts || []).length > 0 && (
+        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Account sui portali (creati sull’alias)</p>
+          <ul className="mt-1 space-y-1">
+            {(automation?.accounts || []).map((account) => (
+              <li key={account.host} className="flex flex-wrap items-center gap-2">
+                <span><strong>{account.host}</strong> · {account.email} · creato {formatMs(account.createdAt)} · {account.verifiedAt ? `verificato ${formatMs(account.verifiedAt)}` : 'non verificato'}</span>
+                {revealed[account.host]
+                  ? <code className="rounded bg-surface-alt px-1.5 py-0.5 select-all">{revealed[account.host]}</code>
+                  : (
+                    <button type="button" className="rounded border border-edge px-2 py-0.5 hover:bg-surface-alt disabled:opacity-50" disabled={Boolean(busy)} onClick={() => void reveal(account.host)}>
+                      Mostra password
+                    </button>
+                  )}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-1 text-muted">Per prendere in carico la candidatura sul portale. Ogni visualizzazione viene registrata.</p>
         </div>
       )}
 
@@ -188,6 +265,42 @@ export default function AssistedApplicationAutomationPanel({
             {draft.checksIt.length > 0 && <ul className="mt-1 list-disc pl-5 text-xs text-subtle">{draft.checksIt.map((item) => <li key={item}>{item}</li>)}</ul>}
             {draft.job?.applyUrl && <a className="mt-1 inline-block text-xs text-link hover:underline" href={draft.job.applyUrl} target="_blank" rel="noreferrer">Pagina di candidatura</a>}
           </div>
+
+          {(draft.ats || draft.legitimacy || draft.tailoredCv) && (
+            <div className="grid gap-2 text-xs text-body sm:grid-cols-2">
+              {draft.ats && (
+                <div className="rounded-lg border border-edge bg-surface p-3">
+                  <p className="font-semibold uppercase tracking-wide text-muted">ATS (career-ops)</p>
+                  <p className="mt-1">CV del candidato: <strong>{draft.ats.original.structural.grade}</strong> ({draft.ats.original.structural.score}/100) · parole chiave {draft.ats.original.keywords.coverage ?? '—'}%</p>
+                  {draft.ats.tailored && <p>CV adattato: <strong>{draft.ats.tailored.structural.grade}</strong> ({draft.ats.tailored.structural.score}/100) · parole chiave {draft.ats.tailored.keywords.coverage ?? '—'}%</p>}
+                  {draft.ats.original.keywords.missing.length > 0 && <p className="mt-1 text-muted">Mancano nel CV: {draft.ats.original.keywords.missing.join(', ')}</p>}
+                  {draft.ats.original.structural.issues.length > 0 && <p className="text-muted">Problemi: {draft.ats.original.structural.issues.map((issue) => `${issue.code} (${issue.severity})`).join(', ')}</p>}
+                </div>
+              )}
+              {draft.legitimacy && (
+                <div className={`rounded-lg border p-3 ${draft.legitimacy.tier === 'suspicious' ? 'border-danger-border bg-danger-subtle/50' : 'border-edge bg-surface'}`}>
+                  <p className="font-semibold uppercase tracking-wide text-muted">Legittimità annuncio (Block G)</p>
+                  <p className="mt-1"><strong>{LEGITIMACY_TIERS[draft.legitimacy.tier] || draft.legitimacy.tier}</strong>{draft.legitimacy.ageDays !== null ? ` · ${draft.legitimacy.ageDays} giorni` : ' · data non nota'}</p>
+                  <p className="text-muted">{draft.legitimacy.signals.filter((signal) => signal.weight !== 'neutral').map((signal) => `${signal.weight === 'positive' ? '+' : '−'} ${signal.key}`).join(' · ') || 'nessun segnale netto'}</p>
+                  {draft.legitimacy.notes.length > 0 && <p className="text-muted">Note: {draft.legitimacy.notes.map((note) => (note.quote ? `${note.key} «${note.quote}»` : note.key)).join(' · ')}</p>}
+                  {(flow?.heldBy || []).includes('legitimacy') && (
+                    <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={Boolean(ackFlags.legitimacy)} onChange={(event) => setAckFlags((current) => ({ ...current, legitimacy: event.target.checked }))} /> Ho verificato l’annuncio: invia comunque</label>
+                  )}
+                </div>
+              )}
+              {draft.tailoredCv && (
+                <div className="rounded-lg border border-edge bg-surface p-3 sm:col-span-2">
+                  <p className="font-semibold uppercase tracking-wide text-muted">CV adattato ATS</p>
+                  <p className="mt-1">
+                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : 'CV adattato'}
+                    {draft.tailoredCv.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.url} target="_blank" rel="noreferrer">apri il PDF</a></>}
+                  </p>
+                  {draft.tailoredCv.unsupported.length > 0 && <p className="text-muted">Fatti non trovati: {draft.tailoredCv.unsupported.map((item) => item.token).join(', ')}</p>}
+                  {draft.tailoredCv.dropped.length > 0 && <p className="text-muted">Competenze scartate (non nel CV): {draft.tailoredCv.dropped.join(', ')}</p>}
+                </div>
+              )}
+            </div>
+          )}
 
           <details className="rounded-lg border border-edge bg-surface p-3 text-xs">
             <summary className="cursor-pointer font-semibold text-strong">Requisiti e prove ({draft.requirements.length})</summary>

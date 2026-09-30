@@ -69,6 +69,9 @@ import {
   formatReadBudgetViolation,
 } from './issue-fix-read-budget.mjs';
 
+/** Transport used by the gh shim when managed Node cannot pipe child stdin. */
+export const SIBLING_GATE_PAYLOAD_ENV = 'SIBLING_GATE_PAYLOAD';
+
 /**
  * Resolve the local checker for the repository that the PR command targets.
  * A repository without a local checker is deliberately ignored: running the
@@ -183,7 +186,8 @@ async function main() {
   try {
     // Timeout: uno stdin ereditato e mai chiuso (invocazione a mano dalla
     // shell di un agente) teneva il gate appeso senza output. Vedi lib/hook-stdin.mjs.
-    const raw = (await readHookStdin()).raw.trim();
+    const raw = process.env[SIBLING_GATE_PAYLOAD_ENV]?.trim()
+      || (await readHookStdin()).raw.trim();
     if (raw) {
       try {
         const payload = JSON.parse(raw);
@@ -286,8 +290,11 @@ async function main() {
     jsonOutput = execFileSync('node', [gateTarget.checkScript, '--json', '--head', head.ref], {
       encoding: 'utf8',
       maxBuffer: 8 * 1024 * 1024,
-      // Capture stdout (parsed as JSON); let stderr propagate for progress messages.
-      stdio: ['pipe', 'pipe', 'inherit'],
+      // Managed Node can report EPERM when a child is given a stdin pipe. The
+      // checker does not read stdin, so keep it detached and capture both
+      // streams; this preserves the verdict instead of silently treating a
+      // valid run as an infrastructure failure.
+      stdio: ['ignore', 'pipe', 'pipe'],
       cwd: head.cwd,
     });
   } catch {

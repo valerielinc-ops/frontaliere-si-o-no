@@ -6,6 +6,7 @@ import {
   PROFILE_SCHEMA,
   REQUIREMENTS_SCHEMA,
 } from '../functions/src/assistedApplicationAiPrompts.js';
+import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailoredCv.js';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
 import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
@@ -100,6 +101,13 @@ function fakeCodex() {
         motivationShort: 'Mi motiva il lavoro di reparto.', whyCompany: 'Ospedale di riferimento.',
       };
     }
+    if (schema === TAILORED_CV_SCHEMA) {
+      return {
+        headline: 'Infermiera', summary: 'Infermiera con esperienza in reparto.', competencies: ['triage', 'astrofisica'],
+        experience: [{ index: 0, bullets: ['Reparto da 24 letti.'] }], skills: ['triage'],
+        sectionTitles: { summary: 'Profilo', competencies: 'Competenze', experience: 'Esperienza', education: 'Formazione', certifications: 'Certificazioni', skills: 'Competenze tecniche', languages: 'Lingue' },
+      };
+    }
     throw new Error('unexpected schema');
   });
 }
@@ -121,7 +129,13 @@ describe('draft mode', () => {
       order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
       codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
-    expect(codex).toHaveBeenCalledTimes(4);
+    // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras).
+    expect(codex).toHaveBeenCalledTimes(5);
+    expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
+    expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
+    expect(draft.ats.original.structural.grade).toBeTruthy();
+    expect(draft.ats.tailored.keywords).toBeTruthy();
+    expect(['high_confidence', 'caution', 'suspicious']).toContain(draft.legitimacy.tier);
     expect(draft).toMatchObject({ status: 'ready', round: 1, verdict: 'good', language: 'it', channel: { type: 'lever' } });
     // Inferred rows are never critical; unverified quotes and invented addresses are dropped.
     expect(draft.requirements[2]).toMatchObject({ basis: 'inferred', importance: 'meaningful', quote: '' });
@@ -171,7 +185,9 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
     });
-    expect(event).toEqual({ type: 'submit_succeeded', channel: 'email' });
+    // The follow-ups (day 7 and 14) get the recipient, the subject and our Message-ID.
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email', followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
+    expect(event.followup.messageId).toMatch(/^<aa-.+@candidature\.frontaliereticino\.ch>$/);
     const [[items, options]] = sendCascade.mock.calls as any;
     expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
@@ -259,7 +275,8 @@ describe('submit mode', () => {
     });
     expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     // The first run sent it, then died before its event: the retry does not send again.
-    expect(await run()).toEqual({ type: 'submit_succeeded', channel: 'email', replayed: true });
+    // The replay still hands over what the follow-ups need, from the record of the first send.
+    expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email', replayed: true, followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
     expect(sendCascade).toHaveBeenCalledTimes(1);
     expect(store.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'email', to: 'hr@ospedale.ch' } });
 

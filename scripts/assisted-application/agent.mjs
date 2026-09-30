@@ -20,6 +20,8 @@ import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../fun
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
+import { portalAccountStore } from './lib/portal/account.mjs';
+import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 
@@ -130,7 +132,15 @@ async function main() {
       order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       submissionGuard: submissionGuard(db, orderId, round),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
+      // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
+      accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
     });
+    // An application sent by e-mail gets its follow-ups (day 7 and 14); the
+    // recipient and subject stay in Firestore, not in the automation event.
+    if (event.followup) {
+      await scheduleFollowups(db, orderId, event.followup);
+      delete event.followup;
+    }
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
     if (event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {

@@ -174,6 +174,18 @@ describe('application channel', () => {
       applicationEmail: 'invented@example.ch',
     }).type).toBe('employer_site');
   });
+
+  it('prefers the employer’s application portal, e-mail only when the posting offers no portal', () => {
+    const text = 'Bewerbung online oder an jobs@spital.ch.';
+    // An applicant-tracking portal wins over the address the posting also names.
+    expect(classifyApplicationChannel({ applyUrl: 'https://spital.wd3.myworkdayjobs.com/de-DE/Careers/job/x/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }))
+      .toMatchObject({ type: 'workday', email: '' });
+    expect(classifyApplicationChannel({ applyUrl: 'https://jobs.lever.co/spital/abc/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('lever');
+    // Only the employer's own page, a job board or LinkedIn: the address is the way to apply.
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.spital.ch/jobs/pflege', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.jobs.ch/de/stellenangebote/detail/123/', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.linkedin.com/jobs/view/1', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
+  });
 });
 
 describe('job posting fetch', () => {

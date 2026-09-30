@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
@@ -25,6 +25,12 @@ import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
+import {
+  buildSourceBodyFailureHousekeepingProof,
+  dropFailedSourceJobsWithoutValidBody,
+  keepStoredSourceBodiesByKey,
+} from './lib/stored-source-body.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -53,14 +59,18 @@ function writeJobsFiles(jobs) {
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
-function mergeCompanyJobs(parsedJobs) {
+function mergeCompanyJobs(parsedJobs, discoveredJobs = []) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
-  const companyExisting = dropFabricatedDescriptions(
-    allJobs.filter((j) => isCompanyJob(j)),
-    CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE,
-    COMPANY_NAME,
+  const companyExisting = dropFailedSourceJobsWithoutValidBody(
+    dropFabricatedDescriptions(
+      allJobs.filter((j) => isCompanyJob(j)),
+      CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE,
+      COMPANY_NAME,
+    ),
+    discoveredJobs,
+    (job) => String(job?.url || '').trim().replace(/\/+$/, ''),
   );
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
@@ -73,7 +83,8 @@ function mergeCompanyJobs(parsedJobs) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Locarno');
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Locarno', summaryCounts);
   console.log('\ud83c\udfe2 Running dedicated Citt\u00e0 di Locarno crawler...');
 
     const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
@@ -96,22 +107,33 @@ async function main() {
 
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Locarno jobs.`);
   const parsedJobs = [];
+  const sourceBodyFailures = [];
   for (const raw of rawJobs) {
-    let pdfText = '';
+    let pdfContent = null;
     if (raw.pdfUrl) {
       console.log(`  \ud83d\udcc4 Extracting PDF: ${raw.pdfUrl}`);
-      const pdfContent = await extractPdfJobContentFromUrl(raw.pdfUrl);
+      pdfContent = await extractPdfJobContentFromUrl(raw.pdfUrl);
       if (pdfContent.error) {
         console.warn(`  \u26a0\ufe0f PDF extraction failed for "${raw.title}": ${pdfContent.error}`);
       } else if (pdfContent.text) {
-        pdfText = pdfContent.text;
         console.log(`  \u2705 PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
       }
     }
 
+    const pdfFailed = Boolean(pdfContent?.extractionFailed || pdfContent?.error);
+    if (pdfFailed) {
+      sourceBodyFailures.push({
+        title: raw.title,
+        url: raw.pdfUrl || raw.url,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdfContent.error || pdfContent.warning || 'PDF extraction failed',
+      });
+    }
+    const pdfText = pdfFailed || pdfContent?.thin ? '' : (pdfContent?.rawText || pdfContent?.text || '');
+
     // Only the text of the bando, in its own language: no lines of the crawler
-    // (CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE). A bando without readable text gets no
-    // description and takes the pipeline's thin-source path.
+    // (CITTA_DI_LOCARNO_FABRICATED_DESCRIPTION_RE). A bando without readable text
+    // is a PDF extraction failure, not a thin source.
     const desc = buildPdfBackedDescription({ pdfText });
     const sourceLang = detectLang(desc || raw.title, 'it');
 
@@ -126,10 +148,29 @@ async function main() {
       postedDate: raw.datePosted,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
       source: 'Locarno Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
+      ...(pdfFailed
+        ? {
+          sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
+          sourceBodyFailureMessage: pdfContent.error || pdfContent.warning || 'PDF extraction failed',
+        }
+        : {}),
     });
   }
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
 
-  const published = mergeCompanyJobs(parsedJobs);
+  const storedJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    parsedJobs,
+    storedJobs,
+    (job) => String(job?.url || '').trim().replace(/\/+$/, ''),
+  );
+  if (sourceBodyJobs.length < parsedJobs.length) {
+    console.warn(
+      `  \u26a0\ufe0f Locarno: skipped ${parsedJobs.length - sourceBodyJobs.length} row(s) without a `
+      + 'publishable source body; extraction failures are not thin-source quarantine.',
+    );
+  }
+  const published = mergeCompanyJobs(sourceBodyJobs, parsedJobs);
   printPublishedJobUrls(published, 'Locarno');
   writeJobsSummary(published, 'Locarno');
   const after = snapshotJobSlugs(published);
@@ -143,8 +184,17 @@ async function main() {
   const dur = getCrawlerElapsedMs();
   const sr = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const sj = Array.isArray(sr) ? sr.filter(isCompanyJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, sj);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Locarno', generatedAt: new Date().toISOString(), total: sj.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
+  const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
+    diff.removedJobs,
+    parsedJobs.filter((job) => job?.sourceBodyFailureReason === SOURCE_BODY_FAILURE_REASON),
+    (job) => String(job?.url || '').trim().replace(/\/+$/, ''),
+  );
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, sj, {
+    isTargetJob: isCompanyJob,
+    ...(sourceFailureHousekeepingProof ? { housekeepingProof: sourceFailureHousekeepingProof } : {}),
+    ...(sourceFailureHousekeepingProof ? { verifyUnprovenHousekeeping: true } : {}),
+  });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Locarno', generatedAt: new Date().toISOString(), total: sj.length, sourceBodyFailureCount: sourceBodyFailures.length, sourceBodyFailures: sourceBodyFailures.slice(0, 100), newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 

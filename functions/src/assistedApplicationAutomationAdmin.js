@@ -20,14 +20,18 @@ import {
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
+  AUTOMATION_SUBCOLLECTION,
   applyAutomationEvent,
-  isAutomationEnabled,
+  isAutomationEnabledFor,
   draftRefFor,
   flowRefFor,
   orderRefFor,
   startAutomation,
 } from './assistedApplicationAutomation.js';
+import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
+import { followupRefFor } from './assistedApplicationFollowup.js';
 
 export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationStart',
@@ -37,9 +41,10 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationRegenerate',
   'automationEditDraft',
   'automationSetAnswers',
+  'automationRevealAccount',
 ]);
 
-const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown']);
+const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown', 'legitimacy']);
 
 export class AutomationAdminError extends Error {
   constructor(code, status = 400) {
@@ -51,14 +56,39 @@ export class AutomationAdminError extends Error {
 
 /** Flow + draft as the owner queue shows them (no raw CV text). */
 export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
-  const [flowSnapshot, draftSnapshot, inboxSnapshot] = await Promise.all([
+  const [flowSnapshot, draftSnapshot, inboxSnapshot, accountsSnapshot, followupSnapshot, orderSnapshot] = await Promise.all([
     flowRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     // Only the latest ten, from the database: an order may collect many messages.
     orderRefFor(db, orderId).collection('inbox').orderBy('receivedAt', 'desc').limit(10).get(),
+    orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID).get(),
+    followupRefFor(db, orderId).get(),
+    orderRefFor(db, orderId).get(),
   ]);
+  // Extras: the follow-ups of an e-mail application and the interview prep pack.
+  const followupDoc = followupSnapshot.exists ? followupSnapshot.data() || {} : null;
+  const followup = followupDoc ? {
+    state: followupDoc.state || null,
+    sent: Number(followupDoc.sent) || 0,
+    dueAt: followupDoc.dueAt || null,
+    stopReason: followupDoc.stopReason || null,
+    pending: followupDoc.pending ? { n: followupDoc.pending.n, body: followupDoc.pending.body || '', deadlineAt: followupDoc.pending.deadlineAt || null } : null,
+  } : null;
+  const interviewPrep = orderSnapshot.data()?.interviewPrep || null;
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+  // Portal accounts the runner created on the alias: never the password here.
+  // A registration the portal refused left no account (`discarded`, no password).
+  const accounts = Object.values(accountsSnapshot.exists ? accountsSnapshot.data() || {} : {})
+    .filter((entry) => entry && typeof entry === 'object' && entry.host && entry.passwordEnc)
+    .map((entry) => ({
+      host: entry.host,
+      email: entry.email || '',
+      createdAt: entry.createdAt || null,
+      verifiedAt: entry.verifiedAt || null,
+      lastSignInAt: entry.lastSignInAt || null,
+      revealedAt: entry.revealedAt || null,
+    }));
   const inbox = (inboxSnapshot.docs || []).map((doc) => doc.data() || {})
     .sort((left, right) => Number(right.receivedAt || 0) - Number(left.receivedAt || 0))
     .slice(0, 10)
@@ -71,12 +101,14 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,
     }));
-  if (!flow && !draft && !inbox.length) return null;
-  const letterUrl = draft?.coverLetterPdfKey && signUrl && isAssistedApplicationCvKey(orderId, draft.coverLetterPdfKey)
-    ? await signUrl(draft.coverLetterPdfKey).catch(() => null)
-    : null;
+  if (!flow && !draft && !inbox.length && !accounts.length && !followup) return null;
+  const signed = (key) => (key && signUrl && isAssistedApplicationCvKey(orderId, key) ? signUrl(key).catch(() => null) : null);
+  const [letterUrl, tailoredCvUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey)]);
   return {
     inbox,
+    accounts,
+    followup,
+    interviewPrep: interviewPrep ? { status: interviewPrep.status || 'preparing', sentAt: interviewPrep.sentAt || null, questions: interviewPrep.questions || 0, stories: interviewPrep.stories || 0 } : null,
     flow: flow ? {
       state: flow.state || null,
       round: Number(flow.round) || 1,
@@ -110,6 +142,10 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       editedAt: draft.editedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
       coverLetterUrl: letterUrl,
+      ats: draft.ats || null,
+      legitimacy: draft.legitimacy || null,
+      tailoredCv: draft.tailoredCv ? { status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl } : null,
+      cvChoice: flow?.cvChoice || 'tailored',
     } : null,
   };
 }
@@ -195,7 +231,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationStart': {
       // The Remote Config flag gates every start, the owner's included: while
       // it is off no flow is created and no runner is dispatched.
-      if (!(await (deps.isEnabled || isAutomationEnabled)())) throw new AutomationAdminError('automation_disabled', 409);
+      if (!(await (deps.isEnabled || isAutomationEnabledFor)(orderId))) throw new AutomationAdminError('automation_disabled', 409);
       const result = await startAutomation({ db, orderId, runEffect: deps.runEffect, nowMs, reason: 'owner_request' });
       if (!result.started) throw new AutomationAdminError(result.skipped || 'not_startable', 409);
       return { ok: true, state: 'drafting' };
@@ -204,7 +240,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const acknowledgements = {};
       if (raw.acknowledgeFactWarnings === true) acknowledgements.factCheckAcknowledgedAt = nowMs;
       if (raw.acknowledgeKnockOut === true) acknowledgements.knockOutAcknowledgedAt = nowMs;
-      // Any other owner flag (no posting text, unknown channel) is acknowledged by name.
+      // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
       const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
       if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
       if (Object.keys(acknowledgements).length) {
@@ -231,6 +267,20 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       await flowRefFor(db, orderId).set({ answers: { ...(flowSnapshot.data()?.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
+    }
+    case 'automationRevealAccount': {
+      // Owner takeover of a portal application: the account the runner
+      // created on the alias. Who looked and when is recorded; the password
+      // itself is only returned, never stored in clear or logged.
+      const host = clean(raw.host, 200).toLowerCase();
+      const ref = orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID);
+      const [key, entry] = Object.entries((await ref.get()).data() || {}).find(([, value]) => value?.host === host) || [];
+      if (!entry?.passwordEnc) throw new AutomationAdminError('no_account', 404);
+      const rawKey = deps.runKey ? await deps.runKey() : '';
+      if (!rawKey) throw new AutomationAdminError('run_key_missing', 500);
+      const { password } = decryptJson(entry.passwordEnc, runKeyFrom(rawKey));
+      await ref.set({ [key]: { ...entry, revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
+      return { ok: true, host, email: entry.email || '', password };
     }
     default:
       throw new AutomationAdminError('invalid_input');

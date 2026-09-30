@@ -20,51 +20,50 @@
  * replacing it on hydrate.
  */
 
-export const NURSING_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+import {
+  NURSING_LANDING_IDS as SHARED_NURSING_LANDING_IDS,
+  NURSING_LANDING_SLUGS as SHARED_NURSING_LANDING_SLUGS,
+  NURSING_LOCALE_PREFIX as SHARED_NURSING_LOCALE_PREFIX,
+  NURSING_LOCALES as SHARED_NURSING_LOCALES,
+  NURSING_ORPHAN_QUERY_TARGETS,
+  buildNursingLandingPath as buildSharedNursingLandingPath,
+  resolveNursingOrphanQueryTarget as resolveSharedNursingOrphanQueryTarget,
+} from '../scripts/lib/nursing-landing-path.mjs';
+
+export const NURSING_LOCALES = SHARED_NURSING_LOCALES as readonly ['it', 'en', 'de', 'fr'];
 export type NursingLocale = (typeof NURSING_LOCALES)[number];
 
-export const NURSING_LANDING_IDS = ['nurses', 'oss', 'healthcare-ticino'] as const;
+export const NURSING_LANDING_IDS = SHARED_NURSING_LANDING_IDS as readonly ['nurses', 'oss', 'healthcare-ticino'];
 export type NursingLandingId = (typeof NURSING_LANDING_IDS)[number];
 
-export const NURSING_LOCALE_PREFIX: Record<NursingLocale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
+export const NURSING_LOCALE_PREFIX: Record<NursingLocale, string> = SHARED_NURSING_LOCALE_PREFIX as Record<NursingLocale, string>;
 
 /**
  * Per-locale slug for each landing. Italian is canonical (no prefix). EN/DE/FR
  * slugs are SEO-friendly translations; the IT keyword intent is preserved
  * (e.g. "lavoro-infermieri-svizzera" → "nursing-jobs-switzerland").
  */
-export const NURSING_LANDING_SLUGS: Record<NursingLocale, Record<NursingLandingId, string>> = {
-  it: {
-    nurses: 'lavoro-infermieri-svizzera',
-    oss: 'lavoro-oss-svizzera',
-    'healthcare-ticino': 'lavoro-sanitario-ticino',
-  },
-  en: {
-    nurses: 'nursing-jobs-switzerland',
-    oss: 'healthcare-assistant-jobs-switzerland',
-    'healthcare-ticino': 'healthcare-jobs-ticino',
-  },
-  de: {
-    nurses: 'pflegejobs-schweiz',
-    oss: 'pflegehilfe-jobs-schweiz',
-    'healthcare-ticino': 'gesundheitsjobs-tessin',
-  },
-  fr: {
-    nurses: 'emplois-infirmiers-suisse',
-    oss: 'emplois-aide-soignante-suisse',
-    'healthcare-ticino': 'emplois-sante-tessin',
-  },
-};
+export const NURSING_LANDING_SLUGS: Record<NursingLocale, Record<NursingLandingId, string>> =
+  SHARED_NURSING_LANDING_SLUGS as Record<NursingLocale, Record<NursingLandingId, string>>;
+
+/** Explicit GSC orphan-query aliases already served by an evergreen landing. */
+export { NURSING_ORPHAN_QUERY_TARGETS };
 
 export function buildNursingLandingPath(locale: NursingLocale, id: NursingLandingId): string {
-  const prefix = NURSING_LOCALE_PREFIX[locale];
-  const slug = NURSING_LANDING_SLUGS[locale][id];
-  return `${prefix}/${slug}/`.replace(/\/+/g, '/');
+  return buildSharedNursingLandingPath(locale, id);
+}
+
+export interface NursingOrphanQueryTarget {
+  locale: NursingLocale;
+  id: NursingLandingId;
+  path: string;
+}
+
+export function resolveNursingOrphanQueryTarget(
+  canonicalQuery: string,
+  canonicalSlug = '',
+): NursingOrphanQueryTarget | null {
+  return resolveSharedNursingOrphanQueryTarget(canonicalQuery, canonicalSlug) as NursingOrphanQueryTarget | null;
 }
 
 /**

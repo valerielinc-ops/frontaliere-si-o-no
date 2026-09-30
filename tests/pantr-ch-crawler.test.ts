@@ -2,8 +2,10 @@ import { describe, it, expect } from 'vitest';
 import {
   PANTR_CH_KEY,
   PANTR_CH_COMPANY_NAME,
+  PANTR_CH_SECTOR,
   isPantrChJob,
   isTrustedDomain,
+  buildPantrChJobFromListing,
 } from '../scripts/lib/pantr-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +58,49 @@ describe('Pantr GmbH crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('job slug identity', () => {
+    const listing = (url: string) => ({
+      title: 'Software Engineer',
+      description: 'Wir suchen eine erfahrene Person für unser Team.',
+      location: 'Lugano, TI',
+      addressLocality: 'Lugano',
+      addressRegion: 'TI',
+      addressCountry: 'CH',
+      url,
+    });
+
+    it('disambiguates repeated titles at one location with a stable URL suffix', () => {
+      const first = buildPantrChJobFromListing(listing('https://pantr.ch/jobs/role-101'));
+      const second = buildPantrChJobFromListing(listing('https://pantr.ch/jobs/role-202'));
+      const rerun = buildPantrChJobFromListing(listing('https://pantr.ch/jobs/role-101'));
+
+      expect(first).not.toBeNull();
+      expect(second).not.toBeNull();
+      expect(first?.slug).not.toBe(second?.slug);
+      expect(first?.slugByLocale[first?.sourceLang || 'de'])
+        .not.toBe(second?.slugByLocale[second?.sourceLang || 'de']);
+      expect(first?.slugByLocale).toEqual({ [first?.sourceLang || 'de']: first?.slug });
+      expect(rerun?.slug).toBe(first?.slug);
+      expect(rerun?.slugByLocale).toEqual(first?.slugByLocale);
+      expect(first?.slugDisambiguator).toBe(rerun?.slugDisambiguator);
+    });
+
+    it('does not classify ordinary it/sr prefixes as job levels and retains the evidenced sector', () => {
+      const italian = buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/italian-specialist'),
+        title: 'Italian Product Specialist',
+      });
+      const sriracha = buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/sriracha-specialist'),
+        title: 'Sriracha Product Specialist',
+      });
+
+      expect(italian?.category).toBe('Altro');
+      expect(sriracha?.experienceLevel).toBe('mid');
+      expect(italian?.sector).toBe(PANTR_CH_SECTOR);
     });
   });
 

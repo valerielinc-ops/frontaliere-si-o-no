@@ -190,7 +190,7 @@ function logoHtml(rec: AdRecord, sizeCls: string): string {
 
 function ctaHtml(rec: AdRecord, locale: AdLocale, extraCls = ''): string {
   const target = applyTarget(rec, locale);
-  return `<a href="${esc(target.href)}" rel="nofollow"${target.external ? ' target="_blank"' : ''} class="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-accent hover:bg-accent-hover text-on-accent font-semibold no-underline transition-colors ${extraCls}">${esc(APPLY_LABEL[locale])}</a>`;
+  return `<a href="${esc(target.href)}" rel="nofollow${target.external ? ' noopener' : ''}"${target.external ? ' target="_blank"' : ''} class="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-accent hover:bg-accent-hover text-on-accent font-semibold no-underline transition-colors ${extraCls}">${esc(APPLY_LABEL[locale])}</a>`;
 }
 
 export function renderBody(rec: AdRecord, locale: AdLocale): string {
