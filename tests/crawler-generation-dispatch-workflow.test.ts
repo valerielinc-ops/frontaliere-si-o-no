@@ -75,7 +75,8 @@ function findUniqueStep(steps: any[], name: string) {
 // entrambe. Qui restano il contratto shadow e l'equivalenza step-per-step con
 // la sorgente in albero, che e' il confronto giusto per una PR.
 function expectCurrentShadowContract(currentDocument: any, sourceDocument: any) {
-  expect(currentDocument.concurrency).toEqual({
+  expect(currentDocument.concurrency).toBeUndefined();
+  expect(currentDocument.jobs.translate.concurrency).toEqual({
     group: 'jobs-data-pipeline',
     'cancel-in-progress': false,
     queue: 'max',
@@ -144,11 +145,31 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(currentTranslate.run).toContain('gh workflow run translate-pending.yml');
     const portableTranslate = '.github/corpus-workflows/translate-pending.yml';
     const portableCurrent = YAML.parse(fs.readFileSync(portableTranslate, 'utf8'));
-    expect(portableCurrent.concurrency).toEqual({
+    expect(portableCurrent.concurrency).toBeUndefined();
+    expect(portableCurrent.jobs.translate.concurrency).toEqual({
       group: 'jobs-data-pipeline',
       'cancel-in-progress': false,
       queue: 'max',
     });
+    expect(portableCurrent.jobs.translate).toMatchObject({
+      needs: 'translate_queue_guard',
+      if: "needs.translate_queue_guard.outputs.run == 'true'",
+    });
+    expect(portableCurrent.jobs.translate_queue_guard.concurrency).toBeUndefined();
+    const queueGuard = portableCurrent.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    expect(queueGuard?.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
+    expect(queueGuard?.run).toContain('.status == "queued"');
+    expect(queueGuard?.run).toContain('.status == "pending"');
+    expect(queueGuard?.run).toContain('.status == "waiting"');
+    expect(queueGuard?.run).toContain('GITHUB_RUN_ID');
+    expect(queueGuard?.run).toContain('created_at');
+    expect(queueGuard?.run).toContain('oldest_run_id');
+    expect(queueGuard?.run).toContain('sort -k1,1 -k2,2n');
+    expect(queueGuard?.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
+    expect(queueGuard?.run).toContain('run=false');
+    expect(queueGuard?.run).toContain('workflow_dispatch');
+    expect(queueGuard?.env?.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',

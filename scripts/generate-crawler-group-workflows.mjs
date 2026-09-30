@@ -2069,6 +2069,91 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
   '# writes therefore survive without a Firestore lease in this workflow.',
 ];
 
+function translatePendingQueueGuardJob() {
+  return {
+    'runs-on': 'ubuntu-latest',
+    'timeout-minutes': 5,
+    permissions: { actions: 'read' },
+    outputs: {
+      run: '${{ steps.translate_queue_guard.outputs.run }}',
+    },
+    steps: [{
+      name: 'Skip duplicate queued translation run',
+      id: 'translate_queue_guard',
+      env: {
+        GH_TOKEN: '${{ github.token }}',
+        GITHUB_REPOSITORY: '${{ github.repository }}',
+        GITHUB_RUN_ID: '${{ github.run_id }}',
+        GITHUB_EVENT_NAME: '${{ github.event_name }}',
+        TRANSLATION_MANUAL_OVERRIDE: "${{ github.event_name == 'workflow_dispatch' && (inputs.skip_translate == true || inputs.dry_run == true || inputs.collect_company_served == true || inputs.company_key != '' || inputs.max_jobs != '900' || inputs.mopup_max_jobs != '6000') && 'true' || 'false' }}",
+      },
+      run: [
+        'set -euo pipefail',
+        'fail_open() {',
+        '  echo "::warning::translate-pending queue guard could not inspect GitHub Actions; continuing with the heavy run to preserve throughput."',
+        '  echo "run=true" >> "$GITHUB_OUTPUT"',
+        '  echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"',
+        '  exit 0',
+        '}',
+        'if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$TRANSLATION_MANUAL_OVERRIDE" = "true" ]; then',
+        '  echo "::warning::translate-pending manual workflow_dispatch input detected; bypassing the duplicate guard by request."',
+        '  echo "run=true" >> "$GITHUB_OUTPUT"',
+        '  echo "waiting_runs=0" >> "$GITHUB_OUTPUT"',
+        '  exit 0',
+        'fi',
+        'runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100"',
+        'if ! runs_json="$(gh api --paginate --slurp "$runs_path" 2>/dev/null)"; then fail_open; fi',
+        'if ! printf "%s" "$runs_json" | jq -e \'type == "array" and all(.[]; (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string")))\' >/dev/null; then fail_open; fi',
+        'if ! current_created_at="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" \'[.[].workflow_runs[] | select((.id | tostring) == $current) | .created_at][0] // empty\')"; then fail_open; fi',
+        'if [ -z "$current_created_at" ]; then fail_open; fi',
+        'if ! waiting_candidates="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" \'[.[].workflow_runs[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting")] | .[] | [.created_at, .id] | @tsv\')"; then fail_open; fi',
+        'if ! in_progress_ids="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" \'[.[].workflow_runs[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]\')"; then fail_open; fi',
+        'active_heavy_runs=0',
+        'while IFS= read -r run_id; do',
+        '  [ -z "$run_id" ] && continue',
+        '  if ! run_created_at="$(printf "%s" "$runs_json" | jq -r --arg run_id "$run_id" \'[.[].workflow_runs[] | select((.id | tostring) == $run_id) | .created_at][0] // empty\')"; then fail_open; fi',
+        '  if [ -z "$run_created_at" ]; then fail_open; fi',
+        '  jobs_path="/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100"',
+        '  if ! jobs_json="$(gh api "$jobs_path" 2>/dev/null)"; then fail_open; fi',
+        '  if ! printf "%s" "$jobs_json" | jq -e \'type == "object" and (.jobs | type) == "array"\' >/dev/null; then fail_open; fi',
+        '  if ! translate_status="$(printf "%s" "$jobs_json" | jq -r \'[.jobs[] | select(.name == "translate") | .status][0] // empty\')"; then fail_open; fi',
+        '  if ! guard_status="$(printf "%s" "$jobs_json" | jq -r \'[.jobs[] | select(.name == "translate_queue_guard") | .status][0] // empty\')"; then fail_open; fi',
+        '  case "$translate_status" in',
+        '    queued|pending|waiting)',
+        '      waiting_candidates="${waiting_candidates}${waiting_candidates:+$\'\\n\'}${run_created_at} ${run_id}"',
+        '      ;;',
+        '    in_progress)',
+        '      active_heavy_runs=$((active_heavy_runs + 1))',
+        '      ;;',
+        '    "")',
+        '      case "$guard_status" in',
+        '        queued|pending|waiting|in_progress)',
+        '          waiting_candidates="${waiting_candidates}${waiting_candidates:+$\'\\n\'}${run_created_at} ${run_id}"',
+        '          ;;',
+        '      esac',
+        '      ;;',
+        '  esac',
+        'done <<< "$in_progress_ids"',
+        'waiting_candidates="${waiting_candidates}${waiting_candidates:+$\'\\n\'}${current_created_at} ${GITHUB_RUN_ID}"',
+        'candidate_count="$(printf "%s\\n" "$waiting_candidates" | awk \'NF {count++} END {print count + 0}\')"',
+        'oldest_candidate="$(printf "%s\\n" "$waiting_candidates" | LC_ALL=C sort -k1,1 -k2,2n | head -n 1)"',
+        'oldest_run_id="$(printf "%s\\n" "$oldest_candidate" | awk \'{print $2}\')"',
+        'if [ -z "$oldest_run_id" ]; then fail_open; fi',
+        'other_waiting=$((candidate_count - 1))',
+        'if [ "$oldest_run_id" = "$GITHUB_RUN_ID" ]; then',
+        '  echo "✅ translate-pending queue guard admits the oldest waiting run; ${active_heavy_runs} heavy run(s) currently active and ${other_waiting} waiting behind it."',
+        '  echo "run=true" >> "$GITHUB_OUTPUT"',
+        '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
+        'else',
+        '  echo "::warning::translate-pending queue guard found older run ${oldest_run_id}; skipping this duplicate. The oldest run will process the backlog."',
+        '  echo "run=false" >> "$GITHUB_OUTPUT"',
+        '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
+        'fi',
+      ].join('\n'),
+    }],
+  };
+}
+
 /**
  * Carry over a hand-written comment block sitting ABOVE the AUTO-GENERATED
  * marker of the file being overwritten.
@@ -2523,6 +2608,7 @@ export function buildStandaloneCrossRepoWorkflow({
   const workflow = YAML.parse(logicText);
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`${name}: reusable logic has no runnable job steps`);
+  const isTranslatePendingArtifact = workflowFile === 'translate-pending.yml';
 
   // Keep the portable workflow's run-name/job/step env aligned with the
   // canonical helper. `required: true` documents the supported caller, but an
@@ -2708,14 +2794,22 @@ export function buildStandaloneCrossRepoWorkflow({
     }
   }
 
+  if (isTranslatePendingArtifact) {
+    job.needs = 'translate_queue_guard';
+    job.if = "needs.translate_queue_guard.outputs.run == 'true'";
+    job.concurrency = concurrency;
+  }
+
   const standalone = {
     name,
     ...(runName ? { 'run-name': runName } : {}),
     on: trigger,
-    concurrency,
+    ...(isTranslatePendingArtifact ? {} : { concurrency }),
     permissions: { actions: 'read', contents: 'read', issues: 'write' },
     env: workflow.env,
-    jobs: workflow.jobs,
+    jobs: isTranslatePendingArtifact
+      ? { translate_queue_guard: translatePendingQueueGuardJob(), translate: job }
+      : workflow.jobs,
   };
 
   const yaml = YAML.stringify(standalone, { lineWidth: 0 });
