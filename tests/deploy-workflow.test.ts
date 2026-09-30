@@ -128,8 +128,8 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
   it('runs the strict JobPosting completeness validator as a blocking full-dist gate', () => {
     const run = POSTBUILD_VALIDATIONS_STEP?.run as string;
     expect(PACKAGE_JSON.scripts['validate:jobposting-schema']).toBe('node scripts/validate-jobposting-schema.mjs');
-    expect(run).toMatch(
-      /spawn_capped validate:jobposting-schema[^\n]*\n\s+npm run validate:jobposting-schema\b/,
+    expect(run).toContain(
+      'spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema',
     );
     expect(POSTBUILD_VALIDATIONS_STEP?.['continue-on-error']).not.toBe(true);
     expect(run).toContain('echo "$name $logfile" >> /tmp/post-build-failures.txt');

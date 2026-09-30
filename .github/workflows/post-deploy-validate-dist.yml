@@ -868,8 +868,7 @@ jobs:
           # Strict JobPosting completeness is deliberately unsampled: this
           # validator walks every rehydrated dist/ HTML file and its non-zero
           # result is propagated by spawn_capped into the blocking gate list.
-          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log \
-            npm run validate:jobposting-schema
+          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema
           spawn_capped validate:sitemap-links        /tmp/v3.log \
             npm run validate:sitemap-links
           # Was this step's tail at 99.6-99.7 % of its wall (see the table in
