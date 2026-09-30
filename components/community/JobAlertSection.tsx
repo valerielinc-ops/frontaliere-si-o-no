@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useAuth } from '@/services/authService';
@@ -13,6 +13,13 @@ interface JobAlertSectionProps {
 export default function JobAlertSection({ initialKeyword = '', onRequireAuth }: JobAlertSectionProps) {
  const { user } = useAuth();
  const [enabled, setEnabled] = useState<boolean | null>(null);
+
+ const focusAuthGate = useCallback(() => {
+  const gate = document.getElementById('job-auth-gate');
+  if (!gate) return;
+  gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  gate.querySelector<HTMLElement>('button, input, [tabindex]')?.focus({ preventScroll: true });
+ }, []);
 
  useEffect(() => {
  resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function')
@@ -29,7 +36,7 @@ export default function JobAlertSection({ initialKeyword = '', onRequireAuth }: 
  <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
  <JobAlertForm
  authUser={authUser}
- onRequireAuth={onRequireAuth}
+ onRequireAuth={onRequireAuth ?? focusAuthGate}
  initialKeyword={initialKeyword}
  />
  </Suspense>

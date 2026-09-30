@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { guardPlan, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { guardPlan, holdsValue, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
@@ -26,13 +26,18 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [],
     }, fields);
     expect(guarded.actions.map((action) => action.fieldId)).toEqual(['f1', 'f5']);
-    expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: 'f2', type: 'choice', options: ['G', 'B'] })]);
+    // The country the plan got wrong is not left blank either: it is asked too.
+    expect(guarded.missingRequired).toEqual([
+      expect.objectContaining({ fieldId: 'f2', type: 'choice', options: ['G', 'B'] }),
+      expect.objectContaining({ fieldId: 'f4', question: 'Country', type: 'choice', options: ['Switzerland', 'Italy'] }),
+    ]);
   });
 
   it('keeps sensitive answers that come from the candidate', () => {
     const guarded = guardPlan({ actions: [{ fieldId: 'f2', action: 'select', value: 'G', document: 'none', source: 'answers' }], missingRequired: [] }, fields);
     expect(guarded.actions).toHaveLength(1);
-    expect(guarded.missingRequired).toEqual([]);
+    // Only the required fields this partial plan leaves out are asked.
+    expect(guarded.missingRequired.map((item) => item.fieldId)).toEqual(['f1', 'f4', 'f5']);
   });
 
   it('lets a required demographic question be declined, and checks values against the candidate data', () => {
@@ -71,6 +76,52 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired[0]).toMatchObject({ question: 'Nationality', type: 'text' });
   });
 
+  it('turns a required field the plan skips or omits into a question, unless the page already holds a value', () => {
+    const fields = [
+      { id: 'f1', kind: 'text', label: 'Nationality', required: true, value: '' },
+      { id: 'f2', kind: 'text', label: 'Telefon', required: true, value: '' },
+      { id: 'f3', kind: 'text', label: 'E-Mail', required: true, value: 'c-abcdefghjk@candidature.frontaliereticino.ch' },
+      { id: 'f4', kind: 'listbox', label: 'Land', required: true, value: 'Select One' },
+      { id: 'f5', kind: 'select', label: 'Anrede', required: true, value: '-1', options: [{ value: '-1', label: 'Bitte wählen' }, { value: 'f', label: 'Frau' }] },
+      { id: 'f6', kind: 'checkbox', label: 'Datenschutz', required: true, checked: false },
+      { id: 'f7', kind: 'text', label: 'Zweiter Vorname', required: false, value: '' },
+    ];
+    const plan = {
+      actions: [
+        { fieldId: 'f1', action: 'skip', source: 'rule', value: '' },
+        { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
+        { fieldId: 'f4', action: 'skip', source: 'rule', value: '' },
+        { fieldId: 'f6', action: 'check', source: 'consent', value: '' },
+      ],
+      missingRequired: [],
+    };
+    const guarded = guardPlan(plan, fields, { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
+    expect(guarded.actions).toEqual([
+      { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
+      { fieldId: 'f6', action: 'check', source: 'consent', value: '' },
+    ]);
+    // What the page holds after the action counts: a dropdown set to its prompt, a required box unticked.
+    const projected = guardPlan({
+      actions: [
+        { fieldId: 'p1', action: 'select', source: 'profile', value: 'Select One' },
+        { fieldId: 'p2', action: 'uncheck', source: 'consent', value: '' },
+        { fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' },
+      ],
+      missingRequired: [],
+    }, [
+      { id: 'p1', kind: 'select', label: 'Country', required: true, value: '', options: [{ value: '', label: 'Select One' }, { value: 'ch', label: 'Switzerland' }] },
+      { id: 'p2', kind: 'checkbox', label: 'Datenschutz', required: true, checked: true },
+      { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
+    ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(projected.actions).toEqual([{ fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' }]);
+    expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1', 'p2']);
+    expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
+    expect(holdsValue({ kind: 'listbox', value: 'Italien' })).toBe(true);
+    expect(holdsValue({ kind: 'text', value: '-- Seleziona --' })).toBe(false);
+    expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
+  });
+
   it('asks each missing field once and never a field the plan already answers', () => {
     const guarded = guardPlan({
       actions: [{ fieldId: 'f1', action: 'fill', value: 'Luca', document: 'none', source: 'identity' }],
@@ -80,13 +131,15 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
         { fieldId: 'f1', question: 'Nome?', why: '', type: 'text', options: [] },
       ],
     }, fields);
-    expect(guarded.missingRequired.map((item) => item.fieldId)).toEqual(['f2']);
-    // A field the plan skips and also lists as missing is still asked.
+    expect(guarded.missingRequired.map((item) => item.fieldId)).toEqual(['f2', 'f4', 'f5']);
+    expect(guarded.missingRequired[0].question).toBe('Permesso?');
+    // A field the plan skips and also lists as missing is still asked, with the plan's question.
     const skipped = guardPlan({
       actions: [{ fieldId: 'f4', action: 'skip', value: '', document: 'none', source: 'identity' }],
       missingRequired: [{ fieldId: 'f4', question: 'In quale Paese vivi?', why: '', type: 'choice', options: ['Switzerland', 'Italy'] }],
     }, fields);
-    expect(skipped.missingRequired.map((item) => item.fieldId)).toEqual(['f4']);
+    expect(skipped.missingRequired.filter((item) => item.fieldId === 'f4')).toEqual([expect.objectContaining({ question: 'In quale Paese vivi?' })]);
+    expect(skipped.actions).toEqual([]);
   });
 
   it('asks the questions in the candidate’s language and uses a strict schema', () => {
