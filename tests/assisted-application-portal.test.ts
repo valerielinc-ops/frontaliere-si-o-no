@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { guardPlan, planSystemPrompt, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { guardPlan, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
   { id: 'f1', kind: 'text', label: 'First name', required: true },
@@ -34,6 +35,39 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired).toEqual([]);
   });
 
+  it('lets a required demographic question be declined, and checks values against the candidate data', () => {
+    const gender = { id: 'g1', kind: 'select', label: 'Geschlecht* (erforderlich)', required: true, options: [{ label: 'Männlich' }, { label: 'Weiblich' }, { label: 'Keine Angabe' }] };
+    const declined = guardPlan({ actions: [{ fieldId: 'g1', action: 'select', value: 'Keine Angabe', document: 'none', source: 'rule' }], missingRequired: [] }, [gender]);
+    expect(declined).toEqual({ actions: [expect.objectContaining({ value: 'Keine Angabe' })], missingRequired: [] });
+    // "profile" claimed as the source, but the value is nowhere in the candidate's data.
+    const invented = guardPlan(
+      { actions: [{ fieldId: 'g1', action: 'select', value: 'Weiblich', document: 'none', source: 'profile' }], missingRequired: [] },
+      [gender],
+      { answers: {}, profile: { headline: 'Infermiera' }, portalQuestionsAnswered: [] },
+    );
+    expect(invented.actions).toEqual([]);
+    expect(invented.missingRequired).toEqual([expect.objectContaining({ fieldId: 'g1', question: 'Geschlecht', options: ['Männlich', 'Weiblich', 'Keine Angabe'] })]);
+    expect(questionFromLabel('Do you have a working permit?*')).toBe('Do you have a working permit?');
+  });
+
+  it('asks each missing field once and never a field the plan already answers', () => {
+    const guarded = guardPlan({
+      actions: [{ fieldId: 'f1', action: 'fill', value: 'Luca', document: 'none', source: 'identity' }],
+      missingRequired: [
+        { fieldId: 'f2', question: 'Permesso?', why: '', type: 'choice', options: ['G', 'B'] },
+        { fieldId: 'f2', question: 'Permesso di lavoro?', why: '', type: 'choice', options: ['G', 'B'] },
+        { fieldId: 'f1', question: 'Nome?', why: '', type: 'text', options: [] },
+      ],
+    }, fields);
+    expect(guarded.missingRequired.map((item) => item.fieldId)).toEqual(['f2']);
+    // A field the plan skips and also lists as missing is still asked.
+    const skipped = guardPlan({
+      actions: [{ fieldId: 'f4', action: 'skip', value: '', document: 'none', source: 'identity' }],
+      missingRequired: [{ fieldId: 'f4', question: 'In quale Paese vivi?', why: '', type: 'choice', options: ['Switzerland', 'Italy'] }],
+    }, fields);
+    expect(skipped.missingRequired.map((item) => item.fieldId)).toEqual(['f4']);
+  });
+
   it('asks the questions in the candidate’s language and uses a strict schema', () => {
     expect(planSystemPrompt('de')).toContain('written in German for the candidate');
     expect(PLAN_SCHEMA.additionalProperties).toBe(false);
@@ -45,14 +79,24 @@ describe('portal runner helpers', () => {
   it('uses the alias as the e-mail and keeps sensitive data only from the candidate', () => {
     const candidate = candidateForForm({
       identity: { name: 'Maria Anna Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '+41 79 000 00 00' },
-      profile: { location: 'Como', workPermit: '', experience: [{ role: 'Infermiera', employer: 'Clinica' }] },
+      profile: {
+        location: 'Como', workPermit: '', experience: [{ role: 'Infermiera', employer: 'Clinica' }],
+        address: { street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' }, nationality: 'italiana',
+      },
       answers: { work_permit: 'G', portal_start_date: '1.12.2026' },
       draft: { formAnswers: [{ key: 'motivationShort', value: 'Motivo' }], coverLetter: { text: 'Lettera' } },
       portalQuestions: [{ id: 'portal_start_date', question: 'Start date?' }],
     });
     expect(candidate.identity).toMatchObject({ firstName: 'Maria Anna', lastName: 'Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch' });
+    expect(candidate.identity.address).toEqual({ street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' });
+    expect(candidate.profile).toMatchObject({ nationality: 'italiana', dateOfBirth: '' });
     expect(candidate.portalQuestionsAnswered).toEqual([{ question: 'Start date?', answer: '1.12.2026' }]);
     expect(candidate.texts).toMatchObject({ motivationShort: 'Motivo', coverLetter: 'Lettera' });
+  });
+
+  it('masks the address, birth date and nationality read from the CV in the Actions log', () => {
+    const profile = { address: { street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' }, dateOfBirth: '01.01.1990', nationality: 'italiana' };
+    expect(personalValuesOf({}, profile)).toEqual(expect.arrayContaining(['Via Roma 1', '22100', 'Como', '01.01.1990', 'italiana']));
   });
 
   it('recognises next, submit, confirmation and validation in four languages', () => {
@@ -61,7 +105,12 @@ describe('portal runner helpers', () => {
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);
     expect(findButton([{ id: 'b1', text: 'Cancel' }, { id: 'b2', text: 'Weiter' }], NEXT_RE)).toEqual({ id: 'b2', text: 'Weiter' });
+    // A disabled submit (required fields still empty) is not clicked, but the runner can see it.
+    const disabled = [{ id: 'b3', text: 'Bewerbung senden', disabled: true }];
+    expect(findButton(disabled, SUBMIT_RE)).toBeNull();
+    expect(findButton(disabled, SUBMIT_RE, { includeDisabled: true })).toEqual(disabled[0]);
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
-    expect(WAVE1_CHANNELS.has('workday')).toBe(false);
+    expect(WAVE1_CHANNELS.has('workday')).toBe(true);
+    expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
   });
 });
