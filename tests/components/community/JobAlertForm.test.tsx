@@ -47,6 +47,7 @@ const { analyticsMock } = vi.hoisted(() => ({
   analyticsMock: {
     trackJobAlertCtaClick: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
+    trackJobAlertPassiveView: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
   },
@@ -526,11 +527,20 @@ describe('JobAlertForm — inline_card impression fires once, on visibility (iss
     expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledWith('inline_card', 'cuoco');
   });
 
-  it('waits for a signed-in user\'s alerts before arming the impression', async () => {
+  it('keeps an unfiltered utility-card view out of the funnel and measures it separately', async () => {
+    render(<JobAlertForm authUser={null} />);
+    await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
+    FakeIO.instances.at(-1)!.enter();
+    await waitFor(() => expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledWith('inline_card');
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+  });
+
+  it('waits for a signed-in user\'s alerts before arming the passive view', async () => {
     render(<JobAlertForm authUser={authUser} />);
     await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
     FakeIO.instances.at(-1)!.enter();
-    await waitFor(() => expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledTimes(1));
-    expect(analyticsMock.trackJobAlertCtaShown.mock.calls[0][0]).toBe('inline_card');
+    await waitFor(() => expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
   });
 });
