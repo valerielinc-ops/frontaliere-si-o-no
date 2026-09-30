@@ -15,6 +15,7 @@ import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance'
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
+import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import { Analytics } from '@/services/analytics';
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
@@ -35,6 +36,8 @@ import {
 interface JobAlertFormProps {
  /** Currently authenticated user (null if not logged in) */
  authUser: { uid: string; email?: string | null } | null;
+ /** Auth must be settled before a known user's quota can gate the impression. */
+ authResolved?: boolean;
  /** Callback to trigger auth flow when user isn't logged in */
  onRequireAuth?: () => void;
  /** Pre-fill the keyword from current search query */
@@ -55,6 +58,7 @@ interface JobAlertTriggerCardProps {
  alertCount: number;
  description: string;
  expanded: boolean;
+ inlineCtaEligible: boolean;
  hasExplicitSearchIntent: boolean;
  initialKeyword: string;
  loadingAlerts: boolean;
@@ -74,6 +78,7 @@ function JobAlertTriggerCard({
  alertCount,
  description,
  expanded,
+ inlineCtaEligible,
  hasExplicitSearchIntent,
  initialKeyword,
  loadingAlerts,
@@ -87,7 +92,9 @@ function JobAlertTriggerCard({
    } else {
      track((a) => a.trackJobAlertPassiveView('inline_card'));
    }
- }, { enabled: !loadingAlerts });
+ }, {
+   enabled: !loadingAlerts && (!hasExplicitSearchIntent || inlineCtaEligible),
+ });
 
  return (
   <button
@@ -180,7 +187,13 @@ function loadJobAlertService(): Promise<typeof import('@/services/jobAlertServic
 
 // ── Component ────────────────────────────────────────────────
 
-export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '', initialCantonCode = null }: JobAlertFormProps) {
+export default function JobAlertForm({
+ authUser,
+ authResolved = true,
+ onRequireAuth,
+ initialKeyword = '',
+ initialCantonCode = null,
+}: JobAlertFormProps) {
  const { t, locale } = useTranslation();
  const [expanded, setExpanded] = useState(false);
  // 2026-05-19 simplification: open→accept funnel was 0/29 across all surfaces
@@ -210,6 +223,18 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const oneTapKeyword = initialKeyword.trim();
  const [oneTapEligible, setOneTapEligible] = useState(false);
+
+ // The trigger card also contains the existing-alert manager, so quota
+ // eligibility gates only its convertible impression — never the card or the
+ // management panel. An empty keyword deliberately checks the category budget
+ // without treating an already-covered search as a reason to hide management.
+ const inlineCardEligibility = useJobAlertEligibility({
+   enabled: true,
+   authResolved,
+   userId: authUser?.uid ?? null,
+   keyword: null,
+   surface: 'inline_card',
+ });
 
  // A known user with an active search already supplied the alert criterion.
  // Reuse the shared resolver (and its session cache) so the one-tap CTA is
@@ -329,7 +354,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  // classes. An explicit search keyword is actionable funnel context; the
  // unfiltered card is useful UI but only a passive view. The trigger component
  // emits the latter as `job_alert_card_passive_view`, outside the campaign
- // goal's `job_alert_cta_shown` allowlist.
+ // goal's `job_alert_cta_shown` allowlist. Issue 9577's visibility impression
+ // is gated below by the shared inline-card eligibility result.
  const inlineCardHasExplicitIntent = initialKeyword.trim().length > 0;
 
  const trackInlineCtaAction = useCallback((action: 'accept' | 'success' | 'error', ctaKeyword: string) => {
@@ -666,6 +692,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  ? (t('jobAlert.cardDescriptionActive') || 'Gestisci o aggiungi nuove alert personalizzate.')
  : (t('jobAlert.cardDescription') || 'Attiva un\'alert gratuita: ti scriviamo quando escono offerte nei tuoi criteri.')}
  expanded={expanded}
+ inlineCtaEligible={inlineCardEligibility === true}
  hasExplicitSearchIntent={inlineCardHasExplicitIntent}
  initialKeyword={initialKeyword}
  loadingAlerts={loadingAlerts}
