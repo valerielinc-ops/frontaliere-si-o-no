@@ -406,8 +406,12 @@ export function mayCarryAttachment(message) {
   return /multipart\/mixed/i.test(type) && (size === 0 || size <= ASSISTED_CV_MAX_BYTES);
 }
 
+// Reads the one-shot raw stream: all of it up to maxBytes (bytes: null when
+// larger), and always its first 8 KB (head), because the stream cannot be read
+// again and the STOP classification needs the body prefix.
+const HEAD_BYTES = 8192;
 async function readAllBytes(stream, maxBytes) {
-  if (!stream) return new Uint8Array(0);
+  if (!stream) return { bytes: new Uint8Array(0), head: new Uint8Array(0) };
   const reader = stream.getReader();
   const chunks = [];
   let total = 0;
@@ -421,11 +425,11 @@ async function readAllBytes(stream, maxBytes) {
   } finally {
     try { reader.releaseLock(); } catch { /* noop */ }
   }
-  if (total > maxBytes) return null;
   const merged = new Uint8Array(total);
   let off = 0;
   for (const chunk of chunks) { merged.set(chunk, off); off += chunk.length; }
-  return merged;
+  const head = merged.subarray(0, HEAD_BYTES);
+  return total > maxBytes ? { bytes: null, head } : { bytes: merged, head };
 }
 
 async function handleOutreachReply({ from, subject, message, env, ctx }) {
@@ -443,9 +447,9 @@ async function handleOutreachReply({ from, subject, message, env, ctx }) {
 
   let prefix = null;
   if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && mayCarryAttachment(message)) {
-    const bytes = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => null);
+    const { bytes, head } = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => ({ bytes: null, head: null }));
+    if (head) prefix = new TextDecoder('utf-8', { fatal: false }).decode(head);
     if (bytes) {
-      prefix = new TextDecoder('utf-8', { fatal: false }).decode(bytes.subarray(0, 8192));
       const handoff = fetch(env.ASSISTED_CV_FN_URL, {
         method: 'POST',
         headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET },
@@ -567,7 +571,7 @@ export default {
 
     if (readOk && isAssistedAlias(to)) {
       if (env.ASSISTED_INBOUND_FN_URL && env.STOP_SECRET) {
-        const bytes = await readAllBytes(message.raw, ASSISTED_INBOUND_MAX_BYTES).catch(() => null);
+        const { bytes } = await readAllBytes(message.raw, ASSISTED_INBOUND_MAX_BYTES).catch(() => ({ bytes: null }));
         if (bytes) {
           const handoff = fetch(env.ASSISTED_INBOUND_FN_URL, {
             method: 'POST',
