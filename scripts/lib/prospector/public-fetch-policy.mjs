@@ -11,6 +11,29 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import { BlockList, isIP } from 'node:net';
 import { Agent, fetch as undiciFetch } from 'undici';
 
+// Node's global fetch belongs to its bundled Undici copy. Capture that exact
+// reference so tests can replace globalThis.fetch without losing injection,
+// while production requests with this module's Agent stay on the npm Undici
+// copy that created the Agent.
+const nativeGlobalFetch = globalThis.fetch;
+
+/**
+ * Resolve the one fetch injection point for DNS-pinned prospector requests.
+ * An explicit implementation always wins. If a test/runtime replaced the
+ * global fetch after module load, honor that replacement; otherwise use the
+ * npm `undici.fetch` paired with the policy's npm `Agent`.
+ *
+ * @param {typeof fetch} [fetchImpl]
+ * @returns {typeof fetch}
+ */
+export function resolveProspectorFetch(fetchImpl) {
+  if (fetchImpl) return fetchImpl;
+  if (typeof globalThis.fetch === 'function' && globalThis.fetch !== nativeGlobalFetch) {
+    return globalThis.fetch;
+  }
+  return undiciFetch;
+}
+
 const NON_PUBLIC_IPV4_ADDRESSES = new BlockList();
 /** @type {[string, number][]} */
 const NON_PUBLIC_IPV4_RANGES = [
@@ -346,14 +369,14 @@ export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirects(url, {
-  fetchImpl = fetch,
+  fetchImpl,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
   beforeRequest,
 } = {}) {
   const { response } = await fetchFollowingValidatedRedirectsWithUrl(url, {
-    fetchImpl,
+    fetchImpl: resolveProspectorFetch(fetchImpl),
     validateUrl,
     requestOptions,
     maxRedirects,
@@ -376,36 +399,19 @@ export async function fetchFollowingValidatedRedirects(url, {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirectsWithUrl(url, {
-  fetchImpl = fetch,
+  fetchImpl,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
   beforeRequest,
 } = {}) {
+  const requestFetch = resolveProspectorFetch(fetchImpl);
   let current = String(url || '');
   let currentOptions = { ...requestOptions };
   for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount++) {
     if (validateUrl) await validateUrl(current);
     if (beforeRequest) await beforeRequest(current, { redirectCount });
-    const requestOptionsForHop = { ...currentOptions, redirect: 'manual' };
-    let res;
-    try {
-      res = await fetchImpl(current, requestOptionsForHop);
-    } catch (error) {
-      // Node's built-in fetch and the npm Undici package do not always accept
-      // each other's Agent instances. Keep the caller's fetch (including test
-      // doubles) as the first choice, but retry this one compatibility error
-      // with the same Undici copy that created the policy Agent.
-      const dispatcherErrorMessages = [error?.message, error?.cause?.message, error?.cause?.cause?.message]
-        .filter((message) => typeof message === 'string');
-      if (fetchImpl === globalThis.fetch
-        && requestOptionsForHop.dispatcher
-        && dispatcherErrorMessages.some((message) => message.includes('invalid onRequestStart method'))) {
-        res = await undiciFetch(current, requestOptionsForHop);
-      } else {
-        throw error;
-      }
-    }
+    const res = await requestFetch(current, { ...currentOptions, redirect: 'manual' });
     const effectiveUrl = res.url || current;
     if (validateUrl) await validateUrl(effectiveUrl);
     if (res.status < 300 || res.status >= 400) return { response: res, effectiveUrl };
