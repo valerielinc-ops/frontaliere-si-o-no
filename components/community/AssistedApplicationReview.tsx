@@ -5,6 +5,7 @@ import {
   fetchReview,
   ReviewRequestError,
   sendReviewAction,
+  type ReviewAction,
   type ReviewPayload,
   type ReviewQuestion,
 } from '@/services/assistedApplicationReviewService';
@@ -117,7 +118,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     return () => window.clearInterval(timer);
   }, [data, load]);
 
-  const run = async (action: 'approve' | 'reject' | 'answers' | 'confirm_submitted', extra = {}) => {
+  const run = async (action: ReviewAction, extra = {}) => {
     if (busy) return;
     setBusy(action);
     setError(null);
@@ -240,6 +241,35 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 <p className="mt-2 font-medium text-body">{data.applicationEmail.subject}</p>
                 <p className="mt-2 whitespace-pre-line text-subtle">{data.applicationEmail.body}</p>
               </details>
+            )}
+            {data.tailoredCv && (
+              <div className="space-y-2 rounded-xl border border-edge p-4 text-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="font-semibold text-heading">{t('jobBoard.assisted.review.cvTitle')}</h3>
+                  {data.tailoredCv.url && (
+                    <a href={data.tailoredCv.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-semibold text-link hover:underline">
+                      <FileText className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.cvPdf')}
+                    </a>
+                  )}
+                </div>
+                <p className="text-subtle">{t('jobBoard.assisted.review.cvIntro')}</p>
+                {data.ats?.original && (
+                  <p className="text-xs text-subtle">
+                    {t('jobBoard.assisted.review.cvAts', {
+                      before: data.ats.original.keywordCoverage ?? '—',
+                      after: data.ats.tailored?.keywordCoverage ?? '—',
+                    })}
+                  </p>
+                )}
+                <fieldset className="space-y-1" disabled={!data.can.chooseCv || Boolean(busy)}>
+                  {(['tailored', 'original'] as const).map((choice) => (
+                    <label key={choice} className="flex items-center gap-2">
+                      <input type="radio" name="cv-choice" checked={data.tailoredCv?.choice === choice} onChange={() => { void run('cv_choice', { cvChoice: choice }); }} />
+                      {t(choice === 'tailored' ? 'jobBoard.assisted.review.cvChooseTailored' : 'jobBoard.assisted.review.cvChooseOriginal')}
+                    </label>
+                  ))}
+                </fieldset>
+              </div>
             )}
           </div>
         )}

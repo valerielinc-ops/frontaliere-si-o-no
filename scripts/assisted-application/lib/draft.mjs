@@ -41,6 +41,17 @@ import {
   requirementsUserText,
   resolveLetterLanguage,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
+import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
+import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
+import {
+  TAILORED_CV_SCHEMA,
+  buildTailoredCvPdf,
+  checkTailoredCvFacts,
+  sanitizeTailoredCv,
+  tailoredCvPlainText,
+  tailoredCvSystemPrompt,
+  tailoredCvUserText,
+} from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -130,6 +141,15 @@ export async function buildDraft(ctx) {
 
   const locale = candidateLocale(order);
   const profileJson = JSON.stringify(profile);
+  const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
+  const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
+  const identity = candidateIdentity(order, profile);
+  // The tailored ATS CV needs only the profile and the requirements: it runs
+  // while the match and the letter are written.
+  const tailoredCvPromise = buildTailoredCv({
+    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
+    cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+  });
   const matchRaw = await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
       profile, requirements, answers, candidateNotes, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
@@ -140,9 +160,6 @@ export async function buildDraft(ctx) {
   const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
   const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale });
 
-  const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
-  const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
-  const identity = candidateIdentity(order, profile);
   const documentsRaw = await codex({
     prompt: codexPrompt(documentsSystemPrompt(language), documentsUserText({
       candidateName: identity.name,
@@ -196,6 +213,18 @@ export async function buildDraft(ctx) {
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
 
+  // Extras (career-ops): the ATS check of the candidate's own CV and of the
+  // tailored one, and the posting's legitimacy tier (Block G).
+  const tailored = await tailoredCvPromise;
+  const ats = {
+    original: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText, cvMethod }),
+    ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf' }) } : {}),
+  };
+  const legitimacy = assessLegitimacy({
+    posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName, nowMs,
+  });
+  log('ats', ats.original.structural.grade, `${ats.original.keywords.coverage ?? '-'}%`, 'tailored', tailored.record.status, 'legitimacy', legitimacy.tier);
+
   const signature = [identity.name, identity.email, identity.phone].filter(Boolean).join('\n');
   const draft = {
     status: 'ready',
@@ -233,6 +262,9 @@ export async function buildDraft(ctx) {
     factCheck: { ...factCheck, basis: cvMethod },
     factSources,
     coverLetterPdfKey: pdfKey,
+    ats,
+    legitimacy,
+    tailoredCv: tailored.record,
   };
 
   // career-ops "application snapshot": the posting as it was read and the
@@ -246,6 +278,36 @@ export async function buildDraft(ctx) {
     nowMs,
   });
   return draft;
+}
+
+/**
+ * The tailored ATS CV (functions/src/assistedApplicationTailoredCv.js). Never
+ * fails the draft: without it the original CV is sent.
+ * @returns {Promise<{record: object, text: string}>}
+ */
+async function buildTailoredCv({ codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
+  try {
+    const raw = await codex({
+      prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
+        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers,
+      })),
+      schema: TAILORED_CV_SCHEMA,
+      timeoutMs: CODEX_TIMEOUT_MS,
+    });
+    const cv = sanitizeTailoredCv(raw, { profile, cvText, language });
+    const text = tailoredCvPlainText(cv, { identity, profile });
+    const facts = checkTailoredCvFacts(cv, { cvText, profile, answers: { ...answers, notes: candidateNotes } });
+    if (!facts.ok) {
+      log('tailored cv: fact gate failed, the original CV will be sent');
+      return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
+    }
+    const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
+    await bucket.file(pdfKey).save(buildTailoredCvPdf(cv, { identity, profile }), { contentType: 'application/pdf', resumable: false });
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped }, text };
+  } catch (error) {
+    log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
+    return { record: { status: 'failed', language }, text: '' };
+  }
 }
 
 function hashText(text) {
