@@ -34,6 +34,7 @@ import {
   codexPrompt,
   documentsSystemPrompt,
   documentsUserText,
+  applicationEmailSubject,
   letterSubject,
   matchSystemPrompt,
   matchUserText,
@@ -206,9 +207,10 @@ export async function buildDraft(ctx) {
     ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
+  const emailSubject = applicationEmailSubject(language, title, identity.name, documents.emailSubject);
   const factCheck = checkDraftFacts({
     coverLetter: letterBody,
-    emailSubject: documents.emailSubject,
+    emailSubject,
     emailBody: documents.emailBody,
     motivationShort: documents.motivationShort,
     whyCompany: documents.whyCompany,
@@ -267,7 +269,7 @@ export async function buildDraft(ctx) {
     coverLetter: { ...documents.coverLetter, text: letterBody, subject: letterSubject(language, title) },
     applicationEmail: {
       to: channel.email || '',
-      subject: documents.emailSubject || letterSubject(language, title),
+      subject: emailSubject,
       body: `${documents.emailBody}\n\n${signature}`.trim(),
     },
     formAnswers: buildFormAnswers({ identity, profile, documents, answers }),

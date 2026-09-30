@@ -284,6 +284,23 @@ export function letterSubject(language, title) {
   return `${SUBJECT_PREFIX[language] || SUBJECT_PREFIX.it} ${title}`.trim();
 }
 
+// A reference the posting asks to quote ("Rif. 2026-17", "Kennziffer 4711"):
+// a keyword, then a code with at least one digit.
+const REFERENCE_RE = /\b(?:rif|ref|réf|riferimento|référence|reference|kennziffer|referenznummer|referenz|job[- ]?id|stellen-?id)\b\.?\s*[:#]?\s*([A-Z0-9/_.-]*\d[A-Z0-9/_.-]*)/i;
+
+/**
+ * The application e-mail's subject, built in code: the position and the
+ * candidate's name, the way a recruiter files it (giro di prova 2026-09-30:
+ * the model wrote just "Infermiere/a 80-100%"). A reference the posting asks
+ * to quote, found in the model's subject, is kept.
+ */
+export function applicationEmailSubject(language, title, name, modelSubject = '') {
+  const base = [letterSubject(language, title), String(name || '').trim()].filter(Boolean).join(' – ');
+  const reference = REFERENCE_RE.exec(String(modelSubject || ''));
+  const withReference = reference && !base.includes(reference[1]) ? `${base} (${reference[0].trim()})` : base;
+  return withReference.slice(0, 250);
+}
+
 const INTL_LOCALE = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 
 export function formatLetterDate(language, date = new Date()) {
