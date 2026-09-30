@@ -67,6 +67,34 @@ describe('Cross-canton active-job drift URL → relocation bridge (not orphan)',
   });
 });
 
+describe('Historical tracking fallback preserves archived content', () => {
+  it('renders a self-canonical indexable archive page when the active bridge has no HTML', () => {
+    const rendererStart = jobsSeoSrc.indexOf('const buildHistoricalArchiveHtml = (');
+    const rendererEnd = jobsSeoSrc.indexOf('for (const [slug, paths] of Object.entries(tracking)', rendererStart);
+    expect(rendererStart).toBeGreaterThan(-1);
+    expect(rendererEnd).toBeGreaterThan(rendererStart);
+    const renderer = jobsSeoSrc.slice(rendererStart, rendererEnd);
+
+    expect(renderer).toContain('plainTextToHtml(description)');
+    expect(renderer).toContain('ROBOTS_INDEX_ENHANCED');
+    expect(renderer).toContain('descriptionByLocale');
+    expect(renderer).toContain('historicalUrl,');
+  });
+
+  it('does not recreate the old generic noindex tombstone in self-healing', () => {
+    const selfHealStart = jobsSeoSrc.indexOf('/* ── Self-healing: cover any tracking paths');
+    const selfHealEnd = jobsSeoSrc.indexOf('/* ── Flush all buffered writes', selfHealStart);
+    expect(selfHealStart).toBeGreaterThan(-1);
+    expect(selfHealEnd).toBeGreaterThan(selfHealStart);
+    const selfHeal = jobsSeoSrc.slice(selfHealStart, selfHealEnd);
+
+    expect(selfHeal).toContain('const archive = historicalArchiveFallbacks.get(relPath);');
+    expect(selfHeal).toContain('buildHistoricalArchiveHtml(slug, relPath, locale, archive)');
+    expect(selfHeal).not.toContain('Offerta di lavoro aggiornata');
+    expect(selfHeal).not.toContain('Diese Stelle wurde aktualisiert oder entfernt');
+  });
+});
+
 // Regression guard for issue #3150 (follow-up of #3144): the
 // `activeDriftRealPathByCompat` stash above is keyed ONLY by `compatPath`
 // (locale-agnostic). That's only safe if COMPAT_JOB_PATTERNS never lets two
