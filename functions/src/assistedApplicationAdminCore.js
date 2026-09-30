@@ -8,7 +8,7 @@
  */
 
 import { randomUUID } from 'node:crypto';
-import admin from 'firebase-admin';
+import { getStorage } from 'firebase-admin/storage';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { assertAdmin } from './adminEmployerInsights.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -537,7 +537,7 @@ async function handleOwnerCvUpload(db, raw, adminEmail) {
   const current = snapshot.data() || {};
   if (current.paymentStatus !== 'paid') throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
   if (!OWNER_UPLOAD_STATUSES.has(statusFor(current))) throw new AssistedApplicationAdminError('invalid_transition', 409);
-  const bucket = admin.storage().bucket(STORAGE_BUCKET);
+  const bucket = getStorage().bucket(STORAGE_BUCKET);
   await bucket.file(key).save(buffer, { contentType: CV_CONTENT_TYPES[type], resumable: false });
   const fromStatus = statusFor(current);
   const timestamp = FieldValue.serverTimestamp();
@@ -577,7 +577,7 @@ async function handleMutate(db, req, adminEmail) {
     try {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
-        bucket: admin.storage().bucket(STORAGE_BUCKET),
+        bucket: getStorage().bucket(STORAGE_BUCKET),
       });
       return { status: 200, body };
     } catch (error) {
