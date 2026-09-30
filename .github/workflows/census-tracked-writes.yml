@@ -1,0 +1,104 @@
+name: census-tracked-writes
+# CENSIMENTO TEMPORANEO, non va mergiato. Esegue l'INTERA suite (gate PR,
+# monitor dei dati vivi e corpus-wide) con l'hook `.github/census/fs-trace-hook.mjs`
+# caricato in ogni processo Node, e registra per ogni file di test:
+#   - le scritture su path del repo (per trovare i test che sporcano file tracciati);
+#   - le letture sotto le radici vive di live-data-test-guard.mjs.
+# `git status` prima e dopo vitest è la rete per le scritture fatte da bash/git,
+# che l'hook non vede.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/census-tracked-writes.yml'
+      - '.github/census/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: census-tracked-writes-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+  cancel-in-progress: false
+
+jobs:
+  census:
+    name: census shard ${{ matrix.shard }}/4
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Fetch origin/main by name
+        run: git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main"
+
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --stats
+
+      - name: Restore assemble-jobs output (read-only)
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      - name: Assemble + migrate
+        run: |
+          node scripts/assemble-jobs-dataset.mjs --stats
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: Tracked state before vitest
+        run: |
+          git status --porcelain --untracked-files=no > "$RUNNER_TEMP/status-before.txt"
+          cat "$RUNNER_TEMP/status-before.txt"
+
+      - name: vitest shard ${{ matrix.shard }}/4 with the census hook
+        timeout-minutes: 100
+        run: |
+          set -uo pipefail
+          export CENSUS_REPO_ROOT="$GITHUB_WORKSPACE"
+          export CENSUS_LOG_FILE="$RUNNER_TEMP/census.jsonl"
+          CENSUS_LIVE_ROOTS="$(node -e "import('./scripts/ci/live-data-test-guard.mjs').then((m) => process.stdout.write(JSON.stringify(m.LIVE_DATA_ROOTS)))")"
+          export CENSUS_LIVE_ROOTS
+          export NODE_OPTIONS="--max-old-space-size=8192 --import=$GITHUB_WORKSPACE/.github/census/fs-trace-hook.mjs"
+          node node_modules/vitest/vitest.mjs run --passWithNoTests --pool=forks --maxWorkers=3 \
+            --shard=${{ matrix.shard }}/4 --reporter=default --reporter=json --outputFile=census-report.json
+          echo "[census] vitest exit=$?"
+          exit 0
+
+      - name: Tracked state after vitest
+        if: always()
+        run: |
+          git status --porcelain --untracked-files=no > "$RUNNER_TEMP/status-after.txt"
+          cat "$RUNNER_TEMP/status-after.txt"
+          git ls-files > "$RUNNER_TEMP/tracked.txt"
+          cp "$RUNNER_TEMP/status-before.txt" "$RUNNER_TEMP/status-after.txt" "$RUNNER_TEMP/tracked.txt" . || true
+          cp "$RUNNER_TEMP/census.jsonl" . 2>/dev/null || touch census.jsonl
+
+      - name: Upload census
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: census-shard-${{ matrix.shard }}
+          path: |
+            census.jsonl
+            status-before.txt
+            status-after.txt
+            tracked.txt
+            census-report.json
+          if-no-files-found: warn
+          retention-days: 5

@@ -322,6 +322,10 @@ export default defineConfig({
  dedupe: ['firebase-admin', 'stripe'],
  },
  test: {
+ // Una run non può lasciare modificato un file tracciato (AGENTS.md: «Un test
+ // non scrive MAI in un file tracciato»). Fotografia prima/dopo di `git status`,
+ // quindi vede anche i processi figli: tests/tracked-files-guard.global.ts.
+ globalSetup: ['./tests/tracked-files-guard.global.ts'],
  projects: [
  {
  // `extends: true` inherits the root vite config (plugins + `resolve.alias`,
