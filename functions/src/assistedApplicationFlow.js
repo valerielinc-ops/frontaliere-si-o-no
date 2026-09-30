@@ -117,6 +117,25 @@ function withHistory(next, event, nowMs) {
   return next;
 }
 
+/**
+ * The round's draft never came out (its run failed, timed out, or Valerie
+ * took over while it was being written): the runner stores a draft only when
+ * it succeeds, so the stored one belongs to an earlier round, or there is none.
+ * The candidate has seen nothing of this round.
+ */
+function roundDraftMissing(current, draft) {
+  return Number(draft?.round) !== Number(current.round);
+}
+
+/** The round's draft is written again, in the same round. */
+function redraftSameRound(next, reason) {
+  next.state = 'regenerating';
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  next.heldBy = [];
+  return [{ type: 'dispatch', mode: 'draft', reason }];
+}
+
 function enterOwnerReview(next, flags, nowMs) {
   next.state = 'owner_review';
   next.heldBy = flags.owner;
@@ -199,17 +218,22 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       break;
     case 'owner_regenerate':
       // Valerie asks for a new draft (e.g. after editing the answers): a new
-      // round, so links of the previous round can no longer approve.
+      // round, so links of the previous round can no longer approve. A round
+      // whose draft never came out is written again as the same round: a
+      // failure on our side never costs the candidate one of their rounds.
       if (!['owner_review', 'owner_takeover', 'candidate_review'].includes(state)) return ignore('not_regenerable');
-      next.state = 'regenerating';
-      next.round = current.round + 1;
-      next.deadlineAt = null;
-      next.reminderAt = null;
-      next.heldBy = [];
-      effects = [{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }];
+      if (state !== 'owner_takeover' || !roundDraftMissing(current, draft)) next.round = current.round + 1;
+      effects = redraftSameRound(next, 'owner_regenerate');
       break;
     case 'owner_resume':
       if (state !== 'owner_takeover' && state !== 'failed') return ignore('not_taken_over');
+      // Nothing to review when the round's draft never came out: it is
+      // written again. A closed ad stays stopped: resuming it is Valerie's call
+      // on the draft she has.
+      if (roundDraftMissing(current, draft) && !current.heldBy.includes('posting_closed')) {
+        effects = redraftSameRound(next, 'owner_resume');
+        break;
+      }
       effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate }, nowMs);
       break;
     case 'tick': {
