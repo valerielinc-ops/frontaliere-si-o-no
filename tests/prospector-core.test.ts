@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, expectTypeOf, it } from 'vitest';
+import { fetch as undiciFetch } from 'undici';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
@@ -2369,6 +2370,7 @@ describe('production spec runtime', () => {
     ) as any;
     try {
       await fetchFollowingValidatedRedirects(privateTargetUrl, {
+        fetchImpl: undiciFetch as any,
         validateUrl: privateTargetPolicy,
         requestOptions: { dispatcher: privateTargetPolicy.dispatcher } as any,
       });

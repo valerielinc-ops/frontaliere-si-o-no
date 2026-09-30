@@ -31,6 +31,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldPath } from 'firebase-admin/firestore';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -125,8 +126,8 @@ async function fetchTrafficHistoryForDay(db, slug, dayKey) {
     .collection('trafficHistory')
     .doc(slug)
     .collection('snapshots')
-    .where(admin.firestore.FieldPath.documentId(), '>=', String(startOfDay))
-    .where(admin.firestore.FieldPath.documentId(), '<', String(endOfDay))
+    .where(FieldPath.documentId(), '>=', String(startOfDay))
+    .where(FieldPath.documentId(), '<', String(endOfDay))
     .get();
   /** @type {Array<any>} */
   const rows = [];

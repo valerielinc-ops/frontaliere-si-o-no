@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vite
 import http from 'node:http';
 import type { Socket } from 'node:net';
 import { once } from 'node:events';
-import { Agent } from 'undici';
+import { Agent, fetch as undiciFetch } from 'undici';
 import {
   AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM, __installScoreStoreForTests,
 } from '../scripts/lib/ai-models.mjs';
@@ -120,11 +120,11 @@ describe('local LLM fallback provider', () => {
 
   // #3106 item 1/2: the previous test proves the raised timeout VALUES reach the
   // Agent's options bag, but that alone doesn't prove undici actually enforces
-  // them at request time, nor that Node's global `fetch` really honours a
-  // dispatcher built from the `undici` npm package (a different module instance
-  // than whatever version Node bundles internally for its built-in fetch). This
-  // test exercises the real stack end-to-end — a real TCP server that never
-  // sends response headers, the real global `fetch`, and the real
+  // them at request time, nor that a fetch implementation really honours a
+  // dispatcher built from the same `undici` npm package. Node's global fetch
+  // can use a different bundled module instance, so the local production path
+  // deliberately pairs both. This test exercises the real stack end-to-end —
+  // a real TCP server that never sends response headers and the real
   // `_getLocalDispatcher` Agent (no mocking) — so a regression in either layer
   // fails loud here instead of silently degrading back to undici's 300s default.
   it('really aborts a hanging local server near the configured budget instead of hanging for undici\'s 300s default', async () => {
@@ -173,18 +173,18 @@ describe('local LLM fallback provider', () => {
   }, 20_000);
   // #3106 item 2: item 1 proved the undici Agent RETAINS headersTimeout/
   // bodyTimeout. That is necessary but not sufficient — it does not prove
-  // that Node's global `fetch()` on THIS runtime actually forwards the
-  // `dispatcher` option into the request instead of silently ignoring it
+  // that the fetch implementation actually forwards the `dispatcher` option
+  // into the request instead of silently ignoring it
   // (a no-op would leave the local fallback stuck on undici's default 300s
   // headersTimeout with no error, exactly the failure #3102/#3106 exist to
-  // prevent). This test uses the REAL global `fetch`, a REAL undici Agent,
+  // prevent). This test uses the REAL npm-undici `fetch`, a REAL undici Agent,
   // and a REAL TCP server that never sends a response — deliberately with
   // NO AbortSignal — so only the dispatcher's headersTimeout can rescue the
   // request. It races the fetch against a sentinel timer well below
   // undici's 300s default: if `dispatcher` were a no-op, the request would
   // still be pending at the sentinel and the race would resolve to the
   // sentinel instead of a rejection.
-  it('global fetch on this runtime honors an undici Agent dispatcher (headersTimeout is not a no-op)', async () => {
+  it('npm undici fetch honors its Agent dispatcher (headersTimeout is not a no-op)', async () => {
     const openSockets: Socket[] = [];
     const server = http.createServer(() => {
       // Intentionally never call res.writeHead()/res.end() — simulates a
@@ -208,7 +208,7 @@ describe('local LLM fallback provider', () => {
 
     try {
       const raced = await Promise.race([
-        fetch(url, { dispatcher: agent } as RequestInit).then(
+        undiciFetch(url, { dispatcher: agent } as RequestInit).then(
           () => ({ outcome: 'resolved' as const }),
           (err: unknown) => ({ outcome: 'rejected' as const, err }),
         ),
@@ -218,9 +218,8 @@ describe('local LLM fallback provider', () => {
       ]);
 
       // A 'sentinel' outcome means the fetch was still hung after 4s — i.e.
-      // Node's global fetch ignored `dispatcher` and inherited undici's
-      // default 300s headersTimeout, reproducing the exact silent no-op
-      // item 2 warns about.
+      // A no-op dispatcher would leave npm undici on its default 300s
+      // headersTimeout, reproducing the exact silent no-op item 2 warns about.
       expect(raced.outcome).toBe('rejected');
       if (raced.outcome === 'rejected') {
         const err = raced.err as { cause?: unknown; message?: string };

@@ -74,7 +74,7 @@ function runSectionRehydrate(
   const root = mkdtempSync(join(tmpdir(), 'trunk-guard-'));
   const lib = join(root, 'scripts', 'lib');
   mkdirSync(lib, { recursive: true });
-  for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh']) {
+  for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh']) {
     copyFileSync(resolve('scripts/lib', f), join(lib, f));
   }
   writeFileSync(
@@ -661,9 +661,10 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     // Missing artifact / failed clone / absent subtree still warn + continue.
     expect(section).toMatch(/::warning::\$section-\$loc shard clone failed/);
     expect(section).toMatch(/::warning::frontaliere-\$section-\$loc has no \$sub subtree/);
-    // The only new non-zero exit is the verdict.
+    // The verdict is the only content-loss exit; malformed parallelism config
+    // is rejected separately before any worker starts.
     const exits = liveCode(section).match(/^\s*exit\s+1\s*$/gm) ?? [];
-    expect(exits).toHaveLength(1);
+    expect(exits).toHaveLength(2);
     expect(section).toContain('trunk_guard_verdict "section shard rehydrate"');
   });
 

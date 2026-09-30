@@ -41,6 +41,8 @@ import {
   hasCorrectLocaleCoverage,
   normalizeSpace,
   isLocationExplicitlyForeign,
+  captureLostSlugs,
+  replaceActiveSlug,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   extractSrIdFromUrl,
@@ -1023,6 +1025,8 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
         const nextTitle = detail.title || existing.title;
         const nextSlug = existing.slug || buildLastminuteSlug(nextTitle, detail.location);
         const sourceFields = sourceSlotTitleAndSlug(nextTitle, nextSlug, sourceLang);
+        const previousSlugByLocale = { ...(existing.slugByLocale || {}) };
+        const previousSlug = existing.slug || '';
         existing.sourceLang = sourceLang;
         existing.description = sourceBody;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
@@ -1033,7 +1037,12 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
           sourceLang,
         );
         existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, sourceFields.titleByLocale, 3, sourceLang);
-        existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, sourceFields.slugByLocale, 3);
+        const nextSlugByLocale = mergeLocaleTextMap(existing.slugByLocale, sourceFields.slugByLocale, 3);
+        for (const [locale, slug] of Object.entries(nextSlugByLocale)) {
+          replaceActiveSlug(existing, slug, { locale, capturePrevious: false });
+        }
+        replaceActiveSlug(existing, nextSlug, { capturePrevious: false });
+        captureLostSlugs(existing, previousSlugByLocale, previousSlug, 20);
         // Mark for re-translation so AI refreshes IT/DE/FR from the richer
         // English — either the job wasn't fully localized yet, or the SR
         // content genuinely changed since the last sync.
@@ -1041,7 +1050,6 @@ async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) 
           existing.needsRetranslation = true;
         }
         existing.title = nextTitle;
-        existing.slug = nextSlug;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
         dropStaleLocaleDescriptions(existing);
         existingChanged = true;

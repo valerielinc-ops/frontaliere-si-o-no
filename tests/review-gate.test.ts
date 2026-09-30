@@ -69,6 +69,12 @@ const classifyCurrentDiff = async (body: string) => classifyReview(body, {
   repositoryPaths: TREE_FILES,
 });
 
+// These scenarios exercise review-history classification, not the git diff
+// implementation. Their synthetic SHAs do not exist in the checkout; keeping
+// the delta unavailable avoids spawning a failing git process under the full
+// suite's concurrent load (where it can consume the whole 15s test budget).
+const noChangedLines = () => null;
+
 describe('review gate: scope classification is fail-closed', () => {
   it('blocks when the file list is incomplete', () => {
     const result = classifyReview(reviewFor('scripts/legacy.mjs', 'old bug'), {
@@ -395,6 +401,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[historicalImportantReview, alignmentLgtmReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -431,6 +438,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[historicalImportantReview, legacyConfirmation]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -445,6 +453,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[unanchoredImportantReview, alignmentLgtmReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -631,6 +640,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       headSha: HEAD_SHA,
       reviews: [[outsideReview, alignmentLgtmReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
 
@@ -852,6 +862,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviewRevision: REVIEW_REVISION,
       repositoryPaths: TREE_FILES,
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
     expect(blocked.approved).toBe(false);
@@ -876,6 +887,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviewRevision: REVIEW_REVISION,
       repositoryPaths: TREE_FILES,
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
     expect(approved).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
@@ -1962,6 +1974,7 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
           logClassification(classification);
           return classification;
         },
+        changedLinesFn: noChangedLines,
         mutate: false,
       });
       expect(result.approved).toBe(true);
@@ -1977,6 +1990,7 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
       headSha: HEAD_SHA,
       reviews: [[...history, withReal]],
       classifyAndMintReviewFn: classifyCurrentDiff,
+      changedLinesFn: noChangedLines,
       mutate: false,
     });
     expect(blocked.approved).toBe(false);
