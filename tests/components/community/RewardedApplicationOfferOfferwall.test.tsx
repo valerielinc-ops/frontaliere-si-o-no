@@ -259,6 +259,73 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
     }
   });
 
+  it('takes the Offerwall ads snapshot at the close when the Offerwall closes within 1.5 s, and only once', () => {
+    // Review of #10461: a timer left running past a quick close measured the
+    // page after the Offerwall was gone. The snapshot now moves to the close.
+    vi.useFakeTimers();
+    try {
+      mocks.status = 'held';
+      render(<RewardedApplicationOffer {...props} />);
+      showOfferwall(800);
+      act(() => {
+        vi.advanceTimersByTime(500);
+        mocks.releaseOptions?.onClosed?.({ shownMs: 800, closedMs: 1_300, root: 'fc-message-root' });
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toEqual([
+        expect.objectContaining({ ...offerwallContext, ads_total: 0, ads_visible: 0, anchor_visible: 0 }),
+      ]);
+      act(() => {
+        vi.advanceTimersByTime(OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toHaveLength(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('takes the Offerwall ads snapshot at the reward when the entitlement arrives within 1.5 s', async () => {
+    vi.useFakeTimers();
+    try {
+      mocks.status = 'held';
+      render(<RewardedApplicationOffer {...props} />);
+      showOfferwall(800);
+      await settle({
+        outcome: 'completed',
+        signal: 'entitlement',
+        shownMs: 800,
+        closedMs: null,
+        completedMs: 1_600,
+        root: 'fc-message-root',
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toHaveLength(1);
+      act(() => {
+        vi.advanceTimersByTime(OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toHaveLength(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('keeps the 1.5 s snapshot when the Offerwall closes after it', () => {
+    vi.useFakeTimers();
+    try {
+      mocks.status = 'held';
+      render(<RewardedApplicationOffer {...props} />);
+      showOfferwall(800);
+      act(() => {
+        vi.advanceTimersByTime(OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toHaveLength(1);
+      act(() => {
+        mocks.releaseOptions?.onClosed?.({ shownMs: 800, closedMs: 9_000, root: 'fc-message-root' });
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toHaveLength(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('without a click activation left at the reward, opens the employer from one click', async () => {
     setUserActivation(false);
     mocks.status = 'held';
