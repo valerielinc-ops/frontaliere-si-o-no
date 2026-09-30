@@ -203,7 +203,13 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
       [],
-      expect.objectContaining({ skipShrinkGuard: true }),
+      expect.objectContaining({
+        housekeepingProof: [expect.objectContaining({
+          job: expect.objectContaining({ url: 'https://example.com/stored-job', slug: 'stored-job' }),
+          reason: 'thin-source-quarantine',
+          definitive: true,
+        })],
+      }),
     );
   });
 
@@ -265,9 +271,17 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     const [key, jobs, options] = mocks.writeJobsCrawlerSliceVerified.mock.calls[0];
     expect(key).toBe(COMPANY_KEY);
     expect(jobs).toEqual([]);
-    expect(options).toMatchObject({ preserveExistingSlugs: false, skipShrinkGuard: true });
-    // Still the soft exit: no merge, no retirement or localization; the
-    // cleaned slice is assembled before the process returns.
+    expect(options).toMatchObject({
+      preserveExistingSlugs: false,
+      housekeepingProof: [expect.objectContaining({
+        job: expect.objectContaining({ url: 'https://example.com/stored-job', slug: 'stored-job' }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      })],
+    });
+    expect(options).not.toHaveProperty('skipShrinkGuard');
+    // Still the soft exit: no merge or direct template retirement/localization;
+    // the verified writer receives the proof before the process returns.
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
     expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
     expect(mocks.runDedicatedBaseCrawler).not.toHaveBeenCalled();
@@ -281,7 +295,12 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
       [],
-      expect.objectContaining({ skipShrinkGuard: true }),
+      expect.objectContaining({
+        housekeepingProof: [expect.objectContaining({
+          job: expect.objectContaining({ url: 'https://example.com/stored-job', slug: 'stored-job' }),
+          definitive: true,
+        })],
+      }),
     );
   });
 
@@ -291,11 +310,19 @@ describe('runStandardCrawlerPipeline prepareExistingJobs on a run that parses no
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
   });
 
-  it('keeps the prior slice when the rewrite would trip the systemic boilerplate guard', async () => {
+  it('evaluates the systemic guard on publishable jobs before all-thin quarantine', async () => {
+    mocks.detectBoilerplateDescriptions.mockImplementationOnce((jobs: object[]) => {
+      expect(jobs).toEqual([]);
+      return { boilerplateJobs: [{ slug: 'stored-job' }], totalJobs: 1, boilerplateCount: 1, ratio: 1 };
+    });
     mocks.isSystemicBoilerplateFailure.mockReturnValueOnce(true);
     await runEmpty({ prepareExistingJobs: dropStelle });
     expect(mocks.detectBoilerplateDescriptions).toHaveBeenCalledTimes(1);
-    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      [],
+      expect.objectContaining({ housekeepingProof: expect.any(Array) }),
+    );
   });
 
   it('stays a soft exit when the rewrite fails', async () => {

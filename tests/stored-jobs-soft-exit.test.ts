@@ -49,7 +49,16 @@ describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
     expect(write).toHaveBeenCalledTimes(1);
     const [jobs, options] = write.mock.calls[0];
     expect(jobs).toEqual([]);
-    expect(options).toEqual({ skipShrinkGuard: true });
+    expect(options).toEqual({
+      housekeepingProof: [{
+        job: expect.objectContaining({
+          url: 'https://www.fartiamo.ch/concorsi/0/',
+          slug: 'fart-concorso-0',
+        }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
+    });
   });
 
   it('quarantines a stored job that has no source body even without a fabricated marker', async () => {
@@ -59,7 +68,13 @@ describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
       prepare, storedJobs: [job], companyKey: 'fart', companyLabel: 'FART', write,
     });
     expect(rewritten).toBe(true);
-    expect(write).toHaveBeenCalledWith([], { skipShrinkGuard: true });
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [{
+        job: expect.objectContaining({ slug: 'fart-concorso-0' }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
+    });
   });
 
   it('keeps a real source body while removing only a fabricated translation', async () => {
@@ -96,14 +111,21 @@ describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
     expect(write).not.toHaveBeenCalled();
   });
 
-  it('keeps the prior slice when the rewrite would trip the systemic boilerplate guard', async () => {
+  it('does not let an all-thin quarantine trip the systemic boilerplate guard', async () => {
     const write = vi.fn();
     const stored = Array.from({ length: 10 }, (_, i) => storedFartJob(i));
     const rewritten = await rewritePreparedStoredJobs({
       prepare, storedJobs: stored, companyKey: 'fart', companyLabel: 'FART', write,
     });
-    expect(rewritten).toBe(false);
-    expect(write).not.toHaveBeenCalled();
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: expect.arrayContaining([
+        expect.objectContaining({
+          job: expect.objectContaining({ slug: 'fart-concorso-0' }),
+          definitive: true,
+        }),
+      ]),
+    });
   });
 
   it('stays soft when the write fails', async () => {
@@ -136,7 +158,7 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
       expect(exit.length).toBeGreaterThan(0);
       const call = exit.slice(0, exit.indexOf('});') + 3);
       expect(call).toContain(`prepare: (jobs) => dropFabricatedDescriptions(jobs, ${mergePattern},`);
-      expect(call).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice\([A-Z_]+, jobs, options\)/);
+      expect(call).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSliceVerified\([A-Z_]+, jobs, options\)/);
       expect(call).toContain('assemble: () => assembleJobsDataset(),');
       // The call sits in the zero-job exit, before its `return`.
       expect(exit.slice(call.length).trimStart()).toMatch(/^(return;|const _cdResult = logStats)/);
@@ -194,7 +216,7 @@ describe('lot H/K runners clean their stored jobs at every zero-job exit', () =>
       const fn = source.slice(fnStart, source.indexOf('\n}\n', fnStart));
       expect(fn).toContain(`prepare: (jobs) => { for (const job of jobs) ${mergeDrop}(job); },`);
       expect(fn).toMatch(/storedJobs: readExistingCrawlerJobs\([A-Z_]+, DATA_JOBS\)\.filter\([A-Za-z]+\),/);
-      expect(fn).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice\([A-Z_]+, jobs, options\),/);
+      expect(fn).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice(?:Verified)?\([A-Z_]+, jobs, options\),/);
       // Each call sits right before the `return` of a zero-job exit.
       const calls = source.match(/await cleanStoredJobsOnSoftExit\(\);\s*return;/g) || [];
       expect(calls).toHaveLength(exits);

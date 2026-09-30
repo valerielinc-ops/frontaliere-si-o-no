@@ -27,6 +27,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -686,7 +687,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS).filter(isSwisscomJob),
     companyKey: SWISSCOM_KEY,
     companyLabel: SWISSCOM_COMPANY_NAME,
-    write: (jobs, options) => writeJobsCrawlerSlice(SWISSCOM_KEY, jobs, options),
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(SWISSCOM_KEY, jobs, options),
   });
 }
 

@@ -31,6 +31,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -338,7 +339,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(BPS_KEY, DATA_JOBS).filter(isBpsJob),
     companyKey: BPS_KEY,
     companyLabel: BPS_COMPANY_NAME,
-    write: (jobs, options) => writeJobsCrawlerSlice(BPS_KEY, jobs, options),
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(BPS_KEY, jobs, options),
   });
 }
 

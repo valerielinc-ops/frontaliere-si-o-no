@@ -35,6 +35,7 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -1261,7 +1262,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(USI_KEY, DATA_JOBS).filter(isUsiJob),
     companyKey: USI_KEY,
     companyLabel: USI_COMPANY_NAME,
-      write: (jobs, options) => writeJobsCrawlerSlice(USI_KEY, jobs, options),
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(USI_KEY, jobs, options),
   });
 }
 

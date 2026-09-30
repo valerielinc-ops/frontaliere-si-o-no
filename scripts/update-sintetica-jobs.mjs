@@ -12,7 +12,7 @@ import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
@@ -225,7 +225,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
     companyKey: COMPANY_KEY,
     companyLabel: COMPANY_NAME,
-    write: (jobs, options) => writeJobsCrawlerSlice(COMPANY_KEY, jobs, options),
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
   });
 }
 

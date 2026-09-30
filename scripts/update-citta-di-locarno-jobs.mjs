@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
@@ -88,7 +88,7 @@ async function main() {
       storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob),
       companyKey: COMPANY_KEY,
       companyLabel: COMPANY_NAME,
-      write: (jobs, options) => writeJobsCrawlerSlice(COMPANY_KEY, jobs, options),
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
       assemble: () => assembleJobsDataset(),
     });
     return;

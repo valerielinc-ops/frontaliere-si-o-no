@@ -7,11 +7,10 @@
  * again. This runs the same cleanup on the stored jobs at that exit.
  *
  * The slice is rewritten only when the cleanup changed something: same jobs,
- * same slugs and dates, no retirement, no stale pruning, no merge. A rewrite
- * the slice writer's boilerplate guard would refuse as systemic (most stored
- * jobs left without a description) is skipped — the prior slice stays and the
- * next run with jobs cleans it through the merge — and so is a failed write:
- * the exit stays a soft one.
+ * same slugs and dates, no retirement, no stale pruning, no merge. The slice
+ * writer's boilerplate guard is evaluated only on publishable jobs; thin rows
+ * are quarantined with a housekeeping proof so indexed routes can land in the
+ * expired slice. A failed write still keeps the exit soft.
  */
 import {
   detectBoilerplateDescriptions,
@@ -26,7 +25,7 @@ import { sourceBodyForJob } from './stored-source-body.mjs';
  *   storedJobs: object[],
  *   companyKey: string,
  *   companyLabel: string,
- *   write: (jobs: object[], options?: { skipShrinkGuard?: boolean }) => (unknown|Promise<unknown>),
+ *   write: (jobs: object[], options?: { housekeepingProof?: object[] }) => (unknown|Promise<unknown>),
  *   assemble?: () => (unknown|Promise<unknown>),
  * }} options `prepare` repairs the stored jobs in place or returns a
  *   replacement array (the `prepareExistingJobs` contract); `write` persists
@@ -45,25 +44,31 @@ export async function rewritePreparedStoredJobs({
   if (typeof prepare !== 'function' || !Array.isArray(storedJobs) || storedJobs.length === 0) return false;
   const before = JSON.stringify(storedJobs);
   const prepared = prepare(storedJobs) || storedJobs;
+  const publishable = prepared.filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const quarantined = prepared.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
   const preparedChanged = JSON.stringify(prepared) !== before;
-  const thinSourceJobs = prepared.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
-  if (!preparedChanged && thinSourceJobs.length === 0) return false;
+  if (!preparedChanged && quarantined.length === 0) return false;
 
-  if (isSystemicBoilerplateFailure(detectBoilerplateDescriptions(prepared, companyKey))) {
+  const boilerplateReport = detectBoilerplateDescriptions(publishable, companyKey);
+  if (publishable.length > 0 && isSystemicBoilerplateFailure(boilerplateReport)) {
     console.log(
       `  ⚠️ ${companyLabel}: the stored jobs left without the crawler's own text would trip the slice boilerplate guard; slice not rewritten.`,
     );
     return false;
   }
-  const publishable = prepared.filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)));
-  const quarantineCount = prepared.length - publishable.length;
+  const quarantineCount = quarantined.length;
   if (quarantineCount > 0) {
     console.warn(
       `  ⚠️ ${companyLabel}: quarantining ${quarantineCount} stored job(s) without a source body of at least 50 words (thin-source path).`,
     );
   }
+  const housekeepingProof = quarantined.map((job) => ({
+    job,
+    reason: 'thin-source-quarantine',
+    definitive: true,
+  }));
   try {
-    await write(publishable, quarantineCount > 0 ? { skipShrinkGuard: true } : {});
+    await write(publishable, quarantineCount > 0 ? { housekeepingProof } : {});
   } catch (err) {
     console.warn(
       `  ⚠️ ${companyLabel}: rewrite of the stored jobs failed (${err?.message || err}); keeping the prior slice.`,

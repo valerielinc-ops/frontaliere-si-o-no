@@ -34,6 +34,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -328,7 +329,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
     companyKey: COMPANY_KEY,
     companyLabel: COMPANY_NAME,
-    write: (jobs, options) => writeJobsCrawlerSlice(COMPANY_KEY, jobs, options),
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
   });
 }
 
