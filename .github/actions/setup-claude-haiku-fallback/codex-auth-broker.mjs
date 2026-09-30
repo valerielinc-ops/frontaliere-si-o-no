@@ -63,7 +63,16 @@ const DEFAULT_TTL_MS = 30 * 60 * 1000;
 const DEFAULT_MAX_REQUESTS = 512;
 const DEFAULT_MAX_CONCURRENCY = 1;
 const MAX_CONCURRENCY_LIMIT = 6;
-const MAX_TIMEOUT_MS = 600_000;
+const DEFAULT_MAX_TIMEOUT_MS = 600_000;
+const MAX_TIMEOUT_LIMIT_MS = 3 * 60 * 60 * 1000;
+// Tetto di esecuzione di una richiesta. I 10 minuti di default bastano alle
+// corsie degli articoli; un job che deve lasciar finire una richiesta lenta
+// ma viva (la candidatura assistita a effort max, dove conta che la bozza
+// arrivi) passa --max-timeout-ms. Fuori da 60000..10800000 vale il default.
+const maxTimeoutRaw = Number(argument('--max-timeout-ms', String(DEFAULT_MAX_TIMEOUT_MS)));
+const MAX_TIMEOUT_MS = Number.isInteger(maxTimeoutRaw) && maxTimeoutRaw >= 60_000 && maxTimeoutRaw <= MAX_TIMEOUT_LIMIT_MS
+  ? maxTimeoutRaw
+  : DEFAULT_MAX_TIMEOUT_MS;
 // Codex rinnova un login ChatGPT quando `last_refresh` ha piu' di 8 giorni o
 // l'access token e' scaduto. Le corsie parallele si aprono solo con un giorno
 // di margine sul primo e con un access token che sopravvive alla richiesta
