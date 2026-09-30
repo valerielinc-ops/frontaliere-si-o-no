@@ -1,21 +1,22 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-29T21:13:03.744Z",
+  "generatedAt": "2026-09-30T21:17:00.478Z",
   "total": 28,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 26,
-  "durationMs": 17017,
-  "avgDurationMs": 17017,
+  "durationMs": 14552,
+  "avgDurationMs": 14552,
   "durationHistory": [
-    17017
+    14552
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "efg-6531",
-      "slug": "client-services-officer-russian-speaker-efg-geneve",
+      "slug": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Client Services Officer - Russian Speaker",
       "location": "Geneve",
@@ -68,20 +69,24 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:54.926Z",
+      "crawledAt": "2026-09-30T21:16:48.608Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-29",
-      "_qualityScore": 67,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-29T21:12:54.926Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "efg-5984",
       "slug": "operatore-di-commutazione-efg-international-ag-lugano",
@@ -176,7 +181,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.016Z",
+      "crawledAt": "2026-09-30T21:16:48.703Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-03",
@@ -279,7 +284,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.015Z",
+      "crawledAt": "2026-09-30T21:16:48.701Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -333,7 +338,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.013Z",
+      "crawledAt": "2026-09-30T21:16:48.695Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -498,7 +503,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.011Z",
+      "crawledAt": "2026-09-30T21:16:48.690Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -554,7 +559,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.009Z",
+      "crawledAt": "2026-09-30T21:16:48.686Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -681,7 +686,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.008Z",
+      "crawledAt": "2026-09-30T21:16:48.683Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -738,7 +743,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.006Z",
+      "crawledAt": "2026-09-30T21:16:48.680Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -868,7 +873,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:55.001Z",
+      "crawledAt": "2026-09-30T21:16:48.674Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1008,7 +1013,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:54.999Z",
+      "crawledAt": "2026-09-30T21:16:48.669Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16",
@@ -1133,7 +1138,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-29T21:12:54.978Z",
+      "crawledAt": "2026-09-30T21:16:48.647Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-09-25",
@@ -1684,6 +1689,7 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2167,6 +2173,7 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/4543",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
