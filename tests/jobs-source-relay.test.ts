@@ -294,6 +294,36 @@ describe('source relay crawler client', () => {
     expect(relaySignal?.aborted).toBe(true);
   });
 
+  it('bounds a relay body that never settles with the shared deadline', async () => {
+    let relaySignal: AbortSignal | undefined;
+    let calls = 0;
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      calls += 1;
+      if (calls === 1) {
+        return new Response(JSON.stringify({ value: 'github-oidc-token' }), {
+          status: 200,
+          headers: { 'content-type': 'application/json' },
+        });
+      }
+      relaySignal = init?.signal;
+      return {
+        status: 200,
+        text: () => new Promise<string>(() => {}),
+      };
+    });
+    const startedAt = Date.now();
+
+    await expect(fetchSourceViaRelay(CHUR_URL, {
+      relayUrl: 'https://europe-west6-frontaliere.cloudfunctions.net/jobsSourceRelay',
+      fetchImpl,
+      env: { ...RELAY_ENV, JOBS_SOURCE_RELAY_TIMEOUT_MS: '25' },
+    })).resolves.toBeNull();
+
+    expect(calls).toBe(2);
+    expect(relaySignal?.aborted).toBe(true);
+    expect(Date.now() - startedAt).toBeLessThan(1_000);
+  });
+
   it('retries only relay rate limits and succeeds on the next attempt', async () => {
     const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
@@ -323,7 +353,7 @@ describe('source relay crawler client', () => {
     });
 
     expect(response?.status).toBe(200);
-    expect(await response?.text()).toBe('relayed source');
+    expect(response?.text).toBe('relayed source');
     expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
 
@@ -437,8 +467,8 @@ describe('source relay crawler client', () => {
       env: RELAY_ENV,
     });
 
-    expect(await first?.text()).toBe('source body');
-    expect(await second?.text()).toBe('source body');
+    expect(first?.text).toBe('source body');
+    expect(second?.text).toBe('source body');
     expect(upstreamFetch).toHaveBeenCalledTimes(2);
     expect(clientFetch.mock.calls.filter(([input]) => !String(input).startsWith('https://token.actions.githubusercontent.com/'))).toHaveLength(3);
   });

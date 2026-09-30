@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
+import { readBoundedResponseBytes } from './bounded-response-body.mjs';
+
 export const SOURCE_RELAY_OIDC_AUDIENCE = 'frontaliere-jobs-source-relay';
 export const SOURCE_RELAY_TIMEOUT_MS = 20_000;
 export const SOURCE_RELAY_MAX_ATTEMPTS = 3;
 export const SOURCE_RELAY_RETRY_DELAY_MS = 1_200;
+export const SOURCE_RELAY_MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const GITHUB_OIDC_REQUEST_HOST = 'token.actions.githubusercontent.com';
 
 function positiveNumber(value, fallback) {
@@ -108,19 +111,44 @@ function retryAfterMs(response, fallbackMs) {
   return Number.isFinite(dateMs) ? Math.max(0, dateMs - Date.now()) : fallbackMs;
 }
 
-async function relayErrorCode(response, deadline) {
-  const readable = typeof response?.clone === 'function' ? response.clone() : response;
-  if (typeof readable?.json !== 'function') return '';
+function relayErrorCode(text) {
+  if (typeof text !== 'string') return '';
   try {
-    const payload = await withinRelayDeadline(
-      Promise.resolve().then(() => readable.json()),
-      deadline,
-    );
+    const payload = JSON.parse(text);
     return typeof payload?.error === 'string' ? payload.error : '';
-  } catch (error) {
-    if (error === deadline.timeoutError) throw error;
+  } catch {
     return '';
   }
+}
+
+async function readRelayBody(response, deadline) {
+  const contentLength = Number.parseInt(responseHeader(response, 'content-length') || '', 10);
+  if (Number.isFinite(contentLength) && contentLength > SOURCE_RELAY_MAX_RESPONSE_BYTES) {
+    throw new Error('source_relay_response_too_large');
+  }
+
+  if (typeof response?.body?.getReader === 'function') {
+    const bytes = await withinRelayDeadline(
+      readBoundedResponseBytes(response, SOURCE_RELAY_MAX_RESPONSE_BYTES),
+      deadline,
+    );
+    if (bytes === null) throw new Error('source_relay_response_too_large');
+    return new TextDecoder().decode(bytes);
+  }
+
+  if (typeof response?.text === 'function') {
+    const text = await withinRelayDeadline(
+      Promise.resolve().then(() => response.text()),
+      deadline,
+    );
+    if (typeof text !== 'string') throw new Error('source_relay_body_unreadable');
+    if (Buffer.byteLength(text, 'utf8') > SOURCE_RELAY_MAX_RESPONSE_BYTES) {
+      throw new Error('source_relay_response_too_large');
+    }
+    return text;
+  }
+
+  throw new Error('source_relay_body_unreadable');
 }
 
 async function requestGithubOidcToken({
@@ -169,6 +197,8 @@ async function requestGithubOidcToken({
  * Fetch one allowlisted source URL through Firebase when direct egress fails.
  * An unset JOBS_SOURCE_RELAY_URL is deliberately a no-op so local runs and
  * workflows without the second-step wiring retain their existing behavior.
+ * A successful relay response is returned as { status, text } after bounded
+ * body consumption, not as a live Response whose body could outlive the deadline.
  */
 export async function fetchSourceViaRelay(
   sourceUrl,
@@ -208,11 +238,12 @@ export async function fetchSourceViaRelay(
         Accept: 'text/html, application/json',
       },
     }, deadline);
+    let text = await readRelayBody(response, deadline);
 
     for (let attempt = 1; attempt < SOURCE_RELAY_MAX_ATTEMPTS && response?.status === 429; attempt += 1) {
-      const errorCode = await relayErrorCode(response, deadline);
+      const errorCode = relayErrorCode(text);
       if (errorCode === 'daily_cap') return null;
-      if (errorCode !== 'rate_limited') return response;
+      if (errorCode !== 'rate_limited') return { status: response?.status, text };
       await sleepWithinRelayDeadline(retryAfterMs(response, retryDelayMs), deadline);
       response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
         method: 'GET',
@@ -222,10 +253,11 @@ export async function fetchSourceViaRelay(
           Accept: 'text/html, application/json',
         },
       }, deadline);
+      text = await readRelayBody(response, deadline);
     }
 
-    if (response?.status === 429 && await relayErrorCode(response, deadline) === 'daily_cap') return null;
-    return response;
+    if (response?.status === 429 && relayErrorCode(text) === 'daily_cap') return null;
+    return { status: response?.status, text };
   } catch (error) {
     console.warn(`  ⚠️ Source relay fetch failed: ${error?.message || error}`);
     return null;

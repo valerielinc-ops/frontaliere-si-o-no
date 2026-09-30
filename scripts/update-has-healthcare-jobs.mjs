@@ -190,7 +190,7 @@ async function fetchPage(url, timeoutMs = 20_000) {
 
   if (relayFallback) {
     const relayed = await fetchSourceViaRelay(url);
-    if (relayed?.ok) return relayed.text();
+    if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
     if (relayed) console.warn(`⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
   }
   return '';
