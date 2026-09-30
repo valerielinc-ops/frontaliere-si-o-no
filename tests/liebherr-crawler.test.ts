@@ -5,6 +5,9 @@ import {
   isLiebherrJob,
   isTrustedDomain,
   fetchAllLiebherrJobs,
+  extractLiebherrSourceLocale,
+  mergeLiebherrLanguageVariants,
+  prepareExistingLiebherrJobs,
 } from '../scripts/lib/liebherr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -127,6 +130,163 @@ describe('Liebherr crawler parser', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
+
+  describe('source-proven language variants', () => {
+    const body = (label: string) => `${label} ${Array(55).fill('source').join(' ')}`;
+    const variant = (options: {
+      id: string;
+      locale: 'de_DE' | 'en_US';
+      slug: string;
+      title: string;
+      firstSeenAt?: string;
+    }) => {
+      const sourceLang = options.locale === 'de_DE' ? 'de' : 'en';
+      return {
+        id: `liebherr-${options.id}`,
+        jobReqId: options.id,
+        sourceLocale: options.locale,
+        sourceLang,
+        title: options.title,
+        titleByLocale: { [sourceLang]: options.title },
+        description: body(options.locale),
+        descriptionByLocale: { [sourceLang]: body(options.locale) },
+        slug: options.slug,
+        slugByLocale: { [sourceLang]: options.slug },
+        location: 'Nussbaumen',
+        url: `https://careers.liebherr.com/job/${options.id}/`,
+        ...(options.firstSeenAt ? { firstSeenAt: options.firstSeenAt } : {}),
+      };
+    };
+
+    it('reads the locale proof from the source apply link', () => {
+      expect(extractLiebherrSourceLocale(
+        '<a href="/apply?locale=de_DE&amp;jobid=1438005533">Jetzt bewerben</a>',
+        '1438005533',
+      )).toBe('de_DE');
+      expect(extractLiebherrSourceLocale(
+        '<a href="/apply?locale=en_US&amp;jobid=1438005433">Apply now</a>',
+        '1438005433',
+      )).toBe('en_US');
+      expect(extractLiebherrSourceLocale(
+        '<a href="/apply?locale=en_US&amp;jobid=1438005633">Apply now</a>',
+        '1438005433',
+      )).toBe('');
+    });
+
+    it('fuses a proven DE/EN pair with the same source id, keeps both bodies, and aliases the losing slug', () => {
+      const de = variant({
+        id: '1438005433',
+        locale: 'de_DE',
+        slug: 'transferpreis-werkstudent-liebherr-nussbaumen',
+        title: 'Transfer Pricing Working Student',
+        firstSeenAt: '2026-09-01T00:00:00.000Z',
+      });
+      const en = variant({
+        id: '1438005433',
+        locale: 'en_US',
+        slug: 'transfer-pricing-working-student-liebherr-nussbaumen',
+        title: 'Transfer Pricing Working Student',
+        firstSeenAt: '2026-09-02T00:00:00.000Z',
+      });
+
+      const result = mergeLiebherrLanguageVariants([de, en]);
+      expect(result.metrics).toMatchObject({ candidatePairs: 1, fused: 1, redirectsCreated: 1 });
+      expect(result.jobs).toHaveLength(1);
+      expect(result.jobs[0]).toMatchObject({
+        sourceLang: 'de',
+        slug: de.slug,
+        descriptionByLocale: { de: de.description, en: en.description },
+        titleByLocale: { de: de.title, en: en.title },
+      });
+      expect(result.jobs[0].previousSlugs).toContain(en.slug);
+      expect(result.jobs[0].previousSlugsByLocale?.en).toContain(en.slug);
+    });
+
+    it('also fuses Liebherr ids that differ by the proven language suffix', () => {
+      const de = variant({ id: '1438005533', locale: 'de_DE', slug: 'role-de', title: 'Role' });
+      const en = variant({ id: '1438005433', locale: 'en_US', slug: 'role-en', title: 'Role' });
+      const result = mergeLiebherrLanguageVariants([de, en]);
+      expect(result.metrics).toMatchObject({ candidatePairs: 1, fused: 1 });
+      expect(result.jobs).toHaveLength(1);
+      expect(result.jobs[0].descriptionByLocale).toEqual({ de: de.description, en: en.description });
+    });
+
+    it('keeps different source ids separate without the proven Liebherr variant relationship', () => {
+      const engine = variant({
+        id: '1395958433',
+        locale: 'en_US',
+        slug: 'engine-remanufacturing-design-engineer',
+        title: 'Engine Remanufacturing Design Engineer',
+      });
+      const control = variant({
+        id: '1395958333',
+        locale: 'en_US',
+        slug: 'control-systems-engineer',
+        title: 'Control Systems Engineer',
+      });
+      const result = mergeLiebherrLanguageVariants([engine, control]);
+      expect(result.metrics.fused).toBe(0);
+      expect(result.jobs).toHaveLength(2);
+      expect(prepareExistingLiebherrJobs([engine, control])).toHaveLength(2);
+    });
+
+    it('does not infer a legacy merge from a matching title alone', () => {
+      const first = {
+        ...variant({ id: '1395958433', locale: 'en_US', slug: 'same-role-one', title: 'Same Role' }),
+        sourceLocale: undefined,
+      };
+      const second = {
+        ...variant({ id: '1395958333', locale: 'en_US', slug: 'same-role-two', title: 'Same Role' }),
+        sourceLocale: undefined,
+      };
+      expect(prepareExistingLiebherrJobs([first, second])).toHaveLength(2);
+    });
+
+    it('leaves a monolingual source row unchanged', () => {
+      const job = variant({ id: '1438005433', locale: 'en_US', slug: 'role-en', title: 'Role' });
+      const result = mergeLiebherrLanguageVariants([job]);
+      expect(result.metrics).toEqual({ candidatePairs: 0, fused: 0, redirectsCreated: 0 });
+      expect(result.jobs[0]).toBe(job);
+    });
+
+    it('cleans stored proven-family duplicates before the standard merge', () => {
+      const de = variant({
+        id: '1438005533',
+        locale: 'de_DE',
+        slug: 'stored-de-slug',
+        title: 'Transfer Pricing Working Student',
+        firstSeenAt: '2026-09-01T00:00:00.000Z',
+      });
+      const en = variant({
+        id: '1438005433',
+        locale: 'en_US',
+        slug: 'stored-en-slug',
+        title: 'Transfer Pricing Working Student',
+        firstSeenAt: '2026-09-02T00:00:00.000Z',
+      });
+      const legacyDe = {
+        ...de,
+        sourceLocale: undefined,
+        sourceLang: 'en',
+        titleByLocale: { en: de.title },
+        descriptionByLocale: { en: de.description },
+      };
+      const legacyEn = {
+        ...en,
+        sourceLocale: undefined,
+        sourceLang: 'en',
+        titleByLocale: { en: en.title },
+        descriptionByLocale: { en: en.description },
+      };
+      const cleaned = prepareExistingLiebherrJobs([legacyDe, legacyEn]);
+      expect(cleaned).toHaveLength(1);
+      expect(cleaned[0].sourceLang).toBe('de');
+      expect(cleaned[0].descriptionByLocale).toEqual({ de: legacyDe.description, en: legacyEn.description });
+      expect(cleaned[0].slug).toBe(legacyDe.slug);
+      expect(cleaned[0].previousSlugs).toContain(legacyEn.slug);
+      expect(cleaned[0].previousSlugsByLocale?.en).toContain(legacyEn.slug);
+    });
+  });
 });
 
 // Only the posting's own text is published (issue 5253): without a readable
@@ -154,5 +314,32 @@ describe('fetchAllLiebherrJobs — listing without a vacancy body', () => {
     expect(jobs.map((job) => job.title)).toEqual(['Polymechaniker EFZ']);
     expect(jobs[0].description).toContain('Präzisionsteile');
     for (const job of jobs) expect(job.description).not.toMatch(/— Liebherr \(/);
+  }, 20_000);
+});
+
+describe('fetchAllLiebherrJobs — source-proven same-id locale variants', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('keeps same-id locale URLs long enough to fuse their source slots', async () => {
+    const body = (label: string) => `${label} ${Array(60).fill('vacancy').join(' ')}`;
+    const tile = (locale: string) => `<li class="job-tile job-id-1438005433 job-row" data-url="/job/Nussbaumen-Role/1438005433/?locale=${locale}">`
+      + '<a class="jobTitle-link" href="#">Role</a><div id="job-1438005433-desktop-section-location-value">Nussbaumen, CH</div></li>';
+    const listing = `<ul>${tile('de_DE')}${tile('en_US')}</ul>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const u = String(url);
+      if (u.includes('/search/')) return new Response(listing, { status: 200 });
+      const locale = u.includes('de_DE') ? 'de_DE' : 'en_US';
+      return new Response(
+        `<a href="/apply?locale=${locale}&amp;jobid=1438005433">Apply</a><span itemprop="description"><p>${body(locale)}</p></span>`,
+        { status: 200 },
+      );
+    }));
+
+    const jobs = await fetchAllLiebherrJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: body('de_DE'), en: body('en_US') });
+    expect(jobs.languageVariantStats).toMatchObject({ candidatePairs: 1, fused: 1 });
   }, 20_000);
 });
