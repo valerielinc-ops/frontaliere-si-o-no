@@ -253,7 +253,7 @@ function formatUrlList(items, maxSamples) {
   }).join('\n');
 }
 
-function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
+export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
   const lines = [
     '## Bing-compatible full-tree crawl',
     '',
@@ -272,7 +272,7 @@ function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
   lines.push('', '### Conteggio per codice', '');
   for (const [code, count] of Object.entries(summary.codeCounts).sort((a, b) => b[1] - a[1])) lines.push(`- \`${code}\`: **${count}**`);
   const byCode = new Map();
-  for (const item of summary.findings) {
+  for (const item of summary.actionableFindings) {
     const items = byCode.get(item.code) || [];
     items.push(item);
     byCode.set(item.code, items);
@@ -284,7 +284,9 @@ function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
   lines.push('', '### Root del sito', '', '| Root | URL | 4xx/5xx | Finding |', '|---|---:|---:|---:|');
   for (const [root, stats] of Object.entries(summary.folderStats).sort((a, b) => b[1].checked - a[1].checked)) {
     const errors = Object.entries(stats.statuses).filter(([status]) => Number(status) >= 400 || Number(status) === 0).reduce((total, [, count]) => total + count, 0);
-    const findings = Object.values(stats.findings).reduce((total, count) => total + count, 0);
+    const findings = Object.entries(stats.findings)
+      .filter(([code]) => ACTIONABLE_CODES.has(code))
+      .reduce((total, [, count]) => total + count, 0);
     lines.push(`| \`${root}\` | ${stats.checked} | ${errors} | ${findings} |`);
   }
   if (summary.discoveredOutOfSitemap.length > 0) {
