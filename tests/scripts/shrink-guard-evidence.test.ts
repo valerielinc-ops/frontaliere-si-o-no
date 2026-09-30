@@ -163,6 +163,40 @@ describe('verifyShrinkAgainstSource()', () => {
     ]));
   });
 
+  it('accepts the 9 -> 1 Stadt Chur shrink when the eight removals have thin-source proof', async () => {
+    const prior = Array.from({ length: 9 }, (_, i) => job(`chur${i}`));
+    const next = [prior[0]];
+    const proof = prior.slice(1).map((candidate) => ({
+      job: candidate,
+      reason: 'thin-source-quarantine',
+      definitive: true,
+    }));
+
+    // The quality threshold still blocks this shape without evidence.
+    expect(shouldBlockShrink(prior.length, next.length)).toBe(true);
+
+    const verdict = await verifyShrinkWithProvidedHousekeepingProof(
+      prior,
+      next,
+      proof,
+      {
+        validate: async () => {
+          throw new Error('thin-source proof must not be re-probed');
+        },
+      },
+    );
+
+    expect(verdict.corroborated).toBe(true);
+    expect(verdict.checked).toBe(8);
+    expect(verdict.dead).toBe(8);
+    expect(verdict.alive).toBe(0);
+    expect(verdict.disappearedJobs).toEqual(prior.slice(1));
+    expect(verdict.evidence).toHaveLength(8);
+    expect(verdict.evidence.every((entry) => (
+      entry.reason === 'thin-source-quarantine' && entry.definitive === true
+    ))).toBe(true);
+  });
+
   it('corroborates the grace-la-margna shape: 14 -> 1 with all 13 dropped jobs 404 at the source', async () => {
     const prior = Array.from({ length: 14 }, (_, i) => job(`g${i}`));
     const next = [prior[0]];

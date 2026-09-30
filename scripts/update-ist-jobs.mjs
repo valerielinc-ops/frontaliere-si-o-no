@@ -44,6 +44,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -70,6 +71,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -749,6 +751,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: IST_KEY,
+    companyLabel: IST_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(IST_KEY, jobs, {
+      isTargetJob: isIstJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
@@ -769,7 +785,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No IST jobs discovered.');
     console.log('   The careers portal may have no current Swiss openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(IST_KEY, DATA_JOBS).filter(isIstJob),
+    );
     // Refresh adapter metadata even on the empty path so its stable discovery
     // seeds never drift back to a frozen per-job URL between live openings.
     updateAdapterConfig();
