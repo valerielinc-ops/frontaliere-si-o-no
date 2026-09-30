@@ -387,6 +387,20 @@ async function classifyStopIntent(subject, message, patterns, prefix = null) {
 // order waiting for it. The reply is forwarded to the human inbox as always.
 export const ASSISTED_CV_MAX_BYTES = 9 * 1024 * 1024;
 
+// Order aliases of the automated assisted application (c-xxxxxxxxxx@ALIAS_DOMAIN):
+// every message goes to assistedApplicationInbound, which classifies it and
+// forwards it to the candidate. Handled BEFORE the auto-reply filter (an ATS
+// acknowledgement is automatic by nature) and never forwarded to the human
+// inbox: it is the candidate's correspondence with the employer.
+export const ASSISTED_ALIAS_DOMAIN = 'candidature.frontaliereticino.ch';
+export const ASSISTED_INBOUND_MAX_BYTES = 12 * 1024 * 1024;
+// The inbound function classifies with Codex: leave it time, below the Worker's own limit.
+export const ASSISTED_INBOUND_TIMEOUT_MS = 25_000;
+
+export function isAssistedAlias(address) {
+  return /^c-[a-z2-9]{10}@candidature\.frontaliereticino\.ch$/.test(String(address || '').toLowerCase());
+}
+
 export function mayCarryAttachment(message) {
   let type = '';
   try { type = (message.headers && message.headers.get && message.headers.get('content-type')) || ''; } catch { type = ''; }
@@ -394,8 +408,12 @@ export function mayCarryAttachment(message) {
   return /multipart\/mixed/i.test(type) && (size === 0 || size <= ASSISTED_CV_MAX_BYTES);
 }
 
+// Reads the one-shot raw stream: all of it up to maxBytes (bytes: null when
+// larger), and always its first 8 KB (head), because the stream cannot be read
+// again and the STOP classification needs the body prefix.
+const HEAD_BYTES = 8192;
 async function readAllBytes(stream, maxBytes) {
-  if (!stream) return new Uint8Array(0);
+  if (!stream) return { bytes: new Uint8Array(0), head: new Uint8Array(0) };
   const reader = stream.getReader();
   const chunks = [];
   let total = 0;
@@ -409,14 +427,14 @@ async function readAllBytes(stream, maxBytes) {
   } finally {
     try { reader.releaseLock(); } catch { /* noop */ }
   }
-  if (total > maxBytes) return null;
   const merged = new Uint8Array(total);
   let off = 0;
   for (const chunk of chunks) { merged.set(chunk, off); off += chunk.length; }
-  return merged;
+  const head = merged.subarray(0, HEAD_BYTES);
+  return total > maxBytes ? { bytes: null, head } : { bytes: merged, head };
 }
 
-async function handleOutreachReply({ from, subject, message, env, ctx }) {
+async function handleOutreachReply({ from, to = '', subject, message, env, ctx }) {
   // Track EVERY inbound reply (best-effort) so the admin dashboard can show
   // whether a company replied. Only from+subject are needed (no body read),
   // so this runs cheaply on every message. Additive to STOP suppression below.
@@ -430,10 +448,11 @@ async function handleOutreachReply({ from, subject, message, env, ctx }) {
   }
 
   let prefix = null;
-  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && mayCarryAttachment(message)) {
-    const bytes = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => null);
+  // Never an order alias: its one-shot raw stream belongs to the inbound handoff.
+  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && !isAssistedAlias(to) && mayCarryAttachment(message)) {
+    const { bytes, head } = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => ({ bytes: null, head: null }));
+    if (head) prefix = new TextDecoder('utf-8', { fatal: false }).decode(head);
     if (bytes) {
-      prefix = new TextDecoder('utf-8', { fatal: false }).decode(bytes.subarray(0, 8192));
       const handoff = fetch(env.ASSISTED_CV_FN_URL, {
         method: 'POST',
         headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET },
@@ -553,6 +572,41 @@ export default {
       // let the forward below still happen. Never classified, never dropped.
     }
 
+    if (readOk && isAssistedAlias(to)) {
+      let failure = 'not_configured';
+      if (env.ASSISTED_INBOUND_FN_URL && env.STOP_SECRET) {
+        const { bytes } = await readAllBytes(message.raw, ASSISTED_INBOUND_MAX_BYTES).catch(() => ({ bytes: null }));
+        failure = 'too_large';
+        if (bytes) {
+          // The handoff is awaited: an employer's reply must never be accepted
+          // here and then lost on a 5xx or a network error.
+          try {
+            const response = await fetch(env.ASSISTED_INBOUND_FN_URL, {
+              method: 'POST',
+              headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET, 'x-envelope-to': to },
+              body: bytes,
+              signal: AbortSignal.timeout(ASSISTED_INBOUND_TIMEOUT_MS),
+            });
+            if (response.ok) return;
+            failure = `http_${response.status}`;
+          } catch {
+            failure = 'network';
+          }
+        }
+      }
+      // Not handed over: always rejected, so the sender's server reports it
+      // and the employer can send it again (review of #10491: a reply is never
+      // silently accepted). The owner's inbox gets a copy first, best effort,
+      // so she can act before the resend.
+      if (env.FORWARD_TO) {
+        try {
+          await message.forward(env.FORWARD_TO, new Headers({ 'X-Frontaliere-Alias-Fallback': `${failure} ${to}` }));
+        } catch { /* the reject below still reports it */ }
+      }
+      try { message.setReject(failure === 'too_large' ? 'Message too large for this address' : 'Temporary failure, please retry later'); } catch { /* noop */ }
+      return;
+    }
+
     // A delivery report is examined BEFORE the auto-reply filter, because many
     // reports set Auto-Submitted and would otherwise be dropped unread — see
     // classifyDeliveryStatusReport. A report that was attributed and accepted
@@ -594,7 +648,7 @@ export default {
       } else if (isNewsletterAddress) {
         await handleNewsletterUnsubscribe({ from, subject, message, env, ctx });
       } else if (isOutreachAddress) {
-        await handleOutreachReply({ from, subject, message, env, ctx });
+        await handleOutreachReply({ from, to, subject, message, env, ctx });
       }
     } catch {
       // Classification is best-effort: a throw here must never cost us the

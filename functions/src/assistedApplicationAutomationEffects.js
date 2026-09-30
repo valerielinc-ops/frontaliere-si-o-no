@@ -119,6 +119,7 @@ async function markSubmitted({ db, orderId, effect, flow }) {
   const notes = `Candidatura inviata da ${via}.`;
   let changed = false;
   await db.runTransaction(async (transaction) => {
+    changed = false; // reset on every retry of the transaction
     const snapshot = await transaction.get(orderRef);
     const order = snapshot.data() || {};
     if (!SUBMITTABLE_STATUSES.has(order.submissionStatus)) return;
