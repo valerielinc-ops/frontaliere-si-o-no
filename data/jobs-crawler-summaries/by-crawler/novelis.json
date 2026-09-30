@@ -1,7 +1,7 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-09-30T21:19:28.799Z",
+  "generatedAt": "2026-09-30T23:35:57.363Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -14,10 +14,10 @@
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7271,
-  "avgDurationMs": 7271,
+  "durationMs": 6309,
+  "avgDurationMs": 6309,
   "durationHistory": [
-    7271
+    6309
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,7 +47,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53670/hr-business-partner-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:17.055Z",
+      "crawledAt": "2026-09-30T23:35:43.190Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:48:33.123Z",
       "_qualityScore": 87,
@@ -84,7 +84,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53258/metallurgy-modeling-scientist/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:17.637Z",
+      "crawledAt": "2026-09-30T23:35:43.615Z",
       "firstSeenAt": "2026-09-11T13:36:15.707Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -120,7 +120,8 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53257/m%c3%a9canicien-op%c3%a9rateur-rectifiage-%26-filtrage/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:19:18.188Z",
+      "crawledAt": "2026-09-30T23:35:44.064Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-11T13:36:16.518Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -156,7 +157,8 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53126/supply-chain---network-planner-%28m-f-d%29-automotive/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:18.729Z",
+      "crawledAt": "2026-09-30T23:35:44.498Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-11T13:36:17.148Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -192,7 +194,8 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53125/supply-chain---network-planner-%28m-f-d%29-beverage-%26-packaging/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:19.284Z",
+      "crawledAt": "2026-09-30T23:35:44.928Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-11T13:36:17.838Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -228,7 +231,8 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53029/senior-predictive-maintenance-engineer-%28m-f-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:19.859Z",
+      "crawledAt": "2026-09-30T23:35:45.348Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:39:49.702Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -264,7 +268,8 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52860/internship-%28m-f-d%29-internal-communications-%2840%25-60%25%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:20.378Z",
+      "crawledAt": "2026-09-30T23:35:45.777Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T12:38:44.264Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -300,7 +305,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:19:20.959Z",
+      "crawledAt": "2026-09-30T23:35:46.345Z",
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
