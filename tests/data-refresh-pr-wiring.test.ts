@@ -17,6 +17,7 @@ describe('protected data refreshes publish through pull requests', () => {
     '.github/workflows/cf-5xx-monitor.yml',
     '.github/workflows/cron-dispatch-canary.yml',
     '.github/workflows/update-weather.yml',
+    '.github/workflows/crawl-events.yml',
   ];
 
   it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
@@ -46,6 +47,8 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"');
     expect(helper).toContain('git ls-remote "$PUSH_URL"');
     expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
+    expect(helper).toContain('--resolve-symlinks');
+    expect(helper).toContain('git-add-resolved.mjs');
     expect(helper).not.toMatch(/HEAD:main/);
   });
 
