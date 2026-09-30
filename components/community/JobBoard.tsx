@@ -5953,7 +5953,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  url: canonicalUrl,
  baseUrl: window.location.origin,
  });
- }).filter((p): p is Record<string, unknown> => p !== null);
+ }).filter((p): p is NonNullable<typeof p> => p !== null);
 
  // FRO: If viewing a single job but we can't generate a valid schema
  // (e.g., slim index loaded first without description), preserve the
