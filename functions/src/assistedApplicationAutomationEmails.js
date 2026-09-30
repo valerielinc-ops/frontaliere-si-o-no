@@ -103,6 +103,14 @@ const CANDIDATE_COPY = {
       preheader: 'Il rimborso è già partito.',
       lead: 'l’annuncio per {job} presso {company} è stato chiuso prima che riuscissimo a inviare la candidatura. Come promesso ti abbiamo rimborsato {price}: lo vedrai sulla carta nei prossimi giorni.',
     },
+    followup: {
+      subject: 'Sollecito per {job}: parte tra 12 ore',
+      hero: 'Un breve sollecito all’azienda',
+      preheader: 'Se va bene così non devi fare nulla.',
+      lead: 'sono passati {days} giorni da quando abbiamo inviato la tua candidatura per {job} presso {company} e non ha ancora risposto nessuno. Ho preparato un breve messaggio di sollecito, qui sotto.',
+      auto: 'Se non rispondi entro {deadline}, il sollecito partirà così com’è, a tuo nome come la candidatura. Dalla pagina puoi anche inviarlo subito o fermarlo.',
+      cta: 'Invia o ferma il sollecito',
+    },
     reasons: { captcha: 'una verifica anti-robot', account: 'la creazione o la verifica di un account', rejected: 'un controllo del sito sull’invio automatico', portal_needs_candidate: 'un controllo del sito' },
   },
   de: {
@@ -153,6 +161,14 @@ const CANDIDATE_COPY = {
       hero: 'Inserat vor dem Versand geschlossen',
       preheader: 'Die Rückerstattung ist bereits unterwegs.',
       lead: 'das Inserat für {job} bei {company} wurde geschlossen, bevor wir die Bewerbung senden konnten. Wie versprochen haben wir dir {price} zurückerstattet; der Betrag erscheint in den nächsten Tagen auf deiner Karte.',
+    },
+    followup: {
+      subject: 'Nachfrage zu {job}: sie geht in 12 Stunden raus',
+      hero: 'Eine kurze Nachfrage beim Arbeitgeber',
+      preheader: 'Wenn es so passt, musst du nichts tun.',
+      lead: 'vor {days} Tagen haben wir deine Bewerbung für {job} bei {company} gesendet, und bisher hat niemand geantwortet. Ich habe eine kurze Nachfrage vorbereitet, siehe unten.',
+      auto: 'Wenn du bis {deadline} nicht antwortest, geht die Nachfrage so in deinem Namen raus, wie die Bewerbung. Auf der Seite kannst du sie auch sofort senden oder stoppen.',
+      cta: 'Nachfrage senden oder stoppen',
     },
     reasons: { captcha: 'eine Anti-Roboter-Prüfung', account: 'das Erstellen oder Bestätigen eines Kontos', rejected: 'eine Prüfung der Website beim automatischen Versand', portal_needs_candidate: 'eine Prüfung der Website' },
   },
@@ -205,6 +221,14 @@ const CANDIDATE_COPY = {
       preheader: 'Le remboursement est déjà en cours.',
       lead: 'l’annonce pour {job} chez {company} a été fermée avant que nous puissions envoyer la candidature. Comme promis, nous vous avons remboursé {price} ; le montant apparaîtra sur votre carte dans les prochains jours.',
     },
+    followup: {
+      subject: 'Relance pour {job} : elle part dans 12 heures',
+      hero: 'Une courte relance à l’employeur',
+      preheader: 'Si cela vous convient, vous n’avez rien à faire.',
+      lead: 'il y a {days} jours, nous avons envoyé votre candidature pour {job} chez {company}, et personne n’a encore répondu. J’ai préparé un court message de relance, ci-dessous.',
+      auto: 'Sans réponse de votre part avant {deadline}, la relance partira telle quelle, en votre nom comme la candidature. Depuis la page, vous pouvez aussi l’envoyer tout de suite ou l’arrêter.',
+      cta: 'Envoyer ou arrêter la relance',
+    },
     reasons: { captcha: 'une vérification anti-robot', account: 'la création ou la vérification d’un compte', rejected: 'un contrôle du site sur l’envoi automatique', portal_needs_candidate: 'un contrôle du site' },
   },
   en: {
@@ -256,6 +280,14 @@ const CANDIDATE_COPY = {
       preheader: 'The refund is already on its way.',
       lead: 'the ad for {job} at {company} was closed before we could send the application. As promised we refunded your {price}; you will see it on your card in the next few days.',
     },
+    followup: {
+      subject: 'Follow-up for {job}: it goes out in 12 hours',
+      hero: 'A short follow-up to the employer',
+      preheader: 'If it looks right, you don’t need to do anything.',
+      lead: 'it has been {days} days since we sent your application for {job} at {company}, and nobody has replied yet. I prepared a short follow-up message, below.',
+      auto: 'If you don’t reply by {deadline}, the follow-up goes out as it is, in your name like the application. From the page you can also send it now or stop it.',
+      cta: 'Send or stop the follow-up',
+    },
     reasons: { captcha: 'an anti-robot check', account: 'creating or verifying an account', rejected: 'a site check on automated submissions', portal_needs_candidate: 'a site check' },
   },
 };
@@ -265,6 +297,7 @@ const OWNER_FLAG_LABELS = {
   knock_out: 'il CV non soddisfa un requisito indispensabile dell’annuncio (verdetto «scarso»)',
   no_posting: 'il testo dell’annuncio non è stato recuperato',
   channel_unknown: 'non è chiaro come candidarsi (nessun link o indirizzo valido)',
+  legitimacy: 'l’annuncio ha più segnali di posizione fantasma (vecchio, generico o contraddittorio): verifica prima di inviare',
 };
 
 const TAKEOVER_REASONS = {
@@ -278,7 +311,8 @@ const TAKEOVER_REASONS = {
 
 /**
  * @param {string} kind candidate_review | candidate_reminder | candidate_handoff |
- *   candidate_handoff_reminder | candidate_action_needed | candidate_posting_closed
+ *   candidate_handoff_reminder | candidate_action_needed | candidate_posting_closed |
+ *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, openQuestions?:number, reason?:string, price?:string, orderId:string}} vars
  */
@@ -292,6 +326,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
     candidate_handoff_reminder: copy.handoffReminder,
     candidate_action_needed: copy.action,
     candidate_posting_closed: copy.closed,
+    candidate_followup_review: copy.followup,
   }[kind];
   if (!section) throw new Error(`unknown_automation_email:${kind}`);
   const values = {
@@ -301,6 +336,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
     count: String(vars.openQuestions || 0),
     reason: copy.reasons[vars.reason] || copy.reasons.portal_needs_candidate,
     price: vars.price || '0,99 €',
+    days: String(vars.days || 7),
   };
   const greeting = copy.greeting(clean(vars.name, 80).split(' ')[0] || '');
   const html = [brandParagraph(esc(greeting)), brandParagraph(esc(fill(section.lead, values)))];
@@ -312,6 +348,13 @@ export function buildCandidateAutomationEmail(kind, vars) {
     const clock = vars.held ? fill(section.held, values) : fill(section.auto, values);
     html.push(brandCallout(`<strong>${esc(clock)}</strong>`), brandButton(vars.reviewUrl, copy.reviewCta), brandParagraph(esc(section.feedbackNote)));
     text.push(clock, `${copy.reviewCta}: ${vars.reviewUrl}`, section.feedbackNote);
+  } else if (kind === 'candidate_followup_review') {
+    // The follow-up as the employer will read it, then the 12-hour clock.
+    const followupText = String(vars.followupText || '').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim().slice(0, 2000);
+    const quoted = esc(followupText).replace(/\n/g, '<br>');
+    const clock = fill(section.auto, values);
+    html.push(brandCallout(quoted), brandParagraph(`<strong>${esc(clock)}</strong>`), brandButton(vars.reviewUrl, section.cta));
+    text.push(followupText, clock, `${section.cta}: ${vars.reviewUrl}`);
   } else if (kind === 'candidate_handoff') {
     html.push(brandChecklist(section.steps), brandButton(vars.reviewUrl, copy.openCta), brandFinePrint(esc(section.after)));
     text.push(section.steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), `${copy.openCta}: ${vars.reviewUrl}`, section.after);
