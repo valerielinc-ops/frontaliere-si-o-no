@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildCandidateAutomationEmail,
   buildOwnerAutomationEmail,
+  describeTakeover,
   formatDeadline,
 } from '../functions/src/assistedApplicationAutomationEmails.js';
 
@@ -57,5 +58,26 @@ describe('automation e-mails', () => {
     expect(held.text).toContain('numeri, date o contatti che non compaiono nel CV');
     const takeover = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'max_rounds' });
     expect(takeover.text).toContain('rifiutato la bozza per 3 volte');
+  });
+
+  it('explains a stopped run in words, with the runner error only as a detail', () => {
+    // Trial run 2026-09-30, round 2: the e-mail said only the raw English error.
+    const error = 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms';
+    const draft = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: error, stage: 'draft', attempts: 3 });
+    expect(draft.text).toContain('Motivo: la bozza non è stata generata: Codex non ha risposto in tempo o non era raggiungibile, anche dopo 3 tentativi automatici.');
+    expect(draft.text).toContain('«Rigenera»');
+    expect(draft.text).toContain(`Dettaglio tecnico: ${error}`);
+    expect(draft.html).toContain('Dettaglio tecnico');
+
+    const ambiguous = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'email_ambiguous', stage: 'submit', attempts: 1 });
+    expect(ambiguous.text).toContain('Motivo: l’invio non è riuscito: non è certo che l’email al datore sia partita');
+    expect(ambiguous.text).not.toContain('tentativi');
+    expect(ambiguous.text).not.toContain('Dettaglio tecnico');
+    expect(describeTakeover({ reason: 'runner_timeout', stage: 'draft', attempts: 2 }).reason).toBe('il runner non ha dato notizie per due volte di seguito');
+    expect(describeTakeover({ reason: 'Unexpected token', stage: 'draft' })).toEqual({
+      reason: 'la bozza non è stata generata',
+      hint: expect.stringContaining('Rigenera'),
+      detail: 'Unexpected token',
+    });
   });
 });

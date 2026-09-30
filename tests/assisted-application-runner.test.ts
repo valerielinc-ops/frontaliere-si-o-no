@@ -153,6 +153,23 @@ describe('draft mode', () => {
     expect(draft.applicationEmail.body).toContain('Maria Rossi');
   });
 
+  it('writes the next round from the candidate as corrected on the review page', async () => {
+    const codex = fakeCodex();
+    const flow = { round: 2, answers: { work_permit: 'G' }, formOverrides: { languages: 'Deutsch C1', workPermit: 'B', salary: 'CHF 90000' } };
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    const promptFor = (schema: unknown) => (codex.mock.calls as any[]).find(([request]) => request.schema === schema)[0].prompt;
+    for (const schema of [MATCH_SCHEMA, DOCUMENTS_SCHEMA]) {
+      expect(promptFor(schema)).toContain('Deutsch C1');
+      expect(promptFor(schema)).toContain('"work_permit":"B"');
+    }
+    expect(draft.profile).toMatchObject({ languages: [{ language: 'Deutsch C1', level: '' }], workPermit: 'B' });
+    // The corrected salary answers the question the posting asks.
+    expect(draft.questions.map((question: any) => question.id)).not.toContain('salary_expectation');
+  });
+
   it('stops before any Codex call when the posting is closed', async () => {
     const codex = fakeCodex();
     await expect(buildDraft({
@@ -192,6 +209,21 @@ describe('submit mode', () => {
     expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
+  });
+
+  it('fills the portal form with the corrections the candidate made on the review page', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' }, formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    const [[ctx]] = runner.mock.calls as any;
+    expect(ctx.candidate.identity).toMatchObject({ fullName: 'Maria Luisa Rossi', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' });
+    expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
   it('submits on a portal once, resumes a run that died before the click, never one that died after it', async () => {
