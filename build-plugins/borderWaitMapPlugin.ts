@@ -319,7 +319,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionColumn: 'Raum',
     liveColumn: 'Live',
     liveLink: 'Öffnen →',
-    breadcrumbHome: 'Home',
+    breadcrumbHome: 'Startseite',
     breadcrumbGuide: 'Grenzgänger-Leitfaden',
     ctaAll: 'Alle Übergänge (Hub)',
     ctaCalculator: 'Netto berechnen',
