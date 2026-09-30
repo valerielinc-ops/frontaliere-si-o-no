@@ -280,6 +280,7 @@ export default function RewardedApplicationOffer({
   const appearTimeoutTrackedRef = useRef(false);
   const offerwallWatchRef = useRef<AbortController | null>(null);
   const offerwallAdsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const offerwallAdsSentRef = useRef(false);
   const loadingRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const dismissFromBackdrop = useApplicationOfferBackdropDismiss(onDismiss);
@@ -349,6 +350,23 @@ export default function RewardedApplicationOffer({
     if (!fallbackActive() || fallbackShownRef.current) return;
     fallbackShownRef.current = true;
     trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_shown', eventContext());
+  };
+
+  // One snapshot of the page's ads per Offerwall, taken while it is still on
+  // screen: 1.5 s after it appears, or at once when it closes or grants its
+  // reward before that, so a quick close never measures the page after the
+  // Offerwall is gone.
+  const sendOfferwallAdsSnapshot = () => {
+    if (offerwallAdsTimerRef.current) {
+      clearTimeout(offerwallAdsTimerRef.current);
+      offerwallAdsTimerRef.current = null;
+    }
+    if (offerwallAdsSentRef.current || !mountedRef.current) return;
+    offerwallAdsSentRef.current = true;
+    trackAssistedApplicationEvent('rewarded_offer_ads_offerwall', { ...offerwallContext(), ...collectAdVisibility() });
+  };
+  const flushOfferwallAdsSnapshot = () => {
+    if (offerwallAdsTimerRef.current) sendOfferwallAdsSnapshot();
   };
 
   useEffect(() => {
@@ -500,6 +518,8 @@ export default function RewardedApplicationOffer({
   const handleOfferwallCompleted = (result: Extract<OfferwallReleaseResult, { outcome: 'completed' }>) => {
     if (grantedRef.current) return;
     grantedRef.current = true;
+    // Before the hand-off opens the employer's tab and hides this page.
+    flushOfferwallAdsSnapshot();
     const accessExpiresAt = grantRewardedApplicationAccess();
     trackAssistedApplicationEvent('rewarded_offerwall_completed', {
       ...offerwallContext(),
@@ -672,15 +692,13 @@ export default function RewardedApplicationOffer({
         });
         // The page's ads once Google's Offerwall is on screen, against the
         // click's baseline (rewarded_offer_ads_open).
-        if (offerwallAdsTimerRef.current) clearTimeout(offerwallAdsTimerRef.current);
-        offerwallAdsTimerRef.current = setTimeout(() => {
-          offerwallAdsTimerRef.current = null;
-          if (!mountedRef.current) return;
-          trackAssistedApplicationEvent('rewarded_offer_ads_offerwall', { ...offerwallContext(), ...collectAdVisibility() });
-        }, OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+        if (!offerwallAdsSentRef.current && !offerwallAdsTimerRef.current) {
+          offerwallAdsTimerRef.current = setTimeout(sendOfferwallAdsSnapshot, OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+        }
       },
       onClosed: () => {
         if (!mountedRef.current || gptVideoStartedRef.current) return;
+        flushOfferwallAdsSnapshot();
         setPhase('offerwall_verifying');
       },
       onStalled: ({ shownMs, root }) => {
