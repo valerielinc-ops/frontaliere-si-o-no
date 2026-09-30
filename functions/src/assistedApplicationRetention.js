@@ -10,15 +10,14 @@
 import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
+import { SUBMISSION_DOC_ID } from './assistedApplicationSubmissionGuard.js';
 
 export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
 
 const ASSISTED_STORAGE_PREFIX = 'assisted-application-uploads/';
 const RETENTION_PAGE_SIZE = 500;
-const STORAGE_BUCKET =
-  process.env.FIREBASE_STORAGE_BUCKET ||
-  process.env.STORAGE_BUCKET ||
-  'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 
 function timestampMillis(value) {
   if (value && typeof value.toMillis === 'function') {
@@ -64,6 +63,25 @@ async function candidateDocs(collection, field, cutoff) {
   }
 
   return candidates;
+}
+
+/**
+ * The automated flow (assistedApplicationAutomation.js) adds more personal
+ * data next to the CV: generated cover letters and encrypted run evidence in
+ * the order's Storage folder, the AI draft (profile, CV text) and the flow
+ * (answers, feedback) in private subcollections. They share the CV's
+ * retention: the whole order folder and those documents go with it.
+ */
+async function purgeAutomationData(bucket, orderRef, orderId) {
+  if (typeof bucket.deleteFiles === 'function') {
+    await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
+  }
+  if (typeof orderRef?.collection !== 'function') return;
+  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake']]) {
+    await orderRef.collection(collection).doc(id).delete();
+  }
+  const events = await orderRef.collection('automation_events').get();
+  for (const doc of events.docs || []) await doc.ref.delete();
 }
 
 /**
@@ -130,10 +148,12 @@ export async function purgeExpiredAssistedApplicationFiles(
       for (const key of keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
+      await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
       await snapshot.ref.set({
         cvStorageKey: null,
         cvUploadedAt: null,
         coverLetterStorageKey: null,
+        automationDueAt: null,
         retentionPurgedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });

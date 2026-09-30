@@ -102,16 +102,18 @@ describe('git-push-with-retry.sh main-push auth', () => {
         wrapPath,
         `#!/usr/bin/env bash
 set -euo pipefail
-if [ "\${1:-}" = "push" ]; then
-  echo "wrapped-push $*"
-  exit 0
-fi
+for arg in "$@"; do
+  if [ "$arg" = "push" ]; then
+    echo "wrapped-push $*"
+    exit 0
+  fi
+done
 exec "${realGit}" "$@"
 `,
       );
       execFileSync('chmod', ['+x', wrapPath]);
 
-      execFileSync('bash', [SCRIPT_PATH, '--max-attempts', '1'], {
+      const pushOutput = execFileSync('bash', [SCRIPT_PATH, '--max-attempts', '1'], {
         cwd: repoDir,
         env: {
           ...process.env,
@@ -123,6 +125,9 @@ exec "${realGit}" "$@"
         },
         encoding: 'utf8',
       });
+      expect(pushOutput).toContain('pack.window=0');
+      expect(pushOutput).toContain('pack.threads=1');
+      expect(pushOutput).toContain('push --no-thin --no-verify');
 
       const url = execFileSync('git', ['remote', 'get-url', 'origin'], {
         cwd: repoDir,

@@ -83,6 +83,18 @@ import {
   handleAssistedApplicationOrderWritten,
   runAssistedApplicationNotificationSweep,
 } from './src/assistedApplicationNotifications.js';
+import {
+  handleRunnerEvent,
+  isAutomationEnabled,
+  maybeStartAutomation,
+  runAutomationSweep,
+} from './src/assistedApplicationAutomation.js';
+import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
+import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
+import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './src/assistedApplicationCvCheck.js';
+import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/storage';
+import { resolveCvLink as resolveAssistedApplicationFileLink } from './src/publisherApplicationsCore.js';
 import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
@@ -2247,6 +2259,106 @@ export const notifyAssistedApplicationOrder = onDocumentWritten(
         '[notifyAssistedApplicationOrder]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// Automated second half of the assisted application (owner decisions
+// 2026-09-30, RC flag ASSISTED_APPLICATION_AUTOMATION, default off): a CV
+// that passes the type check starts the flow, which dispatches the GitHub
+// Actions agent (Codex Luna Max) with the order id only.
+export const startAssistedApplicationAutomation = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return;
+    const before = event.data?.before?.exists ? event.data.before.data() : null;
+    try {
+      const result = await maybeStartAutomation(before, after.data(), event.params.orderId, {
+        db: getAdminDb(),
+        runEffect: (context) => runAutomationEffect(context),
+      });
+      if (result.started) console.log('[startAssistedApplicationAutomation] started', event.params.orderId);
+    } catch (error) {
+      console.error('[startAssistedApplicationAutomation]', event.params.orderId, error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// The agent reports each outcome (draft ready, sent, handoff, closed ad…) as
+// one document; this applies it to the flow exactly once.
+export const applyAssistedApplicationRunnerEvent = onDocumentCreated(
+  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}/automation_events/{eventId}' },
+  async (event) => {
+    const snapshot = event.data;
+    if (!snapshot) return;
+    try {
+      const result = await handleRunnerEvent({
+        db: getAdminDb(),
+        orderId: event.params.orderId,
+        eventRef: snapshot.ref,
+        data: snapshot.data(),
+        runEffect: (context) => runAutomationEffect(context),
+      });
+      console.log('[applyAssistedApplicationRunnerEvent]', event.params.orderId, result.ok ? 'applied' : result.ignored);
+    } catch (error) {
+      console.error('[applyAssistedApplicationRunnerEvent]', event.params.orderId, error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// Clocks of the flow (1 h owner review, 12 h candidate review, reminders)
+// and the watchdog of runs that never reported back.
+export const sweepAssistedApplicationAutomation = onSchedule(
+  { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context) });
+      if (summary.ticks || summary.redispatched || summary.timedOut || summary.failed || summary.refunds) {
+        console.log('[sweepAssistedApplicationAutomation]', summary);
+      }
+    } catch (error) {
+      console.error('[sweepAssistedApplicationAutomation]', error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// Fase 2: the CV the customer attaches to a reply to valerie@ — handed over
+// raw by the Cloudflare Email Worker (x-stop-secret gate, as outreachStopReply).
+export const assistedApplicationEmailCv = onRequest(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: false },
+  async (req, res) => {
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      const { status, body } = await handleAssistedApplicationEmailCv(req, {
+        db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+        secret: newsletterSecret,
+        isEnabled: () => isAutomationEnabled(),
+      });
+      if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[assistedApplicationEmailCv]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Candidate review page API (signed link from the review e-mails, no login).
+export const assistedApplicationReview = onRequest(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAssistedApplicationReview(req, {
+        db: getAdminDb(),
+        runEffect: (context) => runAutomationEffect(context),
+        signUrl: (key) => resolveAssistedApplicationFileLink(key),
+      });
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[assistedApplicationReview]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },
 );

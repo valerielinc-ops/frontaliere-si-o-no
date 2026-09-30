@@ -4,12 +4,18 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  buildThinSourceHousekeepingProof,
+  collectThinSourceJobsForQuarantine,
   keepStoredSourceBodies,
   keepStoredSourceBodiesByKey,
 } from '@/scripts/lib/stored-source-body.mjs';
+import { extractStableJobId } from '@/scripts/lib/job-match-key.mjs';
 
 const BODY = Array(60).fill('Aufgabe').join(' ');
+const BODY_40 = Array(40).fill('Aufgabe').join(' ');
+const BODY_35 = Array(35).fill('Kurztext').join(' ');
 const key = (url: string) => url;
+const jobKey = (job: { url: string }) => job.url;
 
 describe('keepStoredSourceBodies', () => {
   it('keeps a fresh job whose body is over the word floor', () => {
@@ -51,6 +57,38 @@ describe('keepStoredSourceBodies', () => {
     expect(keepStoredSourceBodies(fresh, [], key)).toEqual([]);
   });
 
+  it('records a dropped thin read before keeping the publishable sibling', () => {
+    const thin = {
+      url: 'https://jobs.example.test/thin',
+      sourceLang: 'de',
+      description: BODY_35,
+      descriptionByLocale: { de: BODY_35 },
+    };
+    const publishable = {
+      url: 'https://jobs.example.test/publishable',
+      sourceLang: 'de',
+      description: BODY,
+      descriptionByLocale: { de: BODY },
+    };
+    const stored = [{
+      ...thin,
+      description: BODY_40,
+      descriptionByLocale: { de: BODY_40 },
+    }];
+
+    const kept = keepStoredSourceBodiesByKey([thin, publishable], stored, jobKey);
+    expect(kept).toEqual([publishable]);
+    expect(collectThinSourceJobsForQuarantine([thin, publishable], kept, jobKey)).toEqual([thin]);
+
+    const proof = buildThinSourceHousekeepingProof([thin], [thin], jobKey);
+    expect(proof).toEqual([{
+      job: thin,
+      reason: 'thin-source-quarantine',
+      definitive: true,
+    }]);
+    expect(keepStoredSourceBodiesByKey([thin, publishable], stored, key)).not.toContainEqual(thin);
+  });
+
   it('uses a custom job identity and the declared source-locale slot', () => {
     const fresh = [{
       requisition: 'a',
@@ -72,5 +110,54 @@ describe('keepStoredSourceBodies', () => {
         descriptionByLocale: { fr: BODY },
       },
     ]);
+  });
+
+  it('reuses a stored body across a stable URL title rename', () => {
+    const freshBody = Array(35).fill('fresh').join(' ');
+    const storedBody = Array(60).fill('stored').join(' ');
+    const fresh = [{
+      url: 'https://source.example/jobs/new-title-123456',
+      sourceLang: 'en',
+      description: freshBody,
+      descriptionByLocale: { en: freshBody },
+      titleByLocale: { en: 'New title' },
+      slugByLocale: { en: 'new-title' },
+    }];
+    const stored = [{
+      url: 'https://source.example/jobs/old-title-123456',
+      sourceLang: 'en',
+      description: storedBody,
+      descriptionByLocale: { en: storedBody },
+    }];
+    const keyOfJob = (job: { url: string }) => extractStableJobId(job.url);
+    const kept = keepStoredSourceBodiesByKey(fresh, stored, keyOfJob);
+
+    expect(kept).toHaveLength(1);
+    expect(kept[0]).toMatchObject({
+      url: fresh[0].url,
+      description: storedBody,
+      descriptionByLocale: { en: storedBody },
+    });
+    expect(collectThinSourceJobsForQuarantine(fresh, kept, keyOfJob)).toEqual([]);
+  });
+
+  it('collects a thin discovery only when no merged record can publish it', () => {
+    const thin = Array(35).fill('thin').join(' ');
+    const oldThin = {
+      url: 'https://source.example/jobs/old-title-123456',
+      sourceLang: 'en',
+      description: thin,
+      descriptionByLocale: { en: thin },
+    };
+    const freshThin = {
+      url: 'https://source.example/jobs/new-title-123456',
+      sourceLang: 'en',
+      description: thin,
+      descriptionByLocale: { en: thin },
+    };
+    const keyOfJob = (job: { url: string }) => extractStableJobId(job.url);
+
+    expect(collectThinSourceJobsForQuarantine([freshThin], [oldThin], keyOfJob)).toEqual([oldThin]);
+    expect(collectThinSourceJobsForQuarantine([freshThin], [], keyOfJob)).toEqual([freshThin]);
   });
 });

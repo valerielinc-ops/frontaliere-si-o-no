@@ -15,5 +15,8 @@ export const CREATE_CONSULTING_CHECKOUT_URL = `${FUNCTIONS_BASE}/createConsultin
 /** Stripe Checkout Session creation for the €0.99 assisted-application flow. */
 export const CREATE_ASSISTED_APPLICATION_CHECKOUT_URL = `${FUNCTIONS_BASE}/createAssistedApplicationCheckout`;
 
+/** Candidate review page of the automated assisted application (signed link, no login). */
+export const ASSISTED_APPLICATION_REVIEW_URL = `${FUNCTIONS_BASE}/assistedApplicationReview`;
+
 /** Server-side, idempotent record of the explicit job-application intent click. */
 export const RECORD_APPLICATION_INTENT_URL = `${FUNCTIONS_BASE}/recordApplicationIntent`;

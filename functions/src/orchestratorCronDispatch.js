@@ -36,8 +36,7 @@
 
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
-// Same scheduledAt validation as the traffic relay (one copy, no drift).
-import { toValidDate } from './lib/trafficCollectionCalendar.js';
+import { normalizeOrchestratorSlot } from './lib/orchestratorSlot.js';
 
 export const ORCHESTRATOR_WORKFLOW = 'orchestrate-crawlers.yml';
 /** Nominal UTC slots, `HH:MM`. Kept in parity with the heartbeat by a test. */
@@ -61,7 +60,7 @@ export function schedulerRunMarker(slotIso) {
  * harmless retry (it doubles the crawl and the translate-pending dispatches).
  */
 export function isOrchestratorSlot(scheduledAt) {
-  const date = toValidDate(scheduledAt);
+  const date = normalizeOrchestratorSlot(scheduledAt);
   const label = `${String(date.getUTCHours()).padStart(2, '0')}:${String(date.getUTCMinutes()).padStart(2, '0')}`;
   return ORCHESTRATOR_SLOTS_UTC.includes(label);
 }
@@ -120,7 +119,10 @@ export async function dispatchOrchestrator({
   claimStore,
   now = () => Date.now(),
 } = {}) {
-  const slot = toValidDate(scheduledAt);
+  // Cloud Scheduler includes delivery seconds/fractions in scheduleTime. The
+  // minute boundary is the single identity shared by Firestore, GitHub and
+  // the heartbeat; otherwise every retry could acquire a different claim.
+  const slot = normalizeOrchestratorSlot(scheduledAt);
   const slotIso = slot.toISOString();
   if (!isOrchestratorSlot(slot)) {
     return { dispatched: false, reason: 'not_orchestrator_slot', scheduledAt: slotIso };

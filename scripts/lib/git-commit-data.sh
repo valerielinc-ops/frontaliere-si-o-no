@@ -1593,6 +1593,10 @@ git_fetch_retry() {
 MAX_PUSH_ATTEMPTS="${MAX_PUSH_ATTEMPTS:-14}"
 push_attempt=0
 
+# Crawler Actions checkouts are shallow (fetch-depth 50). Keep both push paths
+# on a complete pack with delta search disabled so Git does not spend the
+# retry budget looking for deltas against history absent from the checkout.
+
 # Classify a failed `git push`'s combined output: 0 (true) only for the
 # ref-contention class — another writer advanced main between our fetch and
 # our push (`! [rejected]` / "fetch first" / "cannot lock ref" /
@@ -2229,7 +2233,7 @@ commit_isolated_from_worktree() {
     # complete) so exhaustion can be classified on the LAST attempt: only a
     # genuine rejection/race may become exit 42.
     push_out=""
-    if push_out="$(git push origin "${new_commit}:refs/heads/main" 2>&1)"; then
+    if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
       printf '%s\n' "$push_out"
       emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
@@ -2506,7 +2510,7 @@ ensure_git_auth
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
 push_out=""
-if push_out="$(git push origin main 2>&1)"; then
+if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 

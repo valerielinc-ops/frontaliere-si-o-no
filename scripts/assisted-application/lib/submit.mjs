@@ -1,0 +1,149 @@
+/**
+ * Submit mode of the assisted-application agent (GitHub Actions).
+ *
+ *   liveness gate (career-ops: re-check right before applying)
+ *   → e-mail channel: send the application to the address the posting gives,
+ *     CV and cover letter attached, replies going straight to the candidate
+ *   → portal channel: until the portal runner covers it, career-ops'
+ *     "browser handoff" — the candidate gets the direct link, the numbered
+ *     answers and the documents, and confirms once submitted.
+ * Returns the event for the Cloud Functions and stores encrypted evidence of
+ * exactly what left in the candidate's name.
+ */
+
+import {
+  LETTER_FILE_LABEL,
+  candidateIdentity,
+  checkDraftFacts,
+  safeFileStem,
+} from '../../../functions/src/assistedApplicationAiDraftCore.js';
+import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { checkPostingLiveness } from './posting-liveness.mjs';
+import { storeEvidence } from './secure-run.mjs';
+
+const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
+const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function textToHtml(text) {
+  return String(text || '').trim().split(/\n\s*\n/)
+    .map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`)
+    .join('');
+}
+
+function senderName(name) {
+  const safe = String(name || '').replace(/["<>\\\r\n]/g, '').trim().slice(0, 80);
+  return safe ? `"${safe} via Frontaliere Ticino"` : 'Frontaliere Ticino';
+}
+
+/** Open required questions block the submission, whatever the channel. */
+export function openRequiredQuestions(draft, answers = {}) {
+  return (draft?.questions || []).filter((question) => question.required && !String(answers?.[question.id] ?? '').trim());
+}
+
+/**
+ * @param {object} ctx
+ * @returns {Promise<{type:string, channel?:string, reason?:string, error?:string, questions?:Array}>}
+ */
+export async function submitApplication(ctx) {
+  const { order, orderId, flow, draft, cvBuffer, cvType, bucket, runKey, sendCascade } = ctx;
+  const nowMs = ctx.nowMs || Date.now();
+  const answers = flow?.answers || {};
+  const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
+
+  const liveness = await checkPostingLiveness({
+    order,
+    posting: { applyUrl: draft?.channel?.applyUrl || draft?.job?.applyUrl },
+    fetchImpl: ctx.fetchImpl || fetch,
+    resolve: ctx.resolve,
+  });
+  log('liveness before submit', liveness.page?.result, liveness.page?.code);
+  if (liveness.closed) return { type: 'posting_closed', reason: liveness.page?.code || 'dataset' };
+
+  const open = openRequiredQuestions(draft, answers);
+  if (open.length) return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })) };
+
+  const facts = checkDraftFacts({
+    coverLetter: draft.coverLetter?.text,
+    emailSubject: draft.applicationEmail?.subject,
+    emailBody: draft.applicationEmail?.body,
+  }, draft.factSources || {});
+  if (!facts.ok && !draft.factCheckAcknowledgedAt) return { type: 'submit_failed', error: 'fact_check_not_acknowledged' };
+
+  const channel = draft.channel || {};
+  const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
+  if (channel.type === 'email' && isPlausibleEmail(to) && to !== OWNER_MAILBOX) {
+    const identity = candidateIdentity(order, draft.profile);
+    const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
+    const stem = safeFileStem(identity.name);
+    const letterLabel = safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it);
+    const attachments = [
+      { filename: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, content: cvBuffer.toString('base64') },
+      { filename: `${letterLabel}_${stem}.pdf`, content: Buffer.from(letterPdf).toString('base64') },
+    ];
+    const payload = {
+      from: `${senderName(identity.name)} <${OWNER_MAILBOX}>`,
+      to: [to],
+      subject: draft.applicationEmail.subject,
+      text: draft.applicationEmail.body,
+      html: textToHtml(draft.applicationEmail.body),
+      ...(identity.email ? { replyTo: identity.email } : {}),
+      attachments,
+      tracking: false,
+    };
+    // Durable idempotency per order and round (submission guard): a run the
+    // watchdog re-dispatched never sends the application a second time.
+    const guard = ctx.submissionGuard || null;
+    if (guard) {
+      const claim = await guard.claim('email', nowMs);
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: 'email', replayed: true };
+      if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'email_ambiguous' };
+    }
+    const { failed, sent } = await sendCascade(
+      [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
+      { delayMs: 0, forceProvider: 'resend' },
+    );
+    if (failed.length) {
+      // An ambiguous delivery must never be retried blindly (career-ops: a
+      // submit of unknown outcome is not re-submitted): the guard stays
+      // "sending", so a later run reports it ambiguous too.
+      const ambiguous = Boolean(failed[0].ambiguousDelivery);
+      if (guard && !ambiguous) await guard.release('email_failed', nowMs);
+      await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous }, key: runKey, nowMs });
+      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : 'email_failed' };
+    }
+    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, provider: sent[0]?.provider || null }, nowMs);
+    await storeEvidence({
+      bucket,
+      orderId,
+      name: 'submit-email',
+      payload: {
+        to,
+        subject: payload.subject,
+        body: payload.text,
+        replyTo: payload.replyTo || null,
+        attachments: attachments.map((item) => item.filename),
+        provider: sent[0]?.provider || null,
+        messageId: sent[0]?.messageId || null,
+        sentAt: nowMs,
+      },
+      key: runKey,
+      nowMs,
+    });
+    return { type: 'submit_succeeded', channel: 'email' };
+  }
+
+  // Portal: career-ops browser handoff until the portal runner (Fase 3) takes it.
+  await storeEvidence({
+    bucket,
+    orderId,
+    name: 'submit-handoff',
+    payload: { channel, applyUrl: channel.applyUrl || draft.job?.applyUrl || '', formAnswers: draft.formAnswers, answers },
+    key: runKey,
+    nowMs,
+  });
+  return { type: 'submit_handoff', reason: 'portal_needs_candidate' };
+}

@@ -305,6 +305,8 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');
     expect(dispatch.env.CORPUS_CODE_COMMIT).not.toContain('unavailable');
+    expect(dispatch.env.SITE_CODE_COMMIT).toContain('steps.generation_preflight.outputs.site_code_commit');
+    expect(dispatch.env.SITE_CODE_COMMIT).toContain('github.sha');
     expect(dispatch.env.SHADOW_READY).toBe('${{ steps.generation_preflight.outputs.ready }}');
     expect(sentinel.if).toBe('always()');
     expect(sentinel.id).toBe('generation_sentinel');

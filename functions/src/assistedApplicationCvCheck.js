@@ -12,10 +12,16 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
-const STORAGE_BUCKET =
+/**
+ * Bucket of every assisted-application file (CV, generated letters, run
+ * evidence). One definition for the whole flow: the CV check, the retention,
+ * the owner queue and the GitHub Actions agent all read it from here.
+ */
+export const ASSISTED_APPLICATION_STORAGE_BUCKET =
   process.env.FIREBASE_STORAGE_BUCKET ||
   process.env.STORAGE_BUCKET ||
   'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 
 const SIGNATURES = [
   { type: 'pdf', bytes: [0x25, 0x50, 0x44, 0x46, 0x2d] }, // %PDF-
