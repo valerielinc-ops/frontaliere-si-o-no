@@ -138,7 +138,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -272,7 +273,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharmacien adjoint / Pharmacienne adjointe (h/f/d)",
@@ -428,7 +430,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Technical SEO / AI Search Engineer (f/m/d)",
@@ -707,7 +710,7 @@
       "slugByLocale": {
         "it": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "en": "pharma-assistant-pharma-assistentin-m-f-d-galenica-galenica-bern",
-        "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil",
+        "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil-nx1ibl",
         "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
@@ -719,6 +722,9 @@
       "id": "galenica-13782b639d3e",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil"
+        ],
+        "de": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil"
         ]
       },
@@ -824,7 +830,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -1212,7 +1219,7 @@
       "slugByLocale": {
         "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich-nx1lw0",
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
@@ -1224,6 +1231,9 @@
       "id": "galenica-da419467a8b8",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ],
+        "de": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
         ]
       },
@@ -1382,7 +1392,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin als Springer (w/m/d)",
@@ -1457,7 +1468,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -1930,7 +1942,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -2123,7 +2136,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -4090,7 +4104,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d) Saisonstelle",
@@ -4647,7 +4662,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6246,7 +6262,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7175,12 +7192,14 @@
       "id": "galenica-8221d305fe35",
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
-        "pharmaassistent-in-afc-amavita-galenica-fribourg"
+        "pharmaassistent-in-afc-amavita-galenica-fribourg",
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
-          "pharmaassistent-in-afc-amavita-galenica-fribourg"
+          "pharmaassistent-in-afc-amavita-galenica-fribourg",
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
         ],
         "de": [
           "pharmaassistent-in-afc-amavita-galenica-fribourg"
@@ -7835,7 +7854,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10120,7 +10140,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10858,11 +10879,13 @@
       },
       "id": "galenica-391e096b87b7",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -12209,7 +12232,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12779,7 +12803,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13330,7 +13355,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14159,7 +14185,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15235,7 +15262,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15367,7 +15395,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -18726,7 +18755,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di farmacia AFC",
