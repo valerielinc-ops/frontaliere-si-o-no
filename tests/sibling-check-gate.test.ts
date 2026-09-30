@@ -12,7 +12,13 @@ import { spawnSync, execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { isDeclaredFalsePositive, DECLARATION_HOWTO, isPrCreateCommand, resolveSiblingGateTarget } from '../scripts/ci/sibling-check-gate.mjs';
+import {
+  isDeclaredFalsePositive,
+  DECLARATION_HOWTO,
+  isPrCreateCommand,
+  resolveSiblingGateTarget,
+  SIBLING_GATE_PAYLOAD_ENV,
+} from '../scripts/ci/sibling-check-gate.mjs';
 import { resolveGatedHeadRef } from '../scripts/ci/lib/hook-target-cwd.mjs';
 import { describePrBodySource, localDiffPaths } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
@@ -186,6 +192,18 @@ describe('sibling-check-gate hook — cwd forwarding (2026-08-25 incident)', () 
     const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
     return spawnSync('node', [GATE], { input: payload, encoding: 'utf8', cwd: ambientRepo });
   }
+
+  it('accetta il payload via env senza richiedere una stdin pipe', () => {
+    const payload = JSON.stringify({ tool_input: { command: 'git status' }, cwd: ambientRepo });
+    const res = spawnSync(process.execPath, [GATE], {
+      encoding: 'utf8',
+      cwd: ambientRepo,
+      env: { ...process.env, [SIBLING_GATE_PAYLOAD_ENV]: payload },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    expect(res.error).toBeUndefined();
+    expect(res.status, res.stderr).toBe(0);
+  });
 
   it('passes through (exit 0) for non "gh pr create" commands regardless of payload.cwd', () => {
     const res = runGate('git status', { cwd: ambientRepo });
