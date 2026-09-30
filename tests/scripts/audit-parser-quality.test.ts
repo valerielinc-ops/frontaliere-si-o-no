@@ -523,6 +523,57 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('marks structured and visible workplace contradictions as inconclusive', async () => {
+    const description = 'Eine ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const coop = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Stv. Geschäftsführer:in Region Brig',
+      description,
+      jobLocation: { address: { addressLocality: 'Bern', addressRegion: 'Bern', addressCountry: 'CH' } },
+    })}</script><main><h1>Stv. Geschäftsführer:in Region Brig</h1>
+      <h4>Arbeitsort</h4><p>Coop<br>Region Brig, Visp, Zermatt und Goms</p>
+      <div class="description">${description}</div></main>`;
+    const avaloq = `<main><div itemscope itemtype="https://schema.org/JobPosting">
+      <h1 itemprop="title">Solution Manager - Architect</h1>
+      <div itemprop="description">${description}</div>
+      <div itemprop="jobLocation" itemscope itemtype="https://schema.org/Place">
+        <spl-job-location formattedAddress="Strada Regina 40, Bioggio, Canton Ticino, Switzerland"></spl-job-location>
+        <meta itemprop="addressCountry" content="Switzerland">
+        <meta itemprop="addressLocality" content="Zurich">
+        <meta itemprop="postalCode" content="8041">
+        <meta itemprop="streetAddress" content="Allmendstrasse 140">
+      </div></div></main>`;
+    const items = [
+      { crawlerKey: 'coop-ticino', url: 'https://jobs.example.test/coop', job: {
+        url: 'https://jobs.example.test/coop', addressLocality: 'Region Brig, Visp, Zermatt und Goms', description,
+      } },
+      { crawlerKey: 'avaloq', url: 'https://jobs.example.test/avaloq', job: {
+        url: 'https://jobs.example.test/avaloq', addressLocality: 'Bioggio', description,
+      } },
+    ];
+    const bodies = new Map([[items[0].url, coop], [items[1].url, avaloq]]);
+    const results = await checkSourceDetailsBatch(items, 1, {
+      fetchPage: async (url: string) => ({
+        ok: true, status: 200, url, body: bodies.get(url) || '', host: 'jobs.example.test',
+      }),
+    });
+
+    expect(results).toHaveLength(2);
+    expect(results.every((result) => result.locationMismatch === false)).toBe(true);
+    expect(results.every((result) => result.locationInconclusive === true)).toBe(true);
+    expect(results.every((result) => result.locationChecked === false)).toBe(true);
+    expect(results.every((result) => result.locationAuthority === 'source-internal-conflict')).toBe(true);
+    const report = {
+      'coop-ticino': { total: 1, issues: [] },
+      avaloq: { total: 1, issues: [] },
+    };
+    const summary = applySourceDetailResults(report, results, results.length);
+    expect(summary.locationMismatches).toBe(0);
+    expect(summary.inconclusiveLocationObservations).toBe(2);
+    expect(report['coop-ticino'].issues).toHaveLength(0);
+    expect(report.avaloq.issues).toHaveLength(0);
+  });
+
   it('matches a structured source locality through the vacancy postal code', () => {
     const result = compareSourceDetail(
       {
@@ -596,7 +647,7 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationInconclusive).toBe(true);
   });
 
-  it('still accepts an independent title corroboration for a text-derived job', () => {
+  it('marks a title that disagrees with structured location as inconclusive', () => {
     const result = compareSourceDetail(
       {
         addressLocality: 'Horgen',
@@ -612,8 +663,10 @@ describe('source-detail fidelity checks', () => {
       { locationEvidence: 'jsonld' },
     );
 
-    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationAuthority).toBe('source-internal-conflict');
     expect(result.locationMismatch).toBe(false);
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
   });
 
   it('keeps a real mismatch when a text-derived locality is never named independently', () => {
@@ -746,7 +799,7 @@ describe('source-detail fidelity checks', () => {
     });
   });
 
-  it('prefers the published workplace when the source page itself names it', () => {
+  it('marks a visible workplace that disagrees with structured location as inconclusive', () => {
     const result = compareSourceDetail(
       {
         addressLocality: 'Dietikon',
@@ -762,7 +815,9 @@ describe('source-detail fidelity checks', () => {
     );
 
     expect(result.locationMismatch).toBe(false);
-    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationAuthority).toBe('source-internal-conflict');
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
   });
 
   it('keeps the mismatch when the source page never names the published place', () => {
@@ -784,7 +839,7 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-detail');
   });
 
-  it('corroborates the published workplace on every crawler with the same JSON-LD behaviour', async () => {
+  it('marks the same structured/visible disagreement on every crawler as inconclusive', async () => {
     const html = fs.readFileSync(
       path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),
       'utf8',
@@ -809,7 +864,9 @@ describe('source-detail fidelity checks', () => {
       expect(result).toMatchObject({
         sourceLocation: 'Horgen, ZH',
         locationMismatch: false,
-        locationAuthority: 'source-corroborated',
+        locationChecked: false,
+        locationInconclusive: true,
+        locationAuthority: 'source-internal-conflict',
       });
     }
   });
@@ -841,7 +898,7 @@ describe('source-detail fidelity checks', () => {
   // workplace ONLY in a rendered labelled field, while its JSON-LD carries the
   // publishing office's seat. The label value is evidence; the bare label is
   // not, and stays in SOURCE_LOCATION_PLACEHOLDERS.
-  it('corroborates the published workplace named only in the Arbeitsort field', async () => {
+  it('marks a visible Arbeitsort that disagrees with structured location as inconclusive', async () => {
     const html = fs.readFileSync(
       path.join(process.cwd(), 'tests/fixtures/jobs-admin-source-detail-arbeitsort-label.html'),
       'utf8',
@@ -863,7 +920,9 @@ describe('source-detail fidelity checks', () => {
     expect(result).toMatchObject({
       sourceLocation: 'Wädenswil, Wädenswil',
       locationMismatch: false,
-      locationAuthority: 'source-corroborated',
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
     });
   });
 
@@ -2011,21 +2070,21 @@ describe('unexplained source-detail failure ceiling', () => {
 });
 
 describe('source-detail observation counters (#7714)', () => {
-  it('prints the corroborated observations and their share of the authoritative checks', async () => {
-    const html = fs.readFileSync(
-      path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),
-      'utf8',
+  it('prints the corroborated observations and their share of the authoritative checks', () => {
+    const description = 'Die LANDI Wetzikon-Seegräben sucht Verstärkung im Volg-Laden. '.repeat(6);
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Wetzikon',
+        sourceLang: 'de',
+        description,
+      },
+      {
+        title: 'Verkäufer*in Volg-Laden 80% - fenaco Genossenschaft',
+        location: 'Bern, Bern',
+        description,
+      },
+      { locationEvidence: 'jsonld' },
     );
-    const description = 'Ausführliche Stellenbeschreibung '.repeat(20);
-    const [result] = await checkSourceDetailsBatch([{
-      crawlerKey: 'kanton-zuerich',
-      url: 'https://example.test/kanton-zuerich',
-      job: { addressLocality: 'Dietikon', sourceLang: 'de', description },
-    }], 1, {
-      fetchPage: async (url: string) => ({
-        ok: true, status: 200, url, body: html, host: 'example.test',
-      }),
-    });
     expect(result.locationAuthority).toBe('source-corroborated');
 
     const report = { 'kanton-zuerich': { total: 1, issues: [], severity: 'OK' as const } };
