@@ -144,6 +144,14 @@ export async function submitApplication(ctx) {
   // or anything it must not bypass ends in the career-ops handoff below.
   const applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
   if (WAVE1_CHANNELS.has(channel.type) && applyUrl && ctx.codex) {
+    // The same durable guard as the e-mail: a re-dispatched run never submits
+    // twice. A run that died before the final click may start again.
+    const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
+    if (guard) {
+      const claim = await guard.claim('portal', nowMs, { resumable: true });
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channel.type, replayed: true };
+      if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
+    }
     const identity = candidateIdentity(order, draft.profile);
     const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
     try {
@@ -165,7 +173,14 @@ export async function submitApplication(ctx) {
         codex: ctx.codex,
         log,
         dryRun: Boolean(ctx.dryRun),
+        onBeforeSubmit: guard ? () => guard.markClicked(Date.now()) : null,
       });
+      if (guard) {
+        // Sent: on record. Ambiguous after the click: left "sending", never re-submitted.
+        // Anything else (handoff, questions, validation) sent nothing: released.
+        if (event.type === 'submit_succeeded') await guard.markSent({ channel: channel.type, finalUrl: evidence.finalUrl || null });
+        else if (!(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
+      }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
       return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
     } finally {

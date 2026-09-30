@@ -26,7 +26,12 @@ export function submissionGuard(db, orderId, round) {
   const ref = submissionRefFor(db, orderId);
   const key = `r${Number(round) || 1}`;
   return {
-    async claim(channel, nowMs = Date.now()) {
+    /**
+     * @param {{resumable?: boolean}} [options] a portal submission: a run that
+     *   died BEFORE pressing submit (no clickedAt) left nothing at the
+     *   employer, so it may start again; after the click it stays ambiguous
+     */
+    async claim(channel, nowMs = Date.now(), { resumable = false } = {}) {
       let outcome = null;
       await db.runTransaction(async (transaction) => {
         const current = (await transaction.get(ref)).data()?.[key];
@@ -34,14 +39,18 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'already_sent', record: current };
           return;
         }
-        if (current?.state === 'sending') {
+        if (current?.state === 'sending' && !(resumable && !current.clickedAt)) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs } }, { merge: true });
-        outcome = { status: 'claimed' };
+        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
       return outcome;
+    },
+    /** Right before a portal's final submit click: from here the outcome may be unknown. */
+    async markClicked(nowMs = Date.now()) {
+      await ref.set({ [key]: { clickedAt: nowMs } }, { merge: true });
     },
     async markSent(record = {}, nowMs = Date.now()) {
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });

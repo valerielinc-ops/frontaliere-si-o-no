@@ -172,6 +172,7 @@ async function waitForOutcome(page) {
  * @param {Function} ctx.codex broker call
  * @param {Function} [ctx.launch] browser launcher (tests)
  * @param {boolean} [ctx.dryRun] fill every page but never press submit
+ * @param {Function} [ctx.onBeforeSubmit] called right before the final submit click (submission guard)
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
@@ -268,6 +269,8 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'dry_run_ready' }, evidence };
       }
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
+      // From here the outcome may be unknown: the submission guard records the click.
+      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
       await clickButton(page, submit);
       const outcome = await waitForOutcome(page);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
