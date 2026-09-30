@@ -255,7 +255,7 @@ import {
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
 import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
-import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { getJobLocationSnapshot, resolveJobPostingPostalCode } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
  getEmailProviderInfo,
@@ -5916,10 +5916,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const rawLocality = String(job.addressLocality || '').trim();
  const addressLocality = isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
  const addressRegion = String(job.canton || DEFAULT_CANTON);
- // Same CAP/street pairing as the static JobPosting (#9108, #9841): the
- // canonical builder receives only the coherent source tuple, so hydration
- // cannot re-pair a Chur job with the HQ CAP 8600 the static builder rejected.
- const postalCode = job.postalCode;
+ // Same CAP/street pairing as the static JobPosting (#9108, #9841): discard
+ // a source tuple when its CAP belongs to another locality (for example a
+ // Chur job stamped with the employer HQ's Dübendorf CAP and street).
+ const { postalCode, sourcePostalCoherent } = resolveJobPostingPostalCode(
+ { location: job.location, addressLocality, postalCode: job.postalCode },
+ addressLocality,
+ addressRegion,
+ );
  const rawStreet = String(job.streetAddress || '').trim();
  // Skip JobPosting if no meaningful description — an empty description is worse than no schema
  if (!description || description.length < 30) return null;
@@ -5936,7 +5940,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressRegion,
  addressCountry: job.addressCountry,
  postalCode,
- streetAddress: isValidAddr(rawStreet) ? rawStreet : '',
+ streetAddress: sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '',
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  contract: job.contract,
