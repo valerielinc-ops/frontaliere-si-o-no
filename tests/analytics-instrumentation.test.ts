@@ -180,6 +180,15 @@ describe('analytics.ts — trackCtaClick helper', () => {
   });
 });
 
+describe('errorReporter.ts — module-cycle guard', () => {
+  it('loads Analytics lazily so the reporter does not statically cycle through Firebase', () => {
+    expect(errorReporterSrc).not.toMatch(
+      /import\s+\{\s*Analytics\s*\}\s+from\s+['"]\.\/analytics['"]/
+    );
+    expect(errorReporterSrc).toMatch(/import\(['"]\.\/analytics['"]\)/);
+  });
+});
+
 describe('analytics.ts — L5 decision-moment contract', () => {
   it('exposes categorical completion and next-action events without answer or URL payloads', () => {
     expect(analyticsSrc).toContain("DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed'");
@@ -271,7 +280,7 @@ describe('errorReporter.ts — api_error fallbacks', () => {
   });
 
   it('forwards the resolved endpoint + status into Analytics.trackAppError', () => {
-    const block = errorReporterSrc.match(/Analytics\.trackAppError\([\s\S]*?\}\);/);
+    const block = errorReporterSrc.match(/\n\s+Analytics\.trackAppError\([\s\S]*?\n\s+\}\);/);
     expect(block).not.toBeNull();
     expect(block![0]).toMatch(/apiEndpoint:\s*resolvedEndpoint/);
     expect(block![0]).toMatch(/statusCode:\s*resolvedStatus/);
