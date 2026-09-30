@@ -52,6 +52,10 @@ export const PROFILE_SCHEMA = OBJ({
   email: S(),
   phone: S(),
   location: S('City/country as written'),
+  // What application portals ask (Workday, Refline, Lever): only when the CV states it.
+  address: OBJ({ street: S('Street and number as written, else ""'), postalCode: S(), city: S(), country: S() }),
+  dateOfBirth: S('As written, else ""'),
+  nationality: S('As written, else ""'),
   linkedin: S(),
   website: S(),
   headline: S(),
