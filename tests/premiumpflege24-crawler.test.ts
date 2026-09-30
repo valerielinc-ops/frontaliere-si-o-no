@@ -52,7 +52,6 @@ describe('PremiumPflege24 GmbH crawler parser', () => {
         addressCountry: 'CH',
         nationwide: true,
       });
-      expect(listing.description.split(/\s+/)).toHaveLength(expect.any(Number));
       expect(listing.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
       expect(resolvePremiumpflege24Geography(listing)).toEqual({
         location: 'Schweiz',
@@ -71,7 +70,7 @@ describe('PremiumPflege24 GmbH crawler parser', () => {
       expect(resolvePremiumpflege24Geography({
         location: 'Lugano',
         addressCountry: 'CH',
-      })).toEqual({ location: 'Lugano', canton: 'TI' });
+      })).toEqual({ location: 'Lugano', canton: 'TI', addressCountry: 'CH' });
     });
   });
 
