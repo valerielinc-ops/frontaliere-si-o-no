@@ -21,9 +21,10 @@ import { render, screen, fireEvent, cleanup, within, waitFor, act } from '@testi
 import JobAlertForm from '@/components/community/JobAlertForm';
 const ALERT_CTA_SURFACES = ['inline_card'];
 
-const { createAlertMock, getUserAlertsMock } = vi.hoisted(() => ({
+const { createAlertMock, getUserAlertsMock, getJobAlertEligibilityMock } = vi.hoisted(() => ({
   createAlertMock: vi.fn(async () => ({ id: 'x' })),
   getUserAlertsMock: vi.fn(async () => []),
+  getJobAlertEligibilityMock: vi.fn(async () => ({ eligible: true, reason: null })),
 }));
 
 // Mock the service so the form can dynamic-import it without trying to talk
@@ -37,10 +38,15 @@ vi.mock('@/services/jobAlertService', () => ({
   updateAlert: vi.fn(async () => undefined),
 }));
 
+vi.mock('@/services/jobAlertEligibility', () => ({
+  getJobAlertEligibility: getJobAlertEligibilityMock,
+}));
+
 const { analyticsMock } = vi.hoisted(() => ({
   analyticsMock: {
     trackJobAlertCtaClick: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
+    trackJobAlertCtaSkipped: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
   },
@@ -98,7 +104,10 @@ function getFieldset(): HTMLFieldSetElement {
 }
 
 beforeEach(() => {
-  // nothing to set up beyond the per-file mocks
+  getUserAlertsMock.mockReset();
+  getUserAlertsMock.mockResolvedValue([]);
+  getJobAlertEligibilityMock.mockReset();
+  getJobAlertEligibilityMock.mockResolvedValue({ eligible: true, reason: null });
 });
 
 afterEach(() => {
@@ -470,5 +479,34 @@ describe('JobAlertForm — inline_card impression fires once, on visibility (iss
     FakeIO.instances.at(-1)!.enter();
     await waitFor(() => expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledTimes(1));
     expect(analyticsMock.trackJobAlertCtaShown.mock.calls[0][0]).toBe('inline_card');
+  });
+
+  it('records a full category quota without hiding alert management', async () => {
+    getUserAlertsMock.mockResolvedValue(Array.from({ length: 10 }, (_, index) => ({
+      id: `alert-${index}`,
+      userId: authUser.uid,
+      email: authUser.email,
+      keywords: [`keyword-${index}`],
+      locations: [],
+      contractTypes: [],
+      sectors: [],
+      cantonFilter: null,
+      frequency: 'daily',
+      frequencyOverride: false,
+      specificCompanyKey: null,
+      active: true,
+    })));
+    getJobAlertEligibilityMock.mockResolvedValue({ eligible: false, reason: 'quota_full' });
+
+    render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertCtaSkipped)
+      .toHaveBeenCalledWith('inline_card', 'quota_full'));
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+    expect(FakeIO.instances).toHaveLength(0);
+
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    expect(document.getElementById('job-alert-form')).not.toBeNull();
+    expect(screen.getAllByTitle(/Elimina|delete/i).length).toBeGreaterThan(0);
   });
 });

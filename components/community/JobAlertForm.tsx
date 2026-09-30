@@ -15,6 +15,7 @@ import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance'
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
+import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import { Analytics } from '@/services/analytics';
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
@@ -34,6 +35,8 @@ import {
 interface JobAlertFormProps {
  /** Currently authenticated user (null if not logged in) */
  authUser: { uid: string; email?: string | null } | null;
+ /** Auth must be settled before a known user's quota can gate the impression. */
+ authResolved?: boolean;
  /** Callback to trigger auth flow when user isn't logged in */
  onRequireAuth?: () => void;
  /** Pre-fill the keyword from current search query */
@@ -106,7 +109,13 @@ function loadJobAlertService(): Promise<typeof import('@/services/jobAlertServic
 
 // ── Component ────────────────────────────────────────────────
 
-export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '', initialCantonCode = null }: JobAlertFormProps) {
+export default function JobAlertForm({
+ authUser,
+ authResolved = true,
+ onRequireAuth,
+ initialKeyword = '',
+ initialCantonCode = null,
+}: JobAlertFormProps) {
  const { t, locale } = useTranslation();
  const [expanded, setExpanded] = useState(false);
  // 2026-05-19 simplification: open→accept funnel was 0/29 across all surfaces
@@ -136,6 +145,18 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const oneTapKeyword = initialKeyword.trim();
  const [oneTapEligible, setOneTapEligible] = useState(false);
+
+ // The trigger card also contains the existing-alert manager, so quota
+ // eligibility gates only its convertible impression — never the card or the
+ // management panel. An empty keyword deliberately checks the category budget
+ // without treating an already-covered search as a reason to hide management.
+ const inlineCardEligibility = useJobAlertEligibility({
+   enabled: true,
+   authResolved,
+   userId: authUser?.uid ?? null,
+   keyword: null,
+   surface: 'inline_card',
+ });
 
  // A known user with an active search already supplied the alert criterion.
  // Reuse the shared resolver (and its session cache) so the one-tap CTA is
@@ -263,7 +284,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  // one homogeneous chain in the alert_funnel_conversion goal.
  const inlineImpressionRef = useImpressionTracker(
  () => track((a) => a.trackJobAlertCtaShown('inline_card', initialKeyword.trim())),
- { enabled: !loadingAlerts },
+ { enabled: !loadingAlerts && inlineCardEligibility === true },
  );
 
  const trackInlineCtaAction = useCallback((action: 'accept' | 'success' | 'error', ctaKeyword: string) => {

@@ -188,6 +188,14 @@ describe('#7765 — CTA eligibility precedes rendering and impression', () => {
     expect(src).toContain(`surface: '${surface}'`);
   });
 
+  it('JobAlertForm gates only the inline impression, keeping management reachable', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(src).toContain('useJobAlertEligibility');
+    expect(src).toContain("surface: 'inline_card'");
+    expect(src).toContain('inlineCardEligibility === true');
+    expect(src).not.toMatch(/if \(inlineCardEligibility !== true\) return null/);
+  });
+
   it('the post-apply detail button gates both the CTA and its shown event', () => {
     const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
     expect(src).toContain("surface: 'job_detail_button'");
@@ -207,7 +215,7 @@ describe('#7765 — CTA eligibility precedes rendering and impression', () => {
     const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
     const start = src.indexOf('trackJobAlertCtaSkipped:');
     const block = src.slice(start, src.indexOf('},', start));
-    for (const surface of ['sticky_banner', 'end_card', 'job_detail_button']) {
+    for (const surface of ['sticky_banner', 'end_card', 'job_detail_button', 'inline_card']) {
       expect(block).toContain(`'${surface}'`);
     }
   });

@@ -24,6 +24,14 @@ describe('job-alert CTA eligibility', () => {
     )).toEqual({ eligible: false, reason: 'quota_full' });
   });
 
+  it('gates a generic CTA on the category quota without a search keyword', () => {
+    expect(resolveJobAlertEligibility(
+      [alert(['uno']), alert(['due'])],
+      '',
+      2,
+    )).toEqual({ eligible: false, reason: 'quota_full' });
+  });
+
   it('keeps a CTA eligible for a new category below the quota', () => {
     expect(resolveJobAlertEligibility(
       [alert(['altro'])],
