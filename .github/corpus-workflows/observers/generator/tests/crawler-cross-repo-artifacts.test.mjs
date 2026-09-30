@@ -350,9 +350,16 @@ test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo 
     assert.equal(new Set(crawlerIds).size, crawlerIds.length, `${artifact.file}: crawler duplicato`);
     assert.equal(occurrences(text, /^\s+id: crawler-launch-[a-z0-9-]+$/gm), artifact.members.length);
 
-    // Un solo job runnable: il secondo tentativo e un secondo checkout nello
-    // stesso job, non un job `_retry` che rilancia crawl/push gia avvenuti.
-    assert.equal(occurrences(text, /^  [a-z0-9_]+:\n    runs-on:/gm), 1, artifact.file);
+    // Un solo job runnable per i crawler: il secondo tentativo e un secondo
+    // checkout nello stesso job, non un job `_retry` che rilancia crawl/push
+    // gia avvenuti. Translate ha in piu' il guard leggero fuori dal mutex;
+    // il job pesante resta comunque unico e serializzato.
+    const expectedRunnableJobs = artifact.file === 'translate-pending.yml' ? 2 : 1;
+    assert.equal(occurrences(text, /^  [a-z0-9_]+:\n    runs-on:/gm), expectedRunnableJobs, artifact.file);
+    if (artifact.file === 'translate-pending.yml') {
+      assert.match(text, /^  translate_queue_guard:\n    runs-on:/m);
+      assert.match(text, /needs: translate_queue_guard/);
+    }
     assert.doesNotMatch(text, /^  [a-z0-9_]+_retry:/m);
   }
 });
