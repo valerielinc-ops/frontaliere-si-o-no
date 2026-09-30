@@ -748,8 +748,9 @@ export async function fetchHtmlWithCookies(url, options = {}) {
  * A connection-level fetch failure (egress could not reach an otherwise-healthy
  * source; no HTTP response received) is INFRA, not a source change. Exiting 1
  * here opens a "Crawler Failure" issue every run and risks de-indexing a live
- * employer. We instead exit 0 and preserve the existing slice — the same
- * outcome as an empty fetch. A *persistent* outage is still surfaced by the
+ * employer. We instead exit 0 and preserve valid stored rows, quarantining
+ * only thin-source rows through the shared soft-exit path — the same outcome
+ * as an empty fetch. A *persistent* outage is still surfaced by the
  * crawler-health monitor (3 consecutive 0-job runs → broken issue), so nothing
  * is silently buried. A thrown HTTP status (403/404/5xx) means the server DID
  * respond → genuine break → exit 1 so it surfaces immediately.
@@ -1033,6 +1034,18 @@ export async function runStandardCrawlerPipeline(config) {
   const existingJobs = readExistingCrawlerJobs(companyKey, DATA_JOBS);
   const companyExisting = existingJobs.filter(isCompanyJob);
   const beforeSnapshot = snapshotJobSlugs(companyExisting);
+  const rewriteStoredJobsOnSoftExit = () => rewritePreparedStoredJobs({
+    prepare: prepareExistingJobs,
+    storedJobs: companyExisting,
+    companyKey,
+    companyLabel,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+      isTargetJob: isCompanyJob,
+      preserveExistingSlugs,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
@@ -1047,8 +1060,9 @@ export async function runStandardCrawlerPipeline(config) {
     // ~1-3% of fetches per wave; sites return 200 from a clean IP). This is
     // INFRA, not a source change: hard-failing here would open a "Crawler
     // Failure" issue every run AND risk de-indexing a live employer's TI/GR
-    // pages. Preserve the existing slice and soft-exit instead — exactly the
-    // same outcome as an empty fetch. A *persistent* outage is still caught by
+    // pages. Preserve valid stored rows, quarantining only thin-source rows
+    // through the shared soft-exit path — exactly the same outcome as an empty
+    // fetch. A *persistent* outage is still caught by
     // the crawler-health monitor (3 consecutive 0-job runs → broken issue).
     //
     // Connection-level ONLY (no HTTP response ever received): a thrown HTTP
@@ -1063,6 +1077,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     if (isRetryBudgetExhaustedError(err)) {
@@ -1071,6 +1086,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     if (err?.feedEndpointUnavailable) {
@@ -1079,6 +1095,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     // Anti-bot fence exhausted across realistic-UA + Jina clean IP + Playwright
@@ -1093,6 +1110,7 @@ export async function runStandardCrawlerPipeline(config) {
       console.log(
         `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
+      await rewriteStoredJobsOnSoftExit();
       return;
     }
     throw err;
