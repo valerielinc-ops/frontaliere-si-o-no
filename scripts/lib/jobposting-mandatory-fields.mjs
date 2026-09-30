@@ -62,10 +62,10 @@ export function validateMandatoryJobPostingFields(schema) {
 
   if (!isNonEmptyString(posting.description)) {
     add('description', 'description missing/empty');
-  } else if (posting.description.length < JOBPOSTING_MIN_DESCRIPTION_LENGTH) {
+  } else if (posting.description.trim().length < JOBPOSTING_MIN_DESCRIPTION_LENGTH) {
     add(
       'description',
-      `description too short (${posting.description.length} < ${JOBPOSTING_MIN_DESCRIPTION_LENGTH})`,
+      `description too short (${posting.description.trim().length} < ${JOBPOSTING_MIN_DESCRIPTION_LENGTH})`,
     );
   }
 
@@ -120,13 +120,13 @@ export function validateMandatoryJobPostingFields(schema) {
     } else {
       const min = Number(salary.value.minValue);
       const max = Number(salary.value.maxValue);
-      if (!(min > 0)) {
+      if (!Number.isFinite(min) || !(min > 0)) {
         add(
           'baseSalary.value.minValue',
           `baseSalary.value.minValue=${salary.value.minValue} must be > 0`,
         );
       }
-      if (!(max >= min)) {
+      if (!Number.isFinite(max) || !(max >= min)) {
         add(
           'baseSalary.value.maxValue',
           `baseSalary.value.maxValue=${salary.value.maxValue} must be >= minValue`,

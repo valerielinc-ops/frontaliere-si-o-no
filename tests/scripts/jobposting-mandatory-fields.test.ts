@@ -71,6 +71,35 @@ describe('JobPosting mandatory-field contract (#10499)', () => {
     expect(validateMandatoryJobPostingFields(validJobPosting())).toEqual([]);
   });
 
+  it('measures the minimum description length after trimming whitespace', () => {
+    const schema = validJobPosting();
+    schema.description = `x${' '.repeat(49)}`;
+
+    expect(validateMandatoryJobPostingFields(schema)).toEqual(expect.arrayContaining([
+      expect.objectContaining({ field: 'description' }),
+    ]));
+  });
+
+  it('rejects non-finite salary values', () => {
+    const maxInfinity = validJobPosting();
+    (maxInfinity.baseSalary as MutableJsonObject).value = {
+      minValue: 1,
+      maxValue: 'Infinity',
+      unitText: 'YEAR',
+    };
+    expect(validateMandatoryJobPostingFields(maxInfinity).map((error) => error.field))
+      .toContain('baseSalary.value.maxValue');
+
+    const minInfinity = validJobPosting();
+    (minInfinity.baseSalary as MutableJsonObject).value = {
+      minValue: 'Infinity',
+      maxValue: 96000,
+      unitText: 'YEAR',
+    };
+    expect(validateMandatoryJobPostingFields(minInfinity).map((error) => error.field))
+      .toContain('baseSalary.value.minValue');
+  });
+
   it.each(FIELD_CASES)('rejects a missing %s field', (_label, field) => {
     const schema = validJobPosting();
     deletePath(schema, field);
