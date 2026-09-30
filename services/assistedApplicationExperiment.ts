@@ -128,6 +128,13 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_application_handoff_shown',
   'rewarded_application_handoff_clicked',
   'rewarded_application_handoff_unconfirmed',
+  // Snapshots of the page's ads (services/adVisibilitySnapshot.ts): at the
+  // click, 1.5 s after Google's Offerwall is on screen, and when the visitor
+  // comes back to the tab after the employer's page opened. Metrics
+  // ads_total / ads_visible / anchor_visible.
+  'rewarded_offer_ads_open',
+  'rewarded_offer_ads_offerwall',
+  'rewarded_offer_ads_return',
   // The Offerwall/GPT chain failed to load and the paid offer opened instead.
   'offerwall_paid_fallback_offered',
   'checkout_started',

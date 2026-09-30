@@ -60,7 +60,7 @@ vi.mock('@/services/offerwallClickGate', () => ({
   releaseHeldOfferwall: mocks.releaseHeldOfferwall,
 }));
 
-import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
+import RewardedApplicationOffer, { OFFERWALL_ADS_SNAPSHOT_DELAY_MS } from '@/components/community/RewardedApplicationOffer';
 import { setUserActivation } from '../../helpers/userActivation';
 import { itReady } from '@/services/i18n';
 
@@ -217,6 +217,46 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
       completion_signal: 'entitlement',
     }));
     expect(completed).not.toHaveProperty('closed_ms');
+  });
+
+  it('snapshots the page ads at the click and 1.5 s after the Offerwall is on screen', () => {
+    // The owner saw the page's ads disappear behind the loader (2026-09-30):
+    // the two snapshots measure what Google does when the Offerwall renders.
+    vi.useFakeTimers();
+    try {
+      mocks.status = 'held';
+      render(<RewardedApplicationOffer {...props} />);
+      expect(tracked('rewarded_offer_ads_open')).toEqual([
+        expect.objectContaining({ ads_total: 0, ads_visible: 0, anchor_visible: 0 }),
+      ]);
+
+      showOfferwall(800);
+      expect(tracked('rewarded_offer_ads_offerwall')).toEqual([]);
+      act(() => {
+        vi.advanceTimersByTime(OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toEqual([
+        expect.objectContaining({ ...offerwallContext, ads_total: 0, ads_visible: 0, anchor_visible: 0 }),
+      ]);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('drops the Offerwall ads snapshot when the offer is gone before it', () => {
+    vi.useFakeTimers();
+    try {
+      mocks.status = 'held';
+      const { unmount } = render(<RewardedApplicationOffer {...props} />);
+      showOfferwall(800);
+      unmount();
+      act(() => {
+        vi.advanceTimersByTime(OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+      });
+      expect(tracked('rewarded_offer_ads_offerwall')).toEqual([]);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('without a click activation left at the reward, opens the employer from one click', async () => {
