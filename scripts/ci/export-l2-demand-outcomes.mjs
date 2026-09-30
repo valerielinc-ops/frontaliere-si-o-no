@@ -19,6 +19,7 @@ import {
   runGa4Report,
 } from '../lib/ga4-service-account.mjs';
 import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
+import { resolveNursingOrphanQueryTarget } from '../lib/nursing-landing-path.mjs';
 
 export const LOOP_ID = 'L2';
 export const DEFAULT_SOURCE_PATH = path.join('data', 'gsc-orphan-queries-clusters.json');
@@ -104,7 +105,8 @@ export function landingPathsFromGsc(source) {
   for (const [index, cluster] of source.clusters.entries()) {
     let landingPath;
     try {
-      landingPath = buildOrphanLandingPath(cluster?.locale, cluster?.canonicalSlug);
+      const nursingTarget = resolveNursingOrphanQueryTarget(cluster?.canonicalQuery, cluster?.canonicalSlug);
+      landingPath = nursingTarget?.path || buildOrphanLandingPath(cluster?.locale, cluster?.canonicalSlug);
     } catch (error) {
       throw new Error(`GSC cluster ${index} has no valid emitted landing path: ${error.message}`);
     }
