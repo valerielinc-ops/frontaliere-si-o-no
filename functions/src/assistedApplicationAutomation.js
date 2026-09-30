@@ -72,15 +72,38 @@ export function draftRefFor(db, orderId) {
   return orderRefFor(db, orderId).collection(AI_DRAFTS_SUBCOLLECTION).doc(AI_DRAFT_DOC_ID);
 }
 
+/**
+ * The Remote Config flag: "true" automates every order; "false" or empty
+ * none; anything else is a list of order ids (commas or spaces) and automates
+ * only those — the final trial run, before switching on for everyone.
+ */
+export function parseAutomationFlag(value) {
+  const text = String(value || '').trim();
+  if (text.toLowerCase() === 'true') return { all: true, orders: new Set() };
+  if (!text || text.toLowerCase() === 'false') return { all: false, orders: new Set() };
+  return { all: false, orders: new Set(text.split(/[\s,]+/).filter(Boolean)) };
+}
+
 /** Fails closed: any error reading Remote Config means "off". */
-export async function isAutomationEnabled(read = null) {
+async function readAutomationFlag(read) {
   try {
-    const reader = read || getRemoteConfigValue;
-    return String(await reader(AUTOMATION_FLAG_KEY) || '').trim().toLowerCase() === 'true';
+    return parseAutomationFlag(await (read || getRemoteConfigValue)(AUTOMATION_FLAG_KEY));
   } catch (error) {
     console.warn('[assistedApplicationAutomation] flag read failed', error instanceof Error ? error.message : String(error));
-    return false;
+    return parseAutomationFlag('');
   }
+}
+
+/** On for at least one order: the sweeps run (they only touch orders that have a flow). */
+export async function isAutomationEnabled(read = null) {
+  const flag = await readAutomationFlag(read);
+  return flag.all || flag.orders.size > 0;
+}
+
+/** On for this order: whatever creates a flow or changes its e-mails asks this. */
+export async function isAutomationEnabledFor(orderId, read = null) {
+  const flag = await readAutomationFlag(read);
+  return flag.all || flag.orders.has(String(orderId || ''));
 }
 
 /** The order's CV passed the magic-byte check for its current key. */
@@ -253,7 +276,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
  */
 export async function maybeStartAutomation(before, after, orderId, {
   db,
-  enabled = isAutomationEnabled,
+  enabled = isAutomationEnabledFor,
   runEffect,
   ensureAlias = null,
   nowMs = Date.now(),
@@ -263,7 +286,7 @@ export async function maybeStartAutomation(before, after, orderId, {
   if (!cvJustReady) return { ok: true, skipped: 'no_new_cv' };
   const eligibility = automationEligibility(after, orderId);
   if (!eligibility.eligible) return { ok: true, skipped: eligibility.reason };
-  if (!(await enabled())) return { ok: true, skipped: 'automation_disabled' };
+  if (!(await enabled(orderId))) return { ok: true, skipped: 'automation_disabled' };
   return startAutomation({ db, orderId, runEffect, nowMs, reason: 'cv_verified', ensureAlias });
 }
 

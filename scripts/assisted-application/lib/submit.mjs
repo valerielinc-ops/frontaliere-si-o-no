@@ -18,6 +18,7 @@ import {
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -25,23 +26,8 @@ import { candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/port
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 
-const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
+const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
 const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
-
-function escapeHtml(value) {
-  return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-function textToHtml(text) {
-  return String(text || '').trim().split(/\n\s*\n/)
-    .map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`)
-    .join('');
-}
-
-function senderName(name) {
-  const safe = String(name || '').replace(/["<>\\\r\n]/g, '').trim().slice(0, 80);
-  return safe ? `"${safe} via Frontaliere Ticino"` : 'Frontaliere Ticino';
-}
 
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}) {
@@ -52,8 +38,22 @@ export function openRequiredQuestions(draft, answers = {}) {
  * @param {object} ctx
  * @returns {Promise<{type:string, channel?:string, reason?:string, error?:string, questions?:Array}>}
  */
+/**
+ * The CV that leaves: the tailored ATS CV when it passed the fact gate and the
+ * candidate did not choose their original on the review page.
+ */
+export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType }) {
+  const tailored = draft?.tailoredCv;
+  if (tailored?.status === 'ready' && tailored.pdfKey && flow?.cvChoice !== 'original') {
+    const [buffer] = await bucket.file(tailored.pdfKey).download();
+    return { cvBuffer: Buffer.from(buffer), cvType: 'pdf', cvSent: 'tailored' };
+  }
+  return { cvBuffer, cvType, cvSent: 'original' };
+}
+
 export async function submitApplication(ctx) {
-  const { order, orderId, flow, draft, cvBuffer, cvType, bucket, runKey, sendCascade } = ctx;
+  const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
+  const { cvBuffer, cvType, cvSent } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType });
   const nowMs = ctx.nowMs || Date.now();
   const answers = flow?.answers || {};
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
@@ -88,6 +88,9 @@ export async function submitApplication(ctx) {
       { filename: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, content: cvBuffer.toString('base64') },
       { filename: `${letterLabel}_${stem}.pdf`, content: Buffer.from(letterPdf).toString('base64') },
     ];
+    // Our own Message-ID, so the follow-ups can refer to this e-mail
+    // (best effort: a provider may replace it; the "Re:" subject threads anyway).
+    const messageId = `<aa-${String(orderId).replace(/[^A-Za-z0-9_-]/g, '')}-${nowMs}@candidature.frontaliereticino.ch>`;
     const payload = {
       from: `${senderName(identity.name)} <${OWNER_MAILBOX}>`,
       to: [to],
@@ -95,6 +98,7 @@ export async function submitApplication(ctx) {
       text: draft.applicationEmail.body,
       html: textToHtml(draft.applicationEmail.body),
       ...(identity.email ? { replyTo: identity.email } : {}),
+      headers: { 'Message-ID': messageId },
       attachments,
       tracking: false,
     };
@@ -103,7 +107,11 @@ export async function submitApplication(ctx) {
     const guard = ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('email', nowMs);
-      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: 'email', replayed: true };
+      if (claim.status === 'already_sent') {
+        // Sent by an earlier run of this round: its follow-ups come from the record.
+        const record = claim.record || {};
+        return { type: 'submit_succeeded', channel: 'email', replayed: true, ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}) };
+      }
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'email_ambiguous' };
     }
     const { failed, sent } = await sendCascade(
@@ -119,7 +127,7 @@ export async function submitApplication(ctx) {
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous }, key: runKey, nowMs });
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : 'email_failed' };
     }
-    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, provider: sent[0]?.provider || null }, nowMs);
+    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId, provider: sent[0]?.provider || null }, nowMs);
     await storeEvidence({
       bucket,
       orderId,
@@ -130,6 +138,7 @@ export async function submitApplication(ctx) {
         body: payload.text,
         replyTo: payload.replyTo || null,
         attachments: attachments.map((item) => item.filename),
+        cvSent,
         provider: sent[0]?.provider || null,
         messageId: sent[0]?.messageId || null,
         sentAt: nowMs,
@@ -137,7 +146,9 @@ export async function submitApplication(ctx) {
       key: runKey,
       nowMs,
     });
-    return { type: 'submit_succeeded', channel: 'email' };
+    // What the follow-ups (7 and 14 days) need; agent.mjs stores it, it never
+    // reaches the automation event.
+    return { type: 'submit_succeeded', channel: 'email', followup: { to, subject: payload.subject, messageId, sentAt: nowMs } };
   }
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
@@ -189,7 +200,7 @@ export async function submitApplication(ctx) {
         if (event.type === 'submit_succeeded') await guard.markSent({ channel: channel.type, finalUrl: evidence.finalUrl || null });
         else if (!clicked && !(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
       }
-      await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
+      await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent }, key: runKey, nowMs });
       return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
     } catch (error) {
       // Failed before the final click (temp dir, files, browser, network): nothing

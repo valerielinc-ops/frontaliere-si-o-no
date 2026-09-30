@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertForJob } from '@/services/jobAlertService';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobDetailJobAlertButtonStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -25,6 +26,8 @@ export interface JobDetailJobAlertButtonProps {
   onSubscribed?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
+  /** Fired once when the direct detail CTA becomes visible. */
+  onImpression?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertForJob;
 }
@@ -39,12 +42,23 @@ export default function JobDetailJobAlertButton({
   sourceJobTitle,
   onSubscribed,
   onErrored,
+  onImpression,
   subscribe = subscribeJobAlertForJob,
 }: JobDetailJobAlertButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailJobAlertButtonStatus>('idle');
+  const impressionTrackedRef = useRef(false);
+  const reportImpression = useCallback(() => {
+    if (impressionTrackedRef.current) return;
+    impressionTrackedRef.current = true;
+    onImpression?.();
+  }, [onImpression]);
+  const impressionRef = useImpressionTracker(reportImpression);
   const handleClick = useCallback(async () => {
     if (!jobId) return;
+    // A click proves the CTA was visible even if the observer callback has not
+    // run yet; emit the denominator before the create can succeed.
+    reportImpression();
     setStatus('submitting');
     try {
       await subscribe(userId, email, jobId, locale, {
@@ -72,19 +86,21 @@ export default function JobDetailJobAlertButton({
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [email, jobId, locale, onErrored, onSubscribed, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [email, jobId, locale, onErrored, onSubscribed, reportImpression, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   if (status === 'success') {
     return (
-      <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-success">
-        <Check className="w-4 h-4" aria-hidden="true" />
-        {t('jobAlert.jobDetailButton.success', 'Ti avviseremo su questo annuncio ✓')}
-      </p>
+      <div ref={impressionRef} className="mt-3">
+        <p className="inline-flex items-center gap-2 text-sm font-semibold text-success">
+          <Check className="w-4 h-4" aria-hidden="true" />
+          {t('jobAlert.jobDetailButton.success', 'Ti avviseremo su questo annuncio ✓')}
+        </p>
+      </div>
     );
   }
 
   return (
-    <div className="mt-3">
+    <div ref={impressionRef} className="mt-3">
       <button
         type="button"
         onClick={handleClick}

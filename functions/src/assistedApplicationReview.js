@@ -15,8 +15,12 @@ import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { buildFormAnswers, candidateIdentity, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
+import { followupRefFor } from './assistedApplicationFollowup.js';
+import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted']);
+const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice']);
+const CV_CHOICES = new Set(['tailored', 'original']);
+const FOLLOWUP_ACTIONS = new Set(['followup_send', 'followup_skip']);
 const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
 
@@ -47,7 +51,12 @@ function questionView(question) {
 }
 
 /** What the candidate sees. Built from the draft, never the operator fields. */
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl }) {
+/** The ATS check the candidate sees: grade and keyword coverage, before and after tailoring. */
+function atsView(report) {
+  return report ? { grade: report.structural?.grade || null, keywordCoverage: report.keywords?.coverage ?? null, missing: (report.keywords?.missing || []).slice(0, 8) } : null;
+}
+
+export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const answers = flow?.answers || {};
@@ -89,11 +98,15 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl }
     questions,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
+    // The tailored ATS CV (sent unless the candidate chooses their original).
+    tailoredCv: draft?.tailoredCv?.status === 'ready' ? { url: tailoredCvUrl, choice: flow?.cvChoice === 'original' ? 'original' : 'tailored' } : null,
+    ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
       approve: !stale && state === 'candidate_review' && openRequired.length === 0,
       reject: !stale && state === 'candidate_review',
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
       confirmSubmitted: !stale && state === 'candidate_handoff',
+      chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
     },
   };
 }
@@ -135,22 +148,48 @@ export async function handleAssistedApplicationReview(req, deps) {
   try {
     if (method === 'GET') {
       const token = String(req.query?.t || '');
-      const { orderId, round } = await authorize(token, { ...deps, nowMs });
+      const { orderId, round, kind } = await authorize(token, { ...deps, nowMs });
+      if (kind === 'followup') {
+        const [orderSnapshot, draftSnapshot, followupSnapshot] = await Promise.all([
+          orderRefFor(deps.db, orderId).get(), draftRefFor(deps.db, orderId).get(), followupRefFor(deps.db, orderId).get(),
+        ]);
+        if (!orderSnapshot.exists || !followupSnapshot.exists) throw new ReviewError('not_found', 404);
+        return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
+      }
       const { order, flow, draft } = await loadAll(deps.db, orderId);
-      const coverLetterUrl = draft?.coverLetterPdfKey && deps.signUrl
-        ? await deps.signUrl(draft.coverLetterPdfKey).catch(() => null)
-        : null;
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl }) };
+      const sign = (key) => (key && deps.signUrl ? deps.signUrl(key).catch(() => null) : null);
+      const [coverLetterUrl, tailoredCvUrl] = await Promise.all([
+        sign(draft?.coverLetterPdfKey),
+        sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
+      ]);
+      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl }) };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
     const body = req.body && typeof req.body === 'object' ? req.body : {};
     const action = String(body.action || '');
-    if (!ACTIONS.has(action)) throw new ReviewError('invalid_action');
-    const { orderId, round } = await authorize(String(body.t || ''), { ...deps, nowMs });
+    if (!ACTIONS.has(action) && !FOLLOWUP_ACTIONS.has(action)) throw new ReviewError('invalid_action');
+    const { orderId, round, kind } = await authorize(String(body.t || ''), { ...deps, nowMs });
+    // A follow-up link acts only on its follow-up, a review link only on the review.
+    if ((kind === 'followup') !== FOLLOWUP_ACTIONS.has(action)) throw new ReviewError('invalid_action');
+    if (kind === 'followup') {
+      const result = await decideFollowup({
+        db: deps.db, orderId, n: round, decision: action === 'followup_send' ? 'send' : 'skip', nowMs, sendCascade: deps.sendCascade,
+      });
+      if (!result.ok && result.error === 'not_pending') throw new ReviewError('not_allowed', 409);
+      return { status: 200, body: { ok: true, sent: Boolean(result.sent), stopped: Boolean(result.stopped) } };
+    }
     const { flow, draft } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
+    if (action === 'cv_choice') {
+      // Which CV leaves: no flow event, the next submission reads it.
+      const choice = String(body.cvChoice || '');
+      if (!CV_CHOICES.has(choice) || draft?.tailoredCv?.status !== 'ready') throw new ReviewError('invalid_cv_choice');
+      if (flow.state !== 'candidate_review') throw new ReviewError('not_allowed', 409);
+      await flowRefFor(deps.db, orderId).set({ cvChoice: choice, updatedAt: nowMs }, { merge: true });
+      return { status: 200, body: { ok: true, state: flow.state, cvChoice: choice } };
+    }
     if (action === 'answers') {
       const answers = sanitizeAnswers(body.answers, draft);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');

@@ -52,6 +52,18 @@ describe('L2 Demand → Utility', () => {
     expect(verdict.snapshot.outcomes).toEqual({ eligibleLandingSessions: 1200, usefulActions: 180 });
   });
 
+  it('keeps the historical nursing cluster joined to the existing EN landing', () => {
+    const verdict = validateDemandSnapshot(snapshot({
+      clusters: [cluster({
+        clusterId: 'de-nursing-jobs',
+        locale: 'de',
+        canonicalQuery: 'nursing jobs',
+        canonicalSlug: 'nursing-jobs',
+      })],
+    }), { now: NOW });
+    expect(verdict.candidates[0].landingPath).toBe('/en/nursing-jobs-switzerland/');
+  });
+
   it('links a measured GA4 outcome to a candidate decision for canonical recording', async () => {
     const input = tempFile(snapshot());
     const result = await runL2({ now: NOW, sourcePath: input.file, reportDir: input.dir, logger: { log() {} } });

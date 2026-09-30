@@ -111,9 +111,14 @@ for (const a of argv) {
 const FEATURE_FILTER = typeof args.get('feature') === 'string' ? args.get('feature') : null;
 const LIMIT = Number(args.get('limit') ?? 20);
 const FORCE_SOURCE_MODE = args.has('source-mode');
+// Default di --out: ORPHAN_PAGES_AUDIT_REPORT se impostata (la stessa env che
+// sposta il lettore in cathedral-seo-gates-check.mjs), altrimenti il report
+// tracciato.
 const OUT_PATH = args.get('out')
   ? resolvePath(String(args.get('out')))
-  : join(DATA_DIR, 'orphan-pages-audit.json');
+  : process.env.ORPHAN_PAGES_AUDIT_REPORT
+    ? resolvePath(process.env.ORPHAN_PAGES_AUDIT_REPORT)
+    : join(DATA_DIR, 'orphan-pages-audit.json');
 const REBASELINE = args.has('rebaseline');
 const GATE = args.get('gate'); // string | true | undefined
 const GATE_BASELINE = GATE === 'baseline';

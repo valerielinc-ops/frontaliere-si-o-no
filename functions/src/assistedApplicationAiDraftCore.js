@@ -89,6 +89,13 @@ export function sanitizeRequirements(raw) {
     applicationEmail: clean(raw?.applicationEmail, 254),
     contactPerson: clean(raw?.contactPerson, 200),
     applicationInstructions: clean(raw?.applicationInstructions, 400),
+    legitimacy: {
+      specificity: ['specific', 'mixed', 'vague'].includes(raw?.legitimacy?.specificity) ? raw.legitimacy.specificity : 'mixed',
+      contradictions: list(raw?.legitimacy?.contradictions, 5).map((item) => clean(item, 300)).filter(Boolean),
+      contractorQuote: clean(raw?.legitimacy?.contractorQuote, 300),
+      aiDirectedQuote: clean(raw?.legitimacy?.aiDirectedQuote, 300),
+      rolling: raw?.legitimacy?.rolling === true,
+    },
   };
 }
 
@@ -107,6 +114,12 @@ export function verifyQuotes(requirements, postingText) {
     }
   }
   if (!holds(requirements.workPermitQuote)) requirements.workPermitQuote = '';
+  // Legitimacy signals are quotes too: one the posting does not contain is dropped.
+  if (requirements.legitimacy) {
+    requirements.legitimacy.contradictions = requirements.legitimacy.contradictions.filter((quote) => holds(quote));
+    if (!holds(requirements.legitimacy.contractorQuote)) requirements.legitimacy.contractorQuote = '';
+    if (!holds(requirements.legitimacy.aiDirectedQuote)) requirements.legitimacy.aiDirectedQuote = '';
+  }
   if (requirements.applicationEmail && !haystack.includes(requirements.applicationEmail.toLowerCase())) {
     requirements.applicationEmail = '';
   }

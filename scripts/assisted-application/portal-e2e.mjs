@@ -17,7 +17,7 @@ import http from 'node:http';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { chromium } from 'playwright';
+import { launchChromium } from '../lib/ensure-chromium.mjs';
 import { submitViaPortal } from './lib/portal/portal.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
@@ -127,7 +127,7 @@ async function main() {
     files,
     codex: fakeCodex,
     accounts,
-    launch: () => chromium.launch({ headless: true, executablePath }),
+    launch: () => launchChromium({ headless: true, executablePath }),
     ...extra,
   });
 

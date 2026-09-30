@@ -187,8 +187,12 @@ describe('#5169 — every gate spec is wired to a reader that can fail loudly', 
       (g) => g.name === 'orphan-sitemap-pages',
     )!;
     const extract = gate.extractCurrent as (parsed: unknown, raw: string) => number;
-    const reportPath = path.join(REPO_ROOT, 'data/orphan-pages-audit.json');
-    const original = fs.existsSync(reportPath) ? fs.readFileSync(reportPath) : null;
+    // Il report tracciato non si tocca (AGENTS.md): ORPHAN_PAGES_AUDIT_REPORT
+    // sposta il lettore su una copia in tmpdir.
+    const reportDir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-orphan-report-'));
+    const reportPath = path.join(reportDir, 'orphan-pages-audit.json');
+    const previousReport = process.env.ORPHAN_PAGES_AUDIT_REPORT;
+    process.env.ORPHAN_PAGES_AUDIT_REPORT = reportPath;
     try {
       // Fresh: written "now" — the shape audit-orphan-pages-in-sitemaps writes.
       fs.writeFileSync(
@@ -217,8 +221,9 @@ describe('#5169 — every gate spec is wired to a reader that can fail loudly', 
       );
       expect(() => extract({}, '')).toThrow(/totalOrphans/);
     } finally {
-      if (original === null) fs.rmSync(reportPath, { force: true });
-      else fs.writeFileSync(reportPath, original);
+      if (previousReport === undefined) delete process.env.ORPHAN_PAGES_AUDIT_REPORT;
+      else process.env.ORPHAN_PAGES_AUDIT_REPORT = previousReport;
+      fs.rmSync(reportDir, { recursive: true, force: true });
     }
   });
 

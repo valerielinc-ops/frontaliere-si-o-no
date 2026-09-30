@@ -164,7 +164,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       'Jede Antwort umfasst 80-180 Wörter, nennt die anwendbare Norm (KVG, AHVG, BVG, OR, AIG, TUIR, GD 230/2021) und verweist auf offizielle Quellen (Fedlex, AFC Tessin, BSV, SEM, Agenzia Entrate, INPS). Inhalte entsprechen dem Stand 2026 (Sätze, Obergrenzen, Prämien, Mindestlöhne).',
     ],
     tocTitle: 'Behandelte Kategorien',
-    breadcrumbHome: 'Start',
+    breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Grenzgängerleitfaden',
     updatedLabel: 'Aktualisiert',
     disclaimer:

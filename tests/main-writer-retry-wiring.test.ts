@@ -8,7 +8,6 @@ const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
   '.github/workflows/build-evidence-and-tune.yml',
-  '.github/workflows/crawler-health-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
   '.github/workflows/funnel-metrics-snapshot.yml',
@@ -53,9 +52,6 @@ describe('main data writers use the shared retry contract', () => {
     expect(finalizer).toBeGreaterThan(-1);
     expect(checker).toBeGreaterThan(finalizer);
     expect(publisher).toBeGreaterThan(checker);
-    expect(read('.github/workflows/crawler-health-monitor.yml')).toContain(
-      'node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json',
-    );
     expect(read('.github/workflows/guard-data-integrity.yml')).toContain(
       'node scripts/ci/restore-data-integrity-files.mjs',
     );

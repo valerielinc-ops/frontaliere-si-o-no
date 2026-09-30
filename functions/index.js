@@ -85,12 +85,14 @@ import {
 } from './src/assistedApplicationNotifications.js';
 import {
   handleRunnerEvent,
-  isAutomationEnabled,
+  isAutomationEnabledFor,
   maybeStartAutomation,
   runAutomationSweep,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
+import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
+import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
@@ -2339,7 +2341,7 @@ export const assistedApplicationEmailCv = onRequest(
         db: getAdminDb(),
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         secret: newsletterSecret,
-        isEnabled: () => isAutomationEnabled(),
+        isEnabled: (orderId) => isAutomationEnabledFor(orderId),
       });
       if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
       res.status(status).json(body);
@@ -2402,11 +2404,61 @@ export const assistedApplicationReview = onRequest(
         db: getAdminDb(),
         runEffect: (context) => runAutomationEffect(context),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
+        // A follow-up the candidate sends right away (af1 link).
+        sendCascade: async (emails, options) => {
+          await bridgeEmailCascadeCredentialsToEnv();
+          return sendAssistedApplicationCascade(emails, options);
+        },
       });
       res.status(status).json(body);
     } catch (error) {
       console.error('[assistedApplicationReview]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Follow-ups of the applications sent by e-mail (day 7 and 14, 12 h for the
+// candidate to stop them), behind the automation flag.
+export const sweepAssistedApplicationFollowups = onSchedule(
+  { region: 'europe-west6', schedule: 'every 30 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
+  async () => {
+    try {
+      await bridgeEmailCascadeCredentialsToEnv();
+      const summary = await runFollowupSweep({
+        db: getAdminDb(),
+        codex: (request) => codexStructured(request),
+        sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      });
+      if (summary.processed) console.log('[sweepAssistedApplicationFollowups]', JSON.stringify(summary.results));
+    } catch (error) {
+      console.error('[sweepAssistedApplicationFollowups]', error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// An interview invitation on the order alias: the candidate gets the
+// interview prep pack (career-ops modes/interview-prep.md), once per order.
+// On the write that marks an interview invitation processed (the inbound
+// trigger classifies it after the message is stored).
+// Retried on failure: prepareInterviewPack releases its claim before throwing.
+export const prepareAssistedApplicationInterview = onDocumentWritten(
+  { region: 'europe-west6', document: 'assisted_applications/{orderId}/inbox/{messageId}', memory: '512MiB', timeoutSeconds: 540, retry: true },
+  async (event) => {
+    if (!isNewlyProcessedInterviewInvite(event.data?.before?.data(), event.data?.after?.data())) return;
+    try {
+      await bridgeEmailCascadeCredentialsToEnv();
+      const result = await prepareInterviewPack({
+        db: getAdminDb(),
+        orderId: event.params.orderId,
+        messageId: event.params.messageId,
+        codex: (request) => codexStructured(request),
+        sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      });
+      console.log('[prepareAssistedApplicationInterview]', event.params.orderId, JSON.stringify(result));
+    } catch (error) {
+      console.error('[prepareAssistedApplicationInterview]', error instanceof Error ? error.message : String(error));
+      throw error;
     }
   },
 );

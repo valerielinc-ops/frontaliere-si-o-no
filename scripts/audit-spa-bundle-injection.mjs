@@ -63,7 +63,12 @@ import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const DIST = path.resolve(process.cwd(), 'dist');
-const BASELINE_PATH = path.resolve(ROOT, 'data', 'spa-bundle-injection-baseline.json');
+// SPA_BUNDLE_INJECTION_BASELINE sposta la baseline fuori dal checkout: i test la
+// puntano a una copia fissata in os.tmpdir(), così non riscrivono il file
+// tracciato e non dipendono dal suo valore del giorno.
+const BASELINE_PATH = process.env.SPA_BUNDLE_INJECTION_BASELINE
+  ? path.resolve(process.env.SPA_BUNDLE_INJECTION_BASELINE)
+  : path.resolve(ROOT, 'data', 'spa-bundle-injection-baseline.json');
 const REBASELINE = process.argv.includes('--rebaseline');
 
 const { writeAuditReport: _writeAuditReport, relBaseline: _relBaseline } = await import('./lib/auditReport.mjs');
