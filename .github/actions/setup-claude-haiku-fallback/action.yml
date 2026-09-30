@@ -48,6 +48,16 @@ inputs:
       back to the default.
     required: false
     default: '3'
+  broker_max_timeout_ms:
+    description: >-
+      Longest execution the broker allows one Codex request, in milliseconds.
+      The default (10 minutes) fits the article lanes. A job where a slow but
+      live request must be allowed to finish, such as the assisted
+      application drafting at effort max, passes a longer cap here; a request
+      that fails for real (Codex exits with an error) still fails at once.
+      Values outside 60000..10800000 fall back to the default.
+    required: false
+    default: '600000'
 outputs:
   codex_auth_broker_socket:
     description: >-
@@ -55,6 +65,11 @@ outputs:
       The endpoint is exposed only as an action output, never through
       GITHUB_ENV.
     value: ${{ steps.start_codex_auth_broker.outputs.socket }}
+  codex_broker_max_timeout_ms:
+    description: >-
+      The per-request execution cap the broker was started with, so a client
+      can ask for exactly as long as the broker allows.
+    value: ${{ steps.start_codex_auth_broker.outputs.max_timeout_ms }}
 runs:
   using: "composite"
   steps:
@@ -494,6 +509,7 @@ runs:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
         BROKER_IDLE_TTL_MS: ${{ inputs.broker_idle_ttl_ms }}
         BROKER_MAX_CONCURRENCY: ${{ inputs.broker_max_concurrency }}
+        BROKER_MAX_TIMEOUT_MS: ${{ inputs.broker_max_timeout_ms }}
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
@@ -598,12 +614,21 @@ runs:
           [1-6]) ;;
           *) broker_max_concurrency=3 ;;
         esac
+        # Digits only, at most 8 of them, then bounded: anything else keeps
+        # the 10-minute default (the broker applies the same bounds).
+        broker_max_timeout_ms="$BROKER_MAX_TIMEOUT_MS"
+        case "$broker_max_timeout_ms" in
+          ''|*[!0-9]*) broker_max_timeout_ms=600000 ;;
+        esac
+        if [ "${#broker_max_timeout_ms}" -gt 8 ] || [ "$broker_max_timeout_ms" -lt 60000 ] || [ "$broker_max_timeout_ms" -gt 10800000 ]; then
+          broker_max_timeout_ms=600000
+        fi
         # The broker receives the credential only through the FIFO. Start it
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
         nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
           --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
-          --max-concurrency "$broker_max_concurrency" \
+          --max-concurrency "$broker_max_concurrency" --max-timeout-ms "$broker_max_timeout_ms" \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &
@@ -633,6 +658,7 @@ runs:
         fi
         chmod 600 "$broker_socket"
         printf 'socket=%s\n' "$broker_socket" >> "$GITHUB_OUTPUT"
+        printf 'max_timeout_ms=%s\n' "$broker_max_timeout_ms" >> "$GITHUB_OUTPUT"
         unset CODEX_AUTH_JSON
 
     # Unconditional (no `if:`) so it also fires when the step above got

@@ -58,7 +58,9 @@ import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
 const MAX_SOURCE_CHARS = 30_000;
 const MAX_POSTING_EXCERPT = 6_000;
-const CODEX_TIMEOUT_MS = 600_000;
+// A slow call at effort max must finish rather than fail the draft: the
+// broker of assisted-application-agent.yml allows 30 min per request.
+const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
 export class DraftAbort extends Error {
