@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   carryPostSourceBody,
+  formatPostJobLocation,
   isPostFallbackDescription,
   keyPostDescriptionBySourceLocale,
   isPublishablePostDetail,
@@ -39,6 +40,22 @@ describe('Post.ch SuccessFactors detail parser', () => {
     expect(parsed.description).toContain('- Frühmorgens bereitest du gemeinsam mit deinem Team die Zustelltour vor.');
     expect(parsed.description).toContain('Auch Quereinsteiger:innen sind herzlich willkommen.');
     expect(parsed.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(45);
+  });
+
+  it('publishes every source locality for a multi-location posting', () => {
+    const html = buildPage({
+      0: 'Lehre als Logistiker:in EFZ Distribution gemischte Zustellung',
+      1: '80',
+      2: '100',
+      3: 'Sirnach|Thurgau|TG|Schweiz|CHE|Wil SG|St. Gallen|SG|Schweiz|CHE',
+      18: '<p>Du arbeitest zuverlässig und freundlich mit Kundinnen und Kunden und stellst Briefe sowie Pakete sorgfältig zu.</p>',
+    }, 19);
+
+    const parsed = parsePostJobDetail(html, 'https://job.post.ch/default/job/post/74012-de_DE');
+
+    expect(parsed.city).toBe('Sirnach');
+    expect(parsed.places.map((place) => place.city)).toEqual(['Sirnach', 'Wil SG']);
+    expect(formatPostJobLocation(parsed.places, parsed.city)).toBe('Sirnach, Wil SG');
   });
 
   it('keeps apprenticeship descriptions whose nested spans live in token 11', () => {

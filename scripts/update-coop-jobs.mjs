@@ -871,6 +871,7 @@ async function postProcessCoopJobs() {
     return null;
   }
   const quarantineUrls = new Set();
+  const sourceBackedUrls = new Set();
 
   // Pure per-job repair: applies authoritative JSON-LD (location/company/title/
   // description) to a single job object in place. Safe to run from concurrent
@@ -1039,6 +1040,9 @@ async function postProcessCoopJobs() {
     const jsonLd = detail?.jsonLd || null;
     if (coopDetailNeedsQuarantine(job, jsonLd, detail?.page || null)) quarantineUrls.add(job.url);
     if (!jsonLd) return;
+    if (meetsSourceBodyFloor(coopDetailSourceBody(jsonLd, detail?.page || null))) {
+      sourceBackedUrls.add(job.url);
+    }
     if (repairJobFromJsonLd(job, jsonLd, detail.page)) repaired += 1;
   }
 
@@ -1075,9 +1079,14 @@ async function postProcessCoopJobs() {
     if (applyCoopLocationCantonPreference(job)) reconciled += 1;
   }
 
-  // The same ad published under several UUIDs (same store address, same
-  // text) is one vacancy for the reader: keep the earliest-seen record.
-  const { collapsed } = collapseRepublishedCoopVacancies(allJobs.filter(isCoopJob));
+  // The same source-backed ad published under several UUIDs is one vacancy
+  // for the reader: keep the earliest-seen record. The explicit source URL
+  // set permits the no-address case only after a detail page cleared the
+  // source-body gate; listing fallbacks remain conservative.
+  const { collapsed } = collapseRepublishedCoopVacancies(allJobs.filter(isCoopJob), {
+    allowIdenticalSourcePostingsWithoutAddress: true,
+    sourceBackedUrls,
+  });
   if (collapsed.length > 0) {
     const collapsedUrls = new Set(collapsed.map(({ url }) => url));
     const kept = allJobs.filter((j) => !(isCoopJob(j) && collapsedUrls.has(j.url)));
