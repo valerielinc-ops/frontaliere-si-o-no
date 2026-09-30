@@ -138,7 +138,9 @@ describe('editorial transparency disclosure matches how the article was produced
     // this module exists to remove: it answers "how was THIS article made"
     // with a property of the person, so a guest journalist's AI-assisted
     // piece would carry the "no AI assistance" claim.
-    expect(src).toMatch(/const isHumanContributor = !resolveArticleProvenance\(article, bylineAuthor\)\.aiAssisted/);
+    expect(src).toMatch(
+      /const isHumanContributor = !resolveArticleProvenance\(article(?:\s+as[^,]+)?, bylineAuthor\)\.aiAssisted/,
+    );
     expect(src).not.toMatch(/isHumanContributor\s*=\s*Boolean\(bylineAuthor\?\.uid\)/);
   });
 });
