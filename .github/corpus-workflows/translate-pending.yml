@@ -85,25 +85,40 @@ jobs:
             echo "waiting_runs=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100"
-          if ! runs_json="$(gh api --paginate --slurp "$runs_path" 2>/dev/null)"; then fail_open; fi
-          if ! printf "%s" "$runs_json" | jq -e 'type == "array" and all(.[]; (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string")))' >/dev/null; then fail_open; fi
-          if ! current_created_at="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) == $current) | .created_at][0] // empty')"; then fail_open; fi
+          guard_started_at=$SECONDS
+          api_timeout_seconds=15
+          guard_total_timeout_seconds=120
+          guard_api() {
+            if [ "$((SECONDS - guard_started_at))" -ge "$guard_total_timeout_seconds" ]; then return 124; fi
+            timeout --kill-after=5s "${api_timeout_seconds}s" gh api "$@" 2>/dev/null
+          }
+          active_runs=""
+          for run_status in queued pending waiting requested in_progress; do
+            runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100&status=${run_status}"
+            if ! status_json="$(guard_api "$runs_path")"; then fail_open; fi
+            if ! printf "%s" "$status_json" | jq -e 'type == "object" and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))' >/dev/null; then fail_open; fi
+            if ! status_runs="$(printf "%s" "$status_json" | jq -c '.workflow_runs[]')"; then fail_open; fi
+            if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$'\n'}${status_runs}"; fi
+          done
+          if [ -z "$active_runs" ]; then fail_open; fi
+          if ! current_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) == $current) | .created_at][0] // empty')"; then fail_open; fi
           if [ -z "$current_created_at" ]; then fail_open; fi
-          if ! waiting_candidates="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting")] | .[] | [.created_at, .id] | @tsv')"; then fail_open; fi
-          if ! in_progress_ids="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_open; fi
+          if ! waiting_candidates="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")] | .[] | [.created_at, .id] | @tsv')"; then fail_open; fi
+          if ! in_progress_ids="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_open; fi
+          in_progress_count="$(printf "%s\n" "$in_progress_ids" | awk 'NF {count++} END {print count + 0}')"
+          if [ "$in_progress_count" -gt 20 ]; then fail_open; fi
           active_heavy_runs=0
           while IFS= read -r run_id; do
             [ -z "$run_id" ] && continue
-            if ! run_created_at="$(printf "%s" "$runs_json" | jq -r --arg run_id "$run_id" '[.[].workflow_runs[] | select((.id | tostring) == $run_id) | .created_at][0] // empty')"; then fail_open; fi
+            if ! run_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg run_id "$run_id" '[.[] | select((.id | tostring) == $run_id) | .created_at][0] // empty')"; then fail_open; fi
             if [ -z "$run_created_at" ]; then fail_open; fi
             jobs_path="/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100"
-            if ! jobs_json="$(gh api "$jobs_path" 2>/dev/null)"; then fail_open; fi
+            if ! jobs_json="$(guard_api "$jobs_path")"; then fail_open; fi
             if ! printf "%s" "$jobs_json" | jq -e 'type == "object" and (.jobs | type) == "array"' >/dev/null; then fail_open; fi
             if ! translate_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate") | .status][0] // empty')"; then fail_open; fi
             if ! guard_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate_queue_guard") | .status][0] // empty')"; then fail_open; fi
             case "$translate_status" in
-              queued|pending|waiting)
+              queued|pending|waiting|requested)
                 waiting_candidates="${waiting_candidates}${waiting_candidates:+$'\n'}${run_created_at} ${run_id}"
                 ;;
               in_progress)
@@ -111,7 +126,7 @@ jobs:
                 ;;
               "")
                 case "$guard_status" in
-                  queued|pending|waiting|in_progress)
+                  queued|pending|waiting|requested|in_progress)
                     waiting_candidates="${waiting_candidates}${waiting_candidates:+$'\n'}${run_created_at} ${run_id}"
                     ;;
                 esac
