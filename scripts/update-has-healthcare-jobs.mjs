@@ -56,7 +56,7 @@ import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import {
   buildThinSourceHousekeepingProof,
-  findThinSourceJobsWithoutStoredBody,
+  collectThinSourceJobsForQuarantine,
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
@@ -450,11 +450,6 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const droppedThinSourceJobs = findThinSourceJobsWithoutStoredBody(
-    discoveredJobs,
-    existingTargetJobs,
-    jobMatchKey,
-  );
   const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingTargetJobs, jobMatchKey);
   const merged = mergePreserveLocaleData(existingTargetJobs, sourceBodyJobs).map((job) => ({
     ...job,
@@ -467,16 +462,11 @@ async function mergeJobs(discoveredJobs) {
   // Non-source slots the merge kept that are not in their own language go
   // back to the translation pipeline.
   for (const job of merged) dropStaleLocaleDescriptions(job);
-  const thinSourceJobsByKey = new Map(
-    merged
-      .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)))
-      .map((job) => [jobMatchKey(job), job]),
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    discoveredJobs,
+    merged,
+    jobMatchKey,
   );
-  for (const job of droppedThinSourceJobs) {
-    const key = jobMatchKey(job);
-    if (!thinSourceJobsByKey.has(key)) thinSourceJobsByKey.set(key, job);
-  }
-  const thinSourceJobs = [...thinSourceJobsByKey.values()];
   const cleanTargetJobs = merged
     .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));

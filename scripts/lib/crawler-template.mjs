@@ -169,7 +169,7 @@ import { mergeJobIdentity } from './job-match-key.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   buildThinSourceHousekeepingProof,
-  findThinSourceJobsWithoutStoredBody,
+  collectThinSourceJobsForQuarantine,
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './stored-source-body.mjs';
@@ -1171,11 +1171,6 @@ export async function runStandardCrawlerPipeline(config) {
     ? (prepareExistingJobs(companyExisting) || companyExisting)
     : companyExisting;
   const sourceBodyMatchKey = matchKey || mergeJobIdentity;
-  const droppedThinSourceJobs = findThinSourceJobsWithoutStoredBody(
-    parsedJobs,
-    mergeExisting,
-    sourceBodyMatchKey,
-  );
   const sourceBodyJobs = keepStoredSourceBodiesByKey(
     parsedJobs,
     mergeExisting,
@@ -1222,16 +1217,11 @@ export async function runStandardCrawlerPipeline(config) {
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
-  const thinSourceJobsByKey = new Map(
-    slugStableMerge
-      .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)))
-      .map((job) => [sourceBodyMatchKey(job), job]),
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    parsedJobs,
+    slugStableMerge,
+    sourceBodyMatchKey,
   );
-  for (const job of droppedThinSourceJobs) {
-    const key = sourceBodyMatchKey(job);
-    if (!thinSourceJobsByKey.has(key)) thinSourceJobsByKey.set(key, job);
-  }
-  const thinSourceJobs = [...thinSourceJobsByKey.values()];
   const thinSourceCount = thinSourceJobs.length;
   if (thinSourceCount > 0) {
     console.warn(
