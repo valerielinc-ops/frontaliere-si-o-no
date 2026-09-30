@@ -5,10 +5,12 @@ import {
   buildManorJobDescriptions,
   dedupeManorReposts,
   MANOR_CAREERS_SOURCES,
+  MANOR_FABRICATED_DESCRIPTION_RE,
   parseManorCareersBenefits,
   parseManorCareersLead,
   prepareManorSourceBody,
   stripStaleManorLocaleSlots,
+  detectManorEmploymentType,
   extractCityFromUrl,
   extractTitleFromUrl,
   parseJobPage,
@@ -19,6 +21,8 @@ import {
   stripSiteTitleSuffix,
 } from '../scripts/update-manor-jobs.mjs';
 import { normalizeKey } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
+import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
 
 const BIEL_JOB_ID = '1364490355';
 const BIEL_URL = `https://positions.manor.ch/job/Biel-Mitarbeiterin-Visual-Merchandising-80/${BIEL_JOB_ID}/`;
@@ -190,7 +194,7 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(readManorDescriptionLang(page)).toBe('fr');
   });
 
-  it('does not publish a short portal body or append Manor careers text', () => {
+  it('publishes a short portal body together with the official Manor careers block', () => {
     const page = manorDetailPage({
       title: 'Mitarbeiter*in Verkauf 40%',
       lang: 'de-DE',
@@ -207,9 +211,9 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     });
 
     expect(built.sourceLang).toBe('de');
-    expect(built.descriptionByLocale).toEqual({});
-    expect(built.description).toBe('');
-    expect(built.companyContext).toBe('none');
+    expect(built.description).toBe(`${parsed.description}\n\n${careersContext('de')}`);
+    expect(built.descriptionByLocale).toEqual({ de: built.description });
+    expect(built.companyContext).toBe('careers');
   });
 
   it('does not replace a placeholder with a generic company paragraph', () => {
@@ -266,20 +270,25 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
       expect(parsed.groups[0].title).toBe(lang === 'de' ? 'ANSTELLUNGSBEDINGUNGEN' : 'CONDITIONS D’EMPLOI');
       expect(parsed.groups[0].rows[0]).toBe(lang === 'de' ? "Mindestlohn von CHF 4'200" : "Salaire minimum de CHF 4'200");
     }
-    expect(MANOR_CAREERS_SOURCES.de.benefitsUrl).toBe('https://careers.manor.ch/de/ueber-manor/benefits');
+    expect(MANOR_CAREERS_SOURCES.de.benefitsUrl).toBe('https://careers.manor.ch/de/ueber-manor/benefits/');
     expect(buildManorCompanyContext('de', { lead: '', benefits: null })).toBe('');
   });
 
   it('drops stale slots written by earlier runs: a non-Italian `it` copy and the generic paragraph', () => {
     // Shape of the Fribourg caisse record (1369579555) in the 2026-09-29 slice.
     const body = 'Sens de l’accueil, rigueur dans les encaissements, rapidité, esprit d’équipe et disponibilité durant la période des fêtes.';
+    const generic = {
+      it: "Mitarbeiter*in Verkauf 40% presso Manor, con sede a Fribourg, Canton Freiburg, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      en: 'Mitarbeiter*in Verkauf 40% at Manor, located in Fribourg, Canton of Fribourg, Switzerland. Manor is one of Switzerland\'s leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.',
+      de: 'Mitarbeiter*in Verkauf 40% bei Manor, gelegen in Fribourg, Kanton Freiburg, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.',
+    };
     const stale = {
       sourceLang: 'fr',
       description: body,
       descriptionByLocale: {
-        it: `## Collaborateur/trice caisse (Parfumerie) 100%\n\n**Manor AG** — Fribourg (FR)\n\n${body}\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora.`,
-        en: 'Collaborateur/trice caisse (Parfumerie) 100% at Manor, located in Fribourg, Canton of Fribourg, Switzerland.',
-        de: 'Collaborateur/trice caisse (Parfumerie) 100% bei Manor, gelegen in Fribourg, Kanton Freiburg, Schweiz.',
+        it: `## Collaborateur/trice caisse (Parfumerie) 100%\n\n**Manor AG** — Fribourg (FR)\n\n${body}\n\n${generic.it}`,
+        en: generic.en,
+        de: generic.de,
         fr: body,
       },
     };
@@ -294,26 +303,31 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(stripStaleManorLocaleSlots(translated)).toBe(translated);
   });
 
-  it('keeps short real requirements but drops bodies that only point elsewhere', () => {
-    for (const placeholder of ['-', 'Voir JD', 'selon profil du rôle.', 'voire profil de rôle', 'gemäss Rollenprofil', 'già menzionato sopra']) {
+  it('drops placeholder source text but keeps the official block, and keeps short requirements', () => {
+    for (const placeholder of ['-', 'Keine', 'Nessuno', 'Aucune', 'Voir JD', 'selon profil du rôle.', 'voire profil de rôle', 'gemäss Rollenprofil', 'già menzionato sopra']) {
       const built = buildManorJobDescriptions({ title: 'T', city: 'Genève', canton: 'GE', pageDescription: placeholder, pageLang: 'fr', companyContexts: { fr: careersContext('fr') } });
       expect(built.body).toBe('');
-      expect(built.description).toBe('');
+      expect(built.description).toContain('## À propos de Manor');
+      expect(built.descriptionByLocale).toEqual({ fr: built.description });
     }
     for (const requirement of ['Deutschkenntnisse', 'Flexibilität, Verkaufstalent', 'Kasse']) {
       const built = buildManorJobDescriptions({ title: 'T', city: 'Chur', canton: 'GR', pageDescription: requirement, pageLang: 'de', companyContexts: { de: careersContext('de') } });
       expect(built.body).toBe(requirement);
-      expect(built.description).toBe('');
+      expect(built.description).toContain(requirement);
+      expect(built.description).toContain('## Über Manor');
     }
   });
 
-  it('applies the 50-word source floor and cleans stored generic text', () => {
+  it('does not use the 50-word source floor to quarantine Manor jobs', () => {
     const body = (count: number) => Array.from({ length: count }, (_, index) => `Aufgabe${index + 1}`).join(' ');
-    const thin = buildManorJobDescriptions({ pageDescription: body(35), pageLang: 'de' });
+    const thin = buildManorJobDescriptions({ pageDescription: body(35), pageLang: 'de', companyContexts: { de: careersContext('de') } });
+    const thinWithoutContext = buildManorJobDescriptions({ pageDescription: body(35), pageLang: 'de' });
     const rich = buildManorJobDescriptions({ pageDescription: body(60), pageLang: 'de' });
 
-    expect(thin.description).toBe('');
-    expect(thin.descriptionByLocale).toEqual({});
+    expect(thin.description).toBe(`${body(35)}\n\n${careersContext('de')}`);
+    expect(thin.descriptionByLocale).toEqual({ de: thin.description });
+    expect(thinWithoutContext.description).toBe(body(35));
+    expect(thinWithoutContext.descriptionByLocale).toEqual({ de: body(35) });
     expect(rich.description).toBe(body(60));
     expect(rich.descriptionByLocale).toEqual({ de: body(60) });
 
@@ -322,25 +336,19 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
       description: 'Kurzer Quelltext',
       descriptionByLocale: { de: 'Kurzer Quelltext' },
     });
-    expect(stored.description).toBe('');
-    expect(stored.descriptionByLocale).toEqual({});
+    expect(stored.description).toBe('Kurzer Quelltext');
+    expect(stored.descriptionByLocale).toEqual({ de: 'Kurzer Quelltext' });
   });
 
-  it('removes the complete historical careers block before applying the source floor', () => {
+  it('keeps the careers block and removes only a placeholder before it', () => {
     const body = (count: number) => Array.from({ length: count }, (_, index) => `Mansione${index + 1}`).join(' ');
-    const careersBlock = [
-      '## Informazioni su Manor',
-      'Manor è una delle principali catene di grandi magazzini della Svizzera, con negozi, mercati alimentari, ristoranti, centri di distribuzione e sede centrale a Basilea.',
-      '',
-      '## I vostri vantaggi a Manor',
-      'Le condizioni di lavoro e gli sconti per il personale valorizzano ogni collaboratrice e ogni collaboratore con offerte interessanti, opportunità concrete e percorsi di crescita professionale.',
-    ].join('\n');
+    const careersBlock = careersContext('de');
     const thinWithContext = prepareManorSourceBody({
-      sourceLang: 'it',
-      descriptionByLocale: { it: `${body(35)}\n\n${careersBlock}` },
+      sourceLang: 'de',
+      descriptionByLocale: { de: `${body(35)}\n\n${careersBlock}` },
     });
-    expect(thinWithContext.description).toBe('');
-    expect(thinWithContext.descriptionByLocale).toEqual({});
+    expect(thinWithContext.description).toBe(`${body(35)}\n\n${careersBlock}`);
+    expect(thinWithContext.descriptionByLocale).toEqual({ de: thinWithContext.description });
 
     const richBody = body(60);
     const rich = prepareManorSourceBody({
@@ -351,11 +359,49 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(rich.descriptionByLocale).toEqual({ it: richBody });
 
     const richWithContext = prepareManorSourceBody({
-      sourceLang: 'it',
-      descriptionByLocale: { it: `${richBody}\n\n${careersBlock}` },
+      sourceLang: 'de',
+      descriptionByLocale: { de: `${richBody}\n\n${careersBlock}` },
     });
-    expect(richWithContext.description).toBe(richBody);
-    expect(richWithContext.descriptionByLocale).toEqual({ it: richBody });
+    expect(richWithContext.description).toBe(`${richBody}\n\n${careersBlock}`);
+    expect(richWithContext.descriptionByLocale).toEqual({ de: richWithContext.description });
+
+    const placeholderWithContext = prepareManorSourceBody({
+      sourceLang: 'de',
+      descriptionByLocale: { de: `Keine\n\n${careersBlock}` },
+    });
+    expect(placeholderWithContext.description).toBe(careersBlock);
+    expect(placeholderWithContext.description).not.toContain('Keine');
+
+    const sourceHeadingOnly = prepareManorSourceBody({
+      sourceLang: 'de',
+      descriptionByLocale: { de: `${body(60)}\n\n## Über Manor\nQuelle della posizione.` },
+    });
+    expect(sourceHeadingOnly.description).toContain('## Über Manor');
+  });
+
+  it('removes the complete synthetic paragraph without removing real source text', () => {
+    const fabricated = "Mitarbeiter*in Verkauf Herrenkonfektion 30% presso Manor, con sede a Pfäffikon, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.";
+    expect(MANOR_FABRICATED_DESCRIPTION_RE.test(fabricated)).toBe(true);
+    const source = 'Du sprichts fliessend Deutsch';
+    const job = {
+      sourceLang: 'de',
+      description: `${source}\n\n${fabricated}`,
+      descriptionByLocale: { de: `${source}\n\n${fabricated}`, it: fabricated },
+    };
+    const prepared = prepareManorSourceBody(job);
+    dropFabricatedDescriptions([prepared], MANOR_FABRICATED_DESCRIPTION_RE, 'Manor AG');
+    expect(prepared.description).toBe(source);
+    expect(prepared.descriptionByLocale).toEqual({ de: source });
+  });
+
+  it('derives the scalar employment type from the title percentage', () => {
+    expect(detectManorEmploymentType('Mitarbeiter*in Kasse 100%')).toBe('FULL_TIME');
+    expect(detectManorEmploymentType('Mitarbeiter*in Kasse 30%')).toBe('PART_TIME');
+    expect(detectManorEmploymentType('Mitarbeiter*in Kasse 20–50%')).toBe('PART_TIME');
+    // The JobPosting schema in this repository accepts one enum string, not an
+    // array; an interval containing 100% is conservatively full time.
+    expect(detectManorEmploymentType('Mitarbeiter*in Kasse 80-100%')).toBe('FULL_TIME');
+    expect(detectManorEmploymentType('Head of Retail Media')).toBe('FULL_TIME');
   });
 
   it('trusts the portal language tag on short bodies and the detector only on a clear, long body', () => {
@@ -448,8 +494,21 @@ describe('Manor locale copies of one vacancy (audit-parser-quality issue 5253, d
     const de = parseJobPage(fixture('de'), deUrl);
     const en = parseJobPage(fixture('en'), enUrl);
     expect(en.title).toBe("Buyer (Women's Fashion) 100%");
-    expect(en.description).toMatch(/^• Minimum of 5 years' experience in a similar senior buying role/);
+    expect(en.description).toMatch(/^- Minimum of 5 years' experience in a similar senior buying role/);
     expect(en.description).toBe(de.description);
+  });
+
+  it('reads the complete nested source body and keeps HTML lists as dash bullets', () => {
+    const html = readFileSync(new URL('./fixtures/manor-job-nested-description.html', import.meta.url), 'utf8');
+    const parsed = parseJobPage(html, BIEL_URL);
+
+    expect(parsed.description).toContain('Du berätst unsere Kundinnen und Kunden mit Freude.');
+    expect(parsed.description).toContain('DEINE AUFGABEN');
+    expect(parsed.description).toContain('- Du betreust die Verkaufsfläche.');
+    expect(parsed.description).toContain('DEIN PROFIL');
+    expect(parsed.description).toContain('- Du bist zuverlässig und flexibel.');
+    expect(parsed.description.indexOf('DEINE AUFGABEN')).toBeLessThan(parsed.description.indexOf('DEIN PROFIL'));
+    expect(sourceBodyWordCount(parsed.description) + sourceBodyWordCount(parsed.title)).toBe(29);
   });
 
   it('does not treat a data-class attribute as the vacancy body class', () => {
