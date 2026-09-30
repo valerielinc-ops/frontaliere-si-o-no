@@ -86,6 +86,10 @@ function fileStem(name) {
 export async function handleAssistedApplicationEmailCv(req, deps) {
   if (String(req.method || '').toUpperCase() !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   if (!secretsMatch(deps.secret, req.get?.('x-stop-secret'))) return { status: 403, body: { ok: false, error: 'forbidden' } };
+  // Behind the automation flag like the rest of the automated second half
+  // (owner decision: everything off until the final trial run). Off: the
+  // e-mail reaches Valerie's inbox as today and nothing is attached.
+  if (deps.isEnabled && !(await deps.isEnabled())) return { status: 200, body: { ok: true, matched: false, reason: 'automation_off' } };
   const raw = Buffer.isBuffer(req.rawBody) ? req.rawBody : Buffer.from(typeof req.body === 'string' ? req.body : '');
   if (!raw.length || raw.length > MAX_RAW_MESSAGE_BYTES) return { status: 413, body: { ok: false, error: 'size' } };
 
