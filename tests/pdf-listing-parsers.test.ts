@@ -19,7 +19,7 @@ describe('PDF-backed HTML listing parsers', () => {
       }),
       expect.objectContaining({
         title: 'Med. Masseurin',
-        pdfUrl: 'https://reha-andeer.ch/wp-content/uploads/2026/07/2026_Stelleninserat-med.-Masseurin.PDF',
+        pdfUrl: 'https://reha-andeer.ch/offene-stellen/wp-content/uploads/2026/07/2026_Stelleninserat-med.-Masseurin.PDF',
         filename: '2026_Stelleninserat-med.-Masseurin.PDF',
       }),
     ]);
@@ -28,7 +28,7 @@ describe('PDF-backed HTML listing parsers', () => {
   it('keeps sibling rehabilitation PDF parsers on the same resolved-link contract', () => {
     expect(parseClinicaHildebrandListing([
       "<a href='./uploads/2026/Pflegefachperson.PDF?download=1'>Pflege</a>",
-      '<a href="/uploads/2026/Datenschutz.pdf">Privacy</a>',
+      '<a href="/uploads/2026/privacy.pdf">Privacy</a>',
     ].join(''))).toEqual([
       expect.objectContaining({
         pdfUrl: 'https://www.clinica-hildebrand.ch/uploads/2026/Pflegefachperson.PDF?download=1',
