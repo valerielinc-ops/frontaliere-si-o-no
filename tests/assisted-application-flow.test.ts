@@ -5,9 +5,11 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const {
   CANDIDATE_REMINDER_BEFORE_MS,
   CANDIDATE_REVIEW_MS,
+  MAX_DRAFT_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
   evaluateRedFlags,
+  isTransientDraftError,
   transition,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -20,6 +22,35 @@ const cleanDraft = {
   factCheck: { ok: true, unsupported: [] },
   questions: [],
 };
+
+describe('draft failures', () => {
+  // Trial run 2026-09-30: round 2 went to the owner on "codex auth broker rejected the request; codex timed out".
+  const brokerError = 'codex auth broker rejected the request_ codex timed out after <number>ms';
+
+  it('retries a transient failure, and hands over after the last attempt or on a real error', () => {
+    const regenerating = { state: 'regenerating', round: 2, dispatch: { mode: 'draft', round: 2, attempts: 1 } };
+    const retry = transition(regenerating, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.flow.state).toBe('regenerating');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+
+    const last = transition({ ...regenerating, dispatch: { ...regenerating.dispatch, attempts: MAX_DRAFT_ATTEMPTS } }, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
+    expect(last.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
+
+    const real = transition(regenerating, { type: 'draft_failed', error: 'cv_unavailable:not_found' }, { draft: cleanDraft, nowMs: T0 });
+    expect(real.flow.state).toBe('owner_takeover');
+  });
+
+  it('knows which errors another run can fix', () => {
+    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'model overloaded']) {
+      expect(isTransientDraftError(error)).toBe(true);
+    }
+    // runner_timeout: the watchdog already re-dispatched the silent run.
+    for (const error of ['cv_unavailable:not_found', 'posting_unreadable', 'invalid_profile', 'runner_timeout', 'codex_http_400', '']) {
+      expect(isTransientDraftError(error)).toBe(false);
+    }
+  });
+});
 
 describe('red flags', () => {
   it('separates what only Valerie can clear from what only the candidate can answer', () => {

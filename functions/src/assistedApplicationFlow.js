@@ -25,6 +25,16 @@ export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
 export const CANDIDATE_REMINDER_BEFORE_MS = 3 * 60 * 60 * 1000;
 export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 export const MAX_REVIEW_ROUNDS = 3;
+// A draft that failed on a transient error is dispatched again up to this many runs in all.
+export const MAX_DRAFT_ATTEMPTS = 3;
+const TRANSIENT_DRAFT_ERROR_RE = /broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|etimedout|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
+
+/** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
+// runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
+export function isTransientDraftError(error) {
+  const text = String(error || '');
+  return text !== 'runner_timeout' && TRANSIENT_DRAFT_ERROR_RE.test(text);
+}
 
 /*
  * `candidate_handoff` is career-ops' "browser handoff": when a portal needs a
@@ -140,12 +150,20 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
       effects = enterOwnerReview(next, flags, nowMs);
       break;
-    case 'draft_failed':
+    case 'draft_failed': {
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      // A transient failure gets another run first; the owner takes over only
+      // after the last attempt, or for an error another run will not fix.
+      const attempts = Number(flow?.dispatch?.attempts) || 1;
+      if (isTransientDraftError(event.error) && attempts < MAX_DRAFT_ATTEMPTS) {
+        effects = [{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: attempts + 1 }];
+        break;
+      }
       next.state = 'owner_takeover';
       next.heldBy = ['draft_failed'];
       effects = [{ type: 'email', kind: 'owner_takeover', reason: event.error || 'draft_failed' }];
       break;
+    }
     case 'owner_approve':
       if (state !== 'owner_review') return ignore('not_owner_review');
       // Every owner flag needs its explicit acknowledgement (written to the
