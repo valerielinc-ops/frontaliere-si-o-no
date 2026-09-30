@@ -15,7 +15,10 @@ vi.mock('../scripts/lib/jina-proxy.mjs', async (importOriginal) => ({
   fetchHtmlViaJinaWithRetry: mocks.fetchHtmlViaJinaWithRetry,
 }));
 
-import { fetchRehaAndeerListingHtml } from '../scripts/lib/reha-andeer-job-parser.mjs';
+import {
+  fetchRehaAndeerListingHtml,
+  parseRehaAndeerListing,
+} from '../scripts/lib/reha-andeer-job-parser.mjs';
 
 describe('Reha Andeer listing fetch', () => {
   afterEach(() => {
@@ -44,5 +47,11 @@ describe('Reha Andeer listing fetch', () => {
     mocks.fetchHtmlViaJinaWithRetry.mockResolvedValueOnce(null);
 
     await expect(fetchRehaAndeerListingHtml()).rejects.toThrow(/HTTP 404/);
+  });
+
+  it('does not throw on malformed percent-encoding in a PDF href', () => {
+    expect(() => parseRehaAndeerListing(
+      "<a href='/wp-content/uploads/%E0%A4.pdf'>PDF</a>",
+    )).not.toThrow();
   });
 });
