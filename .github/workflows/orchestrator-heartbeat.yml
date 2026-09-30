@@ -32,6 +32,7 @@ jobs:
             scripts/ci/orchestrator-heartbeat.mjs
             scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
+            functions/src/lib/orchestratorSlot.js
           sparse-checkout-cone-mode: false
 
       - name: Check latest orchestrator cron slot

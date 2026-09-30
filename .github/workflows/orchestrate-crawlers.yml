@@ -229,7 +229,7 @@ jobs:
         env:
           GITHUB_API_URL: ${{ github.api_url }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
-          SITE_CODE_COMMIT: ${{ github.sha }}
+          SITE_CODE_COMMIT: ${{ steps.generation_preflight.outputs.site_code_commit || github.sha }}
           CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
           SHADOW_READY: ${{ steps.generation_preflight.outputs.ready }}
           DELAY_SECONDS: ${{ inputs.delay_seconds || '60' }}
