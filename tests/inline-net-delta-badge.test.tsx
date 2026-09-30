@@ -1,5 +1,6 @@
+import { act } from 'react';
 import { describe, expect, it } from 'vitest';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import InlineNetDeltaBadge from '../components/calculator/InlineNetDeltaBadge';
 
 describe('InlineNetDeltaBadge', () => {
@@ -8,14 +9,16 @@ describe('InlineNetDeltaBadge', () => {
     expect(container.textContent).toContain('+CHF 120');
   });
 
-  it('unmounts itself after the animation ends so it does not leave layout space', () => {
+  it('unmounts itself after the animation ends so it does not leave layout space', async () => {
     const { container } = render(<InlineNetDeltaBadge delta={120} />);
     const badge = container.querySelector('span');
     expect(badge).not.toBeNull();
 
-    fireEvent.animationEnd(badge!);
+    await act(async () => {
+      fireEvent.animationEnd(badge!);
+    });
 
-    expect(container.querySelector('span')).toBeNull();
+    await waitFor(() => expect(container.querySelector('span')).toBeNull());
   });
 
   it('preserves the mobile negative formatting', () => {
