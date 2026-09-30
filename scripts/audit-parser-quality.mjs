@@ -1027,6 +1027,40 @@ function sourceContentText(value) {
     .trim();
 }
 
+/**
+ * A detail page may publish two source-language bodies separated by an
+ * explicit `***` marker (for example a bilingual FR/DE HES-SO ad). The
+ * rendered extractor quite correctly sees one page, but the crawler's
+ * source-locale slot contains one of those bodies. Compare against the block
+ * that materially overlaps the published source text, and only do so when two
+ * substantive blocks make that interpretation unambiguous. Thin heading/title
+ * fragments around the marker are ignored; unrelated pages remain measured as
+ * one source document.
+ */
+function comparableSourceDescription(value, publishedDescription) {
+  const source = sourceContentText(value);
+  const blocks = source
+    .split(/\*{3,}/)
+    .map((block) => sourceContentText(block))
+    .filter((block) => block.length >= COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS);
+  if (blocks.length < 2) return source;
+
+  const publishedWords = wordSet(publishedDescription);
+  if (!publishedWords.size) return source;
+  const ranked = blocks.map((block) => {
+    const blockWords = wordSet(block);
+    let overlap = 0;
+    for (const word of publishedWords) if (blockWords.has(word)) overlap += 1;
+    const denominator = Math.min(publishedWords.size, blockWords.size);
+    return { block, overlap, score: denominator ? overlap / denominator : 0 };
+  }).sort((a, b) => b.score - a.score || b.overlap - a.overlap);
+  const [best, runnerUp] = ranked;
+  if (!best || !runnerUp || best.overlap < 10 || best.score < 0.35 || best.score - runnerUp.score < 0.1) {
+    return source;
+  }
+  return best.block;
+}
+
 export function compareSourceDetail(job, detail, {
   locationEvidence = 'jsonld',
   crawlerKey = job?.crawlerKey,
@@ -1034,7 +1068,7 @@ export function compareSourceDetail(job, detail, {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
   const publishedDescription = plainText(sourceDescription(job));
-  const sourceDescriptionText = sourceContentText(detail?.description || '');
+  const sourceDescriptionText = comparableSourceDescription(detail?.description || '', publishedDescription);
   const publishedWords = wordSet(publishedDescription);
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;

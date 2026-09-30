@@ -13,6 +13,8 @@ import {
   resolveHornbachPostedDate,
   resolveHornbachEmploymentType,
   parseHornbachOffer,
+  isHornbachOfferRedirectUrl,
+  resolveHornbachOfferUrl,
   fetchHornbachSearchApiKey,
   fetchOfferDocumentsWithKeyRetry,
   fetchAllHornbachJobs,
@@ -77,6 +79,34 @@ describe('Hornbach crawler parser', () => {
     it('handles malformed URLs gracefully', () => {
       expect(isTrustedDomain('not-a-url')).toBe(false);
       expect(isTrustedDomain('')).toBe(false);
+    });
+  });
+
+  describe('offer URL resolution', () => {
+    it('identifies the shared redirect shell', () => {
+      expect(isHornbachOfferRedirectUrl('https://jobs.hornbach.ch/offer-redirect/?offerApiId=abc')).toBe(true);
+      expect(isHornbachOfferRedirectUrl('https://jobs.hornbach.ch/offer/verkauf/uuid')).toBe(false);
+    });
+
+    it('returns the vacancy-specific URL after following the redirect', async () => {
+      const fetchImpl = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.hornbach.ch/offer/verkauf/offer-uuid?showApplicationForm=false',
+        body: null,
+      }));
+      await expect(resolveHornbachOfferUrl(
+        'https://jobs.hornbach.ch/offer-redirect/?offerApiId=abc',
+        { fetchImpl },
+      )).resolves.toBe('https://jobs.hornbach.ch/offer/verkauf/offer-uuid?showApplicationForm=false');
+      expect(fetchImpl).toHaveBeenCalledOnce();
+    });
+
+    it('withholds a redirect that does not resolve to its own offer page', async () => {
+      await expect(resolveHornbachOfferUrl(
+        'https://jobs.hornbach.ch/offer-redirect/?offerApiId=abc',
+        { fetchImpl: async () => ({ ok: false, status: 404, url: '', body: null }) },
+      )).resolves.toBe('');
     });
   });
 
@@ -544,6 +574,10 @@ describe('fetchAllHornbachJobs — offer without vacancy text', () => {
           { document: doc('148901', 'Verkäufer:in Bau &amp; Garten', '<p>Du berätst unsere Kundschaft in der Abteilung Bau und Garten. Du arbeitest eng mit Kolleginnen und Kollegen aus mehreren Abteilungen zusammen, dokumentierst deine Arbeit sorgfältig und hilfst uns, unsere Abläufe zu verbessern. Wir bieten einen modernen Arbeitsplatz, flexible Arbeitszeiten, Weiterbildungen und eine offene Teamkultur. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden dein Profil ab.</p>') },
           { document: doc('148902', 'Kassierer:in', '') },
         ] }] });
+      }
+      if (u.includes('/offer-redirect/')) {
+        const id = new URL(u).searchParams.get('offerApiId') || 'unknown';
+        return { ok: true, status: 200, url: `https://jobs.hornbach.ch/offer/offer-${id}/uuid-${id}`, body: null };
       }
       return new Response('', { status: 404 });
     }));
