@@ -114,7 +114,7 @@ const LOCALE_PACKS: Record<SalaryLocale, LocalePack> = {
     whatIfHref: '/en/calculate-salary/what-if/',
   },
   de: {
-    breadcrumbHome: 'Start',
+    breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Gehalt berechnen',
     hubHref: '/de/gehalt-berechnen/',
     adviceLabel: 'Hinweis',

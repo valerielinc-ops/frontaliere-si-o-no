@@ -256,7 +256,7 @@ const COPY: Record<SalaryLocale, SalaryCopy> = {
     },
   },
   de: {
-    breadcrumbHome: 'Home',
+    breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Lohnrechner',
     breadcrumbHubPath: '/de/gehalt-berechnen/',
     updatedLabel: 'Daten',
