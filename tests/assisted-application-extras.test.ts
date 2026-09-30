@@ -210,6 +210,21 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 2, sendCascade, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
 
+    // A contended transaction is retried: the retry sees the other sender's claim and backs off.
+    const raced = followupStore();
+    await raced.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    const contended = {
+      ...raced.db,
+      runTransaction: async (callback: any) => {
+        await callback({ get: (ref: any) => ref.get(), set: () => {}, delete: () => {} });
+        await raced.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set({ state: 'sending' }, { merge: true });
+        return raced.db.runTransaction(callback);
+      },
+    };
+    const racedSend = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    expect(await sendFollowup({ db: contended, orderId: ORDER, nowMs: T0, sendCascade: racedSend, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
+    expect(racedSend).not.toHaveBeenCalled();
+
     const other = followupStore();
     await other.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
     await sendFollowup({ db: other.db, orderId: ORDER, nowMs: T0, sendCascade: vi.fn(async () => ({ failed: [{ ambiguousDelivery: true }], sent: [] })), by: 'deadline' });
