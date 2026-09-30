@@ -4,9 +4,11 @@ import YAML from 'yaml';
 import {
   credentialAlertTitle,
   formatCredentialAlert,
+  formatReadinessTable,
   probeAzure,
   probeDeepL,
   probeGoogleCloud,
+  providerRecovered,
   rejectedProviders,
 } from '../scripts/translation-provider-readiness.mjs';
 
@@ -88,6 +90,33 @@ describe('translation provider readiness probe', () => {
     });
     expect(both).toMatchObject({ credential: 'service-account', verdict: 'auth-failed' });
     expect(both.detail).toContain('oauth fallback');
+  });
+
+  it('closes a credential alert only when a credential answers ok', () => {
+    const errorOnly = [
+      { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'error', detail: 'TimeoutError' },
+      { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY_2', verdict: 'quota-exhausted' },
+    ];
+    expect(rejectedProviders(errorOnly)).toEqual([]);
+    expect(providerRecovered('azure', errorOnly)).toBe(false);
+    expect(providerRecovered('azure', [...errorOnly, { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'ok' }])).toBe(true);
+    expect(providerRecovered('deepl', [{ provider: 'deepl', credential: 'DEEPL_API_KEY', verdict: 'quota-exhausted' }])).toBe(false);
+  });
+
+  it('does not turn a failing OAuth token endpoint into a rejected Google credential', async () => {
+    const verdict = await probeGoogleCloud({
+      fetcher: fetcherFrom(() => ({ status: 503 })),
+      serviceAccount: null,
+      oauth: { clientId: 'id', clientSecret: 's', refreshToken: 'r' },
+    });
+    expect(verdict).toMatchObject({ credential: 'oauth', verdict: 'error' });
+  });
+
+  it('keeps the readiness table shape when a detail carries pipes or newlines', () => {
+    const table = formatReadinessTable([{ provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'error', detail: 'bad | value\nsecond line' }]);
+    const row = table.split('\n')[2];
+    expect(table.split('\n')).toHaveLength(3);
+    expect(row).toBe('| Azure Translator | AZURE_TRANSLATOR_KEY | error | bad \\| value second line |');
   });
 
   it('sends a rejected Google credential to the Actions secret the workflow reads, not to Remote Config', () => {

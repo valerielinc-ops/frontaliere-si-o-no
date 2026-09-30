@@ -112,6 +112,9 @@ async function oauthAccessToken({ clientId, clientSecret, refreshToken }, fetche
     body: new URLSearchParams({ client_id: clientId, client_secret: clientSecret, refresh_token: refreshToken, grant_type: 'refresh_token' }),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
+  // 429/5xx is the token endpoint having a bad minute, not a refused
+  // credential: it must not become an owner alert.
+  if (res.status === 429 || res.status >= 500) throw Object.assign(new Error(`HTTP ${res.status}`), { transient: true });
   if (!res.ok) return '';
   return (await res.json())?.access_token || '';
 }
@@ -190,7 +193,11 @@ export async function probeGoogleCloud({
   let token = '';
   try {
     token = await oauthAccessToken(oauth, fetcher);
-  } catch {
+  } catch (error) {
+    // Timeouts, network errors and 429/5xx say nothing about the credential.
+    if (!serviceAccountVerdict) {
+      return { provider: 'google-cloud', credential: 'oauth', verdict: 'error', detail: `token exchange: ${error?.message || error?.name || 'request-error'}` };
+    }
     token = '';
   }
   if (!token) return serviceAccountVerdict || { provider: 'google-cloud', credential: 'oauth', verdict: 'auth-failed', detail: 'no access token' };
@@ -251,6 +258,15 @@ const CREDENTIAL_STORE = {
   },
 };
 
+/**
+ * Whether a run proves the provider serves again: only an `ok` credential
+ * does. An error or an exhausted quota says nothing about a rejected one, so
+ * it must not close the owner's alert.
+ */
+export function providerRecovered(provider, results) {
+  return results.some((result) => result.provider === provider && result.verdict === 'ok');
+}
+
 export function credentialAlertTitle(provider) {
   return `${PROVIDER_NAMES[provider] || provider} credentials rejected — ${CREDENTIAL_STORE[provider]?.title || 'rotate them'}`;
 }
@@ -259,7 +275,8 @@ export function formatReadinessTable(results) {
   return [
     '| Provider | Credential | Verdict | Detail |',
     '|---|---|---|---|',
-    ...results.map((result) => `| ${PROVIDER_NAMES[result.provider] || result.provider} | ${result.credential} | ${result.verdict} | ${result.detail || ''} |`),
+    ...results.map((result) => `| ${[PROVIDER_NAMES[result.provider] || result.provider, result.credential, result.verdict, result.detail || '']
+      .map((cell) => String(cell).replace(/\|/g, '\\|').replace(/\s*\n\s*/g, ' ')).join(' | ')} |`),
   ].join('\n');
 }
 
@@ -293,7 +310,7 @@ async function alertFrom(file, runUrl) {
         labels: ['needs-human', 'fu-parked'],
         workflow: 'Translate Pending Jobs',
       });
-    } else if (results.some((result) => result.provider === provider && result.verdict !== 'auth-failed')) {
+    } else if (providerRecovered(provider, results)) {
       resolveGithubIssue(title, { workflow: 'Translate Pending Jobs', runUrl });
     }
   }
