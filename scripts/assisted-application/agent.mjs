@@ -57,10 +57,11 @@ async function main() {
   const { getStorage } = await import('firebase-admin/storage');
   const bucket = getStorage().bucket(BUCKET);
   const orderRef = db.collection('assisted_applications').doc(orderId);
-  const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+  const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot] = await Promise.all([
     orderRef.get(),
     orderRef.collection('automation').doc('flow').get(),
     orderRef.collection('ai_drafts').doc('current').get(),
+    orderRef.collection('automation').doc('intake').get(),
   ]);
   if (!orderSnapshot.exists || !flowSnapshot.exists) {
     summary(`mode=${mode} skipped: no order or no flow`);
@@ -104,6 +105,7 @@ async function main() {
     try {
       const draft = await buildDraft({
         order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
+        intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
       });
       await orderRef.collection('ai_drafts').doc('current').set(draft);
