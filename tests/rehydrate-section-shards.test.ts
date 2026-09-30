@@ -98,6 +98,23 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toContain('rehydrate_max_parallel=4');
   });
 
+  it('reclaims consumed batch tars instead of retaining the whole shard corpus on disk (#7421)', () => {
+    expect(script).toContain('rehydrate-batch-%s-%s.remaining');
+    expect(script).toContain('batch_count=$((batch_count + 1))');
+    expect(script).toContain('rehydrate_batch_release "$batch" "$loc"');
+
+    const tarConsume = script.indexOf('rm -f "$dl/$section-dist-$loc.tar"');
+    const releaseAfterConsume = script.indexOf(
+      'rehydrate_batch_release "$batch" "$loc"',
+      tarConsume,
+    );
+    expect(tarConsume, 'section tar consumption marker disappeared').toBeGreaterThan(-1);
+    expect(releaseAfterConsume, 'consumed batch tar is not reference-counted').toBeGreaterThan(tarConsume);
+    expect(script).toContain(
+      'find "$REHYDRATE_STATE_ROOT" -maxdepth 2 -type f -name \'*-dist-*.tar\' -delete',
+    );
+  });
+
   it('checks the cross-job clone cache BEFORE the network clone, with a continue on hit', () => {
     const cacheIdx = script.indexOf('SHARD_CLONE_CACHE_DIR');
     const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
