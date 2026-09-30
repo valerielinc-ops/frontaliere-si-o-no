@@ -275,7 +275,8 @@ describe('submit mode', () => {
     });
     expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     // The first run sent it, then died before its event: the retry does not send again.
-    expect(await run()).toEqual({ type: 'submit_succeeded', channel: 'email', replayed: true });
+    // The replay still hands over what the follow-ups need, from the record of the first send.
+    expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email', replayed: true, followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
     expect(sendCascade).toHaveBeenCalledTimes(1);
     expect(store.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'email', to: 'hr@ospedale.ch' } });
 
