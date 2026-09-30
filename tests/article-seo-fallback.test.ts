@@ -99,6 +99,37 @@ describe('article SEO fallback builder', () => {
     expect(sections.map((s) => s.html)).toEqual(['<p>Tom &amp; Jerry &lt;script&gt;alert(1)&lt;/script&gt;</p>']);
   });
 
+  it('renders legacy HTML anchors from archived bodies without exposing markup', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      'Fonte: <a href="https://www.seco.admin.ch/" target="_blank" rel="noopener">SECO</a>.',
+    ]));
+
+    expect(section.html).toBe(
+      '<p>Fonte: <a href="https://www.seco.admin.ch/">SECO</a>.</p>',
+    );
+    expect(section.html).not.toContain('&lt;a');
+    expect(section.html).not.toContain('target=');
+  });
+
+  it('renders markdown links in visible FAQ-style answers with safe URLs', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      'Verifica la [pagina ufficiale](https://www.estv.admin.ch/it/).',
+    ]));
+
+    expect(section.html).toBe(
+      '<p>Verifica la <a href="https://www.estv.admin.ch/it/">pagina ufficiale</a>.</p>',
+    );
+  });
+
+  it('keeps unsafe inline URLs as escaped text', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      '[Apri](javascript:alert)',
+    ]));
+
+    expect(section.html).toBe('<p>Apri</p>');
+    expect(section.html).not.toContain('javascript:');
+  });
+
   it('renders single-# headings (used by some articles) as h3, not literal text', () => {
     const sections = cleanupArticleBodySections(keyed(['# Titolo principale\nTesto del paragrafo.']));
 

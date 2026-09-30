@@ -72,17 +72,77 @@ const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
  fr: 'Impact concret pour les residents en Suisse',
 };
 
-// Renders inline markdown (links, bold, italic, code) to safe HTML. Escapes the raw text
-// first, then layers markup on top — none of the markdown syntax characters (*[]()`) are
-// HTML-special, so this can't reopen an escaped entity.
-const renderInlineMarkup = (line: string): string => {
+const LEGACY_HTML_ANCHOR_RX = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+const HTML_HREF_ATTR_RX = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i;
+const INLINE_MARKDOWN_LINK_RX = /\[([^\]]+)\]\(([^)]+)\)/g;
+const INLINE_LINK_TOKEN_RX = /\u0000inline-link-(\d+)\u0000/g;
+const INLINE_HTML_ENTITY_MAP: Record<string, string> = {
+ amp: '&',
+ lt: '<',
+ gt: '>',
+ quot: '"',
+ '#39': "'",
+ apos: "'",
+};
+
+/** Decode only the entities that can occur in legacy article HTML attributes/text. */
+const decodeInlineHtmlEntities = (value: string): string => value.replace(
+ /&(amp|lt|gt|quot|#39|apos);/gi,
+ (_, entity: string) => INLINE_HTML_ENTITY_MAP[entity.toLowerCase()] ?? _,
+);
+
+/** Keep article links useful without allowing a source URL to become script. */
+const safeInlineHref = (value: string): string | null => {
+ const href = decodeInlineHtmlEntities(value).trim().replace(/^(["'])|(["'])$/g, '');
+ if (!href || /[\u0000-\u001f\u007f]/.test(href)) return null;
+ if (/^(?:https?:|mailto:)/i.test(href)) return href;
+ if (href.startsWith('/') || href.startsWith('#')) return href;
+ // Relative article links are valid; scheme-bearing values such as javascript:
+ // and data: are not. This also keeps protocol-relative URLs out of the body.
+ if (!/^[a-z][a-z\d+.-]*:/i.test(href) && !href.startsWith('//')) return href;
+ return null;
+};
+
+/**
+ * Renders inline markdown and the legacy literal `<a>` markup found in some
+ * archived corpus entries to safe HTML. The old implementation escaped the
+ * whole line first, so a source anchor became visible `&lt;a ...&gt;` text.
+ * Links are tokenized before escaping and restored only after all text has been
+ * escaped, preserving the complete archived wording without reopening HTML.
+ */
+export const renderArticleInlineMarkup = (line: string): string => {
  const { esc } = getSiteShell();
- return esc(line)
- .replace(/\[([^\]]+)\]\(nav:[^)]+\)/g, '$1')
- .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
- .replace(/`([^`]+)`/g, '<code>$1</code>')
- .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
- .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ const links: string[] = [];
+ const stashLink = (label: string, href: string): string => {
+  const safeHref = safeInlineHref(href);
+  if (!safeHref) return label;
+  const token = `\u0000inline-link-${links.length}\u0000`;
+  links.push(`<a href="${esc(safeHref)}">${esc(decodeInlineHtmlEntities(label))}</a>`);
+  return token;
+ };
+
+ // Normalize literal HTML anchors before the general text escape. Attributes
+ // such as target/rel are intentionally discarded: the static article shell
+ // controls link policy, while href and visible label are retained verbatim.
+ let normalized = line.replace(LEGACY_HTML_ANCHOR_RX, (whole, attrs: string, label: string) => {
+  const hrefMatch = HTML_HREF_ATTR_RX.exec(attrs);
+  if (!hrefMatch) return label;
+  return stashLink(label, hrefMatch[1] ?? hrefMatch[2] ?? hrefMatch[3] ?? '');
+ });
+
+ // `nav:` links are SPA navigation markers, not public URLs. Preserve their
+ // visible label exactly as the previous renderer did; ordinary markdown links
+ // become safe anchors through the same token path as legacy HTML anchors.
+ normalized = normalized.replace(INLINE_MARKDOWN_LINK_RX, (whole, label: string, href: string) => {
+  if (href.trim().startsWith('nav:')) return label;
+  return stashLink(label, href);
+ });
+
+ return esc(normalized)
+  .replace(/`([^`]+)`/g, '<code>$1</code>')
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\*(.*?)\*/g, '<em>$1</em>')
+  .replace(INLINE_LINK_TOKEN_RX, (_, index: string) => links[Number(index)] ?? '');
 };
 
 const LIST_LINE_RX = /^[-*]\s+/;
@@ -105,9 +165,9 @@ const parseTableCells = (line: string): string[] =>
  line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
 
 const renderTableBlock = (headerLine: string, bodyLines: string[]): string => {
- const head = parseTableCells(headerLine).map((cell) => `<th>${renderInlineMarkup(cell)}</th>`).join('');
+ const head = parseTableCells(headerLine).map((cell) => `<th>${renderArticleInlineMarkup(cell)}</th>`).join('');
  const body = bodyLines
- .map((row) => `<tr>${parseTableCells(row).map((cell) => `<td>${renderInlineMarkup(cell)}</td>`).join('')}</tr>`)
+ .map((row) => `<tr>${parseTableCells(row).map((cell) => `<td>${renderArticleInlineMarkup(cell)}</td>`).join('')}</tr>`)
  .join('');
  return `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 };
@@ -122,7 +182,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
 
  const flushParagraph = () => {
  if (paragraphBuf.length) {
- out.push(`<p>${renderInlineMarkup(paragraphBuf.join(' '))}</p>`);
+ out.push(`<p>${renderArticleInlineMarkup(paragraphBuf.join(' '))}</p>`);
  paragraphBuf = [];
  }
  };
@@ -161,7 +221,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  // Single `#` is rare in body markdown and would collide with the section's own <h2> wrapper
  // (see articleBodyHtml in ogPagesPlugin.ts), so clamp # and ## to the same h3 level.
  const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
- out.push(`<h${level}>${renderInlineMarkup(heading[2])}</h${level}>`);
+ out.push(`<h${level}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
  i++;
  continue;
  }
@@ -187,7 +247,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  flushParagraph();
  const items: string[] = [];
  while (i < lines.length && LIST_LINE_RX.test(lines[i].trim())) {
- items.push(`<li>${renderInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''))}</li>`);
+ items.push(`<li>${renderArticleInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''))}</li>`);
  i++;
  }
  out.push(`<ul>${items.join('')}</ul>`);
@@ -201,7 +261,7 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  quoteLines.push(lines[i].trim().replace(QUOTE_LINE_RX, ''));
  i++;
  }
- out.push(`<blockquote><p>${renderInlineMarkup(quoteLines.join(' '))}</p></blockquote>`);
+ out.push(`<blockquote><p>${renderArticleInlineMarkup(quoteLines.join(' '))}</p></blockquote>`);
  continue;
  }
 
