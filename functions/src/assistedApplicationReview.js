@@ -39,7 +39,41 @@ async function authorize(token, deps) {
   return verified;
 }
 
-function questionView(question) {
+// A start date (availability, "inizio", "Eintritt", "début") is never in the past.
+const START_DATE_RE = /availab|disponib|verfügbar|verfuegbar|ab wann|\bstart|inizio|entrata in servizio|beginn|eintritt|antritt|arbeitsbeginn|début|entrée en (fonction|service)|prise de poste|à partir de quand|when can you/i;
+const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+/** Today in Zurich, YYYY-MM-DD. */
+export function zurichToday(nowMs = Date.now()) {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(nowMs));
+}
+
+/** The earliest date a date question accepts: today for a start date, else none. */
+export function minDateFor(question, nowMs = Date.now()) {
+  return question?.type === 'date' && START_DATE_RE.test(`${question.id || ''} ${question.question || ''}`) ? zurichToday(nowMs) : null;
+}
+
+/**
+ * The proposed start date (owner decision 2026-09-30): the first day of the
+ * month three months after next month, e.g. 1 January 2027 in September 2026.
+ */
+export function defaultStartDate(nowMs = Date.now()) {
+  const [year, month] = zurichToday(nowMs).split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1 + 4, 1)).toISOString().slice(0, 10);
+}
+
+/** A real calendar date (YYYY-MM-DD, year 1900 to ten years ahead), not before `minDate`. */
+export function validDateAnswer(text, minDate = null, nowMs = Date.now()) {
+  const match = ISO_DATE_RE.exec(String(text || ''));
+  if (!match) return false;
+  const [year, month, day] = match.slice(1).map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return false;
+  if (year < 1900 || year > new Date(nowMs).getUTCFullYear() + 10) return false;
+  return !minDate || text >= minDate;
+}
+
+function questionView(question, nowMs = Date.now()) {
   return {
     id: question.id,
     question: question.question,
@@ -47,6 +81,9 @@ function questionView(question) {
     type: question.type,
     options: question.options || [],
     required: Boolean(question.required),
+    minDate: minDateFor(question, nowMs),
+    // A proposal shown in the field, never an answer until the candidate saves it.
+    suggested: minDateFor(question, nowMs) ? defaultStartDate(nowMs) : null,
   };
 }
 
@@ -56,11 +93,11 @@ function atsView(report) {
   return report ? { grade: report.structural?.grade || null, keywordCoverage: report.keywords?.coverage ?? null, missing: (report.keywords?.missing || []).slice(0, 8) } : null;
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null }) {
+export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const answers = flow?.answers || {};
-  const questions = (draft?.questions || []).map(questionView);
+  const questions = (draft?.questions || []).map((question) => questionView(question, nowMs));
   const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
   const channel = draft?.channel || {};
   const identity = candidateIdentity(order, draft?.profile);
@@ -75,6 +112,9 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   return {
     ok: true,
     stale,
+    // The link of the round the candidate just sent back: the next version is
+    // being prepared, which is what the page says (not "an older version").
+    preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
     round: current,
     roundsLeft: Math.max(0, MAX_REVIEW_ROUNDS - current),
@@ -125,7 +165,7 @@ async function loadAll(db, orderId) {
   };
 }
 
-function sanitizeAnswers(raw, draft) {
+export function sanitizeAnswers(raw, draft, nowMs = Date.now()) {
   const allowed = new Map((draft?.questions || []).map((question) => [question.id, question]));
   const out = {};
   for (const [id, value] of Object.entries(raw && typeof raw === 'object' ? raw : {})) {
@@ -133,6 +173,10 @@ function sanitizeAnswers(raw, draft) {
     if (!question) continue;
     const text = clean(value, MAX_ANSWER_CHARS);
     if (question.type === 'choice' && question.options?.length && text && !question.options.includes(text)) continue;
+    // Not a date, or a start date in the past: refused, so the candidate corrects it.
+    if (question.type === 'date' && text && !validDateAnswer(text, minDateFor(question, nowMs), nowMs)) {
+      throw new ReviewError('invalid_date');
+    }
     out[id] = text;
   }
   return out;
@@ -162,7 +206,7 @@ export async function handleAssistedApplicationReview(req, deps) {
         sign(draft?.coverLetterPdfKey),
         sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
       ]);
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl }) };
+      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, nowMs }) };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
@@ -191,7 +235,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: flow.state, cvChoice: choice } };
     }
     if (action === 'answers') {
-      const answers = sanitizeAnswers(body.answers, draft);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       await flowRefFor(deps.db, orderId).set({ answers: { ...(flow.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
     }
