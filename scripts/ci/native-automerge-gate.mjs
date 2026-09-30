@@ -72,6 +72,7 @@ const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gatew
 const MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS = 3;
 const NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
 const BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE = /(?:GraphQL:\s*)?Base branch was modified\.\s*Review and try the merge again\.\s*\(mergePullRequest\)/iu;
+const TRANSIENT_NATIVE_AUTO_MERGE_MUTATION_ERROR_RE = /(?:GraphQL:\s*Something went wrong|\b(?:HTTP\s*)?50[23]\b|bad gateway|service unavailable|timeout|timed?\s*out|ETIMEDOUT|ECONNRESET|EAI_AGAIN|socket hang up)/iu;
 const BODY_RECOVERY_MARKER_PREFIX = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
 const BODY_RECOVERY_STATUSES = new Set(['pending', 'queued', 'manual', 'completed']);
 const NATIVE_AUTO_MERGE_LEASE_PREFIX = '<!-- NATIVE_AUTO_MERGE_LEASE:';
@@ -1267,22 +1268,23 @@ export function isAlreadyInProgressOutput(value) {
   return /merge already in progress/i.test(String(value || ''));
 }
 
-/** GitHub's immediate merge mutation can race a concurrent update of `main`. */
+/** GitHub's immediate merge mutation can race `main` or a transient API outage. */
 export function isRetryableNativeAutoMergeMutationError(value) {
-  return BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE.test(String(value || ''));
+  return BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE.test(String(value || ''))
+    || TRANSIENT_NATIVE_AUTO_MERGE_MUTATION_ERROR_RE.test(String(value || ''));
 }
 
 function capturedErrorOutput(error) {
-  return [error?.message, error?.stderr, error?.stdout]
-    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value || ''))
+  return [error?.message, error?.stderr, error?.stdout, error?.status]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? ''))
     .filter(Boolean)
     .join('\n');
 }
 
 /**
- * Retry only the known base-branch race around the side-effecting mutation.
- * The expected HEAD remains bound by `nativeAutoMergeArgs`; all other errors
- * are thrown on the first attempt and exhaustion stays fail-closed.
+ * Retry known transient failures around the side-effecting mutation. The
+ * expected HEAD remains bound by `nativeAutoMergeArgs`; all other errors are
+ * thrown on the first attempt and exhaustion stays fail-closed.
  */
 export function withNativeAutoMergeMutationRetry(operation, {
   attemptLimit = MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS,
