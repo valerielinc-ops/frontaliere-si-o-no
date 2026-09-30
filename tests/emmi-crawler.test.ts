@@ -169,6 +169,16 @@ describe('extractEmmiVacancyHtml', () => {
       .toBe('<ul><li>A: B</li></ul>');
   });
 
+  it('keeps an empty benefit grid when the source still publishes its heading and link', () => {
+    const html = '<section id="benefits"><h2>Ce que nous offrons</h2>'
+      + '<div id="benefitsHolder" class="benefits-grid"></div>'
+      + '<a class="arrowIconLink" href="https://group.emmi.com/che/fr/travailler-chez-emmi/conditions-demploi-reglementations">'
+      + '<span>En savoir plus sur les avantages</span></a></section>';
+    const text = stripHtml(extractEmmiVacancyHtml(html));
+    expect(text).toContain('Ce que nous offrons');
+    expect(text).toContain('En savoir plus sur les avantages');
+  });
+
   it('returns nothing for a page without the ad sections, so the OHWS blocks are used', () => {
     expect(extractEmmiVacancyHtml('<html><body><section id="contact">x</section></body></html>')).toBe('');
   });

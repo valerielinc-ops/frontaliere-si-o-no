@@ -211,7 +211,14 @@ export function extractEmmiVacancyHtml(html = '') {
       if (title || text) items.push(`<li>${[title, text].filter(Boolean).join(': ')}</li>`);
     }
     const heading = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(benefits)?.[0] || '';
-    if (items.length) parts.push(`${heading}<ul>${items.join('')}</ul>`);
+    const benefitsLink = /<a\b[^>]*class="[^"]*arrowIconLink[^"]*"[^>]*>([\s\S]*?)<\/a>/i.exec(benefits)?.[0] || '';
+    // Some valid ads have no benefit cards but still publish the section
+    // heading and the link to Emmi's benefits page. Keeping that rendered
+    // source text prevents the dedicated parser from dropping the final ad
+    // section and falling below the source-detail completeness gate.
+    if (items.length || heading || benefitsLink) {
+      parts.push(`${heading}${items.length ? `<ul>${items.join('')}</ul>` : ''}${benefitsLink}`);
+    }
   }
   return parts.join('\n');
 }

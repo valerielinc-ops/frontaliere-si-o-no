@@ -27,6 +27,7 @@ import {
 } from '../scripts/lib/lidl-job-parser.mjs';
 import {
   assertLidlAdapterParity,
+  applyLidlDetailDescriptions,
   ensureAdapterSeedUrls,
   fetchLidlJobDetailUrls,
   inferLidlCanton,
@@ -190,6 +191,32 @@ describe('parseLidlDetailPage / store assistant (Verkäufer/in)', () => {
 
   it('body does NOT contain raw HTML tags', () => {
     expect(result.body).not.toMatch(/<[a-zA-Z]/);
+  });
+});
+
+describe('parseLidlDetailPage / current LiCa rendered modules', () => {
+  const html = `<!DOCTYPE html><html><body>
+    <div class="outer_header"><ul>${Array.from({ length: 20 }, (_, i) => `<li>Navigation ${i}</li>`).join('')}</ul></div>
+    <div class="lica-job-detail-page">
+      <section class="lica-module-container">
+        <div class="lica-rich-text"><p>Der Verkauf ist deine Passion und du möchtest täglich das beste Einkaufserlebnis bieten.</p>
+          <h2>Deine Aufgaben</h2><ul>${Array.from({ length: 4 }, (_, i) => `<li>Aufgabe ${i} mit Verantwortung für Kundschaft und Team.</li>`).join('')}</ul>
+          <h2>Dein Profil</h2><ul>${Array.from({ length: 3 }, (_, i) => `<li>Profilanforderung ${i} mit Zuverlässigkeit und Flexibilität.</li>`).join('')}</ul>
+        </div>
+      </section>
+      <section class="lica-module-container lica-benefits-module">
+        <h2>Benefits</h2><div>Wir bieten Vorsorge, faire Arbeitsbedingungen und Entwicklungsmöglichkeiten.</div>
+      </section>
+    </div>
+  </body></html>`;
+  const result = parseLidlDetailPage(html);
+
+  it('combines the vacancy prose and benefits modules, not the larger navigation list', () => {
+    expect(result.body).toContain('Der Verkauf ist deine Passion');
+    expect(result.body).toContain('Benefits');
+    expect(result.body).not.toContain('Navigation 0');
+    expect(result.hasLists).toBe(true);
+    expect(result.meetsMinLength).toBe(true);
   });
 });
 
@@ -870,5 +897,23 @@ describe('restoreLidlSourceLocaleStructure', () => {
     const flatApi = { descriptionByLocale: { fr: collapsed } };
     expect(restoreLidlSourceLocaleStructure(flatApi, { sourceLang: 'fr', description: 'Texte sans liste.' })).toBe(false);
     expect(flatApi.descriptionByLocale.fr).toBe(collapsed);
+  });
+});
+
+describe('applyLidlDetailDescriptions', () => {
+  it('writes a complete rendered body into the top-level and source-locale fields', () => {
+    const detailUrl = 'https://team.lidl.ch/de/jobs/allrounder-verkauf-702654';
+    const fullBody = `Introduction\n\n${Array.from({ length: 70 }, (_, i) => `- Vollständige Aufgabe ${i} mit Kundennähe`).join('\n')}`;
+    const jobs = [{
+      companyKey: 'lidl-svizzera',
+      url: detailUrl,
+      sourceLang: 'de',
+      description: 'Kurzfassung',
+      descriptionByLocale: { de: 'Kurzfassung', it: 'Traduzione esistente' },
+    }];
+
+    expect(applyLidlDetailDescriptions(jobs, new Map([[detailUrl, fullBody]]))).toBe(1);
+    expect(jobs[0].description).toBe(fullBody);
+    expect(jobs[0].descriptionByLocale).toEqual({ de: fullBody, it: 'Traduzione esistente' });
   });
 });

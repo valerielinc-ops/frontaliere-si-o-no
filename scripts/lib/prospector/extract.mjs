@@ -549,10 +549,10 @@ export function selectDetailStructuredRecords(records, pageUrl, renderedTitle, r
  * Fachkraft's `ff-detail-*`, SuccessFactors' `jobdescription`, eRecruiter's
  * `jobAdContent` are spellings of the same idea.
  */
-const DETAIL_BODY_CLASS_VOCABULARY = /job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|job[-_ ]?ad[-_ ]?(?:content|text|body)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|description/i;
+const DETAIL_BODY_CLASS_VOCABULARY = /job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|job[-_ ]?ad[-_ ]?(?:content|text|body)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|content[-_ ]?(?:overflow|main|body)|description/i;
 
 /** The same vocabulary minus the bare word `description`. */
-const QUALIFIED_BODY_CLASS_VOCABULARY = /job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|job[-_ ]?ad[-_ ]?(?:content|text|body)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro/i;
+const QUALIFIED_BODY_CLASS_VOCABULARY = /job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|job[-_ ]?ad[-_ ]?(?:content|text|body)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|content[-_ ]?(?:overflow|main|body)/i;
 
 /**
  * Name parts of a UI component that carries its own `…description` caption.
@@ -570,7 +570,7 @@ const UI_COMPONENT_CLASS_PARTS = new Set([
   'slide', 'slides', 'slider', 'carousel', 'swiper', 'slick',
   'process', 'step', 'steps', 'list', 'term', 'definition',
   'button', 'btn', 'link', 'card', 'teaser', 'tile', 'tooltip', 'modal', 'dialog',
-  'category', 'icon', 'logo', 'component', 'blurb',
+  'category', 'icon', 'logo', 'component', 'blurb', 'portlet',
 ]);
 
 /**

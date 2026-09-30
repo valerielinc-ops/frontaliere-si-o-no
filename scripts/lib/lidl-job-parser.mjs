@@ -248,6 +248,8 @@ function findRichestListElement(document) {
   let best = null;
   let bestCount = 0;
   for (const el of document.querySelectorAll('div, section, article')) {
+    const chrome = `${el.tagName || ''} ${el.id || ''} ${el.className || ''}`;
+    if (/(?:header|footer|nav|menu|breadcrumb|sidebar|navigation)/i.test(chrome)) continue;
     const count = el.querySelectorAll('li').length;
     if (count > bestCount) {
       bestCount = count;
@@ -277,19 +279,32 @@ export function parseLidlDetailPage(html = '') {
   const titleEl = document.querySelector('h1');
   const title = normalizeSpace(titleEl?.textContent || '');
 
-  // ── Body via priority selectors ───────────────────────────────
-  let body = '';
+  // ── Body via the rendered LiCa detail modules ─────────────────
+  // The current LiCa page puts the vacancy prose and the source-published
+  // benefits cards in sibling modules below `.lica-job-detail-page`. A
+  // first-match selector is unsafe here: the page also contains a navigation
+  // module with more list items than the vacancy itself.
+  const modernBlocks = [...document.querySelectorAll(
+    '.lica-job-detail-page .lica-rich-text, .lica-job-detail-page .lica-benefits-module',
+  )]
+    .map((el) => innerTextWithBullets(el))
+    .filter(Boolean);
+  let body = modernBlocks.join('\n\n');
 
-  for (const sel of BODY_SELECTORS) {
-    const el = document.querySelector(sel);
-    if (!el) continue;
-    const text = innerTextWithBullets(el);
-    if (text.length >= MIN_LIDL_FULL_DESC) {
-      body = text;
-      break;
+  // ── Body via priority selectors (legacy LiCa/ATS layouts) ─────
+  if (body.length < MIN_LIDL_FULL_DESC) {
+    body = '';
+    for (const sel of BODY_SELECTORS) {
+      const el = document.querySelector(sel);
+      if (!el) continue;
+      const text = innerTextWithBullets(el);
+      if (text.length >= MIN_LIDL_FULL_DESC) {
+        body = text;
+        break;
+      }
+      // Keep the longest candidate as fallback even if below threshold
+      if (text.length > body.length) body = text;
     }
-    // Keep the longest candidate as fallback even if below threshold
-    if (text.length > body.length) body = text;
   }
 
   // ── Fallback: richest-list element ────────────────────────────
