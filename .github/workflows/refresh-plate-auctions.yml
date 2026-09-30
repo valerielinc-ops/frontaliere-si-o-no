@@ -77,7 +77,7 @@ jobs:
             echo '|---|---|---|'
             jq -r '.results[] | "| \(.key | ascii_upcase) | \(.httpStatus) | \(.recommendation) |"' "$RUNNER_TEMP/plate-readiness.json"
           } >> "$GITHUB_STEP_SUMMARY"
-          echo "ready=$(jq -r '.readyKeys | join(" ")' "$RUNNER_TEMP/plate-readiness.json")" >> "$GITHUB_OUTPUT"
+          echo "ready=$(jq -r '(.readyKeys // []) | join(" ")' "$RUNNER_TEMP/plate-readiness.json")" >> "$GITHUB_OUTPUT"
           echo "daily=$DAILY" >> "$GITHUB_OUTPUT"
 
       # One issue per source that became ready, deduplicated on a stable title
