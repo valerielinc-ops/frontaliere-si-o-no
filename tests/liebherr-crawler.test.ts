@@ -253,6 +253,29 @@ describe('Liebherr crawler parser', () => {
       expect(result.jobs[0].previousSlugsByLocale?.['']).toBeUndefined();
     });
 
+    it('keeps an alias whose locale provenance is unknown in legacy history', () => {
+      const de = variant({
+        id: '1438005533',
+        locale: 'de_DE',
+        sourceJobId: '84657',
+        slug: 'primary-liebherr-role',
+      });
+      const secondary = {
+        ...variant({
+          id: '1438005433',
+          locale: 'en_US',
+          sourceJobId: '84657',
+          slug: 'primary-liebherr-role',
+        }),
+        slugByLocale: { unknown: 'unknown-liebherr-alias' },
+      };
+
+      const result = mergeLiebherrLanguageVariants([de, secondary]);
+      expect(result.metrics).toMatchObject({ candidatePairs: 1, fused: 1, redirectsCreated: 1 });
+      expect(result.jobs[0].previousSlugs).toContain('unknown-liebherr-alias');
+      expect(result.jobs[0].previousSlugsByLocale?.unknown).toBeUndefined();
+    });
+
     it('fuses three source-language pages that share one Job ID', () => {
       const de = variant({ id: '724771801', locale: 'de_DE', sourceJobId: '37210', slug: 'role-de', title: 'Initiativbewerbung' });
       const fr = variant({ id: '724771901', locale: 'fr_FR', sourceJobId: '37210', slug: 'role-fr', title: 'Candidature spontanée' });

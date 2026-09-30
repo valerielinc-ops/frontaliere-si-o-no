@@ -232,6 +232,8 @@ function primaryOrder(a = {}, b = {}) {
 function addLiebherrRedirect(job, locale, slug, metrics) {
   const value = String(slug || '').trim();
   if (!value) return;
+  const localeKey = String(locale || '').trim().toLowerCase();
+  const supportedLocale = ['it', 'en', 'de', 'fr'].includes(localeKey) ? localeKey : '';
   const current = new Set([
     job?.slug,
     ...Object.values(job?.slugByLocale || {}),
@@ -243,17 +245,17 @@ function addLiebherrRedirect(job, locale, slug, metrics) {
     || Object.values(job.previousSlugsByLocale || {}).some((aliases) => Array.isArray(aliases) && aliases.includes(value)),
   );
   const legacyKnown = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(value);
-  if (!locale) {
+  if (!supportedLocale) {
     if (legacyKnown) return false;
     const added = promotePreviousSlugToLegacy(job, value, undefined, 'liebherr-variant-merge');
     if (added && !alreadyKnown && metrics) metrics.redirectsCreated += 1;
     return added;
   }
-  const localeAliases = Array.isArray(job.previousSlugsByLocale?.[locale])
-    ? job.previousSlugsByLocale[locale]
+  const localeAliases = Array.isArray(job.previousSlugsByLocale?.[supportedLocale])
+    ? job.previousSlugsByLocale[supportedLocale]
     : [];
   const added = !localeAliases.includes(value) || !job.previousSlugs?.includes(value);
-  addPreviousSlugForLocale(job, locale, value, undefined, 'liebherr-variant-merge');
+  addPreviousSlugForLocale(job, supportedLocale, value, undefined, 'liebherr-variant-merge');
   if (added && !alreadyKnown && metrics) metrics.redirectsCreated += 1;
   return added;
 }
@@ -340,12 +342,12 @@ function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false 
   for (const [locale, slug] of Object.entries(secondary.slugByLocale || {})) {
     addLiebherrRedirect(merged, locale, slug, metrics);
   }
-  addLiebherrRedirect(merged, secondaryLocale || 'it', secondary.slug, metrics);
+  addLiebherrRedirect(merged, secondaryLocale, secondary.slug, metrics);
   for (const [locale, aliases] of Object.entries(secondary.previousSlugsByLocale || {})) {
     for (const alias of Array.isArray(aliases) ? aliases : []) addLiebherrRedirect(merged, locale, alias, metrics);
   }
   for (const alias of Array.isArray(secondary.previousSlugs) ? secondary.previousSlugs : []) {
-    addLiebherrRedirect(merged, secondaryLocale || 'it', alias, metrics);
+    addLiebherrRedirect(merged, secondaryLocale, alias, metrics);
   }
   return merged;
 }
