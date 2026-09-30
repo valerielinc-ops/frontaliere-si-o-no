@@ -1,51 +1,18 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-30T21:14:29.617Z",
+  "generatedAt": "2026-09-30T23:31:02.298Z",
   "total": 61,
-  "newCount": 4,
-  "updatedCount": 57,
-  "removedCount": 1,
+  "newCount": 3,
+  "updatedCount": 58,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 43620,
-  "avgDurationMs": 43620,
+  "durationMs": 42441,
+  "avgDurationMs": 42441,
   "durationHistory": [
-    43620
+    42441
   ],
   "newJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Egerkingen",
-      "addressLocality": "Egerkingen",
-      "addressRegion": "SO",
-      "canton": "SO",
-      "country": "CH",
-      "postalCode": "4622",
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-09-30",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Egerkingen"
-      },
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 59,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 12
-      }
-    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
@@ -113,17 +80,17 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
       "title": "Fachärzt/-in Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Grindelwald",
-      "addressLocality": "Grindelwald",
+      "location": "Wengen",
+      "addressLocality": "Wengen",
       "addressRegion": "BE",
       "canton": "BE",
       "country": "CH",
-      "postalCode": "3818",
+      "postalCode": "3823",
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
       "datePosted": "2026-09-30",
@@ -133,7 +100,7 @@
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "BE",
-        "location": "Grindelwald"
+        "location": "Wengen"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -147,6 +114,39 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Egerkingen",
+      "addressLocality": "Egerkingen",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4622",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-09-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Egerkingen"
+      },
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "_qualityScore": 59,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 12
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152326151-medizinische-r-praxisassistent-in-50-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152326151-medizinische-r-praxisassistent-in-50-100-?oga=true",
@@ -171,8 +171,8 @@
         "location": "Solothurn"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-09-29T09:20:48.739Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T09:20:48.739Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -271,8 +271,8 @@
         "location": "Murten"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -536,8 +536,8 @@
         "location": "Schaffhausen"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -669,8 +669,8 @@
         "location": "Zürich"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -703,8 +703,8 @@
         "location": "Zürich"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1107,80 +1107,8 @@
         "translation": 25,
         "completeness": 12
       }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147924809-apprenti-e-cuisinier-ere-cfc-saint-imier-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147924809-apprenti-e-cuisinier-ere-cfc-saint-imier-?oga=true",
-      "title": "Apprenti·e Cuisinier·ère CFC Saint-Imier",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "slug": "apprenti-e-cuisinier-ere-cfc-saint-imier-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-09-26",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 12
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-?oga=true",
-      "title": "Dipl. Fachperson Operationstechnik 40 - 80%",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Rapperswil-Jona",
-      "addressLocality": "Rapperswil-Jona",
-      "addressRegion": "SG",
-      "canton": "SG",
-      "country": "CH",
-      "postalCode": "8640",
-      "slug": "dipl-fachperson-operationstechnik-40-80-swiss-medical-network",
-      "category": "technical",
-      "datePosted": "2026-09-26",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Rapperswil-Jona"
-      },
-      "sourceLang": "de",
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
