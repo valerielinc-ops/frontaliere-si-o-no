@@ -35,6 +35,30 @@ describe('PDF-backed HTML listing parsers', () => {
     ]);
   });
 
+  it('extracts PDF URLs only from actual anchor href attributes', () => {
+    expect(extractPdfLinks(
+      '<div data-href="/wp-content/uploads/fake.pdf"></div><a href="/wp-content/uploads/real.pdf"></a>',
+      'https://reha-andeer.ch/offene-stellen/',
+    )).toEqual([
+      {
+        href: 'https://reha-andeer.ch/wp-content/uploads/real.pdf',
+        filename: 'real.pdf',
+      },
+    ]);
+  });
+
+  it('allows the opposite quote character inside a quoted PDF URL', () => {
+    expect(extractPdfLinks(
+      '<a href="/wp-content/uploads/l\'pflege.pdf"></a>',
+      'https://reha-andeer.ch/offene-stellen/',
+    )).toEqual([
+      {
+        href: "https://reha-andeer.ch/wp-content/uploads/l'pflege.pdf",
+        filename: "l'pflege.pdf",
+      },
+    ]);
+  });
+
   it('keeps sibling rehabilitation PDF parsers on the same resolved-link contract', () => {
     expect(parseClinicaHildebrandListing([
       "<a href='./uploads/2026/Pflegefachperson.PDF?download=1'>Pflege</a>",

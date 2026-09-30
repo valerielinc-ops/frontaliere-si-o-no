@@ -64,7 +64,7 @@ export function extractPdfLinks(html = '', baseUrl = '') {
   }
 
   const links = [];
-  const hrefRe = /\bhref\s*=\s*(['"])([^'"\r\n]*)\1/gi;
+  const hrefRe = /<a\b[^>]*?\s+href\s*=\s*(['"])([^>\r\n]*?)\1/gi;
   let match;
   while ((match = hrefRe.exec(html)) !== null) {
     let rawHref;
