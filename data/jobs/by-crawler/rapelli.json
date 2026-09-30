@@ -54,7 +54,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:02:51.478Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -114,7 +113,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-29T21:30:20.322Z",
       "firstSeenAt": "2026-07-14T12:02:52.545Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -257,7 +255,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:45.493Z",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 60000,
       "salarySource": "estimated",
@@ -457,7 +454,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-29T21:30:18.706Z",
       "firstSeenAt": "2026-09-19T23:17:53.063Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -531,7 +527,6 @@
         "hr-operations-general-services-80-100-rapelli-stabio"
       ],
       "firstSeenAt": "2026-07-07T12:05:14.994Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -650,7 +645,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-29T21:30:17.785Z",
       "firstSeenAt": "2026-09-28T21:24:44.993Z",
-      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "salarySource": "estimated",
@@ -724,8 +718,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -10089,7 +10089,25 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "meccanico-di-produzione-con-piegatrice-a-tubo-stellentreff-ag-olten-solothurn",
+          "production-mechanic-with-tube-bending-machine-stellentreff-ag-olten-solothurn",
+          "mecanicien-de-production-avec-machine-a-cintrer-stellentreff-ag-olten-solothurn"
+        ],
+        "en": [
+          "production-mechanic-with-tube-bending-machine-stellentreff-ag-olten-solothurn"
+        ],
+        "fr": [
+          "mecanicien-de-production-avec-machine-a-cintrer-stellentreff-ag-olten-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "meccanico-di-produzione-con-piegatrice-a-tubo-stellentreff-ag-olten-solothurn",
+        "production-mechanic-with-tube-bending-machine-stellentreff-ag-olten-solothurn",
+        "mecanicien-de-production-avec-machine-a-cintrer-stellentreff-ag-olten-solothurn"
+      ]
     },
     {
       "id": "stellentreff-9c4f0c2bf369",
@@ -51091,7 +51109,7 @@
       "slugByLocale": {
         "it": "lavoratori-metallici-lavoratori-ausiliari-varie-facciate-di-montaggio-costruzione-in-acciaio-stellentreff-ag-frauenfeld",
         "en": "metalworkers-auxiliary-workers-various-mounting-facades-steel-construction-stellentreff-ag-frauenfeld",
-        "de": "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau",
+        "de": "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau-pmwlbq",
         "fr": "metaux-ouvriers-auxiliaires-differentes-facades-de-montage-construction-en-acier-stellentreff-ag-frauenfeld"
       },
       "company": "Stellentreff AG",
@@ -51145,6 +51163,9 @@
           "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau"
         ],
         "fr": [
+          "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau"
+        ],
+        "de": [
           "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau"
         ]
       },
@@ -71113,7 +71134,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:46:36.125Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "salarySource": "estimated",

@@ -327,7 +327,16 @@
         "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
         "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve",
         "head-of-x-ray-clinic-with-specialty-or-assistant-physician-50-hug-geneve",
-        "leiter-der-rontgenklinik-mit-facharzt-oder-assistenzarzt-50-hug-geneve"
+        "leiter-der-rontgenklinik-mit-facharzt-oder-assistenzarzt-50-hug-geneve",
+        "responsabile-della-clinica-a-raggi-x-con-specialita-titolo-o-assistente-o-assistente-medico-60-hug-geneve",
+        "assistente-o-assistente-medico-o-capo-o-responsabile-della-clinica-con-titolo-al-capo-assistente-associato-dell-unita-di",
+        "assistant-or-assistant-medical-officer-or-head-or-head-of-clinic-with-title-to-the-associate-assistant-head-of",
+        "assistant-oder-assistant-medical-officer-oder-leiter-oder-leiter-der-klinik-mit-titel-zum-associate-assistant-leiter-der",
+        "medecin-adjoint-ou-adjointe-ou-chef-ou-cheffe-de-clinique-avec-titre-a-l-adjoint-agrege",
+        "medecin-adjoint-ou-adjointe-ou-chef-ou-cheffe-de-clinique-avec-titre-a-l-adjoint-agrege-responsable-d-unite-de-medecine-subaquatique-et-hyperbare-60-a-100-hug-geneve",
+        "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-60-hug-geneve",
+        "head-of-x-ray-clinic-with-specialty-title-or-assistant-or-assistant-physician-60-hug-geneve",
+        "leiter-der-rontgenklinik-mit-spezialtitel-oder-assistent-oder-assistenzarzt-60-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -339,7 +348,16 @@
           "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
           "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve",
           "head-of-x-ray-clinic-with-specialty-or-assistant-physician-50-hug-geneve",
-          "leiter-der-rontgenklinik-mit-facharzt-oder-assistenzarzt-50-hug-geneve"
+          "leiter-der-rontgenklinik-mit-facharzt-oder-assistenzarzt-50-hug-geneve",
+          "responsabile-della-clinica-a-raggi-x-con-specialita-titolo-o-assistente-o-assistente-medico-60-hug-geneve",
+          "assistente-o-assistente-medico-o-capo-o-responsabile-della-clinica-con-titolo-al-capo-assistente-associato-dell-unita-di",
+          "assistant-or-assistant-medical-officer-or-head-or-head-of-clinic-with-title-to-the-associate-assistant-head-of",
+          "assistant-oder-assistant-medical-officer-oder-leiter-oder-leiter-der-klinik-mit-titel-zum-associate-assistant-leiter-der",
+          "medecin-adjoint-ou-adjointe-ou-chef-ou-cheffe-de-clinique-avec-titre-a-l-adjoint-agrege",
+          "medecin-adjoint-ou-adjointe-ou-chef-ou-cheffe-de-clinique-avec-titre-a-l-adjoint-agrege-responsable-d-unite-de-medecine-subaquatique-et-hyperbare-60-a-100-hug-geneve",
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-60-hug-geneve",
+          "head-of-x-ray-clinic-with-specialty-title-or-assistant-or-assistant-physician-60-hug-geneve",
+          "leiter-der-rontgenklinik-mit-spezialtitel-oder-assistent-oder-assistenzarzt-60-hug-geneve"
         ],
         "en": [
           "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
@@ -1581,12 +1599,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "responsabile-clinica-con-status-di-specialita-50-hug-geneve"
+        "responsabile-clinica-con-status-di-specialita-50-hug-geneve",
+        "klinikleiter-mit-sonderstatus-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-          "responsabile-clinica-con-status-di-specialita-50-hug-geneve"
+          "responsabile-clinica-con-status-di-specialita-50-hug-geneve",
+          "klinikleiter-mit-sonderstatus-50-hug-geneve"
         ],
         "en": [
           "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
@@ -1661,12 +1681,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-50-hug-geneve",
-        "psicologo-50-hug-geneve"
+        "psicologo-50-hug-geneve",
+        "psicologo-20-hug-geneve",
+        "psychologue-20-hug-geneve",
+        "psicoterapeuta-70-hug-geneve",
+        "psychotherapist-70-hug-geneve",
+        "psychotherapeut-70-hug-geneve",
+        "psychologue-psychotherapeute-70-hug-geneve",
+        "psychologist-20-hug-geneve",
+        "psychologe-20-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-50-hug-geneve",
-          "psicologo-50-hug-geneve"
+          "psicologo-50-hug-geneve",
+          "psicologo-20-hug-geneve",
+          "psychologue-20-hug-geneve",
+          "psicoterapeuta-70-hug-geneve",
+          "psychotherapist-70-hug-geneve",
+          "psychotherapeut-70-hug-geneve",
+          "psychologue-psychotherapeute-70-hug-geneve",
+          "psychologist-20-hug-geneve",
+          "psychologe-20-hug-geneve"
         ],
         "en": [
           "psychologue-50-hug-geneve"
@@ -2061,12 +2097,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "secretaires-pour-le-departement-de-medecine-60-a-100-hug-geneve",
-        "segretari-per-il-dipartimento-di-medicina-dal-60-al-100-hug-geneve"
+        "segretari-per-il-dipartimento-di-medicina-dal-60-al-100-hug-geneve",
+        "sekretare-fur-die-abteilung-fur-medizin-60-bis-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "secretaires-pour-le-departement-de-medecine-60-a-100-hug-geneve",
-          "segretari-per-il-dipartimento-di-medicina-dal-60-al-100-hug-geneve"
+          "segretari-per-il-dipartimento-di-medicina-dal-60-al-100-hug-geneve",
+          "sekretare-fur-die-abteilung-fur-medizin-60-bis-100-hug-geneve"
         ],
         "en": [
           "secretaires-pour-le-departement-de-medecine-60-a-100-hug-geneve"
@@ -2301,12 +2339,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "medico-interno-presso-il-servizio-ematologia-100-hug-geneve"
+        "medico-interno-presso-il-servizio-ematologia-100-hug-geneve",
+        "medico-interno-presso-il-dipartimento-di-ematologia-100-hug-geneve",
+        "internal-physician-at-the-hematology-department-100-hug-geneve",
+        "interner-arzt-an-der-hematologie-abteilung-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-          "medico-interno-presso-il-servizio-ematologia-100-hug-geneve"
+          "medico-interno-presso-il-servizio-ematologia-100-hug-geneve",
+          "medico-interno-presso-il-dipartimento-di-ematologia-100-hug-geneve",
+          "internal-physician-at-the-hematology-department-100-hug-geneve",
+          "interner-arzt-an-der-hematologie-abteilung-100-hug-geneve"
         ],
         "en": [
           "medecin-interne-au-service-d-hematologie-100-hug-geneve"
@@ -2939,12 +2983,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana",
-        "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana"
+        "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana",
+        "psychologe-spezialisiert-auf-psychotherapie-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana",
-          "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana"
+          "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana",
+          "psychologe-spezialisiert-auf-psychotherapie-crans-montana-80-hug-crans-montana"
         ],
         "en": [
           "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
@@ -3201,7 +3247,7 @@
         "it": "hr-manager-100-hug-geneve",
         "en": "hr-manager-100-hug-geneve",
         "de": "hr-manager-100-hug-geneve",
-        "fr": "gestionnaire-rh-100-hug-geneve"
+        "fr": "gestionnaire-rh-100-hug-geneve-gp7wmd"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3254,6 +3300,9 @@
         ],
         "de": [
           "gestionnaire-rh-100-hug-geneve"
+        ],
+        "fr": [
+          "gestionnaire-rh-100-hug-geneve"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:30.470Z",
@@ -3270,8 +3319,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-57be55c52c5b",
@@ -3514,8 +3562,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "hug-d91c48c2e3f5",
