@@ -168,6 +168,8 @@ import {
 import { mergeJobIdentity } from './job-match-key.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
+  buildThinSourceHousekeepingProof,
+  collectThinSourceJobsForQuarantine,
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './stored-source-body.mjs';
@@ -1168,10 +1170,11 @@ export async function runStandardCrawlerPipeline(config) {
   const mergeExisting = typeof prepareExistingJobs === 'function'
     ? (prepareExistingJobs(companyExisting) || companyExisting)
     : companyExisting;
+  const sourceBodyMatchKey = matchKey || mergeJobIdentity;
   const sourceBodyJobs = keepStoredSourceBodiesByKey(
     parsedJobs,
     mergeExisting,
-    matchKey || mergeJobIdentity,
+    sourceBodyMatchKey,
   );
   if (!authoritativeEmptySnapshot && sourceBodyJobs.length === 0) {
     console.warn(
@@ -1214,9 +1217,12 @@ export async function runStandardCrawlerPipeline(config) {
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
-  const thinSourceCount = slugStableMerge.filter(
-    (job) => !meetsSourceBodyFloor(sourceBodyForJob(job)),
-  ).length;
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    parsedJobs,
+    slugStableMerge,
+    sourceBodyMatchKey,
+  );
+  const thinSourceCount = thinSourceJobs.length;
   if (thinSourceCount > 0) {
     console.warn(
       `  ⚠️ ${companyLabel}: quarantining ${thinSourceCount} merged job(s) without `
@@ -1321,6 +1327,11 @@ export async function runStandardCrawlerPipeline(config) {
   const durationMs = getCrawlerElapsedMs();
   const sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
+  const housekeepingProof = buildThinSourceHousekeepingProof(
+    diff.removedJobs,
+    thinSourceJobs,
+    sourceBodyMatchKey,
+  );
 
   // Evidence-gated write (#5016/#5017). Identical to writeJobsCrawlerSlice
   // until the anti-shrink guard trips; then the disappearing jobs are probed
@@ -1330,6 +1341,7 @@ export async function runStandardCrawlerPipeline(config) {
   await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
     // The source-specific validator has already proven that every attempted
     // detail became one rich, unique published row. If the central guard trips,
     // URL probes remain weaker for WordPress archives that keep retired detail

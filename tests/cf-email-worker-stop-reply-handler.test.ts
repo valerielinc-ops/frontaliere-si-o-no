@@ -463,3 +463,45 @@ describe('isStopReply / extractSenderEmail (worker-local mirror)', () => {
     expect(extractSenderEmail('Jane Reader <jane.reader@example.com>')).toBe('jane.reader@example.com');
   });
 });
+
+describe('worker email() — assisted-application CV replies', () => {
+  const env = {
+    STOP_SECRET: SECRET,
+    REPLY_TRACK_FN_URL: 'https://fn.example/track',
+    STOP_REPLY_FN_URL: 'https://fn.example/stop',
+    ASSISTED_CV_FN_URL: 'https://fn.example/assisted-cv',
+    FORWARD_TO: 'inbox@example.com',
+    OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+  };
+
+  it('hands a reply with attachments to the CV endpoint as the raw message, and still forwards it', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const raw = 'Content-Type: multipart/mixed; boundary=x\r\n\r\n--x\r\nContent-Type: text/plain\r\n\r\nEcco il CV\r\n--x--\r\n';
+    const message = fakeMessage({
+      from: 'maria@example.com',
+      to: 'valerie@frontaliereticino.ch',
+      subject: 'Re: la tua candidatura',
+      rawText: raw,
+      headers: { 'content-type': 'multipart/mixed; boundary=x' },
+    });
+    const ctx = fakeCtx();
+    await worker.email(message, env, ctx);
+    await Promise.all(ctx.waited);
+    const handoff = fetchMock.mock.calls.find(([url]) => url === env.ASSISTED_CV_FN_URL);
+    expect(handoff).toBeTruthy();
+    expect(handoff![1]).toMatchObject({ method: 'POST', headers: { 'content-type': 'message/rfc822', 'x-stop-secret': SECRET } });
+    expect(new TextDecoder().decode(handoff![1].body)).toBe(raw);
+    expect(message.forward).toHaveBeenCalledWith('inbox@example.com');
+  });
+
+  it('does not send plain replies or oversized messages to the CV endpoint', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const plain = fakeMessage({ from: 'a@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: ok', rawText: 'grazie', headers: { 'content-type': 'text/plain' } });
+    await worker.email(plain, env, fakeCtx());
+    const big = { ...fakeMessage({ from: 'a@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: cv', rawText: 'x', headers: { 'content-type': 'multipart/mixed; boundary=y' } }), rawSize: 20 * 1024 * 1024 };
+    await worker.email(big, env, fakeCtx());
+    expect(fetchMock.mock.calls.some(([url]) => url === env.ASSISTED_CV_FN_URL)).toBe(false);
+  });
+});

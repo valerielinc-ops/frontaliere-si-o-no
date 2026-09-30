@@ -2453,6 +2453,10 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi');
     expect(guardStep.run).toContain('remaining_seconds');
     expect(guardStep.run).toContain('call_timeout_seconds');
+    expect(guardStep.run).toContain('api_retry_limit=3');
+    expect(guardStep.run).toContain('api_retry_delay_seconds=1');
+    expect(guardStep.run).toContain('while :; do');
+    expect(guardStep.run).toContain('attempt=$((attempt + 1))');
     expect(guardStep.run).toContain('timeout --kill-after=0s');
     expect(guardStep.run).toContain('guard_total_timeout_seconds=120');
     expect(guardStep.run).not.toContain('--paginate');

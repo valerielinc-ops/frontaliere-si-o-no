@@ -83,6 +83,8 @@ export async function buildDraft(ctx) {
   const nowMs = ctx.nowMs || Date.now();
   const round = Number(flow?.round) || 1;
   const answers = flow?.answers || {};
+  // Fase 2: what the candidate wrote in the e-mail that carried the CV.
+  const candidateNotes = String(ctx.intake?.emailNotes || '').slice(0, 4000);
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   maskValues(personalValuesOf(order));
 
@@ -130,12 +132,12 @@ export async function buildDraft(ctx) {
   const profileJson = JSON.stringify(profile);
   const matchRaw = await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
-      profile, requirements, answers, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+      profile, requirements, answers, candidateNotes, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
     })),
     schema: MATCH_SCHEMA,
     timeoutMs: CODEX_TIMEOUT_MS,
   });
-  const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}`);
+  const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
   const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale });
 
   const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
@@ -148,6 +150,7 @@ export async function buildDraft(ctx) {
       requirements,
       matches: match.matches,
       answers,
+      candidateNotes,
       feedback: flow?.feedback || [],
       posting: {
         title,
@@ -170,7 +173,7 @@ export async function buildDraft(ctx) {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
     order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
-    answers: Object.values(answers).join('\n'),
+    answers: [...Object.values(answers), candidateNotes].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
   const factCheck = checkDraftFacts({
