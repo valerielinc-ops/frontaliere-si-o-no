@@ -434,7 +434,7 @@ async function readAllBytes(stream, maxBytes) {
   return total > maxBytes ? { bytes: null, head } : { bytes: merged, head };
 }
 
-async function handleOutreachReply({ from, subject, message, env, ctx }) {
+async function handleOutreachReply({ from, to = '', subject, message, env, ctx }) {
   // Track EVERY inbound reply (best-effort) so the admin dashboard can show
   // whether a company replied. Only from+subject are needed (no body read),
   // so this runs cheaply on every message. Additive to STOP suppression below.
@@ -448,7 +448,8 @@ async function handleOutreachReply({ from, subject, message, env, ctx }) {
   }
 
   let prefix = null;
-  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && mayCarryAttachment(message)) {
+  // Never an order alias: its one-shot raw stream belongs to the inbound handoff.
+  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && !isAssistedAlias(to) && mayCarryAttachment(message)) {
     const { bytes, head } = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => ({ bytes: null, head: null }));
     if (head) prefix = new TextDecoder('utf-8', { fatal: false }).decode(head);
     if (bytes) {
@@ -593,14 +594,14 @@ export default {
           }
         }
       }
-      // Not handed over: the owner's inbox gets it (she handles taken-over
-      // orders), so the employer gets no bounce and nothing is lost; only
-      // when that fails too is the message rejected (the sender's MTA reports it).
+      // Not handed over: always rejected, so the sender's server reports it
+      // and the employer can send it again (review of #10491: a reply is never
+      // silently accepted). The owner's inbox gets a copy first, best effort,
+      // so she can act before the resend.
       if (env.FORWARD_TO) {
         try {
           await message.forward(env.FORWARD_TO, new Headers({ 'X-Frontaliere-Alias-Fallback': `${failure} ${to}` }));
-          return;
-        } catch { /* fall through to the reject */ }
+        } catch { /* the reject below still reports it */ }
       }
       try { message.setReject(failure === 'too_large' ? 'Message too large for this address' : 'Temporary failure, please retry later'); } catch { /* noop */ }
       return;
@@ -647,7 +648,7 @@ export default {
       } else if (isNewsletterAddress) {
         await handleNewsletterUnsubscribe({ from, subject, message, env, ctx });
       } else if (isOutreachAddress) {
-        await handleOutreachReply({ from, subject, message, env, ctx });
+        await handleOutreachReply({ from, to, subject, message, env, ctx });
       }
     } catch {
       // Classification is best-effort: a throw here must never cost us the
