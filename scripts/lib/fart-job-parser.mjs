@@ -53,6 +53,53 @@ function stripHtml(html = '') {
   );
 }
 
+const FART_EMPTY_FORM_TITLE_RE = /\bCandidatura\s+per\s+un\s+concorso\s+pubblicato\b/i;
+const FART_EMPTY_FORM_SELECT_LABEL_RE = /\bSelezioni\s+il\s+concorso\s+per\s+il\s+quale\s+desidera\s+candidarsi\b/i;
+const SELECT_RE = /<select\b[^>]*>[\s\S]*?<\/select>/gi;
+const OPTION_RE = /<option\b([^>]*)>([\s\S]*?)<\/option>/gi;
+
+function hasOnlyPlaceholderOption(selectHtml = '') {
+  const options = [...String(selectHtml).matchAll(OPTION_RE)];
+  if (options.length === 0) return false;
+
+  return options.every(([, , rawText]) => {
+    const text = normalizeSpace(stripHtml(rawText));
+    return !text || FART_EMPTY_FORM_SELECT_LABEL_RE.test(text);
+  });
+}
+
+/**
+ * Prove the current FART page is the new, explicit zero-vacancy form.
+ *
+ * The old page exposed one <h5> plus a PDF link per concorso. FART replaced
+ * it with a spontaneous-application form whose vacancy dropdown is populated
+ * by FART itself. An empty dropdown is authoritative only when both the form
+ * heading and its labelled select are present; an empty/unknown page remains
+ * unproven so the anti-shrink guard can keep the prior slice.
+ */
+export function isFartAuthoritativeEmptySnapshot(html = '') {
+  const source = String(html || '');
+  if (!source.trim() || /<h5\b/i.test(source)) return false;
+
+  const visibleText = normalizeSpace(stripHtml(source));
+  if (!FART_EMPTY_FORM_TITLE_RE.test(visibleText)) return false;
+
+  for (const match of source.matchAll(SELECT_RE)) {
+    const selectHtml = match[0];
+    const start = Math.max(0, Number(match.index || 0) - 1400);
+    const end = Math.min(source.length, Number(match.index || 0) + selectHtml.length + 500);
+    const context = normalizeSpace(stripHtml(source.slice(start, end)));
+    if (
+      FART_EMPTY_FORM_SELECT_LABEL_RE.test(context)
+      && hasOnlyPlaceholderOption(selectHtml)
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 /**
  * Parse the WordPress careers page and return job listings.
  *
@@ -86,6 +133,19 @@ export function parseFartListingPage(html = '') {
   }
 
   return jobs;
+}
+
+/**
+ * Return the source state without treating every parser miss as a real zero.
+ *
+ * @param {string} html
+ * @returns {{ state: 'jobs'|'empty'|'invalid', jobs: Array<{title: string, pdfUrl: string}> }}
+ */
+export function parseFartListingState(html = '') {
+  const jobs = parseFartListingPage(html);
+  if (jobs.length > 0) return { state: 'jobs', jobs };
+  if (isFartAuthoritativeEmptySnapshot(html)) return { state: 'empty', jobs };
+  return { state: 'invalid', jobs };
 }
 
 /**
