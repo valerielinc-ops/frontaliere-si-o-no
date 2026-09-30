@@ -5,6 +5,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllClinicaVariniJobs,
   isClinicaVariniJob,
@@ -25,6 +26,11 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllClinicaVariniJobs,
   isCompanyJob: isClinicaVariniJob,
   isTrustedDomain,
+  // A zero is publishable only when the page exposed a complete inventory of
+  // known non-job PDFs. An unrecognised/failed page remains fail-closed.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(CLINICA_VARINI_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   defaultSourceLang: 'it',
   prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, CLINICA_VARINI_FABRICATED_DESCRIPTION_RE, CLINICA_VARINI_COMPANY_NAME),
 }).catch((err) => {

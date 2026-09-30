@@ -44,6 +44,13 @@ describe('HAS Healthcare (e-lavoro.ch) description', () => {
     expect(buildHasDescription({ sections: { 'competenze richieste': 'Laurea in chimica.' }, headings: {}, language: '', education: '' })).toBe('');
   });
 
+  it('keeps the shared 50-word boundary for a discovered body', () => {
+    const body35 = words(35, 'source');
+    const body60 = words(60, 'source');
+    expect(buildHasDescription({ sections: { 'competenze richieste': body35 }, headings: { 'competenze richieste': 'Competenze richieste' }, language: '', education: '' })).toBe('');
+    expect(buildHasDescription({ sections: { 'competenze richieste': body60 }, headings: { 'competenze richieste': 'Competenze richieste' }, language: '', education: '' })).toContain(body60);
+  });
+
   it('clears a stored job made only of crawler-written lines, translations included', () => {
     // The shape of all 4 has-healthcare rows on main.
     const text = 'HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Tecnica/o SSS.\n\n🗣️ Lingue richieste: Inglese professionale\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera';

@@ -1584,12 +1584,13 @@ export function setCodexTranslateCallForTests(fn) {
 /**
  * Short-lived access token for Cloud Translation: the service account under
  * the cloud-translation scope first, the GSC OAuth refresh token only when no
- * service account is configured or its exchange fails.
+ * service account is configured or its exchange fails. Returns the token with
+ * its provenance (`fromServiceAccount`); `token` is '' when none is available.
  */
 async function _getGoogleCloudAccessToken() {
   if (_gcServiceAccountAvailable && !_gcServiceAccountToken.refused) {
     if (_gcServiceAccountToken.accessToken && Date.now() < _gcServiceAccountToken.expiresAt - 60_000) {
-      return _gcServiceAccountToken.accessToken;
+      return { token: _gcServiceAccountToken.accessToken, fromServiceAccount: true };
     }
     try {
       // Loaded on first use, like ai-models.mjs for the Codex tier: a process
@@ -1601,7 +1602,7 @@ async function _getGoogleCloudAccessToken() {
         // The helper returns only the token: cache it for the one-hour lifetime
         // of a service-account JWT so the cascade does not sign one per field.
         _gcServiceAccountToken.expiresAt = Date.now() + 3_600_000;
-        return token;
+        return { token, fromServiceAccount: true };
       }
     } catch {
       // The exchange already spent its own retry budget (up to 7 attempts on
@@ -1611,9 +1612,9 @@ async function _getGoogleCloudAccessToken() {
       _noteGoogleCloudFailure('service-account-token-unavailable');
     }
   }
-  if (!_gcOAuthAvailable) return '';
+  if (!_gcOAuthAvailable) return { token: '', fromServiceAccount: false };
   if (_gcOAuth.accessToken && Date.now() < _gcOAuth.expiresAt - 60_000) {
-    return _gcOAuth.accessToken;
+    return { token: _gcOAuth.accessToken, fromServiceAccount: false };
   }
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
@@ -1626,11 +1627,11 @@ async function _getGoogleCloudAccessToken() {
     }),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
-  if (!res.ok) return '';
+  if (!res.ok) return { token: '', fromServiceAccount: false };
   const data = await res.json();
   _gcOAuth.accessToken = data.access_token || '';
   _gcOAuth.expiresAt = Date.now() + (data.expires_in || 3600) * 1000;
-  return _gcOAuth.accessToken;
+  return { token: _gcOAuth.accessToken, fromServiceAccount: false };
 }
 
 export async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
@@ -1646,7 +1647,12 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
   }
 
   try {
-    let token = await _getGoogleCloudAccessToken();
+    // The provenance travels with the token: comparing it with the shared
+    // cache is wrong when concurrent first-use exchanges each issue their own
+    // service-account token, or when a concurrent refusal already cleared it.
+    const acquired = await _getGoogleCloudAccessToken();
+    let token = acquired.token;
+    const fromServiceAccount = acquired.fromServiceAccount;
     if (!token) {
       _noteGoogleCloudFailure('access-token-unavailable');
       noteTranslationOutcome(outcome, 'incomplete');
@@ -1669,7 +1675,7 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
     // drop it and give this field one try with the fallback. A 403 for the
     // project's daily cap is not a credential problem, and the fallback bills
     // the same project, so it is not retried.
-    if ((res.status === 401 || res.status === 403) && token === _gcServiceAccountToken.accessToken) {
+    if ((res.status === 401 || res.status === 403) && fromServiceAccount) {
       const refusal = await res.text().catch(() => '');
       if (GOOGLE_CLOUD_QUOTA_REFUSAL.test(refusal)) {
         _noteGoogleCloudFailure(`HTTP ${res.status} quota`);
@@ -1677,9 +1683,9 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
         return '';
       }
       _gcServiceAccountToken.refused = true;
-      _gcServiceAccountToken.accessToken = '';
+      if (_gcServiceAccountToken.accessToken === token) _gcServiceAccountToken.accessToken = '';
       _noteGoogleCloudFailure(`service-account HTTP ${res.status}`);
-      token = await _getGoogleCloudAccessToken();
+      ({ token } = await _getGoogleCloudAccessToken());
       if (!token) {
         noteTranslationOutcome(outcome, 'incomplete');
         return '';

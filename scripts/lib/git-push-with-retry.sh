@@ -22,6 +22,9 @@
 #     with linear backoff (capped at 12s) + random jitter added after the cap
 #     (min(attempt * 2, 12) + random[0..attempt] s) to desynchronise
 #     concurrent retrying workflows (thundering-herd guard).
+#   - Uses an explicit non-thin pack with delta search disabled. GitHub Actions
+#     checkouts are shallow by default, so the default thin-pack delta search
+#     can spend most of the job looking for unavailable history (#10319).
 #   - Before each rebase, the working tree must be clean or rebase refuses to
 #     start ("cannot rebase: You have unstaged changes"). Default: discard any
 #     leftover dirty/untracked state with `git reset --hard HEAD` (safe when
@@ -328,7 +331,10 @@ apply_stashed_wip_for_resolver() {
 # than the interval between concurrent crawler commits to main, so even an
 # exit-0 hook would turn every push into a guaranteed-loss race.
 attempt=1
-until git push --no-verify origin "HEAD:${BRANCH}"; do
+# Actions checkouts are shallow. A complete pack with no delta-window search
+# keeps generated-data pushes bounded instead of making Git walk history that
+# is not present locally (issue #10319).
+until git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}"; do
   if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
     if [ -n "$SOFT_FAIL_EXHAUSTED" ]; then
       echo "::warning::Failed to push after $MAX_ATTEMPTS attempts (soft-fail: this run's delta will be recaptured by the next invocation)"

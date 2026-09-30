@@ -12,6 +12,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { readAttr } from './html-attr.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const HQ = getCompanyDefaults('davos-klosters-bergbahnen');
 
@@ -122,6 +123,10 @@ export function inferEmploymentType(title = '', description = '', percentage = '
     if (maxPct < 80) return 'PART_TIME';
   }
   return 'FULL_TIME';
+}
+
+export function isDavosKlostersBergbahnenSourceBodyPublishable(text = '') {
+  return meetsSourceBodyFloor(text);
 }
 
 // ── listing parsing ───────────────────────────────────────────────────

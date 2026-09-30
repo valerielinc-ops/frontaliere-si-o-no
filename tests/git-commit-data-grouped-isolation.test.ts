@@ -1325,7 +1325,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
     writeFileSync(outputFile, pushFailureOutput);
     writeFileSync(
       join(shimDir, 'git'),
-      `#!/bin/bash\nif [ "$1" = "push" ]; then\n  cat '${outputFile}' >&2\n  exit 1\nfi\nexec '${realGit}' "$@"\n`,
+      `#!/bin/bash\nfor arg in "$@"; do\n  if [ "$arg" = "push" ]; then\n    cat '${outputFile}' >&2\n    exit 1\n  fi\ndone\nexec '${realGit}' "$@"\n`,
     );
     chmodSync(join(shimDir, 'git'), 0o755);
 

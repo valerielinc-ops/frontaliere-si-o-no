@@ -24,6 +24,62 @@ export type AssistedApplicationAdminStatus =
 export const ASSISTED_APPLICATION_ADMIN_STATUSES =
   SHARED_ASSISTED_APPLICATION_ADMIN_STATUSES as readonly AssistedApplicationAdminStatus[];
 
+export interface AutomationRequirementView {
+  requirement: string;
+  importance: 'critical' | 'high' | 'meaningful' | 'preferred';
+  basis: 'stated' | 'inferred';
+  quote: string;
+}
+
+export interface AutomationQuestionView {
+  id: string;
+  question: string;
+  why: string;
+  type: string;
+  options: string[];
+  required: boolean;
+}
+
+/** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
+export interface AssistedApplicationAutomationView {
+  /** Employer messages received on the order alias (newest first, max 10). */
+  inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
+  flow: {
+    state: string | null;
+    round: number;
+    deadlineAt: number | null;
+    reminderAt: number | null;
+    heldBy: string[];
+    feedback: Array<{ round: number; at: number; text: string }>;
+    answers: Record<string, string>;
+    dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
+    history: Array<{ at: number; event: string; state: string }>;
+  } | null;
+  draft: {
+    status: string | null;
+    round: number | null;
+    language: string | null;
+    job: { source: string; title: string; applyUrl: string } | null;
+    liveness: { result: string | null; code: string | null; datasetGone: boolean } | null;
+    channel: { type: string; label: string; email: string; applyUrl: string; requiresAccount: boolean } | null;
+    verdict: 'strong' | 'good' | 'weak' | 'poor' | null;
+    summaryIt: string;
+    checksIt: string[];
+    requirements: AutomationRequirementView[];
+    matches: Array<{ index: number; status: 'met' | 'partial' | 'missing'; evidence: string }>;
+    questions: AutomationQuestionView[];
+    coverLetter: { text: string; subject: string } | null;
+    applicationEmail: { to: string; subject: string; body: string } | null;
+    formAnswers: Array<{ key: string; label: string; value: string; needsConfirmation: boolean; note: string }>;
+    factCheck: { ok: boolean; unsupported: Array<{ field: string; kind: string; token: string; context: string }>; basis: string | null } | null;
+    factCheckAcknowledgedAt: number | null;
+    knockOutAcknowledgedAt: number | null;
+    editedAt: number | null;
+    cvTextMethod: string | null;
+    coverLetterUrl: string | null;
+  } | null;
+}
+
 export interface AssistedApplicationAdminOrder {
   orderId: string;
   jobId: string;
@@ -54,6 +110,9 @@ export interface AssistedApplicationAdminOrder {
   consentVersion: string | null;
   consentedAt: string | null;
   submissionStatus: AssistedApplicationAdminStatus;
+  /** Mirror of the automated flow state (null when the flow never started). */
+  automationState?: string | null;
+  automation?: AssistedApplicationAutomationView | null;
   submissionNotes: string | null;
   submittedAt: string | null;
   blockedAt: string | null;
@@ -92,6 +151,14 @@ function errorMessage(error: unknown, status: number): string {
     payment_reference_missing: 'Riferimento Stripe mancante: rimborso non eseguito.',
     already_submitted: 'La candidatura è già stata inviata e non è rimborsabile da questa coda.',
     stripe_refund_failed: 'Stripe non ha completato il rimborso; nessun dato è stato marcato come rimborsato.',
+    invalid_cv_file: 'Il file non è un PDF, DOC o DOCX valido (max 5 MB).',
+    draft_not_ready: 'La bozza AI non è ancora pronta.',
+    not_owner_review: 'L’automazione non è in attesa della tua revisione.',
+    not_regenerable: 'In questo stato non si può rigenerare la bozza.',
+    not_taken_over: 'L’automazione non è sospesa.',
+    already_started_or_ineligible: 'Automazione già avviata, oppure ordine senza CV verificato.',
+    no_flow: 'L’automazione non è stata avviata per questo ordine.',
+    invalid_email: 'Indirizzo email non valido.',
   };
   return messages[code] || `Operazione non riuscita (${code || status}).`;
 }
@@ -160,5 +227,52 @@ export async function refundAssistedApplication(
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ action: 'refund', orderId, submissionNotes }),
+  });
+}
+
+
+export type AutomationAdminAction =
+  | 'automationStart'
+  | 'automationApprove'
+  | 'automationTakeover'
+  | 'automationResume'
+  | 'automationRegenerate'
+  | 'automationEditDraft'
+  | 'automationSetAnswers';
+
+/** One action of the automated flow (functions/src/assistedApplicationAutomationAdmin.js). */
+export async function runAutomationAdminAction(
+  user: AuthLike | null | undefined,
+  orderId: string,
+  action: AutomationAdminAction,
+  extra: Record<string, unknown> = {},
+): Promise<Record<string, unknown>> {
+  return requestAdmin(user, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, orderId, ...extra }),
+  });
+}
+
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || '').split(',')[1] || '');
+    reader.onerror = () => reject(reader.error || new Error('file_read_failed'));
+    reader.readAsDataURL(file);
+  });
+}
+
+/** The CV arrived by e-mail: upload it for the customer (type-checked server-side). */
+export async function uploadAssistedApplicationCv(
+  user: AuthLike | null | undefined,
+  orderId: string,
+  file: File,
+): Promise<void> {
+  if (file.size > 5 * 1024 * 1024) throw new Error(errorMessage('invalid_cv_file', 400));
+  await requestAdmin(user, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'uploadCv', orderId, fileName: file.name, contentBase64: await fileToBase64(file) }),
   });
 }

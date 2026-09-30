@@ -1506,6 +1506,55 @@ describe('generation checkpoint and preflight', () => {
     }]);
   });
 
+  it('falls back to the latest verified site commit whose contract matches the corpus', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-site-fallback-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const localContract = {
+      ...preflightFixture(observer, artifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const compatibleSiteCodeCommit = 'c'.repeat(40);
+    const remoteContract = {
+      ...localContract,
+      sourceCommit: 'b'.repeat(40),
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/repos/valerielinc-ops/frontaliere-si-o-no/commits?path=')) {
+        return { status: 200, body: [{ sha: compatibleSiteCodeCommit }] };
+      }
+      if (input.path.includes('/repos/valerielinc-ops/frontaliere-si-o-no/contents/.github/corpus-workflows/contract.json?')) {
+        return {
+          status: 200,
+          body: {
+            encoding: 'base64',
+            content: Buffer.from(JSON.stringify(remoteContract)).toString('base64'),
+          },
+        };
+      }
+      return preflightResponse(input, remoteContract, observer, artifacts);
+    });
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep: async () => {} })).resolves.toMatchObject({
+      ready: true,
+      dispatchMode: 'shadow',
+      corpusCodeCommit,
+      siteCodeCommit: compatibleSiteCodeCommit,
+      reasons: [],
+      warnings: ['site_contract_compatibility_fallback'],
+    });
+    expect(request).toHaveBeenCalledWith(expect.objectContaining({
+      path: expect.stringContaining(`?ref=${compatibleSiteCodeCommit}`),
+    }));
+  });
+
   it('keeps a persistent same-source skew blocked after the bounded reconciliation window', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-lineage-exhausted-'));
     tempRoots.push(root);

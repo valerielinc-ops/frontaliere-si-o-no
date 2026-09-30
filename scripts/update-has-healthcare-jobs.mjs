@@ -33,7 +33,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -54,6 +54,13 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import {
+  buildThinSourceHousekeepingProof,
+  collectThinSourceJobsForQuarantine,
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -72,6 +79,11 @@ const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function jobMatchKey(job) {
+  return extractStableJobId(job?.url)
+    || String(job?.url || '').trim().replace(/\/+$/, '');
+}
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -438,7 +450,8 @@ async function mergeJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingTargetJobs, discoveredJobs).map((job) => ({
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingTargetJobs, jobMatchKey);
+  const merged = mergePreserveLocaleData(existingTargetJobs, sourceBodyJobs).map((job) => ({
     ...job,
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
@@ -449,8 +462,16 @@ async function mergeJobs(discoveredJobs) {
   // Non-source slots the merge kept that are not in their own language go
   // back to the translation pipeline.
   for (const job of merged) dropStaleLocaleDescriptions(job);
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(
+    discoveredJobs,
+    merged,
+    jobMatchKey,
+  );
+  const cleanTargetJobs = merged
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
 
-  const final = [...nonTargetJobs, ...merged];
+  const final = [...nonTargetJobs, ...cleanTargetJobs];
 
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
@@ -461,8 +482,34 @@ async function mergeJobs(discoveredJobs) {
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
+  if (thinSourceJobs.length > 0) {
+    console.warn(`  ⚠️ HAS Healthcare: quarantining ${thinSourceJobs.length} job(s) without a source body of at least 50 words.`);
+  }
 
-  return { added, updated, removed, total: final.length };
+  return {
+    added,
+    updated,
+    removed,
+    total: final.length,
+    sourceBodyJobs,
+    thinSourceJobs,
+    targetExisting: existingTargetJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredHasJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => dropFabricatedDescriptions(jobs, HAS_FABRICATED_DESCRIPTION_RE, COMPANY_NAME),
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -620,6 +667,9 @@ async function main() {
       '   The careers page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    await rewriteStoredHasJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -629,7 +679,14 @@ async function main() {
   updateAdapterConfig();
 
   // Phase 3: Merge into data/jobs.json
-  await mergeJobs(discoveredJobs);
+  const mergeStats = await mergeJobs(discoveredJobs);
+  if (mergeStats.noPublishableJobs) {
+    console.warn(
+      `⚠️ ${COMPANY_NAME}: all ${discoveredJobs.length} source body/bodies are below the 50-word source-body floor; quarantining thin-source rows.`,
+    );
+    await rewriteStoredHasJobsWithoutThinSource(mergeStats.targetExisting);
+    return;
+  }
 
   // Phase 4: Run base crawler for AI localization (DE/FR translations)
   console.log(
@@ -642,6 +699,7 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log(
       'ℹ️ No HAS Healthcare jobs found after crawl. No error — exiting OK.'
@@ -657,8 +715,19 @@ async function main() {
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw.filter(isTargetJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedJobs = crawlDiff.removedJobs || [];
+  const housekeepingProof = buildThinSourceHousekeepingProof(
+    removedJobs,
+    mergeStats.thinSourceJobs,
+    jobMatchKey,
+  );
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'HAS Healthcare',

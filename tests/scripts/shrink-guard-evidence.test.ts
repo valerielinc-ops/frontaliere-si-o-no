@@ -26,6 +26,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   shouldBlockShrink,
+  verifyShrinkWithProvidedHousekeepingProof,
   verifyShrinkAgainstSource,
 } from '../../scripts/assemble-jobs-dataset.mjs';
 
@@ -49,6 +50,39 @@ const botChallenge = (): Verdict => ({ valid: true, status: 403, reason: 'blocke
 const networkError = (): Verdict => ({ valid: true, status: 0, reason: 'network-error' });
 
 describe('verifyShrinkAgainstSource()', () => {
+  it('source-verifies only ordinary removals beside a proven thin quarantine', async () => {
+    const prior = [job('thin'), job('ordinary'), job('survivor')];
+    const next = [prior[2]];
+    const checkedUrls: string[] = [];
+    const verdict = await verifyShrinkWithProvidedHousekeepingProof(
+      prior,
+      next,
+      [{ job: prior[0], reason: 'thin-source-quarantine', definitive: true }],
+      {
+        validate: async (jobs) => {
+          checkedUrls.push(...jobs.map((candidate) => candidate.url));
+          return jobs.map((candidate) => ({
+            id: candidate.id,
+            valid: false,
+            definitive: true,
+            reason: 'http-404',
+          }));
+        },
+        expectedNewCount: next.length,
+      },
+    );
+
+    expect(checkedUrls).toEqual([prior[1].url]);
+    expect(verdict.corroborated).toBe(true);
+    expect(verdict.checked).toBe(1);
+    expect(verdict.dead).toBe(2);
+    expect(verdict.disappearedJobs).toEqual([prior[0], prior[1]]);
+    expect(verdict.evidence).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: 'thin', reason: 'thin-source-quarantine', definitive: true }),
+      expect.objectContaining({ id: 'ordinary', reason: 'http-404', definitive: true }),
+    ]));
+  });
+
   it('corroborates the grace-la-margna shape: 14 -> 1 with all 13 dropped jobs 404 at the source', async () => {
     const prior = Array.from({ length: 14 }, (_, i) => job(`g${i}`));
     const next = [prior[0]];

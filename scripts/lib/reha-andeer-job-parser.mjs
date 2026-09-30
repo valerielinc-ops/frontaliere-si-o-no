@@ -50,6 +50,14 @@ const NON_JOB_PDF_RE =
 // keyword but some carry the role name directly (e.g. "Pflegehelferin").
 const ACCEPT_HINTS_RE = /(stelle|stelleninserat|inserat|bewerb|pflege|masseur|therap|köch|service|kuche|reinigung|nacht|sekret|leit)/i;
 
+function decodeFilename(raw = '') {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
 /* ── Company matchers ──────────────────────────────────────── */
 
 export function isRehaAndeerJob(job = {}) {
@@ -122,7 +130,7 @@ export function parseRehaAndeerListing(html = '') {
 
     if (NON_JOB_PDF_RE.test(href)) continue;
     // Require either /uploads/ in path OR a job hint in filename.
-    const filename = decodeURIComponent(href.split('/').pop() || '');
+    const filename = decodeFilename(href.split('/').pop() || '');
     const isUploadsPath = /\/wp-content\/uploads\//i.test(href);
     if (!isUploadsPath && !ACCEPT_HINTS_RE.test(filename)) continue;
     // Extra filter: skip obviously-non-job uploads (e.g. Hausordnung).

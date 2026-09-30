@@ -26,6 +26,7 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
+import { isAutomationEnabled } from './assistedApplicationAutomation.js';
 import {
   brandButton,
   brandCallout,
@@ -56,7 +57,7 @@ const JOB_BOARD_ROOT_BY_LOCALE = {
 };
 
 /** Admin panel slug (services/routeSlugs.data.ts `admin`), owner-only. */
-const ADMIN_QUEUE_URL = `${SITE_ORIGIN}/gestione-contenuti-xk9mp2q/`;
+export const ADMIN_QUEUE_URL = `${SITE_ORIGIN}/gestione-contenuti-xk9mp2q/`;
 
 /** Claims older than this are considered abandoned by a crashed process. */
 const CLAIM_TTL_MS = 10 * 60 * 1000;
@@ -85,6 +86,12 @@ const CUSTOMER_KEYS = new Set([
   NOTIFICATION_KEYS.customerMaterialsReceived,
   NOTIFICATION_KEYS.customerSubmitted,
 ]);
+
+function isCustomerAudience(key, audience) {
+  if (audience === 'customer') return true;
+  if (audience === 'owner') return false;
+  return CUSTOMER_KEYS.has(key);
+}
 
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => (
@@ -174,6 +181,18 @@ export function buildOrderPageUrl(order, orderId, locale = resolveOrderLocale(or
   return url.toString();
 }
 
+/**
+ * Review page of the automated flow: same trusted base as the order page,
+ * with the signed review token (assistedApplicationReviewToken.js) instead of
+ * the order id.
+ */
+export function buildReviewPageUrl(order, token, locale = resolveOrderLocale(order)) {
+  const url = new URL(buildOrderPageUrl(order, 'x', locale));
+  url.searchParams.delete('assisted_application_order_id');
+  url.searchParams.set('assisted_application_review', String(token));
+  return url.toString();
+}
+
 /** Where the customer is reachable: the address typed in the form wins over Stripe's. */
 export function customerEmailFor(order) {
   const candidates = [order?.applicantEmail, order?.customerEmail];
@@ -235,6 +254,7 @@ const COPY = {
     uploadCta: 'Apri il tuo ordine',
     nextTitle: 'Cosa succede dopo',
     nextBody: "Entro 2 giorni lavorativi dalla ricezione dei documenti preparo la candidatura e la invio all'azienda attraverso il canale indicato nell'annuncio (portale o email). Ti scrivo appena è inviata. Se l'annuncio è chiuso o l'invio non è possibile, ti rimborso i {price}.",
+    nextBodyAuto: "Appena ricevo il CV preparo la candidatura e, entro poche ore, ti mando da approvare la lettera e i testi che invieremo a tuo nome. Se non rispondi entro 12 ore, la candidatura parte automaticamente così com'è. Se il portale dell'azienda richiede un tuo passaggio finale, ti mando tutto pronto per completarlo in 2 minuti. Se l'annuncio viene chiuso prima che riusciamo a inviare la candidatura, ti rimborsiamo i {price}.",
     recoveryOut: "Se l'annuncio non ti interessa più, rispondimi con «rimborso» e ti restituisco i {price}; se preferisci, posso usare il pagamento per un annuncio simile che mi indichi tu.",
     noGuarantee: "Non posso garantire una risposta, un colloquio o l'assunzione: Frontaliere Ticino non è affiliato all'azienda.",
     signature: 'Valerie',
@@ -262,6 +282,7 @@ const COPY = {
     reminderOut: "Se nel frattempo hai cambiato idea, rispondi con «rimborso» e ti restituisco i {price}.",
     receivedSubject: 'Ho ricevuto il tuo CV per {job}',
     receivedLead: "ho ricevuto il tuo CV e il mandato per la candidatura a {job} presso {company}. Preparo la candidatura e ti scrivo appena la invio, entro 2 giorni lavorativi. Se vuoi aggiungere qualcosa (lettera, certificati, disponibilità), rispondi pure a questa email.",
+    receivedLeadAuto: "ho ricevuto il tuo CV e il mandato per la candidatura a {job} presso {company}. Sto preparando la candidatura: entro poche ore ti mando da approvare la lettera e i testi che invieremo a tuo nome. Se non rispondi entro 12 ore dall'arrivo della bozza, la candidatura parte automaticamente così com'è.",
     submittedSubject: 'Ho inviato la tua candidatura a {company}',
     submittedLead: "ti confermo che il {date} ho inviato la tua candidatura per {job} presso {company}, attraverso il canale indicato nell'annuncio.",
     submittedNext: "Se l'azienda ti contatta, rispondi direttamente a loro. Se ricevi una risposta o hai bisogno di altro, scrivimi pure rispondendo a questa email. In bocca al lupo!",
@@ -288,6 +309,7 @@ const COPY = {
     uploadCta: 'Ouvrir ma commande',
     nextTitle: 'La suite',
     nextBody: "Dans les 2 jours ouvrables suivant la réception de vos documents, je prépare la candidature et je l'envoie à l'entreprise par le canal indiqué dans l'annonce (portail ou e-mail). Je vous écris dès qu'elle est envoyée. Si l'annonce est fermée ou si l'envoi est impossible, je vous rembourse les {price}.",
+    nextBodyAuto: "Dès réception de votre CV, je prépare la candidature et, en quelques heures, je vous envoie pour approbation la lettre et les textes que nous enverrons en votre nom. Sans réponse de votre part dans les 12 heures, la candidature part automatiquement telle quelle. Si le portail de l'entreprise demande une dernière étape de votre part, je vous envoie tout le nécessaire pour la terminer en 2 minutes. Si l'annonce est fermée avant que nous puissions envoyer la candidature, nous vous remboursons les {price}.",
     recoveryOut: "Si l'annonce ne vous intéresse plus, répondez « remboursement » et je vous rends les {price} ; si vous préférez, je peux utiliser ce paiement pour une annonce similaire que vous m'indiquez.",
     noGuarantee: "Je ne peux garantir ni réponse, ni entretien, ni embauche : Frontaliere Ticino n'est pas affilié à l'entreprise.",
     signature: 'Valerie',
@@ -315,6 +337,7 @@ const COPY = {
     reminderOut: 'Si vous avez changé d’avis entre-temps, répondez « remboursement » et je vous rends les {price}.',
     receivedSubject: "J'ai bien reçu votre CV pour {job}",
     receivedLead: "j'ai bien reçu votre CV et votre mandat pour la candidature à {job} chez {company}. Je prépare la candidature et je vous écris dès qu'elle est envoyée, dans les 2 jours ouvrables. Pour ajouter quelque chose (lettre, certificats, disponibilités), répondez simplement à cet e-mail.",
+    receivedLeadAuto: "j'ai bien reçu votre CV et votre mandat pour la candidature à {job} chez {company}. Je prépare la candidature : dans quelques heures, je vous envoie pour approbation la lettre et les textes que nous enverrons en votre nom. Sans réponse dans les 12 heures suivant l'arrivée du brouillon, la candidature part automatiquement telle quelle.",
     submittedSubject: "J'ai envoyé votre candidature à {company}",
     submittedLead: "je vous confirme que le {date} j'ai envoyé votre candidature pour {job} chez {company}, par le canal indiqué dans l'annonce.",
     submittedNext: "Si l'entreprise vous contacte, répondez-lui directement. Si vous recevez une réponse ou avez besoin d'autre chose, écrivez-moi en répondant à cet e-mail. Bonne chance !",
@@ -342,6 +365,7 @@ const COPY = {
     uploadCta: 'Bestellung öffnen',
     nextTitle: 'Wie es weitergeht',
     nextBody: 'Innerhalb von 2 Arbeitstagen nach Erhalt deiner Unterlagen bereite ich die Bewerbung vor und sende sie über den in der Anzeige genannten Kanal (Portal oder E-Mail) an das Unternehmen. Ich schreibe dir, sobald sie versendet ist. Ist die Stelle geschlossen oder der Versand nicht möglich, erstatte ich dir die {price}.',
+    nextBodyAuto: "Sobald dein Lebenslauf da ist, bereite ich die Bewerbung vor und schicke dir innerhalb weniger Stunden das Motivationsschreiben und die Texte zur Freigabe, die wir in deinem Namen senden. Antwortest du nicht innerhalb von 12 Stunden, wird die Bewerbung automatisch so versendet. Verlangt das Portal des Unternehmens einen letzten Schritt von dir, schicke ich dir alles vorbereitet, damit du ihn in 2 Minuten erledigst. Wird die Stelle geschlossen, bevor wir die Bewerbung senden können, erstatten wir dir die {price}.",
     recoveryOut: 'Falls dich die Stelle nicht mehr interessiert, antworte mit «Rückerstattung» und du bekommst die {price} zurück; wenn du willst, nutze ich die Zahlung auch für eine ähnliche Stelle, die du mir nennst.',
     noGuarantee: 'Ich kann keine Antwort, kein Vorstellungsgespräch und keine Anstellung garantieren: Frontaliere Ticino ist nicht mit dem Unternehmen verbunden.',
     signature: 'Valerie',
@@ -369,6 +393,7 @@ const COPY = {
     reminderOut: 'Falls du es dir anders überlegt hast, antworte mit «Rückerstattung» und du bekommst die {price} zurück.',
     receivedSubject: 'Ich habe deinen Lebenslauf für {job} erhalten',
     receivedLead: 'ich habe deinen Lebenslauf und den Auftrag für die Bewerbung auf {job} bei {company} erhalten. Ich bereite die Bewerbung vor und melde mich, sobald sie versendet ist, innerhalb von 2 Arbeitstagen. Wenn du etwas ergänzen möchtest (Motivationsschreiben, Zeugnisse, Verfügbarkeit), antworte einfach auf diese E-Mail.',
+    receivedLeadAuto: "ich habe deinen Lebenslauf und den Auftrag für die Bewerbung auf {job} bei {company} erhalten. Ich bereite die Bewerbung vor: In wenigen Stunden schicke ich dir das Motivationsschreiben und die Texte zur Freigabe, die wir in deinem Namen senden. Antwortest du nicht innerhalb von 12 Stunden nach Eingang des Entwurfs, wird die Bewerbung automatisch so versendet.",
     submittedSubject: 'Ich habe deine Bewerbung an {company} gesendet',
     submittedLead: 'hiermit bestätige ich, dass ich deine Bewerbung für {job} bei {company} am {date} über den in der Anzeige genannten Kanal versendet habe.',
     submittedNext: 'Wenn sich das Unternehmen meldet, antworte bitte direkt. Wenn du eine Antwort erhältst oder noch etwas brauchst, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
@@ -395,6 +420,7 @@ const COPY = {
     uploadCta: 'Open my order',
     nextTitle: 'What happens next',
     nextBody: "Within 2 working days of receiving your documents I prepare the application and send it to the company through the channel the ad asks for (portal or email). I'll write to you as soon as it's sent. If the ad is closed or the application can't be sent, I'll refund your {price}.",
+    nextBodyAuto: "As soon as I have your CV I prepare the application and, within a few hours, send you the cover letter and the texts we will send in your name for approval. If you don't reply within 12 hours, the application goes out automatically as it is. If the company's portal needs a final step from you, I'll send you everything ready to finish it in 2 minutes. If the ad is closed before we manage to send the application, we refund your {price}.",
     recoveryOut: "If you're no longer interested in this job, reply «refund» and I'll give you back the {price}; if you prefer, I can use the payment for a similar job you point me to.",
     noGuarantee: "I can't guarantee a reply, an interview or a job: Frontaliere Ticino is not affiliated with the company.",
     signature: 'Valerie',
@@ -422,6 +448,7 @@ const COPY = {
     reminderOut: "If you've changed your mind, reply «refund» and I'll give you back the {price}.",
     receivedSubject: 'I received your CV for {job}',
     receivedLead: "I received your CV and your mandate for the application to {job} at {company}. I'm preparing the application and will write as soon as it's sent, within 2 working days. If you want to add anything (cover letter, certificates, availability), just reply to this email.",
+    receivedLeadAuto: "I received your CV and your mandate for the application to {job} at {company}. I'm preparing the application: within a few hours I'll send you the cover letter and the texts we will send in your name for approval. If you don't reply within 12 hours of receiving the draft, the application goes out automatically as it is.",
     submittedSubject: 'I sent your application to {company}',
     submittedLead: 'I can confirm that on {date} I sent your application for {job} at {company}, through the channel the ad asks for.',
     submittedNext: "If the company contacts you, reply to them directly. If you hear back or need anything else, just reply to this email. Good luck!",
@@ -471,7 +498,7 @@ function footer(copy, vars) {
  * @param {'intro'|'recovery'|'reminder'|'received'|'submitted'} kind
  * @returns {{subject:string, html:string, text:string, locale:string}}
  */
-export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now() } = {}) {
+export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), automation = false } = {}) {
   const locale = resolveOrderLocale(order);
   const copy = COPY[locale] || COPY.it;
   const vars = orderVars(order, orderId, locale, nowMs);
@@ -493,8 +520,11 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now() } 
     textParts.push(`${copy.replyTitle} ${copy.replyBody}`);
     htmlParts.push(uploadHtml());
     textParts.push(`${copy.uploadAlt}\n${pageUrl}`);
-    htmlParts.push(brandInfoCard(copy.nextTitle, fillHtml(copy.nextBody, vars)));
-    textParts.push(`${copy.nextTitle}\n${fill(copy.nextBody, vars)}`);
+    // With the automated flow on, the promise changes: a draft to approve,
+    // 12 h auto-approval, refund only if the ad closes before sending.
+    const nextBody = automation ? copy.nextBodyAuto : copy.nextBody;
+    htmlParts.push(brandInfoCard(copy.nextTitle, fillHtml(nextBody, vars)));
+    textParts.push(`${copy.nextTitle}\n${fill(nextBody, vars)}`);
     if (kind === 'recovery') {
       htmlParts.push(paragraph(fillHtml(copy.recoveryOut, vars)));
       textParts.push(fill(copy.recoveryOut, vars));
@@ -509,8 +539,9 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now() } 
     htmlParts.push(paragraph(fillHtml(copy.reminderOut, vars)));
     textParts.push(fill(copy.reminderOut, vars));
   } else if (kind === 'received') {
-    htmlParts.push(paragraph(fillHtml(copy.receivedLead, vars)));
-    textParts.push(fill(copy.receivedLead, vars));
+    const receivedLead = automation ? copy.receivedLeadAuto : copy.receivedLead;
+    htmlParts.push(paragraph(fillHtml(receivedLead, vars)));
+    textParts.push(fill(receivedLead, vars));
   } else if (kind === 'submitted') {
     htmlParts.push(paragraph(fillHtml(copy.submittedLead, vars)), job.html);
     textParts.push(fill(copy.submittedLead, vars), job.text);
@@ -663,9 +694,11 @@ async function ensureEmailProviders() {
  * @param {string} [args.recipientOverride] send to this address instead (test mode:
  *   nothing is recorded on the order, so the real send stays possible)
  * @param {object} [args.meta] extra fields recorded next to the send (e.g. variant)
+ * @param {'customer'|'owner'|null} [args.audience] explicit recipient for keys
+ *   outside NOTIFICATION_KEYS (the automated flow's per-round messages)
  * @param {number} [args.nowMs]
  */
-export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, nowMs = Date.now() }) {
+export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now() }) {
   const orderRef = orderRefFor(db, orderId);
   const testMode = Boolean(recipientOverride);
 
@@ -682,7 +715,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
 
   const to = testMode
     ? recipientOverride
-    : (CUSTOMER_KEYS.has(key) ? customerEmailFor(order) : ASSISTED_APPLICATION_OWNER_EMAIL);
+    : (isCustomerAudience(key, audience) ? customerEmailFor(order) : ASSISTED_APPLICATION_OWNER_EMAIL);
   if (!to) {
     if (!testMode) {
       await markNotification(orderRef, key, { status: 'failed', lastError: 'no_recipient', failedAt: new Date(nowMs) });
@@ -698,7 +731,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
   }
 
   const message = build(order);
-  const isCustomer = CUSTOMER_KEYS.has(key);
+  const isCustomer = isCustomerAudience(key, audience);
   const customerEmail = customerEmailFor(order);
   const payload = {
     from: isCustomer ? ASSISTED_APPLICATION_SENDER : INTERNAL_SENDER,
@@ -762,8 +795,11 @@ export function isPaid(order) {
 export async function sendPaidOrderNotifications(
   db,
   orderId,
-  { variant = 'intro', recipientOverride = '', orderPatch = null, nowMs = Date.now() } = {},
+  { variant = 'intro', recipientOverride = '', orderPatch = null, nowMs = Date.now(), automation } = {},
 ) {
+  // Callers that do not say (the hourly backstop, the owner recovery script)
+  // get the copy that matches the automation flag, like the trigger does.
+  const automationOn = typeof automation === 'boolean' ? automation : await isAutomationEnabled();
   // `orderPatch` only changes what the email shows (e.g. the locale recovered
   // from Stripe for a test send); it is never written by this function.
   const view = (order) => (orderPatch ? { ...order, ...orderPatch } : order);
@@ -772,7 +808,7 @@ export async function sendPaidOrderNotifications(
     db,
     orderId,
     key: NOTIFICATION_KEYS.customerIntro,
-    build: (order) => buildCustomerEmail(variant, view(order), orderId, { nowMs }),
+    build: (order) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation: automationOn }),
     recipientOverride,
     meta: { variant },
     nowMs,
@@ -798,7 +834,7 @@ export async function handleAssistedApplicationOrderWritten(
   before,
   after,
   orderId,
-  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv } = {},
+  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabled } = {},
 ) {
   if (!after) return { ok: true, skipped: 'deleted' };
   const results = [];
@@ -814,18 +850,19 @@ export async function handleAssistedApplicationOrderWritten(
   }
 
   if (isPaid(after) && !isPaid(before)) {
-    results.push(...await sendPaidOrderNotifications(db, orderId, { nowMs }));
+    results.push(...await sendPaidOrderNotifications(db, orderId, { nowMs, automation: await automationEnabled() }));
   }
 
   const fromStatus = before?.submissionStatus || null;
   const toStatus = after.submissionStatus || null;
   if (isPaid(after) && fromStatus !== toStatus) {
     if (toStatus === 'ready_for_manual_submission' && fromStatus === 'awaiting_upload') {
+      const receivedAutomation = await automationEnabled();
       results.push(await sendOrderNotification({
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerMaterialsReceived,
-        build: (order) => buildCustomerEmail('received', order, orderId, { nowMs }),
+        build: (order) => buildCustomerEmail('received', order, orderId, { nowMs, automation: receivedAutomation }),
         nowMs,
       }));
       results.push(await sendOrderNotification({

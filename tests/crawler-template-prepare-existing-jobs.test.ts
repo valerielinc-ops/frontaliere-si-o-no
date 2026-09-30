@@ -241,6 +241,50 @@ describe('runStandardCrawlerPipeline prepareExistingJobs (opt-in)', () => {
       {},
     );
   });
+
+  it('proves a thin source removal when a mixed run keeps a publishable sibling', async () => {
+    const thinBody = Array(40).fill('stored').join(' ');
+    const freshThinBody = Array(35).fill('fresh').join(' ');
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'stored-thin',
+      slug: 'stored-thin',
+      url: 'https://example.com/stored-thin',
+      companyKey: COMPANY_KEY,
+      sourceLang: 'de',
+      description: thinBody,
+      descriptionByLocale: { de: thinBody },
+    }]);
+    await runPipeline({
+      fetchJobs: async () => [{
+        id: 'fresh-thin',
+        slug: 'stored-thin',
+        url: 'https://example.com/stored-thin',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: freshThinBody,
+        descriptionByLocale: { de: freshThinBody },
+      }, {
+        id: 'fresh-rich',
+        slug: 'fresh-rich',
+        url: 'https://example.com/fresh-rich',
+        companyKey: COMPANY_KEY,
+        sourceLang: 'de',
+        description: SOURCE_BODY,
+        descriptionByLocale: { de: SOURCE_BODY },
+      }],
+    });
+
+    const [key, jobs, options] = mocks.writeJobsCrawlerSliceVerified.mock.calls[0];
+    expect(key).toBe(COMPANY_KEY);
+    expect(jobs).toEqual([expect.objectContaining({ url: 'https://example.com/fresh-rich' })]);
+    expect(options).toMatchObject({
+      housekeepingProof: [{
+        job: expect.objectContaining({ url: 'https://example.com/stored-thin' }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
+    });
+  });
 });
 
 // A run that parses no job keeps the stored slice. The hook still runs on the
