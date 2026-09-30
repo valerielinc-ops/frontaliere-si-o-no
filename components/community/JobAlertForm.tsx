@@ -13,7 +13,7 @@ import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
- import { savePendingJobAlert, consumePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
+import { savePendingJobAlert, consumePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import { Analytics } from '@/services/analytics';
@@ -472,10 +472,10 @@ export default function JobAlertForm({
     setSelectedLocations([]);
     setSelectedContracts([]);
     setSelectedSectors([]);
- setSelectedCantons([]);
- setCantonPickerOpen(false);
+    setSelectedCantons([]);
+    setCantonPickerOpen(false);
     setCtaOrigin('inline_card');
- setExpanded(false);
+    setExpanded(false);
   }, []);
 
   // After the auth round-trip, replay a stashed alert intent so a logged-out
