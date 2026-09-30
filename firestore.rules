@@ -1024,7 +1024,8 @@ service cloud.firestore {
           'cvUploadedAt',
           'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
         ])
-        && request.resource.data.consentVersion == 'assisted-application-v1'
+        // v2 names the employer's terms accepted on the candidate's behalf; v1 stays valid for pages opened before.
+        && request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']
         && request.resource.data.consentedAt is timestamp
         && (resource.data.consentVersion == null
           || (request.resource.data.consentVersion == resource.data.consentVersion

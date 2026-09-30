@@ -44,7 +44,7 @@ describe('assisted application post-payment upload', () => {
     expect(block).toContain("'cvUploadedAt'");
     expect(block).toContain('request.resource.data.cvUploadedAt is timestamp');
     expect(block).toContain('request.resource.data.cvStorageKey == resource.data.cvStorageKey');
-    expect(block).toContain("request.resource.data.consentVersion == 'assisted-application-v1'");
+    expect(block).toContain("request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']");
     expect(block).toContain('allow delete: if false;');
   });
 
@@ -53,7 +53,7 @@ describe('assisted application post-payment upload', () => {
 
     expect(block).toContain('request.auth != null');
     expect(block).toContain(".data.paymentStatus == 'paid'");
-    expect(block).toContain(".data.consentVersion == 'assisted-application-v1'");
+    expect(block).toContain(".data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']");
     expect(block).toContain('.data.consentedAt is timestamp');
     expect(block).toContain('allow read: if false;');
     expect(block).toContain('allow update, delete: if false;');

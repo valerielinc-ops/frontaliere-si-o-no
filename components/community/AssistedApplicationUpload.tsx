@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { CheckCircle2, FileText, Loader2, LockKeyhole, Shield, UploadCloud } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -385,6 +386,7 @@ export default function AssistedApplicationUpload({
                   />
                   <span>{t('jobBoard.assisted.consent', { jobTitle, companyName: order.companyName || '' })}</span>
                 </label>
+                <AssistedApplicationLegalLinks className="-mt-3 block px-4 text-xs text-muted" />
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="text-sm font-medium text-body">

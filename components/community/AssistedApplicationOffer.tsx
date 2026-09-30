@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowUpRight, Check, Loader2, Shield, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -140,7 +141,9 @@ export default function AssistedApplicationOffer({
             </button>
           </div>
 
-          <p className="text-xs leading-relaxed text-muted">{t('jobBoard.assisted.disclaimer')}</p>
+          <p className="text-xs leading-relaxed text-muted">
+            {t('jobBoard.assisted.disclaimer')} <AssistedApplicationLegalLinks />
+          </p>
           {error && <p role="alert" aria-live="assertive" className="text-sm leading-relaxed text-danger">{error}</p>}
         </div>
       </div>
