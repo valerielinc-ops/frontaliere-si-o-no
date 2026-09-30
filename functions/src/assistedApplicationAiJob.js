@@ -210,6 +210,10 @@ const PORTALS = [
   { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
 ];
 
+// The employers' own application portals (not job boards): used even when the
+// posting also names an e-mail address.
+const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
+
 const EMAIL_ONLY_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 export function isPlausibleEmail(value) {
@@ -236,6 +240,12 @@ export function classifyApplicationChannel({ applyUrl = '', postingText = '', ap
     host = '';
   }
   const portal = host ? PORTALS.find((candidate) => candidate.re.test(host)) : null;
+  // Owner decision 2026-09-30: the employer's application portal comes first;
+  // e-mail only when the posting offers none (just its own page, a job board
+  // or LinkedIn, where no employer form can be relied on).
+  if (portal && APPLICANT_TRACKING_SYSTEMS.has(portal.id)) {
+    return { type: portal.id, label: portal.label, email: '', applyUrl: url, host, requiresAccount: portal.account };
+  }
   if (email) {
     return {
       type: 'email', label: 'E-mail', email, applyUrl: url, host,
