@@ -214,6 +214,8 @@ interface Copy {
   disclaimer: string;
   hubTitle: string;
   hubLede: string;
+  hubContextTitle: string;
+  hubContext: string;
   groupGeneve: string;
   groupHuitCantons: string;
   /** Hub group for dual-basis communes — see FrenchRegimeBasis. */
@@ -279,6 +281,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'Vivere in Francia e lavorare in Svizzera, comune per comune',
     hubLede:
       'Affitti, distanza dal valico e regime fiscale (Ginevra vs otto cantoni) per i comuni francesi del corridoio Ginevra-Vaud-Neuchâtel-Giura-Vallese.',
+    hubContextTitle: 'Come leggere questa guida',
+    hubContext:
+      'Il regime fiscale non segue automaticamente il comune di residenza: dipende dal cantone svizzero in cui lavori. Ginevra applica l’accordo del 1973 con imposta alla fonte e credito in Francia; Vaud, Neuchâtel, Giura e Vallese rientrano nell’accordo del 1983, con dichiarazione in Francia e compensazione del 4,5%. Per questo le pagine sono raggruppate per base fiscale, mentre le schede comune riportano popolazione, distanza stradale dal valico più vicino e affitto indicativo. Le cifre sono riferimenti, non un calcolo fiscale personalizzato.',
     groupGeneve: 'Regime Ginevra',
     groupHuitCantons: 'Regime otto cantoni',
     groupDual: 'Ginevra o otto cantoni (secondo il cantone di lavoro)',
@@ -342,6 +347,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'Living in France, working in Switzerland, town by town',
     hubLede:
       'Rent, distance to the border crossing and tax regime (Geneva vs eight cantons) for the French towns in the Geneva-Vaud-Neuchâtel-Jura-Valais corridor.',
+    hubContextTitle: 'How to read this guide',
+    hubContext:
+      'The applicable tax regime does not follow automatically from the town where you live: it depends on the Swiss canton where you work. Geneva uses the 1973 agreement with source tax and a French tax credit; Vaud, Neuchâtel, Jura and Valais fall under the 1983 agreement, with the income declared in France and a 4.5% compensation paid to Switzerland. The pages are therefore grouped by tax basis, while each town profile reports population, road distance to the nearest crossing and indicative rent. These figures are reference points, not a personalised tax calculation.',
     groupGeneve: 'Geneva regime',
     groupHuitCantons: 'Eight-canton regime',
     groupDual: 'Geneva or eight cantons (by canton of employment)',
@@ -405,6 +413,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'In Frankreich leben, in der Schweiz arbeiten, Ort für Ort',
     hubLede:
       'Miete, Distanz zum Grenzübergang und Steuerregime (Genf vs. acht Kantone) für die französischen Orte im Korridor Genf-Waadt-Neuenburg-Jura-Wallis.',
+    hubContextTitle: 'So lesen Sie diesen Ratgeber',
+    hubContext:
+      'Das Steuerregime richtet sich nicht automatisch nach dem Wohnort, sondern nach dem Schweizer Kanton, in dem Sie arbeiten. Für Genf gilt das Abkommen von 1973 mit Quellensteuer und Anrechnung in Frankreich; Waadt, Neuenburg, Jura und Wallis fallen unter das Abkommen von 1983, mit Deklaration in Frankreich und einer Ausgleichszahlung von 4,5%. Deshalb sind die Orte nach Steuergrundlage gruppiert. Jede Ortsseite zeigt Einwohnerzahl, Strassenentfernung zum nächsten Grenzübergang und eine Richtmiete. Die Werte sind Orientierung, keine persönliche Steuerberechnung.',
     groupGeneve: 'Regime Genf',
     groupHuitCantons: 'Regime acht Kantone',
     groupDual: 'Genf oder acht Kantone (je nach Arbeitskanton)',
@@ -468,6 +479,9 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubTitle: 'Vivre en France, travailler en Suisse, commune par commune',
     hubLede:
       'Loyers, distance à la frontière et régime fiscal (Genève vs huit cantons) pour les communes françaises du corridor Genève-Vaud-Neuchâtel-Jura-Valais.',
+    hubContextTitle: 'Comment lire ce guide',
+    hubContext:
+      'Le régime fiscal ne dépend pas automatiquement de la commune de résidence : il dépend du canton suisse où vous travaillez. Genève applique l’accord de 1973, avec impôt à la source et crédit d’impôt en France ; Vaud, Neuchâtel, Jura et Valais relèvent de l’accord de 1983, avec déclaration en France et une compensation de 4,5 % versée à la Suisse. Les communes sont donc regroupées selon la base fiscale. Chaque fiche indique la population, la distance routière jusqu’au passage frontalier le plus proche et un loyer indicatif. Ces chiffres sont des repères, pas un calcul fiscal personnalisé.',
     groupGeneve: 'Régime Genève',
     groupHuitCantons: 'Régime huit cantons',
     groupDual: 'Genève ou huit cantons (selon le canton de travail)',
@@ -850,6 +864,10 @@ export function renderHubPage(params: { locale: FrenchLocale; dateStamp: string;
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>
     ${groups}
+    <section class="mt-8 rounded-md border border-edge bg-surface-raised p-5">
+      <h2 class="text-lg font-bold text-heading">${esc(c.hubContextTitle)}</h2>
+      <p class="mt-3 leading-7 text-body">${esc(c.hubContext)}</p>
+    </section>
     <p class="mt-6 text-xs leading-5 text-muted">${esc(c.disclaimer)}</p>
   </div>`;
 

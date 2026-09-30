@@ -5,7 +5,7 @@ import {
   type JobAlertEligibility,
 } from '@/services/jobAlertEligibility';
 
-export type JobAlertEligibilitySurface = 'sticky_banner' | 'end_card' | 'job_detail_button';
+export type JobAlertEligibilitySurface = 'sticky_banner' | 'end_card' | 'job_detail_button' | 'inline_card';
 
 interface UseJobAlertEligibilityOptions {
   enabled: boolean;
@@ -31,7 +31,7 @@ function reportSkipOnce(
  *
  * Anonymous users remain eligible: the shared form owns the auth/email
  * conversion path. Known users use the shared per-session alert snapshot, so
- * all three surfaces agree without three Firestore reads.
+ * all alert surfaces agree without one Firestore read per surface.
  */
 export function useJobAlertEligibility({
   enabled,

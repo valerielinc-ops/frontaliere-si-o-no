@@ -9,6 +9,7 @@ describe('protected data refreshes publish through pull requests', () => {
   const refreshes = [
     '.github/workflows/refresh-job-popularity.yml',
     '.github/workflows/refresh-article-trending.yml',
+    '.github/workflows/monitor-telegram-member-count.yml',
   ];
 
   it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
@@ -28,5 +29,15 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('HEAD:${BRANCH}');
     expect(helper).toContain('--force-with-lease');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('preserves pending append-only Telegram history before publishing the stable branch', () => {
+    const workflow = read('.github/workflows/monitor-telegram-member-count.yml');
+    expect(workflow).toContain("branch='chore/telegram-member-count-history'");
+    expect(workflow).toContain(
+      'refs/remotes/origin/${branch}:${history_path}',
+    );
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).toContain('--branch chore/telegram-member-count-history');
   });
 });

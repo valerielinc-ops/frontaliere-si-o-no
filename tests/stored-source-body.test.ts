@@ -4,8 +4,10 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  buildSourceBodyFailureHousekeepingProof,
   buildThinSourceHousekeepingProof,
   collectThinSourceJobsForQuarantine,
+  dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodies,
   keepStoredSourceBodiesByKey,
 } from '@/scripts/lib/stored-source-body.mjs';
@@ -159,5 +161,87 @@ describe('keepStoredSourceBodies', () => {
 
     expect(collectThinSourceJobsForQuarantine([freshThin], [oldThin], keyOfJob)).toEqual([oldThin]);
     expect(collectThinSourceJobsForQuarantine([freshThin], [], keyOfJob)).toEqual([freshThin]);
+  });
+
+  it('keeps a valid stored body for a failed PDF and never classifies the failure as thin', () => {
+    const failed = {
+      url: 'https://source.example/jobs/pdf-failure',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+      sourceBodyFailureMessage: 'no text extracted',
+    };
+    const stored = {
+      ...failed,
+      description: BODY,
+      descriptionByLocale: { it: BODY },
+      sourceBodyFailureReason: undefined,
+      sourceBodyFailureMessage: undefined,
+    };
+
+    const kept = keepStoredSourceBodiesByKey([failed], [stored], jobKey);
+    expect(kept).toEqual([expect.objectContaining({
+      url: failed.url,
+      sourceLang: 'it',
+      description: BODY,
+      descriptionByLocale: { it: BODY },
+    })]);
+    expect(kept[0]).not.toHaveProperty('sourceBodyFailureReason');
+    expect(kept[0]).not.toHaveProperty('sourceBodyFailureMessage');
+    expect(collectThinSourceJobsForQuarantine([failed], kept, jobKey)).toEqual([]);
+    expect(buildSourceBodyFailureHousekeepingProof([stored], [failed], jobKey)).toEqual([{
+      job: stored,
+      reason: 'pdf-extraction-failed',
+      definitive: true,
+    }]);
+  });
+
+  it('drops a failed PDF without a valid stored body without thin quarantine evidence', () => {
+    const failed = {
+      url: 'https://source.example/jobs/pdf-failure-no-history',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+    };
+    expect(keepStoredSourceBodiesByKey([failed], [], jobKey)).toEqual([]);
+    expect(collectThinSourceJobsForQuarantine([failed], [], jobKey)).toEqual([]);
+  });
+
+  it('removes a failed identity from the merge when its stored body is under the floor', () => {
+    const failed = {
+      url: 'https://source.example/jobs/pdf-failure-thin-history',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+    };
+    const stored = {
+      ...failed,
+      description: BODY_35,
+      descriptionByLocale: { it: BODY_35 },
+      sourceBodyFailureReason: undefined,
+    };
+
+    expect(dropFailedSourceJobsWithoutValidBody([stored], [failed], jobKey)).toEqual([]);
+  });
+
+  it('keeps a failed identity in the merge when its stored body clears the floor', () => {
+    const failed = {
+      url: 'https://source.example/jobs/pdf-failure-valid-history',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: { it: '' },
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+    };
+    const stored = {
+      ...failed,
+      description: BODY,
+      descriptionByLocale: { it: BODY },
+      sourceBodyFailureReason: undefined,
+    };
+
+    expect(dropFailedSourceJobsWithoutValidBody([stored], [failed], jobKey)).toEqual([stored]);
   });
 });

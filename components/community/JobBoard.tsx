@@ -10831,6 +10831,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
  <JobAlertForm
  authUser={authUser}
+ authResolved={!authLoading}
  onRequireAuth={onRequireAuth}
  initialKeyword={searchQuery}
  initialCantonCode={boardFilterAlertCantonCode}

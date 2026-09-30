@@ -1287,6 +1287,15 @@ jobs:
           wait "$DIST_MULTI_PID" || true
           wait
 
+          # FULL-DIST SERIAL PHASE — strict JobPosting completeness is
+          # deliberately unsampled and walks every rehydrated dist/ HTML file.
+          # It must not overlap the light pool's other walkers: keeping the
+          # same spawn_capped helper here preserves the deploy-ref skew guard,
+          # timing row, per-gate log, and blocking failure propagation while
+          # this invocation runs after every pooled job has completed.
+          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema
+          wait
+
           # dist:quality-tests's own rate line, unconditionally (issue
           # #6192 item 1). tests/seo/related-search-clusters-emitted.test.ts
           # prints `[related-search-clusters] ...: <rate>` on every run, pass

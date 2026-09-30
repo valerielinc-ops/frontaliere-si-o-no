@@ -84,6 +84,8 @@ function parseAuditAllRegistry(src: string): Set<string> {
 }
 
 const AUDIT_ALL_WRAPS = parseAuditAllRegistry(AUDIT_ALL_REGISTRY_SRC);
+const POSTBUILD_VALIDATIONS_STEP = (YAML.parse(VALIDATION_YML) as any).jobs['validate-dist-postbuild'].steps
+  .find((step: any) => step.id === 'postbuild_validations');
 
 /**
  * Returns true if the workflow invokes the audit either directly via
@@ -121,6 +123,23 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
       VALIDATION_YML,
       'spawn_capped helper missing from post-deploy-validate-dist.yml — parallel execution regressed',
     ).toContain('spawn_capped()');
+  });
+
+  it('runs the strict JobPosting completeness validator as a blocking serialized full-dist gate', () => {
+    const run = POSTBUILD_VALIDATIONS_STEP?.run as string;
+    expect(PACKAGE_JSON.scripts['validate:jobposting-schema']).toBe('node scripts/validate-jobposting-schema.mjs');
+    const jobPostingInvocation = 'spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema';
+    const poolStart = run.indexOf('# LIGHT POOL');
+    const poolEnd = run.indexOf('wait "$DIST_MULTI_PID" || true');
+    const jobPostingIndex = run.indexOf(jobPostingInvocation);
+    expect(poolStart).toBeGreaterThanOrEqual(0);
+    expect(poolEnd).toBeGreaterThan(poolStart);
+    expect(jobPostingIndex).toBeGreaterThan(poolEnd);
+    expect(run.slice(poolStart, poolEnd)).not.toContain(jobPostingInvocation);
+    expect(run.slice(jobPostingIndex)).toContain(`${jobPostingInvocation}\nwait`);
+    expect(POSTBUILD_VALIDATIONS_STEP?.['continue-on-error']).not.toBe(true);
+    expect(run).toContain('echo "$name $logfile" >> /tmp/post-build-failures.txt');
+    expect(run).toContain('[ $FAIL -eq 0 ] || exit 1');
   });
 
   it('dist validation rehydrates once behind one timeout ceiling', () => {

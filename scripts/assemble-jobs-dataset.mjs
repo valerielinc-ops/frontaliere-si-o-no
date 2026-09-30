@@ -147,7 +147,7 @@ export function markCrawlerSummaryAbortKind(kind) {
  *
  * @param {string} key   - Crawler key (same as COMPANY_KEY)
  * @param {string} label - Human-readable label (company name)
- * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null}|null} [counts] - Optional mutable
+ * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null, sourceBodyFailures?: object[]}|null} [counts] - Optional mutable
  *   counter the crawler updates as it discovers candidates (issue #5945):
  *   `counts.discovered` set right after the pre-filter fetch lets an early
  *   return (e.g. "0 Swiss jobs after filtering") report a non-zero
@@ -175,6 +175,9 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         normalizeAbortKind(counts?.abortKind) ??
         _summaryAbortKind ??
         (code === 0 ? null : 'crash');
+      const sourceBodyFailures = Array.isArray(counts?.sourceBodyFailures)
+        ? counts.sourceBodyFailures.slice(0, 100)
+        : [];
       writeSummaryCrawlerSlice({
         ...detailDropFields,
         key,
@@ -184,6 +187,8 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         discovered,
         parsed,
         lastFetchOutcome,
+        sourceBodyFailureCount: sourceBodyFailures.length,
+        sourceBodyFailures,
         abortKind,
         written: 0,
         newCount: 0,
@@ -1363,7 +1368,8 @@ export async function verifyShrinkWithProvidedHousekeepingProof(
  * @param {object[]} jobs
  * @param {object} [options] Passed through to `writeJobsCrawlerSlice`; also
  *   accepts `validate` / `concurrency` / `timeoutMs` for the probe and an
- *   optional `housekeepingProof` array for deliberate thin-source quarantine.
+ *   optional `housekeepingProof` array for deliberate source-backed housekeeping
+ *   (including thin-source quarantine or a parser/fetch failure).
  * @param {boolean} [options.verifyUnprovenHousekeeping] When true, the
  *   housekeeping proof may cover only a deterministic subset; if the shrink
  *   guard trips, the remaining removals are verified at their source URLs.
@@ -1395,7 +1401,7 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
         crawlerKey,
       );
       if (archived > 0) {
-        console.warn(`  📦 Archived ${archived} thin-source job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
+        console.warn(`  📦 Archived ${archived} housekeeping job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
       }
       return { written: true, shrinkAccepted: false, archived };
     }
@@ -1430,11 +1436,11 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     );
     if (suppliedVerdict) {
       console.log(
-        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — thin-source housekeeping proof covers every removed job.`,
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — housekeeping proof covers every removed job.`,
       );
     } else if (verifyUnprovenHousekeeping && providedProofIds.size > 0) {
       console.log(
-        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — thin-source housekeeping proof covers ${providedProofIds.size} removed job(s); probing the remaining removal(s) against the source before deciding.`,
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — housekeeping proof covers ${providedProofIds.size} removed job(s); probing the remaining removal(s) against the source before deciding.`,
       );
     } else {
       console.log(
@@ -1480,9 +1486,9 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     ).length;
     console.warn(
       suppliedVerdict
-        ? `  ✅ ${crawlerKey}: shrink CORROBORATED by deliberate thin-source quarantine — ${verdict.dead} removed job(s) have route-preserving housekeeping proof. Accepting the smaller slice.`
+        ? `  ✅ ${crawlerKey}: shrink CORROBORATED by deliberate housekeeping proof — ${verdict.dead} removed job(s) have route-preserving evidence. Accepting the smaller slice.`
         : acceptedProvidedProofCount > 0
-        ? `  ✅ ${crawlerKey}: shrink CORROBORATED — ${acceptedProvidedProofCount} removed job(s) have thin-source housekeeping proof and ${verdict.dead - acceptedProvidedProofCount} are provably gone at the source. Accepting the smaller slice.`
+        ? `  ✅ ${crawlerKey}: shrink CORROBORATED — ${acceptedProvidedProofCount} removed job(s) have housekeeping proof and ${verdict.dead - acceptedProvidedProofCount} are provably gone at the source. Accepting the smaller slice.`
         : `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
     );
     for (const e of verdict.evidence.slice(0, 10)) {
