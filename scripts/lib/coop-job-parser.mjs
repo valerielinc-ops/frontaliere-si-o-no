@@ -604,6 +604,7 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
       job?.sector,
       job?.department,
       job?.requirements,
+      job?.datePosted,
       job?.validThrough,
       job?.addressCountry || job?.country,
     ].map(normalizedIdentityValue).join('\u0000');

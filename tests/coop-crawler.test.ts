@@ -1843,6 +1843,17 @@ describe('Coop reposts without a street address (parser-quality audit #5253)', (
   const pages = ['coop-heiden-a', 'coop-heiden-b'].map((id) => republishedPages[id]);
   const title = 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"';
 
+  it('keeps source-backed postings with different datePosted values apart', () => {
+    const j = { title: 'Ruolo', description: 'test', location: 'Reiden', company: 'Volg', _enrichedFromDetail: true };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      { ...j, url: 'https://x/a', datePosted: '2026-09-01' },
+      { ...j, url: 'https://x/b', datePosted: '2026-09-02' },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept.length).toBe(2);
+    expect(collapsed.length).toBe(0);
+  });
+
   it('keeps two UUIDs apart when the source gives no store address, even with identical pages', () => {
     const listings = pages.map(({ url }) => ({
       id: 'coop-family-heiden', companyKey: 'jumbo', url, title, description: 'listing fallback',
