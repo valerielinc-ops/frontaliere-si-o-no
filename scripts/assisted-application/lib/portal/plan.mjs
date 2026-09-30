@@ -114,6 +114,12 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    // What the page holds after the action counts: a dropdown set to its
+    // prompt ("Select One") or a required box unticked is still blank.
+    if ((action.action === 'select' && PLACEHOLDER.test(value)) || (action.action === 'uncheck' && field.required)) {
+      ask(field);
+      continue;
+    }
     const fromCandidate = ['answers', 'profile'].includes(action.source) && (!knownValues || knownValues.includes(value));
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
@@ -123,9 +129,34 @@ export function guardPlan(plan, fields, candidate = null) {
     if (action.action === 'select' && field.options?.length && !field.options.some((option) => option.label === action.value)) continue;
     actions.push(action);
   }
-  // A skip answers nothing: a field both skipped and missing stays a question.
-  const answered = new Set(actions.filter((action) => action.action !== 'skip').map((action) => action.fieldId));
-  return { actions, missingRequired: missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)) };
+  // A skip answers nothing, and neither does an unchecked box.
+  const answered = new Set(actions.filter((action) => !['skip', 'uncheck'].includes(action.action)).map((action) => action.fieldId));
+  // A required field the plan leaves empty (omitted or skipped) is never
+  // submitted blank: unless the page already holds a value, it is a question.
+  for (const field of fields) {
+    if (field.required && !answered.has(field.id) && !holdsValue(field)) ask(field);
+  }
+  const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));
+  return {
+    actions: actions.filter((action) => !asked.has(action.fieldId)),
+    missingRequired: missing.filter((item) => asked.has(item.fieldId)),
+  };
+}
+
+// "Select One", "Bitte wählen", "-- Seleziona --": a dropdown still on its prompt holds nothing.
+const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please (select|choose)( one)?|bitte (aus)?wählen|auswählen|seleziona(re)?|scegli|sélectionne[rz]?|choisi(r|ssez))?[-–—\s.…]*$/i;
+
+/** The field already has an answer on the page (filled before, or prefilled by the portal). */
+export function holdsValue(field) {
+  if (field.kind === 'checkbox') return Boolean(field.checked);
+  if (field.kind === 'file') return false;
+  const value = String(field.value || '').trim();
+  if (!value) return false;
+  if (field.kind === 'select') {
+    const chosen = (field.options || []).find((option) => option.value === field.value);
+    return !(chosen && PLACEHOLDER.test(chosen.label));
+  }
+  return !PLACEHOLDER.test(value);
 }
 
 export async function planPage({ snapshot, candidate, candidateLocale, codex }) {
