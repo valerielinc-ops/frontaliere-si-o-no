@@ -36,12 +36,13 @@ name: corpus-wide gates
 # Era l'opzione più economica da scrivere e la peggiore da tenere. Due ragioni,
 # entrambe già scritte nel repo:
 #
-#   - La CONCORRENZA. La testata di tests.yml racconta che il fan-out a 4 shard
-#     è stato collassato in un job solo perché sul piano Free l'account condivide
-#     un pool da ~20 job e il fan-out per-PR affamava auto-merge, review e
-#     pr-body-contract. Aggiungere un job per PR rispenderebbe esattamente la
-#     risorsa che quella modifica aveva liberato — e per far girare gate che su
-#     quella PR misurano un corpus identico a quello già misurato su main.
+#   - La CONCORRENZA. Il fan-out a 4 shard di tests.yml era stato collassato in
+#     un job solo perché sul piano Free l'account condivideva un pool da ~20
+#     job e il fan-out per-PR affamava auto-merge, review e pr-body-contract.
+#     Dal 2026-09-30 l'account è su GitHub Pro (40 job concorrenti) e il pool
+#     non è più saturo, ma l'argomento resta: un job per PR spenderebbe slot per
+#     far girare gate che su quella PR misurano un corpus identico a quello già
+#     misurato su main.
 #   - Un check non-bloccante ROSSO su una PR è, in pratica, un check che nessuno
 #     guarda: non ferma il merge e non apre niente. Sarebbe stata la versione
 #     mascherata della cancellazione.

@@ -23,9 +23,10 @@ name: full-suite dispatch
 # ─── PERCHÉ SOLO `workflow_dispatch` ────────────────────────────────────────
 #
 # Stessa scelta scritta in `corpus-wide-gates.yml`: niente costo CI permanente
-# su main. Il pool di job del piano Free è condiviso con auto-merge, review e
-# pr-body-contract; una suite intera a ogni push lo affamerebbe. Si lancia a
-# mano, dopo il merge:
+# su main. Il pool di job dell'account (40 su GitHub Pro dal 2026-09-30, 20 sul
+# piano Free prima) è condiviso con auto-merge, review e pr-body-contract; una
+# suite intera a ogni push lo occuperebbe per una misura che serve solo a
+# richiesta. Si lancia a mano, dopo il merge:
 #
 #   gh workflow run full-suite-dispatch.yml --ref main --repo valerielinc-ops/frontaliere-si-o-no
 #
