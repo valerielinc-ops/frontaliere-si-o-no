@@ -9,6 +9,7 @@ import {
   PLANZER_KEY,
   PLANZER_COMPANY_NAME,
   PLANZER_FABRICATED_DESCRIPTION_RE,
+  stripPlanzerFabricatedDescription,
 } from './lib/planzer-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
@@ -23,7 +24,12 @@ runStandardCrawlerPipeline({
   isCompanyJob: isPlanzerJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
-  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, PLANZER_FABRICATED_DESCRIPTION_RE, PLANZER_COMPANY_NAME),
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(
+    jobs,
+    PLANZER_FABRICATED_DESCRIPTION_RE,
+    PLANZER_COMPANY_NAME,
+    { strip: stripPlanzerFabricatedDescription },
+  ),
 }).catch((err) => {
   console.error(`❌ Planzer crawler failed: ${err?.message || err}`);
   process.exit(1);

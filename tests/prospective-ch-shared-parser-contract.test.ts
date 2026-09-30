@@ -20,6 +20,7 @@ const EXPECTED_CONSUMERS = [
   'grand-resort-bad-ragaz-job-parser.mjs',
   'gz-dielsdorf-job-parser.mjs',
   'helvetia-job-parser.mjs',
+  'inselspital-job-parser.mjs',
   'kanton-basel-landschaft-job-parser.mjs',
   'klinik-lengg-job-parser.mjs',
   'klinik-sgm-job-parser.mjs',
@@ -49,7 +50,7 @@ afterEach(() => {
 });
 
 describe('Prospective.ch shared parser contract', () => {
-  it('keeps all 34 direct consumers on the audited shared factory', () => {
+  it('keeps all 35 direct consumers on the audited shared factory', () => {
     const libDir = path.resolve(process.cwd(), 'scripts/lib');
     const consumers = readdirSync(libDir)
       .filter((file) => file.endsWith('-job-parser.mjs'))
