@@ -65,6 +65,7 @@ describe('fast-publish workflow invariants', () => {
     const acquireIdx = workflow.indexOf('Acquire article chunk section lock');
     const renewIdx = workflow.indexOf('Renew article chunk section lock');
     const freshnessIdx = workflow.indexOf('Check article chunk source is current');
+    const recheckIdx = workflow.indexOf('Recheck article chunk source before publication');
     const publishIdx = workflow.indexOf('Publish client article chunks');
     const pushIdx = workflow.indexOf('Push locale shards');
     const releaseIdx = workflow.indexOf('Release article chunk section lock');
@@ -77,6 +78,8 @@ describe('fast-publish workflow invariants', () => {
     expect(acquireIdx).toBeLessThan(publishIdx);
     expect(freshnessIdx).toBeGreaterThan(acquireIdx);
     expect(freshnessIdx).toBeLessThan(publishIdx);
+    expect(recheckIdx).toBeGreaterThan(freshnessIdx);
+    expect(recheckIdx).toBeLessThan(publishIdx);
     expect(publishIdx).toBeLessThan(pushIdx);
     expect(pushIdx).toBeLessThan(releaseIdx);
     expect(workflow.slice(releaseIdx, releaseIdx + 260)).toContain('always()');
@@ -86,13 +89,19 @@ describe('fast-publish workflow invariants', () => {
     expect(workflow).toContain('git fetch --no-tags --depth=1 origin main');
     expect(workflow).toContain('article-chunk-publish-freshness.mjs');
     const freshnessIdx = workflow.indexOf('Check article chunk source is current');
+    const recheckIdx = workflow.indexOf('Recheck article chunk source before publication');
     const publishIdx = workflow.indexOf('Publish client article chunks');
     const pushIdx = workflow.indexOf('Push locale shards');
     const freshnessBlock = workflow.slice(freshnessIdx, publishIdx);
     expect(freshnessBlock).toContain('git checkout --detach --force origin/main');
     expect(freshnessBlock).toContain('scripts/publish-article-fast.mjs');
+    expect(recheckIdx).toBeGreaterThan(freshnessIdx);
+    expect(recheckIdx).toBeLessThan(publishIdx);
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('git fetch --no-tags --depth=1 origin main');
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('article-chunk-publish-freshness.mjs');
     const publishAndPush = workflow.slice(publishIdx, workflow.indexOf('Verify shard URLs are live'));
     expect(publishAndPush).toContain("steps.check_chunk_source.outputs.current == 'true'");
+    expect(publishAndPush).toContain("steps.recheck_chunk_source_before_publish.outputs.current == 'true'");
     expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
       "steps.check_chunk_source.outputs.current == 'true'",
     );
@@ -106,6 +115,7 @@ describe('resync CDN article chunks workflow invariants', () => {
     const acquireIdx = workflow.indexOf('Acquire article chunk section locks');
     const renewIdx = workflow.indexOf('Renew article chunk section locks');
     const freshnessIdx = workflow.indexOf('Check resync source is current');
+    const recheckIdx = workflow.indexOf('Recheck article chunk source before publication');
     const publishIdx = workflow.indexOf('Publish article chunks');
     const releaseIdx = workflow.indexOf('Release article chunk section locks');
     expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera');
@@ -116,6 +126,8 @@ describe('resync CDN article chunks workflow invariants', () => {
     expect(renewIdx).toBeLessThan(publishIdx);
     expect(freshnessIdx).toBeGreaterThan(acquireIdx);
     expect(freshnessIdx).toBeLessThan(publishIdx);
+    expect(recheckIdx).toBeGreaterThan(freshnessIdx);
+    expect(recheckIdx).toBeLessThan(publishIdx);
     expect(publishIdx).toBeLessThan(releaseIdx);
     const beforePublishIdx = workflow.indexOf('Verify article chunk lock before publication');
     const afterPublishIdx = workflow.indexOf('Verify article chunk lock after resync');
@@ -133,11 +145,19 @@ describe('resync CDN article chunks workflow invariants', () => {
     expect(workflow).toContain('git fetch --no-tags --depth=1 origin main');
     expect(workflow).toContain('article-chunk-publish-freshness.mjs');
     const freshnessIdx = workflow.indexOf('Check resync source is current');
+    const recheckIdx = workflow.indexOf('Recheck article chunk source before publication');
     const publishIdx = workflow.indexOf('Publish article chunks');
     const releaseIdx = workflow.indexOf('Release article chunk section locks');
     expect(workflow.slice(freshnessIdx, publishIdx)).toContain('git checkout --detach --force origin/main');
+    expect(recheckIdx).toBeGreaterThan(freshnessIdx);
+    expect(recheckIdx).toBeLessThan(publishIdx);
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('git fetch --no-tags --depth=1 origin main');
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('article-chunk-publish-freshness.mjs');
     expect(workflow.slice(publishIdx, releaseIdx)).toContain(
       "steps.check_chunk_source.outputs.current == 'true'",
+    );
+    expect(workflow.slice(publishIdx, releaseIdx)).toContain(
+      "steps.recheck_chunk_source_before_publish.outputs.current == 'true'",
     );
   });
 });

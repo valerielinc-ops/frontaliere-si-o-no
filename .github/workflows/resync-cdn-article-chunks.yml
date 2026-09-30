@@ -154,13 +154,28 @@ jobs:
           fi
           kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
 
+      - name: Recheck article chunk source before publication
+        id: recheck_chunk_source_before_publish
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.verify_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::error::article chunk resync source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
+            exit 1
+          fi
+
       # Publish the named-export registry and all of its translation/slug
       # companions in strict mode. The script validates the standalone ESM
       # contract, observes each R2 upload's success marker, and requires the
       # targeted purge before declaring the resync complete (#5819).
       - name: Publish article chunks
         id: publish_chunks
-        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
+        if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.recheck_chunk_source_before_publish.outcome == 'success' && steps.recheck_chunk_source_before_publish.outputs.current == 'true')
         run: |
           npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
 
