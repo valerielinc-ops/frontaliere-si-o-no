@@ -14,8 +14,15 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchRuntimePage,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -25,6 +32,11 @@ export const PREMIUMPFLEGE24_COMPANY_NAME = 'PremiumPflege24 GmbH';
 export const PREMIUMPFLEGE24_COMPANY_DOMAIN = 'premiumpflege24.ch';
 
 const CAREER_URL = 'https://premiumpflege24.ch/job-registrierung/';
+const NATIONWIDE_LOCATION = 'Schweiz';
+const NATIONWIDE_SCOPE_RX = /\b(?:in der ganzen Schweiz|ganzen Schweiz)\b/i;
+const CARE_ROLE_RX = /\b(?:seniorenbetreuung|betreuungskräfte|betreuungskraft|haushaltshilfe)\b/i;
+const APPLICATION_RX = /\b(?:bewerb\w*|bewerben|bewerbung|bewerbungen)\b/i;
+const JOB_TITLE_RX = /\b(?:job\w*|stelle\w*|seniorenbetreuung|betreuung|pflege)\b/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -34,6 +46,72 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function extractPageTitle(html = '', fallback = '') {
+  const documentTitle = normalizeSpace(stripHtml(
+    /<title\b[^>]*>([\s\S]{0,500}?)<\/title>/i.exec(String(html || ''))?.[1] || '',
+  ));
+  const headings = [...String(html || '').matchAll(
+    /<h[1-6]\b[^>]*>([\s\S]{0,500}?)<\/h[1-6]>/gi,
+  )].map((match) => normalizeSpace(stripHtml(match[1] || '')));
+  return [documentTitle, ...headings, normalizeSpace(fallback)]
+    .find((candidate) => candidate.length >= 8 && JOB_TITLE_RX.test(candidate))
+    || documentTitle
+    || normalizeSpace(fallback);
+}
+
+/**
+ * Recover PremiumPflege24's source-backed nationwide application page when
+ * its generic JobPosting extraction has no rows. The page is a real caregiver
+ * recruitment funnel, not a company footer: it explicitly names nationwide
+ * work, the care role and the application flow. Keep the location country-wide
+ * because the source does not identify one workplace; never substitute the
+ * Subingen employer address as a vacancy location.
+ */
+export function extractPremiumpflege24NationwideApplicationListing(
+  html = '',
+  pageUrl = CAREER_URL,
+) {
+  if (!isTrustedDomain(pageUrl)) return null;
+
+  const detail = extractDetailFields(html, pageUrl);
+  const description = normalizeSpace(detail.description || '');
+  const title = extractPageTitle(html, detail.title);
+  const sourceText = `${title} ${description}`;
+
+  if (!NATIONWIDE_SCOPE_RX.test(sourceText)
+    || !CARE_ROLE_RX.test(sourceText)
+    || !APPLICATION_RX.test(sourceText)
+    || !meetsSourceBodyFloor(description)) {
+    return null;
+  }
+
+  return {
+    title,
+    url: pageUrl,
+    location: NATIONWIDE_LOCATION,
+    addressLocality: NATIONWIDE_LOCATION,
+    addressCountry: 'CH',
+    country: 'CH',
+    description,
+    postedAt: detail.postedDate || null,
+    nationwide: true,
+  };
+}
+
+/**
+ * Resolve a PremiumPflege24 row without turning the employer's HQ into a
+ * workplace. Country-only source evidence is a valid nationwide posting; all
+ * other rows still require the shared source-backed Swiss geography resolver.
+ */
+export function resolvePremiumpflege24Geography(listing) {
+  const location = normalizeSpace(listing?.location || '');
+  const country = normalizeSpace(listing?.addressCountry || listing?.country || '').toUpperCase();
+  if (listing?.nationwide === true && location === NATIONWIDE_LOCATION && country === 'CH') {
+    return { location: NATIONWIDE_LOCATION, canton: '' };
+  }
+  return resolveSourceBackedSwissGeography(listing);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -111,7 +189,28 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(PREMIUMPFLEGE24_KEY);
-  return runSpecInProduction(spec);
+  const listings = await runSpecInProduction(spec);
+  if (listings.length > 0) return listings;
+
+  // The promoted spec remains the first-line extractor. Only after it has
+  // observed a successful zero do we inspect the same seed as a source-backed
+  // application page, so transport failures still fail closed and preserve the
+  // prior slice in the crawler template.
+  const fallbackUrl = spec.seedUrls?.[0] || CAREER_URL;
+  const validateUrl = createSpecUrlPolicy(spec);
+  try {
+    const page = await fetchRuntimePage(fallbackUrl, validateUrl, {});
+    const fallback = page?.body
+      ? extractPremiumpflege24NationwideApplicationListing(page.body, page.url || fallbackUrl)
+      : null;
+    if (fallback) {
+      console.log('  ℹ️ Using the source-backed nationwide application page fallback.');
+      return [fallback];
+    }
+    return listings;
+  } finally {
+    await validateUrl.dispatcher.close().catch(() => {});
+  }
 }
 
 /**
@@ -140,7 +239,7 @@ export async function fetchAllPremiumpflege24Jobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    const geography = resolvePremiumpflege24Geography(listing);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
