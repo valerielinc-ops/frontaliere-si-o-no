@@ -5,11 +5,11 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const {
   CANDIDATE_REMINDER_BEFORE_MS,
   CANDIDATE_REVIEW_MS,
-  MAX_DRAFT_ATTEMPTS,
+  MAX_RUN_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
   evaluateRedFlags,
-  isTransientDraftError,
+  isTransientRunError,
   transition,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -33,9 +33,9 @@ describe('draft failures', () => {
     expect(retry.flow.state).toBe('regenerating');
     expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
 
-    const last = transition({ ...regenerating, dispatch: { ...regenerating.dispatch, attempts: MAX_DRAFT_ATTEMPTS } }, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    const last = transition({ ...regenerating, dispatch: { ...regenerating.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
     expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
-    expect(last.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
+    expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: brokerError, stage: 'draft', attempts: MAX_RUN_ATTEMPTS }]);
 
     const real = transition(regenerating, { type: 'draft_failed', error: 'cv_unavailable:not_found' }, { draft: cleanDraft, nowMs: T0 });
     expect(real.flow.state).toBe('owner_takeover');
@@ -43,11 +43,28 @@ describe('draft failures', () => {
 
   it('knows which errors another run can fix', () => {
     for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
-      expect(isTransientDraftError(error)).toBe(true);
+      expect(isTransientRunError(error)).toBe(true);
     }
     // runner_timeout: the watchdog already re-dispatched the silent run.
     for (const error of ['cv_unavailable:not_found', 'posting_unreadable', 'invalid_profile', 'runner_timeout', 'codex_http_400', '']) {
-      expect(isTransientDraftError(error)).toBe(false);
+      expect(isTransientRunError(error)).toBe(false);
+    }
+  });
+
+  it('runs a submission again after a transient failure, never after an ambiguous one', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const retry = transition(submitting, { type: 'submit_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.flow.state).toBe('submitting');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+
+    const last = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error: 'Timeout 30000ms exceeded' }, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow.state).toBe('owner_takeover');
+    expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'Timeout 30000ms exceeded', stage: 'submit', attempts: MAX_RUN_ATTEMPTS }]);
+
+    // The application may have reached the employer: the owner checks first.
+    for (const error of ['email_ambiguous', 'portal_ambiguous', 'email_failed', 'portal_validation', 'runner_timeout']) {
+      const step = transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: [error] });
     }
   });
 });

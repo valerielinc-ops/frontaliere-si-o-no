@@ -22,6 +22,7 @@ import {
   brandSignature,
   renderBrandedEmail,
 } from './assistedApplicationEmailLayout.js';
+import { isTransientRunError } from './assistedApplicationFlow.js';
 import { ADMIN_QUEUE_URL } from './assistedApplicationNotifications.js';
 
 
@@ -302,12 +303,55 @@ const OWNER_FLAG_LABELS = {
 
 const TAKEOVER_REASONS = {
   draft_failed: 'la bozza non è stata generata (errore del runner o di Codex)',
-  runner_timeout: 'il runner non ha risposto due volte di seguito',
+  runner_timeout: 'il runner non ha dato notizie per due volte di seguito',
   max_rounds: 'il candidato ha rifiutato la bozza per 3 volte',
   posting_closed: 'l’annuncio risulta chiuso: rimborso automatico avviato (se non riesce ricevi un secondo avviso)',
   refund_failed: 'il rimborso automatico non è riuscito: va fatto a mano dalla coda (il candidato non ha ancora ricevuto l’email di rimborso)',
   submit_failed: 'l’invio non è riuscito',
 };
+
+// The runner's error codes (scripts/assisted-application), in words.
+const RUNNER_ERRORS = [
+  [/^cv_unavailable/, 'il CV non si scarica dallo Storage'],
+  [/^cv_unreadable/, 'dal CV non si ricava testo leggibile'],
+  [/^documents_empty$/, 'Codex ha restituito una lettera o un’email vuota'],
+  [/^draft_missing_for_round$/, 'manca la bozza del round approvato'],
+  [/^fact_check_not_acknowledged$/, 'nei testi restano fatti non verificati senza la tua conferma'],
+  [/^email_failed$/, 'nessun provider ha accettato l’email al datore'],
+  [/^email_ambiguous$/, 'non è certo che l’email al datore sia partita: controlla prima di reinviarla'],
+  [/^portal_ambiguous$/, 'non è certo che il portale abbia ricevuto la candidatura: controlla prima di reinviarla'],
+  [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
+];
+const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };
+const STAGE_HINTS = {
+  draft: 'Dalla coda «Rigenera» rifà la bozza da capo; «Riprendi automazione» la rimette in revisione.',
+  submit: 'Controlla dalla coda se la candidatura è arrivata al datore prima di inviarla di nuovo.',
+};
+
+/**
+ * Why the flow stopped, for Valerie: the step, the cause in words, how many
+ * runs were tried; the runner's own message only as a technical detail.
+ * @param {{reason?:string, stage?:string, attempts?:number}} vars
+ * @returns {{reason:string, hint:string, detail:string}}
+ */
+export function describeTakeover({ reason, stage, attempts }) {
+  const raw = String(reason || '').trim();
+  if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
+  const step = STAGE_LABELS[stage] || 'il flusso automatico si è fermato';
+  const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(raw));
+  let cause = known?.[1] || '';
+  if (!cause && isTransientRunError(raw)) {
+    cause = stage === 'submit'
+      ? 'Codex, la rete o il portale non hanno risposto in tempo'
+      : 'Codex non ha risposto in tempo o non era raggiungibile';
+  }
+  const runs = Number(attempts) > 1 ? `, anche dopo ${Number(attempts)} tentativi automatici` : '';
+  return {
+    reason: cause ? `${step}: ${cause}${runs}` : `${step}${runs}`,
+    hint: STAGE_HINTS[stage] || '',
+    detail: known ? '' : clean(raw, 300),
+  };
+}
 
 /**
  * @param {string} kind candidate_review | candidate_reminder | candidate_handoff |
@@ -411,9 +455,17 @@ export function buildOwnerAutomationEmail(kind, vars) {
   } else if (kind === 'owner_takeover') {
     subject = `[Candidatura] Presa in carico necessaria: ${job} — ${company}`;
     hero = 'Il flusso automatico si è fermato';
-    const reason = TAKEOVER_REASONS[vars.reason] || vars.reason || 'motivo non specificato';
+    const { reason, hint, detail } = describeTakeover(vars);
     html.push(brandParagraph(esc(`Motivo: ${reason}.`)));
     text.push(`Motivo: ${reason}.`);
+    if (hint) {
+      html.push(brandParagraph(esc(hint)));
+      text.push(hint);
+    }
+    if (detail) {
+      html.push(brandFinePrint(esc(`Dettaglio tecnico: ${detail}`)));
+      text.push(`Dettaglio tecnico: ${detail}`);
+    }
   } else {
     throw new Error(`unknown_owner_automation_email:${kind}`);
   }
