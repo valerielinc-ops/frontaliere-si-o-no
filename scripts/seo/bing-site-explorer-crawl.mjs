@@ -14,6 +14,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
+import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 
 export const CRAWLER_SCHEMA_VERSION = 1;
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
@@ -363,7 +364,17 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
   if (noindex) findings.push(finding('noindex-in-sitemap', url, 'La pagina pubblicata in sitemap dichiara noindex.'));
   if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
   else if (normalizeUrl(canonical) !== normalizeUrl(finalUrl || url)) {
-    findings.push(finding('canonical-drift', url, `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`));
+    const exemption = classifyCanonicalMismatch({ url: finalUrl || url, canonical, html });
+    if (exemption) {
+      findings.push(finding(
+        'canonical-expected',
+        url,
+        `Canonical ${canonical} consolidato correttamente (${exemption}).`,
+        { exemption },
+      ));
+    } else {
+      findings.push(finding('canonical-drift', url, `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`));
+    }
   }
   if (soft404) findings.push(finding('soft-404', url, 'La risposta è 200 ma il titolo/H1 identifica una pagina non trovata.'));
   return { findings, title, canonical, noindex, soft404 };
