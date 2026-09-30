@@ -69,9 +69,11 @@ describe('404 discovery workflows publish protected data through PRs', () => {
   it('assigns the compat shard merge driver in the repository attributes contract', () => {
     const attributes = read('.gitattributes');
     const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+    const compatShardAttribute = ['data/seo-404-compat', 'part-00.json'].join('/')
+      + ': merge: compat-shard';
 
     expect(attributes).toMatch(/^data\/seo-404-compat\/part-\*\.json merge=compat-shard$/m);
     expect(publisher).toContain('git check-attr merge -- data/seo-404-compat/part-00.json');
-    expect(publisher).toContain('data/seo-404-compat/part-00.json: merge: compat-shard');
+    expect(publisher).toContain(compatShardAttribute);
   });
 });
