@@ -167,6 +167,14 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     (spec?.seedUrls || []).map((seed) => canonicalUrl(seed)).filter(Boolean),
   );
   const loadedSeedUrls = new Set();
+  const recordLoadedSeedPage = (requestedUrl, body, resolvedUrl = '') => {
+    const canonicalRequestedUrl = canonicalUrl(requestedUrl);
+    const html = String(body || '');
+    if (!expectedSeedUrls.has(canonicalRequestedUrl) || !html.trim()) return;
+    loadedSeedUrls.add(canonicalRequestedUrl);
+    pages.set(canonicalRequestedUrl, html);
+    if (resolvedUrl) pages.set(canonicalUrl(resolvedUrl), html);
+  };
   const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
   // Explicit composition: without a caller-supplied extractor the base is the
@@ -222,9 +230,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
         pages.set(canonicalInputUrl, originalHtml);
         if (response.url) pages.set(canonicalUrl(response.url), originalHtml);
       }
-      if (response.ok && expectedSeedUrls.has(canonicalInputUrl) && originalHtml.trim()) {
-        loadedSeedUrls.add(canonicalInputUrl);
-      }
+      if (response.ok) recordLoadedSeedPage(canonicalInputUrl, originalHtml, response.url);
       const normalizedHtml = normalizeKnownIpersonalLocalities(originalHtml);
       if (normalizedHtml !== originalHtml) {
         return new Response(normalizedHtml, {
@@ -255,6 +261,9 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const rows = await runSpecInProduction(spec, {
     ...runtime,
     fetchImpl: capturingFetch,
+    onPageFetched: ({ requestedUrl, page } = {}) => {
+      recordLoadedSeedPage(requestedUrl, page?.body, page?.url);
+    },
     detailExtractor: capturingDetailExtractor,
   });
   const maintenanceSeed = [...expectedSeedUrls].find((seedUrl) =>

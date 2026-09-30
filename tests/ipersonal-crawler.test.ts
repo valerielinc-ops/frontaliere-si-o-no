@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   IPERSONAL_KEY,
@@ -12,6 +14,11 @@ import {
   getVerifiedIpersonalGeography,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
+
+const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
+  resolve(import.meta.dirname, 'fixtures/ipersonal-live-listing-20261001.html'),
+  'utf8',
+);
 
 describe('MediPersonal crawler parser', () => {
   describe('shared Simple Job Board detail boundary', () => {
@@ -147,6 +154,69 @@ describe('MediPersonal crawler parser', () => {
       expect(first[0].description).toContain('\n• Patientinnen kompetent betreuen');
       expect(acceptedEncodings.length).toBeGreaterThan(0);
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
+    });
+
+    it('counts the real listing fixture when the seed is served by clean-IP rescue', async () => {
+      const seedUrl = 'https://www.ipersonal.ch/';
+      const detailUrls = [...REAL_IPERSONAL_LISTING_FIXTURE.matchAll(
+        /href="([^"]+\/jobs\/[^"?]+)"/g,
+      )].map(([, url]) => url);
+      const rescueCalls: string[] = [];
+      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response('Forbidden for runner egress', { status: 403 });
+        const detailUrl = detailUrls.find((candidate) => candidate === url);
+        if (!detailUrl) return new Response('Not found', { status: 404 });
+        const title = detailUrl.split('/jobs/')[1].replace(/\/$/, '').replace(/-/g, ' ');
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title,
+            url: detailUrl,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Aufgaben sorgfältig bearbeiten</li></ul>
+          </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        jinaFetchImpl: async (input: string | URL | Request) => {
+          rescueCalls.push(String(typeof input === 'string' || input instanceof URL ? input : input.url));
+          return new Response(REAL_IPERSONAL_LISTING_FIXTURE, { status: 200 });
+        },
+        jinaRetries: 0,
+        jinaSleepImpl: async () => undefined,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        discoveredCount: number;
+        expectedSeedCount: number;
+        loadedSeedCount: number;
+      };
+
+      expect(rescueCalls).toHaveLength(1);
+      expect(detailUrls).toHaveLength(12);
+      expect(jobs).toHaveLength(12);
+      expect(evidence.discoveredCount).toBe(12);
+      expect(evidence.expectedSeedCount).toBe(1);
+      expect(evidence.loadedSeedCount).toBe(1);
     });
 
     it('pubblica la riga il cui corpo ricco lo vede solo il confine iPersonal', async () => {

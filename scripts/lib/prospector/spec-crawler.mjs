@@ -217,6 +217,21 @@ export function geographyFieldsForDecision(decision = {}) {
 }
 
 /**
+ * Let a specialised runtime observe the final page, including a rescue
+ * response that did not pass through its fetch wrapper.
+ *
+ * @param {Record<string, any>} runtime
+ * @param {string} requestedUrl
+ * @param {Record<string, any>} page
+ */
+function reportFetchedPage(runtime, requestedUrl, page) {
+  if (typeof runtime.onPageFetched === 'function') {
+    runtime.onPageFetched({ requestedUrl, page });
+  }
+  return page;
+}
+
+/**
  * Fetch one page on the spec's polite, public-network-only transport.
  *
  * Exported so offline analyses reach the same pages through the same robots,
@@ -249,7 +264,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // the body is an explicit anti-bot challenge. Without this check a promoted
   // spec crawler feeds the interstitial to vacancy extraction, gets zero rows,
   // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
-  if (result.ok && !directChallenge) return result;
+  if (result.ok && !directChallenge) return reportFetchedPage(runtime, url, result);
 
   // Two source-side egress failures can be rescued by the clean-IP Jina path:
   // (a) a public career page answers 403/406/415/451, or an explicit 200
@@ -272,14 +287,14 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
       sleepImpl: runtime.jinaSleepImpl,
     });
     if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-      return {
+      return reportFetchedPage(runtime, url, {
         ...result,
         ok: true,
         status: 200,
         url: result.url || url,
         body: proxiedBody,
         proxiedBy: 'jina',
-      };
+      });
     }
     // Jina's retry helper filters its known error envelope, but some WAF
     // challenge variants are valid-looking 200 bodies. Keep the same
@@ -299,14 +314,14 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     && (connectionLevelFailure || antiBotResponse)) {
     const browserBody = await tryBrowserRescue(url, runtime);
     if (browserBody) {
-      return {
+      return reportFetchedPage(runtime, url, {
         ...result,
         ok: true,
         status: 200,
         url: result.url || url,
         body: browserBody,
         proxiedBy: 'browser',
-      };
+      });
     }
   }
 
