@@ -50,11 +50,35 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
-          fetch-depth: 0
-          # Stessa scelta di unsubscribe-credential-monitor.yml: blob:none tiene
-          # la storia dei commit (serve al commit-back sotto) e rimanda i blob.
+          fetch-depth: 1
+          # Il commit-back usa il percorso isolato `--extra-only` sotto: gli
+          # basta il tree corrente e il blob della serie di questo monitor, non
+          # la storia completa del corpus.
           filter: blob:none
           persist-credentials: true
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
         timeout-minutes: 7
 
       - name: Setup Node
@@ -105,7 +129,7 @@ jobs:
         run: |
           set -uo pipefail
           ec=0
-          bash scripts/lib/git-commit-data.sh "📊 Auto-generated auth signup subscriber metrics" docs/auth-signup-subscribers/ || ec=$?
+          bash scripts/lib/git-commit-data.sh --extra-only "📊 Auto-generated auth signup subscriber metrics" docs/auth-signup-subscribers/ || ec=$?
           # 42 = contesa sul push, si risana al giro dopo (vedi git-commit-data.sh).
           if [ "$ec" -eq 42 ]; then
             echo "::warning::Push in contesa (42) — lo stato si ricommitta al prossimo giro."

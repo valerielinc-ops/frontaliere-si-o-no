@@ -201,6 +201,21 @@ describe('profili di sparse-checkout', () => {
     expect(bad).toEqual([]);
   }, TIMEOUT);
 
+  it('i monitor che committano solo extra espliciti non trascinano i bucket dati', () => {
+    for (const file of [
+      'auth-signup-subscriber-monitor.yml',
+      'unsubscribe-credential-monitor.yml',
+      'autologin-refusal-monitor.yml',
+    ]) {
+      const workflow = analyzeAll().find((w) => w.file === file);
+      const job = workflow?.jobs.find((j) => j.jobId === 'check');
+      expect(job, file).toBeDefined();
+      expect(job!.needs, file).toContain('docs/');
+      expect(job!.needs, file).not.toContain('data/jobs/');
+      expect(job!.aboveCrossover, file).toBe(false);
+    }
+  }, TIMEOUT);
+
   it('il job snapshot di articles-performance-snapshot.yml include packages/articles/content/ (issue #6319 — symlink invisibile)', () => {
     // `services/seo/seo-blog-2.ts` (e i suoi fratelli) sono symlink verso
     // `packages/articles/content/seo/...`: un job che li legge non nomina mai
