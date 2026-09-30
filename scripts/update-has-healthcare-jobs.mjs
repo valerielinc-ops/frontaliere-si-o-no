@@ -80,6 +80,7 @@ const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DETAIL_DELAY_MS = 1_000;
 
 function jobMatchKey(job) {
   return extractStableJobId(job?.url)
@@ -388,6 +389,8 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const listing of listings) {
+    // Keep sequential relay fallbacks outside the relay's per-host 1 s window.
+    await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     console.log(`  📄 Fetching detail: ${listing.title} → ${listing.detailUrl}`);
     const detailHtml = await fetchPage(listing.detailUrl);
     const detail = detailHtml
@@ -398,7 +401,6 @@ async function fetchJobs() {
     if (!description) {
       // No source body: not published in this run (no crawler-written stand-in).
       console.warn(`  ⚠️ No posting text on ${listing.detailUrl} — not published in this run.`);
-      await new Promise((r) => setTimeout(r, 500));
       continue;
     }
     const slug = slugify(listing.title, COMPANY_KEY);
@@ -433,8 +435,6 @@ async function fetchJobs() {
     };
 
     jobs.push(job);
-    // Small delay between detail page fetches
-    await new Promise((r) => setTimeout(r, 500));
   }
 
   return jobs;
