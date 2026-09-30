@@ -182,7 +182,7 @@ import {
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {
   fetchFollowingValidatedRedirects,
-  fetchWithPublicDispatcher,
+  resolveProspectorFetch,
 } from './prospector/public-fetch-policy.mjs';
 import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
@@ -596,12 +596,12 @@ export async function fetchHtml(url, options = {}) {
         };
         const res = redirectValidator
           ? await fetchFollowingValidatedRedirects(url, {
-              fetchImpl: options.fetchImpl || (options.dispatcher ? fetchWithPublicDispatcher : fetch),
+              fetchImpl: options.fetchImpl || (options.dispatcher ? resolveProspectorFetch() : fetch),
               validateUrl: redirectValidator,
               requestOptions,
               maxRedirects: options.maxRedirects ?? 5,
             })
-          : await (options.fetchImpl || (options.dispatcher ? fetchWithPublicDispatcher : fetch))(url, requestOptions);
+          : await (options.fetchImpl || (options.dispatcher ? resolveProspectorFetch() : fetch))(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;

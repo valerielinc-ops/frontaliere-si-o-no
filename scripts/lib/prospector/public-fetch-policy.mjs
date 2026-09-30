@@ -11,20 +11,27 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import { BlockList, isIP } from 'node:net';
 import { Agent, fetch as undiciFetch } from 'undici';
 
-const INITIAL_GLOBAL_FETCH = globalThis.fetch;
+// Node's global fetch belongs to its bundled Undici copy. Capture that exact
+// reference so tests can replace globalThis.fetch without losing injection,
+// while production requests with this module's Agent stay on the npm Undici
+// copy that created the Agent.
+const nativeGlobalFetch = globalThis.fetch;
 
 /**
- * Use the npm Undici transport for the production default so a policy Agent
- * stays attached to the actual socket. A caller-replaced global fetch remains
- * an explicit adapter (including the fixture transport used by tests).
+ * Resolve the one fetch injection point for DNS-pinned prospector requests.
+ * An explicit implementation always wins. If a test/runtime replaced the
+ * global fetch after module load, honor that replacement; otherwise use the
+ * npm `undici.fetch` paired with the policy's npm `Agent`.
  *
- * @param {Parameters<typeof fetch>[0]} input
- * @param {Parameters<typeof fetch>[1]} [init]
+ * @param {typeof fetch} [fetchImpl]
+ * @returns {typeof fetch}
  */
-export function fetchWithPublicDispatcher(input, init) {
-  const activeFetch = globalThis.fetch;
-  const fetchImpl = activeFetch !== INITIAL_GLOBAL_FETCH ? activeFetch : undiciFetch;
-  return fetchImpl(input, init);
+export function resolveProspectorFetch(fetchImpl) {
+  if (fetchImpl) return fetchImpl;
+  if (typeof globalThis.fetch === 'function' && globalThis.fetch !== nativeGlobalFetch) {
+    return globalThis.fetch;
+  }
+  return undiciFetch;
 }
 
 const NON_PUBLIC_IPV4_ADDRESSES = new BlockList();
@@ -362,14 +369,14 @@ export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirects(url, {
-  fetchImpl = fetchWithPublicDispatcher,
+  fetchImpl,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
   beforeRequest,
 } = {}) {
   const { response } = await fetchFollowingValidatedRedirectsWithUrl(url, {
-    fetchImpl,
+    fetchImpl: resolveProspectorFetch(fetchImpl),
     validateUrl,
     requestOptions,
     maxRedirects,
@@ -392,18 +399,19 @@ export async function fetchFollowingValidatedRedirects(url, {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirectsWithUrl(url, {
-  fetchImpl = fetchWithPublicDispatcher,
+  fetchImpl,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
   beforeRequest,
 } = {}) {
+  const requestFetch = resolveProspectorFetch(fetchImpl);
   let current = String(url || '');
   let currentOptions = { ...requestOptions };
   for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount++) {
     if (validateUrl) await validateUrl(current);
     if (beforeRequest) await beforeRequest(current, { redirectCount });
-    const res = await fetchImpl(current, { ...currentOptions, redirect: 'manual' });
+    const res = await requestFetch(current, { ...currentOptions, redirect: 'manual' });
     const effectiveUrl = res.url || current;
     if (validateUrl) await validateUrl(effectiveUrl);
     if (res.status < 300 || res.status >= 400) return { response: res, effectiveUrl };

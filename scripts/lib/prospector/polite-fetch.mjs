@@ -12,7 +12,6 @@
  * browser takes, and the alternative (deny on error) would silently zero out
  * discovery whenever a CDN hiccups.
  */
-import { fetch as undiciFetch } from 'undici';
 import { UA, HOST_DELAY_MS, FETCH_TIMEOUT_MS } from './config.mjs';
 import { normalizeHost } from './registrable.mjs';
 import { RETRYABLE_STATUS, parseRetryAfterMs, transportErrorKind } from '../transient-fetch.mjs';
@@ -22,6 +21,7 @@ import {
   isPublicFetchPolicyError,
   publicFetchPolicyReason,
   PublicFetchPolicyError,
+  resolveProspectorFetch,
 } from './public-fetch-policy.mjs';
 
 /** @type {Map<string, number>} host -> timestamp of the last request */
@@ -371,20 +371,13 @@ async function fetchOnce(url, opts) {
       clearTimeout(timer);
     }
   };
-  // undici's own `fetch`, not the global one, because the dispatcher that
-  // `createSpecUrlPolicy` hands us is an `Agent` from the npm `undici` copy.
-  // Node's BUILT-IN fetch decompresses a response inside its own bundled
-  // undici; give it a dispatcher from a different copy and that step is
-  // skipped without a word — `res.text()` then returns the raw gzip bytes and
-  // every extractor downstream reads them as an empty page. Measured on this
-  // machine (Node 26.4.0, undici 7.24.5) against
-  // stellen.ksuri.ch/...-de-j34.html: global fetch + npm Agent -> 104'169
-  // bytes starting `1f 8b 08` (gzip); global fetch with no dispatcher ->
-  // 163'938 chars of HTML; undici fetch + the same npm Agent -> 163'938 chars
-  // of HTML. Same-copy is the whole fix, and `scripts/resolve-company-website.mjs`
-  // already imports `fetch` from undici for exactly this reason.
+  // `resolveProspectorFetch` uses the npm Undici fetch when the global is the
+  // native Node fetch, so the DNS-pinned Agent and fetch share one Undici copy.
+  // A replaced global (for example `vi.stubGlobal('fetch', ...)`) remains a
+  // supported injection point; an explicit opts.fetchImpl still wins.
+  const requestFetch = resolveProspectorFetch(opts.fetchImpl);
   const fetchImpl = (hopUrl, init = {}) => withNetworkTimeout(
-    () => (opts.fetchImpl || undiciFetch)(hopUrl, { ...init, signal }),
+    () => requestFetch(hopUrl, { ...init, signal }),
   );
   const { response: res, effectiveUrl } = await fetchFollowingValidatedRedirectsWithUrl(url, {
     fetchImpl,
