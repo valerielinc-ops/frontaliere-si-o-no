@@ -4,20 +4,20 @@
   "generatorSha256": "61aeb715f3235c867fad942fc958e5610fb4c2cb4dbd127492167b3db9a6836b",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "b1b41ab6f590e7881f6c4a60ab08318cfeb6a173",
+  "sourceCommit": "46e0ff870b37fd2337bfbc4e1b3ed1b808611f45",
   "artifactObservation": {
     "generatorSha256": "61aeb715f3235c867fad942fc958e5610fb4c2cb4dbd127492167b3db9a6836b",
     "sourceRef": "main",
-    "sourceCommit": "b1b41ab6f590e7881f6c4a60ab08318cfeb6a173"
+    "sourceCommit": "46e0ff870b37fd2337bfbc4e1b3ed1b808611f45"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 624,
+  "crawlerCount": 625,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3",
+    "rosterDigest": "sha256:ba98567d814678f3916901c23827894c2d19b99915f3ec678ca91eb5c40bc463",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -398,6 +398,7 @@
     "scripts/update-ottos-jobs.mjs",
     "scripts/update-pallas-kliniken-jobs.mjs",
     "scripts/update-palliativklinik-jobs.mjs",
+    "scripts/update-pantr-ch-jobs.mjs",
     "scripts/update-paraplegie-jobs.mjs",
     "scripts/update-parmag-jobs.mjs",
     "scripts/update-patek-philippe-jobs.mjs",
@@ -1442,8 +1443,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "ccc3b688adfcda4457beb2a82717c01655e6b76dad2ceccac25a2c0ee8ceef97",
-      "artifactSha256": "d5ba6504e1e5626d709161b352e09e69d9aaae1023d7e2520c98e033d2fb2080",
+      "sourceSha256": "426f921c65494b6d6361b63386acfab5c297e94af1bc9213e2b876aa6e0ed27c",
+      "artifactSha256": "a06eb551cb7c4918b29af41788cafeb23079f2e9391b62c8f55f881b3cfca51e",
       "generatorSha256": "61aeb715f3235c867fad942fc958e5610fb4c2cb4dbd127492167b3db9a6836b",
       "members": [
         "albergo-gardenia",
@@ -1466,7 +1467,8 @@
         "capri-holdings",
         "anicura",
         "fisba",
-        "postauto"
+        "postauto",
+        "pantr-ch"
       ]
     },
     {
