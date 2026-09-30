@@ -32,7 +32,7 @@
  * exits 1 so CI surfaces it loudly instead of silently reporting nothing
  * forever.
  *
- * Usage: npx tsx scripts/campaign-goal-check.mjs [--dry-run]
+ * Usage: npx --no-install tsx scripts/campaign-goal-check.mjs [--dry-run]
  *        (`tsx`, non `node`: importa scripts/lib/seo-ctr-curve.mjs, che a
  *        sua volta importa moduli foglia .ts)
  *   --dry-run: evaluate + print the table, but never write state or open
@@ -928,7 +928,7 @@ export function buildIssueBody({ goal, outcome, matureAt }) {
         'sito.',
       ],
       metrica: `prima=${outcome.detail} atteso=${outcome.targetDescription}`,
-      comando: 'node scripts/campaign-goal-check.mjs --dry-run',
+      comando: 'npx --no-install tsx scripts/campaign-goal-check.mjs --dry-run',
       note: [
         'Il comando rivaluta tutti gli obiettivi e stampa la tabella senza scrivere lo stato',
         "e senza coniare: la issue si chiude quando questa riga passa. Vuole le credenziali",
