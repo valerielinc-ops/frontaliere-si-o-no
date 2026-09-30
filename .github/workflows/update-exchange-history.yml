@@ -23,7 +23,9 @@ jobs:
     # mangia l'intero budget del job update-fuel-prices), qui prevenuto prima
     # che diventi un timeout osservato. Il job stesso, nel run piu' lento
     # campionato, ha gia' usato l'83% del vecchio cap (249s su 300s).
-    timeout-minutes: 8
+    # The snapshot push hit the 8-minute cap after 6m26s of contention
+    # retries (#10545); retain the Checkout guard but give the job push room.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7

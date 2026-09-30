@@ -36,7 +36,9 @@ permissions:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The history commit can wait through the repository's main-writer convoy;
+    # 10 minutes cut off a run after 25 retry attempts (#10541).
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v7

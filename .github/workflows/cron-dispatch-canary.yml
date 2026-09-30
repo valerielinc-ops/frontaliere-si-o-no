@@ -64,7 +64,9 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The canary itself is fast; its append-only sample push was the timeout
+    # at 9m23s in #10456, so give the retry helper a 20-minute job budget.
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
