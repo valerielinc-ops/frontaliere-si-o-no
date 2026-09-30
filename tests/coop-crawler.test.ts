@@ -224,6 +224,27 @@ describe('Coop authoritative detail routing', () => {
     });
   });
 
+  it('carries the authoritative Coop offer reference through the detail seed', async () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/11111111-1111-4111-8111-111111111111';
+    const jobs = [{
+      links: { directlink: url },
+      attributes: { '30': ['Grigioni'], '70': ['Coop'] },
+      szas: { sza_reference_code: '155808' },
+    }];
+    const discovery = await fetchCoopJobDetailUrls({
+      fetchImpl: async () => new Response(JSON.stringify({ total: 1, jobs }), { status: 200 }),
+    });
+    expect(discovery.seedMetaByUrl[url]).toMatchObject({ sourceReference: '155808' });
+
+    const parsed = sharedCrawlerTestables.toJobFromJsonLd(
+      frenchDetailFixture.jsonLd,
+      'Coop',
+      frenchDetailFixture.url,
+      { isSeedDetail: true, seedMeta: { location: 'Chavornay', canton: 'VD', sourceReference: '155808' } },
+    );
+    expect(parsed.job).toMatchObject({ sourceReference: '155808' });
+  });
+
   it('reconciles a Coop regional label ending in an Aargau code', () => {
     const reconciled = reconcileCoopLocationCanton({ location: 'Region Muri AG', canton: 'BS' });
     expect(reconciled).toMatchObject({
@@ -1852,6 +1873,64 @@ describe('Coop reposts without a street address (parser-quality audit #5253)', (
 
     expect(kept.length).toBe(2);
     expect(collapsed.length).toBe(0);
+  });
+
+  it('collapses source-backed reposts when the authoritative reference matches', () => {
+    const j = {
+      title: 'Nachwuchskader Verkauf Engadin',
+      description: 'same source body with enough words to represent the accepted vacancy text',
+      location: 'Sankt Moritz',
+      company: 'Coop',
+      sourceReference: '155808',
+      _enrichedFromDetail: true,
+    };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      {
+        ...j,
+        url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/old',
+        firstSeenAt: '2026-09-09T00:00:00.000Z',
+        slug: 'nachwuchskader-verkauf-engadin-old',
+        slugByLocale: { it: 'nachwuchskader-verkauf-engadin-old-it' },
+        postedDate: '2026-07-10',
+        datePosted: '2026-07-10',
+        validThrough: '2027-07-09',
+      },
+      {
+        ...j,
+        url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/new',
+        firstSeenAt: '2026-09-10T00:00:00.000Z',
+        slug: 'nachwuchskader-verkauf-engadin-new',
+        slugByLocale: { it: 'nachwuchskader-verkauf-engadin-new-it' },
+        postedDate: '2026-09-09',
+        datePosted: '2026-09-09',
+        validThrough: '2026-10-08',
+      },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept.map((job) => job.url)).toEqual(['https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/old']);
+    expect(kept[0].previousSlugs).toContain('nachwuchskader-verkauf-engadin-new');
+    expect(kept[0].previousSlugsByLocale.it).toContain('nachwuchskader-verkauf-engadin-new-it');
+    expect(collapsed).toEqual([{
+      url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/new',
+      keptUrl: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/old',
+    }]);
+  });
+
+  it('does not use a different source reference as repost proof', () => {
+    const base = {
+      title: 'Nachwuchskader Verkauf Engadin',
+      description: 'same source body with enough words to represent the accepted vacancy text',
+      location: 'Sankt Moritz',
+      company: 'Coop',
+      _enrichedFromDetail: true,
+    };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      { ...base, sourceReference: '155808', url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/a', datePosted: '2026-07-10' },
+      { ...base, sourceReference: '155809', url: 'https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf-engadin/b', datePosted: '2026-09-09' },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept).toHaveLength(2);
+    expect(collapsed).toEqual([]);
   });
 
   it('keeps two UUIDs apart when the source gives no store address, even with identical pages', () => {
