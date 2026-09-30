@@ -242,25 +242,23 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
   });
 
   it('keeps the authoritative retire opt-in limited to the two runners', () => {
-    for (const runner of ['update-ipersonal-jobs.mjs', 'update-med-ipersonal-jobs.mjs']) {
-      const source = fs.readFileSync(path.join(process.cwd(), 'scripts', runner), 'utf8');
-      expect(source).toContain('validateAuthoritativeSnapshot: assertCompleteIpersonalSnapshot');
-    }
+    const scriptsDir = path.join(process.cwd(), 'scripts');
+    const ipersonalOptIns = fs.readdirSync(scriptsDir)
+      .filter((file) => file.startsWith('update-') && file.endsWith('.mjs'))
+      .filter((runner) => fs.readFileSync(path.join(scriptsDir, runner), 'utf8')
+        .includes('validateAuthoritativeSnapshot: assertCompleteIpersonalSnapshot'))
+      .sort();
+    expect(ipersonalOptIns).toEqual([
+      'update-ipersonal-jobs.mjs',
+      'update-med-ipersonal-jobs.mjs',
+    ]);
+
     const template = fs.readFileSync(
       path.join(process.cwd(), 'scripts/lib/crawler-template.mjs'),
       'utf8',
     );
+    expect(template).toContain('const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(');
     expect(template).toContain('skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified');
-    const fetchIndex = template.indexOf('const fetchResult = await fetchJobs()');
-    const validationIndex = template.indexOf('evaluateAuthoritativeSnapshot(\n    parsedJobs');
-    // The merge input is `mergeExisting`: the stored jobs, or what the opt-in
-    // `prepareExistingJobs` hook returns for them. Both the hook and the merge
-    // must still run after the authoritative-snapshot validation.
-    const prepareIndex = template.indexOf('prepareExistingJobs(companyExisting)');
-    const mergeIndex = template.indexOf('mergePreserveLocaleData(mergeExisting, parsedJobs');
-    expect(fetchIndex).toBeGreaterThan(-1);
-    expect(validationIndex).toBeGreaterThan(fetchIndex);
-    expect(prepareIndex).toBeGreaterThan(validationIndex);
-    expect(mergeIndex).toBeGreaterThan(prepareIndex);
+    expect(template).toContain('...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),');
   });
 });

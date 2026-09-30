@@ -1239,12 +1239,58 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
 }
 
 /**
+ * Turn an explicit thin-source quarantine into the same proof shape as a
+ * source-verified shrink. The proof is accepted only when it covers every
+ * job the writer actually measured as removed, with the same URL identity.
+ */
+function buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries) {
+  if (!Array.isArray(proofEntries) || proofEntries.length === 0) return null;
+  const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
+  const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
+  if (disappeared.length === 0) return null;
+
+  const proofByKey = new Map();
+  for (const entry of proofEntries) {
+    if (
+      entry?.definitive !== true
+      || typeof entry.job?.url !== 'string'
+      || !entry.job.url.trim()
+    ) return null;
+    const key = shrinkJobKey(entry.job);
+    if (!key || proofByKey.has(key)) return null;
+    proofByKey.set(key, entry);
+  }
+  if (proofByKey.size !== disappeared.length) return null;
+  for (const job of disappeared) {
+    const entry = proofByKey.get(shrinkJobKey(job));
+    if (!entry || entry.job.url !== job.url) return null;
+  }
+
+  return {
+    corroborated: true,
+    checked: disappeared.length,
+    dead: disappeared.length,
+    alive: 0,
+    unverifiable: 0,
+    evidence: disappeared.map((job) => ({
+      id: shrinkJobKey(job),
+      url: job.url,
+      reason: proofByKey.get(shrinkJobKey(job)).reason || 'thin-source-quarantine',
+      definitive: true,
+    })),
+    survivors: [],
+    disappearedJobs: disappeared,
+  };
+}
+
+/**
  * Async wrapper around `writeJobsCrawlerSlice` that gives a genuinely-shrunk
  * source a way through the guard, with proof.
  *
  * Behaviour is identical to calling `writeJobsCrawlerSlice` directly except
- * when the guard would block: then it probes the disappearing jobs and, only
- * if EVERY one of them is provably gone at its own source URL, retries the
+ * that an explicit housekeeping proof is carried through the write and
+ * archived, while a guard-blocked shrink is either accepted from that proof
+ * or probed against the source. Only a fully corroborated removal retries the
  * write with the guard bypassed for that single write. Otherwise the original
  * guard error is rethrown unchanged, so a degraded scrape still fails loudly
  * and still keeps the prior slice.
@@ -1252,12 +1298,37 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
  * @param {string} crawlerKey
  * @param {object[]} jobs
  * @param {object} [options] Passed through to `writeJobsCrawlerSlice`; also
- *   accepts `validate` / `concurrency` / `timeoutMs` for the probe.
+ *   accepts `validate` / `concurrency` / `timeoutMs` for the probe and an
+ *   optional `housekeepingProof` array for deliberate thin-source quarantine.
  */
 export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = {}) {
-  const { validate, concurrency, timeoutMs, isTargetJob, ...writeOptions } = options;
+  const {
+    validate,
+    concurrency,
+    timeoutMs,
+    isTargetJob,
+    housekeepingProof: requestedHousekeepingProof,
+    ...writeOptions
+  } = options;
   try {
-    writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
+    writeJobsCrawlerSlice(crawlerKey, jobs, {
+      ...writeOptions,
+      ...(Array.isArray(requestedHousekeepingProof) && requestedHousekeepingProof.length > 0
+        ? { housekeepingProof: requestedHousekeepingProof }
+        : {}),
+    });
+    if (Array.isArray(requestedHousekeepingProof) && requestedHousekeepingProof.length > 0) {
+      const archived = archiveRemovedJobsToSlice(
+        requestedHousekeepingProof
+          .filter((entry) => entry?.definitive === true && entry.job?.slug)
+          .map((entry) => entry.job),
+        crawlerKey,
+      );
+      if (archived > 0) {
+        console.warn(`  📦 Archived ${archived} thin-source job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
+      }
+      return { written: true, shrinkAccepted: false, archived };
+    }
     return { written: true, shrinkAccepted: false };
   } catch (err) {
     if (err?.code !== SHRINK_GUARD_ERROR_CODE) throw err;
@@ -1277,10 +1348,21 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       throw err;
     }
     const priorJobs = measured.priorJobs;
-    console.log(
-      `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
+    const suppliedVerdict = buildProvidedHousekeepingVerdict(
+      priorJobs,
+      measured.finalJobs,
+      requestedHousekeepingProof,
     );
-    const verdict = await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
+    if (suppliedVerdict) {
+      console.log(
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — thin-source housekeeping proof covers every removed job.`,
+      );
+    } else {
+      console.log(
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
+      );
+    }
+    const verdict = suppliedVerdict || await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
       validate,
       concurrency,
       timeoutMs,
@@ -1302,10 +1384,12 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     }
 
     console.warn(
-      `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
+      suppliedVerdict
+        ? `  ✅ ${crawlerKey}: shrink CORROBORATED by deliberate thin-source quarantine — ${verdict.dead} removed job(s) have route-preserving housekeeping proof. Accepting the smaller slice.`
+        : `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
     );
     for (const e of verdict.evidence.slice(0, 10)) {
-      console.warn(`     ↳ gone: ${e.url} (${e.reason})`);
+      console.warn(`     ↳ ${suppliedVerdict ? 'quarantined' : 'gone'}: ${e.url} (${e.reason})`);
     }
 
     // SEO continuity: a job leaving the slice without an expired entry turns
@@ -2181,9 +2265,10 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   hand-over, where this crawler is MEANT to take vacancies from the key that
  *   currently holds them; the reconciler does not need it, since it writes
  *   slices directly. Env equivalent: SKIP_OWNERSHIP_GUARD=1.
- * @param {unknown[]} [options.housekeepingProof] - Definitive URL evidence
- *   for every removed job when accepting a source-verified shrink. Internal
- *   callers only; unproven removals remain blocked by the byte guard.
+ * @param {unknown[]} [options.housekeepingProof] - Definitive route-preserving
+ *   evidence for every removed job when accepting a source-verified shrink or
+ *   a deliberate thin-source quarantine. Internal callers only; unproven
+ *   removals remain blocked by the byte guard.
  */
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
