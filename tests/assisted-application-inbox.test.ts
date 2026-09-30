@@ -183,6 +183,9 @@ describe('employer messages on the alias', () => {
 
   it('keeps a real verification code and falls back to rules when Codex is unavailable', async () => {
     const { store, alias } = await setupInbound();
+    // The runner created an account on this portal and waits for its verification.
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({
       store, alias, raw: employerMail({ subject: 'Bitte bestätigen Sie Ihre E-Mail', text: 'Ihr Bestätigungscode lautet 482913' }), sendCascade,
@@ -190,6 +193,9 @@ describe('employer messages on the alias', () => {
     });
     const [first] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
     expect(first).toMatchObject({ category: 'verification', verificationCode: '482913' });
+    // The portal runner reads it from the inbox: the candidate never gets it.
+    expect(first.forwarded).toEqual({ status: 'skipped', reason: 'portal_verification' });
+    expect(sendCascade).not.toHaveBeenCalled();
 
     const again = await setupInbound();
     await deliver({
@@ -198,6 +204,49 @@ describe('employer messages on the alias', () => {
     });
     const [ack] = again.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => again.store.read(path)!);
     expect(ack).toMatchObject({ category: 'auto_acknowledgement', classifiedBy: 'rules' });
+  });
+
+  it('forwards a verification message no waiting portal account claims', async () => {
+    const verification = (url: string, code = '') => async () => ({ category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: code, verificationUrl: url, needsReply: false });
+    const mail = (text: string) => employerMail({ subject: 'Confirm your e-mail', text });
+
+    // An account waits on careers.arbeitgeber.ch, but the link is on another site.
+    const other = await setupInbound();
+    await other.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
+    const sendOther = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await deliver({ store: other.store, alias: other.alias, raw: mail('Confirm: https://login.other-ats.com/confirm?t=abc'), sendCascade: sendOther, classify: verification('https://login.other-ats.com/confirm?t=abc') });
+    const [forwarded] = other.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => other.store.read(path)!);
+    expect(forwarded).toMatchObject({ verificationUrl: 'https://login.other-ats.com/confirm?t=abc', forwarded: { status: 'sent' } });
+    expect(sendOther).toHaveBeenCalledTimes(1);
+
+    // No account waits at all (none created, or already verified): a code reaches the candidate too.
+    const none = await setupInbound();
+    await none.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: 1000 } });
+    const sendNone = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await deliver({ store: none.store, alias: none.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendNone, classify: verification('', '482913') });
+    const [coded] = none.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => none.store.read(path)!);
+    expect(coded).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
+
+    // A code while only an unrelated portal's account waits: the sender is not that portal, so it is forwarded.
+    const unrelated = await setupInbound();
+    await unrelated.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null } });
+    const sendUnrelated = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await deliver({ store: unrelated.store, alias: unrelated.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendUnrelated, classify: verification('', '482913') });
+    const [unclaimed] = unrelated.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => unrelated.store.read(path)!);
+    expect(unclaimed).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
+
+    // A link on the waiting account's site is kept for the runner.
+    const same = await setupInbound();
+    await same.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
+    const sendSame = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await deliver({ store: same.store, alias: same.alias, raw: mail('Activate: https://careers.arbeitgeber.ch/activate?t=abc'), sendCascade: sendSame, classify: verification('https://careers.arbeitgeber.ch/activate?t=abc') });
+    const [kept] = same.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => same.store.read(path)!);
+    expect(kept.forwarded).toEqual({ status: 'skipped', reason: 'portal_verification' });
+    expect(sendSame).not.toHaveBeenCalled();
   });
 
   it('drops unknown aliases and unauthenticated calls', async () => {
