@@ -18,7 +18,6 @@
  * to at most 1 report per 60 seconds to avoid flooding GA4.
  */
 
-import { Analytics } from './analytics';
 import { isBenignErrorMessage, isOriginRedactedThirdPartyStack } from './benignErrorPatterns';
 import { isNewsletterAutologinInFlight } from './newsletterAutologinSignal';
 import { isVersionSkewError, recoverFromStaleChunk } from './resilientImport';
@@ -42,6 +41,19 @@ const recentlyReported = new Map<string, number>();
 // showed a 760-error spike on a single day — this cap is the safety belt.
 const MAX_REPORTS_PER_SESSION = 25;
 let reportsThisSession = 0;
+
+let analyticsModulePromise: Promise<typeof import('./analytics')> | null = null;
+
+function loadAnalytics(): Promise<typeof import('./analytics')> {
+ if (!analyticsModulePromise) {
+ const promise = import('./analytics').catch((error) => {
+ analyticsModulePromise = null;
+ throw error;
+ });
+ analyticsModulePromise = promise;
+ }
+ return analyticsModulePromise;
+}
 
 // Benign-noise deny-list lives in `services/benignErrorPatterns.ts` — the
 // single source of truth shared with the global error handlers in
@@ -142,7 +154,8 @@ function reportCaughtErrorUnsafe(
  // Parity with the two global handlers in services/analytics.ts: a stack in
  // which not one frame carries a source is a cross-origin third-party script,
  // never our own modules. Shared predicate so the three pipelines can't drift.
- const originRedactedThirdParty = isOriginRedactedThirdPartyStack(extractStack(error));
+ const stack = extractStack(error);
+ const originRedactedThirdParty = isOriginRedactedThirdPartyStack(stack);
 
  // ── Per-page-load cap to prevent flood storms ──
  if (reportsThisSession >= MAX_REPORTS_PER_SESSION) return;
@@ -163,23 +176,31 @@ function reportCaughtErrorUnsafe(
  }
 
  // ── Report to GA4 ──
+ // Keep Analytics out of this module's static imports. Analytics can load Firebase,
+ // while Firebase imports this reporter for its own fail-closed paths; evaluating
+ // that cycle in Safari can leave an ESM binding in its TDZ and surface as
+ // "Cannot access uninitialized variable." on otherwise unrelated SEO catches.
+ // The report is already fire-and-forget, so loading the sink lazily preserves the
+ // event while keeping module initialization one-way.
  // For api_error events, PostHog dashboards require `endpoint` and `status`
  // to be non-null. `context` (e.g. "exchangeRate.fetchTwelveData") is always
  // supplied by the caller and is used as the endpoint fallback when the
  // caller did not provide an explicit `apiEndpoint`.
- try {
  const resolvedType = originRedactedThirdParty ? 'cross_origin_script' : (options.type || 'api_error');
  const resolvedEndpoint = options.apiEndpoint || context;
  const resolvedStatus = options.statusCode ?? 0;
- Analytics.trackAppError(resolvedType, {
- message: `[${context}] ${message}`,
- stack: extractStack(error),
- apiEndpoint: resolvedEndpoint,
- statusCode: resolvedStatus,
- apiMethod: options.apiMethod,
- fatal: originRedactedThirdParty ? false : (options.fatal ?? false),
- });
- } catch {
- // Analytics not initialized — the console.warn above is our fallback
- }
+ void loadAnalytics()
+   .then(({ Analytics }) => {
+     Analytics.trackAppError(resolvedType, {
+       message: `[${context}] ${message}`,
+       stack,
+       apiEndpoint: resolvedEndpoint,
+       statusCode: resolvedStatus,
+       apiMethod: options.apiMethod,
+       fatal: originRedactedThirdParty ? false : (options.fatal ?? false),
+     });
+   })
+   .catch(() => {
+     // Analytics unavailable — the console.warn above is our fallback.
+   });
 }
