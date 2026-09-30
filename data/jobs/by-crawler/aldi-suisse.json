@@ -110,12 +110,12 @@
     },
     {
       "id": "aldi-suisse-c66bd02e0640",
-      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+      "slug": "direttore-di-filiale-aggiunto-m-f-d-aldi-suisse-turbenthal",
       "slugByLocale": {
-        "it": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "en": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "it": "direttore-di-filiale-aggiunto-m-f-d-aldi-suisse-turbenthal",
+        "en": "deputy-branch-manager-m-f-d-aldi-suisse-turbenthal",
         "de": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "fr": "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        "fr": "directeur-adjoint-de-branche-h-f-d-aldi-suisse-turbenthal"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -196,11 +196,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

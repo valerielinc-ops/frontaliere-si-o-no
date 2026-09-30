@@ -10388,12 +10388,12 @@
     },
     {
       "id": "unispital-basel-6180182ad0fd",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+      "slug": "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        "it": "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel",
+        "en": "dipl-nursing-professional-hf-fh-universitatsspital-basel-basel",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel-daa83e"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10438,7 +10438,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
           "diplome-e-en-soins-infirmiers-hf-fh-universitatsspital-basel-basel",
@@ -10457,10 +10456,15 @@
           "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
-          "dipl-infermieristica-hf-fh-ematologia-universitatsspital-basel-basel"
+          "dipl-infermieristica-hf-fh-ematologia-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
@@ -10537,7 +10541,8 @@
         "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
-        "dipl-infermieristica-hf-fh-ematologia-universitatsspital-basel-basel"
+        "dipl-infermieristica-hf-fh-ematologia-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

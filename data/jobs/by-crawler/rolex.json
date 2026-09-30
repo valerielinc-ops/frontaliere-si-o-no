@@ -1468,7 +1468,7 @@
       "slugByLocale": {
         "it": "agente-di-sicurezza-m-f-rolex-bienne",
         "en": "security-officer-m-f-rolex-bienne",
-        "de": "charge-de-securite-m-w-d-rolex-bienne",
+        "de": "sicherheitsbeauftragter-m-w-rolex-bienne",
         "fr": "charge-de-securite-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -1511,7 +1511,7 @@
       "previousSlugs": [
         "charge-de-securite-h-f-rolex-ch",
         "charge-de-securite-h-f-rolex-bienne",
-        "sicherheitsbeauftragter-m-w-rolex-bienne"
+        "charge-de-securite-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1522,7 +1522,7 @@
         ],
         "de": [
           "charge-de-securite-h-f-rolex-bienne",
-          "sicherheitsbeauftragter-m-w-rolex-bienne"
+          "charge-de-securite-m-w-d-rolex-bienne"
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
@@ -3518,7 +3518,6 @@
           "terminator-m-w-d-rolex-geneve"
         ],
         "fr": [
-          "termineur-h-f-rolex-ch-nuy03u",
           "termineur-h-f-rolex-ch"
         ]
       },
