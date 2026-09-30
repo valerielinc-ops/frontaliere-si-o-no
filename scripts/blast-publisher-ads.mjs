@@ -35,7 +35,8 @@ import {
   isAdvertisingSuppressed,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
-import { FieldValue } from 'firebase-admin/firestore';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
@@ -49,19 +50,17 @@ const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const SITE = 'https://frontaliereticino.ch';
 
 async function initDb() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return { admin: a, db: a.firestore() };
+  return { db: getFirestore() };
 }
 
 async function main() {
-  const { admin, db } = await initDb();
+  const { db } = await initDb();
 
   // Paid (sponsored OR azienda) + not yet blasted. Both paid tiers carry the
   // newsletter-blast perk; azienda would be silently excluded by a bare

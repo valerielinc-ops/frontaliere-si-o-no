@@ -3789,16 +3789,16 @@ async function persistQualityScoresToFirestore(summaries) {
   if (entriesWithScores.length === 0) return;
 
   try {
-    const adminMod = await import('firebase-admin');
-    const admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
       if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
         console.log('ℹ️  [QualityScores] No GOOGLE_APPLICATION_CREDENTIALS — skipping Firestore persistence');
         return;
       }
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+      initializeApp({ credential: applicationDefault() });
     }
-    const db = admin.firestore();
+    const db = getFirestore();
     const now = new Date().toISOString();
 
     // Chunk the write so it scales past the Firestore 500-op batch cap (one

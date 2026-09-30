@@ -81,7 +81,8 @@
  *   --apply     perform the writes
  *   --limit <n> cap the number of docs restored in one run (default: no cap)
  */
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 import { FieldValue } from 'firebase-admin/firestore';
 // DECAYABLE_STATUSES is the single declaration of "which statuses are a MACHINE
 // inference about the mailbox" — the only ones any recovery path may propose
@@ -106,13 +107,13 @@ const opt = (n, d = null) => { const i = argv.indexOf(`--${n}`); return i >= 0 &
 const APPLY = flag('apply');
 const LIMIT = Number(opt('limit', '0')) || 0;
 
-if (!admin.apps?.length) {
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
+if (!getApps().length) {
+  initializeApp({
+    credential: applicationDefault(),
     projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
   });
 }
-const db = admin.firestore();
+const db = getFirestore();
 
 /**
  * Human-readable label per `decideRestore()` code, so the dry-run report says

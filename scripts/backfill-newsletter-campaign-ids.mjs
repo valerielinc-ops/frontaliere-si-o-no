@@ -54,7 +54,8 @@
  *   `mcp-gsc-main/service_account_credentials.json` (relative to repo root).
  */
 
-import admin from 'firebase-admin';
+import { cert, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 import { FieldValue } from 'firebase-admin/firestore';
 import { readFileSync } from 'fs';
 
@@ -100,8 +101,8 @@ const sa = JSON.parse(
     new URL('../mcp-gsc-main/service_account_credentials.json', import.meta.url),
   ),
 );
-admin.initializeApp({ credential: admin.credential.cert(sa) });
-const db = admin.firestore();
+initializeApp({ credential: cert(sa) });
+const db = getFirestore();
 
 // ── Helpers ───────────────────────────────────────────────────────────
 
@@ -132,7 +133,7 @@ function isoDate(date) {
 
 /**
  * Coerce various Firestore-ish timestamp shapes to a JS Date or null.
- * Accepts: admin.firestore.Timestamp, Date, ISO string, epoch ms number, null.
+ * Accepts: firebase-admin/firestore Timestamp, Date, ISO string, epoch ms number, null.
  */
 function toDate(v) {
   if (!v) return null;
@@ -263,7 +264,7 @@ function eventTimestamp(data) {
  * @property {number} deltaHours  |ts - sentAt| in hours
  * @property {string} kind        'delivery' | 'event'
  * @property {string} corruptionBucket
- * @property {admin.firestore.DocumentReference} ref
+ * @property {import('firebase-admin/firestore').DocumentReference} ref
  */
 
 /**

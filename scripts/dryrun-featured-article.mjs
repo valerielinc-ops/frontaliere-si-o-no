@@ -10,7 +10,8 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import admin from 'firebase-admin';
+import { cert, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -23,8 +24,8 @@ if (!SA_PATH) {
 }
 
 const sa = JSON.parse(readFileSync(SA_PATH, 'utf8'));
-admin.initializeApp({ credential: admin.credential.cert(sa) });
-const db = admin.firestore();
+initializeApp({ credential: cert(sa) });
+const db = getFirestore();
 
 function hasMeta(articleId) {
   const raw = readFileSync(path.resolve(ROOT, 'services/locales/blog-meta-it.ts'), 'utf8');

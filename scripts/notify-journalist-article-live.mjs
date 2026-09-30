@@ -30,7 +30,8 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { FieldValue } from 'firebase-admin/firestore';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 import { checkArticleIdExists } from './create-article.mjs';
 import { slugify } from './publish-journalist-article.mjs';
@@ -49,14 +50,13 @@ const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];
 const ORPHAN_THRESHOLD_MS = 3 * 60 * 60 * 1000;
 
 async function initDb() {
-  const admin = (await import('firebase-admin')).default;
-  if (!admin.apps?.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return { db: admin.firestore(), FieldValue: FieldValue };
+  return { db: getFirestore(), FieldValue };
 }
 
 /** True only when EVERY locale URL present on the doc is live (checkLink —
