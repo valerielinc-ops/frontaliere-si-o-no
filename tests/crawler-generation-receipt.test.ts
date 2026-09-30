@@ -60,7 +60,7 @@ function runHelper(
     const shim = join(value.root, 'git-shim');
     mkdirSync(shim);
     const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
-    writeFileSync(join(shim, 'git'), `#!/bin/bash\nif [ "$1" = "push" ]; then\n  printf '%s\\n' '${pushFailure}' >&2\n  exit 1\nfi\nexec '${realGit}' "$@"\n`);
+    writeFileSync(join(shim, 'git'), `#!/bin/bash\nfor arg in "$@"; do\n  if [ "$arg" = "push" ]; then\n    printf '%s\\n' '${pushFailure}' >&2\n    exit 1\n  fi\ndone\nexec '${realGit}' "$@"\n`);
     chmodSync(join(shim, 'git'), 0o755);
     pathValue = `${shim}${delimiter}${pathValue}`;
   }

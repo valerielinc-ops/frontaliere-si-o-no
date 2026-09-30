@@ -572,7 +572,11 @@ export function listNonLiveDataTestsForCi() {
  * GLOBALE: una PR che lo tocca perde la selezione per diff e ricade sulla suite
  * intera, che con `VITEST_MAX_WORKERS=1` sfonda il limite di 360 minuti del job
  * — misurato il 2026-09-20, run 35481674287 cancellata a 6 ore sulla PR che
- * introduceva questa partizione. Passare i file sulla riga di comando ottiene
+ * introduceva questa partizione. (Il fallback a suite intera doveva girare con
+ * 3 worker, ma Vitest applicava la variabile ereditata sopra `--maxWorkers`:
+ * corretto il 2026-09-30 con `vitestChildEnv`, vedi select-max-workers.mjs.
+ * La suite intera resta comunque un costo da non imporre a ogni PR.)
+ * Passare i file sulla riga di comando ottiene
  * la stessa selezione senza toccare la config, quindi senza tassare ogni PR
  * futura che sfiori questo meccanismo.
  */

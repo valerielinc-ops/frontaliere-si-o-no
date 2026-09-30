@@ -29,7 +29,7 @@ import path from 'node:path';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
 import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
-import { selectMaxWorkers } from './lib/select-max-workers.mjs';
+import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 
@@ -585,7 +585,12 @@ const maxWorkers = selectMaxWorkers({
 if (maxWorkers) args.push(`--maxWorkers=${maxWorkers}`);
 if (process.env.VITEST_POOL) args.push(`--pool=${process.env.VITEST_POOL}`);
 args.push(...tests, ...process.argv.slice(2));
-const result = spawnSync(process.execPath, args, { stdio: 'inherit' });
+// L'env del figlio porta VITEST_MAX_WORKERS allineato al valore scelto:
+// Vitest la legge e la applica sopra `--maxWorkers` (vedi vitestChildEnv).
+const result = spawnSync(process.execPath, args, {
+  stdio: 'inherit',
+  env: vitestChildEnv(process.env, maxWorkers),
+});
 if (result.error) {
   console.error(`Unable to start Vitest related run: ${result.error.message}`);
   process.exit(1);

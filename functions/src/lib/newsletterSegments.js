@@ -161,6 +161,29 @@ export function selectWinnerCandidates(interest, winners, opts = {}) {
   return [...preferredSet, ...rest].slice(0, limit).map((w) => w.slug);
 }
 
+const DEFAULT_ROTATION_WINDOW = 3;
+
+/**
+ * Rotate only the leading candidates, preserving the remaining list as
+ * locale/fallback options. `rotationIndex` is supplied by the campaign-aware
+ * caller; keeping this function numeric keeps the segment engine independent
+ * from campaign-id formatting and Firestore.
+ *
+ * @param {string[]} slugs
+ * @param {number|null|undefined} rotationIndex
+ * @param {number} windowSize
+ * @returns {string[]}
+ */
+function rotateCandidateWindow(slugs, rotationIndex, windowSize = DEFAULT_ROTATION_WINDOW) {
+  if (!Array.isArray(slugs) || slugs.length < 2 || !Number.isFinite(rotationIndex)) return slugs;
+  const size = Math.min(slugs.length, Math.max(1, Math.floor(Number(windowSize) || DEFAULT_ROTATION_WINDOW)));
+  if (size < 2) return slugs;
+  const offset = ((Math.trunc(rotationIndex) % size) + size) % size;
+  if (offset === 0) return slugs;
+  const window = slugs.slice(0, size);
+  return [...window.slice(offset), ...window.slice(0, offset), ...slugs.slice(size)];
+}
+
 /**
  * Resolve which article-performance slugs to offer a subscriber, and in
  * what shape ("single" novelty pick for hot/warm, "digest" best-of list for
@@ -172,17 +195,29 @@ export function selectWinnerCandidates(interest, winners, opts = {}) {
  *
  * @param {Record<string, any>|{strategy:string, interest:string|null}} subscriberOrSegment
  * @param {Array<{slug:string, cluster:string, score:number}>} winners
- * @param {{ limit?: number, digestLimit?: number }} [opts]
+ * @param {{ limit?: number, digestLimit?: number, rotationIndex?: number, rotationWindow?: number }} [opts]
  * @returns {{ mode: 'single'|'digest'|'none', slugs: string[] }}
  */
 export function selectArticleCandidates(subscriberOrSegment, winners, opts = {}) {
   const info = subscriberOrSegment?.strategy ? subscriberOrSegment : describeSegment(subscriberOrSegment);
-  const { limit = 5, digestLimit = 3 } = opts;
+  const {
+    limit = 5,
+    digestLimit = 3,
+    rotationIndex = null,
+    rotationWindow = DEFAULT_ROTATION_WINDOW,
+  } = opts;
+  const rotate = (slugs) => rotateCandidateWindow(slugs, rotationIndex, rotationWindow);
   if (info.strategy === CONTENT_STRATEGIES.DIGEST) {
-    return { mode: 'digest', slugs: selectWinnerCandidates(INTERESTS.GENERAL, winners, { limit: digestLimit }) };
+    return {
+      mode: 'digest',
+      slugs: rotate(selectWinnerCandidates(INTERESTS.GENERAL, winners, { limit: digestLimit })),
+    };
   }
   if (info.strategy === CONTENT_STRATEGIES.NOVELTY_INTEREST) {
-    return { mode: 'single', slugs: selectWinnerCandidates(info.interest, winners, { limit }) };
+    return {
+      mode: 'single',
+      slugs: rotate(selectWinnerCandidates(info.interest, winners, { limit })),
+    };
   }
   return { mode: 'none', slugs: [] };
 }

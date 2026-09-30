@@ -59,18 +59,17 @@ describe('job popularity snapshot stays incremental', () => {
     expect(typeof seed.scannedAt).toBe('string');
   });
 
-  it('stages both files, with the removal, in every git add it issues', () => {
-    // Two places matter, and the second is the one that gets forgotten: the
-    // normal commit AND the rebase-retry regeneration, which re-runs the fetch
-    // when two data workflows race to push. A stale `git add` there loses the
-    // metadata exactly in the rarest and least visible case.
-    const addLines = workflow
-      .split('\n')
-      .filter((l) => l.includes('git add') && l.includes('job-popularity.json'));
-    expect(addLines.length).toBeGreaterThanOrEqual(2);
-    for (const line of addLines) {
-      expect(line).toContain('git add -A');
-      expect(line).toContain('data/job-popularity.meta.json');
-    }
+  it('stages both files, with the removal, before handing them to the PR helper', () => {
+    // The shared helper publishes a branch/PR instead of retrying a protected
+    // main push. The metadata must still be staged with -A so writeFallback's
+    // deletion cannot be lost.
+    const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).toContain('--path data/job-popularity.json');
+    expect(workflow).toContain('--path data/job-popularity.meta.json');
+    expect(publisher).toContain('git add -A -- "${PATHS[@]}"');
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(workflow).toContain('pull-requests: write');
+    expect(workflow).toContain('Closes #10490');
   });
 });
