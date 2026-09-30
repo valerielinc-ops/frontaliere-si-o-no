@@ -11,6 +11,7 @@ import {
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { parseAssistedCampaign, recordAssistedEmailEvent } from './assistedApplicationEmailEvents.js';
 import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
@@ -106,6 +107,12 @@ export async function persistMailjetEvent(db, eventData) {
  const timestamp = eventData.time
  ? new Date(eventData.time * 1000).toISOString()
  : new Date().toISOString();
+
+ // Candidate e-mails of an assisted application: recorded on the order, never
+ // as newsletter engagement or a job ranking click.
+ if (parseAssistedCampaign(campaignId)) {
+ return recordAssistedEmailEvent(db, { campaign: campaignId, type, provider: 'mailjet', messageId, occurredAt: timestamp, url: eventData.url });
+ }
 
  if (type === 'click' && eventData.url) {
  await recordJobEmailRankingClick(db, {

@@ -26,6 +26,8 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
+import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
+import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import {
   brandButton,
@@ -739,7 +741,9 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     subject: testMode ? `[TEST] ${message.subject}` : message.subject,
     html: message.html,
     text: message.text,
-    tracking: false,
+    // The candidate's e-mails report opens and clicks to the admin panel
+    // (assistedApplicationEmailEvents.js); the owner's and test copies do not.
+    ...(isCustomer && !testMode ? assistedEmailTracking(orderId, key) : { tracking: false }),
     // Never in test mode: a "Reply" on a [TEST] copy would reach the real
     // customer as soon as the cascade falls back to Resend (the provider
     // that honours replyTo).
@@ -748,7 +752,8 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
 
   const { failed, ambiguous, sent } = await sendEmailCascade(
     [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key } }],
-    { delayMs: 0 },
+    // Maileroo reports opens and clicks only through this reference record.
+    { delayMs: 0, onSent: makeMailerooRefOnSent(async () => db, { isJobAlert: false }) },
   );
 
   if (testMode) {

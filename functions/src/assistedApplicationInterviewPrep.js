@@ -34,6 +34,7 @@ import {
   renderBrandedEmail,
 } from './assistedApplicationEmailLayout.js';
 import { escapeHtml } from './assistedApplicationEmployerMail.js';
+import { assistedEmailTracking, assistedMailerooRefOnSent } from './assistedApplicationEmailEvents.js';
 import { ASSISTED_APPLICATION_SENDER, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 
 const S = (description) => (description ? { type: 'string', description } : { type: 'string' });
@@ -383,10 +384,10 @@ async function preparePack({ db, orderRef, orderId, messageId, codex, sendCascad
   const { pack, dropped } = sanitizeInterviewPrep(raw, sources);
   const email = buildInterviewPrepEmail({ pack, locale, name: order.applicantName || order.customerName || '', job: draft.job?.title || order.jobTitle, company: order.companyName, jobUrl: order.jobUrl, orderId });
   const { failed } = await sendCascade([{
-    payload: { from: ASSISTED_APPLICATION_SENDER, to: [to], subject: email.subject, html: email.html, text: email.text, tracking: false },
+    payload: { from: ASSISTED_APPLICATION_SENDER, to: [to], subject: email.subject, html: email.html, text: email.text, ...assistedEmailTracking(orderId, 'interview_prep') },
     recipient: { email: to },
     meta: { orderId, key: 'interview_prep' },
-  }], { delayMs: 0 });
+  }], { delayMs: 0, onSent: assistedMailerooRefOnSent(db) });
   if (failed.length) throw new Error(`send_failed: ${String(failed[0]?.error || '').slice(0, 80)}`);
   await orderRef.set({ interviewPrep: { claimedAt: nowMs, messageId, attempts, status: 'sent', sentAt: Date.now(), lastError: null, dropped, questions: pack.likelyQuestions.length, stories: pack.stories.length } }, { merge: true });
   return { ok: true, status: 'sent', dropped };

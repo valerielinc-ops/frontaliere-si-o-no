@@ -108,6 +108,23 @@ export interface AssistedApplicationAutomationView {
   } | null;
 }
 
+/** One e-mail to the candidate and what the providers reported (opens are indicative). */
+export interface AssistedApplicationCandidateEmail {
+  key: string;
+  status: string | null;
+  sentAt: string | null;
+  delivered: number;
+  opens: number;
+  clicks: number;
+  bounces: number;
+  complaints: number;
+  firstOpenAt: string | null;
+  lastOpenAt: string | null;
+  lastClickAt: string | null;
+  /** Without the query: review links carry a signed token. */
+  lastClickUrl: string | null;
+}
+
 export interface AssistedApplicationAdminOrder {
   orderId: string;
   jobId: string;
@@ -134,6 +151,8 @@ export interface AssistedApplicationAdminOrder {
   cvFileCheck: string | null;
   /** Status of the automatic customer emails (`sent`, `failed`, `ambiguous`, `sending`). */
   emails: { intro: string | null; reminder: string | null; submitted: string | null };
+  /** Every e-mail the candidate received, with the delivery, opens and clicks the providers reported. */
+  candidateEmails?: AssistedApplicationCandidateEmail[];
   cvUploadedAt: string | null;
   consentVersion: string | null;
   consentedAt: string | null;
