@@ -14,6 +14,7 @@
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
 #     [--force] \
+#     [--checkpoint] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -26,6 +27,7 @@ COMMIT_MESSAGE=""
 TITLE=""
 BODY_FILE=""
 FORCE_ADD=false
+CHECKPOINT_ONLY=false
 PATHS=()
 
 while [ "$#" -gt 0 ]; do
@@ -59,6 +61,10 @@ while [ "$#" -gt 0 ]; do
       FORCE_ADD=true
       shift
       ;;
+    --checkpoint)
+      CHECKPOINT_ONLY=true
+      shift
+      ;;
     *)
       echo "::error::Unknown argument: $1"
       exit 2
@@ -70,10 +76,12 @@ done
 [ -n "$BRANCH" ] || { echo "::error::--branch is required"; exit 2; }
 [ -n "$COMMIT_MESSAGE" ] || { echo "::error::--commit-message is required"; exit 2; }
 [ -n "$TITLE" ] || { echo "::error::--title is required"; exit 2; }
-[ -n "$BODY_FILE" ] && [ -f "$BODY_FILE" ] || {
-  echo "::error::--body-file must point to an existing file"
-  exit 2
-}
+if [ "$CHECKPOINT_ONLY" = false ]; then
+  [ -n "$BODY_FILE" ] && [ -f "$BODY_FILE" ] || {
+    echo "::error::--body-file must point to an existing file"
+    exit 2
+  }
+fi
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
@@ -86,17 +94,24 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 }
 
 # Validate the exact PR contract before creating a commit or remote branch.
-node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
+if [ "$CHECKPOINT_ONLY" = false ]; then
+  node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
+fi
 
 git checkout -B "$BRANCH"
+# Resolve every path through symlinks before staging. The events refresh also
+# owns the weekend-digest corpus, whose historical services/data paths are
+# symlinks into packages/articles/content. Keep -A semantics after resolving so
+# an explicit deleted path cannot remain silently unstaged.
+mapfile -t RESOLVED_PATHS < <(node scripts/lib/git-add-resolved.mjs --print-only "${PATHS[@]}")
 if [ "$FORCE_ADD" = true ]; then
   # Some refreshes intentionally publish generated cache paths that remain
   # ignored in the normal checkout (for example the fuel cache/history). Keep
   # the force explicit at the publisher boundary so an ignored path can never
   # disappear silently from an otherwise successful refresh PR.
-  git add -A -f -- "${PATHS[@]}"
+  git add -A -f -- "${RESOLVED_PATHS[@]}"
 else
-  git add -A -- "${PATHS[@]}"
+  git add -A -- "${RESOLVED_PATHS[@]}"
 fi
 if git diff --cached --quiet; then
   echo "No refresh changes to publish."
@@ -121,6 +136,11 @@ if [ -n "$REMOTE_HEAD" ]; then
     "$PUSH_URL" "HEAD:${BRANCH}"
 else
   git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
+fi
+
+if [ "$CHECKPOINT_ONLY" = true ]; then
+  echo "Updated refresh branch checkpoint ${BRANCH}; PR creation deferred until the final dataset gate."
+  exit 0
 fi
 
 OPEN_PR="$(gh pr list \
