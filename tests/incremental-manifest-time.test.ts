@@ -7,7 +7,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BENCHMARK = path.join(ROOT, 'scripts/dev/bench-incremental-manifest-time.mjs');
 
 describe('incremental manifest registration time', () => {
-  it('measures the production-shaped bridge input below the 0.5 ms/page target', { timeout: 60_000 }, () => {
+  // The 2,000-page/full-related-pool scenario takes about 24 s in isolation;
+  // the full suite runs it under sustained CPU and filesystem contention.
+  it('measures the production-shaped bridge input below the 0.5 ms/page target', { timeout: 180_000 }, () => {
     const output = execFileSync(process.execPath, [BENCHMARK, '--json'], {
       cwd: ROOT,
       encoding: 'utf8',

@@ -82,16 +82,50 @@ function hreflangLoop(xml: string, flatten: boolean): number {
   return out.size;
 }
 
-/** Best-of-N: a shared runner's noise only ever adds time, never removes it. */
-function fastestMs(fn: () => unknown, reps: number): number {
-  let best = Infinity;
+function elapsedMs(fn: () => unknown): number {
+  const t0 = process.hrtime.bigint();
+  fn();
+  return Number(process.hrtime.bigint() - t0) / 1e6;
+}
+
+function median(values: number[]): number {
+  const sorted = [...values].sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length / 2)];
+}
+
+/** Pair the two loops and use the median to reject one noisy shared-runner sample. */
+function measureOverhead(
+  plainFn: () => unknown,
+  flatFn: () => unknown,
+  reps: number,
+): { plainMs: number; flatMs: number; deltaMs: number; ratio: number } {
+  const plainSamples: number[] = [];
+  const flatSamples: number[] = [];
+  const deltaSamples: number[] = [];
+  const ratioSamples: number[] = [];
+
   for (let i = 0; i < reps; i++) {
-    const t0 = process.hrtime.bigint();
-    fn();
-    const ms = Number(process.hrtime.bigint() - t0) / 1e6;
-    if (ms < best) best = ms;
+    let plainMs: number;
+    let flatMs: number;
+    if (i % 2 === 0) {
+      plainMs = elapsedMs(plainFn);
+      flatMs = elapsedMs(flatFn);
+    } else {
+      flatMs = elapsedMs(flatFn);
+      plainMs = elapsedMs(plainFn);
+    }
+    plainSamples.push(plainMs);
+    flatSamples.push(flatMs);
+    deltaSamples.push(flatMs - plainMs);
+    ratioSamples.push((flatMs - plainMs) / plainMs);
   }
-  return best;
+
+  return {
+    plainMs: median(plainSamples),
+    flatMs: median(flatSamples),
+    deltaMs: median(deltaSamples),
+    ratio: median(ratioSamples),
+  };
 }
 
 // Kept small enough to stay a unit test; the per-call cost is what scales, and
@@ -109,7 +143,7 @@ const REPS = 5;
 const PRODUCTION_FLATTEN_CALLS = 2_000_000;
 
 /**
- * CALIBRATED, not guessed. Sixteen repeated best-of-5 measurements of each loop
+ * CALIBRATED, not guessed. Sixteen repeated paired-median measurements of each loop
  * at LOCS = 8'000 and 20'000 put the Buffer round-trip's overhead ratio between
  * 0.43 and 0.71 — while `s.split('').join('')`, the only other candidate in
  * `flat-string.mjs`'s header that actually flattens, sits at 2.88 on the same
@@ -137,21 +171,20 @@ describe('validate-sitemap-pages sitemap loaders: flatten wall-time budget', () 
     hreflangLoop(xml, false);
     hreflangLoop(xml, true);
 
-    const locPlain = fastestMs(() => locLoop(xml, false), REPS);
-    const locFlat = fastestMs(() => locLoop(xml, true), REPS);
-    const hrePlain = fastestMs(() => hreflangLoop(xml, false), REPS);
-    const hreFlat = fastestMs(() => hreflangLoop(xml, true), REPS);
-
-    const locRatio = (locFlat - locPlain) / locPlain;
-    const hreRatio = (hreFlat - hrePlain) / hrePlain;
+    const loc = measureOverhead(() => locLoop(xml, false), () => locLoop(xml, true), REPS);
+    const hre = measureOverhead(
+      () => hreflangLoop(xml, false),
+      () => hreflangLoop(xml, true),
+      REPS,
+    );
 
     expect(
-      locRatio,
-      `loc loop: ${locPlain.toFixed(1)} → ${locFlat.toFixed(1)} ms`,
+      loc.ratio,
+      `loc loop: ${loc.plainMs.toFixed(1)} → ${loc.flatMs.toFixed(1)} ms`,
     ).toBeLessThan(MAX_OVERHEAD_RATIO);
     expect(
-      hreRatio,
-      `hreflang loop: ${hrePlain.toFixed(1)} → ${hreFlat.toFixed(1)} ms`,
+      hre.ratio,
+      `hreflang loop: ${hre.plainMs.toFixed(1)} → ${hre.flatMs.toFixed(1)} ms`,
     ).toBeLessThan(MAX_OVERHEAD_RATIO);
   });
 
@@ -160,9 +193,12 @@ describe('validate-sitemap-pages sitemap loaders: flatten wall-time budget', () 
     locLoop(xml, false);
     locLoop(xml, true);
 
-    const plain = fastestMs(() => locLoop(xml, false), REPS);
-    const flat = fastestMs(() => locLoop(xml, true), REPS);
-    const perCallNs = ((flat - plain) * 1e6) / LOCS;
+    const { deltaMs } = measureOverhead(
+      () => locLoop(xml, false),
+      () => locLoop(xml, true),
+      REPS,
+    );
+    const perCallNs = (Math.max(deltaMs, 0) * 1e6) / LOCS;
     const extrapolatedMs = (perCallNs * PRODUCTION_FLATTEN_CALLS) / 1e6;
 
     expect(

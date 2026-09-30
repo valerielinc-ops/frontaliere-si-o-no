@@ -73,7 +73,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 330
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # The queue is pushed with the ruleset-bypass PAT loaded below. Do
+          # not let checkout persist the ambient GITHUB_TOKEN extraheader: it
+          # takes precedence over the PAT URL and turns the eventual push into
+          # a github-actions[bot] push, which GH013 rejects on main.
+          persist-credentials: false
 
       - uses: actions/setup-node@v7
         with:
@@ -97,6 +104,42 @@ jobs:
 
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      # Fail before the multi-hour discovery/trace stages when Remote Config
+      # has supplied a token that can read the repository but is not actually
+      # one of the bypass actors for main's required-check ruleset. Without
+      # this probe the failure appears only after all generated state is ready,
+      # wasting the run and losing its receipt at the final push.
+      - name: Verify main push identity
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT was not loaded from Remote Config — cannot push the prospector queue to main"
+            exit 1
+          fi
+          export GH_TOKEN="$GITHUB_PAT"
+          actor_tsv="$(gh api user --jq '[.login, (.id | tostring)] | @tsv')"
+          IFS=$'\t' read -r actor_login actor_id <<< "$actor_tsv"
+          ruleset_id="$(gh api "repos/${GH_REPO}/rulesets" --jq 'map(select(.name == "main required CI checks"))[0].id // empty')"
+          if [ -z "$ruleset_id" ]; then
+            echo "::error::The main required-check ruleset could not be found"
+            exit 1
+          fi
+          bypass_ids="$(gh api "repos/${GH_REPO}/rulesets/${ruleset_id}" --jq '.bypass_actors[]? | select(.actor_type == "User") | .actor_id')"
+          is_bypass=false
+          while IFS= read -r bypass_id; do
+            if [ "$bypass_id" = "$actor_id" ]; then
+              is_bypass=true
+              break
+            fi
+          done <<< "$bypass_ids"
+          if [ "$is_bypass" != true ]; then
+            echo "::error::GITHUB_PAT identity ${actor_login} (id ${actor_id}) is not a bypass actor for main's required-check ruleset"
+            exit 1
+          fi
+          echo "Main push identity: ${actor_login} (ruleset bypass actor)"
 
       # L'install stava piu' in basso, subito prima di PROMOTE, perche' i cinque
       # stadi precedenti giravano su builtin Node e `fetch`. Non e' piu' vero:
@@ -217,22 +260,15 @@ jobs:
           # scritto nel titolo e nel corpo della PR prodotta.
           PROMOTE_MIN_DAYS: ${{ github.event.inputs.promote_min_days || '2' }}
         run: |
-          # `git push` usa le credenziali del checkout (extraheader con
-          # GITHUB_TOKEN), non GH_TOKEN: senza riscrivere il remote, il token
-          # coniato sopra varrebbe solo per `gh` e il push resterebbe quello che
-          # GitHub rifiuta sui file di workflow.
-          if [ -n "${APP_TOKEN:-}" ]; then
-            # L'unset NON e' ridondante, ed e' il motivo per cui il giro
-            # precedente e' stato rifiutato NONOSTANTE il remote riscritto:
-            # actions/checkout scrive
-            #   http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>
-            # che ha la PRECEDENZA sullo `x-access-token:` nell'URL. Senza
-            # toglierlo, il push torna silenziosamente al token sbagliato — e
-            # nel log si vede solo «refusing to allow a GitHub App», che sembra
-            # un problema di permessi mentre e' un problema di credenziale.
-            # Stessa trappola documentata in issue-fix.yml e pr-redflag-fixer.yml.
-            git config --unset-all "http.https://github.com/.extraheader" || true
-            git remote set-url origin \
-              "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          # Checkout deliberately does not persist credentials. GH_TOKEN is
+          # APP_TOKEN when the App was minted, otherwise the ordinary
+          # GITHUB_TOKEN fallback; either way it must be made explicit for the
+          # promotion branch push (and for `gh pr create`).
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::No promotion token is available"
+            exit 1
           fi
+          git config --local --unset-all "http.https://github.com/.extraheader" || true
+          git remote set-url origin \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --min-days="$PROMOTE_MIN_DAYS" --open-pr

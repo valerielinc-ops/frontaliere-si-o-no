@@ -85,25 +85,46 @@ jobs:
             echo "waiting_runs=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100"
-          if ! runs_json="$(gh api --paginate --slurp "$runs_path" 2>/dev/null)"; then fail_open; fi
-          if ! printf "%s" "$runs_json" | jq -e 'type == "array" and all(.[]; (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string")))' >/dev/null; then fail_open; fi
-          if ! current_created_at="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) == $current) | .created_at][0] // empty')"; then fail_open; fi
+          guard_started_at=$SECONDS
+          api_timeout_seconds=15
+          guard_total_timeout_seconds=120
+          guard_api() {
+            remaining_seconds=$((guard_total_timeout_seconds - (SECONDS - guard_started_at)))
+            if [ "$remaining_seconds" -le 0 ]; then return 124; fi
+            call_timeout_seconds="$api_timeout_seconds"
+            if [ "$call_timeout_seconds" -gt "$remaining_seconds" ]; then call_timeout_seconds="$remaining_seconds"; fi
+            timeout --kill-after=0s "${call_timeout_seconds}s" gh api "$@" 2>/dev/null
+          }
+          active_runs=""
+          for run_status in queued pending waiting requested in_progress; do
+            runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100&status=${run_status}"
+            if ! status_json="$(guard_api "$runs_path")"; then fail_open; fi
+            if ! printf "%s" "$status_json" | jq -e 'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))' >/dev/null; then fail_open; fi
+            status_total_count="$(printf "%s" "$status_json" | jq -r '.total_count')"
+            status_returned_count="$(printf "%s" "$status_json" | jq -r '.workflow_runs | length')"
+            if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi
+            if ! status_runs="$(printf "%s" "$status_json" | jq -c '.workflow_runs[]')"; then fail_open; fi
+            if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$'\n'}${status_runs}"; fi
+          done
+          if [ -z "$active_runs" ]; then fail_open; fi
+          if ! current_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) == $current) | .created_at][0] // empty')"; then fail_open; fi
           if [ -z "$current_created_at" ]; then fail_open; fi
-          if ! waiting_candidates="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting")] | .[] | [.created_at, .id] | @tsv')"; then fail_open; fi
-          if ! in_progress_ids="$(printf "%s" "$runs_json" | jq -r --arg current "$GITHUB_RUN_ID" '[.[].workflow_runs[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_open; fi
+          if ! waiting_candidates="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")] | .[] | [.created_at, .id] | @tsv')"; then fail_open; fi
+          if ! in_progress_ids="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_open; fi
+          in_progress_count="$(printf "%s\n" "$in_progress_ids" | awk 'NF {count++} END {print count + 0}')"
+          if [ "$in_progress_count" -gt 20 ]; then fail_open; fi
           active_heavy_runs=0
           while IFS= read -r run_id; do
             [ -z "$run_id" ] && continue
-            if ! run_created_at="$(printf "%s" "$runs_json" | jq -r --arg run_id "$run_id" '[.[].workflow_runs[] | select((.id | tostring) == $run_id) | .created_at][0] // empty')"; then fail_open; fi
+            if ! run_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg run_id "$run_id" '[.[] | select((.id | tostring) == $run_id) | .created_at][0] // empty')"; then fail_open; fi
             if [ -z "$run_created_at" ]; then fail_open; fi
             jobs_path="/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100"
-            if ! jobs_json="$(gh api "$jobs_path" 2>/dev/null)"; then fail_open; fi
+            if ! jobs_json="$(guard_api "$jobs_path")"; then fail_open; fi
             if ! printf "%s" "$jobs_json" | jq -e 'type == "object" and (.jobs | type) == "array"' >/dev/null; then fail_open; fi
             if ! translate_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate") | .status][0] // empty')"; then fail_open; fi
             if ! guard_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate_queue_guard") | .status][0] // empty')"; then fail_open; fi
             case "$translate_status" in
-              queued|pending|waiting)
+              queued|pending|waiting|requested)
                 waiting_candidates="${waiting_candidates}${waiting_candidates:+$'\n'}${run_created_at} ${run_id}"
                 ;;
               in_progress)
@@ -111,7 +132,7 @@ jobs:
                 ;;
               "")
                 case "$guard_status" in
-                  queued|pending|waiting|in_progress)
+                  queued|pending|waiting|requested|in_progress)
                     waiting_candidates="${waiting_candidates}${waiting_candidates:+$'\n'}${run_created_at} ${run_id}"
                     ;;
                 esac
@@ -272,6 +293,20 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
+      - name: Probe translation provider readiness
+        id: provider_readiness
+        continue-on-error: true
+        run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
+      - name: Alert on rejected translation credentials (dedup, zero-Claude)
+        if: steps.provider_readiness.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/translation-provider-readiness.mjs \
+            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then

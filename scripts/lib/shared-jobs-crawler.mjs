@@ -976,13 +976,15 @@ function normalizeAdapterSeedMeta(rawMeta) {
   const company = normalizeSpace(rawMeta.company || rawMeta.companyName || rawMeta.brand || '');
   const contract = normalizeSpace(rawMeta.contract || rawMeta.employmentType || '');
   const postedDate = normalizeSpace(rawMeta.postedDate || rawMeta.datePosted || '');
-  if (!location && !canton && !company && !contract && !postedDate) return null;
+  const sourceReference = normalizeSpace(rawMeta.sourceReference || '');
+  if (!location && !canton && !company && !contract && !postedDate && !sourceReference) return null;
   return {
     location,
     canton,
     company,
     contract,
     postedDate,
+    ...(sourceReference ? { sourceReference } : {}),
     ...(rawMeta.preferWorkplaceLocation === true || workplaceLocation
       ? { preferWorkplaceLocation: true }
       : {}),
@@ -4679,6 +4681,7 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     // is only a navigable handoff; L3 must never count it as an application.
     applyUrl: url,
     source: 'Company Careers Crawler',
+    ...(seedMeta.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
     ...(seedMetaRelevant ? {
       _targetScope: {
         type: 'adapter_seed_meta',
@@ -4931,6 +4934,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     // event or a commercial outcome.
     applyUrl: pageUrl,
     source: 'Company Careers Crawler',
+    ...(seedMeta.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
     ...(seedMetaRelevant ? {
       _targetScope: {
         type: 'adapter_seed_meta',

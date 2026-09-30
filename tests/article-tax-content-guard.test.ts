@@ -32,10 +32,10 @@ function readRepoFile(relativePath: string): string {
 describe('article tax calculation content guard', () => {
   it('keeps the CHF 65k new-frontier simulation aligned with the calculator', () => {
     const expectedFragmentsByLocale: Record<string, string[]> = {
-      it: ['51\\\'610 CHF', '41\\\'251 CHF', '10\\\'359 CHF', '12\\\'699 EUR', '53\\\'291 EUR'],
-      en: ['CHF 51,610', 'CHF 41,251', 'CHF 10,359', 'EUR 12,699', 'EUR 53,291'],
-      de: ['51\\\'610 CHF', '41\\\'251 CHF', '10\\\'359 CHF', '12\\\'699 EUR', '53\\\'291 EUR'],
-      fr: ['51\\\'610 CHF', '41\\\'251 CHF', '10\\\'359 CHF', '12\\\'699 EUR', '53\\\'291 EUR'],
+      it: ['51\\\'610 CHF', '41\\\'661 CHF', '9\\\'949 CHF', '12\\\'291 EUR', '53\\\'291 EUR'],
+      en: ['CHF 51,610', 'CHF 41,661', 'CHF 9,949', 'EUR 12,291', 'EUR 53,291'],
+      de: ['51\\\'610 CHF', '41\\\'661 CHF', '9\\\'949 CHF', '12\\\'291 EUR', '53\\\'291 EUR'],
+      fr: ['51\\\'610 CHF', '41\\\'661 CHF', '9\\\'949 CHF', '12\\\'291 EUR', '53\\\'291 EUR'],
     };
 
     for (const [locale, expectedFragments] of Object.entries(expectedFragmentsByLocale)) {

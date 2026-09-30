@@ -1002,7 +1002,9 @@ describe('translation state store v2', () => {
         ...reservation,
       }),
     ]);
-    expect(results.some((result) => result.retries > 0)).toBe(true);
+    // The two identical transactions may produce the same commit bytes. Git
+    // then accepts the second push as an idempotent no-op, so observing a CAS
+    // retry is not a correctness requirement; convergence is.
     expect(results.map((result) => result.commit).every((commit) => commit === results[0].commit)).toBe(true);
     const different = schedulerReservation(SCHEDULER_SCOPE, empty, 'different');
     await expect(first.reserveSchedulerPlan({

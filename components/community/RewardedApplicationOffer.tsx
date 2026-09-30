@@ -36,6 +36,7 @@ import {
 import { useTranslation } from '@/services/i18n';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 import { hasTransientUserActivation } from '@/services/userActivation';
+import { collectAdVisibility, watchReturnToTab } from '@/services/adVisibilitySnapshot';
 import { usePopupSlot } from '@/hooks/usePopupSlot';
 
 const SURFACE = 'job_detail_rewarded_inline';
@@ -57,6 +58,12 @@ const OFFERWALL_FORMAT = 'offerwall';
  * REWARDED_READY_TIMEOUT_MS (15 s) stays as the backstop behind it.
  */
 export const GPT_OPT_IN_READY_TIMEOUT_MS = 4000;
+
+/**
+ * Delay of the ads snapshot after Google's Offerwall is on screen: whatever
+ * Google does to the page's ads when it renders has happened by then.
+ */
+export const OFFERWALL_ADS_SNAPSHOT_DELAY_MS = 1500;
 
 /**
  * Longest job title quoted in this overlay's own copy; a longer one is cut
@@ -272,6 +279,8 @@ export default function RewardedApplicationOffer({
   const gptVideoStartedRef = useRef(false);
   const appearTimeoutTrackedRef = useRef(false);
   const offerwallWatchRef = useRef<AbortController | null>(null);
+  const offerwallAdsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const offerwallAdsSentRef = useRef(false);
   const loadingRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const dismissFromBackdrop = useApplicationOfferBackdropDismiss(onDismiss);
@@ -307,6 +316,7 @@ export default function RewardedApplicationOffer({
       mountedRef.current = false;
       // A late-Offerwall watch must not outlive the offer.
       offerwallWatchRef.current?.abort();
+      if (offerwallAdsTimerRef.current) clearTimeout(offerwallAdsTimerRef.current);
     };
   }, []);
 
@@ -342,6 +352,23 @@ export default function RewardedApplicationOffer({
     trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_shown', eventContext());
   };
 
+  // One snapshot of the page's ads per Offerwall, taken while it is still on
+  // screen: 1.5 s after it appears, or at once when it closes or grants its
+  // reward before that, so a quick close never measures the page after the
+  // Offerwall is gone.
+  const sendOfferwallAdsSnapshot = () => {
+    if (offerwallAdsTimerRef.current) {
+      clearTimeout(offerwallAdsTimerRef.current);
+      offerwallAdsTimerRef.current = null;
+    }
+    if (offerwallAdsSentRef.current || !mountedRef.current) return;
+    offerwallAdsSentRef.current = true;
+    trackAssistedApplicationEvent('rewarded_offer_ads_offerwall', { ...offerwallContext(), ...collectAdVisibility() });
+  };
+  const flushOfferwallAdsSnapshot = () => {
+    if (offerwallAdsTimerRef.current) sendOfferwallAdsSnapshot();
+  };
+
   useEffect(() => {
     // An access already granted shows no ad offer, only the "open" card.
     if (startInHandoff) {
@@ -352,6 +379,8 @@ export default function RewardedApplicationOffer({
       return;
     }
     trackAssistedApplicationEvent('rewarded_application_offer_viewed', eventContext());
+    // Baseline of the page's ads at the click (services/adVisibilitySnapshot.ts).
+    trackAssistedApplicationEvent('rewarded_offer_ads_open', { ...eventContext(), ...collectAdVisibility() });
     // The offer is viewed once per mount; the context is read at that moment.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companyId, jobId]);
@@ -413,6 +442,12 @@ export default function RewardedApplicationOffer({
       handoffContext(),
     );
     setPhase(handoffPhaseRef.current);
+    // The page's ads when the visitor comes back from the employer's tab: the
+    // new tab exists to keep this page and its ads (and the vignette on return).
+    const returnContext = handoffContext();
+    watchReturnToTab(() => {
+      trackAssistedApplicationEvent('rewarded_offer_ads_return', { ...returnContext, ...collectAdVisibility() });
+    });
     const opened = onContinue();
     if (!(opened instanceof Promise)) return;
     void opened.then((ok) => {
@@ -483,6 +518,8 @@ export default function RewardedApplicationOffer({
   const handleOfferwallCompleted = (result: Extract<OfferwallReleaseResult, { outcome: 'completed' }>) => {
     if (grantedRef.current) return;
     grantedRef.current = true;
+    // Before the hand-off opens the employer's tab and hides this page.
+    flushOfferwallAdsSnapshot();
     const accessExpiresAt = grantRewardedApplicationAccess();
     trackAssistedApplicationEvent('rewarded_offerwall_completed', {
       ...offerwallContext(),
@@ -653,9 +690,15 @@ export default function RewardedApplicationOffer({
           shown_ms: shownMs,
           fc_root: root,
         });
+        // The page's ads once Google's Offerwall is on screen, against the
+        // click's baseline (rewarded_offer_ads_open).
+        if (!offerwallAdsSentRef.current && !offerwallAdsTimerRef.current) {
+          offerwallAdsTimerRef.current = setTimeout(sendOfferwallAdsSnapshot, OFFERWALL_ADS_SNAPSHOT_DELAY_MS);
+        }
       },
       onClosed: () => {
         if (!mountedRef.current || gptVideoStartedRef.current) return;
+        flushOfferwallAdsSnapshot();
         setPhase('offerwall_verifying');
       },
       onStalled: ({ shownMs, root }) => {

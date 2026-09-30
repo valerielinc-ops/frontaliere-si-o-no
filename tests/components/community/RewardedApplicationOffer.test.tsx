@@ -44,6 +44,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 }));
 
 import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
+import { RETURN_TO_TAB_SETTLE_MS } from '@/services/adVisibilitySnapshot';
 import { setUserActivation } from '../../helpers/userActivation';
 import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 import { itReady } from '@/services/i18n';
@@ -409,6 +410,38 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     expect(tracked('rewarded_application_handoff_clicked')).toHaveLength(1);
   });
 
+  it('snapshots the page ads at the click, and again when the visitor comes back from the employer tab', () => {
+    const setVisibility = (state: DocumentVisibilityState) => {
+      Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => state });
+      document.dispatchEvent(new Event('visibilitychange'));
+    };
+    vi.useFakeTimers();
+    try {
+      const onContinue = vi.fn();
+      render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+      expect(tracked('rewarded_offer_ads_open')).toEqual([
+        expect.objectContaining({ ...adContext, ads_total: 0, ads_visible: 0, anchor_visible: 0 }),
+      ]);
+      callProp('onReady', { requestId: 9 } satisfies Info);
+      callProp('onGranted', { requestId: 9 } satisfies Info);
+      expect(onContinue).toHaveBeenCalledTimes(1);
+      expect(tracked('rewarded_offer_ads_return')).toEqual([]);
+
+      // The employer's tab takes the foreground, then the visitor comes back.
+      setVisibility('hidden');
+      setVisibility('visible');
+      act(() => {
+        vi.advanceTimersByTime(RETURN_TO_TAB_SETTLE_MS);
+      });
+      expect(tracked('rewarded_offer_ads_return')).toEqual([
+        expect.objectContaining({ ...adContext, ads_total: 0, ads_visible: 0, anchor_visible: 0 }),
+      ]);
+    } finally {
+      vi.useRealTimers();
+      Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' });
+    }
+  });
+
   it('starts on the open card for an access already granted, with no ad and no offer view', () => {
     // A click resumed after the recovery reload whose access is still valid:
     // no activation survives the reload, so one click opens the new tab.
@@ -419,6 +452,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
     expect(mocks.props).toBeNull();
     expect(tracked('rewarded_application_offer_viewed')).toEqual([]);
+    expect(tracked('rewarded_offer_ads_open')).toEqual([]);
     expect(tracked('rewarded_application_handoff_shown')).toEqual([
       expect.objectContaining({ handoff_reason: 'resume_entitlement', jobId: 'job-1' }),
     ]);

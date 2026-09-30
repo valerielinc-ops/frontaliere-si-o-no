@@ -107,15 +107,12 @@ describe('job-locale population identity', () => {
       // +18.6% slice/assembled swap as a synthetic out-of-band fixture.
       const inflatedDescriptionSlots = Math.round(DESCRIPTION_POPULATION.expectedSlots * 1.186);
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, inflatedDescriptionSlots)).toThrow(/\[population-changed\]/);
-      // Titles: 78,725 assembled (re-baselined 2026-08-25, issue 6510) vs
-      // 92,231 read from the slices, re-measured the same day directly off
-      // data/jobs/by-crawler/*.json (+17.2%). The two historical figures this
-      // assertion used before the re-baseline (80,978 / 79,796 — the exact
-      // number that mis-calibrated this gate the first time, back when
-      // expectedSlots was 68,200) now fall INSIDE the new ±15% band by
-      // construction of the re-baseline itself, so they stopped proving
-      // anything about this failure mode; replaced with a fresh measurement.
-      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 92231)).toThrow(/\[population-changed\]/);
+      // Titles: the assembled artefact measured 90,712 on 2026-09-30. Keep
+      // the synthetic slice/assembled swap at the same +18.6% separation as
+      // the description fixture, so this assertion remains independent of
+      // the exact denominator chosen by the latest corpus measurement.
+      const inflatedTitleSlots = Math.round(TITLE_POPULATION.expectedSlots * 1.186);
+      expect(() => assertPopulationUnchanged(TITLE_POPULATION, inflatedTitleSlots)).toThrow(/\[population-changed\]/);
     });
 
     it('holds both shipped populations at their real measured sizes', () => {
@@ -124,10 +121,8 @@ describe('job-locale population identity', () => {
       for (const n of [115907, 115899]) {
         expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, n)).not.toThrow();
       }
-      // Titles, assembled, four measurements the same day.
-      for (const n of [68587, 68306, 67987, 67844]) {
-        expect(() => assertPopulationUnchanged(TITLE_POPULATION, n)).not.toThrow();
-      }
+      // Titles, assembled, latest full-checkout measurement on 2026-09-30.
+      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 90712)).not.toThrow();
     });
   });
 

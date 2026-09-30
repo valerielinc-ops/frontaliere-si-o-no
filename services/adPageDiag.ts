@@ -40,6 +40,7 @@ import {
 } from './adsConsent';
 import { classifyAdPageTemplate, documentHasJobPosting, type AdPageTemplate } from './adPageTemplate';
 import { AD_BANNER_STATE_ATTR } from './adsenseSlots';
+import { isManualSlot } from './adSlotKinds';
 import { isLikelyBot } from './botPatterns';
 import { READER_NOADS_ACTIVE_KEY } from './readerEntitlement';
 
@@ -105,14 +106,6 @@ function readStorage(win: DiagWindow, key: string): string | null {
   }
 }
 
-function isManualSlot(el: Element): boolean {
-  return (
-    el.hasAttribute('data-ad-slot') &&
-    !el.hasAttribute('data-anchor-status') &&
-    !el.hasAttribute('data-vignette-loaded') &&
-    !el.closest('.google-auto-placed')
-  );
-}
 
 /** True when a manual slot already carries a creative (`data-ad-status=filled`). */
 function hasFilledManualSlot(doc: Document): boolean {

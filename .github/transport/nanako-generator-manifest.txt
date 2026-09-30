@@ -82,6 +82,12 @@ scripts/lib/extract-article-text.mjs
 scripts/lib/fact-check-consensus.mjs
 scripts/lib/fnv1a.mjs
 scripts/lib/free-translate.mjs
+# Added 2026-09-30: free-translate.mjs now imports the shared quality gate;
+# carry its local closure as well so the transported generator can resolve the
+# top-level import before main().
+scripts/lib/translation-quality.mjs
+scripts/lib/ai-output-fidelity.mjs
+scripts/lib/prospector/entities.mjs
 scripts/lib/haversine.mjs
 scripts/lib/html-attr.mjs
 scripts/lib/it-text-similarity.mjs

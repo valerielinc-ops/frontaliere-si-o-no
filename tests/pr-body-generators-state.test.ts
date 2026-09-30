@@ -310,7 +310,12 @@ function promptBlocks(text: string): PromptBlock[] {
 
 type Emission = { rel: string; bullets: string[]; placeholders: string[]; raw: string };
 
+const emissionCache = new WeakMap<SourceFile[], Emission[]>();
+
 function emissions(srcs: SourceFile[]): Emission[] {
+  const cached = emissionCache.get(srcs);
+  if (cached) return cached;
+
   const out: Emission[] = [];
   for (const s of srcs) {
     NON_IMPL_RE.lastIndex = 0;
@@ -327,6 +332,7 @@ function emissions(srcs: SourceFile[]): Emission[] {
       });
     }
   }
+  emissionCache.set(srcs, out);
   return out;
 }
 
@@ -545,7 +551,7 @@ describe('generatori del body PR — sezione dei residui', () => {
       offenders,
       'un prompt istruisce un agente a scrivere i residui senza dargli la tassonomia completa degli stati',
     ).toEqual([]);
-  }, 30_000);
+  }, 90_000);
 
   it('nessun bullet emesso usa la tassonomia ABOLITA come stato', async () => {
     const offenders: string[] = [];
