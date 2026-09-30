@@ -57,8 +57,10 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -81,11 +83,17 @@ import {
 } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError, fetchJson, stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import {
+  exitCrawlerOnError,
+  fetchJson,
+  isConnectionLevelFetchError,
+  stripScriptsAndStyles,
+} from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import {
   createMutableFeedPaginationTracker,
   recordMutableFeedPageWithRetry,
@@ -1260,6 +1268,20 @@ function validatePostFinanceLocaleCoverage() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob: isPostFinanceJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ──────────────────────────────────────────────────────────────
 // Main
 // ──────────────────────────────────────────────────────────────
@@ -1272,12 +1294,28 @@ async function main() {
   console.log('');
 
   // 1. Fetch and parse job listings from sitemap
-  const discoveredJobs = await fetchPostFinanceJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchPostFinanceJobs();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ PostFinance: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isPostFinanceJob),
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('⚠️ No PostFinance CH-wide jobs discovered.');
     console.log('   The sitemap may have no PostFinance positions currently listed.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isPostFinanceJob),
+    );
     logPostFinanceJobStats();
     return;
   }

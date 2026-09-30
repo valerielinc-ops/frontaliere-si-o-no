@@ -6,6 +6,7 @@ import { jobDescriptionTextToHtml } from '../../build-plugins/shared/jobDescript
 const root = path.resolve(__dirname, '../..');
 const policyPath = path.join(root, 'data/url-pruning-approved-patterns.json');
 const jobsSeoPluginPath = path.join(root, 'build-plugins/jobsSeoPagesPlugin.ts');
+const descriptionSerializerPath = path.join(root, 'build-plugins/shared/jobDescription/toHtml.ts');
 
 describe('historical job page content policy', () => {
   it('never approves thinning for archived job URL classes', () => {
@@ -27,5 +28,12 @@ describe('historical job page content policy', () => {
     expect(source).toContain('const descriptionHtml = plainTextToHtml(jobDescription);');
     expect(source).not.toContain('descText.slice(0, 2000)');
     expect(rendered).toContain('Coda originale oltre il vecchio limite');
+  });
+
+  it('does not retain long archived descriptions in the shared HTML LRU', () => {
+    const source = fs.readFileSync(descriptionSerializerPath, 'utf8');
+
+    expect(source).toContain('const JOB_DESC_HTML_CACHE_MAX_INPUT_CHARS = 4_096;');
+    expect(source).toContain('if (!cacheable) return result;');
   });
 });

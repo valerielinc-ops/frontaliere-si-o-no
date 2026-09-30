@@ -167,18 +167,20 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(queueGuard?.run).toContain('per_page=100&status=${run_status}');
     expect(queueGuard?.run).toContain('status_total_count');
     expect(queueGuard?.run).toContain('status_returned_count');
-    expect(queueGuard?.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi');
+    expect(queueGuard?.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed');
     expect(queueGuard?.run).toContain('remaining_seconds');
     expect(queueGuard?.run).toContain('call_timeout_seconds');
     expect(queueGuard?.run).toContain('timeout --kill-after=0s');
     expect(queueGuard?.run).toContain('guard_total_timeout_seconds=120');
     expect(queueGuard?.run).not.toContain('--paginate');
     expect(queueGuard?.run).toContain('GITHUB_RUN_ID');
+    expect(queueGuard?.run).toContain('current_run_path');
     expect(queueGuard?.run).toContain('created_at');
     expect(queueGuard?.run).toContain('oldest_run_id');
     expect(queueGuard?.run).toContain('sort -k1,1 -k2,2n');
     expect(queueGuard?.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
     expect(queueGuard?.run).toContain('run=false');
+    expect(queueGuard?.run).not.toContain('fail_open');
     expect(queueGuard?.run).toContain('workflow_dispatch');
     expect(queueGuard?.env?.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     const sourceTranslate = YAML.parse(fs.readFileSync(

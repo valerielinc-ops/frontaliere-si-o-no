@@ -50,6 +50,24 @@ const ORG_LABELS = {
   swistxt: 'SwisTXT',
 };
 
+const PUBLISHED_LOCALES = ['de', 'it', 'fr', 'en'];
+const ROMANSH_LEXICAL_MARKERS = [
+  'emprendissadi',
+  'fufragnadi',
+  'infurmaziun',
+  'pussaivlad',
+  'spetgas',
+  'cuntanschain',
+  'cun',
+  'nus',
+  'vus',
+];
+const ROMANSH_IDENTITY_MARKERS = ['rumantsch'];
+const ROMANSH_WEAK_MARKERS = ['dal'];
+const ROMANSH_ARTICLE_NOUN_SUFFIX = /(?:ad|ads|ans|as|ats|ers|ins|iuns|aziuns|ezzas|assas|azzas)$/;
+const ROMANSH_STRONG_ENDING = /(?:aziun|aziuns|iun|iuns)$/;
+const ROMANSH_WEAK_ENDING = /(?:ment|ments)$/;
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -58,6 +76,68 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function bodyTokens(value = '') {
+  return String(value || '').toLowerCase().normalize('NFC').match(/\p{L}+/gu) || [];
+}
+
+function hasRomanshMarker(tokens, marker) {
+  return tokens.some((token) => token === marker || token.startsWith(marker));
+}
+
+function hasRomanshArticleNoun(tokens) {
+  for (let index = 0; index < tokens.length - 1; index += 1) {
+    if ((tokens[index] === 'ils' || tokens[index] === 'las')
+        && ROMANSH_ARTICLE_NOUN_SUFFIX.test(tokens[index + 1])) return true;
+  }
+  return false;
+}
+
+function hasTokenSequence(tokens, sequence) {
+  for (let index = 0; index <= tokens.length - sequence.length; index += 1) {
+    if (sequence.every((token, offset) => tokens[index + offset] === token)) return true;
+  }
+  return false;
+}
+
+/**
+ * Detect Romansh from the posting body only. Titles such as «Praticanta /
+ * praticant» are too short and too close to Italian to be evidence. Require a
+ * distinctive lexical/structural marker plus an independent confirmation:
+ * identity words and generic function words never classify a body by
+ * themselves.
+ */
+export function detectSrgSsrBodyLanguage(description = '', fallback = 'de') {
+  const tokens = bodyTokens(description);
+  const distinctiveHits = [
+    ROMANSH_LEXICAL_MARKERS.some((marker) => hasRomanshMarker(tokens, marker)),
+    hasRomanshArticleNoun(tokens),
+    hasTokenSequence(tokens, ['la', 'finala']),
+    tokens.some((token) => ROMANSH_STRONG_ENDING.test(token)
+      && !ROMANSH_LEXICAL_MARKERS.some((marker) => token === marker || token.startsWith(marker))),
+  ].filter(Boolean).length;
+  const identityHits = ROMANSH_IDENTITY_MARKERS.filter((marker) => hasRomanshMarker(tokens, marker)).length;
+  const weakConfirmationHits = [
+    identityHits > 0,
+    ROMANSH_WEAK_MARKERS.some((marker) => tokens.includes(marker)),
+    tokens.some((token) => ROMANSH_WEAK_ENDING.test(token)),
+  ].filter(Boolean).length;
+  if (distinctiveHits >= 2 || (distinctiveHits >= 1 && weakConfirmationHits >= 1)) return 'rm';
+  return detectLang(description, fallback);
+}
+
+/**
+ * Prefer a same-ID localized body when the source exposed one. The current
+ * RTR pages do not expose such a sibling (the `lang` query parameter changes
+ * neither the body nor the JSON-LD), so an unpaired Romansh body remains an
+ * explicitly declared `rm` source and is queued for LLM translation.
+ */
+export function resolveSrgSsrSourceLang({ description = '', localizedDescriptions = {}, fallback = 'de' } = {}) {
+  for (const locale of PUBLISHED_LOCALES) {
+    if (String(localizedDescriptions?.[locale] || '').trim()) return locale;
+  }
+  return detectSrgSsrBodyLanguage(description, fallback);
 }
 
 /**
@@ -127,6 +207,69 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+export function isRtrJob(job) {
+  return normalize(job?.url || '').includes('jobs.srgssr.ch/rtr/')
+    || normalize(job?._srgMeta?.org || '') === 'rtr';
+}
+
+function normalizeComparableText(value = '') {
+  return normalizeSpace(value).toLowerCase();
+}
+
+/**
+ * Repair historical RTR rows whose Romansh body was stored as Italian/French.
+ * Text slots that are still the source body are removed; translated slots are
+ * retained for the LLM repair queue. Slugs are deliberately untouched.
+ */
+export function prepareSrgSsrExistingJobs(jobs) {
+  if (!Array.isArray(jobs)) return jobs;
+  return jobs.map((job) => {
+    if (!job || !isRtrJob(job)) return job;
+    const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+      ? job.descriptionByLocale
+      : {};
+    const sourceBody = [job.description, ...Object.values(descriptions)]
+      .map((value) => String(value || '').trim())
+      .find((value) => detectSrgSsrBodyLanguage(value, 'de') === 'rm');
+    if (!sourceBody) return job;
+
+    const title = String(job.title || '').trim();
+    const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+      ? { ...job.titleByLocale }
+      : {};
+    for (const locale of PUBLISHED_LOCALES) {
+      if (normalizeComparableText(titleByLocale[locale]) === normalizeComparableText(title)) {
+        delete titleByLocale[locale];
+      }
+    }
+    if (title) titleByLocale.rm = title;
+
+    const descriptionByLocale = { ...descriptions };
+    for (const locale of PUBLISHED_LOCALES) {
+      const value = String(descriptionByLocale[locale] || '').trim();
+      if (value && detectSrgSsrBodyLanguage(value, 'de') === 'rm') delete descriptionByLocale[locale];
+    }
+    descriptionByLocale.rm = sourceBody;
+
+    const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+      ? { ...job.slugByLocale }
+      : {};
+    const sourceSlug = String(slugByLocale.rm || job.slug || slugByLocale.it || '').trim();
+    if (sourceSlug) slugByLocale.rm = sourceSlug;
+
+    return {
+      ...job,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      description: sourceBody,
+      titleByLocale,
+      descriptionByLocale,
+      slugByLocale,
+      needsRetranslation: true,
+    };
+  });
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -449,7 +592,10 @@ export async function fetchAllSrgSsrJobs() {
       const employmentType = employmentTypeRaw || deriveEmploymentType(pct);
 
       // Source language detection
-      const sourceLang = detectLang(description || title, 'de');
+      const sourceLang = resolveSrgSsrSourceLang({ description });
+      const sourceLocaleFields = sourceLang === 'rm'
+        ? { sourceLangOriginal: 'rm', needsRetranslation: true }
+        : {};
 
       // Posting date from JSON-LD
       const datePosted = String(jsonLd?.datePosted || '').trim() ||
@@ -482,6 +628,7 @@ export async function fetchAllSrgSsrJobs() {
         url: listing.url,
         source: 'SRG SSR Dedicated Parser',
         sourceLang,
+        ...sourceLocaleFields,
         crawledAt: new Date().toISOString(),
 
         // ── Recommended fields ──

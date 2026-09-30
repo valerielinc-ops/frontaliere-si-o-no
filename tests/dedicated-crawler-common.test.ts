@@ -170,6 +170,48 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[0].needsRetranslation).toBe(true);
   });
 
+  it('keeps an unsupported Romansh source out of the four published text slots', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-rm-locale-hardening-'));
+    const jobsPath = path.join(tempDir, 'jobs.json');
+    const romansh = 'Ils candidats vegnan a lavurar cun nossa equipa e porschan '
+      + 'in servetsch precis a las persunas interessadas. '.repeat(8);
+    const jobs = [{
+      slug: 'fufragnadi-srg-ssr-cuira',
+      title: 'Fufragnadi',
+      description: romansh,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Fufragnadi' },
+      descriptionByLocale: { rm: romansh },
+      slugByLocale: { rm: 'fufragnadi-srg-ssr-cuira' },
+      needsRetranslation: true,
+    }];
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+
+    hardenJobLocaleFields({ dataJobsPath: jobsPath });
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'))[0];
+
+    expect(after.sourceLang).toBe('rm');
+    expect(after.titleByLocale).toEqual({ rm: 'Fufragnadi' });
+    expect(after.descriptionByLocale).toEqual({ rm: romansh.trim() });
+    expect(after.needsRetranslation).toBe(true);
+  });
+
+  it('preserves an unsupported source slot during locale-aware merges', () => {
+    const existing = {
+      rm: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.',
+      it: 'Descrizione italiana tradotta e completa.',
+    };
+    const fresh = {
+      rm: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis oz.',
+      it: 'Copia italiana dalla fonte.',
+    };
+    const merged = mergeLocaleTextMap(existing, fresh, 3, 'rm');
+
+    expect(merged.rm).toBe(fresh.rm);
+    expect(merged.it).toBe(existing.it);
+  });
+
   it('rehomes real titles stored under the wrong locale instead of keeping fake copies', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');

@@ -1,16 +1,16 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-09-29T21:26:22.075Z",
+  "generatedAt": "2026-09-30T21:27:50.068Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7509,
-  "avgDurationMs": 7509,
+  "durationMs": 12068,
+  "avgDurationMs": 12068,
   "durationHistory": [
-    7509
+    12068
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,11 +41,11 @@
       "sourceLang": "en",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:18:15.295Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 15
       }
     },
@@ -109,13 +109,12 @@
       "department": "Open R&D",
       "seniority": "< 1 year",
       "sourceLang": "it",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:02.200Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 15
       }
     }

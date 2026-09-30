@@ -2275,6 +2275,7 @@ export function ensureLocaleFields(job) {
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
   const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
+  const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
 
   // Detect the language of the raw base description separately — it may differ
   // from sourceLang when titleByLocale has wrong-language entries.
@@ -2330,7 +2331,7 @@ export function ensureLocaleFields(job) {
       // already holds a partial translation — that repair belongs to the
       // translate pipeline (dedicated-crawler-common enrichJobLocalesDCC), which
       // now accepts flagged slots instead of skipping them.
-      if (verdict.reason === 'source-copy') {
+      if (verdict.reason === 'source-copy' && sourceLocaleIsPublished) {
         const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
         if (hasUsableTitle(heuristicReplacement) &&
             heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
@@ -2338,7 +2339,7 @@ export function ensureLocaleFields(job) {
           titleByLocale[locale] = heuristicReplacement;
         }
       }
-    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
+    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle && sourceLocaleIsPublished) {
       // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
@@ -2354,6 +2355,7 @@ export function ensureLocaleFields(job) {
     // UI/runtime SEO can fallback to out.description when needed.
     // However, NEVER delete existing description data for any locale.
     if (
+      sourceLocaleIsPublished &&
       !normalizeSpace(descriptionByLocale[locale] || '') &&
       bestDescription &&
       (locale === sourceLang || locale === baseDescLang)

@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-09-29T21:12:56.594Z",
-  "total": 66,
+  "generatedAt": "2026-09-30T21:20:00.589Z",
+  "total": 65,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 67,
-  "durationMs": 80724,
-  "avgDurationMs": 80724,
+  "unchangedCount": 66,
+  "durationMs": 298714,
+  "avgDurationMs": 298714,
   "durationHistory": [
-    80724
+    298714
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -44,10 +44,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -81,10 +81,10 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-06-23T23:02:21.461Z",
       "salarySource": "estimated",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -118,10 +118,10 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
       "salarySource": "reported",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -155,10 +155,10 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-07-01T12:33:27.158Z",
       "salarySource": "estimated",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -192,10 +192,10 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
       "salarySource": "estimated",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -229,10 +229,10 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-07-06T15:27:57.124Z",
       "salarySource": "estimated",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -373,10 +373,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T12:22:23.029Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -409,10 +409,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-13T22:22:37.217Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "needsRetranslation": true,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -445,10 +446,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-15T22:40:45.154Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -554,10 +555,10 @@
       "firstSeenAt": "2026-07-18T10:49:57.193Z",
       "retranslationAttempts": 0,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -626,10 +627,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-21T11:37:38.116Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -662,47 +663,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-23T12:24:33.845Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Senior Business Development & Strategy Manager Air 100 (w/m/d)",
-      "slug": "senior-business-development-strategy-manager-air-100-w-m-d-ruag-ag-emmen",
-      "url": "https://jobs.ruag.ch/offene-stellen/senior-business-development-strategy-manager-air/68447b2a-32dc-4bfc-a57e-a673f7ad4b39",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/68447b2a-32dc-4bfc-a57e-a673f7ad4b39",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Emmen",
-      "addressLocality": "Emmen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2053-12-10",
-      "id": "ruag-ag-023694e6310f",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-27T12:44:27.503Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -735,10 +699,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-27T22:19:12.852Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -771,10 +735,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-29T22:36:30.647Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "needsRetranslation": true,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -844,11 +809,10 @@
       "firstSeenAt": "2026-07-31T12:23:22.898Z",
       "salarySource": "estimated",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -881,10 +845,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-31T22:27:28.918Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -917,10 +881,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-31T22:27:28.918Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -1025,10 +989,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-10T10:43:57.851Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -1061,10 +1025,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:33:49.980Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -1097,10 +1061,46 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:33:49.980Z",
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Messtechnik-Spezialist DMS 80-100 % (w/m/d)",
+      "slug": "specialista-di-misura-dms-80-100-m-f-d-ruag-ag-emmen",
+      "url": "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/45bffd3d-d924-4c32-8f74-bd8715980e7d",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Emmen",
+      "addressLocality": "Emmen",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-12",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-09-25",
+      "id": "ruag-ag-f6dc78fed6c8",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-14T21:55:03.983Z",
+      "salarySource": "estimated",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }

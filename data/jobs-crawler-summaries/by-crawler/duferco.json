@@ -1,21 +1,23 @@
 {
   "key": "duferco",
   "label": "Duferco",
-  "generatedAt": "2026-09-29T21:23:51.167Z",
+  "generatedAt": "2026-09-30T21:23:35.161Z",
   "total": 5,
   "discovered": null,
-  "parsed": 5,
+  "parsed": 4,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 5,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3176,
-  "avgDurationMs": 3176,
+  "unchangedCount": 1,
+  "durationMs": 3164,
+  "avgDurationMs": 3164,
   "durationHistory": [
-    3176
+    3164
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:23:43.191Z",
+      "crawledAt": "2026-09-30T21:23:25.662Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -47,11 +49,11 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "firstSeenAt": "2026-06-10T06:06:36.064Z",
-      "_qualityScore": 78,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -67,7 +69,7 @@
       "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:23:43.222Z",
+      "crawledAt": "2026-09-30T21:23:25.697Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -103,7 +105,7 @@
       "url": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:23:43.228Z",
+      "crawledAt": "2026-09-30T21:23:25.702Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -139,7 +141,7 @@
       "url": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:23:43.235Z",
+      "crawledAt": "2026-09-30T21:23:25.707Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -162,10 +164,13 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "duferco-7d3cb7f4-0255-411c-98c5-92ad1132c9b1",
-      "slug": "platform-engineer-duferco-lugano",
+      "slug": "ingegnere-della-piattaforma-duferco-lugano",
       "company": "Duferco",
       "companyKey": "duferco",
       "companyDomain": "duferco.talentics.ai",
@@ -191,15 +196,17 @@
       "postedDate": "2026-06-05",
       "applyUrl": "https://duferco.talentics.ai/job/7d3cb7f4-0255-411c-98c5-92ad1132c9b1",
       "firstSeenAt": "2026-06-10T06:06:36.042Z",
-      "_qualityScore": 82,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

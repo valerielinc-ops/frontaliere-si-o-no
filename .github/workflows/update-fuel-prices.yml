@@ -33,12 +33,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          persist-credentials: false
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
             !/public/images/
-            !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
             !/data/all-known-job-slugs/
@@ -86,6 +86,17 @@ jobs:
       - name: Load publishing credentials from Remote Config
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
+
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
 
       - name: Install firebase-admin
         if: inputs.dry_run != true && inputs.dry_run != 'true'

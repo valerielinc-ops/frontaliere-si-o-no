@@ -23,11 +23,22 @@
  * so a bot challenge / timeout / 403 reports "still alive" and the guard
  * stands — a blocked source can never be mistaken for a legitimate shrink.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+const execFileSyncMock = vi.hoisted(() => vi.fn((command: string, args: string[] = []) => {
+  if (command === 'gh' && args[0] === 'issue' && args[1] === 'list') return '[]';
+  return '';
+}));
+vi.mock('node:child_process', () => ({ execFileSync: execFileSyncMock }));
+
 import {
+  SHRINK_GUARD_ERROR_CODE,
   shouldBlockShrink,
   verifyShrinkWithProvidedHousekeepingProof,
   verifyShrinkAgainstSource,
+  writeJobsCrawlerSliceVerified,
 } from '../../scripts/assemble-jobs-dataset.mjs';
 
 type Verdict = { id?: string; valid: boolean; definitive?: boolean; reason: string; status?: number };
@@ -49,7 +60,76 @@ const stillLive = (): Verdict => ({ valid: true, status: 200, reason: 'ok' });
 const botChallenge = (): Verdict => ({ valid: true, status: 403, reason: 'blocked-403' });
 const networkError = (): Verdict => ({ valid: true, status: 0, reason: 'network-error' });
 
+function createShrinkIssueHarness() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-shrink-issue-'));
+  const sliceDir = path.resolve(__dirname, '../../data/jobs/by-crawler');
+  const slicePath = path.join(dir, 'slice.json');
+  const crawlerKey = path.relative(sliceDir, slicePath.slice(0, -'.json'.length));
+  const resolvedSlicePath = path.join(sliceDir, `${crawlerKey}.json`);
+  if (resolvedSlicePath !== slicePath) {
+    throw new Error(`test slice escaped to an unexpected path: ${resolvedSlicePath}`);
+  }
+
+  const previousOwnershipGuard = process.env.SKIP_OWNERSHIP_GUARD;
+  process.env.SKIP_OWNERSHIP_GUARD = '1';
+  execFileSyncMock.mockClear();
+
+  const job = {
+    id: `shrink-${path.basename(dir)}`,
+    url: `https://shrink-test.invalid/jobs/${path.basename(dir)}`,
+    title: 'Legacy source job',
+  };
+  fs.writeFileSync(slicePath, `${JSON.stringify({ crawlerKey, assembledAt: '2026-09-30T00:00:00.000Z', jobs: [job] })}\n`, 'utf8');
+
+  return {
+    crawlerKey,
+    job,
+    cleanup() {
+      if (previousOwnershipGuard === undefined) delete process.env.SKIP_OWNERSHIP_GUARD;
+      else process.env.SKIP_OWNERSHIP_GUARD = previousOwnershipGuard;
+      fs.rmSync(dir, { recursive: true, force: true });
+    },
+  };
+}
+
 describe('verifyShrinkAgainstSource()', () => {
+  it('defers parser-health issue creation until a proven housekeeping shrink is accepted', async () => {
+    const harness = createShrinkIssueHarness();
+    try {
+      const result = await writeJobsCrawlerSliceVerified(harness.crawlerKey, [], {
+        housekeepingProof: [{
+          job: harness.job,
+          reason: 'thin-source-quarantine',
+          definitive: true,
+        }],
+      });
+
+      expect(result).toMatchObject({ written: true, shrinkAccepted: true });
+      expect(execFileSyncMock).not.toHaveBeenCalled();
+    } finally {
+      harness.cleanup();
+    }
+  });
+
+  it('still files parser-health issue when source verification leaves the shrink uncorroborated', async () => {
+    const harness = createShrinkIssueHarness();
+    try {
+      await expect(writeJobsCrawlerSliceVerified(harness.crawlerKey, [], {
+        validate: async (jobs) => jobs.map((candidate) => ({
+          id: candidate.id,
+          valid: true,
+          reason: 'source-still-live',
+        })),
+      })).rejects.toMatchObject({ code: SHRINK_GUARD_ERROR_CODE });
+
+      const ghCalls = execFileSyncMock.mock.calls as unknown as Array<[string, string[]]>;
+      expect(ghCalls.some(([command, args]) => command === 'gh' && args[0] === 'issue' && args[1] === 'list')).toBe(true);
+      expect(ghCalls.some(([command, args]) => command === 'gh' && args[0] === 'issue' && args[1] === 'create')).toBe(true);
+    } finally {
+      harness.cleanup();
+    }
+  });
+
   it('source-verifies only ordinary removals beside a proven thin quarantine', async () => {
     const prior = [job('thin'), job('ordinary'), job('survivor')];
     const next = [prior[2]];
@@ -81,6 +161,40 @@ describe('verifyShrinkAgainstSource()', () => {
       expect.objectContaining({ id: 'thin', reason: 'thin-source-quarantine', definitive: true }),
       expect.objectContaining({ id: 'ordinary', reason: 'http-404', definitive: true }),
     ]));
+  });
+
+  it('accepts the 9 -> 1 Stadt Chur shrink when the eight removals have thin-source proof', async () => {
+    const prior = Array.from({ length: 9 }, (_, i) => job(`chur${i}`));
+    const next = [prior[0]];
+    const proof = prior.slice(1).map((candidate) => ({
+      job: candidate,
+      reason: 'thin-source-quarantine',
+      definitive: true,
+    }));
+
+    // The quality threshold still blocks this shape without evidence.
+    expect(shouldBlockShrink(prior.length, next.length)).toBe(true);
+
+    const verdict = await verifyShrinkWithProvidedHousekeepingProof(
+      prior,
+      next,
+      proof,
+      {
+        validate: async () => {
+          throw new Error('thin-source proof must not be re-probed');
+        },
+      },
+    );
+
+    expect(verdict.corroborated).toBe(true);
+    expect(verdict.checked).toBe(8);
+    expect(verdict.dead).toBe(8);
+    expect(verdict.alive).toBe(0);
+    expect(verdict.disappearedJobs).toEqual(prior.slice(1));
+    expect(verdict.evidence).toHaveLength(8);
+    expect(verdict.evidence.every((entry) => (
+      entry.reason === 'thin-source-quarantine' && entry.definitive === true
+    ))).toBe(true);
   });
 
   it('corroborates the grace-la-margna shape: 14 -> 1 with all 13 dropped jobs 404 at the source', async () => {

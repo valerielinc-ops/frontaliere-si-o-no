@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hess-carrosserie",
-  "assembledAt": "2026-09-29T21:18:27.261Z",
+  "assembledAt": "2026-09-30T23:31:32.892Z",
   "jobs": [
     {
       "id": "hess-carrosserie-23ff36e5c28c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.hess-ag.ch/publication/fahrzeugelektriker-nutzfahrzeuge/dhujcozfzpocrjxvkkgsciw5q3r5l3lgguw5786xthuv74rta2veskfekb64esfe",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:23.593Z",
+      "crawledAt": "2026-09-30T23:31:27.275Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -54,11 +54,13 @@
       "requirementsByLocale": {},
       "department": "Nutzfahrzeuge",
       "previousSlugs": [
-        "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
+        "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach",
+        "elettricista-veicoli-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
+          "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach",
+          "elettricista-veicoli-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
@@ -67,6 +69,7 @@
           "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:53:37.094Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -113,7 +116,7 @@
       "url": "https://jobs.hess-ag.ch/publication/fahrzeugschlosser/jeko2k44k8kouv0f5ehi7lj8iq5zp008rbz86tljmzmb7ou5go4v0cac10ejwmqc",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:23.101Z",
+      "crawledAt": "2026-09-30T23:31:26.823Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "streetAddress": "Stationsstrasse 88",
@@ -135,12 +138,14 @@
       "department": "Reparatur und Service",
       "previousSlugs": [
         "fahrzeugschlosser-hess-rothenburg",
-        "fahrzeugschlosser-carrosserie-hess-ag-rothenburg"
+        "fahrzeugschlosser-carrosserie-hess-ag-rothenburg",
+        "montatori-di-veicoli-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugschlosser-hess-rothenburg",
-          "fahrzeugschlosser-carrosserie-hess-ag-rothenburg"
+          "fahrzeugschlosser-carrosserie-hess-ag-rothenburg",
+          "montatori-di-veicoli-carrosserie-hess-ag-rothenburg"
         ],
         "en": [
           "fahrzeugschlosser-carrosserie-hess-ag-rothenburg"
@@ -195,7 +200,7 @@
       "url": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-nutzfahrzeuge/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:22.626Z",
+      "crawledAt": "2026-09-30T23:31:26.403Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -216,11 +221,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+        "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+        "meccatronica-automobilistica-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+          "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+          "meccatronica-automobilistica-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
@@ -275,7 +282,7 @@
       "url": "https://jobs.hess-ag.ch/publication/mechatroniker-oder-automatiker-inbetriebnahme-elektrobusse/ou0ygiwfa5jyc4ve8a4s7cyzgl3c3t9t6ed6215t44faqq7xmcqr5irr58qzzvt0",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:22.126Z",
+      "crawledAt": "2026-09-30T23:31:25.955Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -355,7 +362,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projektleiter-homologation/6qwlim2ob7h4ammxdyhx6uq20bmw7knsf3s1gipjwop0nvcf5z7hryffxbo2frif",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:21.624Z",
+      "crawledAt": "2026-09-30T23:31:25.512Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -381,7 +388,8 @@
         "project-manager-sourcing-supply-chain-m-f-d-carrosserie-hess-ag-bellach",
         "projektleiter-sourcing-supply-chain-m-w-d-hess-bellach",
         "projektleiter-sourcing-chaine-d-approvisionnement-m-w-d-carrosserie-hess-ag-bellach",
-        "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach"
+        "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach",
+        "omologazione-del-project-manager-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -390,7 +398,8 @@
           "project-manager-sourcing-supply-chain-m-f-d-carrosserie-hess-ag-bellach",
           "projektleiter-sourcing-supply-chain-m-w-d-hess-bellach",
           "projektleiter-sourcing-chaine-d-approvisionnement-m-w-d-carrosserie-hess-ag-bellach",
-          "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach"
+          "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach",
+          "omologazione-del-project-manager-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "projektleiter-homologation-m-w-d-hess-bellach"
@@ -403,6 +412,7 @@
           "projektleiter-sourcing-chaine-d-approvisionnement-m-w-d-carrosserie-hess-ag-bellach"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:53:33.724Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -449,7 +459,7 @@
       "url": "https://jobs.hess-ag.ch/publication/stv-leiter-einkauf/0y7700v54crw3bokpo1qn5ouia9tkt5synnydvl6dm6d1lfs1segirasojmfsh2i",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:21.123Z",
+      "crawledAt": "2026-09-30T23:31:25.064Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -476,7 +486,8 @@
         "stv-manager-purchaser-m-f-d-carrosserie-hess-ag-bellach",
         "stv-leiter-einkaufer-m-w-d-hess-bellach",
         "gestionnaire-stv-acheteur-m-f-d-carrosserie-hess-ag-bellach",
-        "stv-leiter-einkaufer-m-w-d-carrosserie-hess-ag-bellach"
+        "stv-leiter-einkaufer-m-w-d-carrosserie-hess-ag-bellach",
+        "stv-manager-acquisizione-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -486,7 +497,8 @@
           "stv-manager-purchaser-m-f-d-carrosserie-hess-ag-bellach",
           "stv-leiter-einkaufer-m-w-d-hess-bellach",
           "gestionnaire-stv-acheteur-m-f-d-carrosserie-hess-ag-bellach",
-          "stv-leiter-einkaufer-m-w-d-carrosserie-hess-ag-bellach"
+          "stv-leiter-einkaufer-m-w-d-carrosserie-hess-ag-bellach",
+          "stv-manager-acquisizione-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "stv-leiter-einkauf-m-w-d-hess-bellach",
@@ -547,7 +559,7 @@
       "url": "https://jobs.hess-ag.ch/publication/bus-fluesterer-als-servicetechniker/lflbii3v0dsxjrzie641koeqyz0ieu1bo5lpn8bs224zqdj8ncqncflo052n22pm",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:20.639Z",
+      "crawledAt": "2026-09-30T23:31:24.620Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -627,7 +639,7 @@
       "url": "https://jobs.hess-ag.ch/publication/werkstattmueder-mechaniker-als-keyboard-hero/odidxxfdvr4zl16pxw4omfne5tw9l4d7ddyg266j8aeo1y2uoo95ji0xuste3rci",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:20.137Z",
+      "crawledAt": "2026-09-30T23:31:24.176Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -707,7 +719,7 @@
       "url": "https://jobs.hess-ag.ch/publication/system-detektiv-als-traktionsingenieur/75fm335fhsz46mn1hpbz3v6vtgd0aymh7gz6q50qa7sqiklo5ucttz0f7yv7e33t",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:19.624Z",
+      "crawledAt": "2026-09-30T23:31:23.732Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -745,8 +757,8 @@
           "system-detektiv-als-traktionsingenieur-80-100-m-w-d-carrosserie-hess-ag-bellach"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:53:31.087Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:53:31.087Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -792,7 +804,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projektleiter-process-improvement/r5sxjy5ssjl8l6jlou5lmroom36onphwjiceef5c2lbmfq440cx3pd2cfbd1jkzg",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:19.114Z",
+      "crawledAt": "2026-09-30T23:31:23.287Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -814,12 +826,14 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "projektleiter-process-improvement-m-w-d-hess-bellach",
-        "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach"
+        "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach",
+        "project-manager-miglioramento-dei-processi-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-process-improvement-m-w-d-hess-bellach",
-          "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach"
+          "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach",
+          "project-manager-miglioramento-dei-processi-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "projektleiter-process-improvement-m-w-d-hess-bellach",
@@ -829,8 +843,8 @@
           "projektleiter-process-improvement-m-w-d-hess-bellach"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:53:30.219Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:53:30.219Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -876,7 +890,7 @@
       "url": "https://jobs.hess-ag.ch/publication/fahrzeugschlosser-nutzfahrzeuge/mec06ha3o2t82dtbwoejw3t4qgv647ym6be9hqjtxuhsnsrs3vrgsis487pxii1d",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:18.614Z",
+      "crawledAt": "2026-09-30T23:31:22.849Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -901,7 +915,8 @@
         "carrozzeria-carrozzeria-autobus-veicoli-commerciali-lun-vendedi-d-carrosserie-hess-ag-bellach",
         "carrosserie-painter-buses-commercial-vehicles-m-f-d-carrosserie-hess-ag-bellach",
         "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
-        "carrosserie-bus-peintre-et-vehicules-utilitaires-m-f-d-carrosserie-hess-ag-bellach"
+        "carrosserie-bus-peintre-et-vehicules-utilitaires-m-f-d-carrosserie-hess-ag-bellach",
+        "installatore-di-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -909,7 +924,8 @@
           "carrozzeria-carrozzeria-autobus-veicoli-commerciali-lun-vendedi-d-carrosserie-hess-ag-bellach",
           "carrosserie-painter-buses-commercial-vehicles-m-f-d-carrosserie-hess-ag-bellach",
           "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
-          "carrosserie-bus-peintre-et-vehicules-utilitaires-m-f-d-carrosserie-hess-ag-bellach"
+          "carrosserie-bus-peintre-et-vehicules-utilitaires-m-f-d-carrosserie-hess-ag-bellach",
+          "installatore-di-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "fahrzeugschlosser-nutzfahrzeuge-m-w-d-hess-bellach",
@@ -969,7 +985,7 @@
       "url": "https://jobs.hess-ag.ch/publication/e-product-security-engineer/delfid3dirok4kog8dg241xs20k150v67vsv06qxw3nj0zyr4lwt2ty232dspa4x",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:18.134Z",
+      "crawledAt": "2026-09-30T23:31:22.412Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -990,16 +1006,19 @@
       "requirementsByLocale": {},
       "department": "Finanz und Controlling",
       "previousSlugs": [
-        "e-e-product-security-engineer-m-w-d-hess-bellach"
+        "e-e-product-security-engineer-m-w-d-hess-bellach",
+        "e-e-product-security-ingegnere-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "e-e-product-security-engineer-m-w-d-hess-bellach"
+          "e-e-product-security-engineer-m-w-d-hess-bellach",
+          "e-e-product-security-ingegnere-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "fr": [
           "e-e-product-security-engineer-m-w-d-hess-bellach"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:53:29.353Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -1046,7 +1065,7 @@
       "url": "https://jobs.hess-ag.ch/publication/schlosser-metallbauer-vormontage-interne-fertigung/us34tqclbkvzqiktciofqz3bv7kqjmoqjszkmm5vehpyzc5sjqestumil5aw0zo7",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:17.622Z",
+      "crawledAt": "2026-09-30T23:31:21.955Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1067,11 +1086,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach"
+        "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach",
+        "preassemblaggio-e-produzione-interna-di-fabbro-metallurgia-f-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach"
+          "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach",
+          "preassemblaggio-e-produzione-interna-di-fabbro-metallurgia-f-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach"
@@ -1126,7 +1147,7 @@
       "url": "https://jobs.hess-ag.ch/publication/techniker-fuer-die-inbetriebnahme-von-elektrobussen/sw38ulglko7lv4etrdkxtakqu3mn556v4b8ue9f8awm563ascbyi6dix4i8fcz8w",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:17.131Z",
+      "crawledAt": "2026-09-30T23:31:21.505Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1147,11 +1168,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach"
+        "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach",
+        "techniker-per-la-inbetriebnahme-von-elektrobussen-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach"
+          "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach",
+          "techniker-per-la-inbetriebnahme-von-elektrobussen-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach"
@@ -1206,7 +1229,7 @@
       "url": "https://jobs.hess-ag.ch/publication/elektroinstallateur-oder-elektromonteur-mit-lust-zur-veraenderung/w3mbxqtmgzvpqyx3hyo7z4y53dcs4ibb0i346bl6hqcoh5chfpsxxxsh07ayuhyi",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:16.637Z",
+      "crawledAt": "2026-09-30T23:31:21.063Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1227,11 +1250,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach"
+        "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach",
+        "installatore-trice-elettrico-a-o-elektromonteur-con-lust-zur-veranderung-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach"
+          "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach",
+          "installatore-trice-elettrico-a-o-elektromonteur-con-lust-zur-veranderung-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach"
@@ -1286,7 +1311,7 @@
       "url": "https://jobs.hess-ag.ch/publication/spezialist-aftersales-garantieabwicklung/wdcc2kcqzoi5oyxaqpzj9d0jx0gt7mbdk0r8u4ipjwkb0axdg7h2wkl0v6fh3gjv",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:16.143Z",
+      "crawledAt": "2026-09-30T23:31:20.623Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1309,11 +1334,13 @@
       "previousSlugs": [
         "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach",
         "apres-vente-specialisee-et-traitement-de-la-garantie-80-100-m-f-d-carrosserie-hess-ag-bellach",
-        "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-carrosserie-hess-ag-bellach"
+        "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-carrosserie-hess-ag-bellach",
+        "postvendita-specialistica-e-elaborazione-in-garanzia-80-100-lunedi-venerdi-giunderia-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach"
+          "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach",
+          "postvendita-specialistica-e-elaborazione-in-garanzia-80-100-lunedi-venerdi-giunderia-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach"
@@ -1324,8 +1351,8 @@
           "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-carrosserie-hess-ag-bellach"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:53:26.240Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:53:26.240Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1371,7 +1398,7 @@
       "url": "https://jobs.hess-ag.ch/publication/entwicklungsingenieur-mechatronik-schwerpunkt-software/peaqlnduf6apm1ytfcjvu3zd8pjux7c5beqzwtxrgp0y24yhgpxuiyxcqa2aqv55",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:14.684Z",
+      "crawledAt": "2026-09-30T23:31:19.709Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1392,11 +1419,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
+        "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach",
+        "software-di-messa-a-fuoco-dell-ingegnere-di-sviluppo-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
+          "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach",
+          "software-di-messa-a-fuoco-dell-ingegnere-di-sviluppo-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
@@ -1405,8 +1434,8 @@
           "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
         ]
       },
-      "firstSeenAt": "2026-07-10T12:19:07.058Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-10T12:19:07.058Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1452,7 +1481,7 @@
       "url": "https://jobs.hess-ag.ch/publication/teamleiter-leitstand-in-logistik/pot41t2mmuq4zvyc2le3ncvmzbp6yxoe7edfw0vvoqpo51b65jbt7brg6xao4qt4",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:14.193Z",
+      "crawledAt": "2026-09-30T23:31:19.262Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1474,11 +1503,13 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach",
-        "teamleiter-leitstand-in-logistik-m-w-d-carrosserie-hess-ag-bellach"
+        "teamleiter-leitstand-in-logistik-m-w-d-carrosserie-hess-ag-bellach",
+        "team-leader-sala-di-controllo-in-logistica-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach"
+          "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach",
+          "team-leader-sala-di-controllo-in-logistica-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "fr": [
           "teamleiter-leitstand-in-logistik-m-w-d-carrosserie-hess-ag-bellach"
@@ -1530,7 +1561,7 @@
       "url": "https://jobs.hess-ag.ch/publication/stv-leiter-logistik/nw7n0imb8afiyf6wpd0q6nvedikjol2au6nqkdxqg3i7cxfcfh3ccn2wmm6b8our",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:13.693Z",
+      "crawledAt": "2026-09-30T23:31:18.814Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1552,11 +1583,13 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "stv-leiter-logistik-m-w-d-hess-bellach",
-        "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach"
+        "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach",
+        "responsabile-della-logistica-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leiter-logistik-m-w-d-hess-bellach"
+          "stv-leiter-logistik-m-w-d-hess-bellach",
+          "responsabile-della-logistica-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach"
@@ -1611,7 +1644,7 @@
       "url": "https://jobs.hess-ag.ch/publication/strategischer-einkaeufer-scm/pk2izroxskfxp00p0g63p1zbbutyltr0op4sbgs4h5ofws5cd8a7kd5romb1re6i",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:13.193Z",
+      "crawledAt": "2026-09-30T23:31:18.350Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1636,7 +1669,8 @@
         "acquirente-m-f-d-carrosserie-hess-ag-bellach",
         "buyer-m-f-d-carrosserie-hess-ag-bellach",
         "einkaufer-m-w-d-hess-bellach",
-        "acheteur-m-f-d-carrosserie-hess-ag-bellach"
+        "acheteur-m-f-d-carrosserie-hess-ag-bellach",
+        "acquirente-strategico-scm-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1644,7 +1678,8 @@
           "acquirente-m-f-d-carrosserie-hess-ag-bellach",
           "buyer-m-f-d-carrosserie-hess-ag-bellach",
           "einkaufer-m-w-d-hess-bellach",
-          "acheteur-m-f-d-carrosserie-hess-ag-bellach"
+          "acheteur-m-f-d-carrosserie-hess-ag-bellach",
+          "acquirente-strategico-scm-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "strategischer-einkaufer-scm-m-w-d-hess-bellach",
@@ -1704,7 +1739,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projekteinkaeufer-scm/8j554cjigcpv8x6kcr5e6sdhsqpqpb2gth14lkr1covm8q3w2kkv516kq4sz7g2h",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:12.690Z",
+      "crawledAt": "2026-09-30T23:31:17.904Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1725,11 +1760,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "projekteinkaufer-scm-m-w-d-hess-bellach"
+        "projekteinkaufer-scm-m-w-d-hess-bellach",
+        "acquirente-del-progetto-scm-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projekteinkaufer-scm-m-w-d-hess-bellach"
+          "projekteinkaufer-scm-m-w-d-hess-bellach",
+          "acquirente-del-progetto-scm-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "projekteinkaufer-scm-m-w-d-hess-bellach"
@@ -1784,7 +1821,7 @@
       "url": "https://jobs.hess-ag.ch/publication/montageelektriker-fuer-den-busbau/gptinsnsbxk9qvv28avd0s72oil64dol3xs7oxqv6xtez5c7ufm2dycwfvctbcvk",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:12.189Z",
+      "crawledAt": "2026-09-30T23:31:17.456Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1814,7 +1851,8 @@
         "carpenter-in-bus-construction-m-f-d-carrosserie-hess-ag-bellach",
         "schreiner-im-busbau-m-w-d-hess-bellach",
         "charpentier-dans-la-construction-d-autobus-m-f-d-carrosserie-hess-ag-bellach",
-        "montageelektriker-per-den-busbau-m-w-d-carrosserie-hess-ag-bellach"
+        "montageelektriker-per-den-busbau-m-w-d-carrosserie-hess-ag-bellach",
+        "elettricisti-di-montaggio-per-la-costruzione-di-autobus-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1827,7 +1865,8 @@
           "carpenter-in-bus-construction-m-f-d-carrosserie-hess-ag-bellach",
           "schreiner-im-busbau-m-w-d-hess-bellach",
           "charpentier-dans-la-construction-d-autobus-m-f-d-carrosserie-hess-ag-bellach",
-          "montageelektriker-per-den-busbau-m-w-d-carrosserie-hess-ag-bellach"
+          "montageelektriker-per-den-busbau-m-w-d-carrosserie-hess-ag-bellach",
+          "elettricisti-di-montaggio-per-la-costruzione-di-autobus-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "montageelektriker-fur-den-busbau-m-w-d-hess-bellach",
@@ -1890,7 +1929,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projektleiter-industrialisierung/edeccfft5u2cnddmmlyaqxdbqca7ebgsf6nrqydcfgps9y1q5xre5c7lrwyltqvq",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:11.706Z",
+      "crawledAt": "2026-09-30T23:31:17.024Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1912,12 +1951,14 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "projektleiter-industrialisierung-m-w-d-hess-bellach",
-        "projektleiter-industrialisierung-m-w-d-carrosserie-hess-ag-bellach"
+        "projektleiter-industrialisierung-m-w-d-carrosserie-hess-ag-bellach",
+        "gestione-del-progetto-industrializzazione-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-industrialisierung-m-w-d-hess-bellach",
-          "projektleiter-industrialisierung-m-w-d-carrosserie-hess-ag-bellach"
+          "projektleiter-industrialisierung-m-w-d-carrosserie-hess-ag-bellach",
+          "gestione-del-progetto-industrializzazione-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "projektleiter-industrialisierung-m-w-d-hess-bellach"
@@ -1937,86 +1978,6 @@
           "@type": "QuantitativeValue",
           "minValue": 105500,
           "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hess-carrosserie-74aff2a8df0f",
-      "slug": "schlosser-spengler-per-den-dachbau-in-der-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
-      "slugByLocale": {
-        "it": "schlosser-spengler-per-den-dachbau-in-der-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "locksmith-spengler-for-roof-construction-in-bus-installation-m-f-d-carrosserie-hess-ag-bellach",
-        "de": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach",
-        "fr": "serrurier-spengler-pour-la-construction-de-toit-dans-l-installation-de-bus-h-f-d-carrosserie-hess-ag-bellach"
-      },
-      "company": "Carrosserie HESS AG",
-      "companyKey": "hess-carrosserie",
-      "companyDomain": "hess-ag.ch",
-      "title": "Schlosser/Spengler für den Dachbau in der Bus Montage (m/w/d)",
-      "titleByLocale": {
-        "it": "Armadietto/tranciatore per la costruzione di tetti in montaggio autobus (m/f/d)",
-        "en": "Locker/spongler for roof construction in bus assembly (m/f/d)",
-        "de": "Schlosser/Spengler für den Dachbau in der Bus Montage (m/w/d)",
-        "fr": "Locker/spongler pour la construction de toit dans l'assemblage de bus (h/f/d)"
-      },
-      "description": "Schlosser/Spengler für den Dachbau in der Bus Montage\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Vorbereiten und Zusammenstellen von Bus-Dachgerippen nach Plan\n\n• Montieren und Verkleben von Pecolit-Platten in Busdächer\n\n• Vorbereitung und Montage der Klimaanlagen auf Busdächer\n\n• Isolieren der Busdächer und Montage der Lichtbänder\n\n• Montage von Kabelsträngen im Busdach nach Zeichnung\n\n• Vorbereiten und Verschrauben von Geräteträgern auf Busdächern\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
-      "descriptionByLocale": {
-        "it": "Fabbro/idraulico per la costruzione del tetto nell'assemblaggio di autobus\n(m/f/d | 100%)\n\nHESS - Il pioniere svizzero nella costruzione di veicoli\nIn qualità di azienda svizzera leader nello sviluppo, produzione e riparazione di veicoli e kit, diamo lavoro a 600 dipendenti a Bellach (SO). Oltre alla nostra produzione locale, supportiamo e forniamo partner licenziatari in cinque continenti con il nostro sistema modulare “Co-Bolt”. Siamo gli unici produttori svizzeri di autobus a spingerci ben oltre i confini con i nostri filobus e elettrici di alta qualità. La cultura dell’innovazione è il carburante della nostra azienda.\n\nPer il nostro reparto operativo cerchiamo un fabbro o un idraulico motivato e dinamico come addetto al montaggio nell'ambito del montaggio del nostro autobus.\n\nStai cercando una nuova sfida? Con noi troverai un lavoro interessante nella costruzione di veicoli. Utilizzerai le tue conoscenze specialistiche per contribuire a costruire i nostri innovativi autobus elettrici.\n\nI tuoi compiti\n\n• Esecuzione di lavori di montaggio nella costruzione del tetto degli autobus secondo i disegni tecnici e le specifiche di montaggio\n\n• Preparazione e montaggio delle strutture del tetto dell'autobus secondo il progetto\n\n• Assemblaggio e incollaggio di pannelli Pecolit sui tetti degli autobus\n\n• Predisposizione ed installazione di impianti di climatizzazione sui tetti degli autobus\n\n• Isolamento dei tetti degli autobus e installazione delle strisce luminose\n\n• Installazione dei cablaggi sul tetto dell'autobus secondo il disegno\n\n• Preparazione e avvitamento dei portaattrezzi sui tetti degli autobus\n\n• Lavori di assemblaggio generale nel reparto coperture degli autobus\n\nLe nostre esigenze\n\n• Formazione completata come fabbro, idraulico o esperienza professionale nel settore della lavorazione dei metalli\n\n• Abilità manuali e interesse ad apprendere cose nuove\n\n• Indipendenza\n\n• Flessibilità e capacità di lavorare in squadra\n\nTi offriamo\n\n• Attività varia\n\n• Lavoro a tempo indeterminato in un'azienda tradizionale e di successo\n\n• Orari di lavoro flessibili\n\n• Condizioni di lavoro basate sulla performance\n\nSe ti senti indirizzato, inviaci i documenti di candidatura completi, inclusa una lettera di motivazione tramite il collegamento (Candidati ora).\n\nLe tue DOMANDE su questa posizione riceveranno risposta\nChristoph Wenger (responsabile delle risorse umane)\n41 32 617 34 33\n\nCandidati ora\n\nCarrozzeria auto HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "en": "Locksmith/plumber for roof construction in bus assembly\n(m/f/d | 100%)\n\nHESS - The Swiss pioneer in vehicle construction\nAs a leading Swiss company for the development, manufacture and repair of vehicles and kits, we employ 600 people in Bellach (SO). In addition to our local production, we support and supply license partners on five continents with our modular system “Co-Bolt”. We are the only Swiss bus manufacturer to go far beyond the borders with our high-quality electric and trolley buses. The culture of innovation is the fuel of our company.\n\nFor our operations department, we are looking for a motivated and dynamic locksmith or plumber as an assembly employee in the shell of our bus assembly.\n\nAre you looking for a new challenge? With us you will find an interesting job in vehicle construction. You will use your specialist knowledge to help build our innovative electric buses.\n\nYour tasks\n\n• Carrying out assembly work in the roof construction of buses according to technical drawings and assembly specifications\n\n• Preparing and assembling bus roof frames according to plan\n\n• Assembling and gluing Pecolit panels into bus roofs\n\n• Preparation and installation of air conditioning systems on bus roofs\n\n• Insulating the bus roofs and installing the light strips\n\n• Installation of cable harnesses in the bus roof according to the drawing\n\n• Preparing and screwing equipment racks onto bus roofs\n\n• General assembly work in the bus shell construction department\n\nOur requirements\n\n• Completed training as a locksmith, plumber or professional experience in the metal processing industry\n\n• Manual skills and interest in learning new things\n\n• Independence\n\n• Flexibility and ability to work in a team\n\nWe offer you\n\n• Varied activity\n\n• Permanent, permanent employment in a successful, traditional company\n\n• Flexible working hours\n\n• Performance-based employment conditions\n\nIf you feel addressed, send us your complete application documents including a letter of motivation via the link (Apply now).\n\nYour QUESTIONS about this position will be answered\nChristoph Wenger (Head of Human Resources)\n41 32 617 34 33\n\nApply now\n\nCar bodywork HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "de": "Schlosser/Spengler für den Dachbau in der Bus Montage\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Vorbereiten und Zusammenstellen von Bus-Dachgerippen nach Plan\n\n• Montieren und Verkleben von Pecolit-Platten in Busdächer\n\n• Vorbereitung und Montage der Klimaanlagen auf Busdächer\n\n• Isolieren der Busdächer und Montage der Lichtbänder\n\n• Montage von Kabelsträngen im Busdach nach Zeichnung\n\n• Vorbereiten und Verschrauben von Geräteträgern auf Busdächern\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "fr": "Serrurier/plombier pour la construction de toits dans le montage d'autobus\n(h/f/j | 100%)\n\nHESS - Le pionnier suisse de la construction automobile\nEn tant qu'entreprise suisse leader dans le développement, la fabrication et la réparation de véhicules et de kits, nous employons 600 personnes à Bellach (SO). En plus de notre production locale, nous soutenons et fournissons des partenaires sous licence sur les cinq continents avec notre système modulaire « Co-Bolt ». Nous sommes le seul constructeur de bus suisse à dépasser largement les frontières avec nos bus électriques et trolleybus de haute qualité. La culture de l’innovation est le carburant de notre entreprise.\n\nPour notre service des opérations, nous recherchons un serrurier ou un plombier motivé et dynamique comme employé de montage dans la coquille de notre montage de bus.\n\nÊtes-vous à la recherche d'un nouveau défi? Chez nous, vous trouverez un emploi intéressant dans la construction automobile. Vous utiliserez vos connaissances spécialisées pour contribuer à la construction de nos bus électriques innovants.\n\nVos tâches\n\n• Réaliser les travaux d'assemblage dans la construction du toit des bus selon les dessins techniques et les spécifications d'assemblage\n\n• Préparation et assemblage des charpentes de toit de bus selon le plan\n\n• Assemblage et collage de panneaux Pecolit sur les toits des bus\n\n• Préparation et installation de systèmes de climatisation sur les toits des bus\n\n• Isolation des toits des bus et installation des bandes lumineuses\n\n• Installation des faisceaux de câbles dans le toit du bus selon le dessin\n\n• Préparation et vissage des racks d'équipement sur les toits des bus\n\n• Travaux d'assemblage général dans le département coques de bus\n\nNos exigences\n\n• Formation complétée en tant que serrurier, plombier ou expérience professionnelle dans l'industrie métallurgique\n\n• Compétences manuelles et intérêt pour l'apprentissage de nouvelles choses\n\n• Indépendance\n\n• Flexibilité et capacité à travailler en équipe\n\nNous vous proposons\n\n• Activité variée\n\n• Emploi permanent et permanent dans une entreprise traditionnelle et prospère\n\n• Horaires de travail flexibles\n\n• Conditions d'emploi basées sur la performance\n\nSi vous vous sentez concerné, envoyez-nous votre dossier de candidature complet comprenant une lettre de motivation via le lien (Postuler maintenant).\n\nVos QUESTIONS sur ce poste recevront une réponse\nChristoph Wenger (responsable des ressources humaines)\n41 32 617 34 33\n\nPostulez maintenant\n\nCarrosserie automobile HESS AG | Biennestrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch"
-      },
-      "location": "Bellach",
-      "canton": "SO",
-      "url": "https://jobs.hess-ag.ch/publication/schlosser-spengler-fuer-den-dachbau-in-der-bus-montage/o2khztlkncxfrfstdub4nrmhi23mjmw0af8ymb7cg454bhztjcq6yvmjcyztbpeg",
-      "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:11.217Z",
-      "addressLocality": "Bellach",
-      "addressRegion": "SO",
-      "streetAddress": "Bielstrasse 7",
-      "postalCode": "4512",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.hess-ag.ch/publication/schlosser-spengler-fuer-den-dachbau-in-der-bus-montage/o2khztlkncxfrfstdub4nrmhi23mjmw0af8ymb7cg454bhztjcq6yvmjcyztbpeg",
-      "jobReqId": "80876",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Bus und Trolley",
-      "previousSlugs": [
-        "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
-        ],
-        "en": [
-          "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
-        ],
-        "fr": [
-          "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
-        ]
-      },
-      "firstSeenAt": "2026-08-28T05:25:56.897Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -2052,7 +2013,7 @@
       "url": "https://jobs.hess-ag.ch/publication/qualitaetspruefer-produktion-nutzfahrzeuge/xjwfihqt8y4og2emmzczavtc4smbfc7tj4fhcdt64rsifqgmxnejoexwdqei52pe",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:10.724Z",
+      "crawledAt": "2026-09-30T23:31:16.586Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2073,11 +2034,13 @@
       "requirementsByLocale": {},
       "department": "Nutzfahrzeuge",
       "previousSlugs": [
-        "qualitatsprufer-produktion-nutzfahrzeuge-m-w-d-hess-bellach"
+        "qualitatsprufer-produktion-nutzfahrzeuge-m-w-d-hess-bellach",
+        "ispettore-di-qualita-produzione-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qualitatsprufer-produktion-nutzfahrzeuge-m-w-d-hess-bellach"
+          "qualitatsprufer-produktion-nutzfahrzeuge-m-w-d-hess-bellach",
+          "ispettore-di-qualita-produzione-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "qualitatsprufer-produktion-nutzfahrzeuge-m-w-d-hess-bellach"
@@ -2132,7 +2095,7 @@
       "url": "https://jobs.hess-ag.ch/publication/schreiner-im-busbau/wgc8qx5a91sweb5zgy1ujnu40tf3lvpi4tvjn2e5zpz548826iwp5knetqn3lg40",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:10.225Z",
+      "crawledAt": "2026-09-30T23:31:15.557Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2153,11 +2116,13 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "schreiner-im-busbau-m-w-d-hess-bellach"
+        "schreiner-im-busbau-m-w-d-hess-bellach",
+        "carpentieri-nella-costruzione-degli-autobus-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-im-busbau-m-w-d-hess-bellach"
+          "schreiner-im-busbau-m-w-d-hess-bellach",
+          "carpentieri-nella-costruzione-degli-autobus-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "schreiner-im-busbau-m-w-d-hess-bellach"
@@ -2212,7 +2177,7 @@
       "url": "https://jobs.hess-ag.ch/publication/carrosseriespengler-pw-reparaturen/l2nfz1hyfcacxszs4ywntjusc33t5ikfwf1x3i5ovc1s7fnvgrkoooux1p7pyqfq",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:09.747Z",
+      "crawledAt": "2026-09-30T23:31:15.122Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2233,11 +2198,13 @@
       "requirementsByLocale": {},
       "department": "Reparatur und Service",
       "previousSlugs": [
-        "carrosseriespengler-pw-reparaturen-m-w-d-hess-bellach"
+        "carrosseriespengler-pw-reparaturen-m-w-d-hess-bellach",
+        "carrosseriespengler-pw-riparazioni-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrosseriespengler-pw-reparaturen-m-w-d-hess-bellach"
+          "carrosseriespengler-pw-reparaturen-m-w-d-hess-bellach",
+          "carrosseriespengler-pw-riparazioni-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "carrosseriespengler-pw-reparaturen-m-w-d-hess-bellach"
@@ -2293,7 +2260,7 @@
       "url": "https://jobs.hess-ag.ch/publication/carrosserielackierer-personenwagen-malerei/a5xz8zev4sc4zhv5yeq3fq6svjqybozrp71q47wrmg3hp31f23q3snhpqcfam72b",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:09.261Z",
+      "crawledAt": "2026-09-30T23:31:14.679Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2331,8 +2298,8 @@
           "carrosserielackierer-personenwagen-malerei-m-w-d-hess-bellach"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:33:46.095Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:33:46.095Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2352,7 +2319,7 @@
       "slug": "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "it": "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
-        "en": "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach",
         "de": "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
         "fr": "traitement-des-vehicules-tout-terrain-h-f-d-carrosserie-hess-ag-bellach"
       },
@@ -2378,7 +2345,7 @@
       "url": "https://jobs.hess-ag.ch/publication/allrounder-fahrzeugbehandlungen/qhwlvzk7r5fcu06un2vko0o0rzlc2gp5p0celqdx8b74cbstzdainibe1jg2hnzy",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:08.775Z",
+      "crawledAt": "2026-09-30T23:31:14.244Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2404,6 +2371,8 @@
         "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
         "voyageur-tout-terrain-80-100-m-f-d-carrosserie-hess-ag-bellach",
         "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
+        "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
+        "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
         "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
@@ -2412,11 +2381,13 @@
           "traveling-all-rounder-80-100-m-f-d-carrosserie-hess-ag-bellach",
           "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
           "voyageur-tout-terrain-80-100-m-f-d-carrosserie-hess-ag-bellach",
-          "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach"
+          "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
+          "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "traveling-all-rounder-80-100-m-f-d-carrosserie-hess-ag-bellach",
           "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
+          "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
           "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "de": [
@@ -2427,8 +2398,8 @@
           "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:53.789Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:53.789Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2474,7 +2445,7 @@
       "url": "https://jobs.hess-ag.ch/publication/leiter-avor/j114r00ocfevqlcj8fq46xi5epoc4rxyipc6vcjxlidpzjlkz8mtibn1ek4u86jz",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:08.294Z",
+      "crawledAt": "2026-09-30T23:31:13.811Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2508,6 +2479,7 @@
           "leiter-avor-m-w-d-hess-bellach"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:54:25.794Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -2527,9 +2499,9 @@
       "id": "hess-carrosserie-5d90a3593666",
       "slug": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
-        "de": "carrosseriespengler-hess-rothenburg",
         "it": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
         "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
+        "de": "carrosseriespengler-hess-rothenburg",
         "fr": "carrosseriespengler-carrosserie-hess-ag-rothenburg"
       },
       "company": "Carrosserie HESS AG",
@@ -2537,24 +2509,24 @@
       "companyDomain": "hess-ag.ch",
       "title": "Carrosseriespengler",
       "titleByLocale": {
-        "de": "Carrosseriespengler",
-        "en": "Carrosseriespengler",
         "it": "Carrosseriespengler",
+        "en": "Carrosseriespengler",
+        "de": "Carrosseriespengler",
         "fr": "Carrosseriespengler"
       },
       "description": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Die Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\n Haben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\n Ihre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Pirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
-        "de": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Die Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\n Haben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\n Ihre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Pirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
-        "it": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Die Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\n Haben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\n Ihre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Pirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
-        "en": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Die Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\n Haben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\n Ihre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Pirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
-        "fr": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Die Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\n Haben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\n Ihre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Pirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch"
+        "it": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nDie Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\nHaben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\nIhre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nPirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "en": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nDie Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\nHaben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\nIhre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nPirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "de": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nDie Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\nHaben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\nIhre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nPirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "fr": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nDie Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler .\nHaben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\nIhre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Personenwagen, Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler EFZ oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nPirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch"
       },
       "location": "Rothenburg",
       "canton": "LU",
       "url": "https://jobs.hess-ag.ch/publication/carrosseriespengler/ujjwcglcw3cgywjh5ozzjhsfqah843lgxgucvvy2v1cd5pllbrf3xxdffte2r7dy",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:18:07.310Z",
+      "crawledAt": "2026-09-30T23:31:12.928Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "streetAddress": "Stationsstrasse 88",
@@ -2572,119 +2544,19 @@
       "applyUrl": "https://jobs.hess-ag.ch/publication/carrosseriespengler/ujjwcglcw3cgywjh5ozzjhsfqah843lgxgucvvy2v1cd5pllbrf3xxdffte2r7dy",
       "jobReqId": "81971",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Reparatur und Service",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "carrosseriespengler-hess-rothenburg"
-        ]
-      },
-      "previousSlugs": [
-        "carrosseriespengler-hess-rothenburg"
-      ],
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-04T10:53:37.519Z"
-    },
-    {
-      "id": "hess-carrosserie-f7daf95cfb41",
-      "slug": "idraulico-carrozzeria-carrosserie-hess-ag-rothenburg",
-      "slugByLocale": {
-        "it": "idraulico-carrozzeria-carrosserie-hess-ag-rothenburg",
-        "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "de": "carrosseriespengler-hess-rothenburg",
-        "fr": "panteau-de-carrosseries-carrosserie-hess-ag-rothenburg"
-      },
-      "company": "Carrosserie HESS AG",
-      "companyKey": "hess-carrosserie",
-      "companyDomain": "hess-ag.ch",
-      "title": "Carrosseriespengler",
-      "titleByLocale": {
-        "it": "Idraulico carrozzeria",
-        "en": "Carrosseriespengler",
-        "de": "Carrosseriespengler",
-        "fr": "Panteau de carrosseries"
-      },
-      "description": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Die Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler oder Fahrzeugschlosser .\n Haben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\n Ihre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler, Fahrzeugschlosser, Metallbauer oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Pirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
-      "descriptionByLocale": {
-        "it": "Carrosseriespengler (m/f/d | 100%) HESS - Il pioniere svizzero nella costruzione di veicoli Carrosserie Rothenburg è una filiale di HESS AG, uno dei principali produttori di veicoli svizzeri, e offre un ambiente di lavoro vario. A Rothenburg, i nostri clienti hanno una gamma completa di riparazioni e servizi per i veicoli di ogni genere a loro disposizione – da autobus e veicoli commerciali a autovetture e camper. I nostri ordini sono diversi come i veicoli stessi. Per completare la nostra divisione Repair & Service, stiamo cercando un pendolari di carozzerie qualificate o un fabbro per il ramo Carrosserie Rothenburg (LU). Hai una passione per i veicoli e vuoi contribuire alla tua esperienza nel mondo dei veicoli commerciali? Allora questa è la tua occasione! Applicare oggi e diventare parte del nostro team dedicato a Rothenburg (LU). I loro compiti\n• Esecuzione indipendente e professionale di vari lavori di riparazione su autobus e veicoli commerciali\n• Saldatura, raddrizzamento, buckling, montaggio e riparazione\n• smontaggio, riparazione e montaggio di parti del corpo dell'automobile\n• Esecuzione di lavoro spengler vario e impegnativo I nostri requisiti\n• Completo di apprendistato come pendolari, automobilisti, metalmeccanici o altre formazioni professionali in una professione di metallurgia\n• Diversi anni di esperienza professionale sono utili\n• Alto grado di indipendenza e orientamento del cliente\n• Lavoro di squadra, impegno e iniziativa\n• Motivato per imparare cose nuove Noi li offriamo\n• Attività interessante, variegata e impegnativa\n• Tempo di lavoro mobile\n• Prestazioni basate sull'occupazione\n• Opportunità per l'ulteriore istruzione e sviluppo Se ti senti indirizzato, inviaci i tuoi documenti applicativi completi, comprese le lettere di motivazione tramite link (Applica ora). Le vostre domande a questo punto vi risponderanno Pirmin Kappeler (Capo di Carrosserie Rothenburg) +41 79 252 82 17 Applicare ora Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach job@hess-ag.ch | www.hess-ag.ch",
-        "en": "Carrosseriespengler (m/f/d | 100%) HESS - The Swiss pioneer in vehicle construction Carrosserie Rothenburg is a branch of HESS AG, one of the leading Swiss vehicle manufacturers, and offers a varied working environment. In Rothenburg, our customers have a comprehensive range of repairs and services for vehicles of all kinds at their disposal – from buses and commercial vehicles to passenger cars and campers. Our orders are as diverse as the vehicles themselves. To complement our Repair & Service division, we are looking for a qualified carrosseries commuter or vehicle locksmith for the Carrosserie Rothenburg branch (LU). Do you have a passion for vehicles and would like to contribute your expertise to the commercial vehicle world? Then this is your chance! Apply today and become part of our dedicated team in Rothenburg (LU). Their tasks\n• Independent and professional execution of various repair work on buses and commercial vehicles\n• Welding, straightening, buckling, assembly and repair work\n• Dismantling, repair and assembly of car body parts\n• Performing varied and challenging spengler work Our requirements\n• Completed apprenticeship as a carrosseries commuter, vehicle maker, metalworker or other vocational training in a metalworking profession\n• Several years of professional experience are beneficial\n• High degree of independence and customer orientation\n• Teamwork, commitment and initiative\n• Motivated to learn new things We offer them\n• Interesting, varied and challenging activity\n• Moving working time\n• Performance-based conditions of employment\n• Opportunity for further education and development If you feel addressed, send us your complete application documents including letters of motivation via link (Apply now). Your questions at this point will answer you Pirmin Kappeler (Head of Carrosserie Rothenburg) +41 79 252 82 17 Apply now Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach jobs@hess-ag.ch | www.hess-ag.ch",
-        "de": "Carrosseriespengler (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nDie Carrosserie Rothenburg ist eine Zweigniederlassung der HESS AG, einem der führenden Schweizer Fahrzeugbauer, und bietet ein abwechslungsreiches Arbeitsumfeld. In Rothenburg steht unseren Kundinnen und Kunden eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art zur Verfügung – von Bussen über Nutzfahrzeuge bis hin zu Personenwagen und Campern. Unsere Aufträge sind so vielfältig wie die Fahrzeuge selbst.\n\nZur Ergänzung unserer Sparte Reparatur & Service suchen wir für die Zweigniederlassung Carrosserie Rothenburg (LU) einen qualifizierten Carrosseriespengler oder Fahrzeugschlosser .\nHaben Sie eine Leidenschaft für Fahrzeuge und möchten Sie Ihr Fachwissen in die Nutzfahrzeug-Welt einbringen? Dann ist dies Ihre Chance! Bewerben Sie sich noch heute und werden Sie Teil unseres engagierten Teams in Rothenburg (LU).\nIhre Aufgaben\n\n• Selbständige und fachgerechte Ausführung von vielfältigen Reparaturarbeiten an Bussen und Nutzfahrzeugen\n\n• Ausführen von Schweiss-, Richt-, Ausbeul-, Montage- und Instandstellungsarbeiten\n\n• Demontage, Reparatur und Montage von Carrosserieteilen\n\n• Ausführen von abwechslungsreichen und herausfordernden Spenglerarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Carrosseriespengler, Fahrzeugschlosser, Metallbauer oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Mehrjährige Berufserfahrung von Vorteil\n\n• Hohe Selbständigkeit und Kundenorientierung\n\n• Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative\n\n• Motiviert, Neues zu lernen\n\nWir bieten Ihnen\n\n• Interessante, abwechslungsreiche und herausfordernde Tätigkeit\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nPirmin Kappeler (Leiter Carrosserie Rothenburg)\n+41 79 252 82 17\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "fr": "Carrosseriespengler (m/f/d) 100% HESS - Le pionnier suisse de la construction de véhicules Carrosserie Rothenburg est une filiale de HESS AG, l'un des principaux constructeurs automobiles suisses, et offre un environnement de travail varié. À Rothenburg, nos clients disposent d'une gamme complète de réparations et de services pour les véhicules de toutes sortes – des autobus et véhicules utilitaires aux voitures particulières et aux camping-cars. Nos ordres sont aussi divers que les véhicules eux-mêmes. Pour compléter notre division Réparation & Service, nous sommes à la recherche d'un carrossier qualifié ou d'un serrurier automobile pour la succursale de la Carrosserie Rothenburg (LU). Avez-vous une passion pour les véhicules et souhaitez apporter votre expertise au monde des véhicules commerciaux? Alors c'est votre chance ! Postuler aujourd'hui et faire partie de notre équipe dédiée à Rothenburg (LU). Leurs tâches\n• Exécution indépendante et professionnelle de divers travaux de réparation sur autobus et véhicules utilitaires\n• Travaux de soudage, de redressage, de flambage, de montage et de réparation\n• Démantèlement, réparation et assemblage de pièces de carrosserie\n• Effectuer un travail de spengler varié et difficile Nos exigences\n• Achevé l'apprentissage en tant que navetteur, constructeur de véhicules, métallurgique ou autre formation professionnelle dans une profession de métallurgie\n• Plusieurs années d'expérience professionnelle sont bénéfiques\n• Haute indépendance et orientation client\n• Travail d'équipe, engagement et initiative\n• Motivé à apprendre de nouvelles choses Nous leur offrons\n• Activités intéressantes, variées et stimulantes\n• Déplacement du temps de travail\n• Conditions d'emploi fondées sur les résultats\n• Possibilités de poursuivre l ' éducation et le développement Si vous vous sentez adressé, envoyez-nous vos documents de candidature complets, y compris les lettres de motivation, via un lien (Appliquer maintenant). Vos questions à ce stade vous répondront Pirmin Kappeler (Chef de la Carrosserie Rothenburg) +41 79 252 82 17 Appliquer maintenant Carrosserie HESS AG-Bielstrasse 7-4512 Bellach emplois@hess-ag.ch"
-      },
-      "location": "Rothenburg",
-      "canton": "LU",
-      "url": "https://jobs.hess-ag.ch/publication/carrosseriespengler/jcxfkduwb7hw872kevj67iv7pycb2jbdeo3fvgbhdei6473x8hvy361dqxt2rqep",
-      "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:27:03.931Z",
-      "addressLocality": "Rothenburg",
-      "addressRegion": "LU",
-      "streetAddress": "Stationsstrasse 88",
-      "postalCode": "6023",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-07-03",
-      "applyUrl": "https://jobs.hess-ag.ch/publication/carrosseriespengler/jcxfkduwb7hw872kevj67iv7pycb2jbdeo3fvgbhdei6473x8hvy361dqxt2rqep",
-      "jobReqId": "68008",
-      "requirements": [],
       "requirementsByLocale": {},
       "department": "Reparatur und Service",
       "previousSlugs": [
         "carrosseriespengler-hess-rothenburg",
-        "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "pittore-di-carrozzeria-m-f-d-carrosserie-hess-ag-rothenburg",
-        "carrosserie-painters-m-w-d-carrosserie-hess-ag-rothenburg",
-        "carrosserielackierer-m-w-d-hess-rothenburg",
-        "peintres-carrosseries-m-p-d-carrosserie-hess-ag-rothenburg",
-        "carrosserielackierer-m-w-d-carrosserie-hess-ag-rothenburg",
-        "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
-        "carrosseriespengler-carrosserie-hess-ag-rothenburg-vyi0so"
+        "carrosseriespengler-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-hess-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-          "pittore-di-carrozzeria-m-f-d-carrosserie-hess-ag-rothenburg",
-          "carrosserie-painters-m-w-d-carrosserie-hess-ag-rothenburg",
-          "carrosserielackierer-m-w-d-hess-rothenburg",
-          "peintres-carrosseries-m-p-d-carrosserie-hess-ag-rothenburg",
-          "carrosserielackierer-m-w-d-carrosserie-hess-ag-rothenburg"
-        ],
-        "en": [
-          "carrosserie-painters-m-w-d-carrosserie-hess-ag-rothenburg",
-          "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg-vyi0so"
-        ],
-        "de": [
-          "carrosserielackierer-m-w-d-hess-rothenburg"
-        ],
-        "fr": [
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-          "peintres-carrosseries-m-p-d-carrosserie-hess-ag-rothenburg"
+          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:53:37.519Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -2698,9 +2570,165 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "hess-carrosserie-d004055c36a8",
+      "slug": "sachbearbeiter-nfz-vendita-servizio-interno-m-w-d-carrosserie-hess-ag-bellach",
+      "slugByLocale": {
+        "it": "sachbearbeiter-nfz-vendita-servizio-interno-m-w-d-carrosserie-hess-ag-bellach",
+        "en": "sachbearbeiter-nfz-sales-innendienst-m-w-d-carrosserie-hess-ag-bellach",
+        "de": "sachbearbeiter-nfz-verkauf-innendienst-m-w-d-hess-bellach",
+        "fr": "sachbearbeiter-nfz-vente-innendienst-m-w-d-carrosserie-hess-ag-bellach"
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "company": "Carrosserie HESS AG",
+      "companyKey": "hess-carrosserie",
+      "companyDomain": "hess-ag.ch",
+      "title": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d)",
+      "titleByLocale": {
+        "it": "Sachbearbeiter NFZ-vendita servizio interno (m/w/d)",
+        "en": "Sachbearbeiter NFZ-Sales Innendienst (m/w/d)",
+        "de": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d)",
+        "fr": "Sachbearbeiter NFZ-Vente Innendienst (m/w/d)"
+      },
+      "description": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 6000 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres Teams im Bereich Nutzfahrzeuge suchen wir für den Verkauf Innendienst einen motivierten und erfahrenen Sachbearbeiter .\n Haben Sie Erfahrung im Fahrzeugbau und möchten Sie Ihre praktischen Kenntnisse in einer spannenden Verkaufstätigkeit einsetzen? In unserem Bereich Nutzfahrzeuge wartet eine herausfordernde Tätigkeit auf Sie, in welcher Sie als Verantwortlicher für die Auftragsbearbeitung ein wichtiges Bindeglied zu unseren Kunden sind.\n Ihre Aufgaben\n\n• Verkauf von Ersatzteilen von Fahrzeugaufbauten der HESS-Gruppe\n\n• Entgegennahme und Überprüfung der Kundenanliegen sowie Beurteilung der Machbarkeiten in Zusammenarbeit mit der Produktionsleitung\n\n• Erstellen von Offerten sowie Vor- und Nachkalkulationen\n\n• Technische und administrative Auftragsabwicklung\n\n• Ausführung, Terminierung und Betreuung der Aufträge in Zusammenarbeit mit dem technischen Projektleiter und dem Produktionsleiter\n\n• Mithilfe bei der Erstellung von Kundenunterlagen, Prospekten und Preislisten\n\n• Mithilfe bei der Organisation von Fachmessen und Ausstellungen\n\nUnsere Anforderungen\n\n• Abgeschlossene Grundausbildung als Konstrukteur, Fahrzeugschlosser oder Automobilmechatroniker\n\n• Berufserfahrung im Fahrzeugbau\n\n• Technische Weiterbildung\n\n• Mehrjährige Erfahrung in einer vergleichbaren Funktion\n\n• Versierter Umgang mit ERP-Systemen und MS Office (idealerweise auch Kenntnisse im 3D-CAD)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Französisch von Vorteil)\n\n• Ausgeprägtes Verkaufsflair\n\n• Starkes Organisationstalent, Durchsetzungsvermögen und eine ergebnisorientierte Arbeitsweise\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n• Spannende Herausforderung im Fahrzeugbau\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+      "descriptionByLocale": {
+        "it": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 6000 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres Teams im Bereich Nutzfahrzeuge suchen wir für den Verkauf Innendienst einen motivierten und erfahrenen Sachbearbeiter .\nHaben Sie Erfahrung im Fahrzeugbau und möchten Sie Ihre praktischen Kenntnisse in einer spannenden Verkaufstätigkeit einsetzen? In unserem Bereich Nutzfahrzeuge wartet eine herausfordernde Tätigkeit auf Sie, in welcher Sie als Verantwortlicher für die Auftragsbearbeitung ein wichtiges Bindeglied zu unseren Kunden sind.\nIhre Aufgaben\n\n• Verkauf von Ersatzteilen von Fahrzeugaufbauten der HESS-Gruppe\n\n• Entgegennahme und Überprüfung der Kundenanliegen sowie Beurteilung der Machbarkeiten in Zusammenarbeit mit der Produktionsleitung\n\n• Erstellen von Offerten sowie Vor- und Nachkalkulationen\n\n• Technische und administrative Auftragsabwicklung\n\n• Ausführung, Terminierung und Betreuung der Aufträge in Zusammenarbeit mit dem technischen Projektleiter und dem Produktionsleiter\n\n• Mithilfe bei der Erstellung von Kundenunterlagen, Prospekten und Preislisten\n\n• Mithilfe bei der Organisation von Fachmessen und Ausstellungen\n\nUnsere Anforderungen\n\n• Abgeschlossene Grundausbildung als Konstrukteur, Fahrzeugschlosser oder Automobilmechatroniker\n\n• Berufserfahrung im Fahrzeugbau\n\n• Technische Weiterbildung\n\n• Mehrjährige Erfahrung in einer vergleichbaren Funktion\n\n• Versierter Umgang mit ERP-Systemen und MS Office (idealerweise auch Kenntnisse im 3D-CAD)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Französisch von Vorteil)\n\n• Ausgeprägtes Verkaufsflair\n\n• Starkes Organisationstalent, Durchsetzungsvermögen und eine ergebnisorientierte Arbeitsweise\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n• Spannende Herausforderung im Fahrzeugbau\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "en": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 6000 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres Teams im Bereich Nutzfahrzeuge suchen wir für den Verkauf Innendienst einen motivierten und erfahrenen Sachbearbeiter .\nHaben Sie Erfahrung im Fahrzeugbau und möchten Sie Ihre praktischen Kenntnisse in einer spannenden Verkaufstätigkeit einsetzen? In unserem Bereich Nutzfahrzeuge wartet eine herausfordernde Tätigkeit auf Sie, in welcher Sie als Verantwortlicher für die Auftragsbearbeitung ein wichtiges Bindeglied zu unseren Kunden sind.\nIhre Aufgaben\n\n• Verkauf von Ersatzteilen von Fahrzeugaufbauten der HESS-Gruppe\n\n• Entgegennahme und Überprüfung der Kundenanliegen sowie Beurteilung der Machbarkeiten in Zusammenarbeit mit der Produktionsleitung\n\n• Erstellen von Offerten sowie Vor- und Nachkalkulationen\n\n• Technische und administrative Auftragsabwicklung\n\n• Ausführung, Terminierung und Betreuung der Aufträge in Zusammenarbeit mit dem technischen Projektleiter und dem Produktionsleiter\n\n• Mithilfe bei der Erstellung von Kundenunterlagen, Prospekten und Preislisten\n\n• Mithilfe bei der Organisation von Fachmessen und Ausstellungen\n\nUnsere Anforderungen\n\n• Abgeschlossene Grundausbildung als Konstrukteur, Fahrzeugschlosser oder Automobilmechatroniker\n\n• Berufserfahrung im Fahrzeugbau\n\n• Technische Weiterbildung\n\n• Mehrjährige Erfahrung in einer vergleichbaren Funktion\n\n• Versierter Umgang mit ERP-Systemen und MS Office (idealerweise auch Kenntnisse im 3D-CAD)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Französisch von Vorteil)\n\n• Ausgeprägtes Verkaufsflair\n\n• Starkes Organisationstalent, Durchsetzungsvermögen und eine ergebnisorientierte Arbeitsweise\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n• Spannende Herausforderung im Fahrzeugbau\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "de": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 6000 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres Teams im Bereich Nutzfahrzeuge suchen wir für den Verkauf Innendienst einen motivierten und erfahrenen Sachbearbeiter .\nHaben Sie Erfahrung im Fahrzeugbau und möchten Sie Ihre praktischen Kenntnisse in einer spannenden Verkaufstätigkeit einsetzen? In unserem Bereich Nutzfahrzeuge wartet eine herausfordernde Tätigkeit auf Sie, in welcher Sie als Verantwortlicher für die Auftragsbearbeitung ein wichtiges Bindeglied zu unseren Kunden sind.\nIhre Aufgaben\n\n• Verkauf von Ersatzteilen von Fahrzeugaufbauten der HESS-Gruppe\n\n• Entgegennahme und Überprüfung der Kundenanliegen sowie Beurteilung der Machbarkeiten in Zusammenarbeit mit der Produktionsleitung\n\n• Erstellen von Offerten sowie Vor- und Nachkalkulationen\n\n• Technische und administrative Auftragsabwicklung\n\n• Ausführung, Terminierung und Betreuung der Aufträge in Zusammenarbeit mit dem technischen Projektleiter und dem Produktionsleiter\n\n• Mithilfe bei der Erstellung von Kundenunterlagen, Prospekten und Preislisten\n\n• Mithilfe bei der Organisation von Fachmessen und Ausstellungen\n\nUnsere Anforderungen\n\n• Abgeschlossene Grundausbildung als Konstrukteur, Fahrzeugschlosser oder Automobilmechatroniker\n\n• Berufserfahrung im Fahrzeugbau\n\n• Technische Weiterbildung\n\n• Mehrjährige Erfahrung in einer vergleichbaren Funktion\n\n• Versierter Umgang mit ERP-Systemen und MS Office (idealerweise auch Kenntnisse im 3D-CAD)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Französisch von Vorteil)\n\n• Ausgeprägtes Verkaufsflair\n\n• Starkes Organisationstalent, Durchsetzungsvermögen und eine ergebnisorientierte Arbeitsweise\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n• Spannende Herausforderung im Fahrzeugbau\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "fr": "Sachbearbeiter NFZ-Verkauf Innendienst (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 6000 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres Teams im Bereich Nutzfahrzeuge suchen wir für den Verkauf Innendienst einen motivierten und erfahrenen Sachbearbeiter .\nHaben Sie Erfahrung im Fahrzeugbau und möchten Sie Ihre praktischen Kenntnisse in einer spannenden Verkaufstätigkeit einsetzen? In unserem Bereich Nutzfahrzeuge wartet eine herausfordernde Tätigkeit auf Sie, in welcher Sie als Verantwortlicher für die Auftragsbearbeitung ein wichtiges Bindeglied zu unseren Kunden sind.\nIhre Aufgaben\n\n• Verkauf von Ersatzteilen von Fahrzeugaufbauten der HESS-Gruppe\n\n• Entgegennahme und Überprüfung der Kundenanliegen sowie Beurteilung der Machbarkeiten in Zusammenarbeit mit der Produktionsleitung\n\n• Erstellen von Offerten sowie Vor- und Nachkalkulationen\n\n• Technische und administrative Auftragsabwicklung\n\n• Ausführung, Terminierung und Betreuung der Aufträge in Zusammenarbeit mit dem technischen Projektleiter und dem Produktionsleiter\n\n• Mithilfe bei der Erstellung von Kundenunterlagen, Prospekten und Preislisten\n\n• Mithilfe bei der Organisation von Fachmessen und Ausstellungen\n\nUnsere Anforderungen\n\n• Abgeschlossene Grundausbildung als Konstrukteur, Fahrzeugschlosser oder Automobilmechatroniker\n\n• Berufserfahrung im Fahrzeugbau\n\n• Technische Weiterbildung\n\n• Mehrjährige Erfahrung in einer vergleichbaren Funktion\n\n• Versierter Umgang mit ERP-Systemen und MS Office (idealerweise auch Kenntnisse im 3D-CAD)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Französisch von Vorteil)\n\n• Ausgeprägtes Verkaufsflair\n\n• Starkes Organisationstalent, Durchsetzungsvermögen und eine ergebnisorientierte Arbeitsweise\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n• Spannende Herausforderung im Fahrzeugbau\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch"
+      },
+      "location": "Bellach",
+      "canton": "SO",
+      "url": "https://jobs.hess-ag.ch/publication/sachbearbeiter-nfz-verkauf-innendienst/lw38h5kadhl2kvok1xyjxjxai3x72pjjcgx2ie60jtwj57f4cbonqi4jjy82zsot",
+      "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-30T23:31:12.503Z",
+      "addressLocality": "Bellach",
+      "addressRegion": "SO",
+      "streetAddress": "Bielstrasse 7",
+      "postalCode": "4512",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://jobs.hess-ag.ch/publication/sachbearbeiter-nfz-verkauf-innendienst/lw38h5kadhl2kvok1xyjxjxai3x72pjjcgx2ie60jtwj57f4cbonqi4jjy82zsot",
+      "jobReqId": "82038",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Nutzfahrzeuge",
+      "previousSlugs": [
+        "sachbearbeiter-nfz-verkauf-innendienst-m-w-d-hess-bellach",
+        "sachbearbeiter-nfz-vendita-servizio-interno-m-w-d-carrosserie-hess-ag-bellach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-nfz-verkauf-innendienst-m-w-d-hess-bellach",
+          "sachbearbeiter-nfz-vendita-servizio-interno-m-w-d-carrosserie-hess-ag-bellach"
+        ],
+        "en": [
+          "sachbearbeiter-nfz-verkauf-innendienst-m-w-d-hess-bellach"
+        ],
+        "fr": [
+          "sachbearbeiter-nfz-verkauf-innendienst-m-w-d-hess-bellach"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:15:30.193Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hess-carrosserie-5225f6855d1e",
+      "slug": "schlosser-spengler-per-den-dachbau-in-der-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
+      "slugByLocale": {
+        "it": "schlosser-spengler-per-den-dachbau-in-der-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
+        "en": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach",
+        "de": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach",
+        "fr": "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
+      },
+      "company": "Carrosserie HESS AG",
+      "companyKey": "hess-carrosserie",
+      "companyDomain": "hess-ag.ch",
+      "title": "Schlosser/Spengler für den Dachbau in der Bus Montage (m/w/d)",
+      "titleByLocale": {
+        "it": "Schlosser/Spengler per den Dachbau in der Bus Montage (m/w/d)",
+        "en": "Schlosser/Spengler für den Dachbau in der Bus Montage (m/w/d)",
+        "de": "Schlosser/Spengler für den Dachbau in der Bus Montage (m/w/d)",
+        "fr": "Schlosser/Spengler für den Dachbau in der Bus Montage (m/w/d)"
+      },
+      "description": "Schlosser/Spengler für mit pneumatischen Kenntnissen\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Montage von Heizungsanlagen in Bussen\n\n• Komplette Verrohrung der Frontbox von Bussen\n\n• Montage und Installation von pneumatischen Leitungen und Komponenten\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Praktische Erfahrung in der Montage und Verrohrung von Heizungsanlagen\n\n• Kenntnisse in der Pneumatik und im Umgang mit pneumatischen Komponenten\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+      "descriptionByLocale": {
+        "it": "Schlosser/Spengler für mit pneumatischen Kenntnissen\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Montage von Heizungsanlagen in Bussen\n\n• Komplette Verrohrung der Frontbox von Bussen\n\n• Montage und Installation von pneumatischen Leitungen und Komponenten\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Praktische Erfahrung in der Montage und Verrohrung von Heizungsanlagen\n\n• Kenntnisse in der Pneumatik und im Umgang mit pneumatischen Komponenten\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "en": "Schlosser/Spengler für mit pneumatischen Kenntnissen\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Montage von Heizungsanlagen in Bussen\n\n• Komplette Verrohrung der Frontbox von Bussen\n\n• Montage und Installation von pneumatischen Leitungen und Komponenten\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Praktische Erfahrung in der Montage und Verrohrung von Heizungsanlagen\n\n• Kenntnisse in der Pneumatik und im Umgang mit pneumatischen Komponenten\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "de": "Schlosser/Spengler für mit pneumatischen Kenntnissen\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Montage von Heizungsanlagen in Bussen\n\n• Komplette Verrohrung der Frontbox von Bussen\n\n• Montage und Installation von pneumatischen Leitungen und Komponenten\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Praktische Erfahrung in der Montage und Verrohrung von Heizungsanlagen\n\n• Kenntnisse in der Pneumatik und im Umgang mit pneumatischen Komponenten\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "fr": "Schlosser/Spengler für mit pneumatischen Kenntnissen\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nFür unseren Bereich Operations suchen wir im Rohbau unserer Bus Montage einen motivierten und dynamischen Schlosser oder Spengler als Montagemitarbeiter.\n\nSuchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen wirken Sie beim Bau unserer innovativen Elektrobusse mit.\n\nIhre Aufgaben\n\n• Ausführen von Montagearbeiten im Dachbau von Bussen nach technischen Zeichnungen und Montagevorgaben\n\n• Montage von Heizungsanlagen in Bussen\n\n• Komplette Verrohrung der Frontbox von Bussen\n\n• Montage und Installation von pneumatischen Leitungen und Komponenten\n\n• Allgemeine Montagearbeiten in der Abteilung Bus Rohbau\n\nUnsere Anforderungen\n\n• Abgeschlossene Ausbildung als Schlosser, Spengler oder Berufserfahrung im metallverarbeitenden Gewerbe\n\n• Praktische Erfahrung in der Montage und Verrohrung von Heizungsanlagen\n\n• Kenntnisse in der Pneumatik und im Umgang mit pneumatischen Komponenten\n\n• Handwerkliches Geschick und Interesse Neues zu lernen\n\n• Selbständigkeit\n\n• Flexibilität und Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche Tätigkeit\n\n• Unbefristete Daueranstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre vollständigen Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch"
+      },
+      "location": "Bellach",
+      "canton": "SO",
+      "url": "https://jobs.hess-ag.ch/publication/schlosser-spengler-fuer-den-dachbau-in-der-bus-montage/5t332czlxebk7camrztgbsg3d3uoz2i2y852mgx1rc1juhfja0gzllqypcfp8wj0",
+      "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-30T23:31:12.053Z",
+      "addressLocality": "Bellach",
+      "addressRegion": "SO",
+      "streetAddress": "Bielstrasse 7",
+      "postalCode": "4512",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://jobs.hess-ag.ch/publication/schlosser-spengler-fuer-den-dachbau-in-der-bus-montage/5t332czlxebk7camrztgbsg3d3uoz2i2y852mgx1rc1juhfja0gzllqypcfp8wj0",
+      "jobReqId": "82020",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Bus und Trolley",
+      "previousSlugs": [
+        "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schlosser-spengler-fur-den-dachbau-in-der-bus-montage-m-w-d-hess-bellach"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:25:56.897Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

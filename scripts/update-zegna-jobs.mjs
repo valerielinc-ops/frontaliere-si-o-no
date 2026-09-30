@@ -33,6 +33,7 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -46,6 +47,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -747,6 +749,20 @@ function validateZegnaLocaleCoverage() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: ZEGNA_KEY,
+    companyLabel: ZEGNA_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(ZEGNA_KEY, jobs, {
+      isTargetJob: isZegnaJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ──────────────────────────────────────────────────────────────
 // Main
 // ──────────────────────────────────────────────────────────────
@@ -763,7 +779,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('⚠️ No Zegna jobs discovered from the careers portal.');
     console.log('   The page structure may have changed or be temporarily unavailable.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(ZEGNA_KEY, DATA_JOBS).filter(isZegnaJob),
+    );
     logZegnaJobStats();
     return;
   }

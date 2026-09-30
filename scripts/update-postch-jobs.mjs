@@ -29,6 +29,7 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -57,6 +58,7 @@ import {
   createMutableFeedPaginationTracker,
   recordMutableFeedPageWithRetry,
 } from './lib/pagination-identity.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -942,6 +944,20 @@ function validatePostLocaleCoverage() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: POST_KEY,
+    companyLabel: POST_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(POST_KEY, jobs, {
+      isTargetJob: isPostJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ──────────────────────────────────────────────────────────────
 // Main
 // ──────────────────────────────────────────────────────────────
@@ -962,7 +978,10 @@ async function main() {
   if (discoveredJobs.every((job) => job._missingSourceBody)) {
     console.log(`⚠️ No Post.ch job body read from the careers portal (CH-wide; ${discoveredJobs.length} listed without a readable body).`);
     console.log('   The page structure may have changed or be temporarily unavailable.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(POST_KEY, DATA_JOBS).filter(isPostJob),
+    );
     logPostJobStats();
     return;
   }

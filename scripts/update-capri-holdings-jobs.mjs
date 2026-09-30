@@ -31,6 +31,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -60,6 +61,7 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -804,6 +806,20 @@ function validateLocaleCoverage() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: CAPRI_KEY,
+    companyLabel: CAPRI_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(CAPRI_KEY, jobs, {
+      isTargetJob: isCapriJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
@@ -822,7 +838,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Swiss Capri Holdings jobs discovered.');
     console.log('   The Workday API may have no Swiss openings currently.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS).filter(isCapriJob),
+    );
     const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
     writeCrawlChangeSummaryToGH(computeCrawlDiff(_beforeSnapshot, new Map()), 'Capri Holdings');

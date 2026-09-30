@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-09-29T21:17:43.832Z",
-  "total": 5,
+  "generatedAt": "2026-09-30T23:34:56.746Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 143387,
-  "avgDurationMs": 143387,
+  "durationMs": 126781,
+  "avgDurationMs": 126781,
   "durationHistory": [
-    143387
+    126781
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -71,7 +71,7 @@
       "postedDate": "2026-09-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-03-01",
+      "validThrough": "2027-04-01",
       "id": "amag-group-635c94e01215",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -79,6 +79,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-23T23:48:22.457Z",
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -116,6 +117,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:54:42.473Z",
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +125,9 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Carrozziere verniciatore (m/f) - Contratto determinato - 100%",
       "slug": "carrozziere-verniciatore-m-f-contratto-determinato-100",
@@ -162,7 +166,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
@@ -185,7 +188,7 @@
       "postedDate": "2026-09-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-03-01",
+      "validThrough": "2027-04-01",
       "id": "amag-group-078b29e50992",
       "salaryMin": 50500,
       "salaryMax": 77000,

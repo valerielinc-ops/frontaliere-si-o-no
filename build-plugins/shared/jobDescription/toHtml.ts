@@ -61,6 +61,14 @@ export function blocksToHtml(blocks: Block[]): string {
 // markdown parser, both of which dominate per-page render time. Hit rate
 // in practice depends on the corpus; even 20-30% saves a meaningful slice
 // of the active-job critical path.
+//
+// Do not retain large descriptions here. The SEO build deliberately renders
+// complete historical descriptions, and one full description can be much
+// larger than the short paragraphs that this cache was introduced for. The
+// page/cache writers already keep the rendered page alive until it has been
+// flushed; retaining another copy in this module-level cache would make the
+// full-content archive grow the build heap once per distinct archived job.
+const JOB_DESC_HTML_CACHE_MAX_INPUT_CHARS = 4_096;
 const JOB_DESC_HTML_CACHE_MAX = 10_000;
 const jobDescHtmlCache = new Map<string, string>();
 
@@ -140,13 +148,19 @@ function computeJobDescriptionTextToHtml(text: string): string {
 
 /** Drop-in replacement for the previous `plainTextToHtml()` helper in
  * jobsSeoPagesPlugin.ts. Passes through HTML input untouched when it
- * already contains structural tags. Memoized (LRU 10k) — the function is
- * pure so identical inputs always produce identical outputs. */
+ * already contains structural tags. Short inputs are memoized (LRU 10k) —
+ * the function is pure so identical inputs always produce identical outputs.
+ * Large inputs are intentionally computed without retaining a second copy in
+ * the module-level cache; callers still receive the complete HTML. */
 export function jobDescriptionTextToHtml(text: string): string {
   if (!text) return '';
-  const cached = jobDescHtmlCache.get(text);
-  if (cached !== undefined) return cached;
+  const cacheable = text.length <= JOB_DESC_HTML_CACHE_MAX_INPUT_CHARS;
+  if (cacheable) {
+    const cached = jobDescHtmlCache.get(text);
+    if (cached !== undefined) return cached;
+  }
   const result = computeJobDescriptionTextToHtml(text);
+  if (!cacheable) return result;
   if (jobDescHtmlCache.size >= JOB_DESC_HTML_CACHE_MAX) {
     const oldestKey = jobDescHtmlCache.keys().next().value;
     if (oldestKey !== undefined) jobDescHtmlCache.delete(oldestKey);

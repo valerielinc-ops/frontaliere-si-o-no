@@ -1,21 +1,23 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-09-29T21:24:01.911Z",
+  "generatedAt": "2026-09-30T21:19:06.266Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2735,
-  "avgDurationMs": 2735,
+  "durationMs": 3581,
+  "avgDurationMs": 3581,
   "durationHistory": [
-    2735
+    3581
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:23:55.424Z",
+      "crawledAt": "2026-09-30T21:18:57.555Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",

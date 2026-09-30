@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-09-29T21:12:15.993Z",
+  "assembledAt": "2026-09-30T21:17:12.701Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:08.953Z",
+      "crawledAt": "2026-09-30T21:17:06.839Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -51,17 +51,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+          "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano"
         ],
         "it": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+          "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano"
         ],
         "de": [
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
           "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
         "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
+        "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
@@ -110,7 +115,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:08.650Z",
+      "crawledAt": "2026-09-30T21:17:06.537Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -128,17 +133,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-fix-engineer-specialist-jsafrasarasin-ch"
+          "senior-fix-engineer-specialist-jsafrasarasin-ch",
+          "senior-fix-engineer-specialist-j-safra-sarasin-lugano"
         ],
         "it": [
-          "senior-fix-engineer-specialist-jsafrasarasin-ch"
+          "senior-fix-engineer-specialist-jsafrasarasin-ch",
+          "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano"
         ],
         "fr": [
           "senior-fix-engineer-specialist-jsafrasarasin-ch"
         ]
       },
       "previousSlugs": [
-        "senior-fix-engineer-specialist-jsafrasarasin-ch"
+        "senior-fix-engineer-specialist-jsafrasarasin-ch",
+        "senior-fix-engineer-specialist-j-safra-sarasin-lugano",
+        "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano"
       ],
       "firstSeenAt": "2026-08-23T09:42:49.241Z",
       "salaryMin": 113500,
@@ -186,7 +195,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:08.344Z",
+      "crawledAt": "2026-09-30T21:17:06.235Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -203,11 +212,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-fmi-business-analyst-jsafrasarasin-ch"
+        "senior-fmi-business-analyst-jsafrasarasin-ch",
+        "senior-fmi-business-analista-j-safra-sarasin-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fmi-business-analyst-jsafrasarasin-ch"
+          "senior-fmi-business-analyst-jsafrasarasin-ch",
+          "senior-fmi-business-analista-j-safra-sarasin-zurich"
         ],
         "de": [
           "senior-fmi-business-analyst-jsafrasarasin-ch"
@@ -262,7 +273,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/514/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:08.040Z",
+      "crawledAt": "2026-09-30T21:17:05.934Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,11 +290,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-communications-specialist-jsafrasarasin-ch"
+        "investment-communications-specialist-jsafrasarasin-ch",
+        "investment-communications-specialista-j-safra-sarasin-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-communications-specialist-jsafrasarasin-ch"
+          "investment-communications-specialist-jsafrasarasin-ch",
+          "investment-communications-specialista-j-safra-sarasin-zurich-ch"
         ],
         "de": [
           "investment-communications-specialist-jsafrasarasin-ch"
@@ -338,7 +351,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:07.739Z",
+      "crawledAt": "2026-09-30T21:17:05.632Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,11 +368,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
+        "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch",
+        "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
+          "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch",
+          "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch"
         ],
         "de": [
           "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
@@ -369,6 +384,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:24.814Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -414,7 +430,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:07.439Z",
+      "crawledAt": "2026-09-30T21:17:05.329Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -431,11 +447,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "crm-external-asset-manager-jsafrasarasin-ch"
+        "crm-external-asset-manager-jsafrasarasin-ch",
+        "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "crm-external-asset-manager-jsafrasarasin-ch"
+          "crm-external-asset-manager-jsafrasarasin-ch",
+          "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "crm-external-asset-manager-jsafrasarasin-ch"
@@ -490,7 +508,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:07.132Z",
+      "crawledAt": "2026-09-30T21:17:05.026Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -508,11 +526,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "avaloq-integration-engineer-jsafrasarasin-ch"
+          "avaloq-integration-engineer-jsafrasarasin-ch",
+          "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
         ],
         "it": [
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
-          "avaloq-integration-engineer-jsafrasarasin-ch"
+          "avaloq-integration-engineer-jsafrasarasin-ch",
+          "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano"
         ],
         "de": [
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
@@ -523,7 +543,8 @@
       },
       "previousSlugs": [
         "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
-        "avaloq-integration-engineer-jsafrasarasin-ch"
+        "avaloq-integration-engineer-jsafrasarasin-ch",
+        "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano"
       ],
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "salaryMin": 99500,
@@ -571,7 +592,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/517/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:06.830Z",
+      "crawledAt": "2026-09-30T21:17:04.724Z",
       "addressLocality": "Basel, CH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -588,11 +609,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-manager-front-jsafrasarasin-ch"
+        "business-manager-front-jsafrasarasin-ch",
+        "fronte-del-direttore-aziendale-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-manager-front-jsafrasarasin-ch"
+          "business-manager-front-jsafrasarasin-ch",
+          "fronte-del-direttore-aziendale-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "business-manager-front-jsafrasarasin-ch"
@@ -644,7 +667,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/521/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:06.527Z",
+      "crawledAt": "2026-09-30T21:17:04.422Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -661,11 +684,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-reconciliation-jsafrasarasin-ch"
+        "head-reconciliation-jsafrasarasin-ch",
+        "riconciliazione-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-reconciliation-jsafrasarasin-ch"
+          "head-reconciliation-jsafrasarasin-ch",
+          "riconciliazione-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "head-reconciliation-jsafrasarasin-ch"
@@ -720,7 +745,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:06.225Z",
+      "crawledAt": "2026-09-30T21:17:04.119Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -737,11 +762,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "workplace-operations-engineer-jsafrasarasin-ch"
+        "workplace-operations-engineer-jsafrasarasin-ch",
+        "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "workplace-operations-engineer-jsafrasarasin-ch"
+          "workplace-operations-engineer-jsafrasarasin-ch",
+          "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "workplace-operations-engineer-jsafrasarasin-ch"
@@ -796,7 +823,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:12:05.922Z",
+      "crawledAt": "2026-09-30T21:17:03.816Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -813,11 +840,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operational-risk-manager-jsafrasarasin-ch"
+        "operational-risk-manager-jsafrasarasin-ch",
+        "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operational-risk-manager-jsafrasarasin-ch"
+          "operational-risk-manager-jsafrasarasin-ch",
+          "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
         ],
         "de": [
           "operational-risk-manager-jsafrasarasin-ch"
@@ -842,13 +871,78 @@
       }
     },
     {
+      "id": "jsafrasarasin-bd631f43c6b5",
+      "slug": "portfolio-manager-multi-asset-team-jsafrasarasin-ch",
+      "slugByLocale": {
+        "en": "portfolio-manager-multi-asset-team-jsafrasarasin-ch",
+        "it": "portfolio-manager-multi-asset-team-jsafrasarasin-ch",
+        "de": "portfolio-manager-multi-asset-team-jsafrasarasin-ch",
+        "fr": "portfolio-manager-multi-asset-team-jsafrasarasin-ch"
+      },
+      "company": "J. Safra Sarasin",
+      "companyKey": "jsafrasarasin",
+      "companyDomain": "jsafrasarasin.umantis.com",
+      "title": "Portfolio Manager – Multi Asset Team",
+      "titleByLocale": {
+        "en": "Portfolio Manager – Multi Asset Team",
+        "it": "Portfolio Manager – Multi Asset Team",
+        "de": "Portfolio Manager – Multi Asset Team",
+        "fr": "Portfolio Manager – Multi Asset Team"
+      },
+      "description": "Portfolio Manager – Multi Asset Team\n•\nGeneva, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Portfolio Manager – Multi Asset Team at Bank J. Safra Sarasin, you are a valued member of the team dedicated to providing investors with robust, high-performing investment solutions that combine sound fundamental analysis and disciplined systematic processes. Additionally, you contribute significantly to investment processes, operational efficiency tools, and sales and marketing initiatives by leveraging your current skills and outstanding capacity to learn.\nYour Responsibilities\n• Implement investment decisions within funds and mandates specific guidelines\n• Contribute to the investment processes (tools, signals, intra and cross-asset analysis)\n• Participate in marketing and sales initiatives : reporting, marketing documents, investment proposals, RfPs, etc.\n• Develop and improve the team's operational processes\nYour Profile\n• Master's degree with financial and quantitative orientation\n• At least two years of relevant work experience\n• Profound IT-affinity, in particular coding skills (incl. Python, VBA)\n• Ability to weigh problems and set priorities and to recognize synergies\n• Excellent interpersonal skills and hands-on mentality\n• Strong work ethics, integrity and high level of accountability\n• Excellent communication, presentation and organizational skills\n• Capability to work independently and ability to work under pressure\n• Fluency in English; fluency in French is a strong plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+      "descriptionByLocale": {
+        "en": "Portfolio Manager – Multi Asset Team\n•\nGeneva, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Portfolio Manager – Multi Asset Team at Bank J. Safra Sarasin, you are a valued member of the team dedicated to providing investors with robust, high-performing investment solutions that combine sound fundamental analysis and disciplined systematic processes. Additionally, you contribute significantly to investment processes, operational efficiency tools, and sales and marketing initiatives by leveraging your current skills and outstanding capacity to learn.\nYour Responsibilities\n• Implement investment decisions within funds and mandates specific guidelines\n• Contribute to the investment processes (tools, signals, intra and cross-asset analysis)\n• Participate in marketing and sales initiatives : reporting, marketing documents, investment proposals, RfPs, etc.\n• Develop and improve the team's operational processes\nYour Profile\n• Master's degree with financial and quantitative orientation\n• At least two years of relevant work experience\n• Profound IT-affinity, in particular coding skills (incl. Python, VBA)\n• Ability to weigh problems and set priorities and to recognize synergies\n• Excellent interpersonal skills and hands-on mentality\n• Strong work ethics, integrity and high level of accountability\n• Excellent communication, presentation and organizational skills\n• Capability to work independently and ability to work under pressure\n• Fluency in English; fluency in French is a strong plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+        "it": "Portfolio Manager – Multi Asset Team\n•\nGeneva, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Portfolio Manager – Multi Asset Team at Bank J. Safra Sarasin, you are a valued member of the team dedicated to providing investors with robust, high-performing investment solutions that combine sound fundamental analysis and disciplined systematic processes. Additionally, you contribute significantly to investment processes, operational efficiency tools, and sales and marketing initiatives by leveraging your current skills and outstanding capacity to learn.\nYour Responsibilities\n• Implement investment decisions within funds and mandates specific guidelines\n• Contribute to the investment processes (tools, signals, intra and cross-asset analysis)\n• Participate in marketing and sales initiatives : reporting, marketing documents, investment proposals, RfPs, etc.\n• Develop and improve the team's operational processes\nYour Profile\n• Master's degree with financial and quantitative orientation\n• At least two years of relevant work experience\n• Profound IT-affinity, in particular coding skills (incl. Python, VBA)\n• Ability to weigh problems and set priorities and to recognize synergies\n• Excellent interpersonal skills and hands-on mentality\n• Strong work ethics, integrity and high level of accountability\n• Excellent communication, presentation and organizational skills\n• Capability to work independently and ability to work under pressure\n• Fluency in English; fluency in French is a strong plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+        "de": "Portfolio Manager – Multi Asset Team\n•\nGeneva, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Portfolio Manager – Multi Asset Team at Bank J. Safra Sarasin, you are a valued member of the team dedicated to providing investors with robust, high-performing investment solutions that combine sound fundamental analysis and disciplined systematic processes. Additionally, you contribute significantly to investment processes, operational efficiency tools, and sales and marketing initiatives by leveraging your current skills and outstanding capacity to learn.\nYour Responsibilities\n• Implement investment decisions within funds and mandates specific guidelines\n• Contribute to the investment processes (tools, signals, intra and cross-asset analysis)\n• Participate in marketing and sales initiatives : reporting, marketing documents, investment proposals, RfPs, etc.\n• Develop and improve the team's operational processes\nYour Profile\n• Master's degree with financial and quantitative orientation\n• At least two years of relevant work experience\n• Profound IT-affinity, in particular coding skills (incl. Python, VBA)\n• Ability to weigh problems and set priorities and to recognize synergies\n• Excellent interpersonal skills and hands-on mentality\n• Strong work ethics, integrity and high level of accountability\n• Excellent communication, presentation and organizational skills\n• Capability to work independently and ability to work under pressure\n• Fluency in English; fluency in French is a strong plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+        "fr": "Portfolio Manager – Multi Asset Team\n•\nGeneva, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Portfolio Manager – Multi Asset Team at Bank J. Safra Sarasin, you are a valued member of the team dedicated to providing investors with robust, high-performing investment solutions that combine sound fundamental analysis and disciplined systematic processes. Additionally, you contribute significantly to investment processes, operational efficiency tools, and sales and marketing initiatives by leveraging your current skills and outstanding capacity to learn.\nYour Responsibilities\n• Implement investment decisions within funds and mandates specific guidelines\n• Contribute to the investment processes (tools, signals, intra and cross-asset analysis)\n• Participate in marketing and sales initiatives : reporting, marketing documents, investment proposals, RfPs, etc.\n• Develop and improve the team's operational processes\nYour Profile\n• Master's degree with financial and quantitative orientation\n• At least two years of relevant work experience\n• Profound IT-affinity, in particular coding skills (incl. Python, VBA)\n• Ability to weigh problems and set priorities and to recognize synergies\n• Excellent interpersonal skills and hands-on mentality\n• Strong work ethics, integrity and high level of accountability\n• Excellent communication, presentation and organizational skills\n• Capability to work independently and ability to work under pressure\n• Fluency in English; fluency in French is a strong plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link"
+      },
+      "location": "Geneva, CH",
+      "canton": "GE",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/525/Description/2",
+      "source": "J. Safra Sarasin Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-30T21:17:03.513Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/525/Description/2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-30T21:17:03.513Z"
+    },
+    {
       "id": "jsafrasarasin-36022dbbf26f",
       "slug": "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "it": "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch",
         "en": "risk-officer-management-company-jsafrasarasin-ch",
         "de": "risiko-officer-management-unternehmen-j-safra-sarasin-basel-ch",
-        "fr": "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch"
+        "fr": "risk-officer-management-company-j-safra-sarasin-basel"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -890,6 +984,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "risk-officer-management-company-jsafrasarasin-ch",
+        "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch",
         "risk-officer-management-company-j-safra-sarasin-basel"
       ],
       "previousSlugsByLocale": {
@@ -900,6 +995,7 @@
           "risk-officer-management-company-jsafrasarasin-ch"
         ],
         "fr": [
+          "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch",
           "risk-officer-management-company-j-safra-sarasin-basel"
         ]
       },
@@ -917,82 +1013,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
-    },
-    {
-      "id": "jsafrasarasin-8b235c638a3b",
-      "slug": "esecuzione-junior-portfolio-manager-j-safra-sarasin-basel",
-      "slugByLocale": {
-        "it": "esecuzione-junior-portfolio-manager-j-safra-sarasin-basel",
-        "en": "junior-portfolio-manager-execution-jsafrasarasin-ch",
-        "de": "junior-portfolio-manager-ausfuhrung-j-safra-sarasin-basel",
-        "fr": "execution-du-gestionnaire-de-portefeuille-junior-j-safra-sarasin-basel-ch"
-      },
-      "company": "J. Safra Sarasin",
-      "companyKey": "jsafrasarasin",
-      "companyDomain": "jsafrasarasin.umantis.com",
-      "title": "Junior Portfolio Manager Execution",
-      "titleByLocale": {
-        "it": "Esecuzione Junior Portfolio Manager",
-        "en": "Junior Portfolio Manager Execution",
-        "de": "Junior Portfolio Manager Ausführung",
-        "fr": "Exécution du gestionnaire de portefeuille junior"
-      },
-      "description": "Junior Portfolio Manager Execution\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Junior Portfolio Manager at Bank J. Safra Sarasin you are a versatile individual who is seeking to be part of and grow within the operational excellence in Global DPM and provide service to and connect with various stakeholders worldwide.\nYour Responsibilities\n• Responsible for the operational implementation of our discretionary private banking mandates worldwide\n• Implement and execute centralized trades for mandates and investment funds\n• Create and maintain building blocks and model portfolios which are required for all mandates including premium offerings\n• Contribute to international roll-out, centralization of tasks incl. future onboarding of new businesses\n• Support team leaders and fund managers in their management role\nYour Profile\n• Higher education (university / FH) in Economics / Business Administration, with at least 1-3 years of experience in financial services or investment management\n• Excellent Microsoft Office skills; knowledge in Avaloq is an advantage\n• Strong analytical and problem solving skills with the ability to weigh problems and set priorities. Capable to grasp concepts and understand processes quickly, work under pressure, and work exactly, efficiently and independently\n• Excellent interpersonal skills combined with the ability to work with various stakeholders\n• Fluency in English and German\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
-      "descriptionByLocale": {
-        "it": "Esecuzione Junior Portfolio Manager\n•\nBasilea, CH\n•\nA tempo pieno\n•\nIllimitata\nIl tuo ruolo\nCome Junior Portfolio Manager presso Bank J. Safra Sarasin sei un individuo versatile che sta cercando di far parte e crescere all'interno dell'eccellenza operativa in Global DPM e fornire il servizio e connettersi con vari stakeholder in tutto il mondo.\nLe tue responsabilità\n• Responsabile per l'attuazione operativa dei nostri mandati bancari privati discrezionali in tutto il mondo\n• Implementare ed eseguire scambi centralizzati per mandati e fondi di investimento\n• Creare e mantenere blocchi di costruzione e portafogli di modelli che sono necessari per tutti i mandati, comprese le offerte premium\n• Contribuire al roll-out internazionale, centralizzazione dei compiti incl. futuro a bordo di nuove imprese\n• Sostenere i leader del team e i gestori dei fondi nel loro ruolo di gestione\nIl tuo profilo\n• Istruzione superiore (università / FH) in Economia / Business Administration, con almeno 1-3 anni di esperienza nei servizi finanziari o nella gestione degli investimenti\n• Eccellente competenze Microsoft Office; la conoscenza in Avaloq è un vantaggio\n• Analitica e problem solving competenze forti con la capacità di pesare problemi e impostare priorità. Capace di afferrare i concetti e comprendere i processi rapidamente, lavorare sotto pressione e lavorare esattamente, in modo efficiente e indipendente\n• Eccellente capacità interpersonali combinate con la capacità di lavorare con vari stakeholder\n• Fluency in inglese e tedesco\nI tuoi vantaggi\n•\nSpirito imprenditoriale in una banca di proprietà familiare\n•\nSede centrale per uffici in Svizzera\n•\nOltre la copertura assicurativa media a carico della banca\n•\nContributo all'assicurazione malattia e all'indennità di pasto\n•\nStrategia di crescita globale e ambiente stabile\n•\nOfferta competitiva\nInformazioni su di noi\nCome banca privata sostenibile leader, offriamo servizi dinamici e personalizzati in consulenza di investimento e gestione patrimoniale per clienti privati e istituzionali.\nIl nostro successo dipende dall'entusiasmo e dall'impegno dei nostri dipendenti e apprezziamo ogni persona con la loro competenza tecnica unica, le qualifiche professionali e le competenze sociali.\nLavoriamo con successo per oltre 180 anni in 30 sedi in tutto il mondo e offriamo ai nostri dipendenti la possibilità di partecipare al nostro successo.\nI nostri dipendenti sono il nostro patrimonio più prezioso, siamo orgogliosi della nostra cultura unica che promuove l'imprenditorialità ed è alimentato da un alto spirito di squadra e\nl'atteggiamento positivo di ogni individuo. Partecipa al nostro team internazionale e partecipa al prossimo capitolo del Gruppo J. Safra Sarasin.\nApplicare\n•\nNon e' la soluzione perfetta?\nScopri altre opportunità di carriera in una delle nostre sedi svizzere che corrispondono al tuo profilo.\nTutte le offerte\n•\nNon e' il momento giusto?\nResta informato sulle nostre ultime opportunità e sulle prossime aperture di lavoro che corrispondono ai tuoi interessi e competenze.\nAbbonamento di lavoro\nCondividi questo ruolo con qualcuno che potrebbe essere interessato\nCondividi\n•\nInvia con WhatsApp\n•\nCondividi su LinkedIn\n•\nCondividi su Xing\n•\nInviare come email\n•\nCopia Link",
-        "en": "Junior Portfolio Manager Execution\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Junior Portfolio Manager at Bank J. Safra Sarasin you are a versatile individual who is seeking to be part of and grow within the operational excellence in Global DPM and provide service to and connect with various stakeholders worldwide.\nYour Responsibilities\n• Responsible for the operational implementation of our discretionary private banking mandates worldwide\n• Implement and execute centralized trades for mandates and investment funds\n• Create and maintain building blocks and model portfolios which are required for all mandates including premium offerings\n• Contribute to international roll-out, centralization of tasks incl. future onboarding of new businesses\n• Support team leaders and fund managers in their management role\nYour Profile\n• Higher education (university / FH) in Economics / Business Administration, with at least 1-3 years of experience in financial services or investment management\n• Excellent Microsoft Office skills; knowledge in Avaloq is an advantage\n• Strong analytical and problem solving skills with the ability to weigh problems and set priorities. Capable to grasp concepts and understand processes quickly, work under pressure, and work exactly, efficiently and independently\n• Excellent interpersonal skills combined with the ability to work with various stakeholders\n• Fluency in English and German\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
-        "de": "Junior Portfolio Manager Ausführung\n•\nBasel, CH\n•\nVollzeit\n•\nUnbegrenzt\nDeine Rolle\nAls Junior Portfolio Manager bei Bank J. Safra Sarasin sind Sie eine vielseitige Person, die Teil der operativen Exzellenz von Global DPM sein und wachsen möchte und Service für verschiedene Interessengruppen weltweit bietet.\nIhre Aufgaben\n• Verantwortlich für die operative Umsetzung unserer diskretionären Private Banking Mandate weltweit\n• Implementieren und Ausführen zentralisierter Trades für Mandate und Investmentfonds\n• Erstellen und pflegen Sie Bausteine und Modellportfolios, die für alle Mandate einschließlich Premium-Angebote erforderlich sind\n• Beitrag zum internationalen Rollout, Zentralisierung von Aufgaben inkl. Zukünftiges Onboarding neuer Unternehmen\n• Unterstützen Sie Teamleiter und Fondsmanager in ihrer Führungsrolle\nIhr Profil\n• Hochschulbildung (Universität / FH) in Wirtschaft / Betriebswirtschaft, mit mindestens 1-3 Jahren Erfahrung in Finanzdienstleistungen oder Investment Management\n• Hervorragende Microsoft Office-Fähigkeiten; Kenntnisse in Avaloq sind von Vorteil\n• Starke analytische und problemlösende Fähigkeiten mit der Fähigkeit, Probleme abzuwägen und Prioritäten zu setzen. fähig, Konzepte zu erfassen und Prozesse schnell zu verstehen, unter Druck zu arbeiten und exakt, effizient und unabhängig zu arbeiten\n• Hervorragende zwischenmenschliche Fähigkeiten kombiniert mit der Fähigkeit, mit verschiedenen Stakeholdern zu arbeiten\n• Fließend in Englisch und Deutsch\nIhre Vorteile\n•\nUnternehmergeist in einer Familienbank\n•\nZentrale Stadtbüros in der ganzen Schweiz\n•\nÜberdurchschnittlicher Versicherungsschutz vollständig von der Bank getragen\n•\nBeitrag zur Krankenversicherung und Mahlzeitenzulage\n•\nGlobale Wachstumsstrategie und stabiles Umfeld\n•\nWettbewerbsfähiges Angebot\nÜber uns\nAls führende nachhaltige Privatbank bieten wir dynamische und personalisierte Dienstleistungen in der Anlageberatung und Vermögensverwaltung für private und institutionelle Kunden.\nUnser Erfolg hängt von der Begeisterung und dem Engagement unserer Mitarbeiter ab und wir schätzen jede Person mit ihrer einzigartigen technischen Kompetenz, beruflichen Qualifikationen und sozialen Fähigkeiten.\nWir sind seit mehr als 180 Jahren erfolgreich an 30 Standorten weltweit tätig und bieten unseren Mitarbeitern die Chance, Teil unseres Erfolgs zu sein.\nUnsere Mitarbeiter sind unser wertvollstes Kapital, wir sind stolz auf unsere einzigartige Kultur, die das Unternehmertum fördert und von einem hohen Teamgeist angetrieben wird.\ndie positive Einstellung jedes Einzelnen. Treten Sie unserem internationalen Team bei und werden Sie Teil des nächsten Kapitels der J. Safra Sarasin Group.\nBeantragen\n•\nNicht die perfekte Passform?\nEntdecken Sie weitere Karrieremöglichkeiten an einem unserer Schweizer Standorte, die zu Ihrem Profil passen.\nAlle offenen Stellen\n•\nNicht der richtige Zeitpunkt?\nBleiben Sie auf dem Laufenden über unsere neuesten Möglichkeiten und bevorstehenden Stellenangebote, die Ihren Interessen und Fähigkeiten entsprechen.\nStellenausschreibung\nTeilen Sie diese Rolle mit jemandem, der interessiert sein könnte\nAnteil\n•\nSenden mit WhatsApp\n•\nTeilen auf LinkedIn\n•\nAktien auf Xing\n•\nSenden als E-Mail\n•\nCopy Link",
-        "fr": "Exécution du gestionnaire de portefeuille junior\n•\nBâle, CH\n•\nTemps plein\n•\nIllimité\nVotre rôle\nEn tant que Junior Portfolio Manager chez Bank J. Safra Sarasin, vous êtes une personne polyvalente qui cherche à faire partie de l'excellence opérationnelle du DPM mondial et à se développer et à fournir des services et des liens avec divers intervenants dans le monde entier.\nVos responsabilités\n• Responsable de la mise en œuvre opérationnelle de nos mandats discrétionnaires de banque privée dans le monde entier\n• Mettre en œuvre et exécuter des opérations centralisées pour les mandats et les fonds d ' investissement\n• Créer et maintenir des modules et des portefeuilles de modèles nécessaires pour tous les mandats, y compris les offres de primes\n• Contribuer au déploiement international, à la centralisation des tâches, y compris : avenir des nouvelles entreprises\n• Soutenir les chefs d'équipe et les gestionnaires de fonds dans leur rôle de gestion\nVotre profil\n• Enseignement supérieur (université / FH) en économie / administration des entreprises, avec au moins 1-3 ans d'expérience dans les services financiers ou la gestion des investissements\n• Excellentes compétences Microsoft Office ; la connaissance à Avaloq est un avantage\n• De solides compétences analytiques et de résolution de problèmes avec la capacité de peser les problèmes et de fixer des priorités. Capable de saisir les concepts et de comprendre les processus rapidement, travailler sous pression et travailler exactement, efficacement et indépendamment\n• Excellentes compétences interpersonnelles associées à la capacité de travailler avec divers intervenants\n• Connaissance de l'anglais et de l'allemand\nVos avantages\n•\nEsprit d'entreprise dans une banque familiale\n•\nBureaux de la ville centrale en Suisse\n•\nCouverture d'assurance supérieure à la moyenne entièrement supportée par la banque\n•\nContribution à l'assurance maladie et à l'indemnité de repas\n•\nStratégie de croissance mondiale et environnement stable\n•\nOffre concurrentielle\nÀ propos de nous\nEn tant que première banque privée durable, nous offrons des services dynamiques et personnalisés en conseil en investissement et en gestion d'actifs pour les clients privés et institutionnels.\nNotre succès dépend de l'enthousiasme et de l'engagement de nos employés et nous apprécions chaque personne avec son expertise technique unique, ses qualifications professionnelles et ses compétences sociales.\nNous travaillons avec succès depuis plus de 180 ans sur 30 sites dans le monde entier et offrons à nos employés la chance de faire partie de notre succès.\nNos employés sont notre atout le plus précieux, nous sommes fiers de notre culture unique qui favorise l'entrepreneuriat et est alimenté par un esprit d'équipe élevé et\nl'attitude positive de chaque individu. Rejoignez notre équipe internationale et faites partie du prochain chapitre du Groupe J. Safra Sarasin.\nAppliquer\n•\nPas la forme parfaite ?\nDécouvrez d'autres opportunités de carrière dans un de nos sites suisses qui correspondent à votre profil.\nTous postes vacants\n•\nPas le bon moment ?\nRestez informé de nos dernières opportunités et des prochaines offres d'emploi qui correspondent à vos intérêts et compétences.\nAbonnement emploi\nPartagez ce rôle avec quelqu'un qui pourrait être intéressé\nPartager\n•\nEnvoyer avec WhatsApp\n•\nPartager sur LinkedIn\n•\nPartager sur Xing\n•\nEnvoyer comme courriel\n•\nCopier le lien"
-      },
-      "location": "Basel, CH",
-      "canton": "BS",
-      "url": "https://jsafrasarasin.umantis.com/Vacancies/519/Description/2",
-      "source": "J. Safra Sarasin Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T21:12:21.356Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/519/Description/2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "junior-portfolio-manager-execution-jsafrasarasin-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-portfolio-manager-execution-jsafrasarasin-ch"
-        ],
-        "de": [
-          "junior-portfolio-manager-execution-jsafrasarasin-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T15:56:01.655Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

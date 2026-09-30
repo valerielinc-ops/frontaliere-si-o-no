@@ -14,6 +14,8 @@ import {
   isTrustedDomain,
   LIEBHERR_KEY,
   LIEBHERR_COMPANY_NAME,
+  liebherrMatchKey,
+  prepareExistingLiebherrJobs,
 } from './lib/liebherr-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,6 +29,8 @@ runStandardCrawlerPipeline({
   isCompanyJob: isLiebherrJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  matchKey: liebherrMatchKey,
+  prepareExistingJobs: prepareExistingLiebherrJobs,
 }).catch((err) => {
   console.error(`❌ Liebherr crawler failed: ${err?.message || err}`);
   process.exit(1);

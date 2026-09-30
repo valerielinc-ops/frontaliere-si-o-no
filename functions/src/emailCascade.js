@@ -940,6 +940,8 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
         HTMLPart: email.html,
         TextPart: email.text || undefined,
         CustomID: campaignIdTag(email),
+        // No pixel for a message sent in a candidate's name (`openTracking: false`).
+        ...(email.openTracking === false ? { TrackOpens: 'disabled' } : {}),
         // Forward custom email headers (List-Unsubscribe, etc.) — parity with
         // the other 5 providers, all of which already forward email.headers.
         Headers: (email.headers && typeof email.headers === 'object') ? email.headers : undefined,
@@ -998,9 +1000,11 @@ async function sendViaMailgun(email, scheduledAt, signal) {
   // with `tracking: false` (e.g. win-back CTAs that must point directly to
   // our canonical https origin). Mailgun is the FIRST provider in the cascade,
   // so this gate is what actually honors `tracking: false` on the primary path.
+  // `openTracking: false` drops the pixel too: an application sent in a
+  // candidate's name must not track the recruiter who opens it.
   form.append('o:tracking', 'yes');
   form.append('o:tracking-clicks', email.tracking !== false ? 'yes' : 'no');
-  form.append('o:tracking-opens', 'yes');
+  form.append('o:tracking-opens', email.openTracking === false ? 'no' : 'yes');
   if (email.tags?.length) {
     // Mailgun's API caps `o:tag` at 3 per message (docs, not the Help
     // Center's unrelated 10-tag figure); anything past the 3rd is silently
@@ -1100,7 +1104,8 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
     // links through Maileroo's tracking domain; callers may opt out per-message
     // with `tracking: false` (e.g. win-back CTAs that must point directly to
     // our canonical https origin). Mirrors Mailgun's o:tracking-clicks behaviour.
-    tracking: email.tracking !== false,
+    // One flag covers clicks and opens here: `openTracking: false` turns both off.
+    tracking: email.tracking !== false && email.openTracking !== false,
   };
   if (email.text) body.plain = email.text;
   // Maileroo tags are an object map; cascade tags are [{name, value}].
@@ -1164,7 +1169,8 @@ async function sendViaResend(email, scheduledAt, signal) {
     // with `tracking: false` (e.g. win-back CTAs that must point directly to
     // our canonical https origin). Mirrors Mailgun's o:tracking-clicks behaviour.
     click_tracking: email.tracking !== false,
-    open_tracking: true,
+    // `openTracking: false`: no pixel (an application sent in a candidate's name).
+    open_tracking: email.openTracking !== false,
   };
   // Per-message scheduled send (feature #3798), ISO 8601 UTC. Omitted
   // entirely (no key at all, not even `undefined`) when resolveScheduledAt

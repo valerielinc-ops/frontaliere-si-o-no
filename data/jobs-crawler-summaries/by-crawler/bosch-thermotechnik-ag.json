@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-29T21:13:57.736Z",
+  "generatedAt": "2026-09-30T21:14:16.987Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 19796,
-  "avgDurationMs": 19796,
+  "durationMs": 18081,
+  "avgDurationMs": 18081,
   "durationHistory": [
-    19796
+    18081
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Praktikum - Business Unit Controlling",
+      "slug": "praktikum-business-unit-controlling-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF297441C-praktikum-business-unit-controlling",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152683699-praktikum-business-unit-controlling?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-30",
+      "validThrough": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Logisitker (w/m/div.) - REF297188H",
@@ -233,10 +264,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Praktikum im Produktmanagement (w/m/d) REF296253F",
-      "slug": "praktikum-im-produktmanagement-w-m-d-ref296253f-bosch-frauenfeld",
+      "slug": "stage-nella-gestione-dei-prodotti-m-f-d-ref296253f-bosch-thermotechnik-ag-frauenfeld",
       "url": "https://jobs.bosch.com/en/job/REF296253F-praktikum-im-produktmanagement-w-m-d-ref296253f",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149510369-praktikum-im-produktmanagement-w-m-d-ref296253f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -272,7 +305,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Internship – Design Sustainable Packaging REF296423S",
