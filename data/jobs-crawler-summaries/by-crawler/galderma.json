@@ -1,21 +1,23 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-09-29T21:40:39.734Z",
-  "total": 4,
+  "generatedAt": "2026-09-30T21:40:40.358Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
-  "written": 4,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 224610,
-  "avgDurationMs": 224610,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 210700,
+  "avgDurationMs": 210700,
   "durationHistory": [
-    224610
+    210700
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-Commercial-FP-A-Manager_JR020691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:38:32.489Z",
+      "crawledAt": "2026-09-30T21:38:40.572Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -69,7 +71,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-HR-EMEA---Canada_JR020136-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:39:03.749Z",
+      "crawledAt": "2026-09-30T21:39:07.216Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -106,7 +108,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:39:29.943Z",
+      "crawledAt": "2026-09-30T21:39:33.352Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -131,8 +133,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "galderma-2122649789ff",
       "slug": "medical-scientific-liaison-svizzera-settentrionale-e-orientale-galderma-zug",
@@ -177,5 +178,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

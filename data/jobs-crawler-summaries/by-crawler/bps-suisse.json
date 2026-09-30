@@ -1,21 +1,19 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-29T21:34:57.184Z",
+  "generatedAt": "2026-09-30T21:38:32.732Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 4690,
-  "avgDurationMs": 4690,
+  "unchangedCount": 0,
+  "durationMs": 4689,
+  "avgDurationMs": 4689,
   "durationHistory": [
-    4690
+    4689
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-29T21:34:48.984Z",
+      "crawledAt": "2026-09-30T21:38:23.729Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -50,12 +48,11 @@
       "firstSeenAt": "2026-07-31T11:46:31.059Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_individuale__100_.php",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -80,9 +77,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-29T21:34:49.908Z",
+      "crawledAt": "2026-09-30T21:38:24.116Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -93,12 +90,11 @@
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -123,9 +119,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-29T21:34:50.228Z",
+      "crawledAt": "2026-09-30T21:38:24.408Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -136,12 +132,11 @@
       "firstSeenAt": "2026-07-14T22:34:05.339Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_.php",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -166,9 +161,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-30",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-29T21:34:50.515Z",
+      "crawledAt": "2026-09-30T21:38:24.678Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -179,14 +174,15 @@
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
