@@ -132,11 +132,11 @@ async function main() {
     // back to the Landquart HQ silently relabelled foreign workplaces as Swiss.
     const resolvedLocation = resolveHilconaSwissLocation(detail);
     if (!resolvedLocation) {
-      console.log(`  ⚠️  Non-Swiss/unresolved location (${detail.location || 'empty'}) — skipping: ${raw.title}`);
+      console.log(`  ⚠️  Non-Swiss/unresolved location (${detail?.location || 'empty'}) — skipping: ${raw.title}`);
       continue;
     }
     const { location: loc, canton, postalCode } = resolvedLocation;
-    const company = detail.company || COMPANY_NAME;
+    const company = detail?.company || COMPANY_NAME;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
     // The language the body is written in, not a fixed `de` key.
@@ -151,8 +151,8 @@ async function main() {
       location: loc, canton,
       addressLocality: loc, addressCountry: 'CH',
       postalCode,
-      category: 'manufacturing', contract: detail.contractType || 'full-time',
-      employmentType: inferEmploymentType(raw.title, description, detail.pensum),
+      category: 'manufacturing', contract: detail?.contractType || 'full-time',
+      employmentType: inferEmploymentType(raw.title, description, detail?.pensum),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, source: 'Hilcona Dedicated Parser', crawledAt: new Date().toISOString(),
       sourceLang,

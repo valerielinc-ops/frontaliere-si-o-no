@@ -129,7 +129,7 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
 }
 
 export function buildRapelliJobRecord({ raw = {}, detail = {}, now = new Date() } = {}) {
-  const description = detail.description || '';
+  const description = detail?.description || '';
   if (!raw.url || !raw.title) return null;
 
   const location = raw.location || 'Stabio';

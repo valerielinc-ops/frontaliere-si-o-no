@@ -146,6 +146,16 @@ describe('Rapelli crawler — stripHtml', () => {
 });
 
 describe('buildRapelliJobRecord', () => {
+  it('keeps a listing record when the detail body is unavailable for the shared keeper', () => {
+    const url = 'https://careers.orior.ch/job/Stabio-HR-Payroll-Assistant/1431685933/';
+    const job = buildRapelliJobRecord({
+      raw: { url, title: 'HR Payroll Assistant (m/f/d)', location: 'Stabio' },
+      detail: null,
+    });
+
+    expect(job).toMatchObject({ url, description: '' });
+  });
+
   it('preserves the detail URL as the navigable apply handoff', () => {
     const url = 'https://careers.orior.ch/job/Stabio-HR-Payroll-Assistant/1431685933/';
     const job = buildRapelliJobRecord({
