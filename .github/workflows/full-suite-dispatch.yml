@@ -109,18 +109,34 @@ jobs:
         # data/jobs.json e riscrive il registro degli slug. Idempotente.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      - name: Setup Java for Firestore emulator
+        # tests/firestore-rules-consent-write.test.ts usa
+        # @firebase/rules-unit-testing sulla porta 8080; il suo contratto
+        # richiede un emulator Firestore reale, non un ECONNREFUSED tollerato.
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
       - name: vitest run (suite completa)
         id: suite
         # Nessuna env di selezione o tolleranza (`VITEST_CORPUS_GROUP`,
         # `VITEST_DATASET_GROUP`, `VITEST_SKIP_*`), nessun `--bail`, nessun
         # `continue-on-error`: gira TUTTO, e se un file è rosso lo step è rosso.
-        # `pipefail` perché l'exit code da propagare è quello di `npm test`, non
-        # quello di `tee`. Il reporter `json` scrive il report che il
-        # riepilogo sotto trasforma nell'elenco dei file rossi.
+        # Il comando completo gira dentro `firebase emulators:exec`, così
+        # l'emulator viene avviato e ripulito anche quando Vitest è rosso.
+        # L'exit code viene catturato prima di stampare il log per non
+        # trasformare un failure di Vitest in un successo di `tee`.
         timeout-minutes: 40
         run: |
-          set -o pipefail
-          npm test -- --reporter=default --reporter=json --outputFile=full-suite-report.json 2>&1 | tee full-suite-vitest.log
+          set +e
+          ./node_modules/.bin/firebase emulators:exec \
+            --only firestore \
+            --project frontaliereticino-rules-test \
+            "npm test -- --reporter=default --reporter=json --outputFile=full-suite-report.json > full-suite-vitest.log 2>&1"
+          status=$?
+          cat full-suite-vitest.log
+          exit "$status"
 
       - name: Summarize red files
         # `always()`: il riepilogo serve proprio quando la suite è rossa. Se il
