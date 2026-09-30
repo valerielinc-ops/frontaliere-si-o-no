@@ -85,8 +85,13 @@ jobs:
             git commit -m "💱 Daily CHF/EUR SSG snapshot refresh"
             # Centralized rebase-retry helper handles concurrent pushes from
             # other workflows; the snapshot is a deterministic output of the
-            # script, so re-run it before retrying.
+            # script, so re-run it before retrying. This job has an 8-minute
+            # cap and the default 40-attempt budget can spend the remaining
+            # time in backoff under sustained main contention, so fail closed
+            # after a bounded five-attempt handoff instead of being cancelled
+            # by the job timeout.
             bash scripts/lib/git-push-with-retry.sh \
+              --max-attempts 5 \
               --regenerate-cmd 'node scripts/snapshot-exchange-history.mjs && git add data/exchange-rate-snapshot.json'
           fi
 

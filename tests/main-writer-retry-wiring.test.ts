@@ -19,6 +19,7 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/regenerate-visual-baselines.yml',
   '.github/workflows/sync-pharmacies-border.yml',
   '.github/workflows/update-weather.yml',
+  '.github/workflows/update-exchange-history.yml',
 ];
 
 function read(relativePath: string): string {
@@ -65,6 +66,14 @@ describe('main data writers use the shared retry contract', () => {
     expect(buildHistoryWriter).toContain('git-push-with-retry.sh --max-attempts 5 --stash-dirty');
     expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
     expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
+  });
+
+  it('bounds the exchange snapshot retry budget below its job timeout', () => {
+    const workflow = read('.github/workflows/update-exchange-history.yml');
+    expect(workflow).toContain('timeout-minutes: 8');
+    expect(workflow).toContain(
+      'bash scripts/lib/git-push-with-retry.sh \\\n              --max-attempts 5',
+    );
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {
