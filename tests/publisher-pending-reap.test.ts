@@ -66,6 +66,38 @@ vi.mock('firebase-admin', () => {
   return { default: { firestore } };
 });
 vi.mock('firebase-admin/firestore', () => ({
+  getFirestore: () => ({
+    collection: () => ({
+      where: () => ({
+        get: async () => {
+          const docs = Object.keys(store)
+            .filter((id) => store[id].status === 'pending_payment')
+            .map((id) => ({
+              id,
+              exists: true,
+              data: () => store[id],
+            }));
+          return { empty: docs.length === 0, docs };
+        },
+      }),
+      doc: (id: string) => ({ __id: id }),
+    }),
+    runTransaction: async (fn: (tx: unknown) => Promise<unknown>) =>
+      fn({
+        get: async (ref: { __id: string }) => ({
+          exists: store[ref.__id] != null,
+          data: () => store[ref.__id],
+        }),
+        set: (ref: { __id: string }, data: Record<string, unknown>) => {
+          const cur = store[ref.__id] || {};
+          const next: Record<string, unknown> = { ...cur, ...data };
+          for (const key of Object.keys(next)) {
+            if (next[key] === '__delete__') delete next[key];
+          }
+          store[ref.__id] = next;
+        },
+      }),
+  }),
   FieldValue: {
     serverTimestamp: () => '__server_ts__',
     delete: () => '__delete__',
