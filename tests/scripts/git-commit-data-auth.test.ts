@@ -17,12 +17,13 @@ describe('scripts/lib/git-commit-data.sh authentication', () => {
     // (its definition + the following occurrence) instead.
     const fetchDefIndex = source.indexOf('git_fetch_retry()');
     const fetchCallIndex = source.indexOf('git_fetch_retry', fetchDefIndex + 1);
-    const pushIndex = source.indexOf('git push origin main');
+    const pushIndex = source.indexOf('git -c pack.window=0 -c pack.threads=1 push --no-thin origin main');
 
     expect(configureIndex).toBeGreaterThan(-1);
     expect(source).toContain('configure-main-push-auth.sh');
     expect(source).not.toContain('GH_TOKEN:-${GITHUB_TOKEN:-}');
     expect(source).not.toContain('CHECKOUT_GIT_EXTRAHEADER=');
+    expect(source.match(/git -c pack\.window=0 -c pack\.threads=1 push --no-thin origin/g) ?? []).toHaveLength(2);
     expect(callIndex).toBeGreaterThan(configureIndex);
     expect(callIndex).toBeLessThan(fetchCallIndex);
     expect(callIndex).toBeLessThan(pushIndex);
