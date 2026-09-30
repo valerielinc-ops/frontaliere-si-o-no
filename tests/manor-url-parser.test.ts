@@ -7,6 +7,7 @@ import {
   MANOR_CAREERS_SOURCES,
   parseManorCareersBenefits,
   parseManorCareersLead,
+  prepareManorSourceBody,
   stripStaleManorLocaleSlots,
   extractCityFromUrl,
   extractTitleFromUrl,
@@ -189,7 +190,7 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(readManorDescriptionLang(page)).toBe('fr');
   });
 
-  it('keeps a short portal body and follows it with Manor careers text, in the source slot only', () => {
+  it('does not publish a short portal body or append Manor careers text', () => {
     const page = manorDetailPage({
       title: 'Mitarbeiter*in Verkauf 40%',
       lang: 'de-DE',
@@ -206,16 +207,12 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     });
 
     expect(built.sourceLang).toBe('de');
-    expect(Object.keys(built.descriptionByLocale)).toEqual(['de']);
-    expect(built.description).toBe(built.descriptionByLocale.de);
-    expect(built.description).toMatch(/^Muss englisch verstehen und sprechen können\s+Flexibel einsetzbar\n\n## Über Manor\n/);
-    expect(built.description).toContain('- Mindestlohn von CHF 4\'200');
-    expect(built.description).not.toMatch(/presso Manor|bei Manor, gelegen in/);
-    expect(built.companyContext).toBe('careers');
-    expect((built.description.match(/\p{L}+/gu) || []).length).toBeGreaterThanOrEqual(50);
+    expect(built.descriptionByLocale).toEqual({});
+    expect(built.description).toBe('');
+    expect(built.companyContext).toBe('none');
   });
 
-  it('falls back to the generic paragraph only as a separate block of the source language', () => {
+  it('does not replace a placeholder with a generic company paragraph', () => {
     const built = buildManorJobDescriptions({
       title: 'Head of Retail Media 100%',
       city: 'Basel',
@@ -225,10 +222,9 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
       companyContexts: {},
     });
 
-    expect(built.description).not.toContain('Voir JD');
-    expect(built.companyContext).toBe('fallback');
-    expect(built.descriptionByLocale).toEqual({ fr: built.description });
-    expect(built.description).toMatch(/^## À propos de Manor\nHead of Retail Media 100% chez Manor, situé à Basel/);
+    expect(built.description).toBe('');
+    expect(built.companyContext).toBe('none');
+    expect(built.descriptionByLocale).toEqual({});
   });
 
   it('publishes a substantial body in its own language slot and leaves every other slot to translation', () => {
@@ -302,12 +298,32 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     for (const placeholder of ['-', 'Voir JD', 'selon profil du rôle.', 'voire profil de rôle', 'gemäss Rollenprofil', 'già menzionato sopra']) {
       const built = buildManorJobDescriptions({ title: 'T', city: 'Genève', canton: 'GE', pageDescription: placeholder, pageLang: 'fr', companyContexts: { fr: careersContext('fr') } });
       expect(built.body).toBe('');
-      expect(built.description).toMatch(/^## À propos de Manor\n/);
+      expect(built.description).toBe('');
     }
     for (const requirement of ['Deutschkenntnisse', 'Flexibilität, Verkaufstalent', 'Kasse']) {
       const built = buildManorJobDescriptions({ title: 'T', city: 'Chur', canton: 'GR', pageDescription: requirement, pageLang: 'de', companyContexts: { de: careersContext('de') } });
-      expect(built.description.startsWith(`${requirement}\n\n## Über Manor\n`)).toBe(true);
+      expect(built.body).toBe(requirement);
+      expect(built.description).toBe('');
     }
+  });
+
+  it('applies the 50-word source floor and cleans stored generic text', () => {
+    const body = (count: number) => Array.from({ length: count }, (_, index) => `Aufgabe${index + 1}`).join(' ');
+    const thin = buildManorJobDescriptions({ pageDescription: body(35), pageLang: 'de' });
+    const rich = buildManorJobDescriptions({ pageDescription: body(60), pageLang: 'de' });
+
+    expect(thin.description).toBe('');
+    expect(thin.descriptionByLocale).toEqual({});
+    expect(rich.description).toBe(body(60));
+    expect(rich.descriptionByLocale).toEqual({ de: body(60) });
+
+    const stored = prepareManorSourceBody({
+      sourceLang: 'de',
+      description: 'Kurzer Quelltext',
+      descriptionByLocale: { de: 'Kurzer Quelltext' },
+    });
+    expect(stored.description).toBe('');
+    expect(stored.descriptionByLocale).toEqual({});
   });
 
   it('trusts the portal language tag on short bodies and the detector only on a clear, long body', () => {

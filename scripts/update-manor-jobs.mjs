@@ -34,7 +34,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -56,13 +56,14 @@ import {
   normalizeCantonCode,
   normalizeSwissTargetLocationText,
 } from './lib/target-swiss-locations.mjs';
-import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError, fetchHtml, normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import { decodeEntities, htmlToText } from './lib/hospital-custom-html-helpers.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -137,34 +138,6 @@ function detectCategory(title = '') {
   return 'retail'; // default for Manor (department store)
 }
 
-/* ── Description builders ──────────────────────────────────── */
-function buildDescriptionIt(title, city, canton) {
-  const region = getCantonDisplayName(canton, 'it');
-  return `${title} presso Manor, con sede a ${city}, Canton ${region}, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.`;
-}
-
-function buildDescriptionEn(title, city, canton) {
-  const region = getCantonDisplayName(canton, 'en');
-  return `${title} at Manor, located in ${city}, Canton of ${region}, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.`;
-}
-
-function buildDescriptionDe(title, city, canton) {
-  const region = getCantonDisplayName(canton, 'de');
-  return `${title} bei Manor, gelegen in ${city}, Kanton ${region}, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.`;
-}
-
-function buildDescriptionFr(title, city, canton) {
-  const region = getCantonDisplayName(canton, 'fr');
-  return `${title} chez Manor, situé à ${city}, Canton de ${region}, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client.`;
-}
-
-const MANOR_DESCRIPTION_BUILDERS = {
-  it: buildDescriptionIt,
-  en: buildDescriptionEn,
-  de: buildDescriptionDe,
-  fr: buildDescriptionFr,
-};
-
 // Bodies that only point elsewhere ("-", "Voir JD", "selon profil du rôle",
 // "gemäss Rollenprofil", "già menzionato sopra") carry no vacancy content.
 // A short real requirement ("Deutschkenntnisse", "Flexibilität,
@@ -203,7 +176,6 @@ export const MANOR_CAREERS_SOURCES = Object.freeze({
     aboutHeading: 'Informazioni su Manor',
   },
 });
-const MANOR_FALLBACK_ABOUT_HEADINGS = { ...Object.fromEntries(Object.entries(MANOR_CAREERS_SOURCES).map(([lang, source]) => [lang, source.aboutHeading])), en: 'About Manor' };
 // Benefit groups carried per vacancy: the first two on the page
 // (employment conditions and staff discounts). The rest (training, family,
 // health, pension, partner discounts) is company-wide and would outweigh the
@@ -303,42 +275,52 @@ export function resolveManorBodyLang(body = '', pageLang = '') {
  * - Only the source-language slot is filled: the other slots belong to the
  *   translation step. The old builder copied a German/French body into `it`
  *   and put the generic paragraph into every other slot.
- * - A body under the 50-word source floor is followed by the company
- *   context, a separate block: Manor's own careers text in that language
- *   (`companyContexts[lang]`), else the generic paragraph under its own
- *   heading.
+ * - A body under the 50-word source floor is not published. Company careers
+ *   text and crawler-written generic paragraphs are not vacancy source text.
  */
 export function buildManorJobDescriptions({
-  title,
-  city,
-  canton,
   pageDescription = '',
   pageLang = '',
-  companyContexts = {},
 }) {
   const raw = String(pageDescription || '').trim();
   const body = hasVacancyWords(raw) ? raw : '';
   const sourceLang = resolveManorBodyLang(body, pageLang);
-  let context = '';
-  let companyContext = 'none';
-  if (!meetsSourceBodyFloor(body)) {
-    context = String(companyContexts?.[sourceLang] || '').trim();
-    companyContext = context ? 'careers' : 'fallback';
-    if (!context) {
-      context = `## ${MANOR_FALLBACK_ABOUT_HEADINGS[sourceLang]}\n${MANOR_DESCRIPTION_BUILDERS[sourceLang](title, city, canton)}`;
-    }
-  }
-  const description = [body, context].filter(Boolean).join('\n\n');
+  const publishable = meetsSourceBodyFloor(body);
+  const description = publishable ? body : '';
   return {
     description,
-    descriptionByLocale: { [sourceLang]: description },
+    descriptionByLocale: publishable ? { [sourceLang]: description } : {},
     sourceLang,
-    companyContext,
+    companyContext: 'none',
     body,
   };
 }
 
 const MANOR_GENERIC_PARAGRAPH_RX = /(?:presso Manor, con sede a|at Manor, located in|bei Manor, gelegen in|chez Manor, situé à|Manor AG è una delle principali catene di grandi magazzini)/;
+
+/**
+ * Remove the source slot a previous Manor run populated with a thin body or
+ * with the crawler's generic company paragraph before the shared keeper sees
+ * it. A valid source body remains in its own slot; other locale slots are
+ * cleaned by stripStaleManorLocaleSlots below.
+ */
+export function prepareManorSourceBody(job = {}) {
+  const sourceLang = String(job?.sourceLang || '').trim();
+  const sourceText = String(
+    (sourceLang && job?.descriptionByLocale?.[sourceLang]) || job?.description || '',
+  ).trim();
+  const body = MANOR_GENERIC_PARAGRAPH_RX.test(sourceText) ? '' : sourceText;
+  const description = meetsSourceBodyFloor(body) ? body : '';
+  const descriptionByLocale = { ...(job?.descriptionByLocale || {}) };
+  if (description && sourceLang) descriptionByLocale[sourceLang] = description;
+  else if (sourceLang) delete descriptionByLocale[sourceLang];
+  return stripStaleManorLocaleSlots({
+    ...job,
+    description,
+    descriptionByLocale,
+    ...(description ? {} : { needsRetranslation: true }),
+  });
+}
 
 /**
  * Remove locale slots earlier runs filled with stale text: an `it` slot that
@@ -672,12 +654,8 @@ export async function fetchManorJobs() {
     return [];
   }
 
-  const companyContexts = await fetchManorCompanyContexts({ timeoutMs });
-  console.log(`📋 Manor careers company context: ${Object.entries(companyContexts).map(([lang, text]) => `${lang}=${text ? 'ok' : 'missing'}`).join(', ')}`);
-
   const jobs = [];
   const skipped = { missingTitle: 0, unresolvedCanton: 0 };
-  const contextUse = {};
   let detailFailures = 0;
 
   // Fetch detail pages for each target job
@@ -730,15 +708,13 @@ export async function fetchManorJobs() {
     const addressLocality = resolvedCity;
     const addressRegion = canton;
 
-    const { description, descriptionByLocale, sourceLang, companyContext, body } = buildManorJobDescriptions({
+    const { description, descriptionByLocale, sourceLang, body } = buildManorJobDescriptions({
       title,
       city: resolvedCity,
       canton,
       pageDescription: pageData.description,
       pageLang: pageData.descriptionLang,
-      companyContexts,
     });
-    contextUse[companyContext] = (contextUse[companyContext] || 0) + 1;
 
     const baseSlug = normalizeKey(`manor ${title} ${resolvedCity}`);
 
@@ -780,7 +756,6 @@ export async function fetchManorJobs() {
   }
 
   console.log(`📋 Detail pages fetched: ${targetUrls.length - detailFailures}/${targetUrls.length}`);
-  console.log(`📋 Company context appended (short bodies): ${JSON.stringify(contextUse)}`);
   const { jobs: uniqueJobs, reposts } = dedupeManorReposts(jobs);
   if (reposts.length > 0) {
     console.log(`📋 Collapsed ${reposts.length} Manor repost(s) of an identical vacancy (same title, store and body): ${reposts.map((r) => `${extractJobId(r.url)}→${extractJobId(r.keptUrl)}`).join(', ')}`);
@@ -829,6 +804,7 @@ function mergeManorJobs(discoveredJobs) {
 
   const nonManorJobs = allJobs.filter((j) => !isManorJob(j));
   const existingManorJobs = allJobs.filter(isManorJob);
+  const preparedExistingManorJobs = existingManorJobs.map(prepareManorSourceBody);
 
   // Stats only — computed on the same stable key mergePreserveLocaleData
   // matches on (extractStableJobId(url), i.e. the trailing numeric
@@ -854,10 +830,21 @@ function mergeManorJobs(discoveredJobs) {
   // The merge keeps existing non-source translations; drop the stale ones
   // earlier runs wrote (source body copied into `it`, generic paragraph in the
   // other slots) so the translation step refills them from the source slot.
-  const mergedManorJobs = mergePreserveLocaleData(existingManorJobs, discoveredJobs)
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    discoveredJobs,
+    preparedExistingManorJobs,
+    (job) => extractStableJobId(job?.url) || String(job?.url || '').trim().replace(/\/+$/, ''),
+  );
+  const mergedManorJobs = mergePreserveLocaleData(preparedExistingManorJobs, sourceBodyJobs)
     .map(stripStaleManorLocaleSlots);
+  const thinSourceJobs = mergedManorJobs.filter(
+    (job) => !meetsSourceBodyFloor(sourceBodyForJob(job)),
+  );
+  const cleanManorJobs = mergedManorJobs
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
 
-  const finalJobs = [...nonManorJobs, ...mergedManorJobs];
+  const finalJobs = [...nonManorJobs, ...cleanManorJobs];
 
   writeJson(DATA_JOBS, finalJobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, finalJobs);
@@ -866,6 +853,29 @@ function mergeManorJobs(discoveredJobs) {
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  ➖ Removed: ${removed}`);
   console.log(`  📦 Total jobs in file: ${finalJobs.length}`);
+  if (thinSourceJobs.length > 0) {
+    console.warn(`  ⚠️ Quarantining ${thinSourceJobs.length} Manor job(s) without a source body of at least 50 words.`);
+  }
+  return {
+    sourceBodyJobs,
+    thinSourceJobs,
+    targetExisting: preparedExistingManorJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredManorJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs.map(prepareManorSourceBody),
+    storedJobs,
+    companyKey: MANOR_KEY,
+    companyLabel: MANOR_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(MANOR_KEY, jobs, {
+      isTargetJob: isManorJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 /* ── Adapter update ────────────────────────────────────────── */
@@ -997,13 +1007,23 @@ async function main() {
   const discoveredJobs = await fetchManorJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('ℹ️  No Swiss job listings found — skipping crawl.');
+    console.log('ℹ️  No Swiss job listings found — quarantining stored thin-source rows.');
+    await rewriteStoredManorJobsWithoutThinSource(
+      readExistingCrawlerJobs(MANOR_KEY, DATA_JOBS).filter(isManorJob),
+    );
     return;
   }
 
   // Phase 2: merge into jobs.json
   const seedUrls = discoveredJobs.map((j) => j.url);
-  mergeManorJobs(discoveredJobs);
+  const mergeStats = mergeManorJobs(discoveredJobs);
+  if (mergeStats.noPublishableJobs) {
+    console.warn(
+      `⚠️ ${MANOR_COMPANY_NAME}: all ${discoveredJobs.length} discovered body/bodies are below the 50-word source-body floor; quarantining thin-source rows.`,
+    );
+    await rewriteStoredManorJobsWithoutThinSource(mergeStats.targetExisting);
+    return;
+  }
 
   // Phase 3: update adapter
   updateAdapterConfig(seedUrls);
@@ -1025,8 +1045,21 @@ async function main() {
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isManorJob) : [];
-  writeJobsCrawlerSlice(MANOR_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw.filter(isManorJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedKeys = new Set((diff.removedJobs || []).map((job) => extractStableJobId(job?.url)).filter(Boolean));
+  const thinQuarantineJobs = mergeStats.thinSourceJobs.filter(
+    (job) => removedKeys.has(extractStableJobId(job?.url)),
+  );
+  const housekeepingProof = thinQuarantineJobs.length > 0
+    && thinQuarantineJobs.length === (diff.removedJobs || []).length
+    ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
+    : undefined;
+  await writeJobsCrawlerSliceVerified(MANOR_KEY, _sliceJobs, {
+    isTargetJob: isManorJob,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: MANOR_KEY,
     label: 'Manor',
