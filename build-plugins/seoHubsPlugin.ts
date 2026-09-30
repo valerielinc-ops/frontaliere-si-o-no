@@ -1229,8 +1229,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${collectionLd}</script>
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
-    ${PARTNERIZE_TAG_SNIPPET}
-    ${jobBoardHeadTag}
+    ${PARTNERIZE_TAG_SNIPPET}${jobBoardHeadTag}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}

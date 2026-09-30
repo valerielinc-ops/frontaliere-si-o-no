@@ -33,6 +33,21 @@ vi.mock('firebase-admin', () => ({
   },
 }));
 
+// newsletterSubscriptionManagement imports sentinels from the ESM submodule,
+// not from admin.firestore. Keep both entry points on the same deterministic
+// fake values so the in-memory Firestore assertions do not depend on the
+// installed firebase-admin implementation.
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: {
+    serverTimestamp: () => '__server_ts__',
+    delete: () => '__delete__',
+    increment: (n: number) => n,
+  },
+  Timestamp: {
+    fromMillis: (value: number) => `__timestamp_${value}__`,
+  },
+}));
+
 vi.mock('firebase-admin/remote-config', () => ({
   getRemoteConfig: () => ({ getTemplate: async () => ({ parameters: {} }) }),
 }));
