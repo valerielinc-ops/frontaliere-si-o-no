@@ -461,6 +461,15 @@ const CACHE_VERSION = 'v11';
 const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
 const CLUSTER_SITEMAP_FILE_RE = /^sitemap-search-clusters(?:-\d+)?\.xml$/;
 
+// The alias plugin runs after this plugin's closeBundle hook. Publish the
+// completed mirror set through the module boundary so the final dist-truth
+// pass can preserve the producer's explicit mirror exclusion contract.
+let finalSitemapMirrorLocs: string[] = [];
+
+export function getFinalSitemapMirrorLocs(): ReadonlyArray<string> {
+  return finalSitemapMirrorLocs.slice();
+}
+
 function shardFilename(index: number): string {
   return `${SITEMAP_SHARD_PREFIX}-${padShardIndex(index)}.xml`;
 }
@@ -3997,6 +4006,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
     // every build.
     enforce: 'post',
     async closeBundle() {
+      finalSitemapMirrorLocs = [];
       if (process.env.SKIP_RELATED_SEARCH_CLUSTERS === '1') {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m skipped via SKIP_RELATED_SEARCH_CLUSTERS');
         return;
@@ -4149,6 +4159,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           registerRetiredKeywordLandingPaths(
             cacheHitRetiredLandingPaths(junkRetirements, restored.retiredFiles ?? []),
           );
+          finalSitemapMirrorLocs = [...(restored.crossSectionMirrorLocs ?? [])];
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
@@ -4889,6 +4900,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // issue #911: reconcile sitemap-jobs.xml against dist/. writeSitemap
       // already awaited jobsSeoPagesFlushed, so the file is final.
       const __tDropJobsMirrors = profileStart();
+      finalSitemapMirrorLocs = crossSectionMirrorLocs.slice();
       await reconcileSitemapJobsWithDist(distDir, crossSectionMirrorLocs);
       profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
 
