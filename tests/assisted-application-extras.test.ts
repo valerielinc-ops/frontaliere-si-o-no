@@ -10,7 +10,7 @@ const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY
 const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
-const { buildInterviewPrepEmail, prepareInterviewPack, sanitizeInterviewPrep } = await import('../functions/src/assistedApplicationInterviewPrep.js');
+const { buildInterviewPrepEmail, isNewlyProcessedInterviewInvite, prepareInterviewPack, sanitizeInterviewPrep } = await import('../functions/src/assistedApplicationInterviewPrep.js');
 const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -198,6 +198,32 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(await decideFollowup({ db: other.db, orderId: ORDER, n: 1, decision: 'send', nowMs: T0 + 7 * DAY_MS, sendCascade: vi.fn() })).toMatchObject({ ok: false, error: 'not_pending' });
   });
 
+  it('waits while a message that may be the reply is classified, and stops if it never is', async () => {
+    const store = followupStore();
+    await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'S', messageId: '', sentAt: T0 });
+    const inbox = store.db.collection('assisted_applications').doc(ORDER).collection('inbox');
+    await inbox.doc('m1').set({ receivedAt: T0 + 7 * DAY_MS - 60_000, status: 'received' });
+    const deps = { db: store.db, codex: vi.fn(async () => ({ body: GOOD_FOLLOWUP })), sendCascade: vi.fn(async () => ({ failed: [], sent: [{}] })), getSecret: async () => SECRET, isEnabled: async () => true };
+    // Due, but a message is still being classified: nothing drafted, next look in 30 minutes.
+    expect((await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS })).results?.[0] ?? {}).toMatchObject({ waiting: 'inbox_unclassified' });
+    expect(deps.codex).not.toHaveBeenCalled();
+    expect(store.read(ORDER_PATH)).toMatchObject({ followupDueAt: T0 + 7 * DAY_MS + 30 * 60 * 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled' });
+    // Classified as an automatic acknowledgement: the cadence goes on.
+    await inbox.doc('m1').set({ status: 'processed', category: 'auto_acknowledgement' }, { merge: true });
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS + 30 * 60 * 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'awaiting_candidate' });
+
+    // Never classified within a day: taken as a reply.
+    const stuck = followupStore();
+    await scheduleFollowups(stuck.db, ORDER, { to: 'hr@ospedale.ch', subject: 'S', messageId: '', sentAt: T0 });
+    await stuck.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('m1').set({ receivedAt: T0 + DAY_MS, status: 'processing' });
+    await runFollowupSweep({ ...deps, db: stuck.db, nowMs: T0 + 7 * DAY_MS });
+    expect(stuck.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'stopped', stopReason: 'employer_replied' });
+    expect(employerReplied([{ receivedAt: 5, status: 'received' }], 0, 5 + DAY_MS)).toBe(false);
+    expect(employerReplied([{ receivedAt: 5, status: 'received' }], 0, 6 + DAY_MS)).toBe(true);
+  });
+
   it('sends a follow-up once even when the click and the sweep race, and never re-sends an ambiguous one', async () => {
     const store = followupStore();
     const pendingDoc = {
@@ -271,6 +297,17 @@ describe('interview prep (career-ops modes/interview-prep.md)', () => {
     expect(dropped).toBe(1);
     // A salary figure the posting does not state is never passed on.
     expect(pack.salary.advertised).toBe('');
+  });
+
+  it('fires on the write that marks an invitation processed, not when the message is stored', () => {
+    const received = { status: 'received', receivedAt: T0 };
+    const invite = { ...received, status: 'processed', category: 'interview_invite' };
+    expect(isNewlyProcessedInterviewInvite(undefined, received)).toBe(false);
+    expect(isNewlyProcessedInterviewInvite(received, { ...received, status: 'processing' })).toBe(false);
+    expect(isNewlyProcessedInterviewInvite({ ...received, status: 'processing' }, invite)).toBe(true);
+    expect(isNewlyProcessedInterviewInvite(invite, { ...invite, forwarded: { status: 'sent' } })).toBe(false);
+    expect(isNewlyProcessedInterviewInvite({ ...received, status: 'processing' }, { ...invite, category: 'question' })).toBe(false);
+    expect(isNewlyProcessedInterviewInvite(invite, undefined)).toBe(false);
   });
 
   it('prepares the pack once per order and e-mails it to the candidate', async () => {

@@ -27,12 +27,15 @@ import {
   followupRefFor,
   followupSystemPrompt,
   followupUserText,
+  inboxUnclassified,
   sanitizeFollowup,
 } from './assistedApplicationFollowup.js';
 import { ASSISTED_APPLICATION_SENDER, buildReviewPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 
 const SENDING_STALE_MS = 30 * 60 * 1000;
+// Next look at an order whose inbox holds a message still being classified.
+const UNCLASSIFIED_WAIT_MS = 30 * 60 * 1000;
 const MAX_SEND_ATTEMPTS = 2;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 
@@ -232,10 +235,15 @@ async function processFollowup({ db, orderId, nowMs, codex, sendCascade, getSecr
     return { ok: true, idle: true };
   }
   if (order.submissionStatus !== 'submitted') return stop(db, orderId, followup, 'order_not_submitted', nowMs);
-  if (employerReplied(context.inbox, followup.submittedAt)) return stop(db, orderId, followup, 'employer_replied', nowMs);
+  if (employerReplied(context.inbox, followup.submittedAt, nowMs)) return stop(db, orderId, followup, 'employer_replied', nowMs);
   if (Number(followup.dueAt) > nowMs) {
     await orderRefFor(db, orderId).set({ followupDueAt: followup.dueAt }, { merge: true });
     return { ok: true, notDue: true };
+  }
+  if (inboxUnclassified(context.inbox, followup.submittedAt)) {
+    // Neither drafted nor sent while a message that may be the reply is classified.
+    await orderRefFor(db, orderId).set({ followupDueAt: nowMs + UNCLASSIFIED_WAIT_MS }, { merge: true });
+    return { ok: true, waiting: 'inbox_unclassified' };
   }
   if (followup.state === 'scheduled') return draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret });
   if (followup.state === 'awaiting_candidate') return sendFollowup({ db, orderId, nowMs, sendCascade, by: 'deadline' });

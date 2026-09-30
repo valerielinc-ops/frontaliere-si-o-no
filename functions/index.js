@@ -92,7 +92,7 @@ import {
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
 import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
-import { prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
+import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
@@ -2439,11 +2439,12 @@ export const sweepAssistedApplicationFollowups = onSchedule(
 
 // An interview invitation on the order alias: the candidate gets the
 // interview prep pack (career-ops modes/interview-prep.md), once per order.
-export const prepareAssistedApplicationInterview = onDocumentCreated(
+// On the write that marks an interview invitation processed (the inbound
+// trigger classifies it after the message is stored).
+export const prepareAssistedApplicationInterview = onDocumentWritten(
   { region: 'europe-west6', document: 'assisted_applications/{orderId}/inbox/{messageId}', memory: '512MiB', timeoutSeconds: 540 },
   async (event) => {
-    const message = event.data?.data();
-    if (message?.category !== 'interview_invite') return;
+    if (!isNewlyProcessedInterviewInvite(event.data?.before?.data(), event.data?.after?.data())) return;
     try {
       await bridgeEmailCascadeCredentialsToEnv();
       const result = await prepareInterviewPack({

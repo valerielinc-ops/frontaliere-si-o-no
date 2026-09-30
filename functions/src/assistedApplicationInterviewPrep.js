@@ -303,6 +303,15 @@ export function buildInterviewPrepEmail({ pack, locale, name, job, company, jobU
 }
 
 /**
+ * Whether an inbox write is the one that fires the pack: a message is created
+ * `received` without a category and classified afterwards, so only the write
+ * that marks an interview invitation `processed` counts.
+ */
+export function isNewlyProcessedInterviewInvite(before, after) {
+  return after?.status === 'processed' && before?.status !== 'processed' && after.category === 'interview_invite';
+}
+
+/**
  * The trigger's work: once per order (claimed in a transaction), Codex writes
  * the pack, the fact gate filters it, the candidate gets it by e-mail.
  */

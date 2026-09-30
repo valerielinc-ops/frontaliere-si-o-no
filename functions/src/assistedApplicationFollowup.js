@@ -60,9 +60,23 @@ export async function scheduleFollowups(db, orderId, { to, subject, messageId, s
   return dueAt;
 }
 
+// A message is stored first and classified by the inbound trigger afterwards.
+const isUnclassified = (item) => item?.status === 'received' || item?.status === 'processing';
+// Still unclassified after this long: assume a person wrote, and stop.
+export const UNCLASSIFIED_REPLY_MS = DAY_MS;
+
 /** A person of the employer wrote after `sinceMs` (career-ops: "Responded" stops the Applied cadence). */
-export function employerReplied(inboxItems, sinceMs) {
-  return (inboxItems || []).some((item) => Number(item?.receivedAt) >= Number(sinceMs) && !NOT_A_REPLY.has(item?.category));
+export function employerReplied(inboxItems, sinceMs, nowMs = Date.now()) {
+  return (inboxItems || []).some((item) => {
+    if (Number(item?.receivedAt) < Number(sinceMs)) return false;
+    if (isUnclassified(item)) return nowMs - Number(item.receivedAt) > UNCLASSIFIED_REPLY_MS;
+    return !NOT_A_REPLY.has(item?.category);
+  });
+}
+
+/** A message after `sinceMs` still waits for its classification: it may be the reply. */
+export function inboxUnclassified(inboxItems, sinceMs) {
+  return (inboxItems || []).some((item) => Number(item?.receivedAt) >= Number(sinceMs) && isUnclassified(item));
 }
 
 // ── Writing ────────────────────────────────────────────────────────────────
