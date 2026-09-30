@@ -2444,6 +2444,12 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
     expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting")');
     expect(guardStep.run).toContain('select((.id | tostring) != $current)');
+    expect(guardStep.run).toContain('created_at');
+    expect(guardStep.run).toContain('oldest_run_id');
+    expect(guardStep.run).toContain('sort -k1,1 -k2,2n');
+    expect(guardStep.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
+    expect(guardStep.run).toContain('workflow_dispatch');
+    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     expect(guardStep.run).toContain('run=false');
     expect(guardStep.run).toContain('continuing with the heavy run to preserve throughput');
   });

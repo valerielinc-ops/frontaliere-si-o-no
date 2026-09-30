@@ -163,7 +163,13 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(queueGuard?.run).toContain('.status == "pending"');
     expect(queueGuard?.run).toContain('.status == "waiting"');
     expect(queueGuard?.run).toContain('GITHUB_RUN_ID');
+    expect(queueGuard?.run).toContain('created_at');
+    expect(queueGuard?.run).toContain('oldest_run_id');
+    expect(queueGuard?.run).toContain('sort -k1,1 -k2,2n');
+    expect(queueGuard?.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
     expect(queueGuard?.run).toContain('run=false');
+    expect(queueGuard?.run).toContain('workflow_dispatch');
+    expect(queueGuard?.env?.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
