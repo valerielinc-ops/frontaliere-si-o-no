@@ -830,7 +830,7 @@ describe('native auto-merge gate (#8512)', () => {
     expect(isAlreadyInProgressOutput('GraphQL: Pull request is not mergeable')).toBe(false);
   });
 
-  it('retries only the known base-branch race from the native mutation', () => {
+  it('retries known base-branch and transient transport/API failures from the native mutation', () => {
     expect(isRetryableNativeAutoMergeMutationError(
       'GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)',
     )).toBe(true);
@@ -840,6 +840,12 @@ describe('native auto-merge gate (#8512)', () => {
     expect(isRetryableNativeAutoMergeMutationError(
       'GraphQL: Pull request is not mergeable (mergePullRequest)',
     )).toBe(false);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Something went wrong while executing your query',
+    )).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError('HTTP 502: Bad Gateway')).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError('request timed out')).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError('HTTP 403: Forbidden')).toBe(false);
   });
 
   it('uses a bounded backoff for the known native mutation race and preserves other errors', () => {

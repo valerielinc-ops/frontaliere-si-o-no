@@ -7,6 +7,20 @@ import { resolveDetailOrListingSwissGeography } from './prospector/location-evid
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 
 const VERIFIED_SOURCE_GEOGRAPHY = Symbol('ipersonal-source-backed-geography');
+const IPERSONAL_MAINTENANCE_PAGE_RE = /(?:\bun momento,\s*per favore\b|\b(?:wartungsarbeiten|under maintenance)\b|\btemporarily unavailable\b)/iu;
+
+/**
+ * A 200 maintenance page is not an authoritative empty listing. Keep the
+ * last good slice through the standard `feedEndpointUnavailable` path instead
+ * of letting the empty parser archive every current offer.
+ *
+ * @param {string} html
+ * @returns {boolean}
+ */
+export function isIpersonalMaintenancePage(html = '') {
+  const text = stripHtml(String(html || '')).replace(/\s+/g, ' ').trim();
+  return IPERSONAL_MAINTENANCE_PAGE_RE.test(text);
+}
 
 /**
  * Recover the exact geography already accepted by the shared Prospector gate.
@@ -243,6 +257,15 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     fetchImpl: capturingFetch,
     detailExtractor: capturingDetailExtractor,
   });
+  const maintenanceSeed = [...expectedSeedUrls].find((seedUrl) =>
+    isIpersonalMaintenancePage(pages.get(seedUrl) || ''),
+  );
+  if (maintenanceSeed) {
+    throw Object.assign(
+      new Error(`iPersonal source unavailable: maintenance page at ${maintenanceSeed}`),
+      { feedEndpointUnavailable: true, sourceUnavailableKind: 'maintenance' },
+    );
+  }
   const enriched = rows.map((row) => {
     const attemptedUrl = canonicalUrl(row.url);
     const description = extractIpersonalDescription(pages.get(attemptedUrl) || '');

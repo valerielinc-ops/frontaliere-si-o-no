@@ -6,9 +6,28 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/med-ipersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { extractIpersonalDescription } from '../scripts/lib/ipersonal-spec-runtime.mjs';
+import {
+  extractIpersonalDescription,
+  isIpersonalMaintenancePage,
+} from '../scripts/lib/ipersonal-spec-runtime.mjs';
+
+const IPERSONAL_MAINTENANCE_FIXTURE = `
+  <!doctype html>
+  <html lang="it">
+    <head><title>iPersonal AG</title></head>
+    <body>
+      <main><h1>Un momento, per favore…</h1>
+        <p>La pagina delle offerte è temporaneamente in manutenzione.</p>
+      </main>
+    </body>
+  </html>`;
 
 describe('iPersonal AG crawler parser', () => {
+  it('recognizes the maintenance page as a transient unavailable source', () => {
+    expect(isIpersonalMaintenancePage(IPERSONAL_MAINTENANCE_FIXTURE)).toBe(true);
+    expect(isIpersonalMaintenancePage('<h1>Offerte di lavoro</h1><a href="/jobs/123/">Medico</a>')).toBe(false);
+  });
+
   describe('shared Simple Job Board detail boundary', () => {
     it('preserves authored HTML lists without the application tail', () => {
       const html = `

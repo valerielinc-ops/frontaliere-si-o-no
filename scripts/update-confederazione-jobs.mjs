@@ -340,6 +340,7 @@ async function fetchNationalListings() {
   let pageCount = 0;
   const progress = createMutableFeedPaginationTracker({
     getIdentity: (job) => job?.viewkey || job?.id,
+    getFingerprint: (job) => JSON.stringify(job),
     source: 'Confederazione API',
   });
 
@@ -396,7 +397,15 @@ async function fetchNationalListings() {
     allItems.push(...items);
     pageCount += 1;
 
-    if (progress.hasReached(declaredTotal)) break;
+    if (progress.hasReached(declaredTotal)) {
+      if (!progress.hasMinimumUniqueCoverage(declaredTotal, 0.9)) {
+        throw new Error(
+          `Confederazione API pagination incomplete: received ${progress.uniqueCount} unique of `
+          + `${declaredTotal} declared rows (minimum coverage 0.9).`,
+        );
+      }
+      break;
+    }
     if (items.length === 0) {
       if (declaredTotal !== null && progress.scannedRows < declaredTotal) {
         throw new Error(

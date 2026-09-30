@@ -18,26 +18,47 @@ export function recordUniquePageProgress(seen, items, {
   source = 'pagination',
   page = '',
   allowPreviouslySeen = false,
+  allowIdenticalDuplicates = false,
+  getFingerprint,
+  fingerprints,
 } = {}) {
   if (!(seen instanceof Set)) throw new TypeError('pagination identity set is required');
   if (!Array.isArray(items)) throw new TypeError('pagination page items must be an array');
   if (typeof getIdentity !== 'function') throw new TypeError('pagination identity resolver is required');
+  if (getFingerprint !== undefined && typeof getFingerprint !== 'function') {
+    throw new TypeError('pagination content fingerprint resolver must be a function');
+  }
+  if (fingerprints !== undefined && !(fingerprints instanceof Map)) {
+    throw new TypeError('pagination content fingerprint map is required');
+  }
 
   const pageIdentities = [];
-  const pageSeen = new Set();
+  const pageSeen = new Map();
   let newIdentityCount = 0;
   for (const item of items) {
     const identity = String(getIdentity(item) ?? '').trim();
     if (!identity) {
       throw new Error(`${source} page ${page}: row without a stable source identity.`);
     }
+    const fingerprint = getFingerprint ? getFingerprint(item) : undefined;
     if (pageSeen.has(identity)) {
-      throw new Error(`${source} page ${page}: duplicate source identity "${identity}".`);
+      if (allowIdenticalDuplicates && getFingerprint && pageSeen.get(identity) === fingerprint) {
+        // A mutable page can contain the same row twice while the source
+        // index is being rebuilt. It is safe to discard only equivalent
+        // content; a changed row remains a real source conflict.
+        continue;
+      }
+      const detail = getFingerprint ? ' with conflicting content' : '';
+      throw new Error(`${source} page ${page}: duplicate source identity "${identity}"${detail}.`);
     }
     if (seen.has(identity) && !allowPreviouslySeen) {
       throw new Error(`${source} page ${page}: duplicate source identity "${identity}".`);
     }
-    pageSeen.add(identity);
+    if (seen.has(identity) && getFingerprint && fingerprints?.has(identity)
+      && fingerprints.get(identity) !== fingerprint) {
+      throw new Error(`${source} page ${page}: source identity "${identity}" has conflicting content.`);
+    }
+    pageSeen.set(identity, fingerprint);
     pageIdentities.push(identity);
     if (!seen.has(identity)) newIdentityCount += 1;
   }
@@ -48,7 +69,10 @@ export function recordUniquePageProgress(seen, items, {
       { code: NO_UNIQUE_PROGRESS_CODE },
     );
   }
-  for (const identity of pageIdentities) seen.add(identity);
+  for (const identity of pageIdentities) {
+    seen.add(identity);
+    if (getFingerprint && fingerprints) fingerprints.set(identity, pageSeen.get(identity));
+  }
   return pageIdentities;
 }
 
@@ -119,26 +143,39 @@ export async function recordMutableFeedPageWithRetry({
  */
 export function createMutableFeedPaginationTracker({
   getIdentity,
+  getFingerprint,
   source = 'pagination',
 } = {}) {
   if (typeof getIdentity !== 'function') throw new TypeError('pagination identity resolver is required');
+  if (getFingerprint !== undefined && typeof getFingerprint !== 'function') {
+    throw new TypeError('pagination content fingerprint resolver must be a function');
+  }
 
   const identities = new Set();
+  const fingerprints = new Map();
   let scannedRows = 0;
 
   return {
     record(items, page = '') {
       const pageIdentities = recordUniquePageProgress(identities, items, {
         getIdentity,
+        getFingerprint,
+        fingerprints,
         source,
         page,
         allowPreviouslySeen: true,
+        allowIdenticalDuplicates: Boolean(getFingerprint),
       });
       scannedRows += items.length;
       return pageIdentities;
     },
     hasReached(declaredTotal) {
       return Number.isFinite(declaredTotal) && declaredTotal > 0 && scannedRows >= declaredTotal;
+    },
+    hasMinimumUniqueCoverage(declaredTotal, minimumRatio = 0.9) {
+      if (!Number.isFinite(declaredTotal) || declaredTotal <= 0) return false;
+      if (!Number.isFinite(minimumRatio) || minimumRatio <= 0 || minimumRatio > 1) return false;
+      return identities.size >= Math.ceil(declaredTotal * minimumRatio);
     },
     get scannedRows() {
       return scannedRows;

@@ -51,8 +51,12 @@ const ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
 const QUARANTINE_PATH = path.join(ROOT, 'data/crawler-quarantine.json');
 const ASSIGNMENTS_PATH = path.join(ROOT, 'data/crawler-group-assignments.json');
 const DEFAULT_CORPUS_REPO = 'nanakokyobashi-rgb/frontaliere-articles';
+const DEFAULT_SITE_REPO = 'valerielinc-ops/frontaliere-si-o-no';
 const PR_BRANCH_PREFIX = 'crawler-quarantine/';
 const DEFAULT_WAVE_LIMIT = 30;
+const MAX_TRANSIENT_GH_MUTATION_ATTEMPTS = 3;
+const TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
+const TRANSIENT_GH_MUTATION_ERROR_RE = /(?:GraphQL:\s*Something went wrong|\b(?:HTTP\s*)?50[23]\b|bad gateway|service unavailable|timeout|timed?\s*out|ETIMEDOUT|ECONNRESET|EAI_AGAIN|socket hang up)/iu;
 
 function parseArgs(argv) {
   const args = { apply: false, openPr: false, wavesJson: null, now: null, limit: DEFAULT_WAVE_LIMIT, corpusRepo: DEFAULT_CORPUS_REPO };
@@ -76,6 +80,60 @@ function gh(args) {
 
 function ghJson(args) {
   return JSON.parse(gh(args));
+}
+
+function sleepForGithubMutationRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const wait = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(wait, 0, 0, delayMs);
+}
+
+function capturedGithubErrorOutput(error) {
+  if (typeof error === 'string') return error;
+  return [error?.message, error?.stderr, error?.stdout, error?.status]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? ''))
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function isTransientGithubMutationError(error) {
+  return TRANSIENT_GH_MUTATION_ERROR_RE.test(capturedGithubErrorOutput(error));
+}
+
+/**
+ * Retry a side-effecting gh mutation only after checking whether another
+ * writer already completed it. This makes a lost response from `gh pr
+ * create` idempotent without blindly submitting the mutation twice.
+ */
+export function withTransientGithubMutationRetry(operation, {
+  findExisting = () => null,
+  attemptLimit = MAX_TRANSIENT_GH_MUTATION_ATTEMPTS,
+  delaysMs = TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS,
+  sleep = sleepForGithubMutationRetry,
+  onRetry = () => {},
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('GitHub mutation retry operation must be a function');
+  if (typeof findExisting !== 'function') throw new TypeError('GitHub mutation existence lookup must be a function');
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
+    : MAX_TRANSIENT_GH_MUTATION_ATTEMPTS;
+  const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS;
+  const wait = typeof sleep === 'function' ? sleep : sleepForGithubMutationRetry;
+  const notify = typeof onRetry === 'function' ? onRetry : () => {};
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return { reused: false, value: operation(), attempts: attempt + 1 };
+    } catch (error) {
+      if (attempt + 1 >= attempts || !isTransientGithubMutationError(error)) throw error;
+      const existing = findExisting();
+      if (existing) return { reused: true, value: existing, attempts: attempt + 1 };
+      const delayMs = Number(delays[attempt]);
+      notify(attempt + 2, attempts, delayMs);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
+    }
+  }
+  throw new Error('GitHub mutation retry exhausted without an attempt');
 }
 
 /** Completed runs of the quarantine group, newest first, turned into waves. */
@@ -202,6 +260,52 @@ function openReviewPrExists() {
   return prs.find((pr) => String(pr.headRefName).startsWith(PR_BRANCH_PREFIX)) ?? null;
 }
 
+function findReviewPrByBranch(branch, state = 'open') {
+  const prs = ghJson(['pr', 'list', '--state', state, '--head', branch, '--limit', '10', '--json', 'number,url,state,headRefName']);
+  return prs.find((pr) => pr.headRefName === branch) ?? null;
+}
+
+function findOpenReviewPrByBranch(branch) {
+  return findReviewPrByBranch(branch, 'open');
+}
+
+function deletePushedBranchIfSafe(branch) {
+  if (!branch.startsWith(PR_BRANCH_PREFIX)) {
+    console.error(`::error::rifiuto di cancellare un branch fuori dal prefisso quarantena: ${branch}`);
+    return false;
+  }
+  const existingPr = findReviewPrByBranch(branch, 'all');
+  if (existingPr) {
+    console.error(`::warning::non cancello ${branch}: esiste gia' la PR #${existingPr.number} (${existingPr.state}); verificare e riusare quella PR.`);
+    return false;
+  }
+  const repository = process.env.GITHUB_REPOSITORY || DEFAULT_SITE_REPO;
+  const refPath = `repos/${repository}/git/ref/heads/${branch}`;
+  let ref;
+  try {
+    ref = ghJson(['api', refPath]);
+  } catch (error) {
+    if (/\b404\b|not found/i.test(capturedGithubErrorOutput(error))) {
+      console.warn(`branch remoto ${branch} gia' assente; nessun residuo da cancellare.`);
+      return true;
+    }
+    console.error(`::warning::impossibile verificare il branch remoto ${branch}: ${capturedGithubErrorOutput(error).slice(0, 240)}`);
+    return false;
+  }
+  if (ref?.ref !== `refs/heads/${branch}`) {
+    console.error(`::warning::rifiuto di cancellare il branch remoto inatteso ${branch}: ref non corrispondente.`);
+    return false;
+  }
+  try {
+    gh(['api', '-X', 'DELETE', refPath]);
+    console.warn(`branch remoto ${branch} cancellato dopo il fallimento della creazione PR.`);
+    return true;
+  } catch (error) {
+    console.error(`::warning::branch remoto ${branch} non cancellato dopo il fallimento della PR: ${capturedGithubErrorOutput(error).slice(0, 240)}`);
+    return false;
+  }
+}
+
 function changedWorkflowPaths() {
   const out = execFileSync('git', ['diff', '--name-only', '--', '.github/workflows', '.github/corpus-workflows'], { cwd: ROOT, encoding: 'utf8' });
   return out.split('\n').map((line) => line.trim()).filter(Boolean);
@@ -266,14 +370,44 @@ async function main() {
   const stamp = now.slice(0, 16).replace(/[-:T]/g, '');
   const branch = `${PR_BRANCH_PREFIX}review-${stamp}`;
   const git = (...a) => execFileSync('git', a, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
-  git('checkout', '-b', branch);
-  git('add', 'data/crawler-quarantine.json', 'data/crawler-group-assignments.json', 'scripts/ci/crawler-generation-roster.json', '.github/workflows', '.github/corpus-workflows');
-  const summary = mutating.map((d) => `${d.action} ${d.slug}`).join(', ');
-  git('commit', '-m', `chore(crawlers): quarantine review — ${summary}`);
-  git('push', '-u', 'origin', branch);
-  const url = gh(['pr', 'create', '--base', 'main', '--head', branch, '--title', `Quarantena crawler: ${summary}`.slice(0, 250), '--body-file', bodyFile]).trim();
-  fs.rmSync(bodyFile, { force: true });
-  console.log(`PR aperta: ${url}`);
+  let pushed = false;
+  try {
+    git('checkout', '-b', branch);
+    git('add', 'data/crawler-quarantine.json', 'data/crawler-group-assignments.json', 'scripts/ci/crawler-generation-roster.json', '.github/workflows', '.github/corpus-workflows');
+    const summary = mutating.map((d) => `${d.action} ${d.slug}`).join(', ');
+    git('commit', '-m', `chore(crawlers): quarantine review — ${summary}`);
+    git('push', '-u', 'origin', branch);
+    pushed = true;
+
+    const alreadyOpen = findOpenReviewPrByBranch(branch);
+    const result = alreadyOpen
+      ? { reused: true, value: alreadyOpen }
+      : withTransientGithubMutationRetry(
+        () => gh(['pr', 'create', '--base', 'main', '--head', branch, '--title', `Quarantena crawler: ${summary}`.slice(0, 250), '--body-file', bodyFile]).trim(),
+        {
+          findExisting: () => findOpenReviewPrByBranch(branch),
+          onRetry: (nextAttempt, attempts, delayMs) => {
+            console.warn(`::warning::gh pr create transitorio; controllo la PR del branch ${branch} e ritento ${nextAttempt}/${attempts} tra ${delayMs}ms`);
+          },
+        },
+      );
+    const url = result.reused
+      ? (result.value.url || `https://github.com/${process.env.GITHUB_REPOSITORY || DEFAULT_SITE_REPO}/pull/${result.value.number}`)
+      : result.value;
+    if (result.reused) console.log(`PR di review riusata: ${url}`);
+    else console.log(`PR aperta: ${url}`);
+  } catch (error) {
+    if (pushed) {
+      try {
+        deletePushedBranchIfSafe(branch);
+      } catch (cleanupError) {
+        console.error(`::warning::impossibile completare la pulizia del branch ${branch}: ${capturedGithubErrorOutput(cleanupError).slice(0, 240)}`);
+      }
+    }
+    throw error;
+  } finally {
+    fs.rmSync(bodyFile, { force: true });
+  }
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === SCRIPT_PATH) {

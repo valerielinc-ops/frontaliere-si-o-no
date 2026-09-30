@@ -196,6 +196,8 @@ describe('standard crawler authoritative-empty policy', () => {
     const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
     expect(counts.lastFetchOutcome).toBe('feed_endpoint_unavailable');
     expect(counts.abortKind).toBe('connection-level-fetch');
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
   });
 
   it('records an exhausted retry response in the exit-guard counters (#7854)', async () => {
