@@ -11,6 +11,7 @@ import {
   buildDescription,
   detectCategory,
   detectEmploymentType,
+  __testables,
 } from '../scripts/lib/holmes-place-job-parser.mjs';
 import { stripContactPII } from '../scripts/lib/strip-contact-pii.mjs';
 
@@ -205,7 +206,78 @@ describe('Holmes Place crawler parser', () => {
     });
   });
 
-  // ── buildDescription (safe-default description, no per-job detail page) ──
+  describe('rendered career markup extraction', () => {
+    it('extracts card headings and detail URLs instead of CTA labels', () => {
+      const html = `
+        <section class="career-list">
+          <article class="career-card">
+            <div class="location">Lausanne</div>
+            <h2>Personal Trainer (m/f/d)</h2>
+            <a href="/jobs/personal-trainer-m-f-d">Mehr erfahren</a>
+            <a href="/jobs/personal-trainer-m-f-d">sich bewerben</a>
+          </article>
+          <a href="/karriere/#apply">sich bewerben</a>
+        </section>`;
+
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(html);
+
+      expect(listings).toEqual([
+        {
+          title: 'Personal Trainer (m/f/d)',
+          location: 'Lausanne',
+          category: '',
+          url: 'https://www.holmesplace.ch/jobs/personal-trainer-m-f-d/',
+        },
+      ]);
+    });
+
+    it('reads the current CareerTable row shape and deduplicates repeated table/card probes', () => {
+      const html = `
+        <table class="c-careerTable">
+          <thead><tr><th>Berufsbezeichnung</th><th>Standort</th><th>Club</th></tr></thead>
+          <tbody>
+            <tr class="c-careerTable__row">
+              <td><a href="/jobs/fitness-manager-m-f-d">Fitness Manager (m/f/d)</a></td>
+              <td>Geneva</td>
+              <td>Holmes Place Geneva</td>
+            </tr>
+          </tbody>
+        </table>`;
+
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(html);
+
+      expect(listings).toHaveLength(1);
+      expect(listings[0]).toMatchObject({
+        title: 'Fitness Manager (m/f/d)',
+        location: 'Geneva',
+        url: 'https://www.holmesplace.ch/jobs/fitness-manager-m-f-d/',
+      });
+      expect(__testables.hasHolmesPlaceCareerMarkup(html)).toBe(true);
+    });
+
+    it('does not turn a standalone application CTA into a job', () => {
+      expect(
+        __testables.extractHolmesPlaceListingsFromHtml(
+          '<a href="/jobs/apply-now">sich bewerben</a>',
+        ),
+      ).toEqual([]);
+    });
+
+    it('keeps URL identity distinct when a table row has no detail link', () => {
+      const listings = __testables.extractHolmesPlaceListingsFromHtml(`
+        <table>
+          <tbody>
+            <tr><td>Club Manager</td><td>Lausanne</td></tr>
+            <tr><td>Club Manager</td><td>Geneva</td></tr>
+          </tbody>
+        </table>`);
+
+      expect(listings).toHaveLength(2);
+      expect(listings[0].url).not.toBe(listings[1].url);
+    });
+  });
+
+  // ── buildDescription (safe-default description from listing metadata) ──
   describe('buildDescription', () => {
     it('builds a description referencing the resolved city when a branch/city is known', () => {
       const description = buildDescription({ title: 'Personal Trainer', location: 'Lausanne', category: 'Fitness' });
