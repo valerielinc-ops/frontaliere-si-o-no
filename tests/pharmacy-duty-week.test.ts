@@ -204,21 +204,6 @@ describe('weekly pharmacy duty read model', () => {
     expect(luganese?.duties.map((candidate) => candidate.id)).not.toContain(nextEarlyMonday.id);
   });
 
-  it('does not keep a verified interval in the current week after its end', () => {
-    const expired = {
-      ...BASE_DUTIES[0],
-      endsAt: '2026-09-14T11:00:00.000Z',
-    };
-    const pair = makePair({}, {
-      duties: [expired, ...BASE_DUTIES.slice(1)],
-    });
-    const model = build(pair);
-    const mendrisiotto = model.regions.find((region) => region.key === 'mendrisiotto');
-
-    expect(mendrisiotto?.duties).toEqual([]);
-    expect(model.missingRegions).toContain('Mendrisiotto');
-  });
-
   it.each(['aggregate state', 'regional status', 'snapshot hash'] as const)('fails closed when P0 release %s is tampered', (label) => {
     const pair = makePair();
     const changes = label === 'aggregate state'

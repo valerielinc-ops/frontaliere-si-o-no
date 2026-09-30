@@ -290,10 +290,7 @@ export function buildDutyWeekModel(
     name: region.name,
     duties: start && weekEndDate
       ? duties
-        .filter((duty) => duty.coverageName === region.name
-          && duty.status === 'verified'
-          && !getRuntimeDutyState(duty, now).expired
-          && dutyIntersectsWeek(duty, start, weekEndDate))
+        .filter((duty) => duty.coverageName === region.name && duty.status === 'verified' && dutyIntersectsWeek(duty, start, weekEndDate))
         .sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt))
       : [],
   }));

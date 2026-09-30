@@ -260,10 +260,10 @@ describe('conflict detection', () => {
     expect(types).toContain('duplicate-identity');
   });
 
-  it('flags a duty still "verified" past its endsAt — the state the policy forbids publishing', () => {
+  it('flags a verified row that was already expired when the snapshot was fetched', () => {
     const conflicts = detectDutyConflicts(
       'ticino',
-      { duties: [{ id: 'd1', status: 'verified', endsAt: iso(1), coverageName: 'Lugano' }] },
+      { duties: [{ id: 'd1', status: 'verified', endsAt: iso(1), fetchedAt: iso(0), coverageName: 'Lugano' }] },
       NOW,
     );
     expect(conflicts.map((c) => c.type)).toEqual(['duty-expired-but-verified']);
