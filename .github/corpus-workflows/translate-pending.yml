@@ -87,13 +87,25 @@ jobs:
           fi
           guard_started_at=$SECONDS
           api_timeout_seconds=15
+          api_retry_limit=3
+          api_retry_delay_seconds=1
           guard_total_timeout_seconds=120
           guard_api() {
-            remaining_seconds=$((guard_total_timeout_seconds - (SECONDS - guard_started_at)))
-            if [ "$remaining_seconds" -le 0 ]; then return 124; fi
-            call_timeout_seconds="$api_timeout_seconds"
-            if [ "$call_timeout_seconds" -gt "$remaining_seconds" ]; then call_timeout_seconds="$remaining_seconds"; fi
-            timeout --kill-after=0s "${call_timeout_seconds}s" gh api "$@" 2>/dev/null
+            local attempt=1
+            local response
+            while :; do
+              remaining_seconds=$((guard_total_timeout_seconds - (SECONDS - guard_started_at)))
+              if [ "$remaining_seconds" -le 0 ]; then return 124; fi
+              call_timeout_seconds="$api_timeout_seconds"
+              if [ "$call_timeout_seconds" -gt "$remaining_seconds" ]; then call_timeout_seconds="$remaining_seconds"; fi
+              if response="$(timeout --kill-after=0s "${call_timeout_seconds}s" gh api "$@" 2>/dev/null)"; then
+                printf "%s" "$response"
+                return 0
+              fi
+              if [ "$attempt" -ge "$api_retry_limit" ]; then return 1; fi
+              attempt=$((attempt + 1))
+              sleep "$api_retry_delay_seconds"
+            done
           }
           active_runs=""
           for run_status in queued pending waiting requested in_progress; do
