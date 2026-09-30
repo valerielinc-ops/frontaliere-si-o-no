@@ -372,11 +372,48 @@ async function readBodyPrefix(stream, maxBytes = 8192) {
 
 // Detect on subject first (cheap); read the body only if needed. Shared by
 // both the outreach and newsletter paths so the "read body lazily" behavior
-// can't drift between them.
-async function classifyStopIntent(subject, message, patterns) {
+// can't drift between them. `prefix` is a body prefix already read by the
+// caller: message.raw is a stream and can be read only once.
+async function classifyStopIntent(subject, message, patterns, prefix = null) {
   if (isStopReply(subject, '', patterns)) return { stop: true, body: '' };
-  const body = await readBodyPrefix(message.raw);
+  const body = prefix ?? await readBodyPrefix(message.raw);
   return { stop: isStopReply(subject, body, patterns), body };
+}
+
+// The assisted-application concierge asks the customer to reply to valerie@
+// with the CV attached. A reply that may carry an attachment is handed, as the
+// raw message, to assistedApplicationEmailCv (Cloud Function), which attaches
+// the CV to the customer's order when the sender is authenticated and owns an
+// order waiting for it. The reply is forwarded to the human inbox as always.
+export const ASSISTED_CV_MAX_BYTES = 9 * 1024 * 1024;
+
+export function mayCarryAttachment(message) {
+  let type = '';
+  try { type = (message.headers && message.headers.get && message.headers.get('content-type')) || ''; } catch { type = ''; }
+  const size = Number(message?.rawSize) || 0;
+  return /multipart\/mixed/i.test(type) && (size === 0 || size <= ASSISTED_CV_MAX_BYTES);
+}
+
+async function readAllBytes(stream, maxBytes) {
+  if (!stream) return new Uint8Array(0);
+  const reader = stream.getReader();
+  const chunks = [];
+  let total = 0;
+  try {
+    while (total <= maxBytes) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      total += value.length;
+    }
+  } finally {
+    try { reader.releaseLock(); } catch { /* noop */ }
+  }
+  if (total > maxBytes) return null;
+  const merged = new Uint8Array(total);
+  let off = 0;
+  for (const chunk of chunks) { merged.set(chunk, off); off += chunk.length; }
+  return merged;
 }
 
 async function handleOutreachReply({ from, subject, message, env, ctx }) {
@@ -392,7 +429,21 @@ async function handleOutreachReply({ from, subject, message, env, ctx }) {
     ctx.waitUntil(track);
   }
 
-  const { stop, body } = await classifyStopIntent(subject, message);
+  let prefix = null;
+  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && mayCarryAttachment(message)) {
+    const bytes = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => null);
+    if (bytes) {
+      prefix = new TextDecoder('utf-8', { fatal: false }).decode(bytes.subarray(0, 8192));
+      const handoff = fetch(env.ASSISTED_CV_FN_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET },
+        body: bytes,
+      }).catch(() => { /* best-effort: the reply still reaches the human inbox */ });
+      ctx.waitUntil(handoff);
+    }
+  }
+
+  const { stop, body } = await classifyStopIntent(subject, message, undefined, prefix);
 
   if (stop && env.STOP_REPLY_FN_URL && env.STOP_SECRET) {
     // Fire-and-forget the suppression POST; never block forwarding on it.
