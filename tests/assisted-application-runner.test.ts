@@ -151,6 +151,8 @@ describe('draft mode', () => {
     const archive = JSON.parse(bucket.files.get(draft.archiveKey)!.toString('utf8'));
     expect(decryptJson(archive, KEY).postingText).toContain('Ospedale cerca');
     expect(draft.applicationEmail.body).toContain('Maria Rossi');
+    // The subject names the position and the candidate (the model's "Candidatura infermiera" is not used).
+    expect(draft.applicationEmail.subject).toMatch(/^Candidatura per la posizione di .+ – Maria Rossi$/);
   });
 
   it('writes the next round from the candidate as corrected on the review page', async () => {
@@ -209,6 +211,8 @@ describe('submit mode', () => {
     expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
+    // Sent in the candidate's name: no rewritten links, no open pixel.
+    expect(items[0].payload).toMatchObject({ tracking: false, openTracking: false });
   });
 
   it('fills the portal form with the corrections the candidate made on the review page', async () => {

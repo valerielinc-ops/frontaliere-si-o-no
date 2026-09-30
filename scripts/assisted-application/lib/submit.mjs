@@ -100,7 +100,9 @@ export async function submitApplication(ctx) {
       ...(identity.email ? { replyTo: identity.email } : {}),
       headers: { 'Message-ID': messageId },
       attachments,
+      // Sent in the candidate's name: no link rewriting and no open pixel.
       tracking: false,
+      openTracking: false,
     };
     // Durable idempotency per order and round (submission guard): a run the
     // watchdog re-dispatched never sends the application a second time.
