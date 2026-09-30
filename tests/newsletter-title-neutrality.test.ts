@@ -63,11 +63,15 @@ describe('newsletter titles stay audience-neutral', () => {
       }
     }
 
-    for (const file of ['services/newsletterPreview.ts', 'scripts/newsletter-qa.mjs']) {
-      const source = readFileSync(resolve(ROOT, file), 'utf8');
-      const titleLine = source.split('\n').find((line) => line.includes('Votazioni cantonali Ticino 2026:'));
-      expect(titleLine, `${file} missing preview article title`).toBeDefined();
-      expect(titleLine, `${file} uses an audience label`).not.toMatch(AUDIENCE_LABEL);
-    }
+    const previewSource = readFileSync(resolve(ROOT, 'services/newsletterPreview.ts'), 'utf8');
+    const previewTitleLine = previewSource
+      .split('\n')
+      .find((line) => line.includes('Votazioni cantonali Ticino 2026:'));
+    expect(previewTitleLine, 'services/newsletterPreview.ts missing preview article title').toBeDefined();
+    expect(previewTitleLine, 'services/newsletterPreview.ts uses an audience label').not.toMatch(AUDIENCE_LABEL);
+
+    const qaSource = readFileSync(resolve(ROOT, 'scripts/newsletter-qa.mjs'), 'utf8');
+    expect(qaSource).toContain('resolveNewsletterArticle');
+    expect(qaSource).not.toContain('Votazioni cantonali Ticino 2026:');
   });
 });
