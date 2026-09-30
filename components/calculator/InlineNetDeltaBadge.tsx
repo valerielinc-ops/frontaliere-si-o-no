@@ -17,6 +17,7 @@ function formatDeltaText(delta: number, currency: string, size: 'desktop' | 'mob
 const InlineNetDeltaBadge: React.FC<Props> = ({ delta, currency = 'CHF', size = 'desktop' }) => {
  const [visible, setVisible] = useState(true);
  const initialRender = useRef(true);
+ const badgeRef = useRef<HTMLSpanElement | null>(null);
 
  useEffect(() => {
   if (initialRender.current) {
@@ -25,6 +26,15 @@ const InlineNetDeltaBadge: React.FC<Props> = ({ delta, currency = 'CHF', size = 
   }
   setVisible(true);
  }, [delta]);
+
+ useEffect(() => {
+  const badge = badgeRef.current;
+  if (!badge) return;
+
+  const handleAnimationEnd = () => setVisible(false);
+  badge.addEventListener('animationend', handleAnimationEnd);
+  return () => badge.removeEventListener('animationend', handleAnimationEnd);
+ }, [visible]);
 
  if (Math.abs(delta) < 1 || !visible) return null;
 
@@ -40,10 +50,10 @@ const InlineNetDeltaBadge: React.FC<Props> = ({ delta, currency = 'CHF', size = 
 
  return (
  <span
+ ref={badgeRef}
  className={`${baseClasses} ${toneClasses}`}
  aria-live="polite"
  aria-atomic="true"
- onAnimationEnd={() => setVisible(false)}
  >
  {isPositive ? <ArrowUp size={iconSize} strokeWidth={3} /> : <ArrowDown size={iconSize} strokeWidth={3} />}
  {formatDeltaText(delta, currency, size as 'desktop' | 'mobile')}
