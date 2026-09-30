@@ -175,6 +175,7 @@ export async function submitApplication(ctx) {
         candidate: candidateForForm({ identity, profile: draft.profile, answers, draft, portalQuestions }),
         files,
         codex: ctx.codex,
+        accounts: ctx.accounts || null,
         log,
         dryRun: Boolean(ctx.dryRun),
         onBeforeSubmit: guard ? async () => { await guard.markClicked(Date.now()); clicked = true; } : null,

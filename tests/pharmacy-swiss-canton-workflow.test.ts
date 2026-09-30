@@ -7,10 +7,19 @@ const parser = readFileSync(new URL('../scripts/lib/pharmacy-swiss-canton-parser
 
 describe('Swiss canton pharmacy duty release', () => {
   it('runs in the single atomic pharmacy writer and stages the snapshot with its registry', () => {
-    expect(workflow).toContain('node scripts/import-pharmacy-duties-swiss-cantons.mjs');
-    expect(workflow).toContain('data/pharmacy-duties-swiss-cantons.json');
-    expect(workflow).toContain('data/pharmacy-sources-registry.json');
-    expect(workflow).toMatch(/node scripts\/import-pharmacy-duties-swiss-cantons\.mjs[\s\S]*?--regenerate-cmd[\s\S]*?node scripts\/import-pharmacy-duties-swiss-cantons\.mjs/);
+    const importer = workflow.indexOf('node scripts/import-pharmacy-duties-swiss-cantons.mjs');
+    const finalizer = workflow.indexOf('run: npm run pharmacies:import');
+    const checker = workflow.indexOf('run: npm run pharmacies:check');
+    const publisher = workflow.indexOf('scripts/lib/open-data-refresh-pr.sh');
+
+    expect(importer).toBeGreaterThan(-1);
+    expect(workflow).toContain('pull-requests: write');
+    expect(workflow).toContain('--path data/pharmacy-duties-swiss-cantons.json');
+    expect(workflow).toContain('--path data/pharmacy-sources-registry.json');
+    expect(workflow).not.toContain('--regenerate-cmd');
+    expect(finalizer).toBeGreaterThan(importer);
+    expect(checker).toBeGreaterThan(finalizer);
+    expect(publisher).toBeGreaterThan(checker);
   });
 
   it('fails closed when a Jura source changes or an identity cannot be resolved', () => {
