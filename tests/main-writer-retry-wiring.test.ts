@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
@@ -70,10 +71,24 @@ describe('main data writers use the shared retry contract', () => {
 
   it('bounds the exchange snapshot retry budget below its job timeout', () => {
     const workflow = read('.github/workflows/update-exchange-history.yml');
-    expect(workflow).toContain('timeout-minutes: 8');
-    expect(workflow).toContain(
-      'bash scripts/lib/git-push-with-retry.sh \\\n              --max-attempts 5',
+    const document = YAML.parse(workflow) as {
+      jobs?: {
+        update?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string }>;
+        };
+      };
+    };
+    const updateJob = document.jobs?.update;
+    const snapshotStep = updateJob?.steps?.find(
+      (step) => step.name === 'Commit SSG snapshot (if changed)',
     );
+    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
+
+    expect(updateJob, 'exchange history update job is missing').toBeDefined();
+    expect(snapshotStep, 'exchange snapshot commit step is missing').toBeDefined();
+    expect(maxAttempts, 'exchange snapshot retry cap is missing').toBe('5');
+    expect(Number(maxAttempts)).toBeLessThan(updateJob?.['timeout-minutes'] ?? 0);
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {
