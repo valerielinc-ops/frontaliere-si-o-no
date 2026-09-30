@@ -12,6 +12,7 @@ function read(relativePath: string): string {
 describe('crawler health state publication', () => {
   it('publishes the state through the shared PR path', () => {
     const workflow = read(WORKFLOW);
+    const publisher = read('scripts/lib/open-data-refresh-pr.sh');
 
     expect(workflow).toContain('pull-requests: write');
     expect(workflow).toContain('node scripts/load-rc-env.mjs');
@@ -24,6 +25,11 @@ describe('crawler health state publication', () => {
     expect(workflow).toContain('## Non implementato (ancora)');
     expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
     expect(workflow).not.toMatch(/git\s+push\b/);
+    expect(publisher).toContain('git config user.name "frontaliere-automation[bot]"');
+    expect(publisher).toContain(
+      'git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"',
+    );
+    expect(publisher).not.toContain('valerielinc@gmail.com');
   });
 
   it('keeps state persistence unconditional after the health verdict', () => {
