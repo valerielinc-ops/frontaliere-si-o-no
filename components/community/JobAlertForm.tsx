@@ -303,7 +303,13 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     locale: locale as "it" | "en" | "de" | "fr",
   }), [initialCantonCode, locale, oneTapKeyword]);
 
-  const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
+  const configIsEmpty = (c: JobAlertConfig): boolean => (
+    c.keywords.length === 0
+    && c.locations.length === 0
+    && c.contractTypes.length === 0
+    && c.sectors.length === 0
+    && !(c.cantonFilter?.length)
+  );
 
   const persistAlert = useCallback(
     async (
