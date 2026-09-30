@@ -20,8 +20,10 @@ jobs:
     # Alzato 8->10min: il Checkout da solo arriva gia' al 58% del vecchio cap
     # (vedi tetto sullo step sotto) — stesso sintomo di #5659 (Checkout che
     # mangia l'intero budget del job update-fuel-prices), qui prevenuto prima
-    # che diventi un timeout osservato.
-    timeout-minutes: 10
+    # che diventi un timeout osservato. The snapshot push still spent 8m23s
+    # in the main-writer convoy in #10457, so keep the checkout cap but extend
+    # the job budget for the bounded retry helper.
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
