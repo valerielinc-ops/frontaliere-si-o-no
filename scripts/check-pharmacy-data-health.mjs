@@ -464,7 +464,15 @@ export function detectDutyConflicts(key, doc, nowMs) {
       conflicts.push({ key, type: 'duty-conflicting', detail: `turno ${d.id ?? '?'} (${d.coverageName ?? '?'}) in stato conflicting` });
     }
     const endsAt = typeof d?.endsAt === 'string' ? Date.parse(d.endsAt) : NaN;
-    if (d?.status === 'verified' && Number.isFinite(endsAt) && endsAt < nowMs) {
+    // `verified` is the status captured by the source snapshot. A row naturally
+    // becomes historical after that snapshot was fetched; runtime consumers
+    // must apply the clock to decide whether it is still active. The data
+    // conflict is only a row that was already expired when it was fetched (or
+    // a row without a usable fetch timestamp, where the current clock is the
+    // only safe comparison point).
+    const fetchedAt = typeof d?.fetchedAt === 'string' ? Date.parse(d.fetchedAt) : NaN;
+    const comparisonMs = Number.isFinite(fetchedAt) ? fetchedAt : nowMs;
+    if (d?.status === 'verified' && Number.isFinite(endsAt) && endsAt <= comparisonMs) {
       conflicts.push({ key, type: 'duty-expired-but-verified', detail: `turno ${d.id ?? '?'} è "verified" ma endsAt ${d.endsAt} è passato` });
     }
   }
