@@ -164,9 +164,10 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     fs.writeFileSync(clusterPath, wrap([cluster]), 'utf-8');
     writePage(cluster, noindexBridge(cluster));
 
-    await reconcileFinalSitemapsWithDist(dist);
+    await reconcileFinalSitemapsWithDist(dist, [KNOWN_MIRROR]);
 
     expect(readSitemap()).not.toContain('ricerca-groupe-mutuel-emploi');
+    expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
     expect(fs.readFileSync(clusterPath, 'utf-8')).not.toContain('recherche-stale');
     expect(readSitemap()).toContain('sviluppatore-acme-lugano');
   });

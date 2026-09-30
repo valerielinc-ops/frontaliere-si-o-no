@@ -27,6 +27,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
 import {
+  getFinalSitemapMirrorLocs,
   reconcileSitemapJobsWithDist,
   reconcileSitemapSearchClustersWithDist,
 } from './relatedSearchClustersPlugin';
@@ -294,9 +295,10 @@ export function sanitizeSitemapHreflangReciprocity(
  */
 export async function reconcileFinalSitemapsWithDist(
   distDir: string,
+  mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
 ): Promise<void> {
   await reconcileSitemapSearchClustersWithDist(distDir);
-  await reconcileSitemapJobsWithDist(distDir, []);
+  await reconcileSitemapJobsWithDist(distDir, mirrorLocs);
 }
 
 export function sitemapAliasPlugin(rootDir: string): Plugin {
@@ -321,7 +323,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         //    producers' first passes run before later page emitters, so only
         //    this position can catch a late noindex, non-self-canonical, or
         //    redirect/missing overwrite in either family.
-        await reconcileFinalSitemapsWithDist(distDir);
+        await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized
