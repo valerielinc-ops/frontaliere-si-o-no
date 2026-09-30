@@ -4,14 +4,20 @@ on:
     - cron: '0 4 * * *'  # daily 04:00 UTC
   workflow_dispatch:
 
+env:
+  DATA_REFRESH_BRANCH: chore/build-evidence-and-tune
+
 jobs:
   build-evidence:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
       issues: write
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
@@ -72,22 +78,45 @@ jobs:
             exit 1
           fi
 
-      - name: Commit evidence
+      - name: Mint App token (primary PR identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Open PR with evidence snapshot
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          git config user.name "evidence-bot"
-          git config user.email "evidence-bot@frontaliereticino.ch"
           # Stage whichever evidence artifacts exist (embeddings.bin missing
           # if OPENAI_API_KEY is unset; meta JSON is always written).
-          for f in data/evidence-index.json data/article-embeddings.bin data/article-embeddings-meta.json; do
-            if [ -f "$f" ]; then git add "$f"; fi
+          paths=()
+          for file in data/evidence-index.json data/article-embeddings.bin data/article-embeddings-meta.json; do
+            if [ -f "$file" ]; then paths+=(--path "$file"); fi
           done
-          git pull --rebase --autostash origin main
-          if git diff --cached --quiet; then
-            echo "No evidence changes to commit"
+          if [ "${#paths[@]}" -eq 0 ]; then
+            echo "No evidence artifacts to publish"
             exit 0
           fi
-          git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
-          bash scripts/lib/git-push-with-retry.sh
+
+          body="$RUNNER_TEMP/build-evidence-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Automated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - Pubblica l'indice evidence e gli artefatti embeddings sul branch stabile ${DATA_REFRESH_BRANCH}; il required check vitest (unit + integration) li valida prima dell'ingresso su main.
+
+          ## Non implementato (ancora)
+          Nessuno — questa PR contiene gli artefatti evidence generati dal workflow.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            "${paths[@]}" \
+            --branch "$DATA_REFRESH_BRANCH" \
+            --commit-message "chore(evidence): refresh $(date -u +%Y-%m-%d)" \
+            --title "chore(data): refresh build evidence" \
+            --body-file "$body"
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -110,10 +139,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
       issues: write
     steps:
       - uses: actions/checkout@v7
         with:
+          ref: main
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -153,24 +184,49 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Pull latest evidence commit from build-evidence job
-        run: git pull --rebase --autostash origin main
+      - name: Load evidence snapshot from build-evidence job
+        run: |
+          set -euo pipefail
+          remote_branch="$(git ls-remote --heads origin "refs/heads/$DATA_REFRESH_BRANCH")"
+          if [ -n "$remote_branch" ]; then
+            git fetch --no-tags origin "$DATA_REFRESH_BRANCH"
+            git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD
+          else
+            echo "No evidence PR branch was created; using the current main snapshot."
+          fi
 
       - name: Tune discovery quota
         run: node scripts/tune-discovery-quota.mjs
 
-      - name: Commit tune state
+      - name: Mint App token (primary PR identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Update PR with tune state
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          git config user.name "tune-bot"
-          git config user.email "tune-bot@frontaliereticino.ch"
-          git add data/quota-state.json data/quota-history.jsonl 2>/dev/null || true
-          git pull --rebase --autostash origin main
-          if git diff --cached --quiet; then
-            echo "No tune changes to commit"
-            exit 0
-          fi
-          git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
-          bash scripts/lib/git-push-with-retry.sh
+          body="$RUNNER_TEMP/build-evidence-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Automated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - Pubblica indice evidence, embeddings e stato quota sul branch stabile ${DATA_REFRESH_BRANCH}; il required check vitest (unit + integration) valida l'aggiornamento prima dell'ingresso su main.
+
+          ## Non implementato (ancora)
+          Nessuno — questa PR contiene tutti gli snapshot generati dal workflow.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/quota-state.json \
+            --path data/quota-history.jsonl \
+            --branch "$DATA_REFRESH_BRANCH" \
+            --commit-message "chore(tune): quota update $(date -u +%Y-%m-%d)" \
+            --title "chore(data): refresh build evidence and tune quota" \
+            --body-file "$body"
 
       - name: Report failure to GitHub Issues
         if: failure()

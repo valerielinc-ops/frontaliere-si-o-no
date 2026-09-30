@@ -225,9 +225,8 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Run URL Inspection sweep/u,
     /Run Cloudflare edge 404 sweep/u,
     /Prune non-resolving/u,
-    /Commit and push$/u,
-    /Re-mint App token/u,
-    /Trigger deploy if compat changed/u,
+    /Mint App token for refresh PR/u,
+    /Open PR with discovered 404 data/u,
   ],
   'discover-404s-via-cloudflare.yml': [
     /Run Cloudflare 404 sweep/u,
