@@ -461,7 +461,14 @@ describe('workflow wiring without the human approval gate', () => {
       }
 
       if (commitName) {
-        expect(step(source, commitName), name + ' / ledger commit guard').toContain(TRUSTED_SCHEDULE_LIVE_FLAG);
+        // main renamed Telegram's ledger commit step to an explicit PR step;
+        // keep the branch-local pre-rename fixture covered while the PR merge
+        // ref tests the current workflow from main.
+        const ledgerStepName = name === 'telegram-channel-broadcast.yml'
+          && source.includes('- name: Open PR with posted ledgers')
+          ? 'Open PR with posted ledgers'
+          : commitName;
+        expect(step(source, ledgerStepName), name + ' / ledger commit guard').toContain(TRUSTED_SCHEDULE_LIVE_FLAG);
       }
     }
   });
