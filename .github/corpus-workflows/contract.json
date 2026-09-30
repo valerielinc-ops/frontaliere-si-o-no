@@ -4,11 +4,11 @@
   "generatorSha256": "bda4e0ed8769f06d2238eb2fdad49e8c813181abeb7c8fe0bfa07d27ed17a756",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "bfd1cb4e0493b37ae83e95a4f0b70a8b15086423",
+  "sourceCommit": "ce03cf5abb3982b4e8afa416df711d35204214cf",
   "artifactObservation": {
     "generatorSha256": "bda4e0ed8769f06d2238eb2fdad49e8c813181abeb7c8fe0bfa07d27ed17a756",
     "sourceRef": "main",
-    "sourceCommit": "bfd1cb4e0493b37ae83e95a4f0b70a8b15086423"
+    "sourceCommit": "ce03cf5abb3982b4e8afa416df711d35204214cf"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -71,6 +71,7 @@
     "scripts/rollup-translation-observability.mjs",
     "scripts/scatter-jobs-to-slices.mjs",
     "scripts/translate-repair-lane-gate.mjs",
+    "scripts/translation-provider-readiness.mjs",
     "scripts/translation-shadow-preflight-v2.mjs",
     "scripts/update-1a-hunkeler-jobs.mjs",
     "scripts/update-aarreha-schinznach-jobs.mjs",
@@ -1485,8 +1486,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "d1bc9b5daadcb55c364c41a8128a8698a7803536b4a3e2f937ddfc9e6bd011d6",
-      "artifactSha256": "62a1ab71cde1a6a8a83c348626e11f53b8e1ebac50b361f0b933f7cdc3f5280c",
+      "sourceSha256": "a0c1b460c1de5d1e6f7c01e6cb6a4c2e5b57fc8eab055b4c4ffd4df447586ae9",
+      "artifactSha256": "ee85c5a8734ed061072d7ce086f56ef9fc41cb1294a365a9c0fa4d50f8863dd9",
       "generatorSha256": "bda4e0ed8769f06d2238eb2fdad49e8c813181abeb7c8fe0bfa07d27ed17a756",
       "members": []
     }

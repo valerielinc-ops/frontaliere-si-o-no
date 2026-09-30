@@ -206,6 +206,30 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # One verdict per translation provider on every credentialed run: Phase
+      # 2b usually stops at its deadline before calling any of them, so the
+      # cascade summary never showed revoked Azure keys or the Google tier
+      # refused on every call. DeepL is read through /v2/usage (no characters);
+      # Azure and Google get a two-character request each.
+      - name: Probe translation provider readiness
+        id: provider_readiness
+        continue-on-error: true
+        run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
+
+      # A provider whose every credential is rejected is an owner action
+      # (rotate it in Remote Config): one deduplicated needs-human issue per
+      # provider, closed by the first run in which the provider answers again.
+      - name: Alert on rejected translation credentials (dedup, zero-Claude)
+        if: steps.provider_readiness.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/translation-provider-readiness.mjs \
+            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
       # note and crawler-group-NN-logic.yml's identical step for the full
       # chicken-and-egg rationale.

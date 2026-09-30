@@ -1,0 +1,106 @@
+import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import YAML from 'yaml';
+import {
+  credentialAlertTitle,
+  formatCredentialAlert,
+  probeAzure,
+  probeDeepL,
+  probeGoogleCloud,
+  rejectedProviders,
+} from '../scripts/translation-provider-readiness.mjs';
+
+type Reply = { status: number; body?: unknown };
+const fetcherFrom = (reply: (url: string, init: { body?: string; headers?: Record<string, string> }) => Reply) =>
+  (async (url: string, init: { body?: string; headers?: Record<string, string> } = {}) => {
+    const { status, body = {} } = reply(String(url), init);
+    return { ok: status >= 200 && status < 300, status, json: async () => body, text: async () => JSON.stringify(body) };
+  }) as unknown as typeof globalThis.fetch;
+
+describe('translation provider readiness probe', () => {
+  it('reads DeepL usage without translating, and tells an exhausted key from a rejected one', async () => {
+    const urls: string[] = [];
+    const usage = (count: number) => fetcherFrom((url) => { urls.push(url); return { status: 200, body: { character_count: count, character_limit: 500000 } }; });
+    expect((await probeDeepL('DEEPL_API_KEY', 'k:fx', { fetcher: usage(500000) })).verdict).toBe('quota-exhausted');
+    expect((await probeDeepL('DEEPL_API_KEY', 'k:fx', { fetcher: usage(120) })).verdict).toBe('ok');
+    expect((await probeDeepL('DEEPL_API_KEY', 'k:fx', { fetcher: fetcherFrom(() => ({ status: 403 })) })).verdict).toBe('auth-failed');
+    expect((await probeDeepL('DEEPL_API_KEY_2', '', { fetcher: usage(0) })).verdict).toBe('not-configured');
+    expect(urls.every((url) => url === 'https://api-free.deepl.com/v2/usage')).toBe(true);
+  });
+
+  it('marks Azure 401001 as a rejected credential and 429 as quota', async () => {
+    const rejected = await probeAzure('AZURE_TRANSLATOR_KEY', 'k', { fetcher: fetcherFrom(() => ({ status: 401, body: { error: { code: 401001 } } })) });
+    expect(rejected).toMatchObject({ verdict: 'auth-failed', detail: 'HTTP 401 (401001), region=westeurope' });
+    expect((await probeAzure('AZURE_TRANSLATOR_KEY', 'k', { fetcher: fetcherFrom(() => ({ status: 429 })) })).verdict).toBe('quota-exhausted');
+    expect((await probeAzure('AZURE_TRANSLATOR_KEY', 'k', { fetcher: fetcherFrom(() => ({ status: 200, body: [] })) })).verdict).toBe('ok');
+  });
+
+  it('probes Google with the service account first and separates scope errors from the daily cap', async () => {
+    const serviceAccount = { client_email: 'sa@x', private_key: 'k', project_id: 'frontaliere-ticino' };
+    const oauth = { clientId: 'id', clientSecret: 's', refreshToken: 'r' };
+    const translation = (reply: Reply) => fetcherFrom((url) => (url.startsWith('https://translation.googleapis.com/') ? reply : { status: 200, body: { access_token: 'gsc' } }));
+
+    const ok = await probeGoogleCloud({ fetcher: translation({ status: 200 }), serviceAccount, oauth, serviceAccountToken: async () => 'sa-token' });
+    expect(ok).toMatchObject({ credential: 'service-account', verdict: 'ok' });
+
+    const cap = await probeGoogleCloud({
+      fetcher: translation({ status: 403, body: { error: { message: 'User Rate Limit Exceeded', errors: [{ reason: 'userRateLimitExceeded' }] } } }),
+      serviceAccount, oauth, serviceAccountToken: async () => 'sa-token',
+    });
+    expect(cap.verdict).toBe('quota-exhausted');
+
+    // Service account refused → GSC OAuth fallback, whose token lacks the scope.
+    const scope = await probeGoogleCloud({
+      fetcher: translation({ status: 403, body: { error: { status: 'PERMISSION_DENIED', details: [{ reason: 'ACCESS_TOKEN_SCOPE_INSUFFICIENT' }] } } }),
+      serviceAccount, oauth, serviceAccountToken: async () => { throw new Error('invalid_grant'); },
+    });
+    expect(scope).toMatchObject({ credential: 'oauth', verdict: 'auth-failed' });
+    expect(scope.detail).toContain('ACCESS_TOKEN_SCOPE_INSUFFICIENT');
+
+    const none = await probeGoogleCloud({ fetcher: translation({ status: 200 }), serviceAccount: null, oauth: { clientId: '', clientSecret: '', refreshToken: '' } });
+    expect(none.verdict).toBe('not-configured');
+  });
+
+  it('alerts only on providers whose every configured credential is rejected', () => {
+    const results = [
+      { provider: 'deepl', credential: 'DEEPL_API_KEY', verdict: 'quota-exhausted' },
+      { provider: 'deepl', credential: 'DEEPL_API_KEY_2', verdict: 'quota-exhausted' },
+      { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'auth-failed', detail: 'HTTP 401 (401001)' },
+      { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY_2', verdict: 'auth-failed', detail: 'HTTP 401 (401001)' },
+      { provider: 'google-cloud', credential: 'service-account', verdict: 'ok' },
+    ];
+    expect(rejectedProviders(results)).toEqual(['azure']);
+    expect(rejectedProviders([
+      { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY', verdict: 'auth-failed' },
+      { provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY_2', verdict: 'ok' },
+    ])).toEqual([]);
+    expect(rejectedProviders([{ provider: 'azure', credential: 'AZURE_TRANSLATOR_KEY_2', verdict: 'not-configured' }])).toEqual([]);
+
+    const title = credentialAlertTitle('azure');
+    expect(title).toBe('Azure Translator credentials rejected — rotate them in Remote Config');
+    expect(title).not.toMatch(/\d/);
+    const body = formatCredentialAlert('azure', results, { runUrl: 'https://github.com/o/r/actions/runs/1' });
+    for (const field of ['- CAUSA:', '- FIX:', '- METRICA:', '| COMANDO:', '- OSSERVATORE:', 'AZURE_TRANSLATOR_KEY', 'Run: https://github.com/o/r/actions/runs/1']) {
+      expect(body).toContain(field);
+    }
+  });
+
+  it('runs on every credentialed translate-pending run and never writes issues in a dry run', () => {
+    const logic = YAML.parse(readFileSync(new URL('../.github/workflows/translate-pending-logic.yml', import.meta.url), 'utf8'));
+    const steps = Object.values(logic.jobs as Record<string, { steps?: Array<Record<string, string>> }>)
+      .flatMap((job) => job.steps ?? []);
+    const names = steps.map((step) => step.name);
+    const load = names.indexOf('Load RC secrets');
+    expect(names[load + 1]).toBe('Probe translation provider readiness');
+    const probe = steps[load + 1];
+    expect(String(probe['continue-on-error'])).toBe('true');
+    expect(probe.run).toContain('scripts/translation-provider-readiness.mjs');
+    const alert = steps[load + 2];
+    expect(alert.name).toBe('Alert on rejected translation credentials (dedup, zero-Claude)');
+    expect(alert.if).toContain("steps.provider_readiness.outcome == 'success'");
+    expect(alert.if).toContain('inputs.dry_run != true');
+
+    const artifact = readFileSync(new URL('../.github/corpus-workflows/translate-pending.yml', import.meta.url), 'utf8');
+    expect(artifact).toContain('Probe translation provider readiness');
+  });
+});

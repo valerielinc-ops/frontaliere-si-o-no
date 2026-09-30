@@ -31,7 +31,8 @@
  */
 
 import { performance } from 'node:perf_hooks';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { getServiceAccountAccessToken } from './google-service-account-token.mjs';
 import { translateWithMyMemory } from './mymemory-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms, normalizeProtectedTokenSentinels } from './translation-glossary.mjs';
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
@@ -62,8 +63,29 @@ let _azureExhaustedKeys = new Set();
 
 // Google Cloud Translation (official API, free tier: 500K chars/month)
 // Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing.
-// Authenticates via OAuth2 using the same GSC credentials (no API key needed).
+// Authenticates with the workflow's service account (GOOGLE_APPLICATION_CREDENTIALS)
+// under the cloud-translation scope, then falls back to the GSC OAuth refresh
+// token. That token alone never worked here: it carries only the webmasters,
+// analytics.readonly and indexing scopes, so every call answered
+// 403 ACCESS_TOKEN_SCOPE_INSUFFICIENT (measured 2026-09-30, the same failure
+// the corpus twin fixed in nanakokyobashi-rgb/frontaliere-articles#1987).
+// translate-pending runs THIS file, so the corpus fix never reached it.
 const GCP_PROJECT_ID = (process.env.VITE_FIREBASE_PROJECT_ID || process.env.GCP_PROJECT_ID || 'frontaliere-ticino').trim();
+const GOOGLE_CLOUD_SCOPE = 'https://www.googleapis.com/auth/cloud-translation';
+const _gcServiceAccount = (() => {
+  const path = (process.env.GOOGLE_APPLICATION_CREDENTIALS || '').trim();
+  if (!path || !existsSync(path)) return null;
+  try {
+    const credentials = JSON.parse(readFileSync(path, 'utf8'));
+    return credentials?.client_email && credentials?.private_key && credentials?.project_id
+      ? credentials
+      : null;
+  } catch {
+    return null;
+  }
+})();
+const _gcServiceAccountAvailable = !!_gcServiceAccount;
+const _gcServiceAccountToken = { accessToken: '', expiresAt: 0, refused: false };
 const _gcOAuth = {
   clientId: (process.env.GSC_CLIENT_ID || '').trim(),
   clientSecret: (process.env.GSC_CLIENT_SECRET || '').trim(),
@@ -76,6 +98,15 @@ const _gcOAuthAvailable = !!(
 );
 let _googleCloudDailyChars = 0;
 const GOOGLE_CLOUD_DAILY_LIMIT = 16000;
+// The tier returns '' without throwing, so `tierErrors` never sees a refusal:
+// the summary said `0/16000 daily chars used` both for «never called» and for
+// «every call refused», which is how the 403s above stayed invisible.
+let _googleCloudLastFailure = '';
+let _googleCloudFailures = 0;
+function _noteGoogleCloudFailure(reason) {
+  _googleCloudLastFailure = reason;
+  _googleCloudFailures += 1;
+}
 
 // Hugging Face OPUS-MT (Helsinki-NLP open-source translation models)
 const HF_TOKEN = (process.env.HF_TOKEN || process.env.HUGGINGFACE_API_KEY || '').trim();
@@ -309,8 +340,14 @@ export function logCascadeSummary() {
     const maxCalls = _codexBudget('FREE_TRANSLATE_CODEX_MAX_CALLS', CODEX_TRANSLATE_MAX_CALLS_DEFAULT);
     console.log(`   🤖 Codex Luna Max: ${_codexCalls}/${maxCalls} calls (${_codexTexts} texts), ${Math.round(_codexSpentNow() / 1000)}s${_codexStopReason ? ` (stopped: ${_codexStopReason})` : ''}`);
   }
-  const gcAuth = _gcOAuthAvailable ? 'OAuth2' : 'none';
-  console.log(`   🔑 Google Cloud Translation: auth=${gcAuth}, ${_googleCloudDailyChars}/${GOOGLE_CLOUD_DAILY_LIMIT} daily chars used`);
+  const gcAuth = [
+    _gcServiceAccountAvailable ? 'service-account' : '',
+    _gcOAuthAvailable ? 'OAuth2' : '',
+  ].filter(Boolean).join('+') || 'none';
+  const gcFailures = _googleCloudFailures > 0
+    ? `, ${_googleCloudFailures} refused (last: ${_googleCloudLastFailure})`
+    : '';
+  console.log(`   🔑 Google Cloud Translation: auth=${gcAuth}, ${_googleCloudDailyChars}/${GOOGLE_CLOUD_DAILY_LIMIT} daily chars used${gcFailures}`);
 }
 
 /**
@@ -1540,8 +1577,34 @@ export function setCodexTranslateCallForTests(fn) {
 
 // ── Google Cloud Translation (official API, 500K free/month) ───────────────
 
-/** Exchange OAuth2 refresh token for a short-lived access token. */
+/**
+ * Short-lived access token for Cloud Translation: the service account under
+ * the cloud-translation scope first, the GSC OAuth refresh token only when no
+ * service account is configured or its exchange fails.
+ */
 async function _getGoogleCloudAccessToken() {
+  if (_gcServiceAccountAvailable && !_gcServiceAccountToken.refused) {
+    if (_gcServiceAccountToken.accessToken && Date.now() < _gcServiceAccountToken.expiresAt - 60_000) {
+      return _gcServiceAccountToken.accessToken;
+    }
+    try {
+      const token = await getServiceAccountAccessToken(_gcServiceAccount, GOOGLE_CLOUD_SCOPE);
+      if (token) {
+        _gcServiceAccountToken.accessToken = token;
+        // The helper returns only the token: cache it for the one-hour lifetime
+        // of a service-account JWT so the cascade does not sign one per field.
+        _gcServiceAccountToken.expiresAt = Date.now() + 3_600_000;
+        return token;
+      }
+    } catch {
+      // The exchange already spent its own retry budget (up to 7 attempts on
+      // 429/5xx/timeouts): trying again for every field would repeat that
+      // wait, so a refused service account stays refused for this process.
+      _gcServiceAccountToken.refused = true;
+      _noteGoogleCloudFailure('service-account-token-unavailable');
+    }
+  }
+  if (!_gcOAuthAvailable) return '';
   if (_gcOAuth.accessToken && Date.now() < _gcOAuth.expiresAt - 60_000) {
     return _gcOAuth.accessToken;
   }
@@ -1566,7 +1629,7 @@ async function _getGoogleCloudAccessToken() {
 export async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
-  if (!_gcOAuthAvailable) {
+  if (!_gcOAuthAvailable && !_gcServiceAccountAvailable) {
     if (outcome) outcome.tierUnavailable = true;
     return '';
   }
@@ -1578,6 +1641,7 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
   try {
     const token = await _getGoogleCloudAccessToken();
     if (!token) {
+      _noteGoogleCloudFailure('access-token-unavailable');
       noteTranslationOutcome(outcome, 'incomplete');
       return '';
     }
@@ -1593,10 +1657,12 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     if (res.status === 403 || res.status === 429) {
+      _noteGoogleCloudFailure(`HTTP ${res.status}`);
       noteTranslationOutcome(outcome, 'incomplete');
-      return ''; // quota exceeded
+      return ''; // quota exceeded, or API/scope not enabled for this token
     }
     if (!res.ok) {
+      _noteGoogleCloudFailure(`HTTP ${res.status}`);
       noteTranslationOutcome(outcome, 'incomplete');
       return '';
     }
@@ -1612,7 +1678,8 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
     // rispettare. Il giudizio «e' la sorgente?» e' salito in `tryTier`.
     _googleCloudDailyChars += clean.length;
     return translated;
-  } catch {
+  } catch (error) {
+    _noteGoogleCloudFailure(error?.name === 'TimeoutError' ? 'timeout' : 'request-error');
     noteTranslationOutcome(outcome, 'incomplete');
     return '';
   }
