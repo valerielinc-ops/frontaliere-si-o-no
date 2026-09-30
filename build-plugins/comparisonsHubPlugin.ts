@@ -439,7 +439,9 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml already provides the crawler-facing <main> landmark.
+  // Keep this class on a neutral wrapper so the page has one main landmark.
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</div>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
