@@ -213,8 +213,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Generate and upload fuel prices/u,
     /Persist daily snapshot/u,
     /Snapshot fuel history/u,
-    /Commit repo cache/u,
-    /Trigger deploy workflow/u,
+    /Open PR with fuel price cache/u,
   ],
   'backfill-expired-from-history.yml': [
     /Recover dropped jobs/u,
