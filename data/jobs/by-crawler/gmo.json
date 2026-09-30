@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "gmo-06d32a1fe66e",
-      "slug": "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f",
+      "slug": "assistente-medico-in-pediatria-gmo-1213-onex-06d32a1f",
       "slugByLocale": {
         "fr": "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f",
-        "it": "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f",
-        "en": "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f",
+        "it": "assistente-medico-in-pediatria-gmo-1213-onex-06d32a1f",
+        "en": "assistant-physician-in-paediatrics-gmo-1213-onex-06d32a1f",
         "de": "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f"
       },
       "slugDisambiguator": "06d32a1f",
@@ -66,16 +66,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.488Z"
+      "firstSeenAt": "2026-09-29T21:15:39.488Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f"
+        ],
+        "en": [
+          "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-assistant-en-pediatrie-gmo-1213-onex-06d32a1f"
+      ]
     },
     {
       "id": "gmo-354a73f974f2",
-      "slug": "medecin-expert-gmo-1213-petit-lancy-354a73f9",
+      "slug": "medico-esperto-gmo-1213-petit-lancy-354a73f9",
       "slugByLocale": {
         "fr": "medecin-expert-gmo-1213-petit-lancy-354a73f9",
-        "it": "medecin-expert-gmo-1213-petit-lancy-354a73f9",
-        "en": "medecin-expert-gmo-1213-petit-lancy-354a73f9",
-        "de": "medecin-expert-gmo-1213-petit-lancy-354a73f9"
+        "it": "medico-esperto-gmo-1213-petit-lancy-354a73f9",
+        "en": "expert-physician-gmo-1213-petit-lancy-354a73f9",
+        "de": "facharzt-gmo-1213-petit-lancy-354a73f9"
       },
       "slugDisambiguator": "354a73f9",
       "company": "gmo",
@@ -132,16 +143,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.487Z"
+      "firstSeenAt": "2026-09-29T21:15:39.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-expert-gmo-1213-petit-lancy-354a73f9"
+        ],
+        "en": [
+          "medecin-expert-gmo-1213-petit-lancy-354a73f9"
+        ],
+        "de": [
+          "medecin-expert-gmo-1213-petit-lancy-354a73f9"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-expert-gmo-1213-petit-lancy-354a73f9"
+      ]
     },
     {
       "id": "gmo-ecfa03f8bb0f",
-      "slug": "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8",
+      "slug": "specialista-medico-fmh-gmo-1023-crissier-ecfa03f8",
       "slugByLocale": {
         "fr": "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8",
-        "it": "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8",
-        "en": "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8",
-        "de": "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8"
+        "it": "specialista-medico-fmh-gmo-1023-crissier-ecfa03f8",
+        "en": "medical-specialist-fmh-gmo-1023-crissier-ecfa03f8",
+        "de": "medizinischer-facharzt-fmh-gmo-1023-crissier-ecfa03f8"
       },
       "slugDisambiguator": "ecfa03f8",
       "company": "gmo",
@@ -198,16 +223,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.486Z"
+      "firstSeenAt": "2026-09-29T21:15:39.486Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8"
+        ],
+        "en": [
+          "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8"
+        ],
+        "de": [
+          "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-fmh-gmo-1023-crissier-ecfa03f8"
+      ]
     },
     {
       "id": "gmo-785f6aa1a91e",
-      "slug": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
+      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
       "slugByLocale": {
         "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
-        "it": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
-        "en": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1",
-        "de": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
+        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
+        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1"
       },
       "slugDisambiguator": "785f6aa1",
       "company": "gmo",
@@ -264,16 +303,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.486Z"
+      "firstSeenAt": "2026-09-29T21:15:39.486Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        ],
+        "en": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        ],
+        "de": [
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
+      ]
     },
     {
       "id": "gmo-7911830dc886",
-      "slug": "medecin-interniste-generaliste-gmo-1213-onex-7911830d",
+      "slug": "medico-internista-generale-gmo-1213-onex-7911830d",
       "slugByLocale": {
         "fr": "medecin-interniste-generaliste-gmo-1213-onex-7911830d",
-        "it": "medecin-interniste-generaliste-gmo-1213-onex-7911830d",
-        "en": "medecin-interniste-generaliste-gmo-1213-onex-7911830d",
-        "de": "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        "it": "medico-internista-generale-gmo-1213-onex-7911830d",
+        "en": "generalist-internist-doctor-gmo-1213-onex-7911830d",
+        "de": "generalist-internist-arzt-gmo-1213-onex-7911830d"
       },
       "slugDisambiguator": "7911830d",
       "company": "gmo",
@@ -330,16 +383,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.484Z"
+      "firstSeenAt": "2026-09-29T21:15:39.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        ],
+        "en": [
+          "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        ],
+        "de": [
+          "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+      ]
     },
     {
       "id": "gmo-2d02ba119d36",
-      "slug": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
+      "slug": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
       "slugByLocale": {
         "fr": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
-        "it": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
-        "en": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11",
-        "de": "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+        "it": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
+        "en": "physician-mebeko-fmh-intermediate-care-unit-uatm-gmo-1213-onex-2d02ba11",
+        "de": "arzt-mebeko-fmh-intermediate-care-unit-uatm-gmo-1213-onex-2d02ba11"
       },
       "slugDisambiguator": "2d02ba11",
       "company": "gmo",
@@ -396,16 +463,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.483Z"
+      "firstSeenAt": "2026-09-29T21:15:39.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+        ],
+        "en": [
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+        ],
+        "de": [
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-gmo-1213-onex-2d02ba11"
+      ]
     },
     {
       "id": "gmo-69ead8a8b120",
-      "slug": "pharmacien-ne-gmo-1213-onex-69ead8a8",
+      "slug": "farmaceutici-gmo-1213-onex-69ead8a8",
       "slugByLocale": {
         "fr": "pharmacien-ne-gmo-1213-onex-69ead8a8",
-        "it": "pharmacien-ne-gmo-1213-onex-69ead8a8",
-        "en": "pharmacien-ne-gmo-1213-onex-69ead8a8",
-        "de": "pharmacien-ne-gmo-1213-onex-69ead8a8"
+        "it": "farmaceutici-gmo-1213-onex-69ead8a8",
+        "en": "pharmaceuticals-gmo-1213-onex-69ead8a8",
+        "de": "pharmazeutika-gmo-1213-onex-69ead8a8"
       },
       "slugDisambiguator": "69ead8a8",
       "company": "gmo",
@@ -462,16 +543,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.482Z"
+      "firstSeenAt": "2026-09-29T21:15:39.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmacien-ne-gmo-1213-onex-69ead8a8"
+        ],
+        "en": [
+          "pharmacien-ne-gmo-1213-onex-69ead8a8"
+        ],
+        "de": [
+          "pharmacien-ne-gmo-1213-onex-69ead8a8"
+        ]
+      },
+      "previousSlugs": [
+        "pharmacien-ne-gmo-1213-onex-69ead8a8"
+      ]
     },
     {
       "id": "gmo-45ad69cc39fe",
-      "slug": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc",
+      "slug": "un-infermiera-d-emergenza-gmo-1213-onex-45ad69cc",
       "slugByLocale": {
         "fr": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc",
-        "it": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc",
-        "en": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc",
-        "de": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc"
+        "it": "un-infermiera-d-emergenza-gmo-1213-onex-45ad69cc",
+        "en": "an-emergency-nurse-gmo-1213-onex-45ad69cc",
+        "de": "eine-notfallkrankenschwester-gmo-1213-onex-45ad69cc"
       },
       "slugDisambiguator": "45ad69cc",
       "company": "gmo",
@@ -528,7 +623,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:15:39.482Z"
+      "firstSeenAt": "2026-09-29T21:15:39.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc"
+        ],
+        "en": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc"
+        ],
+        "de": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc"
+      ]
     },
     {
       "id": "gmo-4b5a5ae3e4b8",
@@ -581,14 +690,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "experts-medicaux-gmo-ch",
-        "experts-medicaux-gmo-1213-petit-lancy-4b5a5ae3",
-        "esperti-medici-gmo-lugano"
+        "experts-medicaux-gmo-1213-petit-lancy-4b5a5ae3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "experts-medicaux-gmo-ch",
-          "experts-medicaux-gmo-1213-petit-lancy-4b5a5ae3",
-          "esperti-medici-gmo-lugano"
+          "experts-medicaux-gmo-1213-petit-lancy-4b5a5ae3"
         ],
         "en": [
           "experts-medicaux-gmo-ch"
@@ -666,14 +773,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-pediatrique-gmo-ch",
-        "infirmier-ere-pediatrique-gmo-1213-onex-576ebe7a",
-        "infermiere-pediatrico-gmo-lugano"
+        "infirmier-ere-pediatrique-gmo-1213-onex-576ebe7a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-pediatrique-gmo-ch",
-          "infirmier-ere-pediatrique-gmo-1213-onex-576ebe7a",
-          "infermiere-pediatrico-gmo-lugano"
+          "infirmier-ere-pediatrique-gmo-1213-onex-576ebe7a"
         ],
         "en": [
           "infirmier-ere-pediatrique-gmo-ch"
@@ -751,14 +856,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-medical-e-gmo-ch",
-        "assistant-e-medical-e-gmo-1213-onex-2d73a3ff",
-        "assistente-medico-gmo-lugano"
+        "assistant-e-medical-e-gmo-1213-onex-2d73a3ff"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-gmo-ch",
-          "assistant-e-medical-e-gmo-1213-onex-2d73a3ff",
-          "assistente-medico-gmo-lugano"
+          "assistant-e-medical-e-gmo-1213-onex-2d73a3ff"
         ],
         "fr": [
           "assistant-e-medical-e-gmo-ch"
@@ -830,14 +933,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conducteur-rice-de-travaux-junior-gmo-ch",
-        "conducteur-rice-de-travaux-junior-gmo-1213-onex-f1bf9caf",
-        "junior-lavoratore-gmo-lugano"
+        "conducteur-rice-de-travaux-junior-gmo-1213-onex-f1bf9caf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conducteur-rice-de-travaux-junior-gmo-ch",
-          "conducteur-rice-de-travaux-junior-gmo-1213-onex-f1bf9caf",
-          "junior-lavoratore-gmo-lugano"
+          "conducteur-rice-de-travaux-junior-gmo-1213-onex-f1bf9caf"
         ],
         "en": [
           "conducteur-rice-de-travaux-junior-gmo-ch"
@@ -915,14 +1016,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "coordinateur-rice-gmo-ch",
-        "coordinateur-rice-gmo-1217-meyrin-91ba1140",
-        "coordinatore-gmo-lugano"
+        "coordinateur-rice-gmo-1217-meyrin-91ba1140"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coordinateur-rice-gmo-ch",
-          "coordinateur-rice-gmo-1217-meyrin-91ba1140",
-          "coordinatore-gmo-lugano"
+          "coordinateur-rice-gmo-1217-meyrin-91ba1140"
         ],
         "en": [
           "coordinateur-rice-gmo-ch"
@@ -1001,15 +1100,13 @@
       "previousSlugs": [
         "assistant-e-medical-e-gmo-ch",
         "assistant-e-medical-e-gmo-ch-2",
-        "assistant-e-medical-e-gmo-1201-geneve-88ab010d",
-        "assistente-medico-gmo-1201-geneve"
+        "assistant-e-medical-e-gmo-1201-geneve-88ab010d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-gmo-ch",
           "assistant-e-medical-e-gmo-ch-2",
-          "assistant-e-medical-e-gmo-1201-geneve-88ab010d",
-          "assistente-medico-gmo-1201-geneve"
+          "assistant-e-medical-e-gmo-1201-geneve-88ab010d"
         ],
         "de": [
           "assistant-e-medical-e-gmo-ch-2"
@@ -1084,14 +1181,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
-        "specialiste-en-medecine-interne-generale-fmh-gmo-1212-grand-lancy-8e31a9f8",
-        "specialista-in-medicina-interna-generale-fmh-gmo-1212-grand-lancy"
+        "specialiste-en-medecine-interne-generale-fmh-gmo-1212-grand-lancy-8e31a9f8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-en-medecine-interne-generale-fmh-gmo-ch",
-          "specialiste-en-medecine-interne-generale-fmh-gmo-1212-grand-lancy-8e31a9f8",
-          "specialista-in-medicina-interna-generale-fmh-gmo-1212-grand-lancy"
+          "specialiste-en-medecine-interne-generale-fmh-gmo-1212-grand-lancy-8e31a9f8"
         ],
         "en": [
           "specialiste-en-medecine-interne-generale-fmh-gmo-ch"
@@ -1170,15 +1265,13 @@
       "previousSlugs": [
         "assistant-e-medical-e-gmo-ch",
         "assistant-e-medical-e-gmo-ch-3",
-        "assistant-e-medical-e-gmo-1023-crissier-ebda8fb6",
-        "assistente-medico-gmo-1023-crissier"
+        "assistant-e-medical-e-gmo-1023-crissier-ebda8fb6"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-gmo-ch",
           "assistant-e-medical-e-gmo-ch-3",
-          "assistant-e-medical-e-gmo-1023-crissier-ebda8fb6",
-          "assistente-medico-gmo-1023-crissier"
+          "assistant-e-medical-e-gmo-1023-crissier-ebda8fb6"
         ],
         "de": [
           "assistant-e-medical-e-gmo-ch-3"

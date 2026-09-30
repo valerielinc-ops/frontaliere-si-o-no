@@ -25,12 +25,12 @@
         "en": "Administrative Collaborator or Administrative Collaborator",
         "de": "Verwaltungsmitarbeiter oder Verwaltungsmitarbeiter"
       },
-      "slug": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
+      "slug": "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion",
       "slugByLocale": {
         "fr": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
-        "it": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
-        "en": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
-        "de": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
+        "it": "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion",
+        "en": "administrative-collaborator-or-administrative-collaborator-hes-so-valais-wallis-sion",
+        "de": "verwaltungsmitarbeiter-oder-verwaltungsmitarbeiter-hes-so-valais-wallis-sion"
       },
       "category": "administration",
       "datePosted": "2026-09-29",
@@ -66,7 +66,21 @@
       },
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-29T21:13:13.966Z"
+      "firstSeenAt": "2026-09-29T21:13:13.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
+        ],
+        "en": [
+          "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
+        ],
+        "de": [
+          "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
+      ]
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-***-einen-lernenden-oder-eine-lernende-mediamatik-efz-215387",
@@ -117,16 +131,11 @@
       "id": "hes-so-valais-c4969ea7e334",
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais",
-          "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
-        ],
-        "fr": [
-          "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
+          "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais"
         ]
       },
       "previousSlugs": [
-        "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais",
-        "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
+        "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais"
       ],
       "firstSeenAt": "2026-09-28T21:22:36.996Z",
       "needsRetranslation": true,
@@ -196,13 +205,11 @@
       },
       "id": "hes-so-valais-fc8a92e89e3d",
       "previousSlugs": [
-        "specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-hes-so-valais",
-        "business-health-management-specialist-bsm-e-box-hes-so-valais-wallis-sion"
+        "specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-hes-so-valais"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-hes-so-valais",
-          "business-health-management-specialist-bsm-e-box-hes-so-valais-wallis-sion"
+          "specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-hes-so-valais"
         ],
         "en": [
           "specialiste-en-gestion-de-la-sante-en-entreprise-gse-et-case-hes-so-valais"
