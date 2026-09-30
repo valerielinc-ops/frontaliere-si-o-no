@@ -5,6 +5,7 @@ import {
   fetchReview,
   ReviewRequestError,
   sendReviewAction,
+  type FollowupPayload,
   type ReviewAction,
   type ReviewPayload,
   type ReviewQuestion,
@@ -97,12 +98,19 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [feedback, setFeedback] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
   const [done, setDone] = useState<string | null>(null);
+  const [followup, setFollowup] = useState<FollowupPayload | null>(null);
 
   const load = useCallback(async () => {
     try {
       const payload = await fetchReview(token);
-      setData(payload);
-      setAnswers(payload.answers || {});
+      if ('kind' in payload && payload.kind === 'followup') {
+        setFollowup(payload);
+        setError(null);
+        return;
+      }
+      const review = payload as ReviewPayload;
+      setData(review);
+      setAnswers(review.answers || {});
       setError(null);
     } catch (reason) {
       setError(reason instanceof ReviewRequestError ? reason.code : 'network');
@@ -140,6 +148,44 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const pageLocale = data?.locale || locale || 'it';
 
   const errorText = error ? t(`jobBoard.assisted.review.error.${error}`, t('jobBoard.assisted.review.error.generic')) : null;
+
+  // A follow-up to the employer (af1 link): send it now, or stop it.
+  if (followup) {
+    const followupLocale = followup.locale || locale || 'it';
+    return (
+      <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
+        <section className="space-y-5 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.assisted.pageEyebrow')}</p>
+            <h1 className="mt-1 text-2xl font-bold font-display text-heading">{t('jobBoard.assisted.followup.title')}</h1>
+            <p className="mt-1 text-sm text-subtle">{followup.job.title} — {followup.job.company}</p>
+          </div>
+          <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.followup.intro', { company: followup.job.company })}</p>
+          <div className="whitespace-pre-line rounded-xl border border-edge bg-surface-alt p-4 text-sm leading-relaxed text-body">{followup.body}</div>
+          {followup.state === 'awaiting_candidate' && (
+            <p className="flex items-start gap-2 text-sm text-body">
+              <Clock3 className="mt-0.5 h-4 w-4 shrink-0 text-warning" aria-hidden="true" />
+              {t('jobBoard.assisted.followup.autoAt', { deadline: formatDeadline(followup.deadlineAt, followupLocale) })}
+            </p>
+          )}
+          {followup.state === 'sent' && <p className="text-sm text-success" role="status">{t('jobBoard.assisted.followup.sent')}</p>}
+          {followup.state === 'stopped' && <p className="text-sm text-subtle" role="status">{t('jobBoard.assisted.followup.stopped')}</p>}
+          {!['awaiting_candidate', 'sent', 'stopped'].includes(followup.state) && <p className="text-sm text-subtle" role="status">{t('jobBoard.assisted.followup.gone')}</p>}
+          {errorText && <p className="text-sm text-danger" role="alert">{errorText}</p>}
+          {followup.can.send && (
+            <div className="flex flex-wrap gap-2">
+              <button type="button" disabled={Boolean(busy)} onClick={() => { void run('followup_send'); }} className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
+                {busy === 'followup_send' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />} {t('jobBoard.assisted.followup.send')}
+              </button>
+              <button type="button" disabled={Boolean(busy)} onClick={() => { void run('followup_skip'); }} className="inline-flex items-center gap-2 rounded-xl border border-edge px-4 py-2.5 text-sm font-semibold text-body hover:bg-surface-alt disabled:opacity-60">
+                {t('jobBoard.assisted.followup.skip')}
+              </button>
+            </div>
+          )}
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">

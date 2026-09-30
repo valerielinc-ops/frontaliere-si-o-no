@@ -32,6 +32,14 @@ const OTHER_OWNER_FLAGS: Record<string, string> = {
   channel_unknown: 'Canale di candidatura sconosciuto: il candidato completerà sul portale, procedi',
 };
 
+const FOLLOWUP_STATES: Record<string, string> = {
+  scheduled: 'programmato',
+  awaiting_candidate: 'in attesa del candidato (12 ore)',
+  sending: 'in invio',
+  done: 'completati',
+  stopped: 'fermati',
+};
+
 const LEGITIMACY_TIERS: Record<string, string> = {
   high_confidence: 'affidabile',
   caution: 'da verificare',
@@ -198,6 +206,25 @@ export default function AssistedApplicationAutomationPanel({
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {(automation?.followup || automation?.interviewPrep) && (
+        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
+          {automation?.followup && (
+            <p className="mt-1">
+              <strong>Solleciti:</strong> {FOLLOWUP_STATES[automation.followup.state || ''] || automation.followup.state} · inviati {automation.followup.sent}/2
+              {automation.followup.dueAt ? ` · prossimo passo ${formatMs(automation.followup.dueAt)}` : ''}
+              {automation.followup.stopReason ? ` · motivo: ${automation.followup.stopReason}` : ''}
+            </p>
+          )}
+          {automation?.followup?.pending && (
+            <p className="mt-1 whitespace-pre-line rounded bg-surface-alt p-2 text-subtle">{automation.followup.pending.body}</p>
+          )}
+          {automation?.interviewPrep && (
+            <p className="mt-1"><strong>Preparazione colloquio:</strong> {automation.interviewPrep.status}{automation.interviewPrep.sentAt ? ` il ${formatMs(automation.interviewPrep.sentAt)}` : ''} · {automation.interviewPrep.questions} domande, {automation.interviewPrep.stories} storie</p>
+          )}
         </div>
       )}
 
