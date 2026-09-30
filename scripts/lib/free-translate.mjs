@@ -32,7 +32,6 @@
 
 import { performance } from 'node:perf_hooks';
 import { existsSync, readFileSync } from 'node:fs';
-import { getServiceAccountAccessToken } from './google-service-account-token.mjs';
 import { translateWithMyMemory } from './mymemory-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms, normalizeProtectedTokenSentinels } from './translation-glossary.mjs';
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
@@ -1588,6 +1587,9 @@ async function _getGoogleCloudAccessToken() {
       return _gcServiceAccountToken.accessToken;
     }
     try {
+      // Loaded on first use, like ai-models.mjs for the Codex tier: a process
+      // without a service account never imports the JWT signer.
+      const { getServiceAccountAccessToken } = await import('./google-service-account-token.mjs');
       const token = await getServiceAccountAccessToken(_gcServiceAccount, GOOGLE_CLOUD_SCOPE);
       if (token) {
         _gcServiceAccountToken.accessToken = token;
