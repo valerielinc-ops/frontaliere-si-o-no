@@ -300,6 +300,20 @@ describe('aiTranslateJobDescriptionDCC — leaked translations are neither accep
     expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'en', sourceLang: 'it', minChars: 120 }, ctx)).toBe('');
     expect(cache.get(key)).toBe('__RAW__');
   });
+
+  it('rejects an LLM translation that flattens a structured source body', async () => {
+    const source = [
+      'Deutsche Einleitung mit ausreichend Inhalt für die Stellenbeschreibung.',
+      '- Erste Aufgabe mit ausführlichen Details und Verantwortung im Team.',
+      '- Zweite Aufgabe mit ausführlichen Details und Verantwortung im Team.',
+    ].join('\n');
+    const flattened = source.replace(/\s*\n\s*/g, ' ');
+    const { cache, ctx } = makeCtx();
+    aiModelsMock.callLLM.mockResolvedValueOnce(flattened);
+
+    expect(await aiTranslateJobDescriptionDCC({ description: source, locale: 'it', sourceLang: 'de', minChars: 120 }, ctx)).toBe('');
+    expect(cache.get(['translate-desc-v2', source, 'it', 'de'].join('|'))).toBe('__RAW__');
+  });
 });
 
 describe('review #10339 — repetition loops are neither returned nor cached', () => {
