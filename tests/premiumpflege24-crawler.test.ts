@@ -2,12 +2,79 @@ import { describe, it, expect } from 'vitest';
 import {
   PREMIUMPFLEGE24_KEY,
   PREMIUMPFLEGE24_COMPANY_NAME,
+  extractPremiumpflege24NationwideApplicationListing,
   isPremiumpflege24Job,
   isTrustedDomain,
+  resolvePremiumpflege24Geography,
 } from '../scripts/lib/premiumpflege24-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+const NATIONWIDE_APPLICATION_PAGE = `
+  <html>
+    <head><title>Jobs in der Seniorenbetreuung - PremiumPflege24</title></head>
+    <body>
+      <header>PremiumPflege24</header>
+      <main class="content">
+        <h1>Jobs</h1>
+        <section>
+          <h2>Ihre Zukunft in der Seniorenbetreuung in der Schweiz</h2>
+          <p>Jobs in der ganzen Schweiz: PremiumPflege24 sucht engagierte Betreuungskräfte
+            für die Seniorenbetreuung und Haushaltshilfe bei Menschen, die Unterstützung
+            im Alltag benötigen. Die Einsätze können als 24-Stunden-Betreuung,
+            stundenweise Begleitung oder Ferienbegleitung organisiert werden. Wir bieten
+            faire Bedingungen, eine herzliche Teamkultur und sinnvolle Aufgaben mit
+            direktem Kontakt zu unseren Kundinnen und Kunden.</p>
+          <p>Ihre Bewerbung ist willkommen. Bewerben Sie sich über das Formular und
+            teilen Sie uns Ihre Erfahrung, Ihre gewünschte Einsatzart und Ihre
+            Verfügbarkeit mit. Unser Team begleitet den Bewerbungsprozess persönlich
+            und klärt gemeinsam mit Ihnen, welcher Einsatz in der ganzen Schweiz passt.</p>
+        </section>
+        <form><label>Name</label><input name="name" /></form>
+      </main>
+      <footer>PremiumPflege24 GmbH, Gewerbestrasse 2, 4553 Subingen</footer>
+    </body>
+  </html>
+`;
+
 describe('PremiumPflege24 GmbH crawler parser', () => {
+  describe('nationwide application-page fallback', () => {
+    it('keeps a rich nationwide source page without fabricating the HQ canton', () => {
+      const listing = extractPremiumpflege24NationwideApplicationListing(
+        NATIONWIDE_APPLICATION_PAGE,
+        'https://premiumpflege24.ch/job-registrierung/',
+      );
+
+      expect(listing).toMatchObject({
+        title: 'Jobs in der Seniorenbetreuung - PremiumPflege24',
+        url: 'https://premiumpflege24.ch/job-registrierung/',
+        location: 'Schweiz',
+        addressLocality: 'Schweiz',
+        addressCountry: 'CH',
+        nationwide: true,
+      });
+      expect(listing.description.split(/\s+/)).toHaveLength(expect.any(Number));
+      expect(listing.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(resolvePremiumpflege24Geography(listing)).toEqual({
+        location: 'Schweiz',
+        canton: '',
+      });
+    });
+
+    it('rejects a generic page without the source-backed role and scope signals', () => {
+      expect(extractPremiumpflege24NationwideApplicationListing(
+        '<html><head><title>Jobs</title></head><body><main><h1>Jobs</h1><p>Kontaktieren Sie uns.</p></main></body></html>',
+        'https://premiumpflege24.ch/job-registrierung/',
+      )).toBeNull();
+    });
+
+    it('keeps normal canton-specific rows on the shared geography resolver', () => {
+      expect(resolvePremiumpflege24Geography({
+        location: 'Lugano',
+        addressCountry: 'CH',
+      })).toEqual({ location: 'Lugano', canton: 'TI' });
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(PREMIUMPFLEGE24_KEY).toBe('premiumpflege24');
