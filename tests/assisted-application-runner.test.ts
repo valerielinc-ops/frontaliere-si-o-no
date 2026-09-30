@@ -194,6 +194,21 @@ describe('submit mode', () => {
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
   });
 
+  it('fills the portal form with the corrections the candidate made on the review page', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' }, formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    const [[ctx]] = runner.mock.calls as any;
+    expect(ctx.candidate.identity).toMatchObject({ fullName: 'Maria Luisa Rossi', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' });
+    expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
+  });
+
   it('submits on a portal once, resumes a run that died before the click, never one that died after it', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));

@@ -12,7 +12,6 @@
 import { buildCoverLetterPdf } from '../../../functions/src/assistedApplicationAiDocuments.js';
 import {
   buildFormAnswers,
-  candidateIdentity,
   checkDraftFacts,
   ensureRequiredQuestions,
   letterPdfBlocks,
@@ -24,6 +23,7 @@ import {
   verifyQuotes,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { classifyApplicationChannel, fetchJobPosting } from '../../../functions/src/assistedApplicationAiJob.js';
+import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -143,11 +143,13 @@ export async function buildDraft(ctx) {
   const profileJson = JSON.stringify(profile);
   const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
-  const identity = candidateIdentity(order, profile);
+  // What the candidate changed on the review page (name, phone, place...) wins over the CV.
+  const edited = candidateWithEdits({ order, draft: { profile }, flow });
+  const identity = edited.identity;
   // The tailored ATS CV needs only the profile and the requirements: it runs
   // while the match and the letter are written.
   const tailoredCvPromise = buildTailoredCv({
-    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
+    codex, bucket, orderId, round, nowMs, log, profile: edited.profile, requirements, title, language, identity, answers, candidateNotes,
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
   });
   const matchRaw = await codex({
@@ -190,7 +192,13 @@ export async function buildDraft(ctx) {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
     order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
-    answers: [...Object.values(answers), candidateNotes].join('\n'),
+    // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.
+    answers: [
+      ...Object.values(answers),
+      candidateNotes,
+      ...(flow?.feedback || []).map((item) => String(item?.text || '')),
+      ...Object.values(edited.overrides),
+    ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
   const factCheck = checkDraftFacts({
@@ -208,7 +216,7 @@ export async function buildDraft(ctx) {
   });
 
   const pdf = buildCoverLetterPdf(letterPdfBlocks({
-    identity, profile, posting, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
+    identity, profile: edited.profile, posting, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
   }));
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
@@ -257,7 +265,7 @@ export async function buildDraft(ctx) {
       subject: documents.emailSubject || letterSubject(language, title),
       body: `${documents.emailBody}\n\n${signature}`.trim(),
     },
-    formAnswers: buildFormAnswers({ identity, profile, documents, answers }),
+    formAnswers: buildFormAnswers({ identity, profile: edited.profile, documents, answers: edited.answers }),
     profile,
     factCheck: { ...factCheck, basis: cvMethod },
     factSources,
