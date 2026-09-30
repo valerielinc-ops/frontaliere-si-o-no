@@ -126,7 +126,7 @@ function validateJobPosting(schema, filePath) {
   const type = schema['@type'];
   if (type !== 'JobPosting') return [];
   const errors = validateMandatoryJobPostingFields(schema)
-    .map((error) => toStructuredDataJobPostingError(error, filePath));
+    .map((violation) => toStructuredDataJobPostingError(violation, filePath));
 
   // Consumer-specific: GSC reports validThrough separately from the nine
   // mandatory fields and this gate intentionally keeps it deploy-blocking.
