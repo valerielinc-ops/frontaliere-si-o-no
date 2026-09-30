@@ -30,6 +30,7 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  extractPdfLinks,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -129,17 +130,12 @@ export function parseClinicaVariniListing(html = '') {
 
   const out = [];
   const seen = new Set();
-  const anchorRe = /href="([^"]+\.pdf)"/gi;
-  let m;
-  while ((m = anchorRe.exec(html)) !== null) {
-    let href = m[1];
-    if (!href) continue;
+  for (const { href: resolvedHref, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
+    if (!isTrustedDomain(resolvedHref)) continue;
+    let href = resolvedHref;
     // Force https + absolute
     if (href.startsWith('http://')) href = href.replace('http://', 'https://');
-    if (href.startsWith('//')) href = `https:${href}`;
-    else if (href.startsWith('/')) href = `https://clinicavarini.ch${href}`;
 
-    const filename = decodeURIComponent(href.split('/').pop() || '');
     if (!JOB_PDF_RE.test(filename)) continue;
     if (NON_JOB_PDF_RE.test(filename) || NON_JOB_PDF_RE.test(href)) continue;
     if (seen.has(href)) continue;
