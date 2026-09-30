@@ -25,6 +25,35 @@ export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
 export const CANDIDATE_REMINDER_BEFORE_MS = 3 * 60 * 60 * 1000;
 export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 export const MAX_REVIEW_ROUNDS = 3;
+// A draft or submit run that failed on a transient error is dispatched again
+// up to this many runs in all; the owner hears about it only after the last.
+export const MAX_RUN_ATTEMPTS = 3;
+const TRANSIENT_RUN_ERROR_RE = /broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
+
+/** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
+// runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
+export function isTransientRunError(error) {
+  const text = String(error || '');
+  return text !== 'runner_timeout' && TRANSIENT_RUN_ERROR_RE.test(text);
+}
+
+/** Another run for a transient failure, or null once the attempts are used up. */
+function transientRetry(flow, event, mode) {
+  const attempts = Number(flow?.dispatch?.attempts) || 1;
+  if (!isTransientRunError(event.error) || attempts >= MAX_RUN_ATTEMPTS) return null;
+  return [{ type: 'dispatch', mode, reason: 'transient_retry', attempts: attempts + 1 }];
+}
+
+/** The owner's e-mail says which step stopped and after how many runs. */
+function takeoverEmail(flow, event, stage) {
+  return {
+    type: 'email',
+    kind: 'owner_takeover',
+    reason: event.error || `${stage}_failed`,
+    stage,
+    attempts: Number(flow?.dispatch?.attempts) || 1,
+  };
+}
 
 /*
  * `candidate_handoff` is career-ops' "browser handoff": when a portal needs a
@@ -88,6 +117,25 @@ function withHistory(next, event, nowMs) {
   return next;
 }
 
+/**
+ * The round's draft never came out (its run failed, timed out, or Valerie
+ * took over while it was being written): the runner stores a draft only when
+ * it succeeds, so the stored one belongs to an earlier round, or there is none.
+ * The candidate has seen nothing of this round.
+ */
+function roundDraftMissing(current, draft) {
+  return Number(draft?.round) !== Number(current.round);
+}
+
+/** The round's draft is written again, in the same round. */
+function redraftSameRound(next, reason) {
+  next.state = 'regenerating';
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  next.heldBy = [];
+  return [{ type: 'dispatch', mode: 'draft', reason }];
+}
+
 function enterOwnerReview(next, flags, nowMs) {
   next.state = 'owner_review';
   next.heldBy = flags.owner;
@@ -140,12 +188,20 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
       effects = enterOwnerReview(next, flags, nowMs);
       break;
-    case 'draft_failed':
+    case 'draft_failed': {
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      // A transient failure gets another run first; the owner takes over only
+      // after the last attempt, or for an error another run will not fix.
+      const retry = transientRetry(flow, event, 'draft');
+      if (retry) {
+        effects = retry;
+        break;
+      }
       next.state = 'owner_takeover';
       next.heldBy = ['draft_failed'];
-      effects = [{ type: 'email', kind: 'owner_takeover', reason: event.error || 'draft_failed' }];
+      effects = [takeoverEmail(flow, event, 'draft')];
       break;
+    }
     case 'owner_approve':
       if (state !== 'owner_review') return ignore('not_owner_review');
       // Every owner flag needs its explicit acknowledgement (written to the
@@ -162,17 +218,22 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       break;
     case 'owner_regenerate':
       // Valerie asks for a new draft (e.g. after editing the answers): a new
-      // round, so links of the previous round can no longer approve.
+      // round, so links of the previous round can no longer approve. A round
+      // whose draft never came out is written again as the same round: a
+      // failure on our side never costs the candidate one of their rounds.
       if (!['owner_review', 'owner_takeover', 'candidate_review'].includes(state)) return ignore('not_regenerable');
-      next.state = 'regenerating';
-      next.round = current.round + 1;
-      next.deadlineAt = null;
-      next.reminderAt = null;
-      next.heldBy = [];
-      effects = [{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }];
+      if (state !== 'owner_takeover' || !roundDraftMissing(current, draft)) next.round = current.round + 1;
+      effects = redraftSameRound(next, 'owner_regenerate');
       break;
     case 'owner_resume':
       if (state !== 'owner_takeover' && state !== 'failed') return ignore('not_taken_over');
+      // Nothing to review when the round's draft never came out: it is
+      // written again. A closed ad stays stopped: resuming it is Valerie's call
+      // on the draft she has.
+      if (roundDraftMissing(current, draft) && !current.heldBy.includes('posting_closed')) {
+        effects = redraftSameRound(next, 'owner_resume');
+        break;
+      }
       effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate }, nowMs);
       break;
     case 'tick': {
@@ -291,12 +352,22 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       next.heldBy = (event.questions || []).map((question) => `question:${question.id}`);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
-    case 'submit_failed':
+    case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
+      // Safe to run again: the submission guard (scripts/assisted-application/
+      // lib/submit.mjs) replays an application already sent, and one that may
+      // have left (after the final click, or an e-mail of unknown outcome)
+      // comes back as *_ambiguous, which is never retried.
+      const retry = transientRetry(flow, event, 'submit');
+      if (retry) {
+        effects = retry;
+        break;
+      }
       next.state = 'owner_takeover';
       next.heldBy = [String(event.error || 'submit_failed').slice(0, 80)];
-      effects = [{ type: 'email', kind: 'owner_takeover', reason: event.error || 'submit_failed' }];
+      effects = [takeoverEmail(flow, event, 'submit')];
       break;
+    }
     default:
       return ignore('unknown_event');
   }

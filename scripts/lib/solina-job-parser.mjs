@@ -62,12 +62,17 @@ const LISTING_PATHS = [
 ];
 const POLITE_DELAY_MS = 250;
 
-/**
- * Fragments only the crawler's former text wrote around the page text (the
- * "Pensum / Standort:" line and a company sentence), for
- * `dropFabricatedDescriptions` on the stored jobs (issue 5253).
- */
-export const SOLINA_FABRICATED_DESCRIPTION_RE = /(?:^|\n)Pensum \/ Standort: |Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte/;
+// Complete lines only: these are the exact wrappers the old builder wrote
+// around the posting's own text (issue 5253).
+export const SOLINA_FABRICATED_DESCRIPTION_RE = /^(?:Pensum \/ Standort: [^\r\n]+|Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez\.)[ \t]*\r?$/m;
+const SOLINA_FABRICATED_LINE_RE = /^(?:Pensum \/ Standort: [^\r\n]+|Die Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez\.)[ \t]*\r?\n?/gm;
+
+export function stripSolinaFabricatedDescription(text = '') {
+  return String(text)
+    .replace(SOLINA_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 
 /* ── Matchers ─────────────────────────────────────────────── */
 

@@ -824,6 +824,13 @@ export function dropRepostedListings(jobs, label = 'prospective', { pageDescribe
  *   carry — measured, not assumed: the 2026-09-29 audit found the listing
  *   text at 9-45 % of the rendered vacancy on those tenants. The listing text
  *   remains the per-job fallback.
+ * @param {(listing: object, context: object) => string} [config.sourceUrlFn]
+ *   Override the public URL emitted for a listing while retaining the API as
+ *   the source of the vacancy text. The callback receives the listing and the
+ *   normalized direct/apply links plus the API URL.
+ * @param {(listing: object, context: object) => string} [config.applyUrlFn]
+ *   Override the application URL emitted for a listing. The callback receives
+ *   the same context as `sourceUrlFn`.
  * @param {(title: string, department: string) => string} [config.categoryFn]
  *   Override the per-job category classifier. Defaults to the shared
  *   healthcare-biased `detectCategory()` (its unmatched-role fallback is
@@ -861,6 +868,8 @@ export function createProspectiveChParser(config) {
     sector = 'Sanità / Ospedali',
     categoryFn = detectCategory,
     detailPageDescription = false,
+    sourceUrlFn,
+    applyUrlFn,
   } = config;
 
   if (!companyKey || !companyName || !mediumId || (!defaultCanton && typeof locationResolver !== 'function')) {
@@ -1090,7 +1099,24 @@ export function createProspectiveChParser(config) {
       // instead, same as the empty-field case already handled below.
       const rawApplyLink = normalizeSpace(szas.sza_apply_link || '');
       const applyLink = /^https?:\/\//i.test(rawApplyLink) ? rawApplyLink : '';
-      const publicUrl = directLink || applyLink || publicCareerUrl || API_BASE;
+      const linkContext = {
+        directLink,
+        applyLink,
+        publicCareerUrl: publicCareerUrl || '',
+        apiUrl: API_BASE,
+      };
+      const customPublicUrl = typeof sourceUrlFn === 'function'
+        ? sourceUrlFn(listing, linkContext)
+        : '';
+      const publicUrl = normalizeSpace(customPublicUrl)
+        || directLink
+        || applyLink
+        || publicCareerUrl
+        || API_BASE;
+      const customApplyUrl = typeof applyUrlFn === 'function'
+        ? applyUrlFn(listing, { ...linkContext, publicUrl })
+        : '';
+      const resolvedApplyUrl = normalizeSpace(customApplyUrl) || applyLink || publicUrl;
 
       let location;
       let canton;
@@ -1167,7 +1193,7 @@ export function createProspectiveChParser(config) {
         currency: 'CHF',
         featured: false,
         postedDate,
-        applyUrl: applyLink || publicUrl,
+        applyUrl: resolvedApplyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       });

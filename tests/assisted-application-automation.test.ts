@@ -120,6 +120,13 @@ describe('applying events', () => {
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
   });
 
+  it('runs the draft again after a transient Codex failure, counting the attempt', async () => {
+    const result = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_failed', round: 1, error: 'codex auth broker rejected the request' }, actor: 'runner', runEffect, nowMs: T0 + 1000 });
+    expect(result.ok).toBe(true);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'drafting', dispatch: { mode: 'draft', attempts: 2, reason: 'transient_retry' } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+  });
+
   it('moves the flow, mirrors the clock on the order and runs the effects', async () => {
     const result = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, actor: 'runner', runEffect, nowMs: T0 + 1000 });
     expect(result).toMatchObject({ ok: true, fromState: 'drafting' });
@@ -254,6 +261,9 @@ describe('effects', () => {
     expect(automationEmailKey({ kind: 'owner_review', held: true }, { round: 2 })).toBe('auto_owner_review_r2_held');
     expect(automationEmailKey({ kind: 'candidate_review' }, { round: 1 })).toBe('auto_candidate_review_r1');
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'max_rounds' }, { round: 3 })).toBe('auto_owner_takeover_max_rounds_r3');
+    // A raw runner error names only its step.
+    expect(automationEmailKey({ kind: 'owner_takeover', reason: 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms', stage: 'draft' }, { round: 2 }))
+      .toBe('auto_owner_takeover_draft_error_r2');
     expect(automationEmailKey({ kind: 'candidate_handoff' }, { round: 2 })).toBe('auto_candidate_handoff');
   });
 

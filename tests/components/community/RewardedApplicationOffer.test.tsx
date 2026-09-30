@@ -45,6 +45,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 
 import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
 import { RETURN_TO_TAB_SETTLE_MS } from '@/services/adVisibilitySnapshot';
+import { HANDOFF_RECEIPT_MIN_AGE_MS } from '@/services/rewardedHandoffLedger';
 import { setUserActivation } from '../../helpers/userActivation';
 import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 import { itReady } from '@/services/i18n';
@@ -87,6 +88,8 @@ beforeEach(() => {
   // A reward inside a click's activation opens the employer at once; the
   // `handoff` card without one is covered in RewardedApplicationOffer.test.tsx.
   setUserActivation(true);
+  // Every grant writes a receipt record: start each test from an empty ledger.
+  window.localStorage.removeItem(HANDOFF_LEDGER_KEY);
 });
 
 afterEach(() => {
@@ -95,6 +98,10 @@ afterEach(() => {
   vi.restoreAllMocks();
   document.body.style.overflow = '';
 });
+
+const HANDOFF_LEDGER_KEY = 'ft_rewarded_handoff_ledger_v1';
+const SAFARI_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15';
+const withUserAgent = (ua: string) => vi.spyOn(Object.getPrototypeOf(window.navigator), 'userAgent', 'get').mockReturnValue(ua);
 
 describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
   it('portals the overlay above the application shell and locks page scrolling', () => {
@@ -266,7 +273,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     expect(card).toHaveTextContent('Apri «Fisioterapista diplomato»');
     expect(card).toHaveTextContent('L’offerta si apre in una nuova scheda e questa pagina resta aperta.');
     expect(card).not.toHaveTextContent('sbloccata');
-    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([
+    expect(tracked('rewarded_application_direct_unconfirmed')).toEqual([
       expect.objectContaining({ ...adContext, handoff_mode: 'direct_external', reason: 'no_fill' }),
     ]);
     expect(tracked('rewarded_application_handoff_shown')).toEqual([
@@ -289,7 +296,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
 
     expect(onUnavailable).toHaveBeenCalledTimes(1);
     expect(screen.queryByTestId('rewarded-application-handoff')).not.toBeInTheDocument();
-    expect(tracked('rewarded_application_handoff_unconfirmed')).toEqual([]);
+    expect(tracked('rewarded_application_direct_unconfirmed')).toEqual([]);
   });
 
   it('continues to the employer on the authoritative Google reward, with no further click inside a click activation', () => {
@@ -439,6 +446,84 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     } finally {
       vi.useRealTimers();
       Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' });
+    }
+  });
+
+  it('on a WebKit browser, shows the open card at once instead of a popup Safari would block', () => {
+    // Live 30-09: 2 of 3 automatic openings on Safari never took the
+    // foreground although navigator.userActivation.isActive was true.
+    withUserAgent(SAFARI_UA);
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+
+    expect(onContinue).not.toHaveBeenCalled();
+    expect(tracked('rewarded_application_handoff_auto')).toEqual([]);
+    expect(tracked('rewarded_application_handoff_shown')).toEqual([
+      expect.objectContaining({ ...adContext, handoff_reason: 'webkit_popup_policy' }),
+    ]);
+    fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+    expect(onContinue).toHaveBeenCalledTimes(1);
+  });
+
+  it('sends the grant receipt later from the visible page: automatic hand-off, tab opened', async () => {
+    vi.useFakeTimers();
+    try {
+      const onContinue = vi.fn(() => Promise.resolve(true));
+      render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+      callProp('onReady', { requestId: 9 } satisfies Info);
+      callProp('onGranted', { requestId: 9 } satisfies Info);
+      await act(async () => {});
+      expect(tracked('rewarded_receipt_auto_opened')).toEqual([]);
+
+      act(() => {
+        vi.advanceTimersByTime(HANDOFF_RECEIPT_MIN_AGE_MS + 500);
+      });
+      expect(tracked('rewarded_receipt_auto_opened')).toEqual([
+        expect.objectContaining({ jobId: 'job-1', companyId: 'company-1', grant_path: 'gpt' }),
+      ]);
+      expect(window.localStorage.getItem(HANDOFF_LEDGER_KEY)).toBeNull();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('records the card click that opened the tab in the receipt', async () => {
+    vi.useFakeTimers();
+    try {
+      setUserActivation(false);
+      const onContinue = vi.fn(() => Promise.resolve(true));
+      render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+      callProp('onReady', { requestId: 9 } satisfies Info);
+      callProp('onGranted', { requestId: 9 } satisfies Info);
+      fireEvent.click(screen.getByTestId('rewarded-application-handoff-open'));
+      await act(async () => {});
+      act(() => {
+        vi.advanceTimersByTime(HANDOFF_RECEIPT_MIN_AGE_MS + 500);
+      });
+      expect(tracked('rewarded_receipt_card_opened')).toHaveLength(1);
+      expect(tracked('rewarded_receipt_none')).toEqual([]);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('receipts a blocked automatic opening whose card was never clicked', async () => {
+    vi.useFakeTimers();
+    try {
+      const onContinue = vi.fn(() => Promise.resolve(false));
+      render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+      callProp('onReady', { requestId: 9 } satisfies Info);
+      callProp('onGranted', { requestId: 9 } satisfies Info);
+      await act(async () => {});
+      expect(screen.getByTestId('rewarded-application-handoff')).toBeInTheDocument();
+      act(() => {
+        vi.advanceTimersByTime(HANDOFF_RECEIPT_MIN_AGE_MS + 500);
+      });
+      expect(tracked('rewarded_receipt_blocked_left')).toHaveLength(1);
+    } finally {
+      vi.useRealTimers();
     }
   });
 

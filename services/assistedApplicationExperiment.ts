@@ -128,6 +128,18 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_application_handoff_shown',
   'rewarded_application_handoff_clicked',
   'rewarded_application_handoff_unconfirmed',
+  // The direct hand-off (no ad for the click) whose new tab never took the
+  // foreground: its own name, so it no longer mixes with the reward's.
+  'rewarded_application_direct_unconfirmed',
+  // Delivery-safe receipt of each grant (services/rewardedHandoffLedger.ts),
+  // sent later from a visible page: route (auto/card/blocked/none) × result.
+  'rewarded_receipt_auto_opened',
+  'rewarded_receipt_auto_left',
+  'rewarded_receipt_card_opened',
+  'rewarded_receipt_card_left',
+  'rewarded_receipt_blocked_opened',
+  'rewarded_receipt_blocked_left',
+  'rewarded_receipt_none',
   // Snapshots of the page's ads (services/adVisibilitySnapshot.ts): at the
   // click, 1.5 s after Google's Offerwall is on screen, and when the visitor
   // comes back to the tab after the employer's page opened. Metrics

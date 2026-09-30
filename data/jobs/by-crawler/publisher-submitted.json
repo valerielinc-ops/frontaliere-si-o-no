@@ -1,6 +1,6 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-09-30T15:35:27.840Z",
+  "assembledAt": "2026-09-30T20:31:26.465Z",
   "jobs": [
     {
       "title": "Ergoterapista dipl. (m/f) – 60–100%",
@@ -115,21 +115,18 @@
       "description": "Siamo alla ricerca di una figura professionale di farmacista da inserire nel proprio organico con esperienza pregressa nel ruolo ( vendita al banco, consiglio farmaceutico, gestione farmaci) e orientato in particolar modo alla galenica o  con Master in galenica. Inizio lavoro non appena ottenuti i permessi . .richiesta precisione, serieta' e capacita' di gestione all 'interno di requisiti di qualita' .",
       "titleByLocale": {
         "it": "farmacista",
-        "en": "pharmacist",
-        "de": "Apotheker",
-        "fr": "pharmacien"
+        "en": "farmacista",
+        "de": "farmacista",
+        "fr": "farmacista"
       },
       "slugByLocale": {
         "it": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
-        "en": "pharmacist-farmacia-internazionale-dr-merloni-chiasso",
-        "de": "apotheker-farmacia-internazionale-dr-merloni-chiasso",
-        "fr": "pharmacien-farmacia-internazionale-dr-merloni-chiasso"
+        "en": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "de": "farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "fr": "farmacista-chiasso-farmacia-internazionale-dr-merloni"
       },
       "descriptionByLocale": {
-        "it": "Siamo alla ricerca di una figura professionale di farmacista da inserire nel proprio organico con esperienza pregressa nel ruolo ( vendita al banco, consiglio farmaceutico, gestione farmaci) e orientato in particolar modo alla galenica o  con Master in galenica. Inizio lavoro non appena ottenuti i permessi . .richiesta precisione, serieta' e capacita' di gestione all 'interno di requisiti di qualita' .",
-        "en": "We are looking for a professional figure of pharmacist to be included in your organic with previous experience in the role (sale at the counter, pharmaceutical advice, drug management) and oriented especially to galenica or with Master in galenica. Start of work as soon as you get the permits ..require precision, serious\" and management skills within quality requirements.",
-        "de": "Wir sind auf der Suche nach einer professionellen Apothekerfigur, die in Ihr Bio mit vorheriger Erfahrung in der Rolle (Verkauf an der Theke, pharmazeutische Beratung, Arzneimittelmanagement) aufgenommen wird und sich insbesondere an Galenica oder an Master in Galenica orientiert. Beginn der Arbeit, sobald Sie die Genehmigungen erhalten ... erfordern Präzision, ernsthafte\" und Managementfähigkeiten innerhalb der Qualitätsanforderungen. \"",
-        "fr": "Nous recherchons une figure professionnelle de pharmacien pour être inclus dans votre bio avec une expérience antérieure dans le rôle (vente au comptoir, conseils pharmaceutiques, gestion des médicaments) et orienté spécialement vers galenica ou avec Master in galenica. Début du travail dès que vous obtenez les permis ..requérir la précision, sérieux » et compétences de gestion dans les exigences de qualité."
+        "it": "Siamo alla ricerca di una figura professionale di farmacista da inserire nel proprio organico con esperienza pregressa nel ruolo ( vendita al banco, consiglio farmaceutico, gestione farmaci) e orientato in particolar modo alla galenica o  con Master in galenica. Inizio lavoro non appena ottenuti i permessi . .richiesta precisione, serieta' e capacita' di gestione all 'interno di requisiti di qualita' ."
       },
       "id": "pub-iu5Qo4qyPN7JVgJYb9bZ-chiasso",
       "salaryMin": 70500,
@@ -142,6 +139,7 @@
       "applyMode": "external_url",
       "publisherUid": "SxhiePuxksWgEsyiOhKgXVUpF2C3",
       "publisherJobId": "iu5Qo4qyPN7JVgJYb9bZ",
+      "needsRetranslation": true,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -154,6 +152,15 @@
         }
       },
       "previousSlugsByLocale": {
+        "en": [
+          "pharmacist-farmacia-internazionale-dr-merloni-chiasso"
+        ],
+        "de": [
+          "apotheker-farmacia-internazionale-dr-merloni-chiasso"
+        ],
+        "fr": [
+          "pharmacien-farmacia-internazionale-dr-merloni-chiasso"
+        ],
         "it": [
           "pharmacist-farmacia-internazionale-dr-merloni-chiasso",
           "apotheker-farmacia-internazionale-dr-merloni-chiasso",

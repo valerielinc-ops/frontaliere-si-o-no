@@ -5,9 +5,11 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const {
   CANDIDATE_REMINDER_BEFORE_MS,
   CANDIDATE_REVIEW_MS,
+  MAX_RUN_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
   evaluateRedFlags,
+  isTransientRunError,
   transition,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -20,6 +22,52 @@ const cleanDraft = {
   factCheck: { ok: true, unsupported: [] },
   questions: [],
 };
+
+describe('draft failures', () => {
+  // Trial run 2026-09-30: round 2 went to the owner on "codex auth broker rejected the request; codex timed out".
+  const brokerError = 'codex auth broker rejected the request_ codex timed out after <number>ms';
+
+  it('retries a transient failure, and hands over after the last attempt or on a real error', () => {
+    const regenerating = { state: 'regenerating', round: 2, dispatch: { mode: 'draft', round: 2, attempts: 1 } };
+    const retry = transition(regenerating, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.flow.state).toBe('regenerating');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+
+    const last = transition({ ...regenerating, dispatch: { ...regenerating.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
+    expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: brokerError, stage: 'draft', attempts: MAX_RUN_ATTEMPTS }]);
+
+    const real = transition(regenerating, { type: 'draft_failed', error: 'cv_unavailable:not_found' }, { draft: cleanDraft, nowMs: T0 });
+    expect(real.flow.state).toBe('owner_takeover');
+  });
+
+  it('knows which errors another run can fix', () => {
+    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
+      expect(isTransientRunError(error)).toBe(true);
+    }
+    // runner_timeout: the watchdog already re-dispatched the silent run.
+    for (const error of ['cv_unavailable:not_found', 'posting_unreadable', 'invalid_profile', 'runner_timeout', 'codex_http_400', '']) {
+      expect(isTransientRunError(error)).toBe(false);
+    }
+  });
+
+  it('runs a submission again after a transient failure, never after an ambiguous one', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const retry = transition(submitting, { type: 'submit_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.flow.state).toBe('submitting');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+
+    const last = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error: 'Timeout 30000ms exceeded' }, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow.state).toBe('owner_takeover');
+    expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'Timeout 30000ms exceeded', stage: 'submit', attempts: MAX_RUN_ATTEMPTS }]);
+
+    // The application may have reached the employer: the owner checks first.
+    for (const error of ['email_ambiguous', 'portal_ambiguous', 'email_failed', 'portal_validation', 'runner_timeout']) {
+      const step = transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: [error] });
+    }
+  });
+});
 
 describe('red flags', () => {
   it('separates what only Valerie can clear from what only the candidate can answer', () => {
@@ -204,10 +252,30 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
 
   it('lets Valerie regenerate, even after taking the order over', () => {
     for (const state of ['owner_review', 'owner_takeover', 'candidate_review']) {
-      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: cleanDraft, nowMs: T0 });
+      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'regenerating', round: 3 });
       expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
     }
     expect(transition({ state: 'submitted' }, { type: 'owner_regenerate' }, { nowMs: T0 }).ignored).toBe('not_regenerable');
+  });
+
+  // Trial run 2026-09-30: round 2 failed on Codex, and "Rigenera" moved Luigi to his last round.
+  it('writes a failed round again as the same round, never costing the candidate a round', () => {
+    const failed = { state: 'owner_takeover', round: 2, heldBy: ['draft_failed'] };
+    const roundOneDraft = { ...cleanDraft, round: 1 };
+    const regenerated = transition(failed, { type: 'owner_regenerate' }, { draft: roundOneDraft, nowMs: T0 });
+    expect(regenerated.flow).toMatchObject({ state: 'regenerating', round: 2, heldBy: [] });
+    expect(regenerated.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
+    // The very first draft failed: still round 1.
+    expect(transition({ ...failed, round: 1 }, { type: 'owner_regenerate' }, { draft: null, nowMs: T0 }).flow.round).toBe(1);
+
+    // "Riprendi automazione" has nothing to review either: the draft is written again.
+    const resumed = transition(failed, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 });
+    expect(resumed.flow).toMatchObject({ state: 'regenerating', round: 2 });
+    expect(resumed.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_resume' }]);
+    // With the round's draft in hand, resuming reviews it as before.
+    expect(transition({ ...failed, heldBy: ['submit_failed'] }, { type: 'owner_resume' }, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 }).flow.state).toBe('owner_review');
+    // A closed ad is not drafted again by a resume.
+    expect(transition({ ...failed, heldBy: ['posting_closed'] }, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 }).flow.state).toBe('owner_review');
   });
 });

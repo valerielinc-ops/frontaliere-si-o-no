@@ -69,6 +69,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    /** The fields the candidate corrected on the review page. */
+    formOverrides?: Record<string, string>;
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
     history: Array<{ at: number; event: string; state: string }>;
   } | null;
@@ -92,6 +94,8 @@ export interface AssistedApplicationAutomationView {
     factCheckAcknowledgedAt: number | null;
     knockOutAcknowledgedAt: number | null;
     editedAt: number | null;
+    /** When the candidate last saved their own changes on the review page. */
+    candidateEditedAt?: number | null;
     cvTextMethod: string | null;
     coverLetterUrl: string | null;
     /** career-ops ATS check: structural grade and keyword coverage, of the candidate's CV and of the tailored one. */
@@ -106,6 +110,23 @@ export interface AssistedApplicationAutomationView {
     tailoredCv: { status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null } | null;
     cvChoice: 'tailored' | 'original';
   } | null;
+}
+
+/** One e-mail to the candidate and what the providers reported (opens are indicative). */
+export interface AssistedApplicationCandidateEmail {
+  key: string;
+  status: string | null;
+  sentAt: string | null;
+  delivered: number;
+  opens: number;
+  clicks: number;
+  bounces: number;
+  complaints: number;
+  firstOpenAt: string | null;
+  lastOpenAt: string | null;
+  lastClickAt: string | null;
+  /** Without the query: review links carry a signed token. */
+  lastClickUrl: string | null;
 }
 
 export interface AssistedApplicationAdminOrder {
@@ -134,6 +155,8 @@ export interface AssistedApplicationAdminOrder {
   cvFileCheck: string | null;
   /** Status of the automatic customer emails (`sent`, `failed`, `ambiguous`, `sending`). */
   emails: { intro: string | null; reminder: string | null; submitted: string | null };
+  /** Every e-mail the candidate received, with the delivery, opens and clicks the providers reported. */
+  candidateEmails?: AssistedApplicationCandidateEmail[];
   cvUploadedAt: string | null;
   consentVersion: string | null;
   consentedAt: string | null;
