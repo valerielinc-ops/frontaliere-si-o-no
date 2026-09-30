@@ -122,7 +122,9 @@ describe('ledger', () => {
   });
 
   it('works without storage: no id, no throw, no receipt', () => {
-    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+    // On the instance: the CI environment's localStorage does not route
+    // through Storage.prototype.setItem.
+    const setItem = vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => {
       throw new Error('blocked');
     });
     const id = grant(Date.now());
