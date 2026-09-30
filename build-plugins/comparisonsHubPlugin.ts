@@ -163,6 +163,7 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
   <figcaption class="s-USTxiS">${esc(copy.tSalaryCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-Tiw3aV">
+      <caption class="sr-only">${esc(copy.tSalaryCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
           <th class="s-thd" style="text-align:left">${esc(copy.tSalaryColSector)}</th>
@@ -196,6 +197,7 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
   <figcaption class="s-USTxiS">${esc(copy.tTaxCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-Tiw3aV">
+      <caption class="sr-only">${esc(copy.tTaxCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
           <th class="s-thd" style="text-align:left">${esc(copy.tTaxColScenario)}</th>
@@ -225,6 +227,7 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
   <figcaption class="s-USTxiS">${esc(copy.tHealthCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-8y_5Dt">
+      <caption class="sr-only">${esc(copy.tHealthCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
           <th class="s-thd" style="text-align:left">${esc(copy.tHealthColCanton)}</th>
@@ -254,6 +257,7 @@ function renderBenefitsTable(copy: ComparisonsHubCopy): string {
   <figcaption class="s-USTxiS">${esc(copy.tBenefitsCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-iPczBT">
+      <caption class="sr-only">${esc(copy.tBenefitsCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
           <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColArea)}</th>
@@ -282,6 +286,7 @@ function renderCostTable(copy: ComparisonsHubCopy): string {
   <figcaption class="s-USTxiS">${esc(copy.tCostCaption)}</figcaption>
   <div class="s-hrA9tN">
     <table class="s-asm5zV">
+      <caption class="sr-only">${esc(copy.tCostCaption)}</caption>
       <thead class="s-_esAK2">
         <tr>
           <th class="s-thd" style="text-align:left">${esc(copy.tCostColItem)}</th>
@@ -439,7 +444,9 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml already provides the crawler-facing <main> landmark.
+  // Keep this class on a neutral wrapper so the page has one main landmark.
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</div>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({

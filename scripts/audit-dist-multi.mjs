@@ -1211,7 +1211,7 @@ class StructuredDataAudit {
         if (!isBridge) {
           errors.push(
             ...validateMandatoryJobPostingFields(schema)
-              .map((error) => toStructuredDataJobPostingError(error, file)),
+              .map((violation) => toStructuredDataJobPostingError(violation, file)),
             ...validateStructuredDataJobPostingExtras(schema, file),
           );
         }
