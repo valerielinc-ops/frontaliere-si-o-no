@@ -4,7 +4,7 @@
  * and does not trigger React warnings (infinite loops, setState-in-render, etc.).
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, act, cleanup } from '@testing-library/react';
+import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '@/App';
 
@@ -359,16 +359,16 @@ describe('App smoke test', () => {
     });
     document.body.appendChild(ad);
 
-    await act(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 50));
-    });
-    expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('60px');
+    await waitFor(
+      () => expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('60px'),
+      { timeout: 2000 },
+    );
 
     ad.remove();
-    await act(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 50));
-    });
-    expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('0px');
+    await waitFor(
+      () => expect(nav.style.getPropertyValue('--mobile-nav-ad-clearance')).toBe('0px'),
+      { timeout: 2000 },
+    );
 
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: previousWidth });
     Object.defineProperty(window, 'innerHeight', { configurable: true, value: previousHeight });

@@ -2,7 +2,8 @@
 /**
  * setup-ga4-ad-page-diag-definitions.mjs — register the EVENT-scoped GA4
  * custom dimensions and metrics of `ad_page_diag` (list and rationale in
- * scripts/lib/ga4-ad-page-diag-definitions.mjs).
+ * scripts/lib/ga4-ad-page-diag-definitions.mjs), and the metrics of the
+ * rewarded offer's ads snapshots (scripts/lib/ga4-offer-ads-snapshot-definitions.mjs).
  *
  * Idempotent and additive only: it lists what the property already has, never
  * creates a parameterName that exists (in either list), never updates or
@@ -21,6 +22,7 @@ import {
   AD_PAGE_DIAG_GA4_CUSTOM_METRICS,
   AD_PAGE_DIAG_GA4_SHARED_DIMENSIONS,
 } from './lib/ga4-ad-page-diag-definitions.mjs';
+import { OFFER_ADS_SNAPSHOT_GA4_CUSTOM_METRICS } from './lib/ga4-offer-ads-snapshot-definitions.mjs';
 
 const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
 const dryRun = process.argv.includes('--dry-run');
@@ -72,6 +74,8 @@ async function main() {
   const plan = [
     ...AD_PAGE_DIAG_GA4_CUSTOM_DIMENSIONS.map((d) => ['customDimensions', d]),
     ...AD_PAGE_DIAG_GA4_CUSTOM_METRICS.map((m) => ['customMetrics', m]),
+    // The rewarded offer's ads snapshots (scripts/lib/ga4-offer-ads-snapshot-definitions.mjs).
+    ...OFFER_ADS_SNAPSHOT_GA4_CUSTOM_METRICS.map((m) => ['customMetrics', m]),
   ];
   for (const [kind, definition] of plan) {
     if (taken.has(definition.parameterName)) {

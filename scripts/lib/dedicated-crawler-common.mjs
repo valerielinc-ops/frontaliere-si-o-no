@@ -7569,6 +7569,13 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.sourceLang = old.sourceLang;
     }
 
+    // Preserve an authoritative source reference when a later listing row
+    // omits it; a missing metadata field must not erase proof already stored
+    // for the same stable job identity.
+    if (old.sourceReference && !fresh.sourceReference) {
+      fresh.sourceReference = old.sourceReference;
+    }
+
     // Preserve slugDisambiguator — crawler sets it once, pipeline carries it forward
     if (old.slugDisambiguator && !fresh.slugDisambiguator) {
       fresh.slugDisambiguator = old.slugDisambiguator;

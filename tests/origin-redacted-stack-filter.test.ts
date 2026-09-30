@@ -160,13 +160,17 @@ describe('app_error pipelines re-classify origin-redacted stacks (#4173)', () =>
     const thirdParty = new Error('Maximum call stack size exceeded.');
     thirdParty.stack = PRODUCTION_STACKS[0];
     reportCaughtError(thirdParty, 'ads.thirdParty', { fatal: true });
-    expect(trackAppError).toHaveBeenCalledWith('cross_origin_script', expect.objectContaining({ fatal: false }));
+    await vi.waitFor(() => {
+      expect(trackAppError).toHaveBeenCalledWith('cross_origin_script', expect.objectContaining({ fatal: false }));
+    });
 
     trackAppError.mockClear();
     const firstParty = new Error('boom');
     firstParty.stack = 'calc@https://cdn.frontaliereticino.ch/assets/App.js:1:2';
     reportCaughtError(firstParty, 'calc.run', { fatal: true });
-    expect(trackAppError).toHaveBeenCalledWith('api_error', expect.objectContaining({ fatal: true }));
+    await vi.waitFor(() => {
+      expect(trackAppError).toHaveBeenCalledWith('api_error', expect.objectContaining({ fatal: true }));
+    });
     vi.doUnmock('@/services/analytics');
     vi.doUnmock('@/services/newsletterAutologinSignal');
     vi.doUnmock('@/services/resilientImport');
