@@ -3832,6 +3832,10 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
  * unioned in as a guaranteed-drop seed so a transient read failure cannot
  * resurrect a known mirror.
  *
+ * This pass edits sitemap XML only. It never deletes or prunes `dist/` HTML:
+ * historical pages remain available even when their URL is intentionally
+ * removed from the indexable sitemap because it is a bridge or noindex page.
+ *
  * Exported for unit testing (tests/sitemap-jobs-dist-truth.test.ts).
  */
 export async function reconcileSitemapJobsWithDist(
