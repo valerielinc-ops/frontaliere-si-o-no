@@ -270,7 +270,9 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
     lines.push('', '### Copertura da riparare', '', ...summary.coverageErrors.map((error) => `- ${error}`));
   }
   lines.push('', '### Conteggio per codice', '');
-  for (const [code, count] of Object.entries(summary.codeCounts).sort((a, b) => b[1] - a[1])) lines.push(`- \`${code}\`: **${count}**`);
+  for (const [code, count] of Object.entries(summary.codeCounts)
+    .filter(([code]) => ACTIONABLE_CODES.has(code))
+    .sort((a, b) => b[1] - a[1])) lines.push(`- \`${code}\`: **${count}**`);
   const byCode = new Map();
   for (const item of summary.actionableFindings) {
     const items = byCode.get(item.code) || [];

@@ -140,6 +140,7 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(summary.actionableCount).toBe(1);
     expect(issueBody).toContain('### canonical-drift (1)');
     expect(issueBody).not.toContain('### canonical-expected');
+    expect(issueBody).not.toContain('`canonical-expected`');
     expect(issueBody).toContain('| `/blog/` | 2 | 0 | 1 |');
   });
 
