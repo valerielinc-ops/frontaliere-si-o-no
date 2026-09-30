@@ -31,10 +31,12 @@ import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-jo
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
 import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  extractPdfLinks,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -59,7 +61,6 @@ const NON_JOB_PDF_RE =
 const KNOWN_NON_JOB_FILENAME_RE =
   /(?:^|[^a-z0-9])(?:comunicat(?:o|i)(?:[_\s-]+stampa)?|press(?:[_\s-]+release)?|informativa|privacy|policy|testi|attestato|presidente|vernissage)(?=$|[^a-z0-9])/i;
 const VARINI_UPLOADS_PATH_PREFIX = '/wp-content/uploads/';
-const PDF_ANCHOR_RE = /<a\b[^>]*\bhref\s*=\s*(["'])([^"'<>]+?\.pdf(?:[?#][^"'<>]*)?)\1[^>]*>/gi;
 
 function decodeFilename(raw = '') {
   try {
@@ -72,28 +73,22 @@ function decodeFilename(raw = '') {
 function collectPdfLinks(html = '') {
   const links = [];
   const seen = new Set();
-  let match;
-  while ((match = PDF_ANCHOR_RE.exec(html)) !== null) {
-    const rawHref = decodeEntities(match[2]).trim();
-    if (!rawHref) continue;
-
+  for (const { href: resolvedHref, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
+    let href = resolvedHref;
+    if (href.startsWith('http://')) href = href.replace('http://', 'https://');
     let parsed;
     try {
-      parsed = new URL(rawHref, PUBLIC_CAREER_URL);
+      parsed = new URL(href);
     } catch {
       continue;
     }
-    if (!['http:', 'https:'].includes(parsed.protocol)) continue;
-    parsed.protocol = 'https:';
-    if (!isTrustedDomain(parsed.href) || !parsed.pathname.startsWith(VARINI_UPLOADS_PATH_PREFIX)) {
+    if (!isTrustedDomain(href) || !parsed.pathname.startsWith(VARINI_UPLOADS_PATH_PREFIX)) {
       continue;
     }
 
-    const href = parsed.href;
     if (seen.has(href)) continue;
     seen.add(href);
 
-    const filename = decodeFilename(parsed.pathname.split('/').pop() || '');
     if (!/\.pdf$/i.test(filename)) continue;
     links.push({ href, filename });
   }
@@ -186,17 +181,12 @@ export function parseClinicaVariniListing(html = '') {
 
   const out = [];
   const seen = new Set();
-  const anchorRe = /<a\b[^>]*\bhref\s*=\s*["']([^"'<>]+?\.pdf(?:[?#][^"'<>]*)?)["'][^>]*>/gi;
-  let m;
-  while ((m = anchorRe.exec(html)) !== null) {
-    let href = m[1];
-    if (!href) continue;
+  for (const { href: resolvedHref, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
+    if (!isTrustedDomain(resolvedHref)) continue;
+    let href = resolvedHref;
     // Force https + absolute
     if (href.startsWith('http://')) href = href.replace('http://', 'https://');
-    if (href.startsWith('//')) href = `https:${href}`;
-    else if (href.startsWith('/')) href = `https://clinicavarini.ch${href}`;
 
-    const filename = decodeFilename(href.split('/').pop() || '');
     if (!JOB_PDF_RE.test(filename)) continue;
     if (NON_JOB_PDF_RE.test(filename) || NON_JOB_PDF_RE.test(href)) continue;
     if (seen.has(href)) continue;
@@ -281,11 +271,21 @@ export async function fetchAllClinicaVariniJobs() {
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  const sourceBodyFailures = [];
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.filename}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl, { timeoutMs });
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
-    const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
+    const pdfFailed = Boolean(pdf.extractionFailed || pdf.error);
+    if (pdfFailed) {
+      sourceBodyFailures.push({
+        title: listing.title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdf.error || pdf.warning || 'PDF extraction failed',
+      });
+    }
+    const pdfText = pdfFailed || pdf.thin ? '' : (pdf.rawText || pdf.text || '');
 
     const { description, warnings } = buildVariniDescription({
       title: listing.title,
@@ -338,6 +338,12 @@ export async function fetchAllClinicaVariniJobs() {
       postedDate: todayIso,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
+      ...(pdfFailed
+        ? {
+          sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
+          sourceBodyFailureMessage: pdf.error || pdf.warning || 'PDF extraction failed',
+        }
+        : {}),
     });
 
     console.log(`  ✅ ${listing.title.substring(0, 70)} (${listing.id})`);
@@ -357,5 +363,6 @@ export async function fetchAllClinicaVariniJobs() {
   console.log(
     `\n📋 Total ${CLINICA_VARINI_COMPANY_NAME} jobs discovered: ${jobs.length}`
   );
+  jobs.sourceBodyFailures = sourceBodyFailures;
   return jobs;
 }

@@ -51,6 +51,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { parseFeed, parseRss2JsonItems } from './lib/stadt-chur-feed-parser.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
@@ -358,7 +359,7 @@ async function fetchFeed() {
 // Build
 // ──────────────────────────────────────────────────────────────
 
-function buildJob(entry, detailDescription = null) {
+export function buildJob(entry, detailDescription = null) {
   const title = entry.title || '';
   const link = entry.link || '';
   // Extract job ID from URL (e.g., j1657 from "...-de-j1657.html")
@@ -366,8 +367,18 @@ function buildJob(entry, detailDescription = null) {
   const jobId = jobIdMatch ? jobIdMatch[1] : '';
   const slug = slugify(`${title}-stadt-chur-${jobId}`);
 
+  const detailText = stripHtml(detailDescription || '');
+  const contentText = stripHtml(entry.content || '');
   const summaryText = stripHtml(entry.summary || '');
-  const description = (detailDescription || summaryText).slice(0, 3000);
+  // rss2json exposes the source page body as `content` while its `description`
+  // field is only the short feed summary. Prefer a verified-rich detail/body
+  // value so a proxy fallback does not silently discard the full description.
+  const sourceText = meetsSourceBodyFloor(detailText)
+    ? detailText
+    : meetsSourceBodyFloor(contentText)
+      ? contentText
+      : detailText || contentText || summaryText;
+  const description = sourceText.slice(0, 3000);
   const sourceLang = detectLang(title + ' ' + description) || 'de';
   const category = inferCategory(entry.category, title);
   const empType = mapEmploymentType(title);
@@ -639,4 +650,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Stadt Chur'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Stadt Chur'));
+}

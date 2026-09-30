@@ -20,7 +20,9 @@ import {
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
+  AUTOMATION_SUBCOLLECTION,
   applyAutomationEvent,
   isAutomationEnabled,
   draftRefFor,
@@ -28,6 +30,7 @@ import {
   orderRefFor,
   startAutomation,
 } from './assistedApplicationAutomation.js';
+import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 
 export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationStart',
@@ -37,6 +40,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationRegenerate',
   'automationEditDraft',
   'automationSetAnswers',
+  'automationRevealAccount',
 ]);
 
 const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown']);
@@ -51,14 +55,27 @@ export class AutomationAdminError extends Error {
 
 /** Flow + draft as the owner queue shows them (no raw CV text). */
 export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
-  const [flowSnapshot, draftSnapshot, inboxSnapshot] = await Promise.all([
+  const [flowSnapshot, draftSnapshot, inboxSnapshot, accountsSnapshot] = await Promise.all([
     flowRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     // Only the latest ten, from the database: an order may collect many messages.
     orderRefFor(db, orderId).collection('inbox').orderBy('receivedAt', 'desc').limit(10).get(),
+    orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID).get(),
   ]);
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+  // Portal accounts the runner created on the alias: never the password here.
+  // A registration the portal refused left no account (`discarded`, no password).
+  const accounts = Object.values(accountsSnapshot.exists ? accountsSnapshot.data() || {} : {})
+    .filter((entry) => entry && typeof entry === 'object' && entry.host && entry.passwordEnc)
+    .map((entry) => ({
+      host: entry.host,
+      email: entry.email || '',
+      createdAt: entry.createdAt || null,
+      verifiedAt: entry.verifiedAt || null,
+      lastSignInAt: entry.lastSignInAt || null,
+      revealedAt: entry.revealedAt || null,
+    }));
   const inbox = (inboxSnapshot.docs || []).map((doc) => doc.data() || {})
     .sort((left, right) => Number(right.receivedAt || 0) - Number(left.receivedAt || 0))
     .slice(0, 10)
@@ -71,12 +88,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,
     }));
-  if (!flow && !draft && !inbox.length) return null;
+  if (!flow && !draft && !inbox.length && !accounts.length) return null;
   const letterUrl = draft?.coverLetterPdfKey && signUrl && isAssistedApplicationCvKey(orderId, draft.coverLetterPdfKey)
     ? await signUrl(draft.coverLetterPdfKey).catch(() => null)
     : null;
   return {
     inbox,
+    accounts,
     flow: flow ? {
       state: flow.state || null,
       round: Number(flow.round) || 1,
@@ -231,6 +249,20 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       await flowRefFor(db, orderId).set({ answers: { ...(flowSnapshot.data()?.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
+    }
+    case 'automationRevealAccount': {
+      // Owner takeover of a portal application: the account the runner
+      // created on the alias. Who looked and when is recorded; the password
+      // itself is only returned, never stored in clear or logged.
+      const host = clean(raw.host, 200).toLowerCase();
+      const ref = orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID);
+      const [key, entry] = Object.entries((await ref.get()).data() || {}).find(([, value]) => value?.host === host) || [];
+      if (!entry?.passwordEnc) throw new AutomationAdminError('no_account', 404);
+      const rawKey = deps.runKey ? await deps.runKey() : '';
+      if (!rawKey) throw new AutomationAdminError('run_key_missing', 500);
+      const { password } = decryptJson(entry.passwordEnc, runKeyFrom(rawKey));
+      await ref.set({ [key]: { ...entry, revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
+      return { ok: true, host, email: entry.email || '', password };
     }
     default:
       throw new AutomationAdminError('invalid_input');
