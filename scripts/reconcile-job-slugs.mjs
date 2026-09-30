@@ -1320,7 +1320,7 @@ function updateExpiredCrawlerSlices(reconciledIds, activeJobs) {
         candidateRaw,
         entries: proofEntries,
       };
-      writeJson(slicePath, filtered, { housekeepingProof: proofMetadata });
+      writeJson(slicePath, filtered, { expiredGhostProof: proofMetadata });
       if (process.env.GITHUB_RUN_ID && process.env.GITHUB_RUN_ATTEMPT) {
         const committedCandidateRaw = fs.readFileSync(slicePath, 'utf8');
         writeHousekeepingProofFile(slicePath, [

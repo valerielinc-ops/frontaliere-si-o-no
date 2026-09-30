@@ -1418,6 +1418,9 @@ export function assertCrawlerSliceWriteSafe(
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
   }
+  if (isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, expiredGhostProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-ghost-expired-reconciliation' };
+  }
   if (isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-ghost-expired-reconciliation' };
   }
