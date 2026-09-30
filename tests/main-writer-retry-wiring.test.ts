@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
@@ -17,8 +18,8 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/quality-alerts.yml',
   '.github/workflows/refresh-gsc-marquee-demand.yml',
   '.github/workflows/regenerate-visual-baselines.yml',
-  '.github/workflows/sync-pharmacies-border.yml',
   '.github/workflows/update-weather.yml',
+  '.github/workflows/update-exchange-history.yml',
 ];
 
 function read(relativePath: string): string {
@@ -40,20 +41,18 @@ describe('main data writers use the shared retry contract', () => {
     }
   });
 
-  it('keeps the data-specific replay contracts', () => {
+  it('keeps the pharmacy PR publication contract', () => {
     const pharmacyWorkflow = read('.github/workflows/sync-pharmacies-border.yml');
-    const dutyFetch = pharmacyWorkflow.indexOf('node scripts/sync-pharmacy-duties.mjs || duty_exit=$?');
-    const finalizer = pharmacyWorkflow.indexOf('npm run pharmacies:import', dutyFetch);
-    const checker = pharmacyWorkflow.indexOf('npm run pharmacies:check', finalizer);
-    expect(pharmacyWorkflow).toContain("--regenerate-cmd '");
-    expect(pharmacyWorkflow).toContain('case "$duty_exit" in');
-    expect(pharmacyWorkflow).toContain('0|1|2)');
-    expect(pharmacyWorkflow).toContain('duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer');
-    expect(pharmacyWorkflow).toContain('atomic finalizer completed after duty diagnostic exit=$duty_exit');
-    expect(pharmacyWorkflow).toContain('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
-    expect(dutyFetch).toBeGreaterThan(-1);
-    expect(finalizer).toBeGreaterThan(dutyFetch);
+    const finalizer = pharmacyWorkflow.indexOf('run: npm run pharmacies:import');
+    const checker = pharmacyWorkflow.indexOf('run: npm run pharmacies:check');
+    const publisher = pharmacyWorkflow.indexOf('scripts/lib/open-data-refresh-pr.sh');
+    expect(pharmacyWorkflow).toContain('pull-requests: write');
+    expect(pharmacyWorkflow).toContain('GH_TOKEN: ${{ env.GITHUB_PAT }}');
+    expect(pharmacyWorkflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(pharmacyWorkflow).not.toContain('--regenerate-cmd');
+    expect(finalizer).toBeGreaterThan(-1);
     expect(checker).toBeGreaterThan(finalizer);
+    expect(publisher).toBeGreaterThan(checker);
     expect(read('.github/workflows/crawler-health-monitor.yml')).toContain(
       'node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json',
     );
@@ -65,6 +64,28 @@ describe('main data writers use the shared retry contract', () => {
     expect(buildHistoryWriter).toContain('git-push-with-retry.sh --max-attempts 5 --stash-dirty');
     expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
     expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
+  });
+
+  it('bounds the exchange snapshot retry budget below its job timeout', () => {
+    const workflow = read('.github/workflows/update-exchange-history.yml');
+    const document = YAML.parse(workflow) as {
+      jobs?: {
+        update?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string }>;
+        };
+      };
+    };
+    const updateJob = document.jobs?.update;
+    const snapshotStep = updateJob?.steps?.find(
+      (step) => step.name === 'Commit SSG snapshot (if changed)',
+    );
+    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
+
+    expect(updateJob, 'exchange history update job is missing').toBeDefined();
+    expect(snapshotStep, 'exchange snapshot commit step is missing').toBeDefined();
+    expect(maxAttempts, 'exchange snapshot retry cap is missing').toBe('5');
+    expect(Number(maxAttempts)).toBeLessThan(updateJob?.['timeout-minutes'] ?? 0);
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {

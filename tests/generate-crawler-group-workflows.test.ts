@@ -2330,6 +2330,10 @@ describe('cross-repo crawler execution artifacts', () => {
       for (const checkout of checkouts) {
         expect(checkout.with.repository).toBe('valerielinc-ops/frontaliere-si-o-no');
         expect(checkout.with.token).toBeUndefined();
+        // The caller's GITHUB_TOKEN is not allowed to survive a site checkout:
+        // actions/checkout v6/v7 can persist it through a credentials file and
+        // includeIf, which overrides the PAT in the later remote URL.
+        expect(checkout.with['persist-credentials'], `${artifact.file} site checkout auth`).toBe(false);
         expect(checkout.with.ref).toBe(artifact.members.length > 0
           ? "${{ inputs.site_code_commit || 'main' }}"
           : 'main');

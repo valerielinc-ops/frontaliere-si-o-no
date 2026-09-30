@@ -23,7 +23,9 @@ jobs:
     # mangia l'intero budget del job update-fuel-prices), qui prevenuto prima
     # che diventi un timeout osservato. Il job stesso, nel run piu' lento
     # campionato, ha gia' usato l'83% del vecchio cap (249s su 300s).
-    timeout-minutes: 8
+    # The snapshot push hit the 8-minute cap after 6m26s of contention
+    # retries (#10545); retain the Checkout guard but give the job push room.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -85,8 +87,13 @@ jobs:
             git commit -m "💱 Daily CHF/EUR SSG snapshot refresh"
             # Centralized rebase-retry helper handles concurrent pushes from
             # other workflows; the snapshot is a deterministic output of the
-            # script, so re-run it before retrying.
+            # script, so re-run it before retrying. The 15-minute job cap leaves
+            # room for the push; under the old 8-minute cap, the default
+            # 40-attempt budget could spend the remaining time in backoff under
+            # sustained main contention, so fail closed after a bounded
+            # five-attempt handoff instead of being cancelled by the timeout.
             bash scripts/lib/git-push-with-retry.sh \
+              --max-attempts 5 \
               --regenerate-cmd 'node scripts/snapshot-exchange-history.mjs && git add data/exchange-rate-snapshot.json'
           fi
 
