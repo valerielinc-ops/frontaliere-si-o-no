@@ -72,9 +72,11 @@ export function draftRefFor(db, orderId) {
   return orderRefFor(db, orderId).collection(AI_DRAFTS_SUBCOLLECTION).doc(AI_DRAFT_DOC_ID);
 }
 
-export async function isAutomationEnabled(read = getRemoteConfigValue) {
+/** Fails closed: any error reading Remote Config means "off". */
+export async function isAutomationEnabled(read = null) {
   try {
-    return String(await read(AUTOMATION_FLAG_KEY) || '').trim().toLowerCase() === 'true';
+    const reader = read || getRemoteConfigValue;
+    return String(await reader(AUTOMATION_FLAG_KEY) || '').trim().toLowerCase() === 'true';
   } catch (error) {
     console.warn('[assistedApplicationAutomation] flag read failed', error instanceof Error ? error.message : String(error));
     return false;

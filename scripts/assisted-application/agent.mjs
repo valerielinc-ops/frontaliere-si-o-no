@@ -16,13 +16,13 @@
 import { appendFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
-import { detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { submitApplication } from './lib/submit.mjs';
 
-const BUCKET = 'frontaliere-ticino.firebasestorage.app';
+const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 const MODES = new Set(['draft', 'submit']);
 const DRAFT_STATES = new Set(['drafting', 'regenerating']);

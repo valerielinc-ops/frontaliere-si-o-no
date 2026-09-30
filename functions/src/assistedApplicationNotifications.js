@@ -795,8 +795,11 @@ export function isPaid(order) {
 export async function sendPaidOrderNotifications(
   db,
   orderId,
-  { variant = 'intro', recipientOverride = '', orderPatch = null, nowMs = Date.now(), automation = false } = {},
+  { variant = 'intro', recipientOverride = '', orderPatch = null, nowMs = Date.now(), automation } = {},
 ) {
+  // Callers that do not say (the hourly backstop, the owner recovery script)
+  // get the copy that matches the automation flag, like the trigger does.
+  const automationOn = typeof automation === 'boolean' ? automation : await isAutomationEnabled();
   // `orderPatch` only changes what the email shows (e.g. the locale recovered
   // from Stripe for a test send); it is never written by this function.
   const view = (order) => (orderPatch ? { ...order, ...orderPatch } : order);
@@ -805,7 +808,7 @@ export async function sendPaidOrderNotifications(
     db,
     orderId,
     key: NOTIFICATION_KEYS.customerIntro,
-    build: (order) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation }),
+    build: (order) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation: automationOn }),
     recipientOverride,
     meta: { variant },
     nowMs,

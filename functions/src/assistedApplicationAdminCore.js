@@ -22,7 +22,7 @@ import {
   loadAutomationForAdmin,
 } from './assistedApplicationAutomationAdmin.js';
 import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
-import { detectCvFileType } from './assistedApplicationCvCheck.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from './assistedApplicationCvCheck.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_ADMIN_STATUSES,
@@ -502,10 +502,7 @@ async function handleRefund(db, raw, adminEmail) {
   };
 }
 
-const STORAGE_BUCKET =
-  process.env.FIREBASE_STORAGE_BUCKET ||
-  process.env.STORAGE_BUCKET ||
-  'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const CV_CONTENT_TYPES = {
   pdf: 'application/pdf',

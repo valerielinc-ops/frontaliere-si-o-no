@@ -10,15 +10,13 @@
 import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 
 export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
 
 const ASSISTED_STORAGE_PREFIX = 'assisted-application-uploads/';
 const RETENTION_PAGE_SIZE = 500;
-const STORAGE_BUCKET =
-  process.env.FIREBASE_STORAGE_BUCKET ||
-  process.env.STORAGE_BUCKET ||
-  'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 
 function timestampMillis(value) {
   if (value && typeof value.toMillis === 'function') {

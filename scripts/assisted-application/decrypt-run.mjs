@@ -12,10 +12,11 @@
  */
 
 import { parseArgs } from 'node:util';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { decryptJson, runKeyFrom } from './lib/secure-run.mjs';
 
-const BUCKET = 'frontaliere-ticino.firebasestorage.app';
+const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 
 async function main() {
   const { values } = parseArgs({ options: { order: { type: 'string' }, path: { type: 'string' } } });
