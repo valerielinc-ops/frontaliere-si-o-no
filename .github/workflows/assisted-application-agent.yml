@@ -1,0 +1,154 @@
+name: Assisted application agent
+
+# Second half of the 0,99 € assisted application, automated (owner decisions
+# 2026-09-30): Codex Luna Max drafts the application (mode=draft) and, once
+# Valerie and the candidate have approved it or their clocks ran out, sends it
+# (mode=submit). Dispatched only by the Cloud Functions
+# (functions/src/assistedApplicationAutomation.js), with the order id only.
+#
+# This repository is PUBLIC: inputs, run names and logs are readable by
+# anyone. So: the only input is an opaque order id; every personal value read
+# at runtime is masked (::add-mask::) before use; nothing is uploaded as an
+# artifact (evidence is encrypted with the Remote Config key and stored in the
+# order's private Storage folder); and assisted-application-log-janitor.yml
+# deletes the logs of every run of this workflow when it completes.
+on:
+  workflow_dispatch:
+    inputs:
+      order_id:
+        description: 'Assisted-application order id (opaque)'
+        required: true
+        type: string
+      mode:
+        description: 'draft | submit'
+        required: true
+        type: choice
+        options: [draft, submit]
+      round:
+        description: 'Review round the run belongs to'
+        required: true
+        type: string
+        default: '1'
+
+run-name: assisted-application ${{ inputs.mode }} r${{ inputs.round }}
+
+concurrency:
+  group: assisted-application-${{ inputs.order_id }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+    # Draft at Codex effort max: 4 calls, measured 9-15 min on 2026-09-30.
+    timeout-minutes: 60
+    steps:
+      - name: Validate inputs
+        env:
+          ORDER_ID: ${{ inputs.order_id }}
+          ROUND: ${{ inputs.round }}
+        run: |
+          [[ "$ORDER_ID" =~ ^[A-Za-z0-9_-]{6,128}$ ]] || { echo "invalid order id"; exit 1; }
+          [[ "$ROUND" =~ ^[0-9]{1,2}$ ]] || { echo "invalid round"; exit 1; }
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON secret is not set."
+            exit 1
+          fi
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Codex Luna Max at effort max: the same bounded broker as the article
+      # lanes. Only the draft calls Codex; the submit of this phase does not.
+      - id: codex
+        if: inputs.mode == 'draft'
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '3600000'
+          broker_max_concurrency: '2'
+
+      - name: Run agent
+        env:
+          ORDER_ID: ${{ inputs.order_id }}
+          MODE: ${{ inputs.mode }}
+          ROUND: ${{ inputs.round }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+        run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+
+      - name: Cleanup Codex auth broker
+        if: always() && inputs.mode == 'draft'
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Mode:** ${{ inputs.mode }}
+
+          I log della run vengono cancellati dal janitor: le prove cifrate sono nello Storage dell'ordine (scripts/assisted-application/decrypt-run.mjs)." \
+            --workflow "${{ github.workflow }}"

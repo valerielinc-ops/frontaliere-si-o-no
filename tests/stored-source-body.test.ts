@@ -4,6 +4,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  buildThinSourceHousekeepingProof,
   collectThinSourceJobsForQuarantine,
   keepStoredSourceBodies,
   keepStoredSourceBodiesByKey,
@@ -11,7 +12,10 @@ import {
 import { extractStableJobId } from '@/scripts/lib/job-match-key.mjs';
 
 const BODY = Array(60).fill('Aufgabe').join(' ');
+const BODY_40 = Array(40).fill('Aufgabe').join(' ');
+const BODY_35 = Array(35).fill('Kurztext').join(' ');
 const key = (url: string) => url;
+const jobKey = (job: { url: string }) => job.url;
 
 describe('keepStoredSourceBodies', () => {
   it('keeps a fresh job whose body is over the word floor', () => {
@@ -51,6 +55,38 @@ describe('keepStoredSourceBodies', () => {
     const stored = [{ url: 'a', sourceLang: 'de', description: 'Auch kurz.', descriptionByLocale: { de: 'Auch kurz.' } }];
     expect(keepStoredSourceBodies(fresh, stored, key)).toEqual([]);
     expect(keepStoredSourceBodies(fresh, [], key)).toEqual([]);
+  });
+
+  it('records a dropped thin read before keeping the publishable sibling', () => {
+    const thin = {
+      url: 'https://jobs.example.test/thin',
+      sourceLang: 'de',
+      description: BODY_35,
+      descriptionByLocale: { de: BODY_35 },
+    };
+    const publishable = {
+      url: 'https://jobs.example.test/publishable',
+      sourceLang: 'de',
+      description: BODY,
+      descriptionByLocale: { de: BODY },
+    };
+    const stored = [{
+      ...thin,
+      description: BODY_40,
+      descriptionByLocale: { de: BODY_40 },
+    }];
+
+    const kept = keepStoredSourceBodiesByKey([thin, publishable], stored, jobKey);
+    expect(kept).toEqual([publishable]);
+    expect(collectThinSourceJobsForQuarantine([thin, publishable], kept, jobKey)).toEqual([thin]);
+
+    const proof = buildThinSourceHousekeepingProof([thin], [thin], jobKey);
+    expect(proof).toEqual([{
+      job: thin,
+      reason: 'thin-source-quarantine',
+      definitive: true,
+    }]);
+    expect(keepStoredSourceBodiesByKey([thin, publishable], stored, key)).not.toContainEqual(thin);
   });
 
   it('uses a custom job identity and the declared source-locale slot', () => {

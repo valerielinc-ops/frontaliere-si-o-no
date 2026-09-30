@@ -26,7 +26,7 @@ describe('git-push-with-retry.sh stale .git/index.lock recovery', () => {
     const setEIndex = SCRIPT.indexOf('set -euo pipefail');
     // The push carries --no-verify (skips the .githooks/pre-push sibling
     // gate — data-refresh pushes to main are not pre-PR dev pushes).
-    const firstPushIndex = SCRIPT.search(/\bgit push (--no-verify )?origin\b/);
+    const firstPushIndex = SCRIPT.search(/\bgit(?: -c \S+)* push\b[^\n]*\borigin\b/);
 
     expect(firstPushIndex, 'no git push invocation found in git-push-with-retry.sh').toBeGreaterThan(-1);
 

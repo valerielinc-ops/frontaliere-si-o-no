@@ -27,6 +27,36 @@ export function sourceBodyForJob(job = {}) {
 }
 
 /**
+ * Build the definitive proof accepted by the verified slice writer for a
+ * thin-source removal. Use the writer's own removed-job objects so the URL
+ * identity is exact even when a stable ID survived a source URL rewrite.
+ *
+ * @param {object[]} removedJobs
+ * @param {object[]} thinSourceJobs
+ * @param {(job: object) => string} keyOfJob
+ * @returns {object[]|undefined}
+ */
+export function buildThinSourceHousekeepingProof(
+  removedJobs = [],
+  thinSourceJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const removed = Array.isArray(removedJobs) ? removedJobs : [];
+  const thinKeys = new Set(
+    (Array.isArray(thinSourceJobs) ? thinSourceJobs : [])
+      .map(keyOfJob)
+      .filter(Boolean),
+  );
+  const quarantined = removed.filter((job) => thinKeys.has(keyOfJob(job)));
+  if (quarantined.length === 0 || quarantined.length !== removed.length) return undefined;
+  return quarantined.map((job) => ({
+    job,
+    reason: 'thin-source-quarantine',
+    definitive: true,
+  }));
+}
+
+/**
  * Shared implementation for callers whose merge identity is job-shaped.
  *
  * @param {object[]} discoveredJobs

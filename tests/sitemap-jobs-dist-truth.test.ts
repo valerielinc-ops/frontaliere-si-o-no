@@ -14,7 +14,9 @@
  *
  * `reconcileSitemapJobsWithDist` asserts the invariant against dist/ instead of
  * enumerating the ways it can be violated. These tests pin each drop reason and
- * — critically — that healthy job URLs are never touched.
+ * — critically — that healthy job URLs are never touched. The reconciler edits
+ * sitemap XML only: it must never delete the historical HTML that remains the
+ * source of SEO traffic even when that page is noindex or non-canonical.
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
@@ -63,7 +65,12 @@ function writePage(loc: string, html: string): void {
 }
 
 function readSitemap(): string {
-  return fs.readFileSync(path.join(dist, 'sitemap-jobs.xml'), 'utf-8');
+ return fs.readFileSync(path.join(dist, 'sitemap-jobs.xml'), 'utf-8');
+}
+
+function pageFile(loc: string): string {
+  const rel = new URL(loc).pathname.replace(/^\/+|\/+$/g, '');
+  return path.join(dist, rel, 'index.html');
 }
 
 beforeEach(() => {
@@ -106,6 +113,7 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
   it('drops a <loc> whose page is noindex', async () => {
     await reconcileSitemapJobsWithDist(dist, []);
     expect(readSitemap()).not.toContain('ricerca-pittore-imbianchino-ticino');
+    expect(fs.existsSync(pageFile(NOINDEX))).toBe(true);
   });
 
   it('drops a <loc> whose canonical points at another page', async () => {
@@ -170,6 +178,8 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
     expect(fs.readFileSync(clusterPath, 'utf-8')).not.toContain('recherche-stale');
     expect(readSitemap()).toContain('sviluppatore-acme-lugano');
+    expect(fs.existsSync(pageFile(NOINDEX))).toBe(true);
+    expect(fs.existsSync(pageFile(cluster))).toBe(true);
   });
 });
 
