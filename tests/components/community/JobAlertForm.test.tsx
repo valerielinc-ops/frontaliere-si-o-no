@@ -463,6 +463,7 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
       matchCount: 0,
     }]);
     render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
 
     const deleteButton = await screen.findByTitle('Elimina');
     fireEvent.click(deleteButton);
