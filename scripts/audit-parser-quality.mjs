@@ -47,6 +47,7 @@ import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
+import { hasStructuredContent } from './lib/translation-quality.mjs';
 import {
   COMPARABLE_SOURCE_DESCRIPTION_MIN_CHARS,
   classifySourceDetailObservation,
@@ -2588,15 +2589,6 @@ function isThinDescription(desc) {
   // Treated as thin because the actual role content is buried under noise
   // and the page's text-to-content ratio is destroyed.
   if (hasFormChrome(desc)) return 'form-chrome';
-  return false;
-}
-
-function hasStructuredContent(desc) {
-  const text = stripHtml(desc);
-  // Bullet points, numbered lists, <li> tags
-  if (/<li[\s>]/i.test(desc)) return true;
-  if (/^\s*[-•*]\s/m.test(text)) return true;
-  if (/^\s*\d+[.)]\s/m.test(text)) return true;
   return false;
 }
 

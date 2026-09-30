@@ -2326,12 +2326,17 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   // candidate this function can return or cache, and to what the cache returns.
   const unusable = (text) => Boolean(detectAiReasoningLeak(text)
     || detectDegenerateRepetition(text, { references: [cleanDesc] }));
+  const acceptableDescription = (text) => typeof text === 'string'
+    && text.length >= floor
+    && text.toLowerCase() !== cleanDesc.toLowerCase()
+    && !unusable(text)
+    && isAcceptableTranslation(cleanDesc, text);
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanDesc, sourceLang, targetLang: locale, kind: 'description', minChars: floor,
   });
-  if (localPipeline && localPipeline.toLowerCase() !== cleanDesc.toLowerCase()) return localPipeline;
+  if (acceptableDescription(localPipeline)) return localPipeline;
 
   // AI cache check
   if (buildAiCacheKey && getCachedAiResponse) {
@@ -2340,13 +2345,12 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     // A stored answer that leaks or loops is dropped and recomputed, never
     // replayed.
     const cachedUnusable = typeof fromCache === 'string' && fromCache !== AI_CACHE_RAW_SENTINEL
-      && unusable(fromCache);
+      && !acceptableDescription(fromCache);
     if (cachedUnusable && ctx.deleteCachedAiResponse) ctx.deleteCachedAiResponse(cacheKey);
     if (typeof fromCache === 'string' && !cachedUnusable) {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
       const sentinelFallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-      if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()
-          && !unusable(sentinelFallback)) {
+      if (acceptableDescription(sentinelFallback)) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return sentinelFallback;
       }
@@ -2354,7 +2358,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     }
     // DeepL first
     const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateObservedDetailed(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (deepl && deepl.length >= floor && !unusable(deepl)) {
+    if (acceptableDescription(deepl)) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
     }
@@ -2400,16 +2404,14 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
         const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
-        if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()
-            && !unusable(translated)) {
+        if (acceptableDescription(translated)) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
         }
       } catch { /* fallback below */ }
     }
     const fallback = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-    if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()
-        && !unusable(fallback)) {
+    if (acceptableDescription(fallback)) {
       setCachedAiResponse(cacheKey, fallback);
       return fallback;
     }
@@ -2419,7 +2421,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
 
   // No cache — simple free-translate fallback
   const simple = await freeTranslateObserved(ctx, { text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
-  return (simple && simple.length >= floor && !unusable(simple)) ? simple : '';
+  return acceptableDescription(simple) ? simple : '';
 }
 
 // ── Protected brand names ───────────────────────────────────────────────────
@@ -3049,7 +3051,8 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
           && locale !== titleSourceLang) {
         titleByLocale[locale] = localized.title;
       }
-      if (localized.description && localized.description.length >= localeDescFloor) {
+      if (localized.description && localized.description.length >= localeDescFloor
+          && isAcceptableTranslation(cleanSourceDesc, cleanFn(localized.description))) {
         currentByLocale[locale] = localized.description;
       }
       const mergedReq = mrFn(reqByLocale[locale] || [], localized.requirements || []);
@@ -3134,7 +3137,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     for (const result of forceResults) {
       if (result.status !== 'fulfilled' || !result.value) continue;
       const { locale, desc, title } = result.value;
-      if (desc) {
+      if (desc && isAcceptableTranslation(sourceDesc, cleanFn(desc)) && cleanFn(desc).length >= localeDescFloor) {
         currentByLocale[locale] = desc;
         const mergedReq = mrFn(reqByLocale[locale] || [], exReqFn(desc));
         if (mergedReq.length > 0) reqByLocale[locale] = mergedReq;
@@ -3197,6 +3200,12 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       out.needsRetranslation = true;
       break;
     }
+  }
+
+  const sourceStructureDesc = cleanFn(out.description) || cleanFn(currentByLocale[sourceLang] || '');
+  if (sourceStructureDesc && locales.some((locale) => locale !== sourceLang
+      && isStructureFlattenedCopy(sourceStructureDesc, cleanFn(currentByLocale[locale] || '')))) {
+    out.needsRetranslation = true;
   }
 
   return out;

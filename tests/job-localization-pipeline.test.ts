@@ -206,6 +206,39 @@ describe('job localization pipeline', () => {
     expect(result?.de?.requirements).toEqual(['Kenntnisse von REST-APIs']);
   });
 
+  it('rejects a candidate that keeps one list item and drops the other source items', async () => {
+    const source = [
+      'This job description contains enough translated prose to exercise the local quality gate.',
+      '- First source item with detailed responsibilities, coordination work and operational context.',
+      '- Second source item with detailed responsibilities, coordination work and operational context.',
+      '- Third source item with detailed responsibilities, coordination work and operational context.',
+    ].join('\n');
+    const incomplete = [
+      'This candidate contains enough translated prose to clear the length-ratio threshold.',
+      '- Only one translated item remains with detailed responsibilities, coordination work and operational context.',
+    ].join('\n');
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ translatedText: incomplete }),
+    }));
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const translated = await translateTextWithLocalPipeline({
+      text: source,
+      sourceLang: 'en',
+      targetLang: 'it',
+      kind: 'description',
+      minChars: 120,
+    });
+
+    expect(source.length).toBeGreaterThanOrEqual(180);
+    expect(incomplete.length).toBeGreaterThanOrEqual(source.length * 0.45);
+    expect(translated).toBe('');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(getJobLocalizationPipelineStats().providerFailures.nllb).toBe(1);
+    expect(getJobLocalizationPipelineStats().providerFailures.libretranslate).toBe(1);
+  });
+
   it('merges a sibling crawler process\'s concurrent write instead of clobbering it on persist', async () => {
     const fetchMock = vi.fn(async () => ({
       ok: true,

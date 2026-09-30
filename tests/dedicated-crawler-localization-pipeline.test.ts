@@ -5,7 +5,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   resetJobLocalizationPipelineStateForTests,
 } from '../scripts/lib/job-localization-pipeline.mjs';
-import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  enrichJobLocalesDCC,
+  translateMissingJobLocales,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const ORIGINAL_ENV = { ...process.env };
 
@@ -214,6 +217,40 @@ describe('dedicated crawler localization pipeline integration', () => {
     expect(jobs[0].descriptionByLocale.it).toContain('## Responsabilita');
     expect(jobs[0].descriptionByLocale.de).toContain('## Aufgaben');
     expect(jobs[0].descriptionByLocale.fr).toContain('## Responsabilites');
+  });
+
+  it('uses the authoritative structured description before the flattened source-locale slot', async () => {
+    const job = {
+      source: 'publisher-submitted',
+      sourceLang: 'it',
+      company: 'Example SA',
+      companyKey: 'example',
+      url: 'https://example.test/jobs/demo',
+      title: 'Ruolo di prova',
+      description: '- A\n- B',
+      titleByLocale: {
+        it: 'Ruolo di prova',
+        en: 'Example role',
+        de: 'Beispielrolle',
+        fr: 'Poste exemple',
+      },
+      descriptionByLocale: {
+        it: 'A B',
+        en: 'A B',
+        de: 'A B',
+        fr: 'A B',
+      },
+    };
+
+    const enriched = await enrichJobLocalesDCC(job, { minDescriptionChars: 120 }, {
+      LOCALES: ['it', 'en', 'de', 'fr'],
+      FORCE_LOCALIZE_COMPANY_KEYS: new Set(['example']),
+      normalizeCompanyKey: (value: string) => value.toLowerCase(),
+      normalizeHost: (value: string) => value,
+      hostOf: (value: string) => new URL(value).host,
+    });
+
+    expect(enriched.needsRetranslation).toBe(true);
   });
 
   it('keeps the queue marker when SKIP_AI_TRANSLATION has complete titles but source-copied descriptions', async () => {

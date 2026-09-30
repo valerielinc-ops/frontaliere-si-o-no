@@ -21,6 +21,7 @@
  * equivalent so both translation paths reject the same defect.
  */
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 
 // The deploy validator rejects locale titles shorter than three characters.
 // Keep this floor shared by every writer so a provider cannot persist a title
@@ -36,20 +37,141 @@ export const MIN_TRANSLATION_RATIO = 0.6;
 // Absolute character floor: anything shorter is too thin to be a real
 // translation regardless of the source length.
 export const MIN_TRANSLATION_CHARS = 100;
-// Source bullet count above which losing ALL bullets in the candidate is
-// treated as structure-flattening rather than a legitimately bullet-free
-// translation (mirrors job-localization-pipeline.mjs's passesQualityGate).
-export const MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK = 3;
-
 export function countBullets(text = '') {
   return (String(text || '').match(/^\s*[-*•]\s+/gm) || []).length;
 }
 
+function stripHtmlForStructure(value = '') {
+  const withoutTags = String(value || '')
+    .replace(/<li\b[^>]*>/gi, '\n- ')
+    .replace(/<\/li\s*>/gi, '\n')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\r\n?/g, '\n');
+  return decodeEntities(withoutTags);
+}
+
+const LIST_ITEM_LINE_RE = /^\s*(?:[-•*][ \t]+|\d+[.)][ \t]+)/u;
+const INLINE_LIST_ITEM_RE = /\s+([-•*]|\d+[.)])[ \t]+/gu;
+const INLINE_LIST_ITEM_START_RE = /^(?:[\p{Lu}\dÀ-ÖØ-Þ]|[•*])/u;
+
+function isNumberedHeading(line, marker) {
+  return /^\s*\d+[.)][ \t]+/.test(marker) && /:\s*$/u.test(line.slice(marker.length));
+}
+
+/**
+ * Count list entries using the same structural definition at every translation
+ * gate. Providers sometimes flatten a list into one line, so an inline marker
+ * is counted when it follows a sentence boundary inside an existing list, or
+ * when a colon-anchored inline list has a repeated marker run. Hyphens in a
+ * title/prose line (e.g. `Bouchère - Boucher`) are not list entries. Empty
+ * lines are intentionally ignored.
+ */
+export function countListItems(value = '') {
+  let count = 0;
+  let previousListLine = false;
+  let continuationAfterBlank = false;
+
+  for (const line of stripHtmlForStructure(value).split('\n')) {
+    if (!line.trim()) {
+      continuationAfterBlank = previousListLine;
+      previousListLine = false;
+      continue;
+    }
+
+    const lineMarker = LIST_ITEM_LINE_RE.exec(line);
+    const numberedHeading = lineMarker && isNumberedHeading(line, lineMarker[0]);
+    const startsList = Boolean(lineMarker && !numberedHeading);
+    if (startsList) count += 1;
+
+    const content = lineMarker ? line.slice(lineMarker[0].length) : line;
+    const inlineMarkers = [...content.matchAll(INLINE_LIST_ITEM_RE)];
+    const firstInlineBefore = inlineMarkers.length > 0
+      ? content.slice(0, inlineMarkers[0].index).trimEnd()
+      : '';
+    const standaloneInlineRun = inlineMarkers.length >= 2
+      && /:\s*$/u.test(firstInlineBefore);
+    const listContext = startsList || previousListLine || continuationAfterBlank;
+    let inlineCount = 0;
+
+    for (const marker of inlineMarkers) {
+      const before = content.slice(0, marker.index).trimEnd();
+      const after = content.slice(marker.index + marker[0].length).trimStart();
+      const strongBoundary = /[.!?:;]/u.test(before.at(-1) || '');
+      const repeatedListRun = (listContext || standaloneInlineRun)
+        && inlineMarkers.length >= 2
+        && (standaloneInlineRun || INLINE_LIST_ITEM_START_RE.test(after));
+      const explicitGlyph = marker[1] === '•' || marker[1] === '*';
+
+      if ((strongBoundary && (listContext || standaloneInlineRun))
+        || repeatedListRun
+        || (explicitGlyph && (listContext || standaloneInlineRun))) {
+        count += 1;
+        inlineCount += 1;
+      }
+    }
+
+    previousListLine = startsList || inlineCount > 0;
+    continuationAfterBlank = false;
+  }
+
+  return count;
+}
+
+/**
+ * Same structure predicate used by the parser-quality audit. Keep this as the
+ * shared source of truth for translation writers and repair selectors: the
+ * audit must measure the same list markers that the pipeline protects.
+ */
+export function hasStructuredContent(value = '') {
+  return countListItems(value) > 0;
+}
+
+/**
+ * Require a candidate not to lose source list entries. A source without list
+ * entries has no list-parity constraint; other quality checks still apply.
+ * Marker kind and line wrapping may change, and extra explicit markers do not
+ * prove content loss, but a smaller candidate count does.
+ */
+export function hasStructureParity(source = '', candidate = '') {
+  const sourceItems = countListItems(source);
+  return sourceItems === 0 || countListItems(candidate) >= sourceItems;
+}
+
+const STRUCTURED_LINE_RE = /^(\s*(?:#{1,6}\s+|[-*•]\s+|\d+[.)]\s+)?)(.*)$/;
+const HAS_LETTERS_RE = /[^\W\d_]/u;
+
+/**
+ * Translate each source line independently while retaining its structural
+ * prefix and blank lines. A failed line translation keeps that source line:
+ * dropping content is safer than inventing text, and the caller's normal
+ * quality gate still decides whether the assembled candidate is publishable.
+ */
+export async function preserveStructuredTranslation(text, translateLine) {
+  const lines = String(text || '').replace(/\r\n/g, '\n').split('\n');
+  const translatedLines = [];
+  for (const line of lines) {
+    const match = STRUCTURED_LINE_RE.exec(line);
+    const prefix = match?.[1] || '';
+    const content = match?.[2] || '';
+    if (!content.trim() || !HAS_LETTERS_RE.test(content)) {
+      translatedLines.push(line);
+      continue;
+    }
+    const translated = await translateLine(content.trim());
+    const translatedText = String(translated || '');
+    const oneLine = (translatedText.includes('\n') ? '' : translatedText)
+      .replace(/[ \t]+/g, ' ')
+      .trim();
+    translatedLines.push(`${prefix}${oneLine || content.trim()}`);
+  }
+  return translatedLines.join('\n').trim();
+}
+
 /**
  * Detects a stored locale copy that lost the source's list structure
- * ("structure-flattening", the #3721/#3836 class): the source text carries a
- * real bulleted list (≥ MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK line-start
- * bullets) while the non-empty candidate has none. Unlike
+ * ("structure-flattening", the #3721/#3836 class): the source text carries
+ * audited structured content (a line-start bullet/numbered list or `<li>`)
+ * while the non-empty candidate has fewer (or no) items. Unlike
  * `isAcceptableTranslation` (which gates NEW translations before they are
  * persisted), this predicate is meant for EXISTING `descriptionByLocale`
  * entries, so repair passes (hardenJobLocaleFields, translateMissingJobLocales,
@@ -59,13 +181,12 @@ export function countBullets(text = '') {
  *
  * @param {string} source - authoritative same-language text (usually job.description)
  * @param {string} candidate - stored locale copy to check
- * @returns {boolean} true when candidate flattened away the source's list structure
+ * @returns {boolean} true when candidate does not preserve the source's list-item count
  */
 export function isStructureFlattenedCopy(source, candidate) {
   const cand = typeof candidate === 'string' ? candidate.trim() : '';
   if (!cand) return false;
-  if (countBullets(cand) > 0) return false;
-  return countBullets(source) >= MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK;
+  return hasStructuredContent(source) && !hasStructureParity(source, cand);
 }
 
 /**
@@ -86,10 +207,7 @@ export function isAcceptableTranslation(source, translated) {
   if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return false;
   const srcLen = (typeof source === 'string' ? source.trim() : '').length;
   if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
-  const sourceBullets = countBullets(source);
-  if (sourceBullets >= MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK && countBullets(candidate) === 0) {
-    return false;
-  }
+  if (!hasStructureParity(source, candidate)) return false;
   return true;
 }
 

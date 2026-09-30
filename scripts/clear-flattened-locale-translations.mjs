@@ -30,7 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TARGET_KEYS } from './lib/parser-quality-3721-crawlers.mjs';
-import { countBullets } from './lib/translation-quality.mjs';
+import { hasStructuredContent, isStructureFlattenedCopy } from './lib/translation-quality.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -41,9 +41,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // Below this, a locale entry is too short for bullet loss to matter (matches
 // isAcceptableTranslation's MIN_TRANSLATION_CHARS-adjacent reasoning).
 const MIN_FLATTENED_LEN = 200;
-// Mirrors translation-quality.mjs's MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK.
-const MIN_BULLETS_TO_PROVE_STRUCTURE = 3;
-
 const dryRun = process.argv.includes('--dry-run');
 
 function plainLength(text = '') {
@@ -72,17 +69,16 @@ for (const key of TARGET_KEYS) {
     // for the worst-hit crawlers no locale slot has bullets left and only the
     // authoritative `description` still proves the job had a real list. The
     // original byLocale-only scan skipped exactly those jobs.
-    const maxBullets = Math.max(
-      0,
-      countBullets(job.description),
-      ...LOCALES.map((l) => countBullets(dl[l])),
-    );
-    if (maxBullets < MIN_BULLETS_TO_PROVE_STRUCTURE) continue;
+    const sourceForStructure = [
+      job.description,
+      ...LOCALES.map((locale) => dl[locale]),
+    ].find((value) => hasStructuredContent(value)) || '';
+    if (!sourceForStructure) continue;
 
     for (const locale of LOCALES) {
       const candidate = dl[locale];
       if (!candidate) continue;
-      if (countBullets(candidate) > 0) continue;
+      if (!isStructureFlattenedCopy(sourceForStructure, candidate)) continue;
       if (plainLength(candidate) < MIN_FLATTENED_LEN) continue;
       clearedHere += 1;
       totalCleared += 1;

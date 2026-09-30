@@ -70,7 +70,7 @@ import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, recordRunPhase, resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
-import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { hasStructuredContent, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
 import {
   applyThinkingArm,
@@ -883,8 +883,12 @@ export function markCascadeFailure(phase) {
 export function isIncomplete(job) {
   const dbl = job.descriptionByLocale || {};
   const tbl = job.titleByLocale || {};
+  const srcLang = job.sourceLang || 'it';
   const sourceDesc = (job.description || '').trim().toLowerCase();
   const baseDesc = (job.description || '').trim();
+  const sourceStructureDesc = hasStructuredContent(baseDesc)
+    ? baseDesc
+    : (dbl[srcLang] || baseDesc).trim();
 
   // Source locale 85% guard: if the source locale copy has lost significant content
   // compared to the authoritative base, the job needs reprocessing.
@@ -892,7 +896,6 @@ export function isIncomplete(job) {
   // Threshold 0.55: crawlers often clean raw descriptions (strip recruitment blurbs,
   // PDF links, footer text) so dbl[srcLang] is naturally 20-35% shorter than
   // job.description. Only flag when >45% of content is genuinely missing.
-  const srcLang = job.sourceLang || 'it';
   if (baseDesc.length >= 120 && (baseDesc.match(/<[^>]+>/g) || []).length <= 10) {
     const currentSrc = (dbl[srcLang] || '').trim();
     if (currentSrc) {
@@ -978,6 +981,12 @@ export function isIncomplete(job) {
 
     // Description identical to source (not translated) — exact match
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
+
+    // A source list that disappeared from a saved locale is a translation
+    // defect even when the flattened text is long enough and not a byte-copy.
+    // Keep this in the selector so fossil slots without needsRetranslation are
+    // queued for repair instead of waiting for a crawler to touch them again.
+    if (locale !== srcLang && isStructureFlattenedCopy(sourceStructureDesc, desc)) return true;
 
     // Description near-identical to source (whitespace-normalized match) — catches
     // crawler-seeded copies where the description got stripped of newlines but
