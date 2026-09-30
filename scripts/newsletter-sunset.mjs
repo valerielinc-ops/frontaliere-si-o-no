@@ -30,6 +30,7 @@ import { classifySunset } from './lib/subscriberSunset.mjs';
 import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { localeOf } from './lib/subscriberLocale.mjs';
+import { pathToFileURL } from 'node:url';
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -219,7 +220,9 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('[newsletter-sunset] fatal:', err?.stack || err?.message || err);
-  process.exit(1);
-});
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  main().catch((err) => {
+    console.error('[newsletter-sunset] fatal:', err?.stack || err?.message || err);
+    process.exit(1);
+  });
+}
