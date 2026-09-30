@@ -1009,7 +1009,7 @@ describe('translation shadow preflight v2 mapping and run observation', () => {
     const suppressed = {
       ...job(1),
       needsRetranslation: false,
-      titleByLocale: { it: 'Titolo', en: '', de: '', fr: '' },
+      titleByLocale: { it: 'Titolo', en: 'Title', de: 'Stelle', fr: 'Poste' },
       localeMismatchSuppressed: true,
       localeMismatchSuppressedLen: LONG_DESCRIPTION.length,
     };
