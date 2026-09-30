@@ -28,7 +28,8 @@ describe('fuel price refresh publication', () => {
 
     expect(publisher).toContain('FORCE_ADD=false');
     expect(publisher).toContain('--force');
-    expect(publisher).toContain('git add -A -f -- "${PATHS[@]}"');
-    expect(publisher).toContain('git add -A -- "${PATHS[@]}"');
+    expect(publisher).toContain('git-add-resolved.mjs --print-only "${PATHS[@]}"');
+    expect(publisher).toContain('git add -A -f -- "${RESOLVED_PATHS[@]}"');
+    expect(publisher).toContain('git add -A -- "${RESOLVED_PATHS[@]}"');
   });
 });
