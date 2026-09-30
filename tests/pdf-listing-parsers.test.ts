@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { parseClinicaHildebrandListing } from '../scripts/lib/clinica-hildebrand-job-parser.mjs';
 import { parseRehaAndeerListing } from '../scripts/lib/reha-andeer-job-parser.mjs';
 import { parseClinicaVariniListing } from '../scripts/lib/clinica-varini-job-parser.mjs';
+import { extractPdfLinks } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 
 describe('PDF-backed HTML listing parsers', () => {
   it('normalizes Reha Andeer PDF links across HTML quoting and URL shapes', () => {
@@ -22,6 +23,15 @@ describe('PDF-backed HTML listing parsers', () => {
         pdfUrl: 'https://reha-andeer.ch/offene-stellen/wp-content/uploads/2026/07/2026_Stelleninserat-med.-Masseurin.PDF',
         filename: '2026_Stelleninserat-med.-Masseurin.PDF',
       }),
+    ]);
+  });
+
+  it('skips malformed href entities without aborting later PDF links', () => {
+    expect(extractPdfLinks(
+      '<a href="/ok.pdf"></a><a href="/bad?x=&#x110000;"></a>',
+      'https://reha-andeer.ch/offene-stellen/',
+    )).toEqual([
+      { href: 'https://reha-andeer.ch/ok.pdf', filename: 'ok.pdf' },
     ]);
   });
 

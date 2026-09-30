@@ -67,7 +67,13 @@ export function extractPdfLinks(html = '', baseUrl = '') {
   const hrefRe = /\bhref\s*=\s*(['"])([^'"\r\n]*)\1/gi;
   let match;
   while ((match = hrefRe.exec(html)) !== null) {
-    const rawHref = decodeEntities(match[2]).trim();
+    let rawHref;
+    try {
+      rawHref = decodeEntities(match[2]).trim();
+    } catch {
+      // A malformed entity invalidates this candidate, not the whole listing.
+      continue;
+    }
     if (!rawHref) continue;
 
     let url;
