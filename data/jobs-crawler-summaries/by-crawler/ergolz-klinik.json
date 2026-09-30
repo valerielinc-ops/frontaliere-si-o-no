@@ -1,21 +1,23 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-09-29T21:11:13.178Z",
+  "generatedAt": "2026-09-30T21:16:56.582Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4627,
-  "avgDurationMs": 4627,
+  "durationMs": 5746,
+  "avgDurationMs": 5746,
   "durationHistory": [
-    4627
+    5746
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-MPA-Patientenmanagement-50-60.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:11:05.165Z",
+      "crawledAt": "2026-09-30T21:16:46.984Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -48,11 +50,11 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://ergolz.cardiance.com/karriere/",
       "firstSeenAt": "2026-09-23T23:39:31.647Z",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -69,7 +71,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:11:05.855Z",
+      "crawledAt": "2026-09-30T21:16:47.709Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,11 +87,11 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://ergolz.cardiance.com/karriere/",
       "firstSeenAt": "2026-09-04T22:55:44.101Z",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -100,13 +102,13 @@
       "companyKey": "ergolz-klinik",
       "companyDomain": "ergolz.cardiance.com",
       "title": "Dipl. Pflegefachperson Anästhesie 60% – 80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:11:06.532Z",
+      "crawledAt": "2026-09-30T21:16:48.415Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -122,11 +124,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://ergolz.cardiance.com/karriere/",
       "firstSeenAt": "2026-05-21T11:51:38.840Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 15,
+        "richness": 22,
+        "translation": 21,
         "completeness": 17
       }
     }
