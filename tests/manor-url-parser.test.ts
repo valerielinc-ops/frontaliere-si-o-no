@@ -4,6 +4,7 @@ import {
   buildManorCompanyContext,
   buildManorJobDescriptions,
   dedupeManorReposts,
+  keepStoredManorDescriptionsByKey,
   MANOR_CAREERS_SOURCES,
   MANOR_FABRICATED_DESCRIPTION_RE,
   parseManorCareersBenefits,
@@ -23,6 +24,7 @@ import {
 import { normalizeKey } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
 import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
+import { shouldBlockShrink } from '../scripts/assemble-jobs-dataset.mjs';
 
 const BIEL_JOB_ID = '1364490355';
 const BIEL_URL = `https://positions.manor.ch/job/Biel-Mitarbeiterin-Visual-Merchandising-80/${BIEL_JOB_ID}/`;
@@ -231,6 +233,31 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(built.descriptionByLocale).toEqual({});
   });
 
+  it('does not publish a short source body when the official careers context is unavailable', () => {
+    const built = buildManorJobDescriptions({
+      pageDescription: 'Verkauf und Kasse',
+      pageLang: 'de',
+      companyContexts: {},
+    });
+
+    expect(built.description).toBe('');
+    expect(built.descriptionByLocale).toEqual({});
+    expect(built.unpublishedReason).toBe('missing-careers-context');
+  });
+
+  it('publishes the short source body when the official careers context is present', () => {
+    const body = 'Verkauf und Kasse';
+    const built = buildManorJobDescriptions({
+      pageDescription: body,
+      pageLang: 'de',
+      companyContexts: { de: careersContext('de') },
+    });
+
+    expect(built.description).toBe(`${body}\n\n${careersContext('de')}`);
+    expect(built.descriptionByLocale).toEqual({ de: built.description });
+    expect(built.unpublishedReason).toBe('');
+  });
+
   it('publishes a substantial body in its own language slot and leaves every other slot to translation', () => {
     const body = [
       'Kernaufgaben:',
@@ -326,8 +353,9 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
 
     expect(thin.description).toBe(`${body(35)}\n\n${careersContext('de')}`);
     expect(thin.descriptionByLocale).toEqual({ de: thin.description });
-    expect(thinWithoutContext.description).toBe(body(35));
-    expect(thinWithoutContext.descriptionByLocale).toEqual({ de: body(35) });
+    expect(thinWithoutContext.description).toBe('');
+    expect(thinWithoutContext.descriptionByLocale).toEqual({});
+    expect(thinWithoutContext.unpublishedReason).toBe('missing-careers-context');
     expect(rich.description).toBe(body(60));
     expect(rich.descriptionByLocale).toEqual({ de: body(60) });
 
@@ -338,6 +366,60 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     });
     expect(stored.description).toBe('Kurzer Quelltext');
     expect(stored.descriptionByLocale).toEqual({ de: 'Kurzer Quelltext' });
+  });
+
+  it('falls back to a valid saved body plus careers block when the fresh context fetch fails', () => {
+    const body = 'Verkauf und Kasse';
+    const savedDescription = `${body}\n\n${careersContext('de')}`;
+    const fresh = {
+      url: 'https://positions.manor.ch/job/Chur-Verkauf-und-Kasse-40/1369000055/',
+      sourceLang: 'de',
+      description: '',
+      descriptionByLocale: {},
+    };
+    const stored = {
+      ...fresh,
+      description: savedDescription,
+      descriptionByLocale: { de: savedDescription },
+    };
+    const stats = { preserved: 0, skipped: 0 };
+
+    const kept = keepStoredManorDescriptionsByKey([fresh], [stored], (job) => job.url, stats);
+
+    expect(kept).toHaveLength(1);
+    expect(kept[0].description).toBe(savedDescription);
+    expect(kept[0].descriptionByLocale).toEqual({ de: savedDescription });
+    expect(stats).toEqual({ preserved: 1, skipped: 0 });
+
+    const invalidStats = { preserved: 0, skipped: 0 };
+    const invalidStored = { ...fresh, description: body, descriptionByLocale: { de: body } };
+    expect(keepStoredManorDescriptionsByKey([fresh], [invalidStored], (job) => job.url, invalidStats)).toEqual([]);
+    expect(invalidStats).toEqual({ preserved: 0, skipped: 1 });
+  });
+
+  it('keeps the stored Manor slice cardinality when every context fetch fails', () => {
+    const context = careersContext('de');
+    const stored = Array.from({ length: 3 }, (_, index) => {
+      const description = `Verkauf und Kasse ${index}\n\n${context}`;
+      return {
+        url: `https://positions.manor.ch/job/Chur-Verkauf-und-Kasse-${index}/13690000${index}55/`,
+        sourceLang: 'de',
+        description,
+        descriptionByLocale: { de: description },
+      };
+    });
+    const fresh = stored.map((job) => ({
+      ...job,
+      description: '',
+      descriptionByLocale: {},
+    }));
+    const stats = { preserved: 0, skipped: 0 };
+
+    const kept = keepStoredManorDescriptionsByKey(fresh, stored, (job) => job.url, stats);
+
+    expect(kept).toHaveLength(stored.length);
+    expect(stats).toEqual({ preserved: stored.length, skipped: 0 });
+    expect(shouldBlockShrink(stored.length, kept.length)).toBe(false);
   });
 
   it('keeps the careers block and removes only a placeholder before it', () => {

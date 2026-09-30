@@ -156,10 +156,9 @@ function hasVacancyWords(text) {
  * language: the landing lead ("GLÜCKSMOMENTE" / "MOMENTS DE BONHEUR" /
  * "MOMENTI DI GIOIA") and the benefits page. That text — verbatim, in the
  * vacancy's language — is the company context a short vacancy carries, as a
- * separate block after the body. The generic paragraph built above is only
- * the fallback for a language the careers site does not publish (en) or a
- * run where it cannot be read, and it too stays a separate block in the
- * source-language slot only.
+ * separate block after the body. If the official block is unavailable, a
+ * short source body is not published in this run; no crawler-written fallback
+ * is substituted.
  */
 export const MANOR_CAREERS_SOURCES = Object.freeze({
   de: {
@@ -216,8 +215,8 @@ export function parseManorCareersBenefits(html) {
 
 /**
  * Markdown company block for one language, from the two parsed careers
- * pages. Empty when either page did not yield its text (the caller then
- * falls back).
+ * pages. Empty when either page did not yield its text; short vacancies then
+ * remain unpublished for this run.
  */
 export function buildManorCompanyContext(lang, { lead = '', benefits = null } = {}) {
   const source = MANOR_CAREERS_SOURCES[lang];
@@ -278,7 +277,9 @@ export function resolveManorBodyLang(body = '', pageLang = '') {
  *   translation step. The old builder copied a German/French body into `it`
  *   and put the generic paragraph into every other slot.
  * - A body under the 50-word source floor is supplemented with the official
- *   careers block when available; the floor never quarantines a Manor job.
+ *   careers block only when it is available in the source language. Without
+ *   that block the vacancy remains unpublished in this run; a body at or
+ *   above the floor follows the existing source-only path.
  */
 export function buildManorJobDescriptions({
   title,
@@ -300,13 +301,22 @@ export function buildManorJobDescriptions({
   const context = needsCompanyContext
     ? String(companyContexts?.[sourceLang] || '').trim()
     : '';
-  const description = [body, context].filter(Boolean).join('\n\n');
+  const sourceBodyMeetsFloor = sourceBodyWordCount(body) >= 50;
+  const description = sourceBodyMeetsFloor || context
+    ? [body, context].filter(Boolean).join('\n\n')
+    : '';
+  const unpublishedReason = description
+    ? ''
+    : body
+      ? 'missing-careers-context'
+      : 'missing-source-content';
   return {
     description,
     descriptionByLocale: description ? { [sourceLang]: description } : {},
     sourceLang,
     companyContext: context ? 'careers' : 'none',
     body,
+    unpublishedReason,
   };
 }
 
@@ -752,7 +762,12 @@ export async function fetchManorJobs() {
   console.log(`📋 Manor careers company context: ${Object.entries(companyContexts).map(([lang, text]) => `${lang}=${text ? 'ok' : 'missing'}`).join(', ')}`);
 
   const jobs = [];
-  const skipped = { missingTitle: 0, unresolvedCanton: 0 };
+  const skipped = {
+    missingTitle: 0,
+    unresolvedCanton: 0,
+    missingCareersContext: 0,
+    missingSourceContent: 0,
+  };
   const contextUse = {};
   let detailFailures = 0;
 
@@ -806,7 +821,7 @@ export async function fetchManorJobs() {
     const addressLocality = resolvedCity;
     const addressRegion = canton;
 
-    const { description, descriptionByLocale, sourceLang, companyContext, body } = buildManorJobDescriptions({
+    const builtDescription = buildManorJobDescriptions({
       title,
       city: resolvedCity,
       canton,
@@ -814,6 +829,20 @@ export async function fetchManorJobs() {
       pageLang: pageData.descriptionLang,
       companyContexts,
     });
+    if (builtDescription.unpublishedReason) {
+      const reasonKey = builtDescription.unpublishedReason === 'missing-careers-context'
+        ? 'missingCareersContext'
+        : 'missingSourceContent';
+      skipped[reasonKey]++;
+      console.log(`  ⏭️ ${title}: source description not published this run (${builtDescription.unpublishedReason})`);
+    }
+    const {
+      description,
+      descriptionByLocale,
+      sourceLang,
+      companyContext,
+      body,
+    } = builtDescription;
     contextUse[companyContext] = (contextUse[companyContext] || 0) + 1;
 
     const baseSlug = normalizeKey(`manor ${title} ${resolvedCity}`);
@@ -865,7 +894,7 @@ export async function fetchManorJobs() {
   jobs.length = 0;
   jobs.push(...uniqueJobs);
   console.log(`📋 Total unique Manor Swiss jobs discovered: ${jobs.length}`);
-  if (skipped.missingTitle || skipped.unresolvedCanton) {
+  if (Object.values(skipped).some(Boolean)) {
     console.warn(`⚠️ Skipped Manor listings: ${JSON.stringify(skipped)}`);
   }
   if (targetUrls.length > 0 && jobs.length === 0) {
@@ -898,21 +927,33 @@ export function extractTitleFromUrl(url) {
 /**
  * Preserve a stored source/context description when the fresh detail read is
  * empty, without reapplying the shared 50-word keeper. Manor's source pages
- * are intentionally allowed to publish short bodies; the only hard gate here
- * is that some source text or official careers context exists.
+ * may publish short bodies only with the official careers context; the hard
+ * gate here is a rich source body or that context.
  */
-function keepStoredManorDescriptionsByKey(discoveredJobs, storedJobs, keyOfJob) {
+function isValidStoredManorDescription(text = '') {
+  const value = String(text || '').trim();
+  return sourceBodyWordCount(value) >= 50 || MANOR_CAREERS_CONTEXT_START_RE.test(value);
+}
+
+export function keepStoredManorDescriptionsByKey(discoveredJobs, storedJobs, keyOfJob, stats = null) {
   const storedByKey = new Map();
   for (const job of Array.isArray(storedJobs) ? storedJobs : []) {
     const key = keyOfJob(job);
     if (key) storedByKey.set(key, job);
   }
 
+  const increment = (field) => {
+    if (stats && typeof stats === 'object') stats[field] = Number(stats[field] || 0) + 1;
+  };
+
   return (Array.isArray(discoveredJobs) ? discoveredJobs : []).flatMap((job) => {
     if (String(sourceBodyForJob(job) || '').trim()) return [job];
     const previous = storedByKey.get(keyOfJob(job));
     const previousBody = String(sourceBodyForJob(previous) || '').trim();
-    if (!previousBody) return [];
+    if (!isValidStoredManorDescription(previousBody)) {
+      increment('skipped');
+      return [];
+    }
 
     const previousLang = String(previous?.sourceLang || '').trim();
     const kept = {
@@ -928,6 +969,7 @@ function keepStoredManorDescriptionsByKey(discoveredJobs, storedJobs, keyOfJob) 
         kept[field] = { [previousLang]: map[keys[0]] };
       }
     }
+    increment('preserved');
     return [kept];
   });
 }
@@ -973,11 +1015,19 @@ function mergeManorJobs(discoveredJobs) {
   // The merge keeps existing non-source translations; drop the stale ones
   // earlier runs wrote (source body copied into `it`, generic paragraph in the
   // other slots) so the translation step refills them from the source slot.
+  const storedDescriptionStats = { preserved: 0, skipped: 0 };
   const sourceBodyJobs = keepStoredManorDescriptionsByKey(
     discoveredJobs,
     preparedExistingManorJobs,
     (job) => extractStableJobId(job?.url) || String(job?.url || '').trim().replace(/\/+$/, ''),
+    storedDescriptionStats,
   );
+  if (storedDescriptionStats.preserved || storedDescriptionStats.skipped) {
+    console.log(
+      `📋 Manor source-description fallback: preserved ${storedDescriptionStats.preserved} stored job(s); `
+      + `not published without a valid saved source description ${storedDescriptionStats.skipped} job(s).`,
+    );
+  }
   const mergedManorJobs = mergePreserveLocaleData(preparedExistingManorJobs, sourceBodyJobs)
     .map(stripStaleManorLocaleSlots);
   const cleanManorJobs = mergedManorJobs
@@ -995,6 +1045,7 @@ function mergeManorJobs(discoveredJobs) {
   console.log(`  📦 Total jobs in file: ${finalJobs.length}`);
   return {
     sourceBodyJobs,
+    storedDescriptionStats,
   };
 }
 
