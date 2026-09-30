@@ -41,6 +41,19 @@ describe('plate-auction readiness alert', () => {
     expect(description).not.toMatch(/https:\/\/www\.ricardo\.ch/);
   });
 
+  it('explains a failed sitemap scan instead of blaming the list parser', () => {
+    const { description } = formatReadinessAlert({
+      key: 'ge',
+      plateCode: 'GE',
+      httpStatus: 200,
+      recommendation: 'manual-confirmation-needed',
+      geList: { connectorRows: 0, unknownListDocuments: [], sitemapError: 'HTTP 503 from https://www.ge.ch/sitemap.xml?page=1' },
+    });
+    expect(description).toContain('HTTP 503 from https://www.ge.ch/sitemap.xml?page=1');
+    expect(description).toContain('discoverGeSitemapListDocuments');
+    expect(description).not.toContain('il connector non riesce a leggere');
+  });
+
   it('points a JU/NE data link at a review, including the false-alarm exit', () => {
     const { description } = formatReadinessAlert({
       key: 'ne',

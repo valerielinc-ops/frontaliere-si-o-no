@@ -21,6 +21,11 @@ const RICARDO_HOST = /(?:^|\.)ricardo\.ch$/i;
 /** Recommendations that need a reviewed activation decision. */
 export const READY_RECOMMENDATIONS = Object.freeze(['ready-for-connector-check', 'manual-confirmation-needed']);
 
+/** Keys the workflow turns into issues: every source whose verdict needs that decision. */
+export function readyKeysOf(results) {
+  return results.filter((entry) => READY_RECOMMENDATIONS.includes(entry.recommendation)).map((entry) => entry.key);
+}
+
 // The registry keeps Ricardo as the human-facing auction link for JU/NE. The
 // discovery pass uses these official canton pages instead, so a scheduled
 // probe can look for a future feed without ever requesting Ricardo.
@@ -173,7 +178,12 @@ export async function discoverGeSitemapListDocuments({
 } = {}) {
   const index = await fetchText(fetcher, indexUrl, timeoutMs);
   if (index.status < 200 || index.status >= 400) throw new Error(`HTTP ${index.status} from ${indexUrl}`);
-  const pages = extractSitemapPageUrls(index.body).slice(0, GE_SITEMAP_MAX_PAGES);
+  const pages = extractSitemapPageUrls(index.body);
+  // Reading only the first pages would hide a list on a later one: past the
+  // cap the scan is incomplete, and an incomplete scan is reported, not trimmed.
+  if (pages.length > GE_SITEMAP_MAX_PAGES) {
+    throw new Error(`${indexUrl} lists ${pages.length} sitemap pages, above the cap of ${GE_SITEMAP_MAX_PAGES}`);
+  }
   const found = new Set(extractGeListDocumentUrlsFromSitemap(index.body));
   for (const pageUrl of pages) {
     const page = await fetchText(fetcher, pageUrl, timeoutMs);
@@ -231,6 +241,10 @@ export function classifyCantonDiscovery({ key, status = 0, title = '', body = ''
     // A list the page or the sitemap points at, but that the connector could
     // not read, may be a new layout: worth a look, not an activation.
     const unreadList = Boolean(geList?.connectorError) && (officialListSignal || unknownListDocuments.length > 0);
+    // A failed or incomplete sitemap scan cannot rule out a list published
+    // under a new slug: saying «blocked» would silence the watch on exactly
+    // the day it fails, so it asks for a look instead.
+    const unscannedSitemap = Boolean(geList?.sitemapError);
     return {
       ...generic,
       officialListSignal,
@@ -239,7 +253,7 @@ export function classifyCantonDiscovery({ key, status = 0, title = '', body = ''
         ? 'blocked-or-invalid-url'
         : connectorRows > 0
           ? 'ready-for-connector-check'
-          : unreadList || (!geList && officialListSignal)
+          : unreadList || unscannedSitemap || (!geList && officialListSignal)
             ? 'manual-confirmation-needed'
             : 'blocked-until-official-list',
     };
@@ -377,15 +391,16 @@ async function main() {
     timeoutMs: intFromEnv('PLATE_AUCTION_DISCOVERY_TIMEOUT_MS', DEFAULT_TIMEOUT_MS),
     geSitemap,
   });
-  const ready = results.filter((entry) => READY_RECOMMENDATIONS.includes(entry.recommendation));
-  for (const result of ready) {
-    console.warn(`::warning title=Plate-auction source ready::${result.key.toUpperCase()} needs the reviewed activation gate: ${result.recommendation}`);
+  const readyKeys = readyKeysOf(results);
+  for (const key of readyKeys) {
+    const result = results.find((entry) => entry.key === key);
+    console.warn(`::warning title=Plate-auction source ready::${key.toUpperCase()} needs the reviewed activation gate: ${result.recommendation}`);
   }
   console.log(JSON.stringify({
     generatedAt: new Date().toISOString(),
     sourceFilter: blockedOnly ? 'non-active' : 'all',
     geSitemap,
-    readyKeys: ready.map((entry) => entry.key),
+    readyKeys,
     results,
   }, null, 2));
 }

@@ -11,6 +11,7 @@ import {
   extractSitemapPageUrls,
   probeGeOfficialList,
   READY_RECOMMENDATIONS,
+  readyKeysOf,
   resolveDiscoveryUrl,
 } from '../scripts/plate-auctions/discover-sources.mjs';
 
@@ -134,6 +135,31 @@ describe('plate-auction source discovery', () => {
       fetcher: async (url: string) => ({ status: bodies[url] ? 200 : 404, text: async () => bodies[url] ?? '' }),
     });
     expect(unknown).toEqual(['https://www.ge.ch/document/liste-numeros-plaques-mis-aux-encheres-0']);
+  });
+
+  it('asks for a look, and lists GE among the ready keys, when the sitemap scan fails', async () => {
+    const results = await discoverSources({
+      sources: { ge: { canton: 'Ginevra', plateCode: 'GE', officialUrl: 'https://www.ge.ch/plaques/vente-aux-encheres-plaques' } },
+      geSitemap: true,
+      fetcher: async (url: string) => {
+        if (url === 'https://www.ge.ch/sitemap.xml') {
+          return { status: 200, text: async () => '<sitemapindex><sitemap><loc>https://www.ge.ch/sitemap.xml?page=1</loc></sitemap></sitemapindex>' };
+        }
+        if (url.startsWith('https://www.ge.ch/sitemap.xml?page=')) return { status: 503, text: async () => 'Service Unavailable' };
+        return { status: 200, text: async () => '<title>Vente aux enchères de plaques | ge.ch</title><p>Prochaine vente : automne 2026.</p>' };
+      },
+      geListProbe: async () => ({ connectorRows: 0, unknownListDocuments: [] }),
+    });
+    expect(results[0].geList?.sitemapError).toBe('HTTP 503 from https://www.ge.ch/sitemap.xml?page=1');
+    expect(results[0].recommendation).toBe('manual-confirmation-needed');
+    expect(readyKeysOf(results)).toEqual(['ge']);
+  });
+
+  it('reports a sitemap index above the page cap instead of reading only its first pages', async () => {
+    const pages = Array.from({ length: 41 }, (_, i) => `<sitemap><loc>https://www.ge.ch/sitemap.xml?page=${i + 1}</loc></sitemap>`).join('');
+    await expect(discoverGeSitemapListDocuments({
+      fetcher: async () => ({ status: 200, text: async () => `<sitemapindex>${pages}</sitemapindex>` }),
+    })).rejects.toThrow('lists 41 sitemap pages, above the cap of 40');
   });
 
   it('hands the sitemap documents to the GE probe and reports its verdict', async () => {

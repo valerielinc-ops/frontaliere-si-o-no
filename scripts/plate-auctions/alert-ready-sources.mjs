@@ -34,6 +34,13 @@ function plan(entry) {
       metrica: `prima=0 righe GE nello snapshot atteso=${geList.connectorRows}`,
     };
   }
+  if (key === 'ge' && geList.sitemapError && !geList.connectorError) {
+    return {
+      causa: `La scansione della sitemap di ge.ch è fallita o incompleta (${geList.sitemapError}), quindi una lista OCV pubblicata con uno slug nuovo non si può escludere; il connector non trova righe aperte fra le liste note. Ipotesi: guasto transitorio di ge.ch, oppure la sitemap ha cambiato forma.`,
+      fix: 'Rieseguire il COMANDO: se la sitemap torna leggibile e GE resta `blocked-until-official-list`, chiudere la issue; se cambia forma o supera il tetto di pagine, aggiornare `discoverGeSitemapListDocuments` in `scripts/plate-auctions/discover-sources.mjs` con un test sul nuovo formato.',
+      metrica: 'prima=sitemap non letta atteso=sitemap letta per intero',
+    };
+  }
   if (key === 'ge') {
     return {
       causa: `La pagina d'asta o la sitemap di ge.ch puntano a una lista che il connector non riesce a leggere (${geList.connectorError || 'nessuna riga'}${(geList.unknownListDocuments || []).length ? `; documenti nuovi: ${geList.unknownListDocuments.join(', ')}` : ''}). Ipotesi: layout del PDF o della pagina documento cambiato.`,
