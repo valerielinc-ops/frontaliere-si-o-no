@@ -261,6 +261,9 @@ describe('effects', () => {
     expect(automationEmailKey({ kind: 'owner_review', held: true }, { round: 2 })).toBe('auto_owner_review_r2_held');
     expect(automationEmailKey({ kind: 'candidate_review' }, { round: 1 })).toBe('auto_candidate_review_r1');
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'max_rounds' }, { round: 3 })).toBe('auto_owner_takeover_max_rounds_r3');
+    // A raw runner error names only its step.
+    expect(automationEmailKey({ kind: 'owner_takeover', reason: 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms', stage: 'draft' }, { round: 2 }))
+      .toBe('auto_owner_takeover_draft_error_r2');
     expect(automationEmailKey({ kind: 'candidate_handoff' }, { round: 2 })).toBe('auto_candidate_handoff');
   });
 
