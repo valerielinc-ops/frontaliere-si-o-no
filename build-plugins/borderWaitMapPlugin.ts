@@ -748,10 +748,11 @@ export function renderPage(opts: {
   // same sheet (.s-EDtWsL gains min-width:0 + max-width:min(1100px,100%)):
   // .s-EDtWsL is a grid item of the display:grid .seo-static-content wrapper;
   // min-width:auto let wide tables stretch the track past the viewport
-  // (≈1116px on a 382px screen). It fixes THIS page (inner main carries ONLY
-  // .s-EDtWsL) but is a NO-OP on comparisonsHubPlugin, whose inner main carried
-  // `seo-static-content s-EDtWsL` (specificity 0,1,1 > 0,1,0, nested grid keeps
-  // min-width:auto at two levels) — tracked in #961, fixed structurally in #962.
+  // (≈1116px on a 382px screen). It fixes THIS page (inner content wrapper
+  // carries ONLY .s-EDtWsL) but is a NO-OP on comparisonsHubPlugin, whose
+  // inner wrapper carried `seo-static-content s-EDtWsL` (specificity 0,1,1 >
+  // 0,1,0, nested grid keeps min-width:auto at two levels) — tracked in #961,
+  // fixed structurally in #962.
 
   const statGrid = renderStatGrid([
     { label: copy.statCrossingsLabel, value: String(TICINO_MAP_CROSSINGS.length), tone: 'accent' },
@@ -855,7 +856,9 @@ export function renderPage(opts: {
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml already provides the crawler-facing <main> landmark.
+  // Keep this class on a neutral wrapper so the page has one main landmark.
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
