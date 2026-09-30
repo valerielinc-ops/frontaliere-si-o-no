@@ -23,7 +23,9 @@ on:
         description: 'draft | submit'
         required: true
         type: choice
-        options: [draft, submit]
+        # dry_run: fill the portal pages (or prepare the e-mail) and stop
+        # before the final click; nothing is sent and the flow never moves.
+        options: [draft, submit, dry_run]
       round:
         description: 'Review round the run belongs to'
         required: true
@@ -120,7 +122,7 @@ jobs:
 
       # The portal runner drives Chromium (headless) for portals without an account.
       - name: Install Chromium for the portal runner
-        if: inputs.mode == 'submit'
+        if: inputs.mode == 'submit' || inputs.mode == 'dry_run'
         run: npx playwright install --with-deps chromium
 
       - name: Run agent
@@ -130,6 +132,9 @@ jobs:
           ROUND: ${{ inputs.round }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+          # The trial run printed MaxListenersExceededWarning on a PassThrough
+          # with no stack: the trace names the library that adds the listeners.
+          NODE_OPTIONS: --trace-warnings
         run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
 
       - name: Cleanup Codex auth broker
