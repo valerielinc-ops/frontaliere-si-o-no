@@ -12,7 +12,10 @@ const {
   applyAutomationEvent,
   computeDueAt,
   handleRunnerEvent,
+  isAutomationEnabled,
+  isAutomationEnabledFor,
   maybeStartAutomation,
+  parseAutomationFlag,
   runAutomationSweep,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
@@ -79,6 +82,27 @@ describe('starting the flow', () => {
 
     // A second verified CV write never restarts a live flow.
     expect(await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 + 1 })).toMatchObject({ skipped: 'already_started_or_ineligible' });
+  });
+
+  it('automates only the orders the flag names during the trial run', async () => {
+    expect(parseAutomationFlag(' TRUE ')).toMatchObject({ all: true });
+    expect(parseAutomationFlag('false').orders.size + parseAutomationFlag('').orders.size).toBe(0);
+    expect([...parseAutomationFlag('order_A, order_B  order_C').orders]).toEqual(['order_A', 'order_B', 'order_C']);
+
+    const before = paidOrder({ cvFileCheck: null });
+    const after = paidOrder();
+    rc.values.ASSISTED_APPLICATION_AUTOMATION = 'order_OTHER';
+    expect(await isAutomationEnabled()).toBe(true);
+    expect(await isAutomationEnabledFor(ORDER)).toBe(false);
+    expect(await maybeStartAutomation(before, after, ORDER, { db: store.db, runEffect, nowMs: T0 })).toMatchObject({ skipped: 'automation_disabled' });
+
+    rc.values.ASSISTED_APPLICATION_AUTOMATION = `order_OTHER,${ORDER}`;
+    expect(await isAutomationEnabledFor(ORDER)).toBe(true);
+    expect(await maybeStartAutomation(before, after, ORDER, { db: store.db, runEffect, nowMs: T0 })).toMatchObject({ started: true });
+
+    // A Remote Config error is "off" for everyone.
+    expect(await isAutomationEnabled(async () => { throw new Error('rc_down'); })).toBe(false);
+    expect(await isAutomationEnabledFor(ORDER, async () => { throw new Error('rc_down'); })).toBe(false);
   });
 
   it('refuses unpaid, closed or unverified orders', async () => {

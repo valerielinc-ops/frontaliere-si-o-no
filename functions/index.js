@@ -85,7 +85,7 @@ import {
 } from './src/assistedApplicationNotifications.js';
 import {
   handleRunnerEvent,
-  isAutomationEnabled,
+  isAutomationEnabledFor,
   maybeStartAutomation,
   runAutomationSweep,
 } from './src/assistedApplicationAutomation.js';
@@ -2341,7 +2341,7 @@ export const assistedApplicationEmailCv = onRequest(
         db: getAdminDb(),
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         secret: newsletterSecret,
-        isEnabled: () => isAutomationEnabled(),
+        isEnabled: (orderId) => isAutomationEnabledFor(orderId),
       });
       if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
       res.status(status).json(body);

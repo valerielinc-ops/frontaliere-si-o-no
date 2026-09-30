@@ -24,7 +24,7 @@ import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
   AUTOMATION_SUBCOLLECTION,
   applyAutomationEvent,
-  isAutomationEnabled,
+  isAutomationEnabledFor,
   draftRefFor,
   flowRefFor,
   orderRefFor,
@@ -231,7 +231,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationStart': {
       // The Remote Config flag gates every start, the owner's included: while
       // it is off no flow is created and no runner is dispatched.
-      if (!(await (deps.isEnabled || isAutomationEnabled)())) throw new AutomationAdminError('automation_disabled', 409);
+      if (!(await (deps.isEnabled || isAutomationEnabledFor)(orderId))) throw new AutomationAdminError('automation_disabled', 409);
       const result = await startAutomation({ db, orderId, runEffect: deps.runEffect, nowMs, reason: 'owner_request' });
       if (!result.started) throw new AutomationAdminError(result.skipped || 'not_startable', 409);
       return { ok: true, state: 'drafting' };
