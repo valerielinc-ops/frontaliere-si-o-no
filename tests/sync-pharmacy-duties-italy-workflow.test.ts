@@ -12,9 +12,14 @@ describe('Italian pharmacy duty workflow ownership', () => {
     expect(workflow).toContain('ref: main');
     expect(workflow).toContain('node scripts/import-pharmacy-duties-italy.mjs');
     expect(workflow).toContain('node scripts/check-pharmacy-duties-italy.mjs');
-    expect(workflow).toContain('git add data/pharmacy-duties-italy.json data/pharmacy-duties-italy-status.json');
-    expect(workflow).toMatch(/Import official Italian duty calendars[\s\S]*Validate Italian duty release[\s\S]*Commit Italian duty snapshots/);
-    expect(workflow).toContain('git commit -m "chore(data): refresh Italian pharmacy duty release"');
+    expect(workflow).toMatch(/Import official Italian duty calendars[\s\S]*Validate Italian duty release[\s\S]*Open PR with Italian duty snapshots/);
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).toContain('--path data/pharmacy-duties-italy.json');
+    expect(workflow).toContain('--path data/pharmacy-duties-italy-status.json');
+    expect(workflow).toContain('--branch chore/refresh-pharmacy-duties-italy');
+    expect(workflow).toContain('pull-requests: write');
+    expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(workflow).not.toMatch(/git\s+push\b/);
     expect(workflow).not.toContain('sync-pharmacies-border');
     expect(workflow).not.toContain('pharmacy-duties-ticino');
     expect(workflow).not.toContain('pharmacies-italy-border.json');
@@ -33,8 +38,8 @@ describe('Italian pharmacy duty workflow ownership', () => {
     expect(workflow).toContain('if: failure()');
     expect(workflow).toContain('continue-on-error: true');
     expect(workflow).toContain('git diff --quiet -- data/pharmacy-duties-italy.json data/pharmacy-duties-italy-status.json');
-    expect(workflow).toContain('scripts/lib/git-push-with-retry.sh');
-    expect(workflow).toContain('--regenerate-cmd');
+    expect(workflow).toContain('GH_TOKEN: ${{ env.GITHUB_PAT }}');
+    expect(workflow).toContain('load-rc-env.mjs');
     expect(workflow).not.toContain('--allow-not-published');
   });
 
