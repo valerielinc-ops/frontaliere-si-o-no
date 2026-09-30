@@ -1,21 +1,23 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-09-29T21:29:27.457Z",
+  "generatedAt": "2026-09-30T21:28:13.394Z",
   "total": 6,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6049,
-  "avgDurationMs": 6049,
+  "durationMs": 8060,
+  "avgDurationMs": 8060,
   "durationHistory": [
-    6049
+    8060
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:29:21.766Z",
+      "crawledAt": "2026-09-30T21:28:03.491Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -47,11 +49,11 @@
       "featured": false,
       "postedDate": "2026-09-24",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -62,13 +64,13 @@
       "companyKey": "rsbj",
       "companyDomain": "rsbj.ch",
       "title": "Un(e) médecin généraliste / médecin de famille Indépendant ou dépend...",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Sainte-Croix",
       "canton": "VD",
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:29:20.832Z",
+      "crawledAt": "2026-09-30T21:28:02.231Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,11 +86,11 @@
       "postedDate": "2026-06-22",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "firstSeenAt": "2026-06-22T14:59:53.389Z",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -105,7 +107,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:29:19.686Z",
+      "crawledAt": "2026-09-30T21:28:00.920Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,11 +123,11 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "firstSeenAt": "2026-06-02T14:30:15.489Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 17
       }
     }
@@ -163,7 +165,7 @@
       "salaryMin": 60500,
       "salaryMax": 84400,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -203,7 +205,7 @@
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -244,7 +246,7 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
