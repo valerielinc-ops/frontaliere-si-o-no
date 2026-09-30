@@ -40,4 +40,28 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(publisher).toContain('frontaliere-automation[bot]');
     expect(publisher).toContain('296434481+frontaliere-automation[bot]@users.noreply.github.com');
   });
+
+  it('reconciles pending 404 stable branches with main using the shard merge driver', () => {
+    const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+
+    expect(publisher).toContain('RECONCILE_COMPAT=true');
+    expect(publisher).toContain('git fetch --no-tags origin main');
+    expect(publisher).toContain("git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'");
+    expect(publisher).toContain('git fetch --no-tags origin "refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"');
+    expect(publisher).toContain('merge_refresh_ref "origin/${BRANCH}"');
+    expect(publisher).toContain('merge_refresh_ref origin/main');
+  });
+
+  it.each(WORKFLOWS)('$path escapes Markdown backticks in its generated body', ({ path }) => {
+    const workflow = read(path);
+    const bodyStart = workflow.indexOf('cat > "$body" <<EOF');
+    const bodyEnd = workflow.indexOf('\n          EOF', bodyStart);
+    expect(bodyStart).toBeGreaterThanOrEqual(0);
+    expect(bodyEnd).toBeGreaterThan(bodyStart);
+    const generatedBody = workflow.slice(bodyStart, bodyEnd);
+
+    expect(generatedBody).toContain('\\`data/');
+    expect(generatedBody).toContain('\\`vitest (unit + integration)\\`');
+    expect(generatedBody).not.toMatch(/(^|[^\\])`/u);
+  });
 });
