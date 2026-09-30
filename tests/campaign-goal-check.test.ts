@@ -341,14 +341,14 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
 });
 
 describe('campaign goal issue body', () => {
-  it('emits the same tsx dry-run runner used by the workflow', () => {
+  it('emits a runnable tsx dry-run command accepted by monitor schede', () => {
     const body = buildIssueBody({
       goal: { id: 'alert_funnel_conversion', title: 'Alert funnel', source: 'ga4', matureAfterDays: 14, issueRef: '#4298' },
       outcome: { targetDescription: '>= 5%', detail: '1/100 utenti = 1%' },
       matureAt: '2026-08-01',
     });
 
-    expect(body).toContain('**COMANDO**: `npx --no-install tsx scripts/campaign-goal-check.mjs --dry-run`');
+    expect(body).toContain('**COMANDO**: `node --import tsx/esm scripts/campaign-goal-check.mjs --dry-run`');
   });
 });
 
