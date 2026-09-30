@@ -12,6 +12,34 @@ export function hasTransientUserActivation(): boolean {
   return activation?.isActive === true;
 }
 
+/**
+ * WebKit's popup blocker (Safari on macOS, every browser on iOS) does not
+ * follow the transient activation above: it lets `window.open` through only
+ * from the call stack of the click itself (or a short promise chain from
+ * it). A reward detected by a timer after a click inside Google's iframe
+ * therefore reports `isActive` and is still blocked. Measured live 30-09:
+ * 2 of 3 automatic openings on Safari never brought a new tab forward, 0 of
+ * 13 on Chrome and Edge.
+ */
+export function usesWebKitPopupPolicy(
+  userAgent: string = typeof navigator === 'undefined' ? '' : navigator.userAgent,
+  maxTouchPoints: number = typeof navigator === 'undefined' ? 0 : navigator.maxTouchPoints || 0,
+): boolean {
+  if (/iPhone|iPad|iPod/.test(userAgent)) return true;
+  // iPadOS reports a desktop Mac user agent; touch points give it away.
+  if (/Macintosh/.test(userAgent) && maxTouchPoints > 1) return true;
+  return /Version\/[\d.]+.*Safari\//.test(userAgent)
+    && !/Chrome|Chromium|CriOS|Edg|OPR|FxiOS|Firefox|SamsungBrowser/.test(userAgent);
+}
+
+/**
+ * Whether a new tab can be opened now without a further click: a click's
+ * activation is still held and the browser honours it for popups.
+ */
+export function canOpenTabWithoutClick(): boolean {
+  return hasTransientUserActivation() && !usesWebKitPopupPolicy();
+}
+
 /** How long a new tab has to take the foreground before it counts as blocked. */
 export const NEW_TAB_CONFIRM_MS = 1500;
 

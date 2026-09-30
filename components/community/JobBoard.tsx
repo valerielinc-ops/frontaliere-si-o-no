@@ -212,6 +212,7 @@ import {
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 import { hasTransientUserActivation, watchNewTabOpened } from '@/services/userActivation';
+import { flushHandoffReceipts } from '@/services/rewardedHandoffLedger';
 import {
  getRewardedApplicationAccessExpiresAt,
  REWARDED_APPLICATION_ACCESS_TTL_HOURS,
@@ -7424,6 +7425,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  void redirectExternalApplication(job, surface, false);
  };
+
+ // Receipts of earlier rewarded grants (services/rewardedHandoffLedger.ts)
+ // leave from a visible job-board page: the visitor who never came back to
+ // the tab after the employer's page opened is counted on the next visit.
+ useEffect(() => {
+  flushHandoffReceipts();
+ }, []);
 
  // Resume the click that reloaded the page for the Offerwall, once, when the
  // same job detail is back with its apply path decided. The click's apply
