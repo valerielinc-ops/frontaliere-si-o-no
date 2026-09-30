@@ -1,58 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-29T09:40:42.419Z",
+  "generatedAt": "2026-09-30T21:38:50.431Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26677,
-  "avgDurationMs": 26677,
+  "durationMs": 34361,
+  "avgDurationMs": 34361,
   "durationHistory": [
-    26677
+    34361
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
-      "title": "Sales Associate Part time fixed Term 20%",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Landquart",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7302",
-      "streetAddress": "Bahnhofstrasse 2",
-      "slug": "vendite-associate-part-time-fisso-termine-20-capri-holdings-michael-kors-versace-landquart",
-      "category": "retail",
-      "datePosted": "2026-09-23",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Landquart"
-      },
-      "id": "capri-holdings-bd3ec5feb3ab",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:59:32.011Z",
-      "crawledAt": "",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -84,12 +45,56 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:21:22.496Z",
       "crawledAt": "",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 23,
         "completeness": 15
+      }
+    },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
+      "title": "Sales Associate Part time fixed Term 20%",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Landquart",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 2",
+      "slug": "vendite-associate-part-time-fisso-termine-20-capri-holdings-michael-kors-versace-landquart",
+      "category": "retail",
+      "datePosted": "2026-09-23",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Landquart"
+      },
+      "id": "capri-holdings-bd3ec5feb3ab",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:59:32.011Z",
+      "crawledAt": "",
+      "salaryMin": 13700,
+      "salaryMax": 21000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 20
       }
     }
   ],
