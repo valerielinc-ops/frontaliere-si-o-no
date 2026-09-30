@@ -16,6 +16,11 @@ import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+// La catena esercita otto anelli per quattro run consecutive; sotto la
+// concorrenza della suite completa il default globale di 15s non misura più
+// la correttezza del test ma la contesa del worker.
+const COMPANY_ALERT_CHAIN_TIMEOUT = 60_000;
+
 type FakeAlert = Record<string, any>;
 
 const doubles = vi.hoisted(() => {
@@ -707,5 +712,5 @@ describe('Company Alerts — complete positive chain in isolation', () => {
     expect(results.every((result) => result.deliveryOutcome === 'accepted'), 'chain result: every explicit fake-provider ack accepted').toBe(true);
     const { getLocale } = await import('@/services/i18n');
     expect(getLocale(), 'chain result: final locale is the last exercised real locale').toBe('en');
-  });
+  }, COMPANY_ALERT_CHAIN_TIMEOUT);
 });
