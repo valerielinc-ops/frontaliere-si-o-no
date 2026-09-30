@@ -167,6 +167,18 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
     expect(mintLine).toBeGreaterThan(pushLine);
   });
 
+  it('does not let checkout credentials shadow the prospector push identity', () => {
+    const src = readFileSync(resolve(WORKFLOWS_DIR, 'prospector-loop.yml'), 'utf8');
+    const checkoutLine = src.split('\n').findIndex((line) => line.includes('actions/checkout@v7'));
+    expect(checkoutLine).toBeGreaterThan(0);
+    expect(src.split('\n').slice(checkoutLine, checkoutLine + 10).join('\n'))
+      .toMatch(/persist-credentials:\s*false/);
+    expect(src).toContain('Verify main push identity');
+    expect(src).toContain(
+      'git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
+    );
+  });
+
   it('does not treat GITHUB_TOKEN as a push identity in the shared helpers', () => {
     const commit = readFileSync(resolve(import.meta.dirname, '../scripts/lib/git-commit-data.sh'), 'utf8');
     const retry = readFileSync(resolve(import.meta.dirname, '../scripts/lib/git-push-with-retry.sh'), 'utf8');
