@@ -140,6 +140,10 @@ export async function sendFollowup({ db, orderId, nowMs, sendCascade, by }) {
   const ref = followupRefFor(db, orderId);
   let claimed = null;
   await db.runTransaction(async (transaction) => {
+    // Firestore retries a contended transaction: a retry that finds the
+    // follow-up already claimed must not keep the first attempt's claim, or the
+    // click and the sweep would both send it.
+    claimed = null;
     const snapshot = await transaction.get(ref);
     const current = snapshot.data();
     if (current?.state !== 'awaiting_candidate' || !current.pending) return;

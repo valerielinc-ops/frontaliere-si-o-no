@@ -310,6 +310,7 @@ export async function prepareInterviewPack({ db, orderId, messageId, codex, send
   const orderRef = orderRefFor(db, orderId);
   let claimed = false;
   await db.runTransaction(async (transaction) => {
+    claimed = false; // reset on every retry: a retry that finds the pack claimed must not prepare it again
     const snapshot = await transaction.get(orderRef);
     if (!snapshot.exists || snapshot.data()?.interviewPrep?.claimedAt) return;
     transaction.set(orderRef, { interviewPrep: { claimedAt: nowMs, messageId } }, { merge: true });
