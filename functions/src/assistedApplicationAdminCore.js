@@ -8,12 +8,21 @@
  */
 
 import { randomUUID } from 'node:crypto';
-import { FieldValue } from 'firebase-admin/firestore';
+import admin from 'firebase-admin';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { assertAdmin } from './adminEmployerInsights.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import {
+  AUTOMATION_ADMIN_ACTIONS,
+  AutomationAdminError,
+  handleAutomationAdminAction,
+  loadAutomationForAdmin,
+} from './assistedApplicationAutomationAdmin.js';
+import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
+import { detectCvFileType } from './assistedApplicationCvCheck.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_ADMIN_STATUSES,
@@ -171,6 +180,7 @@ function serializeOrder(doc, cvUrl) {
     consentVersion: optionalString(data.consentVersion, 120) || null,
     consentedAt: timestampToIso(data.consentedAt),
     submissionStatus: statusFor(data),
+    automationState: boundedString(data.automationState, 40) || null,
     submissionNotes: optionalString(data.submissionNotes, 2000) || null,
     submittedAt: timestampToIso(data.submittedAt),
     blockedAt: timestampToIso(data.blockedAt),
@@ -219,7 +229,12 @@ export async function handleListAssistedApplications(db, status = null) {
 
   const orders = await Promise.all(docs.map(async (doc) => {
     const data = doc.data() || {};
-    return serializeOrder(doc, await cvUrlForOrder(doc.id, data));
+    const order = serializeOrder(doc, await cvUrlForOrder(doc.id, data));
+    order.automation = await loadAutomationForAdmin(db, doc.id, { signUrl: resolveCvLink }).catch((error) => {
+      console.error('[manageAssistedApplicationAdmin] automation view failed', doc.id, error instanceof Error ? error.message : String(error));
+      return null;
+    });
+    return order;
   }));
   orders.sort((left, right) => Date.parse(right.createdAt || '') - Date.parse(left.createdAt || ''));
   return { status: 200, body: { ok: true, orders } };
@@ -375,6 +390,14 @@ async function releaseRefundReservation(db, orderRef, reservationId) {
   }
 }
 
+/**
+ * Full Stripe refund of one order, used by the owner queue and by the
+ * automated flow when the ad closes before sending (actor 'automation').
+ */
+export async function issueAssistedApplicationRefund(db, raw, adminEmail) {
+  return handleRefund(db, raw, adminEmail);
+}
+
 async function handleRefund(db, raw, adminEmail) {
   const orderId = boundedString(raw.orderId, 200);
   const notes = optionalString(raw.submissionNotes ?? raw.notes, 2000);
@@ -479,10 +502,89 @@ async function handleRefund(db, raw, adminEmail) {
   };
 }
 
+const STORAGE_BUCKET =
+  process.env.FIREBASE_STORAGE_BUCKET ||
+  process.env.STORAGE_BUCKET ||
+  'frontaliere-ticino.firebasestorage.app';
+const MAX_CV_BYTES = 5 * 1024 * 1024;
+const CV_CONTENT_TYPES = {
+  pdf: 'application/pdf',
+  doc: 'application/msword',
+  docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+};
+const OWNER_UPLOAD_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked']);
+
+/**
+ * The CV arrived as an e-mail attachment: the owner uploads it for the
+ * customer. Same folder, same magic-byte types and size cap as the customer
+ * upload (storage.rules); the order-trigger then runs the usual type check,
+ * which is what starts the automated flow.
+ */
+async function handleOwnerCvUpload(db, raw, adminEmail) {
+  const orderId = boundedString(raw.orderId, 200);
+  const content = String(raw.contentBase64 || '');
+  if (!orderId || !content || content.length > Math.ceil(MAX_CV_BYTES / 3) * 4 + 8) {
+    throw new AssistedApplicationAdminError('invalid_input', 400);
+  }
+  const buffer = Buffer.from(content, 'base64');
+  const type = detectCvFileType(buffer.subarray(0, 8));
+  if (!type || buffer.length === 0 || buffer.length > MAX_CV_BYTES) throw new AssistedApplicationAdminError('invalid_cv_file', 400);
+  const stem = boundedString(raw.fileName, 120).replace(/\.[A-Za-z0-9]{1,5}$/, '').replace(/[^A-Za-z0-9_-]+/g, '-').slice(0, 60) || 'cv';
+  const key = `assisted-application-uploads/${orderId}/${Date.now()}-${randomUUID()}-${stem}.${type}`;
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const snapshot = await orderRef.get();
+  if (!snapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
+  const current = snapshot.data() || {};
+  if (current.paymentStatus !== 'paid') throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
+  if (!OWNER_UPLOAD_STATUSES.has(statusFor(current))) throw new AssistedApplicationAdminError('invalid_transition', 409);
+  const bucket = admin.storage().bucket(STORAGE_BUCKET);
+  await bucket.file(key).save(buffer, { contentType: CV_CONTENT_TYPES[type], resumable: false });
+  const fromStatus = statusFor(current);
+  const timestamp = FieldValue.serverTimestamp();
+  await db.runTransaction(async (transaction) => {
+    transaction.set(orderRef, {
+      cvStorageKey: key,
+      cvUploadedAt: Timestamp.now(),
+      cvUploadedBy: 'owner',
+      updatedAt: timestamp,
+      ...(fromStatus === 'awaiting_upload' ? { submissionStatus: 'in_progress', statusChangedAt: timestamp } : {}),
+    }, { merge: true });
+    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('cv_uploaded_by_owner', {
+      actorEmail: adminEmail,
+      detectedType: type,
+    }));
+    if (fromStatus === 'awaiting_upload') {
+      transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('materials_received_by_email', {
+        actorEmail: adminEmail,
+        fromStatus,
+        toStatus: 'in_progress',
+      }));
+    }
+  });
+  const previous = current.cvStorageKey;
+  if (previous && previous !== key && isAssistedApplicationStorageKey(orderId, previous)) {
+    await bucket.file(previous).delete({ ignoreNotFound: true }).catch(() => {});
+  }
+  return { status: 200, body: { ok: true, orderId, detectedType: type } };
+}
+
 async function handleMutate(db, req, adminEmail) {
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const action = boundedString(raw.action, 80);
   if (action === 'refund') return handleRefund(db, raw, adminEmail);
+  if (action === 'uploadCv') return handleOwnerCvUpload(db, raw, adminEmail);
+  if (AUTOMATION_ADMIN_ACTIONS.has(action)) {
+    try {
+      const body = await handleAutomationAdminAction(db, raw, adminEmail, {
+        runEffect: runAutomationEffect,
+        bucket: admin.storage().bucket(STORAGE_BUCKET),
+      });
+      return { status: 200, body };
+    } catch (error) {
+      if (error instanceof AutomationAdminError) throw new AssistedApplicationAdminError(error.code, error.status);
+      throw error;
+    }
+  }
   if (action === 'transitionStatus' || action === 'updateStatus' || action === 'transition') {
     return handleTransition(db, raw, adminEmail);
   }

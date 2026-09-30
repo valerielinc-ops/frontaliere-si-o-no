@@ -101,7 +101,7 @@ async function fetchWithTimeout(fetchImpl, url, init = {}) {
  * GET an employer page (the order's jobUrl comes from the browser at
  * checkout): redirects are followed by hand and every hop is re-validated.
  */
-async function fetchPublicPage(fetchImpl, startUrl, resolve) {
+export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup) {
   let url = startUrl;
   for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
     if (!(await resolvesToPublicHost(url, resolve))) return null;

@@ -23,8 +23,16 @@
 export const OWNER_REVIEW_MS = 60 * 60 * 1000;
 export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
 export const CANDIDATE_REMINDER_BEFORE_MS = 3 * 60 * 60 * 1000;
+export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 export const MAX_REVIEW_ROUNDS = 3;
 
+/*
+ * `candidate_handoff` is career-ops' "browser handoff": when a portal needs a
+ * human (CAPTCHA, a verification the automation must not bypass, a form the
+ * runner cannot complete), the candidate gets the direct link, the numbered
+ * answers and the documents, submits from their own browser and confirms.
+ * Like career-ops, the order counts as submitted only on that confirmation.
+ */
 export const FLOW_STATES = Object.freeze([
   'drafting',
   'owner_review',
@@ -32,6 +40,7 @@ export const FLOW_STATES = Object.freeze([
   'regenerating',
   'submitting',
   'needs_candidate_action',
+  'candidate_handoff',
   'submitted',
   'owner_takeover',
   'failed',
@@ -119,7 +128,7 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
   const next = { ...current };
   const flags = evaluateRedFlags(draft, answers);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
-  if (TERMINAL_STATES.has(state) && event.type !== 'owner_resume') return ignore('terminal');
+  if (TERMINAL_STATES.has(state) && event.type !== 'owner_resume' && event.type !== 'owner_regenerate') return ignore('terminal');
 
   let effects = [];
   switch (event.type) {
@@ -144,6 +153,17 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       next.reminderAt = null;
       next.heldBy = ['owner'];
       effects = [];
+      break;
+    case 'owner_regenerate':
+      // Valerie asks for a new draft (e.g. after editing the answers): a new
+      // round, so links of the previous round can no longer approve.
+      if (!['owner_review', 'owner_takeover', 'candidate_review'].includes(state)) return ignore('not_regenerable');
+      next.state = 'regenerating';
+      next.round = current.round + 1;
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = [];
+      effects = [{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }];
       break;
     case 'owner_resume':
       if (state !== 'owner_takeover' && state !== 'failed') return ignore('not_taken_over');
@@ -181,8 +201,46 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
         effects = [{ type: 'email', kind: 'candidate_reminder', deadlineAt: current.deadlineAt }];
         break;
       }
+      if (state === 'candidate_handoff' && reminder && nowMs >= reminder && !current.reminderSentAt) {
+        next.reminderAt = null;
+        next.reminderSentAt = nowMs;
+        effects = [{ type: 'email', kind: 'candidate_handoff_reminder' }];
+        break;
+      }
       return ignore('nothing_due');
     }
+    case 'submit_handoff':
+      if (state !== 'submitting') return ignore('not_submitting');
+      next.state = 'candidate_handoff';
+      next.deadlineAt = null;
+      next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
+      next.reminderSentAt = null;
+      next.heldBy = [String(event.reason || 'portal_needs_candidate').slice(0, 80)];
+      effects = [{ type: 'email', kind: 'candidate_handoff', reason: event.reason || null }];
+      break;
+    case 'candidate_confirmed_submitted':
+      if (state !== 'candidate_handoff') return ignore('not_handoff');
+      next.state = 'submitted';
+      next.reminderAt = null;
+      next.heldBy = [];
+      effects = [{ type: 'mark_submitted', by: 'candidate' }];
+      break;
+    case 'posting_closed':
+      if (!['drafting', 'regenerating', 'owner_review', 'candidate_review', 'submitting'].includes(state)) {
+        return ignore('not_open');
+      }
+      next.state = 'owner_takeover';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = ['posting_closed'];
+      // Owner decision 2026-09-30: the only refund the welcome e-mail promises
+      // is "the ad closed before we could send it" — so it is automatic.
+      effects = [
+        { type: 'refund', reason: 'posting_closed' },
+        { type: 'email', kind: 'candidate_posting_closed' },
+        { type: 'email', kind: 'owner_takeover', reason: 'posting_closed' },
+      ];
+      break;
     case 'candidate_approve':
       if (state !== 'candidate_review') return ignore('not_candidate_review');
       if (flags.candidate.length) return { flow: current, effects: [], ignored: 'questions_open' };

@@ -67,6 +67,25 @@ async function candidateDocs(collection, field, cutoff) {
 }
 
 /**
+ * The automated flow (assistedApplicationAutomation.js) adds more personal
+ * data next to the CV: generated cover letters and encrypted run evidence in
+ * the order's Storage folder, the AI draft (profile, CV text) and the flow
+ * (answers, feedback) in private subcollections. They share the CV's
+ * retention: the whole order folder and those documents go with it.
+ */
+async function purgeAutomationData(bucket, orderRef, orderId) {
+  if (typeof bucket.deleteFiles === 'function') {
+    await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
+  }
+  if (typeof orderRef?.collection !== 'function') return;
+  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow']]) {
+    await orderRef.collection(collection).doc(id).delete();
+  }
+  const events = await orderRef.collection('automation_events').get();
+  for (const doc of events.docs || []) await doc.ref.delete();
+}
+
+/**
  * Delete expired assisted-application files and clear their references.
  * @param {number} [retentionDays]
  * @param {number} [nowMs]
@@ -130,10 +149,12 @@ export async function purgeExpiredAssistedApplicationFiles(
       for (const key of keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
+      await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
       await snapshot.ref.set({
         cvStorageKey: null,
         cvUploadedAt: null,
         coverLetterStorageKey: null,
+        automationDueAt: null,
         retentionPurgedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });

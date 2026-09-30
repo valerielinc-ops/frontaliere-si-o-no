@@ -32,4 +32,9 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   'manual_submission_completed',
   'manual_submission_blocked',
   'refund_issued',
+  // Automated flow (assistedApplicationAutomation.js): one entry per transition,
+  // plus the owner's edits of the AI draft and a CV she uploads for the customer.
+  'automation_transition',
+  'automation_draft_edited',
+  'cv_uploaded_by_owner',
 ]);

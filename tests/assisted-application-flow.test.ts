@@ -162,3 +162,36 @@ describe('review link token', () => {
     expect(() => mintReviewToken({ secret: 'short', orderId: 'order_ABC123', round: 1 })).toThrow('review_secret_missing');
   });
 });
+
+describe('career-ops handoff, closed ads and owner regeneration', () => {
+  it('hands a portal over to the candidate and counts it sent only on their confirmation', () => {
+    let step = transition({ state: 'submitting', round: 1 }, { type: 'submit_handoff', reason: 'captcha' }, { draft: cleanDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['captcha'], reminderAt: T0 + 24 * 60 * 60_000 });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'captcha' }]);
+    const reminder = transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 24 * 60 * 60_000 });
+    expect(reminder.effects).toEqual([{ type: 'email', kind: 'candidate_handoff_reminder' }]);
+    expect(transition(reminder.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 48 * 60 * 60_000 }).ignored).toBe('nothing_due');
+    step = transition(reminder.flow, { type: 'candidate_confirmed_submitted' }, { draft: cleanDraft, nowMs: T0 + 25 * 60 * 60_000 });
+    expect(step.flow.state).toBe('submitted');
+    expect(step.effects).toEqual([{ type: 'mark_submitted', by: 'candidate' }]);
+  });
+
+  it('refunds automatically when the ad closed before sending', () => {
+    for (const state of ['drafting', 'owner_review', 'candidate_review', 'submitting']) {
+      const step = transition({ state, round: 1 }, { type: 'posting_closed' }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'] });
+      expect(step.effects.map((effect: any) => (effect.type === 'email' ? effect.kind : effect.type)))
+        .toEqual(['refund', 'candidate_posting_closed', 'owner_takeover']);
+    }
+    expect(transition({ state: 'candidate_handoff' }, { type: 'posting_closed' }, { nowMs: T0 }).ignored).toBe('not_open');
+  });
+
+  it('lets Valerie regenerate, even after taking the order over', () => {
+    for (const state of ['owner_review', 'owner_takeover', 'candidate_review']) {
+      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'regenerating', round: 3 });
+      expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
+    }
+    expect(transition({ state: 'submitted' }, { type: 'owner_regenerate' }, { nowMs: T0 }).ignored).toBe('not_regenerable');
+  });
+});
