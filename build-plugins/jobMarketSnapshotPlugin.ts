@@ -1749,7 +1749,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
         : locale === 'de' ? `Tessiner Arbeitsmarkt ${monthLabel.monthName} ${monthLabel.year} — Statistik`
         : `Marché travail Tessin ${monthLabel.monthName} ${monthLabel.year} — tendances`)
       : JOB_MARKET_HUB_NAME[locale];
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const description = truncateAtWordBoundary(intro, 180);
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
@@ -2012,7 +2012,7 @@ function renderHubPage(inp: HubPageInputs): string {
   // report"); add a year stamp + brand suffix so SEO <title> stays
   // distinct even after the test's stripBrand normalisation (Semrush W3).
   const titleBase = `${h1} ${new Date().getFullYear()}`;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
   // Above-the-fold tagline (≤120 chars) — replaces the long hubIntro
@@ -2834,7 +2834,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     : locale === 'en' ? `${sectorLabel} job market in Ticino`
     : locale === 'de' ? `Arbeitsmarkt ${sectorLabel} Tessin`
     : `Marché travail ${sectorLabel} Tessin`;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const metaDesc = copy.metaDesc(sectorLabel, stats.activeJobs);
 
   const statTiles = `<section class="s-VOrae_" aria-label="${esc(copy.kicker)}">

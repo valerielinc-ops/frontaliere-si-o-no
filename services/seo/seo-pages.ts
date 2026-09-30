@@ -1000,7 +1000,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  withholdingRates: {
- title: 'Imposta alla Fonte Ticino 2026: Aliquote 7%-18% (Tabelle A B C H)',
+ title: 'Imposta alla fonte Ticino 2026: aliquote e tabelle',
  description: 'Quanto pagate di imposta alla fonte in Ticino 2026? Aliquote reali (7%-18%) per tabella A, B, C, H da CHF 40.000 a 150.000, con simulatori per netto e busta paga.',
  keywords: 'aliquote imposta alla fonte ticino 2026, tabella imposta alla fonte ticino, tabelle A B C H ticino, quellensteuer ticino 2026, imposta alla fonte frontalieri ticino',
  ogTitle: 'Imposta alla Fonte Ticino 2026: Aliquote 7%-18% (A B C H)',
@@ -1097,7 +1097,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // 29.7%). Title leads with the exact phrase + year + value-prop. H1 set
  // explicitly so it differs from <title> (Semrush W3) while still carrying
  // the verbatim query.
- title: 'Simulazione tasse nuovi frontalieri 2026: calcolo netto online',
+ title: 'Simulazione tasse nuovi frontalieri 2026: calcolo netto',
  h1: 'Simulazione tasse nuovi frontalieri 2026 — Accordo Italia-Svizzera',
  description: 'Simulazione tasse nuovi frontalieri 2026: imposta alla fonte Ticino, IRPEF con franchigia €10.000 e credito d\'imposta. Simulatore gratuito, no registrazione.',
  keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri, differenza vecchi nuovi frontalieri tasse, franchigia nuovi frontalieri',
@@ -7132,7 +7132,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'lamal-frontalieri': {
- title: 'LAMal Frontalieri 2026: Premi, 14 Casse Malati e Diritto d\'Opzione',
+ title: 'LAMal frontalieri 2026: premi e diritto d\'opzione',
  h1: 'LAMal frontalieri 2026 — diritto d\'opzione, premi, casse malati, come scegliere',
  description: 'LAMal frontalieri 2026: diritto d\'opzione tra assicurazione svizzera e SSN italiano, premi delle 14 casse malati Ticino, franchigie, rimborsi e scadenze.',
  keywords: 'lamal frontalieri, assicurazione malattia frontalieri, casse malati frontalieri, diritto di opzione lamal, premi lamal ticino, franchigia lamal, SSN o lamal frontalieri',
@@ -7365,7 +7365,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  // ── Sprint 2 pillar pages ─────────────────────────────────────
  pillarTasseSvizzere: {
- title: 'Tasse Svizzere Frontalieri 2026: Aliquote e Credito d\'Imposta',
+ title: 'Tasse svizzere frontalieri 2026: aliquote e credito',
  description: 'Tasse svizzere frontalieri 2026: imposta alla fonte Ticino, aliquote del Nuovo Accordo, doppia imposizione e credito d\'imposta, con esempi pratici e FAQ.',
  keywords: 'tasse svizzere, tasse frontalieri, imposta alla fonte ticino, nuovo accordo 2026, doppia imposizione italia svizzera, dichiarazione redditi frontaliere, credito imposta frontaliere',
  ogTitle: 'Tasse Svizzere per Frontalieri 2026 — Guida Completa',
