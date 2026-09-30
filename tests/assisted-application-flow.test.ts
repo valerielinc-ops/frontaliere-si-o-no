@@ -252,10 +252,30 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
 
   it('lets Valerie regenerate, even after taking the order over', () => {
     for (const state of ['owner_review', 'owner_takeover', 'candidate_review']) {
-      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: cleanDraft, nowMs: T0 });
+      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'regenerating', round: 3 });
       expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
     }
     expect(transition({ state: 'submitted' }, { type: 'owner_regenerate' }, { nowMs: T0 }).ignored).toBe('not_regenerable');
+  });
+
+  // Trial run 2026-09-30: round 2 failed on Codex, and "Rigenera" moved Luigi to his last round.
+  it('writes a failed round again as the same round, never costing the candidate a round', () => {
+    const failed = { state: 'owner_takeover', round: 2, heldBy: ['draft_failed'] };
+    const roundOneDraft = { ...cleanDraft, round: 1 };
+    const regenerated = transition(failed, { type: 'owner_regenerate' }, { draft: roundOneDraft, nowMs: T0 });
+    expect(regenerated.flow).toMatchObject({ state: 'regenerating', round: 2, heldBy: [] });
+    expect(regenerated.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
+    // The very first draft failed: still round 1.
+    expect(transition({ ...failed, round: 1 }, { type: 'owner_regenerate' }, { draft: null, nowMs: T0 }).flow.round).toBe(1);
+
+    // "Riprendi automazione" has nothing to review either: the draft is written again.
+    const resumed = transition(failed, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 });
+    expect(resumed.flow).toMatchObject({ state: 'regenerating', round: 2 });
+    expect(resumed.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_resume' }]);
+    // With the round's draft in hand, resuming reviews it as before.
+    expect(transition({ ...failed, heldBy: ['submit_failed'] }, { type: 'owner_resume' }, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 }).flow.state).toBe('owner_review');
+    // A closed ad is not drafted again by a resume.
+    expect(transition({ ...failed, heldBy: ['posting_closed'] }, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 }).flow.state).toBe('owner_review');
   });
 });

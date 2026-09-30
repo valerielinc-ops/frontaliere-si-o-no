@@ -5,7 +5,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 
 const { atsReport, keywordCoverage, structuralCheck, titlePhrases } = await import('../functions/src/assistedApplicationAts.js');
 const { assessLegitimacy, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
-const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText, withoutWorkload } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -117,6 +117,21 @@ describe('tailored ATS CV (career-ops modes/pdf.md)', () => {
     const text = tailoredCvPlainText(cv, { identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' }, profile });
     expect(text).toContain('KURZPROFIL');
     expect(buildTailoredCvPdf(cv, { identity: { name: 'Maria Rossi', email: 'x@y.ch', phone: '' }, profile }).subarray(0, 5).toString()).toBe('%PDF-');
+  });
+
+  // Giro di prova 2026-09-30: "Infermiere/a diplomato/a 80-100%" copied into the headline dropped the tailored CV.
+  it('keeps the posting’s workload out of the headline, so the title alone never fails the fact gate', () => {
+    for (const [title, role] of [
+      ['Infermiere/a diplomato/a 80-100%', 'Infermiere/a diplomato/a'],
+      ['Pflegefachperson HF 80 - 100 %', 'Pflegefachperson HF'],
+      ['Buchhalter/in (100%)', 'Buchhalter/in'],
+      ['Mitarbeiter Verkauf 60% bis 80%', 'Mitarbeiter Verkauf'],
+      ['Infirmier·ère 80 à 100 %', 'Infirmier·ère'],
+      ['Fahrer Kat. C1', 'Fahrer Kat. C1'],
+    ]) expect(withoutWorkload(title)).toBe(role);
+    const cv = sanitizeTailoredCv({ ...raw, headline: 'Pflegefachfrau HF 80-100%' }, { profile, cvText: CV_TEXT, language: 'de' });
+    expect(cv.headline).toBe('Pflegefachfrau HF');
+    expect(checkTailoredCvFacts(cv, { cvText: CV_TEXT, profile, answers: {} }).ok).toBe(true);
   });
 
   it('refuses a number the posting has and the CV has not', () => {
