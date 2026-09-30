@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 624,
+  "crawlerCount": 625,
   "groups": {
     "10": [
       "atec-personal",
@@ -413,6 +413,7 @@
       "mcdonald-s-switzerland",
       "migros-hq",
       "nestle",
+      "pantr-ch",
       "posta-svizzera-centro-regionale",
       "postauto",
       "postfinance",
@@ -1093,6 +1094,7 @@
     "ottos": "data/jobs/by-crawler/ottos.json",
     "pallas-kliniken": "data/jobs/by-crawler/pallas-kliniken.json",
     "palliativklinik": "data/jobs/by-crawler/palliativklinik.json",
+    "pantr-ch": "data/jobs/by-crawler/pantr-ch.json",
     "paraplegie": "data/jobs/by-crawler/paraplegie.json",
     "parmag": "data/jobs/by-crawler/parmag.json",
     "patek-philippe": "data/jobs/by-crawler/patek-philippe.json",
@@ -1302,5 +1304,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3"
+  "digest": "sha256:ba98567d814678f3916901c23827894c2d19b99915f3ec678ca91eb5c40bc463"
 }
