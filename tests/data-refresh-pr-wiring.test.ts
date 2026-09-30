@@ -11,6 +11,12 @@ describe('protected data refreshes publish through pull requests', () => {
     '.github/workflows/refresh-article-trending.yml',
     '.github/workflows/monitor-telegram-member-count.yml',
     '.github/workflows/newsletter-qa.yml',
+    '.github/workflows/update-fuel-prices.yml',
+    '.github/workflows/telegram-channel-broadcast.yml',
+    '.github/workflows/update-exchange-history.yml',
+    '.github/workflows/cf-5xx-monitor.yml',
+    '.github/workflows/cron-dispatch-canary.yml',
+    '.github/workflows/update-weather.yml',
   ];
 
   it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
