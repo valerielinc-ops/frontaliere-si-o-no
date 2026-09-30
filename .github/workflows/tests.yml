@@ -19,6 +19,24 @@ run-name: "Code checks and review · ${{ github.event.pull_request.number && for
 # costoso: `retry-code-check-after-body-edit.yml` rientra sulla stessa HEAD quando
 # il body cambia, anche se la run precedente era verde. Il guard zero-agent
 # riusa il verdetto solo se porta il digest body corrente; title-only resta fuori.
+#
+# ── Dove va il tempo, e perché i test non sono divisi in shard ────────────
+# Misura del 2026-09-30 su 80 run PR: verdetto del check in 12,2 min di
+# mediana e 33 al p90. Percorso critico: setup fisso ~2,3 min (checkout 107 s,
+# `npm ci` 29 s), assemble 235-276 s quando la sua cache manca, vitest 377 s di
+# mediana e 1.221 al p90, review Codex 249 s quando c'è. Al p90 domina vitest,
+# e sopra i ~400 file selezionati il suo costo cresce col numero di file.
+#
+# Dal 2026-09-30 l'account è su GitHub Pro: 40 job concorrenti invece dei 20
+# del piano Free, che avevano fatto collassare il vecchio fan-out a 4 shard in
+# questo job unico. Il banco della PR #10503 ha però mostrato che la prima
+# leva non erano gli shard: Vitest girava sempre con UN worker perché la
+# variabile `VITEST_MAX_WORKERS` ereditata annullava il `--maxWorkers` scelto
+# dal runner (dettaglio sullo step `vitest related (PR diff)`). Corretto
+# quello, 4 shard da 2 worker toglierebbero ancora ~5 min solo al p90, al
+# prezzo di 4 checkout e `npm ci` in più per run e di un check richiesto
+# spezzato fra più job, mentre la mediana non migliora. La scelta va rifatta
+# sui tempi misurati DOPO la correzione, non su quelli di prima.
 on:
   pull_request:
     branches: [main]
@@ -147,13 +165,13 @@ jobs:
       automerge: ${{ steps.post_review.outputs.automerge }}
       autorebase: ${{ steps.post_review.outputs.autorebase }}
       pr_number: ${{ steps.post_review.outputs.pr_number }}
-    # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
-    # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
-    # questo file: checkout profilo `contract` 420s + `npm ci` ~60s + detector
-    # collision 449s + body-contract/source-guard ~90s + `tsc` 33s + catena
-    # vitest 950s ≈ 2000s ≈ 33 min. 60 = 1,8x quel caso peggiore, con lo stesso
-    # criterio (≈2x il massimo osservato) usato per i tetti che questo file ha
-    # già ritarato. Un tetto sotto la somma non discrimina un guasto: fabbrica
+    # 360 min, il massimo di GitHub, dal 2026-08-26 (#6571): quando la review è
+    # entrata in questo job il vecchio tetto di 60 min (≈2x la somma dei
+    # massimi di allora, circa 33 min) non copriva più review e suite insieme.
+    # Il tetto del job non è quindi una stima del caso peggiore: i passi lunghi
+    # hanno un `timeout-minutes` proprio (la review Codex 45 min), e il job fa
+    # da rete. Misura del 2026-09-30 su 80 run PR: job 734 s di mediana, 1.882
+    # al p90. Un tetto sotto il caso reale non discrimina un guasto: fabbrica
     # un `cancelled`, che nessun `if: failure()` vede e che `gh pr checks` legge
     # come fail bloccando l'auto-merge di PR sane.
     timeout-minutes: 360
@@ -1712,24 +1730,27 @@ jobs:
       # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
       # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
       #
-      # È IN `background:`, ed è il primo di un gruppo di sei cancelli
-      # deterministici che girano tutti insieme invece che in fila. 67s
-      # misurati su run 32939112340, cioè il 6,3% del job e il terzo costo dopo
-      # il checkout (254s) e i due gruppi vitest (678s). Niente lo trattiene in
-      # un ordine: legge solo i sorgenti, non scrive niente che un altro step
+      # Parte come processo staccato da questo step, il primo di un gruppo di
+      # cancelli deterministici che girano tutti insieme invece che in fila.
+      # Misura del 2026-09-30: ~140 s, sovrapposti all'assemble o all'inizio di
+      # vitest, quindi quasi mai sul percorso critico (l'attesa esposta nel
+      # «Collect» è 0 s di mediana, 63 s al p90). Niente lo trattiene in un
+      # ordine: legge solo i sorgenti, non scrive niente che un altro step
       # consumi, e il suo unico effetto è far fallire il job.
       #
       # NON C'È UN JOIN INTERMEDIO A CHIUDERLO PRIMA DELLA SUITE, ed è una
-      # scelta di principio: un `wait-all` esprime una DIPENDENZA fra task, non
-      # una precauzione. Fra questi sei cancelli e l'assemble non c'è nessuna
+      # scelta di principio: un join esprime una DIPENDENZA fra task, non una
+      # precauzione. Fra questi cancelli e l'assemble non c'è nessuna
       # dipendenza — l'assemble non legge niente che loro producano — quindi un
       # join lì in mezzo direbbe il falso sul grafo e ritarderebbe la suite per
-      # una ragione che non è sua. Vengono rijoinati in fondo, insieme agli
-      # altri background, dal «Wait for background vitest + memory sampler».
+      # una ragione che non è sua. Vengono raccolti in fondo, dopo vitest, da
+      # «Collect independent source gates».
       #
       # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
-      # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
-      # pool di vitest invece che da soli. Un campionatore di `MemAvailable`
+      # di RSS, il runner ne ha 16, e quei 4,4 GB stanno accanto ai fork di
+      # vitest (2 da 100 file in su). Nel banco della PR #10503 la MemAvailable
+      # minima con `tsc` e 2-4 worker insieme è stata 5,7-7,4 GB, senza
+      # rossi. Un campionatore di `MemAvailable`
       # era stato aggiunto per rendere quel margine un numero, ed era stato
       # tolto (follow-up #6573): era uno step in background con un timer
       # proprio (350 `sleep 5`, ~29 min), quindi a suite rossa teneva il job
@@ -2189,8 +2210,10 @@ jobs:
         # content-addressable cache under .cache/assemble-jobs (keyed on a
         # sha256 of every slice file, of the assembler's import closure and aux
         # data inputs, + an internal output-version) that restores
-        # the assembled outputs in ~0.3s instead of re-running the ~52s
-        # assembly. The script's internal version+fingerprint guarantees
+        # the assembled outputs in ~0.3s instead of re-running the assembly
+        # (~52s when this was written; measured 2026-09-30: a miss costs the
+        # "Assemble + migrate" step 235-276 s and hit 30 of 51 PR runs that
+        # needed the dataset). The script's internal version+fingerprint guarantees
         # correctness, so the restore-keys cascade cannot replay a stale
         # jobs.json across slice or assembler changes (cache-miss → full
         # assembly → fresh snapshot).
@@ -2278,22 +2301,28 @@ jobs:
         # inatteso interrompe il consumer invece di usare output non assemblati.
         env:
           ASSEMBLE_REQUIRED: ${{ steps.assemble.outputs.required || 'true' }}
-          # Vitest 4's related graph can exceed Node's default 4GB heap in this
-          # repository. Keep the graph bounded to one fork and leave headroom
-          # on the hosted runner; this does not change the related-only scope.
+          # Heap del processo che costruisce il grafo statico degli import in
+          # run-related-tests.mjs; lo ereditano anche i fork di Vitest.
           NODE_OPTIONS: --max-old-space-size=8192
           VITEST_SKIP_LIVE_DATA: 'true'
+          # VITEST_MAX_WORKERS e VITEST_MAX_WORKERS_FALLBACK sono INPUT di
+          # `selectMaxWorkers` (scripts/ci/lib/select-max-workers.mjs), non la
+          # scelta finale: 1 worker sotto i 100 file selezionati, 2 da 100 in
+          # su, 3 quando il runner ricade sulla suite intera (~1900 file
+          # indipendenti: con 1 worker oltre 30 min, PR #6661, 2026-08-30).
+          #
+          # Fino al 2026-09-30 quella scelta non arrivava mai a Vitest: Vitest
+          # legge da sé `VITEST_MAX_WORKERS` e la applica SOPRA `--maxWorkers`,
+          # e il figlio ereditava questo `1`. Misurato sui 76 artifact
+          # `shard-timing-related` di una mattina: concorrenza massima 1 in
+          # tutti, anche nei 38 con 100 o più file. Ora run-related-tests.mjs
+          # avvia Vitest con la variabile allineata al valore scelto
+          # (`vitestChildEnv`). Banco su due selezioni reali, PR #10503:
+          # 948 file da ~1.144 s a 1 worker a ~560 s a 2 worker (421-626 s,
+          # con e senza `tsc` accanto), zero rossi, MemAvailable minima 5,7 GB.
+          # 3 e 4 worker hanno dato un altro 15-20% ma non in modo coerente
+          # fra i giri e con `tsc` accanto rallentato fino a 257 s: resta 2.
           VITEST_MAX_WORKERS: 1
-          # Un file sorgente senza edge di import statico verso nessun test
-          # (script CLI mai `import`-ato, es. scripts/prospect-validate.mjs)
-          # fa scattare in run-related-tests.mjs il fallback "nessun edge →
-          # tutta la suite": ~1900 file invece di pochi. Il cap a 1 worker
-          # sopra era tarato sul caso comune (grafo related piccolo, poche
-          # decine di file); su ~1900 file indipendenti lo stesso cap li
-          # serializza su un solo core (osservato: >30 min, PR #6661,
-          # 2026-08-30). VITEST_MAX_WORKERS_FALLBACK si applica SOLO quando
-          # run-related-tests.mjs segnala di aver usato quel fallback — il
-          # percorso related-only comune resta invariato a 1 worker.
           VITEST_MAX_WORKERS_FALLBACK: 3
           VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
