@@ -130,6 +130,9 @@ jobs:
           ROUND: ${{ inputs.round }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+          # The trial run printed MaxListenersExceededWarning on a PassThrough
+          # with no stack: the trace names the library that adds the listeners.
+          NODE_OPTIONS: --trace-warnings
         run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
 
       - name: Cleanup Codex auth broker
