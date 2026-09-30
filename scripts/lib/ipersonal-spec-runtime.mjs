@@ -169,6 +169,27 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const loadedSeedUrls = new Set();
   const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
+  const recordRescuedPage = (page) => {
+    // `fetchRuntimePage()` normally observes the direct response through
+    // `capturingFetch`. A Jina/browser rescue bypasses that function, so the
+    // direct-only accounting below would otherwise call a successfully parsed
+    // rescue an unresolved seed/detail. Keep the rescue evidence in the same
+    // maps as a direct response; the callback is optional for every other spec.
+    if (!page?.proxiedBy) return;
+    const pageUrl = canonicalUrl(page.url || '');
+    const body = String(page.body || '');
+    if (!pageUrl || !body.trim()) return;
+    pages.set(pageUrl, body);
+    if (expectedSeedUrls.has(pageUrl)) loadedSeedUrls.add(pageUrl);
+    if (!attemptedDetailUrls.has(pageUrl)) return;
+    if (successfulDetailAttempts.has(pageUrl)) return;
+    successfulDetailAttempts.set(pageUrl, {
+      sequence: detailAttemptSequence++,
+      resolvedUrl: pageUrl,
+      html: body,
+    });
+    resolvedDetailsByAttempt.set(pageUrl, pageUrl);
+  };
   // Explicit composition: without a caller-supplied extractor the base is the
   // very chain `runSpecInProduction` would have used on its own, not a
   // hard-coded generic cascade. Instrumenting a run must not change which
@@ -255,6 +276,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const rows = await runSpecInProduction(spec, {
     ...runtime,
     fetchImpl: capturingFetch,
+    onPageFetched: recordRescuedPage,
     detailExtractor: capturingDetailExtractor,
   });
   const maintenanceSeed = [...expectedSeedUrls].find((seedUrl) =>

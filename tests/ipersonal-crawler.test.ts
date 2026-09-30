@@ -149,6 +149,54 @@ describe('MediPersonal crawler parser', () => {
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
     });
 
+    it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
+      const seedUrl = 'https://ipersonal-proxy-fixture.example/';
+      const detailUrl = `${seedUrl}jobs/proxy-role/`;
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const detailHtml = `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Proxy role',
+        url: detailUrl,
+        description,
+        jobLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' },
+        },
+      })}</script><section class="job-profile-section"><div id="Jobdetails"><p>${description}</p><h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul></div></section>${' '.repeat(120)}`;
+      const seedHtml = `<html><head><title>iPersonal</title></head><body><a href="${detailUrl}">Proxy role</a><p>${'Open vacancies and current opportunities '.repeat(8)}</p></body></html>`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url.startsWith('https://r.jina.ai/')) {
+          const targetUrl = url.slice('https://r.jina.ai/'.length);
+          return new Response(targetUrl === seedUrl ? seedHtml : detailHtml, { status: 200 });
+        }
+        throw new TypeError('fetch failed');
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        jinaFetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      });
+      expect(jobs).toHaveLength(1);
+      expect((jobs as any).loadedSeedCount).toBe(1);
+      expect((jobs as any).discoveredCount).toBe(1);
+      expect((jobs as any).resolvedDetailCount).toBe(1);
+      expect((jobs as any).parsedDetailCount).toBe(1);
+      expect((jobs as any).detailFailureCount).toBe(0);
+      expect((jobs as any).sourceIdentityCollisionCount).toBe(0);
+      expect((jobs as any).unaccountedReturnedCount).toBe(0);
+    });
+
     it('pubblica la riga il cui corpo ricco lo vede solo il confine iPersonal', async () => {
       // Il detail extractor consegnato a `runSpecInProduction` E' il verdetto
       // (cfr. #7717): il floor condiviso sulla descrizione, in spec-crawler.mjs,
