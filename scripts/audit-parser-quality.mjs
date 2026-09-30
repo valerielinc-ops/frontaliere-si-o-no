@@ -36,6 +36,7 @@ import {
   swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
 import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
+import { identityUrlKey } from './lib/job-url-key.mjs';
 import {
   FOREIGN_COUNTRY_NAME_LABELS,
   ISO_ALPHA2_COUNTRY_CODES,
@@ -2449,12 +2450,14 @@ export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
  * `duplicate-descriptions-desc-only`, which feeds the ≥95 % chrome ratchet and
  * picks the bucket the source-detail pass verifies) and the report never
  * prints it. Counting it here made 55 crawlers WARNING on run 36528331656 with
- * no line under their name to say why. What that signal can prove is proved
+ * no line under their name to say why. An `informational` issue is printed as
+ * INFO but likewise cannot make a crawler WARNING; source-distinct duplicate
+ * listings use that path. What the hidden signal can prove is proved
  * elsewhere, visibly: the chrome ratchet synthesizes a visible issue, and a
  * bucket whose body the source contradicts becomes a `source-detail-mismatch`.
  */
 export function issueDrivenSeverity(entry) {
-  const visible = (entry?.issues || []).filter((issue) => !issue?.hidden);
+  const visible = (entry?.issues || []).filter((issue) => !issue?.hidden && !issue?.informational);
   return visible.length > 0 ? 'WARNING' : 'OK';
 }
 
@@ -2677,6 +2680,97 @@ function jobLocationKey(job) {
   return plainText(job?.location || job?.addressLocality || job?.city || '').toLowerCase();
 }
 
+const SOURCE_UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+
+function sourceIdentifierValue(value, depth = 0) {
+  if (depth > 2 || value == null) return '';
+  if (typeof value === 'object') {
+    for (const key of ['value', 'id', 'identifier', 'requisitionId', 'externalId']) {
+      const nested = sourceIdentifierValue(value[key], depth + 1);
+      if (nested) return nested;
+    }
+    return '';
+  }
+  return String(value).replace(/\s+/g, ' ').trim();
+}
+
+function looksLikeGeneratedJobId(value) {
+  const id = String(value || '').trim();
+  return /^(?:[a-z0-9-]+)-[a-f0-9]{12}$/i.test(id)
+    || /^company-[a-z0-9]+$/i.test(id);
+}
+
+function normalizeSourceIdentifier(value) {
+  const normalized = sourceIdentifierValue(value).toLowerCase();
+  if (!normalized) return '';
+  // Workday and long numeric requisitions use -N for a re-publication. UUIDs
+  // are deliberately not passed through this rule: their final hyphen is part
+  // of the UUID, not a repost suffix.
+  return normalized.replace(/^(?:r\d+|\d{6,})-\d+$/i, (id) => id.replace(/-\d+$/, ''));
+}
+
+function sourceIdFromUrl(url) {
+  let value = String(url || '').trim();
+  if (!value) return '';
+  try {
+    value = decodeURIComponent(value);
+  } catch {
+    // Keep the raw URL when a source contains a malformed percent escape.
+  }
+
+  const workday = value.match(/_(R\d+(?:-\d+)?|\d{6,}(?:-\d+)?)(?=[/?#]|$)/i);
+  if (workday) return normalizeSourceIdentifier(workday[1]);
+
+  const successFactors = [...value.matchAll(/\/(\d{8,})(?=\/?(?:[?#]|$))/g)];
+  if (successFactors.length > 0) {
+    return normalizeSourceIdentifier(successFactors.at(-1)[1]);
+  }
+
+  const uuid = value.match(SOURCE_UUID_RE);
+  return uuid ? normalizeSourceIdentifier(uuid[0]) : '';
+}
+
+/**
+ * Extract the source identity used to distinguish two otherwise identical
+ * listings. Explicit requisition/reference fields win; a non-generated source
+ * `id` and then the public URL are the next sources of evidence. A generated
+ * application id is deliberately ignored, because it is not proof that the
+ * source published two distinct vacancies.
+ *
+ * @param {Record<string, any>} job
+ * @returns {string} normalized source id without a Workday/long-numeric -N
+ *   repost suffix, or an empty string when the source identity is unknown
+ */
+export function extractSourceId(job = {}) {
+  const explicit = [
+    job?.identifier,
+    job?.requisitionId,
+    job?.jobReqId,
+    job?.sourceId,
+    job?.externalId,
+    job?.sourceIdentifier,
+    job?.sourceReference,
+    job?.sza_reference_code,
+    job?.szas?.sza_reference_code,
+    job?._meta?.sourceIdentifier,
+    job?.source?.identifier,
+    job?.source?.requisitionId,
+    job?.source?.id,
+  ];
+  for (const candidate of explicit) {
+    const id = normalizeSourceIdentifier(candidate);
+    if (id) return id;
+  }
+
+  // Some source parsers preserve the source id as `id`; generated crawler ids
+  // (for example `otis-<sha1-prefix>` and `company-<hash>`) are not evidence.
+  const rawId = sourceIdentifierValue(job?.id);
+  if (rawId && !looksLikeGeneratedJobId(rawId)) return normalizeSourceIdentifier(rawId);
+
+  const urlId = sourceIdFromUrl(job?.url);
+  return urlId || '';
+}
+
 export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
   if (mode === 'desc-only') return plain;
@@ -2704,19 +2798,20 @@ function declaredPostalCode(job) {
 }
 
 /**
- * Jobs that collide on the title-aware fingerprint AND may be the same
- * posting. The fingerprint's location is the published locality, so two
- * branches of one chain in the same town collapse into one key: denner's
- * «Verkäufer*in» at Basel 4058 and at Basel 4057 (Filiale 524 and 370) were
- * a "duplicate listing" although each posting names its own shop. Two records
- * that declare DIFFERENT postal codes or different street addresses are two
- * workplaces by their own statement, so they are not a re-posting of each
- * other. A record without a postal code or street address proves nothing
- * either way and still collides with everyone in its bucket — that keeps a
- * posting ingested twice, once with and once without an address (banca-cler,
- * interdiscount on run 36528331656), counted.
+ * Classify title-aware fingerprint buckets as true duplicate listings or as
+ * source-distinct postings that happen to carry the same content. A source
+ * identity is stronger than the address heuristic: the same canonical URL or
+ * the same source id/requisition remains a true duplicate even when the two
+ * records disagree on workplace fields.
+ *
+ * Owner decision 2026-09-30 (#5253): identical title, body and locality with
+ * distinct source ids (Hirslanden, Lonza, Otis and Volg/fenaco examples) stays
+ * published and is informational; an identical URL, source id/requisition, or
+ * an unidentifiable source remains a warning.
+ *
+ * @returns {Array<{ members: number[], sourceIds: string[], sourceDistinct: boolean, duplicateCount: number, sourceDistinctCount: number }>}
  */
-export function countDuplicateListings(jobs, fps) {
+export function classifyDuplicateListingGroups(jobs, fps) {
   const buckets = new Map();
   fps.forEach((fp, index) => {
     if (fp.length < 20) return; // skip empty/tiny
@@ -2737,18 +2832,47 @@ export function countDuplicateListings(jobs, fps) {
     if (leftStreet && rightStreet && leftStreet !== rightStreet) return false;
     return true;
   };
-  let count = 0;
+
+  const groups = [];
   for (const members of buckets.values()) {
     if (members.length < 2) continue;
-    for (const index of members) {
-      const samePosting = members.some((other) => {
-        if (other === index) return false;
-        return mayBeSamePosting(jobs[index], jobs[other]);
-      });
-      if (samePosting) count++;
-    }
+    const sourceIds = members.map((index) => extractSourceId(jobs[index]));
+    const canonicalUrls = members
+      .map((index) => identityUrlKey(jobs[index]?.url))
+      .filter(Boolean);
+    const hasSameCanonicalUrl = canonicalUrls.length > 1
+      && new Set(canonicalUrls).size < canonicalUrls.length;
+    const allSourceIdsPresent = sourceIds.every(Boolean);
+    const allSourceIdsDistinct = new Set(sourceIds).size === sourceIds.length;
+    const sourceDistinct = allSourceIdsPresent && allSourceIdsDistinct && !hasSameCanonicalUrl;
+    const sourceIdByIndex = new Map(members.map((index, offset) => [index, sourceIds[offset]]));
+    const canonicalUrlByIndex = new Map(members.map((index) => [index, identityUrlKey(jobs[index]?.url)]));
+    const samePostingIndices = members.filter((index) => members.some((other) => {
+      if (other === index) return false;
+      const sameCanonicalUrl = canonicalUrlByIndex.get(index)
+        && canonicalUrlByIndex.get(index) === canonicalUrlByIndex.get(other);
+      const sameSourceId = sourceIdByIndex.get(index)
+        && sourceIdByIndex.get(index) === sourceIdByIndex.get(other);
+      return sameCanonicalUrl || sameSourceId || mayBeSamePosting(jobs[index], jobs[other]);
+    }));
+    groups.push({
+      members,
+      sourceIds,
+      sourceDistinct,
+      duplicateCount: sourceDistinct ? 0 : samePostingIndices.length,
+      sourceDistinctCount: sourceDistinct ? members.length : 0,
+    });
   }
-  return count;
+  return groups;
+}
+
+/**
+ * Count only warning-producing duplicate records. Informational source-distinct
+ * buckets remain available through classifyDuplicateListingGroups().
+ */
+export function countDuplicateListings(jobs, fps) {
+  return classifyDuplicateListingGroups(jobs, fps)
+    .reduce((count, group) => count + group.duplicateCount, 0);
 }
 
 /**
@@ -3048,14 +3172,35 @@ async function main() {
     // below) keeps the original Moncucco-class detection alive — when ALL
     // descriptions are byte-identical regardless of title, the parser is
     // probably grabbing nav/footer chrome instead of the per-job body.
+    // Owner decision 2026-09-30 (#5253): the same title/body/location with
+    // distinct source ids remains published as INFO (Hirslanden, Lonza, Otis,
+    // Volg/fenaco); the same canonical URL, source id/requisition, or missing
+    // source id remains a duplicate warning.
     const fps = fingerprintsForCrawler(jobs, 'title-aware');
-    const dupeCount = countDuplicateListings(jobs, fps);
+    const duplicateGroups = classifyDuplicateListingGroups(jobs, fps);
+    const dupeCount = duplicateGroups.reduce((count, group) => count + group.duplicateCount, 0);
     if (dupeCount > 1) {
       issues.push({
         type: 'duplicate-descriptions',
         count: dupeCount,
         total: jobs.length,
         message: `${dupeCount}/${jobs.length} duplicate descriptions`,
+      });
+    }
+    const sourceDistinctGroups = duplicateGroups.filter((group) => group.sourceDistinct);
+    const sourceDistinctCount = sourceDistinctGroups
+      .reduce((count, group) => count + group.sourceDistinctCount, 0);
+    if (sourceDistinctCount > 1) {
+      issues.push({
+        type: 'source-distinct-duplicates',
+        count: sourceDistinctCount,
+        total: jobs.length,
+        message: `${sourceDistinctCount}/${jobs.length} duplicate descriptions with distinct source IDs (informational)`,
+        informational: true,
+        groups: sourceDistinctGroups.map((group) => ({
+          count: group.sourceDistinctCount,
+          sourceIds: group.sourceIds,
+        })),
       });
     }
 
@@ -3270,6 +3415,18 @@ function printReport(report) {
       for (const issue of entry.issues) {
         if (issue.hidden) continue;
         console.log(`    \u26A0\uFE0F ${issue.message}`);
+      }
+    }
+  }
+
+  const informational = Object.entries(report)
+    .filter(([, entry]) => entry.issues.some((issue) => issue.informational && !issue.hidden))
+    .sort((a, b) => b[1].total - a[1].total);
+  if (informational.length > 0) {
+    console.log(`\nINFO (source-distinct duplicate listings):`);
+    for (const [key, entry] of informational) {
+      for (const issue of entry.issues) {
+        if (issue.informational && !issue.hidden) console.log(`  ${key} (${entry.total} jobs): ${issue.message}`);
       }
     }
   }
