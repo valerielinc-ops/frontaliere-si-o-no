@@ -7124,6 +7124,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sonno-deputati-sessioni-federali.title': 'Parlament: Kurzschlaf während der Sitzung, Powernaps vorgeschlagen',
     'blog.article.sonno-deputati-sessioni-federali.excerpt': '16 Parlamentsmitglieder schlafen während der Session 6h10min (-50min). Rasch (Uni Friburgo) schlägt Räume für Powernaps im Bundeshaus vor.',
     'blog.article.sonno-deputati-sessioni-federali.imageAlt': 'Ruheraum im Bundeshaus mit bequemen Sesseln und gedimmtem Licht',
+    'blog.article.fisco-eredita-soletta.title': 'Kanton Solothurn: Erbschafts- und Schenkungssteuer',
+    'blog.article.fisco-eredita-soletta.excerpt': 'Dreistufige Schweizer Besteuerung: Für den Kanton Solothurn zählen Verwandtschaft, Befreiungen, Erklärung und Fristen.',
+    'blog.article.fisco-eredita-soletta.imageAlt': 'Schweizer Kantonsgebäude und Steuerunterlagen zu Erbschaften und Schenkungen',
 };
 
 export default blogMetaChDe;
