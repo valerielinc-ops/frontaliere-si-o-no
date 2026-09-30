@@ -182,6 +182,7 @@ import {
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
+import { fetch as undiciFetch } from 'undici';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
@@ -593,12 +594,12 @@ export async function fetchHtml(url, options = {}) {
         };
         const res = redirectValidator
           ? await fetchFollowingValidatedRedirects(url, {
-              fetchImpl: options.fetchImpl || fetch,
+              fetchImpl: options.fetchImpl || (options.dispatcher ? undiciFetch : fetch),
               validateUrl: redirectValidator,
               requestOptions,
               maxRedirects: options.maxRedirects ?? 5,
             })
-          : await (options.fetchImpl || fetch)(url, requestOptions);
+          : await (options.fetchImpl || (options.dispatcher ? undiciFetch : fetch))(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;

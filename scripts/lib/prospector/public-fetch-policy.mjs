@@ -9,7 +9,7 @@
  */
 import { lookup as dnsLookup } from 'node:dns/promises';
 import { BlockList, isIP } from 'node:net';
-import { Agent } from 'undici';
+import { Agent, fetch as undiciFetch } from 'undici';
 
 const NON_PUBLIC_IPV4_ADDRESSES = new BlockList();
 /** @type {[string, number][]} */
@@ -346,7 +346,7 @@ export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirects(url, {
-  fetchImpl = fetch,
+  fetchImpl = undiciFetch,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
@@ -376,7 +376,7 @@ export async function fetchFollowingValidatedRedirects(url, {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirectsWithUrl(url, {
-  fetchImpl = fetch,
+  fetchImpl = undiciFetch,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
