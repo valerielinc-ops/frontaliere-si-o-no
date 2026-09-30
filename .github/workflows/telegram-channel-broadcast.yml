@@ -49,7 +49,9 @@ jobs:
     # this job's daily (jobs) mode also runs `assemble-jobs-dataset.mjs
     # --stats` on a full checkout (sparse removed in #6133, above the 1.5GB
     # crossover), so it shares the same shrinking margin as its two siblings.
-    timeout-minutes: 20
+    # The ledger push can spend several minutes in the shared main-writer
+    # retry convoy after assembly; 20 minutes was cut off at 12m10s in #10543.
+    timeout-minutes: 30
     env:
       APPROVAL_TRUSTED_SCHEDULE: 'true'
       # Weekly cron ⇒ border; daily cron / manual ⇒ input or 'jobs'.
