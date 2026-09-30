@@ -140,6 +140,28 @@ describe('Swiss canton duty coverage', () => {
     expect(result.diagnostics[0]).toContain('JU: snapshot freshness is stale');
   });
 
+  it('does not publish a verified interval after its end even when the snapshot was fetched before expiry', () => {
+    const fetchedBeforeExpiry = snapshot({
+      duties: [{
+        ...snapshot().duties[0],
+        startsAt: '2026-09-29T06:00:00.000Z',
+        endsAt: '2026-09-29T09:00:00.000Z',
+        fetchedAt: '2026-09-29T07:00:00.000Z',
+        verifiedAt: '2026-09-29T07:00:00.000Z',
+      }],
+    });
+    const result = buildSwissCantonDutyCoverage({
+      now: new Date('2026-09-29T12:00:00.000Z'),
+      weekStart: WEEK_START,
+      registry: registry(),
+      snapshots: { JU: fetchedBeforeExpiry },
+      includeGeneva: false,
+    });
+
+    expect(result.operationalCantons).toHaveLength(0);
+    expect(result.diagnostics).toContain('JU: no verified duty intersects the selected week');
+  });
+
   it('accepts the checked-in Jura release at its own fetch timestamp', () => {
     const fetchedAt = liveSnapshot.generatedAt;
     const result = buildSwissCantonDutyCoverage({

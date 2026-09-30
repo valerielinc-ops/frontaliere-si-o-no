@@ -287,6 +287,11 @@ function dutyIntersectsWeek(duty: PharmacyDuty, start: Date, end: Date): boolean
     && startsAt < end.getTime();
 }
 
+function isCurrentVerifiedDuty(duty: PharmacyDuty, now: Date): boolean {
+  const endsAt = Date.parse(duty.endsAt);
+  return duty.status === 'verified' && Number.isFinite(endsAt) && endsAt > now.getTime();
+}
+
 function uniqueSorted(values: string[]): string[] {
   return [...new Set(values)].sort();
 }
@@ -325,7 +330,7 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
   const validRows = evaluation.publishable && Array.isArray(rawRows) ? rawRows as PharmacyDuty[] : [];
   const weekRows = start && end
     ? validRows
-      .filter((duty) => duty.status === 'verified' && dutyIntersectsWeek(duty, start, end))
+      .filter((duty) => isCurrentVerifiedDuty(duty, now) && dutyIntersectsWeek(duty, start, end))
       .sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt))
     : [];
   const pharmacyIds = options.pharmacyIds ?? DEFAULT_PHARMACY_IDS;

@@ -269,6 +269,23 @@ describe('conflict detection', () => {
     expect(conflicts.map((c) => c.type)).toEqual(['duty-expired-but-verified']);
   });
 
+  it('does not call a verified snapshot row a conflict after it naturally expires', () => {
+    const conflicts = detectDutyConflicts(
+      'jura',
+      {
+        duties: [{
+          id: 'd-fetched-before-expiry',
+          status: 'verified',
+          endsAt: '2026-09-30T06:00:00.000Z',
+          fetchedAt: '2026-09-29T23:28:35.341Z',
+          coverageName: 'Moutier',
+        }],
+      },
+      Date.parse('2026-09-30T12:00:00.000Z'),
+    );
+    expect(conflicts).toEqual([]);
+  });
+
   it('flags conflicting duties', () => {
     const conflicts = detectDutyConflicts('ticino', { duties: [{ id: 'd2', status: 'conflicting' }] }, NOW);
     expect(conflicts.map((c) => c.type)).toEqual(['duty-conflicting']);

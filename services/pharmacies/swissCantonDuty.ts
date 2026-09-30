@@ -170,6 +170,11 @@ function intersectsWeek(startsAt: string, endsAt: string, weekStart: string, wee
   return Number.isFinite(starts) && Number.isFinite(ends) && ends > starts && ends > start && starts < end;
 }
 
+function isCurrentVerifiedDuty(duty: { status?: unknown; endsAt?: unknown }, now: Date): boolean {
+  const endsAt = typeof duty.endsAt === 'string' ? Date.parse(duty.endsAt) : NaN;
+  return duty.status === 'verified' && Number.isFinite(endsAt) && endsAt > now.getTime();
+}
+
 function sourceForRegistry(registry: PharmacySourcesRegistry, canton: SwissCanton): PharmacySourcesRegistry['sources'][string] | null {
   return registry.sources?.[canton.key] || null;
 }
@@ -272,7 +277,7 @@ function genericSnapshotEvaluation(
   const rowErrors = validDutyRows(value, value._source, expectedSourceType || 'official');
   if (rowErrors.length > 0) return { coverage: null, reason: `${canton.code}: ${rowErrors[0]}` };
   const duties = value.duties
-    .filter((duty) => duty.status === 'verified' && intersectsWeek(duty.startsAt, duty.endsAt, weekStartKey, weekEndKey))
+    .filter((duty) => isCurrentVerifiedDuty(duty, now) && intersectsWeek(duty.startsAt, duty.endsAt, weekStartKey, weekEndKey))
     .sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt) || a.id.localeCompare(b.id));
   if (duties.length === 0) return { coverage: null, reason: `${canton.code}: no verified duty intersects the selected week` };
   return {
@@ -316,7 +321,8 @@ function genevaCoverage({ canton, source, now, weekStartKey, maxAgeMs }: {
     .map((entry) => [String(entry.id), entry]));
   const duties = (recordOf(DEFAULT_GENEVA_DUTIES).duties as unknown[])
     .filter((entry): entry is Record<string, unknown> => Boolean(entry && typeof entry === 'object'))
-    .filter((entry) => entry.status === 'verified' && intersectsWeek(String(entry.startsAt), String(entry.endsAt), weekStartKey, weekEndKey))
+    .filter((entry) => isCurrentVerifiedDuty(entry, now)
+      && intersectsWeek(String(entry.startsAt), String(entry.endsAt), weekStartKey, weekEndKey))
     .map((entry) => {
       const pharmacy = identities.get(String(entry.pharmacyId));
       return {

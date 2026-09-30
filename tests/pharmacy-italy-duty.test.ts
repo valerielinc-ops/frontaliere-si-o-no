@@ -141,6 +141,21 @@ describe('Italian duty week read model', () => {
     expect(formatItalyDutyDateTime(model.provinces[0].duties[0].startsAt)).toBe('14.09.2026 08:00');
   });
 
+  it('does not serve a verified row after its end when the source snapshot predates expiry', () => {
+    const snapshots = freshSnapshots();
+    const rows = snapshots.duties.duties as Array<Record<string, unknown>>;
+    const model = buildItalyDutyWeekModel({
+      now: new Date('2026-09-14T14:01:00.000Z'),
+      weekStart: WEEK,
+      duties: { ...snapshots.duties, duties: rows },
+      status: snapshots.status,
+      sources: sourcesJson as unknown as ItalyDutySourceRegistry,
+    });
+
+    expect(model.provinces.find((province) => province.code === 'CO')?.duties).toEqual([]);
+    expect(model.provinces.find((province) => province.code === 'VA')?.duties).toHaveLength(1);
+  });
+
   it('fails closed when a duty row crosses a catalogue province or official source boundary', () => {
     const snapshots = freshSnapshots();
     const rows = snapshots.duties.duties as Array<Record<string, unknown>>;
