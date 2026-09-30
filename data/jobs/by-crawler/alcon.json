@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-09-30T21:39:03.563Z",
+  "assembledAt": "2026-09-30T23:33:31.803Z",
   "jobs": [
     {
       "id": "alcon-7e8db3a81169",
@@ -34,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:38:58.394Z",
+      "crawledAt": "2026-09-30T23:33:27.153Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:38:57.697Z",
+      "crawledAt": "2026-09-30T23:33:26.292Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:38:56.975Z",
+      "crawledAt": "2026-09-30T23:33:25.570Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:38:56.347Z",
+      "crawledAt": "2026-09-30T23:33:24.913Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Field-Service-Engineer--m-f-d----Medical-Devices---German---English-speaking_R-2026-49510-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:38:55.644Z",
+      "crawledAt": "2026-09-30T23:33:24.258Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -372,10 +372,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49510",
-      "firstSeenAt": "2026-09-29T21:38:57.665Z",
+      "previousSlugs": [
+        "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch",
+        "field-service-ingegnere-m-f-d-medical-devices-german-english-speaking-alcon-fribourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
+          "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch",
+          "field-service-ingegnere-m-f-d-medical-devices-german-english-speaking-alcon-fribourg"
         ],
         "de": [
           "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
@@ -384,9 +388,7 @@
           "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
         ]
       },
-      "previousSlugs": [
-        "field-service-engineer-m-f-d-medical-devices-german-english-speaking-alcon-ch"
-      ],
+      "firstSeenAt": "2026-09-29T21:38:57.665Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
