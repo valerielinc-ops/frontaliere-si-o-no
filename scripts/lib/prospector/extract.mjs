@@ -726,6 +726,57 @@ function isRelatedPostingsBlock(html, opening, bounds, titles) {
 }
 
 /**
+ * Containers that can carry a map/widget or a different vacancy card. They
+ * are not workplace evidence even when they happen to sit inside the primary
+ * vacancy container.
+ */
+const WORKPLACE_CHROME_CONTAINER_RX = /(?:^|[\s_-])(?:widget|map(?:[-_]canvas)?|(?:job|vacancy|position)[-_ ]?(?:card|teaser|tile))(?:$|[\s_-])/i;
+
+/**
+ * Ranges of rendered page chrome shared by the body and workplace readers.
+ * The workplace reader additionally excludes aside and widget/card regions;
+ * the body reader keeps its historical aside behaviour unless requested.
+ *
+ * @param {string} html
+ * @param {HtmlTagIndex} index
+ * @param {string[]} titles
+ * @param {{ excludeWorkplaceChrome?: boolean }} [options]
+ * @returns {Array<{start: number, end: number}>}
+ */
+function vacancyChromeRanges(html, index, titles, { excludeWorkplaceChrome = false } = {}) {
+  const ranges = [];
+  for (const opening of index.openings) {
+    if (opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    const namedChrome = [readAttr(opening.raw, 'id'), readAttr(opening.raw, 'class')].join(' ');
+    const isChrome = FORM_CONTROL_TAGS.has(opening.name)
+      || isHiddenElement(opening.raw)
+      || (isPrintLayout(opening.raw)
+        && !printRegionCarriesTitle(html, index, opening.end, bounds.contentEnd, titles))
+      || isRelatedPostingsBlock(html, opening, bounds, titles)
+      || (excludeWorkplaceChrome
+        && (opening.name === 'aside'
+          || opening.name === 'form'
+          || WORKPLACE_CHROME_CONTAINER_RX.test(namedChrome)));
+    if (isChrome) ranges.push({ start: opening.index, end: bounds.end });
+  }
+  return ranges;
+}
+
+/** @param {string} source @param {Array<{start: number, end: number}>} ranges */
+function withoutRanges(source, ranges) {
+  let cursor = 0;
+  let out = '';
+  for (const range of [...ranges].sort((a, b) => a.start - b.start || b.end - a.end)) {
+    if (range.end <= cursor) continue;
+    if (range.start > cursor) out += source.slice(cursor, range.start);
+    cursor = Math.max(cursor, range.end);
+  }
+  return out + source.slice(cursor);
+}
+
+/**
  * Whether a listing row is identified by an inline `#job-…` fragment (see
  * `extractJsonLd`): the detail request then fetches a page shared by every
  * posting on it.
@@ -1212,17 +1263,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // `printLayout` on every page), wherever it sits — also inside the <main>
   // the fallback reads.
   const titles = [title, renderedTitle];
-  for (const opening of semanticIndex.openings) {
-    if (opening.selfClosing || VOID_HTML_TAGS.has(opening.name)) continue;
-    const bounds = semanticIndex.boundsByStart.get(opening.index);
-    if (!bounds) continue;
-    const isChrome = FORM_CONTROL_TAGS.has(opening.name)
-      || isHiddenElement(opening.raw)
-      || (isPrintLayout(opening.raw)
-        && !printRegionCarriesTitle(html, semanticIndex, opening.end, bounds.contentEnd, titles))
-      || isRelatedPostingsBlock(html, opening, bounds, titles);
-    if (isChrome) chromeRanges.push({ start: opening.index, end: bounds.end });
-  }
+  chromeRanges.push(...vacancyChromeRanges(html, semanticIndex, titles));
   let blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
@@ -1348,7 +1389,13 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
   // next text fragment loses the actual per-vacancy geography.
   let structuredLabelFound = false;
   const index = indexHtmlTags(source);
+  const chromeRanges = vacancyChromeRanges(source, index, [title], { excludeWorkplaceChrome: true });
+  const inChrome = (opening) => chromeRanges.some((range) => (
+    opening.index >= range.start && opening.index < range.end
+  ));
+  const isDocumentRoot = (opening) => ['html', 'head', 'body'].includes(opening.name);
   for (const opening of index.openings) {
+    if (isDocumentRoot(opening) || inChrome(opening)) continue;
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
     const labelText = bodyTextOf(source.slice(opening.end, bounds.contentEnd)).trim();
@@ -1360,6 +1407,8 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
       continue;
     }
     const next = index.openings.find((candidate) => candidate.index >= bounds.end
+      && !isDocumentRoot(candidate)
+      && !inChrome(candidate)
       && !source.slice(bounds.end, candidate.index).trim());
     const nextBounds = next && index.boundsByStart.get(next.index);
     if (nextBounds) add(source.slice(next.end, nextBounds.contentEnd));
@@ -1369,6 +1418,7 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
   // (`formattedAddress`) while microdata carries the employer's registered
   // address. Keep the rendered attribute as independent page evidence.
   for (const opening of index.openings) {
+    if (isDocumentRoot(opening) || inChrome(opening)) continue;
     const formattedAddress = readAttr(opening.raw, [
       'formattedaddress', 'data-formatted-address', 'data-job-location',
       'data-workplace', 'data-location',
@@ -1379,7 +1429,7 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
   // Preserve the tolerant fragment fallback for malformed markup that cannot
   // be balanced by indexHtmlTags; normal pages use the structured path above.
   if (structuredLabelFound && out.length > 0) return out;
-  const segments = source
+  const segments = withoutRanges(source, chromeRanges)
     .split(/<[^>]*>/)
     .map((part) => textOf(part))
     .filter(Boolean);

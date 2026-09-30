@@ -289,6 +289,15 @@ describe('vacancy extraction', () => {
     }
   });
 
+  it('does not promote workplace attributes from excluded vacancy chrome', () => {
+    expect(renderedWorkplaceLabelValues('<article><div data-formatted-address="Bioggio"></div><aside data-location="Bern"></aside></article>'))
+      .toEqual(['Bioggio']);
+    expect(renderedWorkplaceLabelValues('<article><div data-formatted-address="Bioggio"></div>'
+      + '<section class="similar-jobs"><div class="job-card"><div data-location="Bern"></div></div></section>'
+      + '<div class="widget"><div data-workplace="Zürich"></div></div></article>'))
+      .toEqual(['Bioggio']);
+  });
+
   it('keeps multiline workplace labels and rendered formatted addresses intact', () => {
     const coop = '<main><h1>Stv. Geschäftsführer:in Region Brig</h1>'
       + '<h4>Arbeitsort</h4><p>Coop<br><br>Region Brig, Visp, Zermatt und Goms</p></main>';
