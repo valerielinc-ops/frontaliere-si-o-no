@@ -10,7 +10,7 @@
     {
       "source": "functions",
       "codebase": "newsletter-webhooks",
-      "runtime": "nodejs20",
+      "runtime": "nodejs22",
       "ignore": [
         "node_modules",
         ".git",
