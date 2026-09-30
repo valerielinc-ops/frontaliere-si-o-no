@@ -42,7 +42,7 @@ describe('draft failures', () => {
   });
 
   it('knows which errors another run can fix', () => {
-    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'model overloaded']) {
+    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
       expect(isTransientDraftError(error)).toBe(true);
     }
     // runner_timeout: the watchdog already re-dispatched the silent run.
