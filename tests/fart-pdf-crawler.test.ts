@@ -14,6 +14,8 @@ import { describe, it, expect } from 'vitest';
 
 import {
   parseFartListingPage,
+  parseFartListingState,
+  isFartAuthoritativeEmptySnapshot,
   buildFartDescription,
   countMeaningfulParagraphs,
   MIN_FART_DESC_LENGTH,
@@ -123,6 +125,17 @@ const FIXTURE_LISTING_WITH_RELATIVE_URL = `<!DOCTYPE html>
 <html><body>
   <h5>Macchinista Ferroviario 100%</h5>
   <p><a href="/wp-content/uploads/2026/03/macchinista.pdf">CONCORSO</a></p>
+</body></html>`;
+
+const FIXTURE_AUTHORITATIVE_EMPTY_FORM = `<!DOCTYPE html>
+<html><body>
+  <h1>Candidatura per un concorso pubblicato</h1>
+  <form>
+    <label for="concorso">Selezioni il concorso per il quale desidera candidarsi</label>
+    <select id="concorso" name="concorso">
+      <option value="">Selezioni il concorso per il quale desidera candidarsi</option>
+    </select>
+  </form>
 </body></html>`;
 
 // ─── buildFartDescription — regression case ──────────────────────────────
@@ -255,6 +268,30 @@ describe('parseFartListingPage', () => {
     const jobs = parseFartListingPage(html);
     expect(jobs).toHaveLength(1);
     expect(jobs[0].title).toBe('With PDF');
+  });
+});
+
+describe('parseFartListingState', () => {
+  it('proves the current FART empty form only when its dropdown has no vacancy', () => {
+    expect(isFartAuthoritativeEmptySnapshot(FIXTURE_AUTHORITATIVE_EMPTY_FORM)).toBe(true);
+    expect(parseFartListingState(FIXTURE_AUTHORITATIVE_EMPTY_FORM)).toMatchObject({
+      state: 'empty',
+      jobs: [],
+    });
+  });
+
+  it('does not turn an active vacancy option into an authoritative zero', () => {
+    const html = FIXTURE_AUTHORITATIVE_EMPTY_FORM.replace(
+      '</select>',
+      '<option value="job-1">Capo movimento 100%</option></select>',
+    );
+    expect(isFartAuthoritativeEmptySnapshot(html)).toBe(false);
+    expect(parseFartListingState(html).state).toBe('invalid');
+  });
+
+  it('keeps an empty or unfamiliar page fail-closed', () => {
+    expect(parseFartListingState('')).toMatchObject({ state: 'invalid', jobs: [] });
+    expect(parseFartListingState('<main><p>No positions.</p></main>').state).toBe('invalid');
   });
 });
 

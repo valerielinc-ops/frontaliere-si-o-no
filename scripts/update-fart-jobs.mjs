@@ -41,6 +41,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -50,7 +51,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import {
-  parseFartListingPage,
+  parseFartListingState,
   buildFartDescription,
   FART_FABRICATED_DESCRIPTION_RE,
 } from './lib/fart-job-parser.mjs';
@@ -239,11 +240,17 @@ async function fetchFartJobs() {
   const html = await fetchPage(CAREERS_URL);
   if (!html) {
     console.warn('⚠️ Failed to fetch careers page.');
-    return [];
+    return { jobs: [], authoritativeEmptySnapshot: false };
   }
 
-  const listings = parseFartListingPage(html);
+  const sourceSnapshot = parseFartListingState(html);
+  const listings = sourceSnapshot.jobs;
   console.log(`📋 Found ${listings.length} concorso(i) on page.`);
+  if (sourceSnapshot.state === 'empty') {
+    console.log('✅ FART source explicitly reports no open concorsi.');
+  } else if (sourceSnapshot.state === 'invalid') {
+    console.warn('⚠️ FART careers page exposed neither supported listings nor the known empty form.');
+  }
 
   const seenPdfUrls = new Set();
   const jobs = [];
@@ -305,7 +312,10 @@ async function fetchFartJobs() {
     jobs.push(job);
   }
 
-  return jobs;
+  return {
+    jobs,
+    authoritativeEmptySnapshot: sourceSnapshot.state === 'empty',
+  };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -565,12 +575,51 @@ async function main() {
   console.log('🔍 Fetching FART jobs...');
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
+  const priorTargetJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(priorTargetJobs);
 
   // Phase 1: Fetch and parse jobs
-  const discoveredJobs = await fetchFartJobs();
+  const {
+    jobs: discoveredJobs,
+    authoritativeEmptySnapshot,
+  } = await fetchFartJobs();
 
   if (discoveredJobs.length === 0) {
+    if (authoritativeEmptySnapshot) {
+      const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+      const archived = archiveRemovedJobsToSlice(priorTargetJobs, COMPANY_KEY);
+      await writeJobsCrawlerSliceVerified(COMPANY_KEY, [], {
+        skipShrinkGuard: true,
+        preserveExistingSlugs: true,
+      });
+      printCrawlChangeSummary(emptyDiff, 'FART');
+      writeCrawlChangeSummaryToGH(emptyDiff, 'FART');
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: 'FART',
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: 0,
+        parsed: 0,
+        written: 0,
+        authoritativeEmptySnapshot: true,
+        authoritativeSnapshotVerified: true,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: emptyDiff.removedJobs.length,
+        unchangedCount: 0,
+        durationMs: getCrawlerElapsedMs(),
+        avgDurationMs: getCrawlerElapsedMs(),
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: emptyDiff.removedJobs.slice(0, 30),
+        unchangedJobs: [],
+      });
+      await assembleJobsDataset();
+      console.log(`ℹ️ Persisted authoritative FART zero; archived ${archived} expired route(s).`);
+      return;
+    }
+
     console.log('\n⚠️ No FART jobs discovered.');
     console.log(
       '   The careers page may have changed structure or have no current concorsi.'
