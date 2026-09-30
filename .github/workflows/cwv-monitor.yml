@@ -125,7 +125,11 @@ jobs:
           # shift the recorded values slightly (later data point, same day
           # key) — the script overwrites-in-place per today's date, so a
           # regenerate-on-rebase retry stays safe and idempotent per day.
+          # Keep the retry budget below this job's 10-minute cap: the shared
+          # helper defaults to 40 attempts, whose backoff can outlive the job
+          # and turn a recoverable push race into an unreported cancellation.
           bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 10 \
             --regenerate-cmd "node scripts/cwv-monitor-check.mjs && git add data/cwv-monitor-history.json"
         env:
           GH_REPO: ${{ github.repository }}

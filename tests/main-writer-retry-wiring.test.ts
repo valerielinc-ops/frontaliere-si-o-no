@@ -8,6 +8,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
   '.github/workflows/build-evidence-and-tune.yml',
+  '.github/workflows/cwv-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
   '.github/workflows/funnel-metrics-snapshot.yml',
@@ -82,6 +83,28 @@ describe('main data writers use the shared retry contract', () => {
     expect(snapshotStep, 'exchange snapshot commit step is missing').toBeDefined();
     expect(maxAttempts, 'exchange snapshot retry cap is missing').toBe('5');
     expect(Number(maxAttempts)).toBeLessThan(updateJob?.['timeout-minutes'] ?? 0);
+  });
+
+  it('bounds the CWV snapshot retry budget below its job timeout', () => {
+    const workflow = read('.github/workflows/cwv-monitor.yml');
+    const document = YAML.parse(workflow) as {
+      jobs?: {
+        monitor?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string }>;
+        };
+      };
+    };
+    const monitorJob = document.jobs?.monitor;
+    const snapshotStep = monitorJob?.steps?.find(
+      (step) => step.name === 'Commit weekly snapshot if changed',
+    );
+    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
+
+    expect(monitorJob, 'CWV monitor job is missing').toBeDefined();
+    expect(snapshotStep, 'CWV snapshot commit step is missing').toBeDefined();
+    expect(maxAttempts, 'CWV snapshot retry cap is missing').toBe('10');
+    expect(Number(maxAttempts)).toBeLessThan(monitorJob?.['timeout-minutes'] ?? 0);
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {
