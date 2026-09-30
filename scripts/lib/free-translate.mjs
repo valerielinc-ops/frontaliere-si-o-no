@@ -102,6 +102,10 @@ const GOOGLE_CLOUD_DAILY_LIMIT = 16000;
 // «every call refused», which is how the 403s above stayed invisible.
 let _googleCloudLastFailure = '';
 let _googleCloudFailures = 0;
+// Cloud Translation answers 403 both for a rejected credential and for the
+// project's daily character cap («User Rate Limit Exceeded»): only the first
+// is something another token can fix.
+const GOOGLE_CLOUD_QUOTA_REFUSAL = /rate ?limit|quota|dailyLimit|RESOURCE_EXHAUSTED/i;
 function _noteGoogleCloudFailure(reason) {
   _googleCloudLastFailure = reason;
   _googleCloudFailures += 1;
@@ -1641,24 +1645,47 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
   }
 
   try {
-    const token = await _getGoogleCloudAccessToken();
+    let token = await _getGoogleCloudAccessToken();
     if (!token) {
       _noteGoogleCloudFailure('access-token-unavailable');
       noteTranslationOutcome(outcome, 'incomplete');
       return '';
     }
 
-    const res = await fetch('https://translation.googleapis.com/language/translate/v2', {
+    const request = (bearer) => fetch('https://translation.googleapis.com/language/translate/v2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${bearer}`,
         'x-goog-user-project': GCP_PROJECT_ID,
       },
       body: JSON.stringify({ q: clean, source: sourceLang, target: targetLang, format: 'text' }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
-    if (res.status === 403 || res.status === 429) {
+    let res = await request(token);
+    // A service-account token the API rejects must not stay cached for the
+    // rest of the run, or no later field ever reaches the OAuth fallback:
+    // drop it and give this field one try with the fallback. A 403 for the
+    // project's daily cap is not a credential problem, and the fallback bills
+    // the same project, so it is not retried.
+    if ((res.status === 401 || res.status === 403) && token === _gcServiceAccountToken.accessToken) {
+      const refusal = await res.text().catch(() => '');
+      if (GOOGLE_CLOUD_QUOTA_REFUSAL.test(refusal)) {
+        _noteGoogleCloudFailure(`HTTP ${res.status} quota`);
+        noteTranslationOutcome(outcome, 'incomplete');
+        return '';
+      }
+      _gcServiceAccountToken.refused = true;
+      _gcServiceAccountToken.accessToken = '';
+      _noteGoogleCloudFailure(`service-account HTTP ${res.status}`);
+      token = await _getGoogleCloudAccessToken();
+      if (!token) {
+        noteTranslationOutcome(outcome, 'incomplete');
+        return '';
+      }
+      res = await request(token);
+    }
+    if (res.status === 401 || res.status === 403 || res.status === 429) {
       _noteGoogleCloudFailure(`HTTP ${res.status}`);
       noteTranslationOutcome(outcome, 'incomplete');
       return ''; // quota exceeded, or API/scope not enabled for this token

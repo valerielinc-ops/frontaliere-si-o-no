@@ -217,7 +217,7 @@ jobs:
         run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
 
       # A provider whose every credential is rejected is an owner action
-      # (rotate it in Remote Config): one deduplicated needs-human issue per
+      # (rotate it where this workflow reads it): one deduplicated needs-human issue per
       # provider, closed by the first run in which the provider answers again.
       - name: Alert on rejected translation credentials (dedup, zero-Claude)
         if: steps.provider_readiness.outcome == 'success' && inputs.dry_run != true

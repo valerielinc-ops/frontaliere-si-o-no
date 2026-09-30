@@ -52,13 +52,52 @@ describe('translation provider readiness probe', () => {
     // Service account refused → GSC OAuth fallback, whose token lacks the scope.
     const scope = await probeGoogleCloud({
       fetcher: translation({ status: 403, body: { error: { status: 'PERMISSION_DENIED', details: [{ reason: 'ACCESS_TOKEN_SCOPE_INSUFFICIENT' }] } } }),
-      serviceAccount, oauth, serviceAccountToken: async () => { throw new Error('invalid_grant'); },
+      serviceAccount, oauth, serviceAccountToken: async () => { throw new Error('OAuth token exchange failed: 400 {"error":"invalid_grant"}'); },
     });
-    expect(scope).toMatchObject({ credential: 'oauth', verdict: 'auth-failed' });
+    // Both refused: the verdict names the service account, the credential the fix is about.
+    expect(scope).toMatchObject({ credential: 'service-account', verdict: 'auth-failed' });
     expect(scope.detail).toContain('ACCESS_TOKEN_SCOPE_INSUFFICIENT');
 
     const none = await probeGoogleCloud({ fetcher: translation({ status: 200 }), serviceAccount: null, oauth: { clientId: '', clientSecret: '', refreshToken: '' } });
     expect(none.verdict).toBe('not-configured');
+  });
+
+  it('treats a transient service-account token failure as an error, and a rejected one as a fallback to OAuth', async () => {
+    const serviceAccount = { client_email: 'sa@x', private_key: 'k', project_id: 'frontaliere-ticino' };
+    const oauth = { clientId: 'id', clientSecret: 's', refreshToken: 'r' };
+    const okTranslation = fetcherFrom((url) => (url.startsWith('https://translation.googleapis.com/') ? { status: 200 } : { status: 200, body: { access_token: 'gsc' } }));
+
+    const transient = await probeGoogleCloud({
+      fetcher: okTranslation, serviceAccount, oauth,
+      serviceAccountToken: async () => { throw new Error('OAuth token exchange timed out after 30000ms'); },
+    });
+    expect(transient).toMatchObject({ credential: 'service-account', verdict: 'error' });
+
+    const rejected = await probeGoogleCloud({
+      fetcher: okTranslation, serviceAccount, oauth,
+      serviceAccountToken: async () => { throw new Error('OAuth token exchange failed: 400 {"error":"invalid_grant"}'); },
+    });
+    expect(rejected).toMatchObject({ credential: 'oauth', verdict: 'ok' });
+
+    // Service-account token refused by the API, OAuth refused too: the verdict names the service account.
+    const both = await probeGoogleCloud({
+      fetcher: fetcherFrom((url) => (url.startsWith('https://translation.googleapis.com/')
+        ? { status: 403, body: { error: { status: 'PERMISSION_DENIED', details: [{ reason: 'ACCESS_TOKEN_SCOPE_INSUFFICIENT' }] } } }
+        : { status: 200, body: { access_token: 'gsc' } })),
+      serviceAccount, oauth, serviceAccountToken: async () => 'sa-token',
+    });
+    expect(both).toMatchObject({ credential: 'service-account', verdict: 'auth-failed' });
+    expect(both.detail).toContain('oauth fallback');
+  });
+
+  it('sends a rejected Google credential to the Actions secret the workflow reads, not to Remote Config', () => {
+    const results = [{ provider: 'google-cloud', credential: 'service-account', verdict: 'auth-failed', detail: 'HTTP 403 PERMISSION_DENIED' }];
+    const body = formatCredentialAlert('google-cloud', results);
+    const fix = body.split('\n').find((line) => line.startsWith('- FIX:'))!;
+    expect(fix).toContain('GitHub Actions secret `FIREBASE_SERVICE_ACCOUNT_JSON`');
+    expect(fix).not.toContain('Remote Config');
+    expect(credentialAlertTitle('google-cloud')).not.toContain('Remote Config');
+    expect(credentialAlertTitle('google-cloud').slice(0, 60)).not.toBe(credentialAlertTitle('azure').slice(0, 60));
   });
 
   it('alerts only on providers whose every configured credential is rejected', () => {

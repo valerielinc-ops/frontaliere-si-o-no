@@ -127,6 +127,50 @@ describe('Google Cloud tier authentication', () => {
     expect(line).toMatch(/refused \(last: HTTP 403\)/);
   });
 
+  it('drops a service-account token the API rejects and serves the field through OAuth', async () => {
+    const { ft, calls } = await loadWith({
+      GOOGLE_APPLICATION_CREDENTIALS: SA_PATH,
+      GSC_CLIENT_ID: 'id', GSC_CLIENT_SECRET: 'secret', GSC_REFRESH_TOKEN: 'refresh',
+    }, (call) => {
+      if (call.url === 'https://oauth2.googleapis.com/token') {
+        return new URLSearchParams(call.body).get('grant_type') === 'refresh_token'
+          ? { status: 200, body: { access_token: 'gsc-token', expires_in: 3600 } }
+          : { status: 200, body: { access_token: 'sa-token', expires_in: 3600 } };
+      }
+      if (call.url.startsWith('https://translation.googleapis.com/')) {
+        return call.headers.Authorization === 'Bearer sa-token'
+          ? { status: 403, body: { error: { status: 'PERMISSION_DENIED', message: 'The caller does not have permission' } } }
+          : { status: 200, body: { data: { translations: [{ translatedText: 'Cook wanted' }] } } };
+      }
+      return { status: 404, body: {} };
+    });
+
+    expect(await ft.translateWithGoogleCloud('Cercasi cuoco', 'it', 'en')).toBe('Cook wanted');
+    expect(await ft.translateWithGoogleCloud('Cercasi cuoco', 'it', 'en')).toBe('Cook wanted');
+    const translations = calls.filter((call) => call.url.startsWith('https://translation.googleapis.com/'));
+    // One rejected service-account request, then OAuth only: the rejected token is not reused.
+    expect(translations.map((call) => call.headers.Authorization)).toEqual(['Bearer sa-token', 'Bearer gsc-token', 'Bearer gsc-token']);
+  });
+
+  it('does not fall back on the project daily cap, which the OAuth token shares', async () => {
+    const { ft, calls } = await loadWith({
+      GOOGLE_APPLICATION_CREDENTIALS: SA_PATH,
+      GSC_CLIENT_ID: 'id', GSC_CLIENT_SECRET: 'secret', GSC_REFRESH_TOKEN: 'refresh',
+    }, (call) => {
+      if (call.url === 'https://oauth2.googleapis.com/token') return { status: 200, body: { access_token: 'sa-token', expires_in: 3600 } };
+      if (call.url.startsWith('https://translation.googleapis.com/')) {
+        return { status: 403, body: { error: { message: 'User Rate Limit Exceeded', errors: [{ reason: 'userRateLimitExceeded' }] } } };
+      }
+      return { status: 404, body: {} };
+    });
+
+    expect(await ft.translateWithGoogleCloud('Cercasi cuoco', 'it', 'en')).toBe('');
+    expect(await ft.translateWithGoogleCloud('Cercasi autista', 'it', 'en')).toBe('');
+    const translations = calls.filter((call) => call.url.startsWith('https://translation.googleapis.com/'));
+    expect(translations.every((call) => call.headers.Authorization === 'Bearer sa-token')).toBe(true);
+    expect(calls.some((call) => new URLSearchParams(call.body).get('grant_type') === 'refresh_token')).toBe(false);
+  });
+
   it('stays unavailable without any Google credential', async () => {
     const { ft, calls } = await loadWith({}, () => ({ status: 500, body: {} }));
     const outcome: Record<string, unknown> = {};

@@ -13,8 +13,9 @@
  *   - Azure: a two-character translation per key;
  *   - Google Cloud: a two-character translation with the service account
  *     under the cloud-translation scope, else the GSC OAuth token.
- * A credential the provider rejects is an owner action (rotate it in Remote
- * Config); an exhausted quota is not — DeepL resets monthly and the Google
+ * A credential the provider rejects is an owner action (rotate it where the
+ * workflow reads it: Remote Config for DeepL and Azure, the Actions secret for
+ * the Google service account); an exhausted quota is not — DeepL resets monthly and the Google
  * project is capped on purpose at 16,000 characters a day.
  *
  *   node scripts/translation-provider-readiness.mjs [--summary] [--json FILE]
@@ -132,54 +133,71 @@ export async function probeGoogleCloud({
 } = {}) {
   const hasOAuth = Boolean(oauth.clientId && oauth.clientSecret && oauth.refreshToken);
   if (!serviceAccount && !hasOAuth) return { provider: 'google-cloud', credential: 'none', verdict: 'not-configured' };
-  let token = '';
-  let credential = '';
+
+  const translate = async (credential, token) => {
+    const base = { provider: 'google-cloud', credential };
+    try {
+      const res = await fetcher('https://translation.googleapis.com/language/translate/v2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'x-goog-user-project': projectId },
+        body: JSON.stringify({ q: PROBE_TEXT, source: 'it', target: 'en', format: 'text' }),
+        signal: AbortSignal.timeout(TIMEOUT_MS),
+      });
+      if (res.ok) return { ...base, verdict: 'ok' };
+      const body = await text(res);
+      let reason = '';
+      let message = '';
+      try {
+        const error = JSON.parse(body)?.error;
+        reason = (error?.details || []).map((detail) => detail?.reason).filter(Boolean).join(',')
+          || (error?.errors || []).map((entry) => entry?.reason).filter(Boolean).join(',');
+        message = String(error?.message || '');
+      } catch {
+        // Not JSON: the status decides.
+      }
+      const detail = `HTTP ${res.status}${reason ? ` ${reason}` : ''}${message ? ` — ${message.slice(0, 80)}` : ''}`;
+      if (res.status === 429 || /rate ?limit|quota|dailyLimit|RESOURCE_EXHAUSTED/i.test(`${reason} ${message}`)) {
+        return { ...base, verdict: 'quota-exhausted', detail };
+      }
+      if (res.status === 401 || res.status === 403) return { ...base, verdict: 'auth-failed', detail };
+      return { ...base, verdict: 'error', detail };
+    } catch (error) {
+      return { ...base, verdict: 'error', detail: error?.name || 'request-error' };
+    }
+  };
+
+  let serviceAccountVerdict;
   if (serviceAccount) {
+    let token = '';
     try {
       token = await serviceAccountToken(serviceAccount);
-      credential = 'service-account';
-    } catch {
-      token = '';
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      // A 4xx from the token endpoint is a rejected credential; a timeout or a
+      // 5xx that outlived the helper's retries is transient and alerts no one.
+      if (!/failed: 4\d\d\b/.test(message)) {
+        return { provider: 'google-cloud', credential: 'service-account', verdict: 'error', detail: `token exchange: ${message.slice(0, 80)}` };
+      }
+      serviceAccountVerdict = { provider: 'google-cloud', credential: 'service-account', verdict: 'auth-failed', detail: `token exchange: ${message.slice(0, 80)}` };
+    }
+    if (token) {
+      serviceAccountVerdict = await translate('service-account', token);
+      if (serviceAccountVerdict.verdict !== 'auth-failed') return serviceAccountVerdict;
     }
   }
-  if (!token && hasOAuth) {
-    try {
-      token = await oauthAccessToken(oauth, fetcher);
-      credential = 'oauth';
-    } catch {
-      token = '';
-    }
-  }
-  const base = { provider: 'google-cloud', credential: credential || (serviceAccount ? 'service-account' : 'oauth') };
-  if (!token) return { ...base, verdict: 'auth-failed', detail: 'no access token' };
+  // Same order as the cascade: a rejected service account falls back to OAuth.
+  if (!hasOAuth) return serviceAccountVerdict;
+  let token = '';
   try {
-    const res = await fetcher('https://translation.googleapis.com/language/translate/v2', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'x-goog-user-project': projectId },
-      body: JSON.stringify({ q: PROBE_TEXT, source: 'it', target: 'en', format: 'text' }),
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-    });
-    if (res.ok) return { ...base, verdict: 'ok' };
-    const body = await text(res);
-    let reason = '';
-    let message = '';
-    try {
-      const error = JSON.parse(body)?.error;
-      reason = (error?.details || []).map((detail) => detail?.reason).filter(Boolean).join(',')
-        || (error?.errors || []).map((entry) => entry?.reason).filter(Boolean).join(',');
-      message = String(error?.message || '');
-    } catch {
-      // Not JSON: the status decides.
-    }
-    const detail = `HTTP ${res.status}${reason ? ` ${reason}` : ''}${message ? ` — ${message.slice(0, 80)}` : ''}`;
-    if (res.status === 429 || /rate ?limit|quota|dailyLimit/i.test(`${reason} ${message}`)) {
-      return { ...base, verdict: 'quota-exhausted', detail };
-    }
-    if (res.status === 401 || res.status === 403) return { ...base, verdict: 'auth-failed', detail };
-    return { ...base, verdict: 'error', detail };
-  } catch (error) {
-    return { ...base, verdict: 'error', detail: error?.name || 'request-error' };
+    token = await oauthAccessToken(oauth, fetcher);
+  } catch {
+    token = '';
   }
+  if (!token) return serviceAccountVerdict || { provider: 'google-cloud', credential: 'oauth', verdict: 'auth-failed', detail: 'no access token' };
+  const oauthVerdict = await translate('oauth', token);
+  if (oauthVerdict.verdict === 'ok' || !serviceAccountVerdict) return oauthVerdict;
+  // Both refused: report the service account, the credential the fix is about.
+  return { ...serviceAccountVerdict, detail: `${serviceAccountVerdict.detail}; oauth fallback: ${oauthVerdict.detail || oauthVerdict.verdict}` };
 }
 
 export async function probeTranslationProviders({ env = process.env, fetcher = globalThis.fetch, google = {} } = {}) {
@@ -214,8 +232,27 @@ export function rejectedProviders(results) {
   return rejected;
 }
 
+// Where the owner rotates each credential. DeepL and Azure keys come from
+// Remote Config; the Google service account is written to
+// GOOGLE_APPLICATION_CREDENTIALS from the Actions secret of the repository
+// that runs translate-pending, which Remote Config never feeds.
+const CREDENTIAL_STORE = {
+  deepl: {
+    title: 'rotate them in Remote Config',
+    fix: 'issue new keys in the DeepL account and update `DEEPL_API_KEY` / `DEEPL_API_KEY_2` in Firebase Remote Config (project `frontaliere-ticino`)',
+  },
+  azure: {
+    title: 'rotate them in Remote Config',
+    fix: 'regenerate the keys of the Translator resource in the Azure portal and update `AZURE_TRANSLATOR_KEY` / `AZURE_TRANSLATOR_KEY_2` (region `AZURE_TRANSLATOR_REGION`, default `westeurope`) in Firebase Remote Config (project `frontaliere-ticino`)',
+  },
+  'google-cloud': {
+    title: 'rotate the Actions service-account secret',
+    fix: 'grant the service account a role with `cloudtranslate.generalModels.predict`, or issue a new key for it, and update the GitHub Actions secret `FIREBASE_SERVICE_ACCOUNT_JSON` of the repository that runs translate-pending (nanakokyobashi-rgb/frontaliere-articles); the workflow writes it to `GOOGLE_APPLICATION_CREDENTIALS`',
+  },
+};
+
 export function credentialAlertTitle(provider) {
-  return `${PROVIDER_NAMES[provider] || provider} credentials rejected — rotate them in Remote Config`;
+  return `${PROVIDER_NAMES[provider] || provider} credentials rejected — ${CREDENTIAL_STORE[provider]?.title || 'rotate them'}`;
 }
 
 export function formatReadinessTable(results) {
@@ -228,15 +265,10 @@ export function formatReadinessTable(results) {
 
 export function formatCredentialAlert(provider, results, { runUrl } = {}) {
   const rows = results.filter((result) => result.provider === provider);
-  const variables = {
-    deepl: '`DEEPL_API_KEY` / `DEEPL_API_KEY_2`',
-    azure: '`AZURE_TRANSLATOR_KEY` / `AZURE_TRANSLATOR_KEY_2` (region `AZURE_TRANSLATOR_REGION`, default `westeurope`)',
-    'google-cloud': 'the `FIREBASE_SERVICE_ACCOUNT_JSON` service account (role with `cloudtranslate.generalModels.predict`) or, as fallback, `GSC_CLIENT_ID` / `GSC_CLIENT_SECRET` / `GSC_REFRESH_TOKEN` with the cloud-translation scope',
-  }[provider];
   return [
     '## Scheda',
-    `- CAUSA: every configured ${PROVIDER_NAMES[provider] || provider} credential is rejected by the provider (${rows.map((row) => `${row.credential}: ${row.detail || row.verdict}`).join('; ')}). Hypothesis to confirm with the COMMAND: the credentials were revoked or regenerated outside Remote Config.`,
-    `- FIX: owner action — issue new credentials in the provider console and update ${variables} in Firebase Remote Config (project \`frontaliere-ticino\`). No code change: the cascade uses a renewed credential on the next run.`,
+    `- CAUSA: every configured ${PROVIDER_NAMES[provider] || provider} credential is rejected by the provider (${rows.map((row) => `${row.credential}: ${row.detail || row.verdict}`).join('; ')}). Hypothesis to confirm with the COMMAND: the credentials were revoked, regenerated or lost their permission outside the stores the workflow reads.`,
+    `- FIX: owner action — ${CREDENTIAL_STORE[provider]?.fix || 'renew the credentials'}. No code change: the cascade uses a renewed credential on the next run.`,
     `- METRICA: prima=${rows.length} credential(s) rejected atteso=0 | COMANDO: \`node scripts/translation-provider-readiness.mjs\` after \`source bin/rc-env.sh\``,
     '- OSSERVATORE: the provider probe in translate-pending runs on every credentialed run and closes this issue when the provider answers again.',
     '',
