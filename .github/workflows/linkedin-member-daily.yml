@@ -131,7 +131,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(linkedin): track posted member content [skip ci]"
-          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+          bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 || echo "ledger push skipped (non-fatal)"
 
       - name: Report failure to GitHub Issues
         if: failure()
