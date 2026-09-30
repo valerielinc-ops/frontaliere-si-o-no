@@ -15,6 +15,7 @@ import {
   SOLINA_KEY,
   SOLINA_COMPANY_NAME,
   SOLINA_FABRICATED_DESCRIPTION_RE,
+  stripSolinaFabricatedDescription,
 } from './lib/solina-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
@@ -29,7 +30,12 @@ runStandardCrawlerPipeline({
   isCompanyJob: isSolinaJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
-  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, SOLINA_FABRICATED_DESCRIPTION_RE, SOLINA_COMPANY_NAME),
+  prepareExistingJobs: (jobs) => dropFabricatedDescriptions(
+    jobs,
+    SOLINA_FABRICATED_DESCRIPTION_RE,
+    SOLINA_COMPANY_NAME,
+    { strip: stripSolinaFabricatedDescription },
+  ),
 }).catch((err) => {
   console.error(`❌ Solina crawler failed: ${err?.message || err}`);
   process.exit(1);

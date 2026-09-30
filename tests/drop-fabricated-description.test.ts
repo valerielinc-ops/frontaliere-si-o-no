@@ -22,6 +22,36 @@ function storedJob() {
 }
 
 describe('dropFabricatedDescription', () => {
+  it('prefers a clean source-locale slot over a stale matching flat field', () => {
+    const pattern = /^FAB: .*$/m;
+    const strip = (text: string) => text.replace(/^FAB: .*$/m, '').trim();
+    const job: any = {
+      sourceLang: 'de',
+      description: 'FAB: stale\nflat body',
+      descriptionByLocale: { de: 'Original source body', en: 'Traduzione' },
+    };
+
+    expect(dropFabricatedDescription(job, pattern, { strip })).toBe(true);
+    expect(job.description).toBe('flat body');
+    expect(job.descriptionByLocale).toEqual({ de: 'Original source body', en: 'Traduzione' });
+    expect(job.needsRetranslation).toBeUndefined();
+  });
+
+  it('cleans only the flat field when sourceLang is empty', () => {
+    const pattern = /^FAB: .*$/m;
+    const strip = (text: string) => text.replace(/^FAB: .*$/m, '').trim();
+    const job: any = {
+      sourceLang: '',
+      description: 'FAB: stale\nflat body',
+      descriptionByLocale: { de: 'Original source body', en: 'Traduzione' },
+    };
+
+    expect(dropFabricatedDescription(job, pattern, { strip })).toBe(true);
+    expect(job.description).toBe('flat body');
+    expect(job.descriptionByLocale).toEqual({ de: 'Original source body', en: 'Traduzione' });
+    expect(job.needsRetranslation).toBeUndefined();
+  });
+
   it('drops the wrapped source slot, the translations made from it and the flat description', () => {
     const job: any = storedJob();
     expect(dropFabricatedDescription(job, WRAPPER_RE)).toBe(true);

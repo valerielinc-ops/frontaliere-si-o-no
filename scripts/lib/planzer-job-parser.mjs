@@ -385,13 +385,18 @@ async function fetchDetail(detailUrl) {
 
 /* ── Stored text written by the old builder ─────────────────── */
 
-/**
- * A fragment only the crawler's former builder wrote: the brand sentence
- * above the posting, its own "Aufgaben:" … "Profil:" section labels, or the
- * Standort/Pensum/company summary in place of a thin page. For
- * `dropFabricatedDescriptions` on the stored jobs (issue 5253).
- */
-export const PLANZER_FABRICATED_DESCRIPTION_RE = /^Marke der Planzer-Gruppe: |(?:^|\n)Aufgaben:\n[\s\S]*\n\nProfil:\n|Schweizer Familienunternehmen für Transport- und Lagerlogistik seit 1936/;
+// Each alternative is a complete line the former builder emitted. Keeping
+// the anchors matters: "Profil:" and "Benefits:" can occur in source prose,
+// while these standalone labels were the crawler's section headings.
+export const PLANZER_FABRICATED_DESCRIPTION_RE = /^(?:Marke der Planzer-Gruppe: [^\r\n]+|(?:Aufgaben|Profil|Benefits):|Planzer Transport AG — Schweizer Familienunternehmen für Transport- und Lagerlogistik seit 1936 \(HQ Dietikon, ZH\)\.)[ \t]*\r?$/m;
+const PLANZER_FABRICATED_LINE_RE = /^(?:Marke der Planzer-Gruppe: [^\r\n]+|(?:Aufgaben|Profil|Benefits):|Planzer Transport AG — Schweizer Familienunternehmen für Transport- und Lagerlogistik seit 1936 \(HQ Dietikon, ZH\)\.)[ \t]*\r?\n?/gm;
+
+export function stripPlanzerFabricatedDescription(text = '') {
+  return String(text)
+    .replace(PLANZER_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 
 /* ── Fetch all jobs ────────────────────────────────────────── */
 
