@@ -621,9 +621,24 @@ jobs:
           fi
           kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
 
+      - name: Recheck synced article chunk source before publication
+        id: recheck_synced_chunk_source_before_publish
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::error::synced article chunk source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
+            exit 1
+          fi
+
       - name: Publish client article chunks for synced corpus
         id: publish_synced_chunks
-        if: steps.commit.outputs.article-content-changed == 'true' && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success' && steps.check_synced_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.commit.outputs.article-content-changed == 'true' && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success' && steps.check_synced_chunk_source.outputs.current == 'true' && steps.recheck_synced_chunk_source_before_publish.outcome == 'success' && steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
 
       - name: Verify synced article chunk lock after publication

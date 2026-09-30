@@ -3,6 +3,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { parse } from 'yaml';
 import { describe, expect, it } from 'vitest';
+import { isCurrentPublishSource } from '../scripts/lib/article-chunk-publish-freshness.mjs';
 
 type WorkflowStep = {
   name?: string;
@@ -63,19 +64,29 @@ describe('article corpus sync parser gate', () => {
   it('publishes changed corpus registries through the shared strict CDN path', () => {
     const commitIndex = steps.findIndex((step) => step.name === 'Commit if changed');
     const acquireIndex = steps.findIndex((step) => step.name === 'Acquire article chunk section locks for synced corpus');
+    const recheckIndex = steps.findIndex((step) => step.name === 'Recheck synced article chunk source before publication');
     const publishIndex = steps.findIndex((step) => step.name === 'Publish client article chunks for synced corpus');
     const releaseIndex = steps.findIndex((step) => step.name === 'Release article chunk section locks for synced corpus');
     const publish = stepNamed('Publish client article chunks for synced corpus');
+    const recheck = stepNamed('Recheck synced article chunk source before publication');
     const release = stepNamed('Release article chunk section locks for synced corpus');
 
     expect(commitIndex).toBeGreaterThanOrEqual(0);
     expect(acquireIndex).toBeGreaterThan(commitIndex);
+    expect(recheckIndex).toBeGreaterThan(acquireIndex);
     expect(publishIndex).toBeGreaterThan(acquireIndex);
+    expect(recheckIndex).toBeLessThan(publishIndex);
     expect(releaseIndex).toBeGreaterThan(publishIndex);
     expect(publish.if).toContain("steps.commit.outputs.article-content-changed == 'true'");
     expect(publish.if).toContain("steps.check_synced_chunk_source.outputs.current == 'true'");
+    expect(publish.if).toContain("steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'");
     expect(publish.run).toContain('scripts/publish-article-chunks.mjs --strict --no-ticker');
     expect(publish['continue-on-error']).toBeUndefined();
+    expect(recheck.if).toContain("steps.verify_synced_chunk_lock_before_publish.outcome == 'success'");
+    expect(recheck.run).toContain('git fetch --no-tags --depth=1 origin main');
+    expect(recheck.run).toContain('scripts/lib/article-chunk-publish-freshness.mjs');
+    expect(recheck.run).toContain('echo "current=$CURRENT" >> "$GITHUB_OUTPUT"');
+    expect(recheck.run).toContain('exit 1');
     expect(release.if).toContain('always()');
     expect(release.run).toContain('scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera');
 
@@ -96,5 +107,12 @@ describe('article corpus sync parser gate', () => {
     expect(before).toContain('kill -0');
     expect(after).toContain('LOCK_RENEW_FAILURE_FILE');
     expect(after).toContain('kill -0');
+  });
+
+  it('rejects a source SHA when origin/main advances before publication', () => {
+    expect(isCurrentPublishSource('a'.repeat(40), 'b'.repeat(40))).toBe(false);
+    expect(stepNamed('Publish client article chunks for synced corpus').if).toContain(
+      "steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'",
+    );
   });
 });

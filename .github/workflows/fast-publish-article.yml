@@ -272,6 +272,21 @@ jobs:
           fi
           kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
 
+      - name: Recheck article chunk source before publication
+        id: recheck_chunk_source_before_publish
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.verify_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::error::article chunk source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
+            exit 1
+          fi
+
       # The article hub shard and the client registry are two representations
       # of the same publish. Publish the section's companions first, then its
       # named-export registry, and only then push the HTML shard. The strict
@@ -280,7 +295,7 @@ jobs:
       # ahead of the client again (#5819).
       - name: Publish client article chunks
         id: publish_chunks
-        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.recheck_chunk_source_before_publish.outcome == 'success' && steps.recheck_chunk_source_before_publish.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
         run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
