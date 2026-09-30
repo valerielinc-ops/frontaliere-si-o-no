@@ -8,7 +8,12 @@
  * job already publishes that counter under `meta/hereTransactionBudget`.
  */
 
-import admin from 'firebase-admin';
+import {
+ applicationDefault,
+ getApps,
+ initializeApp,
+} from 'firebase-admin/app';
+import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { HERE_MONTHLY_FREE_TIER_BUDGET } from './lib/hereBudget.js';
 
 const GOOGLE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
@@ -375,8 +380,7 @@ export function computeProviderBudgetDecision({
 }
 
 function ensureAdminApp() {
-  if (!admin.apps.length) admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  return admin;
+  if (!getApps().length) initializeApp({ credential: applicationDefault() });
 }
 
 /**
@@ -401,8 +405,8 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
   if (!Number.isSafeInteger(requestedUnits) || requestedUnits <= 0) {
     return { allowed: false, reason: 'invalid-units', provider: providerId, operation };
   }
-  const adm = ensureAdminApp();
-  const db = adm.firestore();
+  ensureAdminApp();
+  const db = getFirestore();
   const quotaRefs = quota.limits.map((limit) => ({
     limit,
     ref: db.collection('meta').doc(limit.documentId ?? `trafficProviderQuota-${limit.quotaScope}`),
@@ -510,7 +514,7 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
         count: failed.decision.count,
       };
     }
-    const updatedAt = adm.firestore.Timestamp.now();
+    const updatedAt = Timestamp.now();
     for (const [index, item] of decisions.entries()) {
       tx.set(quotaRefs[index].ref, {
         provider: providerId,

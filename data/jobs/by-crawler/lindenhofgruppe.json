@@ -662,7 +662,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:46:16.746Z",
-      "needsRetranslation": true,
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1809,7 +1808,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:31:17.043Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3032,7 +3030,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:54:40.669Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3432,7 +3429,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:41.249Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -4065,8 +4061,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

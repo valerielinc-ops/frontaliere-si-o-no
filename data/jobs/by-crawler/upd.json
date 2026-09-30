@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-68d148282734",
-      "slug": "oberarztin-oberarzt-upd-bern",
+      "slug": "medico-senior-medico-senior-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-upd-bern",
-        "it": "oberarztin-oberarzt-upd-bern",
-        "en": "oberarztin-oberarzt-upd-bern",
-        "fr": "oberarztin-oberarzt-upd-bern"
+        "it": "medico-senior-medico-senior-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-physician-senior-physician-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-superieur-medecin-superieur-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -66,16 +66,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.630Z"
+      "firstSeenAt": "2026-09-29T21:25:33.630Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-upd-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-upd-bern"
+      ]
     },
     {
       "id": "upd-1ef318bbc073",
-      "slug": "forschungspraktikum-wasa-upd-bern",
+      "slug": "interno-di-ricerca-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "forschungspraktikum-wasa-upd-bern",
-        "it": "forschungspraktikum-wasa-upd-bern",
-        "en": "forschungspraktikum-wasa-upd-bern",
-        "fr": "forschungspraktikum-wasa-upd-bern"
+        "it": "interno-di-ricerca-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "research-internship-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stage-de-recherche-wasa-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -132,7 +146,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.629Z"
+      "firstSeenAt": "2026-09-29T21:25:33.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forschungspraktikum-wasa-upd-bern"
+        ],
+        "en": [
+          "forschungspraktikum-wasa-upd-bern"
+        ],
+        "fr": [
+          "forschungspraktikum-wasa-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "forschungspraktikum-wasa-upd-bern"
+      ]
     },
     {
       "id": "upd-032e26199467",
@@ -140,8 +168,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-und-jugendliche-upd-biel",
         "it": "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-biel",
-        "en": "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-und-jugendliche-upd-biel",
-        "fr": "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-und-jugendliche-upd-biel"
+        "en": "senior-physician-senior-physician-regional-competence-center-biel-children-and-young-people-universitare-psychiatrische",
+        "fr": "medecin-superieur-medecin-superieur-centre-regional-de-competences-bienne-enfants-et-jeunes-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -189,6 +217,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-und-jugendliche-upd-biel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-und-jugendliche-upd-biel"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-regionales-kompetenzzentrum-biel-kinder-und-jugendliche-upd-biel"
         ]
       },
       "previousSlugs": [
@@ -211,12 +245,12 @@
     },
     {
       "id": "upd-699484977517",
-      "slug": "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern",
+      "slug": "formazione-dipl-infermiera-focus-psichiatria-operazioni-occupazione-hf-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern",
-        "it": "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern",
-        "en": "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern",
-        "fr": "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern"
+        "it": "formazione-dipl-infermiera-focus-psichiatria-operazioni-occupazione-hf-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "training-dipl-nurse-focus-psychiatry-operations-employment-hf-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "formation-dipl-infirmiere-focus-operations-de-psychiatrie-emploi-hf-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -273,7 +307,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.627Z"
+      "firstSeenAt": "2026-09-29T21:25:33.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern"
+        ],
+        "en": [
+          "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern"
+        ],
+        "fr": [
+          "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-dipl-pflegefachperson-fokus-psychiatrie-betriebsanstellung-hf-upd-bern"
+      ]
     },
     {
       "id": "upd-b3bd66c0a516",
@@ -281,8 +329,8 @@
       "slugByLocale": {
         "de": "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-upd-bern",
         "it": "sanitarinstallateurin-sanitarinstallateur-o-heizungsmonteurin-heizungsmonteur-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-universitare-psychiatrische-dienste",
-        "fr": "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-universitare-psychiatrische-dienste"
+        "en": "sanitary-installer-sanitary-installer-or-heating-installer-heating-installer-universitare-psychiatrische-dienste-bern",
+        "fr": "installateur-sanitaire-installateur-sanitaire-ou-de-chauffage-installateur-de-chauffage-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -330,10 +378,17 @@
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-upd-bern"
+        ],
+        "en": [
+          "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-universitare-psychiatrische-dienste"
+        ],
+        "fr": [
+          "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-universitare-psychiatrische-dienste"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-upd-bern"
+        "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-upd-bern",
+        "sanitarinstallateurin-sanitarinstallateur-oder-heizungsmonteurin-heizungsmonteur-universitare-psychiatrische-dienste"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -352,12 +407,12 @@
     },
     {
       "id": "upd-b68ce820c23d",
-      "slug": "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a-bienne-universitare-psychiatrische-dienste-bern-upd-biel",
+      "slug": "assistente-medico-assistente-del-centro-regionale-di-competenza-per-bambini-e-adolescenti-a-biel-universitare",
       "slugByLocale": {
         "fr": "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a",
-        "it": "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a-bienne-universitare-psychiatrische-dienste-bern-upd-biel",
-        "en": "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a",
-        "de": "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a"
+        "it": "assistente-medico-assistente-del-centro-regionale-di-competenza-per-bambini-e-adolescenti-a-biel-universitare",
+        "en": "assistant-physician-assistant-to-the-regional-centre-of-competence-for-children-and-adolescents-in-biel-universitare",
+        "de": "assistenzarzt-assistent-des-regionalen-kompetenzzentrums-fur-kinder-und-jugendliche-in-biel-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -403,11 +458,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a",
+          "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a-bienne-universitare-psychiatrische-dienste-bern-upd-biel"
+        ],
+        "en": [
+          "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a"
+        ],
+        "de": [
           "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a"
+        "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a",
+        "medecin-adjoint-adjointe-au-centre-de-competence-regional-pour-enfants-et-adolescents-a-bienne-universitare-psychiatrische-dienste-bern-upd-biel"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -426,12 +489,12 @@
     },
     {
       "id": "upd-d3e85e7deeca",
-      "slug": "educatrice-sociale-educateur-social-upd-biel",
+      "slug": "educatore-sociale-educatore-sociale-universitare-psychiatrische-dienste-bern-upd-biel",
       "slugByLocale": {
         "fr": "educatrice-sociale-educateur-social-upd-biel",
-        "it": "educatrice-sociale-educateur-social-upd-biel",
-        "en": "educatrice-sociale-educateur-social-upd-biel",
-        "de": "educatrice-sociale-educateur-social-upd-biel"
+        "it": "educatore-sociale-educatore-sociale-universitare-psychiatrische-dienste-bern-upd-biel",
+        "en": "social-educator-social-educator-universitare-psychiatrische-dienste-bern-upd-biel",
+        "de": "sozialpadagoge-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -488,7 +551,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.624Z"
+      "firstSeenAt": "2026-09-29T21:25:33.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "educatrice-sociale-educateur-social-upd-biel"
+        ],
+        "en": [
+          "educatrice-sociale-educateur-social-upd-biel"
+        ],
+        "de": [
+          "educatrice-sociale-educateur-social-upd-biel"
+        ]
+      },
+      "previousSlugs": [
+        "educatrice-sociale-educateur-social-upd-biel"
+      ]
     },
     {
       "id": "upd-1fb787c3a7dd",
@@ -496,8 +573,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern",
         "it": "dipl-pflegefachperson-come-vertretung-spezialstation-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern",
-        "fr": "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
+        "en": "dipl-nursing-specialist-as-a-representative-of-the-wernicke-special-station-universitare-psychiatrische-dienste-bern-upd",
+        "fr": "dipl-specialiste-des-soins-infirmiers-en-tant-que-representant-de-la-station-speciale-wernicke-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -545,6 +622,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -567,12 +650,12 @@
     },
     {
       "id": "upd-4f111d53c631",
-      "slug": "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern",
+      "slug": "dipl-infermiera-servizio-notturno-psichiatria-di-pensionamento-fisso-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern",
-        "it": "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern",
-        "en": "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern",
-        "fr": "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern"
+        "it": "dipl-infermiera-servizio-notturno-psichiatria-di-pensionamento-fisso-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-nurse-night-service-stationary-retirement-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-infirmiere-service-de-nuit-psychiatrie-a-la-retraite-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -629,16 +712,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.622Z"
+      "firstSeenAt": "2026-09-29T21:25:33.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-nachtdienst-stationare-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-0147dc93a5f6",
-      "slug": "dipl-pflegefachperson-spezialstation-wernicke-upd-bern",
+      "slug": "dipl-special-station-wernicke-per-infermieri-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-spezialstation-wernicke-upd-bern",
-        "it": "dipl-pflegefachperson-spezialstation-wernicke-upd-bern",
-        "en": "dipl-pflegefachperson-spezialstation-wernicke-upd-bern",
-        "fr": "dipl-pflegefachperson-spezialstation-wernicke-upd-bern"
+        "it": "dipl-special-station-wernicke-per-infermieri-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-nursing-specialist-special-station-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-specialiste-des-soins-infirmiers-station-speciale-wernicke-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -695,14 +792,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.621Z"
+      "firstSeenAt": "2026-09-29T21:25:33.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-spezialstation-wernicke-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-spezialstation-wernicke-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-spezialstation-wernicke-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-spezialstation-wernicke-upd-bern"
+      ]
     },
     {
       "id": "upd-d3784303542a",
-      "slug": "dipl-pflegefachperson-station-schwartzlin-upd-bern",
+      "slug": "dipl-specialista-di-cura-stazione-schwartzlin-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-station-schwartzlin-upd-bern",
-        "it": "dipl-pflegefachperson-station-schwartzlin-upd-bern",
+        "it": "dipl-specialista-di-cura-stazione-schwartzlin-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "dipl-pflegefachperson-station-schwartzlin-upd-bern",
         "fr": "dipl-pflegefachperson-station-schwartzlin-upd-bern"
       },
@@ -762,16 +873,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.620Z"
+      "firstSeenAt": "2026-09-29T21:25:33.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-station-schwartzlin-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-station-schwartzlin-upd-bern"
+      ]
     },
     {
       "id": "upd-249cf6d46f75",
-      "slug": "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern",
+      "slug": "assistente-medico-assistente-medico-bolligenstrasse-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern",
-        "it": "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern",
-        "en": "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern",
-        "fr": "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern"
+        "it": "assistente-medico-assistente-medico-bolligenstrasse-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistant-doctor-assistant-doctor-bolligenstrasse-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "assistant-medecin-assistant-medecin-bolligenstrasse-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -828,7 +947,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.620Z"
+      "firstSeenAt": "2026-09-29T21:25:33.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-bolligenstrasse-upd-bern"
+      ]
     },
     {
       "id": "upd-dd7280c5d383",
@@ -917,12 +1050,12 @@
     },
     {
       "id": "upd-800e7d4a8f40",
-      "slug": "wiedereinstieg-in-den-pflegeberuf-upd-bern",
+      "slug": "rientro-della-professione-di-infermiera-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "wiedereinstieg-in-den-pflegeberuf-upd-bern",
-        "it": "wiedereinstieg-in-den-pflegeberuf-upd-bern",
-        "en": "wiedereinstieg-in-den-pflegeberuf-upd-bern",
-        "fr": "wiedereinstieg-in-den-pflegeberuf-upd-bern"
+        "it": "rientro-della-professione-di-infermiera-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "re-entering-the-nursing-profession-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "rentree-dans-la-profession-infirmiere-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -979,7 +1112,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.617Z"
+      "firstSeenAt": "2026-09-29T21:25:33.617Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wiedereinstieg-in-den-pflegeberuf-upd-bern"
+        ],
+        "en": [
+          "wiedereinstieg-in-den-pflegeberuf-upd-bern"
+        ],
+        "fr": [
+          "wiedereinstieg-in-den-pflegeberuf-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "wiedereinstieg-in-den-pflegeberuf-upd-bern"
+      ]
     },
     {
       "id": "upd-1e712d718529",
@@ -987,8 +1134,8 @@
       "slugByLocale": {
         "de": "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-und-wernicke",
         "it": "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-e-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-und-wernicke",
-        "fr": "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-und-wernicke"
+        "en": "main-vocational-trainer-main-vocational-trainer-stations-kiz-and-wernicke-universitare-psychiatrische-dienste-bern-upd",
+        "fr": "formateur-professionnel-principal-formateur-professionnel-principal-stations-kiz-et-wernicke-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1036,6 +1183,12 @@
       "previousSlugsByLocale": {
         "it": [
           "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-und-wernicke"
+        ],
+        "en": [
+          "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-und-wernicke"
+        ],
+        "fr": [
+          "hauptberufliche-berufsbildnerin-hauptberuflicher-berufsbildner-stationen-kiz-und-wernicke"
         ]
       },
       "previousSlugs": [
@@ -1058,12 +1211,12 @@
     },
     {
       "id": "upd-a71bade0d76b",
-      "slug": "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern",
+      "slug": "medico-senior-medico-senior-focus-sulla-dipendenza-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern",
-        "it": "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern",
-        "en": "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern",
-        "fr": "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern"
+        "it": "medico-senior-medico-senior-focus-sulla-dipendenza-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-doctor-senior-doctor-focus-on-addiction-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-senior-medecin-senior-se-concentre-sur-la-toxicomanie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1120,16 +1273,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.615Z"
+      "firstSeenAt": "2026-09-29T21:25:33.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-schwerpunkt-sucht-upd-bern"
+      ]
     },
     {
       "id": "upd-260e9460bc7f",
-      "slug": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern",
+      "slug": "assistente-psicologo-i-assistente-psicologo-i-pool-kpd-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern",
-        "it": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern",
-        "en": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern",
-        "fr": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern"
+        "it": "assistente-psicologo-i-assistente-psicologo-i-pool-kpd-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistant-psychologist-i-assistant-psychologist-i-pool-kpd-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "psychologue-adjoint-i-psychologue-adjoint-i-pool-kpd-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1186,16 +1353,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.614Z"
+      "firstSeenAt": "2026-09-29T21:25:33.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern"
+        ],
+        "en": [
+          "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern"
+        ],
+        "fr": [
+          "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-i-assistenzpsychologe-i-pool-kpd-upd-bern"
+      ]
     },
     {
       "id": "upd-7552507e3c21",
-      "slug": "leiterin-leiter-system-engineering-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "testa-capo-di-ingegneria-del-sistema-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "leiterin-leiter-system-engineering-upd-bern",
-        "it": "leiterin-leiter-system-engineering-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "leiterin-leiter-system-engineering-upd-bern",
-        "fr": "leiterin-leiter-system-engineering-upd-bern"
+        "it": "testa-capo-di-ingegneria-del-sistema-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "head-head-of-system-engineering-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "chef-chef-de-l-ingenierie-du-systeme-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1241,11 +1422,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-system-engineering-upd-bern",
+          "leiterin-leiter-system-engineering-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "leiterin-leiter-system-engineering-upd-bern"
+        ],
+        "fr": [
           "leiterin-leiter-system-engineering-upd-bern"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-system-engineering-upd-bern"
+        "leiterin-leiter-system-engineering-upd-bern",
+        "leiterin-leiter-system-engineering-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -1264,12 +1453,12 @@
     },
     {
       "id": "upd-fcbb6035a0ab",
-      "slug": "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern",
+      "slug": "assistente-medico-assistente-medico-di-vecchiaia-psichiatria-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern",
-        "it": "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern",
-        "en": "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern",
-        "fr": "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern"
+        "it": "assistente-medico-assistente-medico-di-vecchiaia-psichiatria-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistant-doctor-assistant-doctor-of-old-age-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "assistant-medecin-assistant-medecin-de-psychiatrie-de-vieillesse-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1326,7 +1515,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.612Z"
+      "firstSeenAt": "2026-09-29T21:25:33.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-ade4f8c0d7aa",
@@ -1334,8 +1537,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-akutstation-fur-junge-erwachsene-upd-bern",
         "it": "dipl-pflegefachperson-akutstation-per-junge-erwachsene-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-akutstation-fur-junge-erwachsene-upd-bern",
-        "fr": "dipl-pflegefachperson-akutstation-fur-junge-erwachsene-upd-bern"
+        "en": "dipl-care-professional-acute-care-unit-for-young-adults-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-unite-de-soins-actifs-pour-jeunes-adultes-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1383,6 +1586,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-akutstation-fur-junge-erwachsene-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-akutstation-fur-junge-erwachsene-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-akutstation-fur-junge-erwachsene-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -1405,12 +1614,12 @@
     },
     {
       "id": "upd-f875d9aaa7fd",
-      "slug": "fachverantwortung-pflege-station-freiburghaus-upd-bern",
+      "slug": "responsabilita-professionale-care-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachverantwortung-pflege-station-freiburghaus-upd-bern",
-        "it": "fachverantwortung-pflege-station-freiburghaus-upd-bern",
-        "en": "fachverantwortung-pflege-station-freiburghaus-upd-bern",
-        "fr": "fachverantwortung-pflege-station-freiburghaus-upd-bern"
+        "it": "responsabilita-professionale-care-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "professional-responsibility-care-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "responsabilite-professionnelle-care-station-freiburghaus-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1467,16 +1676,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.610Z"
+      "firstSeenAt": "2026-09-29T21:25:33.610Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortung-pflege-station-freiburghaus-upd-bern"
+        ],
+        "en": [
+          "fachverantwortung-pflege-station-freiburghaus-upd-bern"
+        ],
+        "fr": [
+          "fachverantwortung-pflege-station-freiburghaus-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortung-pflege-station-freiburghaus-upd-bern"
+      ]
     },
     {
       "id": "upd-495647be9274",
-      "slug": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern",
+      "slug": "assistente-psicologo-i-assistente-psicologo-i-pool-kjp-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern",
-        "it": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern",
-        "en": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern",
-        "fr": "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern"
+        "it": "assistente-psicologo-i-assistente-psicologo-i-pool-kjp-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistant-psychologist-i-assistant-psychologist-i-pool-kjp-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "assistant-psychologue-i-assistant-psychologue-i-pool-kjp-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1533,7 +1756,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.609Z"
+      "firstSeenAt": "2026-09-29T21:25:33.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern"
+        ],
+        "en": [
+          "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern"
+        ],
+        "fr": [
+          "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-i-assistenzpsychologe-i-pool-kjp-upd-bern"
+      ]
     },
     {
       "id": "upd-ee8bfb28ee0d",
@@ -1686,8 +1923,8 @@
       "slugByLocale": {
         "de": "forschungspraktikum-peers-atr-sk-und-standarddiagnostik-upd-bern",
         "it": "forschungspraktikum-peers-atr-sk-e-standarddiagnostik-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "forschungspraktikum-peers-atr-sk-und-standarddiagnostik-upd-bern",
-        "fr": "forschungspraktikum-peers-atr-sk-und-standarddiagnostik-upd-bern"
+        "en": "research-internship-peers-atr-sk-and-standard-diagnostics-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stage-de-recherche-peers-atr-sk-et-diagnostic-standard-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1735,6 +1972,12 @@
       "previousSlugsByLocale": {
         "it": [
           "forschungspraktikum-peers-atr-sk-und-standarddiagnostik-upd-bern"
+        ],
+        "en": [
+          "forschungspraktikum-peers-atr-sk-und-standarddiagnostik-upd-bern"
+        ],
+        "fr": [
+          "forschungspraktikum-peers-atr-sk-und-standarddiagnostik-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -1757,12 +2000,12 @@
     },
     {
       "id": "upd-3fb6c35afdc6",
-      "slug": "sozialpadagogin-sozialpadagoge-upd-biel",
+      "slug": "pedagoga-sociale-pedagoga-sociale-universitare-psychiatrische-dienste-bern-upd-biel",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-upd-biel",
-        "it": "sozialpadagogin-sozialpadagoge-upd-biel",
-        "en": "sozialpadagogin-sozialpadagoge-upd-biel",
-        "fr": "sozialpadagogin-sozialpadagoge-upd-biel"
+        "it": "pedagoga-sociale-pedagoga-sociale-universitare-psychiatrische-dienste-bern-upd-biel",
+        "en": "social-pedagogue-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-biel",
+        "fr": "pedagogue-sociale-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1819,7 +2062,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.604Z"
+      "firstSeenAt": "2026-09-29T21:25:33.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-upd-biel"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-upd-biel"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-upd-biel"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-upd-biel"
+      ]
     },
     {
       "id": "upd-39c42e355946",
@@ -1893,8 +2150,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-sprechstunden-sowie-konsil-und-liaisonpsychiatrie-upd-bern",
         "it": "oberarztin-oberarzt-sprechstunden-sowie-konsil-e-liaisonpsychiatrie-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "oberarztin-oberarzt-sprechstunden-sowie-konsil-und-liaisonpsychiatrie-upd-bern",
-        "fr": "oberarztin-oberarzt-sprechstunden-sowie-konsil-und-liaisonpsychiatrie-upd-bern"
+        "en": "senior-physician-senior-physician-consultation-hours-and-consil-and-liaison-psychiatry-universitare-psychiatrische",
+        "fr": "medecin-superieur-heures-de-consultation-medicale-senior-et-psychiatrie-consile-et-liaison-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1942,6 +2199,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-sprechstunden-sowie-konsil-und-liaisonpsychiatrie-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-sprechstunden-sowie-konsil-und-liaisonpsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-sprechstunden-sowie-konsil-und-liaisonpsychiatrie-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -1964,12 +2227,12 @@
     },
     {
       "id": "upd-91c0a7708e6b",
-      "slug": "assistenzarztin-assistenzarzt-upd-bern",
+      "slug": "assistente-medico-assistente-medico-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-upd-bern",
-        "it": "assistenzarztin-assistenzarzt-upd-bern",
-        "en": "assistenzarztin-assistenzarzt-upd-bern",
-        "fr": "assistenzarztin-assistenzarzt-upd-bern"
+        "it": "assistente-medico-assistente-medico-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistant-doctor-assistant-doctor-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "assistant-medecin-assistant-medecin-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2026,16 +2289,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.601Z"
+      "firstSeenAt": "2026-09-29T21:25:33.601Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-upd-bern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-upd-bern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-upd-bern"
+      ]
     },
     {
       "id": "upd-c5c24b79e1cd",
-      "slug": "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern",
+      "slug": "dipl-specialita-infermieristica-guardia-notturna-permanente-stazione-speciale-wernicke-universitare-psychiatrische",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern",
-        "it": "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern",
-        "en": "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern",
-        "fr": "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+        "it": "dipl-specialita-infermieristica-guardia-notturna-permanente-stazione-speciale-wernicke-universitare-psychiatrische",
+        "en": "dipl-nursing-specialist-permanent-night-watch-special-station-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-specialiste-des-soins-infirmiers-veille-nocturne-permanente-station-speciale-wernicke-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2092,16 +2369,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.600Z"
+      "firstSeenAt": "2026-09-29T21:25:33.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-dauernachtwache-spezialstation-wernicke-upd-bern"
+      ]
     },
     {
       "id": "upd-a5c9b8f45e80",
-      "slug": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf",
+      "slug": "assistente-psicologo-ii-assistente-psicologo-ii-universitare-psychiatrische-dienste-bern-upd-burgdorf",
       "slugByLocale": {
         "de": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf",
-        "it": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf",
-        "en": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf",
-        "fr": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf"
+        "it": "assistente-psicologo-ii-assistente-psicologo-ii-universitare-psychiatrische-dienste-bern-upd-burgdorf",
+        "en": "assistant-psychologist-ii-assistant-psychologist-ii-universitare-psychiatrische-dienste-bern-upd-burgdorf",
+        "fr": "assistant-psychologue-ii-assistant-psychologue-ii-universitare-psychiatrische-dienste-bern-upd-burgdorf"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2158,7 +2449,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.599Z"
+      "firstSeenAt": "2026-09-29T21:25:33.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf"
+        ],
+        "en": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf"
+        ],
+        "fr": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-burgdorf"
+      ]
     },
     {
       "id": "upd-f21fbab7ef5e",
@@ -2166,8 +2471,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-kinder-und-jugendliche-upd-bern",
         "it": "assistenzarztin-assistenzarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "assistenzarztin-assistenzarzt-kinder-und-jugendliche-upd-bern",
-        "fr": "assistenzarztin-assistenzarzt-kinder-und-jugendliche-upd-bern"
+        "en": "assistant-doctor-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-assistant-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2215,6 +2520,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-kinder-und-jugendliche-upd-bern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-kinder-und-jugendliche-upd-bern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-kinder-und-jugendliche-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -2237,12 +2548,12 @@
     },
     {
       "id": "upd-4e042a2b001b",
-      "slug": "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern",
+      "slug": "specialista-specialista-sicurezza-forense-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern",
-        "it": "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern",
-        "en": "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern",
-        "fr": "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern"
+        "it": "specialista-specialista-sicurezza-forense-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "specialist-specialist-forensic-security-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "specialiste-specialiste-de-la-securite-legale-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2299,7 +2610,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.597Z"
+      "firstSeenAt": "2026-09-29T21:25:33.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-forensische-sicherheit-upd-bern"
+      ]
     },
     {
       "id": "upd-3fe74108bdf0",
@@ -2370,12 +2695,12 @@
     },
     {
       "id": "upd-c29bcdbc7a97",
-      "slug": "dipl-pflegefachperson-kriseninterventionsstation-upd-bern",
+      "slug": "dipl-cura-professionale-stazione-di-intervento-della-crisi-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-kriseninterventionsstation-upd-bern",
-        "it": "dipl-pflegefachperson-kriseninterventionsstation-upd-bern",
-        "en": "dipl-pflegefachperson-kriseninterventionsstation-upd-bern",
-        "fr": "dipl-pflegefachperson-kriseninterventionsstation-upd-bern"
+        "it": "dipl-cura-professionale-stazione-di-intervento-della-crisi-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-care-professional-crisis-intervention-station-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-centre-d-intervention-de-crise-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2432,16 +2757,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.595Z"
+      "firstSeenAt": "2026-09-29T21:25:33.595Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-kriseninterventionsstation-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-kriseninterventionsstation-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-kriseninterventionsstation-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-kriseninterventionsstation-upd-bern"
+      ]
     },
     {
       "id": "upd-2a43e43b05cc",
-      "slug": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern",
+      "slug": "dipl-cura-professionale-psichiatria-stazionaria-pensione-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern",
-        "it": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern",
-        "en": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern",
-        "fr": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+        "it": "dipl-cura-professionale-psichiatria-stazionaria-pensione-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-care-professional-stationary-retirement-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-psychiatrie-de-retraite-stationnaire-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2498,7 +2837,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.594Z"
+      "firstSeenAt": "2026-09-29T21:25:33.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-f9dc5c11f2cb",
@@ -2580,8 +2933,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-notfallzentrum-kinder-und-jugendliche-upd-bern",
         "it": "dipl-pflegefachperson-notfallzentrum-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-notfallzentrum-kinder-und-jugendliche-upd-bern",
-        "fr": "dipl-pflegefachperson-notfallzentrum-kinder-und-jugendliche-upd-bern"
+        "en": "dipl-nursing-professional-emergency-centre-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-soins-infirmiers-centre-d-urgence-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2629,6 +2982,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-notfallzentrum-kinder-und-jugendliche-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-notfallzentrum-kinder-und-jugendliche-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-notfallzentrum-kinder-und-jugendliche-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -2651,12 +3010,12 @@
     },
     {
       "id": "upd-e0c357f9ec1a",
-      "slug": "medizinische-sekretarin-medizinischer-sekretar-upd-bern",
+      "slug": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "medizinische-sekretarin-medizinischer-sekretar-upd-bern",
-        "it": "medizinische-sekretarin-medizinischer-sekretar-upd-bern",
-        "en": "medizinische-sekretarin-medizinischer-sekretar-upd-bern",
-        "fr": "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+        "it": "segretario-medico-segretario-medico-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "secretaire-medical-secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2713,16 +3072,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.591Z"
+      "firstSeenAt": "2026-09-29T21:25:33.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+        ],
+        "en": [
+          "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+        ],
+        "fr": [
+          "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+      ]
     },
     {
       "id": "upd-d90ba4a9b0ae",
-      "slug": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen",
+      "slug": "assistente-medico-assistente-medico-di-vecchiaia-psichiatria-ddm-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen",
-        "it": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen",
-        "en": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen",
-        "fr": "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen"
+        "it": "assistente-medico-assistente-medico-di-vecchiaia-psichiatria-ddm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "assistant-doctor-assistant-doctor-of-old-age-psychiatry-ddm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "assistant-medecin-assistant-medecin-de-la-psychiatrie-de-vieillesse-ddm-universitare-psychiatrische-dienste-bern-upd"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2779,7 +3152,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.590Z"
+      "firstSeenAt": "2026-09-29T21:25:33.590Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-upd-munsingen"
+      ]
     },
     {
       "id": "upd-bb27e65b3d77",
@@ -2787,8 +3174,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-upd",
         "it": "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-per-unseren-pflegepool-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-universitare-psychiatrische-dienste",
-        "fr": "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-universitare-psychiatrische-dienste"
+        "en": "dipl-nursing-professional-health-professional-nursing-assistant-for-our-nursing-pool-universitare-psychiatrische-dienste",
+        "fr": "dipl-professionnels-des-soins-infirmiers-professionnels-de-la-sante-assistant-infirmier-pour-notre-bassin-d-infirmieres"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2836,10 +3223,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-upd"
+        ],
+        "en": [
+          "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-universitare-psychiatrische-dienste"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-universitare-psychiatrische-dienste"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-upd"
+        "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-upd",
+        "dipl-pflegefachperson-fachperson-gesundheit-pflegeassistenz-fur-unseren-pflegepool-universitare-psychiatrische-dienste"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2862,8 +3256,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-schwerpunkt-angst-upd-munsingen",
         "it": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-schwerpunkt-angst-universitare-psychiatrische-dienste-bern-upd",
-        "en": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-schwerpunkt-angst-universitare-psychiatrische-dienste-bern-upd",
-        "fr": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-schwerpunkt-angst-universitare-psychiatrische-dienste-bern-upd"
+        "en": "dipl-nurse-with-additional-function-vocational-training-focus-on-fear-universitare-psychiatrische-dienste-bern-upd",
+        "fr": "dipl-infirmiere-ayant-une-fonction-supplementaire-formation-professionnelle-accent-sur-la-peur-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2933,12 +3327,12 @@
     },
     {
       "id": "upd-bec20973d162",
-      "slug": "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen",
+      "slug": "dipl-cura-del-giorno-professionale-opm-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen",
-        "it": "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+        "it": "dipl-cura-del-giorno-professionale-opm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "dipl-day-care-professional-opm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-specialiste-des-garderies-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2995,16 +3389,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.587Z"
+      "firstSeenAt": "2026-09-29T21:25:33.587Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-im-tagdienst-opm-upd-munsingen"
+      ]
     },
     {
       "id": "upd-fa918080d788",
-      "slug": "dipl-pflegefachperson-im-tagdienst-upd-munsingen",
+      "slug": "dipl-cura-professionale-di-giorno-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-tagdienst-upd-munsingen",
-        "it": "dipl-pflegefachperson-im-tagdienst-upd-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-upd-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-upd-munsingen"
+        "it": "dipl-cura-professionale-di-giorno-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "dipl-day-care-professional-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-professionnels-de-jour-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3061,16 +3469,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.586Z"
+      "firstSeenAt": "2026-09-29T21:25:33.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-im-tagdienst-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-tagdienst-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-tagdienst-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-im-tagdienst-upd-munsingen"
+      ]
     },
     {
       "id": "upd-2deb0a151c96",
-      "slug": "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel",
+      "slug": "responsabile-tecnico-infermiera-laurea-infermiera-laurea-universitare-psychiatrische-dienste-bern-upd-biel",
       "slugByLocale": {
         "fr": "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel",
-        "it": "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel",
-        "en": "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel",
-        "de": "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel"
+        "it": "responsabile-tecnico-infermiera-laurea-infermiera-laurea-universitare-psychiatrische-dienste-bern-upd-biel",
+        "en": "technical-manager-graduate-nurse-graduate-nurse-universitare-psychiatrische-dienste-bern-upd-biel",
+        "de": "technischer-leiter-diplom-krankenschwester-diplom-krankenschwester-universitare-psychiatrische-dienste-bern-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3127,16 +3549,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.585Z"
+      "firstSeenAt": "2026-09-29T21:25:33.585Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel"
+        ],
+        "en": [
+          "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel"
+        ],
+        "de": [
+          "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-technique-infirmiere-diplomee-infirmier-diplome-upd-biel"
+      ]
     },
     {
       "id": "upd-a2a64d253326",
-      "slug": "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen",
+      "slug": "pb-responsabilita-professionale-dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
         "de": "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen",
-        "it": "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen",
-        "en": "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen",
-        "fr": "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen"
+        "it": "pb-responsabilita-professionale-dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd",
+        "en": "pb-professional-responsibility-dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "pb-responsabilite-professionnelle-dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3193,16 +3629,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.584Z"
+      "firstSeenAt": "2026-09-29T21:25:33.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen"
+        ],
+        "en": [
+          "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen"
+        ],
+        "fr": [
+          "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "pb-fachverantwortung-dipl-pflegefachperson-upd-munsingen"
+      ]
     },
     {
       "id": "upd-ca38e001e7fa",
-      "slug": "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen",
+      "slug": "esperto-di-cura-esperto-di-cura-infermiera-di-pratica-avanzata-apn-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen",
-        "it": "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen",
+        "it": "esperto-di-cura-esperto-di-cura-infermiera-di-pratica-avanzata-apn-universitare-psychiatrische-dienste-bern-upd",
         "en": "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen",
-        "fr": "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen"
+        "fr": "experte-en-soins-experte-en-soins-infirmiere-praticienne-apn-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3259,7 +3709,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.583Z"
+      "firstSeenAt": "2026-09-29T21:25:33.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-upd-munsingen"
+      ]
     },
     {
       "id": "upd-eb3ccc67c4bf",
@@ -3337,12 +3798,12 @@
     },
     {
       "id": "upd-371acc1e5de6",
-      "slug": "stationsleitung-olvido-upd-spiez",
+      "slug": "gestione-della-stazione-olvido-universitare-psychiatrische-dienste-bern-upd-spiez",
       "slugByLocale": {
         "de": "stationsleitung-olvido-upd-spiez",
-        "it": "stationsleitung-olvido-upd-spiez",
-        "en": "stationsleitung-olvido-upd-spiez",
-        "fr": "stationsleitung-olvido-upd-spiez"
+        "it": "gestione-della-stazione-olvido-universitare-psychiatrische-dienste-bern-upd-spiez",
+        "en": "station-management-olvido-universitare-psychiatrische-dienste-bern-upd-spiez",
+        "fr": "gestion-de-station-olvido-universitare-psychiatrische-dienste-bern-upd-spiez"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3399,7 +3860,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.581Z"
+      "firstSeenAt": "2026-09-29T21:25:33.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleitung-olvido-upd-spiez"
+        ],
+        "en": [
+          "stationsleitung-olvido-upd-spiez"
+        ],
+        "fr": [
+          "stationsleitung-olvido-upd-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleitung-olvido-upd-spiez"
+      ]
     },
     {
       "id": "upd-290367e014cd",
@@ -3407,8 +3882,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-schwerpunkt-demenz-und-delir-upd-munsingen",
         "it": "fachperson-gesundheit-schwerpunkt-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "fachperson-gesundheit-schwerpunkt-demenz-und-delir-upd-munsingen",
-        "fr": "fachperson-gesundheit-schwerpunkt-demenz-und-delir-upd-munsingen"
+        "en": "health-specialist-focus-on-dementia-and-delir-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "specialiste-de-la-sante-la-demence-et-delir-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3456,6 +3931,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-schwerpunkt-demenz-und-delir-upd-munsingen"
+        ],
+        "en": [
+          "fachperson-gesundheit-schwerpunkt-demenz-und-delir-upd-munsingen"
+        ],
+        "fr": [
+          "fachperson-gesundheit-schwerpunkt-demenz-und-delir-upd-munsingen"
         ]
       },
       "previousSlugs": [
@@ -3482,8 +3963,8 @@
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-upd",
         "it": "sozialpadagogin-sozialpadagoge-o-dipl-pflegefachperson-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-burgdorf",
-        "en": "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-universitare-psychiatrische-dienste",
-        "fr": "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-universitare-psychiatrische-dienste"
+        "en": "social-pedagogue-social-pedagogue-or-dipl-child-care-professional-universitare-psychiatrische-dienste-bern-upd-burgdorf",
+        "fr": "pedagogue-sociale-pedagogue-sociale-ou-dipl-specialiste-de-la-protection-de-l-enfance-universitare-psychiatrische"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3531,10 +4012,17 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-upd"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-universitare-psychiatrische-dienste"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-universitare-psychiatrische-dienste"
         ]
       },
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-upd"
+        "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-upd",
+        "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachperson-kinder-und-jugendliche-universitare-psychiatrische-dienste"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3553,12 +4041,12 @@
     },
     {
       "id": "upd-c0ebc1f46461",
-      "slug": "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen",
+      "slug": "dipl-servizio-notturno-infermiere-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen",
-        "it": "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen",
-        "en": "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen",
-        "fr": "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen"
+        "it": "dipl-servizio-notturno-infermiere-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "dipl-night-service-nurse-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-infirmiere-de-nuit-icm-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3615,15 +4103,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.578Z"
+      "firstSeenAt": "2026-09-29T21:25:33.578Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-im-nachtdienst-icm-upd-munsingen"
+      ]
     },
     {
       "id": "upd-8837e07a8cb2",
-      "slug": "infirmiere-infirmier-dipl-upd-biel",
+      "slug": "infermiera-dipl-universitare-psychiatrische-dienste-bern-upd-biel",
       "slugByLocale": {
         "fr": "infirmiere-infirmier-dipl-upd-biel",
-        "it": "infirmiere-infirmier-dipl-upd-biel",
-        "en": "infirmiere-infirmier-dipl-upd-biel",
+        "it": "infermiera-dipl-universitare-psychiatrische-dienste-bern-upd-biel",
+        "en": "nurse-dipl-universitare-psychiatrische-dienste-bern-upd-biel",
         "de": "infirmiere-infirmier-dipl-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
@@ -3681,16 +4183,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.577Z"
+      "firstSeenAt": "2026-09-29T21:25:33.577Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiere-infirmier-dipl-upd-biel"
+        ],
+        "en": [
+          "infirmiere-infirmier-dipl-upd-biel"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiere-infirmier-dipl-upd-biel"
+      ]
     },
     {
       "id": "upd-306edaf374ef",
-      "slug": "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern",
+      "slug": "lead-medico-lead-medico-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern",
-        "it": "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern",
-        "en": "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern",
-        "fr": "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern"
+        "it": "lead-medico-lead-medico-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "lead-physician-lead-physician-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-chef-medecin-chef-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3747,16 +4260,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.576Z"
+      "firstSeenAt": "2026-09-29T21:25:33.576Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-ambulatorium-bern-upd-bern"
+      ]
     },
     {
       "id": "upd-cef74eab4c7d",
-      "slug": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen",
+      "slug": "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen",
-        "it": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen",
-        "en": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen",
-        "fr": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen"
+        "it": "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3813,16 +4340,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.575Z"
+      "firstSeenAt": "2026-09-29T21:25:33.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen"
+        ],
+        "en": [
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen"
+        ],
+        "fr": [
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-munsingen"
+      ]
     },
     {
       "id": "upd-49542d11ef6e",
-      "slug": "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen",
+      "slug": "dipl-infermiera-specialist-focus-sulla-paura-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen",
-        "it": "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen",
-        "en": "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen",
-        "fr": "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen"
+        "it": "dipl-infermiera-specialist-focus-sulla-paura-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "dipl-nurse-specialist-focus-on-fear-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-infirmiere-specialiste-de-la-peur-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3879,16 +4420,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.574Z"
+      "firstSeenAt": "2026-09-29T21:25:33.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-schwerpunkt-angst-upd-munsingen"
+      ]
     },
     {
       "id": "upd-efee71e06a46",
-      "slug": "praktikum-in-der-suizidforschung-upd-bern",
+      "slug": "stage-nella-ricerca-suicidi-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "praktikum-in-der-suizidforschung-upd-bern",
-        "it": "praktikum-in-der-suizidforschung-upd-bern",
-        "en": "praktikum-in-der-suizidforschung-upd-bern",
-        "fr": "praktikum-in-der-suizidforschung-upd-bern"
+        "it": "stage-nella-ricerca-suicidi-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "internship-in-suicide-research-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stages-dans-la-recherche-sur-le-suicide-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3945,16 +4500,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.573Z"
+      "firstSeenAt": "2026-09-29T21:25:33.573Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-in-der-suizidforschung-upd-bern"
+        ],
+        "en": [
+          "praktikum-in-der-suizidforschung-upd-bern"
+        ],
+        "fr": [
+          "praktikum-in-der-suizidforschung-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-in-der-suizidforschung-upd-bern"
+      ]
     },
     {
       "id": "upd-e49dd06f554d",
-      "slug": "oberarztin-oberarzt-icm-upd-munsingen",
+      "slug": "medico-senior-medico-senior-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-icm-upd-munsingen",
-        "it": "oberarztin-oberarzt-icm-upd-munsingen",
-        "en": "oberarztin-oberarzt-icm-upd-munsingen",
-        "fr": "oberarztin-oberarzt-icm-upd-munsingen"
+        "it": "medico-senior-medico-senior-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "senior-physician-senior-physician-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "medecin-superieur-medecin-superieur-mic-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4011,7 +4580,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.572Z"
+      "firstSeenAt": "2026-09-29T21:25:33.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-icm-upd-munsingen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-icm-upd-munsingen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-icm-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-icm-upd-munsingen"
+      ]
     },
     {
       "id": "upd-471b9a804d70",
@@ -4081,12 +4664,12 @@
     },
     {
       "id": "upd-d2935b8ec489",
-      "slug": "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen",
+      "slug": "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen",
-        "it": "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen",
-        "en": "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen",
-        "fr": "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen"
+        "it": "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "bachelor-of-science-in-nursing-additional-module-b-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "baccalaureat-en-sciences-infirmieres-module-additionnel-b-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4143,16 +4726,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.570Z"
+      "firstSeenAt": "2026-09-29T21:25:33.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen"
+        ],
+        "en": [
+          "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen"
+        ],
+        "fr": [
+          "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "bachelor-of-science-in-pflege-zusatzmodul-b-upd-munsingen"
+      ]
     },
     {
       "id": "upd-f35b09ede2ae",
-      "slug": "dipl-pflegefachperson-upd-biel",
+      "slug": "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-biel",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-upd-biel",
-        "it": "dipl-pflegefachperson-upd-biel",
-        "en": "dipl-pflegefachperson-upd-biel",
-        "fr": "dipl-pflegefachperson-upd-biel"
+        "it": "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-biel",
+        "en": "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-biel",
+        "fr": "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4209,14 +4806,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.569Z"
+      "firstSeenAt": "2026-09-29T21:25:33.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-upd-biel"
+        ],
+        "en": [
+          "dipl-pflegefachperson-upd-biel"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-upd-biel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-upd-biel"
+      ]
     },
     {
       "id": "upd-99f545a0b383",
-      "slug": "dipl-pflegefachperson-station-marbach-upd-bern",
+      "slug": "dipl-specialista-di-cura-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-station-marbach-upd-bern",
-        "it": "dipl-pflegefachperson-station-marbach-upd-bern",
+        "it": "dipl-specialista-di-cura-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "dipl-pflegefachperson-station-marbach-upd-bern",
         "fr": "dipl-pflegefachperson-station-marbach-upd-bern"
       },
@@ -4275,7 +4886,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.568Z"
+      "firstSeenAt": "2026-09-29T21:25:33.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-station-marbach-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-station-marbach-upd-bern"
+      ]
     },
     {
       "id": "upd-ed0a6087c0f2",
@@ -4283,8 +4902,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-upd-munsingen",
         "it": "dipl-pflegefachperson-schwerpunkt-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-upd-munsingen",
-        "fr": "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-upd-munsingen"
+        "en": "dipl-nurse-specialist-focus-on-dementia-and-delirity-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-infirmiere-specialiste-de-la-demence-et-de-la-delirite-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4332,6 +4951,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-upd-munsingen"
         ]
       },
       "previousSlugs": [
@@ -4358,8 +4983,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hotellerie-upd-munsingen",
         "it": "mitarbeiterin-collaboratore-trice-hotellerie-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "mitarbeiterin-mitarbeiter-hotellerie-upd-munsingen",
-        "fr": "mitarbeiterin-mitarbeiter-hotellerie-upd-munsingen"
+        "en": "employee-hotel-industry-employee-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "employe-hotelier-employe-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4407,6 +5032,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-hotellerie-upd-munsingen"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hotellerie-upd-munsingen"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hotellerie-upd-munsingen"
         ]
       },
       "previousSlugs": [
@@ -4429,12 +5060,12 @@
     },
     {
       "id": "upd-5fa5a649cc99",
-      "slug": "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern",
+      "slug": "special-responsibility-care-psichiatria-stazionaria-eta-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern",
-        "it": "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern",
-        "en": "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern",
-        "fr": "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern"
+        "it": "special-responsibility-care-psichiatria-stazionaria-eta-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "specialist-responsibility-care-stationary-age-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "specialiste-responsabilite-soins-en-etablissement-psychiatrie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4491,16 +5122,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.565Z"
+      "firstSeenAt": "2026-09-29T21:25:33.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortung-pflege-stationare-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-54b17d2cd0b6",
-      "slug": "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern",
+      "slug": "il-vostro-uso-nella-cura-applicazione-spontanea-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern",
-        "it": "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern",
-        "en": "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern",
-        "fr": "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern"
+        "it": "il-vostro-uso-nella-cura-applicazione-spontanea-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "your-use-in-care-spontaneous-application-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "votre-utilisation-en-soins-application-spontanee-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4557,16 +5202,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.564Z"
+      "firstSeenAt": "2026-09-29T21:25:33.564Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern"
+        ],
+        "en": [
+          "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern"
+        ],
+        "fr": [
+          "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dein-einsatz-in-der-pflege-spontanbewerbung-upd-bern"
+      ]
     },
     {
       "id": "upd-a9bde66a1e14",
-      "slug": "assistenzarztin-assistenzarzt-upd-munsingen",
+      "slug": "assistente-medico-assistente-medico-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-upd-munsingen",
-        "it": "assistenzarztin-assistenzarzt-upd-munsingen",
-        "en": "assistenzarztin-assistenzarzt-upd-munsingen",
-        "fr": "assistenzarztin-assistenzarzt-upd-munsingen"
+        "it": "assistente-medico-assistente-medico-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "assistant-doctor-assistant-doctor-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "assistant-medecin-assistant-medecin-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4623,16 +5282,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.561Z"
+      "firstSeenAt": "2026-09-29T21:25:33.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-upd-munsingen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-upd-munsingen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-upd-munsingen"
+      ]
     },
     {
       "id": "upd-771731435969",
-      "slug": "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen",
+      "slug": "dipl-cura-professionale-stazione-pam-in-servizio-diurno-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen",
-        "it": "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen",
-        "en": "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen",
-        "fr": "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen"
+        "it": "dipl-cura-professionale-stazione-pam-in-servizio-diurno-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "dipl-care-professional-station-pam-on-day-duty-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-soins-professionnels-station-pam-en-service-de-jour-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4689,16 +5362,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.560Z"
+      "firstSeenAt": "2026-09-29T21:25:33.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-station-pam-im-tagdienst-upd-munsingen"
+      ]
     },
     {
       "id": "upd-165de408e3cd",
-      "slug": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2",
+      "slug": "dipl-cura-professionale-psichiatria-stazionaria-pensione-universitare-psychiatrische-dienste-bern-upd-bern-dca883",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-3ofneh",
-        "it": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2",
-        "en": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2",
-        "fr": "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2"
+        "it": "dipl-cura-professionale-psichiatria-stazionaria-pensione-universitare-psychiatrische-dienste-bern-upd-bern-dca883",
+        "en": "dipl-care-professional-stationary-retirement-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern-dca883",
+        "fr": "dipl-psychiatrie-de-retraite-stationnaire-universitare-psychiatrische-dienste-bern-upd-bern-dca883"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4758,14 +5445,22 @@
       "firstSeenAt": "2026-09-29T21:25:33.559Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern",
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2"
         ],
         "de": [
           "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern"
+        "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern",
+        "dipl-pflegefachperson-stationare-alterspsychiatrie-upd-bern-2"
       ]
     },
     {
@@ -4774,8 +5469,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren",
         "it": "oberarztin-oberarzt-neuropsychiatrie-e-interventionelle-psychiatrie-im-stationaren-bereich-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren",
-        "fr": "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
+        "en": "senior-physician-senior-physician-neuropsychiatry-and-interventional-psychiatry-in-the-inpatient-area-universitare",
+        "fr": "medecin-principal-medecin-principal-medecin-neuropsychiatrie-et-psychiatrie-interventionnelle-dans-le-domaine-des"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4823,6 +5518,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
+        ],
+        "en": [
+          "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
         ]
       },
       "previousSlugs": [
@@ -4845,12 +5546,12 @@
     },
     {
       "id": "upd-563d97aa7e40",
-      "slug": "praktikantin-praktikant-pflege-upd-munsingen",
+      "slug": "intern-internship-care-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "praktikantin-praktikant-pflege-upd-munsingen",
-        "it": "praktikantin-praktikant-pflege-upd-munsingen",
+        "it": "intern-internship-care-universitare-psychiatrische-dienste-bern-upd-munsingen",
         "en": "praktikantin-praktikant-pflege-upd-munsingen",
-        "fr": "praktikantin-praktikant-pflege-upd-munsingen"
+        "fr": "soins-aux-stagiaires-aux-stagiaires-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -4907,7 +5608,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.557Z"
+      "firstSeenAt": "2026-09-29T21:25:33.557Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-pflege-upd-munsingen"
+        ],
+        "fr": [
+          "praktikantin-praktikant-pflege-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-pflege-upd-munsingen"
+      ]
     },
     {
       "id": "upd-d613b0a555d5",
@@ -4982,7 +5694,7 @@
         "de": "dipl-pflegefachperson-icm-upd-munsingen",
         "it": "dipl-pflegefachperson-icm-upd-munsingen",
         "en": "dipl-pflegefachperson-icm-upd-munsingen",
-        "fr": "dipl-pflegefachperson-icm-upd-munsingen"
+        "fr": "dipl-infirmiere-de-la-mic-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5047,8 +5759,8 @@
       "slugByLocale": {
         "de": "stationsleitung-fur-abteilung-demenz-und-delir-upd-munsingen",
         "it": "stationsleitung-per-abteilung-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "stationsleitung-fur-abteilung-demenz-und-delir-upd-munsingen",
-        "fr": "stationsleitung-fur-abteilung-demenz-und-delir-upd-munsingen"
+        "en": "station-management-for-department-of-dementia-and-delirium-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "gestion-de-station-pour-le-departement-de-demence-et-de-delire-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5096,6 +5808,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stationsleitung-fur-abteilung-demenz-und-delir-upd-munsingen"
+        ],
+        "en": [
+          "stationsleitung-fur-abteilung-demenz-und-delir-upd-munsingen"
+        ],
+        "fr": [
+          "stationsleitung-fur-abteilung-demenz-und-delir-upd-munsingen"
         ]
       },
       "previousSlugs": [
@@ -5118,12 +5836,12 @@
     },
     {
       "id": "upd-d7480b2d7a03",
-      "slug": "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen",
+      "slug": "intervento-di-crisi-di-soccorso-munsingen-kim-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen",
-        "it": "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen",
-        "en": "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen",
-        "fr": "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen"
+        "it": "intervento-di-crisi-di-soccorso-munsingen-kim-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "recovery-assistance-crisis-intervention-munsingen-kim-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "intervention-en-cas-de-crise-d-aide-au-relevement-munsingen-kim-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5180,16 +5898,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.553Z"
+      "firstSeenAt": "2026-09-29T21:25:33.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen"
+        ],
+        "en": [
+          "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen"
+        ],
+        "fr": [
+          "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "genesungsbegleitung-krisenintervention-munsingen-kim-upd-munsingen"
+      ]
     },
     {
       "id": "upd-7ed1a31ea5d6",
-      "slug": "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen",
+      "slug": "dipl-infermiera-specialist-focus-sulla-dipendenza-nell-eta-vecchia-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen",
-        "it": "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen",
-        "en": "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen",
-        "fr": "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen"
+        "it": "dipl-infermiera-specialist-focus-sulla-dipendenza-nell-eta-vecchia-universitare-psychiatrische-dienste-bern-upd",
+        "en": "dipl-nurse-specialist-focus-on-dependency-in-old-age-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-infirmiere-specialiste-de-la-dependance-a-la-vieillesse-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5246,7 +5978,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:25:33.552Z"
+      "firstSeenAt": "2026-09-29T21:25:33.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-schwerpunkt-abhangigkeit-im-alter-upd-munsingen"
+      ]
     },
     {
       "id": "upd-5d09dec98378",
@@ -5254,8 +6000,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachperson-betreuung-efz-kinder-upd-munsingen",
         "it": "apprendistato-fachperson-betreuung-cfc-kinder-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "lehrstelle-fachperson-betreuung-efz-kinder-upd-munsingen",
-        "fr": "lehrstelle-fachperson-betreuung-efz-kinder-upd-munsingen"
+        "en": "apprenticeship-specialist-care-efz-children-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "aide-specialisee-a-l-apprentissage-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5302,6 +6048,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachperson-betreuung-efz-kinder-upd-munsingen"
+        ],
+        "en": [
+          "lehrstelle-fachperson-betreuung-efz-kinder-upd-munsingen"
+        ],
+        "fr": [
           "lehrstelle-fachperson-betreuung-efz-kinder-upd-munsingen"
         ]
       },
@@ -5404,8 +6156,8 @@
       "slugByLocale": {
         "de": "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-upd",
         "it": "dipl-fachperson-sozial-o-heilpadagogik-o-pflegefachperson-jugendstation-tremola-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-universitare-psychiatrische",
-        "fr": "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-universitare-psychiatrische"
+        "en": "dipl-specialist-social-or-curative-education-or-nurse-youth-station-tremola-universitare-psychiatrische-dienste-bern-upd",
+        "fr": "dipl-programme-d-education-sociale-ou-curative-specialise-ou-centre-d-accueil-pour-jeunes-tremola-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5453,10 +6205,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-upd"
+        ],
+        "en": [
+          "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-universitare-psychiatrische"
+        ],
+        "fr": [
+          "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-universitare-psychiatrische"
         ]
       },
       "previousSlugs": [
-        "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-upd"
+        "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-upd",
+        "dipl-fachperson-sozial-oder-heilpadagogik-oder-pflegefachperson-jugendstation-tremola-universitare-psychiatrische"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -5479,8 +6238,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-nachtwache-jugendstation-tremola-upd-bern",
         "it": "dipl-pflegefachperson-come-nachtwache-jugendstation-tremola-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-als-nachtwache-jugendstation-tremola-upd-bern",
-        "fr": "dipl-pflegefachperson-als-nachtwache-jugendstation-tremola-upd-bern"
+        "en": "dipl-nursing-professional-as-night-watch-youth-station-tremola-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-professionnels-des-soins-infirmiers-comme-night-watch-youth-station-tremola-universitare-psychiatrische-dienste"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5527,6 +6286,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-als-nachtwache-jugendstation-tremola-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-als-nachtwache-jugendstation-tremola-upd-bern"
+        ],
+        "fr": [
           "dipl-pflegefachperson-als-nachtwache-jugendstation-tremola-upd-bern"
         ]
       },

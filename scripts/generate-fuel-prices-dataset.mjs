@@ -505,11 +505,12 @@ export function buildDataset({
 // ─── Firestore write ────────────────────────────────────────
 
 async function writeToFirestore(payload) {
-  const admin = await import('firebase-admin');
-  if (!admin.default.apps.length) {
-    admin.default.initializeApp({ projectId: process.env.GCLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'frontaliere-ticino' });
+  const { getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({ projectId: process.env.GCLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'frontaliere-ticino' });
   }
-  const db = admin.default.firestore();
+  const db = getFirestore();
 
   const metadataDoc = {
     generatedAt: payload.generatedAt,

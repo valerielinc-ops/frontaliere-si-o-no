@@ -74,16 +74,16 @@ const TEST_STEP = Math.max(0, Math.min(DRIP_STEP_COUNT - 1, Number(opt('test-ste
 let db;
 let adminSdk;
 async function initFirebase() {
-  const admin = await import('firebase-admin');
-  const a = admin.default || admin;
-  adminSdk = a;
-  if (!a.apps?.length) {
-    a.initializeApp({
-      credential: a.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { FieldValue, getFirestore, Timestamp } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  db = a.firestore();
+  adminSdk = { firestore: { FieldValue, Timestamp } };
+  db = getFirestore();
 }
 
 function toDate(v) {

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /** Mark one successful ASTRA article workflow dispatch as delivered. */
 
-import admin from "firebase-admin";
+import { applicationDefault, getApps, initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 
 const FIRESTORE_COLLECTION = "config";
 const FIRESTORE_DOC = "astra_vehicle_stats";
@@ -26,14 +27,14 @@ async function main() {
   const url = process.argv[2];
   const parsed = parseArticleUrl(url);
   const key = `${parsed.cadence}/${parsed.period}/${parsed.section}`;
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || "frontaliere-ticino",
     });
   }
 
-  const db = admin.firestore();
+  const db = getFirestore();
   const ref = db.collection(FIRESTORE_COLLECTION).doc(FIRESTORE_DOC);
   await db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(ref);

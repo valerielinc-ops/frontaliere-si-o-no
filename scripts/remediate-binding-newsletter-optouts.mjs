@@ -17,8 +17,8 @@
  * idempotent because repaired rows are no longer selected.
  */
 
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { ADDRESS_SUPPRESSED_STATUSES } from '../services/emailSuppression.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -82,9 +82,9 @@ function previousFlag(value) {
 }
 
 function initFirebase() {
-  if (admin.apps.length > 0) return;
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
+  if (getApps().length > 0) return;
+  initializeApp({
+    credential: applicationDefault(),
     projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
   });
 }
@@ -166,7 +166,7 @@ export async function applyPlans(db, plans, { fieldValue = FieldValue } = {}) {
 
 async function main() {
   initFirebase();
-  const db = admin.firestore();
+  const db = getFirestore();
   const { total, plans } = await loadPlans(db);
   printPlanSummary(total, plans);
   if (!APPLY) {

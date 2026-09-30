@@ -18,7 +18,6 @@
  * id is `ambiguous` and never retried automatically.
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';

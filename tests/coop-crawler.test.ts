@@ -1843,6 +1843,17 @@ describe('Coop reposts without a street address (parser-quality audit #5253)', (
   const pages = ['coop-heiden-a', 'coop-heiden-b'].map((id) => republishedPages[id]);
   const title = 'Detailhandelsfachfrau:mann EFZ "Gestalten von Einkaufserlebnissen"';
 
+  it('keeps source-backed postings with different datePosted values apart', () => {
+    const j = { title: 'Ruolo', description: 'test', location: 'Reiden', company: 'Volg', _enrichedFromDetail: true };
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([
+      { ...j, url: 'https://x/a', datePosted: '2026-09-01' },
+      { ...j, url: 'https://x/b', datePosted: '2026-09-02' },
+    ], { allowIdenticalSourcePostingsWithoutAddress: true });
+
+    expect(kept.length).toBe(2);
+    expect(collapsed.length).toBe(0);
+  });
+
   it('keeps two UUIDs apart when the source gives no store address, even with identical pages', () => {
     const listings = pages.map(({ url }) => ({
       id: 'coop-family-heiden', companyKey: 'jumbo', url, title, description: 'listing fallback',
@@ -1860,6 +1871,30 @@ describe('Coop reposts without a street address (parser-quality audit #5253)', (
     expect(countDuplicateListings(enriched, fingerprintsForCrawler(enriched, 'title-aware'))).toBe(2);
     expect(collapseRepublishedCoopVacancies(enriched).collapsed).toEqual([]);
     expect(withoutRepublishedCoopVacancies(enriched, 'JUMBO').map((job: { url: string }) => job.url)).toEqual(pages.map(({ url }) => url));
+  });
+
+  it('collapses identical source-backed no-address pages and bridges the removed routes', () => {
+    const listings = pages.map(({ url }, index) => ({
+      id: 'coop-family-heiden', companyKey: 'coop-ticino', url, title, description: 'listing fallback',
+      location: 'Heiden', addressLocality: 'Heiden', canton: 'AR', addressRegion: 'AR', addressCountry: 'CH', sourceLang: 'de',
+      firstSeenAt: `2026-01-0${index + 1}T00:00:00.000Z`,
+      slug: `detailhandelsfachfrau-heiden-${index === 0 ? 'old' : 'new'}`,
+      slugByLocale: { de: `detailhandelsfachfrau-heiden-${index === 0 ? 'old' : 'new'}-de` },
+    }));
+    const enriched = listings.map((listing, index) => applyCoopSourceDetailToJob(
+      listing, extractJsonLd(pages[index].html), extractCoopFamilyPageDetails(pages[index].html),
+    ));
+    const sourceBackedUrls = new Set(enriched.map((job) => job.url));
+
+    const { kept, collapsed } = collapseRepublishedCoopVacancies(enriched, {
+      allowIdenticalSourcePostingsWithoutAddress: true,
+      sourceBackedUrls,
+    });
+
+    expect(collapsed).toEqual([{ url: pages[1].url, keptUrl: pages[0].url }]);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].previousSlugsByLocale.de).toContain('detailhandelsfachfrau-heiden-new-de');
+    expect(countDuplicateListings(kept, fingerprintsForCrawler(kept, 'title-aware'))).toBe(0);
   });
 
   it('moves every route of a collapsed full-address repost onto the record it keeps', () => {

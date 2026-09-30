@@ -1,5 +1,4 @@
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -384,7 +383,7 @@ export async function handleMailerooWebhookRequest({ payload, headers, signingSe
     return { ok: true, ping: true };
   }
 
-  const db = admin.firestore();
+  const db = getFirestore();
   const results = [];
   for (const event of events) {
     try {

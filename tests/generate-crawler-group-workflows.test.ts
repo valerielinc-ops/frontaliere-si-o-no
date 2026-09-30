@@ -2207,7 +2207,7 @@ describe('cross-repo crawler execution artifacts', () => {
     // Argos (decisione del proprietario del 2026-09-25): stesso confinamento
     // del secret dei crawler, e la cascata 2b resta senza socket.
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
-    const translationSteps: any[] = Object.values(translation.jobs)[0].steps;
+    const translationSteps: any[] = translation.jobs.translate.steps;
     const translationSetupStep = translationSteps.find(
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
@@ -2271,8 +2271,10 @@ describe('cross-repo crawler execution artifacts', () => {
 
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
-      expect(Object.keys(doc.jobs)).toHaveLength(1);
-      const job: any = Object.values(doc.jobs)[0];
+      expect(Object.keys(doc.jobs)).toHaveLength(artifact.file === 'translate-pending.yml' ? 2 : 1);
+      const job: any = artifact.file === 'translate-pending.yml'
+        ? doc.jobs.translate
+        : Object.values(doc.jobs)[0];
       if (artifact.members.length > 0) {
         expect(doc.on.workflow_dispatch.inputs.site_code_commit).toMatchObject({
           required: false,
@@ -2339,7 +2341,9 @@ describe('cross-repo crawler execution artifacts', () => {
     let diagnosticReporters = 0;
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
-      const job: any = Object.values(doc.jobs)[0];
+      const job: any = artifact.file === 'translate-pending.yml'
+        ? doc.jobs.translate
+        : Object.values(doc.jobs)[0];
       const reporters = job.steps.filter((step: any) => step.uses === './.github/actions/report-failure');
       expect(reporters, artifact.file).toHaveLength(1);
       for (const reporter of reporters) {
@@ -2374,7 +2378,7 @@ describe('cross-repo crawler execution artifacts', () => {
   it('protegge il solo workflow translate con il claim immutabile del successore', () => {
     const { contract, outDir } = generateArtifacts();
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
-    const job: any = Object.values(translation.jobs)[0];
+    const job: any = translation.jobs.translate;
     const checkoutReady = job.steps.find((step: any) => step.id === 'checkout');
     const guard = job.steps.find((step: any) => step.name === 'Validate recovery successor claim');
 
@@ -2418,6 +2422,36 @@ describe('cross-repo crawler execution artifacts', () => {
         (step: any) => step.name === 'Validate recovery successor claim',
       ), artifact.file).toBe(false);
     }
+  });
+
+  it('tiene il guard della coda fuori dal mutex e sposta il mutex sul job pesante', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardJob: any = translation.jobs.translate_queue_guard;
+    const translateJob: any = translation.jobs.translate;
+    const guardStep = guardJob.steps.find((step: any) => step.id === 'translate_queue_guard');
+
+    expect(translation.concurrency).toBeUndefined();
+    expect(guardJob.concurrency).toBeUndefined();
+    expect(guardJob.permissions).toEqual({ actions: 'read' });
+    expect(translateJob.needs).toBe('translate_queue_guard');
+    expect(translateJob.if).toBe("needs.translate_queue_guard.outputs.run == 'true'");
+    expect(translateJob.concurrency).toEqual({
+      group: 'jobs-data-pipeline',
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
+    expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
+    expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting")');
+    expect(guardStep.run).toContain('select((.id | tostring) != $current)');
+    expect(guardStep.run).toContain('created_at');
+    expect(guardStep.run).toContain('oldest_run_id');
+    expect(guardStep.run).toContain('sort -k1,1 -k2,2n');
+    expect(guardStep.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
+    expect(guardStep.run).toContain('workflow_dispatch');
+    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
+    expect(guardStep.run).toContain('run=false');
+    expect(guardStep.run).toContain('continuing with the heavy run to preserve throughput');
   });
 
   it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {

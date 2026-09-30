@@ -147,7 +147,7 @@ export function scoreToLevel(score) {
  * to persist a stale derived score/level.
  *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
- * @param {*} FieldValue admin.firestore.FieldValue
+ * @param {*} FieldValue FieldValue from firebase-admin/firestore
  * @returns {Promise<{ updated: boolean, score?: number, level?: string }>}
  */
 export async function refreshEngagementScore(subscriberRef, FieldValue) {

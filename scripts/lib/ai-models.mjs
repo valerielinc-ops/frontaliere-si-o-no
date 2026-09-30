@@ -2538,7 +2538,7 @@ let _firestoreDb = null;     // Firestore instance (null until initScoreStore)
  */
 let _scoreStoreReadOnly = false;
 let _readOnlySkipLogged = false;
-let _firestoreFieldValue = null; // admin.firestore.FieldValue (atomic increments)
+let _firestoreFieldValue = null; // firebase-admin/firestore FieldValue (atomic increments)
 let _storeInitialized = false;
 let _persistTimer = null;    // Debounce timer
 let _mutationCount = 0;      // Mutations since last persist
@@ -3146,24 +3146,24 @@ export async function initScoreStore() {
   _storeInitialized = true;
 
   try {
-    // Lazy-import firebase-admin (same pattern as load-rc-env.mjs)
-    const adminMod = await import('firebase-admin');
-    const admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
+    // Lazy-import Firebase Admin (same pattern as load-rc-env.mjs)
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { FieldValue, getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
       if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
         console.warn('⚠️  [ScoreStore] No GOOGLE_APPLICATION_CREDENTIALS — using in-memory scores only');
         return;
       }
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+      initializeApp({ credential: applicationDefault() });
     }
-    _firestoreDb = admin.firestore();
+    _firestoreDb = getFirestore();
     // Atomic counter increments (see _pendingCounterDeltas). Captured here and
     // not re-imported at write time because this is the only place that already
-    // holds the admin module. There is no REST fallback to worry about: unlike
-    // load-rc-env.mjs, this store has NO REST path — when `import('firebase-admin')`
+    // holds the Firestore module. There is no REST fallback to worry about: unlike
+    // load-rc-env.mjs, this store has NO REST path — when the modular import
     // fails the catch below sets `_firestoreDb = null` and the run is memory-only,
     // so `FieldValue` is available on exactly the paths that persist at all.
-    _firestoreFieldValue = admin.firestore?.FieldValue || null;
+    _firestoreFieldValue = FieldValue;
 
     // Load all persisted scores from the single aggregate doc (1 read).
     // If the aggregate doesn't exist yet, fall back to the legacy per-model
@@ -5099,6 +5099,11 @@ const MODEL_MAX_OUTPUT_TOKENS = {
   'Phi-4-mini-reasoning': 4000,
 };
 
+// Node's built-in fetch is backed by a bundled undici copy. Keep the original
+// reference so a local test/mock can still intercept requests, while the real
+// local transport can pair the npm undici Agent with its matching fetch.
+const NATIVE_GLOBAL_FETCH = globalThis.fetch;
+
 // ── Low-level provider calls ─────────────────────────────────
 
 /**
@@ -5110,7 +5115,7 @@ const MODEL_MAX_OUTPUT_TOKENS = {
  * @param {object} opts — Merged options
  * @param {object} provider — { endpoint, apiKey, providerName, trackAs, extraHeaders }
  */
-async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, modelForLookup = apiModel, extraHeaders, extraBody, dispatcher, _suppressExhaustionMark = false }) {
+async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, modelForLookup = apiModel, extraHeaders, extraBody, dispatcher, fetchImpl, _suppressExhaustionMark = false }) {
   if (!apiKey) throw new Error(`${providerName} API key not set`);
   const modelForTracking = trackAs || apiModel;
   const displayModel = providerName === 'GitHub' ? apiModel : `${providerName}/${apiModel}`;
@@ -5161,11 +5166,12 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
     ...(responseFormat ? { response_format: responseFormat } : {}),
     ...(extraBody || {}),
   };
+  const requestFetch = fetchImpl || globalThis.fetch;
 
   for (let attempt = 1; attempt <= opts.maxRetriesPerModel; attempt++) {
     _stats.calls++;
     try {
-      const res = await fetch(endpoint, {
+      const res = await requestFetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -5641,26 +5647,44 @@ function _callZai(model, messages, opts) {
 // qwen2.5:7b on a CPU runner) trips that 300s limit and surfaces as
 // `TypeError: fetch failed` — long before our AbortSignal.timeout fires. Raising
 // both undici timeouts to the real local budget lets a full generation complete.
-// Keyed by timeout so a changed LOCAL_LLM_TIMEOUT_MS rebuilds the agent. `null`
-// memoizes "undici unavailable" → degrade to global fetch defaults (remote-only env).
+// Keyed by timeout and fetch implementation so a changed LOCAL_LLM_TIMEOUT_MS
+// or a test/mock fetch rebuilds the transport. `null` memoizes "undici
+// unavailable" → degrade to global fetch defaults (remote-only env).
 let _localDispatcher; // undefined = not built; null = unavailable
 let _localDispatcherTimeout = 0;
+let _localFetchImpl;
+let _localFetchSource;
 async function _getLocalDispatcher(timeoutMs) {
-  if (_localDispatcher !== undefined && _localDispatcherTimeout === timeoutMs) {
-    return _localDispatcher || undefined;
+  const currentFetch = globalThis.fetch;
+  if (_localDispatcher !== undefined
+    && _localDispatcherTimeout === timeoutMs
+    && _localFetchSource === currentFetch) {
+    return {
+      dispatcher: _localDispatcher || undefined,
+      fetchImpl: _localFetchImpl || undefined,
+    };
   }
   try {
-    const { Agent } = await import('undici');
+    const { Agent, fetch: undiciFetch } = await import('undici');
     _localDispatcher = new Agent({
       headersTimeout: timeoutMs,
       bodyTimeout: timeoutMs,
       connectTimeout: 10_000,
     });
+    // A mocked/replaced global fetch must remain observable to tests and
+    // callers. With the native Node fetch, use npm undici's fetch instead:
+    // an Agent from one undici copy is not compatible with another copy.
+    _localFetchImpl = currentFetch === NATIVE_GLOBAL_FETCH ? undiciFetch : currentFetch;
   } catch {
     _localDispatcher = null; // undici not importable — global fetch defaults apply
+    _localFetchImpl = undefined;
   }
   _localDispatcherTimeout = timeoutMs;
-  return _localDispatcher || undefined;
+  _localFetchSource = currentFetch;
+  return {
+    dispatcher: _localDispatcher || undefined,
+    fetchImpl: _localFetchImpl || undefined,
+  };
 }
 
 async function _callLocal(model, messages, opts) {
@@ -5689,13 +5713,14 @@ async function _callLocal(model, messages, opts) {
     const quota = Math.min(Math.floor(remaining * LOCAL_LLM_ALLOWANCE_SHARE), LOCAL_LLM_MAX_TIMEOUT_MS);
     timeout = Math.max(15_000, Math.min(Math.max(baseTimeoutMs, quota), remaining));
   }
-  const dispatcher = await _getLocalDispatcher(timeout);
+  const { dispatcher, fetchImpl } = await _getLocalDispatcher(timeout);
   return _callOpenAICompatible(apiModel, messages, { ...opts, timeout }, {
     endpoint: getLocalLlmUrl(),
     apiKey: getLocalLlmApiKey(),
     providerName: 'Local',
     trackAs: model,
     dispatcher,
+    fetchImpl,
   });
 }
 

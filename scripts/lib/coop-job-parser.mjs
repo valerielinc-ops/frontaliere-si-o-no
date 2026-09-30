@@ -539,11 +539,18 @@ function absorbRepublishedRoutes(keeper, removed) {
  * store: Zürich has dozens) and a byte-identical body, facts included (so a
  * different Pensum or start date keeps two postings apart). Measured on the
  * 2026-09-29 Coop slice: "Transportdisponent:in" three times at Industriestrasse
- * 109, 9200 Gossau with one text. Records without a full store address are
- * never collapsed, even when their pages are identical: two UUIDs without a
- * street can be two vacancies of one role, and collapsing them would drop a
- * live page (Coop's two "Detailhandelsfachfrau:mann EFZ" apprenticeships at
- * Heiden, pages identical but for the ATS tracking id, stay two records).
+ * 109, 9200 Gossau with one text. By default records without a full store
+ * address are never collapsed: two UUIDs without a street can be two
+ * vacancies of one role, and collapsing them would drop a live page (Coop's
+ * two "Detailhandelsfachfrau:mann EFZ" apprenticeships at Heiden, pages
+ * identical but for the ATS tracking id, stay two records).
+ *
+ * The source-backed Coop and Volg runners may opt into the stricter case-
+ * (c) proof after their detail pages have been accepted: when the source
+ * itself supplies no distinguishing address, identical published fields
+ * (title, body, locality, employer and contract/category fields) are one
+ * reader-visible advertisement. The caller must identify the records whose
+ * detail pages supplied that proof; a listing fallback alone never opts in.
  *
  * The earliest-seen record is kept, so the published URL/slug that search
  * engines already know survives, and it absorbs every route of the records it
@@ -552,18 +559,70 @@ function absorbRepublishedRoutes(keeper, removed) {
  * it instead of answering 404. The replaced records are returned so the caller
  * can report them.
  *
+ * @param {{
+ *   allowIdenticalSourcePostingsWithoutAddress?: boolean,
+ *   sourceBackedUrls?: Iterable<string>,
+ * }} [options]
  * @returns {{ kept: object[], collapsed: Array<{url: string, keptUrl: string}> }}
  */
-export function collapseRepublishedCoopVacancies(jobs = []) {
+export function collapseRepublishedCoopVacancies(jobs = [], {
+  allowIdenticalSourcePostingsWithoutAddress = false,
+  sourceBackedUrls = [],
+} = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
+  const sourceBackedUrlSet = new Set(sourceBackedUrls || []);
+  const normalizedIdentityValue = (value) => {
+    if (value && typeof value === 'object') return JSON.stringify(value);
+    return normalizeSpace(value || '').toLowerCase();
+  };
+  const sourceBacked = (job) => job?._enrichedFromDetail === true || sourceBackedUrlSet.has(job?.url);
+  const sourceIdenticalKey = (job) => {
+    if (!sourceBacked(job)) return '';
+    // Salary fields are parser estimates/legacy annotations on these slices,
+    // not an attribute shown by the fetched Coop/fenaco detail page; they must
+    // not turn one source advertisement into two SEO pages.
+    const title = normalizeSpace(job?.title || '');
+    const description = normalizeSpace(job?.description || '');
+    const location = normalizeSpace(job?.location || job?.addressLocality || '');
+    const employer = normalizeSpace(job?.company || job?.companyKey || '');
+    if (!title || !description || !location || !employer) return '';
+    return [
+      title,
+      description,
+      location,
+      job?.addressLocality,
+      job?.addressRegion || job?.canton,
+      job?.postalCode,
+      job?.streetAddress,
+      employer,
+      job?.companyKey,
+      job?.contract,
+      job?.contractType,
+      job?.employmentType,
+      job?.workload,
+      job?.category,
+      job?.sector,
+      job?.department,
+      job?.requirements,
+      job?.datePosted,
+      job?.validThrough,
+      job?.addressCountry || job?.country,
+    ].map(normalizedIdentityValue).join('\u0000');
+  };
   const keyOf = (job) => {
     const postalCode = normalizeSpace(job?.postalCode || '');
     const streetAddress = normalizeSpace(job?.streetAddress || '');
     const description = normalizeSpace(job?.description || '');
-    if (!postalCode || !streetAddress || !description) return '';
-    return [job?.title, job?.location, postalCode, streetAddress, description]
+    if (postalCode && streetAddress && description) {
+      return `address\u0000${[job?.title, job?.location, postalCode, streetAddress, description]
       .map((value) => normalizeSpace(value || '').toLowerCase())
-      .join('\u0000');
+      .join('\u0000')}`;
+    }
+    if (allowIdenticalSourcePostingsWithoutAddress) {
+      const sourceKey = sourceIdenticalKey(job);
+      if (sourceKey) return `source\u0000${sourceKey}`;
+    }
+    return '';
   };
   const rank = (job) => [
     String(job?.firstSeenAt || '9999'),
