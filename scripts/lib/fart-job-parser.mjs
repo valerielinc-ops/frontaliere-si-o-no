@@ -54,6 +54,7 @@ function stripHtml(html = '') {
 }
 
 const FART_EMPTY_FORM_TITLE_RE = /\bCandidatura\s+per\s+un\s+concorso\s+pubblicato\b/i;
+const FART_EMPTY_FORM_NO_VACANCIES_RE = /\bAl\s+momento\s+non\s+ci\s+sono\s+concorsi\s+aperti\b/i;
 const FART_EMPTY_FORM_SELECT_LABEL_RE = /\bSelezioni\s+il\s+concorso\s+per\s+il\s+quale\s+desidera\s+candidarsi\b/i;
 const SELECT_RE = /<select\b[^>]*>[\s\S]*?<\/select>/gi;
 const OPTION_RE = /<option\b([^>]*)>([\s\S]*?)<\/option>/gi;
@@ -73,9 +74,11 @@ function hasOnlyPlaceholderOption(selectHtml = '') {
  *
  * The old page exposed one <h5> plus a PDF link per concorso. FART replaced
  * it with a spontaneous-application form whose vacancy dropdown is populated
- * by FART itself. An empty dropdown is authoritative only when both the form
- * heading and its labelled select are present; an empty/unknown page remains
- * unproven so the anti-shrink guard can keep the prior slice.
+ * by FART itself. The current no-vacancy rendering explicitly says that there
+ * are no open concorsi, while older renderings exposed the same fact through
+ * an empty labelled dropdown. Either source-owned proof is authoritative only
+ * with the form heading; an empty/unknown page remains unproven so the
+ * anti-shrink guard can keep the prior slice.
  */
 export function isFartAuthoritativeEmptySnapshot(html = '') {
   const source = String(html || '');
@@ -83,6 +86,8 @@ export function isFartAuthoritativeEmptySnapshot(html = '') {
 
   const visibleText = normalizeSpace(stripHtml(source));
   if (!FART_EMPTY_FORM_TITLE_RE.test(visibleText)) return false;
+
+  if (FART_EMPTY_FORM_NO_VACANCIES_RE.test(visibleText)) return true;
 
   for (const match of source.matchAll(SELECT_RE)) {
     const selectHtml = match[0];
