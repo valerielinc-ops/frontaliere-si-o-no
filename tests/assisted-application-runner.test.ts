@@ -208,6 +208,33 @@ describe('submit mode', () => {
     expect(again).toHaveBeenCalledTimes(1);
     expect(beforeClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'captcha' } });
 
+    // An error before the click (here the cover letter cannot be read): released, the retry claims it again.
+    const storageDown = createMemoryFirestore();
+    const brokenBucket = { file: () => ({ download: async () => { throw new Error('storage_down'); }, save: async () => {} }) };
+    const neverRun = vi.fn();
+    await expect(submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket: brokenBucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      codex: vi.fn(), portalRunner: neverRun, submissionGuard: submissionGuard(storageDown.db, ORDER_ID, 1),
+    })).rejects.toThrow('storage_down');
+    expect(neverRun).not.toHaveBeenCalled();
+    expect(storageDown.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'error: storage_down' } });
+    expect(await submissionGuard(storageDown.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed', resumed: false });
+
+    // The temporary folder cannot be created: released too, nothing was clicked.
+    const noTmp = createMemoryFirestore();
+    const previousTmp = process.env.TMPDIR;
+    process.env.TMPDIR = '/nonexistent-aa-portal-tmp';
+    try {
+      await expect(submit(noTmp.db, neverRun)).rejects.toThrow();
+    } finally {
+      if (previousTmp === undefined) delete process.env.TMPDIR;
+      else process.env.TMPDIR = previousTmp;
+    }
+    expect(neverRun).not.toHaveBeenCalled();
+    expect(noTmp.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    expect(await submissionGuard(noTmp.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+
     // A CAPTCHA that shows up after the final click: the portal may have the
     // application, so the claim stays "sending" and no later run presses it again.
     const captchaAfterClick = createMemoryFirestore();

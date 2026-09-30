@@ -61,4 +61,31 @@ describe('useJobAlertEligibility', () => {
 
     expect(Analytics.trackJobAlertCtaSkipped).toHaveBeenCalledWith('end_card', 'get_alerts_failed');
   });
+
+  it('resolves two CTA surfaces through the same eligibility contract in one session', async () => {
+    getEligibilityMock.mockResolvedValue({ eligible: true, reason: null });
+
+    const first = renderHook(() => useJobAlertEligibility({
+      enabled: true,
+      authResolved: true,
+      userId: 'user-1',
+      keyword: 'Tecnologia',
+      surface: 'sticky_banner',
+    }));
+    const second = renderHook(() => useJobAlertEligibility({
+      enabled: true,
+      authResolved: true,
+      userId: 'user-1',
+      keyword: 'Tecnologia',
+      surface: 'end_card',
+    }));
+
+    await waitFor(() => {
+      expect(first.result.current).toBe(true);
+      expect(second.result.current).toBe(true);
+    });
+    expect(getEligibilityMock).toHaveBeenCalledTimes(2);
+    expect(getEligibilityMock).toHaveBeenNthCalledWith(1, 'user-1', 'Tecnologia');
+    expect(getEligibilityMock).toHaveBeenNthCalledWith(2, 'user-1', 'Tecnologia');
+  });
 });

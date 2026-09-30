@@ -21,6 +21,7 @@ import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import {
   loadGatingState,
   saveGatingState,
@@ -51,6 +52,83 @@ interface JobAlertFormProps {
   * user edit afterwards is never clobbered by a later prop change.
   */
  initialCantonCode?: string | null;
+}
+
+interface JobAlertTriggerCardProps {
+ alertCount: number;
+ description: string;
+ expanded: boolean;
+ inlineCtaEligible: boolean;
+ hasExplicitSearchIntent: boolean;
+ initialKeyword: string;
+ loadingAlerts: boolean;
+ onToggle: () => void;
+ title: string;
+ triggerLabel: string;
+}
+
+/**
+ * The board mounts this utility card even when a visitor has not searched.
+ * Keep that useful card visible, but keep its passive visibility out of the
+ * actionable alert funnel. A keyed caller remounts this small surface when
+ * the board moves between passive and explicit-search contexts, so each
+ * context gets its own first-visibility measurement.
+ */
+function JobAlertTriggerCard({
+ alertCount,
+ description,
+ expanded,
+ inlineCtaEligible,
+ hasExplicitSearchIntent,
+ initialKeyword,
+ loadingAlerts,
+ onToggle,
+ title,
+ triggerLabel,
+}: JobAlertTriggerCardProps) {
+ const impressionRef = useImpressionTracker(() => {
+   if (hasExplicitSearchIntent) {
+     track((a) => a.trackJobAlertCtaShown('inline_card', initialKeyword.trim()));
+   } else {
+     track((a) => a.trackJobAlertPassiveView('inline_card'));
+   }
+ }, {
+   enabled: !loadingAlerts && (!hasExplicitSearchIntent || inlineCtaEligible),
+ });
+
+ return (
+  <button
+   ref={impressionRef}
+   type="button"
+   onClick={onToggle}
+   aria-expanded={expanded}
+   aria-controls="job-alert-form"
+   className="w-full flex items-center gap-3 p-4 rounded-xl border border-accent-border bg-accent-subtle hover:bg-accent-subtle hover:border-accent transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+  >
+   <span className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent-strong text-on-accent shadow-sm">
+    <BellRing className="w-5 h-5" aria-hidden="true" />
+   </span>
+   <span className="flex-1 min-w-0">
+    <span className="flex items-center gap-2">
+     <span className="block text-sm font-semibold text-strong">
+      {title}
+     </span>
+     {alertCount > 0 && (
+      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-accent-strong text-on-accent text-[10px] font-semibold">
+       {alertCount}
+      </span>
+     )}
+    </span>
+    <span className="block mt-0.5 text-xs text-subtle">
+     {description}
+    </span>
+   </span>
+   <span className="flex-shrink-0 inline-flex items-center gap-1 text-xs font-medium text-accent">
+    {triggerLabel && <span className="hidden sm:inline">{triggerLabel}</span>}
+    {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+   </span>
+  </button>
+ );
 }
 
 // ── Constants ────────────────────────────────────────────────
@@ -272,20 +350,13 @@ export default function JobAlertForm({
  const typedLocale = (locale as CantonLocale) || 'it';
  const cantonOptions = useMemo(() => listCantonOptions(typedLocale), [typedLocale]);
 
- // Issue 9577 — one contract for the inline CTA, form and one-tap alike:
- //   shown  once, when the trigger card is actually visible (shared observer,
- //          not a mount/expand effect) and the user's alerts are resolved;
- //   open   the trigger card click (below);
- //   accept a create attempt (form submit or one-tap), after validation;
- //   success/error the outcome of that attempt — including the post-auth
- //          replay of a guest submit and a pending intent that could not be
- //          stored (issue 9575).
- // Every step reports `cta_surface: inline_card`, so shown→action→created is
- // one homogeneous chain in the alert_funnel_conversion goal.
- const inlineImpressionRef = useImpressionTracker(
- () => track((a) => a.trackJobAlertCtaShown('inline_card', initialKeyword.trim())),
- { enabled: !loadingAlerts && inlineCardEligibility === true },
- );
+ // Issue 10529 — the board's always-available utility card has two view
+ // classes. An explicit search keyword is actionable funnel context; the
+ // unfiltered card is useful UI but only a passive view. The trigger component
+ // emits the latter as `job_alert_card_passive_view`, outside the campaign
+ // goal's `job_alert_cta_shown` allowlist. Issue 9577's visibility impression
+ // is gated below by the shared inline-card eligibility result.
+ const inlineCardHasExplicitIntent = initialKeyword.trim().length > 0;
 
  const trackInlineCtaAction = useCallback((action: 'accept' | 'success' | 'error', ctaKeyword: string) => {
  track((a) => a.trackJobAlertCtaClick('inline_card', action, ctaKeyword));
@@ -324,7 +395,13 @@ export default function JobAlertForm({
     locale: locale as "it" | "en" | "de" | "fr",
   }), [initialCantonCode, locale, oneTapKeyword]);
 
-  const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
+  const configIsEmpty = (c: JobAlertConfig): boolean => (
+    c.keywords.length === 0
+    && c.locations.length === 0
+    && c.contractTypes.length === 0
+    && c.sectors.length === 0
+    && !(c.cantonFilter?.length)
+  );
 
   const persistAlert = useCallback(
     async (
@@ -336,6 +413,10 @@ export default function JobAlertForm({
     ): Promise<JobAlert> => {
       const { createAlert } = await loadJobAlertService();
       const alert = await createAlert(uid, email, config);
+      // The eligibility CTAs share a session cache with this form. Invalidate
+      // only after the write succeeds so a failed create cannot discard a
+      // still-valid snapshot.
+      invalidateUserAlertsCache();
       setAlerts((prev) => [alert, ...prev]);
       track((a) =>
         a.trackJobAlertCreated({
@@ -500,6 +581,7 @@ export default function JobAlertForm({
  try {
  const { deleteAlert } = await loadJobAlertService();
  await deleteAlert(email, alertId);
+ invalidateUserAlertsCache();
  // FRO-334: Track alert deletion
  track((a) => a.trackJobAlertDeleted());
  setAlerts((prev) => prev.filter((a) => a.id !== alertId));
@@ -602,49 +684,29 @@ export default function JobAlertForm({
  </button>
  </div>
  )}
- {/* Trigger card — its visibility is the inline CTA impression (issue 9577). */}
- <button
- ref={inlineImpressionRef}
- type="button"
- onClick={() => {
+ {/* Trigger card — passive and explicit-search views use separate events (issue #10529). */}
+ <JobAlertTriggerCard
+ key={inlineCardHasExplicitIntent ? 'intent' : 'passive'}
+ alertCount={alerts.length}
+ description={alerts.length > 0
+ ? (t('jobAlert.cardDescriptionActive') || 'Gestisci o aggiungi nuove alert personalizzate.')
+ : (t('jobAlert.cardDescription') || 'Attiva un\'alert gratuita: ti scriviamo quando escono offerte nei tuoi criteri.')}
+ expanded={expanded}
+ inlineCtaEligible={inlineCardEligibility === true}
+ hasExplicitSearchIntent={inlineCardHasExplicitIntent}
+ initialKeyword={initialKeyword}
+ loadingAlerts={loadingAlerts}
+ onToggle={() => {
  if (!expanded) {
  track((a) => a.trackJobAlertCtaClick('inline_card', 'open', initialKeyword));
  }
  setExpanded(!expanded);
  }}
- aria-expanded={expanded}
- aria-controls="job-alert-form"
- className="w-full flex items-center gap-3 p-4 rounded-xl border border-accent-border bg-accent-subtle hover:bg-accent-subtle hover:border-accent transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
- >
- <span className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent-strong text-on-accent shadow-sm">
- <BellRing className="w-5 h-5" aria-hidden="true" />
- </span>
- <span className="flex-1 min-w-0">
- <span className="flex items-center gap-2">
- <span className="block text-sm font-semibold text-strong">
- {alerts.length > 0
+ title={alerts.length > 0
  ? (t('jobAlert.cardTitleActive') || 'Le tue alert lavoro')
  : (t('jobAlert.cardTitle') || 'Ricevi nuovi lavori via email')}
- </span>
- {alerts.length > 0 && (
- <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-accent-strong text-on-accent text-[10px] font-semibold">
- {alerts.length}
- </span>
- )}
- </span>
- <span className="block mt-0.5 text-xs text-subtle">
- {alerts.length > 0
- ? (t('jobAlert.cardDescriptionActive') || 'Gestisci o aggiungi nuove alert personalizzate.')
- : (t('jobAlert.cardDescription') || 'Attiva un\'alert gratuita: ti scriviamo quando escono offerte nei tuoi criteri.')}
- </span>
- </span>
- <span className="flex-shrink-0 inline-flex items-center gap-1 text-xs font-medium text-accent">
- {!expanded && alerts.length === 0 && (
- <span className="hidden sm:inline">{t('jobAlert.cardCta') || 'Crea alert'}</span>
- )}
- {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
- </span>
- </button>
+ triggerLabel={!expanded && alerts.length === 0 ? (t('jobAlert.cardCta') || 'Crea alert') : ''}
+ />
 
  {/* Expanded form */}
  {expanded && (

@@ -21,10 +21,18 @@ import { render, screen, fireEvent, cleanup, within, waitFor, act } from '@testi
 import JobAlertForm from '@/components/community/JobAlertForm';
 const ALERT_CTA_SURFACES = ['inline_card'];
 
-const { createAlertMock, getUserAlertsMock, getJobAlertEligibilityMock } = vi.hoisted(() => ({
+const {
+  createAlertMock,
+  deleteAlertMock,
+  getUserAlertsMock,
+  getJobAlertEligibilityMock,
+  invalidateUserAlertsCacheMock,
+} = vi.hoisted(() => ({
   createAlertMock: vi.fn(async () => ({ id: 'x' })),
+  deleteAlertMock: vi.fn(async () => undefined),
   getUserAlertsMock: vi.fn(async () => []),
   getJobAlertEligibilityMock: vi.fn(async () => ({ eligible: true, reason: null })),
+  invalidateUserAlertsCacheMock: vi.fn(),
 }));
 
 // Mock the service so the form can dynamic-import it without trying to talk
@@ -34,7 +42,7 @@ const { createAlertMock, getUserAlertsMock, getJobAlertEligibilityMock } = vi.ho
 vi.mock('@/services/jobAlertService', () => ({
   createAlert: createAlertMock,
   getUserAlerts: getUserAlertsMock,
-  deleteAlert: vi.fn(async () => undefined),
+  deleteAlert: deleteAlertMock,
   updateAlert: vi.fn(async () => undefined),
 }));
 
@@ -42,11 +50,16 @@ vi.mock('@/services/jobAlertEligibility', () => ({
   getJobAlertEligibility: getJobAlertEligibilityMock,
 }));
 
+vi.mock('@/services/userAlertsCache', () => ({
+  invalidateUserAlertsCache: invalidateUserAlertsCacheMock,
+}));
+
 const { analyticsMock } = vi.hoisted(() => ({
   analyticsMock: {
     trackJobAlertCtaClick: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
     trackJobAlertCtaSkipped: vi.fn(),
+    trackJobAlertPassiveView: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
   },
@@ -108,6 +121,9 @@ beforeEach(() => {
   getUserAlertsMock.mockResolvedValue([]);
   getJobAlertEligibilityMock.mockReset();
   getJobAlertEligibilityMock.mockResolvedValue({ eligible: true, reason: null });
+  createAlertMock.mockClear();
+  deleteAlertMock.mockClear();
+  invalidateUserAlertsCacheMock.mockClear();
 });
 
 afterEach(() => {
@@ -375,6 +391,20 @@ describe('JobAlertForm — guest submit persists the intent or says it cannot (i
     expect(onRequireAuth).not.toHaveBeenCalled();
     expect(localStorage.getItem(PENDING_KEY)).toBeNull();
   });
+
+  it('keeps an advanced-only criterion instead of treating it as an empty alert', () => {
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    expandForm();
+    openCantonPicker();
+    fireEvent.click(getCantonChip(/Ticino/));
+    typeKeywordAndSubmit('   ');
+
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    const stored = JSON.parse(localStorage.getItem(PENDING_KEY) || 'null');
+    expect(stored.value.config.keywords).toEqual([]);
+    expect(stored.value.config.cantonFilter).toEqual(['TI']);
+  });
 });
 
 describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (issue 9576)', () => {
@@ -433,6 +463,45 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     await waitFor(() => expect(ctaActions()).toEqual(['inline_card:open', 'inline_card:accept', 'inline_card:success']));
   });
 
+  it('invalidates shared eligibility after a successful direct create', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    typeKeywordAndSubmit('contabile');
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(invalidateUserAlertsCacheMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('invalidates shared eligibility after a successful delete', async () => {
+    getUserAlertsMock.mockResolvedValueOnce([{
+      id: 'existing-alert',
+      userId: 'user-1',
+      email: 'foo@example.com',
+      keywords: ['contabile'],
+      locations: [],
+      contractTypes: [],
+      sectors: [],
+      cantonFilter: null,
+      frequency: 'daily',
+      frequencyOverride: false,
+      locale: 'it',
+      specificJobId: null,
+      specificCompanyKey: null,
+      active: true,
+      createdAt: new Date(),
+      lastMatchedAt: null,
+      matchCount: 0,
+    }]);
+    render(<JobAlertForm authUser={authUser} />);
+    fireEvent.click(screen.getAllByRole('button')[0]);
+
+    const deleteButton = await screen.findByTitle('Elimina');
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => expect(deleteAlertMock).toHaveBeenCalledWith('foo@example.com', 'existing-alert'));
+    expect(invalidateUserAlertsCacheMock).toHaveBeenCalledTimes(1);
+  });
+
   it('a failed signed-in create reports accept→error', async () => {
     createAlertMock.mockRejectedValueOnce(new Error('quota'));
     render(<JobAlertForm authUser={authUser} />);
@@ -473,12 +542,21 @@ describe('JobAlertForm — inline_card impression fires once, on visibility (iss
     expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledWith('inline_card', 'cuoco');
   });
 
-  it('waits for a signed-in user\'s alerts before arming the impression', async () => {
+  it('keeps an unfiltered utility-card view out of the funnel and measures it separately', async () => {
+    render(<JobAlertForm authUser={null} />);
+    await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
+    FakeIO.instances.at(-1)!.enter();
+    await waitFor(() => expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledWith('inline_card');
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
+  });
+
+  it('waits for a signed-in user\'s alerts before arming the passive view', async () => {
     render(<JobAlertForm authUser={authUser} />);
     await waitFor(() => expect(FakeIO.instances.length).toBeGreaterThan(0));
     FakeIO.instances.at(-1)!.enter();
-    await waitFor(() => expect(analyticsMock.trackJobAlertCtaShown).toHaveBeenCalledTimes(1));
-    expect(analyticsMock.trackJobAlertCtaShown.mock.calls[0][0]).toBe('inline_card');
+    await waitFor(() => expect(analyticsMock.trackJobAlertPassiveView).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCtaShown).not.toHaveBeenCalled();
   });
 
   it('records a full category quota without hiding alert management', async () => {
@@ -498,7 +576,7 @@ describe('JobAlertForm — inline_card impression fires once, on visibility (iss
     })));
     getJobAlertEligibilityMock.mockResolvedValue({ eligible: false, reason: 'quota_full' });
 
-    render(<JobAlertForm authUser={authUser} />);
+    render(<JobAlertForm authUser={authUser} initialKeyword="infermiere" />);
 
     await waitFor(() => expect(analyticsMock.trackJobAlertCtaSkipped)
       .toHaveBeenCalledWith('inline_card', 'quota_full'));
