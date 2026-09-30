@@ -242,6 +242,8 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/canonicalExemptions.mjs
+            /scripts/lib/jobBoardSections.mjs
             /scripts/lib/meta-description-extract.mjs
           sparse-checkout-cone-mode: false
 

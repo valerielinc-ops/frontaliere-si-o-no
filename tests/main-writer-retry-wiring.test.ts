@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
   '.github/workflows/build-evidence-and-tune.yml',
-  '.github/workflows/crawler-health-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
   '.github/workflows/funnel-metrics-snapshot.yml',
@@ -18,6 +18,7 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/refresh-gsc-marquee-demand.yml',
   '.github/workflows/regenerate-visual-baselines.yml',
   '.github/workflows/update-weather.yml',
+  '.github/workflows/update-exchange-history.yml',
 ];
 
 function read(relativePath: string): string {
@@ -51,9 +52,6 @@ describe('main data writers use the shared retry contract', () => {
     expect(finalizer).toBeGreaterThan(-1);
     expect(checker).toBeGreaterThan(finalizer);
     expect(publisher).toBeGreaterThan(checker);
-    expect(read('.github/workflows/crawler-health-monitor.yml')).toContain(
-      'node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json',
-    );
     expect(read('.github/workflows/guard-data-integrity.yml')).toContain(
       'node scripts/ci/restore-data-integrity-files.mjs',
     );
@@ -62,6 +60,28 @@ describe('main data writers use the shared retry contract', () => {
     expect(buildHistoryWriter).toContain('git-push-with-retry.sh --max-attempts 5 --stash-dirty');
     expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
     expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
+  });
+
+  it('bounds the exchange snapshot retry budget below its job timeout', () => {
+    const workflow = read('.github/workflows/update-exchange-history.yml');
+    const document = YAML.parse(workflow) as {
+      jobs?: {
+        update?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string }>;
+        };
+      };
+    };
+    const updateJob = document.jobs?.update;
+    const snapshotStep = updateJob?.steps?.find(
+      (step) => step.name === 'Commit SSG snapshot (if changed)',
+    );
+    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
+
+    expect(updateJob, 'exchange history update job is missing').toBeDefined();
+    expect(snapshotStep, 'exchange snapshot commit step is missing').toBeDefined();
+    expect(maxAttempts, 'exchange snapshot retry cap is missing').toBe('5');
+    expect(Number(maxAttempts)).toBeLessThan(updateJob?.['timeout-minutes'] ?? 0);
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {

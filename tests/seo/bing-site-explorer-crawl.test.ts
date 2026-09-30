@@ -12,6 +12,7 @@ import {
 } from '../../scripts/seo/bing-site-explorer-crawl.mjs';
 import {
   aggregateCrawlReports,
+  buildIssueBody,
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 
@@ -41,6 +42,29 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(noindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     const drift = classifyDocument({ url: `${BASE}/a/`, status: 200, html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/b/">' });
     expect(drift.findings.map((item) => item.code)).toContain('canonical-drift');
+
+    const expectedJobConsolidation = classifyDocument({
+      url: `${BASE}/en/find-jobs-geneva/a/`,
+      status: 200,
+      html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-geneva/b/">',
+    });
+    expect(expectedJobConsolidation.findings.map((item) => item.code)).toContain('canonical-expected');
+    expect(expectedJobConsolidation.findings.map((item) => item.code)).not.toContain('canonical-drift');
+
+    const expectedPreviousSlugBridge = classifyDocument({
+      url: `${BASE}/blog/vecchio-slug/`,
+      status: 200,
+      html: '<title>Archivio</title><link rel="canonical" href="https://frontaliereticino.ch/blog/nuovo-slug/"><script>__BRIDGE_TARGET_SLUG__</script>',
+    });
+    expect(expectedPreviousSlugBridge.findings.map((item) => item.code)).toContain('canonical-expected');
+
+    const thinBridge = classifyDocument({
+      url: `${BASE}/blog/legacy/`,
+      status: 200,
+      html: '<title>Archivio</title><link rel="canonical" href="https://frontaliereticino.ch/blog/current/"><p>Versione canonica disponibile</p>',
+    });
+    expect(thinBridge.findings.map((item) => item.code)).toContain('canonical-drift');
+
     const gone = classifyDocument({ url: `${BASE}/missing/`, status: 200, html: '<title>404 — Pagina non trovata</title><h1>Pagina non trovata</h1>' });
     expect(gone.findings.map((item) => item.code)).toContain('soft-404');
     expect(classifyDocument({ url: `${BASE}/missing/`, status: 404 }).findings[0].code).toBe('http-error');
@@ -70,6 +94,54 @@ describe('Bing-compatible full-tree crawler', () => {
       headers: new Headers({ 'x-robots-tag': 'noindex' }),
     });
     expect(nonHtmlNoindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+  });
+
+  it('keeps expected canonical consolidations out of the actionable issue body', () => {
+    const expectedUrl = `${BASE}/blog/vecchio-slug/`;
+    const driftUrl = `${BASE}/blog/old/`;
+    const report = {
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: 2,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: 2,
+      checkedCount: 2,
+      codeCounts: { 'canonical-expected': 1, 'canonical-drift': 1 },
+      statusCounts: { 200: 2 },
+      folderStats: {
+        '/blog/': {
+          checked: 2,
+          statuses: { 200: 2 },
+          findings: { 'canonical-expected': 1, 'canonical-drift': 1 },
+        },
+      },
+      findings: [
+        {
+          code: 'canonical-expected',
+          url: expectedUrl,
+          root: '/blog/',
+          status: 200,
+          detail: 'canonical consolidato (previous-slug-bridge)',
+        },
+        {
+          code: 'canonical-drift',
+          url: driftUrl,
+          root: '/blog/',
+          status: 200,
+          detail: 'canonical diverso',
+        },
+      ],
+      discoveredOutOfSitemap: [],
+    };
+
+    const summary = aggregateCrawlReports([report], { manifestCount: 2, sitemapCount: 1, baseUrl: BASE });
+    const issueBody = buildIssueBody(summary);
+    expect(summary.actionableCount).toBe(1);
+    expect(issueBody).toContain('### canonical-drift (1)');
+    expect(issueBody).not.toContain('### canonical-expected');
+    expect(issueBody).not.toContain('`canonical-expected`');
+    expect(issueBody).toContain('| `/blog/` | 2 | 0 | 1 |');
   });
 
   it('does not match SEO attributes inside other attribute names or values', () => {

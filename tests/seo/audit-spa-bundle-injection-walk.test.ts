@@ -48,10 +48,17 @@ const SCRIPT = path.join(REPO_ROOT, 'scripts', 'audit-spa-bundle-injection.mjs')
 // Writing a report would CREATE dist/ at the repo root and flip the suites that
 // guard on fs.existsSync(dist) — see scripts/lib/auditReport.mjs's own note.
 const REPORTS_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'spa-bundle-reports-'));
-// Sparse worktrees have no data/, so a run without the baseline would CREATE
-// it. Remember whether it was there and put the tree back exactly as found.
-const BASELINE = path.join(REPO_ROOT, 'data', 'spa-bundle-injection-baseline.json');
-const baselineExisted = fs.existsSync(BASELINE);
+// The baseline is a PINNED copy in tmpdir, passed via SPA_BUNDLE_INJECTION_BASELINE.
+// The suite used to run against data/spa-bundle-injection-baseline.json itself:
+// it rewrote that tracked file (the folded-baseline case, restored in a
+// `finally`), created it in sparse worktrees, and took the pass or regression
+// branch depending on whatever the ratchet held that day. The pinned value is
+// the shape these cases assume: total=5 (well under every fixture below), an
+// unfolded, empty `groups`.
+const BASELINE_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'spa-bundle-baseline-'));
+const BASELINE = path.join(BASELINE_DIR, 'spa-bundle-injection-baseline.json');
+const PINNED_BASELINE = JSON.stringify({ total: 5, groups: {} });
+fs.writeFileSync(BASELINE, PINNED_BASELINE, 'utf8');
 
 const BUNDLE = '<script type="module" crossorigin src="/assets/index-abc123XY.js"></script>';
 
@@ -66,20 +73,17 @@ function page(relDir: string, body: string): void {
 
 // The ratchet's regression branch (`current > baselineTotal`) prints its
 // offender-count line via console.error, not console.log — so it lands on
-// stderr, not stdout. Whether a run takes the pass or regression branch
-// depends on the REPO'S REAL baseline (data/spa-bundle-injection-baseline.json),
-// which this suite doesn't control and which is expected to keep shrinking
-// (that's the point of the ratchet). Capturing only stdout made these tests
-// silently depend on that real baseline staying above the fixture's 7
-// synthetic offenders — the same kind of unobserved coupling issue #5451
-// fixed in the gate itself. Merge both streams so the offender-count
-// assertion holds regardless of which branch the real baseline sends it down.
+// stderr, not stdout. Capturing only stdout once made these tests silently
+// depend on the repo's real baseline staying above the fixture's 7 synthetic
+// offenders (issue #5451); the baseline is now pinned (see BASELINE above), and
+// both streams stay merged so the offender-count assertion holds on either
+// branch.
 function run(cwd: string = workdir): { stdout: string; status: number } {
   try {
     const stdout = execFileSync(process.execPath, [SCRIPT], {
       cwd,
       encoding: 'utf8',
-      env: { ...process.env, AUDIT_REPORTS_DIR: REPORTS_DIR },
+      env: { ...process.env, AUDIT_REPORTS_DIR: REPORTS_DIR, SPA_BUNDLE_INJECTION_BASELINE: BASELINE },
       stdio: ['ignore', 'pipe', 'pipe'],
     });
     return { stdout, status: 0 };
@@ -153,7 +157,7 @@ beforeAll(() => {
 afterAll(() => {
   fs.rmSync(workdir, { recursive: true, force: true });
   fs.rmSync(REPORTS_DIR, { recursive: true, force: true });
-  if (!baselineExisted) fs.rmSync(BASELINE, { force: true });
+  fs.rmSync(BASELINE_DIR, { recursive: true, force: true });
 });
 
 describe('audit-spa-bundle-injection — which files the walk visits', () => {
@@ -167,7 +171,7 @@ describe('audit-spa-bundle-injection — which files the walk visits', () => {
     expect(c.scanned).toBe(21);
     expect(c.skipped).toBe(2);
     expect(c.redirect).toBe(2);
-    // status is 0 or 1 depending on the repo baseline; the counters are the
+    // status is 0 or 1 depending on the ratchet branch; the counters are the
     // assertion here. `-1` would mean the process died.
     expect([0, 1]).toContain(status);
   });
@@ -341,7 +345,7 @@ describe('audit-spa-bundle-injection — offender groups past the breakdown cap'
    * keep their exact numeric delta.
    */
   it('prints no delta for <other> against an unfolded baseline, and keeps it for the comparable keys', () => {
-    // The repo baseline (total=5, groups={}) is well under PAGES, so this run
+    // The pinned baseline (total=5, groups={}) is well under PAGES, so this run
     // takes the regression branch — the only one that prints per-group deltas.
     const { stdout } = run(manyWorkdir);
     expect(stdout).toMatch(/regression: \d+ files missing the SPA bundle/);

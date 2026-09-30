@@ -179,7 +179,12 @@ export const GATES = [
     // (line 627) does not contain, so it fell through to `/(\d+)\s+orphan/`,
     // which matches the first incidental "N orphan…" in the log. Issue #5169.
     extractCurrent: () => {
-      const reportPath = path.join(PROJECT_ROOT, 'data', 'orphan-pages-audit.json');
+      // ORPHAN_PAGES_AUDIT_REPORT sposta insieme lettore e scrittore
+      // (audit-orphan-pages-in-sitemaps.mjs la usa come default di --out): i
+      // test la puntano in os.tmpdir() invece di riscrivere il report tracciato.
+      const reportPath = process.env.ORPHAN_PAGES_AUDIT_REPORT
+        ? path.resolve(process.env.ORPHAN_PAGES_AUDIT_REPORT)
+        : path.join(PROJECT_ROOT, 'data', 'orphan-pages-audit.json');
       const report = JSON.parse(readFileSync(reportPath, 'utf8'));
       // The report is git-TRACKED, so a run that crashed before writing would
       // leave the committed copy behind and this reader would score the gate

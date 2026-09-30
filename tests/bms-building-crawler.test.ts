@@ -1,11 +1,18 @@
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   BMS_BUILDING_KEY,
   BMS_BUILDING_COMPANY_NAME,
+  BMS_NAVIGATION_PREFIX_RE,
+  extractBmsBuildingDetailFields,
   isBmsBuildingJob,
   isTrustedDomain,
+  prepareBmsBuildingExistingJobs,
 } from '../scripts/lib/bms-building-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { hasStructuredContent } from '../scripts/lib/translation-quality.mjs';
+
+const DETAIL_FIXTURE = fs.readFileSync(new URL('./fixtures/bms-building/detail.html', import.meta.url), 'utf8');
 
 describe('BMS Building Materials crawler parser', () => {
   // ── Constants ──
@@ -56,6 +63,83 @@ describe('BMS Building Materials crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('detail extraction', () => {
+    it('publishes only the announcement and keeps source lists as hyphen bullets', () => {
+      const detail = extractBmsBuildingDetailFields(DETAIL_FIXTURE, 'https://jobs.bmsuisse.ch/jobs/detail/1-test/');
+
+      expect(detail.title).toBe('Logistikfachperson 80 - 100%');
+      expect(detail.description).toContain('- Wareneingänge prüfen und Material bereitstellen');
+      expect(detail.description).toContain('- Erfahrung im Lager oder in der Logistik');
+      expect(hasStructuredContent(detail.description)).toBe(true);
+      expect(detail.description).not.toContain('Arbeiten bei BMS');
+      expect(detail.description).not.toContain('site footer');
+    });
+
+    it('fails closed instead of falling back to page chrome when the container is missing', () => {
+      const detail = extractBmsBuildingDetailFields(
+        '<main><nav>Arbeiten bei BMS Offene Stellen</nav><p>menu only</p></main>',
+        'https://jobs.bmsuisse.ch/jobs/detail/missing-body/',
+      );
+
+      expect(detail.description).toBe('');
+    });
+
+    it('uses the shared 50-word source-body floor', () => {
+      const bodyWithWords = (count: number) => Array.from(
+        { length: count },
+        (_, index) => `SourceWord${index + 1}`,
+      ).join(' ');
+      const detailHtml = (body: string) => `
+        <div class="tx-webx-jobs">
+          <div class="details"><p>${body}</p></div>
+        </div>`;
+
+      const belowFloor = extractBmsBuildingDetailFields(
+        detailHtml(bodyWithWords(49)),
+        'https://jobs.bmsuisse.ch/jobs/detail/49-word-body/',
+      );
+      const atFloorBody = bodyWithWords(50);
+      const atFloor = extractBmsBuildingDetailFields(
+        detailHtml(atFloorBody),
+        'https://jobs.bmsuisse.ch/jobs/detail/50-word-body/',
+      );
+
+      expect(belowFloor.description).toBe('');
+      expect(atFloor.description).toBe(atFloorBody);
+    });
+  });
+
+  describe('stored navigation repair', () => {
+    const fullMenu = '•\n\nX\n\nArbeiten bei BMS\n\nArbeiten bei BMS\n\nUnsere Werte\n\nDeine Benefits\n\nHealth & Safety\n\nJobs\n\nJobs\n\nOffene Stellen\n\nLehrstellen\n\nDE\n\nFR\n\nIT\n\nDE\n\n';
+
+    it('requires the complete menu sequence before stripping', () => {
+      expect(BMS_NAVIGATION_PREFIX_RE.test(`${fullMenu}Annuncio reale`)).toBe(true);
+      expect(BMS_NAVIGATION_PREFIX_RE.test(`${fullMenu.slice(0, -8)}Annuncio reale`)).toBe(false);
+    });
+
+    it('cleans the source, drops derived locale slots, and preserves slugs', () => {
+      const job: any = {
+        sourceLang: 'de',
+        description: `${fullMenu}Annuncio reale\n- Un compito concreto`,
+        descriptionByLocale: {
+          de: `${fullMenu}Annuncio reale\n- Un compito concreto`,
+          it: `${fullMenu}Annuncio tradotto\n- Un compito concreto`,
+          en: `${fullMenu}Translated advert\n- One concrete task`,
+        },
+        slug: 'stable-slug',
+        slugByLocale: { de: 'stable-slug', it: 'stable-slug-it' },
+      };
+
+      prepareBmsBuildingExistingJobs([job]);
+
+      expect(job.description.startsWith('Annuncio reale')).toBe(true);
+      expect(job.descriptionByLocale).toEqual({ de: job.description });
+      expect(job.needsRetranslation).toBe(true);
+      expect(job.slug).toBe('stable-slug');
+      expect(job.slugByLocale).toEqual({ de: 'stable-slug', it: 'stable-slug-it' });
     });
   });
 
