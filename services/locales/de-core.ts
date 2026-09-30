@@ -888,6 +888,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.error.stale_link': "Diese Version wurde ersetzt: Öffne den Link aus der neuesten E-Mail.",
  'jobBoard.assisted.review.error.feedback_required': "Schreib bitte, was du ändern möchtest.",
  'jobBoard.assisted.review.error.no_valid_answers': "Füll bitte mindestens eine Antwort aus.",
+ 'jobBoard.assisted.review.error.invalid_date': "Prüf bitte das Datum: Es muss gültig sein und beim Stellenantritt heute oder später liegen.",
  'jobBoard.assisted.review.error.questions_open': "Beantworte zuerst die Fragen mit *.",
  'jobBoard.assisted.review.error.network': "Verbindung fehlgeschlagen. Bitte erneut versuchen.",
  'jobBoard.assisted.review.field.firstName': "Vorname",

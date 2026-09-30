@@ -29,6 +29,8 @@ export interface ReviewQuestion {
   type: 'text' | 'yes_no' | 'choice' | 'number' | 'date';
   options: string[];
   required: boolean;
+  /** Earliest accepted date (YYYY-MM-DD) for a start-date question, else null. */
+  minDate?: string | null;
 }
 
 export interface ReviewPayload {

@@ -857,6 +857,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.error.stale_link': "Cette version a été remplacée : ouvrez le lien du dernier e-mail.",
  'jobBoard.assisted.review.error.feedback_required': "Indiquez ce que vous souhaitez modifier.",
  'jobBoard.assisted.review.error.no_valid_answers': "Remplissez au moins une réponse.",
+ 'jobBoard.assisted.review.error.invalid_date': "Vérifiez la date : elle doit être valide et, pour la date d'entrée en fonction, aujourd'hui ou plus tard.",
  'jobBoard.assisted.review.error.questions_open': "Répondez d’abord aux questions marquées *.",
  'jobBoard.assisted.review.error.network': "Échec de la connexion. Réessayez.",
  'jobBoard.assisted.review.field.firstName': "Prénom",

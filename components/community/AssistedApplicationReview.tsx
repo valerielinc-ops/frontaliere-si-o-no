@@ -78,6 +78,7 @@ function QuestionField({ question, value, onChange, disabled }: {
       ) : (
         <input
           type={question.type === 'number' ? 'number' : question.type === 'date' ? 'date' : 'text'}
+          min={question.type === 'date' ? question.minDate || undefined : undefined}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           disabled={disabled}

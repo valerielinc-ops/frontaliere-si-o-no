@@ -98,6 +98,25 @@ describe('candidate review API', () => {
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'candidate_approved' });
   });
 
+  it('refuses a start date in the past or an impossible date, and tells the page the earliest one', async () => {
+    const availability = { id: 'availability', question: 'Da quale data saresti disponibile a iniziare?', why: '', type: 'date', options: [], required: true };
+    const birth = { id: 'birth_date', question: 'Data di nascita', why: '', type: 'date', options: [], required: false };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [availability, birth] }));
+    const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    // T0 is 30-09-2026 10:00 UTC: the start date may be today at the earliest; a birth date has no minimum.
+    expect(view.body.questions).toEqual([
+      expect.objectContaining({ id: 'availability', minDate: '2026-09-30' }),
+      expect.objectContaining({ id: 'birth_date', minDate: null }),
+    ]);
+    const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+    expect(await answer({ availability: '1985-09-12' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
+    expect(await answer({ availability: '2026-02-30' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
+    expect(await answer({ availability: 'domani' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
+    expect(await answer({ availability: '2026-11-01', birth_date: '1985-09-12' })).toMatchObject({ status: 200 });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ availability: '2026-11-01', birth_date: '1985-09-12' });
+  });
+
   it('turns feedback into a new round', async () => {
     const empty = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'reject', feedback: 'no' } }, deps());
     expect(empty).toMatchObject({ status: 400, body: { error: 'feedback_required' } });
