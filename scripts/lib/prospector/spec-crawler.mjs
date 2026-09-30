@@ -226,7 +226,10 @@ export function geographyFieldsForDecision(decision = {}) {
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime) {
   const notifyPageFetched = (page) => {
-    if (typeof runtime.onPageFetched === 'function') runtime.onPageFetched(page, url);
+    // This is an observational, synchronous hook: its return value is
+    // deliberately ignored so it cannot change the fetch result or delay the
+    // crawler transport.
+    if (typeof runtime.onPageFetched === 'function') void runtime.onPageFetched(page, url);
     return page;
   };
   const result = await politeFetch(url, {
