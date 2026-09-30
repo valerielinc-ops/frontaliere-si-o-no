@@ -5,6 +5,7 @@ import {
   fetchDavosKlostersBergbahnenDetailPage,
   parseDavosKlostersBergbahnenListingHtml,
   parseDavosKlostersBergbahnenDetailHtml,
+  isDavosKlostersBergbahnenSourceBodyPublishable,
   stripTemplatePlaceholders,
   normalizeDavosKlostersBergbahnenJobUrl,
   slugify,
@@ -517,9 +518,31 @@ describe('template placeholder bodies (#5253)', () => {
     'utf8',
   );
 
+  const detailWithBody = (body: string) => `
+    <h1><span class="text-primary">Betriebselektriker:in</span></h1>
+    <div class="wysiwyg"><p>${body}</p></div></div>
+  `;
+
+  const wordBody = (count: number) => Array.from(
+    { length: count },
+    (_, index) => `Anforderung${index + 1}`,
+  ).join(' ');
+
   it('publishes no description for a body made only of placeholders (and no chrome fallback)', () => {
     const parsed = parseDavosKlostersBergbahnenDetailHtml(PLACEHOLDER_PAGE);
     expect(parsed?.description).toBeUndefined();
+  });
+
+  it('quarantines a 35-word source body and publishes a 60-word body unchanged', () => {
+    const thinBody = wordBody(35);
+    const richBody = wordBody(60);
+
+    expect(isDavosKlostersBergbahnenSourceBodyPublishable(
+      parseDavosKlostersBergbahnenDetailHtml(detailWithBody(thinBody))?.description,
+    )).toBe(false);
+    expect(isDavosKlostersBergbahnenSourceBodyPublishable(
+      parseDavosKlostersBergbahnenDetailHtml(detailWithBody(richBody))?.description,
+    )).toBe(true);
   });
 
   it('drops heading/"Text <heading>" pairs but keeps real sections and real prose starting with "Text"', () => {
