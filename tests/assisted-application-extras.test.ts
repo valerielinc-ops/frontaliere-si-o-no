@@ -255,6 +255,16 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 2, sendCascade, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
 
+    // Signed with the name the candidate corrected on the review page.
+    const corrected = followupStore();
+    await corrected.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi' } }, { merge: true });
+    await corrected.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    const signed = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await sendFollowup({ db: corrected.db, orderId: ORDER, nowMs: T0 + 1, sendCascade: signed, by: 'candidate' });
+    const [[[item]]] = signed.mock.calls as any;
+    expect(item.payload.from).toContain('Maria Luisa Rossi');
+    expect(item.payload.text).toMatch(/\n\nMaria Luisa Rossi/);
+
     // A contended transaction is retried: the retry sees the other sender's claim and backs off.
     const raced = followupStore();
     await raced.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);

@@ -42,8 +42,12 @@ export const AUTOMATION_EVENTS_SUBCOLLECTION = 'automation_events';
 export const AI_DRAFTS_SUBCOLLECTION = 'ai_drafts';
 export const AI_DRAFT_DOC_ID = 'current';
 
-/** A dispatched run that reported nothing for this long is presumed lost. */
-export const RUN_WATCHDOG_MS = 45 * 60 * 1000;
+/**
+ * A dispatched run that reported nothing for this long is presumed lost.
+ * Longer than the agent job's timeout-minutes (120, three 30-minute Codex
+ * calls in a row): a slow run that is still alive is never dispatched twice.
+ */
+export const RUN_WATCHDOG_MS = 150 * 60 * 1000;
 /** Draft runs at Codex effort max take ~10–15 min; submissions can take longer. */
 export const MAX_DISPATCH_ATTEMPTS = 2;
 const DISPATCH_TIMEOUT_MS = 20_000;

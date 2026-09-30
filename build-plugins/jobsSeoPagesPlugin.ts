@@ -15331,6 +15331,15 @@ ${staticAnalyticsHtml}
  if (!shouldEmitLocale(locale)) continue;
  const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
  if (_writtenPaths.has(absFile)) continue;
+ // Backpressure, as in the other bulk-emit loops: this loop queues ~68k
+ // historical pages × 2 files synchronously, so without a yield the
+ // WriteCollector's flushes cannot progress and every page's HTML stays in
+ // memory until the final flush. Since #10481 each fallback is a full
+ // archive page instead of a tiny bridge: deploy 30-09 measured the phase
+ // at +1.3-1.4 GB (was +171 MB) and the de/en legs died with "Ineffective
+ // mark-compacts near heap limit". awaitDrainSlot(2) returns at once while
+ // at most 2 flushes are in flight.
+ await collector.awaitDrainSlot(2);
  const __tSelfHealing = startTimer();
 
  // Active cross-canton job: this tracking path is the job's legacy-TI drift

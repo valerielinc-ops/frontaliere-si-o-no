@@ -13,10 +13,10 @@
 
 import {
   LETTER_FILE_LABEL,
-  candidateIdentity,
   checkDraftFacts,
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
+import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
@@ -80,7 +80,7 @@ export async function submitApplication(ctx) {
   const channel = draft.channel || {};
   const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
   if (channel.type === 'email' && isPlausibleEmail(to) && to !== OWNER_MAILBOX) {
-    const identity = candidateIdentity(order, draft.profile);
+    const { identity } = candidateWithEdits({ order, draft, flow });
     const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
     const stem = safeFileStem(identity.name);
     const letterLabel = safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it);
@@ -163,7 +163,9 @@ export async function submitApplication(ctx) {
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channel.type, replayed: true };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }
-    const identity = candidateIdentity(order, draft.profile);
+    // With the candidate's corrections from the review page.
+    const edited = candidateWithEdits({ order, draft, flow });
+    const { identity } = edited;
     let dir = null;
     // Set once `clickedAt` is on record, right before the final click.
     let clicked = false;
@@ -183,7 +185,7 @@ export async function submitApplication(ctx) {
         applyUrl,
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: draft.profile, answers, draft, portalQuestions }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,
@@ -220,7 +222,7 @@ export async function submitApplication(ctx) {
     bucket,
     orderId,
     name: 'submit-handoff',
-    payload: { channel, applyUrl: channel.applyUrl || draft.job?.applyUrl || '', formAnswers: draft.formAnswers, answers },
+    payload: { channel, applyUrl: channel.applyUrl || draft.job?.applyUrl || '', formAnswers: formAnswersWithEdits({ order, draft, flow }), answers },
     key: runKey,
     nowMs,
   });
