@@ -188,6 +188,19 @@ describe('brand shell', () => {
     }
   });
 
+  it('with automation on, says the 12 hours start with the draft e-mail, not now', () => {
+    const order = paidOrder({ applicantName: 'Maria Rossi' });
+    const received = buildCustomerEmail('received', order, 'order-1', { nowMs: NOW, automation: true });
+    expect(received.text).toContain('Per ora non devi fare nulla');
+    expect(received.text).toContain('seconda email con la bozza');
+    expect(received.text).toContain('Solo da quel momento hai 12 ore');
+    const intro = buildCustomerEmail('intro', order, 'order-1', { nowMs: NOW, automation: true });
+    expect(intro.text).toContain('Solo da quel momento hai 12 ore');
+    expect(intro.text).not.toContain('Se non rispondi entro 12 ore');
+    // Without automation the manual copy stays: no 12 hours at all.
+    expect(buildCustomerEmail('received', order, 'order-1', { nowMs: NOW, automation: false }).text).not.toContain('12 ore');
+  });
+
   it('turns the order link into a button and the reply path into the highlighted box', () => {
     const url = 'https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order-1';
     const { html } = buildCustomerEmail('intro', paidOrder({ orderPageUrl: url }), 'order-1', { nowMs: NOW });
