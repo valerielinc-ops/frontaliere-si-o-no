@@ -174,8 +174,9 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
     expect(src.split('\n').slice(checkoutLine, checkoutLine + 10).join('\n'))
       .toMatch(/persist-credentials:\s*false/);
     expect(src).toContain('Verify main push identity');
+    expect(src).toContain('git remote set-url origin \\');
     expect(src).toContain(
-      'git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
+      '"https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
     );
   });
 
