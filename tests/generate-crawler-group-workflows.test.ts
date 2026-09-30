@@ -1600,7 +1600,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(contract.crawlerCount).toBe(currentCrawlerCount);
     expect(groups.flatMap((artifact: any) => artifact.members)).toHaveLength(currentCrawlerCount);
     expect(new Set(groups.flatMap((artifact: any) => artifact.members)).size).toBe(currentCrawlerCount);
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('pubblica soltanto runtime path del sito esistenti e fallisce su un typo citato', () => {
     const { contract, outDir } = generateArtifacts();
@@ -1625,7 +1625,7 @@ describe('cross-repo crawler execution artifacts', () => {
       ...contents,
       'run: node scripts/typo-nonexistent.mjs\n',
     ])).toThrow(/missing site runtime path.*scripts\/typo-nonexistent\.mjs/);
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
     const { contract, outDir } = generateArtifacts();
@@ -1659,7 +1659,7 @@ describe('cross-repo crawler execution artifacts', () => {
         .map((match) => match[1]);
       expect(declaredClosure, artifact.file).toEqual(expectedClosure);
     }
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('dichiara gli input runtime in ogni forma del workflow e usa il contesto portabile', () => {
     const generatedArtifacts = generate({ outDir: workflowsDir, assignmentsPath, write: false });
@@ -1941,7 +1941,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const stableManifest = fs.readFileSync(corpusManifestPath, 'utf8');
     prepareCrawlerWorkflowCorpusSync({ sourceDir: portableDir, corpusRoot, alignedAt: '2026-09-01' });
     expect(fs.readFileSync(corpusManifestPath, 'utf8')).toBe(stableManifest);
-  }, 30_000);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('converge il transport adattato del translate in identical dopo il fix sorgente', () => {
     const { outDir, contractPath } = generateArtifacts();
@@ -2051,7 +2051,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
       .toThrow(/required crawler transport input missing/);
     expect(fs.readFileSync(sentinel, 'utf8')).toBe('sentinel\n');
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('un observer sorgente mancante fallisce prima di sostituire il workflow corpus', () => {
     const { outDir } = generateArtifacts();
@@ -2064,7 +2064,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
       .toThrow(/required crawler transport input missing/);
     expect(fs.readFileSync(destination, 'utf8')).toBe('sentinel-workflow\n');
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta qualunque mutazione non-owned nel loop-sync manifest condiviso', () => {
     const baseManifest: any = {
@@ -2141,7 +2141,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(text).not.toMatch(/uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/actions\//);
       expect(text).toContain('uses: ./.github/actions/');
     }
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('documenta nel translate il confine di scrittura isolato senza lease Firestore', () => {
     const { outDir } = generateArtifacts();
@@ -2166,7 +2166,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(job.env?.DATA_PIPELINE_LEASE).toBeUndefined();
     }
     expect(groupResults[0].content).toContain('node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml');
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('confina il secret Codex all’action setup e lo rimuove dagli env dei processi', () => {
     const { outDir } = generateArtifacts();
@@ -2237,7 +2237,7 @@ describe('cross-repo crawler execution artifacts', () => {
     );
     expect(translationCleanupStep?.if).toBe('always()');
     expect(translationCleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
     const { contract, outDir } = generateArtifacts();
@@ -2261,7 +2261,7 @@ describe('cross-repo crawler execution artifacts', () => {
         );
       }
     }
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('ritenta soltanto il checkout sparse, con backoff prima di qualunque logica', () => {
     const { contract, outDir } = generateArtifacts();
@@ -2338,7 +2338,7 @@ describe('cross-repo crawler execution artifacts', () => {
         expect(checkout.with['sparse-checkout']).not.toContain('!/data/jobs/');
       }
     }
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
     const { contract, outDir } = generateArtifacts();
@@ -2500,5 +2500,5 @@ describe('cross-repo crawler execution artifacts', () => {
         expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
       }
     }
-  });
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 });

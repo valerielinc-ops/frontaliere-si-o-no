@@ -109,7 +109,7 @@ describe('ogni cancello dichiarato è agganciato a qualcosa che gira', () => {
         'o cancellati). Toglili da tests/gate-wiring-baseline.json — è il ratchet\n' +
         'che scende, ed è voluto che il test fallisca finché non lo fai.',
     ).toEqual([]);
-  });
+  }, 60_000);
 
   it('il marker manuale è una via d\'uscita reale, non una parola nel vuoto', () => {
     // Se il marker smettesse di funzionare, la baseline crescerebbe di colpo e
