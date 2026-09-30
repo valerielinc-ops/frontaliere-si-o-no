@@ -7,6 +7,7 @@ const read = (file: string) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 
 describe('protected data refreshes publish through pull requests', () => {
   const refreshes = [
+    '.github/workflows/crawl-events.yml',
     '.github/workflows/refresh-job-popularity.yml',
     '.github/workflows/refresh-article-trending.yml',
     '.github/workflows/monitor-telegram-member-count.yml',
@@ -37,7 +38,20 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--base main');
     expect(helper).toContain('HEAD:${BRANCH}');
     expect(helper).toContain('--force-with-lease');
+    expect(helper).toContain('CHECKPOINT_ONLY=false');
+    expect(helper).toContain('--checkpoint');
+    expect(helper).toContain('git-add-resolved.mjs --print-only');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('lets long crawlers checkpoint a stable branch without opening a partial PR', () => {
+    const workflow = read('.github/workflows/crawl-events.yml');
+    expect(workflow).toContain('--checkpoint');
+    expect(workflow).toContain('--path data/events/checkpoints/');
+    expect(workflow).toContain('--branch chore/refresh-events');
+    expect(workflow).toContain('Open PR with events dataset');
+    expect(workflow).toContain('data/events-image-manifest.json');
+    expect(workflow).toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
   });
 
   it('preserves pending append-only Telegram history before publishing the stable branch', () => {
