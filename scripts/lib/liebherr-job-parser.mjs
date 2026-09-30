@@ -40,7 +40,11 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import {
+  addPreviousSlugForLocale,
+  detectLang,
+  promotePreviousSlugToLegacy,
+} from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
@@ -228,6 +232,8 @@ function primaryOrder(a = {}, b = {}) {
 function addLiebherrRedirect(job, locale, slug, metrics) {
   const value = String(slug || '').trim();
   if (!value) return;
+  const localeKey = String(locale || '').trim().toLowerCase();
+  const supportedLocale = ['it', 'en', 'de', 'fr'].includes(localeKey) ? localeKey : '';
   const current = new Set([
     job?.slug,
     ...Object.values(job?.slugByLocale || {}),
@@ -238,36 +244,23 @@ function addLiebherrRedirect(job, locale, slug, metrics) {
     job.previousSlugs?.includes(value)
     || Object.values(job.previousSlugsByLocale || {}).some((aliases) => Array.isArray(aliases) && aliases.includes(value)),
   );
-  let added = false;
-  if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-  if (!job.previousSlugs.includes(value)) {
-    job.previousSlugs.push(value);
-    added = true;
+  const legacyKnown = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(value);
+  if (!supportedLocale) {
+    if (legacyKnown) return false;
+    const added = promotePreviousSlugToLegacy(job, value, undefined, 'liebherr-variant-merge');
+    if (added && !alreadyKnown && metrics) metrics.redirectsCreated += 1;
+    return added;
   }
-  if (locale) {
-    if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
-      job.previousSlugsByLocale = {};
-    }
-    if (!Array.isArray(job.previousSlugsByLocale[locale])) job.previousSlugsByLocale[locale] = [];
-    if (!job.previousSlugsByLocale[locale].includes(value)) {
-      job.previousSlugsByLocale[locale].push(value);
-      added = true;
-    }
-  }
+  const localeAliases = Array.isArray(job.previousSlugsByLocale?.[supportedLocale])
+    ? job.previousSlugsByLocale[supportedLocale]
+    : [];
+  const added = !localeAliases.includes(value) || !job.previousSlugs?.includes(value);
+  addPreviousSlugForLocale(job, supportedLocale, value, undefined, 'liebherr-variant-merge');
   if (added && !alreadyKnown && metrics) metrics.redirectsCreated += 1;
+  return added;
 }
 
 function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false } = {}) {
-  const merged = { ...primary };
-  if (Array.isArray(primary.previousSlugs)) merged.previousSlugs = [...primary.previousSlugs];
-  if (primary.previousSlugsByLocale && typeof primary.previousSlugsByLocale === 'object') {
-    merged.previousSlugsByLocale = Object.fromEntries(
-      Object.entries(primary.previousSlugsByLocale).map(([locale, slugs]) => [
-        locale,
-        Array.isArray(slugs) ? [...slugs] : slugs,
-      ]),
-    );
-  }
   const titleByLocale = { ...(primary.titleByLocale || {}) };
   const descriptionByLocale = { ...(primary.descriptionByLocale || {}) };
   const slugByLocale = { ...(primary.slugByLocale || {}) };
@@ -307,36 +300,54 @@ function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false 
     }
   }
 
-  merged.titleByLocale = titleByLocale;
-  merged.descriptionByLocale = descriptionByLocale;
-  merged.slugByLocale = slugByLocale;
-  merged.requirementsByLocale = requirementsByLocale;
-  merged.liebherrSourceJobReqIds = [...sourceJobReqIds];
-  merged.liebherrSourceJobReqIdByLocale = sourceJobReqIdByLocale;
   const sourceJobId = sourceJobIdForJob(primary, { legacy });
-  merged.liebherrLanguageVariantKey = variantGroupKey(primary, { legacy });
-  if (sourceJobId) merged.liebherrSourceJobId = sourceJobId;
   const primarySourceLang = liebherrSourceLang(primary, { legacy });
-  if (primarySourceLang) {
-    merged.sourceLang = primarySourceLang;
-    merged.title = titleByLocale[primarySourceLang] || primary.title;
-    merged.description = descriptionByLocale[primarySourceLang] || primary.description;
-  }
-  if (!merged.sourceLocale) {
-    const verifiedPrimaryLocale = sourceLocaleForJob(primary, { legacy });
-    if (verifiedPrimaryLocale) merged.sourceLocale = verifiedPrimaryLocale;
-  }
+  const verifiedPrimaryLocale = sourceLocaleForJob(primary, { legacy });
+  const merged = {
+    ...primary,
+    ...(Array.isArray(primary.previousSlugs)
+      ? { previousSlugs: [...primary.previousSlugs] }
+      : {}),
+    ...(primary.previousSlugsByLocale && typeof primary.previousSlugsByLocale === 'object'
+      ? {
+          previousSlugsByLocale: Object.fromEntries(
+            Object.entries(primary.previousSlugsByLocale).map(([locale, slugs]) => [
+              locale,
+              Array.isArray(slugs) ? [...slugs] : slugs,
+            ]),
+          ),
+        }
+      : {}),
+    titleByLocale,
+    descriptionByLocale,
+    slugByLocale,
+    requirementsByLocale,
+    liebherrSourceJobReqIds: [...sourceJobReqIds],
+    liebherrSourceJobReqIdByLocale: sourceJobReqIdByLocale,
+    liebherrLanguageVariantKey: variantGroupKey(primary, { legacy }),
+    ...(sourceJobId ? { liebherrSourceJobId: sourceJobId } : {}),
+    ...(primarySourceLang
+      ? {
+          sourceLang: primarySourceLang,
+          title: titleByLocale[primarySourceLang] || primary.title,
+          description: descriptionByLocale[primarySourceLang] || primary.description,
+        }
+      : {}),
+    ...(!primary.sourceLocale && verifiedPrimaryLocale
+      ? { sourceLocale: verifiedPrimaryLocale }
+      : {}),
+  };
 
   const secondaryLocale = liebherrSourceLang(secondary, { legacy });
   for (const [locale, slug] of Object.entries(secondary.slugByLocale || {})) {
     addLiebherrRedirect(merged, locale, slug, metrics);
   }
-  addLiebherrRedirect(merged, secondaryLocale || 'it', secondary.slug, metrics);
+  addLiebherrRedirect(merged, secondaryLocale, secondary.slug, metrics);
   for (const [locale, aliases] of Object.entries(secondary.previousSlugsByLocale || {})) {
     for (const alias of Array.isArray(aliases) ? aliases : []) addLiebherrRedirect(merged, locale, alias, metrics);
   }
   for (const alias of Array.isArray(secondary.previousSlugs) ? secondary.previousSlugs : []) {
-    addLiebherrRedirect(merged, secondaryLocale || 'it', alias, metrics);
+    addLiebherrRedirect(merged, secondaryLocale, alias, metrics);
   }
   return merged;
 }

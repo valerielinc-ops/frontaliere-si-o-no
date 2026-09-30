@@ -1,18 +1,19 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-30T21:13:18.097Z",
+  "generatedAt": "2026-09-30T23:34:01.746Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 11,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6822,
-  "avgDurationMs": 6822,
+  "durationMs": 6703,
+  "avgDurationMs": 6703,
   "durationHistory": [
-    6822
+    6703
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sanitär- und Heizungstechniker/in",
       "slug": "sanitar-und-heizungstechniker-in-agroscope-posieux",
@@ -36,16 +37,21 @@
       "validThrough": "2026-11-03",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "agroscope-7ef1058e63a6",
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 10,
-        "completeness": 14
+        "translation": 13,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Administrative/-r Mitarbeiter/-in",
       "slug": "administrative-r-mitarbeiter-in-agroscope-posieux",
