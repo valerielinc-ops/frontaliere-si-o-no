@@ -688,7 +688,7 @@ export const PrivacyPolicy: React.FC = () => {
                 inviato sono conservate cifrate e cancellate con il CV (90 giorni). Prima dell'invio la bozza è
                 controllata da un'operatrice e sottoposta alla tua approvazione: se non rispondi entro 12 ore
                 parte così com'è, come indicato nelle email. All'azienda comunichiamo un indirizzo email
-                dedicato alla tua candidatura (c-…@candidature.frontaliereticino.ch): i messaggi che vi
+                dedicato alla tua candidatura (nome.cognome.xxxx@candidature.frontaliereticino.ch): i messaggi che vi
                 arrivano sono classificati automaticamente, conservati cifrati per 90 giorni e inoltrati
                 subito a te con i loro allegati, con risposta diretta al selezionatore. Se il portale
                 dell'azienda richiede un account, lo creiamo a tuo nome con quell'indirizzo dedicato e una

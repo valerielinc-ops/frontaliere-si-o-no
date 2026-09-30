@@ -8,14 +8,17 @@ import {
   resolveBrefispersonalGeography,
 } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-
-const brefispersonalSpec = JSON.parse(
-  readFileSync(new URL('../data/prospector/crawlers/brefispersonal.json', import.meta.url), 'utf8'),
-);
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('brefis personal ag crawler parser', () => {
   describe('promoted prospector spec', () => {
-    it('uses the vacancy index and variable detail template', () => {
+    // Legge la spec VIVA in data/prospector/crawlers/, che il bot prospector
+    // riscrive: fuori dal gate delle PR, nel monitor post-merge (replay del
+    // 2026-09-30: l'esito cambia con i dati di 7 e 14 giorni fa).
+    it.skipIf(SKIP_LIVE_DATA)('uses the vacancy index and variable detail template', () => {
+      const brefispersonalSpec = JSON.parse(
+        readFileSync(new URL('../data/prospector/crawlers/brefispersonal.json', import.meta.url), 'utf8'),
+      );
       expect(brefispersonalSpec.companyHost).toBe('brefis.ch');
       expect(brefispersonalSpec.seedUrls).toEqual(['https://brefis.ch/Vacancyboard/']);
       expect(brefispersonalSpec.mode).toBe('template');

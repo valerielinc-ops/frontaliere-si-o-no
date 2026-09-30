@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 import {
   collectSpecListingRows,
   createSpecUrlPolicy,
@@ -233,7 +234,10 @@ describe('helper di paginazione', () => {
       .toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null, pageStateParams: [] });
   });
 
-  it('la spec yellowshark dichiara la paginazione e il contatore reale della fonte', () => {
+  // I due casi qui sotto leggono le spec VIVE in data/prospector/crawlers/, che
+  // il bot prospector riscrive: fuori dal gate delle PR, nel monitor post-merge
+  // (replay del 2026-09-30: l'esito cambia con i dati di 7 e 14 giorni fa).
+  it.skipIf(SKIP_LIVE_DATA)('la spec yellowshark dichiara la paginazione e il contatore reale della fonte', () => {
     const spec = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/prospector/crawlers/yellowshark.json'), 'utf8'));
     const pagination = normalizeSpecPagination(spec);
     // Markup osservato su https://jobs.yellowshark.com/ il 2026-09-28.
@@ -244,7 +248,7 @@ describe('helper di paginazione', () => {
     expect(pagination.pageStateParams).toEqual(['sf_paged']);
   });
 
-  it('le spec promosse con una listing paginata dichiarano la paginazione', () => {
+  it.skipIf(SKIP_LIVE_DATA)('le spec promosse con una listing paginata dichiarano la paginazione', () => {
     // Pagine misurate il 2026-09-28: pagina 2 di ciascun seed contiene annunci
     // assenti da pagina 1, quindi leggere solo il seed archivia offerte vive.
     const measuredPages: Record<string, number> = { yellowshark: 56, sta: 88, stellenpartner: 41, stellentreff: 57, gmo: 3 };
