@@ -366,6 +366,20 @@ describe('JobAlertForm — guest submit persists the intent or says it cannot (i
     expect(onRequireAuth).not.toHaveBeenCalled();
     expect(localStorage.getItem(PENDING_KEY)).toBeNull();
   });
+
+  it('keeps an advanced-only criterion instead of treating it as an empty alert', () => {
+    const onRequireAuth = vi.fn();
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    expandForm();
+    openCantonPicker();
+    fireEvent.click(getCantonChip(/Ticino/));
+    typeKeywordAndSubmit('   ');
+
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    const stored = JSON.parse(localStorage.getItem(PENDING_KEY) || 'null');
+    expect(stored.value.config.keywords).toEqual([]);
+    expect(stored.value.config.cantonFilter).toEqual(['TI']);
+  });
 });
 
 describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (issue 9576)', () => {

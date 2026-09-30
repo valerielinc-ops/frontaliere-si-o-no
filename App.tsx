@@ -191,6 +191,7 @@ import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 import { useAdPageDiag } from '@/hooks/useAdPageDiag';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
+import { peekPendingJobAlert } from '@/services/pendingJobAlert';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts).
 // It has NOT come back. AdsConsentBanner (the #5842 custom advertising prompt) is
 // gone too (CMP-single-surface rework): the blocking Google Funding Choices
@@ -2206,6 +2207,14 @@ const App: React.FC = () => {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
+
+ // JobAlertForm parks a guest's criteria before sending them to the existing
+ // profile auth screen. Re-enter the board after auth so the mounted form can
+ // consume and replay that intent instead of leaving the visitor on profile.
+ useEffect(() => {
+  if (activeTab !== 'profile' || !authUser?.uid || !peekPendingJobAlert()) return;
+  navigateTo('job-board');
+ }, [activeTab, authUser?.uid, navigateTo]);
 
  const navContextValue = useMemo<NavigationContextType>(() => ({
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
