@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: sync-pharmacy-data
@@ -35,17 +36,17 @@ jobs:
           sudo apt-get install -y --no-install-recommends poppler-utils
       - name: Install dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
-      - name: Prepare Firebase credentials for push auth
+      - name: Prepare Firebase credentials for PR publishing
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for the pharmacy refresh PR"
             exit 1
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-      - name: Load push credentials from Remote Config
+      - name: Load publishing credentials from Remote Config
         run: node scripts/load-rc-env.mjs
       - name: Fetch and stage Ticino duties for atomic finalization
         continue-on-error: true
@@ -94,58 +95,37 @@ jobs:
         run: npm run pharmacies:import
       - name: Validate border catalogue
         run: npm run pharmacies:check
-      - name: Commit atomic catalogue-duty-status snapshots
+      - name: Open PR with atomic catalogue-duty-status snapshots
         env:
-          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json; then
             echo "No cross-border pharmacy data changes."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json
-          git commit -m "chore(data): refresh atomic cross-border pharmacy release"
-          bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd '
-              (
-              duty_exit=0
-              node scripts/sync-pharmacy-duties.mjs || duty_exit=$?
-              case "$duty_exit" in
-                0|1|2) echo "[pharmacy-retry] duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer" ;;
-                *) echo "[pharmacy-retry] unexpected duty fetch exit=$duty_exit" ; exit "$duty_exit" ;;
-              esac
-              geneva_exit=0
-              node scripts/import-pharmacy-duties-geneva.mjs || geneva_exit=$?
-              case "$geneva_exit" in
-                0|1) echo "[pharmacy-retry] Geneva duty diagnostic exit=$geneva_exit; continuing to atomic finalizer" ;;
-                *) echo "[pharmacy-retry] unexpected Geneva duty exit=$geneva_exit" ; return "$geneva_exit" ;;
-              esac
-              swiss_exit=0
-              node scripts/import-pharmacy-duties-swiss-cantons.mjs || swiss_exit=$?
-              case "$swiss_exit" in
-                0|1) echo "[pharmacy-retry] Swiss canton duty diagnostic exit=$swiss_exit; continuing to atomic finalizer" ;;
-                *) echo "[pharmacy-retry] unexpected Swiss canton duty exit=$swiss_exit" ; return "$swiss_exit" ;;
-              esac
-              npm run pharmacies:import
-              finalizer_exit=$?
-              if [ "$finalizer_exit" -ne 0 ]; then
-                echo "::error::[pharmacy-retry] pharmacies:import failed with exit=$finalizer_exit"
-                return "$finalizer_exit"
-              fi
-              npm run pharmacies:check
-              check_exit=$?
-              if [ "$check_exit" -ne 0 ]; then
-                echo "::error::[pharmacy-retry] pharmacies:check failed with exit=$check_exit"
-                return "$check_exit"
-              fi
-              git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json data/pharmacy-duties-swiss-cantons.json data/pharmacy-sources-registry.json
-              stage_exit=$?
-              if [ "$stage_exit" -ne 0 ]; then
-                echo "::error::[pharmacy-retry] git add failed with exit=$stage_exit"
-                return "$stage_exit"
-              fi
-              if [ "$duty_exit" -ne 0 ]; then echo "[pharmacy-retry] atomic finalizer completed after duty diagnostic exit=$duty_exit" ; fi
-              )
-            '
+          body="$RUNNER_TEMP/pharmacy-border-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+
+          - Publishes the validated atomic cross-border pharmacy catalogue and duty/status snapshots through a PR so the required Vitest check runs before they reach main.
+
+          ## Non implementato (ancora)
+
+          Nessuno — all generated snapshots in this run are validated before publication.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/pharmacies-ticino-complete.json \
+            --path data/pharmacies-italy-border.json \
+            --path data/pharmacy-duties-ticino.json \
+            --path data/pharmacy-duties-ticino-status.json \
+            --path data/pharmacy-duties-geneva.json \
+            --path data/pharmacy-duties-geneva-status.json \
+            --path data/pharmacy-duties-swiss-cantons.json \
+            --path data/pharmacy-sources-registry.json \
+            --branch chore/refresh-pharmacies-border \
+            --commit-message "chore(data): refresh atomic cross-border pharmacy release" \
+            --title "chore(data): refresh atomic cross-border pharmacy release" \
+            --body-file "$body"

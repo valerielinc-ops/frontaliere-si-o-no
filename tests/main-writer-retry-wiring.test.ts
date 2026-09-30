@@ -17,7 +17,6 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/quality-alerts.yml',
   '.github/workflows/refresh-gsc-marquee-demand.yml',
   '.github/workflows/regenerate-visual-baselines.yml',
-  '.github/workflows/sync-pharmacies-border.yml',
   '.github/workflows/update-weather.yml',
 ];
 
