@@ -90,6 +90,76 @@ describe('lessons-harvester.yml — lo step di verifica dell\'esito', () => {
     expect(verify('pr:10300', { STUB_PR: openPr }).code).toBe(0);
   });
 
+  it('replay NOVEL>0: scrive il cluster, l outcome pr:<N> passa, senza outcome fallisce', () => {
+    const harvestDir = mkdtempSync(join(tmpdir(), 'lessons-novel-replay-'));
+    try {
+      const binDir = join(harvestDir, 'bin');
+      mkdirSync(binDir);
+      const fakeGh = join(binDir, 'gh');
+      writeFileSync(fakeGh, `#!/bin/bash
+case "$*" in
+  *"pr list"*) printf '%s' "$HARVEST_PR_JSON" ;;
+  *"issue list"*) printf '%s' '[]' ;;
+  *"issue view"*) printf '%s' '{"comments":[]}' ;;
+  *"api"*) printf '%s' '[]' ;;
+  *) printf '%s' '[]' ;;
+esac
+`);
+      chmodSync(fakeGh, 0o755);
+
+      const harvestOut = join(harvestDir, 'harvest-clusters.json');
+      const harvestRegistry = join(harvestDir, 'registry.json');
+      const githubOutput = join(harvestDir, 'github-output.txt');
+      writeFileSync(harvestRegistry, JSON.stringify({ entries: [] }));
+      const reviewLine = '🔴 Important: a never-before-seen zebraquartz sentinel regression in the transfer path.';
+      const harvestPr = JSON.stringify([{
+        number: 10401,
+        mergedAt: new Date().toISOString(),
+        reviews: [{ author: { login: 'claude' }, body: `## Findings\n${reviewLine}\n` }],
+      }]);
+      const run = spawnSync(process.execPath, [join(ROOT, 'scripts/ci/harvest-agent-lessons.mjs')], {
+        cwd: ROOT,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: `${binDir}:${process.env.PATH || ''}`,
+          HARVEST_PR_JSON: harvestPr,
+          HARVEST_OUT: harvestOut,
+          HARVEST_REGISTRY: harvestRegistry,
+          GITHUB_OUTPUT: githubOutput,
+          WINDOW_DAYS: '0',
+          THRESHOLD: '1',
+          MAX_PRS: '0',
+          MAX_ISSUES: '0',
+          FOLLOWUP_NO_AUTOCLOSE: '1',
+          HARVEST_EMIT_ESCALATIONS: 'false',
+        },
+      });
+      expect(run.status, `${run.stdout}\n${run.stderr}`).toBe(0);
+
+      const harvest = JSON.parse(readFileSync(harvestOut, 'utf8'));
+      expect(harvest.novelClusters).toBeGreaterThan(0);
+      const novel = harvest.clusters.find((cluster: { novel?: boolean }) => cluster.novel);
+      expect(novel).toMatchObject({
+        source: 'reviewer-finding',
+        novel: true,
+        alreadyDocumented: false,
+      });
+      expect(novel.registryKey).toBe(`reviewer-finding/${novel.key}`);
+      expect(readFileSync(githubOutput, 'utf8')).toMatch(/has_novel=true\nnovel_count=\d+/u);
+
+      writeFileSync(join(dir, 'lessons-harvester-outcome.txt'), 'pr:10300\n');
+      expect(readFileSync(join(dir, 'lessons-harvester-outcome.txt'), 'utf8')).toBe('pr:10300\n');
+      expect(verify('pr:10300', { STUB_PR: openPr }).code).toBe(0);
+
+      const missing = verify(null);
+      expect(missing.code).toBe(1);
+      expect(missing.out).toContain('assente o vuoto');
+    } finally {
+      rmSync(harvestDir, { recursive: true, force: true });
+    }
+  });
+
   it('pr:<N> incoerente (altro branch, prima della run, chiusa, o inesistente) → rosso', () => {
     expect(verify('pr:10300', { STUB_PR: openPr.replace('lessons/auto-harvest-20260928', 'fix/other') }).code).toBe(1);
     expect(verify('pr:10300', { STUB_PR: openPr.replace('2026-09-28T05:31:00Z', '2026-09-27T05:31:00Z') }).code).toBe(1);
