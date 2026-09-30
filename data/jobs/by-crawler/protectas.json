@@ -1,6 +1,6 @@
 {
   "crawlerKey": "protectas",
-  "assembledAt": "2026-09-30T15:48:42.316Z",
+  "assembledAt": "2026-09-30T21:37:13.509Z",
   "jobs": [
     {
       "id": "protectas-01bf4e1f2262",
@@ -33,7 +33,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-30T15:48:36.865Z",
+      "crawledAt": "2026-09-30T21:37:07.980Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -75,24 +75,13 @@
           "Hai un senso del servizio e della comunicazione",
           "Hai una facilità di comunicazione con un pubblico variegato",
           "Sei in grado di gestire le proprie emozioni e mantenere la calma.",
-          "Sai reagire con calma in ogni momento.  ",
-          "Sei motivato/a e pronto/a a superare te stesso/a: ottima possibilità di crescita personale e professionale!   ",
+          "Sai reagire con calma in ogni momento.",
+          "Sei motivato/a e pronto/a a superare te stesso/a: ottima possibilità di crescita personale e professionale!",
           "Monitorare il sito di uno o più clienti",
-          "Assicurare le aperture e chiusure di vari siti",
-          "Eseguire ronde diurne e notturne",
-          "Garantire l'ordine sul sito (o sui siti)",
-          "Riferire regolarmente ed efficacemente ai tuoi superiori/clienti (rapporto) ",
-          "Rappresentare la nostra azienda: sei un ambasciatore dei nostri valori",
-          "Aver svolto il corso cantonale CPSicur I e conseguito il relativo attestato.",
-          "Essere in possesso dell'autorizzazione cantonale LPPS. ",
-          "Essere a proprio agio con il pubblico. ",
-          "Essere disponibile e flessibile (disposto/a a lavorare ad orari irregolari, di notte, nei weekend e nei giorni festivi).",
-          "Essere a proprio agio con la tecnologia moderna.",
-          "Avere una perfetta padronanza della lingua italiana sia orale che scritta. ",
-          "Essere in possesso della patente B ed essere automunito. ",
-          "Oltre all'italiano, potersi esprimere in tedesco e/o inglese di livello B1"
+          "Assicurare le aperture e chiusure di vari siti"
         ]
       },
+      "firstSeenAt": "2026-09-30T15:48:36.865Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -105,8 +94,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-30T15:48:36.865Z"
+      }
     }
   ]
 }
