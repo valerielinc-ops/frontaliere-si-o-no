@@ -107,7 +107,11 @@ export async function submitApplication(ctx) {
     const guard = ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('email', nowMs);
-      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: 'email', replayed: true };
+      if (claim.status === 'already_sent') {
+        // Sent by an earlier run of this round: its follow-ups come from the record.
+        const record = claim.record || {};
+        return { type: 'submit_succeeded', channel: 'email', replayed: true, ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}) };
+      }
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'email_ambiguous' };
     }
     const { failed, sent } = await sendCascade(
@@ -123,7 +127,7 @@ export async function submitApplication(ctx) {
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous }, key: runKey, nowMs });
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : 'email_failed' };
     }
-    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, provider: sent[0]?.provider || null }, nowMs);
+    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId, provider: sent[0]?.provider || null }, nowMs);
     await storeEvidence({
       bucket,
       orderId,
