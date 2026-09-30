@@ -16,6 +16,7 @@
 import { extractFields } from './fields.mjs';
 import { planPage } from './plan.mjs';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
+import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 
 export const WAVE1_CHANNELS = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
@@ -176,7 +177,7 @@ async function waitForOutcome(page) {
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
-  const launch = ctx.launch || (async () => (await import('playwright')).chromium.launch({ headless: true }));
+  const launch = ctx.launch || (() => launchChromium({ headless: true }));
   const log = ctx.log || (() => {});
   const maxSteps = ctx.maxSteps || 8;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
