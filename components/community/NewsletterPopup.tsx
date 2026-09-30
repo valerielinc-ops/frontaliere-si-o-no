@@ -16,6 +16,7 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
+import { suppressGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
@@ -250,42 +251,17 @@ const NewsletterPopup: React.FC = () => {
 
  // Hide AdSense auto-ads while the popup is showing (they use z-index 2147483647).
  // CSS selectors in index.css handle most cases, but vignette/overlay ads inject
- // wrapper divs without predictable IDs — force-hide them via JS + MutationObserver.
+ // wrapper divs without predictable IDs: suppressGoogleAdOverlays hides them and,
+ // on close, restores every element it hid (the anchor used to stay hidden).
  useEffect(() => {
  const isOpen = visible && queueActive;
  document.body.classList.toggle('modal-open', isOpen);
  if (!isOpen) return () => { document.body.classList.remove('modal-open'); };
 
- const hideGoogleOverlays = () => {
- // Vignette/overlay wrappers: fixed-positioned parents of aswift iframes
- document.querySelectorAll('iframe[id^="aswift_"]').forEach((iframe) => {
- let el = iframe.parentElement;
- while (el && el !== document.body) {
- const style = getComputedStyle(el);
- if (style.position === 'fixed' || style.position === 'absolute') {
- (el as HTMLElement).style.setProperty('display', 'none', 'important');
- break;
- }
- el = el.parentElement;
- }
- });
- // Google auto-placed containers
- document.querySelectorAll('.google-auto-placed').forEach((el) => {
- (el as HTMLElement).style.setProperty('display', 'none', 'important');
- });
- };
-
- hideGoogleOverlays();
- const observer = new MutationObserver(hideGoogleOverlays);
- observer.observe(document.body, { childList: true, subtree: true });
-
+ const restoreGoogleOverlays = suppressGoogleAdOverlays(document);
  return () => {
- observer.disconnect();
+ restoreGoogleOverlays();
  document.body.classList.remove('modal-open');
- // Restore — AdSense will re-render on next page interaction
- document.querySelectorAll('.google-auto-placed').forEach((el) => {
- (el as HTMLElement).style.removeProperty('display');
- });
  };
  }, [visible, queueActive]);
 
