@@ -73,7 +73,9 @@ describe('git-commit-data: a rejected push reuses unchanged per-file results', (
         join(shimDir, 'git'),
         [
           '#!/bin/bash',
-          'if [ "$1" = "push" ]; then',
+          'is_push=false',
+          'for arg in "$@"; do [ "$arg" = "push" ] && is_push=true; done',
+          'if [ "$is_push" = true ]; then',
           `  n=$(cat '${counter}'); echo $((n + 1)) > '${counter}'`,
           '  if [ "$n" = "0" ]; then',
           `    printf '%s' '${slice('c', [job('c', 1), job('c', 2, { title: 'Job c2 (remote edit)' })]).replace(/'/g, "'\\''")}' > '${otherClone}/data/jobs/by-crawler/c.json'`,
