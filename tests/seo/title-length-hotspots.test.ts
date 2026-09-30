@@ -23,6 +23,7 @@ describe('SEO title length hotspots', () => {
       'build-plugins/jobMarketSnapshotPlugin.ts',
       'build-plugins/fuelStationIndexPages.ts',
       'build-plugins/fuelDailyPagesPlugin.ts',
+      'build-plugins/orphanQueryLandingPlugin.ts',
     ];
     for (const relativePath of sourceFiles) {
       const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
