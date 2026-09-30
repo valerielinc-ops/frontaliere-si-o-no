@@ -398,13 +398,16 @@ export function prepareExistingLiebherrJobs(jobs = []) {
 }
 
 /**
- * Match a source-proven Liebherr vacancy across crawler runs. Rows without
- * the source Job ID retain the normal URL identity, so arbitrary IDs never
- * collapse here.
+ * Match a source-proven Liebherr vacancy across crawler runs. Source-job
+ * identity is used only when the page locale is also proven; otherwise rows
+ * retain the normal URL identity so arbitrary IDs never collapse here.
  */
 export function liebherrMatchKey(job = {}) {
-  if (job?.liebherrSourceJobId) return `liebherr:source-job:${job.liebherrSourceJobId}`;
-  if (String(job?.liebherrLanguageVariantKey || '').startsWith('source-job:')) {
+  const sourceLocale = String(job?.sourceLocale || '').trim();
+  if (sourceLocale && job?.liebherrSourceJobId) {
+    return `liebherr:source-job:${job.liebherrSourceJobId}`;
+  }
+  if (sourceLocale && String(job?.liebherrLanguageVariantKey || '').startsWith('source-job:')) {
     return `liebherr:${job.liebherrLanguageVariantKey}`;
   }
   const stableId = extractStableJobId(job?.url || '');

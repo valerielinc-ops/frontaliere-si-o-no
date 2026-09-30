@@ -9,8 +9,10 @@ import {
   extractLiebherrSourceJobId,
   mergeLiebherrLanguageVariants,
   prepareExistingLiebherrJobs,
+  liebherrMatchKey,
 } from '../scripts/lib/liebherr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 
 describe('Liebherr crawler parser', () => {
   // ── Constants ──
@@ -61,6 +63,17 @@ describe('Liebherr crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('liebherrMatchKey', () => {
+    it('uses the stable URL key when source locale proof is missing', () => {
+      const job = {
+        liebherrSourceJobId: '81996',
+        url: 'https://careers.liebherr.com/job/1378968433',
+      };
+
+      expect(liebherrMatchKey(job)).toBe(extractStableJobId(job.url));
     });
   });
 
