@@ -10841,6 +10841,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locale={locale}
  context={boardFilterAlertContext}
  onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
+ formOrigin="job_board_filters"
  keywordLabel={boardFilterAlertKeywordLabel}
  cantonCode={boardFilterAlertCantonCode}
  onAnonymousOpen={() => {

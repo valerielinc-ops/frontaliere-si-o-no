@@ -263,8 +263,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  //          replay of a guest submit and a pending intent that could not be
  //          stored (issue 9575).
  // The default form surface is `inline_card`. A cross-view handoff may carry
- // another impression-bearing origin (currently `job_detail_button`), and
- // that origin must remain on action/created through auth and navigation.
+ // another impression-bearing origin, and that origin must remain on
+ // action/created through same-view or cross-view auth/navigation handoffs.
  const inlineImpressionRef = useImpressionTracker(
  () => track((a) => a.trackJobAlertCtaShown('inline_card', initialKeyword.trim())),
  { enabled: !loadingAlerts },

@@ -25,10 +25,17 @@ const KEY = 'pending_job_alert';
  * `post_auth_auto` that the alert_funnel_conversion allowlist
  * (`ALERT_CTA_SURFACES` in scripts/campaign-goal-check.mjs) excludes. Every
  * value here MUST be an impression-bearing surface of that allowlist — pinned
- * by tests/campaign-goal-check.test.ts. The detail receipt is also allowed to
- * carry `job_detail_button` through the same auth round-trip.
+ * by tests/campaign-goal-check.test.ts. Detail receipts and the other
+ * impression-bearing form handoffs carry their own surface through the same
+ * auth round-trip.
  */
-export const PENDING_JOB_ALERT_ORIGINS = Object.freeze(['inline_card', 'job_detail_button'] as const);
+export const PENDING_JOB_ALERT_ORIGINS = Object.freeze([
+  'inline_card',
+  'job_detail_button',
+  'job_board_filters',
+  'end_card',
+  'sticky_banner',
+] as const);
 export type PendingJobAlertOrigin = (typeof PENDING_JOB_ALERT_ORIGINS)[number];
 
 export interface PendingJobAlert {

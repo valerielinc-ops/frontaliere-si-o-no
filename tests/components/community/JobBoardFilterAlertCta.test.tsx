@@ -14,6 +14,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, act, waitFor } from '@testing-library/react';
 import JobBoardFilterAlertCta from '@/components/community/JobBoardFilterAlertCta';
 import type { JobAlert, subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 
 vi.mock('@/services/i18n', () => ({
@@ -49,6 +50,7 @@ interface RenderOpts {
   context?: 'category' | 'sector' | 'search';
   userId?: string | null;
   email?: string | null;
+  formOrigin?: PendingJobAlertOrigin;
 }
 
 function renderCta(opts: RenderOpts = {}) {
@@ -65,6 +67,7 @@ function renderCta(opts: RenderOpts = {}) {
       context={opts.context}
       keywordLabel={keywordLabel}
       cantonCode={cantonCode}
+      formOrigin={opts.formOrigin}
       onSubscribed={onSubscribed}
       onErrored={onErrored}
       subscribe={subscribe}
@@ -144,6 +147,19 @@ describe('JobBoardFilterAlertCta', () => {
     expect(dispatchSpy.mock.calls.some(([event]) => {
       return event.type === 'openJobAlert'
         && (event as CustomEvent<{ keyword?: string }>).detail?.keyword === 'Tecnologia';
+    })).toBe(true);
+  });
+
+  it('preserves the allowlisted board-filter origin for the form handoff', () => {
+    const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
+    renderCta({ context: 'category', userId: null, email: null, formOrigin: 'job_board_filters' });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Segui questa categoria' }));
+
+    expect(consumeJobAlertOpen()).toEqual({ keyword: 'Tecnologia', origin: 'job_board_filters' });
+    expect(dispatchSpy.mock.calls.some(([event]) => {
+      return event.type === 'openJobAlert'
+        && (event as CustomEvent<{ origin?: PendingJobAlertOrigin }>).detail?.origin === 'job_board_filters';
     })).toBe(true);
   });
 });
