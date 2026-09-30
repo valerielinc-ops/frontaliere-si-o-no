@@ -48,6 +48,7 @@ const VERDICT_LABELS: Record<string, string> = { strong: 'forte', good: 'buono',
 const INBOX_LABELS: Record<string, string> = {
   interview_invite: 'Invito a colloquio', rejection: 'Rifiuto', documents_request: 'Documenti richiesti', question: 'Domanda',
   assessment: 'Test', auto_acknowledgement: 'Conferma di ricezione', verification: 'Verifica account', offer: 'Offerta', other: 'Messaggio',
+  processing: 'In elaborazione',
 };
 const MATCH_STYLES: Record<string, string> = { met: 'text-success', partial: 'text-warning', missing: 'text-danger' };
 

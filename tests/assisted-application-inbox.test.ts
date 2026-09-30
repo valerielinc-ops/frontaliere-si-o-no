@@ -14,7 +14,7 @@ const {
   orderIdForAlias,
   removeOrderAlias,
 } = await import('../functions/src/assistedApplicationAlias.js');
-const { classifyByRules, handleAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { decryptJson } = await import('../functions/src/lib/evidenceCrypto.js');
 
@@ -38,7 +38,13 @@ function fakeCf({ fail = false } = {}) {
 
 function fakeBucket() {
   const files = new Map<string, string>();
-  return { files, file: (key: string) => ({ async save(content: string) { files.set(key, String(content)); } }) };
+  return {
+    files,
+    file: (key: string) => ({
+      async save(content: string) { files.set(key, String(content)); },
+      async download() { return [Buffer.from(files.get(key) || '')]; },
+    }),
+  };
 }
 
 describe('order alias', () => {
@@ -111,7 +117,41 @@ const request = (raw: Buffer, to: string, secret = SECRET) => ({
   get: (name: string) => ({ 'x-stop-secret': secret, 'x-envelope-to': to } as Record<string, string>)[name],
 });
 
+/** The Worker's handoff (accepted at once), then the trigger's processing. */
+async function deliver({ store, alias, raw, classify, sendCascade, bucket = fakeBucket(), nowMs = 1000 }: any) {
+  const accepted = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs });
+  const messageId = accepted.body.accepted;
+  const processed = await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs });
+  return { accepted, processed, messageId, bucket };
+}
+
 describe('employer messages on the alias', () => {
+  it('accepts the message at once, before any classification, so the Worker never waits on Codex', async () => {
+    const { store, alias } = await setupInbound();
+    const bucket = fakeBucket();
+    const accepted = await handleAssistedApplicationInbound(request(employerMail(), alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
+    expect(accepted).toMatchObject({ status: 200, body: { ok: true, matched: true } });
+    const [doc] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
+    expect(doc).toMatchObject({ status: 'received', receivedAt: 1000 });
+    expect(bucket.files.has(doc.rawKey)).toBe(true);
+  });
+
+  it('puts a message back to received when processing fails, and processes it once on the retry', async () => {
+    const { store, alias } = await setupInbound();
+    const bucket = fakeBucket();
+    const accepted = await handleAssistedApplicationInbound(request(employerMail(), alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
+    const messageId = accepted.body.accepted;
+    const classify = vi.fn(async () => ({ category: 'question', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: true }));
+    const args = { db: store.db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, nowMs: 2000 };
+    await expect(processAssistedApplicationInbound({ ...args, sendCascade: vi.fn(async () => { throw new Error('resend_down'); }) })).rejects.toThrow('resend_down');
+    expect(store.read(`assisted_applications/${ORDER}/inbox/${messageId}`)).toMatchObject({ status: 'received', lastError: 'resend_down' });
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    expect(await processAssistedApplicationInbound({ ...args, sendCascade })).toMatchObject({ ok: true, category: 'question', forwarded: 'sent' });
+    // A redelivered trigger does nothing more.
+    expect(await processAssistedApplicationInbound({ ...args, sendCascade })).toEqual({ ok: true, skipped: true });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
   it('classifies with Codex, keeps only verbatim verification data, stores it encrypted and forwards it', async () => {
     const { store, alias } = await setupInbound();
     const bucket = fakeBucket();
@@ -126,13 +166,11 @@ describe('employer messages on the alias', () => {
       verificationUrl: 'https://evil.example/verify',
       needsReply: true,
     }));
-    const result = await handleAssistedApplicationInbound(request(employerMail(), alias.address), {
-      db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, classify, sendCascade, nowMs: 1000,
-    });
-    expect(result).toEqual({ status: 200, body: { ok: true, matched: true, category: 'interview_invite' } });
+    const { processed } = await deliver({ store, alias, raw: employerMail(), classify, sendCascade, bucket });
+    expect(processed).toEqual({ ok: true, category: 'interview_invite', forwarded: 'sent' });
     const inbox = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
     expect(inbox).toHaveLength(1);
-    expect(inbox[0]).toMatchObject({ category: 'interview_invite', verificationCode: '', verificationUrl: '', from: 'hr@arbeitgeber.ch', classifiedBy: 'codex', forwarded: { status: 'sent' } });
+    expect(inbox[0]).toMatchObject({ status: 'processed', category: 'interview_invite', verificationCode: '', verificationUrl: '', from: 'hr@arbeitgeber.ch', classifiedBy: 'codex', forwarded: { status: 'sent' } });
     const envelope = JSON.parse(bucket.files.get(inbox[0].rawKey)!);
     expect(Buffer.from(decryptJson(envelope, Buffer.from(RUN_KEY, 'base64')).raw, 'base64').toString('latin1')).toContain('Einladung zum Vorstellungsgespr');
     const [[items, options]] = sendCascade.mock.calls as any;
@@ -146,16 +184,16 @@ describe('employer messages on the alias', () => {
   it('keeps a real verification code and falls back to rules when Codex is unavailable', async () => {
     const { store, alias } = await setupInbound();
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
-    await handleAssistedApplicationInbound(request(employerMail({ subject: 'Bitte bestätigen Sie Ihre E-Mail', text: 'Ihr Bestätigungscode lautet 482913' }), alias.address), {
-      db: store.db, bucket: fakeBucket(), secret: SECRET, runKey: RUN_KEY, sendCascade,
+    await deliver({
+      store, alias, raw: employerMail({ subject: 'Bitte bestätigen Sie Ihre E-Mail', text: 'Ihr Bestätigungscode lautet 482913' }), sendCascade,
       classify: async () => ({ category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '482913', verificationUrl: '', needsReply: false }),
     });
     const [first] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
     expect(first).toMatchObject({ category: 'verification', verificationCode: '482913' });
 
     const again = await setupInbound();
-    await handleAssistedApplicationInbound(request(employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true }), again.alias.address), {
-      db: again.store.db, bucket: fakeBucket(), secret: SECRET, runKey: RUN_KEY, sendCascade,
+    await deliver({
+      store: again.store, alias: again.alias, raw: employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true }), sendCascade,
       classify: async () => { throw new Error('codex_auth_expired'); },
     });
     const [ack] = again.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => again.store.read(path)!);

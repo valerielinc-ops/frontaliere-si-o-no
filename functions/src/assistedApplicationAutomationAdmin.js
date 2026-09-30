@@ -54,7 +54,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const [flowSnapshot, draftSnapshot, inboxSnapshot] = await Promise.all([
     flowRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
-    orderRefFor(db, orderId).collection('inbox').get(),
+    // Only the latest ten, from the database: an order may collect many messages.
+    orderRefFor(db, orderId).collection('inbox').orderBy('receivedAt', 'desc').limit(10).get(),
   ]);
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
@@ -65,7 +66,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       receivedAt: item.receivedAt || null,
       from: item.from || '',
       subject: item.subject || '',
-      category: item.category || 'other',
+      category: item.category || (item.status && item.status !== 'processed' ? 'processing' : 'other'),
       summaryIt: item.summaryIt || '',
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,

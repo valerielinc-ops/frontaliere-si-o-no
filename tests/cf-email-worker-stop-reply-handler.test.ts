@@ -507,6 +507,29 @@ describe('worker email() — assisted-application CV replies', () => {
     expect(fetchMock.mock.calls.some(([url]) => url === env.STOP_REPLY_FN_URL)).toBe(true);
   });
 
+  it('never loses an employer reply the inbound function did not accept: owner inbox, else reject', async () => {
+    const aliasEnv = { ...env, ASSISTED_INBOUND_FN_URL: 'https://fn.example/inbound' };
+    const aliasMail = () => ({
+      ...fakeMessage({ from: 'hr@ats.example', to: 'c-abcdefghjk@candidature.frontaliereticino.ch', subject: 'Einladung', rawText: 'Guten Tag' }),
+      setReject: vi.fn(),
+    });
+    // 503 from the function: the owner's inbox gets it, marked as a fallback.
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('busy', { status: 503 })));
+    const unavailable = aliasMail();
+    await worker.email(unavailable, aliasEnv, fakeCtx());
+    expect(unavailable.forward).toHaveBeenCalledTimes(1);
+    const [to, headers] = unavailable.forward.mock.calls[0] as any;
+    expect(to).toBe('inbox@example.com');
+    expect(headers.get('X-Frontaliere-Alias-Fallback')).toBe('http_503 c-abcdefghjk@candidature.frontaliereticino.ch');
+    expect(unavailable.setReject).not.toHaveBeenCalled();
+    // Network error and no fallback inbox: rejected, so the sender's MTA reports it.
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('connection refused')));
+    const unreachable = aliasMail();
+    await worker.email(unreachable, { ...aliasEnv, FORWARD_TO: '' }, fakeCtx());
+    expect(unreachable.forward).not.toHaveBeenCalled();
+    expect(unreachable.setReject).toHaveBeenCalledWith('Temporary failure, please retry later');
+  });
+
   it('hands employer mail on an order alias to the inbound function, even when automatic, and never to the human inbox', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
     vi.stubGlobal('fetch', fetchMock);

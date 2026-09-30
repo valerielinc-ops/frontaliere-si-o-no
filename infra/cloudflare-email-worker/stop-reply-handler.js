@@ -394,6 +394,8 @@ export const ASSISTED_CV_MAX_BYTES = 9 * 1024 * 1024;
 // inbox: it is the candidate's correspondence with the employer.
 export const ASSISTED_ALIAS_DOMAIN = 'candidature.frontaliereticino.ch';
 export const ASSISTED_INBOUND_MAX_BYTES = 12 * 1024 * 1024;
+// The inbound function classifies with Codex: leave it time, below the Worker's own limit.
+export const ASSISTED_INBOUND_TIMEOUT_MS = 25_000;
 
 export function isAssistedAlias(address) {
   return /^c-[a-z2-9]{10}@candidature\.frontaliereticino\.ch$/.test(String(address || '').toLowerCase());
@@ -570,21 +572,37 @@ export default {
     }
 
     if (readOk && isAssistedAlias(to)) {
+      let failure = 'not_configured';
       if (env.ASSISTED_INBOUND_FN_URL && env.STOP_SECRET) {
         const { bytes } = await readAllBytes(message.raw, ASSISTED_INBOUND_MAX_BYTES).catch(() => ({ bytes: null }));
+        failure = 'too_large';
         if (bytes) {
-          const handoff = fetch(env.ASSISTED_INBOUND_FN_URL, {
-            method: 'POST',
-            headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET, 'x-envelope-to': to },
-            body: bytes,
-          }).catch(() => { /* retried by the sender's MTA only if we reject; logged by the function */ });
-          ctx.waitUntil(handoff);
-          return;
+          // The handoff is awaited: an employer's reply must never be accepted
+          // here and then lost on a 5xx or a network error.
+          try {
+            const response = await fetch(env.ASSISTED_INBOUND_FN_URL, {
+              method: 'POST',
+              headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET, 'x-envelope-to': to },
+              body: bytes,
+              signal: AbortSignal.timeout(ASSISTED_INBOUND_TIMEOUT_MS),
+            });
+            if (response.ok) return;
+            failure = `http_${response.status}`;
+          } catch {
+            failure = 'network';
+          }
         }
       }
-      // Too large or not configured: reject so the sender gets a bounce
-      // instead of a silent loss.
-      try { message.setReject('Message too large for this address'); } catch { /* noop */ }
+      // Not handed over: the owner's inbox gets it (she handles taken-over
+      // orders), so the employer gets no bounce and nothing is lost; only
+      // when that fails too is the message rejected (the sender's MTA reports it).
+      if (env.FORWARD_TO) {
+        try {
+          await message.forward(env.FORWARD_TO, new Headers({ 'X-Frontaliere-Alias-Fallback': `${failure} ${to}` }));
+          return;
+        } catch { /* fall through to the reject */ }
+      }
+      try { message.setReject(failure === 'too_large' ? 'Message too large for this address' : 'Temporary failure, please retry later'); } catch { /* noop */ }
       return;
     }
 
