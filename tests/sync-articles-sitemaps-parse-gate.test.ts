@@ -59,4 +59,42 @@ describe('article corpus sync parser gate', () => {
     );
     expect(spawnSync('bash', ['-n', '-c', command], { encoding: 'utf8' }).status).toBe(0);
   });
+
+  it('publishes changed corpus registries through the shared strict CDN path', () => {
+    const commitIndex = steps.findIndex((step) => step.name === 'Commit if changed');
+    const acquireIndex = steps.findIndex((step) => step.name === 'Acquire article chunk section locks for synced corpus');
+    const publishIndex = steps.findIndex((step) => step.name === 'Publish client article chunks for synced corpus');
+    const releaseIndex = steps.findIndex((step) => step.name === 'Release article chunk section locks for synced corpus');
+    const publish = stepNamed('Publish client article chunks for synced corpus');
+    const release = stepNamed('Release article chunk section locks for synced corpus');
+
+    expect(commitIndex).toBeGreaterThanOrEqual(0);
+    expect(acquireIndex).toBeGreaterThan(commitIndex);
+    expect(publishIndex).toBeGreaterThan(acquireIndex);
+    expect(releaseIndex).toBeGreaterThan(publishIndex);
+    expect(publish.if).toContain("steps.commit.outputs.article-content-changed == 'true'");
+    expect(publish.if).toContain("steps.check_synced_chunk_source.outputs.current == 'true'");
+    expect(publish.run).toContain('scripts/publish-article-chunks.mjs --strict --no-ticker');
+    expect(publish['continue-on-error']).toBeUndefined();
+    expect(release.if).toContain('always()');
+    expect(release.run).toContain('scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera');
+
+    const commitRun = stepNamed('Commit if changed').run ?? '';
+    expect(commitRun).toContain('article-content-changed=true');
+    expect(commitRun).toContain('article-content-changed=false');
+    expect(commitRun.indexOf('article-content-changed=false')).toBeLessThan(commitRun.indexOf('git commit'));
+  });
+
+  it('shares the source freshness and lock checks with the existing chunk publishers', () => {
+    const source = stepNamed('Check synced article chunk source is current').run ?? '';
+    const before = stepNamed('Verify synced article chunk lock before publication').run ?? '';
+    const after = stepNamed('Verify synced article chunk lock after publication').run ?? '';
+    expect(source).toContain('git fetch --no-tags --depth=1 origin main');
+    expect(source).toContain('scripts/lib/article-chunk-publish-freshness.mjs');
+    expect(source).toContain('git checkout --detach --force origin/main');
+    expect(before).toContain('LOCK_RENEW_FAILURE_FILE');
+    expect(before).toContain('kill -0');
+    expect(after).toContain('LOCK_RENEW_FAILURE_FILE');
+    expect(after).toContain('kill -0');
+  });
 });
