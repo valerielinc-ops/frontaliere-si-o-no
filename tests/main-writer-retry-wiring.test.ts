@@ -4,9 +4,12 @@ import { resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
+// This catalog covers workflows that still write directly to protected main.
+// PR-backed refreshes delegate branch publication to
+// scripts/lib/open-data-refresh-pr.sh and are covered by
+// tests/data-refresh-pr-wiring.test.ts instead.
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
-  '.github/workflows/build-evidence-and-tune.yml',
   '.github/workflows/crawler-health-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
