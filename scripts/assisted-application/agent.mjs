@@ -20,6 +20,7 @@ import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../fun
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
+import { portalAccountStore } from './lib/portal/account.mjs';
 import { submitApplication } from './lib/submit.mjs';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
@@ -128,6 +129,8 @@ async function main() {
     const event = await submitApplication({
       order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
+      // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
+      accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
     });
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
