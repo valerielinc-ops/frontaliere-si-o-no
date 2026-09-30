@@ -7,8 +7,8 @@ import {
   writeFileSync,
 } from 'node:fs';
 
-/** Keep this accumulator comfortably below GitHub's 100 MB blob limit. */
-export const DIST_HISTORY_MAX_BYTES = 80 * 1024 * 1024;
+/** Keep this accumulator below GitHub's recommended 50 MB blob size. */
+export const DIST_HISTORY_MAX_BYTES = 40 * 1024 * 1024;
 
 function byteLength(value) {
   return Buffer.byteLength(value, 'utf8');
