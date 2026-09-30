@@ -171,6 +171,10 @@ function runExhaustedTierSkipScenario(
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
         "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      )
+      .replace(
+        "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
+        "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -267,6 +271,10 @@ function runRetryOutcomeResetScenario() {
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
         "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      )
+      .replace(
+        "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
+        "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -487,6 +495,29 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(out).not.toBe('');
     expect(after.hits - before.hits).toBe(1);
     expect(after.passthroughs - before.passthroughs).toBe(0);
+  });
+
+  it('traduce il contenuto di ogni riga e ricompone marcatori e righe vuote', async () => {
+    const source = [
+      '## Aufgaben',
+      '- Erste Aufgabe',
+      '',
+      '• Zweite Aufgabe',
+      '1. Dritte Aufgabe',
+      '1) Vierte Aufgabe',
+    ].join('\n');
+    vi.mocked(translateWithMyMemory).mockImplementation(async (line: string) => `EN ${line}`);
+
+    const out = await freeTranslate({ text: source, sourceLang: 'de', targetLang: 'en', fieldType: 'description' });
+
+    expect(out).toBe([
+      '## EN Aufgaben',
+      '- EN Erste Aufgabe',
+      '',
+      '• EN Zweite Aufgabe',
+      '1. EN Dritte Aufgabe',
+      '1) EN Vierte Aufgabe',
+    ].join('\n'));
   });
 
   it('non tocca il passthrough LEGITTIMO sourceLang === targetLang', async () => {

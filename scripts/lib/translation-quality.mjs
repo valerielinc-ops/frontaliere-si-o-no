@@ -21,6 +21,7 @@
  * equivalent so both translation paths reject the same defect.
  */
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
 
 // The deploy validator rejects locale titles shorter than three characters.
 // Keep this floor shared by every writer so a provider cannot persist a title
@@ -36,20 +37,64 @@ export const MIN_TRANSLATION_RATIO = 0.6;
 // Absolute character floor: anything shorter is too thin to be a real
 // translation regardless of the source length.
 export const MIN_TRANSLATION_CHARS = 100;
-// Source bullet count above which losing ALL bullets in the candidate is
-// treated as structure-flattening rather than a legitimately bullet-free
-// translation (mirrors job-localization-pipeline.mjs's passesQualityGate).
-export const MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK = 3;
-
 export function countBullets(text = '') {
   return (String(text || '').match(/^\s*[-*•]\s+/gm) || []).length;
 }
 
+function stripHtmlForStructure(value = '') {
+  const withoutTags = String(value || '').replace(/<[^>]*>/g, ' ');
+  return decodeEntities(withoutTags);
+}
+
+/**
+ * Same structure predicate used by the parser-quality audit. Keep this as the
+ * shared source of truth for translation writers and repair selectors: the
+ * audit must measure the same list markers that the pipeline protects.
+ */
+export function hasStructuredContent(value = '') {
+  const raw = String(value || '');
+  const text = stripHtmlForStructure(raw);
+  if (/<li[\s>]/i.test(raw)) return true;
+  if (/^\s*[-•*]\s/m.test(text)) return true;
+  if (/^\s*\d+[.)]\s/m.test(text)) return true;
+  return false;
+}
+
+const STRUCTURED_LINE_RE = /^(\s*(?:#{1,6}\s+|[-*•]\s+|\d+[.)]\s+)?)(.*)$/;
+const HAS_LETTERS_RE = /[^\W\d_]/u;
+
+/**
+ * Translate each source line independently while retaining its structural
+ * prefix and blank lines. A failed line translation keeps that source line:
+ * dropping content is safer than inventing text, and the caller's normal
+ * quality gate still decides whether the assembled candidate is publishable.
+ */
+export async function preserveStructuredTranslation(text, translateLine) {
+  const lines = String(text || '').replace(/\r\n/g, '\n').split('\n');
+  const translatedLines = [];
+  for (const line of lines) {
+    const match = STRUCTURED_LINE_RE.exec(line);
+    const prefix = match?.[1] || '';
+    const content = match?.[2] || '';
+    if (!content.trim() || !HAS_LETTERS_RE.test(content)) {
+      translatedLines.push(line);
+      continue;
+    }
+    const translated = await translateLine(content.trim());
+    const translatedText = String(translated || '');
+    const oneLine = (translatedText.includes('\n') ? '' : translatedText)
+      .replace(/[ \t]+/g, ' ')
+      .trim();
+    translatedLines.push(`${prefix}${oneLine || content.trim()}`);
+  }
+  return translatedLines.join('\n').trim();
+}
+
 /**
  * Detects a stored locale copy that lost the source's list structure
- * ("structure-flattening", the #3721/#3836 class): the source text carries a
- * real bulleted list (≥ MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK line-start
- * bullets) while the non-empty candidate has none. Unlike
+ * ("structure-flattening", the #3721/#3836 class): the source text carries
+ * audited structured content (a line-start bullet/numbered list or `<li>`)
+ * while the non-empty candidate has none. Unlike
  * `isAcceptableTranslation` (which gates NEW translations before they are
  * persisted), this predicate is meant for EXISTING `descriptionByLocale`
  * entries, so repair passes (hardenJobLocaleFields, translateMissingJobLocales,
@@ -64,8 +109,7 @@ export function countBullets(text = '') {
 export function isStructureFlattenedCopy(source, candidate) {
   const cand = typeof candidate === 'string' ? candidate.trim() : '';
   if (!cand) return false;
-  if (countBullets(cand) > 0) return false;
-  return countBullets(source) >= MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK;
+  return hasStructuredContent(source) && !hasStructuredContent(cand);
 }
 
 /**
@@ -86,8 +130,7 @@ export function isAcceptableTranslation(source, translated) {
   if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return false;
   const srcLen = (typeof source === 'string' ? source.trim() : '').length;
   if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
-  const sourceBullets = countBullets(source);
-  if (sourceBullets >= MIN_SOURCE_BULLETS_FOR_STRUCTURE_CHECK && countBullets(candidate) === 0) {
+  if (hasStructuredContent(source) && !hasStructuredContent(candidate)) {
     return false;
   }
   return true;

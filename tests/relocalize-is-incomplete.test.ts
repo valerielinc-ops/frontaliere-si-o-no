@@ -108,6 +108,28 @@ describe('isIncomplete – per-slot title verdict (S3: no cross-locale escape ha
     expect(isIncomplete(job)).toBe(true);
   });
 
+  it('queues a long locale whose source list was flattened', () => {
+    const source = [
+      'Deutsche Einleitung mit ausreichend Inhalt für die Stellenbeschreibung.',
+      '- Erste Aufgabe mit ausführlichen Details und Verantwortung im Team.',
+      '- Zweite Aufgabe mit ausführlichen Details und Verantwortung im Team.',
+    ].join('\n');
+    const flattened = source.replace(/\s*\n\s*/g, ' ');
+    const job = makeJob({
+      description: source,
+      sourceLang: 'de',
+      titleByLocale: {
+        de: 'Deutsche Stelle',
+        it: 'Posizione tedesca',
+        en: 'German position',
+        fr: 'Poste allemand',
+      },
+      descriptionByLocale: { de: source, it: flattened, en: flattened, fr: flattened },
+    });
+
+    expect(isIncomplete(job)).toBe(true);
+  });
+
   it('returns false for a fully translated job with normal Italian title', () => {
     const job = {
       title: 'Ingegnere Software',

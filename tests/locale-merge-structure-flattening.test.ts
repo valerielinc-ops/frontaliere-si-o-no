@@ -26,8 +26,10 @@ import {
   resetHardenCache,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
 import {
+  hasStructuredContent,
   isStructureFlattenedCopy,
   countBullets,
+  preserveStructuredTranslation,
 } from '../scripts/lib/translation-quality.mjs';
 
 const STRUCTURED_DE = [
@@ -88,8 +90,15 @@ describe('mergeLocaleTextMap — newline preservation (issue #3836 root cause)',
 });
 
 describe('isStructureFlattenedCopy', () => {
-  it('flags a non-empty copy that lost a >=3-bullet source list', () => {
+  it('flags a non-empty copy that lost an audited structured source list', () => {
     expect(isStructureFlattenedCopy(STRUCTURED_DE, FLATTENED_DE)).toBe(true);
+  });
+
+  it('uses the audit predicate for a single bullet, ordered list, and HTML list', () => {
+    expect(hasStructuredContent('Aufgaben\n- Eine Aufgabe')).toBe(true);
+    expect(isStructureFlattenedCopy('Aufgaben\n- Eine Aufgabe', 'Aufgaben Eine Aufgabe')).toBe(true);
+    expect(isStructureFlattenedCopy('Aufgaben\n1) Eine Aufgabe', 'Aufgaben Eine Aufgabe')).toBe(true);
+    expect(isStructureFlattenedCopy('<ul><li>Eine Aufgabe</li></ul>', 'Eine Aufgabe')).toBe(true);
   });
 
   it('does not flag when the copy kept at least one bullet', () => {
@@ -105,6 +114,32 @@ describe('isStructureFlattenedCopy', () => {
   it('does not flag empty/missing copies (handled by the coverage/empty-slot paths)', () => {
     expect(isStructureFlattenedCopy(STRUCTURED_DE, '')).toBe(false);
     expect(isStructureFlattenedCopy(STRUCTURED_DE, undefined as unknown as string)).toBe(false);
+  });
+});
+
+describe('preserveStructuredTranslation', () => {
+  it('translates only line content and retains markers plus blank lines', async () => {
+    const source = [
+      '## Aufgaben',
+      '- Erste Aufgabe',
+      '',
+      '• Zweite Aufgabe',
+      '* Dritte Aufgabe',
+      '1. Vierte Aufgabe',
+      '1) Fünfte Aufgabe',
+    ].join('\n');
+    const translated = await preserveStructuredTranslation(source, async (line) => `TR:${line}`);
+
+    expect(translated).toBe([
+      '## TR:Aufgaben',
+      '- TR:Erste Aufgabe',
+      '',
+      '• TR:Zweite Aufgabe',
+      '* TR:Dritte Aufgabe',
+      '1. TR:Vierte Aufgabe',
+      '1) TR:Fünfte Aufgabe',
+    ].join('\n'));
+    expect(hasStructuredContent(translated)).toBe(true);
   });
 });
 

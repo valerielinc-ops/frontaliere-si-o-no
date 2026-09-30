@@ -35,6 +35,7 @@ import { existsSync } from 'node:fs';
 import { translateWithMyMemory } from './mymemory-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms, normalizeProtectedTokenSentinels } from './translation-glossary.mjs';
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
+import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // DeepL: support multiple API keys with automatic rotation on quota exhaustion.
@@ -1857,7 +1858,7 @@ export function mergeTranslationOutcome(target, source) {
   target.tierUnavailable = target.tierUnavailable || source.tierUnavailable === true;
 }
 
-export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
+async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
   const sourceInput = fieldType === 'title' && String(sourceLang || '').toLowerCase().startsWith('de')
     ? normalizeGermanGenderForms(text)
     : text;
@@ -1913,6 +1914,14 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   async function tryTier(tierName, fn) {
     try {
       const result = await fn();
+      // A per-line structural call must receive one line back. A provider
+      // that ignores the line boundary and returns the whole body cannot be
+      // counted as a successful hit; the structured wrapper may retry the
+      // complete body once after all line calls have failed.
+      if (!clean.includes('\n') && /\r?\n/.test(String(result || ''))) {
+        if (_outcome) _outcome._structuredBoundaryMiss = true;
+        return '';
+      }
       // Un tier che rimanda indietro `clean` non ha tradotto: non e' un hit, ed
       // e' l'UNICO posto in cui questa cascata puo' accorgersene — a valle il
       // passthrough e' testo valido e nessun predicato lo scarta (vedi
@@ -2103,6 +2112,33 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
 
   _cascadeStats.failures++;
   return '';
+}
+
+/**
+ * Keep list structure outside provider-specific normalizers. Several free
+ * providers return a valid translation but collapse source newlines; translating
+ * each line without its marker lets the caller reassemble the exact structure.
+ */
+export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
+  if (sourceLang === targetLang) return freeTranslateCore({ text, sourceLang, targetLang, fieldType, _outcome });
+  if (fieldType === 'description' && hasStructuredContent(text)) {
+    const structureOutcome = _outcome || {};
+    delete structureOutcome._structuredBoundaryMiss;
+    const translated = await preserveStructuredTranslation(text, (line) => freeTranslateCore({
+      text: line, sourceLang, targetLang, fieldType, _outcome: structureOutcome,
+    }));
+    const boundaryMiss = structureOutcome._structuredBoundaryMiss === true;
+    delete structureOutcome._structuredBoundaryMiss;
+    if (!isSourcePassthrough(text, translated)) return translated;
+    // Test seams and a few providers can ignore a short line request and
+    // answer with the complete body. Accept that fallback only when its own
+    // structure survived; a flat whole-body response is still a miss.
+    if (!boundaryMiss) return '';
+    const wholeBody = await freeTranslateCore({ text, sourceLang, targetLang, fieldType, _outcome });
+    if (wholeBody && hasStructuredContent(wholeBody) && !isSourcePassthrough(text, wholeBody)) return wholeBody;
+    return '';
+  }
+  return freeTranslateCore({ text, sourceLang, targetLang, fieldType, _outcome });
 }
 
 /**
