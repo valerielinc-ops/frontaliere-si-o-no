@@ -339,6 +339,12 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: "tests/ti-market-snapshot-sector-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/ti-sector-hub-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/ti-weekly-employers-canton-scope.test.ts", roots: ["data/border-wait-averages.json", "data/jobs.json", "public/data/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // ─── Replay del 2026-09-30. Scandisce tutto il corpus degli articoli per
+  // verificare le cifre della simulazione fiscale contro il calcolatore: il
+  // corpus lo riscrive la sincronizzazione automatica (commit «Sync article …»
+  // senza (#N)), e la PR #10308 del 29-09 ha dovuto ripristinare quelle cifre.
+  // Stessa natura di irpef-brackets-2026 sopra: il corpus è il soggetto.
+  { file: "tests/article-tax-content-guard.test.ts", roots: ["packages/articles/content/", "services/locales/"], since: "2026-09-30", evidence: "replay", runtime: true },
 ]);
 
 /**
@@ -496,6 +502,18 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/scripts/publish-article-chunks-companions.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/submit-indexnow-batch.test.ts", roots: ["public/sitemap-guides.xml"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/translation-shadow-preflight-v2.test.ts", roots: ["data/job-popularity.json"], since: "2026-09-19", evidence: "review", runtime: true },
+  // ─── Censimento e replay del 2026-09-30 (hook su fs nei worker e nei processi
+  // figli, dati vivi riportati a 7 e 14 giorni fa). Questi file leggevano un
+  // dato vivo fuori da ogni elenco; in ognuno cambia esito un solo caso, o due,
+  // e solo quello è marcato `skipIf(SKIP_LIVE_DATA)`. Le spec in
+  // data/prospector/crawlers/ le riscrive il bot prospector (commit senza (#N)
+  // su apply, brefispersonal, yellowshark e gmo nella finestra misurata); il
+  // rilascio di Ginevra lo riscrive il workflow delle farmacie (34 commit su 36).
+  { file: "tests/apply-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/brefispersonal-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/schweizerhof-flims-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/prospector-spec-pagination.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/pharmacy-geneva-release.test.ts", roots: ["data/pharmacy-duties-geneva.json", "data/pharmacy-duties-geneva-status.json"], since: "2026-09-30", evidence: "replay", runtime: true },
 ]);
 
 /**

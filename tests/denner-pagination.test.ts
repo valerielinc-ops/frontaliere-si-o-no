@@ -6,6 +6,16 @@ const { launchChromiumMock } = vi.hoisted(() => ({ launchChromiumMock: vi.fn() }
 vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
   launchChromium: launchChromiumMock,
 }));
+// `main()` del crawler registra `registerCrawlerSummaryGuard`, cioè un
+// `process.on('exit')` che all'uscita del worker di Vitest scriveva
+// data/jobs-crawler-summaries/by-crawler/denner.json nel checkout (file
+// tracciato; visto dal censimento del 2026-09-30). Stesso schema di
+// tests/crawler-current-run-jobs.test.ts: guard e scrittore del summary sono stub.
+vi.mock('../scripts/assemble-jobs-dataset.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/assemble-jobs-dataset.mjs')>()),
+  registerCrawlerSummaryGuard: vi.fn(),
+  writeSummaryCrawlerSlice: vi.fn(),
+}));
 
 import {
   buildDennerJobRecord,
