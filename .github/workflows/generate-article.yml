@@ -170,12 +170,12 @@ jobs:
       # (~25 GB on /) is ample. The heavy cleanup stays in deploy.yml where the
       # 9 GB+ dist actually lands. Saves ~260s × ~48 runs/day ≈ 3.5h runner/day.
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -270,7 +270,7 @@ jobs:
       # AI_LAST_RESORT_ORDER).
       - name: Cache local LLM model
         if: vars.ARTICLE_LOCAL_FALLBACK == '1'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.ollama/models
           key: ollama-${{ vars.ARTICLE_LOCAL_MODEL || 'qwen2.5:7b' }}

@@ -32,6 +32,7 @@ import {
  DAILY_BRIEF_FREQUENCIES,
  type DailyBriefFrequency,
  type SubscriptionAlertSummary,
+ type JobAlertSummary,
  type JobAlertFrequency,
  type JobAlertPatch,
  type JobAlertCreatePayload,
@@ -74,6 +75,32 @@ function hasExplicitGlobalEmailStop(data: Record<string, any> | null | undefined
   || data?.[field] === 'true'
   || data?.[field] === '1'
  ));
+}
+
+function normalizeAlertCreatedAt(value: string | number | null | undefined, fallback: number | null = null): number | null {
+ if (typeof value === 'number' && Number.isFinite(value)) return value;
+ if (typeof value === 'string') {
+ const numeric = Number(value);
+ if (Number.isFinite(numeric)) return numeric;
+ const parsed = Date.parse(value);
+ if (!Number.isNaN(parsed)) return parsed;
+ }
+ return fallback;
+}
+
+function mergeTokenAlert(current: SubscriptionAlertSummary, incoming: JobAlertSummary): SubscriptionAlertSummary {
+ return {
+ ...current,
+ ...incoming,
+ createdAt: normalizeAlertCreatedAt(incoming.createdAt, current.createdAt),
+ };
+}
+
+function tokenAlertToSubscription(alert: JobAlertSummary): SubscriptionAlertSummary {
+ return {
+ ...alert,
+ createdAt: normalizeAlertCreatedAt(alert.createdAt),
+ };
 }
 
 // ─── i18n ───────────────────────────────────────────────────
@@ -2042,7 +2069,7 @@ export function SubscriptionPreferencesController({
  });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? mergeTokenAlert(a, result.alert!) : a)));
  }
  } else {
  const fresh = await authUpdateAlert(email, alertId, { frequency: next, frequencyOverride: true });
@@ -2079,7 +2106,7 @@ export function SubscriptionPreferencesController({
  const result = await updateJobAlert(email, token, alertId, { frequencyOverride: false });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? mergeTokenAlert(a, result.alert!) : a)));
  }
  } else {
  const fresh = await authUpdateAlert(email, alertId, { frequencyOverride: false });
@@ -2349,7 +2376,7 @@ export function SubscriptionPreferencesController({
  const result = await updateJobAlert(email, token, alertId, { paused: nextPaused });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? mergeTokenAlert(a, result.alert!) : a)));
  }
  } else {
  const fresh = await authUpdateAlert(email, alertId, { paused: nextPaused });
@@ -2388,15 +2415,9 @@ export function SubscriptionPreferencesController({
  setAlerts((prev) =>
  prev.map((a) =>
  a.id === alertId
- ? {
- ...a,
- keywords: values.keywords,
- locations: values.locations,
- sectors: values.sectors,
- frequency: values.frequency,
- frequencyOverride: true,
- ...(updated ? updated : {}),
- }
+ ? updated
+ ? mergeTokenAlert({ ...a, keywords: values.keywords, locations: values.locations, sectors: values.sectors, frequency: values.frequency, frequencyOverride: true }, updated)
+ : { ...a, keywords: values.keywords, locations: values.locations, sectors: values.sectors, frequency: values.frequency, frequencyOverride: true }
  : a,
  ),
  );
@@ -2429,17 +2450,7 @@ export function SubscriptionPreferencesController({
  if (!result.success || !result.alert) throw new Error(result.error || 'create_failed');
  const created = result.alert;
  setAlerts((prev) => [
- {
- id: created.id,
- keywords: created.keywords,
- locations: created.locations,
- sectors: created.sectors,
- frequency: typeof created.frequency === 'string' ? created.frequency : 'weekly',
- frequencyOverride: created.frequencyOverride === true,
- active: created.active !== false,
- paused: false,
- createdAt: typeof created.createdAt === 'number' ? created.createdAt : null,
- },
+ tokenAlertToSubscription(created),
  ...prev,
  ]);
  } else {

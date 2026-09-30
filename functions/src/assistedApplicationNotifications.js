@@ -19,6 +19,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import {
@@ -737,7 +738,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
   const outcome = sent[0] || {};
   await markNotification(orderRef, key, {
     status: ambiguous.length > 0 ? 'ambiguous' : 'sent',
-    sentAt: admin.firestore.FieldValue.serverTimestamp(),
+    sentAt: FieldValue.serverTimestamp(),
     provider: outcome.provider || null,
     messageId: outcome.messageId || null,
     to,

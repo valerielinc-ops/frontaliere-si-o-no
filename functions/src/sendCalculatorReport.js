@@ -27,6 +27,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
@@ -163,7 +164,7 @@ export async function handleSendCalculatorReport({
   const normalizedEmail = email.toLowerCase().trim();
   const lang = normalizeLocale(locale || 'it');
   const db = injectedDb || getAdminDb();
-  const now = admin.firestore.FieldValue.serverTimestamp();
+  const now = FieldValue.serverTimestamp();
 
   // Enrich an existing subscriber doc with the source tag. Firestore errors
   // are converted to a structured 5XX so the HTTP handler can return a stable

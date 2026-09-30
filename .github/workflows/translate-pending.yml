@@ -100,12 +100,12 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 50
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -115,7 +115,7 @@ jobs:
 
       - name: Restore per-company translation cache
         id: translation_cache_restore
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
@@ -143,7 +143,7 @@ jobs:
       # the old immutable key never re-saved it (#9677). See
       # translate-pending-logic.yml for the full note.
       - name: Cache local MT models (Opus-MT + e5 semantic judge)
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/transformers
           key: local-mt-models-v2-opus-e5
@@ -159,7 +159,7 @@ jobs:
       # cache hit just skips the network transfer; a cache miss falls through to
       # the existing retry logic unchanged.
       - name: Cache Argos Translate models
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.local/share/argos-translate/packages
           key: argos-translate-models-v1
@@ -215,9 +215,9 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: |
-          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet --upgrade pip==26.2.1
           # argostranslate pulls ctranslate2 + sentencepiece (the int8 CPU runtime).
-          python3 -m pip install --quiet argostranslate
+          python3 -m pip install --quiet argostranslate==1.11.0
           # Download the it/en/de/fr xx<->en packages once (Argos pivots the cross
           # pairs through English). Idempotent + retried inside the script.
           python3 scripts/local-mt-translate.py --install
@@ -493,7 +493,7 @@ jobs:
       - name: Save per-company translation cache
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}

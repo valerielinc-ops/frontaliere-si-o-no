@@ -8,6 +8,7 @@
  */
 
 import admin from 'firebase-admin';
+import { Timestamp } from 'firebase-admin/firestore';
 
 export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
 export const APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION = 'application_intent_reminder_deliveries';
@@ -153,7 +154,7 @@ export async function purgeExpiredApplicationIntents(
   // window is applied when the record is written, so purge at the current
   // time instead of aging the expiry a second time.
   const cutoffMs = nowMs;
-  const cutoff = admin.firestore.Timestamp.fromMillis(cutoffMs);
+  const cutoff = Timestamp.fromMillis(cutoffMs);
   const db = injectedDb || admin.firestore();
   const collection = db.collection(APPLICATION_INTENTS_COLLECTION);
 

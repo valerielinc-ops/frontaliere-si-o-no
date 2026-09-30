@@ -275,7 +275,7 @@ describe('translation observability workflow', () => {
       // The e5 model shares .cache/transformers with Opus-MT: an immutable key
       // that already hits would never save it, so the key must be one the
       // e5-bearing directory was saved under.
-      const modelCache = steps.find((step) => step.uses === 'actions/cache@v5'
+      const modelCache = steps.find((step) => step.uses === 'actions/cache@v6'
         && (step.with as Record<string, unknown> | undefined)?.path === '.cache/transformers');
       expect(modelCache?.with, `${label}: model cache`).toMatchObject({ key: 'local-mt-models-v2-opus-e5' });
       expect(String((modelCache?.with as Record<string, unknown>)['restore-keys'])).toContain('opus-mt-models-');

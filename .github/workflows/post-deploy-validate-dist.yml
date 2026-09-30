@@ -48,7 +48,7 @@ jobs:
       actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ inputs.deploy_ref }}
 
@@ -69,13 +69,13 @@ jobs:
           df -h /
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -133,7 +133,7 @@ jobs:
       # is a same-run read; when the caller is deploy-publish.yml (workflow_run),
       # the same `run-id` + token fetches them cross-run from the build run.
       - name: Download GitHub Pages artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: github-pages
           path: /tmp/github-pages-artifact
@@ -141,7 +141,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download pre-deploy sitemap snapshot (optional)
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
         with:
           name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
@@ -156,7 +156,7 @@ jobs:
       # with titleByLocale / descriptionByLocale. We download it back to
       # data/jobs.json so the resolve-data-path lookup picks it up.
       - name: Download master jobs.json
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: jobs-master-${{ inputs.deploy_run_id }}
           path: /tmp/jobs-master
@@ -1667,7 +1667,7 @@ jobs:
       actions: read     # jobs API + job logs per il reporter diagnostico (#5414): un blocco permissions esplicito AZZERA gli scope non elencati, quindi senza questa riga ogni gh api actions/... risponde 403 e il reporter degrada a muto
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ inputs.deploy_ref }}
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -1696,13 +1696,13 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -1864,7 +1864,7 @@ jobs:
       # Any future rename, move or crash of the classifier reproduces it.
       - name: Checkout (workflow ref — see comment)
         continue-on-error: true
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -1892,7 +1892,7 @@ jobs:
 
       - name: Setup Node.js
         continue-on-error: true
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

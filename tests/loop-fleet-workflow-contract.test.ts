@@ -209,7 +209,7 @@ describe('loop fleet workflow contract', () => {
     ];
     for (const name of workflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      const checkoutIndex = source.indexOf('uses: actions/checkout@v5');
+      const checkoutIndex = source.indexOf('uses: actions/checkout@v7');
       const overlayIndex = source.indexOf('- name: Overlay durable ledger branch');
       expect(checkoutIndex, name).toBeGreaterThanOrEqual(0);
       expect(source, name).toContain('LEDGER_BRANCH: ledger/loop-fleet');

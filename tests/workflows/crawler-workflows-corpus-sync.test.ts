@@ -30,7 +30,7 @@ describe('crawler workflow corpus transport', () => {
   });
 
   it('usa sparse checkout e l unica credenziale cross-repo gia esistente', () => {
-    const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v7');
     expect(checkout.with['sparse-checkout']).toContain('/.github/corpus-workflows/');
     expect(workflowSource).toContain('ARTICLES_REPO_PAT: ${{ secrets.ARTICLES_REPO_PAT }}');
     expect(workflow.permissions).toEqual({ contents: 'read' });
@@ -38,7 +38,7 @@ describe('crawler workflow corpus transport', () => {
   });
 
   it('materializza la closure degli import del gate body prima di aprire la PR corpus', () => {
-    const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v7');
     const sparsePaths = new Set(String(checkout.with['sparse-checkout'])
       .split(/\r?\n/)
       .map((entry) => entry.trim().replace(/^\//, ''))

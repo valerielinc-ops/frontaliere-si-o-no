@@ -34,6 +34,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -863,7 +864,7 @@ async function main() {
       storedJobs: readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS).filter(isMendrisioJob),
       companyKey: MENDRISIO_KEY,
       companyLabel: MENDRISIO_COMPANY_NAME,
-      write: (jobs) => writeJobsCrawlerSlice(MENDRISIO_KEY, jobs),
+      write: (jobs, options) => writeJobsCrawlerSliceVerified(MENDRISIO_KEY, jobs, options),
       assemble: () => assembleJobsDataset(),
     });
     const _cdResult = logStats(beforeSnapshot);

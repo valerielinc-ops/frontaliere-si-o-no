@@ -31,7 +31,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout reconciliation probe
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -54,7 +54,7 @@ jobs:
           git checkout FETCH_HEAD -- data/loop-fleet/ledger
           echo "::notice::overlaid data/loop-fleet/ledger from $LEDGER_BRANCH"
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

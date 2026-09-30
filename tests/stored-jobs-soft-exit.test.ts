@@ -47,27 +47,57 @@ describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
     });
     expect(rewritten).toBe(true);
     expect(write).toHaveBeenCalledTimes(1);
-    const [jobs] = write.mock.calls[0];
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({
-      id: 'fart-0',
-      slug: 'fart-concorso-0',
-      url: 'https://www.fartiamo.ch/concorsi/0/',
-      postedDate: POSTED,
-      description: '',
-      descriptionByLocale: {},
-      needsRetranslation: true,
+    const [jobs, options] = write.mock.calls[0];
+    expect(jobs).toEqual([]);
+    expect(options).toEqual({
+      housekeepingProof: [{
+        job: expect.objectContaining({
+          url: 'https://www.fartiamo.ch/concorsi/0/',
+          slug: 'fart-concorso-0',
+        }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
     });
   });
 
-  it('writes nothing when the stored jobs carry no text of the crawler', async () => {
+  it('quarantines a stored job that has no source body even without a fabricated marker', async () => {
     const write = vi.fn();
     const job = { ...storedFartJob(), description: 'CONCORSO PUBBLICO', descriptionByLocale: { it: 'CONCORSO PUBBLICO' } };
     const rewritten = await rewritePreparedStoredJobs({
       prepare, storedJobs: [job], companyKey: 'fart', companyLabel: 'FART', write,
     });
-    expect(rewritten).toBe(false);
-    expect(write).not.toHaveBeenCalled();
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [{
+        job: expect.objectContaining({ slug: 'fart-concorso-0' }),
+        reason: 'thin-source-quarantine',
+        definitive: true,
+      }],
+    });
+  });
+
+  it('keeps a real source body while removing only a fabricated translation', async () => {
+    const write = vi.fn();
+    const source = Array(60).fill('source').join(' ');
+    const job = {
+      ...storedFartJob(),
+      description: source,
+      descriptionByLocale: {
+        it: source,
+        en: 'Consultare il bando PDF ufficiale per dettagli completi',
+      },
+    };
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare, storedJobs: [job], companyKey: 'fart', companyLabel: 'FART', write,
+    });
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledTimes(1);
+    expect(write.mock.calls[0][0][0]).toMatchObject({
+      description: source,
+      descriptionByLocale: { it: source },
+    });
+    expect(write.mock.calls[0][1]).toEqual({});
   });
 
   it('writes nothing without a cleanup or without stored jobs', async () => {
@@ -81,14 +111,21 @@ describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
     expect(write).not.toHaveBeenCalled();
   });
 
-  it('keeps the prior slice when the rewrite would trip the systemic boilerplate guard', async () => {
+  it('does not let an all-thin quarantine trip the systemic boilerplate guard', async () => {
     const write = vi.fn();
     const stored = Array.from({ length: 10 }, (_, i) => storedFartJob(i));
     const rewritten = await rewritePreparedStoredJobs({
       prepare, storedJobs: stored, companyKey: 'fart', companyLabel: 'FART', write,
     });
-    expect(rewritten).toBe(false);
-    expect(write).not.toHaveBeenCalled();
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: expect.arrayContaining([
+        expect.objectContaining({
+          job: expect.objectContaining({ slug: 'fart-concorso-0' }),
+          definitive: true,
+        }),
+      ]),
+    });
   });
 
   it('stays soft when the write fails', async () => {
@@ -121,7 +158,7 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
       expect(exit.length).toBeGreaterThan(0);
       const call = exit.slice(0, exit.indexOf('});') + 3);
       expect(call).toContain(`prepare: (jobs) => dropFabricatedDescriptions(jobs, ${mergePattern},`);
-      expect(call).toMatch(/write: \(jobs\) => writeJobsCrawlerSlice\([A-Z_]+, jobs\)/);
+      expect(call).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSliceVerified\([A-Z_]+, jobs, options\)/);
       expect(call).toContain('assemble: () => assembleJobsDataset(),');
       // The call sits in the zero-job exit, before its `return`.
       expect(exit.slice(call.length).trimStart()).toMatch(/^(return;|const _cdResult = logStats)/);
@@ -135,7 +172,7 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
     const call = exit.slice(0, exit.indexOf('});') + 3);
     // Returns nothing: the helper keeps the whole stored array, repaired in place.
     expect(call).toContain('prepare: (jobs) => { jobs.forEach(dropConvitFabricatedText); },');
-    expect(call).toContain('write: (jobs) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob }),');
+    expect(call).toContain('write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, { isTargetJob, ...options }),');
     expect(call).toContain('assemble: () => assembleJobsDataset(),');
     expect(exit.slice(call.length).trimStart()).toMatch(/^return;/);
   });
@@ -179,7 +216,7 @@ describe('lot H/K runners clean their stored jobs at every zero-job exit', () =>
       const fn = source.slice(fnStart, source.indexOf('\n}\n', fnStart));
       expect(fn).toContain(`prepare: (jobs) => { for (const job of jobs) ${mergeDrop}(job); },`);
       expect(fn).toMatch(/storedJobs: readExistingCrawlerJobs\([A-Z_]+, DATA_JOBS\)\.filter\([A-Za-z]+\),/);
-      expect(fn).toMatch(/write: \(jobs\) => writeJobsCrawlerSlice\([A-Z_]+, jobs\),/);
+      expect(fn).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice(?:Verified)?\([A-Z_]+, jobs, options\),/);
       // Each call sits right before the `return` of a zero-job exit.
       const calls = source.match(/await cleanStoredJobsOnSoftExit\(\);\s*return;/g) || [];
       expect(calls).toHaveLength(exits);

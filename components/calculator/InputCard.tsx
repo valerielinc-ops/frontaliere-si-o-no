@@ -205,7 +205,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  const [salaryError, setSalaryError] = useState<string | null>(null);
  const [easterEgg, setEasterEgg] = useState<string | null>(null);
  const [easterEggVisible, setEasterEggVisible] = useState(false);
- const easterEggTimer = useRef<ReturnType<typeof setTimeout>>();
+ const easterEggTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
  const inputStartTracked = useRef(false);
 
  // Desktop progressive disclosure: compact mode shows only 3 key fields
@@ -251,7 +251,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  general: true,
  expenses: false,
  settings: false, 
- rates: false
+ rates: false,
+ experimental: false,
  });
 
  const toggleSection = (key: keyof typeof openSections) => {

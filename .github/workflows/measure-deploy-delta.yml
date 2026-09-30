@@ -63,7 +63,7 @@ jobs:
       GH_REPO: ${{ github.repository }}
     steps:
       - name: Checkout (script only)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # Hand-kept (apply-checkout-profiles.mjs deliberately leaves this
           # one alone): the delta script, plus the composite action that

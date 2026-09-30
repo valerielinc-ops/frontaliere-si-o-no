@@ -102,6 +102,7 @@ import { JSDOM } from 'jsdom';
 
 const COMPANY_KEY = 'authoritative-empty-test';
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
+const SOURCE_BODY = Array(60).fill('source').join(' ');
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -403,6 +404,7 @@ describe('standard crawler authoritative-empty policy', () => {
           id: 'test-new-1',
           slug: 'new-job',
           url: 'https://example.com/new-job',
+          description: SOURCE_BODY,
         }],
         isCompanyJob: () => true,
         validateAuthoritativeSnapshot: () => true,
@@ -453,8 +455,8 @@ describe('standard crawler authoritative-empty policy', () => {
     mocks.mergePreserveLocaleData.mockImplementationOnce(() => []);
     const parsedJobs = Object.assign(
       [
-        { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' },
-        { id: 'test-new-2', slug: 'other-job', url: 'https://example.com/other-job' },
+        { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY },
+        { id: 'test-new-2', slug: 'other-job', url: 'https://example.com/other-job', description: SOURCE_BODY },
       ],
       { discoveredCount: 7 },
     );
@@ -483,7 +485,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyLabel: 'Authoritative Empty Test',
         root,
         fetchJobs: async () => [
-          { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' },
+          { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY },
         ],
         isCompanyJob: (job: { id?: string }) => job.id === 'test-new-1',
       });
@@ -499,7 +501,7 @@ describe('standard crawler authoritative-empty policy', () => {
   it('carries a Coop detail-drop observation into the standard summary', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'detail-drop-summary-root-'));
     const parsedJobs = Object.assign(
-      [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+      [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
       { detailDrop: { candidates: 10, gone: 1, rejected: 1 } },
     );
     try {
@@ -525,13 +527,19 @@ describe('standard crawler authoritative-empty policy', () => {
 
   it('preserves structured fetch metadata in the summary slice', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'structured-fetch-result-root-'));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      description: SOURCE_BODY,
+    }]);
     try {
       await runStandardCrawlerPipeline({
         companyKey: COMPANY_KEY,
         companyLabel: 'Structured Fetch Result Test',
         root,
         fetchJobs: async () => ({
-          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
           fetchOutcome: 'selector_miss',
         }),
         isCompanyJob: () => true,
@@ -580,7 +588,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyLabel: 'Missing Detail URL Test',
         root,
         fetchJobs: async () => ({
-          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
           missingDetailUrlCount: 1,
         }),
         isCompanyJob: () => true,
@@ -609,7 +617,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyLabel: 'Missing Detail URL Boundary Test',
         root,
         fetchJobs: async () => ({
-          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
           missingDetailUrlCount: 2,
         }),
         isCompanyJob: () => true,
@@ -628,7 +636,7 @@ describe('standard crawler authoritative-empty policy', () => {
         companyKey: COMPANY_KEY,
         companyLabel: 'Authoritative Empty Test',
         root,
-        fetchJobs: async () => [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+        fetchJobs: async () => [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job', description: SOURCE_BODY }],
         isCompanyJob: () => true,
         validateAuthoritativeSnapshot: () => true,
         allowAuthoritativeEmptySnapshot: true,
@@ -680,13 +688,19 @@ describe('standard crawler authoritative-empty policy', () => {
 
   it('keeps miss grace for non-empty partial batches when authority is empty-only', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-partial-root-'));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      description: SOURCE_BODY,
+    }]);
     const validator = vi.fn(() => true);
     const freshJob = {
       id: 'test-fresh-1',
       slug: 'fresh-job',
       companyKey: COMPANY_KEY,
       title: 'Fresh job',
-      description: 'A sufficiently detailed fresh job description for the fixture.',
+      description: SOURCE_BODY,
       location: 'Lugano',
       canton: 'TI',
       url: 'https://example.com/jobs/fresh',

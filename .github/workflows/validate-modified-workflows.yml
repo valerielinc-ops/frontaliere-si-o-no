@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           filter: blob:none
@@ -54,7 +54,7 @@ jobs:
 
       - name: actionlint modified workflows
         if: steps.contracts.outputs.files != ''
-        uses: raven-actions/actionlint@v2
+        uses: raven-actions/actionlint@v2.2.0
         with:
           files: ${{ steps.contracts.outputs.files }}
           shellcheck: false

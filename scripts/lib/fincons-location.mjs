@@ -19,6 +19,12 @@ export function classifyFinconsLocation(location = '', country = '') {
   // (e.g. "Zurich, Germany"). Otherwise the generic helper's Swiss-name
   // safeguard can make the address look Swiss and pair the wrong canton.
   if (isLocationExplicitlyForeign(normalizedLocation)) return 'foreign';
+  // A country-only row is a complete, explicit source signal but it has no
+  // locality from which to derive a canton. Keep it out of the publishable
+  // Swiss target set without failing the whole source snapshot; the detail
+  // page may still provide a concrete city, while a genuinely remote/global
+  // posting is safely skipped by resolveFinconsLocation().
+  if (SWISS_COUNTRY_TOKENS.has(normalizeCountry(normalizedLocation))) return 'country-only';
   if (!isTargetSwissLocation(normalizedLocation, { includeBorderProximity: false })) {
     return 'unresolved';
   }

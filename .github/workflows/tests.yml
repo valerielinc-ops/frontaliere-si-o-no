@@ -170,7 +170,7 @@ jobs:
       - name: PR-body completeness + multi-issue Closes (no checkout, pull requests)
         if: ${{ !cancelled() && github.event_name == 'pull_request' }}
         id: body_contract
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const STICKY = '<!-- pr-body-contract -->';
@@ -1179,7 +1179,7 @@ jobs:
       # per questo gli step che ne hanno bisogno continuano a fare il fetch
       # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
       # quasi gratis: i commit ci sono già, manca solo il NOME.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         with:
           # Only the event ref is checked out. Body recovery re-runs an
@@ -1334,7 +1334,7 @@ jobs:
       - name: Cache Vitest/Vite transform cache
         id: vitest-cache
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: |
             node_modules/.vite-independent
@@ -1352,7 +1352,7 @@ jobs:
         # una misura di performance, non una scorciatoia del gate.
         id: tsc-cache
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
@@ -1360,7 +1360,7 @@ jobs:
             tsc-incremental-${{ runner.os }}-
 
       # --- Source guards share the code checkout ----------------------------
-      # Qui stava un secondo `actions/checkout@v5` (`fetch-depth: 0`,
+      # Qui stava un secondo `actions/checkout@v7` (`fetch-depth: 0`,
       # `filter: blob:none`, `ref: head.sha`) tutto per questi guard. È stato
       # RIMOSSO perché il checkout condiviso in testa al job porta già la storia
       # profonda che il diff a tre punti richiede — è lo stesso profilo, promosso
@@ -1418,7 +1418,7 @@ jobs:
         # guasto persistente dell'API deve poter arrossare un gate di merge
         # per un commento consultivo.
         continue-on-error: true
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           retries: 3
           script: |
@@ -1528,7 +1528,7 @@ jobs:
         # advisory, quindi non deve poter far cadere il gate `contract`.
         # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
         continue-on-error: true
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           retries: 3
           script: |
@@ -1985,7 +1985,7 @@ jobs:
           # stesura usava `git merge-base HEAD origin/$BASE_REF` e stampava
           # «merge-base non risolta», cioè non escludeva niente.
           #
-          # Perché: allora `actions/checkout@v5` faceva qui un fetch shallow
+          # Perché: allora `actions/checkout@v7` faceva qui un fetch shallow
           # (`fetch-depth: 1`) e NON creava il remote-tracking ref
           # `refs/remotes/origin/main`; due storie shallow possono per giunta
           # non avere una base comune entro la profondità fetchata. L'API non ha
@@ -2190,7 +2190,7 @@ jobs:
         # correctness, so the restore-keys cascade cannot replay a stale
         # jobs.json across slice or assembler changes (cache-miss → full
         # assembly → fresh snapshot).
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -2404,14 +2404,14 @@ jobs:
       # verdetto complessivo del job è già destinato al rosso.
       - name: Save TypeScript incremental state
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: |
             node_modules/.vite-independent
@@ -3930,7 +3930,7 @@ jobs:
       # Storia completa dei commit per i merge dell'autorebase, nessun tree
       # storico (stesso profilo `tree:0` del job required).
       - name: Checkout trusted main for autorebase and token minting
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         continue-on-error: true
         with:
           ref: main
@@ -3983,7 +3983,7 @@ jobs:
       - name: Checkout trusted native auto-merge source
         if: ${{ needs.vitest.outputs.automerge == 'true' }}
         continue-on-error: true
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           ref: main

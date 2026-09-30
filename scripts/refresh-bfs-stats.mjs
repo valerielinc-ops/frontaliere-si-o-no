@@ -28,6 +28,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { appendFileSync, readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildStatsFromCSV, fetchBfsCsv } from './lib/bfs-stats-parser.mjs';
@@ -112,7 +113,7 @@ async function main() {
     genderSnapshot: parsed.genderSnapshot,
     latestQuarter,
     lastUpdated: new Date().toISOString(),
-    timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    timestamp: FieldValue.serverTimestamp(),
   };
 
   await ref.set(payload, { merge: false });

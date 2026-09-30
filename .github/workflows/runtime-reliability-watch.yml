@@ -84,7 +84,7 @@ jobs:
       # (ERR_MODULE_NOT_FOUND, run 36128534394). Checked by
       # scripts/ci/verify-checkout-profiles.mjs (tests/checkout-sparse-profiles.test.ts).
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -106,7 +106,7 @@ jobs:
 
       - name: Restore runtime repair circuit state
         id: circuit
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .runtime-reliability-state
           key: runtime-reliability-circuit-${{ github.run_id }}
@@ -264,7 +264,7 @@ jobs:
       - name: Save runtime repair circuit state
         if: always()
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .runtime-reliability-state
           key: runtime-reliability-circuit-${{ github.run_id }}

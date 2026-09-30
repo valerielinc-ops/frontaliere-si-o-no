@@ -60,7 +60,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout revenue inputs
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -81,7 +81,7 @@ jobs:
             /.github/workflows/loop-l8-revenue-attribution.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Start loop operational telemetry
@@ -184,7 +184,7 @@ jobs:
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L8 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L8 observation and actions
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: loop-l8-revenue-attribution-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l8/

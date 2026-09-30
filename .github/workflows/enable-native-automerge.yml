@@ -77,7 +77,7 @@ jobs:
       # or executed. A missing helper fails this run closed; retry workflow
       # ticks keep recovery automatic when the source is transiently absent.
       - name: Checkout trusted native auto-merge source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           ref: main

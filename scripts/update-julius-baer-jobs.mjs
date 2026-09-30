@@ -17,7 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
@@ -235,7 +235,7 @@ function cleanStoredJobsOnSoftExit() {
     storedJobs: readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isJuliusBaerJob),
     companyKey: COMPANY_KEY,
     companyLabel: COMPANY_NAME,
-    write: (jobs) => writeJobsCrawlerSlice(COMPANY_KEY, jobs),
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
   });
 }
 

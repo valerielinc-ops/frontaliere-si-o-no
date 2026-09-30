@@ -120,7 +120,7 @@ const OPAQUE_RULES = [
   // Opaco per costruzione, come `dynamic-npm-run`: non e' un path che si puo'
   // dedurre meglio, e' una catena che l'analisi statica non vede.
   //
-  // Il pattern nomina l'entry point SCRITTO NEL PASSO — `npx -y tsx@4
+  // Il pattern nomina l'entry point SCRITTO NEL PASSO — `npx -y tsx@4.23.15
   // scripts/audit-article-corpus-drift.mjs` — e non gli anelli successivi della
   // catena. `textOfSteps` passa per il parser YAML, quindi i commenti non
   // esistono per questa analisi: `check-article-byte-identity.mjs` nel workflow

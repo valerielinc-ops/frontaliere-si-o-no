@@ -298,7 +298,7 @@ function updateAdapterConfig(jobs) {
 
 function isRecognizedFinconsSourceLocation(raw = '') {
   const value = String(raw || '').trim();
-  return Boolean(value && (isLocationExplicitlyForeign(value) || isTargetSwissLocation(value)));
+  return Boolean(value && classifyFinconsLocation(value) !== 'unresolved');
 }
 
 // Keep the source validator and the filtered target path on the same
