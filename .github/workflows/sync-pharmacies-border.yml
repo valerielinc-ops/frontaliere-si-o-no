@@ -114,7 +114,7 @@ jobs:
 
           ## Non implementato (ancora)
 
-          Nessuno — all generated snapshots in this run are validated before publication.
+          Nessuno
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
             --path data/pharmacies-ticino-complete.json \
