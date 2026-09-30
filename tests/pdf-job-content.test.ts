@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
@@ -36,8 +37,8 @@ describe('pdf-job-content', () => {
     const extractTextImpl = vi.fn(async () => ({
       totalPages: 2,
       text: [
-        'Associate Professor in Economics',
-        'Responsibilities: research and teaching',
+        'Associate Professor in Economics leads research and teaching at the institute',
+        'Responsibilities include research supervision, course design, and collaboration with colleagues',
       ].join('\n\n'),
     }));
 
@@ -50,7 +51,26 @@ describe('pdf-job-content', () => {
     expect(extractTextImpl).toHaveBeenCalledOnce();
     expect(result.totalPages).toBe(2);
     expect(result.text).toContain('Associate Professor in Economics');
-    expect(result.text).toContain('Responsibilities: research and teaching');
+    expect(result.text).toContain('Responsibilities include research supervision');
+  });
+
+  it('extracts the reduced real bando fixture and publishes its source body', async () => {
+    const fixture = readFileSync(new URL('./fixtures/pdf/synthetic-bando.pdf', import.meta.url));
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      arrayBuffer: async () => Uint8Array.from(fixture).buffer,
+    }));
+
+    const result = await extractPdfJobContentFromUrl('https://example.com/synthetic-bando.pdf', {
+      fetchImpl: fetchImpl as any,
+    });
+
+    expect(result.error).toBeUndefined();
+    expect(result.extractionFailed).toBeUndefined();
+    expect(result.totalPages).toBe(2);
+    expect(result.bodyWordCount).toBeGreaterThanOrEqual(50);
+    expect(result.text).toContain('BANDO SINTETICO');
   });
 
   it('falls back to page-by-page extraction when merged yields thin content', async () => {
@@ -83,7 +103,7 @@ describe('pdf-job-content', () => {
     expect(result.error).toBeUndefined();
   });
 
-  it('returns a warning field when extraction yields very thin content', async () => {
+  it('treats a multi-page extraction under ten words as a parser failure', async () => {
     const fetchImpl = vi.fn(async () => ({
       ok: true,
       arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
@@ -100,24 +120,20 @@ describe('pdf-job-content', () => {
     });
 
     expect(result.totalPages).toBe(2);
-    expect((result as any).warning).toBeDefined();
-    expect((result as any).warning).toContain('image-only/scanned PDF');
-    expect(result.error).toBeUndefined();
+    expect(result.extractionFailed).toBe(true);
+    expect(result.failureReason).toBe('pdf-extraction-failed');
+    expect(result.thin).toBe(false);
+    expect(result.error).toContain('1 words extracted from 2 pages');
   });
 
-  it('returns empty text (not the thin fragment) for image-only PDFs so consumers fall back to intro', async () => {
+  it('treats an empty extraction as an error and never as thin source', async () => {
     const fetchImpl = vi.fn(async () => ({
       ok: true,
       arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
     }));
-    // Image-only PDF yielding a non-empty-but-thin fragment (1–49 chars). The
-    // fragment MUST survive normalization (i.e. NOT be page-noise that strips to
-    // '' anyway) so this assertion genuinely pins the #1485 regression: pre-fix
-    // `text` would be 'Bando di concorso' (truthy → glued into a boilerplate-only
-    // description that hard-fails the guard), post-fix it is ''.
     const extractTextImpl = vi.fn(async () => ({
       totalPages: 4,
-      text: 'Bando di concorso',
+      text: '',
     }));
 
     const result = await extractPdfJobContentFromUrl('https://example.com/scan-fragment.pdf', {
@@ -127,26 +143,21 @@ describe('pdf-job-content', () => {
 
     expect(result.totalPages).toBe(4);
     expect(result.text).toBe('');
-    expect((result as any).thin).toBe(true);
-    expect((result as any).warning).toContain('image-only/scanned PDF');
-    // rawText is intentionally preserved (diagnostic + un-normalized source).
-    expect(result.rawText).toContain('Bando di concorso');
-    // Consumers that prefer `pdf.rawText || pdf.text` must honor the `thin` flag,
-    // otherwise the un-nulled rawText fragment bypasses the guard (the sibling
-    // class flagged on #1508). This is the idiom every PDF-backed crawler uses.
-    const siblingPdfText = (result as any).thin
-      ? ''
-      : (result.rawText || result.text || '');
-    expect(siblingPdfText).toBe('');
-    // The thin fragment, falsy `text`, makes `pdfText || fallbackText` fall back
-    // to the inline intro — exactly the empty-PDF path PR #1468 declared safe.
-    const description = buildPdfBackedDescription({
-      introLines: ['Infermiere/a 80-100% — inizio da concordare'],
-      pdfText: result.text,
-      fallbackText: 'Infermiere/a 80-100% — inizio da concordare',
-      footerLines: ['Dettagli (PDF): https://example.com/scan-fragment.pdf'],
+    expect(result.extractionFailed).toBe(true);
+    expect(result.failureReason).toBe('pdf-extraction-failed');
+    expect(result.thin).toBe(false);
+    expect(result.error).toContain('no text extracted');
+  });
+
+  it('reports a non-200 PDF response as extraction failure', async () => {
+    const result = await extractPdfJobContentFromUrl('https://example.com/missing.pdf', {
+      fetchImpl: vi.fn(async () => ({ ok: false, status: 404 })) as any,
     });
-    expect(description).toContain('Infermiere/a 80-100%');
+
+    expect(result.text).toBe('');
+    expect(result.extractionFailed).toBe(true);
+    expect(result.failureReason).toBe('pdf-extraction-failed');
+    expect(result.error).toContain('HTTP 404');
   });
 
   it('returns no warning when extraction yields sufficient content', async () => {

@@ -31,6 +31,7 @@ import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-jo
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -270,11 +271,21 @@ export async function fetchAllClinicaVariniJobs() {
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  const sourceBodyFailures = [];
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.filename}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl, { timeoutMs });
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
-    const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
+    const pdfFailed = Boolean(pdf.extractionFailed || pdf.error);
+    if (pdfFailed) {
+      sourceBodyFailures.push({
+        title: listing.title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdf.error || pdf.warning || 'PDF extraction failed',
+      });
+    }
+    const pdfText = pdfFailed || pdf.thin ? '' : (pdf.rawText || pdf.text || '');
 
     const { description, warnings } = buildVariniDescription({
       title: listing.title,
@@ -327,6 +338,12 @@ export async function fetchAllClinicaVariniJobs() {
       postedDate: todayIso,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
+      ...(pdfFailed
+        ? {
+          sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
+          sourceBodyFailureMessage: pdf.error || pdf.warning || 'PDF extraction failed',
+        }
+        : {}),
     });
 
     console.log(`  ✅ ${listing.title.substring(0, 70)} (${listing.id})`);
@@ -346,5 +363,6 @@ export async function fetchAllClinicaVariniJobs() {
   console.log(
     `\n📋 Total ${CLINICA_VARINI_COMPANY_NAME} jobs discovered: ${jobs.length}`
   );
+  jobs.sourceBodyFailures = sourceBodyFailures;
   return jobs;
 }

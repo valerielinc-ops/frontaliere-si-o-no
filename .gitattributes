@@ -99,3 +99,7 @@ data/orphan-enriched-data/part-*.json merge=orphan-enriched-shard
 # keep two full sorted JSON rewrites or conflict.
 data/jobs-stats-history/????-??-??.json merge=job-stats-history-shard
 data/jobs-stats-history/????-??.json merge=job-stats-history-shard
+
+# Synthetic PDF fixtures are binary test artifacts; preserve their exact byte
+# offsets and keep Git whitespace checks from parsing xref rows as source text.
+tests/fixtures/pdf/*.pdf binary
