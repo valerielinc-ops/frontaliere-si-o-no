@@ -49,13 +49,78 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Probe blocked source readiness
-        # This is a read-only watch. In particular, JU/NE are probed through
-        # their official canton pages, never through Ricardo; GE and ZG stay
-        # non-active until their official readiness gates are met.
+        id: readiness
+        # A read-only watch that never changes the registry. JU/NE are probed
+        # through their official canton pages, never through Ricardo, and a new
+        # data/feed link there asks for a look; GE is validated by running its
+        # real connector (ready only when the newest OCV list yields plates for
+        # a session that has not ended); ZG waits for the canton to stop saying
+        # auctions are suspended. ge.ch has no feed, so a list with a new slug
+        # is looked up in its ~9.5 MB sitemap — like the alert below, only on
+        # the first run of the UTC day or a manual dispatch: lists appear weeks
+        # before their session, and three more sitemap reads a day would only
+        # load the canton's server.
         continue-on-error: true
+        env:
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          echo '## Blocked plate-auction source readiness' >> "$GITHUB_STEP_SUMMARY"
-          node scripts/plate-auctions/discover-sources.mjs --blocked-only | tee -a "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+          DAILY=0
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$(date -u +%-H)" -lt 6 ]; then DAILY=1; fi
+          ARGS="--blocked-only"
+          if [ "$DAILY" = "1" ]; then ARGS="$ARGS --ge-sitemap"; fi
+          node scripts/plate-auctions/discover-sources.mjs $ARGS > "$RUNNER_TEMP/plate-readiness.json"
+          {
+            echo '## Blocked plate-auction source readiness'
+            echo
+            echo '| Source | HTTP | Recommendation |'
+            echo '|---|---|---|'
+            jq -r '.results[] | "| \(.key | ascii_upcase) | \(.httpStatus) | \(.recommendation) |"' "$RUNNER_TEMP/plate-readiness.json"
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "ready=$(jq -r '(.readyKeys // []) | join(" ")' "$RUNNER_TEMP/plate-readiness.json")" >> "$GITHUB_OUTPUT"
+          echo "daily=$DAILY" >> "$GITHUB_OUTPUT"
+
+      # One issue per source that became ready, deduplicated on a stable title
+      # that starts with the plate code (scripts/lib/github-issue-creator.mjs),
+      # so the evidence reaches the fix queue instead of the step summary.
+      - name: Alert on blocked sources that became ready (dedup, zero-Claude)
+        if: steps.readiness.outcome == 'success' && steps.readiness.outputs.daily == '1' && steps.readiness.outputs.ready != '' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/plate-auctions/alert-ready-sources.mjs \
+            --from "$RUNNER_TEMP/plate-readiness.json" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # Watcher of the watcher: if the probe itself breaks, a source becoming
+      # ready would no longer be detected. A healthy daily probe resolves it.
+      - name: Self-alert on readiness probe crash (dedup, zero-Claude)
+        if: steps.readiness.outcome == 'failure' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Plate-auction readiness probe crashed: blocked sources unwatched" \
+            --description "scripts/plate-auctions/discover-sources.mjs failed before producing a verdict in refresh-plate-auctions.yml, so a GE list, a ZG reopening or a JU/NE feed would no longer be detected. Re-run it locally with: node scripts/plate-auctions/discover-sources.mjs --blocked-only --ge-sitemap" \
+            --priority 3 \
+            --workflow "Refresh Plate Auctions" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Resolve the probe self-alert when the daily probe is healthy
+        if: steps.readiness.outcome == 'success' && steps.readiness.outputs.daily == '1' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Plate-auction readiness probe crashed: blocked sources unwatched" \
+            --workflow "Refresh Plate Auctions" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Prepare Firebase credentials
         if: inputs.dry_run != true && inputs.dry_run != 'true'

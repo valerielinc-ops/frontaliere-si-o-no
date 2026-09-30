@@ -1058,22 +1058,34 @@ export function parseGePlateAuctionListPdfText(value, {
  * Pagina d'asta → liste candidate → la più recente → PDF → righe. Solo ge.ch:
  * `auctionUrl` (Ricardo) non viene mai richiesto. `injectedFetcher` segue la
  * firma dei connettori a prezzo fisso della Cloud Function.
+ * `extraListDocumentUrls` aggiunge candidati trovati altrove (la sitemap di
+ * ge.ch letta dal probe di readiness): una lista nuova con uno slug nuovo non
+ * è sempre linkata dalla pagina d'asta prima della sessione. Solo www.ge.ch.
  *
- * @param {{ fetchedAt?: string, now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any> }} [options]
+ * @param {{ fetchedAt?: string, now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, extraListDocumentUrls?: string[] }} [options]
  */
 export async function fetchGePlateAuctions({
   fetchedAt = new Date().toISOString(),
   now = new Date(fetchedAt),
   injectedFetcher,
+  extraListDocumentUrls = [],
 } = {}) {
   const source = GE_PLATE_AUCTION_SOURCE;
   const readHtml = (url) => (injectedFetcher
     ? injectedFetcher(url, { responseType: 'html', timeoutMs: 20000 })
     : fetchHtml(url));
   const auctionPage = await readHtml(source.pageUrl);
+  const extras = extraListDocumentUrls.filter((url) => {
+    try {
+      return new URL(url).hostname === 'www.ge.ch';
+    } catch {
+      return false;
+    }
+  });
   const candidates = [...new Set([
     ...extractGeListDocumentUrls(auctionPage, { baseUrl: source.pageUrl }),
     ...source.listDocumentUrls,
+    ...extras,
   ])];
   const documents = [];
   const failures = [];
