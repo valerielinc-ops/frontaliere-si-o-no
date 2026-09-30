@@ -101,6 +101,20 @@ export function extractPremiumpflege24NationwideApplicationListing(
 }
 
 /**
+ * The promoted JSON-LD spec can accept the application page's short teaser as
+ * a JobPosting. It is not publishable source content, so give the same seed a
+ * chance to yield the richer nationwide application page before the standard
+ * pipeline quarantines every spec row for thin content.
+ *
+ * Keep a publishable spec row authoritative: a real vacancy feed must not be
+ * replaced by a page-level fallback merely because another row is sparse.
+ */
+export function shouldUsePremiumpflege24NationwideFallback(listings) {
+  if (!Array.isArray(listings) || listings.length === 0) return true;
+  return listings.every((listing) => !meetsSourceBodyFloor(listing?.description || ''));
+}
+
+/**
  * Resolve a PremiumPflege24 row without turning the employer's HQ into a
  * workplace. Country-only source evidence is a valid nationwide posting; all
  * other rows still require the shared source-backed Swiss geography resolver.
@@ -190,12 +204,12 @@ function detectEmploymentType(text = '') {
 async function fetchJobListings() {
   const spec = loadSpec(PREMIUMPFLEGE24_KEY);
   const listings = await runSpecInProduction(spec);
-  if (listings.length > 0) return listings;
+  if (!shouldUsePremiumpflege24NationwideFallback(listings)) return listings;
 
-  // The promoted spec remains the first-line extractor. Only after it has
-  // observed a successful zero do we inspect the same seed as a source-backed
-  // application page, so transport failures still fail closed and preserve the
-  // prior slice in the crawler template.
+  // The promoted spec remains the first-line extractor. When it observes a
+  // successful zero or only thin teaser rows, inspect the same seed as a
+  // source-backed application page. Transport failures still fail closed and
+  // preserve the prior slice in the crawler template.
   const fallbackUrl = spec.seedUrls?.[0] || CAREER_URL;
   const validateUrl = createSpecUrlPolicy(spec);
   try {
