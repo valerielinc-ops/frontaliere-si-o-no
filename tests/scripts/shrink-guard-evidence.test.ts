@@ -24,10 +24,15 @@
  * stands — a blocked source can never be mistaken for a legitimate shrink.
  */
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import {
+  SHRINK_GUARD_ERROR_CODE,
   shouldBlockShrink,
   verifyShrinkWithProvidedHousekeepingProof,
   verifyShrinkAgainstSource,
+  writeJobsCrawlerSliceVerified,
 } from '../../scripts/assemble-jobs-dataset.mjs';
 
 type Verdict = { id?: string; valid: boolean; definitive?: boolean; reason: string; status?: number };
@@ -49,7 +54,95 @@ const stillLive = (): Verdict => ({ valid: true, status: 200, reason: 'ok' });
 const botChallenge = (): Verdict => ({ valid: true, status: 403, reason: 'blocked-403' });
 const networkError = (): Verdict => ({ valid: true, status: 0, reason: 'network-error' });
 
+function createShrinkIssueHarness() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-shrink-issue-'));
+  const sliceDir = path.resolve(__dirname, '../../data/jobs/by-crawler');
+  const slicePath = path.join(dir, 'slice.json');
+  const crawlerKey = path.relative(sliceDir, slicePath.slice(0, -'.json'.length));
+  const resolvedSlicePath = path.join(sliceDir, `${crawlerKey}.json`);
+  if (resolvedSlicePath !== slicePath) {
+    throw new Error(`test slice escaped to an unexpected path: ${resolvedSlicePath}`);
+  }
+
+  const binDir = path.join(dir, 'bin');
+  const ghLogPath = path.join(dir, 'gh.log');
+  fs.mkdirSync(binDir);
+  fs.writeFileSync(
+    path.join(binDir, 'gh'),
+    '#!/bin/sh\nprintf "%s\\n" "$*" >> "$SHRINK_GH_LOG"\n'
+      + 'if [ "$1" = issue ] && [ "$2" = list ]; then printf "[]"; fi\n',
+    'utf8',
+  );
+  fs.chmodSync(path.join(binDir, 'gh'), 0o755);
+
+  const previousPath = process.env.PATH;
+  const previousGhLog = process.env.SHRINK_GH_LOG;
+  const previousOwnershipGuard = process.env.SKIP_OWNERSHIP_GUARD;
+  process.env.PATH = `${binDir}${path.delimiter}${previousPath || ''}`;
+  process.env.SHRINK_GH_LOG = ghLogPath;
+  process.env.SKIP_OWNERSHIP_GUARD = '1';
+
+  const job = {
+    id: `shrink-${path.basename(dir)}`,
+    url: `https://shrink-test.invalid/jobs/${path.basename(dir)}`,
+    title: 'Legacy source job',
+  };
+  fs.writeFileSync(slicePath, `${JSON.stringify({ crawlerKey, assembledAt: '2026-09-30T00:00:00.000Z', jobs: [job] })}\n`, 'utf8');
+
+  return {
+    crawlerKey,
+    job,
+    ghLogPath,
+    cleanup() {
+      if (previousPath === undefined) delete process.env.PATH;
+      else process.env.PATH = previousPath;
+      if (previousGhLog === undefined) delete process.env.SHRINK_GH_LOG;
+      else process.env.SHRINK_GH_LOG = previousGhLog;
+      if (previousOwnershipGuard === undefined) delete process.env.SKIP_OWNERSHIP_GUARD;
+      else process.env.SKIP_OWNERSHIP_GUARD = previousOwnershipGuard;
+      fs.rmSync(dir, { recursive: true, force: true });
+    },
+  };
+}
+
 describe('verifyShrinkAgainstSource()', () => {
+  it('defers parser-health issue creation until a proven housekeeping shrink is accepted', async () => {
+    const harness = createShrinkIssueHarness();
+    try {
+      const result = await writeJobsCrawlerSliceVerified(harness.crawlerKey, [], {
+        housekeepingProof: [{
+          job: harness.job,
+          reason: 'thin-source-quarantine',
+          definitive: true,
+        }],
+      });
+
+      expect(result).toMatchObject({ written: true, shrinkAccepted: true });
+      expect(fs.existsSync(harness.ghLogPath)).toBe(false);
+    } finally {
+      harness.cleanup();
+    }
+  });
+
+  it('still files parser-health issue when source verification leaves the shrink uncorroborated', async () => {
+    const harness = createShrinkIssueHarness();
+    try {
+      await expect(writeJobsCrawlerSliceVerified(harness.crawlerKey, [], {
+        validate: async (jobs) => jobs.map((candidate) => ({
+          id: candidate.id,
+          valid: true,
+          reason: 'source-still-live',
+        })),
+      })).rejects.toMatchObject({ code: SHRINK_GUARD_ERROR_CODE });
+
+      const ghLog = fs.readFileSync(harness.ghLogPath, 'utf8');
+      expect(ghLog).toContain('issue list --label parser-broken');
+      expect(ghLog).toContain('issue create --title [parser-health]');
+    } finally {
+      harness.cleanup();
+    }
+  });
+
   it('source-verifies only ordinary removals beside a proven thin quarantine', async () => {
     const prior = [job('thin'), job('ordinary'), job('survivor')];
     const next = [prior[2]];
