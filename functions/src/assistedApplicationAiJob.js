@@ -146,18 +146,22 @@ function postingFromDetail(detail) {
     contactPhone: clean(detail?.contactPhone, 60),
     salary: salaryText(detail?.baseSalary),
     employmentType: clean(detail?.employmentType, 40),
+    // Posting age (legitimacy check): the source's date, else when our crawler first saw it.
+    postedDate: clean(detail?.postedDate, 40),
+    firstSeenAt: clean(detail?.firstSeenAt, 40),
+    validThrough: clean(detail?.validThrough || detail?.applicationDeadline, 40),
   };
 }
 
 /**
  * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, applyUrl:string, titles:object,
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
- *   salary:string, employmentType:string}>}
+ *   salary:string, employmentType:string, postedDate:string, firstSeenAt:string, validThrough:string}>}
  */
 export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup } = {}) {
   const empty = {
     source: 'none', text: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
-    streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '',
+    streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', postedDate: '', firstSeenAt: '', validThrough: '',
   };
   const jobId = String(order?.jobId || '');
   if (JOB_ID_RE.test(jobId)) {
