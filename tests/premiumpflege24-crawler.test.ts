@@ -6,6 +6,7 @@ import {
   isPremiumpflege24Job,
   isTrustedDomain,
   resolvePremiumpflege24Geography,
+  shouldUsePremiumpflege24NationwideFallback,
 } from '../scripts/lib/premiumpflege24-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -38,6 +39,18 @@ const NATIONWIDE_APPLICATION_PAGE = `
 
 describe('PremiumPflege24 GmbH crawler parser', () => {
   describe('nationwide application-page fallback', () => {
+    it('rechecks the seed when JSON-LD exposes only a thin teaser', () => {
+      expect(shouldUsePremiumpflege24NationwideFallback([
+        { description: 'Entdecken Sie erfüllende Jobs bei PremiumPflege24.' },
+      ])).toBe(true);
+    });
+
+    it('keeps a publishable spec row authoritative', () => {
+      expect(shouldUsePremiumpflege24NationwideFallback([
+        { description: NATIONWIDE_APPLICATION_PAGE },
+      ])).toBe(false);
+    });
+
     it('keeps a rich nationwide source page without fabricating the HQ canton', () => {
       const listing = extractPremiumpflege24NationwideApplicationListing(
         NATIONWIDE_APPLICATION_PAGE,

@@ -1,21 +1,23 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-09-29T21:22:48.072Z",
+  "generatedAt": "2026-09-30T21:19:20.315Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
   "lastFetchOutcome": "ok",
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 0,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3542,
-  "avgDurationMs": 3542,
+  "durationMs": 3479,
+  "avgDurationMs": 3479,
   "durationHistory": [
-    3542
+    3479
   ],
   "newJobs": [],
   "updatedJobs": [],

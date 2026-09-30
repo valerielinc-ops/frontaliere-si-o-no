@@ -17,6 +17,10 @@ const specListings = vi.hoisted(() => ({
 }));
 
 vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+  createSpecUrlPolicy: () => ({
+    dispatcher: { close: async () => {} },
+  }),
+  fetchRuntimePage: async () => null,
   loadSpec: (companyKey: string) => ({ companyKey }),
   runSpecInProduction: async (spec: { companyKey: keyof typeof specListings }) => [specListings[spec.companyKey]],
 }));

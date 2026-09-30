@@ -397,6 +397,7 @@ function uniqueExpiredEntryIdentities(entries) {
 function buildGhostActiveIndex(activeJobs) {
   if (!Array.isArray(activeJobs) || activeJobs.length === 0) return null;
   const activeByTCL = new Map();
+  const activeByProofTCL = new Map();
   const activeSlugOwners = new Map();
   const registerActiveSlug = (slug, job) => {
     if (typeof slug !== 'string' || !slug) return;
@@ -405,6 +406,8 @@ function buildGhostActiveIndex(activeJobs) {
   for (const job of activeJobs) {
     const key = `${(job?.title || '').toLowerCase().trim()}||${(job?.company || '').toLowerCase().trim()}||${(job?.location || '').toLowerCase().trim()}`;
     if (!activeByTCL.has(key)) activeByTCL.set(key, job);
+    const proofKey = titleCompanyLocationKey(job);
+    if (proofKey && !activeByProofTCL.has(proofKey)) activeByProofTCL.set(proofKey, job);
     registerActiveSlug(job?.slug, job);
     if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
       for (const slug of Object.values(job.slugByLocale)) registerActiveSlug(slug, job);
@@ -416,7 +419,12 @@ function buildGhostActiveIndex(activeJobs) {
       }
     }
   }
-  return { activeByTCL, activeSlugOwners };
+  return { activeByTCL, activeByProofTCL, activeSlugOwners };
+}
+
+/** Shared active-owner index for writers that emit expired-ghost proof. */
+export function buildGhostExpiredProofIndex(activeJobs) {
+  return buildGhostActiveIndex(activeJobs);
 }
 
 function isGhostExpiredEntry(entry, activeIndex) {
@@ -1056,6 +1064,36 @@ function hasEqualNonEmptyLocaleSlug(left, right) {
   });
 }
 
+/**
+ * Return the exact active-owner evidence accepted by the expired-slice guard.
+ * Keeping this lookup beside the verifier prevents a writer from inventing a
+ * weaker interpretation of a shared slug or title/company/location match.
+ */
+export function findGhostExpiredReconciliationMatch(entry, activeIndex) {
+  const expiredKey = titleCompanyLocationKey(entry);
+  if (!expiredKey || !activeIndex) return null;
+
+  for (const slug of expiredGhostOverlapSlugs(entry)) {
+    const owner = activeIndex.activeSlugOwners.get(slug);
+    if (owner && titleCompanyLocationKey(owner) === expiredKey) {
+      return { match: owner, overlapSlug: slug, overlapJob: owner };
+    }
+  }
+
+  const match = activeIndex.activeByProofTCL?.get(expiredKey);
+  if (!match) return null;
+  const expiredItSlug = String(entry?.slugByLocale?.it ?? '').trim();
+  const matchItSlug = String(match?.slugByLocale?.it ?? '').trim();
+  if (expiredItSlug || matchItSlug) {
+    return expiredItSlug && matchItSlug && expiredItSlug === matchItSlug
+      ? { match, overlapSlug: null, overlapJob: null }
+      : null;
+  }
+  return hasEqualNonEmptyLocaleSlug(entry, match)
+    ? { match, overlapSlug: null, overlapJob: null }
+    : null;
+}
+
 function isValidGhostExpiredProofEntry(entry, removedJob) {
   const expired = entry?.expired;
   const match = entry?.match;
@@ -1379,6 +1417,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-housekeeping-prune' };
+  }
+  if (isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, expiredGhostProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-ghost-expired-reconciliation' };
   }
   if (isProvenGhostExpiredReconciliation(filePath, previousRaw, nextRaw, housekeepingProof)) {
     return { previousBytes, nextBytes, reason: 'proven-ghost-expired-reconciliation' };
