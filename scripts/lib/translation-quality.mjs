@@ -127,7 +127,7 @@ export async function preserveStructuredTranslation(text, translateLine) {
  *
  * @param {string} source - authoritative same-language text (usually job.description)
  * @param {string} candidate - stored locale copy to check
- * @returns {boolean} true when candidate flattened away the source's list structure
+ * @returns {boolean} true when candidate does not preserve the source's list-item count
  */
 export function isStructureFlattenedCopy(source, candidate) {
   const cand = typeof candidate === 'string' ? candidate.trim() : '';

@@ -130,7 +130,13 @@ describe('isStructureFlattenedCopy', () => {
     expect(isStructureFlattenedCopy(STRUCTURED_DE, candidate)).toBe(false);
   });
 
-  it('does not flag legitimately bullet-free sources (< 3 bullets)', () => {
+  it('counts only complete list markers and ignores blank lines', () => {
+    const source = '\n- First\n\n• Second\n* Third\n1. Fourth\n1) Fifth\n';
+    expect(countListItems(source)).toBe(5);
+    expect(countListItems('Inline text - not a list\n1.no separating space')).toBe(0);
+  });
+
+  it('does not flag legitimately list-free sources', () => {
     const proseSource = 'Testo descrittivo senza alcuna lista puntata, solo prosa.\n\nSecondo paragrafo.';
     expect(isStructureFlattenedCopy(proseSource, 'Descriptive text without any list.')).toBe(false);
   });
