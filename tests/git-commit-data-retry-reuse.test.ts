@@ -179,7 +179,9 @@ describe('git-commit-data: a verdict that saw a housekeeping proof is never reus
         join(shimDir, 'git'),
         [
           '#!/bin/bash',
-          'if [ "$1" = "push" ]; then',
+          'is_push=false',
+          'for arg in "$@"; do [ "$arg" = "push" ] && is_push=true; done',
+          'if [ "$is_push" = true ]; then',
           `  n=$(cat '${counter}'); echo $((n + 1)) > '${counter}'`,
           '  if [ "$n" = "0" ]; then',
           `    rm -f '${proofFile}'`,
