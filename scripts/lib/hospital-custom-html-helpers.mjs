@@ -39,6 +39,68 @@ export function decodeEntities(s = '') {
 }
 
 /**
+ * Extract PDF links from a server-rendered HTML listing and resolve them
+ * against the page URL. WordPress/Weebly sources vary in harmless ways here:
+ * single vs double quotes, relative vs absolute paths, and download query
+ * parameters. Keeping this shape in one helper prevents each PDF crawler from
+ * silently drifting to a narrower selector.
+ *
+ * The path (not the complete URL) must end in .pdf; a query-only value such
+ * as /download?file=role.pdf is not a PDF resource and must not reach the
+ * downloader. Non-HTTP schemes are excluded before any caller fetches them.
+ *
+ * @param {string} html
+ * @param {string|URL} baseUrl
+ * @returns {Array<{href: string, filename: string}>}
+ */
+export function extractPdfLinks(html = '', baseUrl = '') {
+  if (!html || typeof html !== 'string' || !baseUrl) return [];
+
+  let base;
+  try {
+    base = new URL(baseUrl);
+  } catch {
+    return [];
+  }
+
+  const links = [];
+  const hrefRe = /<a\b[^>]*?\s+href\s*=\s*(['"])([^>\r\n]*?)\1/gi;
+  let match;
+  while ((match = hrefRe.exec(html)) !== null) {
+    let rawHref;
+    try {
+      rawHref = decodeEntities(match[2]).trim();
+    } catch {
+      // A malformed entity invalidates this candidate, not the whole listing.
+      continue;
+    }
+    if (!rawHref) continue;
+
+    let url;
+    try {
+      url = new URL(rawHref, base);
+    } catch {
+      continue;
+    }
+    if (!/^https?:$/i.test(url.protocol) || /\.pdf$/i.test(url.pathname) === false) continue;
+
+    const pathFilename = url.pathname.slice(url.pathname.lastIndexOf('/') + 1);
+    let filename;
+    try {
+      filename = decodeURIComponent(pathFilename);
+    } catch {
+      // Keep a malformed escape visible to the caller instead of turning a
+      // single bad link into a crawler-wide URIError.
+      filename = pathFilename;
+    }
+    if (!filename) continue;
+
+    links.push({ href: url.href, filename });
+  }
+  return links;
+}
+
+/**
  * Parse a "DD.MM.YYYY" (or single-digit "D.M.YYYY") Swiss short date into
  * ISO "YYYY-MM-DD". Returns '' if the input doesn't match. Shared home for
  * a construct several hospital/institutional parsers need independently

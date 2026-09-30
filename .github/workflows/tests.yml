@@ -1654,6 +1654,7 @@ jobs:
           if [ "$RUN_NUMBER_ENV_FALLBACK" = "true" ]; then
             start_gate number-env-fallback node scripts/ci/check-number-env-fallback.mjs
           fi
+          start_gate jobposting-emitter-census node scripts/ci/check-jobposting-emitter-census.mjs
           failures=0
           for i in "${!pids[@]}"; do
             status=0

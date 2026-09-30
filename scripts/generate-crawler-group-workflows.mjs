@@ -2396,7 +2396,11 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
   if (checkoutAt < 0 || rcAt < 0) throw new Error(`crawler-group-${nn}: generated bootstrap steps missing`);
   const checkout = job.steps[checkoutAt];
   checkout.name = 'Checkout frontaliere-si-o-no (public, read-only)';
-  checkout.with = { repository: SITE_REPOSITORY, 'fetch-depth': checkout.with?.['fetch-depth'] };
+  checkout.with = {
+    repository: SITE_REPOSITORY,
+    'fetch-depth': checkout.with?.['fetch-depth'],
+    'persist-credentials': false,
+  };
 
   job.steps[rcAt] = logicRemoteConfigStep();
   job.steps.splice(rcAt + 1, 0, logicWriteAuthStep(members));
@@ -2469,8 +2473,8 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (typeof copy?.uses === 'string' && copy.uses.startsWith('actions/checkout@')) {
     const allowedWith = side === 'generated'
-      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'sparse-checkout', 'sparse-checkout-cone-mode'])
-      : new Set(['repository', 'fetch-depth']);
+      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'persist-credentials', 'sparse-checkout', 'sparse-checkout-cone-mode'])
+      : new Set(['repository', 'fetch-depth', 'persist-credentials']);
     const unexpected = Object.keys(copy.with ?? {}).filter((key) => !allowedWith.has(key));
     if (unexpected.length > 0) {
       throw new Error(`${fileName}: checkout ${side} has undeclared differences: ${unexpected.join(', ')}`);
@@ -2478,11 +2482,15 @@ function normalizedContractStep(step, side, fileName, members) {
     if (side === 'logic' && copy.with?.repository !== SITE_REPOSITORY) {
       throw new Error(`${fileName}: logic checkout does not target ${SITE_REPOSITORY}`);
     }
+    if (side === 'logic' && copy.with?.['persist-credentials'] !== false) {
+      throw new Error(`${fileName}: logic site checkout must disable persisted credentials`);
+    }
     // Conserva ogni campo step-level presente o futuro (`if`, `timeout-*`,
     // shell, continue-on-error...). Le sole differenze dichiarate sono il nome,
     // il repository/ref del checkout cross-repo e il suo profilo sparse.
     copy.name = 'Checkout';
     delete copy.with.repository;
+    delete copy.with['persist-credentials'];
     if (side === 'generated') {
       delete copy.with.ref;
       delete copy.with.clean;
@@ -2614,6 +2622,7 @@ function checkoutWithSparse(sourceWith, sparsePatterns, ref = 'main') {
     repository: SITE_REPOSITORY,
     ref,
     clean: true,
+    'persist-credentials': false,
     'sparse-checkout': sparsePatterns.join('\n'),
     'sparse-checkout-cone-mode': false,
   };

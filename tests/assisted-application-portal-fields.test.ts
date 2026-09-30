@@ -43,4 +43,16 @@ describe('portal field extraction', () => {
     expect(guarded.actions).toEqual([]);
     expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: gender.id, question: 'Geschlecht', type: 'choice', options: ['Weiblich', 'Männlich'] })]);
   });
+
+  it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
+    const page = extract(`
+      <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>
+      <div class="field">
+        <label for="country">Land*</label>
+        <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="country">
+      </div>`);
+    const searchFields = page.fields.filter((field: any) => field.inputType === 'search');
+    expect(searchFields).toHaveLength(1);
+    expect(searchFields[0]).toMatchObject({ label: 'Land*', search: true, required: true });
+  });
 });
