@@ -15,6 +15,7 @@ import {
 } from '../services/pharmacies/genevaRelease';
 import type { GenevaDutySnapshot } from '../services/pharmacies/genevaRelease';
 import { importGenevaPharmacyDuties } from '../scripts/import-pharmacy-duties-geneva.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const FETCHED_AT = '2026-09-24T12:00:00.000Z';
 const NOW = new Date(FETCHED_AT);
@@ -106,7 +107,12 @@ describe('Geneva pharmacy duty release gate', () => {
     expect(evaluation).toMatchObject({ state: 'fresh', publishable: true, indexable: true });
   });
 
-  it('keeps the checked-in release fresh and indexable', () => {
+  // Asserisce il rilascio CHECKED-IN, che il workflow delle farmacie riscrive da
+  // solo (34 commit bot su 36 in 15 giorni): fuori dal gate delle PR, nel
+  // monitor post-merge (replay del 2026-09-30: l'esito cambia con i dati di 7 e
+  // 14 giorni fa). Gli altri casi usano fixture e il registro delle fonti, che
+  // cambia solo via PR.
+  it.skipIf(SKIP_LIVE_DATA)('keeps the checked-in release fresh and indexable', () => {
     expect(validateGenevaDutySourceRegistry(SOURCES)).toEqual([]);
     expect(validateGenevaDutyRelease((dutiesSnapshot as GenevaDutySnapshot)._release)).toEqual([]);
     expect(verifyGenevaDutyRelease({
