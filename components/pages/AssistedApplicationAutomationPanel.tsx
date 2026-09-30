@@ -26,6 +26,12 @@ const STATE_LABELS: Record<string, string> = {
   failed: 'Fallita',
 };
 
+// Owner flags with no dedicated acknowledgement field: acknowledged by name.
+const OTHER_OWNER_FLAGS: Record<string, string> = {
+  no_posting: 'Testo dell’annuncio non recuperato: ho verificato l’annuncio, procedi',
+  channel_unknown: 'Canale di candidatura sconosciuto: il candidato completerà sul portale, procedi',
+};
+
 const HELD_LABELS: Record<string, string> = {
   fact_check: 'fatti non verificati nei testi',
   knock_out: 'requisito indispensabile mancante',
@@ -71,6 +77,7 @@ export default function AssistedApplicationAutomationPanel({
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
   const [ackFacts, setAckFacts] = useState(false);
   const [ackKnockOut, setAckKnockOut] = useState(false);
+  const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     setLetter(draft?.coverLetter?.text || '');
@@ -203,6 +210,12 @@ export default function AssistedApplicationAutomationPanel({
           {draft.verdict === 'poor' && !draft.knockOutAcknowledgedAt && (
             <label className="flex items-center gap-2 text-xs text-body"><input type="checkbox" checked={ackKnockOut} onChange={(event) => setAckKnockOut(event.target.checked)} /> Il CV non soddisfa un requisito indispensabile: invia comunque</label>
           )}
+          {/* The other owner flags: approving needs an explicit acknowledgement of each (409 owner_flags_open otherwise). */}
+          {(flow?.heldBy || []).filter((flag) => OTHER_OWNER_FLAGS[flag]).map((flag) => (
+            <label key={flag} className="flex items-center gap-2 text-xs text-body">
+              <input type="checkbox" checked={Boolean(ackFlags[flag])} onChange={(event) => setAckFlags((current) => ({ ...current, [flag]: event.target.checked }))} /> {OTHER_OWNER_FLAGS[flag]}
+            </label>
+          ))}
 
           <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
             Lettera ({draft.language})
@@ -232,7 +245,7 @@ export default function AssistedApplicationAutomationPanel({
       {flow && (
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeKnockOut: ackKnockOut }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeKnockOut: ackKnockOut, acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}

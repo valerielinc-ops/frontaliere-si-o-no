@@ -271,7 +271,8 @@ const TAKEOVER_REASONS = {
   draft_failed: 'la bozza non è stata generata (errore del runner o di Codex)',
   runner_timeout: 'il runner non ha risposto due volte di seguito',
   max_rounds: 'il candidato ha rifiutato la bozza per 3 volte',
-  posting_closed: 'l’annuncio risulta chiuso: il rimborso automatico è partito',
+  posting_closed: 'l’annuncio risulta chiuso: rimborso automatico avviato (se non riesce ricevi un secondo avviso)',
+  refund_failed: 'il rimborso automatico non è riuscito: va fatto a mano dalla coda (il candidato non ha ancora ricevuto l’email di rimborso)',
   submit_failed: 'l’invio non è riuscito',
 };
 

@@ -94,17 +94,28 @@ export async function submitApplication(ctx) {
       attachments,
       tracking: false,
     };
+    // Durable idempotency per order and round (submission guard): a run the
+    // watchdog re-dispatched never sends the application a second time.
+    const guard = ctx.submissionGuard || null;
+    if (guard) {
+      const claim = await guard.claim('email', nowMs);
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: 'email', replayed: true };
+      if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'email_ambiguous' };
+    }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
       { delayMs: 0, forceProvider: 'resend' },
     );
     if (failed.length) {
       // An ambiguous delivery must never be retried blindly (career-ops: a
-      // submit of unknown outcome is not re-submitted).
+      // submit of unknown outcome is not re-submitted): the guard stays
+      // "sending", so a later run reports it ambiguous too.
       const ambiguous = Boolean(failed[0].ambiguousDelivery);
+      if (guard && !ambiguous) await guard.release('email_failed', nowMs);
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous }, key: runKey, nowMs });
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : 'email_failed' };
     }
+    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, provider: sent[0]?.provider || null }, nowMs);
     await storeEvidence({
       bucket,
       orderId,

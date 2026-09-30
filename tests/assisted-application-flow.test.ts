@@ -93,8 +93,22 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ state: 'owner_review', deadlineAt: null, heldBy: ['fact_check'] });
     expect(step.effects[0]).toMatchObject({ kind: 'owner_review', held: true });
     expect(transition(step.flow, { type: 'tick' }, { draft: flagged, nowMs: T0 + 10 * OWNER_REVIEW_MS }).ignored).toBe('nothing_due');
+    // Approving without acknowledging the flag is refused: the flow stays in owner review.
+    const refused = transition(step.flow, { type: 'owner_approve' }, { draft: flagged, nowMs: T0 + 2 * OWNER_REVIEW_MS });
+    expect(refused.ignored).toBe('owner_flags_open');
+    expect(refused.flow.state).toBe('owner_review');
     step = transition(step.flow, { type: 'owner_approve' }, { draft: { ...flagged, factCheckAcknowledgedAt: T0 }, nowMs: T0 + 2 * OWNER_REVIEW_MS });
     expect(step.flow.state).toBe('candidate_review');
+  });
+
+  it('needs an acknowledgement for every owner flag, the ones without a dedicated field by name', () => {
+    const noPosting = { ...cleanDraft, job: { source: 'none' }, channel: { type: 'unknown' } };
+    const review = { state: 'owner_review', round: 1 };
+    expect(transition(review, { type: 'owner_approve' }, { draft: noPosting, nowMs: T0 }).ignored).toBe('owner_flags_open');
+    expect(transition(review, { type: 'owner_approve' }, { draft: { ...noPosting, acknowledgedFlags: { no_posting: T0 } }, nowMs: T0 }).ignored).toBe('owner_flags_open');
+    const approved = transition(review, { type: 'owner_approve' }, { draft: { ...noPosting, acknowledgedFlags: { no_posting: T0, channel_unknown: T0 } }, nowMs: T0 });
+    expect(approved.flow.state).toBe('candidate_review');
+    expect(evaluateRedFlags({ ...noPosting, acknowledgedFlags: { no_posting: T0, channel_unknown: T0 } }).owner).toEqual([]);
   });
 
   it('holds on open candidate questions: no 12 h auto-approval until they are answered', () => {
@@ -180,8 +194,10 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     for (const state of ['drafting', 'owner_review', 'candidate_review', 'submitting']) {
       const step = transition({ state, round: 1 }, { type: 'posting_closed' }, { draft: cleanDraft, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'] });
+      // The candidate's refund e-mail is sent by the refund effect, only after the refund went through.
       expect(step.effects.map((effect: any) => (effect.type === 'email' ? effect.kind : effect.type)))
-        .toEqual(['refund', 'candidate_posting_closed', 'owner_takeover']);
+        .toEqual(['refund', 'owner_takeover']);
+      expect(step.effects[0]).toMatchObject({ type: 'refund', notify: 'candidate_posting_closed' });
     }
     expect(transition({ state: 'candidate_handoff' }, { type: 'posting_closed' }, { nowMs: T0 }).ignored).toBe('not_open');
   });

@@ -21,6 +21,7 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { submitApplication } from './lib/submit.mjs';
+import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
@@ -124,6 +125,7 @@ async function main() {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const event = await submitApplication({
       order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      submissionGuard: submissionGuard(db, orderId, round),
     });
     await report(event);
   } catch (error) {

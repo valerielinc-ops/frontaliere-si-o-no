@@ -121,6 +121,73 @@ describe('applying events', () => {
     expect(store.read(ref.path)).toMatchObject({ result: 'applied' });
     expect(effects.filter((effect) => effect.kind === 'owner_review')).toHaveLength(1);
   });
+
+  it('never leaves an event marked applied when its transition failed: the redelivery applies it', async () => {
+    const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
+    const ref = await events.add({ type: 'draft_ready', round: 1 });
+    const data = store.read(ref.path);
+    let failures = 1;
+    const flaky = {
+      ...store.db,
+      runTransaction: async (callback: any) => {
+        if (failures-- > 0) throw new Error('transaction aborted');
+        return store.db.runTransaction(callback);
+      },
+    };
+    await expect(handleRunnerEvent({ db: flaky, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).rejects.toThrow('transaction aborted');
+    expect(store.read(ref.path)?.appliedAt).toBeUndefined();
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('drafting');
+    expect(await handleRunnerEvent({ db: flaky, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({ ok: true });
+    expect(store.read(ref.path)).toMatchObject({ appliedAt: T0, result: 'applied' });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('owner_review');
+  });
+});
+
+describe('closed ad refund', () => {
+  it('sends the "refunded" e-mail only after the refund went through, retrying a failed one', async () => {
+    const sent: string[] = [];
+    const sendNotification = vi.fn(async (args: any) => {
+      sent.push(args.key);
+      return { ok: true, key: args.key };
+    });
+    let refundOk = false;
+    const issueRefund = vi.fn(async () => {
+      if (!refundOk) throw Object.assign(new Error('stripe_unavailable'), { code: 'stripe_unavailable' });
+      return { status: 200, body: { ok: true } };
+    });
+    const effect = { type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' };
+    const failed: any = await runAutomationEffect({ db: store.db, orderId: ORDER, effect, flow: { round: 1 }, nowMs: T0 }, { issueRefund, sendNotification });
+    expect(failed).toMatchObject({ ok: false, attempts: 1 });
+    expect(sent).toEqual([]);
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationRefundDueAt: T0 + 15 * 60_000, automationRefund: { status: 'retrying', attempts: 1, notify: 'candidate_posting_closed' } });
+
+    // The sweep retries it; this time the refund goes through: one e-mail.
+    refundOk = true;
+    await runAutomationSweep({ db: store.db, runEffect: (context: any) => runAutomationEffect(context, { issueRefund, sendNotification }), nowMs: T0 + 16 * 60_000 });
+    expect(sent).toEqual(['auto_candidate_posting_closed']);
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationRefundDueAt: null, automationRefund: { status: 'refunded' } });
+  });
+
+  it('alerts the owner at once when the refund is refused for good', async () => {
+    const sent: string[] = [];
+    const sendNotification = vi.fn(async (args: any) => { sent.push(args.key); return { ok: true }; });
+    const issueRefund = vi.fn(async () => { throw Object.assign(new Error('already_submitted'), { code: 'already_submitted' }); });
+    await runAutomationEffect({ db: store.db, orderId: ORDER, effect: { type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' }, flow: { round: 1 }, nowMs: T0 }, { issueRefund, sendNotification });
+    expect(sent).toEqual(['auto_owner_takeover_refund_failed_r1']);
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationRefundDueAt: null, automationRefund: { status: 'failed' } });
+  });
+});
+
+describe('owner queue', () => {
+  it('cannot start the flow while the Remote Config flag is off', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const dispatch = vi.fn();
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationStart', orderId: ORDER }, 'owner@example.com', {
+      runEffect: dispatch, isEnabled: async () => false, nowMs: T0,
+    })).rejects.toMatchObject({ code: 'automation_disabled', status: 409 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toBeUndefined();
+    expect(dispatch).not.toHaveBeenCalled();
+  });
 });
 
 describe('sweep', () => {

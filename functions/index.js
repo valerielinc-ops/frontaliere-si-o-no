@@ -2310,7 +2310,7 @@ export const sweepAssistedApplicationAutomation = onSchedule(
   async () => {
     try {
       const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context) });
-      if (summary.ticks || summary.redispatched || summary.timedOut || summary.failed) {
+      if (summary.ticks || summary.redispatched || summary.timedOut || summary.failed || summary.refunds) {
         console.log('[sweepAssistedApplicationAutomation]', summary);
       }
     } catch (error) {

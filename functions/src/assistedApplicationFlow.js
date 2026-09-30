@@ -54,11 +54,13 @@ export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']
  */
 export function evaluateRedFlags(draft, answers = {}) {
   const owner = [];
+  // A flag the owner explicitly acknowledged in the queue no longer holds.
+  const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
   const unsupported = draft?.factCheck?.unsupported || [];
-  if (unsupported.length > 0 && !draft?.factCheckAcknowledgedAt) owner.push('fact_check');
-  if (draft?.verdict === 'poor' && !draft?.knockOutAcknowledgedAt) owner.push('knock_out');
-  if (draft?.job?.source === 'none') owner.push('no_posting');
-  if (!draft?.channel || draft.channel.type === 'unknown') owner.push('channel_unknown');
+  if (unsupported.length > 0 && !draft?.factCheckAcknowledgedAt && !acknowledged('fact_check')) owner.push('fact_check');
+  if (draft?.verdict === 'poor' && !draft?.knockOutAcknowledgedAt && !acknowledged('knock_out')) owner.push('knock_out');
+  if (draft?.job?.source === 'none' && !acknowledged('no_posting')) owner.push('no_posting');
+  if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
   const candidate = (draft?.questions || [])
     .filter((question) => question.required && !String(answers?.[question.id] ?? '').trim())
     .map((question) => question.id);
@@ -144,7 +146,9 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       break;
     case 'owner_approve':
       if (state !== 'owner_review') return ignore('not_owner_review');
-      // The owner's explicit approval clears the owner flags she has seen.
+      // Every owner flag needs its explicit acknowledgement (written to the
+      // draft by the queue before this event): approving is not enough.
+      if (flags.owner.length) return ignore('owner_flags_open');
       effects = enterCandidateReview(next, flags, nowMs);
       break;
     case 'owner_takeover':
@@ -235,9 +239,10 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       next.heldBy = ['posting_closed'];
       // Owner decision 2026-09-30: the only refund the welcome e-mail promises
       // is "the ad closed before we could send it" — so it is automatic.
+      // The candidate's "we refunded you" e-mail is sent by the refund effect
+      // itself, only once the refund went through (retried if it fails).
       effects = [
-        { type: 'refund', reason: 'posting_closed' },
-        { type: 'email', kind: 'candidate_posting_closed' },
+        { type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' },
         { type: 'email', kind: 'owner_takeover', reason: 'posting_closed' },
       ];
       break;

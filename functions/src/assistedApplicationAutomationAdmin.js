@@ -22,6 +22,7 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import {
   applyAutomationEvent,
+  isAutomationEnabled,
   draftRefFor,
   flowRefFor,
   orderRefFor,
@@ -37,6 +38,8 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationEditDraft',
   'automationSetAnswers',
 ]);
+
+const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown']);
 
 export class AutomationAdminError extends Error {
   constructor(code, status = 400) {
@@ -172,6 +175,9 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
 
   switch (raw.action) {
     case 'automationStart': {
+      // The Remote Config flag gates every start, the owner's included: while
+      // it is off no flow is created and no runner is dispatched.
+      if (!(await (deps.isEnabled || isAutomationEnabled)())) throw new AutomationAdminError('automation_disabled', 409);
       const result = await startAutomation({ db, orderId, runEffect: deps.runEffect, nowMs, reason: 'owner_request' });
       if (!result.started) throw new AutomationAdminError(result.skipped || 'not_startable', 409);
       return { ok: true, state: 'drafting' };
@@ -180,9 +186,13 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const acknowledgements = {};
       if (raw.acknowledgeFactWarnings === true) acknowledgements.factCheckAcknowledgedAt = nowMs;
       if (raw.acknowledgeKnockOut === true) acknowledgements.knockOutAcknowledgedAt = nowMs;
+      // Any other owner flag (no posting text, unknown channel) is acknowledged by name.
+      const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
+      if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
       if (Object.keys(acknowledgements).length) {
         await draftRefFor(db, orderId).set({ ...acknowledgements, acknowledgedBy: adminEmail }, { merge: true });
       }
+      // Refused (409 owner_flags_open) while a flag is still open.
       return apply({ type: 'owner_approve' });
     }
     case 'automationTakeover':

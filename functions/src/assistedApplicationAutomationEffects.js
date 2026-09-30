@@ -142,9 +142,42 @@ async function markSubmitted({ db, orderId, effect, flow }) {
   return { ok: true, changed };
 }
 
-async function refund({ db, orderId, effect, deps }) {
+export const REFUND_MAX_ATTEMPTS = 5;
+const REFUND_RETRY_MS = 15 * 60 * 1000;
+// A refusal that no retry can change: Valerie is told at once.
+const REFUND_PERMANENT_ERRORS = new Set(['payment_not_refundable', 'already_submitted', 'payment_reference_missing', 'order_not_found']);
+
+/**
+ * The automatic refund of a closed ad. The candidate's "we refunded you"
+ * e-mail (effect.notify) leaves only after the refund went through; a failed
+ * refund is retried by the sweep (order.automationRefundDueAt), and after the
+ * last attempt, or at once for a permanent refusal, Valerie is alerted.
+ */
+async function refund({ db, orderId, effect, flow, nowMs, deps }) {
   const issue = deps.issueRefund || (await import('./assistedApplicationAdminCore.js')).issueAssistedApplicationRefund;
-  return issue(db, { orderId, submissionNotes: `Rimborso automatico: ${effect.reason || 'annuncio chiuso'} prima dell'invio.` }, 'automation');
+  const orderRef = orderRefFor(db, orderId);
+  const previous = (await orderRef.get()).data()?.automationRefund || {};
+  try {
+    const result = await issue(db, { orderId, submissionNotes: `Rimborso automatico: ${effect.reason || 'annuncio chiuso'} prima dell'invio.` }, 'automation');
+    await orderRef.set({ automationRefund: { ...previous, status: 'refunded', refundedAt: nowMs }, automationRefundDueAt: null }, { merge: true });
+    const notified = effect.notify
+      ? await sendAutomationEmail({ db, orderId, effect: { type: 'email', kind: effect.notify }, flow, nowMs, deps })
+      : null;
+    return { ok: true, refund: result?.body || result || null, notified };
+  } catch (error) {
+    const code = error?.code || (error instanceof Error ? error.message : String(error));
+    const attempts = Number(previous.attempts || 0) + 1;
+    const final = attempts >= REFUND_MAX_ATTEMPTS || REFUND_PERMANENT_ERRORS.has(code);
+    const dueAt = final ? null : nowMs + REFUND_RETRY_MS * attempts;
+    await orderRef.set({
+      automationRefund: { reason: effect.reason || 'posting_closed', notify: effect.notify || null, attempts, lastError: String(code).slice(0, 120), status: final ? 'failed' : 'retrying', dueAt },
+      automationRefundDueAt: dueAt,
+    }, { merge: true });
+    if (final) {
+      await sendAutomationEmail({ db, orderId, effect: { type: 'email', kind: 'owner_takeover', reason: 'refund_failed' }, flow, nowMs, deps });
+    }
+    return { ok: false, error: String(code).slice(0, 120), attempts, retryAt: dueAt };
+  }
 }
 
 /**
@@ -161,7 +194,7 @@ export async function runAutomationEffect(context, deps = {}) {
     case 'mark_submitted':
       return markSubmitted({ db, orderId, effect, flow });
     case 'refund':
-      return refund({ db, orderId, effect, deps });
+      return refund({ db, orderId, effect, flow, nowMs: context.nowMs || Date.now(), deps });
     default:
       throw new Error(`unknown_effect:${effect.type}`);
   }

@@ -154,19 +154,33 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  * @param {(ctx:object)=>Promise<object>} args.runEffect executes one side effect
  * @param {number} [args.nowMs]
  * @param {(flow:object)=>object} [args.patchFlow] extra fields merged into the next flow
+ * @param {FirebaseFirestore.DocumentReference} [args.claimRef] a runner event document: marked
+ *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
+ *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
-export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), patchFlow = null }) {
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), patchFlow = null, claimRef = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
   let outcome = null;
   await db.runTransaction(async (transaction) => {
-    const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+    const [orderSnapshot, flowSnapshot, draftSnapshot, claimSnapshot] = await Promise.all([
       transaction.get(orderRef),
       transaction.get(flowRef),
       transaction.get(draftRef),
+      claimRef ? transaction.get(claimRef) : Promise.resolve(null),
     ]);
+    if (claimSnapshot?.data()?.appliedAt) {
+      outcome = { ok: false, ignored: 'already_applied' };
+      return;
+    }
+    // Every deterministic outcome (applied or ignored) marks the event; an
+    // exception aborts the whole transaction and leaves it unmarked.
+    const claim = (result) => {
+      if (claimRef) transaction.set(claimRef, { appliedAt: nowMs, result }, { merge: true });
+    };
     if (!orderSnapshot.exists || !flowSnapshot.exists) {
+      claim('ignored:no_flow');
       outcome = { ok: false, ignored: 'no_flow' };
       return;
     }
@@ -175,11 +189,13 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     // A runner event from a superseded round is stale: never let it move the
     // current round (e.g. a slow draft of round 1 finishing after a rejection).
     if (RUNNER_EVENT_TYPES.has(event.type) && Number(event.round) && Number(event.round) !== Number(flow.round || 1)) {
+      claim('ignored:stale_round');
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
     const result = transition(flow, event, { draft, answers: flow.answers || {}, nowMs });
     if (result.ignored) {
+      claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };
       return;
     }
@@ -201,6 +217,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
+    claim('applied');
     transaction.set(flowRef, nextFlow);
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
@@ -310,7 +327,24 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } =
     .where('automationDueAt', '<=', nowMs)
     .limit(SWEEP_BATCH)
     .get();
-  const summary = { ticks: 0, redispatched: 0, timedOut: 0, ignored: 0, failed: 0 };
+  const summary = { ticks: 0, redispatched: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0 };
+  // Automatic refunds that failed (closed ad): retried until they go through
+  // or the effect gives up and alerts the owner.
+  const refunds = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
+    .where('automationRefundDueAt', '<=', nowMs)
+    .limit(SWEEP_BATCH)
+    .get();
+  for (const doc of refunds.docs || []) {
+    try {
+      const pending = doc.data()?.automationRefund || {};
+      const flowSnapshot = await flowRefFor(db, doc.id).get();
+      await runEffect({ db, orderId: doc.id, effect: { type: 'refund', reason: pending.reason || 'posting_closed', notify: pending.notify || null }, flow: flowSnapshot.data() || {}, nowMs });
+      summary.refunds += 1;
+    } catch (error) {
+      summary.failed += 1;
+      console.error('[assistedApplicationAutomation] refund retry failed for order', doc.id, error instanceof Error ? error.message : String(error));
+    }
+  }
   for (const doc of snapshot.docs || []) {
     try {
       const flowSnapshot = await flowRefFor(db, doc.id).get();
@@ -356,8 +390,10 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } =
 
 /**
  * Firestore onDocumentCreated for `automation_events/{eventId}`: the Actions
- * runner reports what happened. The document is marked as applied so a
- * redelivered trigger cannot apply it twice.
+ * runner reports what happened. The document is marked as applied in the
+ * same transaction as the flow's transition (applyAutomationEvent's
+ * claimRef): a redelivered trigger cannot apply it twice, and a failure in
+ * between leaves it unapplied, so the redelivery applies it.
  */
 export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect, nowMs = Date.now() }) {
   const type = String(data?.type || '');
@@ -365,14 +401,6 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     await eventRef.set({ appliedAt: nowMs, result: 'unknown_type' }, { merge: true });
     return { ok: false, ignored: 'unknown_type' };
   }
-  let claimed = false;
-  await db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(eventRef);
-    if (snapshot.data()?.appliedAt) return;
-    transaction.set(eventRef, { appliedAt: nowMs }, { merge: true });
-    claimed = true;
-  });
-  if (!claimed) return { ok: false, ignored: 'already_applied' };
   const event = {
     type,
     round: Number(data.round) || null,
@@ -388,8 +416,8 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     runEffect,
     nowMs,
     patchFlow: type === 'submit_succeeded' && data.channel ? () => ({ submittedVia: String(data.channel).slice(0, 40) }) : null,
+    claimRef: eventRef,
   });
-  await eventRef.set({ result: result.ok ? 'applied' : `ignored:${result.ignored}` }, { merge: true });
   return result;
 }
 

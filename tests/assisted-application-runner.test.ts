@@ -10,6 +10,8 @@ import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draf
 import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
+import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
+import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { safeErrorCode } from '../scripts/assisted-application/agent.mjs';
 
 const KEY = Buffer.alloc(32, 7);
@@ -174,6 +176,34 @@ describe('submit mode', () => {
     expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
+  });
+
+  it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {
+    const store = createMemoryFirestore();
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const run = () => submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      submissionGuard: submissionGuard(store.db, ORDER_ID, 1),
+    });
+    expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
+    // The first run sent it, then died before its event: the retry does not send again.
+    expect(await run()).toEqual({ type: 'submit_succeeded', channel: 'email', replayed: true });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(store.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'email', to: 'hr@ospedale.ch' } });
+
+    // A send cut off half-way (claimed, never marked): its outcome is unknown, never re-sent.
+    const other = createMemoryFirestore();
+    await submissionGuard(other.db, ORDER_ID, 1).claim('email', 1);
+    const ambiguous = await submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      submissionGuard: submissionGuard(other.db, ORDER_ID, 1),
+    });
+    expect(ambiguous).toEqual({ type: 'submit_failed', error: 'email_ambiguous' });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
   });
 
   it('never sends with an open required question, and hands portals over to the candidate', async () => {
