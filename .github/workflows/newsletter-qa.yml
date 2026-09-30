@@ -12,7 +12,10 @@ permissions:
 jobs:
   qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # QA assembly plus the generated-report push exceeded 15 minutes during
+    # the main-writer convoy (#10547); keep diagnostics and the report commit
+    # inside a bounded but useful 25-minute window.
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
