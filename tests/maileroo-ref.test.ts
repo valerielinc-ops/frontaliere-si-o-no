@@ -169,10 +169,11 @@ const CF_SENDERS_REQUIRING_REF = [
   'newsletterWelcomeEmail.js',
   'newsletterConfirmationEmail.js',
   'sendCalculatorReport.js',
+  // Its candidate e-mails report opens and clicks to the admin panel (assistedApplicationEmailEvents.js).
+  'assistedApplicationNotifications.js',
 ];
 
 const CF_SENDERS_EXEMPT: Record<string, string> = {
-  'assistedApplicationNotifications.js': 'one-off assisted-application transactional notifications; recipients are the paying applicant or the owner, not newsletter subscribers, so the Maileroo subscriber webhook has no engagement record to attribute',
   'consultingCore.js': 'one-off reply to a consulting request; the recipient is not a newsletter_subscribers doc, so the webhook would skip the event anyway',
   'publisherApplicationsCore.js': 'publisher application outcome; recipient is a publisher, not a subscriber',
   'publisherRenewalCore.js': 'publisher renewal notice; recipient is a publisher, not a subscriber',
