@@ -35,7 +35,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -56,6 +56,14 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { groupeMutuelSourceContent, GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE } from './lib/groupe-mutuel-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import {
+  buildThinSourceHousekeepingProof,
+  findThinSourceJobsWithoutStoredBody,
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -78,6 +86,11 @@ const CSOD_CAREER_URL = 'https://groupemutuel.csod.com/ux/ats/careersite/4/home?
 const CSOD_CAREER_SITE_ID = '4';
 const CSOD_CULTURE_ID = 13; // fr-FR
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function jobMatchKey(job) {
+  return extractStableJobId(job?.url)
+    || String(job?.url || '').trim().replace(/\/+$/, '');
+}
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -634,9 +647,28 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   // validation are handled independently by
   // postProcessGroupeMutuelJobs() right after this function runs, so no
   // constant-field overrides need to be reapplied here.
-  const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, discoveredJobs);
+  const droppedThinSourceJobs = findThinSourceJobsWithoutStoredBody(
+    discoveredJobs,
+    existingGmJobs,
+    jobMatchKey,
+  );
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(discoveredJobs, existingGmJobs, jobMatchKey);
+  const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, sourceBodyJobs);
+  const thinSourceJobsByKey = new Map(
+    mergedGmJobs
+      .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)))
+      .map((job) => [jobMatchKey(job), job]),
+  );
+  for (const job of droppedThinSourceJobs) {
+    const key = jobMatchKey(job);
+    if (!thinSourceJobsByKey.has(key)) thinSourceJobsByKey.set(key, job);
+  }
+  const thinSourceJobs = [...thinSourceJobsByKey.values()];
+  const cleanGmJobs = mergedGmJobs
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.datePosted || b.postedDate || '').localeCompare(String(a.datePosted || a.postedDate || '')));
 
-  const final = [...nonGmJobs, ...mergedGmJobs];
+  const final = [...nonGmJobs, ...cleanGmJobs];
 
   writeJsonAtomic(DATA_JOBS, final);
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
@@ -647,8 +679,38 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   console.log(`  🔄 Updated: ${updated}`);
   console.log(`  🗑️  Removed (stale): ${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
+  if (thinSourceJobs.length > 0) {
+    console.warn(`  ⚠️ Groupe Mutuel: quarantining ${thinSourceJobs.length} job(s) without a source body of at least 50 words.`);
+  }
 
-  return { added, updated, removed, total: final.length };
+  return {
+    added,
+    updated,
+    removed,
+    total: final.length,
+    sourceBodyJobs,
+    thinSourceJobs,
+    targetExisting: existingGmJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredGroupeMutuelJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => dropFabricatedDescriptions(
+      jobs,
+      GROUPE_MUTUEL_FABRICATED_DESCRIPTION_RE,
+      'Groupe Mutuel',
+    ),
+    storedJobs,
+    companyKey: GROUPE_MUTUEL_KEY,
+    companyLabel: GROUPE_MUTUEL_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(GROUPE_MUTUEL_KEY, jobs, {
+      isTargetJob: isGroupeMutuelJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 /* ── Adapter management ────────────────────────────────────── */
@@ -791,6 +853,9 @@ async function main() {
     console.log('\n⚠️ No Groupe Mutuel jobs discovered.');
     console.log('   The CSOD API may be unreachable or have no active openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    await rewriteStoredGroupeMutuelJobsWithoutThinSource(
+      readExistingCrawlerJobs(GROUPE_MUTUEL_KEY, DATA_JOBS).filter(isGroupeMutuelJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
@@ -800,7 +865,14 @@ async function main() {
   updateAdapterConfig();
 
   // Phase 3: Merge into data/jobs.json
-  await mergeGroupeMutuelJobs(discoveredJobs);
+  const mergeStats = await mergeGroupeMutuelJobs(discoveredJobs);
+  if (mergeStats.noPublishableJobs) {
+    console.warn(
+      `⚠️ ${GROUPE_MUTUEL_COMPANY_NAME}: all ${discoveredJobs.length} source body/bodies are below the 50-word source-body floor; quarantining thin-source rows.`,
+    );
+    await rewriteStoredGroupeMutuelJobsWithoutThinSource(mergeStats.targetExisting);
+    return;
+  }
 
   // Phase 4: Run base crawler for AI localization (IT/DE translations)
   console.log('\n🌐 Running base crawler for AI localization of Groupe Mutuel jobs...');
@@ -811,6 +883,7 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No Groupe Mutuel jobs found after crawl. No error — exiting OK.');
     return;
@@ -824,8 +897,19 @@ async function main() {
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isGroupeMutuelJob) : [];
-  writeJobsCrawlerSlice(GROUPE_MUTUEL_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw.filter(isGroupeMutuelJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedJobs = crawlDiff.removedJobs || [];
+  const housekeepingProof = buildThinSourceHousekeepingProof(
+    removedJobs,
+    mergeStats.thinSourceJobs,
+    jobMatchKey,
+  );
+  await writeJobsCrawlerSliceVerified(GROUPE_MUTUEL_KEY, _sliceJobs, {
+    isTargetJob: isGroupeMutuelJob,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: GROUPE_MUTUEL_KEY,
     label: 'Groupe Mutuel',
