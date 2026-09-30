@@ -26,7 +26,10 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
-import { reconcileSitemapSearchClustersWithDist } from './relatedSearchClustersPlugin';
+import {
+  reconcileSitemapJobsWithDist,
+  reconcileSitemapSearchClustersWithDist,
+} from './relatedSearchClustersPlugin';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -282,6 +285,20 @@ export function sanitizeSitemapHreflangReciprocity(
   return out;
 }
 
+/**
+ * Apply the final dist-truth gate to every dynamic sitemap family.
+ *
+ * Individual producers can run before a later page emitter overwrites a
+ * route. Keeping this pass here makes the published sitemap reflect the
+ * files that will actually be served from the completed dist/ tree.
+ */
+export async function reconcileFinalSitemapsWithDist(
+  distDir: string,
+): Promise<void> {
+  await reconcileSitemapSearchClustersWithDist(distDir);
+  await reconcileSitemapJobsWithDist(distDir, []);
+}
+
 export function sitemapAliasPlugin(rootDir: string): Plugin {
   return {
     name: 'sitemap-alias',
@@ -299,12 +316,12 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         const distDir = path.resolve(rootDir, 'dist');
         if (!fs.existsSync(distDir)) return;
 
-        // 0. Final dist-truth reconciliation for cluster sitemaps. This hook
+        // 0. Final dist-truth reconciliation for dynamic sitemaps. This hook
         //    is deliberately the last sitemap hook in the post phase: the
-        //    related-search producer's first pass runs before later page
-        //    emitters, so only this position can catch a late noindex or
-        //    non-self-canonical overwrite.
-        await reconcileSitemapSearchClustersWithDist(distDir);
+        //    producers' first passes run before later page emitters, so only
+        //    this position can catch a late noindex, non-self-canonical, or
+        //    redirect/missing overwrite in either family.
+        await reconcileFinalSitemapsWithDist(distDir);
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized
