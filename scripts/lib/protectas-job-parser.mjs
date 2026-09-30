@@ -9,7 +9,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, fetchJson, slugify, stripHtml } from './crawler-template.mjs';
 import { readAttr, scanHtmlTags, scanStartTags } from './html-attr.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
@@ -21,12 +21,14 @@ export const PROTECTAS_COMPANY_NAME = 'Protectas SA';
 export const PROTECTAS_COMPANY_DOMAIN = 'protectas.com';
 export const PROTECTAS_TARGET_CANTON = 'TI';
 export const PROTECTAS_CAREER_URL = 'https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/';
+export const PROTECTAS_LISTINGS_API_URL = 'https://www.protectas.com/api/joblistings/pageData';
 
 const PROTECTAS_VACANCY_ROUTE = '(?:careers?/job-offers|carriere/offerte-di-lavoro|carrieres?/offres-d-emploi|karriere/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)';
 const DETAIL_PATH_RE = new RegExp(`/${PROTECTAS_VACANCY_ROUTE}/\\d{8,}(?:/|$)`, 'i');
 const LISTING_PATH_RE = new RegExp(`/${PROTECTAS_VACANCY_ROUTE}/?$`, 'i');
 const ABSOLUTE_URL_RE = /(?:https?:)?\/\/[^"'<>\\\s,)\]}]+/gi;
 const RELATIVE_NUMERIC_PATH_RE = /(?:^|["'`=:(,])(\/[A-Za-z0-9][A-Za-z0-9/_-]*\/\d{8,}(?:\/|(?=[?#"'<>\\\s,)}])))/gi;
+const PROTECTAS_API_LISTING_MARKER_RE = /\b(?:joblistingspage|js-job-listings-page|open-positions)\b/i;
 const SWISS_COUNTRIES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'svizzera']);
 const PHYSICAL_SECURITY_TITLE_RE = /\b(?:agente(?:\s+di)?\s+sicurezza|guardia(?:\s+giurata)?|security\s+(?:guard|officer)|security\s+agent|sicherheitsdienst|sicherheitsmitarbeiter|wachmann|agent(?:e)?\s+de\s+s[ée]curit(?:e|é)|surveill(?:ance|ant)|vigilanz|ronde|gardien)\b/i;
 const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|sicurezza\s+informatica|s[ée]curit[ée]\s+informatique|information\s+security|it[-\s]?security|it[-\s]?sicherheitsmitarbeiter|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
@@ -322,6 +324,108 @@ export function extractProtectasListingUrls(html = '', baseUrl = PROTECTAS_CAREE
   return [...found];
 }
 
+function extractProtectasApiVacancyUrls(payload = {}, page = 1) {
+  const found = new Set();
+  const listings = Array.isArray(payload?.jobListings) ? payload.jobListings : [];
+  for (const [index, listing] of listings.entries()) {
+    if (!listing || typeof listing !== 'object' || Array.isArray(listing)) {
+      throw new Error(
+        `Protectas listings API page ${page} contains a malformed jobListings entry at index ${index}`,
+      );
+    }
+    const rawUrl = listing.jobPageURL ?? listing.jobPageUrl ?? listing.url;
+    if (rawUrl == null || String(rawUrl).trim() === '') {
+      throw new Error(
+        `Protectas listings API page ${page} contains a malformed jobListings entry at index ${index}`,
+      );
+    }
+    const url = toProtectasUrl(
+      rawUrl,
+      PROTECTAS_CAREER_URL,
+    );
+    if (!url || !isVacancyUrl(url)) {
+      throw new Error(
+        `Protectas listings API page ${page} contains an invalid vacancy URL at index ${index}`,
+      );
+    }
+    found.add(url);
+  }
+  return [...found];
+}
+
+function hasProtectasApiListingMarker(html = '') {
+  return PROTECTAS_API_LISTING_MARKER_RE.test(String(html));
+}
+
+async function fetchProtectasApiListings() {
+  const vacancyUrls = new Set();
+  let totalPages = 1;
+  let totalJobListings = null;
+
+  for (let page = 1; page <= totalPages; page += 1) {
+    const url = `${PROTECTAS_LISTINGS_API_URL}?page=${page}&lang=it-ch`;
+    let payload;
+    try {
+      payload = await fetchJson(url, {
+        headers: { Accept: 'application/json' },
+      });
+    } catch (error) {
+      throw new Error(
+        `Protectas listings API page failed: ${url} — ${error?.message || error}`,
+        { cause: error },
+      );
+    }
+
+    if (!Array.isArray(payload?.jobListings)) {
+      throw new Error(`Protectas listings API returned no jobListings array for page ${page}`);
+    }
+
+    if (page === 1) {
+      const rawTotalJobListings = payload.totalJobListings;
+      const parsedTotalJobListings = Number(rawTotalJobListings);
+      totalJobListings = rawTotalJobListings != null
+        && rawTotalJobListings !== ''
+        && Number.isFinite(parsedTotalJobListings)
+        ? parsedTotalJobListings
+        : null;
+      const declaredTotalPages = Number(payload.totalPages);
+      if (Number.isInteger(declaredTotalPages) && declaredTotalPages > 0) {
+        totalPages = declaredTotalPages;
+      }
+      if (totalPages > MAX_LISTING_PAGES) {
+        throw new Error(
+          `Protectas API pagination exceeded the safety limit of ${MAX_LISTING_PAGES} pages before traversal completed`,
+        );
+      }
+    }
+
+    for (const url of extractProtectasApiVacancyUrls(payload, page)) vacancyUrls.add(url);
+  }
+
+  if (totalJobListings === 0) {
+    if (vacancyUrls.size > 0) {
+      throw new Error('Protectas listings API declared zero vacancies but returned official vacancy links');
+    }
+    return {
+      listings: [],
+      authoritativeEmptyEvidence: 'Protectas listings API reports "0 totalJobListings"',
+    };
+  }
+  if (vacancyUrls.size === 0) {
+    throw new Error('Protectas listings API exposed no official vacancy detail links');
+  }
+  if (totalJobListings != null && vacancyUrls.size < totalJobListings) {
+    throw new Error(
+      `Protectas listings API returned only ${vacancyUrls.size}/${totalJobListings} declared vacancy links`,
+    );
+  }
+
+  return {
+    listings: [...vacancyUrls].map((url) => ({ url })),
+    authoritativeEmptyEvidence: '',
+  };
+}
+
 async function fetchJobListings() {
   console.log(`   Fetching from: ${PROTECTAS_CAREER_URL}`);
   const queue = [PROTECTAS_CAREER_URL];
@@ -329,6 +433,7 @@ async function fetchJobListings() {
   const vacancyUrls = new Set();
   let authoritativeEmptyEvidence = '';
   let primaryPageFetched = false;
+  let primaryPageHtml = '';
 
   while (queue.length > 0) {
     if (visited.size >= MAX_LISTING_PAGES) {
@@ -350,6 +455,7 @@ async function fetchJobListings() {
       });
       if (pageUrl === PROTECTAS_CAREER_URL) primaryPageFetched = true;
       if (pageUrl === PROTECTAS_CAREER_URL) {
+        primaryPageHtml = html;
         authoritativeEmptyEvidence = extractAuthoritativeEmptyEvidence(html);
       }
     } catch (error) {
@@ -370,7 +476,10 @@ async function fetchJobListings() {
     if (authoritativeEmptyEvidence) {
       return { listings: [], authoritativeEmptyEvidence };
     }
-    throw new Error('Protectas career page exposed no official vacancy detail links');
+    if (!hasProtectasApiListingMarker(primaryPageHtml)) {
+      throw new Error('Protectas career page exposed no official vacancy detail links');
+    }
+    return fetchProtectasApiListings();
   }
 
   return {
