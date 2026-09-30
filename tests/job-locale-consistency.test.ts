@@ -289,11 +289,10 @@ describe('job-locale-consistency', () => {
     'non-source job titles are not left in the source language',
     { timeout: 180000 },
     () => {
-      // 33.00% — measured 29.45% on the ASSEMBLED data/jobs.json, 2026-08-12,
-      // on TITLE_POPULATION (68,200 slots ±15%). Re-measured 2026-08-25 (issue
-      // #6510, population re-baseline only): 24,371/78,725 = 30.96%, still
-      // under the 33.00% cap — no quality regression, MAX_RATE UNCHANGED. See
-      // the docstring above for the original margin derivation.
+      // 33.00% — the population re-baseline on 2026-09-29 measured
+      // 29,695/90,708 = 32.74% on the assembled artefact. The cap remains
+      // unchanged and the measured rate is still below it; this is a
+      // denominator re-baseline, not permission to loosen the quality gate.
       const MAX_RATE = 0.33;
 
       const { slots, flagged, offenders } = measureTitleLocales(

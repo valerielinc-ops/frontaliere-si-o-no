@@ -310,7 +310,12 @@ function promptBlocks(text: string): PromptBlock[] {
 
 type Emission = { rel: string; bullets: string[]; placeholders: string[]; raw: string };
 
+const emissionCache = new WeakMap<SourceFile[], Emission[]>();
+
 function emissions(srcs: SourceFile[]): Emission[] {
+  const cached = emissionCache.get(srcs);
+  if (cached) return cached;
+
   const out: Emission[] = [];
   for (const s of srcs) {
     NON_IMPL_RE.lastIndex = 0;
@@ -327,6 +332,7 @@ function emissions(srcs: SourceFile[]): Emission[] {
       });
     }
   }
+  emissionCache.set(srcs, out);
   return out;
 }
 

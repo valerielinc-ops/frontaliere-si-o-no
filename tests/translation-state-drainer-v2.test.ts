@@ -837,7 +837,9 @@ describe('translation state drainer v2', () => {
     const latestAck = await stateStore.readAcknowledgment(patch.patchHash);
     expect(latestAck.commit).toBe(firstAck.commit);
     expect(latestAck.acknowledgment.ackHash).toBe(firstAck.acknowledgment.ackHash);
-  }, 30_000);
+  // Thirty-five replay audits are ~15 s in isolation but contend with the
+  // full suite's concurrent git-heavy workers.
+  }, 60_000);
 
   it('does not create or resurrect an absent target and enforces the 1..250 boundary', async () => {
     const { one, rival, slice } = setup();
