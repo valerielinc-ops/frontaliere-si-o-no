@@ -114,6 +114,7 @@ describe('measureTranslationQueue', () => {
       '.github/workflows/migrate-prospected-slugs.yml',
       '.github/workflows/reconcile-expired-route-duplicates.yml',
       '.github/workflows/sync-gsc-orphans.yml',
+      '.github/workflows/translate-pending.yml',
     ]);
 
     // Fail closed: any workflow whose concurrency block mentions the group
@@ -129,26 +130,8 @@ describe('measureTranslationQueue', () => {
 
     expect(mentioningWorkflows.sort()).toEqual(matchingWorkflows.sort());
 
-    const translateWorkflow = workflowConfig('.github/workflows/translate-pending.yml');
-    const translateJobs = translateWorkflow.jobs as Record<string, any>;
-    expect(translateJobs.translate.concurrency).toBeDefined();
-    expect(translateJobs.translate_queue_guard.concurrency).toBeUndefined();
-
-    const mutexes = [
-      ...matchingWorkflows.map((workflowPath) => ({
-        workflowPath,
-        concurrency: concurrencyConfig(workflowPath),
-      })),
-      {
-        workflowPath: '.github/workflows/translate-pending.yml#jobs.translate',
-        concurrency: translateJobs.translate.concurrency,
-      },
-      {
-        workflowPath: `${PORTABLE_TRANSLATE_WORKFLOW}#jobs.translate`,
-        concurrency: (workflowConfig(PORTABLE_TRANSLATE_WORKFLOW).jobs as Record<string, any>).translate.concurrency,
-      },
-    ];
-    for (const { concurrency } of mutexes) {
+    for (const workflowPath of matchingWorkflows) {
+      const concurrency = concurrencyConfig(workflowPath);
       expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
       expect(concurrency['cancel-in-progress']).toBe(false);
       // `queue: max` is supported by GitHub Actions and is used by the
@@ -157,6 +140,14 @@ describe('measureTranslationQueue', () => {
       // independently reviewed.
       if (concurrency.queue !== undefined) expect(concurrency.queue).toBe('max');
     }
+
+    const portableTranslateJobs = workflowConfig(PORTABLE_TRANSLATE_WORKFLOW).jobs as Record<string, any>;
+    expect(portableTranslateJobs.translate.concurrency).toMatchObject({
+      group: JOBS_DATA_PIPELINE_GROUP,
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
+    expect(portableTranslateJobs.translate_queue_guard.concurrency).toBeUndefined();
   });
 
   it('counts a queued job whose target slots are byte-identical to the source', () => {
