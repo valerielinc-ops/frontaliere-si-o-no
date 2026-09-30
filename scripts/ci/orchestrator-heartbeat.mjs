@@ -30,6 +30,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 import { readBoundedResponseBytes } from '../lib/bounded-response-body.mjs';
+import { normalizeOrchestratorSlot } from '../../functions/src/lib/orchestratorSlot.js';
 
 export const ORCHESTRATOR_WORKFLOW_FILE = 'orchestrate-crawlers.yml';
 export const ORCHESTRATOR_WORKFLOW_PATH = `.github/workflows/${ORCHESTRATOR_WORKFLOW_FILE}`;
@@ -66,7 +67,7 @@ function normalizeScheduleSlots(slots) {
 }
 
 function slotInstant(date, slot, dayOffset = 0) {
-  return new Date(Date.UTC(
+  return normalizeOrchestratorSlot(new Date(Date.UTC(
     date.getUTCFullYear(),
     date.getUTCMonth(),
     date.getUTCDate() + dayOffset,
@@ -74,7 +75,7 @@ function slotInstant(date, slot, dayOffset = 0) {
     slot.minute,
     0,
     0,
-  ));
+  )));
 }
 
 /**
