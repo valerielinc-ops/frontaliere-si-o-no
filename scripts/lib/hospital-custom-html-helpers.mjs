@@ -74,7 +74,7 @@ export function htmlToText(html = '') {
       // can no longer detect as a list — the Spital-STS-class "10/10 flat"
       // regression. The bullet also survives a later `normalizeSpace()` collapse
       // as an inline `• `, which `normalizeDescriptionBullets` re-expands.
-      .replace(/<li[^>]*>/gi, '\n• ')
+      .replace(/<li\b[^>]*>/gi, '\n• ')
       .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\n{3,}/g, '\n\n')
