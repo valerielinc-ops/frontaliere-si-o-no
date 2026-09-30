@@ -9,6 +9,7 @@ describe('protected data refreshes publish through pull requests', () => {
   const refreshes = [
     '.github/workflows/refresh-job-popularity.yml',
     '.github/workflows/refresh-article-trending.yml',
+    '.github/workflows/build-evidence-and-tune.yml',
   ];
 
   it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
@@ -28,5 +29,20 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('HEAD:${BRANCH}');
     expect(helper).toContain('--force-with-lease');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('passes the evidence PR branch from the build job into quota tuning', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const branchCheckout = workflow.indexOf('git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD');
+    const tune = workflow.indexOf('node scripts/tune-discovery-quota.mjs');
+    const publishers = workflow.match(/scripts\/lib\/open-data-refresh-pr\.sh/g) ?? [];
+    const branchPublishers = workflow.match(/--branch "\$DATA_REFRESH_BRANCH"/g) ?? [];
+
+    expect(workflow).toContain('git ls-remote --heads origin');
+    expect(branchCheckout).toBeGreaterThan(-1);
+    expect(tune).toBeGreaterThan(branchCheckout);
+    expect(publishers).toHaveLength(2);
+    expect(branchPublishers).toHaveLength(2);
+    expect(workflow).toContain('DATA_REFRESH_BRANCH: chore/build-evidence-and-tune');
   });
 });
