@@ -180,7 +180,10 @@ import {
   fetchWithRetry,
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
-import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import {
+  fetchFollowingValidatedRedirects,
+  resolveProspectorFetch,
+} from './prospector/public-fetch-policy.mjs';
 import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
@@ -593,12 +596,12 @@ export async function fetchHtml(url, options = {}) {
         };
         const res = redirectValidator
           ? await fetchFollowingValidatedRedirects(url, {
-              fetchImpl: options.fetchImpl || fetch,
+              fetchImpl: options.fetchImpl || (options.dispatcher ? resolveProspectorFetch() : fetch),
               validateUrl: redirectValidator,
               requestOptions,
               maxRedirects: options.maxRedirects ?? 5,
             })
-          : await (options.fetchImpl || fetch)(url, requestOptions);
+          : await (options.fetchImpl || (options.dispatcher ? resolveProspectorFetch() : fetch))(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;
