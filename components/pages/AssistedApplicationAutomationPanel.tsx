@@ -39,6 +39,10 @@ const HELD_LABELS: Record<string, string> = {
 };
 
 const VERDICT_LABELS: Record<string, string> = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
+const INBOX_LABELS: Record<string, string> = {
+  interview_invite: 'Invito a colloquio', rejection: 'Rifiuto', documents_request: 'Documenti richiesti', question: 'Domanda',
+  assessment: 'Test', auto_acknowledgement: 'Conferma di ricezione', verification: 'Verifica account', offer: 'Offerta', other: 'Messaggio',
+};
 const MATCH_STYLES: Record<string, string> = { met: 'text-success', partial: 'text-warning', missing: 'text-danger' };
 
 function formatMs(ms: number | null | undefined): string {
@@ -144,6 +148,21 @@ export default function AssistedApplicationAutomationPanel({
           <div><dt className="font-semibold uppercase tracking-wide text-muted">Fermo per</dt><dd>{flow.heldBy.length ? flow.heldBy.map(heldLabel).join(', ') : '—'}</dd></div>
           <div><dt className="font-semibold uppercase tracking-wide text-muted">Ultimo run</dt><dd>{flow.dispatch ? `${flow.dispatch.mode} · ${formatMs(flow.dispatch.requestedAt)} · tentativi ${flow.dispatch.attempts}` : '—'}</dd></div>
         </dl>
+      )}
+
+      {(automation?.inbox || []).length > 0 && (
+        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Risposte del datore (alias)</p>
+          <ul className="mt-1 space-y-1">
+            {(automation?.inbox || []).map((item) => (
+              <li key={`${item.receivedAt}-${item.subject}`}>
+                <strong>{INBOX_LABELS[item.category] || item.category}</strong> · {formatMs(item.receivedAt)} · {item.summaryIt || item.subject}
+                {item.interviewWhen ? ` · quando: ${item.interviewWhen}` : ''}
+                {item.forwarded !== 'sent' ? ' · inoltro al candidato NON riuscito' : ''}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {flow && flow.feedback.length > 0 && (

@@ -238,6 +238,7 @@ export async function maybeStartAutomation(before, after, orderId, {
   db,
   enabled = isAutomationEnabled,
   runEffect,
+  ensureAlias = null,
   nowMs = Date.now(),
 } = {}) {
   if (!after) return { ok: true, skipped: 'deleted' };
@@ -246,11 +247,11 @@ export async function maybeStartAutomation(before, after, orderId, {
   const eligibility = automationEligibility(after, orderId);
   if (!eligibility.eligible) return { ok: true, skipped: eligibility.reason };
   if (!(await enabled())) return { ok: true, skipped: 'automation_disabled' };
-  return startAutomation({ db, orderId, runEffect, nowMs, reason: 'cv_verified' });
+  return startAutomation({ db, orderId, runEffect, nowMs, reason: 'cv_verified', ensureAlias });
 }
 
 /** Create the flow (idempotent) and dispatch the first draft. */
-export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now(), reason = 'owner_request' }) {
+export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now(), reason = 'owner_request', ensureAlias = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   let created = null;
@@ -288,6 +289,16 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     created = flow;
   });
   if (!created) return { ok: true, skipped: 'already_started_or_ineligible' };
+  // The alias must exist before the draft: the runner writes it into the
+  // letter, the e-mail signature and the portal answers. Best-effort — an
+  // inactive alias makes the runner fall back to the candidate's address.
+  if (ensureAlias) {
+    try {
+      await ensureAlias({ db, orderId, nowMs });
+    } catch (error) {
+      console.error('[assistedApplicationAutomation] alias not created', orderId, error instanceof Error ? error.message : String(error));
+    }
+  }
   if (runEffect) {
     try {
       await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });

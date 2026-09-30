@@ -387,6 +387,18 @@ async function classifyStopIntent(subject, message, patterns, prefix = null) {
 // order waiting for it. The reply is forwarded to the human inbox as always.
 export const ASSISTED_CV_MAX_BYTES = 9 * 1024 * 1024;
 
+// Order aliases of the automated assisted application (c-xxxxxxxxxx@ALIAS_DOMAIN):
+// every message goes to assistedApplicationInbound, which classifies it and
+// forwards it to the candidate. Handled BEFORE the auto-reply filter (an ATS
+// acknowledgement is automatic by nature) and never forwarded to the human
+// inbox: it is the candidate's correspondence with the employer.
+export const ASSISTED_ALIAS_DOMAIN = 'candidature.frontaliereticino.ch';
+export const ASSISTED_INBOUND_MAX_BYTES = 12 * 1024 * 1024;
+
+export function isAssistedAlias(address) {
+  return /^c-[a-z2-9]{10}@candidature\.frontaliereticino\.ch$/.test(String(address || '').toLowerCase());
+}
+
 export function mayCarryAttachment(message) {
   let type = '';
   try { type = (message.headers && message.headers.get && message.headers.get('content-type')) || ''; } catch { type = ''; }
@@ -551,6 +563,25 @@ export default {
     } catch {
       // Unreadable envelope/headers: fall through with the empty defaults and
       // let the forward below still happen. Never classified, never dropped.
+    }
+
+    if (readOk && isAssistedAlias(to)) {
+      if (env.ASSISTED_INBOUND_FN_URL && env.STOP_SECRET) {
+        const bytes = await readAllBytes(message.raw, ASSISTED_INBOUND_MAX_BYTES).catch(() => null);
+        if (bytes) {
+          const handoff = fetch(env.ASSISTED_INBOUND_FN_URL, {
+            method: 'POST',
+            headers: { 'content-type': 'message/rfc822', 'x-stop-secret': env.STOP_SECRET, 'x-envelope-to': to },
+            body: bytes,
+          }).catch(() => { /* retried by the sender's MTA only if we reject; logged by the function */ });
+          ctx.waitUntil(handoff);
+          return;
+        }
+      }
+      // Too large or not configured: reject so the sender gets a bounce
+      // instead of a silent loss.
+      try { message.setReject('Message too large for this address'); } catch { /* noop */ }
+      return;
     }
 
     // A delivery report is examined BEFORE the auto-reply filter, because many
