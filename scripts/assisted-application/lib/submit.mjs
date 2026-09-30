@@ -18,6 +18,10 @@ import {
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 
@@ -125,7 +129,41 @@ export async function submitApplication(ctx) {
     return { type: 'submit_succeeded', channel: 'email' };
   }
 
-  // Portal: career-ops browser handoff until the portal runner (Fase 3) takes it.
+  // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
+  // or anything it must not bypass ends in the career-ops handoff below.
+  const applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
+  if (WAVE1_CHANNELS.has(channel.type) && applyUrl && ctx.codex) {
+    const identity = candidateIdentity(order, draft.profile);
+    const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
+    try {
+      const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
+      const stem = safeFileStem(identity.name);
+      const files = {
+        cv: path.join(dir, `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`),
+        cover_letter: path.join(dir, `${safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it)}_${stem}.pdf`),
+      };
+      await writeFile(files.cv, cvBuffer);
+      await writeFile(files.cover_letter, Buffer.from(letterPdf));
+      const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
+      const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
+        applyUrl,
+        language: draft.language,
+        candidateLocale: draft.candidateLocale || order.locale || 'it',
+        candidate: candidateForForm({ identity, profile: draft.profile, answers, draft, portalQuestions }),
+        files,
+        codex: ctx.codex,
+        log,
+        dryRun: Boolean(ctx.dryRun),
+      });
+      await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
+      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
+    } finally {
+      await rm(dir, { recursive: true, force: true });
+    }
+  }
+
+  // Account portals (Workday, SuccessFactors, LinkedIn) until wave 2, and any
+  // channel without a usable URL: career-ops browser handoff.
   await storeEvidence({
     bucket,
     orderId,
@@ -134,5 +172,5 @@ export async function submitApplication(ctx) {
     key: runKey,
     nowMs,
   });
-  return { type: 'submit_handoff', reason: 'portal_needs_candidate' };
+  return { type: 'submit_handoff', reason: channel.requiresAccount ? 'account' : 'portal_needs_candidate' };
 }

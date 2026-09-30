@@ -124,9 +124,19 @@ async function main() {
   }
   try {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
+    const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
       order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
     });
+    // Questions a portal asked become part of the draft, so the review page
+    // shows them and the flow waits for the answers.
+    if (event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
+      const known = new Set((previousDraft.questions || []).map((question) => question.id));
+      const added = event.questions.filter((question) => !known.has(question.id));
+      await orderRef.collection('ai_drafts').doc('current').set({ questions: [...(previousDraft.questions || []), ...added] }, { merge: true });
+      event.questions = event.questions.map((question) => ({ id: question.id }));
+    }
     await report(event);
   } catch (error) {
     await report({ type: 'submit_failed', error: safeErrorCode(error) });
