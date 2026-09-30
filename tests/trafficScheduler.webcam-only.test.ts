@@ -24,24 +24,20 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
-// ─── firebase-admin mock ──────────────────────────────────────────
+// ─── firebase-admin v14 modular mocks ─────────────────────────────
 // Captures every saveTrafficToFirestore write (trafficCurrent + trafficHistory)
 // and serves a controllable HERE-budget transaction document. Pure in-memory;
 // no real Firestore connection.
 
-const { adminState } = vi.hoisted(() => ({
-  adminState: {
+const { adminState, firestore, Timestamp } = vi.hoisted(() => {
+  const adminState = {
     // Records pushed to saveTrafficToFirestore via batch.set on trafficCurrent.
     savedCurrent: [] as Array<Record<string, unknown>>,
     // Controls reserveHereTransactionBudget: { month, count } stored doc.
     budgetDoc: undefined as { month?: string; count?: number } | undefined,
-  },
-}));
-
-vi.mock('firebase-admin', () => {
+  };
   const Timestamp = { now: () => ({ __ts: Date.now() }) };
-  const firestore = Object.assign(
-    () => ({
+  const firestore = {
       // saveTrafficToFirestore: db.batch() then batch.set(currentRef|historyRef)
       batch: () => ({
         set: (ref: { __collection?: string }, data: Record<string, unknown>) => {
@@ -73,9 +69,23 @@ vi.mock('firebase-admin', () => {
             }
           },
         }),
-    }),
-    { Timestamp },
-  );
+  };
+  return { adminState, firestore, Timestamp };
+});
+
+vi.mock('firebase-admin/app', () => ({
+  applicationDefault: vi.fn(() => ({})),
+  getApp: vi.fn(() => ({})),
+  getApps: vi.fn(() => [{}]),
+  initializeApp: vi.fn(),
+}));
+
+vi.mock('firebase-admin/firestore', () => ({
+  getFirestore: vi.fn(() => firestore),
+  Timestamp,
+}));
+
+vi.mock('firebase-admin', () => {
   return {
     default: {
       apps: [{}], // pretend an app already exists → ensureAdminApp() no-ops
