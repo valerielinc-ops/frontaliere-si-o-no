@@ -108,6 +108,26 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      # A stable PR branch can still be in flight when the next scheduled run
+      # starts. Seed the monitor with its current state before it calculates
+      # today's observation; otherwise the health check starts from main and
+      # the publisher recreates the branch without the pending empty streak.
+      - name: Carry forward pending crawler health PR
+        run: |
+          set -euo pipefail
+          branch='chore/refresh-crawler-health'
+          state_path='data/crawler-health.json'
+          if ! git fetch --no-tags origin \
+            "refs/heads/${branch}:refs/remotes/origin/${branch}" \
+            >/dev/null 2>&1; then
+            echo "No in-flight crawler health PR branch found."
+            exit 0
+          fi
+          if git cat-file -e "refs/remotes/origin/${branch}:${state_path}" 2>/dev/null; then
+            git show "refs/remotes/origin/${branch}:${state_path}" > "${state_path}"
+            echo "Loaded crawler health state from ${branch}."
+          fi
+
       - name: Run health check
         id: health
         continue-on-error: true
