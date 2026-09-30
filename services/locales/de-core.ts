@@ -844,7 +844,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.waiting.drafting': "Ich bereite deine Bewerbung vor: Du bekommst eine E-Mail, sobald sie zur Prüfung bereit ist.",
  'jobBoard.assisted.review.waiting.regenerating': "Ich bereite eine neue Version mit deinen Hinweisen vor und melde mich, sobald sie bereit ist.",
  'jobBoard.assisted.review.waiting.owner_review': "Die Bewerbung wird abschliessend geprüft: Gleich bekommst du die E-Mail zur Freigabe.",
- 'jobBoard.assisted.review.waiting.submitting': "Ich sende deine Bewerbung an das Unternehmen.",
+ 'jobBoard.assisted.review.waiting.submitting': "Du hast freigegeben: Deine Bewerbung ist in der Versandwarteschlange und geht in wenigen Minuten raus. Du kannst diese Seite schließen, ich schreibe dir, sobald sie verschickt ist.",
  'jobBoard.assisted.review.submitted': "Deine Bewerbung wurde gesendet. Viel Erfolg!",
  'jobBoard.assisted.review.takeover': "Valerie betreut deine Bewerbung persönlich und meldet sich in Kürze.",
  'jobBoard.assisted.review.heldByQuestions': "Vor dem Versand fehlen noch Angaben (Felder mit *). Solange sie fehlen, geht die Bewerbung nicht raus.",
