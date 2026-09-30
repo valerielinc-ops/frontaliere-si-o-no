@@ -495,6 +495,18 @@ describe('worker email() — assisted-application CV replies', () => {
     expect(message.forward).toHaveBeenCalledWith('inbox@example.com');
   });
 
+  it('still reads a STOP in a reply too large for the CV endpoint (size unknown until read)', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const raw = `Content-Type: multipart/mixed; boundary=x\r\n\r\n--x\r\nContent-Type: text/plain\r\n\r\nPlease unsubscribe me from this list.\r\n--x\r\n${'A'.repeat(9.5 * 1024 * 1024)}`;
+    const message = fakeMessage({ from: 'maria@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: newsletter', rawText: raw, headers: { 'content-type': 'multipart/mixed; boundary=x' } });
+    const ctx = fakeCtx();
+    await worker.email(message, env, ctx);
+    await Promise.all(ctx.waited);
+    expect(fetchMock.mock.calls.some(([url]) => url === env.ASSISTED_CV_FN_URL)).toBe(false);
+    expect(fetchMock.mock.calls.some(([url]) => url === env.STOP_REPLY_FN_URL)).toBe(true);
+  });
+
   it('hands employer mail on an order alias to the inbound function, even when automatic, and never to the human inbox', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
     vi.stubGlobal('fetch', fetchMock);

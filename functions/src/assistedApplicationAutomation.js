@@ -273,6 +273,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
   const flowRef = flowRefFor(db, orderId);
   let created = null;
   await db.runTransaction(async (transaction) => {
+    created = null; // Firestore retries a contended transaction: never keep a previous attempt's result
     const [orderSnapshot, flowSnapshot] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
     if (!orderSnapshot.exists) return;
     const existing = flowSnapshot.exists ? flowSnapshot.data() || {} : null;

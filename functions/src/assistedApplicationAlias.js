@@ -111,6 +111,7 @@ export async function ensureOrderAlias({ db, orderId, cf = cloudflareEmailRoutin
       const candidate = newAliasLocalPart();
       const aliasRef = db.collection(ALIASES_COLLECTION).doc(candidate);
       await db.runTransaction(async (transaction) => {
+        localPart = null; // a retried transaction must not keep a candidate an earlier attempt picked
         const existing = await transaction.get(aliasRef);
         if (existing.exists) return;
         transaction.set(aliasRef, { orderId: String(orderId), createdAt: nowMs, ruleId: null });
