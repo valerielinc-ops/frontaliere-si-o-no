@@ -52,14 +52,10 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
+      # Node 22 + npm ci; the npm cache is only read on a PR ref, saved on main
+      # (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
