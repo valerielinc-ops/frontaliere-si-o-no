@@ -25,7 +25,9 @@ permissions:
 jobs:
   update-fuel-prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Leave room for the daily cache push to outlast concurrent main writers
+    # instead of cancelling after the 10-minute cap (#10542).
+    timeout-minutes: 20
 
     steps:
       - name: Checkout

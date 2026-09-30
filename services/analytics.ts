@@ -2783,7 +2783,7 @@ export const Analytics = {
   * instead of inferring it from a zero impression count.
   */
  trackJobAlertCtaSkipped: (
- surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button',
+ surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button' | 'inline_card',
  reason:
  | 'no_auth'
  | 'no_category'

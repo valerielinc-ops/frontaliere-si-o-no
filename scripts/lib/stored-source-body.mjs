@@ -10,6 +10,7 @@
  * kept is always source text.
  */
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { hasSourceBodyFailure, SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
 
 /**
  * Return only the source-locale body of a job. The flat field is the legacy
@@ -76,6 +77,7 @@ export function keepStoredSourceBodiesByKey(
   }
 
   return (Array.isArray(discoveredJobs) ? discoveredJobs : []).flatMap((job) => {
+    const sourceBodyFailed = hasSourceBodyFailure(job);
     if (meetsSourceBodyFloor(sourceBodyForJob(job))) return [job];
     const previous = storedByKey.get(keyOfJob(job));
     const previousLang = String(previous?.sourceLang || '').trim();
@@ -87,6 +89,13 @@ export function keepStoredSourceBodiesByKey(
       descriptionByLocale: { [previousLang]: previousBody },
       sourceLang: previousLang,
     };
+    if (sourceBodyFailed) {
+      // A parser/fetch failure is operational, not thin source. Once a valid
+      // source body has been restored, do not persist the transient failure
+      // marker on the published job.
+      delete kept.sourceBodyFailureReason;
+      delete kept.sourceBodyFailureMessage;
+    }
     // A title or slug the runner keyed by the fallback language of the empty
     // body moves with the source language to the stored body's slot.
     for (const field of ['titleByLocale', 'slugByLocale']) {
@@ -97,6 +106,38 @@ export function keepStoredSourceBodiesByKey(
       }
     }
     return [kept];
+  });
+}
+
+/**
+ * Remove stored rows for source extractions that failed in this run when no
+ * valid source body exists to keep publishing. A failed discovery is already
+ * absent from keepStoredSourceBodiesByKey(); this second filter prevents the
+ * merge from re-adding the old empty/thin row through its existing-jobs input.
+ *
+ * @param {object[]} existingJobs stored jobs passed to the merge
+ * @param {object[]} discoveredJobs fresh jobs, including failed extractions
+ * @param {(job: object) => string} keyOfJob stable job identity
+ * @returns {object[]}
+ */
+export function dropFailedSourceJobsWithoutValidBody(
+  existingJobs = [],
+  discoveredJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const failedKeys = new Set(
+    (Array.isArray(discoveredJobs) ? discoveredJobs : [])
+      .filter(hasSourceBodyFailure)
+      .map(keyOfJob)
+      .filter(Boolean),
+  );
+  if (failedKeys.size === 0) return Array.isArray(existingJobs) ? existingJobs : [];
+
+  return (Array.isArray(existingJobs) ? existingJobs : []).filter((job) => {
+    const key = keyOfJob(job);
+    if (!failedKeys.has(key)) return true;
+    const sourceLang = String(job?.sourceLang || '').trim();
+    return Boolean(sourceLang) && meetsSourceBodyFloor(sourceBodyForJob(job));
   });
 }
 
@@ -126,6 +167,7 @@ export function collectThinSourceJobsForQuarantine(
   }
 
   const thinJobs = [...mergedByKey.values()]
+    .filter((job) => !hasSourceBodyFailure(job))
     .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
   const mergedKeys = new Set(mergedByKey.keys());
   for (const job of Array.isArray(discoveredJobs) ? discoveredJobs : []) {
@@ -135,12 +177,39 @@ export function collectThinSourceJobsForQuarantine(
       && key !== null
       && key !== ''
       && !mergedKeys.has(key)
+      && !hasSourceBodyFailure(job)
       && !meetsSourceBodyFloor(sourceBodyForJob(job))
     ) {
       thinJobs.push(job);
     }
   }
   return thinJobs;
+}
+
+/**
+ * Build deterministic housekeeping evidence for a failed source extraction.
+ * This is intentionally separate from thin-source quarantine: a live PDF that
+ * could not be parsed is a crawler error, not evidence that the vacancy is a
+ * thin source.
+ */
+export function buildSourceBodyFailureHousekeepingProof(
+  removedJobs = [],
+  failedJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  const failedKeys = new Set(
+    (Array.isArray(failedJobs) ? failedJobs : [])
+      .map(keyOfJob)
+      .filter(Boolean),
+  );
+  const failed = (Array.isArray(removedJobs) ? removedJobs : [])
+    .filter((job) => failedKeys.has(keyOfJob(job)));
+  if (failed.length === 0) return undefined;
+  return failed.map((job) => ({
+    job,
+    reason: SOURCE_BODY_FAILURE_REASON,
+    definitive: true,
+  }));
 }
 
 /**
