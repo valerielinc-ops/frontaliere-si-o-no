@@ -114,6 +114,8 @@ describe('promptOneTap suppression wiring', () => {
  expect(source).toMatch(
  /if\s*\(\s*isNewsletterAutologinInFlight\(\)\s*\)\s*\{[\s\S]*?\breturn\s*;/,
  );
- expect(source).toContain("from '@/services/newsletterAutologinSignal'");
+ expect(source).toMatch(
+  /from\s+['"](?:@\/services\/|\.\/)?newsletterAutologinSignal['"]/,
+ );
  });
 });
