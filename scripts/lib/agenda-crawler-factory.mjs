@@ -91,6 +91,9 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {number} [imageMirrorDelayMs]
  * @property {boolean} [mirrorImages] - default true (no-hotlink policy).
  * @property {typeof fetch} [fetchImpl] - injectable for tests.
+ * @property {string} [sliceDir] - where the per-source slice is merged;
+ *   default EVENTS_SLICE_DIR (data/events/by-source). Tests pass a tmpdir so
+ *   they never create files inside the checkout.
  */
 
 /** @param {AgendaCrawlerConfig} config */
@@ -108,6 +111,7 @@ export function createAgendaCrawler(config) {
     imageMirrorDelayMs = DEFAULT_IMAGE_MIRROR_DELAY_MS,
     mirrorImages = true,
     fetchImpl = fetch,
+    sliceDir = EVENTS_SLICE_DIR,
   } = config || {};
 
   if (!sourceKey || typeof sourceKey !== 'string') {
@@ -241,7 +245,7 @@ export function createAgendaCrawler(config) {
       return { events: sorted, pagesOk, pagesFail, written: false };
     }
 
-    const slicePath = path.join(EVENTS_SLICE_DIR, `${source.key}.json`);
+    const slicePath = path.join(sliceDir, `${source.key}.json`);
     const total = mergeEventsIntoSlice({
       slicePath,
       sourceKey: source.key,

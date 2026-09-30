@@ -9,7 +9,7 @@
  *     re-read/re-parse.
  */
 
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -70,15 +70,19 @@ describe('loadDataJson — resolution + cache (#2594)', () => {
   });
 
   it('falls back to process.cwd() when no rootDir is given and the file exists there', () => {
+    // The cwd is a tmpdir (process.cwd() spied): the probe file used to be
+    // written into the checkout's own data/ and removed in a `finally`.
+    // process.chdir() is not an option — it throws in Vitest's thread workers.
     const rel = 'data/cwd-probe-2594.json';
-    const abs = path.resolve(process.cwd(), rel);
-    fs.mkdirSync(path.dirname(abs), { recursive: true });
-    fs.writeFileSync(abs, JSON.stringify([{ cwd: true }]), 'utf-8');
+    const cwd = mkTmp();
+    writeJson(cwd, rel, [{ cwd: true }]);
+    const spy = vi.spyOn(process, 'cwd').mockReturnValue(cwd);
     try {
       const out = loadDataJson<Array<{ cwd: boolean }>>(rel);
       expect(out).toEqual([{ cwd: true }]);
+      expect(spy).toHaveBeenCalled();
     } finally {
-      fs.rmSync(abs, { force: true });
+      spy.mockRestore();
     }
   });
 });

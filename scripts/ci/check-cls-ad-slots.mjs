@@ -82,12 +82,12 @@ export const ALLOWED = new Set([
 // only ever appear inside the sanctioned helper.
 export const AD_MARKER = 'adsbygoogle';
 
-function gitGrepFiles(marker, pathspec) {
+function gitGrepFiles(marker, pathspec, cwd) {
   try {
     const out = execFileSync(
       'git',
       ['grep', '-lF', '--', marker, '--', pathspec],
-      { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
+      { cwd, encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
     );
     return out.split('\n').map((s) => s.trim()).filter(Boolean);
   } catch (e) {
@@ -139,12 +139,13 @@ export function stripComments(src) {
  * #2010 no-false-clean discipline).
  *
  * @param {string} file repo-relative path
+ * @param {string} cwd repo root the path is relative to
  * @returns {boolean}
  */
-function fileHasMarkerInCode(file) {
+function fileHasMarkerInCode(file, cwd) {
   let src;
   try {
-    src = fs.readFileSync(file, 'utf-8');
+    src = fs.readFileSync(path.join(cwd, file), 'utf-8');
   } catch {
     return true;
   }
@@ -155,14 +156,20 @@ function fileHasMarkerInCode(file) {
  * Tracked build-plugin TS/TSX files that contain the raw `adsbygoogle` ins
  * literal IN CODE but are NOT the sanctioned emitter — i.e. hard-coded ad slots.
  * Returns a sorted, de-duplicated list (empty = clean).
+ *
+ * `cwd` is the repository to inspect (default: the current directory, as the
+ * CLI uses it). The tests pass a throwaway git repository in os.tmpdir(), so
+ * they never create or stage files in the real checkout.
+ *
+ * @param {{ cwd?: string }} [options]
  */
-export function findViolations() {
+export function findViolations({ cwd = process.cwd() } = {}) {
   // Grep the whole build-plugins/ tree (a directory pathspec recurses reliably),
   // then keep TS/TSX. NB: a `build-plugins/**/*.ts` git pathspec is a trap — git's
   // default fnmatch makes the `/` after `**` literal, so it matches ONLY nested
   // (lib/, shared/) files and silently SKIPS every top-level build-plugins/*.ts
   // (where #1910's hard-coded <ins> lived). Filtering extensions in JS avoids it.
-  const raw = gitGrepFiles(AD_MARKER, 'build-plugins/');
+  const raw = gitGrepFiles(AD_MARKER, 'build-plugins/', cwd);
 
   // Positive control against a silent false-clean (#2010): the sanctioned emitter
   // build-plugins/lib/adSlotHtml.ts — plus the ad-loader infra in constants.ts /
@@ -191,7 +198,7 @@ export function findViolations() {
   const candidates = raw.filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
   return [...new Set(candidates)]
     .filter((f) => !ALLOWED.has(f))
-    .filter(fileHasMarkerInCode)
+    .filter((f) => fileHasMarkerInCode(f, cwd))
     .sort();
 }
 
