@@ -23,6 +23,7 @@
 
 import { checkDraftFacts } from './assistedApplicationAiDraftCore.js';
 import { draftRefFor, isAutomationEnabledFor, orderRefFor } from './assistedApplicationAutomation.js';
+import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import {
   brandCallout,
   brandFinePrint,
@@ -354,7 +355,9 @@ async function preparePack({ db, orderRef, orderId, messageId, codex, sendCascad
   const order = orderSnapshot.data() || {};
   const draft = draftSnapshot.data() || {};
   const message = messageSnapshot.data() || {};
-  const answers = flowSnapshot.data()?.answers || {};
+  // With the corrections the candidate made on the review page (languages, place, salary).
+  const edited = candidateWithEdits({ order, draft, flow: flowSnapshot.data() || {} });
+  const answers = edited.answers;
   const to = customerEmailFor(order);
   if (!to || !draft.requirements) {
     await orderRef.set({ interviewPrep: { claimedAt: nowMs, messageId, attempts, status: 'skipped', reason: to ? 'no_draft' : 'no_email' } }, { merge: true });
@@ -368,7 +371,7 @@ async function preparePack({ db, orderRef, orderId, messageId, codex, sendCascad
       posting: { title: draft.job?.title || order.jobTitle, company: order.companyName, salary: draft.factSources?.posting?.match(/CHF[^\n]{0,40}/)?.[0] || '', excerpt: draft.factSources?.posting || '' },
       requirements: draft.requirements,
       matches: draft.matches,
-      profile: draft.profile,
+      profile: edited.profile,
       answers,
       legitimacyTier: draft.legitimacy?.tier,
     }),

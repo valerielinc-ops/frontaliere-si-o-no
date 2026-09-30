@@ -9,7 +9,6 @@
 
 import { buildCoverLetterPdf } from './assistedApplicationAiDocuments.js';
 import {
-  candidateIdentity,
   checkDraftFacts,
   clean,
   cleanBlock,
@@ -18,6 +17,7 @@ import {
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
+import { candidateWithEdits, formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
@@ -117,6 +117,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
       answers: flow.answers || {},
+      // The fields the candidate corrected on the review page.
+      formOverrides: flow.formOverrides || {},
       dispatch: flow.dispatch || null,
       history: (flow.history || []).slice(-12),
     } : null,
@@ -135,11 +137,12 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       questions: draft.questions || [],
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
-      formAnswers: draft.formAnswers || [],
+      formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),
       factCheck: draft.factCheck || null,
       factCheckAcknowledgedAt: draft.factCheckAcknowledgedAt || null,
       knockOutAcknowledgedAt: draft.knockOutAcknowledgedAt || null,
       editedAt: draft.editedAt || null,
+      candidateEditedAt: draft.candidateEditedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
       coverLetterUrl: letterUrl,
       ats: draft.ats || null,
@@ -153,7 +156,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
 async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const orderRef = orderRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
-  const [orderSnapshot, draftSnapshot] = await Promise.all([orderRef.get(), draftRef.get()]);
+  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get()]);
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
   const order = orderSnapshot.data() || {};
@@ -178,10 +181,11 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   if (letterRaw && bucket) {
-    const identity = candidateIdentity(order, draft.profile);
+    // The header as the candidate corrected it (name, phone, place).
+    const { identity, profile } = candidateWithEdits({ order, draft, flow: flowSnapshot.data() || {} });
     const pdf = buildCoverLetterPdf(letterPdfBlocks({
       identity,
-      profile: draft.profile,
+      profile,
       posting: { contactPerson: draft.contactPerson || '' },
       companyName: order.companyName,
       language: draft.language || 'it',

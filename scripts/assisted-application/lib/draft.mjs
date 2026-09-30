@@ -12,7 +12,6 @@
 import { buildCoverLetterPdf } from '../../../functions/src/assistedApplicationAiDocuments.js';
 import {
   buildFormAnswers,
-  candidateIdentity,
   checkDraftFacts,
   ensureRequiredQuestions,
   letterPdfBlocks,
@@ -24,6 +23,7 @@ import {
   verifyQuotes,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { classifyApplicationChannel, fetchJobPosting } from '../../../functions/src/assistedApplicationAiJob.js';
+import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -93,7 +93,6 @@ export async function buildDraft(ctx) {
   const fetchImpl = ctx.fetchImpl || fetch;
   const nowMs = ctx.nowMs || Date.now();
   const round = Number(flow?.round) || 1;
-  const answers = flow?.answers || {};
   // Fase 2: what the candidate wrote in the e-mail that carried the CV.
   const candidateNotes = String(ctx.intake?.emailNotes || '').slice(0, 4000);
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
@@ -138,12 +137,18 @@ export async function buildDraft(ctx) {
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
   maskValues(personalValuesOf(order, profile));
+  // What the candidate corrected on the review page (name, phone, place,
+  // languages, permit, salary...) wins over the CV and over older answers:
+  // every prompt, the questions and the saved draft use the corrected candidate.
+  const edited = candidateWithEdits({ order, draft: { profile }, flow });
+  profile = edited.profile;
+  const answers = edited.answers;
+  const identity = edited.identity;
 
   const locale = candidateLocale(order);
   const profileJson = JSON.stringify(profile);
   const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
-  const identity = candidateIdentity(order, profile);
   // The tailored ATS CV needs only the profile and the requirements: it runs
   // while the match and the letter are written.
   const tailoredCvPromise = buildTailoredCv({
@@ -190,7 +195,13 @@ export async function buildDraft(ctx) {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
     order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
-    answers: [...Object.values(answers), candidateNotes].join('\n'),
+    // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.
+    answers: [
+      ...Object.values(answers),
+      candidateNotes,
+      ...(flow?.feedback || []).map((item) => String(item?.text || '')),
+      ...Object.values(edited.overrides),
+    ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
   const factCheck = checkDraftFacts({

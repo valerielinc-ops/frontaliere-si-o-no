@@ -6,7 +6,7 @@
 
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
-export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'followup_send' | 'followup_skip';
+export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip';
 
 /** A follow-up to the employer waiting for the candidate (af1 link). */
 export interface FollowupPayload {
@@ -33,6 +33,31 @@ export interface ReviewQuestion {
   minDate?: string | null;
   /** Proposed start date shown in the empty field (saved only by the candidate). */
   suggested?: string | null;
+  /** The rule checked as the candidate types (functions/src/lib/answerRules.js). */
+  validation?: {
+    pattern: string;
+    minLength: number;
+    maxLength: number;
+    min: number | null;
+    max: number | null;
+    minDate: '' | 'today';
+    example: string;
+    message: string;
+  } | null;
+}
+
+/** A proposed form field (functions/src/assistedApplicationCandidateEdits.js). */
+export interface ReviewFormField {
+  key: string;
+  label: string;
+  value: string;
+  editable?: boolean;
+  /** Why it cannot be changed here: the alias address, or a question that asks it. */
+  locked?: 'alias' | 'question' | null;
+  required?: boolean;
+  /** Printed in the letter header (shown for e-mail applications too). */
+  inLetter?: boolean;
+  validation?: ReviewQuestion['validation'];
 }
 
 export interface ReviewPayload {
@@ -57,14 +82,18 @@ export interface ReviewPayload {
   coverLetter: { subject: string; text: string } | null;
   coverLetterUrl: string | null;
   applicationEmail: { to: string; subject: string; body: string } | null;
-  formAnswers: Array<{ key: string; label: string; value: string }>;
+  formAnswers: ReviewFormField[];
+  /** Letter and e-mail lengths accepted by an edit. */
+  editLimits?: Record<'coverLetterText' | 'emailSubject' | 'emailBody', { min: number; max: number }>;
+  /** When the candidate last saved their own changes. */
+  editedAt?: number | null;
   questions: ReviewQuestion[];
   answers: Record<string, string>;
   feedback: Array<{ round: number; text: string }>;
   /** The tailored ATS CV, sent unless the candidate chooses their original. */
   tailoredCv: { url: string | null; choice: 'tailored' | 'original' } | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
-  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean };
+  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean };
 }
 
 export interface ReviewAtsView {
@@ -74,7 +103,7 @@ export interface ReviewAtsView {
 }
 
 export class ReviewRequestError extends Error {
-  constructor(public readonly code: string) {
+  constructor(public readonly code: string, public readonly fields: Record<string, string> = {}) {
     super(code);
   }
 }
@@ -90,7 +119,10 @@ export function readReviewToken(search: string = typeof window === 'undefined' ?
 
 async function parse(response: Response): Promise<any> {
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data?.ok) throw new ReviewRequestError(String(data?.error || `http_${response.status}`));
+  if (!response.ok || !data?.ok) {
+    const fields = data?.fields && typeof data.fields === 'object' ? data.fields as Record<string, string> : {};
+    throw new ReviewRequestError(String(data?.error || `http_${response.status}`), fields);
+  }
   return data;
 }
 

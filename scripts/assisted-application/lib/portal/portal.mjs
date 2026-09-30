@@ -18,6 +18,7 @@
 import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { planPage } from './plan.mjs';
+import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 
@@ -44,13 +45,15 @@ export function slugId(text) {
 /** What the planner may use, with the alias as the e-mail (candidateIdentity). */
 export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [] }) {
   const parts = String(identity.name || '').trim().split(/\s+/);
+  // The split the candidate chose on the review page, else the last word is the surname.
+  const chosen = typeof identity.firstName === 'string';
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   return {
     identity: {
       fullName: identity.name,
-      firstName: parts.length > 1 ? parts.slice(0, -1).join(' ') : parts[0] || '',
-      lastName: parts.length > 1 ? parts[parts.length - 1] : '',
+      firstName: chosen ? identity.firstName : parts.length > 1 ? parts.slice(0, -1).join(' ') : parts[0] || '',
+      lastName: chosen ? identity.lastName : parts.length > 1 ? parts[parts.length - 1] : '',
       email: identity.email,
       phone: identity.phone,
       location: profile.location || '',
@@ -161,7 +164,7 @@ function questionsFrom(missingRequired) {
   for (const item of missingRequired) {
     const id = `portal_${slugId(item.question)}`;
     if (questions.some((question) => question.id === id)) continue; // Greenhouse repeats a question in two controls
-    questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, source: 'portal' });
+    questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
   }
   return questions;
 }

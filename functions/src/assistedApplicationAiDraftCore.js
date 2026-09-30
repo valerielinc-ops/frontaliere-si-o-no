@@ -6,6 +6,7 @@
  */
 
 import { buildFactIndex, checkGeneratedFacts } from './assistedApplicationAiFactCheck.js';
+import { sanitizeValidation } from './lib/answerRules.js';
 import { formatLetterDate, letterSubject } from './assistedApplicationAiPrompts.js';
 
 export const LETTER_FILE_LABEL = {
@@ -137,9 +138,18 @@ function sanitizeQuestions(raw) {
     type: QUESTION_TYPES.has(item?.type) ? item.type : 'text',
     options: list(item?.options, 12).map((option) => clean(option, 80)).filter(Boolean),
     required: item?.required === true,
+    // Only a safe, self-consistent rule is kept (functions/src/lib/answerRules.js).
+    validation: sanitizeValidation(item?.validation, { type: QUESTION_TYPES.has(item?.type) ? item.type : 'text' }),
     source: 'match',
   })).filter((item) => item.id && item.question && !seen.has(item.id) && seen.add(item.id)).slice(0, 6);
 }
+
+export const SALARY_RULE_MESSAGES = {
+  it: 'Indica un importo, per esempio CHF 80’000 all’anno.',
+  de: 'Gib einen Betrag an, zum Beispiel CHF 80’000 pro Jahr.',
+  fr: 'Indiquez un montant, par exemple CHF 80’000 par an.',
+  en: 'Give an amount, for example CHF 80’000 a year.',
+};
 
 const FALLBACK_QUESTIONS = {
   work_permit: {
@@ -168,11 +178,13 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
   const text = (id) => FALLBACK_QUESTIONS[id][locale] || FALLBACK_QUESTIONS[id].it;
   if (requirements?.workPermitQuote && !profile?.workPermit && !has('work_permit')) {
     const [question, why] = text('work_permit');
-    result.push({ id: 'work_permit', question, why, type: 'choice', options: FALLBACK_QUESTIONS.work_permit.options, required: true, source: 'rule' });
+    result.push({ id: 'work_permit', question, why, type: 'choice', options: FALLBACK_QUESTIONS.work_permit.options, required: true, validation: sanitizeValidation({}, { type: 'choice' }), source: 'rule' });
   }
   if (requirements?.salaryRequested && !has('salary_expectation')) {
     const [question, why] = text('salary_expectation');
-    result.push({ id: 'salary_expectation', question, why, type: 'text', options: [], required: true, source: 'rule' });
+    // An amount, whatever the format: "CHF 80'000", "80k", "85 000 - 90 000".
+    const validation = sanitizeValidation({ pattern: '.*\\d.*', maxLength: 120, example: "CHF 80'000", message: SALARY_RULE_MESSAGES[locale] || SALARY_RULE_MESSAGES.it }, { type: 'text' });
+    result.push({ id: 'salary_expectation', question, why, type: 'text', options: [], required: true, validation, source: 'rule' });
   }
   return result.slice(0, 8);
 }
@@ -228,7 +240,7 @@ export function candidateIdentity(order, profile) {
   return { name, email, phone };
 }
 
-function splitName(fullName) {
+export function splitName(fullName) {
   const parts = clean(fullName, 200).split(' ').filter(Boolean);
   if (parts.length < 2) return { firstName: parts[0] || '', lastName: '' };
   return { firstName: parts.slice(0, -1).join(' '), lastName: parts[parts.length - 1] };
@@ -254,7 +266,8 @@ function field(key, label, value, { needsConfirmation = false, note = '' } = {})
  * availability answers come from the profile or the candidate's answers only.
  */
 export function buildFormAnswers({ identity, profile, documents, answers = {} }) {
-  const { firstName, lastName } = splitName(identity.name);
+  // The split the candidate chose on the review page, else the last word is the surname.
+  const { firstName, lastName } = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const languages = (profile?.languages || []).map((item) => [item.language, item.level].filter(Boolean).join(' ')).filter(Boolean).join(', ');
   const permit = clean(answers.work_permit, 200) || profile?.workPermit || '';
   const availability = clean(answers.availability, 200) || profile?.availability || '';
@@ -307,5 +320,6 @@ export function safeFileStem(value) {
 
 /** Fact gate over every text that may leave in the candidate's name. */
 export function checkDraftFacts(texts, sources) {
-  return checkGeneratedFacts(texts, buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers]));
+  // `candidate`: what the candidate wrote on the review page vouches for itself.
+  return checkGeneratedFacts(texts, buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate]));
 }

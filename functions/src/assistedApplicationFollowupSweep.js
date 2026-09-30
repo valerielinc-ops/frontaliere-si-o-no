@@ -12,8 +12,9 @@
  * a send whose outcome is unknown is never retried (career-ops).
  */
 
-import { candidateIdentity, checkDraftFacts } from './assistedApplicationAiDraftCore.js';
-import { draftRefFor, isAutomationEnabled, orderRefFor } from './assistedApplicationAutomation.js';
+import { checkDraftFacts } from './assistedApplicationAiDraftCore.js';
+import { draftRefFor, flowRefFor, isAutomationEnabled, orderRefFor } from './assistedApplicationAutomation.js';
+import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { buildCandidateAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml, replySubject } from './assistedApplicationEmployerMail.js';
@@ -48,10 +49,12 @@ function formatAppliedOn(ms, language) {
 }
 
 async function loadContext(db, orderId, sinceMs = 0) {
-  const [orderSnapshot, followupSnapshot, draftSnapshot] = await Promise.all([
+  const [orderSnapshot, followupSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     followupRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
+    // The candidate's corrections from the review page (name) sign the follow-ups.
+    flowRefFor(db, orderId).get(),
   ]);
   const followup = followupSnapshot.exists ? followupSnapshot.data() || null : null;
   const inboxSnapshot = await orderRefFor(db, orderId).collection('inbox').where('receivedAt', '>=', Number(followup?.submittedAt ?? sinceMs)).get();
@@ -59,6 +62,7 @@ async function loadContext(db, orderId, sinceMs = 0) {
     order: orderSnapshot.data() || {},
     followup,
     draft: draftSnapshot.exists ? draftSnapshot.data() || {} : {},
+    flow: flowSnapshot.exists ? flowSnapshot.data() || {} : {},
     inbox: (inboxSnapshot.docs || []).map((doc) => doc.data() || {}),
   };
 }
@@ -76,7 +80,7 @@ async function stop(db, orderId, followup, reason, nowMs) {
 
 /** Codex drafts follow-up n; the candidate gets it with the 12-hour clock. */
 async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret }) {
-  const { order, followup, draft } = context;
+  const { order, followup, draft, flow } = context;
   const n = Number(followup.sent || 0) + 1;
   const language = draft.language || 'it';
   const appliedOn = formatAppliedOn(followup.submittedAt, language);
@@ -116,7 +120,7 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
     const token = mintReviewToken({ secret: await getSecret(), orderId, round: n, kind: 'followup', nowMs, ttlMs: 14 * DAY_MS });
     const email = buildCandidateAutomationEmail('candidate_followup_review', {
       locale,
-      name: candidateIdentity(order, draft.profile).name,
+      name: candidateWithEdits({ order, draft, flow }).identity.name,
       job: draft.job?.title || order.jobTitle,
       company: order.companyName,
       jobUrl: order.jobUrl,
@@ -154,9 +158,9 @@ export async function sendFollowup({ db, orderId, nowMs, sendCascade, by }) {
     claimed = current;
   });
   if (!claimed) return { ok: false, error: 'not_pending' };
-  const { order, draft } = await loadContext(db, orderId);
+  const { order, draft, flow } = await loadContext(db, orderId);
   const pending = claimed.pending;
-  const identity = candidateIdentity(order, draft.profile);
+  const { identity } = candidateWithEdits({ order, draft, flow });
   // career-ops: never a phone number in a generated message.
   const text = `${pending.body}\n\n${[identity.name, identity.email].filter(Boolean).join('\n')}`;
   const messageId = claimed.messageId;
