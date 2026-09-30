@@ -154,6 +154,9 @@ export async function submitApplication(ctx) {
     }
     const identity = candidateIdentity(order, draft.profile);
     const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
+    // Set once `clickedAt` is on record, right before the final click.
+    let clicked = false;
+    let succeeded = false;
     try {
       const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
       const stem = safeFileStem(identity.name);
@@ -164,8 +167,6 @@ export async function submitApplication(ctx) {
       await writeFile(files.cv, cvBuffer);
       await writeFile(files.cover_letter, Buffer.from(letterPdf));
       const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
-      // Set once `clickedAt` is on record, right before the final click.
-      let clicked = false;
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         language: draft.language,
@@ -177,6 +178,7 @@ export async function submitApplication(ctx) {
         dryRun: Boolean(ctx.dryRun),
         onBeforeSubmit: guard ? async () => { await guard.markClicked(Date.now()); clicked = true; } : null,
       });
+      succeeded = event.type === 'submit_succeeded';
       if (guard) {
         // Sent: on record. After the final click any other outcome (ambiguous,
         // a CAPTCHA or an error page that appeared afterwards) is left
@@ -187,6 +189,13 @@ export async function submitApplication(ctx) {
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
       return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
+    } catch (error) {
+      // Failed before the final click (files, browser, network): nothing
+      // reached the employer, so the claim is released for the retry.
+      if (guard && !clicked && !succeeded) {
+        await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => {});
+      }
+      throw error;
     } finally {
       await rm(dir, { recursive: true, force: true });
     }
