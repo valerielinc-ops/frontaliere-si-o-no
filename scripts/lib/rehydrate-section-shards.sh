@@ -44,6 +44,14 @@ set -uo pipefail
 # rehydrate_section() call for a given batch+locale wins an atomic `mkdir`
 # lock and downloads; every other concurrent call for the same batch+locale
 # polls for the "done" marker instead of re-downloading.
+#
+# A batch tar is a temporary transport container, not part of the rehydrated
+# site. Leaving every already-consumed tar in `$RUNNER_TEMP` made the 27
+# section × 4 locale replay accumulate the whole shard corpus (15.8 GB in
+# deploy run 36566802286) on top of the growing `dist/`, until the runner was
+# killed before it could report a verdict. The remaining-count files below
+# let the last section of each batch/locale remove that batch immediately;
+# this bounds disk by the in-flight batches instead of by the whole corpus.
 # Both network edges in this fallback are bounded and retried once, matching
 # rehydrate-locale-shards.sh: an unavailable/slow artifact or shard repository
 # must reach the existing fail-soft path, not hold all four workers until the
@@ -92,6 +100,51 @@ ensure_batch_downloaded() {
   done
 }
 
+REHYDRATE_STATE_ROOT="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
+
+rehydrate_batch_state_file() {
+  printf '%s/rehydrate-batch-%s-%s.remaining' "$REHYDRATE_STATE_ROOT" "$1" "$2"
+}
+
+# Mark one section/locale as consumed and remove the shared batch transport
+# once every section in that batch has finished. Workers are separate bash
+# subshells, so the decrement is protected by an mkdir lock rather than a
+# shell variable. The state is initialized by the parent immediately before
+# the bounded fan-out starts.
+rehydrate_batch_release() {
+  local batch="$1" loc="$2"
+  local state lock dl remaining
+  state="$(rehydrate_batch_state_file "$batch" "$loc")"
+  lock="$state.lock"
+  [ -f "$state" ] || return 0
+
+  while ! mkdir "$lock" 2>/dev/null; do
+    sleep 0.05
+  done
+
+  remaining="$(cat "$state" 2>/dev/null || printf '0')"
+  case "$remaining" in
+    ''|*[!0-9]*) remaining=0 ;;
+  esac
+  if [ "$remaining" -le 0 ]; then
+    rmdir "$lock" 2>/dev/null || true
+    return 0
+  fi
+
+  remaining=$((remaining - 1))
+  printf '%s\n' "$remaining" > "$state"
+  if [ "$remaining" -eq 0 ]; then
+    dl="$REHYDRATE_STATE_ROOT/shard-batch-$batch-dist-$loc"
+    # All sections in this batch have now either consumed their tar or taken
+    # the clone/cache fallback, so no future worker can need these files.
+    rm -f "$dl"/*.tar "$dl.done"
+    rmdir "$dl" 2>/dev/null || true
+    rmdir "$dl.lock" 2>/dev/null || true
+    rm -f "$state"
+  fi
+  rmdir "$lock" 2>/dev/null || true
+}
+
 rehydrate_section() {
   local section="$1"
   local batch
@@ -113,6 +166,7 @@ rehydrate_section() {
     # strip-section-subtree.sh:38-41 already refuses an empty slug the same way.
     if [ -z "$slug" ] || [ "$slug" = "null" ]; then
       echo "::warning::no $loc slug for section '$section' in section-shard-slugs.json — skipping (refusing to derive an empty dist subtree)"
+      rehydrate_batch_release "$batch" "$loc"
       continue
     fi
     case "$loc" in
@@ -137,6 +191,7 @@ rehydrate_section() {
     # completeness signal a bare `-d` check is not.
     if [ -s "dist/$sub/index.html" ]; then
       echo "$section $loc ($sub) present in artifact — skip rehydrate"
+      rehydrate_batch_release "$batch" "$loc"
       continue
     fi
 
@@ -183,6 +238,7 @@ rehydrate_section() {
       if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         trunk_replace_end "$section-$loc"
+        rehydrate_batch_release "$batch" "$loc"
         continue
       fi
       # Only clears the half-extracted tar; the trunk snapshot taken above
@@ -218,6 +274,7 @@ rehydrate_section() {
       cp -r "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" "dist/$sub"
       echo "rehydrated $section $loc from cross-job clone cache: $(find "dist/$sub" -type f | wc -l) files"
       trunk_replace_end "$section-$loc"
+      rehydrate_batch_release "$batch" "$loc"
       continue
     fi
 
@@ -258,6 +315,7 @@ rehydrate_section() {
       # report what the tar path already emptied
       trunk_replace_end "$section-$loc"
       rm -rf "$tmp"
+      rehydrate_batch_release "$batch" "$loc"
       continue
     fi
     if [ -d "$tmp/$sub" ]; then
@@ -277,6 +335,7 @@ rehydrate_section() {
     # accounting the way the bare `rm -rf` dropped the files.
     trunk_replace_end "$section-$loc"
     rm -rf "$tmp"
+    rehydrate_batch_release "$batch" "$loc"
   done
 }
 
@@ -299,6 +358,32 @@ while IFS= read -r section; do
 done < <(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json)
 
 if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
+  # One reference per live section and locale. A section that is already
+  # complete in the Pages trunk still consumes a reference, so its unused tar
+  # can be removed when the other sections in the same downloaded batch finish.
+  mkdir -p "$REHYDRATE_STATE_ROOT"
+  for batch in $(
+    for section in "${SECTION_NAMES[@]}"; do
+      jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json
+    done | sort -nu
+  ); do
+    case "$batch" in
+      ''|*[!0-9]*)
+        echo "::error::invalid section batch '$batch' in section-shard-batches.json"
+        exit 1
+        ;;
+    esac
+    batch_count=0
+    for section in "${SECTION_NAMES[@]}"; do
+      section_batch="$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
+      [ "$section_batch" = "$batch" ] || continue
+      batch_count=$((batch_count + 1))
+    done
+    for loc in it en de fr; do
+      printf '%s\n' "$batch_count" > "$(rehydrate_batch_state_file "$batch" "$loc")"
+    done
+  done
+
   rehydrate_max_parallel="${REHYDRATE_MAX_PARALLEL:-4}"
   case "$rehydrate_max_parallel" in
     ''|*[!0-9]*|0)
@@ -323,6 +408,13 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
 else
   echo "no live section shards to rehydrate"
 fi
+
+# A worker can be interrupted after its last copy but before the per-batch
+# release (for example by a transient shell/runner failure). The bounded
+# fan-out has joined at this point, so clearing any remaining transport tars is
+# safe and prevents a partial run from carrying the shard corpus into the
+# following assertion/audit steps.
+find "$REHYDRATE_STATE_ROOT" -maxdepth 2 -type f -name '*-dist-*.tar' -delete 2>/dev/null || true
 df -h / | tail -1
 
 # The ONE new fatal condition in this deliberately fail-soft script, and it is
