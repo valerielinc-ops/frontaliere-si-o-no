@@ -26,24 +26,29 @@ concurrency:
 
 jobs:
   bench:
-    name: bench ${{ matrix.sel }} w${{ matrix.workers }} shard ${{ matrix.shard }}/${{ matrix.shards }}
+    name: bench ${{ matrix.sel }} w${{ matrix.workers }} shard ${{ matrix.shard }}/${{ matrix.shards }} rep ${{ matrix.rep }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
+        # Il primo giro (run 36710528235) ha dato tempi non monotoni fra 2, 3 e
+        # 4 worker: le varianti a job singolo girano due volte per giro.
         include:
-          - { sel: large, workers: 2, shard: 1, shards: 1 }
-          - { sel: large, workers: 3, shard: 1, shards: 1 }
-          - { sel: large, workers: 4, shard: 1, shards: 1 }
-          - { sel: large, workers: 2, shard: 1, shards: 2 }
-          - { sel: large, workers: 2, shard: 2, shards: 2 }
-          - { sel: large, workers: 2, shard: 1, shards: 4 }
-          - { sel: large, workers: 2, shard: 2, shards: 4 }
-          - { sel: large, workers: 2, shard: 3, shards: 4 }
-          - { sel: large, workers: 2, shard: 4, shards: 4 }
-          - { sel: medium, workers: 2, shard: 1, shards: 1 }
-          - { sel: medium, workers: 4, shard: 1, shards: 1 }
+          - { sel: large, workers: 2, shard: 1, shards: 1, rep: 1 }
+          - { sel: large, workers: 2, shard: 1, shards: 1, rep: 2 }
+          - { sel: large, workers: 3, shard: 1, shards: 1, rep: 1 }
+          - { sel: large, workers: 3, shard: 1, shards: 1, rep: 2 }
+          - { sel: large, workers: 4, shard: 1, shards: 1, rep: 1 }
+          - { sel: large, workers: 4, shard: 1, shards: 1, rep: 2 }
+          - { sel: large, workers: 2, shard: 1, shards: 4, rep: 1 }
+          - { sel: large, workers: 2, shard: 2, shards: 4, rep: 1 }
+          - { sel: large, workers: 2, shard: 3, shards: 4, rep: 1 }
+          - { sel: large, workers: 2, shard: 4, shards: 4, rep: 1 }
+          - { sel: medium, workers: 2, shard: 1, shards: 1, rep: 1 }
+          - { sel: medium, workers: 2, shard: 1, shards: 1, rep: 2 }
+          - { sel: medium, workers: 4, shard: 1, shards: 1, rep: 1 }
+          - { sel: medium, workers: 4, shard: 1, shards: 1, rep: 2 }
     env:
       NODE_COMPILE_CACHE: node_modules/.cache/node-compile
     steps:
@@ -148,6 +153,14 @@ jobs:
           restore-keys: |
             vitest-transform-${{ runner.os }}-
 
+      - name: Restore TypeScript incremental state (read-only)
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/tsc
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          restore-keys: |
+            tsc-incremental-${{ runner.os }}-
+
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
         uses: ./.github/actions/assemble-jobs-cache-key
@@ -187,6 +200,12 @@ jobs:
           set -uo pipefail
           mapfile -t files < "$SEL_FILE"
           echo "files=${#files[@]} workers=$WORKERS shard=$SHARD"
+          # Come nel job reale: `tsc` (typecheck:gate, ~4,4 GB di RSS) parte in
+          # background e si sovrappone all'inizio di vitest. Il primo giro non
+          # lo aveva, quindi misurava vitest senza la sua contesa principale.
+          tsc_start=$(date +%s)
+          ( env NODE_OPTIONS=--max-old-space-size=8192 npm run typecheck:gate > tsc.log 2>&1; echo "$? $(( $(date +%s) - tsc_start ))" > tsc.status ) &
+          tsc_pid=$!
           start=$(date +%s)
           scripts/ci/sample-mem-during.sh -- node node_modules/vitest/vitest.mjs run --passWithNoTests \
             --maxWorkers="$WORKERS" --pool=forks --shard="$SHARD" \
@@ -194,14 +213,15 @@ jobs:
             "${files[@]}"
           status=$?
           end=$(date +%s)
-          echo "[bench] sel=${{ matrix.sel }} workers=$WORKERS shard=$SHARD wall_s=$((end - start)) exit=$status"
+          wait "$tsc_pid"
+          echo "[bench] sel=${{ matrix.sel }} workers=$WORKERS shard=$SHARD rep=${{ matrix.rep }} wall_s=$((end - start)) exit=$status tsc=$(cat tsc.status 2>/dev/null)"
           exit 0
 
       - name: Upload bench report
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
         with:
-          name: bench-${{ matrix.sel }}-w${{ matrix.workers }}-s${{ matrix.shard }}of${{ matrix.shards }}
+          name: bench-${{ matrix.sel }}-w${{ matrix.workers }}-s${{ matrix.shard }}of${{ matrix.shards }}-r${{ matrix.rep }}
           path: bench-report.json
           if-no-files-found: warn
           retention-days: 5
