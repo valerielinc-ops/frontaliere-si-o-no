@@ -91,10 +91,20 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
   exit 1
 }
 
+# Build the authenticated endpoint before any remote lookup. `actions/checkout`
+# intentionally uses `persist-credentials: false` in the protected refresh
+# workflows, so `origin` is not allowed to be the authentication boundary.
+PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+
+# Read the lease before changing the local checkout. A stable branch may back
+# an open PR; its tree must be the base for this run instead of the workflow's
+# main snapshot. The lease still protects the final push from a concurrent run.
+REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+REFRESH_BASE="$(git rev-parse HEAD)"
+
 # Validate the exact PR contract before creating a commit or remote branch.
 node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
 
-git checkout -B "$BRANCH"
 if [ "$FORCE_ADD" = true ]; then
   # Some refreshes intentionally publish generated cache paths that remain
   # ignored in the normal checkout (for example the fuel cache/history). Keep
@@ -114,12 +124,17 @@ fi
 git config user.name "frontaliere-automation[bot]"
 git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
 git commit -m "$COMMIT_MESSAGE"
+REFRESH_COMMIT="$(git rev-parse HEAD)"
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
-# of opening an unbounded queue of equivalent data PRs. Protect an existing
-# branch with an explicit lease: a surprising concurrent writer is a failure,
-# not a reason to overwrite its head.
-REMOTE_HEAD="$(git ls-remote origin "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+# of opening an unbounded queue of equivalent data PRs. Start from the remote
+# tree when it exists, then apply this run's commit on top of it. This keeps
+# earlier append-only/state records in an unmerged PR.
+if [ -n "$REMOTE_HEAD" ]; then
+  git fetch --no-tags "$PUSH_URL" \
+    "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+  git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+fi
 
 if [ "$RECONCILE_COMPAT" = true ]; then
   # The 404 producers share the sharded compat accumulator but publish through
@@ -128,7 +143,8 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   # the checkout's main snapshot and force-replaces an unmerged sweep. The
   # custom driver performs the store's deterministic 3-way SET merge, keeping
   # distinct additions in the same shard deduped and sorted.
-  git fetch --no-tags origin main
+  git fetch --no-tags "$PUSH_URL" \
+    "refs/heads/main:refs/remotes/origin/main"
   git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
 
   COMPAT_SHARD_ATTR="$(git check-attr merge -- data/seo-404-compat/part-00.json)"
@@ -147,13 +163,35 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   }
 
   if [ -n "$REMOTE_HEAD" ]; then
-    git fetch --no-tags origin "refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
-    merge_refresh_ref "origin/${BRANCH}"
+    merge_refresh_ref "$REFRESH_COMMIT"
   fi
   merge_refresh_ref origin/main
+elif [ -n "$REMOTE_HEAD" ]; then
+  # The current refresh was committed from the workflow checkout before the
+  # stable branch was selected. Reconcile the two trees with path-aware rules:
+  # JSONL histories and Telegram ledgers union both runs, while complete
+  # snapshots use the current run as the authoritative value.
+  MERGE_ARGS=(
+    --base "$REFRESH_BASE"
+    --remote "$REMOTE_HEAD"
+    --refresh "$REFRESH_COMMIT"
+  )
+  for refresh_path in "${PATHS[@]}"; do
+    MERGE_ARGS+=(--path "$refresh_path")
+  done
+  node scripts/ci/merge-open-data-refresh.mjs "${MERGE_ARGS[@]}"
+  if [ "$FORCE_ADD" = true ]; then
+    git add -A -f -- "${PATHS[@]}"
+  else
+    git add -A -- "${PATHS[@]}"
+  fi
+  if git diff --cached --quiet; then
+    echo "No new refresh changes after stable-branch reconciliation."
+    exit 0
+  fi
+  git commit -m "$COMMIT_MESSAGE"
 fi
 
-PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 if [ -n "$REMOTE_HEAD" ]; then
   git -c http.https://github.com/.extraheader= push \
     --force-with-lease="refs/heads/${BRANCH}:${REMOTE_HEAD}" \

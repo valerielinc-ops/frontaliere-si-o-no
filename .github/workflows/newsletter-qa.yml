@@ -49,6 +49,16 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Assemble jobs dataset
         continue-on-error: true
         run: node scripts/assemble-jobs-dataset.mjs 2>&1 || echo "⚠️ Jobs assembly failed"
