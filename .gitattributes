@@ -5,7 +5,9 @@
 # retry then dies on "Pulling is not possible because you have unmerged files"
 # until the job is canceled (run 27976954013: dist-size-history.jsonl conflict
 # wedged the IT deploy shard). `merge=union` keeps both sides' new lines so the
-# conflict cannot occur by construction.
+# conflict cannot occur by construction. The dist-size writer compacts its
+# recent window below 40 MiB; a stale concurrent checkout may temporarily
+# resurrect an old line during the union, and the next append compacts it again.
 data/dist-size-history.jsonl       merge=union
 data/quality-alerts-history.jsonl  merge=union
 data/quota-history.jsonl           merge=union

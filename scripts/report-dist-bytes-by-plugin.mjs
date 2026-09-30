@@ -2,8 +2,8 @@
 // report-dist-bytes-by-plugin.mjs
 //
 // Walks dist/ and attributes bytes per emitting plugin/category and per
-// locale. Output is one JSONL line appended to data/dist-size-history.jsonl
-// + a stdout summary table.
+// locale. Output is one JSONL line appended to the bounded recent window in
+// data/dist-size-history.jsonl + a stdout summary table.
 //
 // Usage:
 //   node scripts/report-dist-bytes-by-plugin.mjs [--dist=dist] [--no-append]
@@ -28,8 +28,9 @@
 import { readdir, stat } from 'node:fs/promises';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { appendFileSync, existsSync, writeFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { appendDistHistoryRow, DIST_HISTORY_MAX_BYTES } from './lib/dist-size-history.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -374,9 +375,12 @@ async function main() {
 
   if (args.append) {
     const historyPath = join(ROOT, 'data', 'dist-size-history.jsonl');
-    if (!existsSync(historyPath)) writeFileSync(historyPath, '');
-    appendFileSync(historyPath, JSON.stringify(row) + '\n');
-    console.log(`[dist-bytes-report] appended to data/dist-size-history.jsonl`);
+    const history = appendDistHistoryRow(historyPath, row);
+    console.log(
+      `[dist-bytes-report] appended to data/dist-size-history.jsonl `
+      + `(retained ${history.bytes} B; dropped ${history.dropped} old row(s); `
+      + `budget ${DIST_HISTORY_MAX_BYTES} B)`,
+    );
   }
 
   // Gate
