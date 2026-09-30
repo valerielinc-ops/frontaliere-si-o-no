@@ -18,6 +18,10 @@ import {
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 
@@ -136,7 +140,70 @@ export async function submitApplication(ctx) {
     return { type: 'submit_succeeded', channel: 'email' };
   }
 
-  // Portal: career-ops browser handoff until the portal runner (Fase 3) takes it.
+  // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
+  // or anything it must not bypass ends in the career-ops handoff below.
+  const applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
+  if (WAVE1_CHANNELS.has(channel.type) && applyUrl && ctx.codex) {
+    // The same durable guard as the e-mail: a re-dispatched run never submits
+    // twice. A run that died before the final click may start again.
+    const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
+    if (guard) {
+      const claim = await guard.claim('portal', nowMs, { resumable: true });
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channel.type, replayed: true };
+      if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
+    }
+    const identity = candidateIdentity(order, draft.profile);
+    let dir = null;
+    // Set once `clickedAt` is on record, right before the final click.
+    let clicked = false;
+    let succeeded = false;
+    try {
+      dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
+      const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
+      const stem = safeFileStem(identity.name);
+      const files = {
+        cv: path.join(dir, `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`),
+        cover_letter: path.join(dir, `${safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it)}_${stem}.pdf`),
+      };
+      await writeFile(files.cv, cvBuffer);
+      await writeFile(files.cover_letter, Buffer.from(letterPdf));
+      const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
+      const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
+        applyUrl,
+        language: draft.language,
+        candidateLocale: draft.candidateLocale || order.locale || 'it',
+        candidate: candidateForForm({ identity, profile: draft.profile, answers, draft, portalQuestions }),
+        files,
+        codex: ctx.codex,
+        log,
+        dryRun: Boolean(ctx.dryRun),
+        onBeforeSubmit: guard ? async () => { await guard.markClicked(Date.now()); clicked = true; } : null,
+      });
+      succeeded = event.type === 'submit_succeeded';
+      if (guard) {
+        // Sent: on record. After the final click any other outcome (ambiguous,
+        // a CAPTCHA or an error page that appeared afterwards) is left
+        // "sending": the portal may have the application, so it is never
+        // re-submitted. Before the click nothing was sent: released.
+        if (event.type === 'submit_succeeded') await guard.markSent({ channel: channel.type, finalUrl: evidence.finalUrl || null });
+        else if (!clicked && !(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
+      }
+      await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
+      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
+    } catch (error) {
+      // Failed before the final click (temp dir, files, browser, network): nothing
+      // reached the employer, so the claim is released for the retry.
+      if (guard && !clicked && !succeeded) {
+        await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => {});
+      }
+      throw error;
+    } finally {
+      if (dir) await rm(dir, { recursive: true, force: true });
+    }
+  }
+
+  // Account portals (Workday, SuccessFactors, LinkedIn) until wave 2, and any
+  // channel without a usable URL: career-ops browser handoff.
   await storeEvidence({
     bucket,
     orderId,
@@ -145,5 +212,5 @@ export async function submitApplication(ctx) {
     key: runKey,
     nowMs,
   });
-  return { type: 'submit_handoff', reason: 'portal_needs_candidate' };
+  return { type: 'submit_handoff', reason: channel.requiresAccount ? 'account' : 'portal_needs_candidate' };
 }

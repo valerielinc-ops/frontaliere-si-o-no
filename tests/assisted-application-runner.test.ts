@@ -178,6 +178,75 @@ describe('submit mode', () => {
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
   });
 
+  it('submits on a portal once, resumes a run that died before the click, never one that died after it', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } };
+    const submit = (db: any, portalRunner: any) => submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(db, ORDER_ID, 1),
+    });
+    const sent = createMemoryFirestore();
+    const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
+    expect(await submit(sent.db, clicksAndSends)).toMatchObject({ type: 'submit_succeeded', channel: 'lever' });
+    expect(await submit(sent.db, clicksAndSends)).toEqual({ type: 'submit_succeeded', channel: 'lever', replayed: true });
+    expect(clicksAndSends).toHaveBeenCalledTimes(1);
+
+    // Died after pressing submit: the outcome is unknown, the retry does not press it again.
+    const afterClick = createMemoryFirestore();
+    await expect(submit(afterClick.db, async (ctx: any) => { await ctx.onBeforeSubmit(); throw new Error('browser crashed'); })).rejects.toThrow('browser crashed');
+    const neverAgain = vi.fn();
+    expect(await submit(afterClick.db, neverAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
+    expect(neverAgain).not.toHaveBeenCalled();
+
+    // Died while filling the form: nothing reached the employer, the retry starts again.
+    const beforeClick = createMemoryFirestore();
+    await expect(submit(beforeClick.db, async () => { throw new Error('browser crashed'); })).rejects.toThrow('browser crashed');
+    const again = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    expect(await submit(beforeClick.db, again)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    expect(again).toHaveBeenCalledTimes(1);
+    expect(beforeClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'captcha' } });
+
+    // An error before the click (here the cover letter cannot be read): released, the retry claims it again.
+    const storageDown = createMemoryFirestore();
+    const brokenBucket = { file: () => ({ download: async () => { throw new Error('storage_down'); }, save: async () => {} }) };
+    const neverRun = vi.fn();
+    await expect(submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket: brokenBucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      codex: vi.fn(), portalRunner: neverRun, submissionGuard: submissionGuard(storageDown.db, ORDER_ID, 1),
+    })).rejects.toThrow('storage_down');
+    expect(neverRun).not.toHaveBeenCalled();
+    expect(storageDown.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'error: storage_down' } });
+    expect(await submissionGuard(storageDown.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed', resumed: false });
+
+    // The temporary folder cannot be created: released too, nothing was clicked.
+    const noTmp = createMemoryFirestore();
+    const previousTmp = process.env.TMPDIR;
+    process.env.TMPDIR = '/nonexistent-aa-portal-tmp';
+    try {
+      await expect(submit(noTmp.db, neverRun)).rejects.toThrow();
+    } finally {
+      if (previousTmp === undefined) delete process.env.TMPDIR;
+      else process.env.TMPDIR = previousTmp;
+    }
+    expect(neverRun).not.toHaveBeenCalled();
+    expect(noTmp.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    expect(await submissionGuard(noTmp.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+
+    // A CAPTCHA that shows up after the final click: the portal may have the
+    // application, so the claim stays "sending" and no later run presses it again.
+    const captchaAfterClick = createMemoryFirestore();
+    const clicksThenCaptcha = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }; };
+    expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    expect(captchaAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
+    expect(await submissionGuard(captchaAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'in_flight' });
+    const notAgain = vi.fn();
+    expect(await submit(captchaAfterClick.db, notAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
+    expect(notAgain).not.toHaveBeenCalled();
+  });
+
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {
     const store = createMemoryFirestore();
     const bucket = fakeBucket();
