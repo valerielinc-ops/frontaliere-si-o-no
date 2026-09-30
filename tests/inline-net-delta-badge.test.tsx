@@ -1,3 +1,4 @@
+import { act } from 'react';
 import { describe, expect, it } from 'vitest';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import InlineNetDeltaBadge from '../components/calculator/InlineNetDeltaBadge';
@@ -13,7 +14,9 @@ describe('InlineNetDeltaBadge', () => {
     const badge = container.querySelector('span');
     expect(badge).not.toBeNull();
 
-    fireEvent.animationEnd(badge!);
+    await act(async () => {
+      fireEvent.animationEnd(badge!);
+    });
 
     await waitFor(() => expect(container.querySelector('span')).toBeNull());
   });
