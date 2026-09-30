@@ -309,8 +309,20 @@ export async function discoverSources({
       continue;
     }
     try {
-      const response = await fetchText(fetcher, discoveryUrl, timeoutMs);
-      const title = titleFromHtml(response.body);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      let response;
+      try {
+        response = await fetcher(discoveryUrl, {
+          redirect: 'follow',
+          signal: controller.signal,
+          headers: { 'user-agent': 'frontaliere-plate-auction-discovery/1.0' },
+        });
+      } finally {
+        clearTimeout(timeout);
+      }
+      const body = await response.text();
+      const title = titleFromHtml(body);
       let geList;
       if (key === 'ge' && response.status >= 200 && response.status < 400) {
         let extraListDocumentUrls = [];
@@ -334,7 +346,7 @@ export async function discoverSources({
         httpStatus: response.status,
         title,
         elapsedMs: Date.now() - startedAt,
-        ...classifyCantonDiscovery({ key, status: response.status, title, body: response.body, baseUrl: discoveryUrl, geList }),
+        ...classifyCantonDiscovery({ key, status: response.status, title, body, baseUrl: discoveryUrl, geList }),
       });
     } catch (error) {
       entries.push({
