@@ -117,6 +117,9 @@ export const RC_TO_ENV = {
   TWELVEDATA_API_KEY:             ['TWELVEDATA_API_KEY'],
   GOOGLE_OAUTH_CLIENT_ID:         ['GOOGLE_OAUTH_CLIENT_ID', 'GSC_CLIENT_ID'],
   RESEND_API_KEY:                 ['RESEND_API_KEY'],
+  // AES-256-GCM key (base64, 32 bytes) of the assisted-application agent's
+  // encrypted evidence (scripts/assisted-application/lib/secure-run.mjs).
+  ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
   // `ac` autologin credential policy (#5685). The MINTING half of the switch —

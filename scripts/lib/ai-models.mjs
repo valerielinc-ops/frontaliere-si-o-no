@@ -6038,6 +6038,29 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
   });
 }
 
+/**
+ * One structured request to the job's Codex Luna Max broker, outside callLLM's
+ * provider chain: for pipelines that must run on Codex only (the assisted
+ * application agent, owner decision 2026-09-30) and must not touch the score
+ * store or fall through to other providers. Same protocol, queue budget and
+ * `function` profile as the callLLM lane; `schema` is sent as the strict
+ * `--output-schema`. Resolves to the parsed JSON object.
+ * @param {{prompt:string, schema:object, timeoutMs?:number}} request
+ */
+export async function requestCodexBrokerJson({ prompt, schema, timeoutMs = CODEX_CLI_MAX_TIMEOUT_MS }) {
+  const result = await _requestCodexExecution({ prompt, timeoutMs, schema });
+  let parsed;
+  try {
+    parsed = JSON.parse(result);
+  } catch {
+    throw new Error('Codex broker returned invalid JSON for a schema request');
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('Codex broker returned a non-object JSON value');
+  }
+  return parsed;
+}
+
 function _codexPrompt(messages, { jsonOnly = false } = {}) {
   const system = messages.filter((m) => m.role === 'system').map((m) => m.content).join('\n\n');
   const user = messages.filter((m) => m.role !== 'system').map((m) => m.content).join('\n\n');
