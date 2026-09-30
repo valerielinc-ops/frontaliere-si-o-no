@@ -326,6 +326,38 @@ describe('Manor vacancy body and reposts (audit-parser-quality issue 5253)', () 
     expect(stored.descriptionByLocale).toEqual({});
   });
 
+  it('removes the complete historical careers block before applying the source floor', () => {
+    const body = (count: number) => Array.from({ length: count }, (_, index) => `Mansione${index + 1}`).join(' ');
+    const careersBlock = [
+      '## Informazioni su Manor',
+      'Manor è una delle principali catene di grandi magazzini della Svizzera, con negozi, mercati alimentari, ristoranti, centri di distribuzione e sede centrale a Basilea.',
+      '',
+      '## I vostri vantaggi a Manor',
+      'Le condizioni di lavoro e gli sconti per il personale valorizzano ogni collaboratrice e ogni collaboratore con offerte interessanti, opportunità concrete e percorsi di crescita professionale.',
+    ].join('\n');
+    const thinWithContext = prepareManorSourceBody({
+      sourceLang: 'it',
+      descriptionByLocale: { it: `${body(35)}\n\n${careersBlock}` },
+    });
+    expect(thinWithContext.description).toBe('');
+    expect(thinWithContext.descriptionByLocale).toEqual({});
+
+    const richBody = body(60);
+    const rich = prepareManorSourceBody({
+      sourceLang: 'it',
+      descriptionByLocale: { it: richBody },
+    });
+    expect(rich.description).toBe(richBody);
+    expect(rich.descriptionByLocale).toEqual({ it: richBody });
+
+    const richWithContext = prepareManorSourceBody({
+      sourceLang: 'it',
+      descriptionByLocale: { it: `${richBody}\n\n${careersBlock}` },
+    });
+    expect(richWithContext.description).toBe(richBody);
+    expect(richWithContext.descriptionByLocale).toEqual({ it: richBody });
+  });
+
   it('trusts the portal language tag on short bodies and the detector only on a clear, long body', () => {
     // Trigram detection reads this French requirement list as English.
     expect(resolveManorBodyLang('Langue française et/ou allemande, flexibilité horaire', 'fr')).toBe('fr');

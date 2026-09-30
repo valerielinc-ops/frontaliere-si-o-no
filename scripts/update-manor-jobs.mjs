@@ -64,6 +64,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -298,6 +299,27 @@ export function buildManorJobDescriptions({
 
 const MANOR_GENERIC_PARAGRAPH_RX = /(?:presso Manor, con sede a|at Manor, located in|bei Manor, gelegen in|chez Manor, situé à|Manor AG è una delle principali catene di grandi magazzini)/;
 
+// The retired `companyContexts[sourceLang]` block was appended after the
+// vacancy body. Keep the complete tail, anchored at the Markdown block
+// boundary and at the end, so a vacancy that merely mentions Manor is never
+// stripped. The extra headings are translated copies of the same block.
+const MANOR_CAREERS_CONTEXT_HEADINGS = [
+  'Über Manor',
+  'À propos de Manor',
+  'Informazioni su Manor',
+  'About Manor',
+  'A proposito di Manor',
+];
+const escapeManorHeading = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const MANOR_CAREERS_CONTEXT_RE = new RegExp(
+  `(?:^|\\n{2,})## (?:${MANOR_CAREERS_CONTEXT_HEADINGS.map(escapeManorHeading).join('|')})\\n[\\s\\S]*\\S$`,
+  'u',
+);
+
+function stripManorCareersContext(text = '') {
+  return String(text || '').trim().replace(MANOR_CAREERS_CONTEXT_RE, '').trim();
+}
+
 /**
  * Remove the source slot a previous Manor run populated with a thin body or
  * with the crawler's generic company paragraph before the shared keeper sees
@@ -309,7 +331,9 @@ export function prepareManorSourceBody(job = {}) {
   const sourceText = String(
     (sourceLang && job?.descriptionByLocale?.[sourceLang]) || job?.description || '',
   ).trim();
-  const body = MANOR_GENERIC_PARAGRAPH_RX.test(sourceText) ? '' : sourceText;
+  const withoutCareersContext = stripManorCareersContext(sourceText);
+  const careersContextRemoved = withoutCareersContext !== sourceText;
+  const body = MANOR_GENERIC_PARAGRAPH_RX.test(withoutCareersContext) ? '' : withoutCareersContext;
   const description = meetsSourceBodyFloor(body) ? body : '';
   const descriptionByLocale = { ...(job?.descriptionByLocale || {}) };
   if (description && sourceLang) descriptionByLocale[sourceLang] = description;
@@ -318,7 +342,7 @@ export function prepareManorSourceBody(job = {}) {
     ...job,
     description,
     descriptionByLocale,
-    ...(description ? {} : { needsRetranslation: true }),
+    ...(!description || careersContextRemoved ? { needsRetranslation: true } : {}),
   });
 }
 
@@ -804,7 +828,11 @@ function mergeManorJobs(discoveredJobs) {
 
   const nonManorJobs = allJobs.filter((j) => !isManorJob(j));
   const existingManorJobs = allJobs.filter(isManorJob);
-  const preparedExistingManorJobs = existingManorJobs.map(prepareManorSourceBody);
+  const preparedExistingManorJobs = dropFabricatedDescriptions(
+    existingManorJobs.map(prepareManorSourceBody),
+    MANOR_CAREERS_CONTEXT_RE,
+    MANOR_COMPANY_NAME,
+  );
 
   // Stats only — computed on the same stable key mergePreserveLocaleData
   // matches on (extractStableJobId(url), i.e. the trailing numeric
@@ -866,7 +894,11 @@ function mergeManorJobs(discoveredJobs) {
 
 async function rewriteStoredManorJobsWithoutThinSource(storedJobs) {
   return rewritePreparedStoredJobs({
-    prepare: (jobs) => jobs.map(prepareManorSourceBody),
+    prepare: (jobs) => dropFabricatedDescriptions(
+      jobs.map(prepareManorSourceBody),
+      MANOR_CAREERS_CONTEXT_RE,
+      MANOR_COMPANY_NAME,
+    ),
     storedJobs,
     companyKey: MANOR_KEY,
     companyLabel: MANOR_COMPANY_NAME,
