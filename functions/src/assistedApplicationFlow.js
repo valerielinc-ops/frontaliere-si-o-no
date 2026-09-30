@@ -61,6 +61,8 @@ export function evaluateRedFlags(draft, answers = {}) {
   if (draft?.verdict === 'poor' && !draft?.knockOutAcknowledgedAt && !acknowledged('knock_out')) owner.push('knock_out');
   if (draft?.job?.source === 'none' && !acknowledged('no_posting')) owner.push('no_posting');
   if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
+  // career-ops Block G "Suspicious": the owner looks at the posting first.
+  if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
   const candidate = (draft?.questions || [])
     .filter((question) => question.required && !String(answers?.[question.id] ?? '').trim())
     .map((question) => question.id);
