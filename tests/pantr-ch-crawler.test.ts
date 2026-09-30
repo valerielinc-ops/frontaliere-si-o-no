@@ -62,14 +62,25 @@ describe('Pantr GmbH crawler parser', () => {
   });
 
   describe('job slug identity', () => {
+    const validDescription = Array.from({ length: 50 }, (_, index) => `description${index + 1}`).join(' ');
+
     const listing = (url: string) => ({
       title: 'Software Engineer',
-      description: 'Wir suchen eine erfahrene Person für unser Team.',
+      description: validDescription,
       location: 'Lugano, TI',
       addressLocality: 'Lugano',
       addressRegion: 'TI',
       addressCountry: 'CH',
       url,
+    });
+
+    it('rejects descriptions below the 50-word source floor', () => {
+      const thinDescription = Array.from({ length: 49 }, (_, index) => `word${index + 1}`).join(' ');
+
+      expect(buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/thin-description'),
+        description: thinDescription,
+      })).toBeNull();
     });
 
     it('disambiguates repeated titles at one location with a stable URL suffix', () => {

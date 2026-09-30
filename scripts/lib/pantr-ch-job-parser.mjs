@@ -16,6 +16,7 @@ import { stripHtml } from './crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -128,7 +129,7 @@ export function buildPantrChJobFromListing(listing) {
   const { location, canton } = geography;
   const descriptionHtml = listing.description || '';
   const descriptionText = stripHtml(descriptionHtml);
-  if (!descriptionText) return null;
+  if (!meetsSourceBodyFloor(descriptionText)) return null;
   // The detail URL is the vacancy identity: falling back to the listing page
   // would give every posting the same `url`, `applyUrl` and `id` hash.
   const publicUrl = String(listing.url || '').trim();
