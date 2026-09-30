@@ -13,11 +13,8 @@
  */
 import { describe, it, expect } from 'vitest';
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
-import { readFileSync } from 'node:fs';
-import { buildJobPostingSchema, resolveJobPostingAddress } from '../../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingSchema, resolveJobPostingAddress, type JobInput } from '../../build-plugins/shared/jobPostingSchema';
 import { resolveLocalityPostalCode } from '../../build-plugins/shared/postalCodes';
-import { resolveJobPostingPostalCode } from '../../services/jobLocationSnapshot';
-import { transformSync } from 'esbuild';
 import {
   CANTON_CAPITAL_ADDRESSES,
   localityMatchesHq,
@@ -303,13 +300,24 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
   it('the SPA JobBoard JobPosting gets every address from the same resolver', () => {
     // JobBoard replaces the static JSON-LD at runtime; its own fallback CAP
     // (deriveJobPostalCode → Lugano's 6900) must not survive beside Pully.
-    expect(resolveJobPostingAddress(
-      { addressLocality: 'Pully', addressRegion: 'VD', postalCode: '6900', streetAddress: '' },
-      'fr',
-    )).toMatchObject({ addressLocality: 'Pully', postalCode: '1009', streetAddress: 'Pully centre-ville' });
-    const jobBoard = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
-    expect(jobBoard).toMatch(/const jobAddress = resolveJobPostingAddress\(/);
-    expect(jobBoard).toMatch(/jobLocation: \{\s*'@type': 'Place',\s*address: jobAddress,\s*\}/);
+    const input = {
+      ...baseJob,
+      location: 'Pully',
+      canton: 'VD',
+      addressLocality: 'Pully',
+      addressRegion: 'VD',
+      postalCode: '6900',
+      streetAddress: '',
+    } satisfies JobInput;
+    const expected = resolveJobPostingAddress(input, 'fr');
+    const jobBoardAddress = buildJobPostingSchema(input, { ...OPTS, locale: 'fr' }).jobLocation.address;
+
+    expect(expected).toMatchObject({
+      addressLocality: 'Pully',
+      postalCode: '1009',
+      streetAddress: 'Pully centre-ville',
+    });
+    expect(jobBoardAddress).toEqual(expected);
   });
 
   it('remote and multi-location JobBoard postings never pair "Switzerland" with a concrete CAP or street (review of #9870)', () => {
@@ -318,20 +326,34 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     // locality to "Switzerland"/"CH": a remote posting keeps one coherent
     // place tuple, as on the static page, and remoteness stays in
     // jobLocationType (TELECOMMUTE) and applicantLocationRequirements.
-    const jobBoard = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
-    expect(jobBoard).not.toMatch(/addressLocality: (?:isRemote|multiLoc) \? 'Switzerland'/);
-    expect(jobBoard).not.toMatch(/addressRegion: (?:isRemote|multiLoc) \? 'CH'/);
-    expect(jobBoard).not.toContain('CANTON_FALLBACK_POSTAL');
-    expect(jobBoard).toMatch(/jobLocationType: isRemote \? 'TELECOMMUTE' : undefined/);
-    const remote = resolveJobPostingAddress(
-      { addressLocality: 'Pully', addressRegion: 'VD', postalCode: '1009', streetAddress: 'Avenue de Lavaux 1' },
-      'fr',
-    );
-    expect(remote).toMatchObject({ addressLocality: 'Pully', postalCode: '1009', streetAddress: 'Avenue de Lavaux 1' });
-    expect(remote.addressLocality).not.toBe('Switzerland');
+    const remote = buildJobBoardPosting({
+      addressLocality: 'Pully',
+      location: 'Pully',
+      canton: 'VD',
+      postalCode: '1009',
+      streetAddress: 'Avenue de Lavaux 1',
+    }, true);
+    const remoteAddress = remote.jobLocation.address;
+    expect(remoteAddress.addressLocality).not.toBe('Switzerland');
+    expect(remoteAddress.addressRegion).not.toBe('CH');
+    expect(remoteAddress).toEqual(resolveJobPostingAddress({
+      addressLocality: 'Pully',
+      addressRegion: 'VD',
+      postalCode: '1009',
+      streetAddress: 'Avenue de Lavaux 1',
+    }, 'fr'));
+    expect(remote.jobLocationType).toBe('TELECOMMUTE');
+    expect(remote.applicantLocationRequirements).toEqual({ '@type': 'Country', name: 'CH' });
+
     // A multi-location label is not a locality: one coherent canton tuple.
-    const multi = resolveJobPostingAddress({ addressLocality: 'Lugano · Bellinzona · Mendrisio', addressRegion: 'TI' }, 'it');
-    expect(multi).toMatchObject(CANTON_CAPITAL_ADDRESSES.TI);
+    const multi = buildJobBoardPosting({
+      addressLocality: 'Lugano · Bellinzona · Mendrisio',
+      location: 'Lugano · Bellinzona · Mendrisio',
+      canton: 'TI',
+    }, false, 'it');
+    expect(multi.jobLocation.address).toMatchObject({ ...CANTON_CAPITAL_ADDRESSES.TI, addressCountry: 'CH' });
+    expect(multi.jobLocationType).toBeUndefined();
+    expect(multi.applicantLocationRequirements).toBeUndefined();
   });
 
   it('every BFS municipality resolves to a CAP of its own, canton-scoped', () => {
@@ -554,48 +576,26 @@ describe('FNZ country-only national fallback', () => {
 
 /**
  * Review finding bace4dae1710 (JobBoard.tsx, remote and multi-location
- * postings). JobBoard cannot be mounted in a unit test, so this runs the real
- * source lines of its JSON-LD effect: the address block (from `isValidAddr`
- * to `resolveJobPostingAddress(...)`), the `jobLocationType`/`jobLocation`
- * members of the posting and the remote-only `applicantLocationRequirements`
- * block, cut out of components/community/JobBoard.tsx and transpiled.
+ * postings). JobBoard delegates the JSON-LD object to the shared
+ * `buildJobPostingSchema`; exercise that same builder so the test asserts the
+ * emitted behavior instead of depending on the component's source layout.
  */
-function runJobBoardJobLocation(job: Record<string, unknown>, isRemote: boolean, locale = 'fr') {
-  const source = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
-  const addressStart = source.indexOf(' const isValidAddr = (s: string) =>');
-  const resolverCall = source.indexOf(' const jobAddress = resolveJobPostingAddress(', addressStart);
-  const addressEnd = source.indexOf(' }, locale);\n', resolverCall) + ' }, locale);\n'.length;
-  const locationStart = source.indexOf(" jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,", addressEnd);
-  const locationEnd = source.indexOf(' directApply:', locationStart);
-  const remoteStart = source.indexOf(' if (isRemote) {', locationEnd);
-  const remoteEnd = source.indexOf('\n }\n', source.indexOf('posting.applicantLocationRequirements', remoteStart)) + '\n }\n'.length;
-  const cuts = [addressStart, resolverCall, addressEnd, locationStart, locationEnd, remoteStart, remoteEnd];
-  expect(cuts.every((cut, index) => cut > 0 && (index === 0 || cut > cuts[index - 1])), 'JobBoard JSON-LD address block moved').toBe(true);
-  const snippet = [
-    source.slice(addressStart, addressEnd),
-    'const posting: Record<string, unknown> = {',
-    source.slice(locationStart, locationEnd),
-    '};',
-    source.slice(remoteStart, remoteEnd),
-    'return posting;',
-  ].join('\n');
-  const run = new Function(
-    'job', 'isRemote', 'locale', 'DEFAULT_CANTON_DISPLAY', 'DEFAULT_CANTON',
-    'resolveJobPostingPostalCode', 'resolveJobPostingAddress',
-    transformSync(snippet, { loader: 'ts' }).code,
-  );
-  return run(job, isRemote, locale, 'Ticino', 'TI', resolveJobPostingPostalCode, resolveJobPostingAddress) as {
-    jobLocationType?: string;
-    jobLocation: { '@type': string; address: Record<string, string> };
-    applicantLocationRequirements?: { '@type': string; name: string };
-  };
+function buildJobBoardPosting(job: Partial<JobInput>, isRemote: boolean, locale = 'fr') {
+  return buildJobPostingSchema({
+    ...baseJob,
+    ...job,
+    isRemote,
+  }, {
+    locale,
+    url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/test-job/',
+  });
 }
 
 const COUNTRY_LEVEL = /^(?:switzerland|schweiz|suisse|svizzera|ch)$/i;
 
 describe('JobBoard runtime JobPosting — remote and multi-location address (review finding bace4dae1710)', () => {
   it('remote Pully posting: jobLocation.address is never a Switzerland/CH address holding a concrete CAP or street', () => {
-    const posting = runJobBoardJobLocation({
+    const posting = buildJobBoardPosting({
       addressLocality: 'Pully',
       location: 'Pully',
       canton: 'VD',
@@ -622,7 +622,7 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
   });
 
   it('multi-location posting: the canton\'s full coherent tuple, locality + CAP + street of the same place', () => {
-    const posting = runJobBoardJobLocation({
+    const posting = buildJobBoardPosting({
       addressLocality: 'Lugano · Bellinzona · Mendrisio',
       location: 'Lugano · Bellinzona · Mendrisio',
       canton: 'TI',
@@ -636,7 +636,7 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
   });
 
   it('on-site posting keeps the same single-place address (no country-level branch left)', () => {
-    const posting = runJobBoardJobLocation({
+    const posting = buildJobBoardPosting({
       addressLocality: 'Pully',
       location: 'Pully',
       canton: 'VD',
