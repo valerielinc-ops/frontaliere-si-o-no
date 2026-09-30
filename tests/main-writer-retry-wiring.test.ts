@@ -7,7 +7,6 @@ const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
   '.github/workflows/build-evidence-and-tune.yml',
-  '.github/workflows/crawler-health-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
   '.github/workflows/funnel-metrics-snapshot.yml',

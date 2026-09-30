@@ -4,10 +4,12 @@ name: crawler-health-monitor
 # non-empty output. Opens one GitHub issue per stale/broken crawler.
 # Runs after most crawlers complete (cron varies by source, ~05:00-06:00 UTC).
 #
-# State persistence: `data/crawler-health.json` is committed back to main
-# after the script runs so `consecutiveEmptyRuns` and `lastSuccessfulRunAt`
-# accumulate across daily runs. Without this commit-back the empty-streak
-# gate is dead code (every run starts from `crawlers: {}`).
+# State persistence: `data/crawler-health.json` is published back to main
+# through a stable PR after the script runs so `consecutiveEmptyRuns` and
+# `lastSuccessfulRunAt` accumulate across daily runs. The PR is required by
+# main's ruleset, whose Vitest check cannot be satisfied by a direct push.
+# Without this publication the empty-streak gate is dead code (every run starts
+# from `crawlers: {}`).
 
 on:
   schedule:
@@ -16,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 concurrency:
@@ -41,8 +44,9 @@ jobs:
           # (still needed by the rebase-retry loop below) while deferring
           # blob content download until a file is actually touched.
           filter: blob:none
-          # persist-credentials leaves GITHUB_TOKEN on extraheader; the commit
-          # step rewrites origin via configure-main-push-auth.sh (GITHUB_PAT).
+          # persist-credentials leaves the checkout token available for the
+          # issue-management steps; the PR publisher uses its explicit
+          # App/PAT token for branch and PR writes.
           persist-credentials: true
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -80,46 +84,64 @@ jobs:
       # If a future version needs deps, switch to `npm ci --omit=dev`.
       # load-rc-env.mjs uses the REST path (no firebase-admin).
 
-      - name: Prepare Firebase credentials for push auth
+      - name: Prepare Firebase credentials for PR publishing
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load credentials for the health-state PR"
             exit 1
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
-      - name: Load push credentials from Remote Config
+      - name: Load publishing credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
 
       - name: Run health check
         id: health
         continue-on-error: true
         run: node scripts/check-crawler-health.mjs
 
-      - name: Commit updated health state
+      - name: Open PR with updated health state
         # Always try to persist state, even when the check itself flagged
         # issues — the `consecutiveEmptyRuns` counter needs the commit to
-        # keep climbing toward the 3-empty-runs broken gate.
+        # keep climbing toward the 3-empty-runs broken gate. The shared
+        # publisher runs the required Vitest check before the state reaches
+        # main; a direct push is rejected by the repository ruleset.
         if: always()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
 
           if ! git diff --quiet -- data/crawler-health.json; then
-            git config user.name  "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/crawler-health.json
-            git commit -m "chore: update crawler-health state [skip ci]"
-            # Re-run the health calculation on the fetched main tip if the
-            # state file itself conflicts. The non-zero health verdict is
-            # intentional, so only the state file is staged by the command.
-            bash scripts/lib/git-push-with-retry.sh \
-              --max-attempts 5 \
-              --regenerate-cmd "node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json"
+            body="$RUNNER_TEMP/crawler-health-refresh-pr-body.md"
+            cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - Pubblica lo stato di salute dei crawler tramite il branch stabile \`chore/refresh-crawler-health\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+
+          ## Non implementato (ancora)
+          Nessuno — lo stato prodotto dal monitor viene validato prima della pubblicazione.
+          EOF
+            bash scripts/lib/open-data-refresh-pr.sh \
+              --path data/crawler-health.json \
+              --branch chore/refresh-crawler-health \
+              --commit-message "chore(data): update crawler-health state" \
+              --title "chore(data): update crawler-health state" \
+              --body-file "$body"
           else
             echo "ℹ️ No state change — nothing to commit."
           fi
