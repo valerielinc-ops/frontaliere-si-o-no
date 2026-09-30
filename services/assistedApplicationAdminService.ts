@@ -69,6 +69,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    /** The fields the candidate corrected on the review page. */
+    formOverrides?: Record<string, string>;
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
     history: Array<{ at: number; event: string; state: string }>;
   } | null;
@@ -92,6 +94,8 @@ export interface AssistedApplicationAutomationView {
     factCheckAcknowledgedAt: number | null;
     knockOutAcknowledgedAt: number | null;
     editedAt: number | null;
+    /** When the candidate last saved their own changes on the review page. */
+    candidateEditedAt?: number | null;
     cvTextMethod: string | null;
     coverLetterUrl: string | null;
     /** career-ops ATS check: structural grade and keyword coverage, of the candidate's CV and of the tailored one. */
