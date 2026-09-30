@@ -100,6 +100,20 @@ describe('full-suite-dispatch.yml: checkout pieno e dati runtime', () => {
     expect(CODE).not.toMatch(/cache:\s*['"]?npm/);
   });
 
+  it('prepara Java e avvia il Firestore emulator prima della suite', () => {
+    const javaIndex = indexOf((s) => s.uses === 'actions/setup-java@v4');
+    expect(javaIndex).toBeGreaterThan(-1);
+    expect(javaIndex).toBeLessThan(testIndex);
+    expect(steps[javaIndex].with).toMatchObject({ distribution: 'temurin', 'java-version': '21' });
+
+    const run = String(testStep.run ?? '');
+    expect(run).toContain('./node_modules/.bin/firebase emulators:exec');
+    expect(run).toContain('--only firestore');
+    expect(run).toContain('--project frontaliereticino-rules-test');
+    expect(run).toContain('status=$?');
+    expect(run).toContain('exit "$status"');
+  });
+
   it('assemble e migrate girano, in quest\'ordine, PRIMA di npm test', () => {
     const keyIndex = indexOf((s) => s.uses === './.github/actions/assemble-jobs-cache-key');
     const assembleIndex = indexOf(runIncludes('node scripts/assemble-jobs-dataset.mjs --stats'));
