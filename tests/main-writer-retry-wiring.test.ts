@@ -103,7 +103,7 @@ describe('main data writers use the shared retry contract', () => {
 
     expect(monitorJob, 'CWV monitor job is missing').toBeDefined();
     expect(snapshotStep, 'CWV snapshot commit step is missing').toBeDefined();
-    expect(maxAttempts, 'CWV snapshot retry cap is missing').toBe('10');
+    expect(maxAttempts, 'CWV snapshot retry cap is missing').toBe('8');
     expect(Number(maxAttempts)).toBeLessThan(monitorJob?.['timeout-minutes'] ?? 0);
   });
 
