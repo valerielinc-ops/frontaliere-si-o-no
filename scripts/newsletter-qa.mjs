@@ -22,6 +22,9 @@ import { launchChromium } from './lib/ensure-chromium.mjs';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { localizeArticle } from './lib/articleContent.mjs';
+import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
+import { weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
 import { runAutologinProbe } from './lib/autologinProbe.mjs';
 import { recordProbeRun } from './lib/autologinProbeLog.mjs';
 
@@ -32,6 +35,7 @@ const QA_PROBE_LOG_PATH = path.join(QA_DIR, 'autologin-probe-log.json');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 
 const BASE_URL = 'https://frontaliereticino.ch';
+const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
 const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
 
 const STRESS_MODE = process.argv.includes('--stress');
@@ -98,21 +102,22 @@ function buildQaHtml(opts = {}) {
 
   const briefing = getFallbackBriefing(locale, exchangeRate);
 
-  const defaultArticle = {
-    title: 'Votazioni cantonali Ticino 2026: 4 temi che toccano il tuo portafoglio',
-    excerpt: 'SSR, imposizione individuale, fondo climatico: 4 temi su cui voti (o dovresti). Ecco cosa significa per il tuo portafoglio.',
-    // `url` — matches renderArticle's destructured param and directUrl()
-    // call in services/newsletter-template.mjs (the live template).
-    url: '/articoli-frontaliere/votazioni-imposizione-ticino-2026/',
-    badge: '🗳️ Voto 18 maggio',
-  };
+  // Use the same campaign-aware resolver as the real weekly sender. This QA
+  // path deliberately exercises a representative hot/articles segment rather
+  // than freezing a historical article in every preview artifact.
+  const articleContent = resolveNewsletterArticle({
+    subscriber: { engagementLevel: 'hot', sourceRouteFamily: 'article_detail' },
+    locale,
+    campaignId: weeklyCampaignId(),
+    featuredArticleFn: (articleLocale) => localizeArticle(DEFAULT_ARTICLE_ID, articleLocale),
+  });
 
   return buildNewsletter({
     aiBriefing: briefing,
     exchangeRate,
     matchedJobs,
     totalJobs: jobs.length,
-    article: defaultArticle,
+    article: articleContent.article,
     featuredTool,
     weeklyFact,
     metrics: loadDashboardMetrics(),
