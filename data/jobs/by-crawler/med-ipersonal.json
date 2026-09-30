@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "med-ipersonal-b8e09c8d4d7f",
-      "slug": "akquisiteur-in-per-grundstucke-m-w-d-region-wettswil-ipersonal-ag-wettswil",
+      "slug": "akquisiteur-in-per-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich",
       "slugByLocale": {
         "de": "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich",
-        "it": "akquisiteur-in-per-grundstucke-m-w-d-region-wettswil-ipersonal-ag-wettswil",
+        "it": "akquisiteur-in-per-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich"
       },
@@ -50,11 +50,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich"
+          "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich",
+          "akquisiteur-in-per-grundstucke-m-w-d-region-wettswil-ipersonal-ag-wettswil"
         ]
       },
       "previousSlugs": [
-        "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich"
+        "akquisiteur-in-fur-grundstucke-w-m-d-region-wettswil-ipersonal-ag-wettswil-zurich",
+        "akquisiteur-in-per-grundstucke-m-w-d-region-wettswil-ipersonal-ag-wettswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -73,12 +75,12 @@
     },
     {
       "id": "med-ipersonal-ff19edc505e6",
-      "slug": "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
+      "slug": "automatico-regione-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
       "slugByLocale": {
         "de": "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
-        "it": "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
-        "en": "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
-        "fr": "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen"
+        "it": "automatico-regione-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
+        "en": "automatics-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen",
+        "fr": "automatique-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -129,16 +131,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:12.615Z"
+      "firstSeenAt": "2026-09-29T21:37:12.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen"
+        ],
+        "en": [
+          "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen"
+        ],
+        "fr": [
+          "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-region-rapperswil-sg-ipersonal-ag-rapperswil-sg-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-6a47a5d53a1a",
-      "slug": "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus",
+      "slug": "installatore-di-riscaldamento-regione-riedern-ipersonal-ag-riedern-glarus",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus",
-        "it": "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus",
-        "en": "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus",
-        "fr": "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus"
+        "it": "installatore-di-riscaldamento-regione-riedern-ipersonal-ag-riedern-glarus",
+        "en": "heating-installer-region-riedern-ipersonal-ag-riedern-glarus",
+        "fr": "installation-de-chauffage-region-riedern-ipersonal-ag-riedern-glarus"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -189,16 +205,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:12.314Z"
+      "firstSeenAt": "2026-09-29T21:37:12.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus"
+        ],
+        "en": [
+          "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-riedern-ipersonal-ag-riedern-glarus"
+      ]
     },
     {
       "id": "med-ipersonal-d5e07a572e28",
-      "slug": "installatore-trice-elettrico-a-region-triengen-ipersonal-ag-triengen",
+      "slug": "installatore-trice-elettrico-a-region-triengen-ipersonal-ag-triengen-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern",
-        "it": "installatore-trice-elettrico-a-region-triengen-ipersonal-ag-triengen",
-        "en": "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern",
-        "fr": "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern"
+        "it": "installatore-trice-elettrico-a-region-triengen-ipersonal-ag-triengen-luzern",
+        "en": "electrical-installer-triengen-region-ipersonal-ag-triengen-luzern",
+        "fr": "installation-electrique-region-de-triengen-ipersonal-ag-triengen-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -239,11 +269,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-in-der-region-triengen-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern",
+          "installatore-trice-elettrico-a-region-triengen-ipersonal-ag-triengen"
+        ],
+        "en": [
+          "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern"
+        ],
+        "fr": [
           "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern"
+        "elektroinstallateur-region-triengen-ipersonal-ag-triengen-luzern",
+        "installatore-trice-elettrico-a-region-triengen-ipersonal-ag-triengen"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -262,12 +300,12 @@
     },
     {
       "id": "med-ipersonal-2eb330131b65",
-      "slug": "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich",
+      "slug": "installatore-di-riscaldamento-regione-di-horgen-ipersonal-ag-horgen-zurich",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich",
-        "it": "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich",
-        "en": "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich",
-        "fr": "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich"
+        "it": "installatore-di-riscaldamento-regione-di-horgen-ipersonal-ag-horgen-zurich",
+        "en": "heating-installer-horgen-region-ipersonal-ag-horgen-zurich",
+        "fr": "installateur-de-chauffage-horgen-region-ipersonal-ag-horgen-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -319,16 +357,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:11.712Z"
+      "firstSeenAt": "2026-09-29T21:37:11.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich"
+        ],
+        "en": [
+          "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-horgen-ipersonal-ag-horgen-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-085f7b770ef2",
-      "slug": "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich",
+      "slug": "immobiliare-trustees-regione-di-winterthur-ipersonal-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich",
-        "it": "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich",
-        "en": "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich",
-        "fr": "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich"
+        "it": "immobiliare-trustees-regione-di-winterthur-ipersonal-ag-winterthur-zurich",
+        "en": "real-estate-trustees-winterthur-region-ipersonal-ag-winterthur-zurich",
+        "fr": "fiducies-immobilieres-region-de-winterthur-ipersonal-ag-winterthur-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -380,16 +432,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:11.412Z"
+      "firstSeenAt": "2026-09-29T21:37:11.412Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich"
+        ],
+        "en": [
+          "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich"
+        ],
+        "fr": [
+          "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilientreuhander-region-winterthur-ipersonal-ag-winterthur-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-155cd9f1dd6c",
-      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon",
+      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
-        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
+        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
+        "en": "electrical-installer-electrical-installer-new-and-renovation-zollikon-region-ipersonal-ag-zollikon-zurich",
+        "fr": "installation-electrique-installation-electrique-nouveau-et-renovation-region-de-zollikon-ipersonal-ag-zollikon-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -430,11 +496,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-zollikon-gesucht-jetzt-bewerben/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
+          "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
+        ],
+        "fr": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
+        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
+        "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -453,12 +527,12 @@
     },
     {
       "id": "med-ipersonal-3b45952e09f1",
-      "slug": "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern",
+      "slug": "specialista-della-salute-sursee-region-ipersonal-ag-sursee-luzern",
       "slugByLocale": {
         "de": "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern",
-        "it": "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern",
-        "en": "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern",
-        "fr": "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern"
+        "it": "specialista-della-salute-sursee-region-ipersonal-ag-sursee-luzern",
+        "en": "health-specialist-sursee-region-ipersonal-ag-sursee-luzern",
+        "fr": "specialiste-de-la-sante-region-du-sursee-ipersonal-ag-sursee-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -510,16 +584,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:10.809Z"
+      "firstSeenAt": "2026-09-29T21:37:10.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern"
+        ],
+        "en": [
+          "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern"
+        ],
+        "fr": [
+          "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-gesundheit-region-sursee-ipersonal-ag-sursee-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-8864a526a401",
-      "slug": "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
+      "slug": "riscaldamento-installatore-regione-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
-        "it": "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
-        "en": "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
-        "fr": "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz"
+        "it": "riscaldamento-installatore-regione-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
+        "en": "heating-installer-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz",
+        "fr": "installation-de-chauffage-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -570,16 +658,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:10.508Z"
+      "firstSeenAt": "2026-09-29T21:37:10.508Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz"
+        ],
+        "en": [
+          "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-kussnacht-am-rigi-ipersonal-ag-kussnacht-am-rigi-schwyz"
+      ]
     },
     {
       "id": "med-ipersonal-3ea20c9095d4",
-      "slug": "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn",
+      "slug": "ufficiale-treuhand-regione-di-niederbipp-ipersonal-ag-niederbipp-solothurn",
       "slugByLocale": {
         "de": "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn",
-        "it": "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn",
-        "en": "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn",
-        "fr": "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn"
+        "it": "ufficiale-treuhand-regione-di-niederbipp-ipersonal-ag-niederbipp-solothurn",
+        "en": "officer-treuhand-niederbipp-region-ipersonal-ag-niederbipp-solothurn",
+        "fr": "officier-treuhand-region-de-niederbipp-ipersonal-ag-niederbipp-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -630,16 +732,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:10.207Z"
+      "firstSeenAt": "2026-09-29T21:37:10.207Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-region-niederbipp-ipersonal-ag-niederbipp-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-bd6e217023a8",
-      "slug": "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden",
+      "slug": "grid-electricians-regione-di-savognin-ipersonal-ag-savognin-graubunden",
       "slugByLocale": {
         "de": "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden",
-        "it": "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden",
-        "en": "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden",
-        "fr": "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden"
+        "it": "grid-electricians-regione-di-savognin-ipersonal-ag-savognin-graubunden",
+        "en": "grid-electricians-savognin-region-ipersonal-ag-savognin-graubunden",
+        "fr": "electriciens-du-reseau-region-de-savognin-ipersonal-ag-savognin-graubunden"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -690,16 +806,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:09.905Z"
+      "firstSeenAt": "2026-09-29T21:37:09.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden"
+        ],
+        "en": [
+          "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden"
+        ],
+        "fr": [
+          "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "netzelektriker-region-savognin-ipersonal-ag-savognin-graubunden"
+      ]
     },
     {
       "id": "med-ipersonal-0e3ba9138417",
-      "slug": "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich",
+      "slug": "installatore-di-riscaldamento-regione-kloten-ipersonal-ag-kloten-zurich",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich",
-        "it": "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich",
-        "en": "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich",
-        "fr": "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich"
+        "it": "installatore-di-riscaldamento-regione-kloten-ipersonal-ag-kloten-zurich",
+        "en": "heating-installer-kloten-region-ipersonal-ag-kloten-zurich",
+        "fr": "installation-de-chauffage-region-de-kloten-ipersonal-ag-kloten-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -751,7 +881,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:37:09.604Z"
+      "firstSeenAt": "2026-09-29T21:37:09.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich"
+        ],
+        "en": [
+          "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-kloten-ipersonal-ag-kloten-zurich"
+      ]
     }
   ]
 }
