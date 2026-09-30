@@ -103,8 +103,10 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-git config user.name "Valerie Linc"
-git config user.email "valerielinc@gmail.com"
+# Data-refresh commits belong to the installed site automation identity, not a
+# personal account. Keep the author stable across scheduled PRs.
+git config user.name "frontaliere-automation[bot]"
+git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
 git commit -m "$COMMIT_MESSAGE"
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
