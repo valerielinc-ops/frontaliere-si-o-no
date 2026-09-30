@@ -7068,9 +7068,9 @@
       },
       "slugByLocale": {
         "it": "giardine-pemsa-bellinzona",
-        "en": "giardines-pemsa-bellinzona",
-        "de": "giardiniere-pemsa-bellinzona",
-        "fr": "giardines-pemsa-bellinzona"
+        "en": "gardens-pemsa-bellinzona",
+        "de": "garten-pemsa-bellinzona",
+        "fr": "jardins-pemsa-bellinzona"
       },
       "id": "pemsa-a0f9ab16144a",
       "salaryMin": 61000,
@@ -7093,14 +7093,20 @@
           "giardiniere-pemsa-bellinzona"
         ],
         "en": [
-          "giardiniere-pemsa-bellinzona"
+          "giardiniere-pemsa-bellinzona",
+          "giardines-pemsa-bellinzona"
         ],
         "fr": [
+          "giardiniere-pemsa-bellinzona",
+          "giardines-pemsa-bellinzona"
+        ],
+        "de": [
           "giardiniere-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "giardiniere-pemsa-bellinzona"
+        "giardiniere-pemsa-bellinzona",
+        "giardines-pemsa-bellinzona"
       ]
     },
     {
@@ -9869,9 +9875,9 @@
       },
       "slugByLocale": {
         "it": "guardini-pemsa-locarno",
-        "en": "guardines-pemsa-locarno",
-        "de": "giardiniere-pemsa-locarno",
-        "fr": "guardines-pemsa-locarno"
+        "en": "warning-pemsa-locarno",
+        "de": "warnung-pemsa-locarno",
+        "fr": "mise-en-garde-pemsa-locarno"
       },
       "id": "pemsa-1f4f74e434e8",
       "salaryMin": 61000,
@@ -9894,14 +9900,20 @@
           "giardiniere-pemsa-locarno"
         ],
         "fr": [
-          "giardiniere-pemsa-locarno"
+          "giardiniere-pemsa-locarno",
+          "guardines-pemsa-locarno"
         ],
         "en": [
+          "giardiniere-pemsa-locarno",
+          "guardines-pemsa-locarno"
+        ],
+        "de": [
           "giardiniere-pemsa-locarno"
         ]
       },
       "previousSlugs": [
-        "giardiniere-pemsa-locarno"
+        "giardiniere-pemsa-locarno",
+        "guardines-pemsa-locarno"
       ]
     },
     {

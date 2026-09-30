@@ -1853,12 +1853,12 @@
     },
     {
       "id": "upd-25aa56b7baca",
-      "slug": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
+      "slug": "medico-senior-medico-senior-psichiatria-stazionaria-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
-        "it": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
-        "en": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
-        "fr": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        "it": "medico-senior-medico-senior-psichiatria-stazionaria-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-physician-senior-physician-stationary-age-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-d-age-stationnaire-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -1914,7 +1914,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-f91ec48c0eed",
@@ -2079,12 +2093,12 @@
     },
     {
       "id": "upd-39c42e355946",
-      "slug": "nachtarztin-nachtarzt-upd-bern",
+      "slug": "medico-notturno-medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "nachtarztin-nachtarzt-upd-bern",
-        "it": "nachtarztin-nachtarzt-upd-bern",
-        "en": "nachtarztin-nachtarzt-upd-bern",
-        "fr": "nachtarztin-nachtarzt-upd-bern"
+        "it": "medico-notturno-medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "night-doctor-night-doctor-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "docteur-de-nuit-docteur-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2140,7 +2154,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtarztin-nachtarzt-upd-bern"
+        ],
+        "en": [
+          "nachtarztin-nachtarzt-upd-bern"
+        ],
+        "fr": [
+          "nachtarztin-nachtarzt-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "nachtarztin-nachtarzt-upd-bern"
+      ]
     },
     {
       "id": "upd-218fa64f938f",
@@ -2857,8 +2885,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
         "it": "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "fr": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        "en": "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -2905,6 +2933,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        ],
+        "fr": [
           "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
         ]
       },

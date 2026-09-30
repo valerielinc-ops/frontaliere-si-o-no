@@ -120,14 +120,15 @@
       },
       "slugByLocale": {
         "it": "ingeniero-progetto-a-im-settore-idroenergetico-rittmeyer-ag-baar",
-        "en": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
+        "en": "project-engineer-a-hydropower-plants-rittmeyer-ag-baar",
         "de": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
       "id": "rittmeyer-ag-3355d6ae490d",
       "previousSlugsByLocale": {
         "en": [
-          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino"
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+          "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar"
         ],
         "it": [
           "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar",
@@ -199,9 +200,9 @@
       },
       "slugByLocale": {
         "it": "prodotti-di-misura-del-proprietario-della-soluzione-rittmeyer-ag-baar",
-        "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "en": "solution-owner-measurement-products-rittmeyer-ag-baar",
         "de": "solution-owner-messtechnik-produkte-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "produits-de-mesure-du-proprietaire-de-la-solution-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-f71762938123",
       "previousSlugsByLocale": {
@@ -210,11 +211,19 @@
         ],
         "it": [
           "solution-owner-messtechnik-produkte-rittmeyer-ag-baar"
+        ],
+        "en": [
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino"
+        ],
+        "fr": [
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
         ]
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "solution-owner-messtechnik-produkte-rittmeyer-ag-baar"
+        "solution-owner-messtechnik-produkte-rittmeyer-ag-baar",
+        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

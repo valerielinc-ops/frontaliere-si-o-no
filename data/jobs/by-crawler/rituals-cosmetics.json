@@ -495,11 +495,11 @@
     },
     {
       "id": "rituals-cosmetics-02f2f516156a",
-      "slug": "stockiste-h-f-rituals-cosmetics-ch",
+      "slug": "stockist-m-f-rituals-cosmetics-switzerland-neuchatel",
       "slugByLocale": {
         "fr": "stockiste-h-f-rituals-cosmetics-ch",
         "de": "lagerbesteller-m-w-rituals-cosmetics-switzerland-neuchatel",
-        "it": "stockiste-h-f-rituals-cosmetics-ch",
+        "it": "stockist-m-f-rituals-cosmetics-switzerland-neuchatel",
         "en": "stockiste-h-f-rituals-cosmetics-ch"
       },
       "company": "Rituals Cosmetics Switzerland",
@@ -546,10 +546,14 @@
       "previousSlugsByLocale": {
         "de": [
           "stockiste-m-w-d-rituals-cosmetics-switzerland-neuchatel"
+        ],
+        "it": [
+          "stockiste-h-f-rituals-cosmetics-ch"
         ]
       },
       "previousSlugs": [
-        "stockiste-m-w-d-rituals-cosmetics-switzerland-neuchatel"
+        "stockiste-m-w-d-rituals-cosmetics-switzerland-neuchatel",
+        "stockiste-h-f-rituals-cosmetics-ch"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,
@@ -32796,13 +32800,11 @@
       "jobReqId": "R3574",
       "previousSlugsByLocale": {
         "fr": [
-          "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-8f4448",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau-9o402e"
         ]
       },
       "previousSlugs": [
-        "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-8f4448",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau-9o402e"
       ],
@@ -39048,10 +39050,10 @@
     },
     {
       "id": "rituals-cosmetics-9e899da961f4",
-      "slug": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch",
+      "slug": "stellvertreteretenner-filialleiter-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
       "slugByLocale": {
         "en": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch",
-        "it": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch",
+        "it": "stellvertreteretenner-filialleiter-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
         "de": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch",
         "fr": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch"
       },
@@ -39110,7 +39112,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-05T22:35:36.157Z"
+      "firstSeenAt": "2026-08-05T22:35:36.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch"
+      ]
     },
     {
       "id": "rituals-cosmetics-bfc8b7810327",
@@ -39320,7 +39330,7 @@
         "en": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch",
         "it": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch",
         "de": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch",
-        "fr": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch"
+        "fr": "auchulfe-verkaufsberater-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore"
       },
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",

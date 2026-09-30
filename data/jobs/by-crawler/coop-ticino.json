@@ -52,9 +52,9 @@
       },
       "slugByLocale": {
         "it": "magaziner-in-vendita-studentenaushilfe-coop-genossenschaft-churwalden",
-        "en": "magaziner-in-sales-studentenaushilfe-coop-genossenschaft-churwalden",
+        "en": "warehouse-sales-student-assistance-coop-genossenschaft-churwalden",
         "de": "magaziner-in-verkauf-studentenaushilfe-coop-genossenschaft-churwalden",
-        "fr": "magaziner-in-vente-studentenaushilfe-coop-genossenschaft-churwalden"
+        "fr": "magasin-ventes-aide-aux-etudiants-coop-genossenschaft-churwalden"
       },
       "needsRetranslation": true,
       "addressLocality": "Churwalden",
@@ -77,13 +77,15 @@
           "magaziner-in-vendita-studentenaushilfe-coop-churwalden-agizte"
         ],
         "en": [
-          "magaziner-in-sales-studentenaushilfe-coop-churwalden-agizte"
+          "magaziner-in-sales-studentenaushilfe-coop-churwalden-agizte",
+          "magaziner-in-sales-studentenaushilfe-coop-genossenschaft-churwalden"
         ],
         "de": [
           "magaziner-in-verkauf-studentenaushilfe-coop-churwalden-agizte"
         ],
         "fr": [
-          "magaziner-in-vente-studentenaushilfe-coop-churwalden-agizte"
+          "magaziner-in-vente-studentenaushilfe-coop-churwalden-agizte",
+          "magaziner-in-vente-studentenaushilfe-coop-genossenschaft-churwalden"
         ]
       },
       "previousSlugs": [
@@ -91,7 +93,9 @@
         "magaziner-in-vendita-studentenaushilfe-coop-churwalden-agizte",
         "magaziner-in-sales-studentenaushilfe-coop-churwalden-agizte",
         "magaziner-in-verkauf-studentenaushilfe-coop-churwalden-agizte",
-        "magaziner-in-vente-studentenaushilfe-coop-churwalden-agizte"
+        "magaziner-in-vente-studentenaushilfe-coop-churwalden-agizte",
+        "magaziner-in-sales-studentenaushilfe-coop-genossenschaft-churwalden",
+        "magaziner-in-vente-studentenaushilfe-coop-genossenschaft-churwalden"
       ],
       "postalCode": "7075",
       "streetAddress": "Wiherwäg 9",
@@ -383,7 +387,7 @@
     },
     {
       "id": "company-utzjrh",
-      "slug": "verkaufer-in-blumen-kiosk-coop-siebnen",
+      "slug": "fiori-del-fornitore-chioschi-coop-genossenschaft-siebnen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Blumen/Kiosk",
       "location": "Siebnen",
@@ -430,10 +434,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen",
-        "en": "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen",
+        "it": "fiori-del-fornitore-chioschi-coop-genossenschaft-siebnen",
+        "en": "vendor-flowers-kiosks-coop-genossenschaft-siebnen",
         "de": "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen",
-        "fr": "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen"
+        "fr": "fleurs-kiosques-du-fournisseur-coop-genossenschaft-siebnen"
       },
       "addressLocality": "Siebnen",
       "addressRegion": "SZ",
@@ -451,20 +455,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh"
+          "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh",
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen",
+          "verkaufer-in-blumen-kiosk-coop-siebnen"
         ],
         "en": [
-          "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh"
+          "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh",
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen"
         ],
         "de": [
           "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh"
         ],
         "fr": [
-          "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh"
+          "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh",
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh"
+        "verkaufer-in-blumen-kiosk-coop-siebnen-utzjrh",
+        "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen",
+        "verkaufer-in-blumen-kiosk-coop-siebnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -1035,7 +1045,7 @@
     },
     {
       "id": "company-qwp86t",
-      "slug": "verkaufer-in-food-coop-schwerzenbach",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-schwerzenbach-28a2a6",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Schwerzenbach",
@@ -1082,10 +1092,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-schwerzenbach",
-        "en": "verkaufer-in-food-coop-genossenschaft-schwerzenbach",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-schwerzenbach-28a2a6",
+        "en": "seller-food-coop-genossenschaft-schwerzenbach-28a2a6",
         "de": "verkaufer-in-food-coop-genossenschaft-schwerzenbach",
-        "fr": "verkaufer-in-food-coop-genossenschaft-schwerzenbach"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-schwerzenbach"
       },
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
@@ -1103,20 +1113,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-schwerzenbach-qwp86t"
+          "verkaufer-in-food-coop-schwerzenbach-qwp86t",
+          "verkaufer-in-food-coop-genossenschaft-schwerzenbach",
+          "verkaufer-in-food-coop-schwerzenbach"
         ],
         "en": [
-          "verkaufer-in-food-coop-schwerzenbach-qwp86t"
+          "verkaufer-in-food-coop-schwerzenbach-qwp86t",
+          "verkaufer-in-food-coop-genossenschaft-schwerzenbach"
         ],
         "de": [
           "verkaufer-in-food-coop-schwerzenbach-qwp86t"
         ],
         "fr": [
-          "verkaufer-in-food-coop-schwerzenbach-qwp86t"
+          "verkaufer-in-food-coop-schwerzenbach-qwp86t",
+          "verkaufer-in-food-coop-genossenschaft-schwerzenbach"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-schwerzenbach-qwp86t"
+        "verkaufer-in-food-coop-schwerzenbach-qwp86t",
+        "verkaufer-in-food-coop-genossenschaft-schwerzenbach",
+        "verkaufer-in-food-coop-schwerzenbach"
       ],
       "postalCode": "8603",
       "streetAddress": "Bahnstrasse 14",
@@ -1223,7 +1239,7 @@
     },
     {
       "id": "company-ady60d",
-      "slug": "verkaufer-in-food-coop-au-zh",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-au-zh",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Au ZH",
@@ -1270,10 +1286,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-au-zh",
-        "en": "verkaufer-in-food-coop-au-zh-ady60d",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-au-zh",
+        "en": "seller-food-coop-genossenschaft-au-zh",
         "de": "verkaufer-in-food-coop-au-zh-ady60d",
-        "fr": "verkaufer-in-food-coop-au-zh-ady60d"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-au-zh"
       },
       "addressLocality": "Au ZH",
       "addressRegion": "ZH",
@@ -1291,21 +1307,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-au-zh-ady60d"
+          "verkaufer-in-food-coop-au-zh-ady60d",
+          "verkaufer-in-food-coop-genossenschaft-au-zh",
+          "verkaufer-in-food-coop-au-zh"
         ],
         "en": [
-          "verkaufer-in-food-coop-genossenschaft-au-zh"
+          "verkaufer-in-food-coop-genossenschaft-au-zh",
+          "verkaufer-in-food-coop-au-zh-ady60d"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-au-zh"
         ],
         "fr": [
-          "verkaufer-in-food-coop-genossenschaft-au-zh"
+          "verkaufer-in-food-coop-genossenschaft-au-zh",
+          "verkaufer-in-food-coop-au-zh-ady60d"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-au-zh-ady60d",
-        "verkaufer-in-food-coop-genossenschaft-au-zh"
+        "verkaufer-in-food-coop-genossenschaft-au-zh",
+        "verkaufer-in-food-coop-au-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -1775,7 +1796,7 @@
     },
     {
       "id": "company-76aklv",
-      "slug": "verkaufer-in-food-coop-brugg",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-brugg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Brugg",
@@ -1822,10 +1843,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-brugg",
-        "en": "verkaufer-in-food-coop-genossenschaft-brugg",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-brugg",
+        "en": "seller-food-coop-genossenschaft-brugg",
         "de": "verkaufer-in-food-coop-genossenschaft-brugg",
-        "fr": "verkaufer-in-food-coop-genossenschaft-brugg"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-brugg"
       },
       "addressLocality": "Brugg",
       "addressRegion": "AG",
@@ -1843,20 +1864,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-brugg-76aklv"
+          "verkaufer-in-food-coop-brugg-76aklv",
+          "verkaufer-in-food-coop-genossenschaft-brugg",
+          "verkaufer-in-food-coop-brugg"
         ],
         "en": [
-          "verkaufer-in-food-coop-brugg-76aklv"
+          "verkaufer-in-food-coop-brugg-76aklv",
+          "verkaufer-in-food-coop-genossenschaft-brugg"
         ],
         "de": [
           "verkaufer-in-food-coop-brugg-76aklv"
         ],
         "fr": [
-          "verkaufer-in-food-coop-brugg-76aklv"
+          "verkaufer-in-food-coop-brugg-76aklv",
+          "verkaufer-in-food-coop-genossenschaft-brugg"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-brugg-76aklv"
+        "verkaufer-in-food-coop-brugg-76aklv",
+        "verkaufer-in-food-coop-genossenschaft-brugg",
+        "verkaufer-in-food-coop-brugg"
       ],
       "postalCode": "5200",
       "streetAddress": "Neumarktplatz 2",
@@ -2705,7 +2732,7 @@
     },
     {
       "id": "company-mp3ke2",
-      "slug": "verkaufer-in-food-coop-turbenthal",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-turbenthal",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Turbenthal",
@@ -2752,10 +2779,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-turbenthal",
-        "en": "verkaufer-in-food-coop-genossenschaft-turbenthal",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-turbenthal",
+        "en": "seller-food-coop-genossenschaft-turbenthal",
         "de": "verkaufer-in-food-coop-genossenschaft-turbenthal",
-        "fr": "verkaufer-in-food-coop-genossenschaft-turbenthal"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-turbenthal"
       },
       "addressLocality": "Turbenthal",
       "addressRegion": "ZH",
@@ -2773,20 +2800,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-turbenthal-mp3ke2"
+          "verkaufer-in-food-coop-turbenthal-mp3ke2",
+          "verkaufer-in-food-coop-genossenschaft-turbenthal",
+          "verkaufer-in-food-coop-turbenthal"
         ],
         "en": [
-          "verkaufer-in-food-coop-turbenthal-mp3ke2"
+          "verkaufer-in-food-coop-turbenthal-mp3ke2",
+          "verkaufer-in-food-coop-genossenschaft-turbenthal"
         ],
         "de": [
           "verkaufer-in-food-coop-turbenthal-mp3ke2"
         ],
         "fr": [
-          "verkaufer-in-food-coop-turbenthal-mp3ke2"
+          "verkaufer-in-food-coop-turbenthal-mp3ke2",
+          "verkaufer-in-food-coop-genossenschaft-turbenthal"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-turbenthal-mp3ke2"
+        "verkaufer-in-food-coop-turbenthal-mp3ke2",
+        "verkaufer-in-food-coop-genossenschaft-turbenthal",
+        "verkaufer-in-food-coop-turbenthal"
       ],
       "postalCode": "8488",
       "streetAddress": "Hofwiesweg 2",
@@ -3165,7 +3198,7 @@
     },
     {
       "id": "company-65qndp",
-      "slug": "verkaufer-in-food-coop-zell",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-zell",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zell",
@@ -3212,10 +3245,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-zell",
-        "en": "verkaufer-in-food-coop-genossenschaft-zell",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-zell",
+        "en": "seller-food-coop-genossenschaft-zell",
         "de": "verkaufer-in-food-coop-genossenschaft-zell",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zell"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-zell"
       },
       "addressLocality": "Zell",
       "addressRegion": "ZH",
@@ -3233,20 +3266,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-zell-65qndp"
+          "verkaufer-in-food-coop-zell-65qndp",
+          "verkaufer-in-food-coop-genossenschaft-zell",
+          "verkaufer-in-food-coop-zell"
         ],
         "en": [
-          "verkaufer-in-food-coop-zell-65qndp"
+          "verkaufer-in-food-coop-zell-65qndp",
+          "verkaufer-in-food-coop-genossenschaft-zell"
         ],
         "de": [
           "verkaufer-in-food-coop-zell-65qndp"
         ],
         "fr": [
-          "verkaufer-in-food-coop-zell-65qndp"
+          "verkaufer-in-food-coop-zell-65qndp",
+          "verkaufer-in-food-coop-genossenschaft-zell"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-zell-65qndp"
+        "verkaufer-in-food-coop-zell-65qndp",
+        "verkaufer-in-food-coop-genossenschaft-zell",
+        "verkaufer-in-food-coop-zell"
       ],
       "postalCode": "8483",
       "streetAddress": "Dorfstrasse",
@@ -8584,7 +8623,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-rapperswil-jona-g7efp4",
-          "verkaufer-in-food-coop-rapperswil-jona",
           "verkaufer-in-food-coop-genossenschaft-rapperswil-jona-g7efp4"
         ],
         "en": [
@@ -8599,7 +8637,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-rapperswil-jona-g7efp4",
-        "verkaufer-in-food-coop-rapperswil-jona",
         "verkaufer-in-food-coop-genossenschaft-rapperswil-jona-g7efp4"
       ],
       "postalCode": "8645",
@@ -9584,7 +9621,7 @@
     },
     {
       "id": "company-4f3274",
-      "slug": "verkaufer-in-food-coop-basel",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Basel",
@@ -9623,10 +9660,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Bâle, BS, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Bâle"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-basel",
-        "en": "verkaufer-in-food-coop-genossenschaft-basel",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-basel",
+        "en": "seller-food-coop-genossenschaft-basel",
         "de": "verkaufer-in-food-coop-genossenschaft-basel",
-        "fr": "verkaufer-in-food-coop-genossenschaft-basel"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-basel"
       },
       "requirementsByLocale": {
         "de": [
@@ -9652,20 +9689,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-basel-4f3274"
+          "verkaufer-in-food-coop-basel-4f3274",
+          "verkaufer-in-food-coop-genossenschaft-basel",
+          "verkaufer-in-food-coop-basel"
         ],
         "en": [
-          "verkaufer-in-food-coop-basel-4f3274"
+          "verkaufer-in-food-coop-basel-4f3274",
+          "verkaufer-in-food-coop-genossenschaft-basel"
         ],
         "de": [
           "verkaufer-in-food-coop-basel-4f3274"
         ],
         "fr": [
-          "verkaufer-in-food-coop-basel-4f3274"
+          "verkaufer-in-food-coop-basel-4f3274",
+          "verkaufer-in-food-coop-genossenschaft-basel"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-basel-4f3274"
+        "verkaufer-in-food-coop-basel-4f3274",
+        "verkaufer-in-food-coop-genossenschaft-basel",
+        "verkaufer-in-food-coop-basel"
       ],
       "postalCode": "4058",
       "streetAddress": "Greifengasse 3",
@@ -10739,7 +10782,7 @@
     },
     {
       "id": "company-saflzl",
-      "slug": "verkaufer-in-food-coop-disentis-muster",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-disentis-muster-f59c23",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Disentis/Mustér",
@@ -10778,10 +10821,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Disentis/Mustér, GR, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Disentis/Mustér"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-disentis-muster",
-        "en": "verkaufer-in-food-coop-genossenschaft-disentis-muster",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-disentis-muster-f59c23",
+        "en": "seller-food-coop-genossenschaft-disentis-muster-f59c23",
         "de": "verkaufer-in-food-coop-genossenschaft-disentis-muster",
-        "fr": "verkaufer-in-food-coop-genossenschaft-disentis-muster"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-disentis-muster-f59c23"
       },
       "requirementsByLocale": {
         "de": [
@@ -10807,20 +10850,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-disentis-muster-saflzl"
+          "verkaufer-in-food-coop-disentis-muster-saflzl",
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster",
+          "verkaufer-in-food-coop-disentis-muster"
         ],
         "en": [
-          "verkaufer-in-food-coop-disentis-muster-saflzl"
+          "verkaufer-in-food-coop-disentis-muster-saflzl",
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster"
         ],
         "de": [
           "verkaufer-in-food-coop-disentis-muster-saflzl"
         ],
         "fr": [
-          "verkaufer-in-food-coop-disentis-muster-saflzl"
+          "verkaufer-in-food-coop-disentis-muster-saflzl",
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-disentis-muster-saflzl"
+        "verkaufer-in-food-coop-disentis-muster-saflzl",
+        "verkaufer-in-food-coop-genossenschaft-disentis-muster",
+        "verkaufer-in-food-coop-disentis-muster"
       ],
       "postalCode": "7180",
       "streetAddress": "Via Acletta 1",
@@ -21480,7 +21529,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-winterthur-2o0q60",
-          "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60",
           "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
           "chef-chef-m-f-d-coop-genossenschaft-winterthur"
         ],
@@ -21490,7 +21538,6 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-winterthur-2o0q60",
-        "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60",
         "kochin-koch-m-w-d-coop-winterthur",
         "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
         "chef-chef-m-f-d-coop-genossenschaft-winterthur"
@@ -29894,7 +29941,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
-          "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm",
           "kochin-koch-w-m-d-coop-genossenschaft-bern",
           "chef-chef-m-f-d-coop-genossenschaft-bern"
         ],
@@ -29904,9 +29950,7 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
-        "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm",
         "kochin-koch-w-m-d-coop-genossenschaft-bern",
-        "kochin-koch-m-w-d-coop-ristorante-bern",
         "chef-chef-m-f-d-coop-genossenschaft-bern"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/3297a1b5-7767-4164-8f76-1fdc2a95d463",
