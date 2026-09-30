@@ -41,7 +41,10 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/seo-404-compat/
             !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
