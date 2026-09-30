@@ -397,7 +397,7 @@ export function decideConfirmationFollowup(data, { now, epochMs }) {
  *
  * `stamp` is injected rather than taken because the two runtimes disagree about
  * what a timestamp is: the Cloud Function passes
- * `admin.firestore.FieldValue.serverTimestamp()`, the runner passes the ISO
+ * Firestore `FieldValue.serverTimestamp()`, the runner passes the ISO
  * string it already uses for the expiry write in the same batch.
  *
  * @param {object} args

@@ -488,9 +488,13 @@ async function enrichWithDetails(jobs) {
     // shared helper.
     preserveListingOnTransientFailure: true,
   });
-  // The same ad published twice under two UUIDs (same address, same body and
-  // facts) is one vacancy: keep the earliest-seen record.
-  const { kept: enriched, collapsed } = collapseRepublishedCoopVacancies(sourceBacked);
+  // The same source-backed ad published twice under two UUIDs (same body and
+  // facts, even when fenaco omits a street) is one vacancy: keep the
+  // earliest-seen record. Listing fallbacks are not source-backed and stay
+  // outside this no-address proof.
+  const { kept: enriched, collapsed } = collapseRepublishedCoopVacancies(sourceBacked, {
+    allowIdenticalSourcePostingsWithoutAddress: true,
+  });
   for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished vacancy ${url} collapsed into ${keptUrl}`);
   jobs.splice(0, jobs.length, ...enriched);
   console.log(`  📄 Detail pages: ${enriched.length} source-backed${collapsed.length ? ` (${collapsed.length} republished duplicate(s) collapsed)` : ''}`);

@@ -9,8 +9,8 @@
  * read-only by the statistics dashboard.
  */
 
-import admin from "firebase-admin";
-import { FieldValue } from 'firebase-admin/firestore';
+import { applicationDefault, getApps, initializeApp } from "firebase-admin/app";
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { appendFileSync } from "node:fs";
 import {
   ASTRA_ENDPOINTS,
@@ -396,13 +396,13 @@ function pendingArticleUrls(outbox, cadence, section) {
 }
 
 async function main() {
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || "frontaliere-ticino",
     });
   }
-  const db = admin.firestore();
+  const db = getFirestore();
   const ref = db.collection(FIRESTORE_COLLECTION).doc(FIRESTORE_DOC);
   const previousSnap = await ref.get();
   const previous = previousSnap.exists ? previousSnap.data() : null;

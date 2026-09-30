@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { isIncomplete, reconcileRetranslationState } from '../scripts/relocalize-pending-jobs.mjs';
+import {
+  hasMissingTargetLocaleCoverage,
+  isIncomplete,
+  needsTranslation,
+  reconcileRetranslationState,
+} from '../scripts/relocalize-pending-jobs.mjs';
 
 const MIN_DESC = 'x'.repeat(120);
 
@@ -70,6 +75,62 @@ describe('isIncomplete – per-slot title verdict (S3: no cross-locale escape ha
       },
     });
     expect(isIncomplete(job)).toBe(false);
+  });
+
+  it('does not let give-up suppression hide missing target locale coverage', () => {
+    const job = makeJob({
+      localeMismatchSuppressed: true,
+      descriptionByLocale: {
+        it: MIN_DESC,
+        en: MIN_DESC + ' en',
+        de: MIN_DESC + ' de',
+        fr: '',
+      },
+    });
+
+    expect(hasMissingTargetLocaleCoverage(job)).toBe(true);
+    expect(needsTranslation(job)).toBe(true);
+  });
+
+  it('does not reopen unchanged language-mismatch suppression for structure-only defects', () => {
+    const source = [
+      'Deutsche Beschreibung mit ausreichend langen Details zur Position und zum Arbeitsumfeld.',
+      '- Erste Aufgabe mit Verantwortung fuer Kunden, interne Prozesse und die taegliche Koordination im Team.',
+      '- Zweite Aufgabe mit sorgfaeltiger Dokumentation, Qualitaetskontrolle und selbststaendiger Priorisierung.',
+      '- Dritte Aufgabe mit enger Zusammenarbeit, verlaesslicher Kommunikation und nachhaltiger Verbesserung.',
+    ].join('\n');
+    const flattenedTarget = [
+      'Descrizione italiana con dettagli sufficienti sulla posizione e sull ambiente di lavoro.',
+      '- Prima responsabilita con gestione dei clienti, dei processi interni e del coordinamento quotidiano del team.',
+    ].join('\n');
+    const completeTarget = [
+      'English description with enough detail about the position, the working environment and the daily responsibilities.',
+      '- First responsibility covering customers, internal processes and daily coordination with the team.',
+      '- Second responsibility covering documentation, quality control and independent prioritisation of work.',
+      '- Third responsibility covering close collaboration, reliable communication and continuous improvement.',
+    ].join('\n');
+    const job = makeJob({
+      sourceLang: 'de',
+      description: source,
+      titleByLocale: {
+        de: 'Deutsche Stelle',
+        it: 'Posizione di lavoro',
+        en: 'Job position',
+        fr: 'Poste de travail',
+      },
+      descriptionByLocale: {
+        de: source,
+        it: flattenedTarget,
+        en: completeTarget,
+        fr: completeTarget,
+      },
+      localeMismatchSuppressed: true,
+      localeMismatchSuppressedLen: source.length,
+    });
+
+    expect(hasMissingTargetLocaleCoverage(job)).toBe(false);
+    expect(isIncomplete(job)).toBe(true);
+    expect(needsTranslation(job)).toBe(false);
   });
 
   it('returns true when all non-IT locales have the same title as source (genuinely untranslated)', () => {

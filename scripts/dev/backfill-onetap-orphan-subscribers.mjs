@@ -14,18 +14,20 @@
  * Passing `--apply` is rejected so an old operational runbook cannot turn this
  * read-only inventory back into a consent bypass.
  */
-import admin from 'firebase-admin';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getAuth } from 'firebase-admin/auth';
+import { getFirestore } from 'firebase-admin/firestore';
 
 if (process.argv.includes('--apply')) {
   console.error('Refusing --apply: One Tap authentication is not newsletter consent; this inventory is report-only.');
   process.exit(2);
 }
 
-if (!admin.apps?.length) {
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
+if (!getApps().length) {
+  initializeApp({ credential: applicationDefault() });
 }
-const db = admin.firestore();
-const auth = admin.auth();
+const db = getFirestore();
+const auth = getAuth();
 
 console.log('🔎 READ-ONLY — no newsletter records will be created');
 

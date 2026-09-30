@@ -9,10 +9,11 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildPemsaLocalizedContent,
   mergePemsaJobRecord,
+  parsePemsaDetailHtml,
   parseDescriptionToMarkdown,
   PEMSA_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/pemsa-job-parser.mjs';
@@ -38,6 +39,50 @@ const STORED = {
 };
 
 const isFabricated = (text: unknown) => PEMSA_FABRICATED_DESCRIPTION_RE.test(String(text || ''));
+
+const REDUCED_RENDERED_DETAIL_FIXTURE = `
+<html><head>
+  <script type="application/ld+json">${JSON.stringify({
+    '@type': 'JobPosting',
+    title: 'Installatore di prova',
+    description: 'Teaser JSON-LD breve della posizione.',
+    datePosted: '2026-09-30',
+    employmentType: 'FULL_TIME',
+    hiringOrganization: { name: 'PEMSA' },
+    jobLocation: { address: { addressLocality: 'Bulle', addressRegion: 'FR', addressCountry: 'CH' } },
+  })}</script>
+</head><body>
+  <main>
+    <h1>Installatore di prova</h1>
+    <div class="job-description">
+      <p>Testo introduttivo completo della fonte con le informazioni operative della posizione.</p>
+      <h2>Il tuo incarico</h2>
+      <ul>
+        <li>Posa e installazione dei condotti di ventilazione.</li>
+        <li>Assemblaggio dei componenti sul cantiere.</li>
+      </ul>
+      <h2>Il tuo profilo</h2>
+      <ul>
+        <li>Esperienza nel ruolo e formazione tecnica.</li>
+        <li>Precisione, autonomia e spirito di squadra.</li>
+      </ul>
+    </div>
+    <form><label>Italia</label><select><option>Italia</option></select></form>
+    <aside class="related-jobs"><h2>Offerte simili</h2><p>Annuncio correlato da non pubblicare.</p></aside>
+    <footer>Testo del footer da non pubblicare.</footer>
+  </main>
+</body></html>`;
+
+const TRUNCATED_DETAIL_TITLE = 'Installatore di prova';
+const TRUNCATED_RENDERED_BODY = 'S'.repeat(100);
+const TRUNCATED_RENDERED_UNRECOGNISED = 'R'.repeat(
+  1000 - TRUNCATED_DETAIL_TITLE.length - TRUNCATED_RENDERED_BODY.length - 2,
+);
+const TRUNCATED_SOURCE_DETAIL_FIXTURE = `<script type="application/ld+json">${JSON.stringify({
+  '@type': 'JobPosting',
+  title: TRUNCATED_DETAIL_TITLE,
+  description: 'Teaser JSON-LD breve della posizione.',
+})}</script><main><h1>${TRUNCATED_DETAIL_TITLE}</h1><div class="job-description">${TRUNCATED_RENDERED_BODY}</div><div class="unlabelled-vacancy-copy">${TRUNCATED_RENDERED_UNRECOGNISED}</div></main>`;
 
 // The runner's flow (update-pemsa-jobs.mjs mergeJobs): the stored records lose
 // the crawler-written text first, then each one is merged with its fresh job.
@@ -81,6 +126,69 @@ describe('buildPemsaLocalizedContent', () => {
     expect(isFabricated('PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Painter.')).toBe(true);
     expect(isFabricated('PEMSA, agenzia di reclutamento specializzata nel settore edile e tecnico, cerca un profilo Imbianchino.')).toBe(true);
     expect(isFabricated(SOURCE_BODY)).toBe(false);
+  });
+});
+
+describe('PEMSA detail parser — rendered source body', () => {
+  it('uses the complete rendered body, keeps lists, and excludes page chrome', () => {
+    const parsed = parsePemsaDetailHtml(
+      REDUCED_RENDERED_DETAIL_FIXTURE,
+      'https://www.pemsa.ch/it/job/installatore-di-prova-2697000/',
+    );
+
+    expect(parsed).not.toBeNull();
+    expect(parsed?.description).toContain('Il tuo incarico');
+    expect(parsed?.description).toContain('- Posa e installazione dei condotti di ventilazione.');
+    expect(parsed?.description).toContain('Il tuo profilo');
+    expect(parsed?.description).toContain('- Precisione, autonomia e spirito di squadra.');
+    expect(parsed?.description).not.toContain('Annuncio correlato');
+    expect(parsed?.description).not.toContain('Testo del footer');
+    expect(parsed?.description).not.toContain('Italia');
+    expect(parsed?.description.length).toBeGreaterThan(200);
+    expect(parsed?.descriptionSectionCount).toBeGreaterThanOrEqual(2);
+    expect(parsed?.descriptionSourceLength).toBeGreaterThan(parsed?.description.length);
+  });
+
+  it('does not warn when the complete rendered body is measured', () => {
+    const parsed = parsePemsaDetailHtml(
+      REDUCED_RENDERED_DETAIL_FIXTURE,
+      'https://www.pemsa.ch/it/job/installatore-di-prova-2697000/',
+    );
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      buildPemsaLocalizedContent({
+        title: parsed?.title,
+        description: parsed?.description,
+        descriptionSourceLength: parsed?.descriptionSourceLength,
+        descriptionSectionCount: parsed?.descriptionSectionCount,
+      });
+      expect(warn).not.toHaveBeenCalled();
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('measures the raw source body before extraction and warns below 20%', () => {
+    const parsed = parsePemsaDetailHtml(
+      TRUNCATED_SOURCE_DETAIL_FIXTURE,
+      'https://www.pemsa.ch/it/job/installatore-di-prova-2697000/',
+    );
+
+    expect(parsed?.description).toHaveLength(100);
+    expect(parsed?.descriptionSourceLength).toBe(1000);
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      buildPemsaLocalizedContent({
+        title: parsed?.title,
+        description: parsed?.description,
+        descriptionSourceLength: parsed?.descriptionSourceLength,
+      });
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('10.0%'));
+    } finally {
+      warn.mockRestore();
+    }
   });
 });
 

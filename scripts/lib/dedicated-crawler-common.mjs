@@ -3363,7 +3363,11 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             const t = String(job.titleByLocale[l] || '').trim().toLowerCase();
             return t && t !== srcTitleLower;
           });
-        if (titlesComplete && someNonSourceTranslated) {
+        const completeTextCoverage = hasCompleteLocaleTextCoverage(job, {
+          sourceLang: descLang || titleLang,
+          minDescriptionChars,
+        });
+        if (titlesComplete && someNonSourceTranslated && completeTextCoverage) {
           // Translations complete — update cache so next run gets a hit
           translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
           cacheUpdated = true;
@@ -3547,8 +3551,6 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           if (hasUsableTitle(translatedTitle)) {
             job.titleByLocale[locale] = String(translatedTitle).trim();
             jobTranslated = true;
-            // FRO-327: clear retranslation flag on success
-            if (job.needsRetranslation) delete job.needsRetranslation;
           } else if (!String(job.titleByLocale[locale] || '').trim()) {
             // AI translation failed — leave locale empty (not source copy) so the deploy
             // gate catches it. Mark for retranslation on next run with fresh quota.
@@ -3594,6 +3596,24 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             jobTranslated = true;
           }
         }
+      }
+
+      // A successful title must not drain a job whose descriptions are still
+      // missing, source-copied, or below the localization floor. The previous
+      // per-title deletion above caused partial Argos/AI runs to erase the
+      // queue marker before the description pass had completed.
+      const completeTextCoverage = hasCompleteLocaleTextCoverage(job, {
+        sourceLang,
+        minDescriptionChars,
+      });
+      if (completeTextCoverage) {
+        if (job.needsRetranslation) {
+          delete job.needsRetranslation;
+          changed = true;
+        }
+      } else if (!(job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job, baseDesc))) {
+        if (!job.needsRetranslation) changed = true;
+        job.needsRetranslation = true;
       }
 
       // ── Update translation cache (FRO-324) ──
@@ -6948,6 +6968,38 @@ export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3
 }
 
 /**
+ * Translation coverage for the indexed text fields, independent of slugs.
+ *
+ * A source-language copy in a non-source slot is not a completed translation:
+ * locale hardening deliberately keeps that copy visible so deploy can render
+ * the job, but the job must remain in the repair queue. This is the shared
+ * guard used by the crawler merge and the translation writer; neither path may
+ * clear `needsRetranslation` while one of the four title/description pairs is
+ * still only a source copy or below its minimum length.
+ */
+export function hasCompleteLocaleTextCoverage(job, {
+  sourceLang = job?.sourceLang || null,
+  minTitleChars = 3,
+  minDescriptionChars = 120,
+} = {}) {
+  const titles = job?.titleByLocale || {};
+  const descriptions = job?.descriptionByLocale || {};
+  if (localeTextCoverage(titles, minTitleChars) < LOCALES.length) return false;
+  if (localeTextCoverage(descriptions, minDescriptionChars) < LOCALES.length) return false;
+
+  const sourceLocale = LOCALES.includes(sourceLang) ? sourceLang : null;
+  if (!sourceLocale) return true;
+  const sourceTitle = normalizeSpace(String(titles[sourceLocale] || job?.title || '')).toLowerCase();
+  const sourceDescription = normalizeSpace(String(descriptions[sourceLocale] || job?.description || '')).toLowerCase();
+  for (const locale of LOCALES) {
+    if (locale === sourceLocale) continue;
+    if (sourceTitle && normalizeSpace(String(titles[locale] || '')).toLowerCase() === sourceTitle) return false;
+    if (sourceDescription && normalizeSpace(String(descriptions[locale] || '')).toLowerCase() === sourceDescription) return false;
+  }
+  return true;
+}
+
+/**
  * Like hasFullLocaleCoverage, but also rejects locale-MISlabeled content:
  * presence alone (all 4 slots non-empty) says nothing about whether a
  * non-source slot still holds source-language text (issue #4788 — a DE
@@ -7303,11 +7355,25 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     if (k && !ambiguousKeys.has(k)) existingByKey.set(k, job);
   }
   const matchedExistingKeys = new Set();
+  const markIncompleteLocaleText = (job, sourceLang) => {
+    const hasText = [
+      job?.title,
+      job?.description,
+      ...Object.values(job?.titleByLocale || {}),
+      ...Object.values(job?.descriptionByLocale || {}),
+    ].some((value) => String(value || '').trim().length > 0);
+    if (!hasText) return job;
+    if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) return job;
+    if (!hasCompleteLocaleTextCoverage(job, { sourceLang })) {
+      job.needsRetranslation = true;
+    }
+    return job;
+  };
 
   const mergedFresh = freshJobs.map((fresh) => {
     const k = matchKey(fresh);
     const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
-    if (!old) return fresh;
+    if (!old) return markIncompleteLocaleText(fresh, fresh.sourceLang || null);
     matchedExistingKeys.add(k);
 
     // Preserve stable ID from existing job
@@ -7539,7 +7605,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     preserveOlder('postedDate');
     preserveOlder('datePosted');
 
-    return fresh;
+    return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
 
   // A crawler may bypass the miss grace only after its own source-specific

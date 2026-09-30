@@ -27,7 +27,12 @@ import {
   waveFromRunAnnotations,
 } from '../scripts/lib/crawler-quarantine.mjs';
 import { assignGroupsStable } from '../scripts/generate-crawler-group-workflows.mjs';
-import { buildQuarantineReviewPrBody, collectWaves } from '../scripts/crawler-quarantine-review.mjs';
+import {
+  buildQuarantineReviewPrBody,
+  collectWaves,
+  isTransientGithubMutationError,
+  withTransientGithubMutationRetry,
+} from '../scripts/crawler-quarantine-review.mjs';
 import { validatePrBody } from '../scripts/ci/pr-body-check-gate.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -351,5 +356,55 @@ describe('buildQuarantineReviewPrBody', () => {
     expect(body).toContain('## Non implementato (ancora)');
     const validation = validatePrBody(body, { diffPaths: ['.github/workflows/crawler-group-24.yml'] });
     expect(validation.violations ?? []).toEqual([]);
+  });
+});
+
+describe('crawler quarantine GitHub mutation retry', () => {
+  it('classifies the transient create/merge failures without retrying a real permission error', () => {
+    expect(isTransientGithubMutationError('GraphQL: Something went wrong while executing your query')).toBe(true);
+    expect(isTransientGithubMutationError('HTTP 503: Service Unavailable')).toBe(true);
+    expect(isTransientGithubMutationError('request timeout')).toBe(true);
+    expect(isTransientGithubMutationError('HTTP 403: Resource not accessible by integration')).toBe(false);
+  });
+
+  it('reuses a PR found after a transient create response instead of submitting create twice', () => {
+    let attempts = 0;
+    let lookups = 0;
+    const existing = { number: 10429, url: 'https://github.com/example/repo/pull/10429', headRefName: 'crawler-quarantine/review-202609291425' };
+    const result = withTransientGithubMutationRetry(() => {
+      attempts += 1;
+      throw Object.assign(new Error('gh failed'), { stderr: 'GraphQL: Something went wrong while executing your query' });
+    }, {
+      findExisting: () => {
+        lookups += 1;
+        return existing;
+      },
+      sleep: () => undefined,
+    });
+
+    expect(result).toEqual({ reused: true, value: existing, attempts: 1 });
+    expect(attempts).toBe(1);
+    expect(lookups).toBe(1);
+  });
+
+  it('uses bounded exponential backoff and exhausts after three transient attempts', () => {
+    let attempts = 0;
+    const sleeps: number[] = [];
+    const retries: Array<[number, number, number]> = [];
+    const transient = Object.assign(new Error('gh failed'), { status: 502 });
+
+    expect(() => withTransientGithubMutationRetry(() => {
+      attempts += 1;
+      throw transient;
+    }, {
+      delaysMs: [11, 22],
+      findExisting: () => null,
+      sleep: (delay: number) => sleeps.push(delay),
+      onRetry: (next: number, limit: number, delay: number) => retries.push([next, limit, delay]),
+    })).toThrow('gh failed');
+
+    expect(attempts).toBe(3);
+    expect(sleeps).toEqual([11, 22]);
+    expect(retries).toEqual([[2, 3, 11], [3, 3, 22]]);
   });
 });

@@ -27,8 +27,8 @@
  *   latest_quarter=…
  */
 
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { appendFileSync, readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildStatsFromCSV, fetchBfsCsv } from './lib/bfs-stats-parser.mjs';
@@ -82,13 +82,13 @@ function findValueAt(trend, quarter) {
 }
 
 async function main() {
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  const db = admin.firestore();
+  const db = getFirestore();
 
   logInfo('Scarico CSV BFS (SDMX)…');
   const csv = await fetchBfsCsv();

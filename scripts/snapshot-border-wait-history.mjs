@@ -30,8 +30,8 @@
  * Optionally prunes history files older than 90 days to keep the repo lean.
  */
 
-import admin from 'firebase-admin';
-import { FieldPath } from 'firebase-admin/firestore';
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { FieldPath, getFirestore } from 'firebase-admin/firestore';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -45,9 +45,8 @@ function ensureDirs(historyDir) {
 }
 
 function initFirebase() {
-  if (admin.apps.length > 0) return admin;
-  admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  return admin;
+  if (getApps().length > 0) return;
+  initializeApp({ credential: applicationDefault() });
 }
 
 function toEpochMs(docId) {
@@ -228,7 +227,7 @@ async function main() {
     process.exit(1);
   }
   initFirebase();
-  const db = admin.firestore();
+  const db = getFirestore();
 
   const today = new Date().toISOString().slice(0, 10);
   console.log(`🚦 Snapshotting border-wait history for ${today}…`);

@@ -3,6 +3,7 @@ import {
   PROTECTAS_KEY,
   PROTECTAS_COMPANY_NAME,
   PROTECTAS_CAREER_URL,
+  PROTECTAS_LISTINGS_API_URL,
   fetchAllProtectasJobs,
   extractProtectasLocation,
   extractProtectasVacancyUrls,
@@ -74,6 +75,22 @@ const SCOPED_SEMANTIC_HTML_DETAIL = `<html><body>
 const LISTING_HTML = `<a href="${DETAIL_URL}">Agente di sicurezza ausiliario</a>
   <a href="https://jobup.ch/offerte/123">Unrelated aggregate result</a>`;
 const ESCAPED_WIDGET_HTML = `<script type="application/json">{"url":"\\/en-ch\\/careers\\/job-offers\\/744000147063419\\/"}</script>`;
+const LIVE_PAGE_DATA_FIXTURE = {
+  totalPages: 1,
+  totalJobListings: 1,
+  jobListings: [{
+    category: 'Auxiliary',
+    title: 'Agente di sicurezza ausiliario - Luganese - contratto orario - Ronde & Sorveglianza',
+    position: 'Part-time',
+    country: 'ch',
+    region: 'TI',
+    location: 'Lugano',
+    jobPageURL: '/it-ch/carriere/offerte-di-lavoro/744000150722610/',
+    experienceLevel: 'Not Applicable',
+    labelForVacancy: 'View vacancy',
+    jobDetailsTitle: 'Job details',
+  }],
+};
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -248,6 +265,65 @@ describe('Protectas SA crawler parser', () => {
       );
 
       await expect(fetchAllProtectasJobs()).rejects.toThrow('no official vacancy detail links');
+    });
+
+    it('uses the live pageData API when the career HTML renders only its vacancy counter', async () => {
+      const apiUrl = `${PROTECTAS_LISTINGS_API_URL}?page=1&lang=it-ch`;
+      const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        const url = String(input);
+        if (url === PROTECTAS_CAREER_URL) {
+          return new Response('<main><div class="open-positions"><span class="count">1</span><span>Posizioni aperte:</span></div></main>', { status: 200 });
+        }
+        if (url === apiUrl) {
+          return new Response(JSON.stringify(LIVE_PAGE_DATA_FIXTURE), {
+            status: 200,
+            headers: { 'content-type': 'text/plain; charset=utf-8' },
+          });
+        }
+        if (url === DETAIL_URL) return new Response(DETAIL_HTML, { status: 200 });
+        return new Response('not found', { status: 404 });
+      });
+
+      const jobs = await fetchAllProtectasJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        title: expect.stringContaining('Agente di sicurezza'),
+        url: DETAIL_URL,
+        canton: 'TI',
+      });
+      expect(fetchMock).toHaveBeenCalledWith(
+        apiUrl,
+        expect.objectContaining({
+          method: 'GET',
+          headers: expect.objectContaining({ Accept: 'application/json' }),
+        }),
+      );
+    });
+
+    it('fails closed when a pageData listing entry is malformed', async () => {
+      const apiUrl = `${PROTECTAS_LISTINGS_API_URL}?page=1&lang=it-ch`;
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        const url = String(input);
+        if (url === PROTECTAS_CAREER_URL) {
+          return new Response('<main><div class="open-positions"><span class="count">2</span><span>Posizioni aperte:</span></div></main>', { status: 200 });
+        }
+        if (url === apiUrl) {
+          return new Response(JSON.stringify({
+            ...LIVE_PAGE_DATA_FIXTURE,
+            totalJobListings: 2,
+            jobListings: [LIVE_PAGE_DATA_FIXTURE.jobListings[0], {}],
+          }), {
+            status: 200,
+            headers: { 'content-type': 'text/plain; charset=utf-8' },
+          });
+        }
+        return new Response('not found', { status: 404 });
+      });
+
+      await expect(fetchAllProtectasJobs()).rejects.toThrow(
+        /malformed jobListings entry at index 1/,
+      );
     });
 
     it('imports only a verified physical TI vacancy from the official page', async () => {

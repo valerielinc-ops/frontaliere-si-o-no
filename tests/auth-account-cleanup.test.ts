@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const authState: { current: Record<string, unknown> | null } = { current: null };
 
 vi.mock('firebase-admin', () => ({
   default: {
@@ -50,6 +51,18 @@ vi.mock('firebase-admin/firestore', () => ({
 
 vi.mock('firebase-admin/remote-config', () => ({
   getRemoteConfig: () => ({ getTemplate: async () => ({ parameters: {} }) }),
+}));
+
+vi.mock('firebase-admin/auth', () => ({
+  getAuth: () => authState.current,
+}));
+
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: {
+    serverTimestamp: () => '__server_ts__',
+    delete: () => '__delete__',
+    increment: (n: number) => n,
+  },
 }));
 
 vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({
@@ -608,15 +621,14 @@ describe('all supported registration methods after account-delete', () => {
     await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
     const env = { NEWSLETTER_AC_SCHEME: 'v1', NEWSLETTER_AC_TTL_DAYS: '30' };
     const token = mintAutologinCode(EMAIL, { secret: SECRET, env, now: Date.now() });
-    const admin = (await import('firebase-admin')).default as any;
-    const originalAuth = admin.auth;
-    admin.auth = () => ({
+    const originalAuth = authState.current;
+    authState.current = {
       getUserByEmail: vi.fn(async () => {
         throw Object.assign(new Error('not found'), { code: 'auth/user-not-found' });
       }),
       createUser: vi.fn(async () => ({ uid: 'new-autologin-user' })),
       createCustomToken: vi.fn(async () => 'custom-auth-token'),
-    });
+    };
 
     try {
       const result = await handleSubscriptionManagement({
@@ -636,7 +648,7 @@ describe('all supported registration methods after account-delete', () => {
       expect(after.isActive).toBe(false);
       expect(after.account_deleted_at).toBeTruthy();
     } finally {
-      admin.auth = originalAuth;
+      authState.current = originalAuth;
     }
   });
 });

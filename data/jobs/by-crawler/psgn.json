@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "psgn-50854396da07",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg-3f29d8",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "it": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "en": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        "it": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg-3f29d8",
+        "en": "assistant-doctor-assistant-doctor-psychiatrie-st-gallen-wil-sg-3f29d8",
+        "fr": "assistant-medecin-assistant-medecin-psychiatrie-st-gallen-wil-sg-3f29d8"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -55,11 +55,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+          "assistenzarztin-assistenzarzt-psgn-wil-sg",
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

@@ -7,8 +7,8 @@
  * separately-consented talent pool.
  */
 
-import admin from 'firebase-admin';
-import { FieldValue, Timestamp } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
@@ -79,7 +79,7 @@ export async function purgeExpiredAssistedApplicationFiles(
   if (!Number.isFinite(retentionDays) || retentionDays < 0) {
     throw new Error('invalid_assisted_application_retention_days');
   }
-  const firestore = admin.firestore();
+  const firestore = getFirestore();
   const cutoffMillis = nowMs - retentionDays * 86400000;
   const cutoff = Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
@@ -98,7 +98,7 @@ export async function purgeExpiredAssistedApplicationFiles(
     candidates.set(snapshot.id, snapshot);
   }
 
-  const bucket = admin.storage().bucket(STORAGE_BUCKET);
+  const bucket = getStorage().bucket(STORAGE_BUCKET);
   let purged = 0;
   let skipped = 0;
   let failed = 0;

@@ -252,4 +252,81 @@ describe('dedicated crawler localization pipeline integration', () => {
 
     expect(enriched.needsRetranslation).toBe(true);
   });
+
+  it('keeps the queue marker when SKIP_AI_TRANSLATION has complete titles but source-copied descriptions', async () => {
+    process.env.SKIP_AI_TRANSLATION = '1';
+    const sourceTitle = 'Facharzt Allgemeine Innere Medizin';
+    const sourceDescription = 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(8);
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      slug: 'job-partial-argos',
+      company: 'Demo SA',
+      location: 'Lugano',
+      title: sourceTitle,
+      description: sourceDescription,
+      sourceLang: 'de',
+      needsRetranslation: true,
+      titleByLocale: {
+        de: sourceTitle,
+        it: 'Medico specialista in medicina interna',
+        en: 'Specialist in general internal medicine',
+        fr: 'Médecin spécialiste en médecine interne générale',
+      },
+      descriptionByLocale: { de: sourceDescription },
+      slugByLocale: { de: 'job-partial-argos' },
+    }], null, 2)}\n`, 'utf-8');
+
+    await translateMissingJobLocales({ dataJobsPath: jobsPath });
+    const [job] = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(job.needsRetranslation).toBe(true);
+  });
+
+  it('keeps the queue marker after a title succeeds while descriptions remain below the floor', async () => {
+    const sourceTitle = 'Facharzt Allgemeine Innere Medizin';
+    const sourceDescription = 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(8);
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      slug: 'job-partial-title-success',
+      company: 'Demo SA',
+      location: 'Lugano',
+      title: sourceTitle,
+      description: sourceDescription,
+      sourceLang: 'de',
+      needsRetranslation: true,
+      titleByLocale: {
+        de: sourceTitle,
+        it: sourceTitle,
+        en: 'Specialist in general internal medicine',
+        fr: 'Médecin spécialiste en médecine interne générale',
+      },
+      descriptionByLocale: {
+        de: sourceDescription,
+        it: 'Contenuto breve',
+        en: 'Short content',
+        fr: 'Contenu court',
+      },
+      slugByLocale: { de: 'job-partial-title-success' },
+    }], null, 2)}\n`, 'utf-8');
+
+    const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body || '{}'));
+      const text = String(body.text || body.q || '');
+      const target = body.targetLang || body.target;
+      return {
+        ok: true,
+        json: async () => ({
+          translatedText: text === sourceTitle
+            ? target === 'it' ? 'Medico specialista in medicina interna' : 'Specialist in general internal medicine'
+            : '',
+        }),
+      };
+    });
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    await translateMissingJobLocales({ dataJobsPath: jobsPath });
+    const [job] = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(job.titleByLocale.it).toBe('Medico specialista in medicina interna');
+    expect(job.descriptionByLocale.en).toBe('Short content');
+    expect(job.needsRetranslation).toBe(true);
+  });
 });

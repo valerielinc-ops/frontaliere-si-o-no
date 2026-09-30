@@ -4319,15 +4319,15 @@ function idToSlugKey(id) {
 // live, so the editorial team automatically publishes a Ticino frontalieri
 // trend article every ~3 months in the same voice as the rest of the blog.
 async function buildStatsBfsPromptContent(quarter) {
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
+  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (!getApps().length) {
+    initializeApp({
+      credential: applicationDefault(),
       projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  const db = admin.firestore();
+  const db = getFirestore();
   const snap = await db.collection('config').doc('bfs_stats').get();
   if (!snap.exists) {
     throw new Error('config/bfs_stats Firestore doc missing — refresh-bfs-stats has not run yet.');

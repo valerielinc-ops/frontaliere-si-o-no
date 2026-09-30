@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCompleteLocaleTextCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
@@ -2032,6 +2032,45 @@ describe('hasFullLocaleCoverage — post-merge needsRetranslation guard (#3442)'
   });
 });
 
+describe('hasCompleteLocaleTextCoverage — queue guard for partial translations', () => {
+  const sourceTitle = 'Facharzt Allgemeine Innere Medizin';
+  const sourceDescription = 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(6);
+  const completeJob = {
+    sourceLang: 'de',
+    titleByLocale: {
+      de: sourceTitle,
+      it: 'Medico specialista in medicina interna',
+      en: 'Specialist in general internal medicine',
+      fr: 'Médecin spécialiste en médecine interne générale',
+    },
+    descriptionByLocale: {
+      de: sourceDescription,
+      it: 'Descrizione italiana della posizione con dettagli operativi. '.repeat(6),
+      en: 'English description of the position with operational details. '.repeat(6),
+      fr: 'Description française du poste avec des détails opérationnels. '.repeat(6),
+    },
+  };
+
+  it('requires all four title/description pairs', () => {
+    expect(hasCompleteLocaleTextCoverage(completeJob)).toBe(true);
+    expect(hasCompleteLocaleTextCoverage({
+      ...completeJob,
+      descriptionByLocale: { ...completeJob.descriptionByLocale, fr: '' },
+    })).toBe(false);
+  });
+
+  it('does not treat source-language copies as completed translations', () => {
+    expect(hasCompleteLocaleTextCoverage({
+      ...completeJob,
+      titleByLocale: { ...completeJob.titleByLocale, it: sourceTitle },
+    })).toBe(false);
+    expect(hasCompleteLocaleTextCoverage({
+      ...completeJob,
+      descriptionByLocale: { ...completeJob.descriptionByLocale, en: sourceDescription },
+    })).toBe(false);
+  });
+});
+
 describe('hasCorrectLocaleCoverage — rejects locale-mislabeled titles (#4788)', () => {
   // hasFullLocaleCoverage only checks presence: a job with a DE title stuck
   // in the IT slot still passes it (4/4 non-empty), which let the merge-time
@@ -2085,7 +2124,10 @@ describe('mergePreserveLocaleData — translation stability lock respects locale
   const baseTitles = { it: 'Venditore', en: 'Salesperson', de: 'Verkaufer', fr: 'Vendeur' };
   const baseSlugs = { it: 'venditore-x', en: 'salesperson-x', de: 'verkaufer-x', fr: 'vendeur-x' };
   const baseDescriptions = {
-    it: 'x'.repeat(150), en: 'x'.repeat(150), de: 'x'.repeat(150), fr: 'x'.repeat(150),
+    it: 'Descrizione italiana della posizione con dettagli operativi. '.repeat(4),
+    en: 'English description of the position with operational details. '.repeat(4),
+    de: 'Deutsche Beschreibung der Stelle mit operativen Details. '.repeat(4),
+    fr: 'Description française du poste avec des détails opérationnels. '.repeat(4),
   };
 
   it('keeps needsRetranslation=true when the previous record has a locale-mislabeled title', () => {
@@ -2133,6 +2175,19 @@ describe('mergePreserveLocaleData — translation stability lock respects locale
     };
     const [merged] = mergePreserveLocaleData([old], [fresh]);
     expect(merged.needsRetranslation).toBe(false);
+  });
+
+  it('marks a newly merged partial record instead of relying on a later audit', () => {
+    const [merged] = mergePreserveLocaleData([], [{
+      url: 'https://example.com/job/partial-new',
+      sourceLang: 'de',
+      title: 'Facharzt Allgemeine Innere Medizin',
+      description: 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(6),
+      titleByLocale: { de: 'Facharzt Allgemeine Innere Medizin' },
+      descriptionByLocale: { de: 'Beschreibung der Stelle mit ausreichend langem Inhalt. '.repeat(6) },
+    }]);
+
+    expect(merged.needsRetranslation).toBe(true);
   });
 });
 
