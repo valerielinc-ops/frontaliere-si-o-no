@@ -30,6 +30,7 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  extractPdfLinks,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -118,28 +119,14 @@ export function parseClinicaHildebrandListing(html = '') {
   const out = [];
   const seen = new Set();
 
-  // Match every <a href="...*.pdf" ...> reference. Weebly hosts PDFs under
-  // /uploads/<…ids…>/<filename>.pdf relative to root.
-  const anchorRe = /href="([^"]+\.pdf)"/gi;
-  let m;
-  while ((m = anchorRe.exec(html)) !== null) {
-    let href = m[1];
-    if (!href) continue;
+  // Weebly hosts PDFs under /uploads/<…ids…>/<filename>.pdf relative to root.
+  for (const { href, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
+    if (!isTrustedDomain(href)) continue;
     if (NON_JOB_PDF_RE.test(href)) continue;
-
-    // Normalise to absolute URL.
-    if (href.startsWith('//')) {
-      href = `https:${href}`;
-    } else if (href.startsWith('/')) {
-      href = `https://www.clinica-hildebrand.ch${href}`;
-    } else if (!/^https?:\/\//i.test(href)) {
-      href = `https://www.clinica-hildebrand.ch/${href.replace(/^\.?\/?/, '')}`;
-    }
 
     if (seen.has(href)) continue;
     seen.add(href);
 
-    const filename = decodeURIComponent(href.split('/').pop() || '');
     const title =
       normalizeSpace(decodeEntities(humanizeHildebrandFilename(filename))) ||
       filename.replace(/\.pdf$/i, '');

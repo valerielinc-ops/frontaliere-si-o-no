@@ -26,6 +26,7 @@ import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
+  extractPdfLinks,
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
@@ -112,17 +113,10 @@ export function parseRehaAndeerListing(html = '') {
 
   const out = [];
   const seen = new Set();
-  const anchorRe = /href="([^"]+\.pdf)"/gi;
-  let m;
-  while ((m = anchorRe.exec(html)) !== null) {
-    let href = m[1];
-    if (!href) continue;
-    if (href.startsWith('//')) href = `https:${href}`;
-    else if (href.startsWith('/')) href = `https://reha-andeer.ch${href}`;
-
+  for (const { href, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
+    if (!isTrustedDomain(href)) continue;
     if (NON_JOB_PDF_RE.test(href)) continue;
     // Require either /uploads/ in path OR a job hint in filename.
-    const filename = decodeURIComponent(href.split('/').pop() || '');
     const isUploadsPath = /\/wp-content\/uploads\//i.test(href);
     if (!isUploadsPath && !ACCEPT_HINTS_RE.test(filename)) continue;
     // Extra filter: skip obviously-non-job uploads (e.g. Hausordnung).
