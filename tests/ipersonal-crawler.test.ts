@@ -197,6 +197,72 @@ describe('MediPersonal crawler parser', () => {
       expect((jobs as any).unaccountedReturnedCount).toBe(0);
     });
 
+    it('replaces a direct 200 challenge with rescue evidence keyed by the requested URL', async () => {
+      const seedUrl = 'https://ipersonal-challenge-fixture.example/';
+      const detailUrl = `${seedUrl}jobs/rescued-role/`;
+      const resolvedDetailUrl = `${seedUrl}jobs/resolved-role/`;
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const challenge = '<html><head><title>Challenge Validation</title></head>'
+        + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+        + `${' blocked'.repeat(30)}</body></html>`;
+      const rescueHtml = `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Rescued role',
+        url: resolvedDetailUrl,
+        description,
+        jobLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' },
+        },
+      })}</script><section class="job-profile-section"><div id="Jobdetails"><p>${description}</p><h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul></div></section>`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`<a href="${detailUrl}">Rescued role</a><p>${'Open vacancies and current opportunities '.repeat(8)}</p>`, {
+            status: 200,
+          });
+        }
+        if (url === detailUrl) {
+          const response = new Response(challenge, { status: 200 });
+          Object.defineProperty(response, 'url', { value: resolvedDetailUrl });
+          return response;
+        }
+        throw new Error(`unexpected direct URL ${url}`);
+      };
+      const jinaFetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url === `https://r.jina.ai/${detailUrl}`) return new Response(rescueHtml, { status: 200 });
+        throw new Error(`unexpected Jina URL ${url}`);
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        jinaFetchImpl: jinaFetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        qualityDroppedCount: number;
+        resolvedDetailCount: number;
+        parsedDetailCount: number;
+        unaccountedReturnedCount: number;
+      };
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].description).toContain(description);
+      expect(evidence.qualityDroppedCount).toBe(0);
+      expect(evidence.resolvedDetailCount).toBe(1);
+      expect(evidence.parsedDetailCount).toBe(1);
+      expect(evidence.unaccountedReturnedCount).toBe(0);
+    });
+
     it('pubblica la riga il cui corpo ricco lo vede solo il confine iPersonal', async () => {
       // Il detail extractor consegnato a `runSpecInProduction` E' il verdetto
       // (cfr. #7717): il floor condiviso sulla descrizione, in spec-crawler.mjs,

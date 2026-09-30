@@ -226,7 +226,7 @@ export function geographyFieldsForDecision(decision = {}) {
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime) {
   const notifyPageFetched = (page) => {
-    if (typeof runtime.onPageFetched === 'function') runtime.onPageFetched(page);
+    if (typeof runtime.onPageFetched === 'function') runtime.onPageFetched(page, url);
     return page;
   };
   const result = await politeFetch(url, {
