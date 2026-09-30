@@ -106,6 +106,29 @@ rehydrate_batch_state_file() {
   printf '%s/rehydrate-batch-%s-%s.remaining' "$REHYDRATE_STATE_ROOT" "$1" "$2"
 }
 
+# A worker can die after mkdir(2) succeeds and before the release below removes
+# the directory. Never let that orphan turn the other workers into an
+# unbounded wait. The normal critical section is sub-second; 30 seconds leaves
+# ample room for a busy runner while still guaranteeing that the post-fan-out
+# cleanup gets a chance to reclaim the transport tars. Tests and constrained
+# replay runners can lower the bound with this environment variable.
+REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS="${REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS:-30}"
+case "$REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS" in
+  ''|*[!0-9]*) REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS=30 ;;
+esac
+
+# The transport cleanup runs after the bounded fan-out has joined. At that
+# point no worker can still need a tar, so it is also the fail-safe for a
+# release that encountered an orphaned lock and returned without decrementing
+# its state file.
+rehydrate_batch_cleanup_transport_tars() {
+  find "$REHYDRATE_STATE_ROOT" -maxdepth 2 -type f -name '*-dist-*.tar' -delete 2>/dev/null || true
+  find "$REHYDRATE_STATE_ROOT" -maxdepth 1 -type f -name 'rehydrate-batch-*.remaining' -delete 2>/dev/null || true
+  while IFS= read -r lock; do
+    rmdir "$lock" 2>/dev/null || true
+  done < <(find "$REHYDRATE_STATE_ROOT" -maxdepth 1 -type d -name 'rehydrate-batch-*.remaining.lock' -print 2>/dev/null)
+}
+
 # Mark one section/locale as consumed and remove the shared batch transport
 # once every section in that batch has finished. Workers are separate bash
 # subshells, so the decrement is protected by an mkdir lock rather than a
@@ -113,13 +136,19 @@ rehydrate_batch_state_file() {
 # the bounded fan-out starts.
 rehydrate_batch_release() {
   local batch="$1" loc="$2"
-  local state lock dl remaining
+  local state lock dl remaining lock_attempts=0 lock_attempt_limit
   state="$(rehydrate_batch_state_file "$batch" "$loc")"
   lock="$state.lock"
   [ -f "$state" ] || return 0
 
+  lock_attempt_limit=$((REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS * 20))
   while ! mkdir "$lock" 2>/dev/null; do
+    if [ "$lock_attempts" -ge "$lock_attempt_limit" ]; then
+      echo "::warning::batch $batch $loc release lock stayed busy for ${REHYDRATE_BATCH_LOCK_TIMEOUT_SECONDS}s — skipping reference release; post-fan-out cleanup will reclaim transport tars"
+      return 0
+    fi
     sleep 0.05
+    lock_attempts=$((lock_attempts + 1))
   done
 
   remaining="$(cat "$state" 2>/dev/null || printf '0')"
@@ -339,6 +368,12 @@ rehydrate_section() {
   done
 }
 
+# Keep the worker/release helpers sourceable for a deterministic regression
+# test without running the production fan-out as a side effect.
+if [[ "${BASH_SOURCE[0]}" != "$0" ]]; then
+  return 0
+fi
+
 trunk_guard_init section
 
 # Keep the resource ceiling in one shared implementation. Four is the cap
@@ -414,7 +449,7 @@ fi
 # fan-out has joined at this point, so clearing any remaining transport tars is
 # safe and prevents a partial run from carrying the shard corpus into the
 # following assertion/audit steps.
-find "$REHYDRATE_STATE_ROOT" -maxdepth 2 -type f -name '*-dist-*.tar' -delete 2>/dev/null || true
+rehydrate_batch_cleanup_transport_tars
 df -h / | tail -1
 
 # The ONE new fatal condition in this deliberately fail-soft script, and it is
