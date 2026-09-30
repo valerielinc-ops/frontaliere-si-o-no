@@ -13,6 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
+#     [--force] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -24,6 +25,7 @@ BRANCH=""
 COMMIT_MESSAGE=""
 TITLE=""
 BODY_FILE=""
+FORCE_ADD=false
 PATHS=()
 
 while [ "$#" -gt 0 ]; do
@@ -52,6 +54,10 @@ while [ "$#" -gt 0 ]; do
       [ "$#" -ge 2 ] || { echo "::error::--body-file requires a value"; exit 2; }
       BODY_FILE="$2"
       shift 2
+      ;;
+    --force)
+      FORCE_ADD=true
+      shift
       ;;
     *)
       echo "::error::Unknown argument: $1"
@@ -83,7 +89,15 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
 
 git checkout -B "$BRANCH"
-git add -A -- "${PATHS[@]}"
+if [ "$FORCE_ADD" = true ]; then
+  # Some refreshes intentionally publish generated cache paths that remain
+  # ignored in the normal checkout (for example the fuel cache/history). Keep
+  # the force explicit at the publisher boundary so an ignored path can never
+  # disappear silently from an otherwise successful refresh PR.
+  git add -A -f -- "${PATHS[@]}"
+else
+  git add -A -- "${PATHS[@]}"
+fi
 if git diff --cached --quiet; then
   echo "No refresh changes to publish."
   exit 0
