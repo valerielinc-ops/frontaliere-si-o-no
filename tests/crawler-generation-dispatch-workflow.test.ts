@@ -165,7 +165,12 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(queueGuard?.run).toContain('.status == "requested"');
     expect(queueGuard?.run).toContain('for run_status in queued pending waiting requested in_progress');
     expect(queueGuard?.run).toContain('per_page=100&status=${run_status}');
-    expect(queueGuard?.run).toContain('timeout --kill-after=5s');
+    expect(queueGuard?.run).toContain('status_total_count');
+    expect(queueGuard?.run).toContain('status_returned_count');
+    expect(queueGuard?.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi');
+    expect(queueGuard?.run).toContain('remaining_seconds');
+    expect(queueGuard?.run).toContain('call_timeout_seconds');
+    expect(queueGuard?.run).toContain('timeout --kill-after=0s');
     expect(queueGuard?.run).toContain('guard_total_timeout_seconds=120');
     expect(queueGuard?.run).not.toContain('--paginate');
     expect(queueGuard?.run).toContain('GITHUB_RUN_ID');

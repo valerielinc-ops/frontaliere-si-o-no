@@ -2444,7 +2444,12 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
     expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")');
     expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');
-    expect(guardStep.run).toContain('timeout --kill-after=5s');
+    expect(guardStep.run).toContain('status_total_count');
+    expect(guardStep.run).toContain('status_returned_count');
+    expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi');
+    expect(guardStep.run).toContain('remaining_seconds');
+    expect(guardStep.run).toContain('call_timeout_seconds');
+    expect(guardStep.run).toContain('timeout --kill-after=0s');
     expect(guardStep.run).toContain('guard_total_timeout_seconds=120');
     expect(guardStep.run).not.toContain('--paginate');
     expect(guardStep.run).toContain('select((.id | tostring) != $current)');
