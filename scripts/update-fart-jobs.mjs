@@ -34,7 +34,6 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
@@ -50,6 +49,11 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
+import {
+  buildSourceBodyFailureHousekeepingProof,
+  keepStoredSourceBodiesByKey,
+} from './lib/stored-source-body.mjs';
 import {
   parseFartListingState,
   buildFartDescription,
@@ -254,6 +258,7 @@ async function fetchFartJobs() {
 
   const seenPdfUrls = new Set();
   const jobs = [];
+  const sourceBodyFailures = [];
 
   for (const listing of listings) {
     // Deduplicate by PDF URL
@@ -273,11 +278,21 @@ async function fetchFartJobs() {
       console.warn(`  ⚠️ PDF extraction failed for "${listing.title}": ${pdfContent.error}`);
     }
 
+    const pdfFailed = Boolean(pdfContent.extractionFailed || pdfContent.error);
+    if (pdfFailed) {
+      sourceBodyFailures.push({
+        title: listing.title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdfContent.error || pdfContent.warning || 'PDF extraction failed',
+      });
+    }
+
     // Pass rawText so buildFartDescription applies normalizePdfJobText exactly once.
     // Fall back to already-normalized text if rawText is unavailable.
     const { description, warnings } = buildFartDescription(
       listing.title,
-      pdfContent.thin ? '' : (pdfContent.rawText || pdfContent.text || '')
+      pdfFailed || pdfContent.thin ? '' : (pdfContent.rawText || pdfContent.text || '')
     );
     for (const w of warnings) {
       console.warn(`  ⚠️ ${w}`);
@@ -307,6 +322,12 @@ async function fetchFartJobs() {
       descriptionByLocale: { [sourceLang]: description },
       slugByLocale: { [sourceLang]: slug },
       _targetScope: { canton: HQ.canton, location: 'Locarno' },
+      ...(pdfFailed
+        ? {
+          sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
+          sourceBodyFailureMessage: pdfContent.error || pdfContent.warning || 'PDF extraction failed',
+        }
+        : {}),
     };
 
     jobs.push(job);
@@ -315,6 +336,7 @@ async function fetchFartJobs() {
   return {
     jobs,
     authoritativeEmptySnapshot: sourceSnapshot.state === 'empty',
+    sourceBodyFailures,
   };
 }
 
@@ -347,6 +369,17 @@ async function mergeJobs(discoveredJobs) {
     FART_FABRICATED_DESCRIPTION_RE,
     COMPANY_NAME,
   );
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    discoveredJobs,
+    existingTargetJobs,
+    jobMatchKey,
+  );
+  if (sourceBodyJobs.length < discoveredJobs.length) {
+    console.warn(
+      `  ⚠️ FART: skipped ${discoveredJobs.length - sourceBodyJobs.length} row(s) without a `
+      + 'publishable source body; extraction failures are not thin-source quarantine.',
+    );
+  }
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -354,7 +387,7 @@ async function mergeJobs(discoveredJobs) {
   }
 
   const discoveredByKey = new Map();
-  for (const job of discoveredJobs) {
+  for (const job of sourceBodyJobs) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
@@ -363,8 +396,8 @@ async function mergeJobs(discoveredJobs) {
   // Iterate the deduped Map values (last occurrence wins) instead of the
   // raw discovered list.
   const dedupedDiscovered = [...discoveredByKey.values()];
-  if (dedupedDiscovered.length !== discoveredJobs.length) {
-    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  if (dedupedDiscovered.length !== sourceBodyJobs.length) {
+    console.log(`  ↺ Intra-run dedup: ${sourceBodyJobs.length} source-backed discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
@@ -565,7 +598,8 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'FART');
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'FART', summaryCounts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  FART — Dedicated Crawler');
@@ -582,7 +616,9 @@ async function main() {
   const {
     jobs: discoveredJobs,
     authoritativeEmptySnapshot,
+    sourceBodyFailures = [],
   } = await fetchFartJobs();
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
 
   if (discoveredJobs.length === 0) {
     if (authoritativeEmptySnapshot) {
@@ -602,6 +638,8 @@ async function main() {
         discovered: 0,
         parsed: 0,
         written: 0,
+        sourceBodyFailureCount: 0,
+        sourceBodyFailures: [],
         authoritativeEmptySnapshot: true,
         authoritativeSnapshotVerified: true,
         newCount: 0,
@@ -657,15 +695,15 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log(
-      'ℹ️ No FART jobs found after crawl. No error — exiting OK.'
+      'ℹ️ No FART jobs found after crawl; final slice verification will record any source extraction failures.'
     );
-    return;
+  } else {
+    // Phase 7: Validate locale coverage
+    validateLocales();
   }
-
-  // Phase 7: Validate locale coverage
-  validateLocales();
 
   console.log('\n✅ FART crawler complete.');
 
@@ -673,12 +711,24 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
+    crawlDiff.removedJobs,
+    discoveredJobs.filter((job) => job?.sourceBodyFailureReason === SOURCE_BODY_FAILURE_REASON),
+    jobMatchKey,
+  );
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    preserveExistingSlugs: true,
+    ...(sourceFailureHousekeepingProof ? { housekeepingProof: sourceFailureHousekeepingProof } : {}),
+    ...(sourceFailureHousekeepingProof ? { verifyUnprovenHousekeeping: true } : {}),
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'FART',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    sourceBodyFailureCount: sourceBodyFailures.length,
+    sourceBodyFailures: sourceBodyFailures.slice(0, 100),
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
