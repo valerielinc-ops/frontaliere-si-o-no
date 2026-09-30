@@ -40,7 +40,7 @@ async function authorize(token, deps) {
 }
 
 // A start date (availability, "inizio", "Eintritt", "début") is never in the past.
-const START_DATE_RE = /availab|disponib|\bstart|inizio|entrata in servizio|beginn|eintritt|antritt|début|entrée en (fonction|service)|prise de poste/i;
+const START_DATE_RE = /availab|disponib|verfügbar|verfuegbar|ab wann|\bstart|inizio|entrata in servizio|beginn|eintritt|antritt|arbeitsbeginn|début|entrée en (fonction|service)|prise de poste|à partir de quand|when can you/i;
 const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 /** Today in Zurich, YYYY-MM-DD. */

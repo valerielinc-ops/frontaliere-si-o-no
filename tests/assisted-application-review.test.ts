@@ -6,7 +6,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
+const { handleAssistedApplicationReview, minDateFor } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
 
@@ -116,6 +116,11 @@ describe('candidate review API', () => {
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
     expect(await answer({ availability: '2026-11-01', birth_date: '1985-09-12' })).toMatchObject({ status: 200 });
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ availability: '2026-11-01', birth_date: '1985-09-12' });
+    // Start-date wording in the four languages, German included.
+    for (const question of ['Ab wann verfügbar?', 'Ab wann könnten Sie beginnen?', 'Quand êtes-vous disponible ?', 'When can you start?']) {
+      expect(minDateFor({ type: 'date', question }, T0)).toBe('2026-09-30');
+    }
+    expect(minDateFor({ type: 'date', question: 'Geburtsdatum' }, T0)).toBeNull();
   });
 
   it('turns feedback into a new round', async () => {
