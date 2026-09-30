@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 624,
+  "crawlerCount": 623,
   "groups": {
     "10": [
       "atec-personal",
@@ -422,7 +422,6 @@
     "24": [
       "confederazione-ticino",
       "convit-holding",
-      "knowledge-lab",
       "lwphr",
       "protectas"
     ],
@@ -1004,7 +1003,6 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
-    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1302,5 +1300,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3"
+  "digest": "sha256:5dca588d33c1393ab2e7864aa8d9662eead3d442dfb0bf0d0a88c9bb003a48af"
 }

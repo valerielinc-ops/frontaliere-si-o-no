@@ -4,20 +4,20 @@
   "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "22f61b8bebf2f8cebfdfb2837711f3c3512d600e",
+  "sourceCommit": "b793c591735c4269a38155e2eec14fa41ab5c44a",
   "artifactObservation": {
     "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
     "sourceRef": "main",
-    "sourceCommit": "22f61b8bebf2f8cebfdfb2837711f3c3512d600e"
+    "sourceCommit": "b793c591735c4269a38155e2eec14fa41ab5c44a"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 624,
+  "crawlerCount": 623,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3",
+    "rosterDigest": "sha256:5dca588d33c1393ab2e7864aa8d9662eead3d442dfb0bf0d0a88c9bb003a48af",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -326,7 +326,6 @@
     "scripts/update-klinik-susenberg-jobs.mjs",
     "scripts/update-klinik-wyssholzli-jobs.mjs",
     "scripts/update-kliniken-valens-jobs.mjs",
-    "scripts/update-knowledge-lab-jobs.mjs",
     "scripts/update-komax-group-jobs.mjs",
     "scripts/update-kone-jobs.mjs",
     "scripts/update-ksa-jobs.mjs",
@@ -1472,14 +1471,13 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "e84edf16a3f17d5586e3dc6e5026a194477714b15922565a91bfede309e65fb1",
-      "artifactSha256": "85dd74f6e377e883bb95de63f071251b714a097eedf143401cbbf447366008a1",
+      "sourceSha256": "e335e6e874ae2abae8c3c6b1f1f84b3bfe424d205f8b20dbaead4f4910f242b4",
+      "artifactSha256": "b0c8d020d6d729b45e577cb9c36580fffe1ab5f59f2e76c662032500848ed1aa",
       "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
       "members": [
         "confederazione",
         "protectas",
         "lwphr",
-        "knowledge-lab",
         "convit"
       ]
     },
