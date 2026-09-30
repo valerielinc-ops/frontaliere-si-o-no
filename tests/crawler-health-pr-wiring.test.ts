@@ -40,4 +40,22 @@ describe('crawler health state publication', () => {
     expect(stateStep).toBeGreaterThan(healthStep);
     expect(workflow.slice(stateStep)).toContain('if: always()');
   });
+
+  it('seeds the health check from an in-flight stable PR before calculating the next run', () => {
+    const workflow = read(WORKFLOW);
+    const seedStep = workflow.indexOf('- name: Carry forward pending crawler health PR');
+    const healthStep = workflow.indexOf('- name: Run health check');
+    const seed = workflow.slice(seedStep, healthStep);
+
+    expect(seedStep).toBeGreaterThan(-1);
+    expect(seedStep).toBeLessThan(healthStep);
+    expect(seed).toContain("branch='chore/refresh-crawler-health'");
+    expect(seed).toContain("state_path='data/crawler-health.json'");
+    expect(seed).toContain(
+      'refs/heads/${branch}:refs/remotes/origin/${branch}',
+    );
+    expect(seed).toContain(
+      'git show "refs/remotes/origin/${branch}:${state_path}" > "${state_path}"',
+    );
+  });
 });
