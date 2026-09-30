@@ -324,14 +324,31 @@ export function extractProtectasListingUrls(html = '', baseUrl = PROTECTAS_CAREE
   return [...found];
 }
 
-function extractProtectasApiVacancyUrls(payload = {}) {
+function extractProtectasApiVacancyUrls(payload = {}, page = 1) {
   const found = new Set();
-  for (const listing of Array.isArray(payload?.jobListings) ? payload.jobListings : []) {
+  const listings = Array.isArray(payload?.jobListings) ? payload.jobListings : [];
+  for (const [index, listing] of listings.entries()) {
+    if (!listing || typeof listing !== 'object' || Array.isArray(listing)) {
+      throw new Error(
+        `Protectas listings API page ${page} contains a malformed jobListings entry at index ${index}`,
+      );
+    }
+    const rawUrl = listing.jobPageURL ?? listing.jobPageUrl ?? listing.url;
+    if (rawUrl == null || String(rawUrl).trim() === '') {
+      throw new Error(
+        `Protectas listings API page ${page} contains a malformed jobListings entry at index ${index}`,
+      );
+    }
     const url = toProtectasUrl(
-      listing?.jobPageURL || listing?.jobPageUrl || listing?.url || '',
+      rawUrl,
       PROTECTAS_CAREER_URL,
     );
-    if (url && isVacancyUrl(url)) found.add(url);
+    if (!url || !isVacancyUrl(url)) {
+      throw new Error(
+        `Protectas listings API page ${page} contains an invalid vacancy URL at index ${index}`,
+      );
+    }
+    found.add(url);
   }
   return [...found];
 }
@@ -382,10 +399,13 @@ async function fetchProtectasApiListings() {
       }
     }
 
-    for (const url of extractProtectasApiVacancyUrls(payload)) vacancyUrls.add(url);
+    for (const url of extractProtectasApiVacancyUrls(payload, page)) vacancyUrls.add(url);
   }
 
   if (totalJobListings === 0) {
+    if (vacancyUrls.size > 0) {
+      throw new Error('Protectas listings API declared zero vacancies but returned official vacancy links');
+    }
     return {
       listings: [],
       authoritativeEmptyEvidence: 'Protectas listings API reports "0 totalJobListings"',
@@ -393,6 +413,11 @@ async function fetchProtectasApiListings() {
   }
   if (vacancyUrls.size === 0) {
     throw new Error('Protectas listings API exposed no official vacancy detail links');
+  }
+  if (totalJobListings != null && vacancyUrls.size < totalJobListings) {
+    throw new Error(
+      `Protectas listings API returned only ${vacancyUrls.size}/${totalJobListings} declared vacancy links`,
+    );
   }
 
   return {

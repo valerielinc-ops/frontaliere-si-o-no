@@ -301,6 +301,31 @@ describe('Protectas SA crawler parser', () => {
       );
     });
 
+    it('fails closed when a pageData listing entry is malformed', async () => {
+      const apiUrl = `${PROTECTAS_LISTINGS_API_URL}?page=1&lang=it-ch`;
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        const url = String(input);
+        if (url === PROTECTAS_CAREER_URL) {
+          return new Response('<main><div class="open-positions"><span class="count">2</span><span>Posizioni aperte:</span></div></main>', { status: 200 });
+        }
+        if (url === apiUrl) {
+          return new Response(JSON.stringify({
+            ...LIVE_PAGE_DATA_FIXTURE,
+            totalJobListings: 2,
+            jobListings: [LIVE_PAGE_DATA_FIXTURE.jobListings[0], {}],
+          }), {
+            status: 200,
+            headers: { 'content-type': 'text/plain; charset=utf-8' },
+          });
+        }
+        return new Response('not found', { status: 404 });
+      });
+
+      await expect(fetchAllProtectasJobs()).rejects.toThrow(
+        /malformed jobListings entry at index 1/,
+      );
+    });
+
     it('imports only a verified physical TI vacancy from the official page', async () => {
       vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
         const url = String(input);
