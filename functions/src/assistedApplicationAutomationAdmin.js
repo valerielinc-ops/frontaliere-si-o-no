@@ -65,8 +65,9 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   // Portal accounts the runner created on the alias: never the password here.
+  // A registration the portal refused left no account (`discarded`, no password).
   const accounts = Object.values(accountsSnapshot.exists ? accountsSnapshot.data() || {} : {})
-    .filter((entry) => entry && typeof entry === 'object' && entry.host)
+    .filter((entry) => entry && typeof entry === 'object' && entry.host && entry.passwordEnc)
     .map((entry) => ({
       host: entry.host,
       email: entry.email || '',

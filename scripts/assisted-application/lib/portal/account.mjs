@@ -17,6 +17,7 @@
 
 import { randomBytes } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
+import { sameSite } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
@@ -26,6 +27,35 @@ export const CREATE_ACCOUNT_RE = /^(konto erstellen|neues konto( erstellen)?|reg
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
 export const VERIFY_PAGE_RE = /(verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)/i;
 const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs/i;
+
+const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
+const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
+
+/**
+ * What the page after the "create account" click says: `refused` (still the
+ * form, or its errors), `verify` (the portal asks to confirm the e-mail) or
+ * `created` (it moved on).
+ */
+export function registrationOutcome(after) {
+  if (authPageKind(after) === 'create') return 'refused';
+  if (VERIFY_PAGE_RE.test(after.text) || codeField(after)) return 'verify';
+  if (after.errors?.length) return 'refused';
+  return 'created';
+}
+
+/**
+ * What the page after the verification link or code says. Only a positive
+ * state counts as `accepted`: a confirmation, the sign-in page or the
+ * application form. An expired or wrong token is `rejected`; anything else
+ * `unconfirmed`, and neither is recorded as verified.
+ */
+export function verificationOutcome(after) {
+  if (after.errors?.length || VERIFY_FAILED_RE.test(after.text) || codeField(after)) return 'rejected';
+  if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
+  if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
+  const form = after.fields.filter((field) => field.inputType !== 'password');
+  return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
+}
 
 /** create: two password fields (password + repeat); sign_in: one. */
 export function authPageKind(snapshot) {
@@ -47,30 +77,9 @@ export function hostKey(host) {
   return String(host || '').toLowerCase().replace(/[^a-z0-9-]/g, '_').slice(0, 120);
 }
 
-// Families whose verification mail links to a sibling domain of the career site.
-const SITE_FAMILIES = [
-  ['myworkdayjobs.com', 'myworkday.com', 'workday.com'],
-  ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'],
-];
-
-function registrable(host) {
-  return String(host || '').toLowerCase().split('.').slice(-2).join('.');
-}
-
-/** A verification link is opened only on the portal's own site (or its ATS family). */
-export function sameSite(url, portalHost) {
-  let target;
-  try {
-    target = new URL(url);
-  } catch {
-    return false;
-  }
-  if (target.protocol !== 'https:') return false;
-  const a = registrable(target.hostname);
-  const b = registrable(portalHost);
-  if (a === b) return true;
-  return SITE_FAMILIES.some((family) => family.includes(a) && family.includes(b));
-}
+// A verification link is opened only on the portal's own site (or its ATS
+// family); the inbound handler uses the same rule to keep a message from the candidate.
+export { sameSite };
 
 export function accountsRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('automation').doc(PORTAL_ACCOUNTS_DOC_ID);
@@ -90,11 +99,22 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       mask(password);
       return { email: entry.email, password, createdAt: entry.createdAt || null, verifiedAt: entry.verifiedAt || null };
     },
+    /** Before the "create account" click: `pending` until the portal confirms it. */
     async save(host, { email, password }) {
       mask(password);
       await ref.set({
-        [hostKey(host)]: { host: String(host).toLowerCase(), email, passwordEnc: encryptJson({ password }, key), createdAt: nowMs(), verifiedAt: null, lastSignInAt: null },
+        [hostKey(host)]: { host: String(host).toLowerCase(), email, passwordEnc: encryptJson({ password }, key), status: 'pending', createdAt: nowMs(), verifiedAt: null, lastSignInAt: null },
       }, { merge: true });
+    },
+    /**
+     * The portal refused the registration (validation error, still on the
+     * form): no account exists, so the next run creates it again instead of
+     * signing in. The password envelope goes; the entry stays as a trace.
+     */
+    async discard(host, reason = '') {
+      const current = (await ref.get()).data()?.[hostKey(host)];
+      if (!current) return;
+      await ref.set({ [hostKey(host)]: { ...current, passwordEnc: null, status: 'discarded', discardedAt: nowMs(), discardReason: String(reason).slice(0, 80) } }, { merge: true });
     },
     async mark(host, patch) {
       const current = (await ref.get()).data()?.[hostKey(host)];

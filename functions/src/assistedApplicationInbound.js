@@ -21,7 +21,8 @@
 
 import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { sameSite } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
@@ -189,6 +190,20 @@ export async function handleAssistedApplicationInbound(req, deps) {
 const PROCESSING_STALE_MS = 10 * 60 * 1000;
 
 /**
+ * A portal account of the order (scripts/assisted-application/lib/portal/
+ * account.mjs) still waiting for its verification claims this message: its
+ * link is on that portal's site (the runner opens no other), or it carries a
+ * code. Unclaimed messages go to the candidate as usual.
+ */
+async function claimedByPortalAccount(orderRef, classification) {
+  const snapshot = await orderRef.collection('automation').doc(PORTAL_ACCOUNTS_DOC_ID).get();
+  const waiting = Object.values(snapshot.data() || {}).filter((entry) => entry?.passwordEnc && !entry.verifiedAt);
+  if (!waiting.length) return false;
+  if (classification.verificationUrl && waiting.some((entry) => sameSite(classification.verificationUrl, entry.host))) return true;
+  return Boolean(classification.verificationCode);
+}
+
+/**
  * Step 2, Firestore trigger on `inbox/{id}` (retried on failure): claim,
  * decrypt, classify, forward to the candidate, record. The claim makes a
  * redelivered trigger a no-op; a failure puts the message back to `received`
@@ -236,9 +251,11 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     const to = customerEmailFor(order);
     let forwarded = null;
     // A portal's account verification (a verbatim link or code) is read by the
-    // runner that created the account on the alias: never the candidate's inbox.
+    // runner that created the account on the alias, and kept from the
+    // candidate, only when an account of this order waits for it: a link on
+    // that portal's site, or a code. Anything else reaches the candidate.
     const consumedByRunner = classification.category === 'verification'
-      && Boolean(classification.verificationUrl || classification.verificationCode);
+      && await claimedByPortalAccount(orderRef, classification);
     if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
     else if (to) {
       const attachments = [];

@@ -15,7 +15,7 @@
  * (career-ops: an ambiguous submit is not re-submitted).
  */
 
-import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword } from './account.mjs';
+import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { planPage } from './plan.mjs';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
@@ -196,8 +196,13 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i])) return { handoff: 'account' };
     await settle(page);
   }
+  const after = await extractFields(page);
+  // Verified only when the portal says so: an expired or refused token never
+  // marks the account verified for the next runs.
+  const outcome = verificationOutcome(after);
+  if (outcome !== 'accepted') return { handoff: `account_verification_${outcome}` };
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
-  return { snapshot: await extractFields(page), reopen: true };
+  return { snapshot: after, reopen: true };
 }
 
 /**
@@ -253,10 +258,20 @@ async function handleAuth({ page, snapshot, ctx }) {
     .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
   await applyActions(page, snapshot.fields, [...plan.actions, ...passwordActions], ctx.files);
   const filled = await extractFields(page, NAVIGATION);
-  if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) return { handoff: 'account' };
+  if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
+    await ctx.accounts.discard(host, 'no_create_button');
+    return { handoff: 'account' };
+  }
   await settle(page);
   const after = await extractFields(page);
-  if (VERIFY_PAGE_RE.test(after.text) || codeField(after)) return verifyAccount({ page, host, sinceMs, ctx, snapshot: after });
+  const outcome = registrationOutcome(after);
+  if (outcome === 'refused') {
+    // No account exists: the next run creates it again instead of signing in.
+    await ctx.accounts.discard(host, 'registration_refused');
+    return { handoff: 'account_create_refused' };
+  }
+  await ctx.accounts.mark(host, { status: 'created' });
+  if (outcome === 'verify') return verifyAccount({ page, host, sinceMs, ctx, snapshot: after });
   return { snapshot: after, reopen: !after.passwordVisible };
 }
 

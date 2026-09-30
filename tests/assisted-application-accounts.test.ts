@@ -7,7 +7,9 @@ import {
   loginFields,
   newPortalPassword,
   portalAccountStore,
+  registrationOutcome,
   sameSite,
+  verificationOutcome,
 } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { handleAutomationAdminAction, loadAutomationForAdmin } from '../functions/src/assistedApplicationAutomationAdmin.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -55,6 +57,30 @@ describe('portal account pages', () => {
   });
 });
 
+describe('what the portal answers', () => {
+  const page = (text: string, fields: any[] = [], errors: string[] = []) => ({ text, fields, errors, buttons: [] });
+
+  it('reads the page after the registration click: refused, verify, or created', () => {
+    const createForm = [field('e', 'email', 'E-Mail'), field('p1', 'password', 'Kennwort'), field('p2', 'password', 'Kennwort bestätigen')];
+    expect(registrationOutcome(page('Registrieren', createForm))).toBe('refused');
+    expect(registrationOutcome(page('Registrieren', [], ['Ungültig']))).toBe('refused');
+    expect(registrationOutcome(page('Wir haben Ihnen eine E-Mail gesendet. Bitte bestätigen Sie Ihre E-Mail-Adresse.'))).toBe('verify');
+    expect(registrationOutcome(page('Enter the code', [field('c', 'text', 'Bestätigungscode')]))).toBe('verify');
+    expect(registrationOutcome(page('Bewerbung', [field('v', 'text', 'Vorname'), field('n', 'text', 'Nachname'), field('m', 'email', 'E-Mail')]))).toBe('created');
+  });
+
+  it('records a verification only on a positive answer of the portal', () => {
+    expect(verificationOutcome(page('Ihre E-Mail-Adresse wurde bestätigt.'))).toBe('accepted');
+    expect(verificationOutcome(page('Anmelden', [field('e', 'email', 'E-Mail'), field('p', 'password', 'Kennwort')]))).toBe('accepted');
+    expect(verificationOutcome(page('Bewerbung', [field('v', 'text', 'Vorname'), { ...field('cv', 'file', 'Lebenslauf'), kind: 'file' }]))).toBe('accepted');
+    expect(verificationOutcome(page('Fehler: Ungültiger Link'))).toBe('rejected');
+    expect(verificationOutcome(page('This link has expired. Request a new one.'))).toBe('rejected');
+    expect(verificationOutcome(page('Code', [field('c', 'text', 'Bestätigungscode')], ['Der Code ist falsch']))).toBe('rejected');
+    expect(verificationOutcome(page('Bitte bestätigen Sie Ihre E-Mail-Adresse.'))).toBe('unconfirmed');
+    expect(verificationOutcome(page('Willkommen'))).toBe('unconfirmed');
+  });
+});
+
 describe('portal account store', () => {
   it('keeps only the encrypted password in Firestore and masks it on every read and write', async () => {
     const store = createMemoryFirestore();
@@ -68,6 +94,20 @@ describe('portal account store', () => {
     await accounts.mark(HOST, { verifiedAt: 2000 });
     expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({ verifiedAt: 2000, createdAt: 1000 });
     expect(await accounts.load('other.example')).toBeNull();
+  });
+
+  it('keeps a credential pending until the portal confirms the registration, and forgets a refused one', async () => {
+    const store = createMemoryFirestore();
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1000 });
+    await accounts.save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
+    expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({ status: 'pending' });
+    // Refused (validation error): no account exists, so the next run creates it again.
+    await accounts.discard(HOST, 'registration_refused');
+    expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({ status: 'discarded', passwordEnc: null, discardReason: 'registration_refused' });
+    expect(await accounts.load(HOST)).toBeNull();
+    await accounts.save(HOST, { email: ALIAS, password: 'Other123Aa7!' });
+    await accounts.mark(HOST, { status: 'created' });
+    expect(await accounts.load(HOST)).toMatchObject({ password: 'Other123Aa7!' });
   });
 
   it('waits for the verification message received after the account was created, on the portal’s site', async () => {

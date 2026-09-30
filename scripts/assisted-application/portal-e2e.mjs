@@ -23,7 +23,7 @@ import { submitViaPortal } from './lib/portal/portal.mjs';
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], newsletter: false, pending: null };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], newsletter: false, pending: null, refuseNextRegistration: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -57,7 +57,10 @@ function fakePortal() {
     }
     if (route === 'POST /register') {
       const body = new URLSearchParams(await readBody(req));
-      if (body.get('p1') !== body.get('p2') || !body.get('privacy') || String(body.get('p1')).length < 12) return send(page('Registrieren', '<p role="alert">Ungültig</p>'));
+      if (state.refuseNextRegistration || body.get('p1') !== body.get('p2') || !body.get('privacy') || String(body.get('p1')).length < 12) {
+        state.refuseNextRegistration = false;
+        return send(page('Registrieren', '<p role="alert">Ungültig</p>'));
+      }
       if (body.get('news')) state.newsletter = true;
       state.accounts.set(body.get('email'), body.get('p1'));
       state.pending = { email: body.get('email'), token: `tok${Math.random().toString(36).slice(2)}` };
@@ -107,6 +110,7 @@ async function main() {
     async load(host) { return saved.get(host) || null; },
     async save(host, { email, password }) { saved.set(host, { email, password, createdAt: Date.now(), verifiedAt: null }); },
     async mark(host, patch) { saved.set(host, { ...saved.get(host), ...patch }); },
+    async discard(host) { saved.delete(host); },
     // The e-mail the portal would send to the alias, as the inbound handler stores it.
     async waitForVerification() { return state.pending ? { url: `${base}/activate?t=${state.pending.token}`, code: '' } : null; },
   };
@@ -132,6 +136,10 @@ async function main() {
   try {
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
+    // The portal refuses the registration once: no account is kept, so the next run creates it again.
+    state.refuseNextRegistration = true;
+    const refused = await run();
+    check('a refused registration hands off and keeps no account', refused.event.type === 'submit_handoff' && refused.event.reason === 'account_create_refused' && !saved.has('127.0.0.1') && state.accounts.size === 0);
     const first = await run();
     check('the first run creates the account on the alias, verifies it and applies', first.event.type === 'submit_succeeded' && state.accounts.has(ALIAS) && state.verified.has(ALIAS));
     check('the password is stored and the account marked verified', Boolean(saved.get('127.0.0.1')?.password) && Boolean(saved.get('127.0.0.1')?.verifiedAt));
