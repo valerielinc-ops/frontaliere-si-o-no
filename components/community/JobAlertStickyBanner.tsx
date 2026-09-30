@@ -72,7 +72,7 @@ export default function JobAlertStickyBanner({
 
  const handleOpen = () => {
  Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
- window.dispatchEvent(new CustomEvent('openJobAlert'));
+ window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { origin: 'sticky_banner' } }));
  setVisible(false);
  };
 

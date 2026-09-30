@@ -16,16 +16,23 @@
  * heavy Firestore/auth graph into either consumer.
  */
 
+import type { PendingJobAlertOrigin } from './pendingJobAlert';
+
 interface JobAlertOpenRequest {
   /** Optional keyword to seed into the form's keyword field. */
   keyword?: string;
+  /** CTA surface whose impression should receive the eventual create. */
+  origin?: PendingJobAlertOrigin;
 }
 
 let pending: JobAlertOpenRequest | null = null;
 
 /** Record a request to open the job-alert manager on the next form mount. */
-export function requestJobAlertOpen(keyword?: string): void {
-  pending = { keyword: keyword || undefined };
+export function requestJobAlertOpen(keyword?: string, origin?: PendingJobAlertOrigin): void {
+  pending = {
+    keyword: keyword || undefined,
+    ...(origin ? { origin } : {}),
+  };
 }
 
 /**
