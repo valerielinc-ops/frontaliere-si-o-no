@@ -14,10 +14,14 @@
  *
  * Strategy:
  *   1. Fetch /notizie/ HTML
- *   2. Match every <a href=".../wp-content/uploads/...*.pdf"> link
+ *   2. Match every quoted PDF anchor, including single-quoted/attribute-order variants
  *   3. Keep only filenames matching /concorso/i
  *   4. Derive title from filename stem (date prefix dropped)
  *   5. Pull PDF text + build Italian description
+ *
+ * When the page exposes only the known press-release PDF families and no
+ * concorso PDF, the zero is source-proven. A bare zero remains unproven so a
+ * changed page or a partial response cannot retire the previous slice.
  *
  * Inventory note: 2 concorsi at probe time (concorso_contabile,
  * concorso_dir_sanitario).
@@ -26,6 +30,7 @@ import { createHash } from 'node:crypto';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -51,6 +56,47 @@ export const MIN_VARINI_DESC_LENGTH = 400;
 const JOB_PDF_RE = /concorso|bando|posto|annuncio/i;
 const NON_JOB_PDF_RE =
   /(comunicato|stampa|press|informativa|privacy|policy|testi\/|attestato|presidente|vernissage)/i;
+const PDF_ANCHOR_RE = /<a\b[^>]*\bhref\s*=\s*(["'])([^"'<>]+?\.pdf(?:[?#][^"'<>]*)?)\1[^>]*>/gi;
+
+function decodeFilename(raw = '') {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
+function collectPdfLinks(html = '') {
+  const links = [];
+  const seen = new Set();
+  let match;
+  while ((match = PDF_ANCHOR_RE.exec(html)) !== null) {
+    const rawHref = decodeEntities(match[2]).trim();
+    if (!rawHref) continue;
+
+    let parsed;
+    try {
+      parsed = new URL(rawHref, PUBLIC_CAREER_URL);
+    } catch {
+      continue;
+    }
+    if (!['http:', 'https:'].includes(parsed.protocol)) continue;
+    parsed.protocol = 'https:';
+
+    const href = parsed.href;
+    if (seen.has(href)) continue;
+    seen.add(href);
+
+    const filename = decodeFilename(parsed.pathname.split('/').pop() || '');
+    if (!/\.pdf$/i.test(filename)) continue;
+    links.push({ href, filename });
+  }
+  return links;
+}
+
+function isKnownNonJobPdf({ href = '', filename = '' } = {}) {
+  return NON_JOB_PDF_RE.test(filename) || NON_JOB_PDF_RE.test(href);
+}
 
 /* ── Company matchers ──────────────────────────────────────── */
 
@@ -129,7 +175,7 @@ export function parseClinicaVariniListing(html = '') {
 
   const out = [];
   const seen = new Set();
-  const anchorRe = /href="([^"]+\.pdf)"/gi;
+  const anchorRe = /<a\b[^>]*\bhref\s*=\s*["']([^"'<>]+?\.pdf(?:[?#][^"'<>]*)?)["'][^>]*>/gi;
   let m;
   while ((m = anchorRe.exec(html)) !== null) {
     let href = m[1];
@@ -151,6 +197,25 @@ export function parseClinicaVariniListing(html = '') {
     const id = slugify(filename.replace(/\.pdf$/i, '')).slice(0, 50);
     if (!id) continue;
     out.push({ id, title, pdfUrl: href, filename });
+  }
+
+  const pdfLinks = collectPdfLinks(html);
+  // The page is a complete, healthy news surface when it exposes PDF
+  // attachments and every attachment is one of the known press-release /
+  // institutional-document families. That is positive evidence that the
+  // zero means "no open competition", not that the page or selector failed.
+  // Any unknown PDF deliberately keeps the zero unproven: it may be a newly
+  // named vacancy and must not be silently filtered out.
+  if (
+    out.length === 0
+    && pdfLinks.length > 0
+    && pdfLinks.every(isKnownNonJobPdf)
+  ) {
+    return markAuthoritativeEmptySnapshot(
+      out,
+      CLINICA_VARINI_COMPANY_NAME + ' /notizie/ exposed ' + pdfLinks.length
+        + ' PDF attachment(s); all matched known press-release/institutional-document names and none was a concorso.',
+    );
   }
   return out;
 }
@@ -198,7 +263,9 @@ export async function fetchAllClinicaVariniJobs() {
   console.log(`  📋 Job PDF concorsi found: ${listings.length}\n`);
   if (listings.length === 0) {
     console.warn('⚠️ No concorsi parsed from Clinica Varini page.');
-    return [];
+    const evidence = Reflect.get(listings, 'authoritativeEmptyEvidence');
+    if (evidence) console.log('  🧩 Source-proven zero: ' + evidence);
+    return listings;
   }
 
   const todayIso = new Date().toISOString().slice(0, 10);
