@@ -42,8 +42,26 @@ export function countBullets(text = '') {
 }
 
 function stripHtmlForStructure(value = '') {
-  const withoutTags = String(value || '').replace(/<[^>]*>/g, ' ');
+  const withoutTags = String(value || '')
+    .replace(/<li\b[^>]*>/gi, '\n- ')
+    .replace(/<\/li\s*>/gi, '\n')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\r\n?/g, '\n');
   return decodeEntities(withoutTags);
+}
+
+const LIST_ITEM_LINE_RE = /^\s*(?:[-•*][ \t]+|\d+[.)][ \t]+)/;
+
+/**
+ * Count list entries using the same line definition at every translation
+ * gate. Empty lines are intentionally ignored: only a line-start marker plus
+ * its separating whitespace is an entry.
+ */
+export function countListItems(value = '') {
+  return stripHtmlForStructure(value)
+    .split('\n')
+    .filter((line) => line.trim() && LIST_ITEM_LINE_RE.test(line))
+    .length;
 }
 
 /**
@@ -52,12 +70,17 @@ function stripHtmlForStructure(value = '') {
  * audit must measure the same list markers that the pipeline protects.
  */
 export function hasStructuredContent(value = '') {
-  const raw = String(value || '');
-  const text = stripHtmlForStructure(raw);
-  if (/<li[\s>]/i.test(raw)) return true;
-  if (/^\s*[-•*]\s/m.test(text)) return true;
-  if (/^\s*\d+[.)]\s/m.test(text)) return true;
-  return false;
+  return countListItems(value) > 0;
+}
+
+/**
+ * Require a candidate to retain every source list entry. A source without
+ * list entries has no list-parity constraint; other quality checks still
+ * apply. Marker kind may change, but the number of entries may not.
+ */
+export function hasStructureParity(source = '', candidate = '') {
+  const sourceItems = countListItems(source);
+  return sourceItems === 0 || countListItems(candidate) === sourceItems;
 }
 
 const STRUCTURED_LINE_RE = /^(\s*(?:#{1,6}\s+|[-*•]\s+|\d+[.)]\s+)?)(.*)$/;
@@ -94,7 +117,7 @@ export async function preserveStructuredTranslation(text, translateLine) {
  * Detects a stored locale copy that lost the source's list structure
  * ("structure-flattening", the #3721/#3836 class): the source text carries
  * audited structured content (a line-start bullet/numbered list or `<li>`)
- * while the non-empty candidate has none. Unlike
+ * while the non-empty candidate has fewer (or no) items. Unlike
  * `isAcceptableTranslation` (which gates NEW translations before they are
  * persisted), this predicate is meant for EXISTING `descriptionByLocale`
  * entries, so repair passes (hardenJobLocaleFields, translateMissingJobLocales,
@@ -109,7 +132,7 @@ export async function preserveStructuredTranslation(text, translateLine) {
 export function isStructureFlattenedCopy(source, candidate) {
   const cand = typeof candidate === 'string' ? candidate.trim() : '';
   if (!cand) return false;
-  return hasStructuredContent(source) && !hasStructuredContent(cand);
+  return hasStructuredContent(source) && !hasStructureParity(source, cand);
 }
 
 /**
@@ -130,9 +153,7 @@ export function isAcceptableTranslation(source, translated) {
   if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return false;
   const srcLen = (typeof source === 'string' ? source.trim() : '').length;
   if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
-  if (hasStructuredContent(source) && !hasStructuredContent(candidate)) {
-    return false;
-  }
+  if (!hasStructureParity(source, candidate)) return false;
   return true;
 }
 

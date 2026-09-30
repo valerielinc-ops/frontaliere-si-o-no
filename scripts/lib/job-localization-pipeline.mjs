@@ -10,7 +10,7 @@ import {
 } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
-import { hasStructuredContent, MIN_TITLE_CHARS } from './translation-quality.mjs';
+import { hasStructureParity, MIN_TITLE_CHARS } from './translation-quality.mjs';
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -229,7 +229,7 @@ function passesQualityGate({ sourceText, candidate, kind, minChars = 0 }) {
   if (sourceLen >= 180 && output.length < Math.max(minChars, Math.floor(sourceLen * 0.45))) {
     return false;
   }
-  if (hasStructuredContent(source) && !hasStructuredContent(output)) return false;
+  if (!hasStructureParity(source, output)) return false;
   const sourceHeadings = countHeadings(source);
   const outputHeadings = countHeadings(output);
   if (sourceHeadings >= 1 && outputHeadings === 0) return false;

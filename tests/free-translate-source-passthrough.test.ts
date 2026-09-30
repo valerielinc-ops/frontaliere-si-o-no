@@ -520,6 +520,24 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     ].join('\n'));
   });
 
+  it('usa il fallback whole-body quando una riga ignora il boundary e un altra viene tradotta', async () => {
+    const source = '- Alpha\n- Beta';
+    const wholeBody = '- Alpha tradotto\n- Beta tradotto';
+    let calls = 0;
+    vi.mocked(translateWithMyMemory).mockImplementation(async (value: string) => {
+      calls += 1;
+      if (calls === 1) return 'Alpha provider response\nwith an unexpected body';
+      if (calls === 2) return 'Beta translated';
+      return wholeBody;
+    });
+
+    const out = await freeTranslate({ text: source, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+
+    expect(out).toBe(wholeBody);
+    expect(out).not.toContain('Alpha\n');
+    expect(calls).toBeGreaterThanOrEqual(3);
+  });
+
   it('non tocca il passthrough LEGITTIMO sourceLang === targetLang', async () => {
     const before = statsSnapshot();
 

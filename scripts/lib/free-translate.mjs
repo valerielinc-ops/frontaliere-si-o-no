@@ -2129,13 +2129,18 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
     }));
     const boundaryMiss = structureOutcome._structuredBoundaryMiss === true;
     delete structureOutcome._structuredBoundaryMiss;
+    // A provider that ignored one line's boundary may have left a mixed
+    // assembly: some lines translated, another one still in the source
+    // language. Retry the complete body before considering that assembly.
+    if (boundaryMiss) {
+      const wholeBody = await freeTranslateCore({ text, sourceLang, targetLang, fieldType, _outcome });
+      // Test seams and a few providers can ignore a short line request and
+      // answer with the complete body. Accept that fallback only when its own
+      // structure survived; a flat whole-body response is still a miss.
+      if (wholeBody && hasStructuredContent(wholeBody) && !isSourcePassthrough(text, wholeBody)) return wholeBody;
+      return '';
+    }
     if (!isSourcePassthrough(text, translated)) return translated;
-    // Test seams and a few providers can ignore a short line request and
-    // answer with the complete body. Accept that fallback only when its own
-    // structure survived; a flat whole-body response is still a miss.
-    if (!boundaryMiss) return '';
-    const wholeBody = await freeTranslateCore({ text, sourceLang, targetLang, fieldType, _outcome });
-    if (wholeBody && hasStructuredContent(wholeBody) && !isSourcePassthrough(text, wholeBody)) return wholeBody;
     return '';
   }
   return freeTranslateCore({ text, sourceLang, targetLang, fieldType, _outcome });

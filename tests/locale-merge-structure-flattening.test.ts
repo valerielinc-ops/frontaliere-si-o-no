@@ -27,6 +27,9 @@ import {
 } from '../scripts/lib/dedicated-crawler-common.mjs';
 import {
   hasStructuredContent,
+  countListItems,
+  hasStructureParity,
+  isAcceptableTranslation,
   isStructureFlattenedCopy,
   countBullets,
   preserveStructuredTranslation,
@@ -101,9 +104,30 @@ describe('isStructureFlattenedCopy', () => {
     expect(isStructureFlattenedCopy('<ul><li>Eine Aufgabe</li></ul>', 'Eine Aufgabe')).toBe(true);
   });
 
-  it('does not flag when the copy kept at least one bullet', () => {
-    const partiallyStructured = 'Intro\n• Solo un punto rimasto della lista originale';
-    expect(isStructureFlattenedCopy(STRUCTURED_DE, partiallyStructured)).toBe(false);
+  it('requires complete list-item parity instead of accepting one surviving bullet', () => {
+    const source = [
+      'Introduzione tradotta con contenuto sufficiente per il controllo di qualità.',
+      '- Prima voce con responsabilità e dettagli operativi del ruolo.',
+      '- Seconda voce con responsabilità e dettagli operativi del ruolo.',
+      '- Terza voce con responsabilità e dettagli operativi del ruolo.',
+    ].join('\n');
+    const candidate = [
+      'Translated introduction with enough content for the quality ratio.',
+      '- Only one surviving item with translated operational details for the role.',
+    ].join('\n');
+
+    expect(countListItems(source)).toBe(3);
+    expect(countListItems(candidate)).toBe(1);
+    expect(hasStructureParity(source, candidate)).toBe(false);
+    expect(isStructureFlattenedCopy(source, candidate)).toBe(true);
+    expect(isAcceptableTranslation(source, candidate)).toBe(false);
+  });
+
+  it('accepts a translation that preserves the complete number of list items', () => {
+    const candidate = STRUCTURED_IT.replace(/•/g, '-');
+    expect(countListItems(candidate)).toBe(countListItems(STRUCTURED_DE));
+    expect(hasStructureParity(STRUCTURED_DE, candidate)).toBe(true);
+    expect(isStructureFlattenedCopy(STRUCTURED_DE, candidate)).toBe(false);
   });
 
   it('does not flag legitimately bullet-free sources (< 3 bullets)', () => {

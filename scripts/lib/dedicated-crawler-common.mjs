@@ -3202,7 +3202,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
 
-  const sourceStructureDesc = cleanFn(currentByLocale[sourceLang] || out.description || '');
+  const sourceStructureDesc = cleanFn(out.description || currentByLocale[sourceLang] || '');
   if (sourceStructureDesc && locales.some((locale) => locale !== sourceLang
       && isStructureFlattenedCopy(sourceStructureDesc, cleanFn(currentByLocale[locale] || '')))) {
     out.needsRetranslation = true;
