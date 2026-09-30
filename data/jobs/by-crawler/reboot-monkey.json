@@ -7726,7 +7726,7 @@
       "id": "reboot-monkey-d0e98f3dbeff",
       "slug": "data-center-technician-svizzera-ginevra-in-loco-reboot-monkey-geneva",
       "slugByLocale": {
-        "en": "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva",
+        "en": "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-cyd1tp",
         "it": "data-center-technician-svizzera-ginevra-in-loco-reboot-monkey-geneva",
         "de": "data-center-techniker-switzerland-geneva-on-site-reboot-monkey-geneva",
         "fr": "technicien-en-informatique-suisse-geneve-sur-place-reboot-monkey-geneva"
@@ -7799,6 +7799,9 @@
       "remote": false,
       "previousSlugsByLocale": {
         "it": [
+          "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva"
+        ],
+        "en": [
           "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva"
         ]
       },
