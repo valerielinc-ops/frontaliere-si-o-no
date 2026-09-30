@@ -62,18 +62,18 @@ jobs:
       issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ inputs.deploy_ref }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -98,7 +98,7 @@ jobs:
       # serving THIS deploy — so validate-live doesn't need to download
       # the 1.5 GB github-pages artifact just for build-id.
       - name: Download sitemaps bundle (for build-id.txt)
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: sitemaps-${{ inputs.deploy_run_id }}
@@ -116,7 +116,7 @@ jobs:
       # Live smoke — Playwright fetches the deployed site directly.
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
         with:

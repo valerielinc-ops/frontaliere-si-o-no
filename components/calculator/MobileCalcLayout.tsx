@@ -502,7 +502,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {t('mobileCalc.viewFullAnalysis')}
  </button>
  <button
- onClick={openSheet}
+ onClick={() => openSheet()}
  className="min-w-[44px] min-h-[44px] px-4 py-3 rounded-xl text-sm font-bold bg-surface-raised text-subtle border border-edge hover:bg-surface-raised transition-[color,background-color,transform] active:scale-95 flex items-center justify-center"
  aria-label={t('mobileCalc.customize')}
  >
@@ -521,7 +521,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  <div className="min-h-[32px]">
  {result && (
  <button
- onClick={openSheet}
+ onClick={() => openSheet()}
  className="w-full flex items-center justify-center gap-2 py-2 min-h-11 text-xs font-semibold text-muted hover:text-body transition-colors"
  >
  <Settings2 size={12} />

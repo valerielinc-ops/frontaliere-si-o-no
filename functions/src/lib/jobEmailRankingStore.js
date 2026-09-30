@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { parseJobRankingClick } from './jobEmailRankingLinks.js';
 import {
   buildEmbeddedRankingUpdate,
@@ -54,7 +54,7 @@ export function rankingDeliveryDocumentId(deliveryId) {
 }
 
 function incrementField(data, path, amount) {
-  if (amount > 0) data[path] = admin.firestore.FieldValue.increment(amount);
+  if (amount > 0) data[path] = FieldValue.increment(amount);
 }
 
 function jobManifestEntry(job, index) {
@@ -158,7 +158,7 @@ export async function recordJobEmailImpressions(db, records) {
       newsletter_id: row.newsletter_id || null,
       job_id: row.job_id,
       date: row.date,
-      clicks: admin.firestore.FieldValue.increment(0),
+      clicks: FieldValue.increment(0),
       expires_at: retentionDate(),
     };
     incrementField(data, 'impressions', row.impressions);
@@ -166,7 +166,7 @@ export async function recordJobEmailImpressions(db, records) {
     for (const [variant, count] of row.variants) {
       data.impressions_by_variant = {
         ...(data.impressions_by_variant || {}),
-        [variantKey(variant)]: admin.firestore.FieldValue.increment(count),
+        [variantKey(variant)]: FieldValue.increment(count),
       };
     }
     operations.push({ type: 'set', ref: row.ref, data });
@@ -243,7 +243,6 @@ export async function recordJobEmailRankingClick(db, {
     ? db.collection('job_alert_subscribers').doc(String(email).trim().toLowerCase())
       .collection('alerts').doc(String(click.alertId))
     : null;
-  const FieldValue = admin.firestore.FieldValue;
   const userId = pseudonymousUserId(email);
   const eventData = {
     event_type: click.surface === 'job_alert' ? 'job_alert_click' : 'newsletter_job_click',

@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
@@ -40,14 +40,14 @@ jobs:
         timeout-minutes: 5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
       - name: Install xlsx + adm-zip parsers
         # xlsx parses the priminfo region workbook; adm-zip is required for
         # the F2-A3 historical backfill path (ZIPped archive years).
-        run: npm install xlsx adm-zip
+        run: npm install xlsx@0.18.5 adm-zip@0.6.1
 
       - name: Fetch health premiums
         if: inputs.dry_run != true && inputs.dry_run != 'true'
@@ -108,7 +108,7 @@ jobs:
 
       - name: Install firebase-admin for Remote Config
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: npm install firebase-admin
+        run: npm install firebase-admin@14.5.0
 
       - name: Load secrets from Remote Config
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'

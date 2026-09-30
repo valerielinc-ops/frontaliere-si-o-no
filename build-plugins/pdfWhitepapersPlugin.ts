@@ -26,7 +26,7 @@ import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
  * so the plugin can skip regeneration when neither the source markdown nor
  * the rendering options have changed since the previous build.
  *
- * Contents survive across CI runs via the `actions/cache@v5` step keyed on
+ * Contents survive across CI runs via the `actions/cache@v6` step keyed on
  * the plugin source + the article body files.
  */
 const PDF_CACHE_DIR = '.build-cache';

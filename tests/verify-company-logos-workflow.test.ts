@@ -11,7 +11,7 @@ describe('Verify Company Logos workflow', () => {
       jobs?: { verify?: { steps?: Array<{ name?: string; uses?: string; run?: string; with?: Record<string, string> }> } };
     };
     const steps = workflow.jobs?.verify?.steps ?? [];
-    const setupIndex = steps.findIndex((step) => step.uses === 'actions/setup-node@v5');
+    const setupIndex = steps.findIndex((step) => step.uses === 'actions/setup-node@v7');
     const installIndex = steps.findIndex((step) => step.name === 'Install dependencies');
     const assembleIndex = steps.findIndex((step) => step.name === 'Assemble canonical jobs dataset');
     const verifyIndex = steps.findIndex((step) => step.name === 'Verify company logos');

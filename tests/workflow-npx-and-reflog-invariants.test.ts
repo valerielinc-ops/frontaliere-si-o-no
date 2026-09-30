@@ -10,7 +10,7 @@
  *    dependency). With `--no-install` the absence is an immediate, legible failure.
  *
  *    The three workflows that deliberately run WITHOUT `npm ci` and rely on the
- *    download (`npx -y tsx@4` style) are exempt by construction: they have no
+ *    download (`npx -y tsx@4.23.15` style) are exempt by construction: they have no
  *    `npm ci` step, so the predicate below never looks at them. No allowlist is
  *    needed — "has an npm ci step" IS the discriminator.
  *

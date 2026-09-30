@@ -45,7 +45,10 @@ const LazyExchangeChart = lazyRetry(() =>
  <YAxis domain={['auto', 'auto']} tick={{ fontSize: 11, fill: chart.tick }} tickFormatter={(v: number) => v.toFixed(3)} />
  <Tooltip
  formatter={(value: number) => [`${value.toFixed(4)} EUR`, '1 CHF']}
- labelFormatter={(label) => new Date(label).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}
+ labelFormatter={(label) => {
+ const value = typeof label === 'string' || typeof label === 'number' ? label : null;
+ return value === null ? '' : new Date(value).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+ }}
  contentStyle={chart.tooltipStyle}
  />
  <Area type="monotone" dataKey="rate" stroke={CHART_DATA_COLORS.indigo} fill="url(#colorRate)" strokeWidth={2} dot={false} />
@@ -884,7 +887,7 @@ const CurrencyExchange: React.FC = () => {
  {lastUpdate && (
  <div className="mt-6">
  <DataFreshness
- lastUpdated={lastUpdate}
+ lastUpdated={lastUpdate.toISOString()}
  source="TwelveData / BCE"
  sourceUrl="https://twelvedata.com"
  variant="badge"

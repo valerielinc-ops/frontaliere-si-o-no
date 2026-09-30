@@ -175,12 +175,12 @@ jobs:
     environment: shard-secrets-overflow
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -198,7 +198,7 @@ jobs:
       # Same provider keys (R2/CDN etc.) the single-article fast-publish path
       # loads before calling the identical post-render plugin functions this
       # driver reuses — see scripts/load-rc-env.mjs's RC_TO_ENV mapping.
-      # Deliberately NO `npm ci`: the driver runs via `npx -y tsx@4`
+      # Deliberately NO `npm ci`: the driver runs via `npx -y tsx@4.23.15`
       # (on-demand, no repo install), same as publish-article-fast.mjs —
       # this workflow exists precisely to stay off the full-install/full-build
       # critical path.
@@ -250,7 +250,7 @@ jobs:
           # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
           # own invocation — a future tsx major cannot silently change loader
           # behaviour on this un-installed path.
-          npx -y tsx@4 scripts/rerender-article-corpus.mjs "${ARGS[@]}"
+          npx -y tsx@4.23.15 scripts/rerender-article-corpus.mjs "${ARGS[@]}"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -46,7 +46,7 @@ jobs:
       # ancora che il detector girasse (issue #4120: lo step "Detect" veniva
       # saltato — il timeout era 100% nel checkout). Blobless → checkout in secondi.
       - name: Checkout (blobless — full commit graph, blob on demand)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 0
@@ -70,7 +70,7 @@ jobs:
         timeout-minutes: 8
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

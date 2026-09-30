@@ -27,7 +27,7 @@ jobs:
     timeout-minutes: 20
     environment: shard-secrets-overflow
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -54,7 +54,7 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -162,7 +162,7 @@ jobs:
         id: publish_chunks
         if: inputs.dry_run == true || inputs.dry_run == 'true' || (steps.acquire_chunk_locks.outcome == 'success' && steps.renew_chunk_locks.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true')
         run: |
-          npx -y tsx@4 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
+          npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Verify article chunk lock after resync
         id: verify_chunk_lock_after_publish

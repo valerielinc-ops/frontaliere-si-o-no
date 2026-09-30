@@ -1,4 +1,4 @@
-import { sha256 } from '@noble/hashes/sha256';
+import { sha256 } from '@noble/hashes/sha2.js';
 import italyCatalogueJson from '../../data/pharmacies-italy-border.json';
 import italySourcesJson from '../../data/pharmacy-duties-italy-sources.json';
 import { validatePharmacyDuty } from './types';

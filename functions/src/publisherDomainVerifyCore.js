@@ -14,6 +14,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { promises as dns } from 'node:dns';
 import { randomBytes } from 'node:crypto';
 
@@ -63,7 +64,7 @@ export async function handleVerifyPublisherDomain(req) {
   let token = pub.domainVerifyToken;
   if (!token) {
     token = randomBytes(16).toString('hex');
-    await pubRef.set({ domainVerifyToken: token, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    await pubRef.set({ domainVerifyToken: token, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   }
 
   const recordName = `${TXT_HOST_PREFIX}.${domain}`;
@@ -80,7 +81,7 @@ export async function handleVerifyPublisherDomain(req) {
 
   if (verified) {
     await pubRef.set(
-      { domainVerified: true, verification: 'verified', updatedAt: admin.firestore.FieldValue.serverTimestamp() },
+      { domainVerified: true, verification: 'verified', updatedAt: FieldValue.serverTimestamp() },
       { merge: true },
     );
   }

@@ -85,10 +85,10 @@ describe('full-suite-dispatch.yml: trigger, permessi, limiti', () => {
 });
 
 describe('full-suite-dispatch.yml: checkout pieno e dati runtime', () => {
-  it('actions/checkout@v5 senza sparse-checkout, con la storia completa', () => {
+  it('actions/checkout@v7 senza sparse-checkout, con la storia completa', () => {
     const checkouts = steps.filter((s) => s.uses?.startsWith('actions/checkout@'));
     expect(checkouts).toHaveLength(1);
-    expect(checkouts[0].uses).toBe('actions/checkout@v5');
+    expect(checkouts[0].uses).toBe('actions/checkout@v7');
     expect(checkouts[0].with?.['sparse-checkout']).toBeUndefined();
     expect(checkouts[0].with?.['sparse-checkout-cone-mode']).toBeUndefined();
     expect(checkouts[0].with?.['fetch-depth']).toBe(0);

@@ -36,7 +36,7 @@ jobs:
       JOBS_SKIP_LOCALE_HARDENING: '1'
     steps:
       - name: Checkout source repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           ref: main
@@ -50,7 +50,7 @@ jobs:
           sparse-checkout-cone-mode: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm

@@ -35,6 +35,7 @@ import {
   isAdvertisingSuppressed,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
+import { FieldValue } from 'firebase-admin/firestore';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
@@ -119,7 +120,7 @@ async function main() {
     if (!SEND) continue;
     if (audience.length === 0) {
       await db.collection('publisher_jobs').doc(ad.id).set(
-        { blastSentAt: admin.firestore.FieldValue.serverTimestamp(), blastCount: 0 },
+        { blastSentAt: FieldValue.serverTimestamp(), blastCount: 0 },
         { merge: true },
       );
       continue;
@@ -180,7 +181,7 @@ async function main() {
     // re-sends to everyone (acceptable dup risk) rather than dropping the remainder.
     if (!interrupted) {
       await db.collection('publisher_jobs').doc(ad.id).set(
-        { blastSentAt: admin.firestore.FieldValue.serverTimestamp(), blastCount: adSent },
+        { blastSentAt: FieldValue.serverTimestamp(), blastCount: adSent },
         { merge: true },
       );
     }

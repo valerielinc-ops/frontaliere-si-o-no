@@ -49,7 +49,7 @@ jobs:
     timeout-minutes: 36
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # Storia completa: la proposta Codex pusha un branch, e da un clone
           # shallow il push via bridge muore (`Failed to traverse parents of
@@ -84,7 +84,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -237,7 +237,7 @@ jobs:
             - Mai abbassare gate/quality. Nel ramo PR: solo file `.md` e il registro `scripts/ci/lessons-harvester-registry.json`. Il fix strutturale di un'escalation si propone via la issue auto-creata, non si committa qui.
 
             **Apri la PR doc (regole `novel` utili e/o voci di registro):**
-            **Questo container CI è GIÀ un checkout isolato monouso** (`actions/checkout@v5` fresh a ogni run). **NON creare un worktree (`git worktree add`, `.worktrees/**`, `.claude/worktrees/**`)**: la regola "worktree-first" di `AGENTS.md` vale per le sessioni interattive locali, non qui. Lavora nella root del checkout con `git checkout -b`: il bridge Git host-side pusha SOLO il branch checked-out nella root (da un worktree risponde `Git push requires a checked-out current work branch under refs/heads`), e anche il wrapper `gh pr create` va eseguito dalla root. Misurato sulla run 36336838172: proposta committata in `.worktrees/`, push rifiutato dal bridge, `gh pr create` in exit 3, 0 PR.
+            **Questo container CI è GIÀ un checkout isolato monouso** (`actions/checkout@v7` fresh a ogni run). **NON creare un worktree (`git worktree add`, `.worktrees/**`, `.claude/worktrees/**`)**: la regola "worktree-first" di `AGENTS.md` vale per le sessioni interattive locali, non qui. Lavora nella root del checkout con `git checkout -b`: il bridge Git host-side pusha SOLO il branch checked-out nella root (da un worktree risponde `Git push requires a checked-out current work branch under refs/heads`), e anche il wrapper `gh pr create` va eseguito dalla root. Misurato sulla run 36336838172: proposta committata in `.worktrees/`, push rifiutato dal bridge, `gh pr create` in exit 3, 0 PR.
             1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
             2. `git checkout -b lessons/auto-harvest-$(date -u +%Y%m%d)`.
             3. Applica gli edit `.md` e aggiorna il registro (Edit/Write). Nessun path home assoluto, nessuna email personale. Non committare `harvest-clusters.json` né `lessons-harvester-outcome.txt`.

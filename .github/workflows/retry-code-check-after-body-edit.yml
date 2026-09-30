@@ -49,7 +49,7 @@ jobs:
       # integration). Keep the capability bootstrap API-only: checkout only
       # these helpers from the protected main ref, never the PR tree.
       - name: Checkout trusted App-token minter from main
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: main
           path: .trusted-main
@@ -72,7 +72,7 @@ jobs:
         run: node .trusted-main/scripts/ci/mint-app-token.mjs
 
       - name: Retry a failed body or review gate on the current head
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           # APP_TOKEN is written by the trusted-main minter through
           # GITHUB_ENV. The repository token remains a read/marker fallback;

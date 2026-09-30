@@ -240,7 +240,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
   const decision = vitestSteps.find((step) => step.id === 'post_review');
 
   it('runs the gate from a validated main checkout, never from the PR tree', () => {
-    expect(trustedCheckout?.uses).toBe('actions/checkout@v5');
+    expect(trustedCheckout?.uses).toBe('actions/checkout@v7');
     expect(trustedCheckout?.with).toMatchObject({
       repository: '${{ github.repository }}',
       ref: 'main',
@@ -271,7 +271,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(names.indexOf('Validate trusted native auto-merge source'))
       .toBeLessThan(names.indexOf('Enable native auto-merge after the required job'));
     // Token and sweeper come from main, not from the PR tree.
-    const rootCheckout = steps.find((step) => step.uses === 'actions/checkout@v5' && !step.with?.path);
+    const rootCheckout = steps.find((step) => step.uses === 'actions/checkout@v7' && !step.with?.path);
     expect(rootCheckout?.with?.ref).toBe('main');
   });
 
@@ -362,7 +362,7 @@ describe('body edits revoke native auto-merge before a fresh review', () => {
     expect(parsed.on?.pull_request_target).toEqual({ types: ['edited'] });
     expect(parsed.permissions?.['pull-requests']).toBe('write');
     expect(parsed.jobs?.recover?.if).toContain('changes.body');
-    const script = parsed.jobs?.recover?.steps?.find((step) => step.uses === 'actions/github-script@v8')?.with?.script as string;
+    const script = parsed.jobs?.recover?.steps?.find((step) => step.uses === 'actions/github-script@v9')?.with?.script as string;
     expect(script).toContain('disablePullRequestAutoMerge');
     expect(script).toContain('revokeNativeAutoMerge');
     expect(script).toContain('github.graphql');

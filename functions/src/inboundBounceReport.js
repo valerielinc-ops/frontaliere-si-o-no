@@ -44,6 +44,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isDeletedEmailAccount } from './authAccountCleanup.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
@@ -113,7 +114,6 @@ async function looksSolicited(subscriberRef, subscriberData, campaignId, nowMs) 
 async function applyToCollection(db, collection, {
   email, severity, reason, status, diagnosticCode, action, campaignId, originalMessageId, reportingMta, nowMs,
 }) {
-  const FieldValue = admin.firestore.FieldValue;
   const ref = db.collection(collection).doc(email);
   const snap = await ref.get();
   // Never create a subscriber from inbound mail (anti-forgery limit 2).

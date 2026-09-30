@@ -334,7 +334,7 @@ describe('crawler generation PR B workflow wiring', () => {
 
   it('materializes the complete dispatcher import closure in the orchestrator sparse checkout', () => {
     const workflow = YAML.parse(fs.readFileSync(orchestratorPath, 'utf8'));
-    const checkout = workflow.jobs.dispatch.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const checkout = workflow.jobs.dispatch.steps.find((step: any) => step.uses === 'actions/checkout@v7');
     const sparsePaths = checkout.with['sparse-checkout']
       .split('\n')
       .map((value: string) => value.trim().replace(/^\//, ''))

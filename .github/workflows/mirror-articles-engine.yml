@@ -105,7 +105,7 @@ jobs:
       # transport-generator-to-nanako.yml. Anchoring every pattern with a
       # leading slash matters: unanchored, `engine` in gitignore syntax matches
       # a directory of that name at any depth.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |

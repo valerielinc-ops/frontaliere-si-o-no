@@ -94,7 +94,7 @@ jobs:
           NODE
 
       - name: Checkout immutable site observer runtime
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           ref: ${{ inputs.site_code_commit }}
@@ -426,7 +426,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Checkout immutable site observer runtime
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           ref: ${{ needs.probe.outputs.site_code_commit }}
@@ -499,7 +499,7 @@ jobs:
       has_work: ${{ steps.select.outputs.has_work }}
     steps:
       - name: Checkout transported read-only selector
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           filter: blob:none
@@ -548,7 +548,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Checkout immutable site observer runtime
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           ref: ${{ matrix.generation.site_code_commit }}

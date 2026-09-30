@@ -55,6 +55,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { readFileSync } from 'fs';
 
 // ── Constants ─────────────────────────────────────────────────────────
@@ -101,7 +102,6 @@ const sa = JSON.parse(
 );
 admin.initializeApp({ credential: admin.credential.cert(sa) });
 const db = admin.firestore();
-const FieldValue = admin.firestore.FieldValue;
 
 // ── Helpers ───────────────────────────────────────────────────────────
 

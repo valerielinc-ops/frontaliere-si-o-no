@@ -14,6 +14,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { buildSignupAttributionFields, sanitizeSignupPath } from './lib/signupAttribution.js';
@@ -133,7 +134,7 @@ async function fetchLinkedInBasicProfile(accessToken) {
 export async function enrichSubscriberProfile(email, profileData, attribution = null) {
  try {
  const db = admin.firestore();
- const ts = () => admin.firestore.FieldValue.serverTimestamp();
+ const ts = () => FieldValue.serverTimestamp();
  const normalizedEmail = email.trim().toLowerCase();
  const subRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
  const existingSubscriber = await subRef.get();
@@ -146,8 +147,8 @@ export async function enrichSubscriberProfile(email, profileData, attribution = 
 
  const updateData = {
  email: normalizedEmail,
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
- lastLoginAt: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: FieldValue.serverTimestamp(),
+ lastLoginAt: FieldValue.serverTimestamp(),
  };
  const consentBlock = {
   consent_given: true,

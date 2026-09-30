@@ -53,12 +53,12 @@ const TAG = '[lint-gha-node-runtime]';
  * stale map never produces a false failure — only a nudge to update the map.
  */
 const NODE_RUNTIME_BY_ACTION = {
-  'actions/checkout': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24 },
-  'actions/setup-node': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24 },
-  'actions/cache': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24 },
+  'actions/checkout': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24, 6: 24, 7: 24 },
+  'actions/setup-node': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24, 6: 24, 7: 24 },
+  'actions/cache': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24, 6: 24 },
   // Sub-actions of actions/cache; same repo, same major → same runtime.
-  'actions/cache/restore': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24 },
-  'actions/cache/save': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24 },
+  'actions/cache/restore': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24, 6: 24 },
+  'actions/cache/save': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24, 6: 24 },
   'actions/upload-artifact': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 20, 6: 24, 7: 24 },
   'actions/download-artifact': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 20, 6: 24, 7: 24 },
   'actions/github-script': { 1: 12, 2: 12, 3: 12, 4: 12, 5: 16, 6: 16, 7: 20, 8: 24 },
@@ -122,7 +122,7 @@ function extractUses(yaml) {
 /**
  * Classify a single `uses:` reference.
  *
- * @param {string} ref e.g. "actions/checkout@v5" or "treosh/lighthouse-ci-action@v12"
+ * @param {string} ref e.g. "actions/checkout@v7" or "treosh/lighthouse-ci-action@v12.6.2"
  * @returns {{ action: string, version: string|null, kind: 'first-party'|'third-party'|'local' }}
  */
 function classifyRef(ref) {

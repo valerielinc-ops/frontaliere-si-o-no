@@ -39,6 +39,7 @@
  * for any future one-off catch-up need.
  */
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 // The hard-bounce/human gate, no longer a bare regex test here.
 //
 // This script used to decide "is this an unambiguous hard bounce?" with
@@ -65,7 +66,6 @@ if (!admin.apps?.length) {
   admin.initializeApp({ credential: admin.credential.applicationDefault() });
 }
 const db = admin.firestore();
-const FieldValue = admin.firestore.FieldValue;
 
 console.log(APPLY ? '🟢 APPLY mode — will write to Firestore' : '🟡 DRY RUN — no writes (pass --apply to commit)');
 

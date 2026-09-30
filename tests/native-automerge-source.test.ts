@@ -54,7 +54,7 @@ describe('native auto-merge source-loading contract', () => {
   it.each(WORKFLOW_FILES)('uses the same trusted main sparse checkout in %s', (relativePath) => {
     const source = readWorkflow(relativePath);
     const steps = workflowSteps(source);
-    const checkout = steps.find((step) => step.uses === 'actions/checkout@v5');
+    const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
     const validation = steps.find((step) => String(step.name).includes('Validate trusted native auto-merge source'));
     const gate = steps.find((step) => String(step.name).match(/(?:Enable|Retry) GitHub auto-merge|Retry bounded native auto-merge opt-in/u));
 

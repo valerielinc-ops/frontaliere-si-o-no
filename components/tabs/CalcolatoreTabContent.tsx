@@ -20,9 +20,9 @@ import DesktopTopBanner from '@/components/shared/DesktopTopBanner';
 
 // Eagerly load InputCard in THIS chunk so it parses only when CalcolatoreTabContent loads.
 // This removes InputCard and MobileCalcLayout from the main App bundle.
-const InputCard = lazyRetry(() => import('@/components/calculator/InputCard').then(m => ({ default: m.InputCard as any })));
+const InputCard = lazyRetry(() => import('@/components/calculator/InputCard').then(m => ({ default: m.InputCard })));
 const MobileCalcLayout = lazyRetry(() => import('@/components/calculator/MobileCalcLayout'));
-const ResultsView = lazyRetry(() => import('@/components/calculator/ResultsView').then(m => ({ default: m.ResultsView as any })));
+const ResultsView = lazyRetry(() => import('@/components/calculator/ResultsView').then(m => ({ default: m.ResultsView })));
 const NewFrontierOver20KmHub = lazyRetry(() => import('@/components/calculator/NewFrontierOver20KmHub'));
 const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
 const PayslipSimulator = lazyRetry(() => import('@/components/calculator/PayslipSimulator'));

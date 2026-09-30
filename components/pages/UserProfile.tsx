@@ -431,7 +431,8 @@ const UserProfile: React.FC = () => {
      try {
        const all = await fetchAllJobs(locale as Locale);
        if (cancelled) return;
-       setActiveSavedJobIds(new Set(all.map((j) => j.id)));
+ const activeIds = all.map((j) => j.id).filter((id): id is string => typeof id === 'string');
+ setActiveSavedJobIds(new Set(activeIds));
      } catch {
        // best-effort: no expired badges rather than a broken section.
      }
@@ -1577,6 +1578,7 @@ const UserProfile: React.FC = () => {
  member={member}
  onUpdate={updateFamilyMember}
  onRemove={() => removeFamilyMember(member.id)}
+ disabled={saveStatus === 'saving'}
  t={t}
  />
  ))}

@@ -130,13 +130,13 @@ describe('profili di sparse-checkout', () => {
   });
 
   it('se il profilo globale perde un artefatto, il verifier lo segnala', () => {
-    const source = `jobs:\n  vitest:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /scripts/\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n            /packages/articles/content/swiss-articles-data.ts\n            /packages/articles/content/blogArticleIds.ts\n            /packages/articles/content/routerBlogData.ts\n            /packages/articles/content/routerSwissData.ts\n            /packages/articles/content/blogImageCdnMirror.ts\n            /packages/articles/content/blog-meta-*.ts\n            /packages/articles/content/seo/seo-blog*.ts\n            /packages/articles/content/seo/seoMetadataType.ts\n          sparse-checkout-cone-mode: false\n`;
+    const source = `jobs:\n  vitest:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /scripts/\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n            /packages/articles/content/swiss-articles-data.ts\n            /packages/articles/content/blogArticleIds.ts\n            /packages/articles/content/routerBlogData.ts\n            /packages/articles/content/routerSwissData.ts\n            /packages/articles/content/blogImageCdnMirror.ts\n            /packages/articles/content/blog-meta-*.ts\n            /packages/articles/content/seo/seo-blog*.ts\n            /packages/articles/content/seo/seoMetadataType.ts\n          sparse-checkout-cone-mode: false\n`;
     const missing = missingGlobalTestsSparsePaths(source, 'synthetic.yml');
     expect(missing).toContain('synthetic.yml:vitest:/public/data/fuel-prices.json');
   });
 
   it('se un profilo typecheck esclude il target, --check lo segnala esplicitamente', () => {
-    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /scripts/\n            !/data/\n            !/packages/articles/content/\n      - run: npm run typecheck:gate\n`;
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /scripts/\n            !/data/\n            !/packages/articles/content/\n      - run: npm run typecheck:gate\n`;
     expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([
       'synthetic.yml:typecheck:/data/blog-articles-data.ts',
       'synthetic.yml:typecheck:/packages/articles/content/blog-articles-data.ts',
@@ -144,7 +144,7 @@ describe('profili di sparse-checkout', () => {
   });
 
   it('ignora un checkout secondario in una sottodirectory: tsc non gira li', () => {
-    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v5\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v7\n        with:\n          sparse-checkout: |\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n      - run: npm run typecheck:gate\n      - uses: actions/checkout@v7\n        with:\n          path: trusted-main\n          sparse-checkout: |\n            /scripts/ci/x.mjs\n`;
     expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([]);
   });
 

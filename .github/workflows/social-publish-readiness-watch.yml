@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -70,7 +70,7 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with: { node-version: 22, cache: npm }
 
       # No `npm ci`: the prober and its lib use only Node builtins + global

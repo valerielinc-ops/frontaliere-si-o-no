@@ -29,6 +29,7 @@ interface AssistedApplicationOrder {
   cvUploadedAt?: unknown;
   applicantName?: string | null;
   applicantEmail?: string | null;
+  amountTotal?: number | string | null;
 }
 
 type PageStatus = 'loading' | 'pending' | 'paid' | 'submitted' | 'auth_required' | 'error';

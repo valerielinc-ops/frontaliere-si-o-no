@@ -68,7 +68,7 @@ on:
   #    not only of the renderers, and new articles arrive ~15-25 times a day.
   #    This repo's copy of the corpus is refreshed by
   #    sync-articles-sitemaps.yml, which commits `packages/articles/content`
-  #    with a bare `actions/checkout@v5` and `git push origin` — i.e. with the
+  #    with a bare `actions/checkout@v7` and `git push origin` — i.e. with the
   #    GITHUB_TOKEN extraheader — so that commit triggers NOTHING and no
   #    `push:` filter on `packages/articles/content/**` could ever work
   #    (GitHub's anti-recursion rule, the same lesson
@@ -244,7 +244,7 @@ jobs:
     environment: shard-secrets-overflow
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # NOT hygiene. Without it actions/checkout leaves its GITHUB_TOKEN in
@@ -256,7 +256,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -299,7 +299,7 @@ jobs:
       # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
       # fallback for a refused deploy key.
       #
-      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4` and its
+      # Deliberately NO `npm ci`: the driver runs under `npx -y tsx@4.23.15` and its
       # whole transitive value-import closure (81 files, verified by scanning
       # it — the one `react` edge is reached through an `import type` that tsx
       # erases) touches no npm package at runtime. Same posture as
@@ -397,7 +397,7 @@ jobs:
           # Pinned to the same tsx major package.json declares ("tsx":
           # "^4.21.0"), like every other un-installed path in this repo, so a
           # future tsx major cannot silently change loader behaviour here.
-          npx -y tsx@4 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+          npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
 
       # The producer announces what it wrote — and only what it wrote.
       #

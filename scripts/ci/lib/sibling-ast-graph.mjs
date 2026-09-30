@@ -7,7 +7,9 @@
  * direct local imports so equal names from different modules do not look like
  * the same symbol.
  */
-import ts from 'typescript';
+// TypeScript 7 no longer exposes the compiler namespace through its default
+// ESM export. Namespace import remains compatible with the TypeScript 5 line.
+import * as ts from 'typescript';
 import path from 'node:path';
 
 const SOURCE_EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs'];

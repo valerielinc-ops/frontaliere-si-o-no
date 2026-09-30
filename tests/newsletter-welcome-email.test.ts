@@ -9,7 +9,7 @@
  * and the confirm handler's fire-and-forget integration.
  */
 import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest';
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { JOB_ALERT_CONSENT } from './helpers/jobAlertConsent';
 import { stubDefaultNewsletterTokenPolicy } from './helpers/ambientEmailEnv';
 
@@ -50,7 +50,7 @@ vi.mock('../functions/src/emailCascade.js', () => ({
 // two transactions observe an inconsistent interleaving: the loser's
 // tx.get() sees the winner's already-committed tx.set().
 function isDeleteSentinel(value: unknown): boolean {
-  return !!value && admin.firestore.FieldValue.delete().isEqual(value as never);
+  return !!value && FieldValue.delete().isEqual(value as never);
 }
 
 function applyWrite(existing: Record<string, unknown> | undefined, data: Record<string, unknown>, merge: boolean) {

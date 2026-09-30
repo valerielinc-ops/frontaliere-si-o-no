@@ -76,16 +76,16 @@ runs:
     # for the rest of the rationale).
     - name: Cache OmniRoute npm download cache
       if: env.OMNIROUTE_FALLBACK_GATE != '0'
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: ${{ env.OMNIROUTE_NPM_CACHE_DIR }}
-        key: omniroute-npm-cache-3.8.48-${{ runner.os }}
+        key: omniroute-npm-cache-3.8.50-${{ runner.os }}
 
-    # Version pinned to 3.8.48 — the version the previously-unpinned
+    # Version pinned to 3.8.50 — the version the previously-unpinned
     # `npm install -g omniroute` already resolves to today (verified live:
-    # `npm view omniroute version` / registry dist-tags.latest = 3.8.48, and
+    # `npm view omniroute version` / registry dist-tags.latest = 3.8.50, and
     # independently confirmed in the "Setup OmniRoute" step log of run
-    # 30286278791 — `marked@"^18.0.4" from omniroute@3.8.48`). This is a
+    # 30286278791 — `marked@"^18.0.4" from omniroute@3.8.50`). This is a
     # stability pin, not an upgrade or downgrade: without it, "latest"
     # moving to a new release would both silently change the installed CLI
     # AND perpetually invalidate the cache key above (a moving key never
@@ -96,7 +96,7 @@ runs:
     # internal version banner, not the npm package version; 16.2.10 does not
     # exist as a published npm version of this package (confirmed against
     # the live registry) and pinning to it would hard-fail every install.
-    # 3.8.48 is the correct, verified pin. --prefer-offline lets npm satisfy
+    # 3.8.50 is the correct, verified pin. --prefer-offline lets npm satisfy
     # the install from the cache above when warm, falling back to the
     # normal network install on any miss (first run, cache eviction, a
     # future version bump) — never a hard failure mode. --no-audit
@@ -105,7 +105,7 @@ runs:
     - name: Install OmniRoute
       if: env.OMNIROUTE_FALLBACK_GATE != '0'
       shell: bash
-      run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute@3.8.48 --prefer-offline --no-audit --no-fund
+      run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute@3.8.50 --prefer-offline --no-audit --no-fund
 
     - name: Start OmniRoute server
       if: env.OMNIROUTE_FALLBACK_GATE != '0'

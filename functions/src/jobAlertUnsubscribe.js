@@ -23,6 +23,7 @@
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { forensicsFields } from './lib/requestForensics.js';
 
@@ -163,7 +164,7 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  for (const doc of alertsSnap.docs) {
  batch.update(doc.ref, {
  active: false,
- unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: FieldValue.serverTimestamp(),
  unsubscribe_source: 'email_link_all',
  ...forensicFields,
  });
@@ -239,7 +240,7 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  // Deactivate the alert
  await alertRef.update({
  active: false,
- unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: FieldValue.serverTimestamp(),
  unsubscribe_source: 'email_link',
  ...forensicFields,
  });

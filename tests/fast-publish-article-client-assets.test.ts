@@ -14,7 +14,7 @@ const workflow = readFileSync(
  * companion first, and fails closed before an HTML shard can be pushed.
  */
 describe('fast-publish article workflow', () => {
-  const invocations = [...workflow.matchAll(/run:\s+npx -y tsx@4 scripts\/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
+  const invocations = [...workflow.matchAll(/run:\s+npx -y tsx@4.23.15 scripts\/publish-article-chunks\.mjs(?<args>[^\n]*)/g)];
 
   it('publishes the selected client registry before locale shards', () => {
     const publishIdx = workflow.indexOf('Publish client article chunks');

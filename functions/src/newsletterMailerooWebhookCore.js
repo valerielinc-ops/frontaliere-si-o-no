@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
@@ -141,7 +142,6 @@ export async function persistMailerooEvent(db, event) {
   const type = mapMailerooEvent(event.event_type);
   if (!type) return { skipped: true, reason: `unknown_event: ${event.event_type}` };
 
-  const FieldValue = admin.firestore.FieldValue;
   const refId = event.message_reference_id || event.message_id || '';
 
   // Maileroo 'opened'/'clicked' events carry NEITHER the recipient nor tags —
@@ -298,7 +298,6 @@ export async function persistMailerooEvent(db, event) {
 // ── Job alert event handler (mirrors newsletter pattern) ─────
 
 async function persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl }) {
-  const FieldValue = admin.firestore.FieldValue;
   const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
   const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };

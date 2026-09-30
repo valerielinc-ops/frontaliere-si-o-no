@@ -3177,7 +3177,7 @@ const App: React.FC = () => {
  </div>
  ) : activeTab === 'profile' ? (
  <div className="max-w-7xl mx-auto">
- <UserProfile currentInputs={inputs} currentResult={result} />
+ <UserProfile />
  </div>
  ) : activeTab === 'morning' ? (
  <div className="max-w-7xl mx-auto">
@@ -3255,7 +3255,7 @@ const App: React.FC = () => {
  <div ref={adminGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
  {!adminGoogleButtonReady && (
  <button
- onClick={googleSignIn}
+ onClick={() => { void googleSignIn(); }}
  className="w-full px-6 py-2 bg-accent hover:bg-accent-hover text-on-accent rounded-lg font-medium transition-colors"
  >
  Accedi con Google

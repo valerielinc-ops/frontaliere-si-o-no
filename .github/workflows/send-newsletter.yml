@@ -126,10 +126,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -137,7 +137,7 @@ jobs:
         id: download_jobalert_handoff
         if: github.event_name == 'workflow_run'
         continue-on-error: true
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: newsletter-handoff-${{ github.event.workflow_run.id }}
           run-id: ${{ github.event.workflow_run.id }}
@@ -256,7 +256,7 @@ jobs:
       - name: Restore assemble-jobs cache
         id: assemble_cache
         if: steps.assemble_cache_key.outputs.key != ''
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -312,7 +312,7 @@ jobs:
       - name: Save assemble-jobs cache
         if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
         continue-on-error: true
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}

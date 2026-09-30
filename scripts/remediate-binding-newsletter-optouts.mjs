@@ -18,6 +18,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { ADDRESS_SUPPRESSED_STATUSES } from '../services/emailSuppression.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -123,7 +124,7 @@ function printPlanSummary(total, plans) {
   if (plans.length > 20) console.log(`  … altri ${plans.length - 20} record`);
 }
 
-export async function applyPlans(db, plans, { fieldValue = admin.firestore.FieldValue } = {}) {
+export async function applyPlans(db, plans, { fieldValue = FieldValue } = {}) {
   let written = 0;
   for (const plan of plans) {
     const applied = await db.runTransaction(async (transaction) => {

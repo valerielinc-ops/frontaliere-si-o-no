@@ -56,7 +56,7 @@ jobs:
       issues: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -85,7 +85,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -96,7 +96,7 @@ jobs:
       # scripts/lib/ga4-service-account.mjs resolves it.
       - name: Install GA4 auth client
         run: |
-          npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@10 >/dev/null
+          npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@11.1.0 >/dev/null
           ln -s "$RUNNER_TEMP/ga4-deps/node_modules" node_modules
 
       - name: Write Service Account credentials

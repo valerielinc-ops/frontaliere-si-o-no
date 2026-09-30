@@ -340,7 +340,7 @@ export function useNavigationState(): NavigationState {
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
  // Auto-scroll active sub-tab chip into view on mobile (YouTube/Spotify peek pattern)
- const activeSubTab = activeTab === 'calcolatore' ? calcolatoreSubTab
+ const activeSubTab = activeTab === 'calculator' ? calcolatoreSubTab
  : activeTab === 'confronti' ? confrontiSubTab
  : activeTab === 'fisco' ? fiscoSubTab
  : activeTab === 'guida' ? guidaSubTab

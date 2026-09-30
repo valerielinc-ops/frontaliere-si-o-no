@@ -54,6 +54,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { verifyCaller, getStripe, db } from './stripePublisherCore.js';
 
@@ -174,7 +175,7 @@ export async function handleCreateReaderCheckout(req) {
     });
     customerId = customer.id;
     await readerRef.set(
-      { stripeCustomerId: customerId, updatedAt: admin.firestore.FieldValue.serverTimestamp() },
+      { stripeCustomerId: customerId, updatedAt: FieldValue.serverTimestamp() },
       { merge: true },
     );
   }
@@ -196,7 +197,7 @@ export async function handleCreateReaderCheckout(req) {
   await readerRef.set(
     {
       stripeCheckoutSessionId: session.id,
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     },
     { merge: true },
   );
@@ -308,7 +309,7 @@ export async function handleClaimReaderCheckout(req) {
     await db().runTransaction(async (tx) => {
       const claimSnap = await tx.get(claimRef);
       if (claimSnap.exists) throw new SessionAlreadyClaimedError();
-      tx.set(claimRef, { uid, claimedAt: admin.firestore.FieldValue.serverTimestamp() });
+      tx.set(claimRef, { uid, claimedAt: FieldValue.serverTimestamp() });
     });
   } catch (err) {
     if (err instanceof SessionAlreadyClaimedError) {

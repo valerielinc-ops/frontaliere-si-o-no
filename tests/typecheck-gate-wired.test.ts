@@ -131,7 +131,7 @@ describe('typecheck gate wiring (#5540)', () => {
     // (nessun node_modules), che è un rosso ma non quello che il gate deve dire.
     const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
     const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
-    const checkoutAt = vitestBody.indexOf('uses: actions/checkout@v5');
+    const checkoutAt = vitestBody.indexOf('uses: actions/checkout@v7');
     const setupAt = vitestBody.indexOf('uses: ./.github/actions/ci-npm-setup');
     const gateAt = vitestBody.search(GATE_RUN_RE);
     expect(checkoutAt, 'nessun checkout nel job fuso').toBeGreaterThan(-1);

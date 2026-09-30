@@ -1,4 +1,4 @@
-import { sha256 } from '@noble/hashes/sha256';
+import { sha256 } from '@noble/hashes/sha2.js';
 
 export const GENEVA_DUTY_RELEASE_VERSION = 1;
 export const GENEVA_DUTY_RELEASE_TIMEZONE = 'Europe/Zurich';

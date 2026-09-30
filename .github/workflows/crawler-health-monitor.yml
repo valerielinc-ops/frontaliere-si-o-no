@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout main
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: main
           # Need full history so rebase-on-push can replay against latest main.
@@ -72,9 +72,9 @@ jobs:
         timeout-minutes: 7
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '22'
 
       # No `npm ci` — the script uses only the Node stdlib.
       # If a future version needs deps, switch to `npm ci --omit=dev`.

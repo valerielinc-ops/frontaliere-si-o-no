@@ -143,7 +143,7 @@ jobs:
           echo "publish job budget starts at ${job_started_at}; hard deadline ${job_deadline}"
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -171,13 +171,13 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -203,7 +203,7 @@ jobs:
       # the build's artifact and re-upload it here under the same name. This is a
       # download+upload of one tarball, not a rebuild.
       - name: Download github-pages artifact from the build run
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: github-pages
           path: pages-artifact
@@ -573,7 +573,7 @@ jobs:
       actions: read
     steps:
       - name: Checkout failure reporter sources
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           ref: ${{ github.sha }}
@@ -589,7 +589,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

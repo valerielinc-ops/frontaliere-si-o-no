@@ -27,6 +27,7 @@
 
 import { OWNER_EMAIL } from './lib/canaryAd.mjs';
 import { slugifyPublisher, truncatePublisherSlug } from './lib/publisherJobProjection.mjs';
+import { FieldValue } from 'firebase-admin/firestore';
 
 const APPLY = process.argv.includes('--apply');
 const REMOVE = process.argv.includes('--remove');
@@ -116,7 +117,7 @@ async function main() {
     return;
   }
 
-  const now = admin.firestore.FieldValue.serverTimestamp();
+  const now = FieldValue.serverTimestamp();
   const adDoc = {
     publisherUid: ownerUid,
     tier: 'sponsored',

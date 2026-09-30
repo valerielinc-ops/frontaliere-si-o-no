@@ -105,7 +105,7 @@
 // is precisely why it is now shared (AGENTS.md #6).
 //
 // CLI (no npm ci in this job — see fast-publish-article.yml's own comment;
-// esbuild is invoked via `npx -y` on demand, exactly like tsx@4 already is):
+// esbuild is invoked via `npx -y` on demand, exactly like tsx@4.23.15 already is):
 //   npx -y tsx scripts/publish-article-chunks.mjs [--dry-run]
 //   npx -y tsx scripts/publish-article-chunks.mjs --section frontaliere --strict --no-ticker
 // By default this (re)publishes BOTH registries — cheap enough to PUT
@@ -133,9 +133,9 @@ import { purgeBodiesForUrls } from './lib/cf-purge-variants.mjs';
 
 export const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
-// Pinned to package.json's devDependencies "esbuild": "^0.25.12" — same
-// determinism rationale as publish-article-fast.mjs pinning `tsx@4`.
-const ESBUILD_VERSION = '0.25.12';
+// Pinned to package.json's devDependencies "esbuild": "^0.28.2" — same
+// determinism rationale as publish-article-fast.mjs pinning `tsx@4.23.15`.
+const ESBUILD_VERSION = '0.28.2';
 
 /**
  * The two client-loaded article registries this script keeps CDN-fresh.

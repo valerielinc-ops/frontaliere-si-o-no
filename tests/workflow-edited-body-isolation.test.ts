@@ -9,7 +9,7 @@ const readWorkflow = (name: string) => YAML.parse(readFileSync(new URL(`../.gith
 const workflow = readWorkflow('tests.yml');
 const job = workflow.jobs.vitest;
 const recovery = readWorkflow('retry-code-check-after-body-edit.yml');
-const recoveryScriptStep = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/github-script@v8') as { with: Record<string, string> };
+const recoveryScriptStep = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/github-script@v9') as { with: Record<string, string> };
 const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
@@ -199,7 +199,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
   it('rejects the current PR body before checkout and guards independent steps after failure', () => {
     const first = job.steps[0];
     expect(first.id).toBe('body_contract');
-    expect(first.uses).toBe('actions/github-script@v8');
+    expect(first.uses).toBe('actions/github-script@v9');
     expect(first.with.script).toContain('github.rest.pulls.get');
     expect(first.with.script).toContain('currentPr.body');
     expect(job.steps.findIndex((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@'))).toBeGreaterThan(0);
@@ -306,7 +306,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(recovery.jobs.recover.if).toContain("github.event_name == 'workflow_run'");
     expect(recovery.jobs.recover.if).toContain('github.event.changes.body != null');
     expect(recovery.jobs.recover.steps).toHaveLength(4);
-    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v5') as { with?: Record<string, string | boolean> } | undefined;
+    const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v7') as { with?: Record<string, string | boolean> } | undefined;
     expect(trustedCheckout?.with?.ref).toBe('main');
     expect(trustedCheckout?.with?.path).toBe('.trusted-main');
     expect(trustedCheckout?.with?.['persist-credentials']).toBe(false);

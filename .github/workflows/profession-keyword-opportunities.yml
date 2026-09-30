@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           # Full history for the rebase-retry push loop (same rationale as
           # refresh-thin-promotions.yml: shallow clones break `git rebase
@@ -81,7 +81,7 @@ jobs:
         # rende diagnosticabile, non lo risolve.
         timeout-minutes: 9
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: 'npm'

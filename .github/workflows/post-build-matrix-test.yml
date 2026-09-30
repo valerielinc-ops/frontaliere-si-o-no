@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       # Review di #6150: questo job lancia `npm run build:ci` come MONOLITE
       # (nessun BUILD_LOCALE — il profilo di memoria peggiore) col tetto V8 a
@@ -63,7 +63,7 @@ jobs:
       - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
         run: bash scripts/ci/grow-build-swap.sh
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -128,7 +128,7 @@ jobs:
       matrix:
         shard: [1, 2, 3, 4]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -155,7 +155,7 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'
@@ -163,7 +163,7 @@ jobs:
       - run: npm ci
 
       - name: Download build output
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: build-output
 
@@ -172,7 +172,7 @@ jobs:
       - name: Cache Playwright browsers
         if: matrix.shard == 3
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -286,7 +286,7 @@ jobs:
     runs-on: ubuntu-latest
     if: always() && github.event.inputs.build_only != 'true'
     steps:
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           path: shard-timings/
           pattern: shard-*-timings

@@ -54,16 +54,16 @@ jobs:
       # directory, e PRIMO di tutti perché `actions/checkout` fa `git clean` sul
       # proprio path — alla radice, dopo, cancellerebbe `tooling/` e `build/`.
       - name: Checkout the composite action only (workspace root)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: .github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
       - name: Checkout the equivalence tooling (this branch)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           path: tooling
       - name: Checkout the BUILD commit (must match the live artifact)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.inputs.sha }}
           path: build
@@ -96,7 +96,7 @@ jobs:
       - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
         run: bash tooling/scripts/ci/grow-build-swap.sh
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install dependencies

@@ -13,8 +13,8 @@
  * Covers all 5 provider webhook cores (sibling-pattern-fix discipline,
  * AGENTS.md #6) plus the shared helper directly.
  */
-import admin from 'firebase-admin';
 import { describe, expect, it } from 'vitest';
+import { FieldValue } from 'firebase-admin/firestore';
 
 import { instantReactivationFields } from '../functions/src/lib/subscriberReactivation.js';
 import { persistMailgunEvent } from '../functions/src/newsletterMailgunWebhookCore.js';
@@ -99,7 +99,7 @@ function subscriberUpdateFor(db: ReturnType<typeof createFakeDb>, email: string)
 }
 
 function isDeleteSentinel(value: unknown): boolean {
-  return !!value && admin.firestore.FieldValue.delete().isEqual(value as any);
+  return !!value && FieldValue.delete().isEqual(value as any);
 }
 
 describe('instantReactivationFields (shared helper)', () => {

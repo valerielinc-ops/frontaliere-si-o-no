@@ -43,6 +43,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isStopReply, isAutoReplySubject, extractSenderEmail } from './lib/stop-reply-detect.mjs';
 import {
   resolveCompanyKeyByEmail,
@@ -210,7 +211,7 @@ async function run() {
       const adminMod = await import('firebase-admin');
       const admin = adminMod.default || adminMod;
       db = await getFirestoreDb();
-      serverTimestamp = admin.firestore.FieldValue.serverTimestamp();
+      serverTimestamp = FieldValue.serverTimestamp();
     }
   } catch (err) {
     console.warn(`↷ Firestore non disponibile (${err.message}) — suppression scritta solo nel send-log locale.`);

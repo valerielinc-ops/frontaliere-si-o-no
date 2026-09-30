@@ -12,6 +12,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
@@ -393,7 +394,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  isCycleSend,
  messageId,
  locale: emailLocale,
- stamp: admin.firestore.FieldValue.serverTimestamp(),
+ stamp: FieldValue.serverTimestamp(),
  // What THIS message named, in the same write as its counter.
  jobSnapshot: jobSend ? jobSend.snapshot : undefined,
  }),
@@ -408,7 +409,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  messageId,
  locale: emailLocale,
  occurredAt: nowIso,
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  }),
  );
 

@@ -46,6 +46,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { FieldValue } from 'firebase-admin/firestore';
 import {
   registerArticleFiles,
   checkArticleIdExists,
@@ -106,7 +107,7 @@ async function initDb() {
       projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
     });
   }
-  return { db: admin.firestore(), FieldValue: admin.firestore.FieldValue };
+  return { db: admin.firestore(), FieldValue: FieldValue };
 }
 
 /** Build the `data` object create-article.mjs's exported functions expect,

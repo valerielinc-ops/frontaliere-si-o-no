@@ -80,7 +80,7 @@ jobs:
       # test is deliberately the newer one. Dispatch this workflow from the
       # branch you want to test (the ref selector in the Actions UI).
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -125,7 +125,7 @@ jobs:
           df -h /
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -138,7 +138,7 @@ jobs:
       # it would trade a verified-identical environment for ~20 s.
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -150,7 +150,7 @@ jobs:
       # Cross-run read of the BUILD run's artifact, keyed on `deploy_run_id`
       # + the job token (needs `actions: read`, declared above).
       - name: Download GitHub Pages artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: github-pages
           path: /tmp/github-pages-artifact

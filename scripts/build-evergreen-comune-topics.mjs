@@ -42,7 +42,7 @@ function computeTopics() {
   const tmp = path.join(ROOT, `.evergreen-topics-${process.pid}.mts`);
   fs.writeFileSync(tmp, LOADER);
   try {
-    const raw = execFileSync('npx', ['-y', 'tsx@4', tmp], {
+    const raw = execFileSync('npx', ['-y', 'tsx@4.23.15', tmp], {
       cwd: ROOT,
       encoding: 'utf-8',
       maxBuffer: 32 * 1024 * 1024,

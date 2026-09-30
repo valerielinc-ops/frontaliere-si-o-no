@@ -14,6 +14,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
@@ -147,7 +148,7 @@ export async function handleForwardApplication(appData, appId) {
   if (failed.length > 0) return { ok: false, error: `send_failed:${failed[0].error || 'unknown'}` };
 
   await db().collection('applications').doc(appId).set(
-    { forwardedAt: admin.firestore.FieldValue.serverTimestamp() },
+    { forwardedAt: FieldValue.serverTimestamp() },
     { merge: true },
   );
   return { ok: true, forwarded: true };
@@ -234,7 +235,7 @@ export async function handleGetApplicationCvUrl(req) {
  * @param {number} [nowMs]  injectable for tests
  */
 export async function purgeOldApplications(retentionDays = RETENTION_DAYS, nowMs = Date.now()) {
-  const cutoff = admin.firestore.Timestamp.fromMillis(nowMs - retentionDays * 86400000);
+  const cutoff = Timestamp.fromMillis(nowMs - retentionDays * 86400000);
   const snap = await db().collection('applications').where('createdAt', '<', cutoff).limit(500).get();
   if (snap.empty) return 0;
   const batch = db().batch();

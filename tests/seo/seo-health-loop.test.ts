@@ -162,7 +162,7 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain('tests/search-console-compat.test.ts');
     expect(WORKFLOW_SOURCE).toContain('--in-place-resolver-cmd');
     expect(WORKFLOW_SOURCE).not.toContain("--in-place-resolver-cmd 'node scripts/lib/resolve-404-compat-conflict.mjs && git add -A'");
-    expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v6');
+    expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v7');
     expect(WORKFLOW_SOURCE).toContain('if-no-files-found: error');
     expect(WORKFLOW_SOURCE).toContain('always() && inputs.dry_run != true && (steps.health.outcome');
     expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');

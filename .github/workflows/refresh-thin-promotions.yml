@@ -61,7 +61,7 @@ jobs:
     # cadence instead of being cut off partway through.
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           # fetch-depth: 0 (full history) is required for the rebase-retry
           # loop in the "Commit if changed" step (added #794, closes #799).
@@ -118,9 +118,9 @@ jobs:
         timeout-minutes: 7
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci --no-audit --no-fund

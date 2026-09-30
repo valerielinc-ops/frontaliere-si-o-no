@@ -16,6 +16,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
@@ -240,7 +241,7 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
           throw new WelcomeNotEligibleError(eligible.skipped);
         }
         tx.set(subscriberRef, {
-          welcome_sent_at: admin.firestore.FieldValue.serverTimestamp(),
+          welcome_sent_at: FieldValue.serverTimestamp(),
           welcome_trigger: trigger || null,
         }, { merge: true });
       });
@@ -378,8 +379,8 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     if (!isPreview) {
       try {
         await subscriberRef.set({
-          welcome_sent_at: admin.firestore.FieldValue.delete(),
-          welcome_trigger: admin.firestore.FieldValue.delete(),
+          welcome_sent_at: FieldValue.delete(),
+          welcome_trigger: FieldValue.delete(),
         }, { merge: true });
       } catch (rollbackErr) {
         console.error('[newsletterWelcomeEmail] Rollback of claim failed:', rollbackErr?.message || rollbackErr);
@@ -397,8 +398,8 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
       await subscriberRef.set({
         welcome_message_id: messageId,
         welcome_segment: ctx.segment,
-        updated_at: admin.firestore.FieldValue.serverTimestamp(),
-        drip_started_at: admin.firestore.FieldValue.serverTimestamp(),
+        updated_at: FieldValue.serverTimestamp(),
+        drip_started_at: FieldValue.serverTimestamp(),
         drip_last_step: 0,
         drip_segment: dripSegment,
       }, { merge: true });
@@ -417,7 +418,7 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
         message_id: messageId,
         locale: resolvedLocale,
         trigger: trigger || null,
-        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+        timestamp: FieldValue.serverTimestamp(),
         occurred_at: new Date().toISOString(),
       });
     } catch (eventErr) {

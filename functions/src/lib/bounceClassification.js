@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
 
 /**
@@ -84,7 +84,6 @@ export function classifyBounceSeverity({ provider, rawEvent, eventData }) {
  * @param {{ severity: 'hard'|'soft', reason: string }} args
  */
 export function bounceUpdateFields({ severity, reason }) {
-  const FieldValue = admin.firestore.FieldValue;
   if (severity === 'hard') {
     return {
       status: 'bounced',
@@ -129,7 +128,6 @@ export function softBounceRecoveryFields() {
  * @returns {Promise<boolean>} true if this call escalated the subscriber
  */
 export async function maybeEscalateSoftBounce(subscriberRef, reason) {
-  const FieldValue = admin.firestore.FieldValue;
   return subscriberRef.firestore.runTransaction(async (tx) => {
     const snap = await tx.get(subscriberRef);
     const data = snap.data() || {};

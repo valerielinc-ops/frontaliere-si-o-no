@@ -97,7 +97,7 @@ function code(src: string): string {
 describe('tests.yml: checkout treeless', () => {
   it('i checkout con la storia (vitest e post-review) sono treeless', () => {
     for (const name of ['vitest', 'post-review']) {
-      const checkout = jobs[name].steps.find((s) => s.uses === 'actions/checkout@v5' && !s.with?.path);
+      const checkout = jobs[name].steps.find((s) => s.uses === 'actions/checkout@v7' && !s.with?.path);
       expect(checkout?.with?.['fetch-depth'], name).toBe(0);
       expect(checkout?.with?.filter, name).toBe('tree:0');
     }

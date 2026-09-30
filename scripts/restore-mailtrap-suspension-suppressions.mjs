@@ -82,6 +82,7 @@
  *   --limit <n> cap the number of docs restored in one run (default: no cap)
  */
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 // DECAYABLE_STATUSES is the single declaration of "which statuses are a MACHINE
 // inference about the mailbox" — the only ones any recovery path may propose
 // undoing. Driving the Firestore query off it (rather than a literal array
@@ -237,20 +238,20 @@ async function main() {
         // `recoveryFields()` writes the same field for the same reason.
         soft_bounce_count: 0,
         previous_suppression_status: previousStatus,
-        suppressed_at: admin.firestore.FieldValue.delete(),
-        restored_at: admin.firestore.FieldValue.serverTimestamp(),
+        suppressed_at: FieldValue.delete(),
+        restored_at: FieldValue.serverTimestamp(),
         restored_reason: 'mailtrap_suspension_mismapped',
-        updated_at: admin.firestore.FieldValue.serverTimestamp(),
+        updated_at: FieldValue.serverTimestamp(),
       };
       // Same audit vocabulary as recoveryFields(): which stamp applies is
       // decided by the status we restored FROM, so a later reader can still
       // tell a decayed bounce from a decayed provider suppression.
       if (previousStatus === 'bounced') {
         fields.previous_bounce_reason = previousReason;
-        fields.bounce_reactivated_at = admin.firestore.FieldValue.serverTimestamp();
+        fields.bounce_reactivated_at = FieldValue.serverTimestamp();
       } else {
-        fields.reactivated_at = admin.firestore.FieldValue.serverTimestamp();
-        fields.mailtrap_suppression_resolved_at = admin.firestore.FieldValue.serverTimestamp();
+        fields.reactivated_at = FieldValue.serverTimestamp();
+        fields.mailtrap_suppression_resolved_at = FieldValue.serverTimestamp();
       }
       batch.set(ref, fields, { merge: true });
     }
