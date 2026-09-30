@@ -18,7 +18,7 @@ dns.setDefaultResultOrder('ipv4first');
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -34,6 +34,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -541,7 +542,19 @@ async function main() {
   console.log('═══════════════════════════════════════');
   console.log('Phase 1: Fetch Atom feed');
   console.log('═══════════════════════════════════════');
-  const entries = await fetchFeed();
+  let entries;
+  try {
+    entries = await fetchFeed();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ ${COMPANY_NAME}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    const stored = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+    await rewriteStoredJobsWithoutThinSource(stored);
+    return;
+  }
 
   if (entries.length === 0) {
     console.log('ℹ️ No jobs found in feed — cleaning stored thin-source rows only.');

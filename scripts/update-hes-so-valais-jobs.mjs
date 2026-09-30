@@ -38,6 +38,7 @@ import {
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -58,6 +59,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -874,6 +876,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: HESSO_KEY,
+    companyLabel: HESSO_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(HESSO_KEY, jobs, {
+      isTargetJob: isHessoJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
@@ -896,7 +912,10 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No HES-SO jobs discovered.');
     console.log('   The website may have changed structure or be temporarily unavailable.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(HESSO_KEY, DATA_JOBS).filter(isHessoJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
