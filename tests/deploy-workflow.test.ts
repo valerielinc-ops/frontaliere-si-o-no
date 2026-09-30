@@ -125,12 +125,18 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     ).toContain('spawn_capped()');
   });
 
-  it('runs the strict JobPosting completeness validator as a blocking full-dist gate', () => {
+  it('runs the strict JobPosting completeness validator as a blocking serialized full-dist gate', () => {
     const run = POSTBUILD_VALIDATIONS_STEP?.run as string;
     expect(PACKAGE_JSON.scripts['validate:jobposting-schema']).toBe('node scripts/validate-jobposting-schema.mjs');
-    expect(run).toContain(
-      'spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema',
-    );
+    const jobPostingInvocation = 'spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema';
+    const poolStart = run.indexOf('# LIGHT POOL');
+    const poolEnd = run.indexOf('wait "$DIST_MULTI_PID" || true');
+    const jobPostingIndex = run.indexOf(jobPostingInvocation);
+    expect(poolStart).toBeGreaterThanOrEqual(0);
+    expect(poolEnd).toBeGreaterThan(poolStart);
+    expect(jobPostingIndex).toBeGreaterThan(poolEnd);
+    expect(run.slice(poolStart, poolEnd)).not.toContain(jobPostingInvocation);
+    expect(run.slice(jobPostingIndex)).toContain(`${jobPostingInvocation}\nwait`);
     expect(POSTBUILD_VALIDATIONS_STEP?.['continue-on-error']).not.toBe(true);
     expect(run).toContain('echo "$name $logfile" >> /tmp/post-build-failures.txt');
     expect(run).toContain('[ $FAIL -eq 0 ] || exit 1');

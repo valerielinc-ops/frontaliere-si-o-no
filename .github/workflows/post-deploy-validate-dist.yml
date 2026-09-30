@@ -865,10 +865,6 @@ jobs:
             npm run validate:keyword-landing-coverage
           spawn_capped validate:jobs-quality         /tmp/v2.log \
             npm run validate:jobs-quality
-          # Strict JobPosting completeness is deliberately unsampled: this
-          # validator walks every rehydrated dist/ HTML file and its non-zero
-          # result is propagated by spawn_capped into the blocking gate list.
-          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema
           spawn_capped validate:sitemap-links        /tmp/v3.log \
             npm run validate:sitemap-links
           # Was this step's tail at 99.6-99.7 % of its wall (see the table in
@@ -1289,6 +1285,15 @@ jobs:
           # captured per-variant rc into /tmp/post-build-failures.txt
           # inside the subshell, so the FAIL aggregator below sees them.
           wait "$DIST_MULTI_PID" || true
+          wait
+
+          # FULL-DIST SERIAL PHASE — strict JobPosting completeness is
+          # deliberately unsampled and walks every rehydrated dist/ HTML file.
+          # It must not overlap the light pool's other walkers: keeping the
+          # same spawn_capped helper here preserves the deploy-ref skew guard,
+          # timing row, per-gate log, and blocking failure propagation while
+          # this invocation runs after every pooled job has completed.
+          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema
           wait
 
           # dist:quality-tests's own rate line, unconditionally (issue
