@@ -161,6 +161,10 @@ function runExhaustedTierSkipScenario(
     const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
     const standalone = source
       .replace(
+        "import { getServiceAccountAccessToken } from './google-service-account-token.mjs';",
+        "const getServiceAccountAccessToken = async () => '';",
+      )
+      .replace(
         "import { translateWithMyMemory } from './mymemory-translate.mjs';",
         ${JSON.stringify(myMemoryStub)},
       )
@@ -260,6 +264,10 @@ function runRetryOutcomeResetScenario() {
     );
     if (injected === source) throw new Error('freeTranslate signature not found');
     const standalone = injected
+      .replace(
+        "import { getServiceAccountAccessToken } from './google-service-account-token.mjs';",
+        "const getServiceAccountAccessToken = async () => '';",
+      )
       .replace(
         "import { translateWithMyMemory } from './mymemory-translate.mjs';",
         "const translateWithMyMemory = async () => '';",
