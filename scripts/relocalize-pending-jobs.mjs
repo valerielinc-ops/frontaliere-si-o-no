@@ -48,6 +48,7 @@ import {
   addPreviousSlugForLocale,
   captureLostSlugs,
   DEFAULT_PREV_SLUG_CAP,
+  localeTextCoverage,
   normalizeForLengthComparison,
   normalizeCompanyKey,
 } from './lib/dedicated-crawler-common.mjs';
@@ -490,6 +491,20 @@ function writeCompanySkipState(state) {
 }
 
 /**
+ * Return true when at least one target locale is missing a usable title or
+ * description. A give-up suppression only applies to semantic mismatch after
+ * all four text pairs exist; it must never hide missing locale coverage.
+ */
+export function hasMissingTargetLocaleCoverage(job) {
+  const titles = job?.titleByLocale || {};
+  const descriptions = job?.descriptionByLocale || {};
+  return (
+    localeTextCoverage(titles, MIN_TITLE_CHARS) < LOCALES.length ||
+    localeTextCoverage(descriptions, MIN_DESC_CHARS) < LOCALES.length
+  );
+}
+
+/**
  * Check if a job needs translation work.
  * Returns true if the job has needsRetranslation flag or incomplete locale coverage.
  */
@@ -502,6 +517,7 @@ export function needsTranslation(job) {
   // in the per-crawler context — the give-up counter is NOT advanced and the job
   // is not immediately re-suppressed.
   if (job.needsRetranslation) return true;
+  if (hasMissingTargetLocaleCoverage(job)) return true;
   // Gave up on this job after MAX_RETRANSLATION_ATTEMPTS failed runs. Stay out of
   // the work pool unless the source content changed since we suppressed it
   // (re-crawl brings fresh text worth a new attempt).

@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { isIncomplete, reconcileRetranslationState } from '../scripts/relocalize-pending-jobs.mjs';
+import {
+  hasMissingTargetLocaleCoverage,
+  isIncomplete,
+  needsTranslation,
+  reconcileRetranslationState,
+} from '../scripts/relocalize-pending-jobs.mjs';
 
 const MIN_DESC = 'x'.repeat(120);
 
@@ -70,6 +75,21 @@ describe('isIncomplete – per-slot title verdict (S3: no cross-locale escape ha
       },
     });
     expect(isIncomplete(job)).toBe(false);
+  });
+
+  it('does not let give-up suppression hide missing target locale coverage', () => {
+    const job = makeJob({
+      localeMismatchSuppressed: true,
+      descriptionByLocale: {
+        it: MIN_DESC,
+        en: MIN_DESC + ' en',
+        de: MIN_DESC + ' de',
+        fr: '',
+      },
+    });
+
+    expect(hasMissingTargetLocaleCoverage(job)).toBe(true);
+    expect(needsTranslation(job)).toBe(true);
   });
 
   it('returns true when all non-IT locales have the same title as source (genuinely untranslated)', () => {
