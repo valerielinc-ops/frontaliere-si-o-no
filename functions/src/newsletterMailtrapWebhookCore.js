@@ -1,5 +1,4 @@
-import admin from 'firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -338,7 +337,7 @@ export async function handleMailtrapWebhookRequest({ body, query, webhookSecret 
  return { ok: true, ping: true };
  }
 
- const db = admin.firestore();
+ const db = getFirestore();
  const results = [];
 
  for (const event of events) {

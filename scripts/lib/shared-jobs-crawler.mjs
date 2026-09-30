@@ -5817,12 +5817,12 @@ async function loadCrawlerConfigFromFirestore() {
   const enabled = process.env.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1';
   if (!enabled) return null;
   try {
-    const adminMod = await import('firebase-admin');
-    const admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
+      initializeApp({ credential: applicationDefault() });
     }
-    const fsAdmin = admin.firestore();
+    const fsAdmin = getFirestore();
     const snap = await fsAdmin.doc(CRAWLER_FIRESTORE_DOC).get();
     if (!snap.exists) return null;
     const data = snap.data();

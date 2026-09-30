@@ -8,7 +8,8 @@
  * when the bytes do not match — see assistedApplicationAdminCore.js.
  */
 
-import admin from 'firebase-admin';
+import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 const STORAGE_BUCKET =
@@ -44,14 +45,14 @@ export function isAssistedApplicationCvKey(orderId, key) {
  * Verdicts: `ok` (bytes match a CV format), `type_mismatch`, `missing`
  * (object not found), `invalid_key` (reference outside this order's folder).
  */
-export async function checkAssistedApplicationCv({ orderId, key, db = admin.firestore(), bucket = null } = {}) {
+export async function checkAssistedApplicationCv({ orderId, key, db = getFirestore(), bucket = null } = {}) {
   const checkedAt = new Date();
   let verdict;
   let detectedType = null;
   if (!isAssistedApplicationCvKey(orderId, key)) {
     verdict = 'invalid_key';
   } else {
-    const file = (bucket || admin.storage().bucket(STORAGE_BUCKET)).file(key);
+    const file = (bucket || getStorage().bucket(STORAGE_BUCKET)).file(key);
     try {
       const [head] = await file.download({ start: 0, end: 7 });
       detectedType = detectCvFileType(head);

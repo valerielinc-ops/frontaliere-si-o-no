@@ -18,7 +18,7 @@
  * WHY A FUTURE-DATED CODE, AND WHY THAT IS THE ONLY SAFE CHOICE
  *
  * An authentic, currently-valid code would be ACCEPTED — and acceptance is not
- * read-only: `exchange_auth_code` calls `admin.auth().createUser()` for an
+ * read-only: `exchange_auth_code` calls the Admin Auth `createUser()` method for an
  * address it has never seen, so a daily probe would mint a fake production Auth
  * user every day. A code stamped 30 days in the future is authentic (so it
  * exercises the full signature path, the Firestore read and the policy read)
