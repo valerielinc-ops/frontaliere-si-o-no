@@ -43,7 +43,23 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--base main');
     expect(helper).toContain('HEAD:${BRANCH}');
     expect(helper).toContain('--force-with-lease');
+    expect(helper).toContain('PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"');
+    expect(helper).toContain('git ls-remote "$PUSH_URL"');
+    expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it.each([
+    '.github/workflows/cf-5xx-monitor.yml',
+    '.github/workflows/cron-dispatch-canary.yml',
+    '.github/workflows/telegram-channel-broadcast.yml',
+    '.github/workflows/update-exchange-history.yml',
+    '.github/workflows/update-weather.yml',
+  ])('%s writes Markdown bodies with a literal heredoc', (workflowPath) => {
+    const workflow = read(workflowPath);
+    expect(workflow).toContain("cat <<'EOF'");
+    expect(workflow).toContain('run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"');
+    expect(workflow).not.toContain('cat > "$body" <<EOF');
   });
 
   it('preserves pending append-only Telegram history before publishing the stable branch', () => {
