@@ -49,6 +49,16 @@ export interface AtsReportView {
 export interface AssistedApplicationAutomationView {
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
+  /** Follow-ups of an e-mail application (day 7 and 14). */
+  followup?: {
+    state: 'scheduled' | 'awaiting_candidate' | 'sending' | 'done' | 'stopped' | null;
+    sent: number;
+    dueAt: number | null;
+    stopReason: string | null;
+    pending: { n: number; body: string; deadlineAt: number | null } | null;
+  } | null;
+  /** Interview prep pack sent on an interview invitation. */
+  interviewPrep?: { status: string; sentAt: number | null; questions: number; stories: number } | null;
   /** Portal accounts the runner created on the order's alias (no password: automationRevealAccount). */
   accounts?: Array<{ host: string; email: string; createdAt: number | null; verifiedAt: number | null; lastSignInAt: number | null; revealedAt: number | null }>;
   flow: {
