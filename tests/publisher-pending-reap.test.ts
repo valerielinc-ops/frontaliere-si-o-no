@@ -65,6 +65,12 @@ vi.mock('firebase-admin', () => {
   );
   return { default: { firestore } };
 });
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: {
+    serverTimestamp: () => '__server_ts__',
+    delete: () => '__delete__',
+  },
+}));
 
 async function load() {
   return import('../functions/src/publisherPendingReapCore.js');

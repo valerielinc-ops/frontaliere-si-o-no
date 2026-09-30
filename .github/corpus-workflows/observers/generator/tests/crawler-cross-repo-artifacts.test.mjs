@@ -262,7 +262,7 @@ test('il retry e limitato al checkout sparse pre-logica, con backoff', () => {
 
   for (const artifact of CONTRACT.artifacts) {
     const text = readFileSync(path.join(WORKFLOWS, artifact.file), 'utf8');
-    assert.equal(occurrences(text, /^\s+uses: actions\/checkout@v5$/gm), 2, artifact.file);
+    assert.equal(occurrences(text, /^\s+uses: actions\/checkout@v7$/gm), 2, artifact.file);
     assert.equal(occurrences(text, /^\s+id: site_checkout_primary$/gm), 1, artifact.file);
     assert.equal(occurrences(text, /^\s+id: site_checkout_retry$/gm), 1, artifact.file);
     assert.equal(occurrences(text, /^\s+id: checkout$/gm), 1, artifact.file);

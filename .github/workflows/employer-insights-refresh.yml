@@ -29,7 +29,7 @@ jobs:
       INSIGHTS_SOURCE: ${{ inputs.source || 'ga4' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # The builder needs the complete job identity catalog. Keep the
@@ -66,7 +66,7 @@ jobs:
           echo "Selected employer-insights source: $INSIGHTS_SOURCE"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm

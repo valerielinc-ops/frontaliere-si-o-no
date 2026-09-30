@@ -126,6 +126,9 @@ vi.mock('firebase-admin', () => {
     },
   };
 });
+vi.mock('firebase-admin/firestore', () => ({
+  FieldValue: { serverTimestamp: () => '__ts__' },
+}));
 
 const getRemoteConfigValueMock = vi.fn(async (key: string) => {
   if (key === 'STRIPE_SECRET_KEY') return 'sk_test_fake';

@@ -108,9 +108,9 @@ jobs:
       # Uno sparse-checkout li renderebbe verdi su un corpus vuoto — il modo
       # più silenzioso di perdere il gate (docs/LOCAL-DEV.md, e il caso
       # `tests/noindex-builders.test.ts` che è rosso in worktree sparse).
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: 'npm'
@@ -131,7 +131,7 @@ jobs:
         # Identico a tests.yml e deploy.yml: cache content-addressable sotto
         # .cache/assemble-jobs, il fingerprint interno dello script garantisce
         # che la cascata restore-keys non possa riesumare un jobs.json stale.
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}

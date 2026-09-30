@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
@@ -45,7 +45,7 @@ jobs:
         timeout-minutes: 6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -65,7 +65,7 @@ jobs:
 
       - name: Install firebase-admin
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: npm install --no-save firebase-admin
+        run: npm install --no-save firebase-admin@14.5.0
 
       - name: Detect daily run
         id: schedule

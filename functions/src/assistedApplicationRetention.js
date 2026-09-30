@@ -8,6 +8,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
@@ -80,7 +81,7 @@ export async function purgeExpiredAssistedApplicationFiles(
   }
   const firestore = admin.firestore();
   const cutoffMillis = nowMs - retentionDays * 86400000;
-  const cutoff = admin.firestore.Timestamp.fromMillis(cutoffMillis);
+  const cutoff = Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
   const [submittedDocs, refundedDocs, uploadedDocs] = await Promise.all([
     candidateDocs(collection, 'submittedAt', cutoff),
@@ -133,8 +134,8 @@ export async function purgeExpiredAssistedApplicationFiles(
         cvStorageKey: null,
         cvUploadedAt: null,
         coverLetterStorageKey: null,
-        retentionPurgedAt: admin.firestore.FieldValue.serverTimestamp(),
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        retentionPurgedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
       purged += 1;
     } catch (error) {

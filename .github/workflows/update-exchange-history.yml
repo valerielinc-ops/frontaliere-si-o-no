@@ -26,7 +26,7 @@ jobs:
     timeout-minutes: 8
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
         # budget del job e questo muore `cancelled` — stato invisibile agli
         # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -36,7 +36,7 @@ jobs:
         # (default) e' un peggioramento misurato (+125% su tests.yml, #5164).
         timeout-minutes: 5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'npm'

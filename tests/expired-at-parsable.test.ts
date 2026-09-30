@@ -277,7 +277,7 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
         .filter((line) => !line.trim().startsWith('#'))
         .join('\n');
       const auditAt = source.indexOf('scripts/audit-expired-at-parsable.mjs');
-      expect(checkout).toContain('uses: actions/checkout@v5');
+      expect(checkout).toContain('uses: actions/checkout@v7');
       expect(checkoutConfig).not.toMatch(/sparse-checkout/);
       expect(checkoutConfig).not.toMatch(/filter\s*:/);
       expect(source).toContain('data/jobs/expired/by-crawler');

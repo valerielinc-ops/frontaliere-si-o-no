@@ -1,4 +1,4 @@
-import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 
 import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
 import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
@@ -195,7 +195,6 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
   if (!MACHINE_INFERRED_SUPPRESSIONS.has(status)) return {};
   if (isTerminalSuppression(status, bounceSeverity)) return {};
 
-  const FieldValue = admin.firestore.FieldValue;
   const fields = {
     status: 'active',
     isActive: true,

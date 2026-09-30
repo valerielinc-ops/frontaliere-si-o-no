@@ -51,7 +51,7 @@ describe('lint-gha-node-runtime', () => {
   it('exits 0 when every first-party action is on Node ≥ 24', () => {
     dir = setupWorkflowsDir({
       'ci.yml':
-        'jobs:\n  build:\n    steps:\n      - uses: actions/checkout@v5\n      - uses: actions/setup-node@v5\n      - uses: actions/upload-artifact@v7\n',
+        'jobs:\n  build:\n    steps:\n      - uses: actions/checkout@v7\n      - uses: actions/setup-node@v7\n      - uses: actions/upload-artifact@v7\n',
     });
     const r = run(dir);
     expect(r.status).toBe(0);
@@ -61,7 +61,7 @@ describe('lint-gha-node-runtime', () => {
   it('exits 1 when a first-party action is on a deprecated Node runtime', () => {
     dir = setupWorkflowsDir({
       'deploy.yml':
-        'jobs:\n  pages:\n    steps:\n      - uses: actions/checkout@v5\n      - uses: actions/deploy-pages@v4\n',
+        'jobs:\n  pages:\n    steps:\n      - uses: actions/checkout@v7\n      - uses: actions/deploy-pages@v4\n',
     });
     const r = run(dir);
     expect(r.status).toBe(1);
@@ -94,7 +94,7 @@ describe('lint-gha-node-runtime', () => {
   it('skips local composite action refs', () => {
     dir = setupWorkflowsDir({
       'ci.yml':
-        'jobs:\n  x:\n    steps:\n      - uses: ./.github/workflows/reusable.yml\n      - uses: actions/checkout@v5\n',
+        'jobs:\n  x:\n    steps:\n      - uses: ./.github/workflows/reusable.yml\n      - uses: actions/checkout@v7\n',
     });
     const r = run(dir);
     expect(r.status).toBe(0);

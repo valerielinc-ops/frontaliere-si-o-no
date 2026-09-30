@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
@@ -123,7 +124,6 @@ export async function persistMailjetEvent(db, eventData) {
  return persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData });
  }
 
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
  // Update subscriber-level fields (aligned with Resend/Mailgun handlers)
@@ -210,18 +210,18 @@ export async function persistMailjetEvent(db, eventData) {
  campaign_id: campaignId,
  message_id: messageId,
  provider: 'mailjet',
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
  };
 
- if (type === 'send') deliveryData.sent_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'delivered') deliveryData.delivered_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'open') deliveryData.opened_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'bounce') deliveryData.bounced_at = admin.firestore.FieldValue.serverTimestamp();
- if (type === 'complaint') deliveryData.complained_at = admin.firestore.FieldValue.serverTimestamp();
+ if (type === 'send') deliveryData.sent_at = FieldValue.serverTimestamp();
+ if (type === 'delivered') deliveryData.delivered_at = FieldValue.serverTimestamp();
+ if (type === 'open') deliveryData.opened_at = FieldValue.serverTimestamp();
+ if (type === 'bounce') deliveryData.bounced_at = FieldValue.serverTimestamp();
+ if (type === 'complaint') deliveryData.complained_at = FieldValue.serverTimestamp();
  if (type === 'click') {
- deliveryData.clicked_at = admin.firestore.FieldValue.serverTimestamp();
+ deliveryData.clicked_at = FieldValue.serverTimestamp();
  deliveryData.last_clicked_url = eventData.url || '';
- deliveryData.clicked_links = admin.firestore.FieldValue.increment(1);
+ deliveryData.clicked_links = FieldValue.increment(1);
  }
 
  const deliveryDocId = `${campaignId}_${email}`.replace(/[/\\]/g, '_').slice(0, 200);
@@ -252,7 +252,7 @@ export async function persistMailjetEvent(db, eventData) {
  // spam-specific
  source: eventData.source || null,
  },
- timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ timestamp: FieldValue.serverTimestamp(),
  occurred_at: timestamp,
  });
 
@@ -271,7 +271,6 @@ export async function persistMailjetEvent(db, eventData) {
 // ── Job alert event handler (mirrors newsletter pattern) ────
 
 async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData }) {
- const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };

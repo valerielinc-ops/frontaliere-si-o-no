@@ -44,7 +44,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -55,7 +55,7 @@ jobs:
             !/packages/articles/content/
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Start loop operational telemetry
@@ -88,7 +88,7 @@ jobs:
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L0 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L0 observation and decision
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: loop-l0-data-truth-${{ github.run_id }}
           path: ${{ runner.temp }}/loop-fleet-l0/

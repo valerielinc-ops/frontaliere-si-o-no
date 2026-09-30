@@ -187,6 +187,7 @@ interface EmailInputProps {
  className?: string;
  id?: string;
  name?: string;
+ autoComplete?: string;
  /** Accessible label for the input when no visible <label> is associated */
  ariaLabel?: string;
  /** Dark-on-dark theme (for compact newsletter on purple bg) */
@@ -201,6 +202,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  className = '',
  id,
  name = 'email',
+ autoComplete = 'email',
  ariaLabel,
  darkVariant = false,
 }) => {
@@ -330,7 +332,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  onBlur={handleBlur}
  onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
  placeholder={placeholder}
- autoComplete="email"
+ autoComplete={autoComplete}
  name={name}
  inputMode="email"
  required={required}

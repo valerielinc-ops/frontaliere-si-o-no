@@ -200,7 +200,7 @@ export const FeedbackSection: React.FC = () => {
  url: result.issue.url
  };
  setItems(prev => [newItem, ...prev]);
- Analytics.trackFeedback('submit', formData.type);
+ Analytics.trackFeedback('submit', formData.type === 'BUG' ? 'bug' : 'feature');
  setFormData({ title: '', description: '', type: 'BUG' });
  alert(t('feedback.submitSuccess'));
  } else {

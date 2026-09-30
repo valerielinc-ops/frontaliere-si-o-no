@@ -291,7 +291,7 @@ jobs:
 
       - name: Checkout trusted classifier from main
         continue-on-error: true
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # The classifier is executable JavaScript and must never come from
           # the untrusted PR tree. It still receives the PR HEAD as data below
@@ -614,7 +614,7 @@ jobs:
           printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
@@ -669,7 +669,7 @@ jobs:
           fi
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm

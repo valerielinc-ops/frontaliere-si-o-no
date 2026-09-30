@@ -69,7 +69,7 @@ jobs:
           printf 'present=true\nfingerprint=%s\n' "$fingerprint" >> "$GITHUB_OUTPUT"
 
       - name: Re-enable Codex review only after credential rotation
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           CODEX_AUTH_DIGEST: ${{ steps.auth.outputs.fingerprint }}
           CODEX_AUTH_PRESENT: ${{ steps.auth.outputs.present }}

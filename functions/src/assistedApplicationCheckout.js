@@ -8,6 +8,7 @@
  */
 
 import admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
 import {
@@ -183,8 +184,8 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
     stripeChargeId: null,
     stripeRefundId: null,
     retentionPurgedAt: null,
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    createdAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   };
 }
 
@@ -268,7 +269,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           if (existingRecord.payloadHash !== payloadHash) {
             transaction.set(requestRef, {
               payloadHash,
-              updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+              updatedAt: FieldValue.serverTimestamp(),
             }, { merge: true });
           }
           return;
@@ -286,7 +287,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           checkoutSessionStatus: 'creating',
           stripeCheckoutSessionId: null,
           checkoutUrl: null,
-          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+          updatedAt: FieldValue.serverTimestamp(),
         };
         transaction.set(requestRef, requestRecord, { merge: true });
         transaction.set(
@@ -307,8 +308,8 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         checkoutAttempt,
         stripeRequestKey,
         checkoutSessionStatus: 'creating',
-        createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        createdAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
       };
       transaction.set(requestRef, requestRecord);
       transaction.set(
@@ -374,7 +375,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     checkoutAttempt,
     stripeRequestKey,
     checkoutSessionStatus: 'open',
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   }, { merge: true });
   await requestRef.set({
     checkoutAttempt,
@@ -382,7 +383,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     stripeCheckoutSessionId: session.id,
     checkoutUrl: session.url,
     checkoutSessionStatus: 'open',
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   }, { merge: true });
 
   return {

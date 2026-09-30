@@ -25,7 +25,7 @@ const indexOf = (pred: (s: any) => boolean) => steps.findIndex(pred);
 
 const startIdx = indexOf((s) => s.id === 'head_watch');
 const stopIdx = indexOf((s) => s.name === 'Stop superseded-head watcher');
-const checkoutIdx = indexOf((s) => s.uses === 'actions/checkout@v5' && !s.with?.path);
+const checkoutIdx = indexOf((s) => s.uses === 'actions/checkout@v7' && !s.with?.path);
 const resolveIdx = indexOf((s) => s.id === 'resolve');
 
 describe('tests.yml: self-cancel della run superata', () => {

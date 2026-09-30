@@ -15,7 +15,7 @@ const DEFINITION = YAML.parse(WORKFLOW) as {
 };
 const RECOVERY_SCRIPT = Object.values(DEFINITION.jobs ?? {})
   .flatMap((job) => job.steps ?? [])
-  .find((step) => step.uses === 'actions/github-script@v8')?.with?.script ?? '';
+  .find((step) => step.uses === 'actions/github-script@v9')?.with?.script ?? '';
 
 describe('Codex auth recovery', () => {
   it('si attiva sul completamento dei test e della rotazione e dispone di una riconciliazione periodica', () => {

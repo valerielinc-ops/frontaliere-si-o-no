@@ -51,7 +51,7 @@
 // run.
 //
 // CLI:
-//   npx -y tsx@4 scripts/rerender-article-hubs.mjs \
+//   npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs \
 //     --section <all|frontaliere|svizzera> --out <scratchDir> --summary <path> \
 //     [--locale <all|it|en|de|fr>] [--dry-run]
 //

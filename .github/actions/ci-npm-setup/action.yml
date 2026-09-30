@@ -60,7 +60,7 @@ runs:
     # `assemble-jobs-Linux-dd3d4bb70284802f_stats`, entrambe esistenti SOLO su
     # `refs/heads/main`. Tolto il save per-ref resta una copia sola, tenuta
     # calda dall'ultimo accesso (LRU) di ogni PR che la legge.
-    - uses: actions/setup-node@v5
+    - uses: actions/setup-node@v7
       with:
         node-version: '22'
 
@@ -93,7 +93,7 @@ runs:
     # niente. Un miss qui non rompe nulla: `npm ci` scarica dalla rete.
     - name: Restore npm cache
       id: npm-cache
-      uses: actions/cache/restore@v5
+      uses: actions/cache/restore@v6
       with:
         path: ${{ steps.npm-cache-meta.outputs.dir }}
         key: ${{ steps.npm-cache-meta.outputs.key }}
@@ -111,7 +111,7 @@ runs:
     # warning «Cache already exists» quando la chiave c'è già.
     - name: Save npm cache (solo su main)
       if: ${{ always() && github.ref == 'refs/heads/main' && steps.npm-cache.outputs.cache-hit != 'true' }}
-      uses: actions/cache/save@v5
+      uses: actions/cache/save@v6
       with:
         path: ${{ steps.npm-cache-meta.outputs.dir }}
         key: ${{ steps.npm-cache-meta.outputs.key }}

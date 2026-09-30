@@ -87,7 +87,7 @@ jobs:
       summary: ${{ steps.scan.outputs.summary }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -114,7 +114,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -161,7 +161,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
@@ -188,7 +188,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -203,7 +203,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Download shortlist
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: job-content-shortlist
 

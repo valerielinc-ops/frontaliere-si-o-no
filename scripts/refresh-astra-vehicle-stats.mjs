@@ -10,6 +10,7 @@
  */
 
 import admin from "firebase-admin";
+import { FieldValue } from 'firebase-admin/firestore';
 import { appendFileSync } from "node:fs";
 import {
   ASTRA_ENDPOINTS,
@@ -515,7 +516,7 @@ async function main() {
         monthly: "BEST + GEBR",
       },
     },
-    timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    timestamp: FieldValue.serverTimestamp(),
   };
 
   await ref.set(

@@ -26,7 +26,7 @@ jobs:
       # runtime file before any gate code is imported. A missing helper fails
       # this run closed and the next scheduled tick retries automatically.
       - name: Checkout trusted native auto-merge source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
           ref: main

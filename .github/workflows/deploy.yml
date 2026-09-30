@@ -176,7 +176,7 @@ jobs:
             echo "GIT_SSL_CAPATH=/etc/ssl/certs"
           } >> "$GITHUB_ENV"
       - name: Checkout promotion gate
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
@@ -250,14 +250,14 @@ jobs:
             echo "GIT_SSL_CAPATH=/etc/ssl/certs"
           } >> "$GITHUB_ENV"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -291,7 +291,7 @@ jobs:
           args: --stats
       - name: Cache assemble-jobs output
         if: steps.assemble_cache_key.outputs.key != ''
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
@@ -531,7 +531,7 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       # I build-locale morivano exit 134 sul muro V8 (12288 MB) con l'host
       # ancora largo (~2 GB MemAvailable, ~3 GB SwapFree — run 32319344037):
@@ -550,13 +550,13 @@ jobs:
         run: bash scripts/ci/grow-build-swap.sh
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Cache node_modules
         id: node-modules-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
@@ -587,7 +587,7 @@ jobs:
       # Consume the shared atomic snapshot from the prep job instead of
       # re-running assemble/cleanup/mine/migrate/thumbnails per shard.
       - name: Download prepared snapshot
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: prepared-snapshot
           path: /tmp/snapshot
@@ -604,7 +604,7 @@ jobs:
 
       - name: Cache per-job OG images
         if: matrix.locale == 'it'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .cache/og-jobs
           # Run 34956104680 rendered 16726 cards with 10434/27160 hits (38%),
@@ -631,7 +631,7 @@ jobs:
       # also opt-in through the repository variable JOBS_SEO_REUSE=1.
       - name: Restore previous incremental manifest
         id: incremental-manifest-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
@@ -644,7 +644,7 @@ jobs:
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
           # Exact key only (review #8940): a prefix fallback could restore
@@ -698,7 +698,7 @@ jobs:
       # shard is the one that runs deploy-it-pages-prep.sh).
       - name: Restore previous deploy content manifest
         if: matrix.locale == 'it'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: content-manifest.tsv
           key: deploy-content-manifest-${{ github.run_id }}
@@ -3315,7 +3315,7 @@ jobs:
       # run. A failed/incomplete build must never become the reusable source.
       - name: Save jobs SEO HTML cache
         if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
@@ -3325,7 +3325,7 @@ jobs:
       # newest prior snapshot on the next run for this locale.
       - name: Save incremental manifest cache
         if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
@@ -3391,7 +3391,7 @@ jobs:
             echo "GIT_SSL_CAPATH=/etc/ssl/certs"
           } >> "$GITHUB_ENV"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -3494,7 +3494,7 @@ jobs:
             echo "GIT_SSL_CAPATH=/etc/ssl/certs"
           } >> "$GITHUB_ENV"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -3521,7 +3521,7 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Resolve build GitHub Issue on success
@@ -3619,7 +3619,7 @@ jobs:
             echo "GIT_SSL_CAPATH=/etc/ssl/certs"
           } >> "$GITHUB_ENV"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -3646,7 +3646,7 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Digest the failing deploy run

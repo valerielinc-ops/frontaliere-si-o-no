@@ -82,7 +82,7 @@ jobs:
       # Every pattern is anchored with a leading slash. Unanchored, `scripts`
       # in gitignore syntax matches a directory of that name at ANY depth,
       # which would drag in packages/**/scripts too.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |

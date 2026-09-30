@@ -45,7 +45,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  // #4176: resilientImport so a transient CDN deploy-window failure on the
  // non-hashed blog-articles-data.js chunk self-heals instead of surfacing.
  resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => {
- setBlogArticleIds(m.ARTICLES.map(a => a.id));
+ setBlogArticleIds(m.ARTICLES.map(a => a.id as BlogArticleId));
  });
  }, [isOpen]);
 
