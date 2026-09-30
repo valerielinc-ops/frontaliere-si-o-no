@@ -686,6 +686,13 @@ export function resolveItalianFrontierComuni(geo, { maxKm = 15 } = {}) {
 // (#6163, .gitignore): the directory holds ONLY what the current run mirrored,
 // which is exactly what crawl-events.yml uploads to the CDN before it exits.
 const EVENT_IMAGE_DIR = path.join(REPO_ROOT, 'public', 'images', 'events');
+// Resolved LAZILY and honours EVENTS_IMAGE_DIR, like the manifest path below:
+// the tests mirror into a tmpdir instead of creating (and then deleting) image
+// files under public/images/events/ in the checkout.
+function eventImageDir() {
+  const override = process.env.EVENTS_IMAGE_DIR;
+  return override ? path.resolve(override) : EVENT_IMAGE_DIR;
+}
 // Committed index of every image already mirrored to the CDN, `<stableId>` ->
 // `<ext>` (issue #6163). It replaces the existsSync() probe below as the
 // authoritative "do we already have this one?" answer, because the 5'568
@@ -967,7 +974,8 @@ export async function mirrorEventImage(sourceUrl, stableId) {
   const safeId = String(stableId || '').replace(/[^a-zA-Z0-9:_-]/g, '').replace(/:/g, '-');
   if (!safeId) return null;
 
-  mkdirSync(EVENT_IMAGE_DIR, { recursive: true });
+  const imageDir = eventImageDir();
+  mkdirSync(imageDir, { recursive: true });
   // 1. The committed manifest — the only probe that still works now that the
   //    mirrored bytes live on the CDN instead of in git.
   const manifest = loadEventImageManifest();
@@ -979,7 +987,7 @@ export async function mirrorEventImage(sourceUrl, stableId) {
   //    stat() calls and is the difference between "re-download one image" and
   //    "re-download the catalogue".
   const existingMatch = ['jpg', 'jpeg', 'png', 'webp']
-    .map((ext) => path.join(EVENT_IMAGE_DIR, `${safeId}.${ext}`))
+    .map((ext) => path.join(imageDir, `${safeId}.${ext}`))
     .find((p) => existsSync(p));
   if (existingMatch) return `/images/events/${path.basename(existingMatch)}`;
 
@@ -998,7 +1006,7 @@ export async function mirrorEventImage(sourceUrl, stableId) {
     if (!raw || raw.byteLength === 0) return null;
     const { buf, ext } = await encodeEventImage(raw, contentType);
     const fileName = `${safeId}.${ext}`;
-    writeFileSync(path.join(EVENT_IMAGE_DIR, fileName), buf);
+    writeFileSync(path.join(imageDir, fileName), buf);
     recordEventImage(safeId, ext);
     return `/images/events/${fileName}`;
   } catch {

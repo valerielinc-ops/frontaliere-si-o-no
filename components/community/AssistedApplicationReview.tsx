@@ -78,6 +78,7 @@ function QuestionField({ question, value, onChange, disabled }: {
       ) : (
         <input
           type={question.type === 'number' ? 'number' : question.type === 'date' ? 'date' : 'text'}
+          min={question.type === 'date' ? question.minDate || undefined : undefined}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           disabled={disabled}
@@ -110,7 +111,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       }
       const review = payload as ReviewPayload;
       setData(review);
-      setAnswers(review.answers || {});
+      // An empty start date shows the proposed one; it counts only once saved.
+      const proposed = Object.fromEntries((review.questions || [])
+        .filter((question) => question.suggested && !String(review.answers?.[question.id] || '').trim())
+        .map((question) => [question.id, question.suggested as string]));
+      setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
     } catch (reason) {
       setError(reason instanceof ReviewRequestError ? reason.code : 'network');
@@ -207,13 +212,13 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           </div>
         )}
 
-        {data?.stale && (
+        {data?.stale && !data.preparingNext && (
           <div className="rounded-xl border border-warning-border bg-warning-subtle/60 p-4 text-sm text-body" role="status">
             {t('jobBoard.assisted.review.stale')}
           </div>
         )}
 
-        {data && !data.stale && WAITING_STATES.has(data.state) && (
+        {data && (!data.stale || data.preparingNext) && WAITING_STATES.has(data.state) && (
           <div className="flex items-start gap-3 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status">
             <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-info" aria-hidden="true" />
             <p className="text-sm leading-relaxed text-body">{t(`jobBoard.assisted.review.waiting.${data.state}`)}</p>
@@ -264,7 +269,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               {busy === 'answers' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
               {t('jobBoard.assisted.review.saveAnswers')}
             </button>
-            {done === 'answers' && <p className="text-xs text-success">{t('jobBoard.assisted.review.answersSaved')}</p>}
+            {done === 'answers' && (openRequired.length
+              ? <p className="text-xs text-warning" role="status">{t('jobBoard.assisted.review.answersStillOpen')}</p>
+              : <p className="text-xs text-success" role="status">{t('jobBoard.assisted.review.answersSaved')}</p>)}
           </form>
         )}
 

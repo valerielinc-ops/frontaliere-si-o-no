@@ -367,7 +367,10 @@ describe('resolveItalianFrontierComuni', () => {
 });
 
 describe('mirrorEventImage', () => {
-  const testImagesDir = path.join(process.cwd(), 'public', 'images', 'events');
+  // The mirrored images go to a tmpdir via EVENTS_IMAGE_DIR, not to
+  // public/images/events/ in the checkout, where every other test and the build
+  // would see them while the run is in flight.
+  let testImagesDir: string;
   // data/events-image-manifest.json is TRACKED (5'568 entries, 294KB) and
   // mirrorEventImage writes to it on every successful download. Without this
   // redirection each run of this suite would commit `test-mirror-fixture` into
@@ -382,23 +385,18 @@ describe('mirrorEventImage', () => {
     manifestFile = path.join(manifestDir, 'events-image-manifest.json');
     writeFileSync(manifestFile, '{}\n');
     process.env.EVENTS_IMAGE_MANIFEST_PATH = manifestFile;
+    testImagesDir = path.join(manifestDir, 'images');
+    process.env.EVENTS_IMAGE_DIR = testImagesDir;
     resetEventImageManifestCache();
   });
 
   afterEach(() => {
     vi.unstubAllGlobals();
     delete process.env.EVENTS_IMAGE_MANIFEST_PATH;
+    delete process.env.EVENTS_IMAGE_DIR;
     resetEventImageManifestCache();
+    // The images live under manifestDir, so this removes them too.
     rmSync(manifestDir, { recursive: true, force: true });
-    // Clean up any file this test wrote so repeated runs stay idempotent and
-    // don't leak fixture images into the tracked public/ directory.
-    for (const ext of ['jpg', 'webp']) {
-      try {
-        rmSync(path.join(testImagesDir, `test-mirror-fixture.${ext}`), { force: true });
-      } catch {
-        /* noop */
-      }
-    }
   });
 
   it('returns null for a missing or non-http url', async () => {
