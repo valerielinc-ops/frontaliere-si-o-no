@@ -104,6 +104,21 @@ export default function AssistedApplicationAutomationPanel({
     }
   };
 
+  // Kept in memory only for this view: the password never goes to the order list.
+  const [revealed, setRevealed] = useState<Record<string, string>>({});
+  const reveal = async (host: string) => {
+    if (busy) return;
+    setBusy('automationRevealAccount');
+    try {
+      const body = await runAutomationAdminAction(user, order.orderId, 'automationRevealAccount', { host });
+      setRevealed((current) => ({ ...current, [host]: String(body.password || '') }));
+    } catch (error) {
+      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Password non disponibile.' });
+    } finally {
+      setBusy(null);
+    }
+  };
+
   const upload = async (file: File | undefined) => {
     if (!file || busy) return;
     setBusy('uploadCv');
@@ -165,10 +180,31 @@ export default function AssistedApplicationAutomationPanel({
               <li key={`${item.receivedAt}-${item.subject}`}>
                 <strong>{INBOX_LABELS[item.category] || item.category}</strong> · {formatMs(item.receivedAt)} · {item.summaryIt || item.subject}
                 {item.interviewWhen ? ` · quando: ${item.interviewWhen}` : ''}
-                {item.forwarded !== 'sent' ? ' · inoltro al candidato NON riuscito' : ''}
+                {item.forwarded === 'skipped' ? ' · letto dal runner (verifica account portale), non inoltrato' : item.forwarded !== 'sent' ? ' · inoltro al candidato NON riuscito' : ''}
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {(automation?.accounts || []).length > 0 && (
+        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+          <p className="font-semibold uppercase tracking-wide text-muted">Account sui portali (creati sull’alias)</p>
+          <ul className="mt-1 space-y-1">
+            {(automation?.accounts || []).map((account) => (
+              <li key={account.host} className="flex flex-wrap items-center gap-2">
+                <span><strong>{account.host}</strong> · {account.email} · creato {formatMs(account.createdAt)} · {account.verifiedAt ? `verificato ${formatMs(account.verifiedAt)}` : 'non verificato'}</span>
+                {revealed[account.host]
+                  ? <code className="rounded bg-surface-alt px-1.5 py-0.5 select-all">{revealed[account.host]}</code>
+                  : (
+                    <button type="button" className="rounded border border-edge px-2 py-0.5 hover:bg-surface-alt disabled:opacity-50" disabled={Boolean(busy)} onClick={() => void reveal(account.host)}>
+                      Mostra password
+                    </button>
+                  )}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-1 text-muted">Per prendere in carico la candidatura sul portale. Ogni visualizzazione viene registrata.</p>
         </div>
       )}
 
