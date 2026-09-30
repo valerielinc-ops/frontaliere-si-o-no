@@ -495,6 +495,26 @@ describe('worker email() — assisted-application CV replies', () => {
     expect(message.forward).toHaveBeenCalledWith('inbox@example.com');
   });
 
+  it('hands employer mail on an order alias to the inbound function, even when automatic, and never to the human inbox', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+    const aliasEnv = { ...env, ASSISTED_INBOUND_FN_URL: 'https://fn.example/inbound' };
+    const message = fakeMessage({
+      from: 'noreply@ats.example',
+      to: 'c-abcdefghjk@candidature.frontaliereticino.ch',
+      subject: 'We have received your application',
+      rawText: 'Auto-Submitted: auto-generated\r\n\r\nThanks',
+      headers: { 'auto-submitted': 'auto-generated' },
+    });
+    const ctx = fakeCtx();
+    await worker.email(message, aliasEnv, ctx);
+    await Promise.all(ctx.waited);
+    const call = fetchMock.mock.calls.find(([url]) => url === aliasEnv.ASSISTED_INBOUND_FN_URL);
+    expect(call![1].headers).toMatchObject({ 'x-envelope-to': 'c-abcdefghjk@candidature.frontaliereticino.ch', 'x-stop-secret': SECRET });
+    expect(message.forward).not.toHaveBeenCalled();
+    expect(fetchMock.mock.calls.some(([url]) => url === env.REPLY_TRACK_FN_URL)).toBe(false);
+  });
+
   it('does not send plain replies or oversized messages to the CV endpoint', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
     vi.stubGlobal('fetch', fetchMock);
