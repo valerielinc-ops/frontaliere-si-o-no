@@ -280,7 +280,7 @@ describe('errorReporter.ts — api_error fallbacks', () => {
   });
 
   it('forwards the resolved endpoint + status into Analytics.trackAppError', () => {
-    const block = errorReporterSrc.match(/Analytics\.trackAppError\([\s\S]*?\}\);/);
+    const block = errorReporterSrc.match(/\n\s+Analytics\.trackAppError\([\s\S]*?\n\s+\}\);/);
     expect(block).not.toBeNull();
     expect(block![0]).toMatch(/apiEndpoint:\s*resolvedEndpoint/);
     expect(block![0]).toMatch(/statusCode:\s*resolvedStatus/);
