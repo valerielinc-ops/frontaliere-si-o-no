@@ -2473,7 +2473,7 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (typeof copy?.uses === 'string' && copy.uses.startsWith('actions/checkout@')) {
     const allowedWith = side === 'generated'
-      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'sparse-checkout', 'sparse-checkout-cone-mode'])
+      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'persist-credentials', 'sparse-checkout', 'sparse-checkout-cone-mode'])
       : new Set(['repository', 'fetch-depth', 'persist-credentials']);
     const unexpected = Object.keys(copy.with ?? {}).filter((key) => !allowedWith.has(key));
     if (unexpected.length > 0) {
@@ -2490,7 +2490,7 @@ function normalizedContractStep(step, side, fileName, members) {
     // il repository/ref del checkout cross-repo e il suo profilo sparse.
     copy.name = 'Checkout';
     delete copy.with.repository;
-    if (side === 'logic') delete copy.with['persist-credentials'];
+    delete copy.with['persist-credentials'];
     if (side === 'generated') {
       delete copy.with.ref;
       delete copy.with.clean;
