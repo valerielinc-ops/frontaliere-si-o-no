@@ -318,9 +318,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "collaboratore-trice-in-wascherei-swiss-armed-forces-vtg-bern-jjep99",
-        "en": "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-thun",
+        "en": "employee-laundry-swiss-armed-forces-vtg-thun",
         "de": "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99",
-        "fr": "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-thun"
+        "fr": "blanchisserie-des-employes-swiss-armed-forces-vtg-thun"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -328,15 +328,18 @@
           "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern"
         ],
         "en": [
-          "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99"
+          "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99",
+          "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-thun"
         ],
         "fr": [
-          "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99"
+          "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99",
+          "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-thun"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern",
-        "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99"
+        "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-bern-jjep99",
+        "mitarbeiter-in-wascherei-swiss-armed-forces-vtg-thun"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -558,7 +561,7 @@
     },
     {
       "id": "company-46ta09",
-      "slug": "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen",
+      "slug": "meccatronica-automobilistica-facilmente-swiss-armed-forces-vtg-bronschhofen-sg",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Automobilmechatroniker/-in leicht",
       "location": "Bronschhofen (SG)",
@@ -595,21 +598,23 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen",
-        "en": "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen-sg-46ta09",
+        "it": "meccatronica-automobilistica-facilmente-swiss-armed-forces-vtg-bronschhofen-sg",
+        "en": "automotive-mechatronics-easily-swiss-armed-forces-vtg-bronschhofen-sg",
         "de": "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09",
-        "fr": "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen-sg-46ta09"
+        "fr": "mecatronique-automobile-facilement-swiss-armed-forces-vtg-bronschhofen-sg"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern",
           "meccatronica-automobilistica-tecnico-in-facilmente-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09"
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09",
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen"
         ],
         "en": [
           "automotive-mechatronics-technician-in-easily-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09"
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09",
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen-sg-46ta09"
         ],
         "de": [
           "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-k6tud5",
@@ -617,7 +622,8 @@
         ],
         "fr": [
           "technicien-mecatronique-automobile-en-facilement-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09"
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09",
+          "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen-sg-46ta09"
         ]
       },
       "previousSlugs": [
@@ -627,7 +633,8 @@
         "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-k6tud5",
         "technicien-mecatronique-automobile-en-facilement-swiss-armed-forces-vtg-bern",
         "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-46ta09",
-        "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen-sg-46ta09"
+        "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen-sg-46ta09",
+        "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bronschhofen"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -12370,7 +12377,7 @@
     },
     {
       "id": "company-gvq39y",
-      "slug": "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y",
+      "slug": "polymechanics-tutto-rounder-swiss-armed-forces-vtg-brugg",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Polymechaniker/-in (Allrounder-/in)",
       "location": "Brugg",
@@ -12408,8 +12415,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y",
-        "en": "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y",
+        "it": "polymechanics-tutto-rounder-swiss-armed-forces-vtg-brugg",
+        "en": "polymechanics-all-rounder-swiss-armed-forces-vtg-brugg",
         "de": "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y",
         "fr": "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y"
       },
@@ -12421,11 +12428,16 @@
       "streetAddress": "Auhofweg 17",
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg"
+          "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg",
+          "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y"
+        ],
+        "en": [
+          "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg"
+        "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg",
+        "polymechaniker-in-allrounder-in-swiss-armed-forces-vtg-brugg-gvq39y"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13819,7 +13831,8 @@
       },
       "previousSlugs": [
         "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-emmen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-950shs",
@@ -14159,7 +14172,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-b1yojb",
@@ -14557,7 +14571,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }

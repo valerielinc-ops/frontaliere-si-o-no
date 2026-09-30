@@ -24,21 +24,92 @@ import {
  *
  * @param {object} job
  * @param {RegExp} pattern
+ * @param {{ strip?: (text: string) => string }} [options]
  * @returns {boolean} true when the job carried the crawler's text.
  */
-export function dropFabricatedDescription(job, pattern) {
+export function dropFabricatedDescription(job, pattern, options = {}) {
   if (!job || typeof job !== 'object') return false;
-  const derived = dropTranslationsOfFabricatedSource(job, pattern);
-  let slots = false;
-  for (const locale of Object.keys(job.descriptionByLocale || {})) {
-    if (dropFabricatedLocaleText(job, locale, pattern)) slots = true;
+  const strip = typeof options?.strip === 'function' ? options.strip : null;
+
+  // The historical callers without a strip function intentionally keep the
+  // old all-or-nothing behaviour: their pattern identifies a whole stored
+  // description, not a fragment mixed with source text.
+  if (!strip) {
+    const derived = dropTranslationsOfFabricatedSource(job, pattern);
+    let slots = false;
+    for (const locale of Object.keys(job.descriptionByLocale || {})) {
+      if (dropFabricatedLocaleText(job, locale, pattern)) slots = true;
+    }
+    const flat = pattern.test(String(job.description || ''));
+    if (flat) {
+      job.description = '';
+      job.needsRetranslation = true;
+    }
+    return derived || slots || flat;
   }
-  const flat = pattern.test(String(job.description || ''));
-  if (flat) {
-    job.description = '';
+
+  const byLocale = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+    ? job.descriptionByLocale
+    : null;
+  const sourceLang = String(job.sourceLang || '').trim();
+  const flat = String(job.description || '');
+  const sourceSlot = sourceLang && byLocale?.[sourceLang];
+  const sourceSlotText = String(sourceSlot || '');
+  const hasSourceSlot = Boolean(sourceSlotText.trim());
+  const source = hasSourceSlot ? sourceSlotText : flat;
+  const sourceMatches = pattern.test(source);
+  const flatMatch = flat.match(pattern);
+  const flatMatches = Boolean(flatMatch);
+  const sourceCarriesFlatMatch = hasSourceSlot
+    && Boolean(flatMatch?.[0])
+    && source.includes(flatMatch[0]);
+  const sourceWasFabricated = hasSourceSlot && (sourceMatches || sourceCarriesFlatMatch);
+  let changed = false;
+
+  if (sourceWasFabricated) {
+    // Every localized slot was translated from the dirty source and must go,
+    // even when its translated or markdown-wrapped wording no longer matches
+    // the source regex. The non-empty source-locale slot is authoritative:
+    // a stale flat field must not overwrite it or trigger locale deletion. If
+    // the slot only carries the exact fabricated fragment inside a wrapper,
+    // the flat body is the cleanable representation of that same source.
+    const sourceToClean = sourceMatches ? source : flat;
+    const cleaned = String(strip(sourceToClean) ?? '');
+    if (byLocale) {
+      for (const locale of Object.keys(byLocale)) {
+        if (locale !== sourceLang) {
+          delete byLocale[locale];
+          changed = true;
+        }
+      }
+      if (sourceLang) {
+        if (cleaned) byLocale[sourceLang] = cleaned;
+        else delete byLocale[sourceLang];
+        changed = true;
+      }
+    }
     job.needsRetranslation = true;
+    changed = true;
   }
-  return derived || slots || flat;
+
+  // A flat match without a fabricated source-locale slot is not evidence that
+  // the locale translations came from the same body. Clean only the flat copy
+  // and keep byLocale intact.
+  if (flatMatches) {
+    job.description = String(strip(flat) ?? '');
+    changed = true;
+  }
+
+  let slots = false;
+  if (sourceWasFabricated || !flatMatches) {
+    for (const locale of Object.keys(job.descriptionByLocale || {})) {
+      // The source slot was cleaned above instead of being discarded.
+      if (sourceWasFabricated && locale === sourceLang) continue;
+      if (dropFabricatedLocaleText(job, locale, pattern)) slots = true;
+    }
+  }
+
+  return changed || slots;
 }
 
 /**
@@ -49,11 +120,12 @@ export function dropFabricatedDescription(job, pattern) {
  * @param {object[]} jobs
  * @param {RegExp} pattern
  * @param {string} label
+ * @param {{ strip?: (text: string) => string }} [options]
  * @returns {object[]}
  */
-export function dropFabricatedDescriptions(jobs, pattern, label) {
+export function dropFabricatedDescriptions(jobs, pattern, label, options = {}) {
   const list = Array.isArray(jobs) ? jobs : [];
-  const repaired = list.filter((job) => dropFabricatedDescription(job, pattern)).length;
+  const repaired = list.filter((job) => dropFabricatedDescription(job, pattern, options)).length;
   if (repaired > 0) {
     console.log(`  🧹 ${label}: removed the crawler-written description from ${repaired} stored job(s); they will be retranslated`);
   }
