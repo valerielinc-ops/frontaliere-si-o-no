@@ -12,7 +12,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
@@ -31,6 +31,10 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCantonPostalFallback } from './lib/canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './lib/swiss-locality-directory.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -67,6 +71,11 @@ function isCompanyJob(job) {
   return key.includes(COMPANY_KEY) || url.includes('alpiq.com');
 }
 
+function jobMatchKey(job) {
+  return extractStableJobId(job?.url)
+    || String(job?.url || '').trim().replace(/\/+$/, '');
+}
+
 function writeJobsFiles(jobs) {
   writeJsonAtomic(DATA_JOBS, jobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
@@ -82,8 +91,12 @@ function mergeCompanyJobs(parsedJobs) {
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
   const deduped = [...byUrl.values()];
-  const merged = mergePreserveLocaleData(companyExisting, deduped);
-  const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(deduped, companyExisting, jobMatchKey);
+  const merged = mergePreserveLocaleData(companyExisting, sourceBodyJobs);
+  const thinSourceJobs = merged.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const clean = merged
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   const repairedLocaleDescriptions = repairThinAlpiqLocaleDescriptions(clean);
   if (repairedLocaleDescriptions > 0) {
     console.log(
@@ -92,7 +105,27 @@ function mergeCompanyJobs(parsedJobs) {
     );
   }
   writeJobsFiles([...others, ...clean]);
-  return clean;
+  return {
+    jobs: clean,
+    targetExisting: companyExisting,
+    sourceBodyJobs,
+    thinSourceJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob: isCompanyJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 async function main() {
@@ -103,7 +136,11 @@ async function main() {
     const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const rawJobs = await fetchAlpiqListingPages(10);
-  if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Swiss Alpiq jobs found. Keeping existing.'); return; }
+  if (rawJobs.length === 0) {
+    console.log('\u26a0\ufe0f No Swiss Alpiq jobs found. Keeping existing publishable jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
+    return;
+  }
 
   const incompleteDetails = rawJobs.filter((job) => job?._alpiqDetailIncomplete);
   if (incompleteDetails.length > 0) {
@@ -111,6 +148,7 @@ async function main() {
       `\u26a0\ufe0f Alpiq detail enrichment incomplete for ${incompleteDetails.length}/${rawJobs.length} jobs; `
       + 'keeping the previous snapshot and retrying on the next scheduled run.',
     );
+    await rewriteStoredJobsWithoutThinSource(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
     return;
   }
 
@@ -127,6 +165,7 @@ async function main() {
     // company sentence that used to stand in for a missing description, and
     // the copy of a non-Italian description in the `it` slot, are gone.
     const { description: desc, descriptionByLocale, sourceLang } = sourceLocaleDescription(raw.description);
+    if (!meetsSourceBodyFloor(desc)) return null;
     const sourceLocation = normalizeSpace(raw.location || '');
     const sourcePostalCode = normalizeSpace(
       raw.postalCode || raw.zipCode || raw.zip || sourceLocation.match(/\b(\d{4})\b/)?.[1] || '',
@@ -162,9 +201,21 @@ async function main() {
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     };
-  });
+  }).filter(Boolean);
 
-  const published = mergeCompanyJobs(parsedJobs);
+  if (parsedJobs.length === 0) {
+    console.warn('⚠️ Alpiq: all detail bodies are below the 50-word source-body floor; quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
+    return;
+  }
+
+  const stats = mergeCompanyJobs(parsedJobs);
+  if (stats.noPublishableJobs) {
+    console.warn('⚠️ Alpiq: no publishable source body remained after merge; quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(stats.targetExisting);
+    return;
+  }
+  const published = stats.jobs;
   printPublishedJobUrls(published, 'Alpiq');
   writeJobsSummary(published, 'Alpiq');
   const after = snapshotJobSlugs(published);
@@ -177,8 +228,19 @@ async function main() {
 
   const dur = getCrawlerElapsedMs();
   const sr = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-  const sj = Array.isArray(sr) ? sr.filter(isCompanyJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, sj);
+  const sj = Array.isArray(sr)
+    ? sr.filter(isCompanyJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
+  const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
+  const housekeepingProof = thinQuarantineJobs.length > 0
+    && thinQuarantineJobs.length === (diff.removedJobs || []).length
+    ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
+    : undefined;
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, sj, {
+    isTargetJob: isCompanyJob,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Alpiq', generatedAt: new Date().toISOString(), total: sj.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
