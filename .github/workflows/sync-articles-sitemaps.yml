@@ -623,7 +623,7 @@ jobs:
 
       - name: Publish client article chunks for synced corpus
         id: publish_synced_chunks
-        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success' && steps.check_synced_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.commit.outputs.article-content-changed == 'true' && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success' && steps.check_synced_chunk_source.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
 
       - name: Verify synced article chunk lock after publication
