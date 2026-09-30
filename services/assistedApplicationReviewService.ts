@@ -6,7 +6,7 @@
 
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
-export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted';
+export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice';
 
 export interface ReviewQuestion {
   id: string;
@@ -41,7 +41,16 @@ export interface ReviewPayload {
   questions: ReviewQuestion[];
   answers: Record<string, string>;
   feedback: Array<{ round: number; text: string }>;
-  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean };
+  /** The tailored ATS CV, sent unless the candidate chooses their original. */
+  tailoredCv: { url: string | null; choice: 'tailored' | 'original' } | null;
+  ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
+  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean };
+}
+
+export interface ReviewAtsView {
+  grade: string | null;
+  keywordCoverage: number | null;
+  missing: string[];
 }
 
 export class ReviewRequestError extends Error {
@@ -50,7 +59,8 @@ export class ReviewRequestError extends Error {
   }
 }
 
-const TOKEN_RE = /^ar1\.[A-Za-z0-9_-]{6,128}\.\d{1,2}\.[0-9a-z]{1,12}\.[0-9a-f]{32}$/;
+// ar1 = review of the application, af1 = a follow-up to approve.
+const TOKEN_RE = /^a[rf]1\.[A-Za-z0-9_-]{6,128}\.\d{1,2}\.[0-9a-z]{1,12}\.[0-9a-f]{32}$/;
 
 /** The review token from the current URL, or null. */
 export function readReviewToken(search: string = typeof window === 'undefined' ? '' : window.location.search): string | null {

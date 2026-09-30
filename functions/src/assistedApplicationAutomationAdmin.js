@@ -43,7 +43,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationRevealAccount',
 ]);
 
-const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown']);
+const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown', 'legitimacy']);
 
 export class AutomationAdminError extends Error {
   constructor(code, status = 400) {
@@ -89,9 +89,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       forwarded: item.forwarded?.status || null,
     }));
   if (!flow && !draft && !inbox.length && !accounts.length) return null;
-  const letterUrl = draft?.coverLetterPdfKey && signUrl && isAssistedApplicationCvKey(orderId, draft.coverLetterPdfKey)
-    ? await signUrl(draft.coverLetterPdfKey).catch(() => null)
-    : null;
+  const signed = (key) => (key && signUrl && isAssistedApplicationCvKey(orderId, key) ? signUrl(key).catch(() => null) : null);
+  const [letterUrl, tailoredCvUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey)]);
   return {
     inbox,
     accounts,
@@ -128,6 +127,10 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       editedAt: draft.editedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
       coverLetterUrl: letterUrl,
+      ats: draft.ats || null,
+      legitimacy: draft.legitimacy || null,
+      tailoredCv: draft.tailoredCv ? { status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl } : null,
+      cvChoice: flow?.cvChoice || 'tailored',
     } : null,
   };
 }
@@ -222,7 +225,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       const acknowledgements = {};
       if (raw.acknowledgeFactWarnings === true) acknowledgements.factCheckAcknowledgedAt = nowMs;
       if (raw.acknowledgeKnockOut === true) acknowledgements.knockOutAcknowledgedAt = nowMs;
-      // Any other owner flag (no posting text, unknown channel) is acknowledged by name.
+      // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
       const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
       if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
       if (Object.keys(acknowledgements).length) {
