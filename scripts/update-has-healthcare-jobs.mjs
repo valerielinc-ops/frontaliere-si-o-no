@@ -61,6 +61,7 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,6 +80,7 @@ const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DETAIL_DELAY_MS = 1_000;
 
 function jobMatchKey(job) {
   return extractStableJobId(job?.url)
@@ -162,6 +164,7 @@ function isTrustedDomain(rawUrl = '') {
 async function fetchPage(url, timeoutMs = 20_000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let relayFallback = false;
   try {
     const res = await fetch(url, {
       signal: controller.signal,
@@ -171,17 +174,26 @@ async function fetchPage(url, timeoutMs = 20_000) {
         Accept: 'text/html,application/xhtml+xml',
       },
     });
-    if (!res.ok) {
+    if (res.ok) return await res.text();
+    relayFallback = res.status === 403;
+    if (!relayFallback) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return '';
     }
-    return await res.text();
+    console.warn(`⚠️ HTTP 403 for ${url}; trying source relay when configured.`);
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return '';
+    relayFallback = true;
   } finally {
     clearTimeout(timer);
   }
+
+  if (relayFallback) {
+    const relayed = await fetchSourceViaRelay(url);
+    if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
+    if (relayed) console.warn(`⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+  }
+  return '';
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -377,6 +389,8 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const listing of listings) {
+    // Keep sequential relay fallbacks outside the relay's per-host 1 s window.
+    await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     console.log(`  📄 Fetching detail: ${listing.title} → ${listing.detailUrl}`);
     const detailHtml = await fetchPage(listing.detailUrl);
     const detail = detailHtml
@@ -387,7 +401,6 @@ async function fetchJobs() {
     if (!description) {
       // No source body: not published in this run (no crawler-written stand-in).
       console.warn(`  ⚠️ No posting text on ${listing.detailUrl} — not published in this run.`);
-      await new Promise((r) => setTimeout(r, 500));
       continue;
     }
     const slug = slugify(listing.title, COMPANY_KEY);
@@ -422,8 +435,6 @@ async function fetchJobs() {
     };
 
     jobs.push(job);
-    // Small delay between detail page fetches
-    await new Promise((r) => setTimeout(r, 500));
   }
 
   return jobs;
