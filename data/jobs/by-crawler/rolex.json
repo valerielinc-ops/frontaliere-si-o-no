@@ -6585,11 +6585,11 @@
     },
     {
       "id": "rolex-ff99636a8bd5",
-      "slug": "termineur-h-f-rolex-ch",
+      "slug": "terminator-m-f-rolex-geneve",
       "slugByLocale": {
         "fr": "termineur-h-f-rolex-ch",
         "de": "termineur-h-f-rolex-geneve",
-        "it": "termineur-h-f-rolex-ch",
+        "it": "terminator-m-f-rolex-geneve",
         "en": "termineur-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -6645,7 +6645,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:40:56.351Z"
+      "firstSeenAt": "2026-06-24T22:40:56.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "termineur-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "termineur-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-d13e29ac2355",
