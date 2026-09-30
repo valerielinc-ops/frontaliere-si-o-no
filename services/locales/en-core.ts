@@ -841,7 +841,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.waiting.drafting': "I am preparing your application: you will get an email as soon as it is ready to check.",
  'jobBoard.assisted.review.waiting.regenerating': "I am preparing a new version with your feedback: I will write as soon as it is ready.",
  'jobBoard.assisted.review.waiting.owner_review': "The application is in its final check: you will soon get the email to approve it.",
- 'jobBoard.assisted.review.waiting.submitting': "I am sending your application to the company.",
+ 'jobBoard.assisted.review.waiting.submitting': "You approved it: your application is in the sending queue and goes out within a few minutes. You can close this page; I will write to you as soon as it has gone out.",
  'jobBoard.assisted.review.submitted': "Your application has been sent. Good luck!",
  'jobBoard.assisted.review.takeover': "Valerie is following your application personally: she will write to you shortly.",
  'jobBoard.assisted.review.heldByQuestions': "Some answers are needed before sending (fields with *). Until they are given, the application does not go out.",

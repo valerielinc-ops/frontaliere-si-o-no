@@ -813,7 +813,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.waiting.drafting': "Je prépare votre candidature : vous recevrez un e-mail dès qu’elle est prête à être relue.",
  'jobBoard.assisted.review.waiting.regenerating': "Je prépare une nouvelle version avec vos remarques : je vous écris dès qu’elle est prête.",
  'jobBoard.assisted.review.waiting.owner_review': "La candidature est en vérification finale : vous recevrez bientôt l’e-mail pour l’approuver.",
- 'jobBoard.assisted.review.waiting.submitting': "J’envoie votre candidature à l’entreprise.",
+ 'jobBoard.assisted.review.waiting.submitting': "Vous avez approuvé : votre candidature est dans la file d’envoi et part d’ici quelques minutes. Vous pouvez fermer cette page, je vous écris dès qu’elle est envoyée.",
  'jobBoard.assisted.review.submitted': "Votre candidature a été envoyée. Bonne chance !",
  'jobBoard.assisted.review.takeover': "Valerie suit personnellement votre candidature : elle vous écrit sous peu.",
  'jobBoard.assisted.review.heldByQuestions': "Il manque des réponses avant l’envoi (champs avec *). Tant qu’elles manquent, la candidature ne part pas.",
