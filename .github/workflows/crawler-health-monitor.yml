@@ -52,8 +52,11 @@ jobs:
           sparse-checkout: |
             /*
             !/public/images/
+            !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
             !/docs/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
