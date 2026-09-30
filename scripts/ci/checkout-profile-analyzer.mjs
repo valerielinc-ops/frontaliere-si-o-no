@@ -516,6 +516,7 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
     return {
       jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
       opaqueBy, entries, inlineEntries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
+      extraOnlyDataCommit,
       needs: [...needs].sort(), exclude: [], aboveCrossover: true,
       savedMb: 0, savedFiles: 0, checkoutMb: TREE_MB,
     };
@@ -524,6 +525,7 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   return {
     jobId, hasCheckout, opaqueBy, entries, inlineEntries, filesFollowed: resolved.length,
     closure: resolved.map((r) => r.rel),
+    extraOnlyDataCommit,
     needs: [...needs].sort(),
     exclude: exclude.map((b) => b.id),
     aboveCrossover: false,
