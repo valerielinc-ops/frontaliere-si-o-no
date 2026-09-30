@@ -26,6 +26,7 @@ import {
   reconcileSitemapJobsWithDist,
   extractSitemapLocs,
 } from '../build-plugins/relatedSearchClustersPlugin';
+import { reconcileFinalSitemapsWithDist } from '../build-plugins/sitemapAliasPlugin';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -155,6 +156,20 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     const shardXml = fs.readFileSync(shardPath, 'utf-8');
     expect(shardXml).not.toContain('bridge-noindex');
     expect(shardXml).toContain('bridge-healthy');
+  });
+
+  it('runs the final dist-truth gate for both dynamic sitemap families', async () => {
+    const cluster = `${BASE}/fr/trouver-emploi-suisse/recherche-stale/`;
+    const clusterPath = path.join(dist, 'sitemap-search-clusters-001.xml');
+    fs.writeFileSync(clusterPath, wrap([cluster]), 'utf-8');
+    writePage(cluster, noindexBridge(cluster));
+
+    await reconcileFinalSitemapsWithDist(dist, [KNOWN_MIRROR]);
+
+    expect(readSitemap()).not.toContain('ricerca-groupe-mutuel-emploi');
+    expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
+    expect(fs.readFileSync(clusterPath, 'utf-8')).not.toContain('recherche-stale');
+    expect(readSitemap()).toContain('sviluppatore-acme-lugano');
   });
 });
 

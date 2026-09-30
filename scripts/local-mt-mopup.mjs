@@ -65,7 +65,7 @@ import {
   normalizeProtectedTokenSentinels,
 } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
-import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 import {
   interpretSemanticVerdict,
@@ -111,16 +111,19 @@ const WRITE_GUARD_DECISIONS = [
   'skip:source-locale',
   'skip:empty-raw',
   'skip:no-op',
+  'skip:structure-flattened',
 ];
 const OPUS_MT_RESCUE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
+  'skip:structure-flattened',
 ]);
 const NEGATIVE_CACHE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
   'skip:finalize-empty',
   'skip:no-op',
+  'skip:structure-flattened',
 ]);
 const NEGATIVE_CACHE_TTL_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_TTL_MS) || 7 * 24 * 60 * 60 * 1000;
 const NEGATIVE_CACHE_JITTER_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_JITTER_MS) || 6 * 60 * 60 * 1000;
@@ -317,7 +320,8 @@ export function missingSlots(job) {
 
     // Description missing, too short, or an untranslated copy of the source desc.
     if (sourceDesc.length >= MIN_DESC_CHARS &&
-        (desc.length < MIN_DESC_CHARS || desc.toLowerCase() === sourceDescLc)) {
+        (desc.length < MIN_DESC_CHARS || desc.toLowerCase() === sourceDescLc ||
+         isStructureFlattenedCopy(sourceDesc, desc))) {
       slots.push({ locale, field: 'description' });
     }
   }
@@ -635,12 +639,17 @@ export function classifyMopupStructure({
     return { ...base, incoming, decision: 'skip:source-copy' };
   }
 
+  if (field === 'description' && isStructureFlattenedCopy(normalizedSourceText, incoming)) {
+    return { ...base, incoming, decision: 'skip:structure-flattened' };
+  }
+
   // Don't overwrite an already-good translation (one that isn't a source copy
   // and meets the min length). Only fill genuinely-missing/bad slots.
   const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
     || (field === 'title'
       ? isTitleSourceCopy(existing, normalizedSourceText)
-      : existing.toLowerCase() === normalizedSourceText.toLowerCase());
+      : existing.toLowerCase() === normalizedSourceText.toLowerCase()
+        || isStructureFlattenedCopy(normalizedSourceText, existing));
   if (existing && !existingIsBad) {
     // LANGUAGE ARM (workspace issue 16). Length and byte-exact copy are not the
     // only ways an existing value can be bad: it can be the wrong LANGUAGE.

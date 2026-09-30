@@ -175,6 +175,10 @@ function runExhaustedTierSkipScenario(
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
         "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      )
+      .replace(
+        "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
+        "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -275,6 +279,10 @@ function runRetryOutcomeResetScenario() {
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
         "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      )
+      .replace(
+        "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
+        "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -495,6 +503,47 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(out).not.toBe('');
     expect(after.hits - before.hits).toBe(1);
     expect(after.passthroughs - before.passthroughs).toBe(0);
+  });
+
+  it('traduce il contenuto di ogni riga e ricompone marcatori e righe vuote', async () => {
+    const source = [
+      '## Aufgaben',
+      '- Erste Aufgabe',
+      '',
+      '• Zweite Aufgabe',
+      '1. Dritte Aufgabe',
+      '1) Vierte Aufgabe',
+    ].join('\n');
+    vi.mocked(translateWithMyMemory).mockImplementation(async (line: string) => `EN ${line}`);
+
+    const out = await freeTranslate({ text: source, sourceLang: 'de', targetLang: 'en', fieldType: 'description' });
+
+    expect(out).toBe([
+      '## EN Aufgaben',
+      '- EN Erste Aufgabe',
+      '',
+      '• EN Zweite Aufgabe',
+      '1. EN Dritte Aufgabe',
+      '1) EN Vierte Aufgabe',
+    ].join('\n'));
+  });
+
+  it('usa il fallback whole-body quando una riga ignora il boundary e un altra viene tradotta', async () => {
+    const source = '- Alpha\n- Beta';
+    const wholeBody = '- Alpha tradotto\n- Beta tradotto';
+    let calls = 0;
+    vi.mocked(translateWithMyMemory).mockImplementation(async (value: string) => {
+      calls += 1;
+      if (calls === 1) return 'Alpha provider response\nwith an unexpected body';
+      if (calls === 2) return 'Beta translated';
+      return wholeBody;
+    });
+
+    const out = await freeTranslate({ text: source, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+
+    expect(out).toBe(wholeBody);
+    expect(out).not.toContain('Alpha\n');
+    expect(calls).toBeGreaterThanOrEqual(3);
   });
 
   it('non tocca il passthrough LEGITTIMO sourceLang === targetLang', async () => {

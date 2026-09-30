@@ -537,13 +537,15 @@ function absorbRepublishedRoutes(keeper, removed) {
  * Collapse the same vacancy published several times under different UUIDs:
  * same title, same store (postal code AND street — a city alone is not a
  * store: Zürich has dozens) and a byte-identical body, facts included (so a
- * different Pensum or start date keeps two postings apart). Measured on the
- * 2026-09-29 Coop slice: "Transportdisponent:in" three times at Industriestrasse
- * 109, 9200 Gossau with one text. By default records without a full store
- * address are never collapsed: two UUIDs without a street can be two
- * vacancies of one role, and collapsing them would drop a live page (Coop's
- * two "Detailhandelsfachfrau:mann EFZ" apprenticeships at Heiden, pages
- * identical but for the ATS tracking id, stay two records).
+ * different Pensum or start date keeps two postings apart). An authoritative
+ * source reference is a second proof: when it matches, publication and expiry
+ * dates may differ because those fields describe the repost, not the offer.
+ * Measured on the 2026-09-29 Coop slice: "Transportdisponent:in" three times
+ * at Industriestrasse 109, 9200 Gossau with one text. By default records
+ * without a full store address are never collapsed: two UUIDs without a street
+ * can be two vacancies of one role, and collapsing them would drop a live page
+ * (Coop's two "Detailhandelsfachfrau:mann EFZ" apprenticeships at Heiden,
+ * pages identical but for the ATS tracking id, stay two records).
  *
  * The source-backed Coop and Volg runners may opt into the stricter case-
  * (c) proof after their detail pages have been accepted: when the source
@@ -586,7 +588,9 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
     const location = normalizeSpace(job?.location || job?.addressLocality || '');
     const employer = normalizeSpace(job?.company || job?.companyKey || '');
     if (!title || !description || !location || !employer) return '';
+    const sourceReference = normalizeSpace(job?.sourceReference || '');
     return [
+      sourceReference,
       title,
       description,
       location,
@@ -604,8 +608,7 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
       job?.sector,
       job?.department,
       job?.requirements,
-      job?.datePosted,
-      job?.validThrough,
+      ...(sourceReference ? [] : [job?.datePosted, job?.validThrough]),
       job?.addressCountry || job?.country,
     ].map(normalizedIdentityValue).join('\u0000');
   };
@@ -1321,6 +1324,7 @@ export function buildCoopTranslationCacheEntry(job = {}) {
     // round-trip (issue #2962). Omitted when empty to avoid cache-file churn.
     ...(hasPrevSlugs ? { previousSlugs: job.previousSlugs } : {}),
     ...(hasPrevSlugsByLocale ? { previousSlugsByLocale: job.previousSlugsByLocale } : {}),
+    sourceReference: job.sourceReference,
     postedDate: job.postedDate,
     crawledAt: job.crawledAt,
     source: job.source,

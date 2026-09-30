@@ -1585,11 +1585,12 @@ export function auditWorkflowText(file, source, {
   readFile = fs.readFileSync,
   knownWorkflowNames = new Set(),
   reusableWorkflowOutputs = new Map(),
+  parsedDocument = null,
 } = {}) {
   const findings = [];
-  let document;
+  let document = parsedDocument;
   try {
-    document = parseDocument(String(source || ''), { prettyErrors: true });
+    document ??= parseDocument(String(source || ''), { prettyErrors: true });
   } catch (error) {
     findings.push(finding(file, 'yaml.parse', 'error', `YAML non parsabile: ${error.message}`, 1));
     return findings;
@@ -1616,6 +1617,7 @@ export function auditWorkflowText(file, source, {
 export function auditWorkflowFiles(root = ROOT) {
   const files = workflowFiles(root);
   const contents = new Map();
+  const parsedDocuments = new Map();
   const names = new Set();
   const reusableWorkflowOutputs = new Map();
   const parseFindings = [];
@@ -1626,6 +1628,7 @@ export function auditWorkflowFiles(root = ROOT) {
     try {
       const document = parseDocument(source, { prettyErrors: true });
       if ((document.errors || []).length === 0) {
+        parsedDocuments.set(file, document);
         const workflow = document.toJS({ mapAsMap: false });
         if (isRecord(workflow)) {
           if (typeof workflow.name === 'string' && workflow.name.trim()) names.add(workflow.name.trim());
@@ -1645,6 +1648,7 @@ export function auditWorkflowFiles(root = ROOT) {
       root,
       knownWorkflowNames: names,
       reusableWorkflowOutputs,
+      parsedDocument: parsedDocuments.get(file) ?? null,
     }));
   }
   return {
