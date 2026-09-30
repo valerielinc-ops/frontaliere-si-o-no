@@ -31,6 +31,8 @@ export interface ReviewQuestion {
   required: boolean;
   /** Earliest accepted date (YYYY-MM-DD) for a start-date question, else null. */
   minDate?: string | null;
+  /** Proposed start date shown in the empty field (saved only by the candidate). */
+  suggested?: string | null;
 }
 
 export interface ReviewPayload {

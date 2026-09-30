@@ -53,6 +53,15 @@ export function minDateFor(question, nowMs = Date.now()) {
   return question?.type === 'date' && START_DATE_RE.test(`${question.id || ''} ${question.question || ''}`) ? zurichToday(nowMs) : null;
 }
 
+/**
+ * The proposed start date (owner decision 2026-09-30): the first day of the
+ * month three months after next month, e.g. 1 January 2027 in September 2026.
+ */
+export function defaultStartDate(nowMs = Date.now()) {
+  const [year, month] = zurichToday(nowMs).split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1 + 4, 1)).toISOString().slice(0, 10);
+}
+
 /** A real calendar date (YYYY-MM-DD, year 1900 to ten years ahead), not before `minDate`. */
 export function validDateAnswer(text, minDate = null, nowMs = Date.now()) {
   const match = ISO_DATE_RE.exec(String(text || ''));
@@ -73,6 +82,8 @@ function questionView(question, nowMs = Date.now()) {
     options: question.options || [],
     required: Boolean(question.required),
     minDate: minDateFor(question, nowMs),
+    // A proposal shown in the field, never an answer until the candidate saves it.
+    suggested: minDateFor(question, nowMs) ? defaultStartDate(nowMs) : null,
   };
 }
 

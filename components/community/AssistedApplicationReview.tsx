@@ -111,7 +111,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       }
       const review = payload as ReviewPayload;
       setData(review);
-      setAnswers(review.answers || {});
+      // An empty start date shows the proposed one; it counts only once saved.
+      const proposed = Object.fromEntries((review.questions || [])
+        .filter((question) => question.suggested && !String(review.answers?.[question.id] || '').trim())
+        .map((question) => [question.id, question.suggested as string]));
+      setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
     } catch (reason) {
       setError(reason instanceof ReviewRequestError ? reason.code : 'network');

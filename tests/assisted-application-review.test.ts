@@ -105,8 +105,9 @@ describe('candidate review API', () => {
     const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     // T0 is 30-09-2026 10:00 UTC: the start date may be today at the earliest; a birth date has no minimum.
     expect(view.body.questions).toEqual([
-      expect.objectContaining({ id: 'availability', minDate: '2026-09-30' }),
-      expect.objectContaining({ id: 'birth_date', minDate: null }),
+      // Proposed start: first day of the month three months after next month (September → 1 January).
+      expect.objectContaining({ id: 'availability', minDate: '2026-09-30', suggested: '2027-01-01' }),
+      expect.objectContaining({ id: 'birth_date', minDate: null, suggested: null }),
     ]);
     const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
     expect(await answer({ availability: '1985-09-12' })).toMatchObject({ status: 400, body: { error: 'invalid_date' } });
