@@ -618,7 +618,7 @@ async function main() {
     ...(housekeepingProof ? { housekeepingProof } : {}),
   });
   printPublishedJobUrls(_sliceJobs, COMPANY_NAME);
-  writeJobsSummary(_sliceJobs, COMPANY_NAME);
+  writeJobsSummary(COMPANY_KEY, stats);
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'stadt-chur',

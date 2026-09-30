@@ -236,4 +236,20 @@ describe('stadt-chur feed parser', () => {
       description: BODY_60,
     });
   });
+
+  it('keeps the runner summary on the merge stats contract before assembly', () => {
+    const runner = readFileSync(
+      path.join(__dirname, '..', 'scripts', 'update-stadt-chur-jobs.mjs'),
+      'utf8',
+    );
+    const summaryCall = 'writeJobsSummary(COMPANY_KEY, stats);';
+    const summaryOffset = runner.indexOf(summaryCall);
+    const sliceSummaryOffset = runner.indexOf('writeSummaryCrawlerSlice({', summaryOffset);
+    const assemblyOffset = runner.indexOf('await assembleJobsDataset();', sliceSummaryOffset);
+
+    expect(summaryOffset).toBeGreaterThan(-1);
+    expect(runner.match(/writeJobsSummary\([^;]+\);/g)).toEqual([summaryCall]);
+    expect(summaryOffset).toBeLessThan(sliceSummaryOffset);
+    expect(sliceSummaryOffset).toBeLessThan(assemblyOffset);
+  });
 });
