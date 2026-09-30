@@ -148,12 +148,23 @@ describe('#5039 — no alert-CTA impression is emitted from a bare mount', () =>
   });
 });
 
-describe('issue 9577 — the inline_card CTA owns one visibility-based impression', () => {
+describe('issue 9577/10529 — inline_card separates actionable and passive visibility', () => {
   const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
 
-  it('JobAlertForm tracks inline_card through the shared observer on the trigger card', () => {
+  it('JobAlertForm tracks the trigger card through the shared observer', () => {
+    expect(src()).toContain('JobAlertTriggerCard');
     expect(src()).toContain('useImpressionTracker');
-    expect(src()).toMatch(/ref=\{inlineImpressionRef\}/);
+    expect(src()).toMatch(/ref=\{impressionRef\}/);
+  });
+
+  it('keeps passive utility-card views outside the funnel event', () => {
+    const full = src();
+    expect(full).toContain('const inlineCardHasExplicitIntent = initialKeyword.trim().length > 0');
+    expect(full).toContain('trackJobAlertPassiveView');
+    expect(full).toContain("key={inlineCardHasExplicitIntent ? 'intent' : 'passive'}");
+    const analytics = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
+    expect(analytics).toContain("log('job_alert_card_passive_view'");
+    expect(analytics).toContain('trackJobAlertPassiveView');
   });
 
   it('the auto-expand effect no longer emits the impression', () => {
