@@ -10,6 +10,7 @@ import {
   parseScheduleSlot,
   runHeartbeat,
 } from '../scripts/ci/orchestrator-heartbeat.mjs';
+import { normalizeOrchestratorSlot } from '../functions/src/lib/orchestratorSlot.js';
 
 const run = (createdAt: string, overrides: Record<string, unknown> = {}) => ({
   id: 123,
@@ -93,6 +94,19 @@ describe('orchestrator heartbeat', () => {
       now,
       runs: [run('2026-09-14T10:15:00Z', { event: 'push' })],
     }).state).toBe('missing');
+  });
+
+  it('shares the minute-normalized scheduler marker with the dispatcher', () => {
+    const slot = normalizeOrchestratorSlot('2026-09-14T09:00:03.022Z').toISOString();
+    const report = classifyHeartbeat({
+      now: new Date('2026-09-14T19:01:00Z'),
+      runs: [run('2026-09-14T09:00:04Z', {
+        event: 'workflow_dispatch',
+        display_title: `Orchestrate Job Crawlers [cloud-scheduler ${slot}]`,
+      })],
+    });
+    expect(slot).toBe('2026-09-14T09:00:00.000Z');
+    expect(report.state).toBe('observed');
   });
 
   it('ignores a run from the next slot when checking the current one', () => {
