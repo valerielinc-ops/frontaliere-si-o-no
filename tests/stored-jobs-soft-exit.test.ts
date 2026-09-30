@@ -77,6 +77,28 @@ describe('rewritePreparedStoredJobs (zero-job soft exit)', () => {
     });
   });
 
+  it('records a failed PDF separately from thin-source quarantine', async () => {
+    const write = vi.fn();
+    const job = { ...storedFartJob(), description: '', descriptionByLocale: { it: '' } };
+    const rewritten = await rewritePreparedStoredJobs({
+      prepare: (jobs) => jobs,
+      storedJobs: [job],
+      sourceBodyFailureJobs: [{ url: job.url, sourceBodyFailureReason: 'pdf-extraction-failed' }],
+      companyKey: 'fart',
+      companyLabel: 'FART',
+      write,
+    });
+
+    expect(rewritten).toBe(true);
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [{
+        job: expect.objectContaining({ url: job.url }),
+        reason: 'pdf-extraction-failed',
+        definitive: true,
+      }],
+    });
+  });
+
   it('keeps a real source body while removing only a fabricated translation', async () => {
     const write = vi.fn();
     const source = Array(60).fill('source').join(' ');

@@ -47,7 +47,9 @@ permissions:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Snapshot persistence was still retrying its main push at 13m30s in
+    # #10548; allow the bounded retry helper to finish its convoy window.
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
