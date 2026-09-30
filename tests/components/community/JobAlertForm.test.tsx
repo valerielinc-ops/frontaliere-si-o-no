@@ -19,6 +19,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, within, waitFor, act } from '@testing-library/react';
 import JobAlertForm from '@/components/community/JobAlertForm';
+import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 const ALERT_CTA_SURFACES = ['inline_card'];
 
 const { createAlertMock, getUserAlertsMock } = vi.hoisted(() => ({
@@ -422,6 +423,22 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
     expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({ surface: 'inline_card', authPath: 'direct' });
     await waitFor(() => expect(ctaActions()).toEqual(['inline_card:open', 'inline_card:accept', 'inline_card:success']));
+  });
+
+  it('keeps a job-detail handoff origin on a signed-in form create', async () => {
+    requestJobAlertOpen('infermiere', 'job_detail_button');
+    render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => expect(document.getElementById('job-alert-form')).not.toBeNull());
+    typeKeywordAndSubmit('infermiere');
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({
+      surface: 'job_detail_button',
+      authPath: 'direct',
+    });
+    await waitFor(() => expect(ctaActions()).toContain('job_detail_button:accept'));
+    expect(ctaActions()).toContain('job_detail_button:success');
   });
 
   it('a failed signed-in create reports accept→error', async () => {

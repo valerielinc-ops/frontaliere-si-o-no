@@ -192,6 +192,15 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
 
     const pending = fs.readFileSync(path.join(ROOT, 'services/pendingJobAlert.ts'), 'utf-8');
     expect(pending).toContain("'job_detail_button'");
+
+    const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
+    expect(boardFilter).toContain('requestJobAlertOpen(keywordLabel, formOrigin)');
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8'))
+      .toContain('formOrigin="job_board_filters"');
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
+      .toContain("origin: 'end_card'");
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertStickyBanner.tsx'), 'utf-8'))
+      .toContain("origin: 'sticky_banner'");
   });
 });
 
