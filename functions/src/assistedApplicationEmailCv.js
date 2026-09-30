@@ -112,6 +112,9 @@ export async function handleAssistedApplicationEmailCv(req, deps) {
   const orderRef = orderDoc.ref;
   let stored = false;
   await deps.db.runTransaction(async (transaction) => {
+    // Firestore retries a contended transaction: a retry that finds another CV
+    // must not keep the first attempt's "stored", or the losing file would stay.
+    stored = false;
     const snapshot = await transaction.get(orderRef);
     const order = snapshot.data() || {};
     // Raced with an upload from the order page: keep that one.

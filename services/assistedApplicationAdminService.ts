@@ -42,6 +42,8 @@ export interface AutomationQuestionView {
 
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
 export interface AssistedApplicationAutomationView {
+  /** Employer messages received on the order alias (newest first, max 10). */
+  inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
   flow: {
     state: string | null;
     round: number;

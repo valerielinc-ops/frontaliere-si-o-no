@@ -129,6 +129,24 @@ describe('CV by e-mail reply', () => {
     expect(database.read('assisted_applications/order_OTHER')!.cvStorageKey).toBeUndefined();
   });
 
+  it('deletes its file when a retried transaction finds a CV uploaded meanwhile', async () => {
+    const database = store();
+    const bucket = fakeBucket();
+    // First attempt: no CV yet, but the commit loses to an upload from the order page; Firestore retries.
+    const contended = {
+      ...database.db,
+      runTransaction: async (callback: any) => {
+        await callback({ get: (ref: any) => ref.get(), set: () => {}, delete: () => {} });
+        await database.db.collection('assisted_applications').doc(ORDER).set({ cvStorageKey: `assisted-application-uploads/${ORDER}/page.pdf` }, { merge: true });
+        return database.db.runTransaction(callback);
+      },
+    };
+    const result = await handleAssistedApplicationEmailCv(request(rawMessage()), { db: contended, bucket, secret: SECRET });
+    expect(result.body).toEqual({ ok: true, matched: false, reason: 'cv_already_present' });
+    expect(bucket.files.size).toBe(0);
+    expect(database.read(`assisted_applications/${ORDER}`)).toMatchObject({ cvStorageKey: `assisted-application-uploads/${ORDER}/page.pdf` });
+  });
+
   it('never replaces an existing CV, ignores forged senders and non-CV files', async () => {
     const withCv = store({ cvStorageKey: `assisted-application-uploads/${ORDER}/old.pdf` });
     expect((await handleAssistedApplicationEmailCv(request(rawMessage()), { db: withCv.db, bucket: fakeBucket(), secret: SECRET })).body)

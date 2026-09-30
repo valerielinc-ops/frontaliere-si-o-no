@@ -194,9 +194,15 @@ export function sanitizeDocuments(raw) {
   };
 }
 
+/**
+ * Who the employer sees. The e-mail is the order's alias when its routing
+ * rule is active (owner decision 2026-09-30: alias everywhere), else the
+ * candidate's own address.
+ */
 export function candidateIdentity(order, profile) {
   const name = clean(order?.applicantName, 200) || clean(profile?.fullName, 200);
-  const email = clean(order?.applicantEmail, 320) || clean(profile?.email, 320) || clean(order?.customerEmail, 320);
+  const alias = order?.candidateAlias?.active ? clean(order.candidateAlias.address, 320) : '';
+  const email = alias || clean(order?.applicantEmail, 320) || clean(profile?.email, 320) || clean(order?.customerEmail, 320);
   const phone = clean(order?.applicantPhone, 80) || clean(profile?.phone, 80);
   return { name, email, phone };
 }

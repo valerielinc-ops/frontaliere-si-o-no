@@ -80,8 +80,10 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
   for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake']]) {
     await orderRef.collection(collection).doc(id).delete();
   }
-  const events = await orderRef.collection('automation_events').get();
-  for (const doc of events.docs || []) await doc.ref.delete();
+  for (const name of ['automation_events', 'inbox']) {
+    const docs = await orderRef.collection(name).get();
+    for (const doc of docs.docs || []) await doc.ref.delete();
+  }
 }
 
 /**
@@ -149,11 +151,16 @@ export async function purgeExpiredAssistedApplicationFiles(
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
       await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
+      if (order.candidateAlias?.address) {
+        const { removeOrderAlias } = await import('./assistedApplicationAlias.js');
+        await removeOrderAlias({ db: firestore, order });
+      }
       await snapshot.ref.set({
         cvStorageKey: null,
         cvUploadedAt: null,
         coverLetterStorageKey: null,
         automationDueAt: null,
+        candidateAlias: null,
         retentionPurgedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });

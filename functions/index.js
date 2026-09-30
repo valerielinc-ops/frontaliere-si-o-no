@@ -92,6 +92,10 @@ import {
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
+import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
+import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
+import { codexStructured } from './src/lib/codexStructured.js';
+import { sendEmailCascade as sendAssistedApplicationCascade } from './src/emailCascade.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './src/assistedApplicationCvCheck.js';
 import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/storage';
 import { resolveCvLink as resolveAssistedApplicationFileLink } from './src/publisherApplicationsCore.js';
@@ -2277,6 +2281,7 @@ export const startAssistedApplicationAutomation = onDocumentWritten(
       const result = await maybeStartAutomation(before, after.data(), event.params.orderId, {
         db: getAdminDb(),
         runEffect: (context) => runAutomationEffect(context),
+        ensureAlias: (args) => ensureOrderAlias(args),
       });
       if (result.started) console.log('[startAssistedApplicationAutomation] started', event.params.orderId);
     } catch (error) {
@@ -2342,6 +2347,49 @@ export const assistedApplicationEmailCv = onRequest(
       console.error('[assistedApplicationEmailCv]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
+  },
+);
+
+// Employer messages on the order aliases (c-…@candidature.frontaliereticino.ch),
+// handed over raw by the Email Worker: classified by Codex, stored encrypted,
+// forwarded to the candidate with Reply-To set to the recruiter.
+export const assistedApplicationInbound = onRequest(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: false },
+  async (req, res) => {
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      // Stores the message and answers at once: the Worker waits for this answer.
+      const { status, body } = await handleAssistedApplicationInbound(req, {
+        db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+        secret: newsletterSecret,
+        runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+      });
+      if (body.matched) console.log('[assistedApplicationInbound] employer message accepted');
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[assistedApplicationInbound]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// ...then classified by Codex and forwarded to the candidate, retried on failure.
+export const processAssistedApplicationInboundMessage = onDocumentCreated(
+  { region: 'europe-west6', document: 'assisted_applications/{orderId}/inbox/{messageId}', memory: '512MiB', timeoutSeconds: 540, retry: true },
+  async (event) => {
+    if (event.data?.data()?.status !== 'received') return;
+    await bridgeEmailCascadeCredentialsToEnv();
+    const result = await processAssistedApplicationInbound({
+      db: getAdminDb(),
+      bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+      orderId: event.params.orderId,
+      messageId: event.params.messageId,
+      runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+      classify: (request) => codexStructured(request),
+      sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+    });
+    if (!result.skipped) console.log('[processAssistedApplicationInboundMessage]', result.category, result.forwarded);
   },
 );
 
