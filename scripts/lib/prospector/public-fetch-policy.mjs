@@ -11,6 +11,22 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import { BlockList, isIP } from 'node:net';
 import { Agent, fetch as undiciFetch } from 'undici';
 
+const INITIAL_GLOBAL_FETCH = globalThis.fetch;
+
+/**
+ * Use the npm Undici transport for the production default so a policy Agent
+ * stays attached to the actual socket. A caller-replaced global fetch remains
+ * an explicit adapter (including the fixture transport used by tests).
+ *
+ * @param {Parameters<typeof fetch>[0]} input
+ * @param {Parameters<typeof fetch>[1]} [init]
+ */
+export function fetchWithPublicDispatcher(input, init) {
+  const activeFetch = globalThis.fetch;
+  const fetchImpl = activeFetch !== INITIAL_GLOBAL_FETCH ? activeFetch : undiciFetch;
+  return fetchImpl(input, init);
+}
+
 const NON_PUBLIC_IPV4_ADDRESSES = new BlockList();
 /** @type {[string, number][]} */
 const NON_PUBLIC_IPV4_RANGES = [
@@ -346,7 +362,7 @@ export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirects(url, {
-  fetchImpl = undiciFetch,
+  fetchImpl = fetchWithPublicDispatcher,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
@@ -376,7 +392,7 @@ export async function fetchFollowingValidatedRedirects(url, {
  * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit & { dispatcher?: unknown }, maxRedirects?: number, beforeRequest?: (url: string, context: { redirectCount: number }) => Promise<unknown>|unknown }} [options]
  */
 export async function fetchFollowingValidatedRedirectsWithUrl(url, {
-  fetchImpl = undiciFetch,
+  fetchImpl = fetchWithPublicDispatcher,
   validateUrl,
   requestOptions = {},
   maxRedirects = 5,
