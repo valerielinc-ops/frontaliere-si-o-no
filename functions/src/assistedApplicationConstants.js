@@ -5,6 +5,8 @@
  */
 
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
+/** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */
+export const PORTAL_ACCOUNTS_DOC_ID = 'accounts';
 
 /** One-off price in EUR cents, shared by checkout validation and analytics. */
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 99;

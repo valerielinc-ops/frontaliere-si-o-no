@@ -44,6 +44,8 @@ export interface AutomationQuestionView {
 export interface AssistedApplicationAutomationView {
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
+  /** Portal accounts the runner created on the order's alias (no password: automationRevealAccount). */
+  accounts?: Array<{ host: string; email: string; createdAt: number | null; verifiedAt: number | null; lastSignInAt: number | null; revealedAt: number | null }>;
   flow: {
     state: string | null;
     round: number;
@@ -238,7 +240,8 @@ export type AutomationAdminAction =
   | 'automationResume'
   | 'automationRegenerate'
   | 'automationEditDraft'
-  | 'automationSetAnswers';
+  | 'automationSetAnswers'
+  | 'automationRevealAccount';
 
 /** One action of the automated flow (functions/src/assistedApplicationAutomationAdmin.js). */
 export async function runAutomationAdminAction(
