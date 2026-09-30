@@ -1663,13 +1663,17 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
       body: JSON.stringify({ q: clean, source: sourceLang, target: targetLang, format: 'text' }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
+    // Provenance is read before the await: a concurrent field may drop the
+    // cached service-account token while this request is in flight, and a
+    // comparison after the response would then skip this field's fallback.
+    const fromServiceAccount = token === _gcServiceAccountToken.accessToken;
     let res = await request(token);
     // A service-account token the API rejects must not stay cached for the
     // rest of the run, or no later field ever reaches the OAuth fallback:
     // drop it and give this field one try with the fallback. A 403 for the
     // project's daily cap is not a credential problem, and the fallback bills
     // the same project, so it is not retried.
-    if ((res.status === 401 || res.status === 403) && token === _gcServiceAccountToken.accessToken) {
+    if ((res.status === 401 || res.status === 403) && fromServiceAccount) {
       const refusal = await res.text().catch(() => '');
       if (GOOGLE_CLOUD_QUOTA_REFUSAL.test(refusal)) {
         _noteGoogleCloudFailure(`HTTP ${res.status} quota`);
@@ -1677,7 +1681,7 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
         return '';
       }
       _gcServiceAccountToken.refused = true;
-      _gcServiceAccountToken.accessToken = '';
+      if (_gcServiceAccountToken.accessToken === token) _gcServiceAccountToken.accessToken = '';
       _noteGoogleCloudFailure(`service-account HTTP ${res.status}`);
       token = await _getGoogleCloudAccessToken();
       if (!token) {
