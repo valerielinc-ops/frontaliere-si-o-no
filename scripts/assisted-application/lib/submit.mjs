@@ -88,6 +88,15 @@ export async function submitApplication(ctx) {
       { filename: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, content: cvBuffer.toString('base64') },
       { filename: `${letterLabel}_${stem}.pdf`, content: Buffer.from(letterPdf).toString('base64') },
     ];
+    if (ctx.dryRun) {
+      // A dry run shows what would leave (encrypted, next to the order) and sends nothing.
+      await storeEvidence({
+        bucket, orderId, name: 'dry-run-email',
+        payload: { to, subject: draft.applicationEmail?.subject || '', body: draft.applicationEmail?.body || '', attachments: attachments.map((item) => item.filename), cvSent },
+        key: runKey, nowMs,
+      });
+      return { type: 'dry_run_ready', channel: 'email' };
+    }
     // Our own Message-ID, so the follow-ups can refer to this e-mail
     // (best effort: a provider may replace it; the "Re:" subject threads anyway).
     const messageId = `<aa-${String(orderId).replace(/[^A-Za-z0-9_-]/g, '')}-${nowMs}@candidature.frontaliereticino.ch>`;
