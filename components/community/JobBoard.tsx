@@ -167,7 +167,7 @@ import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, isEmployerOwnedApplyUrl, resolveJobPostingAddress, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
@@ -231,7 +231,6 @@ import {
  normalizeJobCategory,
  normalizeJobContract,
  resolveCompanyLogoUrl,
- resolveCompanyWebsiteHost,
 } from '@/services/jobDataNormalization';
 import {
  sanitizeJobTitle,
@@ -256,7 +255,7 @@ import {
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
 import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
-import { resolveJobPostingPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
  getEmailProviderInfo,
@@ -5879,26 +5878,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
- const toIsoDateTime = (raw?: string): string => {
- if (!raw) return new Date().toISOString();
- const parsed = new Date(raw);
- if (!Number.isNaN(parsed.getTime())) return parsed.toISOString();
- const safe = new Date(`${raw}T00:00:00.000Z`);
- return Number.isNaN(safe.getTime()) ? new Date().toISOString() : safe.toISOString();
- };
-
- const toValidThrough = (postedRaw?: string): string => {
- const posted = new Date(toIsoDateTime(postedRaw));
- posted.setUTCDate(posted.getUTCDate() + 60);
- // Floor to now+30d (#3505): these are ACTIVE listings — a stale postedDate
- // must not emit an already-past validThrough (Google drops it as expired).
- const floor = new Date();
- floor.setUTCDate(floor.getUTCDate() + 30);
- return (posted.getTime() < floor.getTime() ? floor : posted).toISOString();
- };
-
  const jobsForSchema = selectedJob ? [selectedJob] : pagedJobs;
- const jobPostings = jobsForSchema.map((job): Record<string, unknown> | null => {
+ const jobPostings = jobsForSchema.map((job): ReturnType<typeof buildJobPostingSchema> | null => {
  const jobPath = buildJobPath(job);
  const canonicalUrl = `${window.location.origin}${jobPath}`;
  const description = (
@@ -5935,103 +5916,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const rawLocality = String(job.addressLocality || '').trim();
  const addressLocality = isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
  const addressRegion = String(job.canton || DEFAULT_CANTON);
- // Same CAP/street pairing as the static JobPosting (#9108, #9841): this
- // script replaces it after hydration, so it must not re-pair a Chur job with
- // the HQ CAP 8600 the static builder already rejected.
- const { postalCode, sourcePostalCoherent } = resolveJobPostingPostalCode(job, addressLocality, addressRegion);
+ // Same CAP/street pairing as the static JobPosting (#9108, #9841): the
+ // canonical builder receives only the coherent source tuple, so hydration
+ // cannot re-pair a Chur job with the HQ CAP 8600 the static builder rejected.
+ const postalCode = job.postalCode;
  const rawStreet = String(job.streetAddress || '').trim();
- const streetAddress = sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '';
- // One address for every posting, from the canonical resolver the static
- // page uses: same locality sanitizer, and never a CAP or street of another
- // place beside the locality (issue 9852: no canton-capital CAP or street
- // next to a different locality). Remote and multi-location postings get the
- // same single-place tuple as their static page (a multi-location label
- // resolves to the canton's coherent fallback): a country-level
- // "Switzerland"/"CH" address cannot carry the postalCode and streetAddress
- // that Non-Negotiable #3 makes mandatory without borrowing a concrete
- // place's. Remoteness stays in jobLocationType and
- // applicantLocationRequirements.
- const jobAddress = resolveJobPostingAddress({
- companyKey: job.companyKey,
- addressLocality,
- addressRegion,
- postalCode,
- streetAddress,
- }, locale);
- const posting: Record<string, unknown> = {
- '@type': 'JobPosting',
+ // Skip JobPosting if no meaningful description — an empty description is worse than no schema
+ if (!description || description.length < 30) return null;
+ return buildJobPostingSchema({
+ id: job.id,
+ slug: job.slug,
  title: localizedTitle,
  description,
- inLanguage: locale,
- datePosted: toIsoDateTime(job.postedDate),
- validThrough: toValidThrough(job.postedDate),
- employmentType: CONTRACT_TO_EMPLOYMENT_TYPE[normalizeJobContract(job.contract, localizedTitle, description)] || 'OTHER',
- identifier: {
- '@type': 'PropertyValue',
- name: job.company,
- value: job.id,
- },
- hiringOrganization: {
- '@type': 'Organization',
- name: job.company,
- sameAs: (() => {
- const host = resolveCompanyWebsiteHost({
  company: job.company,
  companyKey: job.companyKey,
  companyDomain: job.companyDomain,
+ companyLogoUrl: logo,
+ addressLocality,
+ addressRegion,
+ addressCountry: job.addressCountry,
+ postalCode,
+ streetAddress: isValidAddr(rawStreet) ? rawStreet : '',
+ postedDate: job.postedDate,
+ crawledAt: job.crawledAt,
+ contract: job.contract,
+ salaryMin,
+ salaryMax,
+ salaryCurrency,
+ sector: job.sector,
+ category: job.category,
  url: job.url,
- });
- return host ? `https://www.${host}` : 'https://frontaliereticino.ch';
- })(),
- logo,
- },
- jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,
- jobLocation: {
- '@type': 'Place',
- address: jobAddress,
- },
- directApply: isEmployerOwnedApplyUrl(job),
+ applyUrl: job.applyUrl,
+ isRemote,
+ } satisfies JobInput, {
+ locale,
  url: canonicalUrl,
- };
- if (isRemote) {
- // Scoped to remote jobs only — an on-site job is not "open to applicants
- // from CH" in the schema.org sense (mirrors build-plugins/shared/jobPostingSchema.ts).
- posting.applicantLocationRequirements = {
- '@type': 'Country',
- name: 'CH',
- };
- }
- if (Number.isFinite(salaryMin)) {
- // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
- const effectiveMax = Number.isFinite(salaryMax) && salaryMax > salaryMin
- ? salaryMax
- : Math.round(salaryMin * 1.2);
- posting.baseSalary = {
- '@type': 'MonetaryAmount',
- currency: salaryCurrency,
- value: {
- '@type': 'QuantitativeValue',
- minValue: salaryMin,
- maxValue: effectiveMax,
- unitText: 'YEAR',
- },
- };
- } else {
- // Fallback: Ticino minimum wage ~CHF 41,080/year ensures baseSalary is always present
- posting.baseSalary = {
- '@type': 'MonetaryAmount',
- currency: 'CHF',
- value: {
- '@type': 'QuantitativeValue',
- minValue: 41080,
- maxValue: 49296,
- unitText: 'YEAR',
- },
- };
- }
- // Skip JobPosting if no meaningful description — an empty description is worse than no schema
- if (!description || description.length < 30) return null;
- return posting;
+ baseUrl: window.location.origin,
+ });
  }).filter((p): p is Record<string, unknown> => p !== null);
 
  // FRO: If viewing a single job but we can't generate a valid schema
