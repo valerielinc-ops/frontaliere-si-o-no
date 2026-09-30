@@ -1,5 +1,47 @@
 import { describe, it, expect, vi } from 'vitest';
 import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import {
+  oscamCastelrottoMatchKey,
+  parseOscamCastelrottoListing,
+} from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
+
+describe('oscamCastelrottoMatchKey', () => {
+  it('matches the legacy anchor record with the fresh PDF record by listing id', () => {
+    const stored = {
+      id: 'oscam-castelrotto-concorso-generale-2026-d6feb03013ef',
+      url: 'https://www.oscam.ch/lavoraconnoi/#concorso-generale-2026',
+    };
+    const fresh = {
+      id: 'oscam-castelrotto-concorso-generale-2026-4f4f6c1a8b2e',
+      url: 'https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf',
+    };
+
+    expect(oscamCastelrottoMatchKey(stored)).toBe(
+      oscamCastelrottoMatchKey(fresh),
+    );
+  });
+});
+
+describe('OSCAM listing URLs', () => {
+  it('uses the vacancy PDF instead of inventing a missing page anchor', () => {
+    const listings = parseOscamCastelrottoListing(`
+      <h2>CONCORSI ATTIVI</h2>
+      <h3>Concorso generale 2026</h3>
+      <h4>Apri il <a href="/wp-content/uploads/2026/02/Concorso-generale-2026.pdf">bando</a></h4>
+      <h3>Concorso generale per medici assistenti 2025-2026</h3>
+      <h4>Apri il <a href="/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf">bando</a></h4>
+      <h3>Certificato medico da compilare</h3>`);
+
+    expect(listings.map((listing) => listing.pdfUrl)).toEqual([
+      '/wp-content/uploads/2026/02/Concorso-generale-2026.pdf',
+      '/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf',
+    ]);
+    expect(listings.map((listing) => listing.id)).toEqual([
+      'concorso-generale-2026',
+      'concorso-generale-2025-per-medici-assistenti',
+    ]);
+  });
+});
 
 // ──────────────────────────────────────────────────────────────
 // Real PDF text fixture: Vice-responsabile finanze
