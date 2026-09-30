@@ -1933,7 +1933,7 @@ function renderPage(inp: PageInputs): string {
   const titleWithDate = `${titleHeadline} (${dateDisplay})`;
   const titleWithPrice = `${titleHeadline} · ${priceFmt} CHF/l (${dateDisplay})`;
   const titleBase = titleWithPrice.length <= 66 ? titleWithPrice : titleWithDate;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   // `clampMetaDescription` (160) in htmlTemplate always won over this 180-char
   // slice, so the slice only ever cut mid-word before the real clamp ran. The
   // intro is now authored to land under 160 on its own.

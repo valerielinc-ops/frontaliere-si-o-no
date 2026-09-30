@@ -1,0 +1,20 @@
+{
+  "companyKey": "my",
+  "companyName": "Inauen-Schätti AG",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/ace72147187c827f2fbd5ec134b384ce/inauen-schaetti-ag/spontanbewerbung_6901"
+  ],
+  "detailTemplate": "/job/ace72147187c827f2fbd5ec134b384ce/inauen-schaetti-ag/spontanbewerbung_6901",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung / 100%"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-30T13:46:00.902Z"
+}

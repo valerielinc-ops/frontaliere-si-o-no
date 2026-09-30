@@ -23,6 +23,8 @@ vi.mock('@/services/analytics', () => ({
   Analytics: {
     trackJobAlertCtaClick: ctaClickMock,
     trackJobAlertCtaShown: vi.fn(),
+    trackJobAlertCtaSkipped: vi.fn(),
+    trackJobAlertPassiveView: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
   },

@@ -9,7 +9,7 @@
 
 import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { SUBMISSION_DOC_ID } from './assistedApplicationSubmissionGuard.js';
 
@@ -77,7 +77,7 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
     await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
   }
   if (typeof orderRef?.collection !== 'function') return;
-  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake']]) {
+  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID]]) {
     await orderRef.collection(collection).doc(id).delete();
   }
   for (const name of ['automation_events', 'inbox']) {

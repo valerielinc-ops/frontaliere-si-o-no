@@ -92,7 +92,7 @@ export const EVENT_SOURCES = {
   myswitzerland: {
     key: 'myswitzerland',
     label: 'MySwitzerland',
-    homepage: 'https://www.myswitzerland.com',
+    homepage: 'https://www.myswitzerland.com/en/',
     canton: null,
   },
   // Pilot non-TI source-canton crawler (issue #3644, F2 of #3125) — validates

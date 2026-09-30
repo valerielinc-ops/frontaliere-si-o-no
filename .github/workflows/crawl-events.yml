@@ -58,8 +58,10 @@ jobs:
     # only that day's genuinely new events need enrichment and tio-agenda
     # should return close to its 12min baseline. Run 36029589003 consumed
     # ~56min before the GE pilot started, so 60min cancelled before
-    # assemble/commit; leave headroom for GE plus the publication gate.
-    timeout-minutes: 90
+    # assemble/commit. Run 36707880973 then reached the 90min cap while the
+    # final dataset push was retrying (#10544); keep headroom for the full
+    # crawl, publication gate, and the main-writer convoy.
+    timeout-minutes: 120
 
     steps:
       - name: Checkout

@@ -1,28 +1,34 @@
 /**
- * Portal runner (fase 3b, wave 1: portals without an account).
+ * Portal runner (fase 3b: portals without an account; fase 3c: accounts).
  *
  *   open the apply URL → reach the real form (career-ops: the application host
  *   may differ from the posting host) → per page: CAPTCHA / login check,
  *   Codex plan, deterministic fill, next → submit → confirmation.
  *
- * It never bypasses a CAPTCHA or a login (owner decision: career-ops'
- * approach): those end in the candidate handoff. A required answer only the
- * candidate can give ends in `submit_needs_candidate` with the question; the
- * flow asks it on the review page and dispatches the submission again.
+ * It never bypasses a CAPTCHA (owner decision: career-ops' approach): that
+ * ends in the candidate handoff. A login page is handled by account.mjs: an
+ * account on the order's alias, created by the runner and verified through
+ * the order's inbox. A required answer only the candidate can give ends in
+ * `submit_needs_candidate` with the question; the flow asks it on the review
+ * page and dispatches the submission again.
  * A click on "submit" whose outcome cannot be confirmed is never retried
  * (career-ops: an ambiguous submit is not re-submitted).
  */
 
+import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { planPage } from './plan.mjs';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
+import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 
 export const WAVE1_CHANNELS = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
-  // Workday and SuccessFactors tenants that accept a guest application; a
-  // tenant that requires an account ends in the 'account' handoff.
+  // Workday and SuccessFactors: a guest application where the tenant allows
+  // it, otherwise an account on the order's alias (account.mjs).
   'workday', 'successfactors',
 ]);
+// Login pages in one run: create, verify, sign in, and one retry.
+const MAX_AUTH_STEPS = 5;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
 const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -149,6 +155,127 @@ async function openApplicationForm(context, page, snapshot) {
   return { page, snapshot };
 }
 
+/** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
+function questionsFrom(missingRequired) {
+  const questions = [];
+  for (const item of missingRequired) {
+    const id = `portal_${slugId(item.question)}`;
+    if (questions.some((question) => question.id === id)) continue; // Greenhouse repeats a question in two controls
+    questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, source: 'portal' });
+  }
+  return questions;
+}
+
+async function clickFirst(page, snapshot, patterns) {
+  for (const pattern of patterns) {
+    const button = findButton(snapshot.buttons, pattern);
+    if (button) {
+      await clickButton(page, button);
+      return true;
+    }
+    const link = await page.getByRole('link', { name: pattern }).first().elementHandle().catch(() => null);
+    if (link) {
+      await link.click();
+      return true;
+    }
+  }
+  return false;
+}
+
+/** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
+async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
+  const verification = await ctx.accounts.waitForVerification({ host, sinceMs });
+  if (!verification) return { handoff: 'account_verification_timeout' };
+  if (verification.url) {
+    await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await settle(page);
+  } else {
+    const current = snapshot || await extractFields(page);
+    const field = codeField(current);
+    if (!field) return { handoff: 'account' };
+    await applyActions(page, current.fields, [{ fieldId: field.id, action: 'fill', value: verification.code }], {});
+    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i])) return { handoff: 'account' };
+    await settle(page);
+  }
+  const after = await extractFields(page);
+  // Verified only when the portal says so: an expired or refused token never
+  // marks the account verified for the next runs.
+  const outcome = verificationOutcome(after);
+  if (outcome !== 'accepted') return { handoff: `account_verification_${outcome}` };
+  await ctx.accounts.mark(host, { verifiedAt: Date.now() });
+  return { snapshot: after, reopen: true };
+}
+
+/**
+ * One login page (account.mjs): sign in with the order's account, or create
+ * it on the alias, or verify it. Returns the next page, a handoff reason,
+ * questions for the candidate, or `dryRun` (a dry run never creates an account).
+ */
+async function handleAuth({ page, snapshot, ctx }) {
+  const host = new URL(page.url()).hostname;
+  const kind = authPageKind(snapshot);
+  const account = await ctx.accounts.load(host);
+
+  if (kind === 'sign_in' && !account) {
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account' };
+    await settle(page);
+    return { snapshot: await extractFields(page) };
+  }
+
+  if (kind === 'sign_in') {
+    const { email, password } = loginFields(snapshot);
+    if (!email || !password) return { handoff: 'account' };
+    await applyActions(page, snapshot.fields, [
+      { fieldId: email.id, action: 'fill', value: account.email },
+      { fieldId: password.id, action: 'fill', value: account.password },
+    ], {});
+    if (!await clickFirst(page, snapshot, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE])) return { handoff: 'account' };
+    await settle(page);
+    const after = await extractFields(page);
+    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
+      return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after });
+    }
+    if (authPageKind(after) === 'sign_in') return { handoff: 'account_sign_in_failed' };
+    await ctx.accounts.mark(host, { lastSignInAt: Date.now() });
+    return { snapshot: after, reopen: true };
+  }
+
+  // Create-account page.
+  if (account) {
+    // Created by an earlier run: sign in instead.
+    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return { handoff: 'account' };
+    await settle(page);
+    return { snapshot: await extractFields(page) };
+  }
+  if (ctx.dryRun) return { dryRun: true };
+  const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
+  const plan = await planPage({ snapshot: others, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  if (plan.missingRequired.length) return { questions: questionsFrom(plan.missingRequired) };
+  const password = newPortalPassword();
+  // Stored (encrypted) before the click: a run that dies afterwards still knows it.
+  await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
+  const sinceMs = Date.now();
+  const passwordActions = snapshot.fields.filter((field) => field.inputType === 'password')
+    .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
+  await applyActions(page, snapshot.fields, [...plan.actions, ...passwordActions], ctx.files);
+  const filled = await extractFields(page, NAVIGATION);
+  if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
+    await ctx.accounts.discard(host, 'no_create_button');
+    return { handoff: 'account' };
+  }
+  await settle(page);
+  const after = await extractFields(page);
+  const outcome = registrationOutcome(after);
+  if (outcome === 'refused') {
+    // No account exists: the next run creates it again instead of signing in.
+    await ctx.accounts.discard(host, 'registration_refused');
+    return { handoff: 'account_create_refused' };
+  }
+  await ctx.accounts.mark(host, { status: 'created' });
+  if (outcome === 'verify') return verifyAccount({ page, host, sinceMs, ctx, snapshot: after });
+  return { snapshot: after, reopen: !after.passwordVisible };
+}
+
 async function waitForOutcome(page) {
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
   while (Date.now() < deadline) {
@@ -171,12 +298,13 @@ async function waitForOutcome(page) {
  * @param {{cv:string, cover_letter:string}} ctx.files local file paths
  * @param {Function} ctx.codex broker call
  * @param {Function} [ctx.launch] browser launcher (tests)
- * @param {boolean} [ctx.dryRun] fill every page but never press submit
+ * @param {boolean} [ctx.dryRun] fill every page but never press submit (nor create an account)
  * @param {Function} [ctx.onBeforeSubmit] called right before the final submit click (submission guard)
+ * @param {ReturnType<import('./account.mjs').portalAccountStore>} [ctx.accounts] the order's portal accounts; without it a login page is handed over
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
-  const launch = ctx.launch || (async () => (await import('playwright')).chromium.launch({ headless: true }));
+  const launch = ctx.launch || (() => launchChromium({ headless: true }));
   const log = ctx.log || (() => {});
   const maxSteps = ctx.maxSteps || 8;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
@@ -202,26 +330,42 @@ export async function submitViaPortal(ctx) {
     if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
     let validationRetries = 0;
     let stuckOnPage = 0;
+    let authSteps = 0;
     const uploaded = new Set();
 
     for (let step = 1; step <= maxSteps; step += 1) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
-      if (snapshot.passwordVisible) return await handoff('account');
+      if (snapshot.passwordVisible) {
+        if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
+        const auth = await handleAuth({ page, snapshot, ctx });
+        evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok') };
+        if (auth.handoff) return await handoff(auth.handoff);
+        if (auth.questions) return { event: { type: 'submit_needs_candidate', questions: auth.questions }, evidence };
+        if (auth.dryRun) {
+          evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
+          return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
+        }
+        snapshot = auth.snapshot;
+        // After a sign-in or a verification link the portal may land on its
+        // home page: back to the posting and its form.
+        if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          snapshot = await extractFields(page);
+        }
+        step -= 1; // a login page is not a form page
+        continue;
+      }
       if (!hasApplicationForm(snapshot) && !findButton(snapshot.buttons, SUBMIT_RE) && !findButton(snapshot.buttons, NEXT_RE)) {
         return await handoff('portal_needs_candidate');
       }
 
       const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
       if (plan.missingRequired.length) {
-        const questions = [];
-        for (const item of plan.missingRequired) {
-          const id = `portal_${slugId(item.question)}`;
-          if (questions.some((question) => question.id === id)) continue; // Greenhouse repeats a question in two controls
-          questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, source: 'portal' });
-        }
-        return { event: { type: 'submit_needs_candidate', questions }, evidence };
+        return { event: { type: 'submit_needs_candidate', questions: questionsFrom(plan.missingRequired) }, evidence };
       }
       // A file already uploaded on this page is not uploaded again when the
       // page is planned a second time (Personio empties the input after the upload).

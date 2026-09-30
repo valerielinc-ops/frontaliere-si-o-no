@@ -2759,14 +2759,31 @@ export const Analytics = {
  },
 
  /**
-  * Diagnostic: the job-detail alert prompt was eligible to evaluate but was
+  * Passive visibility of the inline alert card. The board keeps this utility
+  * available after the first results even when no search intent exists, but
+  * that view must stay outside `alert_funnel_conversion`'s CTA denominator.
+  * It is deliberately a different event from `job_alert_cta_shown`; the
+  * campaign goal allowlist only includes the latter.
+  */
+ trackJobAlertPassiveView: (
+ surface: 'inline_card',
+ keyword?: string,
+ ) => {
+ log('job_alert_card_passive_view', {
+ cta_surface: surface,
+ cta_keyword: redactPersonalData(keyword || '', { inferNamesFromCapitalisation: false }).text.slice(0, 80),
+ });
+ },
+
+  /**
+   * Diagnostic: the job-detail alert prompt was eligible to evaluate but was
   * suppressed before becoming visible, with the reason. Lets us see in GA4
   * exactly which guard drops the prompt (e.g. `no_auth` from a failed
   * newsletter autologin, `get_alerts_failed` from a degraded Firestore read)
   * instead of inferring it from a zero impression count.
   */
  trackJobAlertCtaSkipped: (
- surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button',
+ surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button' | 'inline_card',
  reason:
  | 'no_auth'
  | 'no_category'

@@ -1103,7 +1103,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         const hubHtml = buildSeoPageHtml({
           disableAutoAds: false,
           locale: loc,
-          title: clampSiteSuffix(copy.title, 'Frontaliere Ticino'),
+          title: clampSiteSuffix(copy.title, 'Frontaliere Ticino', 60),
           description: copy.description,
           canonicalUrl,
           robots: 'index,follow',
