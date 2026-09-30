@@ -8,6 +8,7 @@ export const MAX_RELAY_REDIRECTS = 3;
 export const RELAY_TIMEOUT_MS = 15_000;
 export const RELAY_MAX_REQUESTS_PER_HOUR = 300;
 export const RELAY_MIN_INTERVAL_MS = 1_000;
+export const RELAY_MAX_UPSTREAM_PER_DAY = 400;
 
 const ALLOWED_REPOSITORIES = new Set([
   'nanakokyobashi-rgb/frontaliere-articles',
@@ -255,6 +256,34 @@ export function createHostRateLimiter({
   };
 }
 
+export function createDailyUpstreamCap({
+  now = Date.now,
+  maxPerDay = RELAY_MAX_UPSTREAM_PER_DAY,
+} = {}) {
+  let dayKey = null;
+  let count = 0;
+  const resetForToday = () => {
+    const currentDayKey = new Date(Number(now())).toISOString().slice(0, 10);
+    if (currentDayKey !== dayKey) {
+      dayKey = currentDayKey;
+      count = 0;
+    }
+  };
+  const isExhausted = () => {
+    resetForToday();
+    return count >= maxPerDay;
+  };
+
+  return {
+    isExhausted,
+    tryAcquire() {
+      if (isExhausted()) return false;
+      count += 1;
+      return true;
+    },
+  };
+}
+
 async function readResponseBodyLimited(response, maxBytes, signal) {
   const contentLength = Number.parseInt(getResponseHeader(response, 'content-length') || '', 10);
   if (Number.isFinite(contentLength) && contentLength > maxBytes) {
@@ -314,7 +343,7 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
   throw new Error('upstream_body_unreadable');
 }
 
-async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter }) {
+async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, dailyUpstreamCap }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), RELAY_TIMEOUT_MS);
   const seenHosts = new Set();
@@ -323,10 +352,12 @@ async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter }) {
 
   try {
     while (true) {
+      if (dailyUpstreamCap.isExhausted()) return { kind: 'daily_cap', host: target.host, path: target.path };
       if (!seenHosts.has(target.host)) {
         if (!rateLimiter.allow(target.host)) return { kind: 'rate_limited', host: target.host, path: target.path };
         seenHosts.add(target.host);
       }
+      if (!dailyUpstreamCap.tryAcquire()) return { kind: 'daily_cap', host: target.host, path: target.path };
 
       const response = await fetchImpl(target.url, {
         method: 'GET',
@@ -374,10 +405,9 @@ export function createJobsSourceRelayHandler({
   fetchImpl = globalThis.fetch,
   verifyToken = (token) => verifyGithubOidcToken(token, { fetchImpl }),
   rateLimiter = createHostRateLimiter(),
+  dailyUpstreamCap = createDailyUpstreamCap(),
 } = {}) {
   return async function jobsSourceRelay(req, res) {
-    const rawTarget = requestQueryValue(req, 'url');
-    const describedTarget = describeTarget(rawTarget);
     const authorization = getRequestHeader(req, 'authorization') || '';
     const tokenMatch = authorization.match(/^Bearer\s+([^\s]+)$/iu);
     let claims;
@@ -387,10 +417,12 @@ export function createJobsSourceRelayHandler({
       claims = await verifyToken(tokenMatch[1]);
       if (!claims || !ALLOWED_REPOSITORIES.has(claims.repository)) throw new Error('invalid_repository');
     } catch {
-      logRelayRequest({ ...describedTarget, status: 401, caller: 'unauthenticated' });
+      logRelayRequest({ ...describeTarget(requestQueryValue(req, 'url')), status: 401, caller: 'unauthenticated' });
       return sendJson(res, 401, 'unauthorized');
     }
 
+    const rawTarget = requestQueryValue(req, 'url');
+    const describedTarget = describeTarget(rawTarget);
     const caller = claims.repository;
     if (req.method !== 'GET') {
       logRelayRequest({ ...describedTarget, status: 405, caller });
@@ -403,7 +435,11 @@ export function createJobsSourceRelayHandler({
       return sendJson(res, 403, 'forbidden');
     }
 
-    const result = await fetchAllowedTarget(target, { fetchImpl, rateLimiter });
+    const result = await fetchAllowedTarget(target, { fetchImpl, rateLimiter, dailyUpstreamCap });
+    if (result.kind === 'daily_cap') {
+      logRelayRequest({ host: result.host, path: result.path, status: 429, caller });
+      return sendJson(res, 429, 'daily_cap');
+    }
     if (result.kind === 'rate_limited') {
       logRelayRequest({ host: result.host, path: result.path, status: 429, caller });
       return sendJson(res, 429, 'rate_limited');

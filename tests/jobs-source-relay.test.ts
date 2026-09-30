@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi, afterEach } from 'vitest';
 import {
   createJobsSourceRelayHandler,
+  RELAY_MAX_UPSTREAM_PER_DAY,
   MAX_RELAY_RESPONSE_BYTES,
   verifyGithubOidcToken,
 } from '../functions/src/jobsSourceRelay.js';
@@ -41,10 +42,11 @@ function responseRecorder() {
   };
 }
 
-function authenticatedHandler(fetchImpl: typeof fetch) {
+function authenticatedHandler(fetchImpl: typeof fetch, options = {}) {
   return createJobsSourceRelayHandler({
     fetchImpl,
     verifyToken: async () => ({ repository: ALLOWED_REPOSITORY }),
+    ...options,
   });
 }
 
@@ -108,7 +110,12 @@ describe('jobsSourceRelay', () => {
     const verifyToken = vi.fn(async () => {
       throw new Error('invalid');
     });
-    const handler = createJobsSourceRelayHandler({ fetchImpl, verifyToken });
+    const rateLimiter = { allow: vi.fn(() => true) };
+    const dailyUpstreamCap = {
+      isExhausted: vi.fn(() => false),
+      tryAcquire: vi.fn(() => true),
+    };
+    const handler = createJobsSourceRelayHandler({ fetchImpl, verifyToken, rateLimiter, dailyUpstreamCap });
     const defaultHandler = createJobsSourceRelayHandler({ fetchImpl });
     const missing = responseRecorder();
     const invalid = responseRecorder();
@@ -119,7 +126,36 @@ describe('jobsSourceRelay', () => {
     expect(missing.statusCode).toBe(401);
     expect(invalid.statusCode).toBe(401);
     expect(verifyToken).not.toHaveBeenCalled();
+    expect(rateLimiter.allow).not.toHaveBeenCalled();
+    expect(dailyUpstreamCap.isExhausted).not.toHaveBeenCalled();
+    expect(dailyUpstreamCap.tryAcquire).not.toHaveBeenCalled();
     expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('returns 429 daily_cap on the 401st fetch without calling upstream', async () => {
+    const fetchImpl = vi.fn(async () => new Response('source body', {
+      status: 200,
+      headers: { 'content-type': 'text/html' },
+    }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+
+    try {
+      for (let index = 0; index < RELAY_MAX_UPSTREAM_PER_DAY; index += 1) {
+        const res = responseRecorder();
+        await handler(request(CHUR_URL), res);
+        expect(res.statusCode).toBe(200);
+      }
+
+      const capped = responseRecorder();
+      await handler(request(CHUR_URL), capped);
+
+      expect(capped.statusCode).toBe(429);
+      expect(capped.body).toContain('daily_cap');
+      expect(fetchImpl).toHaveBeenCalledTimes(RELAY_MAX_UPSTREAM_PER_DAY);
+    } finally {
+      logSpy.mockRestore();
+    }
   });
 
   it('returns 200 with the source body after a successful fetch', async () => {
