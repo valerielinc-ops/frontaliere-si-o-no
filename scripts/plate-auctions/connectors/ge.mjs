@@ -14,10 +14,10 @@ import {
 export { GE_PLATE_AUCTION_SOURCE, parseGePlateAuctionListPdfText };
 
 /**
- * @param {{ now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any> }} [options]
+ * @param {{ now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, extraListDocumentUrls?: string[] }} [options]
  */
-export async function fetchGePlateAuctions({ now = new Date(), injectedFetcher } = {}) {
-  return fetchGeAuctionList({ fetchedAt: now.toISOString(), now, injectedFetcher });
+export async function fetchGePlateAuctions({ now = new Date(), injectedFetcher, extraListDocumentUrls } = {}) {
+  return fetchGeAuctionList({ fetchedAt: now.toISOString(), now, injectedFetcher, extraListDocumentUrls });
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
