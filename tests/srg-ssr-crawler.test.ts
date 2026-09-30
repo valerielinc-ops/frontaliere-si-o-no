@@ -7,6 +7,9 @@ import {
   isSrgSsrJob,
   isTrustedDomain,
   extractSrgSsrRenderedDescription,
+  detectSrgSsrBodyLanguage,
+  resolveSrgSsrSourceLang,
+  prepareSrgSsrExistingJobs,
   srgSsrBenefitsText,
 } from '../scripts/lib/srg-ssr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -183,6 +186,88 @@ describe('SRG SSR crawler parser', () => {
 
     it('returns an empty string when the template sections are absent', () => {
       expect(extractSrgSsrRenderedDescription('<html><body><h1>x</h1></body></html>')).toBe('');
+    });
+  });
+
+  describe('RTR source-language mapping', () => {
+    const html = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'srg-ssr', 'rtr-fufragnadi-detail.html'),
+      'utf8',
+    );
+    const romanshBody = extractSrgSsrRenderedDescription(html);
+
+    it('detects Romansh from the body, never from the title', () => {
+      expect(detectSrgSsrBodyLanguage(romanshBody)).toBe('rm');
+    });
+
+    it('prefers a same-ID German sibling when the source exposes one', () => {
+      expect(resolveSrgSsrSourceLang({
+        description: romanshBody,
+        localizedDescriptions: { de: 'Wir suchen eine Lernperson für RTR.' },
+      })).toBe('de');
+    });
+
+    it('keeps a genuine Italian RSI body in Italian, including a Romansh mention', () => {
+      const italianBody = 'La RSI è un servizio pubblico da Lugano. '
+        + 'Il ruolo collabora con la redazione italiana e tratta anche il termine rumantsch. '
+        + 'Le attività si svolgono in un team editoriale e richiedono precisione.';
+      expect(detectSrgSsrBodyLanguage(italianBody)).toBe('it');
+    });
+
+    it('does not classify Italian, French, or German broadcaster prose as Romansh', () => {
+      const falsePositives = [
+        'La RSI è un partner da anni del progetto LAS dedicato al rumantsch.',
+        'La RSI presenta il nuovo progetto editoriale e ne racconta gli obiettivi al pubblico.',
+        'La RTS présente ses offres et explique les prochaines étapes aux personnes intéressées.',
+        'Das SRF informiert über das Projekt und beschreibt die nächsten Schritte für das Team.',
+      ];
+
+      for (const body of falsePositives) {
+        expect(detectSrgSsrBodyLanguage(body)).not.toBe('rm');
+      }
+    });
+
+    it('requires corroboration for a distinctive Romansh marker', () => {
+      expect(detectSrgSsrBodyLanguage("L'infurmaziun è da far cun ils candidats.", 'de')).toBe('rm');
+    });
+
+    it('repairs historical RTR copies without changing published slugs', () => {
+      const historical = {
+        id: 'srg-ssr-rtr-rm-1',
+        url: 'https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi/abc',
+        slug: 'fufragnadi-srg-ssr-cuira',
+        title: 'Fufragnadi',
+        description: romanshBody,
+        sourceLang: 'it',
+        titleByLocale: {
+          it: 'Fufragnadi',
+          en: 'Fufragnadi',
+          de: 'Fufragnadi',
+          fr: 'Fufragnadi',
+        },
+        descriptionByLocale: {
+          it: romanshBody,
+          en: romanshBody,
+          de: romanshBody,
+          fr: romanshBody,
+        },
+        slugByLocale: {
+          it: 'fufragnadi-it',
+          en: 'fufragnadi-en',
+          de: 'fufragnadi-de',
+          fr: 'fufragnadi-fr',
+        },
+      };
+
+      const [repaired] = prepareSrgSsrExistingJobs([historical]);
+      expect(repaired.sourceLang).toBe('rm');
+      expect(repaired.sourceLangOriginal).toBe('rm');
+      expect(repaired.needsRetranslation).toBe(true);
+      expect(Object.keys(repaired.titleByLocale)).toEqual(['rm']);
+      expect(Object.keys(repaired.descriptionByLocale)).toEqual(['rm']);
+      expect(repaired.descriptionByLocale.rm).toBe(romanshBody);
+      expect(repaired.slug).toBe(historical.slug);
+      expect(repaired.slugByLocale).toMatchObject(historical.slugByLocale);
     });
   });
 });

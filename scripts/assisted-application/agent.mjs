@@ -27,7 +27,8 @@ import { submissionGuard } from '../../functions/src/assistedApplicationSubmissi
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
-const MODES = new Set(['draft', 'submit']);
+// dry_run: the submission without the final click, for the owner's tests.
+const MODES = new Set(['draft', 'submit', 'dry_run']);
 const DRAFT_STATES = new Set(['drafting', 'regenerating']);
 
 function summary(line) {
@@ -87,8 +88,11 @@ async function main() {
 
   const runKey = runKeyFrom();
   const events = orderRef.collection('automation_events');
+  const dryRun = mode === 'dry_run';
   const report = async (event) => {
-    await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
+    // A dry run writes no event: whatever it finds (a closed ad, a question
+    // for the candidate) must not move the flow, and the watchdog never sees it.
+    if (!dryRun) await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
 
@@ -131,20 +135,21 @@ async function main() {
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
       order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
-      submissionGuard: submissionGuard(db, orderId, round),
+      dryRun,
+      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
       // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
       accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
     });
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
-    if (event.followup) {
+    if (event.followup && !dryRun) {
       await scheduleFollowups(db, orderId, event.followup);
       delete event.followup;
     }
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
-    if (event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
+    if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
       const known = new Set((previousDraft.questions || []).map((question) => question.id));
       const added = event.questions.filter((question) => !known.has(question.id));
       await orderRef.collection('ai_drafts').doc('current').set({ questions: [...(previousDraft.questions || []), ...added] }, { merge: true });
