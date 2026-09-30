@@ -881,7 +881,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.waiting.drafting': "Sto preparando la tua candidatura: riceverai un’email appena è pronta da controllare.",
  'jobBoard.assisted.review.waiting.regenerating': "Sto preparando una nuova versione con le tue indicazioni: ti scrivo appena è pronta.",
  'jobBoard.assisted.review.waiting.owner_review': "La candidatura è in verifica finale: tra poco ricevi l’email per approvarla.",
- 'jobBoard.assisted.review.waiting.submitting': "Sto inviando la tua candidatura all’azienda.",
+ 'jobBoard.assisted.review.waiting.submitting': "Hai approvato: la tua candidatura è in coda d’invio e parte entro pochi minuti. Puoi chiudere questa pagina: ti scrivo appena è partita.",
  'jobBoard.assisted.review.submitted': "La tua candidatura è stata inviata. In bocca al lupo!",
  'jobBoard.assisted.review.takeover': "Valerie sta seguendo personalmente la tua candidatura: ti scrive a breve.",
  'jobBoard.assisted.review.heldByQuestions': "Prima dell’invio servono alcune risposte (campi con *). Finché mancano, la candidatura non parte.",
