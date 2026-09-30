@@ -124,6 +124,11 @@ describe('pendingJobAlert', () => {
     expect(consumePendingJobAlert()?.origin).toBe('inline_card');
   });
 
+  it('round-trips the job-detail CTA origin alongside the config', () => {
+    savePendingJobAlert(config, 'job_detail_button');
+    expect(consumePendingJobAlert()?.origin).toBe('job_detail_button');
+  });
+
   it('replays a legacy bare config (stored before the origin was carried) with origin null', () => {
     localStorage.setItem('pending_job_alert', JSON.stringify({ value: config, savedAt: Date.now() }));
     expect(consumePendingJobAlert()).toEqual({ config, origin: null });

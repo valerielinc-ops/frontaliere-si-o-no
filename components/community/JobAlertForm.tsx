@@ -13,7 +13,7 @@ import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
-import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
+import { savePendingJobAlert, consumePendingJobAlert, type PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import { Analytics } from '@/services/analytics';
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
@@ -133,6 +133,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  // The auth round-trip would come back to nothing, so the form stays here and
  // says so instead of navigating to sign-in on a promise it cannot keep.
  const [pendingStorageFailed, setPendingStorageFailed] = useState(false);
+ const [ctaOrigin, setCtaOrigin] = useState<PendingJobAlertOrigin>('inline_card');
 
  const oneTapKeyword = initialKeyword.trim();
  const [oneTapEligible, setOneTapEligible] = useState(false);
@@ -208,8 +209,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  // keyword differs from the (empty) site-wide searchQuery prop.
  useEffect(() => {
  const handler = (event: Event) => {
- const detail = (event as CustomEvent<{ keyword?: string }>).detail;
+ const detail = (event as CustomEvent<{ keyword?: string; origin?: PendingJobAlertOrigin }>).detail;
  if (detail?.keyword) setKeyword(detail.keyword);
+ setCtaOrigin(detail?.origin ?? 'inline_card');
  setExpanded(true);
  window.setTimeout(() => {
  document.getElementById('job-alert-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -227,6 +229,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const req = consumeJobAlertOpen();
  if (!req) return;
  if (req.keyword) setKeyword(req.keyword);
+ setCtaOrigin(req.origin ?? 'inline_card');
  setExpanded(true);
  const id = window.setTimeout(() => {
  document.getElementById('job-alert-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -259,16 +262,20 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  //   success/error the outcome of that attempt — including the post-auth
  //          replay of a guest submit and a pending intent that could not be
  //          stored (issue 9575).
- // Every step reports `cta_surface: inline_card`, so shown→action→created is
- // one homogeneous chain in the alert_funnel_conversion goal.
+ // The default form surface is `inline_card`. A cross-view handoff may carry
+ // another impression-bearing origin (currently `job_detail_button`), and
+ // that origin must remain on action/created through auth and navigation.
  const inlineImpressionRef = useImpressionTracker(
  () => track((a) => a.trackJobAlertCtaShown('inline_card', initialKeyword.trim())),
  { enabled: !loadingAlerts },
  );
 
- const trackInlineCtaAction = useCallback((action: 'accept' | 'success' | 'error', ctaKeyword: string) => {
- track((a) => a.trackJobAlertCtaClick('inline_card', action, ctaKeyword));
+ const trackCtaAction = useCallback((surface: PendingJobAlertOrigin, action: 'accept' | 'success' | 'error', ctaKeyword: string) => {
+ track((a) => a.trackJobAlertCtaClick(surface, action, ctaKeyword));
  }, []);
+ const trackCurrentCtaAction = useCallback((action: 'accept' | 'success' | 'error', ctaKeyword: string) => {
+ trackCtaAction(ctaOrigin, action, ctaKeyword);
+ }, [ctaOrigin, trackCtaAction]);
 
  const showToast = useCallback((msg: string) => {
  setToast(msg);
@@ -310,7 +317,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
       uid: string,
       email: string,
       config: JobAlertConfig,
-      surface: 'inline_card' | 'post_auth_auto',
+      surface: PendingJobAlertOrigin | 'post_auth_auto',
       authPath: 'direct' | 'post_auth_replay',
     ): Promise<JobAlert> => {
       const { createAlert } = await loadJobAlertService();
@@ -366,6 +373,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     setSelectedSectors([]);
     setSelectedCantons([]);
     setCantonPickerOpen(false);
+    setCtaOrigin('inline_card');
     setExpanded(false);
   }, []);
 
@@ -387,7 +395,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     (async () => {
       try {
         const created = await persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay");
-        if (pending.origin) trackInlineCtaAction("success", replayKeyword);
+        if (pending.origin) trackCtaAction(pending.origin, "success", replayKeyword);
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
@@ -398,11 +406,11 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         // Surface the failure (e.g. quota full = permanent) instead of swallowing
         // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
         // the now-authenticated user can re-submit manually if needed.
-        if (pending.origin) trackInlineCtaAction("error", replayKeyword);
+        if (pending.origin) trackCtaAction(pending.origin, "error", replayKeyword);
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
       }
     })();
-  }, [authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackInlineCtaAction]);
+  }, [authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackCtaAction]);
 
 
  const handleCreate = async () => {
@@ -415,16 +423,16 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return;
  }
  const ctaKeyword = config.keywords.join(', ');
- trackInlineCtaAction('accept', ctaKeyword);
+ trackCurrentCtaAction('accept', ctaKeyword);
 
  if (!authUser) {
  // Issue 9575: the stash outcome decides the next step. Only a stored
  // intent can be replayed after sign-in; otherwise stay on the form, keep
  // what the user typed and make the extra step explicit.
- const saved = savePendingJobAlert(config, 'inline_card');
+ const saved = savePendingJobAlert(config, ctaOrigin);
  if (!saved.ok) {
  setPendingStorageFailed(true);
- trackInlineCtaAction('error', ctaKeyword);
+ trackCurrentCtaAction('error', ctaKeyword);
  return;
  }
  setPendingStorageFailed(false);
@@ -434,14 +442,14 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  setSaving(true);
  try {
-      const created = await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card', 'direct');
-      trackInlineCtaAction('success', ctaKeyword);
+      const created = await persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct');
+      trackCurrentCtaAction('success', ctaKeyword);
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
       if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
       try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
  } catch (err: any) {
- trackInlineCtaAction('error', ctaKeyword);
+ trackCurrentCtaAction('error', ctaKeyword);
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
  } finally {
  setSaving(false);
@@ -450,19 +458,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const handleOneTapCreate = async () => {
    if (!authUser?.uid || !authUser.email || !oneTapEligible || !oneTapKeyword) return;
-   trackInlineCtaAction('accept', oneTapKeyword);
+   trackCtaAction('inline_card', 'accept', oneTapKeyword);
    setSaving(true);
    try {
      const config = buildOneTapConfig();
      const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card', 'direct');
-     trackInlineCtaAction('success', oneTapKeyword);
+     trackCtaAction('inline_card', 'success', oneTapKeyword);
      showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
      setOneTapEligible(false);
      resetForm();
      if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
      try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
    } catch (err: any) {
-     trackInlineCtaAction('error', oneTapKeyword);
+     trackCtaAction('inline_card', 'error', oneTapKeyword);
      showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
    } finally {
      setSaving(false);
