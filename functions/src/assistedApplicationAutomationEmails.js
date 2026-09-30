@@ -324,7 +324,7 @@ const RUNNER_ERRORS = [
 ];
 const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };
 const STAGE_HINTS = {
-  draft: 'Dalla coda «Rigenera» rifà la bozza da capo; «Riprendi automazione» la rimette in revisione.',
+  draft: 'Dalla coda «Rigenera» o «Riprendi automazione» rifà la bozza nello stesso giro: il candidato non perde nessuno dei suoi giri.',
   submit: 'Controlla dalla coda se la candidatura è arrivata al datore prima di inviarla di nuovo.',
 };
 
