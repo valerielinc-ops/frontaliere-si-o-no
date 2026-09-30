@@ -207,6 +207,17 @@ describe('submit mode', () => {
     expect(await submit(beforeClick.db, again)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
     expect(again).toHaveBeenCalledTimes(1);
     expect(beforeClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'captcha' } });
+
+    // A CAPTCHA that shows up after the final click: the portal may have the
+    // application, so the claim stays "sending" and no later run presses it again.
+    const captchaAfterClick = createMemoryFirestore();
+    const clicksThenCaptcha = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }; };
+    expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    expect(captchaAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
+    expect(await submissionGuard(captchaAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'in_flight' });
+    const notAgain = vi.fn();
+    expect(await submit(captchaAfterClick.db, notAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
+    expect(notAgain).not.toHaveBeenCalled();
   });
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {

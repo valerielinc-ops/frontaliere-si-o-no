@@ -99,16 +99,25 @@ export function guardPlan(plan, fields, candidate = null) {
   for (const item of plan.missingRequired || []) {
     if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
   }
+  const ask = (field) => {
+    if (field.required && !missing.some((item) => item.fieldId === field.id)) {
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+    }
+  };
   for (const action of plan.actions || []) {
     const field = byId.get(action.fieldId);
     if (!field) continue;
-    const fromCandidate = ['answers', 'profile'].includes(action.source)
-      && (!knownValues || knownValues.includes(String(action.value || '').toLowerCase().trim()));
+    const value = String(action.value || '').toLowerCase().trim();
+    // An empty answer answers nothing (and '' is in every candidate text):
+    // a required field stays a question for the candidate.
+    if (['fill', 'select'].includes(action.action) && !value) {
+      ask(field);
+      continue;
+    }
+    const fromCandidate = ['answers', 'profile'].includes(action.source) && (!knownValues || knownValues.includes(value));
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
-      if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-        missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
-      }
+      ask(field);
       continue;
     }
     if (action.action === 'select' && field.options?.length && !field.options.some((option) => option.label === action.value)) continue;

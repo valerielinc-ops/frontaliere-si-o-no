@@ -50,6 +50,27 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(questionFromLabel('Do you have a working permit?*')).toBe('Do you have a working permit?');
   });
 
+  it('never takes an empty answer as the candidate’s: a required field stays a question', () => {
+    const fields = [
+      { id: 'f1', kind: 'text', label: 'Nationality', required: true },
+      { id: 'f2', kind: 'text', label: 'Stadt', required: true },
+      { id: 'f3', kind: 'text', label: 'Zweiter Vorname', required: false },
+    ];
+    const candidate = { answers: {}, profile: { nationality: '', city: '' }, portalQuestionsAnswered: [] };
+    const plan = {
+      actions: [
+        { fieldId: 'f1', action: 'fill', source: 'profile', value: '' },
+        { fieldId: 'f2', action: 'fill', source: 'profile', value: '  ' },
+        { fieldId: 'f3', action: 'fill', source: 'rule', value: '' },
+      ],
+      missingRequired: [],
+    };
+    const guarded = guardPlan(plan, fields, candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2']);
+    expect(guarded.missingRequired[0]).toMatchObject({ question: 'Nationality', type: 'text' });
+  });
+
   it('asks each missing field once and never a field the plan already answers', () => {
     const guarded = guardPlan({
       actions: [{ fieldId: 'f1', action: 'fill', value: 'Luca', document: 'none', source: 'identity' }],

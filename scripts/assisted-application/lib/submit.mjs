@@ -164,6 +164,8 @@ export async function submitApplication(ctx) {
       await writeFile(files.cv, cvBuffer);
       await writeFile(files.cover_letter, Buffer.from(letterPdf));
       const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
+      // Set once `clickedAt` is on record, right before the final click.
+      let clicked = false;
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         language: draft.language,
@@ -173,13 +175,15 @@ export async function submitApplication(ctx) {
         codex: ctx.codex,
         log,
         dryRun: Boolean(ctx.dryRun),
-        onBeforeSubmit: guard ? () => guard.markClicked(Date.now()) : null,
+        onBeforeSubmit: guard ? async () => { await guard.markClicked(Date.now()); clicked = true; } : null,
       });
       if (guard) {
-        // Sent: on record. Ambiguous after the click: left "sending", never re-submitted.
-        // Anything else (handoff, questions, validation) sent nothing: released.
+        // Sent: on record. After the final click any other outcome (ambiguous,
+        // a CAPTCHA or an error page that appeared afterwards) is left
+        // "sending": the portal may have the application, so it is never
+        // re-submitted. Before the click nothing was sent: released.
         if (event.type === 'submit_succeeded') await guard.markSent({ channel: channel.type, finalUrl: evidence.finalUrl || null });
-        else if (!(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
+        else if (!clicked && !(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
       return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;

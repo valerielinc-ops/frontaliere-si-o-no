@@ -84,8 +84,10 @@ export function extractFieldsInPage() {
     const required = element.required || element.getAttribute('aria-required') === 'true';
     if (type === 'radio') {
       const name = element.name || element.id;
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', name, label: groupQuestion(element) || labelFor(element), required, value: '', options: [] };
-      entry.required = entry.required || required;
+      const question = groupQuestion(element);
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', name, label: question || labelFor(element), required, value: '', options: [] };
+      // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
+      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
       // The chosen option, so a page planned again does not choose it again.
       if (element.checked) entry.value = labelFor(element);
