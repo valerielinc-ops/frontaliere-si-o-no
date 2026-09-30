@@ -1,4 +1,5 @@
 import { onRequest } from 'firebase-functions/v2/https';
+import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
 import {
  ensureAdminApp,
  handleResendWebhookRequest,
@@ -129,6 +130,20 @@ import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
 ensureAdminApp();
+
+// Narrow, authenticated fetch relay for the two job sources that reject
+// datacenter egress. The workflow-side OIDC token is verified in the handler;
+// no source headers supplied by the caller are forwarded upstream.
+export const jobsSourceRelay = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 15,
+    maxInstances: 2,
+    cors: false,
+  },
+  handleJobsSourceRelay,
+);
 
 /**
  * Authenticated petition signature endpoint.

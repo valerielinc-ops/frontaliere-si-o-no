@@ -61,6 +61,7 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -162,6 +163,7 @@ function isTrustedDomain(rawUrl = '') {
 async function fetchPage(url, timeoutMs = 20_000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let relayFallback = false;
   try {
     const res = await fetch(url, {
       signal: controller.signal,
@@ -171,17 +173,26 @@ async function fetchPage(url, timeoutMs = 20_000) {
         Accept: 'text/html,application/xhtml+xml',
       },
     });
-    if (!res.ok) {
+    if (res.ok) return await res.text();
+    relayFallback = res.status === 403;
+    if (!relayFallback) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return '';
     }
-    return await res.text();
+    console.warn(`⚠️ HTTP 403 for ${url}; trying source relay when configured.`);
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return '';
+    relayFallback = true;
   } finally {
     clearTimeout(timer);
   }
+
+  if (relayFallback) {
+    const relayed = await fetchSourceViaRelay(url);
+    if (relayed?.ok) return relayed.text();
+    if (relayed) console.warn(`⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+  }
+  return '';
 }
 
 // ─────────────────────────────────────────────────────────────

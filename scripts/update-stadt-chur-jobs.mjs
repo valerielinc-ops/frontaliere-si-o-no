@@ -57,6 +57,7 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -243,16 +244,26 @@ function mapEmploymentType(title = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchDetailPage(url) {
+  let relayFallback = false;
   try {
     const res = await fetchWithRetry(url, {
       headers: { 'User-Agent': UA, Accept: 'text/html' },
     }, 2);
-    if (!res.ok) return null;
-    return await res.text();
+    if (res.ok) return await res.text();
+    relayFallback = res.status === 403;
+    if (!relayFallback) return null;
+    console.warn(`  ⚠️ Detail fetch returned HTTP 403 for ${url}`);
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed for ${url}: ${err.message}`);
-    return null;
+    relayFallback = true;
   }
+
+  if (relayFallback) {
+    const relayed = await fetchSourceViaRelay(url);
+    if (relayed?.ok) return relayed.text();
+    if (relayed) console.warn(`  ⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+  }
+  return null;
 }
 
 // Direct detail-page fetches hit the same datacenter-egress block as the feed
