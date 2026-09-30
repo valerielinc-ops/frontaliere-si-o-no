@@ -134,7 +134,7 @@ export function sanitizeInterviewPrep(raw, sources) {
         why: clean(item?.why, 300),
         suggestedAnswer: clean(item?.suggestedAnswer, 1200),
       };
-    }, (item) => ({ answer: item.suggestedAnswer })),
+    }, (item) => ({ question: item.question, why: item.why, answer: item.suggestedAnswer })),
     stories: keep(raw?.stories, 10, (item) => {
       const story = {
         requirement: clean(item?.requirement, 200),
@@ -146,15 +146,15 @@ export function sanitizeInterviewPrep(raw, sources) {
         fit: item?.fit === 'strong' ? 'strong' : 'partial',
       };
       return story.action && story.result ? story : null;
-    }, (item) => ({ story: [item.situation, item.task, item.action, item.result].join('\n') })),
-    redFlagQuestions: keep(raw?.redFlagQuestions, 6, (item) => (clean(item?.question, 300) ? { question: clean(item.question, 300), answer: clean(item?.answer, 900) } : null), (item) => ({ answer: item.answer })),
+    }, (item) => ({ story: [item.requirement, item.situation, item.task, item.action, item.result, item.reflection].join('\n') })),
+    redFlagQuestions: keep(raw?.redFlagQuestions, 6, (item) => (clean(item?.question, 300) ? { question: clean(item.question, 300), answer: clean(item?.answer, 900) } : null), (item) => ({ question: item.question, answer: item.answer })),
     checklist: keep(raw?.checklist, 10, (item) => clean(item, 300) || null, (item) => ({ item })),
     questionsToAsk: keep(raw?.questionsToAsk, 3, (item) => clean(item, 300) || null, (item) => ({ item })),
     salary: {
       // Only the posting's own figure; the model never brings one.
       advertised: sources.posting && clean(raw?.salary?.advertised, 120) && String(sources.posting).includes(clean(raw.salary.advertised, 120)) ? clean(raw.salary.advertised, 120) : '',
       script: supported({ script: clean(raw?.salary?.script, 600) }) ? clean(raw?.salary?.script, 600) : '',
-      hrQuestions: (Array.isArray(raw?.salary?.hrQuestions) ? raw.salary.hrQuestions : []).map((item) => clean(item, 200)).filter(Boolean).slice(0, 6),
+      hrQuestions: keep(raw?.salary?.hrQuestions, 6, (item) => clean(item, 200) || null, (item) => ({ item })),
     },
   };
   return { pack, dropped };

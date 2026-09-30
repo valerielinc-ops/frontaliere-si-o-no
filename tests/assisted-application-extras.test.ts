@@ -313,9 +313,32 @@ describe('interview prep (career-ops modes/interview-prep.md)', () => {
       salary: { advertised: 'CHF 95’000', script: 'Posso chiedere la fascia prevista?', hrQuestions: ['La 13a è inclusa?'] },
     }, sources);
     expect(pack.likelyQuestions.map((item: any) => item.question)).toEqual(['Mi parli di lei']);
-    expect(dropped).toBe(1);
+    // The 40 patients, and the "13a" of an HR question: neither is in the CV, the answers or the posting.
+    expect(pack.salary.hrQuestions).toEqual([]);
+    expect(dropped).toBe(2);
     // A salary figure the posting does not state is never passed on.
     expect(pack.salary.advertised).toBe('');
+  });
+
+  it('checks every text of an item, not only the answer', () => {
+    const { pack, dropped } = sanitizeInterviewPrep({
+      processNotes: [], checklist: [], questionsToAsk: [],
+      likelyQuestions: [
+        { audience: 'peer', question: 'Come organizza il turno?', why: 'Il reparto ha 35 letti', suggestedAnswer: 'Pianifico con il team.' },
+        { audience: 'peer', question: 'Come organizza il turno?', why: 'carico del reparto', suggestedAnswer: 'Pianifico con il team.' },
+      ],
+      stories: [
+        { requirement: 'Esperienza in reparto', situation: 'Reparto da 24 letti', task: 'Coordinare', action: 'Ho coordinato il turno', result: 'Turni coperti', reflection: 'Ridotto gli errori del 30%', fit: 'strong' },
+        { requirement: 'Esperienza in reparto', situation: 'Reparto da 24 letti', task: 'Coordinare', action: 'Ho coordinato il turno', result: 'Turni coperti', reflection: 'Delegare prima', fit: 'strong' },
+      ],
+      redFlagQuestions: [{ question: 'Ha 5 anni di esperienza in terapia intensiva?', answer: 'Non ancora.' }],
+      salary: { advertised: '', script: '', hrQuestions: ['Come è strutturata la tredicesima?'] },
+    }, sources);
+    expect(pack.likelyQuestions.map((item: any) => item.why)).toEqual(['carico del reparto']);
+    expect(pack.stories.map((item: any) => item.reflection)).toEqual(['Delegare prima']);
+    expect(pack.redFlagQuestions).toEqual([]);
+    expect(pack.salary.hrQuestions).toEqual(['Come è strutturata la tredicesima?']);
+    expect(dropped).toBe(3);
   });
 
   it('fires on the write that marks an invitation processed, not when the message is stored', () => {
