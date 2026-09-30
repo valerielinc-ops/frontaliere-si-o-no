@@ -9,7 +9,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildPemsaLocalizedContent,
   mergePemsaJobRecord,
@@ -73,6 +73,14 @@ const REDUCED_RENDERED_DETAIL_FIXTURE = `
   </main>
 </body></html>`;
 
+const TRUNCATED_SOURCE_BODY = 'S'.repeat(1000);
+const TRUNCATED_RENDERED_BODY = 'S'.repeat(100);
+const TRUNCATED_SOURCE_DETAIL_FIXTURE = [
+  { '@type': 'JobPosting', title: 'Installatore di prova', description: TRUNCATED_SOURCE_BODY },
+  { '@type': 'JobPosting', title: 'Installatore di prova', description: TRUNCATED_SOURCE_BODY },
+].map((job) => `<script type="application/ld+json">${JSON.stringify(job)}</script>`).join('')
+  + `<h1>Installatore di prova</h1><div class="job-description">${TRUNCATED_RENDERED_BODY}</div>`;
+
 // The runner's flow (update-pemsa-jobs.mjs mergeJobs): the stored records lose
 // the crawler-written text first, then each one is merged with its fresh job.
 function cleanThenMerge(prev: Record<string, unknown> | null, fresh: ReturnType<typeof freshJob>) {
@@ -135,6 +143,28 @@ describe('PEMSA detail parser — rendered source body', () => {
     expect(parsed?.description).not.toContain('Italia');
     expect(parsed?.description.length).toBeGreaterThan(200);
     expect(parsed?.descriptionSectionCount).toBeGreaterThanOrEqual(2);
+  });
+
+  it('measures the raw source body before extraction and warns below 20%', () => {
+    const parsed = parsePemsaDetailHtml(
+      TRUNCATED_SOURCE_DETAIL_FIXTURE,
+      'https://www.pemsa.ch/it/job/installatore-di-prova-2697000/',
+    );
+
+    expect(parsed?.description).toHaveLength(100);
+    expect(parsed?.descriptionSourceLength).toBe(1000);
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      buildPemsaLocalizedContent({
+        title: parsed?.title,
+        description: parsed?.description,
+        descriptionSourceLength: parsed?.descriptionSourceLength,
+      });
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('10.0%'));
+    } finally {
+      warn.mockRestore();
+    }
   });
 });
 

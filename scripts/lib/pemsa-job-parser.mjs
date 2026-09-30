@@ -54,14 +54,6 @@ function stripHtml(html = '') {
     .trim();
 }
 
-function renderedDescriptionSourceLength(text = '') {
-  return String(text || '')
-    .replace(/(^|\s)-(?=\s|$)/g, '$1')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .length;
-}
-
 function countRenderedDescriptionSections(text = '') {
   const lines = String(text || '')
     .split('\n')
@@ -248,7 +240,7 @@ export function parsePemsaDetailHtml(html, url = '') {
               parsed.sectionCount,
               countRenderedDescriptionSections(description),
             ),
-            descriptionSourceLength: renderedDescriptionSourceLength(description),
+            descriptionSourceLength: parsed.sourceTextLength,
             datePosted: normalizeSpace(data.datePosted || ''),
             validThrough: normalizeSpace(data.validThrough || ''),
             employmentType: normalizeSpace(data.employmentType || ''),
