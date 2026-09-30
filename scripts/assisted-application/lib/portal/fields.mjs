@@ -79,7 +79,10 @@ export function extractFieldsInPage() {
   for (const element of controls) {
     const tag = element.tagName.toLowerCase();
     const type = tag === 'input' ? (element.getAttribute('type') || 'text').toLowerCase() : tag;
-    if (['hidden', 'submit', 'button', 'reset', 'image', 'search'].includes(type)) continue;
+    if (['hidden', 'submit', 'button', 'reset', 'image'].includes(type)) continue;
+    // The site's own search box is not part of the application; Workday's
+    // "selectinput" (a search box that picks an option) is.
+    if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     const required = element.required || element.getAttribute('aria-required') === 'true';
     if (type === 'radio') {
