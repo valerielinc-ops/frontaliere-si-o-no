@@ -176,9 +176,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-ittigen",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-ittigen"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -205,6 +205,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
         ]
       },
@@ -878,9 +884,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-kriens",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-kriens",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-kriens",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-kriens"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -908,6 +914,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens"
         ]
       },
@@ -940,9 +952,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-mellingen",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-mellingen",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mellingen",
         "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
@@ -956,11 +968,13 @@
       "id": "galenica-5c290521f305",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mellingen"
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mellingen",
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mellingen"
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mellingen",
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
@@ -1069,12 +1083,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-muri-ag",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-muri-ag",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-muri-ag",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-muri-ag"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -1099,7 +1113,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag"
+      ]
     },
     {
       "title": "Pharmacien / Pharmacienne (f/h/d)",
@@ -1183,12 +1211,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-chur",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-chur",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-chur",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-chur"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -1213,7 +1241,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-chur"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -1240,9 +1282,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-zurich",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-zurich",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich-nx1lw0",
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
@@ -1256,14 +1298,16 @@
       "id": "galenica-da419467a8b8",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
@@ -1521,12 +1565,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-wurenlos",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-wurenlos",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-wurenlos",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-wurenlos"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -1551,7 +1595,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -1581,9 +1639,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-visp",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-visp"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -1611,6 +1669,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp"
         ]
       },
@@ -1857,9 +1921,9 @@
       "slug": "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-winterthur",
       "slugByLocale": {
         "it": "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-winterthur",
-        "en": "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur",
+        "en": "pharmacist-pharmacist-as-deputy-m-f-d-galenica-galenica-winterthur",
         "de": "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur",
-        "fr": "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur"
+        "fr": "pharmacienne-pharmacienne-adjointe-h-f-d-galenica-galenica-winterthur"
       },
       "titleByLocale": {
         "it": "Apotheker / Apothekerin come Stellvertretung (w/m/d)",
@@ -1872,6 +1936,12 @@
         "it": [
           "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur",
           "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern-nx1laf"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur"
         ]
       },
       "previousSlugs": [
@@ -2006,9 +2076,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-spiez",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-spiez",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-spiez",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-spiez",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-spiez",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-spiez"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-spiez"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -2036,6 +2106,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-spiez"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-spiez"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-spiez"
         ]
       },
@@ -2071,9 +2147,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-langenthal",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-langenthal"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -2101,6 +2177,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
         ]
       },
@@ -2213,12 +2295,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-volketswil",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-volketswil"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -2243,7 +2325,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -2273,9 +2369,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-lyss",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-lyss"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -2303,6 +2399,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
         ]
       },
@@ -2392,12 +2494,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-liestal",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-liestal",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-liestal",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-liestal"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -2422,7 +2524,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -2452,9 +2568,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-ostermundigen",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-ostermundigen"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -2482,6 +2598,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen"
         ]
       },
@@ -2648,12 +2770,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-biel-bienne",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-biel-bienne",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-biel-bienne",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-biel-bienne"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -2678,7 +2800,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -2708,9 +2844,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-koniz",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-koniz",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-koniz",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-koniz"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -2738,6 +2874,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz"
         ]
       },
@@ -2770,12 +2912,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-sirnach",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-sirnach",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-sirnach",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-sirnach"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -2800,7 +2942,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -2827,12 +2983,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-zurich-3a56ab",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-zurich-3a56ab",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-zurich",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-zurich"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -2857,7 +3013,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -2887,9 +3057,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-wadenswil-2fde89",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-wadenswil-2fde89",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-wadenswil",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil",
-        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-wadenswil"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -2917,6 +3087,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil"
+        ],
+        "fr": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil"
         ]
       },
@@ -3073,12 +3249,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-langnau-i",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-langnau-i",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-langnau-i",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-langnau-i"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -3103,7 +3279,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+      ]
     },
     {
       "title": "Pharmacien / Pharmacienne (f/h/d)",
@@ -3251,12 +3441,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-niederbipp",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-niederbipp",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-niederbipp",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-niederbipp"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -3281,7 +3471,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -3308,12 +3512,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-visp",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-visp",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-visp",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-visp"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -3338,7 +3542,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-visp"
+      ]
     },
     {
       "title": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
@@ -3443,9 +3661,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-huttwil",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-huttwil",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-huttwil",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-huttwil"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -3473,6 +3691,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil"
         ]
       },
@@ -3577,9 +3801,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-weinfelden",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden",
-        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-weinfelden"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -3607,6 +3831,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
+        ],
+        "fr": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden"
         ]
       },
@@ -3709,9 +3939,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-rickenbach-b",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-rickenbach-b",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-rickenbach-b",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil",
-        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-rickenbach-b"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -3739,6 +3969,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil"
+        ],
+        "fr": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil"
         ]
       },
@@ -3838,12 +4074,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-thalwil",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-thalwil",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-thalwil",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-thalwil"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -3868,7 +4104,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -3898,9 +4148,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-grindelwald",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-grindelwald",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-grindelwald",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-grindelwald"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -3928,6 +4178,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald"
         ]
       },
@@ -3960,9 +4216,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-partner-management-lead-w-m-d-bern",
+      "slug": "gestione-dei-partner-lead-m-f-d-galenica-ag-galenica-burgdorf",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-partner-management-lead-w-m-d-bern",
+        "it": "gestione-dei-partner-lead-m-f-d-galenica-ag-galenica-burgdorf",
         "en": "partner-management-lead-w-m-d-galenica-ag-galenica-burgdorf",
         "de": "galenica-galenica-ag-partner-management-lead-w-m-d-burgdorf",
         "fr": "responsable-de-la-gestion-des-partenaires-h-f-d-galenica-ag-galenica-bern"
@@ -3976,11 +4232,13 @@
       "id": "galenica-dbc4679af058",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-partner-management-lead-w-m-d-burgdorf"
+          "galenica-galenica-ag-partner-management-lead-w-m-d-burgdorf",
+          "galenica-galenica-ag-partner-management-lead-w-m-d-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-partner-management-lead-w-m-d-burgdorf"
+        "galenica-galenica-ag-partner-management-lead-w-m-d-burgdorf",
+        "galenica-galenica-ag-partner-management-lead-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 94500,
@@ -4315,12 +4573,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-erlenbach-zh",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-erlenbach-zh",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-erlenbach-zh",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-erlenbach-zh"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -4345,7 +4603,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -4375,9 +4647,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ebikon",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ebikon",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-ebikon",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-ebikon"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -4405,6 +4677,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon"
         ]
       },
@@ -4515,12 +4793,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz",
+      "slug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-ilanz",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz",
+        "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-ilanz",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-ilanz",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-ilanz"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -4545,7 +4823,21 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz"
+        ],
+        "en": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -4575,9 +4867,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-luzern",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-luzern",
-        "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-luzern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-luzern"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -4605,6 +4897,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern"
         ]
       },
@@ -4640,9 +4938,9 @@
       "slug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich",
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich",
-        "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-zurich",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
-        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-zurich"
       },
       "titleByLocale": {
         "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
@@ -4670,6 +4968,12 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
+        ],
+        "fr": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich"
         ]
       },

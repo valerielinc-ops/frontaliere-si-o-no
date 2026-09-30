@@ -16496,7 +16496,6 @@
         "sozialpadagog-in-stadt-zuerich-zurigo-49739",
         "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "sozialpadagog-in-stadt-zurich",
-        "istruzione-sociale-stadt-zurich-zurich",
         "istruzione-sociale-stadt-zurich-zurich-f6ja8i"
       ],
       "previousSlugsByLocale": {
@@ -16504,7 +16503,6 @@
           "sozialpadagog-in-stadt-zuerich-zurigo-49739",
           "sozialpadagog-in-stadt-zuerich-zurigo-51327",
           "sozialpadagog-in-stadt-zurich",
-          "istruzione-sociale-stadt-zurich-zurich",
           "istruzione-sociale-stadt-zurich-zurich-f6ja8i"
         ],
         "en": [
@@ -24833,9 +24831,6 @@
       },
       "previousSlugs": [
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich",
-        "childhood-education-hf-stadt-zurich-zurich",
-        "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d",
         "kindheitspadagog-in-hf-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
@@ -26999,11 +26994,11 @@
     },
     {
       "id": "stadt-zuerich-c9ee943891a3",
-      "slug": "kindheitspadagog-in-hf-stadt-zurich-zurich",
+      "slug": "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
       "slugByLocale": {
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-        "it": "kindheitspadagog-in-hf-stadt-zurich-zurich",
-        "en": "kindheitspadagog-in-hf-stadt-zurich-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
+        "en": "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "fr": "kindheitspadagog-in-hf-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27054,11 +27049,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
+          "kindheitspadagog-in-hf-stadt-zurich-zurich"
+        ],
+        "en": [
+          "kindheitspadagog-in-hf-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
+        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
+        "kindheitspadagog-in-hf-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
