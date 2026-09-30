@@ -102,11 +102,10 @@ export const DESCRIPTION_POPULATION = {
  * the assembled artefact — 68,587 / 68,306 / 67,987 / 67,844 — a 1.1% spread
  * across the day.
  *
- * RE-DERIVED 2026-09-30 (issue #9102): organic corpus growth (more jobs
- * crawled, not a regression) moved the population past the ±15% band again.
- * The assembled artefact measured 90,712 slots, so `expectedSlots` is
- * re-pinned to that measured denominator; `tolerance` is UNCHANGED at 0.15 —
- * this re-bases a measured denominator, it does not loosen the gate.
+ * RE-DERIVED 2026-09-30 (issue #9102): the assembled artefact measured 68,587
+ * slots, matching the first of the four stable measurements above. The
+ * baseline stays on that observed denominator; `tolerance` is UNCHANGED at
+ * 0.15 — this re-bases a measured denominator, it does not loosen the gate.
  *
  * TOLERANCE 15%, same construction: the same population read from the SLICES
  * is 80,978 slots (+18.7%), and the docstring's own historical slice figure was
@@ -119,7 +118,7 @@ export const TITLE_POPULATION = {
   id: 'titles-wrong-locale',
   source: POPULATION_SOURCE,
   filter: 'non-empty titleByLocale[locale] for every locale !== sourceLang, for every job, independent of needsRetranslation',
-  expectedSlots: 90712,
+  expectedSlots: 68587,
   tolerance: 0.15,
   measuredOn: '2026-09-30',
 };
