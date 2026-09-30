@@ -1289,9 +1289,6 @@
           "facharztin-facharzt-fur-allgemeine-innere-medizin-a-60-100-zurich-lowenstrasse-medbase-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2326,
-      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-04T11:44:51.854Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6195,9 +6192,6 @@
           "lehrstelle-fachmann-frau-apotheke-efz-2027-a-winterthur-zentrum-toss-medbase-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2492,
-      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-31T22:19:30.838Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6280,9 +6274,6 @@
           "lehrstelle-fachmann-frau-apotheke-efz-2027-a-zurich-helvetiaplatz-medbase-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2277,
-      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-31T22:19:53.793Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10099,9 +10090,6 @@
           "lehrstelle-fachmann-frau-apotheke-efz-2027-a-zurich-berninaplatz-medbase-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2354,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-09-11T13:42:14.503Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -12285,8 +12273,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "medbase-29c9d64fc229",
@@ -12443,8 +12430,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
