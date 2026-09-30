@@ -74,15 +74,16 @@ const LIEBHERR_SOURCE_LOCALE_TO_LANG = Object.freeze({
   FR_FR: 'fr',
   IT_IT: 'it',
 });
-// These are the source-verified families already present in the stored
-// snapshot. Legacy rows predate `sourceLocale`, so their cleanup must use
-// this explicit evidence instead of guessing from title or detected body
-// language. Fresh rows use the detail-page proof below and need no allowlist.
+// These are the source-verified locales already present in the stored
+// snapshot. Legacy rows predate `sourceLocale` and the shared source Job ID,
+// so their cleanup must use the explicit evidence captured below instead of
+// guessing from title or detected body language.
 const LIEBHERR_VERIFIED_SOURCE_LOCALE_BY_ID = Object.freeze({
   '1378968433': 'de_DE',
   '1378968533': 'fr_FR',
   '724771801': 'de_DE',
   '724771901': 'fr_FR',
+  '724772001': 'en_US',
   '1421353733': 'de_DE',
   '1421353833': 'en_US',
   '1408751433': 'fr_FR',
@@ -96,19 +97,29 @@ const LIEBHERR_VERIFIED_SOURCE_LOCALE_BY_ID = Object.freeze({
   '1399715933': 'de_DE',
   '1399715833': 'en_US',
 });
-const LIEBHERR_LEGACY_VERIFIED_VARIANT_PAIRS = new Set([
-  '1378968433|1378968533',
-  '724771801|724771901',
-  '1421353733|1421353833',
-  '1408751433|1408751533',
-  '1364834733|1364834833',
-  '1438005433|1438005533',
-  '1433721633|1433721733',
-  '1399715833|1399715933',
-]);
-const LIEBHERR_LANGUAGE_ID_DELTA = 100;
-const LIEBHERR_LANGUAGE_ID_PREFIX_DIVISOR = 1000;
-const LIEBHERR_VARIANT_DATE_WINDOW_DAYS = 7;
+// The live detail pages expose this same Job ID in
+// `data-careersite-propertyid="adcode"` for every language variant. This
+// explicit map is only the migration proof for stored rows that predate the
+// field; fresh rows read the value from the source page itself.
+const LIEBHERR_VERIFIED_SOURCE_JOB_ID_BY_REQ_ID = Object.freeze({
+  '1378968433': '81996',
+  '1378968533': '81996',
+  '724771801': '37210',
+  '724771901': '37210',
+  '724772001': '37210',
+  '1421353733': '83959',
+  '1421353833': '83959',
+  '1408751433': '83305',
+  '1408751533': '83305',
+  '1364834733': '81356',
+  '1364834833': '81356',
+  '1438005533': '84657',
+  '1438005433': '84657',
+  '1433721633': '84459',
+  '1433721733': '84459',
+  '1399715933': '82589',
+  '1399715833': '82589',
+});
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -130,21 +141,20 @@ function decodeEntities(s = '') {
     .replace(/&nbsp;/gi, ' ');
 }
 
-function parseLiebherrJobReqId(value = '') {
-  const raw = String(value || '').trim();
-  if (!/^\d+$/.test(raw)) return null;
-  const numeric = Number(raw);
-  return Number.isSafeInteger(numeric) ? numeric : null;
-}
-
 function sourceLangForLocale(sourceLocale = '') {
   return LIEBHERR_SOURCE_LOCALE_TO_LANG[String(sourceLocale || '').trim().toUpperCase()] || '';
 }
 
-function sourceLocaleForJob(job = {}) {
-  return String(job?.sourceLocale || '').trim()
-    || LIEBHERR_VERIFIED_SOURCE_LOCALE_BY_ID[String(job?.jobReqId || '').trim()]
-    || '';
+function sourceLocaleForJob(job = {}, { legacy = false } = {}) {
+  const explicit = String(job?.sourceLocale || '').trim();
+  if (explicit || !legacy) return explicit;
+  return LIEBHERR_VERIFIED_SOURCE_LOCALE_BY_ID[String(job?.jobReqId || '').trim()] || '';
+}
+
+function sourceJobIdForJob(job = {}, { legacy = false } = {}) {
+  const explicit = String(job?.liebherrSourceJobId || '').trim();
+  if (explicit || !legacy) return explicit;
+  return LIEBHERR_VERIFIED_SOURCE_JOB_ID_BY_REQ_ID[String(job?.jobReqId || '').trim()] || '';
 }
 
 /**
@@ -164,31 +174,22 @@ export function extractLiebherrSourceLocale(html = '', jobReqId = '') {
 }
 
 /**
- * SuccessFactors Liebherr exposes the language variants as ids that share
- * their numeric prefix and differ by 100 (e.g. 1438005433/1438005533).
- * Keep the family key separate from the URL id: the latter identifies the
- * language page, the former identifies the source advertisement family.
+ * Read Liebherr's shared source Job ID from the detail-page data attribute.
+ * The page URL/apply `jobid` identifies the localized page and can differ by
+ * 100; `adcode` is the common identifier for the vacancy itself.
  */
-export function liebherrLanguageFamilyKey(jobReqId = '') {
-  const numeric = parseLiebherrJobReqId(jobReqId);
-  if (numeric === null) return '';
-  if (numeric < LIEBHERR_LANGUAGE_ID_PREFIX_DIVISOR) return `id:${numeric}`;
-  return `prefix:${Math.floor(numeric / LIEBHERR_LANGUAGE_ID_PREFIX_DIVISOR)}`;
+export function extractLiebherrSourceJobId(html = '') {
+  if (!html) return '';
+  const match = String(html).match(
+    /data-careersite-propertyid=["']adcode["'][^>]*>([\s\S]*?)<\/[^>]+>/i,
+  );
+  if (!match) return '';
+  return normalizeSpace(decodeEntities(stripHtml(match[1])));
 }
 
-function liebherrVariantPairKey(a = {}, b = {}) {
-  const first = parseLiebherrJobReqId(a?.jobReqId);
-  const second = parseLiebherrJobReqId(b?.jobReqId);
-  if (first === null || second === null) return '';
-  return [String(first), String(second)].sort().join('|');
-}
-
-function liebherrSourceLang(job = {}) {
-  return sourceLangForLocale(sourceLocaleForJob(job)) || String(job?.sourceLang || '').trim().toLowerCase();
-}
-
-function normalizedLiebherrLocation(job = {}) {
-  return normalizeSpace(job?.location || job?.addressLocality || '').toLowerCase();
+function liebherrSourceLang(job = {}, { legacy = false } = {}) {
+  return sourceLangForLocale(sourceLocaleForJob(job, { legacy }))
+    || String(job?.sourceLang || '').trim().toLowerCase();
 }
 
 function sourceDate(job = {}) {
@@ -197,55 +198,22 @@ function sourceDate(job = {}) {
   return Number.isFinite(time) ? time : null;
 }
 
-function sameLiebherrVariantDateWindow(a = {}, b = {}) {
-  const first = sourceDate(a);
-  const second = sourceDate(b);
-  if (first === null || second === null) return true;
-  return Math.abs(first - second) <= LIEBHERR_VARIANT_DATE_WINDOW_DAYS * 86400000;
-}
-
-function sameLiebherrSourceFamily(a = {}, b = {}) {
-  const first = parseLiebherrJobReqId(a?.jobReqId);
-  const second = parseLiebherrJobReqId(b?.jobReqId);
-  if (first === null || second === null) return false;
-  if (first === second) return true;
-  return (
-    Math.abs(first - second) === LIEBHERR_LANGUAGE_ID_DELTA
-    && liebherrLanguageFamilyKey(first) === liebherrLanguageFamilyKey(second)
-    && first >= 1_000_000
-    && second >= 1_000_000
-  );
-}
-
 function isLiebherrLanguageVariantPair(a = {}, b = {}, { legacy = false } = {}) {
-  if (!normalizedLiebherrLocation(a) || normalizedLiebherrLocation(a) !== normalizedLiebherrLocation(b)) return false;
-  if (!sameLiebherrVariantDateWindow(a, b)) return false;
-
-  // Fresh rows must carry the source-page locale proof. Legacy rows predate
-  // this field: only the source-verified families measured from the stored
-  // snapshot may be cleaned. Title/source-language heuristics are not proof.
-  if (legacy) {
-    return (
-      sameLiebherrSourceFamily(a, b)
-      && LIEBHERR_LEGACY_VERIFIED_VARIANT_PAIRS.has(liebherrVariantPairKey(a, b))
-    );
-  }
-  if (!sameLiebherrSourceFamily(a, b)) return false;
-  const firstLocale = sourceLangForLocale(a?.sourceLocale);
-  const secondLocale = sourceLangForLocale(b?.sourceLocale);
+  const firstSourceJobId = sourceJobIdForJob(a, { legacy });
+  const secondSourceJobId = sourceJobIdForJob(b, { legacy });
+  if (!firstSourceJobId || firstSourceJobId !== secondSourceJobId) return false;
+  const firstLocale = sourceLangForLocale(sourceLocaleForJob(a, { legacy }));
+  const secondLocale = sourceLangForLocale(sourceLocaleForJob(b, { legacy }));
   return (
     ['de', 'en', 'fr', 'it'].includes(firstLocale)
     && ['de', 'en', 'fr', 'it'].includes(secondLocale)
     && firstLocale !== secondLocale
-    && Boolean(a?.sourceLocale)
-    && Boolean(b?.sourceLocale)
   );
 }
 
-function variantGroupKey(job = {}) {
-  const location = normalizedLiebherrLocation(job);
-  const family = liebherrLanguageFamilyKey(job?.jobReqId);
-  return family && location ? `${family}\u0000${location}` : '';
+function variantGroupKey(job = {}, { legacy = false } = {}) {
+  const sourceJobId = sourceJobIdForJob(job, { legacy });
+  return sourceJobId ? `source-job:${sourceJobId}` : '';
 }
 
 function primaryOrder(a = {}, b = {}) {
@@ -311,7 +279,7 @@ function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false 
   const sourceJobReqIdByLocale = { ...(primary.liebherrSourceJobReqIdByLocale || {}) };
 
   for (const job of [primary, secondary]) {
-    const locale = liebherrSourceLang(job);
+    const locale = liebherrSourceLang(job, { legacy });
     if (job?.jobReqId) sourceJobReqIds.add(String(job.jobReqId));
     if (locale) {
       titleByLocale[locale] = job.titleByLocale?.[locale] || job.title || titleByLocale[locale];
@@ -345,19 +313,21 @@ function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false 
   merged.requirementsByLocale = requirementsByLocale;
   merged.liebherrSourceJobReqIds = [...sourceJobReqIds];
   merged.liebherrSourceJobReqIdByLocale = sourceJobReqIdByLocale;
-  merged.liebherrLanguageVariantKey = `${variantGroupKey(primary)}`;
-  const primarySourceLang = liebherrSourceLang(primary);
+  const sourceJobId = sourceJobIdForJob(primary, { legacy });
+  merged.liebherrLanguageVariantKey = variantGroupKey(primary, { legacy });
+  if (sourceJobId) merged.liebherrSourceJobId = sourceJobId;
+  const primarySourceLang = liebherrSourceLang(primary, { legacy });
   if (primarySourceLang) {
     merged.sourceLang = primarySourceLang;
     merged.title = titleByLocale[primarySourceLang] || primary.title;
     merged.description = descriptionByLocale[primarySourceLang] || primary.description;
   }
   if (!merged.sourceLocale) {
-    const verifiedPrimaryLocale = sourceLocaleForJob(primary);
+    const verifiedPrimaryLocale = sourceLocaleForJob(primary, { legacy });
     if (verifiedPrimaryLocale) merged.sourceLocale = verifiedPrimaryLocale;
   }
 
-  const secondaryLocale = liebherrSourceLang(secondary);
+  const secondaryLocale = liebherrSourceLang(secondary, { legacy });
   for (const [locale, slug] of Object.entries(secondary.slugByLocale || {})) {
     addLiebherrRedirect(merged, locale, slug, metrics);
   }
@@ -372,16 +342,16 @@ function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false 
 }
 
 /**
- * Merge only Liebherr locale rows whose detail pages prove a language variant
- * of the same SuccessFactors source family. `legacy: true` is used only for
- * cleaning stored rows created before the page-locale proof was persisted.
+ * Merge only Liebherr locale rows whose detail pages expose the same source
+ * Job ID. `legacy: true` is used only for cleaning stored rows created before
+ * the source Job ID and page-locale proof were persisted.
  */
 export function mergeLiebherrLanguageVariants(jobs = [], { legacy = false } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const metrics = { candidatePairs: 0, fused: 0, redirectsCreated: 0 };
   const groups = new Map();
   for (const job of input) {
-    const key = variantGroupKey(job);
+    const key = variantGroupKey(job, { legacy });
     if (!key) continue;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(job);
@@ -391,20 +361,24 @@ export function mergeLiebherrLanguageVariants(jobs = [], { legacy = false } = {}
   const output = [];
   for (const job of input) {
     if (consumed.has(job)) continue;
-    const candidates = groups.get(variantGroupKey(job)) || [];
-    if (
-      candidates.length === 2
-      && candidates[0] !== candidates[1]
-      && isLiebherrLanguageVariantPair(candidates[0], candidates[1], { legacy })
-    ) {
-      metrics.candidatePairs += 1;
-      const [first, second] = candidates;
-      const primary = primaryOrder(first, second) <= 0 ? first : second;
-      const secondary = primary === first ? second : first;
-      output.push(mergeLiebherrVariantPair(primary, secondary, metrics, { legacy }));
-      consumed.add(first);
-      consumed.add(second);
-      metrics.fused += 1;
+    const candidates = groups.get(variantGroupKey(job, { legacy })) || [];
+    const locales = candidates.map((candidate) => liebherrSourceLang(candidate, { legacy }));
+    const canFuse = (
+      candidates.length > 1
+      && candidates.every((candidate) => isLiebherrLanguageVariantPair(candidates[0], candidate, { legacy }) || candidate === candidates[0])
+      && locales.every((locale) => ['de', 'en', 'fr', 'it'].includes(locale))
+      && new Set(locales).size === candidates.length
+    );
+    if (canFuse) {
+      const ordered = [...candidates].sort(primaryOrder);
+      let merged = ordered[0];
+      for (const secondary of ordered.slice(1)) {
+        metrics.candidatePairs += 1;
+        merged = mergeLiebherrVariantPair(merged, secondary, metrics, { legacy });
+        metrics.fused += 1;
+      }
+      output.push(merged);
+      for (const candidate of candidates) consumed.add(candidate);
       continue;
     }
     output.push(job);
@@ -424,11 +398,15 @@ export function prepareExistingLiebherrJobs(jobs = []) {
 }
 
 /**
- * Match a merged language family across crawler runs. Unproven rows retain
- * the normal URL identity, so two arbitrary ids never collapse here.
+ * Match a source-proven Liebherr vacancy across crawler runs. Rows without
+ * the source Job ID retain the normal URL identity, so arbitrary IDs never
+ * collapse here.
  */
 export function liebherrMatchKey(job = {}) {
-  if (job?.liebherrLanguageVariantKey) return `liebherr:${job.liebherrLanguageVariantKey}`;
+  if (job?.liebherrSourceJobId) return `liebherr:source-job:${job.liebherrSourceJobId}`;
+  if (String(job?.liebherrLanguageVariantKey || '').startsWith('source-job:')) {
+    return `liebherr:${job.liebherrLanguageVariantKey}`;
+  }
   const stableId = extractStableJobId(job?.url || '');
   if (stableId) return stableId;
   const slug = String(job?.slug || '').trim().toLowerCase();
@@ -633,7 +611,7 @@ async function fetchJobListings() {
  */
 async function fetchLiebherrDetailPage(url, jobReqId = '') {
   if (!url || !/^https?:\/\//.test(url)) {
-    return { descriptionHtml: '', sourceLocale: '' };
+    return { descriptionHtml: '', sourceLocale: '', sourceJobId: '' };
   }
   try {
     const html = await fetchHtml(url, {
@@ -643,9 +621,10 @@ async function fetchLiebherrDetailPage(url, jobReqId = '') {
     return {
       descriptionHtml: extractMicrodataDescription(html),
       sourceLocale: extractLiebherrSourceLocale(html, jobReqId),
+      sourceJobId: extractLiebherrSourceJobId(html),
     };
   } catch {
-    return { descriptionHtml: '', sourceLocale: '' }; // network/timeout → the listing is not published
+    return { descriptionHtml: '', sourceLocale: '', sourceJobId: '' }; // network/timeout → the listing is not published
   }
 }
 
@@ -742,6 +721,7 @@ export async function fetchAllLiebherrJobs() {
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
       ...(detail.sourceLocale ? { sourceLocale: detail.sourceLocale } : {}),
+      ...(detail.sourceJobId ? { liebherrSourceJobId: detail.sourceJobId } : {}),
     };
 
     jobs.push(job);

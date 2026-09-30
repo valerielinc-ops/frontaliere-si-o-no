@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   fetchAllLiebherrJobs,
   extractLiebherrSourceLocale,
+  extractLiebherrSourceJobId,
   mergeLiebherrLanguageVariants,
   prepareExistingLiebherrJobs,
 } from '../scripts/lib/liebherr-job-parser.mjs';
@@ -135,21 +136,26 @@ describe('Liebherr crawler parser', () => {
     const body = (label: string) => `${label} ${Array(55).fill('source').join(' ')}`;
     const variant = (options: {
       id: string;
-      locale: 'de_DE' | 'en_US';
+      locale: 'de_DE' | 'en_US' | 'fr_FR' | 'it_IT';
       slug: string;
       title: string;
+      sourceJobId?: string;
+      bodyLabel?: string;
       firstSeenAt?: string;
     }) => {
-      const sourceLang = options.locale === 'de_DE' ? 'de' : 'en';
+      const sourceLangByLocale = { de_DE: 'de', en_US: 'en', fr_FR: 'fr', it_IT: 'it' } as const;
+      const sourceLang = sourceLangByLocale[options.locale];
+      const description = body(options.bodyLabel || options.locale);
       return {
         id: `liebherr-${options.id}`,
         jobReqId: options.id,
         sourceLocale: options.locale,
+        ...(options.sourceJobId ? { liebherrSourceJobId: options.sourceJobId } : {}),
         sourceLang,
         title: options.title,
         titleByLocale: { [sourceLang]: options.title },
-        description: body(options.locale),
-        descriptionByLocale: { [sourceLang]: body(options.locale) },
+        description,
+        descriptionByLocale: { [sourceLang]: description },
         slug: options.slug,
         slugByLocale: { [sourceLang]: options.slug },
         location: 'Nussbaumen',
@@ -173,10 +179,18 @@ describe('Liebherr crawler parser', () => {
       )).toBe('');
     });
 
-    it('fuses a proven DE/EN pair with the same source id, keeps both bodies, and aliases the losing slug', () => {
+    it('reads the common Job ID from the source data attribute', () => {
+      expect(extractLiebherrSourceJobId(
+        '<span data-careersite-propertyid="adcode"> 84657 </span>',
+      )).toBe('84657');
+      expect(extractLiebherrSourceJobId('<span data-careersite-propertyid="title">Role</span>')).toBe('');
+    });
+
+    it('fuses a proven DE/EN pair with the same source Job ID, even when page IDs differ by 100', () => {
       const de = variant({
-        id: '1438005433',
+        id: '1438005533',
         locale: 'de_DE',
+        sourceJobId: '84657',
         slug: 'transferpreis-werkstudent-liebherr-nussbaumen',
         title: 'Transfer Pricing Working Student',
         firstSeenAt: '2026-09-01T00:00:00.000Z',
@@ -184,6 +198,7 @@ describe('Liebherr crawler parser', () => {
       const en = variant({
         id: '1438005433',
         locale: 'en_US',
+        sourceJobId: '84657',
         slug: 'transfer-pricing-working-student-liebherr-nussbaumen',
         title: 'Transfer Pricing Working Student',
         firstSeenAt: '2026-09-02T00:00:00.000Z',
@@ -202,27 +217,34 @@ describe('Liebherr crawler parser', () => {
       expect(result.jobs[0].previousSlugsByLocale?.en).toContain(en.slug);
     });
 
-    it('also fuses Liebherr ids that differ by the proven language suffix', () => {
-      const de = variant({ id: '1438005533', locale: 'de_DE', slug: 'role-de', title: 'Role' });
-      const en = variant({ id: '1438005433', locale: 'en_US', slug: 'role-en', title: 'Role' });
-      const result = mergeLiebherrLanguageVariants([de, en]);
-      expect(result.metrics).toMatchObject({ candidatePairs: 1, fused: 1 });
+    it('fuses three source-language pages that share one Job ID', () => {
+      const de = variant({ id: '724771801', locale: 'de_DE', sourceJobId: '37210', slug: 'role-de', title: 'Initiativbewerbung' });
+      const fr = variant({ id: '724771901', locale: 'fr_FR', sourceJobId: '37210', slug: 'role-fr', title: 'Candidature spontanée' });
+      const en = variant({ id: '724772001', locale: 'en_US', sourceJobId: '37210', slug: 'role-en', title: 'Speculative application' });
+      const result = mergeLiebherrLanguageVariants([de, fr, en]);
+      expect(result.metrics).toMatchObject({ candidatePairs: 2, fused: 2, redirectsCreated: 2 });
       expect(result.jobs).toHaveLength(1);
-      expect(result.jobs[0].descriptionByLocale).toEqual({ de: de.description, en: en.description });
+      expect(result.jobs[0].descriptionByLocale).toEqual({ de: de.description, fr: fr.description, en: en.description });
     });
 
-    it('keeps different source ids separate without the proven Liebherr variant relationship', () => {
+    it('keeps different source Job IDs separate despite same location, dates, and page IDs at +100', () => {
       const engine = variant({
         id: '1395958433',
-        locale: 'en_US',
+        locale: 'de_DE',
+        sourceJobId: '82763',
         slug: 'engine-remanufacturing-design-engineer',
         title: 'Engine Remanufacturing Design Engineer',
+        bodyLabel: 'Engine responsibilities',
+        firstSeenAt: '2026-09-01T00:00:00.000Z',
       });
       const control = variant({
         id: '1395958333',
         locale: 'en_US',
+        sourceJobId: '82764',
         slug: 'control-systems-engineer',
         title: 'Control Systems Engineer',
+        bodyLabel: 'Control systems responsibilities',
+        firstSeenAt: '2026-09-02T00:00:00.000Z',
       });
       const result = mergeLiebherrLanguageVariants([engine, control]);
       expect(result.metrics.fused).toBe(0);
@@ -267,6 +289,7 @@ describe('Liebherr crawler parser', () => {
       const legacyDe = {
         ...de,
         sourceLocale: undefined,
+        liebherrSourceJobId: undefined,
         sourceLang: 'en',
         titleByLocale: { en: de.title },
         descriptionByLocale: { en: de.description },
@@ -274,6 +297,7 @@ describe('Liebherr crawler parser', () => {
       const legacyEn = {
         ...en,
         sourceLocale: undefined,
+        liebherrSourceJobId: undefined,
         sourceLang: 'en',
         titleByLocale: { en: en.title },
         descriptionByLocale: { en: en.description },
@@ -332,7 +356,7 @@ describe('fetchAllLiebherrJobs — source-proven same-id locale variants', () =>
       if (u.includes('/search/')) return new Response(listing, { status: 200 });
       const locale = u.includes('de_DE') ? 'de_DE' : 'en_US';
       return new Response(
-        `<a href="/apply?locale=${locale}&amp;jobid=1438005433">Apply</a><span itemprop="description"><p>${body(locale)}</p></span>`,
+        `<a href="/apply?locale=${locale}&amp;jobid=1438005433">Apply</a><span data-careersite-propertyid="adcode">84657</span><span itemprop="description"><p>${body(locale)}</p></span>`,
         { status: 200 },
       );
     }));
