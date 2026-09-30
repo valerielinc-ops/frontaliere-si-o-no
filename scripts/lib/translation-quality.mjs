@@ -50,18 +50,71 @@ function stripHtmlForStructure(value = '') {
   return decodeEntities(withoutTags);
 }
 
-const LIST_ITEM_LINE_RE = /^\s*(?:[-•*][ \t]+|\d+[.)][ \t]+)/;
+const LIST_ITEM_LINE_RE = /^\s*(?:[-•*][ \t]+|\d+[.)][ \t]+)/u;
+const INLINE_LIST_ITEM_RE = /\s+([-•*]|\d+[.)])[ \t]+/gu;
+const INLINE_LIST_ITEM_START_RE = /^(?:[\p{Lu}\dÀ-ÖØ-Þ]|[•*])/u;
+
+function isNumberedHeading(line, marker) {
+  return /^\s*\d+[.)][ \t]+/.test(marker) && /:\s*$/u.test(line.slice(marker.length));
+}
 
 /**
- * Count list entries using the same line definition at every translation
- * gate. Empty lines are intentionally ignored: only a line-start marker plus
- * its separating whitespace is an entry.
+ * Count list entries using the same structural definition at every translation
+ * gate. Providers sometimes flatten a list into one line, so an inline marker
+ * is counted when it follows a sentence boundary inside an existing list, or
+ * when a colon-anchored inline list has a repeated marker run. Hyphens in a
+ * title/prose line (e.g. `Bouchère - Boucher`) are not list entries. Empty
+ * lines are intentionally ignored.
  */
 export function countListItems(value = '') {
-  return stripHtmlForStructure(value)
-    .split('\n')
-    .filter((line) => line.trim() && LIST_ITEM_LINE_RE.test(line))
-    .length;
+  let count = 0;
+  let previousListLine = false;
+  let continuationAfterBlank = false;
+
+  for (const line of stripHtmlForStructure(value).split('\n')) {
+    if (!line.trim()) {
+      continuationAfterBlank = previousListLine;
+      previousListLine = false;
+      continue;
+    }
+
+    const lineMarker = LIST_ITEM_LINE_RE.exec(line);
+    const numberedHeading = lineMarker && isNumberedHeading(line, lineMarker[0]);
+    const startsList = Boolean(lineMarker && !numberedHeading);
+    if (startsList) count += 1;
+
+    const content = lineMarker ? line.slice(lineMarker[0].length) : line;
+    const inlineMarkers = [...content.matchAll(INLINE_LIST_ITEM_RE)];
+    const firstInlineBefore = inlineMarkers.length > 0
+      ? content.slice(0, inlineMarkers[0].index).trimEnd()
+      : '';
+    const standaloneInlineRun = inlineMarkers.length >= 2
+      && /:\s*$/u.test(firstInlineBefore);
+    const listContext = startsList || previousListLine || continuationAfterBlank;
+    let inlineCount = 0;
+
+    for (const marker of inlineMarkers) {
+      const before = content.slice(0, marker.index).trimEnd();
+      const after = content.slice(marker.index + marker[0].length).trimStart();
+      const strongBoundary = /[.!?:;]/u.test(before.at(-1) || '');
+      const repeatedListRun = (listContext || standaloneInlineRun)
+        && inlineMarkers.length >= 2
+        && (standaloneInlineRun || INLINE_LIST_ITEM_START_RE.test(after));
+      const explicitGlyph = marker[1] === '•' || marker[1] === '*';
+
+      if ((strongBoundary && (listContext || standaloneInlineRun))
+        || repeatedListRun
+        || (explicitGlyph && (listContext || standaloneInlineRun))) {
+        count += 1;
+        inlineCount += 1;
+      }
+    }
+
+    previousListLine = startsList || inlineCount > 0;
+    continuationAfterBlank = false;
+  }
+
+  return count;
 }
 
 /**
@@ -74,13 +127,14 @@ export function hasStructuredContent(value = '') {
 }
 
 /**
- * Require a candidate to retain every source list entry. A source without
- * list entries has no list-parity constraint; other quality checks still
- * apply. Marker kind may change, but the number of entries may not.
+ * Require a candidate not to lose source list entries. A source without list
+ * entries has no list-parity constraint; other quality checks still apply.
+ * Marker kind and line wrapping may change, and extra explicit markers do not
+ * prove content loss, but a smaller candidate count does.
  */
 export function hasStructureParity(source = '', candidate = '') {
   const sourceItems = countListItems(source);
-  return sourceItems === 0 || countListItems(candidate) === sourceItems;
+  return sourceItems === 0 || countListItems(candidate) >= sourceItems;
 }
 
 const STRUCTURED_LINE_RE = /^(\s*(?:#{1,6}\s+|[-*•]\s+|\d+[.)]\s+)?)(.*)$/;

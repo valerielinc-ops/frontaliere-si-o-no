@@ -123,6 +123,30 @@ describe('isStructureFlattenedCopy', () => {
     expect(isAcceptableTranslation(source, candidate)).toBe(false);
   });
 
+  it('normalizes an inline flattened run without counting title hyphens', () => {
+    const source = [
+      'Bouchère - Boucher / Charcutière - Charcutier (f/h/d)',
+      'Mission',
+      '- Premier item avec assez de contenu pour le rôle.',
+      '- Deuxième item avec assez de contenu pour le rôle.',
+      '- Troisième item avec assez de contenu pour le rôle.',
+    ].join('\n');
+    const candidate = [
+      'Macellaio - Macellaio / Macellaio - Macellaio (m/f/d)',
+      'Missione',
+      '- Primo item tradotto con contenuto sufficiente. - Secondo item tradotto con contenuto sufficiente. - Terzo item tradotto con contenuto sufficiente.',
+    ].join('\n');
+
+    expect(countListItems(source)).toBe(3);
+    expect(countListItems(candidate)).toBe(3);
+    expect(hasStructureParity(source, candidate)).toBe(true);
+    expect(countListItems('Benefits: - Primo elemento - Secondo elemento')).toBe(2);
+  });
+
+  it('does not treat a numbered heading ending in a colon as a list item', () => {
+    expect(countListItems('1. Analyze User Input:\n- One real list item')).toBe(1);
+  });
+
   it('accepts a translation that preserves the complete number of list items', () => {
     const candidate = STRUCTURED_IT.replace(/•/g, '-');
     expect(countListItems(candidate)).toBe(countListItems(STRUCTURED_DE));
