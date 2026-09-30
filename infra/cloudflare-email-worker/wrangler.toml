@@ -36,6 +36,9 @@ BOUNCE_REPORT_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.n
 # replied to valerie@ with the CV attached (raw message, same x-stop-secret
 # gate). Outreach reply path only, and only for multipart/mixed replies.
 ASSISTED_CV_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/assistedApplicationEmailCv"
+# Cloud Function that receives the employer messages sent to the order
+# aliases c-…@candidature.frontaliereticino.ch (raw message, x-stop-secret).
+ASSISTED_INBOUND_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/assistedApplicationInbound"
 # One-click unsubscribe endpoint (same one services/newsletterUrls.mjs's
 # makeOneClickUnsubscribeUrl builds for the email footer / List-Unsubscribe
 # header) — newsletter mailbox path only.

@@ -53,6 +53,14 @@ export const MIN_HILDEBRAND_DESC_LENGTH = 400;
 // Skip non-job PDFs (privacy notices, regolamenti, statuti).
 const NON_JOB_PDF_RE = /(informativa|privacy|protezione|regolamento|statuto|formulario|policy)/i;
 
+function decodeFilename(raw = '') {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
 /* ── Company matchers ──────────────────────────────────────── */
 
 export function isClinicaHildebrandJob(job = {}) {
@@ -139,7 +147,7 @@ export function parseClinicaHildebrandListing(html = '') {
     if (seen.has(href)) continue;
     seen.add(href);
 
-    const filename = decodeURIComponent(href.split('/').pop() || '');
+    const filename = decodeFilename(href.split('/').pop() || '');
     const title =
       normalizeSpace(decodeEntities(humanizeHildebrandFilename(filename))) ||
       filename.replace(/\.pdf$/i, '');
