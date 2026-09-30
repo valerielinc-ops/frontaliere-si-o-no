@@ -4,6 +4,7 @@ import {
   fetchAllInselspitalJobs,
   isInselspitalJob,
   isTrustedDomain,
+  umantisApplyUrl,
 } from '../scripts/lib/inselspital-job-parser.mjs';
 import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
 
@@ -20,6 +21,16 @@ afterEach(() => {
 });
 
 describe('Inselspital Prospective API crawler', () => {
+  it('prefers the apply link when the Umantis vacancy ID is absent', () => {
+    expect(umantisApplyUrl(
+      { szas: { sza_apply_link: '' } },
+      {
+        directLink: 'https://detail.example/',
+        applyLink: 'https://apply.example/',
+      },
+    )).toBe('https://apply.example/');
+  });
+
   it('keeps Umantis identity URLs while publishing the API source body', async () => {
     const sourceListing = {
       id: '19627',

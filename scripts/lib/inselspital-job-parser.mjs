@@ -45,11 +45,11 @@ function umantisDescriptionUrl(listing, { directLink = '' } = {}) {
     : directLink;
 }
 
-function umantisApplyUrl(listing, { directLink = '' } = {}) {
+export function umantisApplyUrl(listing, { directLink = '', applyLink = '' } = {}) {
   const vacancyId = umantisVacancyId(listing);
   return vacancyId
     ? UMANTIS_BASE + '/Vacancies/' + vacancyId + '/Application/CheckLogin/1'
-    : directLink;
+    : applyLink || directLink;
 }
 
 const parser = createProspectiveChParser({
