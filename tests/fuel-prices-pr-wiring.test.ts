@@ -17,6 +17,7 @@ describe('fuel price refresh publication', () => {
     expect(workflow).toContain('--path public/data/fuel-prices.json');
     expect(workflow).toContain('--path data/fuel-prices-history/');
     expect(workflow).toContain('--branch chore/refresh-fuel-prices');
+    expect(workflow).toContain('required check \\`vitest (unit + integration)\\` valida');
     expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
     expect(workflow).not.toContain('scripts/lib/trigger-deploy.sh');
     expect(workflow).not.toMatch(/\bgit\s+push\b/);
