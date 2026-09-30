@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-schwyz",
-  "assembledAt": "2026-09-29T21:25:23.045Z",
+  "assembledAt": "2026-09-30T10:58:04.371Z",
   "jobs": [
     {
       "id": "spital-schwyz-6225969ca445",
@@ -1556,88 +1556,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:58:33.353Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-schwyz-2efd06220a05",
-      "slug": "cucina-dietetica-cucina-di-dieta-50-spital-schwyz-schwyz",
-      "slugByLocale": {
-        "it": "cucina-dietetica-cucina-di-dieta-50-spital-schwyz-schwyz",
-        "en": "diet-cook-diet-cook-50-spital-schwyz-schwyz",
-        "de": "diatkochin-diatkoch-50-spital-schwyz-schwyz",
-        "fr": "diete-cuire-diete-cuire-50-spital-schwyz-schwyz"
-      },
-      "company": "Spital Schwyz",
-      "companyKey": "spital-schwyz",
-      "companyDomain": "spital-schwyz.ch",
-      "title": "Diätköchin / Diätkoch (50-100 %)",
-      "titleByLocale": {
-        "it": "Cucina dietetica / cucina di dieta 50%",
-        "en": "Diet cook / diet cook 50%",
-        "de": "Diätköchin / Diätkoch (50-100 %)",
-        "fr": "Diète cuire / diète cuire 50%"
-      },
-      "description": "Willkommen im Spital Schwyz. Gesundheit ist unser höchstes Gut. Deshalb setzen wir Tag für Tag alles daran, Menschen zu helfen – professionell und persönlich. Als regional verankertes Spital liegen uns der direkte Bezug zur Bevölkerung der Region und deren Vertrauen am Herzen. Das umfangreiche medizinische Versorgungsangebot und die moderne Infrastruktur machen das Spital Schwyz für Menschen aus der ganzen Zentralschweiz – und darüber hinaus - attraktiv. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine:n Diätköchin / Diätkoch (50-100 %) Ihre Herausforderung\n• Mitverantwortung für die Vor- und Zubereitung von Mahlzeiten für unsere Gäste mit unterschiedlichsten Kostformen\n• Ausführung der Anwenderaufgaben im Sanalogic-System (Speiseverteilsystem)\n• Überwachung der Speisenausgabe (Bandkontrolle)\n• Unterstützung im Bestellwesen sowie in der Warenbewirtschaftung\n• Bereitschaft zu Einsätzen in anderen Küchenbereichen\n• Mitarbeit bei der Ausbildung von Lernenden\n• Mitverantwortung für die Einhaltung und Umsetzung der Hygiene- und Qualitätsstandards gemäss Lebensmittelgesetz sowie internen Vorgaben Ihr Profil\n• Abgeschlossene Ausbildung als Diätköchin / Diätkoch\n• Hohes Mass an Eigenverantwortung, Einsatzbereitschaft, Flexibilität, Belastbarkeit und Zuverlässigkeit\n• Bereitschaft zu Wochenenddiensten\n• Ausgezeichnete Umgangsformen sowie eine ausgeprägte Dienstleistungsorientierung\n• Teamfähigkeit sowie hohe Loyalität Unser Angebot\n• Attraktive Anstellungsbedingungen\n• Arbeitsplatz mit ÖV-Anbindung (Mobilitätsfinanzierung) und Parkhaus\n• Moderne Infrastruktur, professionelle Arbeitsgeräte und Materialien\n• Abwechslungsreiches, verantwortungsvolles Aufgabengebiet in einem hochmotivierten Team Interessiert? Für weitere Informationen wenden Sie sich bitte an Mischa Tresch, Küchenchef, T 041 818 42 79. Sandra Tandler, Personalfachfau FA, freut sich auf Ihre Bewerbung!",
-      "descriptionByLocale": {
-        "it": "Benvenuto all'ospedale Schwyz. La salute è il nostro bene più alto. Ecco perché facciamo tutto ogni giorno per aiutare le persone – professionalmente e personalmente. Come ospedale regionale ancorato, ci preoccupiamo del rapporto diretto con la popolazione della regione e la loro fiducia. La vasta gamma di cure mediche e infrastrutture moderne rendono l'ospedale Schwyz attraente per le persone provenienti da tutta la Svizzera centrale – e oltre. Per completare il nostro team, stiamo cercando un cuoco dietetico / dieta (50-100%) La tua sfida\n• Co-responsabilità per la preparazione e la preparazione dei pasti per i nostri ospiti con diete diverse\n• Esecuzione dei compiti dell'utente nel sistema Sanalogic (sistema di distribuzione dell'alimentazione)\n• Monitoraggio della consegna dei prodotti alimentari (controllo delle tariffe)\n• Sostegno all'ordinazione e alla gestione dei beni\n• Volontà di lavorare in altre zone della cucina\n• Partecipazione alla formazione degli studenti\n• Co-responsabilità per il rispetto e l'attuazione di norme igieniche e di qualità secondo il diritto alimentare e requisiti interni Il tuo profilo\n• Allenamento completo come cuoco di dieta / cuoco di dieta\n• Alto grado di responsabilità personale, disponibilità al lavoro, flessibilità, resilienza e affidabilità\n• Prontezza per i servizi del fine settimana\n• Modi eccellenti e un forte orientamento al servizio\n• Lavoro di squadra e alta fedeltà La nostra offerta\n• Condizioni di lavoro attraenti\n• Posto di lavoro con collegamento di trasporto pubblico (finanziamento della mobilità) e parcheggio\n• Infrastrutture moderne, attrezzature professionali e materiali\n• Variato, responsabile area di responsabilità in un team altamente motivato Interessato? Per ulteriori informazioni, rivolgersi a Mischa Tresch, Chef, T 041 818 42 79. Tanja Reppel, HRfachfau FA, è impaziente per la vostra applicazione!",
-        "en": "Welcome to the hospital Schwyz. Health is our highest good. That is why we do everything every day to help people – professionally and personally. As a regionally anchored hospital, we care about the direct relationship with the population of the region and their trust. The extensive range of medical care and modern infrastructure make the Schwyz Hospital attractive for people from all over Central Switzerland – and beyond. To complement our team, we are looking for a dietitian / diet cook (50-100%) Your challenge\n• Co-responsibility for the preparation and preparation of meals for our guests with different diets\n• Execution of user tasks in the Sanalogic system (feed distribution system)\n• Monitoring of food delivery (tape control)\n• Support for ordering and goods management\n• Willingness to work in other kitchen areas\n• Participation in the training of learners\n• Co-responsibility for compliance with and implementation of hygiene and quality standards according to food law as well as internal requirements Your profile\n• Completed training as a diet cook / diet cook\n• High degree of personal responsibility, readiness to work, flexibility, resilience and reliability\n• Readiness for weekend services\n• Excellent manners and a strong service orientation\n• Teamwork and high loyalty Our offer\n• Attractive employment conditions\n• Workplace with public transport connection (mobility financing) and car park\n• Modern infrastructure, professional equipment and materials\n• Varied, responsible area of responsibility in a highly motivated team Interested? For more information, please contact Mischa Tresch, Chef, T 041 818 42 79. Tanja Reppel, HRfachfau FA, is looking forward to your application!",
-        "de": "Willkommen im Spital Schwyz. Gesundheit ist unser höchstes Gut. Deshalb setzen wir Tag für Tag alles daran, Menschen zu helfen – professionell und persönlich. Als regional verankertes Spital liegen uns der direkte Bezug zur Bevölkerung der Region und deren Vertrauen am Herzen. Das umfangreiche medizinische Versorgungsangebot und die moderne Infrastruktur machen das Spital Schwyz für Menschen aus der ganzen Zentralschweiz – und darüber hinaus - attraktiv. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine:n Diätköchin / Diätkoch (50-100 %) Ihre Herausforderung\n• Mitverantwortung für die Vor- und Zubereitung von Mahlzeiten für unsere Gäste mit unterschiedlichsten Kostformen\n• Ausführung der Anwenderaufgaben im Sanalogic-System (Speiseverteilsystem)\n• Überwachung der Speisenausgabe (Bandkontrolle)\n• Unterstützung im Bestellwesen sowie in der Warenbewirtschaftung\n• Bereitschaft zu Einsätzen in anderen Küchenbereichen\n• Mitarbeit bei der Ausbildung von Lernenden\n• Mitverantwortung für die Einhaltung und Umsetzung der Hygiene- und Qualitätsstandards gemäss Lebensmittelgesetz sowie internen Vorgaben Ihr Profil\n• Abgeschlossene Ausbildung als Diätköchin / Diätkoch\n• Hohes Mass an Eigenverantwortung, Einsatzbereitschaft, Flexibilität, Belastbarkeit und Zuverlässigkeit\n• Bereitschaft zu Wochenenddiensten\n• Ausgezeichnete Umgangsformen sowie eine ausgeprägte Dienstleistungsorientierung\n• Teamfähigkeit sowie hohe Loyalität Unser Angebot\n• Attraktive Anstellungsbedingungen\n• Arbeitsplatz mit ÖV-Anbindung (Mobilitätsfinanzierung) und Parkhaus\n• Moderne Infrastruktur, professionelle Arbeitsgeräte und Materialien\n• Abwechslungsreiches, verantwortungsvolles Aufgabengebiet in einem hochmotivierten Team Interessiert? Für weitere Informationen wenden Sie sich bitte an Mischa Tresch, Küchenchef, T 041 818 42 79. Sandra Tandler, Personalfachfau FA, freut sich auf Ihre Bewerbung!",
-        "fr": "Bienvenue à l'hôpital Schwyz. La santé est notre plus haute qualité. C'est pourquoi nous faisons tout notre possible chaque jour pour aider les gens – professionnellement et personnellement. En tant qu'hôpital régional, nous nous soucions de la relation directe avec la population de la région et de sa confiance. La vaste gamme de soins médicaux et d'infrastructures modernes rendent l'hôpital Schwyz attrayant pour les gens de toute la Suisse centrale – et au-delà. Pour compléter notre équipe, nous sommes à la recherche d'un diététiste / diététiste (50-100%) Votre défi\n• Co-responsabilité pour la préparation et la préparation des repas pour nos clients avec différents régimes\n• Exécution des tâches de l'utilisateur dans le système Sanalogic (système de distribution d'alimentation)\n• Surveillance de la livraison des denrées alimentaires (contrôle des bandes)\n• Soutien à la commande et à la gestion des biens\n• Volonté de travailler dans d'autres espaces de cuisine\n• Participation à la formation des apprenants\n• Coresponsabilité pour le respect et la mise en œuvre des normes d'hygiène et de qualité conformément à la législation alimentaire ainsi que des exigences internes Votre profil\n• La formation terminée comme cuisinier de régime / cuisinier de régime\n• Haute responsabilité personnelle, disponibilité au travail, flexibilité, résilience et fiabilité\n• Préparation aux services du week-end\n• Excellentes manières et une forte orientation de service\n• Travail d'équipe et haute fidélité Notre offre\n• Conditions d'emploi attrayantes\n• Le lieu de travail avec les transports publics (financement de la mobilité) et le parking\n• Infrastructures modernes, équipements et matériaux professionnels\n• Zone de responsabilité variée et responsable dans une équipe très motivée Intéressé? Pour plus d'informations, veuillez contacter Mischa Tresch, Chef, T 041 818 42 79. Tanja Appel, HRfachfau FA, attend avec impatience votre candidature!"
-      },
-      "location": "Schwyz",
-      "canton": "SZ",
-      "url": "https://jobs.spital-schwyz.ch/Diaetkoechin-Diaetkoch-50-100--de-j559.html",
-      "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:25:05.876Z",
-      "addressLocality": "Schwyz",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6430",
-      "streetAddress": "Waldeggstrasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://jobs.spital-schwyz.ch/Diaetkoechin-Diaetkoch-50-100--de-j559.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "diatkochin-diatkoch-50-spital-schwyz-schwyz",
-        "diatkochin-diatkoch-50-100-spital-schwyz-schwyz",
-        "cucina-dietetica-cucina-di-dieta-50-spital-schwyz-schwyz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diatkochin-diatkoch-50-spital-schwyz-schwyz",
-          "diatkochin-diatkoch-50-100-spital-schwyz-schwyz",
-          "cucina-dietetica-cucina-di-dieta-50-spital-schwyz-schwyz"
-        ],
-        "en": [
-          "diatkochin-diatkoch-50-spital-schwyz-schwyz"
-        ],
-        "fr": [
-          "diatkochin-diatkoch-50-spital-schwyz-schwyz"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T22:20:48.625Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",

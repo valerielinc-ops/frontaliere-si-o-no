@@ -77,7 +77,7 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
     await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
   }
   if (typeof orderRef?.collection !== 'function') return;
-  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID]]) {
+  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake']]) {
     await orderRef.collection(collection).doc(id).delete();
   }
   const events = await orderRef.collection('automation_events').get();

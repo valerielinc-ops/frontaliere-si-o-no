@@ -1239,15 +1239,22 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
 }
 
 /**
- * Turn an explicit thin-source quarantine into the same proof shape as a
- * source-verified shrink. The proof is accepted only when it covers every
- * job the writer actually measured as removed, with the same URL identity.
+ * Validate explicit thin-source quarantine evidence and resolve the
+ * disappearing jobs it covers. Full-proof callers enforce complete coverage;
+ * partial-proof callers source-check the remaining disappearing jobs.
  */
-function buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries) {
+function buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries) {
   if (!Array.isArray(proofEntries) || proofEntries.length === 0) return null;
   const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
   const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
   if (disappeared.length === 0) return null;
+
+  const disappearedByKey = new Map();
+  for (const job of disappeared) {
+    const key = shrinkJobKey(job);
+    if (!key || disappearedByKey.has(key)) return null;
+    disappearedByKey.set(key, job);
+  }
 
   const proofByKey = new Map();
   for (const entry of proofEntries) {
@@ -1257,29 +1264,86 @@ function buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries) {
       || !entry.job.url.trim()
     ) return null;
     const key = shrinkJobKey(entry.job);
-    if (!key || proofByKey.has(key)) return null;
+    const disappearedJob = disappearedByKey.get(key);
+    if (!key || !disappearedJob || proofByKey.has(key)) return null;
+    if (entry.job.url !== disappearedJob.url) return null;
     proofByKey.set(key, entry);
   }
-  if (proofByKey.size !== disappeared.length) return null;
-  for (const job of disappeared) {
-    const entry = proofByKey.get(shrinkJobKey(job));
-    if (!entry || entry.job.url !== job.url) return null;
-  }
+
+  return { disappeared, proofByKey };
+}
+
+function buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries) {
+  const subset = buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries);
+  if (!subset || subset.proofByKey.size !== subset.disappeared.length) return null;
 
   return {
     corroborated: true,
-    checked: disappeared.length,
-    dead: disappeared.length,
+    checked: subset.disappeared.length,
+    dead: subset.disappeared.length,
     alive: 0,
     unverifiable: 0,
-    evidence: disappeared.map((job) => ({
+    evidence: subset.disappeared.map((job) => ({
       id: shrinkJobKey(job),
       url: job.url,
-      reason: proofByKey.get(shrinkJobKey(job)).reason || 'thin-source-quarantine',
+      reason: subset.proofByKey.get(shrinkJobKey(job)).reason || 'thin-source-quarantine',
       definitive: true,
     })),
     survivors: [],
-    disappearedJobs: disappeared,
+    disappearedJobs: subset.disappeared,
+  };
+}
+
+/**
+ * Combine deterministic quarantine evidence with source verification for the
+ * removals it does not cover. The validator is deliberately called with only
+ * the unproven jobs, so a known thin-source quarantine is never re-probed as
+ * if it were an ordinary source removal.
+ *
+ * @param {object[]} priorJobs
+ * @param {object[]} newJobs
+ * @param {object[]} proofEntries definitive proof for a subset of removals
+ * @param {object} [options] verifyShrinkAgainstSource options
+ * @returns {Promise<object>} combined shrink verdict
+ */
+export async function verifyShrinkWithProvidedHousekeepingProof(
+  priorJobs,
+  newJobs,
+  proofEntries,
+  options = {},
+) {
+  const subset = buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries);
+  if (!subset) return verifyShrinkAgainstSource(priorJobs, newJobs, options);
+
+  const unprovenJobs = subset.disappeared.filter(
+    (job) => !subset.proofByKey.has(shrinkJobKey(job)),
+  );
+  if (unprovenJobs.length === 0) {
+    return buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries);
+  }
+
+  // `expectedNewCount` belongs to the full measured array. The reduced
+  // source-verification input intentionally has no survivors, so forwarding
+  // that count would manufacture an array-mismatch refusal.
+  const { expectedNewCount: _expectedNewCount, ...sourceOptions } = options;
+  const sourceVerdict = await verifyShrinkAgainstSource(unprovenJobs, [], sourceOptions);
+  const providedEvidence = subset.disappeared
+    .filter((job) => subset.proofByKey.has(shrinkJobKey(job)))
+    .map((job) => {
+      const entry = subset.proofByKey.get(shrinkJobKey(job));
+      return {
+        id: shrinkJobKey(job),
+        url: job.url,
+        reason: entry.reason || 'thin-source-quarantine',
+        definitive: true,
+      };
+    });
+
+  return {
+    ...sourceVerdict,
+    dead: providedEvidence.length + sourceVerdict.dead,
+    evidence: [...providedEvidence, ...sourceVerdict.evidence],
+    disappearedJobs: subset.disappeared,
   };
 }
 
@@ -1300,6 +1364,9 @@ function buildProvidedHousekeepingVerdict(priorJobs, newJobs, proofEntries) {
  * @param {object} [options] Passed through to `writeJobsCrawlerSlice`; also
  *   accepts `validate` / `concurrency` / `timeoutMs` for the probe and an
  *   optional `housekeepingProof` array for deliberate thin-source quarantine.
+ * @param {boolean} [options.verifyUnprovenHousekeeping] When true, the
+ *   housekeeping proof may cover only a deterministic subset; if the shrink
+ *   guard trips, the remaining removals are verified at their source URLs.
  */
 export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = {}) {
   const {
@@ -1308,16 +1375,19 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     timeoutMs,
     isTargetJob,
     housekeepingProof: requestedHousekeepingProof,
+    verifyUnprovenHousekeeping = false,
     ...writeOptions
   } = options;
+  const hasRequestedHousekeepingProof = Array.isArray(requestedHousekeepingProof)
+    && requestedHousekeepingProof.length > 0;
   try {
     writeJobsCrawlerSlice(crawlerKey, jobs, {
       ...writeOptions,
-      ...(Array.isArray(requestedHousekeepingProof) && requestedHousekeepingProof.length > 0
+      ...(hasRequestedHousekeepingProof && !verifyUnprovenHousekeeping
         ? { housekeepingProof: requestedHousekeepingProof }
         : {}),
     });
-    if (Array.isArray(requestedHousekeepingProof) && requestedHousekeepingProof.length > 0) {
+    if (hasRequestedHousekeepingProof) {
       const archived = archiveRemovedJobsToSlice(
         requestedHousekeepingProof
           .filter((entry) => entry?.definitive === true && entry.job?.slug)
@@ -1353,22 +1423,44 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       measured.finalJobs,
       requestedHousekeepingProof,
     );
+    const providedProofIds = new Set(
+      (Array.isArray(requestedHousekeepingProof) ? requestedHousekeepingProof : [])
+        .filter((entry) => entry?.definitive === true && entry.job)
+        .map((entry) => shrinkJobKey(entry.job)),
+    );
     if (suppliedVerdict) {
       console.log(
         `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — thin-source housekeeping proof covers every removed job.`,
+      );
+    } else if (verifyUnprovenHousekeeping && providedProofIds.size > 0) {
+      console.log(
+        `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — thin-source housekeeping proof covers ${providedProofIds.size} removed job(s); probing the remaining removal(s) against the source before deciding.`,
       );
     } else {
       console.log(
         `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
       );
     }
-    const verdict = suppliedVerdict || await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
-      validate,
-      concurrency,
-      timeoutMs,
-      expectedNewCount: measured.newCount,
-      isTargetJob,
-    });
+    const verdict = suppliedVerdict || (verifyUnprovenHousekeeping
+      ? await verifyShrinkWithProvidedHousekeepingProof(
+        priorJobs,
+        measured.finalJobs,
+        requestedHousekeepingProof,
+        {
+          validate,
+          concurrency,
+          timeoutMs,
+          expectedNewCount: measured.newCount,
+          isTargetJob,
+        },
+      )
+      : await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
+        validate,
+        concurrency,
+        timeoutMs,
+        expectedNewCount: measured.newCount,
+        isTargetJob,
+      }));
 
     if (!verdict.corroborated) {
       console.error(
@@ -1383,13 +1475,18 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       throw err;
     }
 
+    const acceptedProvidedProofCount = verdict.evidence.filter(
+      (entry) => entry.definitive === true && providedProofIds.has(entry.id),
+    ).length;
     console.warn(
       suppliedVerdict
         ? `  ✅ ${crawlerKey}: shrink CORROBORATED by deliberate thin-source quarantine — ${verdict.dead} removed job(s) have route-preserving housekeeping proof. Accepting the smaller slice.`
+        : acceptedProvidedProofCount > 0
+        ? `  ✅ ${crawlerKey}: shrink CORROBORATED — ${acceptedProvidedProofCount} removed job(s) have thin-source housekeeping proof and ${verdict.dead - acceptedProvidedProofCount} are provably gone at the source. Accepting the smaller slice.`
         : `  ✅ ${crawlerKey}: shrink CORROBORATED — all ${verdict.dead} disappearing job(s) are provably gone at the source. Accepting the smaller slice.`,
     );
     for (const e of verdict.evidence.slice(0, 10)) {
-      console.warn(`     ↳ ${suppliedVerdict ? 'quarantined' : 'gone'}: ${e.url} (${e.reason})`);
+      console.warn(`     ↳ ${providedProofIds.has(e.id) ? 'quarantined' : 'gone'}: ${e.url} (${e.reason})`);
     }
 
     // SEO continuity: a job leaving the slice without an expired entry turns
