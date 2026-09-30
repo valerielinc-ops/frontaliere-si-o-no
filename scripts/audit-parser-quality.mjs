@@ -938,6 +938,42 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation, {
 }
 
 /**
+ * A structured location and an independent visible workplace can both be
+ * authoritative while disagreeing: ATS templates often stamp the employer's
+ * registered address into JSON-LD/microdata and render the vacancy workplace
+ * separately. Such a page contradicts itself; it cannot prove a crawler
+ * mismatch. Keep the check general and evidence-based, rather than teaching
+ * it one employer key.
+ */
+function visibleFieldMatchesLocation(field, location) {
+  const value = plainText(field);
+  const targetTokens = canonicalLocationTokens(location);
+  if (!value || !targetTokens.length) return false;
+  if (sourceLocationMatches(location, value)) return true;
+  const haystack = ` ${aliasedPlaceTokens(value).join(' ')} `;
+  return haystack.includes(` ${targetTokens.join(' ')} `);
+}
+
+function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLocation, locationEvidence) {
+  if (!['jsonld', 'strong-markup'].includes(locationEvidence)
+    || !isUsableSourceLocation(sourceLocation)
+    || !publishedLocation) return false;
+  const visibleFields = [
+    ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
+    ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
+    detail?.title,
+  ].filter(Boolean);
+  const visibleMatchesPublished = visibleFields.some((field) => (
+    visibleFieldMatchesLocation(field, publishedLocation)
+  ));
+  if (!visibleMatchesPublished) return false;
+  const visibleMatchesStructured = visibleFields.some((field) => (
+    visibleFieldMatchesLocation(field, sourceLocation)
+  ));
+  return !visibleMatchesStructured;
+}
+
+/**
  * Località primaria di una vacancy Workday letta dal suo URL pubblico.
  *
  * Il JSON-LD delle pagine Workday riporta `jobRequisitionLocation`, cioè
@@ -1103,6 +1139,12 @@ export function compareSourceDetail(job, detail, {
   const locationMatchesPublished = sourceFieldsAgree
     || structuredPostalCodeAgrees
     || publishedCorroboratedBySource;
+  const sourceInternalLocationConflict = sourceHasInternalLocationConflict(
+    detail,
+    publishedLocation,
+    sourceLocation,
+    locationEvidence,
+  );
   const circularCorroboration = !sourceFieldsAgree
     && !structuredPostalCodeAgrees
     && !publishedCorroboratedBySource
@@ -1113,7 +1155,8 @@ export function compareSourceDetail(job, detail, {
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic'
     && !circularCorroboration
-    && !sourceCoarserCanton;
+    && !sourceCoarserCanton
+    && !sourceInternalLocationConflict;
   const foreignMistralLocation = crawlerKey === 'mistral-ai'
     && locationChecked
     && hasExplicitForeignCountry(sourceLocation, detail?.addressCountry);
@@ -1129,6 +1172,8 @@ export function compareSourceDetail(job, detail, {
       evidence: locationEvidence,
       authority: circularCorroboration
         ? 'circular'
+        : sourceInternalLocationConflict
+          ? 'source-internal-conflict'
         : foreignMistralLocation
           ? 'foreign-source-exempt'
           : (publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail'),

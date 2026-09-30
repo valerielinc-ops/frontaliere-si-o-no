@@ -90,6 +90,23 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Merge key for an OSCAM record: its listing id, not its URL.
+ *
+ * The source changed from an invented page anchor to the bando PDF. The
+ * parser's persisted id includes a URL digest, so strip only that final
+ * digest before matching the old anchor record with the fresh PDF record.
+ * This keeps mergePreserveLocaleData's existing-id/slug preservation path.
+ *
+ * @param {{ id?: string, url?: string }} job
+ * @returns {string}
+ */
+export function oscamCastelrottoMatchKey(job = {}) {
+  const id = String(job?.id || '').trim();
+  if (id) return id.replace(/-[0-9a-f]{12}$/i, '');
+  return String(job?.url || '').trim();
+}
+
 /* ── Parser ────────────────────────────────────────────────── */
 
 /**

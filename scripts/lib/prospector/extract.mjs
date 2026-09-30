@@ -1327,26 +1327,68 @@ const MAX_WORKPLACE_LABEL_VALUE = 120;
  * @returns {string[]}
  */
 export function renderedWorkplaceLabelValues(html = '', title = '') {
-  const segments = vacancyContentRegion(html, title)
+  const source = vacancyContentRegion(html, title)
     .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
+  const out = [];
+  const seen = new Set();
+  const add = (rawValue) => {
+    const value = bodyTextOf(rawValue).replace(/\s*\n\s*/g, ', ').replace(/\s*,\s*/g, ', ').trim();
+    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) return;
+    if (WORKPLACE_LABEL_RX.test(value) || value.endsWith(':')) return;
+    const key = value.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(value);
+  };
+
+  // Read the whole value element after a heading/label. Prospective's Coop
+  // template puts the employer on one line and the workplace region on the
+  // next (`<h4>Arbeitsort</h4><p>Coop<br>Region …</p>`); taking only the
+  // next text fragment loses the actual per-vacancy geography.
+  let structuredLabelFound = false;
+  const index = indexHtmlTags(source);
+  for (const opening of index.openings) {
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    const labelText = bodyTextOf(source.slice(opening.end, bounds.contentEnd)).trim();
+    if (!WORKPLACE_LABEL_RX.test(labelText)) continue;
+    structuredLabelFound = true;
+    const inline = labelText.replace(WORKPLACE_LABEL_RX, '').trim();
+    if (inline) {
+      add(inline);
+      continue;
+    }
+    const next = index.openings.find((candidate) => candidate.index >= bounds.end
+      && !source.slice(bounds.end, candidate.index).trim());
+    const nextBounds = next && index.boundsByStart.get(next.index);
+    if (nextBounds) add(source.slice(next.end, nextBounds.contentEnd));
+  }
+
+  // SmartRecruiters renders its workplace in a custom element attribute
+  // (`formattedAddress`) while microdata carries the employer's registered
+  // address. Keep the rendered attribute as independent page evidence.
+  for (const opening of index.openings) {
+    const formattedAddress = readAttr(opening.raw, [
+      'formattedaddress', 'data-formatted-address', 'data-job-location',
+      'data-workplace', 'data-location',
+    ]);
+    if (formattedAddress) add(formattedAddress);
+  }
+
+  // Preserve the tolerant fragment fallback for malformed markup that cannot
+  // be balanced by indexHtmlTags; normal pages use the structured path above.
+  if (structuredLabelFound && out.length > 0) return out;
+  const segments = source
     .split(/<[^>]*>/)
     .map((part) => textOf(part))
     .filter(Boolean);
-  const out = [];
-  const seen = new Set();
   for (let i = 0; i < segments.length; i++) {
     if (!WORKPLACE_LABEL_RX.test(segments[i])) continue;
     // `Arbeitsort: <value>` in one text node, or the label alone with the
     // value in the next one (the `<label>`/`<span>` pair the portal renders).
     const inline = segments[i].replace(WORKPLACE_LABEL_RX, '').trim();
-    const value = inline || (segments[i + 1] || '').trim();
-    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) continue;
-    if (WORKPLACE_LABEL_RX.test(value) || value.endsWith(':')) continue;
-    const key = value.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(value);
+    add(inline || (segments[i + 1] || '').trim());
   }
   return out;
 }

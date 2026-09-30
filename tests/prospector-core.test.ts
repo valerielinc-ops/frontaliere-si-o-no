@@ -289,6 +289,21 @@ describe('vacancy extraction', () => {
     }
   });
 
+  it('keeps multiline workplace labels and rendered formatted addresses intact', () => {
+    const coop = '<main><h1>Stv. Geschäftsführer:in Region Brig</h1>'
+      + '<h4>Arbeitsort</h4><p>Coop<br><br>Region Brig, Visp, Zermatt und Goms</p></main>';
+    expect(renderedWorkplaceLabelValues(coop)).toEqual([
+      'Coop, Region Brig, Visp, Zermatt und Goms',
+    ]);
+
+    const smartRecruiters = '<main><h1>Solution Manager</h1>'
+      + '<spl-job-location formattedAddress="Strada Regina 40, Bioggio, Canton Ticino, Switzerland"></spl-job-location>'
+      + '</main>';
+    expect(renderedWorkplaceLabelValues(smartRecruiters)).toEqual([
+      'Strada Regina 40, Bioggio, Canton Ticino, Switzerland',
+    ]);
+  });
+
   // Regressione arsante.ch/gmo (#7322). Il JobPosting reale non ha alcun
   // jobLocation: la sede della vacancy sta solo nel blocco indirizzo renderizzato
   // in fondo alla pagina, e nessun nome di classe della cascata dice "location"
