@@ -368,6 +368,38 @@ describe('local LLM fallback provider', () => {
 // Hoisted to module scope so both the local-fallback-exhaustion suite and the
 // learned-request-token-limit suite below share one implementation.
 function mockFirestore(store: Record<string, { models?: Record<string, unknown> }>) {
+  const db = {
+    collection: () => ({
+      doc: (id: string) => ({
+        get: async () => ({
+          exists: store[id] != null,
+          data: () => store[id],
+        }),
+        set: async (data: { models?: Record<string, unknown> }, opts?: { merge?: boolean }) => {
+          if (opts?.merge && store[id]) {
+            store[id] = { ...store[id], ...data, models: { ...(store[id].models || {}), ...(data.models || {}) } };
+          } else {
+            store[id] = data;
+          }
+        },
+      }),
+      // Legacy per-model collection scan (one-time migration path in
+      // initScoreStore, used only when the aggregate doc has no models yet).
+      get: async () => ({ docs: [] }),
+    }),
+  };
+
+  vi.doMock('firebase-admin/app', () => ({
+    applicationDefault: () => ({}),
+    getApps: () => [],
+    initializeApp: () => ({}),
+  }));
+  vi.doMock('firebase-admin/firestore', () => ({
+    // An empty FieldValue object deliberately exercises the absolute-write
+    // compatibility path; persistence still goes through the modular client.
+    FieldValue: {},
+    getFirestore: () => db,
+  }));
   vi.doMock('firebase-admin', () => {
     const admin: Record<string, unknown> = {
       apps: [] as unknown[],
@@ -425,6 +457,8 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
     globalThis.fetch = prevFetch;
     if (prevCreds === undefined) delete process.env.GOOGLE_APPLICATION_CREDENTIALS; else process.env.GOOGLE_APPLICATION_CREDENTIALS = prevCreds;
     vi.doUnmock('firebase-admin');
+    vi.doUnmock('firebase-admin/app');
+    vi.doUnmock('firebase-admin/firestore');
   });
 
   it('write path: exhausting local/fallback never sets exhaustedUntil; exhausting a remote model still does', async () => {
@@ -550,6 +584,8 @@ describe('self-learning request-token-limit discovery (generalizes beyond hardco
     if (prevNvidiaKey === undefined) delete process.env.NVIDIA_API_KEY; else process.env.NVIDIA_API_KEY = prevNvidiaKey;
     if (prevForceChain === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForceChain;
     vi.doUnmock('firebase-admin');
+    vi.doUnmock('firebase-admin/app');
+    vi.doUnmock('firebase-admin/firestore');
   });
 
   it('write path: a Groq TPM 413 (production shape) persists the parsed Limit as maxRequestTokens for that model only', async () => {
