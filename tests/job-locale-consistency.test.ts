@@ -289,8 +289,8 @@ describe('job-locale-consistency', () => {
     'non-source job titles are not left in the source language',
     { timeout: 180000 },
     () => {
-      // 33.00% — the population re-baseline on 2026-09-29 measured
-      // 29,695/90,708 = 32.74% on the assembled artefact. The cap remains
+      // 33.00% — the population re-baseline on 2026-09-30 measured
+      // 29,643/90,712 = 32.68% on the assembled artefact. The cap remains
       // unchanged and the measured rate is still below it; this is a
       // denominator re-baseline, not permission to loosen the quality gate.
       const MAX_RATE = 0.33;
