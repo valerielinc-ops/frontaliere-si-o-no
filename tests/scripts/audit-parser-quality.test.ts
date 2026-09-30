@@ -67,7 +67,7 @@ import {
   createPdfSafeFetch,
 } from '../../scripts/audit-parser-quality.mjs';
 import { createHash } from 'node:crypto';
-import { extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
+import { extractDetailFields, extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
   SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
   classifySourceDetailObservation,
@@ -1228,6 +1228,34 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationMismatch).toBe(true);
     expect(result.locationInconclusive).toBe(false);
     expect(result.descriptionMismatch).toBe(true);
+  });
+
+  it('selects a generic content_overflow main column instead of a contact sidebar', () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/lhm-luzerner-hohenklinik-montana/detail-koch.html'),
+      'utf8',
+    );
+    const detail = extractDetailFields(
+      html,
+      'https://www.lhm.ch/de/allgemein/jobs/koch--koechin-efz',
+      { recordUrl: 'https://www.lhm.ch/de/allgemein/jobs/koch--koechin-efz' },
+    );
+    expect(detail.description.startsWith('Zur Ergänzung unseres Teams')).toBe(true);
+    expect(detail.description).toContain('Aufgabenbereich');
+    expect(detail.description).not.toMatch(/Leiterin Hotellerie|Leiterin Personal|Sie sind hier/);
+    expect(detail.description.length).toBeGreaterThan(1000);
+  });
+
+  it('compares a published locale against the matching substantive block of an explicitly separated source', () => {
+    const fr = 'Nous cherchons une personne autonome pour contribuer aux contenus numériques et aux projets de communication. '.repeat(12);
+    const de = 'Wir suchen eine selbstständige Person für digitale Inhalte und Kommunikationsprojekte an der Hochschule. '.repeat(12);
+    const result = compareSourceDetail(
+      { location: 'Sion', sourceLang: 'fr', description: fr },
+      { location: 'Sion', description: `Titre bilingue *** ${fr} *** ${de}` },
+      { locationEvidence: 'generic' },
+    );
+    expect(result.descriptionMismatch).toBe(false);
+    expect(result.sourceDescriptionLength).toBeLessThan(fr.length * 1.15);
   });
 
   describe('description overlap is containment of the shorter text (issue 5253)', () => {
@@ -2600,6 +2628,32 @@ describe('duplicate listings: two declared postal codes are two workplaces (denn
   it('still counts a re-posting that carries no postal code', () => {
     expect(listings(['4058', ''])).toBe(2);
     expect(listings(['4058', '4057', ''])).toBe(3);
+  });
+});
+
+describe('duplicate listings: two declared street addresses are two workplaces', () => {
+  const body = 'Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden.';
+  const posting = (streetAddress: string) => ({
+    title: 'Elektroinstallateur/in EFZ',
+    location: 'Davos Platz',
+    postalCode: '7270',
+    streetAddress,
+    description: body,
+  });
+
+  it('does not count two same-role postings at different source streets', () => {
+    const jobs = [posting('Obere Strasse 19'), posting('Brämabüelstrasse 4A')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('still counts the same source street published twice', () => {
+    const jobs = [posting('Obere Strasse 19'), posting('Obere Strasse 19')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
+  });
+
+  it('keeps the fail-closed collision when one record lacks a street', () => {
+    const jobs = [posting('Obere Strasse 19'), posting('')];
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
   });
 });
 

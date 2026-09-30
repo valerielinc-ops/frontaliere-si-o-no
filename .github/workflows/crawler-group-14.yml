@@ -4534,6 +4534,7 @@ jobs:
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ALTEN_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
           JOBS_HOUSEKEEPING_SCOPE: alten-switzerland
           JOBS_SLICE_FILE: data/jobs/by-crawler/alten-switzerland.json
           SKIP_AI_TRANSLATION: \${{ inputs.skip_ai_translation || '0' }}

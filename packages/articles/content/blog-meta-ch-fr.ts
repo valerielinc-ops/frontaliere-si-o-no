@@ -7121,6 +7121,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.revisione-legge-armi-votazione-novembre.title': 'Berne assouplit les restrictions sur les exportations d\'armes',
     'blog.article.revisione-legge-armi-votazione-novembre.excerpt': 'Votation populaire le 29 novembre sur la révision de la loi sur le matériel de guerre : davantage de flexibilité pour les exportations et réexportations vers 17 pays de l\'UE et d\'autres États',
     'blog.article.revisione-legge-armi-votazione-novembre.imageAlt': 'Vue de Lugano avec drapeau suisse et documents d\'exportation d\'armes',
+    'blog.article.sonno-deputati-sessioni-federali.title': 'Parlement : sieste brève en séance, des power naps proposés',
+    'blog.article.sonno-deputati-sessioni-federali.excerpt': '16 parlementaires dorment 6h10min en session (-50min). Rasch (Université de Fribourg) propose des salles de sieste éclair au Palais fédéral.',
+    'blog.article.sonno-deputati-sessioni-federali.imageAlt': 'Salle de repos au Palais fédéral avec fauteuils confortables et éclairage tamisé',
+    'blog.article.fisco-eredita-soletta.title': 'Canton de Soleure : impôt sur les successions et les donations',
+    'blog.article.fisco-eredita-soletta.excerpt': 'Fiscalité suisse à trois niveaux : pour le canton de Soleure, le lien de parenté, les exonérations, la déclaration et les délais comptent.',
+    'blog.article.fisco-eredita-soletta.imageAlt': 'Bâtiment cantonal suisse et documents fiscaux sur successions et donations',
 };
 
 export default blogMetaChFr;

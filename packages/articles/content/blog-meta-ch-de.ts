@@ -7121,6 +7121,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.revisione-legge-armi-votazione-novembre.title': 'Bern lockert Beschränkungen für Waffenexporte',
     'blog.article.revisione-legge-armi-votazione-novembre.excerpt': 'Volksabstimmung am 29 novembre über die Revision des Kriegsmaterialgesetzes: mehr Flexibilität für Exporte und Wiederausfuhren in 17 EU-Länder und andere Staaten',
     'blog.article.revisione-legge-armi-votazione-novembre.imageAlt': 'Lugano-Ansicht mit Schweizer Flagge und Waffenexportdokumenten',
+    'blog.article.sonno-deputati-sessioni-federali.title': 'Parlament: Kurzschlaf während der Sitzung, Powernaps vorgeschlagen',
+    'blog.article.sonno-deputati-sessioni-federali.excerpt': '16 Parlamentsmitglieder schlafen während der Session 6h10min (-50min). Rasch (Uni Friburgo) schlägt Räume für Powernaps im Bundeshaus vor.',
+    'blog.article.sonno-deputati-sessioni-federali.imageAlt': 'Ruheraum im Bundeshaus mit bequemen Sesseln und gedimmtem Licht',
+    'blog.article.fisco-eredita-soletta.title': 'Kanton Solothurn: Erbschafts- und Schenkungssteuer',
+    'blog.article.fisco-eredita-soletta.excerpt': 'Dreistufige Schweizer Besteuerung: Für den Kanton Solothurn zählen Verwandtschaft, Befreiungen, Erklärung und Fristen.',
+    'blog.article.fisco-eredita-soletta.imageAlt': 'Schweizer Kantonsgebäude und Steuerunterlagen zu Erbschaften und Schenkungen',
 };
 
 export default blogMetaChDe;

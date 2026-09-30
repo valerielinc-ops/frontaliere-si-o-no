@@ -56,7 +56,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { repairBurkhalterBoundarySlugs } from './lib/burkhalter-slug-boundary-repair.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
-import { extractBurkhalterDetailDescription, mergeBurkhalterRecord } from './lib/burkhalter-job-parser.mjs';
+import { extractBurkhalterDetailFields, mergeBurkhalterRecord } from './lib/burkhalter-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -167,7 +167,7 @@ async function scrapeDetailPage(relativeUrl) {
   await paceDetailFetch();
   try {
     const html = await fetchPage(url);
-    return extractBurkhalterDetailDescription(html);
+    return extractBurkhalterDetailFields(html, url);
   } catch (err) {
     console.warn(`   ⚠️ Could not scrape detail: ${url} — ${err.message}`);
     return '';
@@ -175,12 +175,18 @@ async function scrapeDetailPage(relativeUrl) {
 }
 
 /* ── Build Job Objects ─────────────────────────────────────── */
-function buildJob(raw, description = '') {
+function buildJob(raw, detailOrDescription = '') {
   const title = String(raw.job || '').trim();
   const company = String(raw.company || COMPANY_NAME).trim();
-  const city = String(raw.city || '').trim();
+  const detail = typeof detailOrDescription === 'string'
+    ? { description: detailOrDescription }
+    : (detailOrDescription || {});
+  const description = String(detail.description || '').trim();
+  const rawCity = String(raw.city || '').trim();
+  const sourceLocality = String(detail.addressLocality || '').trim();
+  const city = sourceLocality || rawCity;
   const canton = mapCanton(raw.canton, city);
-  const slug = slugify(`${title}-${company}-${safeLocationToken(city, 'Switzerland')}`);
+  const slug = slugify(`${title}-${company}-${safeLocationToken(rawCity || city, 'Switzerland')}`);
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
     : `${BASE_URL}/en/jobs-and-careers/vacancies`;
@@ -224,6 +230,10 @@ function buildJob(raw, description = '') {
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
+    // These fields come only from the detail page's JobPosting address. Empty
+    // means the source did not expose that part of the workplace.
+    postalCode: String(detail.postalCode || '').trim(),
+    streetAddress: String(detail.streetAddress || '').trim(),
     canton,
     country: 'CH',
     category,
@@ -392,8 +402,11 @@ async function main() {
   // read (rate limit / transient egress failure). Without it those jobs were
   // published with the title-only placeholder, which is also too short for
   // the translation step (9/245 thin, 6/245 missing locales).
+  const hasSourceBody = (detail) => typeof detail === 'string'
+    ? Boolean(detail.trim())
+    : Boolean(String(detail?.description || '').trim());
   const failedIndexes = relevantJobs
-    .map((raw, i) => (raw.url && !descriptions[i] ? i : -1))
+    .map((raw, i) => (raw.url && !hasSourceBody(descriptions[i]) ? i : -1))
     .filter((i) => i >= 0);
   if (failedIndexes.length > 0) {
     console.log(`🔁 Retrying ${failedIndexes.length} detail page(s) sequentially after a ${DETAIL_RETRY_COOLDOWN_MS / 1000}s cool-down...`);
