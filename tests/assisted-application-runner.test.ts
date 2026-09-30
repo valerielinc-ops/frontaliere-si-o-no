@@ -221,6 +221,20 @@ describe('submit mode', () => {
     expect(storageDown.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'error: storage_down' } });
     expect(await submissionGuard(storageDown.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed', resumed: false });
 
+    // The temporary folder cannot be created: released too, nothing was clicked.
+    const noTmp = createMemoryFirestore();
+    const previousTmp = process.env.TMPDIR;
+    process.env.TMPDIR = '/nonexistent-aa-portal-tmp';
+    try {
+      await expect(submit(noTmp.db, neverRun)).rejects.toThrow();
+    } finally {
+      if (previousTmp === undefined) delete process.env.TMPDIR;
+      else process.env.TMPDIR = previousTmp;
+    }
+    expect(neverRun).not.toHaveBeenCalled();
+    expect(noTmp.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    expect(await submissionGuard(noTmp.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+
     // A CAPTCHA that shows up after the final click: the portal may have the
     // application, so the claim stays "sending" and no later run presses it again.
     const captchaAfterClick = createMemoryFirestore();

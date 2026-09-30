@@ -153,11 +153,12 @@ export async function submitApplication(ctx) {
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }
     const identity = candidateIdentity(order, draft.profile);
-    const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
+    let dir = null;
     // Set once `clickedAt` is on record, right before the final click.
     let clicked = false;
     let succeeded = false;
     try {
+      dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
       const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
       const stem = safeFileStem(identity.name);
       const files = {
@@ -190,14 +191,14 @@ export async function submitApplication(ctx) {
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence }, key: runKey, nowMs });
       return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
     } catch (error) {
-      // Failed before the final click (files, browser, network): nothing
+      // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.
       if (guard && !clicked && !succeeded) {
         await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => {});
       }
       throw error;
     } finally {
-      await rm(dir, { recursive: true, force: true });
+      if (dir) await rm(dir, { recursive: true, force: true });
     }
   }
 

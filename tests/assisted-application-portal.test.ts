@@ -101,6 +101,21 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
       { fieldId: 'f6', action: 'check', source: 'consent', value: '' },
     ]);
+    // What the page holds after the action counts: a dropdown set to its prompt, a required box unticked.
+    const projected = guardPlan({
+      actions: [
+        { fieldId: 'p1', action: 'select', source: 'profile', value: 'Select One' },
+        { fieldId: 'p2', action: 'uncheck', source: 'consent', value: '' },
+        { fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' },
+      ],
+      missingRequired: [],
+    }, [
+      { id: 'p1', kind: 'select', label: 'Country', required: true, value: '', options: [{ value: '', label: 'Select One' }, { value: 'ch', label: 'Switzerland' }] },
+      { id: 'p2', kind: 'checkbox', label: 'Datenschutz', required: true, checked: true },
+      { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
+    ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(projected.actions).toEqual([{ fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' }]);
+    expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1', 'p2']);
     expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
     expect(holdsValue({ kind: 'listbox', value: 'Italien' })).toBe(true);
     expect(holdsValue({ kind: 'text', value: '-- Seleziona --' })).toBe(false);

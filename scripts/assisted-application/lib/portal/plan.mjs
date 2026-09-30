@@ -114,6 +114,12 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    // What the page holds after the action counts: a dropdown set to its
+    // prompt ("Select One") or a required box unticked is still blank.
+    if ((action.action === 'select' && PLACEHOLDER.test(value)) || (action.action === 'uncheck' && field.required)) {
+      ask(field);
+      continue;
+    }
     const fromCandidate = ['answers', 'profile'].includes(action.source) && (!knownValues || knownValues.includes(value));
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
