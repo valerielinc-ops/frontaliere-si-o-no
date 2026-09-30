@@ -18,8 +18,6 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/quality-alerts.yml',
   '.github/workflows/refresh-gsc-marquee-demand.yml',
   '.github/workflows/regenerate-visual-baselines.yml',
-  '.github/workflows/update-weather.yml',
-  '.github/workflows/update-exchange-history.yml',
 ];
 
 function read(relativePath: string): string {
@@ -63,7 +61,7 @@ describe('main data writers use the shared retry contract', () => {
     expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
   });
 
-  it('bounds the exchange snapshot retry budget below its job timeout', () => {
+  it('routes the exchange snapshot through the protected PR publisher', () => {
     const workflow = read('.github/workflows/update-exchange-history.yml');
     const document = YAML.parse(workflow) as {
       jobs?: {
@@ -74,15 +72,11 @@ describe('main data writers use the shared retry contract', () => {
       };
     };
     const updateJob = document.jobs?.update;
-    const snapshotStep = updateJob?.steps?.find(
-      (step) => step.name === 'Commit SSG snapshot (if changed)',
-    );
-    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
 
     expect(updateJob, 'exchange history update job is missing').toBeDefined();
-    expect(snapshotStep, 'exchange snapshot commit step is missing').toBeDefined();
-    expect(maxAttempts, 'exchange snapshot retry cap is missing').toBe('5');
-    expect(Number(maxAttempts)).toBeLessThan(updateJob?.['timeout-minutes'] ?? 0);
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(updateJob?.['timeout-minutes']).toBeGreaterThanOrEqual(15);
   });
 
   it('bounds the CWV snapshot retry budget below its job timeout', () => {
