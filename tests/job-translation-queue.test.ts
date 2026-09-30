@@ -130,7 +130,7 @@ describe('measureTranslationQueue', () => {
 
     expect(mentioningWorkflows.sort()).toEqual(matchingWorkflows.sort());
 
-    for (const workflowPath of [...matchingWorkflows, PORTABLE_TRANSLATE_WORKFLOW]) {
+    for (const workflowPath of matchingWorkflows) {
       const concurrency = concurrencyConfig(workflowPath);
       expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
       expect(concurrency['cancel-in-progress']).toBe(false);
@@ -140,6 +140,14 @@ describe('measureTranslationQueue', () => {
       // independently reviewed.
       if (concurrency.queue !== undefined) expect(concurrency.queue).toBe('max');
     }
+
+    const portableTranslateJobs = workflowConfig(PORTABLE_TRANSLATE_WORKFLOW).jobs as Record<string, any>;
+    expect(portableTranslateJobs.translate.concurrency).toMatchObject({
+      group: JOBS_DATA_PIPELINE_GROUP,
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
+    expect(portableTranslateJobs.translate_queue_guard.concurrency).toBeUndefined();
   });
 
   it('counts a queued job whose target slots are byte-identical to the source', () => {
