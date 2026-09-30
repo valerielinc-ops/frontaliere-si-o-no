@@ -1,25 +1,26 @@
 {
   "key": "pictet",
   "label": "Pictet Group",
-  "generatedAt": "2026-09-30T21:16:34.309Z",
-  "total": 6,
+  "generatedAt": "2026-09-30T23:32:25.048Z",
+  "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 6,
+  "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13712,
-  "avgDurationMs": 13712,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12261,
+  "avgDurationMs": 12261,
   "durationHistory": [
-    13712
+    12261
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pictet-ee9854e45583",
       "slug": "private-assets-transactions-specialist-12-months-fixed-term-contract-pictet-geneva",
@@ -32,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125130&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:16:21.161Z",
+      "crawledAt": "2026-09-30T23:32:12.294Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -47,17 +48,16 @@
       "postedDate": "2026-09-30",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125130&selected_lang=en_GB",
       "jobReqId": "125130",
-      "needsRetranslation": true,
-      "_qualityScore": 60,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-30T21:16:21.161Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "pictet-5cc31d91e95e",
       "slug": "collaborateur-trice-production-support-pictet-group-geneva",
@@ -70,7 +70,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:16:23.440Z",
+      "crawledAt": "2026-09-30T23:32:14.477Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:16:22.829Z",
+      "crawledAt": "2026-09-30T23:32:13.866Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -122,6 +122,7 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "jobReqId": "125106",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-25T14:49:40.787Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -143,7 +144,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:16:24.619Z",
+      "crawledAt": "2026-09-30T23:32:15.505Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -158,6 +159,7 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "jobReqId": "125052",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:44:45.090Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -179,7 +181,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:16:26.141Z",
+      "crawledAt": "2026-09-30T23:32:17.077Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -194,8 +196,8 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
       "jobReqId": "124982",
-      "firstSeenAt": "2026-09-23T23:44:47.250Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:44:47.250Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -205,8 +207,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pictet-f9bf3c490841",
       "slug": "senior-business-manager-risk-and-compliance-12-mesi-pictet-group-geneva",
@@ -239,6 +240,7 @@
       "salaryMax": 183000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,5 +249,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
