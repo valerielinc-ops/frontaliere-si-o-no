@@ -843,7 +843,7 @@
       "slugByLocale": {
         "it": "infermiere-a-in-medicina-interna-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "en": "internal-medicine-nurse-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "de": "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "krankenschwester-in-der-inneren-medizin-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -911,11 +911,15 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
+        "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne",
+        "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
+        ],
+        "de": [
+          "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.551Z",
@@ -1432,7 +1436,7 @@
       "slug": "100-fisioterapista-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "it": "100-fisioterapista-hopital-intercantonal-de-la-broye-hib-payerne",
-        "en": "physiotherapeute-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "100-physiotherapist-hopital-intercantonal-de-la-broye-hib-payerne",
         "de": "100-physiotherapeut-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "physiotherapeute-a-100-hib-broye-payerne"
       },
@@ -1519,7 +1523,8 @@
         "collaborateur-trice-d-exploitation-cfc-a-100-hib-broye-payerne",
         "full-time-physiotherapist-hopital-intercantonal-de-la-broye-hib-payerne",
         "vollzeit-fachkraft-fur-physiotherapie-hopital-intercantonal-de-la-broye-hib-payerne",
-        "fisioterapista-a-tempo-pieno-hopital-intercantonal-de-la-broye-hib-payerne"
+        "fisioterapista-a-tempo-pieno-hopital-intercantonal-de-la-broye-hib-payerne",
+        "physiotherapeute-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1538,7 +1543,8 @@
         "en": [
           "specialiste-formation-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "full-time-cfc-operations-collaborator-hopital-intercantonal-de-la-broye-hib-payerne",
-          "full-time-physiotherapist-hopital-intercantonal-de-la-broye-hib-payerne"
+          "full-time-physiotherapist-hopital-intercantonal-de-la-broye-hib-payerne",
+          "physiotherapeute-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "100-cfc-betriebsmitarbeiter-in-hopital-intercantonal-de-la-broye-hib-payerne",
