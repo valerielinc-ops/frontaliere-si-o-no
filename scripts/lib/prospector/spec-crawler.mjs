@@ -226,7 +226,10 @@ export function geographyFieldsForDecision(decision = {}) {
  */
 function reportFetchedPage(runtime, requestedUrl, page) {
   if (typeof runtime.onPageFetched === 'function') {
-    runtime.onPageFetched({ requestedUrl, page });
+    // This is an observational, synchronous hook: its return value is
+    // deliberately ignored so it cannot change the fetch result or delay the
+    // crawler transport.
+    void runtime.onPageFetched({ requestedUrl, page });
   }
   return page;
 }

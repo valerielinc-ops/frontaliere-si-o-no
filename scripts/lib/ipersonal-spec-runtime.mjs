@@ -173,7 +173,8 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     if (!expectedSeedUrls.has(canonicalRequestedUrl) || !html.trim()) return;
     loadedSeedUrls.add(canonicalRequestedUrl);
     pages.set(canonicalRequestedUrl, html);
-    if (resolvedUrl) pages.set(canonicalUrl(resolvedUrl), html);
+    const canonicalResolvedUrl = canonicalUrl(resolvedUrl);
+    if (canonicalResolvedUrl) pages.set(canonicalResolvedUrl, html);
   };
   const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
@@ -230,7 +231,6 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
         pages.set(canonicalInputUrl, originalHtml);
         if (response.url) pages.set(canonicalUrl(response.url), originalHtml);
       }
-      if (response.ok) recordLoadedSeedPage(canonicalInputUrl, originalHtml, response.url);
       const normalizedHtml = normalizeKnownIpersonalLocalities(originalHtml);
       if (normalizedHtml !== originalHtml) {
         return new Response(normalizedHtml, {
