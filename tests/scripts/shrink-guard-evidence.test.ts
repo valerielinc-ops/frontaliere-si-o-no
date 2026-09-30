@@ -23,10 +23,16 @@
  * so a bot challenge / timeout / 403 reports "still alive" and the guard
  * stands — a blocked source can never be mistaken for a legitimate shrink.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+const execFileSyncMock = vi.hoisted(() => vi.fn((command: string, args: string[] = []) => {
+  if (command === 'gh' && args[0] === 'issue' && args[1] === 'list') return '[]';
+  return '';
+}));
+vi.mock('node:child_process', () => ({ execFileSync: execFileSyncMock }));
+
 import {
   SHRINK_GUARD_ERROR_CODE,
   shouldBlockShrink,
@@ -64,23 +70,9 @@ function createShrinkIssueHarness() {
     throw new Error(`test slice escaped to an unexpected path: ${resolvedSlicePath}`);
   }
 
-  const binDir = path.join(dir, 'bin');
-  const ghLogPath = path.join(dir, 'gh.log');
-  fs.mkdirSync(binDir);
-  fs.writeFileSync(
-    path.join(binDir, 'gh'),
-    '#!/bin/sh\nprintf "%s\\n" "$*" >> "$SHRINK_GH_LOG"\n'
-      + 'if [ "$1" = issue ] && [ "$2" = list ]; then printf "[]"; fi\n',
-    'utf8',
-  );
-  fs.chmodSync(path.join(binDir, 'gh'), 0o755);
-
-  const previousPath = process.env.PATH;
-  const previousGhLog = process.env.SHRINK_GH_LOG;
   const previousOwnershipGuard = process.env.SKIP_OWNERSHIP_GUARD;
-  process.env.PATH = `${binDir}${path.delimiter}${previousPath || ''}`;
-  process.env.SHRINK_GH_LOG = ghLogPath;
   process.env.SKIP_OWNERSHIP_GUARD = '1';
+  execFileSyncMock.mockClear();
 
   const job = {
     id: `shrink-${path.basename(dir)}`,
@@ -92,12 +84,7 @@ function createShrinkIssueHarness() {
   return {
     crawlerKey,
     job,
-    ghLogPath,
     cleanup() {
-      if (previousPath === undefined) delete process.env.PATH;
-      else process.env.PATH = previousPath;
-      if (previousGhLog === undefined) delete process.env.SHRINK_GH_LOG;
-      else process.env.SHRINK_GH_LOG = previousGhLog;
       if (previousOwnershipGuard === undefined) delete process.env.SKIP_OWNERSHIP_GUARD;
       else process.env.SKIP_OWNERSHIP_GUARD = previousOwnershipGuard;
       fs.rmSync(dir, { recursive: true, force: true });
@@ -118,7 +105,7 @@ describe('verifyShrinkAgainstSource()', () => {
       });
 
       expect(result).toMatchObject({ written: true, shrinkAccepted: true });
-      expect(fs.existsSync(harness.ghLogPath)).toBe(false);
+      expect(execFileSyncMock).not.toHaveBeenCalled();
     } finally {
       harness.cleanup();
     }
@@ -135,9 +122,9 @@ describe('verifyShrinkAgainstSource()', () => {
         })),
       })).rejects.toMatchObject({ code: SHRINK_GUARD_ERROR_CODE });
 
-      const ghLog = fs.readFileSync(harness.ghLogPath, 'utf8');
-      expect(ghLog).toContain('issue list --label parser-broken');
-      expect(ghLog).toContain('issue create --title [parser-health]');
+      const ghCalls = execFileSyncMock.mock.calls as unknown as Array<[string, string[]]>;
+      expect(ghCalls.some(([command, args]) => command === 'gh' && args[0] === 'issue' && args[1] === 'list')).toBe(true);
+      expect(ghCalls.some(([command, args]) => command === 'gh' && args[0] === 'issue' && args[1] === 'create')).toBe(true);
     } finally {
       harness.cleanup();
     }
