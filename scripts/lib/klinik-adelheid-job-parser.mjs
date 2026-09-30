@@ -33,12 +33,17 @@ import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 export const KLINIK_ADELHEID_KEY = 'klinik-adelheid';
 export const KLINIK_ADELHEID_COMPANY_NAME = 'Klinik Adelheid';
 
-/**
- * Fragments only the crawler's former text wrote: the "Bereich: X." line it put
- * above every body and its clinic paragraph, for `dropFabricatedDescriptions`
- * on the stored jobs (issue 5253).
- */
-export const KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE = /^Bereich: [^\n]*\.\n|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz/;
+// Complete lines only: the old fallback wrote the title/company line, the
+// listing's "Bereich" line and this exact clinic paragraph.
+export const KLINIK_ADELHEID_FABRICATED_DESCRIPTION_RE = /^(?:[^\r\n]+ — Klinik Adelheid, Unterägeri \(ZG\)\.|Bereich: [^\r\n]+\.|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation\.)[ \t]*\r?$/m;
+const KLINIK_ADELHEID_FABRICATED_LINE_RE = /^(?:[^\r\n]+ — Klinik Adelheid, Unterägeri \(ZG\)\.|Bereich: [^\r\n]+\.|Die Klinik Adelheid ist eine 140-Betten Rehabilitationsklinik der Zentralschweiz mit Spezialisierung in muskuloskelettaler, neurologischer, internistisch-onkologischer und geriatrischer Rehabilitation\.)[ \t]*\r?\n?/gm;
+
+export function stripKlinikAdelheidFabricatedDescription(text = '') {
+  return String(text)
+    .replace(KLINIK_ADELHEID_FABRICATED_LINE_RE, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 export const KLINIK_ADELHEID_COMPANY_DOMAIN = 'klinik-adelheid.ch';
 
 const PUBLIC_CAREER_URL = 'https://www.klinik-adelheid.ch/jobs-und-karriere/offene-stellen/';
