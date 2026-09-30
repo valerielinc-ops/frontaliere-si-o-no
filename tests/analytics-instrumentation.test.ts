@@ -180,6 +180,15 @@ describe('analytics.ts — trackCtaClick helper', () => {
   });
 });
 
+describe('errorReporter.ts — module-cycle guard', () => {
+  it('loads Analytics lazily so the reporter does not statically cycle through Firebase', () => {
+    expect(errorReporterSrc).not.toMatch(
+      /import\s+\{\s*Analytics\s*\}\s+from\s+['"]\.\/analytics['"]/
+    );
+    expect(errorReporterSrc).toMatch(/import\(['"]\.\/analytics['"]\)/);
+  });
+});
+
 describe('analytics.ts — L5 decision-moment contract', () => {
   it('exposes categorical completion and next-action events without answer or URL payloads', () => {
     expect(analyticsSrc).toContain("DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed'");
