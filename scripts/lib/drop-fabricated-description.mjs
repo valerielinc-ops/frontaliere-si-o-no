@@ -52,18 +52,27 @@ export function dropFabricatedDescription(job, pattern, options = {}) {
     ? job.descriptionByLocale
     : null;
   const sourceLang = String(job.sourceLang || '').trim();
-  const source = String((sourceLang && byLocale?.[sourceLang]) || job.description || '');
   const flat = String(job.description || '');
+  const sourceSlot = sourceLang && byLocale?.[sourceLang];
+  const sourceSlotText = String(sourceSlot || '');
+  const hasSourceSlot = Boolean(sourceSlotText.trim());
+  const source = hasSourceSlot ? sourceSlotText : flat;
   const sourceMatches = pattern.test(source);
-  const flatMatches = pattern.test(flat);
-  const sourceWasFabricated = sourceMatches || flatMatches;
+  const flatMatch = flat.match(pattern);
+  const flatMatches = Boolean(flatMatch);
+  const sourceCarriesFlatMatch = hasSourceSlot
+    && Boolean(flatMatch?.[0])
+    && source.includes(flatMatch[0]);
+  const sourceWasFabricated = hasSourceSlot && (sourceMatches || sourceCarriesFlatMatch);
   let changed = false;
 
   if (sourceWasFabricated) {
     // Every localized slot was translated from the dirty source and must go,
     // even when its translated or markdown-wrapped wording no longer matches
-    // the source regex. When only the flat field proves the old shape, it is
-    // the authoritative body to clean and to put back in sourceLang.
+    // the source regex. The non-empty source-locale slot is authoritative:
+    // a stale flat field must not overwrite it or trigger locale deletion. If
+    // the slot only carries the exact fabricated fragment inside a wrapper,
+    // the flat body is the cleanable representation of that same source.
     const sourceToClean = sourceMatches ? source : flat;
     const cleaned = String(strip(sourceToClean) ?? '');
     if (byLocale) {
@@ -79,16 +88,25 @@ export function dropFabricatedDescription(job, pattern, options = {}) {
         changed = true;
       }
     }
-    if (flatMatches) job.description = String(strip(flat) ?? '');
     job.needsRetranslation = true;
     changed = true;
   }
 
+  // A flat match without a fabricated source-locale slot is not evidence that
+  // the locale translations came from the same body. Clean only the flat copy
+  // and keep byLocale intact.
+  if (flatMatches) {
+    job.description = String(strip(flat) ?? '');
+    changed = true;
+  }
+
   let slots = false;
-  for (const locale of Object.keys(job.descriptionByLocale || {})) {
-    // The source slot was cleaned above instead of being discarded.
-    if (sourceWasFabricated && locale === sourceLang) continue;
-    if (dropFabricatedLocaleText(job, locale, pattern)) slots = true;
+  if (sourceWasFabricated || !flatMatches) {
+    for (const locale of Object.keys(job.descriptionByLocale || {})) {
+      // The source slot was cleaned above instead of being discarded.
+      if (sourceWasFabricated && locale === sourceLang) continue;
+      if (dropFabricatedLocaleText(job, locale, pattern)) slots = true;
+    }
   }
 
   return changed || slots;
