@@ -14,7 +14,7 @@
  */
 
 import type { JobAlertConfig } from '@/services/jobAlertService';
-import { saveIntent, consumeIntent, clearIntent } from '@/services/pendingIntentStore';
+import { saveIntent, consumeIntent, peekIntent, clearIntent } from '@/services/pendingIntentStore';
 
 const KEY = 'pending_job_alert';
 
@@ -67,14 +67,7 @@ function isConfig(value: unknown): value is JobAlertConfig {
   return Boolean(value) && typeof value === 'object' && Array.isArray((value as JobAlertConfig).keywords);
 }
 
-/**
- * Return the pending alert (config + CTA origin) and clear it, but only if it
- * was saved within the TTL. Returns null when absent, expired, or malformed.
- * A bare config written before the origin was recorded is still replayed, with
- * `origin: null` — the caller then reports it under its diagnostic surface.
- */
-export function consumePendingJobAlert(): PendingJobAlert | null {
-  const raw = consumeIntent<unknown>(KEY);
+function parsePendingJobAlert(raw: unknown): PendingJobAlert | null {
   if (!raw || typeof raw !== 'object') return null;
   const wrapped = raw as Partial<StoredPendingJobAlert>;
   if (isConfig(wrapped.config)) {
@@ -82,6 +75,21 @@ export function consumePendingJobAlert(): PendingJobAlert | null {
   }
   if (isConfig(raw)) return { config: raw, origin: null };
   return null;
+}
+
+/** Read a still-valid intent without clearing it, for auth-route recovery. */
+export function peekPendingJobAlert(): PendingJobAlert | null {
+  return parsePendingJobAlert(peekIntent<unknown>(KEY));
+}
+
+/**
+ * Return the pending alert (config + CTA origin) and clear it, but only if it
+ * was saved within the TTL. Returns null when absent, expired, or malformed.
+ * A bare config written before the origin was recorded is still replayed, with
+ * `origin: null` — the caller then reports it under its diagnostic surface.
+ */
+export function consumePendingJobAlert(): PendingJobAlert | null {
+  return parsePendingJobAlert(consumeIntent<unknown>(KEY));
 }
 
 export function clearPendingJobAlert(): void {
