@@ -120,6 +120,13 @@ describe('applying events', () => {
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
   });
 
+  it('runs the draft again after a transient Codex failure, counting the attempt', async () => {
+    const result = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_failed', round: 1, error: 'codex auth broker rejected the request' }, actor: 'runner', runEffect, nowMs: T0 + 1000 });
+    expect(result.ok).toBe(true);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'drafting', dispatch: { mode: 'draft', attempts: 2, reason: 'transient_retry' } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+  });
+
   it('moves the flow, mirrors the clock on the order and runs the effects', async () => {
     const result = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, actor: 'runner', runEffect, nowMs: T0 + 1000 });
     expect(result).toMatchObject({ ok: true, fromState: 'drafting' });

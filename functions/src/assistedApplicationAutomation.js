@@ -236,7 +236,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         mode: dispatch.mode,
         round: nextFlow.round,
         requestedAt: nowMs,
-        attempts: 1,
+        // A retry carries its count, so the watchdog and the flow share the limit.
+        attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
       };
     }
