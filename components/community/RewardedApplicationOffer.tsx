@@ -35,7 +35,13 @@ import {
 } from '@/services/assistedApplicationExperiment';
 import { useTranslation } from '@/services/i18n';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
-import { hasTransientUserActivation } from '@/services/userActivation';
+import { canOpenTabWithoutClick, hasTransientUserActivation, usesWebKitPopupPolicy } from '@/services/userActivation';
+import {
+  markHandoffOpened,
+  markHandoffRoute,
+  recordHandoffGrant,
+  scheduleHandoffReceiptFlush,
+} from '@/services/rewardedHandoffLedger';
 import { collectAdVisibility, watchReturnToTab } from '@/services/adVisibilitySnapshot';
 import { usePopupSlot } from '@/hooks/usePopupSlot';
 
@@ -430,8 +436,11 @@ export default function RewardedApplicationOffer({
   // The card's copy: access unlocked by a reward, or a direct hand-off.
   const [handoffKind, setHandoffKind] = useState<'reward' | 'direct'>('reward');
   const handoffContext = () => (handoffPhaseRef.current === 'offerwall_done' ? offerwallContext() : eventContext());
-  const showHandoff = (reason: 'no_activation' | 'tab_not_opened') => {
+  // The grant's record in the delivery-safe receipt ledger (null without a grant).
+  const grantIdRef = useRef<string | null>(null);
+  const showHandoff = (reason: 'no_activation' | 'webkit_popup_policy' | 'tab_not_opened') => {
     trackAssistedApplicationEvent('rewarded_application_handoff_shown', { ...handoffContext(), handoff_reason: reason });
+    markHandoffRoute(grantIdRef.current, reason === 'tab_not_opened' ? 'blocked' : 'card');
     setPhase('handoff');
   };
   const openApplication = (mode: 'auto' | 'click') => {
@@ -441,6 +450,7 @@ export default function RewardedApplicationOffer({
       mode === 'auto' ? 'rewarded_application_handoff_auto' : 'rewarded_application_handoff_clicked',
       handoffContext(),
     );
+    if (mode === 'auto') markHandoffRoute(grantIdRef.current, 'auto');
     setPhase(handoffPhaseRef.current);
     // The page's ads when the visitor comes back from the employer's tab: the
     // new tab exists to keep this page and its ads (and the vignette on return).
@@ -450,20 +460,25 @@ export default function RewardedApplicationOffer({
     });
     const opened = onContinue();
     if (!(opened instanceof Promise)) return;
+    const grantId = grantIdRef.current;
     void opened.then((ok) => {
+      if (ok) markHandoffOpened(grantId);
       if (ok || !mountedRef.current) return;
       trackAssistedApplicationEvent('rewarded_application_handoff_unconfirmed', { ...handoffContext(), handoff_mode: mode });
       handoffDoneRef.current = false;
       showHandoff('tab_not_opened');
     });
   };
+  // WebKit browsers block a tab opened from the reward's timer even with the
+  // click's activation reported (services/userActivation.ts): they get the
+  // "open" card at once instead of a blocked popup and a 1.5 s wait.
   const continueAfterReward = (donePhase: 'offerwall_done' | 'gpt_done') => {
     handoffPhaseRef.current = donePhase;
-    if (hasTransientUserActivation()) {
+    if (canOpenTabWithoutClick()) {
       openApplication('auto');
       return;
     }
-    showHandoff('no_activation');
+    showHandoff(hasTransientUserActivation() && usesWebKitPopupPolicy() ? 'webkit_popup_policy' : 'no_activation');
   };
 
   // No ad for this click: the parent offers the paid application or hands
@@ -483,7 +498,7 @@ export default function RewardedApplicationOffer({
     setPhase('direct_done');
     void opened.then((ok) => {
       if (ok || !mountedRef.current) return;
-      trackAssistedApplicationEvent('rewarded_application_handoff_unconfirmed', {
+      trackAssistedApplicationEvent('rewarded_application_direct_unconfirmed', {
         ...eventContext(),
         handoff_mode: 'direct_external',
         reason,
@@ -499,6 +514,8 @@ export default function RewardedApplicationOffer({
     if (grantedRef.current || gptSettledRef.current || fallbackDiscarded()) return;
     grantedRef.current = true;
     const accessExpiresAt = grantRewardedApplicationAccess();
+    grantIdRef.current = recordHandoffGrant({ jobId, companyId, path: 'gpt' });
+    scheduleHandoffReceiptFlush();
     trackAssistedApplicationEvent('rewarded_ad_granted', eventContext(info));
     if (fallbackActive()) {
       trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_granted', eventContext(info));
@@ -521,6 +538,8 @@ export default function RewardedApplicationOffer({
     // Before the hand-off opens the employer's tab and hides this page.
     flushOfferwallAdsSnapshot();
     const accessExpiresAt = grantRewardedApplicationAccess();
+    grantIdRef.current = recordHandoffGrant({ jobId, companyId, path: 'offerwall' });
+    scheduleHandoffReceiptFlush();
     trackAssistedApplicationEvent('rewarded_offerwall_completed', {
       ...offerwallContext(),
       shown_ms: result.shownMs,

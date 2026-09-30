@@ -164,6 +164,13 @@ describe('assisted application JobBoard handoff', () => {
     expect(handler).not.toMatch(/if \(!job\) return Promise\.resolve\(true\);\s*setRewardedApplicationJob\(null\);/);
   });
 
+  it('sends the pending receipts of earlier rewarded grants from a visible job-board page', () => {
+    // services/rewardedHandoffLedger.ts: the visitor who never came back to
+    // the tab after the employer's page opened is counted on the next visit.
+    expect(jobBoardSource).toContain("import { flushHandoffReceipts } from '@/services/rewardedHandoffLedger';");
+    expect(jobBoardSource).toMatch(/useEffect\(\(\) => \{\s*flushHandoffReceipts\(\);\s*\}, \[\]\);/);
+  });
+
   it('resumes a click whose access is already granted on the open card, never in this tab', () => {
     const start = jobBoardSource.indexOf('const offerwallResumeCheckedRef = useRef(false);');
     const end = jobBoardSource.indexOf('const handleShare = async', start);
