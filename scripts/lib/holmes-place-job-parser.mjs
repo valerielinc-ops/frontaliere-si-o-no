@@ -408,9 +408,12 @@ export function buildDescription(listing) {
 /* ── Fetch (Playwright, semantic DOM scrape) ─────────────────── */
 
 const JOB_DETAIL_PATH_RE = /\/jobs\/[^/?#]+/i;
+const JOB_DETAIL_SLUG_RE = /\/jobs\/([^/?#]+)\/?$/i;
 const GENERIC_CTA_RE = /^(?:mehr erfahren|sich bewerben|see more|apply(?: now)?|postuler|en savoir plus|learn more|go to club|career(?:s)?|karriere|carri[eè]res?|jobs?|stellenangebote?|offres? d['’]?emploi)[.!?]*$/i;
 const BRANCH_LOCATION_RE = /\b(?:oberrieden|zürich|zurich|geneva|gen[eè]ve|genf|lausanne|crowne\s+plaza|jelmoli)\b/i;
 const CAREER_MARKER_RE = /(?:karriere|carri[eè]re|career|stellen(?:angebote)?|postes|offres? d['’]?emploi|jobangebote?|bewerb|candidatur|online[- ]tool|travaill(?:ez|er)\s+(?:bei|chez)|work(?:ing)?\s+(?:at|for))/i;
+const CAREER_TABLE_CONTAINER_SELECTOR = '.c-careerTable, .c-careerTable__table, .cvHolder';
+const CAREER_TABLE_ROW_SELECTOR = 'tr, .c-careerTable__row, [data-job-id], [data-career-id]';
 
 function annotateListings(listings, fetchOutcome, fetchDetail = '') {
   Object.defineProperties(listings, {
@@ -459,6 +462,26 @@ function normalizeHolmesPlaceJobUrl(rawHref, baseUrl = CAREER_URL) {
   }
 }
 
+function extractHolmesPlaceDetailSlug(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl, CAREER_URL);
+    const rawSlug = url.pathname.match(JOB_DETAIL_SLUG_RE)?.[1] || '';
+    try {
+      return decodeURIComponent(rawSlug);
+    } catch {
+      return rawSlug;
+    }
+  } catch {
+    return '';
+  }
+}
+
+function buildHolmesPlaceJobSlug(title, city, jobUrl, urlHash = '') {
+  const detailSlug = extractHolmesPlaceDetailSlug(jobUrl);
+  const disambiguator = detailSlug || urlHash || createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
+  return slugify(`${title} holmes-place ${city} ${disambiguator}`);
+}
+
 function metadataText(root, pattern) {
   const elements = [root, ...(root?.querySelectorAll?.('*') || [])];
   return elements
@@ -505,6 +528,14 @@ function findJobCard(link) {
   return fallback;
 }
 
+function collectCareerTableRows(document) {
+  const rows = new Set();
+  for (const container of document.querySelectorAll(CAREER_TABLE_CONTAINER_SELECTOR)) {
+    for (const row of container.querySelectorAll(CAREER_TABLE_ROW_SELECTOR)) rows.add(row);
+  }
+  return [...rows];
+}
+
 /**
  * Parse the rendered career document without treating CTA anchors as jobs.
  * The live page has appeared both as cards with `/jobs/...` links and as the
@@ -547,10 +578,7 @@ export function extractHolmesPlaceListingsFromDocument(document, baseUrl = CAREE
     listings.push(listing);
   };
 
-  const rows = [
-    ...document.querySelectorAll('table tr'),
-    ...document.querySelectorAll('.c-careerTable__row, [data-job-id], [data-career-id]'),
-  ];
+  const rows = collectCareerTableRows(document);
   for (const row of rows) {
     const cells = directCells(row);
     const anchors = [...row.querySelectorAll('a[href]')];
@@ -575,7 +603,7 @@ export function extractHolmesPlaceListingsFromDocument(document, baseUrl = CAREE
         href: detailLink?.getAttribute('href') || titleLink?.getAttribute('href') || '',
         jobId: row.getAttribute('data-job-id') || row.getAttribute('data-career-id') || '',
       },
-      { allowMissingUrl: true },
+      { allowMissingUrl: Boolean(row.closest(CAREER_TABLE_CONTAINER_SELECTOR)) },
     );
   }
 
@@ -610,9 +638,7 @@ export function hasHolmesPlaceCareerMarkup(html = '', baseUrl = CAREER_URL) {
     const document = dom.window.document;
     const visibleText = nodeText(document.body);
     const tableHeader = /(?:berufsbezeichnung|intitul[eé] du poste|job title|standort|lieu)/i.test(visibleText);
-    const knownContainer = Boolean(
-      document.querySelector('table, .c-careerTable__row, [data-job-id], [data-career-id]'),
-    );
+    const knownContainer = Boolean(document.querySelector(CAREER_TABLE_CONTAINER_SELECTOR));
     return tableHeader || knownContainer || CAREER_MARKER_RE.test(visibleText);
   } finally {
     dom.window.close();
@@ -741,12 +767,12 @@ export async function fetchAllHolmesPlaceJobs() {
     const description = stripContactPII(rawDescription);
 
     const sourceLang = detectLang(`${title} ${listing.location}`, 'de');
-    const jobSlug = slugify(`${title} holmes-place ${city}`);
     const jobUrl = listing.url || CAREER_URL;
     const urlHash = createHash('sha1')
       .update(jobUrl)
       .digest('hex')
       .slice(0, 12);
+    const jobSlug = buildHolmesPlaceJobSlug(title, city, jobUrl, urlHash);
     const employmentType = detectEmploymentType(`${title} ${listing.category}`);
 
     const job = {
@@ -803,4 +829,5 @@ export const __testables = {
   extractHolmesPlaceListingsFromDocument,
   extractHolmesPlaceListingsFromHtml,
   hasHolmesPlaceCareerMarkup,
+  buildHolmesPlaceJobSlug,
 };

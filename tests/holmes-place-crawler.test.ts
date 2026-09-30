@@ -263,9 +263,17 @@ describe('Holmes Place crawler parser', () => {
       ).toEqual([]);
     });
 
+    it('ignores unrelated tables without a CareerTable marker', () => {
+      expect(
+        __testables.extractHolmesPlaceListingsFromHtml(
+          '<table><tr><td>Club Membership</td><td>CHF 100</td></tr></table>',
+        ),
+      ).toHaveLength(0);
+    });
+
     it('keeps URL identity distinct when a table row has no detail link', () => {
       const listings = __testables.extractHolmesPlaceListingsFromHtml(`
-        <table>
+        <table class="c-careerTable">
           <tbody>
             <tr><td>Club Manager</td><td>Lausanne</td></tr>
             <tr><td>Club Manager</td><td>Geneva</td></tr>
@@ -274,6 +282,22 @@ describe('Holmes Place crawler parser', () => {
 
       expect(listings).toHaveLength(2);
       expect(listings[0].url).not.toBe(listings[1].url);
+    });
+
+    it('derives generated slugs from stable detail URLs', () => {
+      const first = __testables.buildHolmesPlaceJobSlug(
+        'Personal Trainer',
+        'Lausanne',
+        'https://www.holmesplace.ch/jobs/a/',
+      );
+      const second = __testables.buildHolmesPlaceJobSlug(
+        'Personal Trainer',
+        'Lausanne',
+        'https://www.holmesplace.ch/jobs/b/',
+      );
+
+      expect(first).not.toBe(second);
+      expect({ de: first }).not.toEqual({ de: second });
     });
   });
 
