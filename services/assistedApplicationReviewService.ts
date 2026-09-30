@@ -29,11 +29,17 @@ export interface ReviewQuestion {
   type: 'text' | 'yes_no' | 'choice' | 'number' | 'date';
   options: string[];
   required: boolean;
+  /** Earliest accepted date (YYYY-MM-DD) for a start-date question, else null. */
+  minDate?: string | null;
+  /** Proposed start date shown in the empty field (saved only by the candidate). */
+  suggested?: string | null;
 }
 
 export interface ReviewPayload {
   ok: true;
   stale: boolean;
+  /** The link's round was just sent back: its next version is being prepared. */
+  preparingNext?: boolean;
   state: string;
   round: number;
   roundsLeft: number;
