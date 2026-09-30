@@ -69,7 +69,9 @@ jobs:
       - name: vitest shard ${{ matrix.shard }}/4 with the census hook
         timeout-minutes: 100
         run: |
-          set -uo pipefail
+          # +e: il guard sui file tracciati fa uscire vitest con 1 proprio nei
+          # casi che il censimento deve registrare; lo step deve proseguire.
+          set +e -uo pipefail
           export CENSUS_REPO_ROOT="$GITHUB_WORKSPACE"
           export CENSUS_LOG_FILE="$RUNNER_TEMP/census.jsonl"
           CENSUS_LIVE_ROOTS="$(node -e "import('./scripts/ci/live-data-test-guard.mjs').then((m) => process.stdout.write(JSON.stringify(m.LIVE_DATA_ROOTS)))")"
@@ -100,5 +102,71 @@ jobs:
             status-after.txt
             tracked.txt
             census-report.json
+          if-no-files-found: warn
+          retention-days: 5
+
+  # REPLAY (metodo del censimento 2026-09-19 in live-data-test-guard.mjs): stesso
+  # codice, dati vivi riportati indietro di N giorni. Un test che cambia esito
+  # senza che cambi una riga di codice dipende dal dato del giorno.
+  replay:
+    name: replay live data ${{ matrix.age }}d
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        age: [0, 7, 14, 30]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Fetch origin/main by name
+        run: git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main"
+
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Restore live data roots to ${{ matrix.age }} days ago
+        if: matrix.age != 0
+        run: |
+          set -euo pipefail
+          rev="$(git rev-list -1 --before="${{ matrix.age }} days ago" origin/main)"
+          echo "replay rev: $rev ($(git show -s --format=%cI "$rev"))"
+          mapfile -t roots < <(node -e "import('./scripts/ci/live-data-test-guard.mjs').then((m) => console.log(m.LIVE_DATA_ROOTS.join('\n')))")
+          # Una radice alla volta: un pathspec che non corrisponde a nulla (né
+          # oggi né a quel commit) fa fallire `git restore`, e non deve fermare
+          # il ripristino delle altre.
+          for r in "${roots[@]}"; do
+            if git restore --source="$rev" --worktree -- ":(glob)${r}**" 2>/dev/null; then
+              echo "restored ${r}"
+            else
+              echo "skipped ${r} (nessun file corrispondente)"
+            fi
+          done
+          echo "tracked files changed by the replay: $(git status --porcelain --untracked-files=no | wc -l)"
+
+      - name: Assemble + migrate
+        run: |
+          node scripts/assemble-jobs-dataset.mjs --stats
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: vitest on the replay candidates
+        timeout-minutes: 60
+        run: |
+          set +e -uo pipefail
+          mapfile -t files < .github/census/replay-candidates.txt
+          node node_modules/vitest/vitest.mjs run --passWithNoTests --pool=forks --maxWorkers=3 \
+            --reporter=default --reporter=json --outputFile=replay-${{ matrix.age }}.json "${files[@]}"
+          echo "[replay] age=${{ matrix.age }} vitest exit=$?"
+          exit 0
+
+      - name: Upload replay report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: replay-${{ matrix.age }}
+          path: replay-${{ matrix.age }}.json
           if-no-files-found: warn
           retention-days: 5
