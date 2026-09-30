@@ -43,6 +43,13 @@
       "decidedAt": "2026-09-28T12:05:13Z",
       "ref": "#10153, #10212",
       "reason": "Cluster fantasma: review con body su una riga e `\\n` letterali, lette come una sola riga. tallyFindings ora normalizza i body malformati (reviewBodyLines), quindi il fingerprint non si forma piu'."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
+      "outcome": "declined",
+      "decidedAt": "2026-09-30T11:18:39Z",
+      "ref": "#10479, #10393, #10105",
+      "reason": "Fingerprint artefattuale: conserva `scripts` dalle liste di path e accorpa tre difetti diversi; troppo vago per una regola preventiva o un bucket esplicito."
     }
   ]
 }
