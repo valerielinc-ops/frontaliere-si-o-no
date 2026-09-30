@@ -13,8 +13,9 @@
  * the explicit, logged consent captured at submit time (consentGiven/consentText).
  */
 
-import admin from 'firebase-admin';
-import { FieldValue, Timestamp } from 'firebase-admin/firestore';
+import { getAuth } from 'firebase-admin/auth';
+import { FieldValue, getFirestore, Timestamp } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 import { randomUUID } from 'node:crypto';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
@@ -31,7 +32,7 @@ const STORAGE_BUCKET =
 const CV_SIGNED_URL_TTL_MS = 7 * 86400000;
 
 function db() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 function esc(s) {
@@ -52,7 +53,7 @@ export async function resolveCvLink(cvRef) {
   const v = String(cvRef ?? '').trim();
   if (!v) return null;
   if (/^https?:\/\//i.test(v)) return v;
-  const file = admin.storage().bucket(STORAGE_BUCKET).file(v);
+  const file = getStorage().bucket(STORAGE_BUCKET).file(v);
   // Preferred: a short-lived V4 signed URL (GDPR-friendly expiry). Requires the
   // runtime service account to hold `iam.serviceAccounts.signBlob`
   // (roles/iam.serviceAccountTokenCreator); when that permission is missing,
@@ -160,7 +161,7 @@ async function verifyCaller(req) {
   const m = header.match(/^Bearer\s+(.+)$/i);
   if (!m) return null;
   try {
-    return await admin.auth().verifyIdToken(m[1]);
+    return await getAuth().verifyIdToken(m[1]);
   } catch {
     return null;
   }

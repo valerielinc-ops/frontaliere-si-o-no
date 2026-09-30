@@ -38,7 +38,7 @@
  */
 
 import { createHash, timingSafeEqual } from 'node:crypto';
-import admin from 'firebase-admin';
+import { getAuth } from 'firebase-admin/auth';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
@@ -113,13 +113,13 @@ async function mintNewsletterAuthToken(normalizedEmail) {
  ensureAdminApp();
  let uid = null;
  try {
- const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
+ const userRecord = await getAuth().getUserByEmail(normalizedEmail);
  uid = userRecord.uid;
  } catch {
- const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
+ const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
  uid = newUser.uid;
  }
- return uid ? await admin.auth().createCustomToken(uid) : null;
+ return uid ? await getAuth().createCustomToken(uid) : null;
  } catch (authErr) {
  console.warn('[newsletterManage] Failed to generate auth token:', authErr?.message);
  return null;
@@ -695,17 +695,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ensureAdminApp();
  let uid = null;
  try {
- const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
+ const userRecord = await getAuth().getUserByEmail(normalizedEmail);
  uid = userRecord.uid;
  } catch {
- const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
+ const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
  uid = newUser.uid;
  }
  if (uid) {
  // Autologin authenticates the session; it does not witness a newsletter
  // consent action. Account-deletion tombstones stay in place until the
  // authenticated app reaches its ordinary, explicit registration path.
- const authToken = await admin.auth().createCustomToken(uid);
+ const authToken = await getAuth().createCustomToken(uid);
  // AFTER the token is actually minted, not before: the metric counts sessions
  // that were really handed out, so a `createCustomToken` failure lands in the
  // catch below and inflates neither half of the ratio.
