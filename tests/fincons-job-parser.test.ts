@@ -22,6 +22,18 @@ describe('fincons-job-parser', () => {
     )).toBeNull();
   });
 
+  it('recognises country-only Swiss rows without publishing them as canton-less jobs', () => {
+    expect(classifyFinconsLocation('Switzerland')).toBe('country-only');
+    expect(resolveFinconsLocation(
+      { location: 'Switzerland', country: 'Switzerland' },
+      { location: 'Switzerland' },
+    )).toBeNull();
+    expect(resolveFinconsLocation(
+      { location: 'Bern, Bern, Switzerland', country: 'Switzerland' },
+      { location: 'Switzerland' },
+    )).toMatchObject({ location: 'Bern', canton: 'BE' });
+  });
+
   it('parses Lugano listing rows', () => {
     const html = `
       <table id="jobs_table">

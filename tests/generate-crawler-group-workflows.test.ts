@@ -199,6 +199,7 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       runStep: {
         name: `Run ${slug}`,
         env: {
+          CRAWLER_SLICE_ONLY: '1',
           JOBS_HOUSEKEEPING_SCOPE: slug,
           JOBS_SLICE_FILE: `data/jobs/by-crawler/${slug}.json`,
         },

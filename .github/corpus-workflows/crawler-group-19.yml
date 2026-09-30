@@ -2321,6 +2321,7 @@ jobs:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-grace.txt
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GRACE_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
           JOBS_HOUSEKEEPING_SCOPE: grace-la-margna
           JOBS_SLICE_FILE: data/jobs/by-crawler/grace-la-margna.json
           SKIP_AI_TRANSLATION: \${{ inputs.skip_ai_translation || '0' }}
