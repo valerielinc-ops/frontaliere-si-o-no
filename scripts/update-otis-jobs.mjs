@@ -23,7 +23,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -50,6 +50,10 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dropIdenticalPostings } from './lib/identical-posting-dedupe.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { collectThinSourceJobsForQuarantine, keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -72,6 +76,11 @@ function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
   const url = String(job?.url || '').toLowerCase();
   return key.includes(COMPANY_KEY) || url.includes('otis.wd504.myworkdayjobs.com') || url.includes('otis.wd5.myworkdayjobs.com');
+}
+
+function jobMatchKey(job) {
+  return extractStableJobId(job?.url)
+    || String(job?.url || '').trim().replace(/\/+$/, '');
 }
 
 // Otis migrated their Workday pod from wd5 to wd504 (observed 2026-08-11,
@@ -110,13 +119,37 @@ function mergeCompanyJobs(parsedJobs) {
     byUrl.set(key, job);
   }
   const deduped = [...byUrl.values()];
-  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(deduped, companyExisting, jobMatchKey);
+  const merged = mergePreserveLocaleData(companyExisting, sourceBodyJobs);
   // Non-source slots the merge kept that are not in their own language go
   // back to the translation pipeline.
   for (const job of merged) dropStaleLocaleDescriptions(job);
-  const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const thinSourceJobs = collectThinSourceJobsForQuarantine(deduped, merged, jobMatchKey);
+  const clean = merged
+    .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    .sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
-  return clean;
+  return {
+    jobs: clean,
+    targetExisting: companyExisting,
+    sourceBodyJobs,
+    thinSourceJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob: isCompanyJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 async function main() {
@@ -129,6 +162,7 @@ async function main() {
   const rawJobs = await fetchOtisJobUrls();
   if (rawJobs.length === 0) {
     console.log('\u26a0\ufe0f No jobs found on Otis Workday portal. Keeping existing jobs.');
+    await rewriteStoredJobsWithoutThinSource(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
     return;
   }
 
@@ -136,27 +170,23 @@ async function main() {
   const parsedJobs = [];
   for (const raw of rawJobs) {
     const detail = await fetchOtisDetailPage(raw.externalPath);
-    if (!detail?.description || detail.description.length < 120) {
-      console.log(`  \u26a0\ufe0f  ${raw.title}: description too short (${detail?.description?.length || 0} chars) \u2014 skipping`);
-      continue;
-    }
-    const description = detail.description;
+    const description = detail?.description || '';
     const publicUrl = buildPublicUrl(raw.externalPath);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     // Prefer detail city (from full location text) over listing city. Otis runs
     // a national service network, so leave the field blank when unresolved and
     // let the PLZ/locality hardening derive it.
-    const city = detail.city || raw.city || '';
+    const city = detail?.city || raw.city || '';
     // City-first: resolve the (detail-preferred) city alone before the raw
     // listing location, so the more authoritative city wins over the array-order
     // sensitivity of a combined string.
-    const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || '';
+    const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail?.canton || '';
     // The branch address printed in the ad ("Location: Nenzlingerweg 2, 4153
     // Reinach") is the workplace, when it names the same town as the req.
     // Street and postal code are set only when the ad prints both: a missing
     // part is never guessed, so the posting's workplace stays unresolved and
     // it is never grouped with another (identical-posting-dedupe).
-    const site = detail.siteAddress;
+    const site = detail?.siteAddress;
     const siteAddress = site && site.streetAddress && site.postalCode
       && sameLocality(site.locality, city)
       ? { postalCode: site.postalCode, streetAddress: site.streetAddress }
@@ -185,19 +215,21 @@ async function main() {
       addressCountry: 'CH',
       category: 'manufacturing',
       contract: 'full-time',
-      employmentType: detail.employmentType || inferEmploymentType(raw.title, description),
+      employmentType: detail?.employmentType || inferEmploymentType(raw.title, description),
       currency: 'CHF',
       featured: false,
-      postedDate: detail.datePosted || new Date().toISOString().slice(0, 10),
+      postedDate: detail?.datePosted || new Date().toISOString().slice(0, 10),
       url: publicUrl,
       source: 'Otis Dedicated Parser (Workday)',
       crawledAt: new Date().toISOString(),
     });
-    console.log(`  \u2705 ${raw.title} \u2014 ${raw.city}`);
+    if (meetsSourceBodyFloor(description)) console.log(`  \u2705 ${raw.title} \u2014 ${raw.city}`);
+    else console.log(`  \u26a0\ufe0f  ${raw.title}: source body below 50 words — quarantining`);
   }
 
   if (parsedJobs.length === 0) {
     console.log('\u26a0\ufe0f No valid jobs parsed. Keeping existing jobs.');
+    await rewriteStoredJobsWithoutThinSource(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
     return;
   }
 
@@ -209,7 +241,13 @@ async function main() {
     console.log(`  \ud83e\uddf9 Dropped ${dropped.length} double publication(s) (same title, site and text under another req).`);
   }
 
-  const published = mergeCompanyJobs(uniqueJobs);
+  const stats = mergeCompanyJobs(uniqueJobs);
+  if (stats.noPublishableJobs) {
+    console.warn(`⚠️ ${COMPANY_NAME}: all detail bodies are below the 50-word source-body floor; quarantining thin-source rows.`);
+    await rewriteStoredJobsWithoutThinSource(stats.targetExisting);
+    return;
+  }
+  const published = stats.jobs;
   printPublishedJobUrls(published, 'Otis');
   writeJobsSummary(published, 'Otis');
 
@@ -234,8 +272,18 @@ async function main() {
 
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCompanyJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw.filter(isCompanyJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
+  const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
+  const housekeepingProof = thinQuarantineJobs.length > 0
+    ? thinQuarantineJobs.map((job) => ({ job, reason: 'thin-source-quarantine', definitive: true }))
+    : undefined;
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob: isCompanyJob,
+    ...(housekeepingProof ? { housekeepingProof, verifyUnprovenHousekeeping: true } : {}),
+  });
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Otis', generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
