@@ -116,7 +116,7 @@ jobs:
           # Keep main-write contention bounded so the helper cannot spend its
           # default 40-attempt retry budget until GitHub cancels the job as a
           # timeout (which skips the failure reporter). A missed ledger push
-          # remains on the existing non-fatal path and is retried next run.
+          # remains on the existing non-fatal path and is retried next invocation.
           bash scripts/lib/git-push-with-retry.sh \
             --max-attempts 20 || echo "ledger push skipped (non-fatal)"
 
