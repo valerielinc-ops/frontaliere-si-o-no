@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-09-30T21:12:43.770Z",
+  "generatedAt": "2026-09-30T23:34:07.463Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,10 +14,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4602,
-  "avgDurationMs": 4602,
+  "durationMs": 5017,
+  "avgDurationMs": 5017,
   "durationHistory": [
-    4602
+    5017
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:12:35.483Z",
+      "crawledAt": "2026-09-30T23:33:57.173Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -70,7 +70,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:12:35.221Z",
+      "crawledAt": "2026-09-30T23:33:56.872Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -85,7 +85,7 @@
       "featured": false,
       "postedDate": "2026-07-07",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -107,7 +107,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:12:34.877Z",
+      "crawledAt": "2026-09-30T23:33:56.524Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",

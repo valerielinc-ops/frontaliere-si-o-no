@@ -127,6 +127,12 @@ jobs:
         # cambiato dopo il flip?" resta senza il termine di paragone. Stesso
         # motivo per cui crawler-health committa il suo stato.
         if: always()
+        env:
+          # Questo monitor possiede solo la propria directory docs: non deve
+          # entrare nel percorso legacy che risincronizza tutti i dati job. Il
+          # cap lascia il contenzioso sul writer globale al giro successivo,
+          # prima che il job venga cancellato dal timeout.
+          MAX_PUSH_ATTEMPTS: '5'
         run: |
           set -uo pipefail
           # `|| ec=$?` e non `; ec=$?`: Actions lancia gli step con `bash -e {0}`,
@@ -134,7 +140,7 @@ jobs:
           # riga successiva possa leggerne il codice — e il ramo del 42 qui sotto
           # sarebbe codice morto.
           ec=0
-          bash scripts/lib/git-commit-data.sh "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/ || ec=$?
+          bash scripts/lib/git-commit-data.sh --extra-only "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/ || ec=$?
           # 42 e' il codice documentato di git-commit-data.sh per "contesa sul
           # push, si risana al giro dopo" — l'unica classe che il suo header
           # dichiara sicura da assorbire. Senza questa riga una corsa con un

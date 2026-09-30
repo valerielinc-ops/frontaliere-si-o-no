@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-09-30T21:13:14.324Z",
+  "assembledAt": "2026-09-30T23:33:57.575Z",
   "jobs": [
     {
       "title": "Sanitär- und Heizungstechniker/in",
@@ -46,14 +46,6 @@
       },
       "id": "agroscope-7ef1058e63a6",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitar-und-heizungstechniker-in-agroscope-posieux"
-        ]
-      },
-      "previousSlugs": [
-        "sanitar-und-heizungstechniker-in-agroscope-posieux"
-      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
@@ -68,7 +60,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:36:14.124Z"
+      "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitar-und-heizungstechniker-in-agroscope-posieux"
+        ]
+      },
+      "previousSlugs": [
+        "sanitar-und-heizungstechniker-in-agroscope-posieux"
+      ]
     },
     {
       "title": "Administrative/-r Mitarbeiter/-in",

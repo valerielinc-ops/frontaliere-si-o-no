@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-09-30T21:17:34.553Z",
+  "generatedAt": "2026-09-30T23:32:21.708Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3077,
-  "avgDurationMs": 3077,
+  "durationMs": 3382,
+  "avgDurationMs": 3382,
   "durationHistory": [
-    3077
+    3382
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -244,6 +244,7 @@
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
