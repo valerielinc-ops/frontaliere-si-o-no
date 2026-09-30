@@ -442,7 +442,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:26:33.478Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -523,7 +522,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:26:32.714Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -606,7 +604,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:22:24.175Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1095,7 +1092,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T21:57:24.031Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1253,7 +1249,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:22:23.951Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2134,7 +2129,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:11:43.798Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2213,7 +2207,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T23:44:57.783Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2288,7 +2281,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:40.944Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2591,7 +2583,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:21:21.433Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2707,9 +2698,9 @@
       "title": "Initiativbewerbung",
       "titleByLocale": {
         "de": "Initiativbewerbung",
-        "it": "Initiativbewerbung",
-        "en": "Initiativbewerbung",
-        "fr": "Initiativbewerbung"
+        "it": "Applicazione d'iniziativa",
+        "en": "Own-initiative application",
+        "fr": "Demande d'initiative"
       },
       "description": "## Aktuell keine passende Stelle bei Implenia Schweiz gefunden?\n\nWir freuen uns ebenfalls über deine Initiativbewerbung.\nDer Prozess der Online-Bewerbung nimmt nur wenige Minuten deiner Zeit in Anspruch.\n\n## Didn't you find any suitable vacancy at Implenia?\n\nWe will still be happy to receive your spontaneous application.\nThe online application process will just take a few minutes of your time.",
       "descriptionByLocale": {
@@ -3025,7 +3016,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:52:32.412Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3106,7 +3096,6 @@
         "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
       ],
       "firstSeenAt": "2026-09-19T23:05:11.926Z",
-      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 82000,
       "salarySource": "estimated",
@@ -3604,7 +3593,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:48:45.611Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -4549,7 +4537,7 @@
       "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
-        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
@@ -4599,7 +4587,8 @@
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
-        "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
+        "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4611,7 +4600,8 @@
           "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
         ],
         "en": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3"
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ],
         "fr": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
@@ -4935,9 +4925,6 @@
         ]
       },
       "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 976,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-07-30T11:56:07.784Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -5408,8 +5395,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-84fab217db27",
