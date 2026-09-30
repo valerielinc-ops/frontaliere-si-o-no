@@ -66,7 +66,7 @@ describe('job popularity snapshot stays incremental', () => {
     const publisher = read('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).toContain('--path data/job-popularity.json');
     expect(workflow).toContain('--path data/job-popularity.meta.json');
-    expect(publisher).toContain('git add -A -- "${PATHS[@]}"');
+    expect(publisher).toContain('git add -A -- "${RESOLVED_PATHS[@]}"');
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
     expect(workflow).toContain('pull-requests: write');
