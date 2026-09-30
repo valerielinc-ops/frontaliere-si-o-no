@@ -23,6 +23,7 @@ import {
   type AssistedApplicationAdminStatus,
 } from '@/services/assistedApplicationAdminService';
 import { trackAssistedApplicationEvent } from '@/services/assistedApplicationExperiment';
+import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 type QueueFilter = AssistedApplicationAdminStatus | 'all';
 
@@ -345,6 +346,18 @@ export default function AssistedApplicationAdmin() {
                     <span className="block text-xs text-subtle">Conferma invio: {emailStatusLabel(order.emails?.submitted ?? null)}</span>
                   </DataRow>
                 </dl>
+
+                {order.submissionStatus !== 'refunded' && (
+                  <AssistedApplicationAutomationPanel
+                    order={order}
+                    user={user}
+                    onChanged={async (next) => {
+                      setMessage(next);
+                      await loadOrders(true);
+                      setMessage(next);
+                    }}
+                  />
+                )}
 
                 {order.submissionNotes && (
                   <div className="mt-4 rounded-xl border border-warning-border bg-warning-subtle/60 px-3 py-2 text-sm text-body">

@@ -29,6 +29,7 @@ const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/Jo
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
+const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -222,6 +223,7 @@ import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
 } from '@/services/assistedApplicationCheckout';
+import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import {
@@ -3687,6 +3689,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ const assistedApplicationReviewToken = readReviewToken();
  // Preload only where "Candidati" is actually reachable: anonymous visitors
  // see the login gate instead of the CTA, so a request for them could never
  // be shown and would only inflate the unit's unfilled requests.
@@ -8142,6 +8145,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  );
+
+ if (assistedApplicationReviewToken) {
+  return (
+   <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
+    <AssistedApplicationReview token={assistedApplicationReviewToken} />
+   </Suspense>
+  );
+ }
 
  if (assistedApplicationOrderId) {
   return (

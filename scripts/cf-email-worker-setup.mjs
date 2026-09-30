@@ -199,7 +199,34 @@ async function main() {
     await ensureRoutingRule(zoneId, rule.address, rule.name);
   }
 
+  await ensureAliasSubdomain(zoneId);
+
   console.log('Email worker setup complete.');
+}
+
+// Subdomain of the assisted-application order aliases (functions/src/
+// assistedApplicationAlias.js creates one literal rule per alias; Cloudflare
+// has no catch-all for subdomains). Email Routing must be enabled on the
+// subdomain once — idempotent, best-effort: a failure is a warning with the
+// one-time manual alternative, never a failed deploy.
+const ALIAS_SUBDOMAIN = 'candidature.frontaliereticino.ch';
+
+async function ensureAliasSubdomain(zoneId) {
+  const mx = await cf(`/zones/${zoneId}/dns_records?type=MX&name=${encodeURIComponent(ALIAS_SUBDOMAIN)}`);
+  if (mx.ok && Array.isArray(mx.json.result) && mx.json.result.length > 0) {
+    console.log(`✓ Email Routing already enabled on ${ALIAS_SUBDOMAIN} (${mx.json.result.length} MX).`);
+    return;
+  }
+  const enabled = await cf(`/zones/${zoneId}/email/routing/dns`, { method: 'POST', body: { name: ALIAS_SUBDOMAIN } });
+  if (!enabled.ok) {
+    console.log(`::warning::could not enable Email Routing on ${ALIAS_SUBDOMAIN} (status ${enabled.status}: ${JSON.stringify(enabled.json.errors || enabled.json).slice(0, 200)}). One-time fix: Email Routing → Settings → Subdomains → add ${ALIAS_SUBDOMAIN}.`);
+    return;
+  }
+  const check = await cf(`/zones/${zoneId}/dns_records?type=MX&name=${encodeURIComponent(ALIAS_SUBDOMAIN)}`);
+  const count = check.ok && Array.isArray(check.json.result) ? check.json.result.length : 0;
+  console.log(count > 0
+    ? `✓ Email Routing enabled on ${ALIAS_SUBDOMAIN} (${count} MX).`
+    : `::warning::Email Routing call accepted but no MX on ${ALIAS_SUBDOMAIN} yet — check Email Routing → Settings → Subdomains.`);
 }
 
 main().catch((err) => fail(err?.message || String(err)));

@@ -303,31 +303,20 @@ describe('buildJobPostingSchema — salary defaults never zero', () => {
 });
 
 describe('buildJobPostingSchema — per-locale output', () => {
-  const base: JobInput = {
-    title: 'Cameriere',
-    description: '', // empty — force the locale-aware fallback to kick in
-    company: 'Ristorante Demo',
+  const sparseJob: JobInput = {
     city: 'Locarno',
   };
-  it('emits an Italian fallback description for locale `it`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'it', url: 'https://frontaliereticino.ch/' });
+
+  it.each([
+    { locale: 'it', url: 'https://frontaliereticino.ch/', descriptionPattern: /presso|candidatura/ },
+    { locale: 'en', url: 'https://frontaliereticino.ch/en/', descriptionPattern: /apply|at/ },
+    { locale: 'de', url: 'https://frontaliereticino.ch/de/', descriptionPattern: /bei|bewerbung/ },
+    { locale: 'fr', url: 'https://frontaliereticino.ch/fr/', descriptionPattern: /chez|candidature/ },
+  ] as const)('emits a complete sparse schema for locale `$locale`', ({ locale, url, descriptionPattern }) => {
+    const schema = buildJobPostingSchema(sparseJob, { locale, url });
+    assertComplete(schema);
     expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/presso|candidatura/);
-  });
-  it('emits an English fallback description for locale `en`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'en', url: 'https://frontaliereticino.ch/en/' });
-    expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/apply|at/);
-  });
-  it('emits a German fallback description for locale `de`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'de', url: 'https://frontaliereticino.ch/de/' });
-    expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/bei|bewerbung/);
-  });
-  it('emits a French fallback description for locale `fr`', () => {
-    const schema = buildJobPostingSchema(base, { locale: 'fr', url: 'https://frontaliereticino.ch/fr/' });
-    expect('inLanguage' in schema).toBe(false);
-    expect(schema.description.toLowerCase()).toMatch(/chez|candidature/);
+    expect(schema.description.toLowerCase()).toMatch(descriptionPattern);
   });
 });
 

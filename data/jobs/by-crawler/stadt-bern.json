@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-09-29T21:10:24.615Z",
+  "assembledAt": "2026-09-30T10:58:21.133Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -80,84 +80,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:32:20.658Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-7eae83c882c4",
-      "slug": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern",
-        "en": "apprenticeship-veterinarian-efz-specialising-in-wildlife-stadt-bern-bern",
-        "de": "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern",
-        "fr": "veterinaire-en-apprentissage-efz-specialise-dans-la-faune-sauvage-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere",
-      "titleByLocale": {
-        "it": "veterinario di ammissione (EFZ) specializzato in fauna selvatica",
-        "en": "Apprenticeship veterinarian (EFZ) specialising in wildlife",
-        "de": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere",
-        "fr": "Vétérinaire en apprentissage (EFZ) spécialisé dans la faune sauvage"
-      },
-      "description": "Per 1. August 2027 bieten wir im Tierpark Bern eine 2-jährige, verkürzte Grundausbildung an.\n\nAufgaben:\n• Futter zubereiten (dazu gehört auch das Schlachten von Futtertieren), Anlagen reinigen und Umgebung pflegen (z.B. jäten, mähen)\n\n• Unterschiedlichste Tiere betreuen und die Verantwortung für ihre fach- und artgerechte Haltung, Pflege und Zucht übernehmen\n\n• Anlagen unterhalten und artgerecht einrichten\n\n• Gäste informieren\n\nAnforderungen:\n• Abgeschlossene Berufslehre (vorzugsweise in handwerklicher Richtung)\n\n• Gültiger PW-Führerausweis (Kat. B)\n\n• Sinn für praktische Arbeit und Freude am körperlichen Einsatz\n\n• robuste Gesundheit, keine Allergien, kräftige Konstitution\n\n• Akzeptanz von Schmutzarbeiten\n\n• gute Beobachtungsgabe sowie Aufmerksamkeit im Umgang mit Tieren, Zuverlässigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "A partire dal 1o agosto 2027, offriamo una formazione di base di 2 anni, abbreviato a Tierpark Bern.\n\nCompiti:\n• Preparare il cibo (questo include animali da foraggio macellazione), piante pulite e la cura per l'ambiente (ad esempio erbacce, falci)\n\n• Cura di animali diversi e assumersi la responsabilità per la loro allevamento professionale e specifico\n\n• Mantenere le strutture e impostare in modo appropriato\n\n• Siete pregati di comunicare\n\nRequisiti\n• Apprendistato professionale completo (preferibilmente nella direzione dell'artigianato)\n\n• Passaporto Passeggero Valido (Cat. B)\n\n• Senso di lavoro pratico e piacere nell'uso fisico\n\n• salute robusta, nessuna allergie, forte costituzione\n\n• Accettazione del lavoro sporco\n\n• buone capacità di osservazione e attenzione nella gestione degli animali, affidabilità\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "As of August 1, 2027, we offer a 2-year, shortened basic training at Tierpark Bern.\n\nTasks:\n• Prepare food (this includes slaughtering forage animals), clean plants and care for the environment (e.g. weeding, mowing)\n\n• Caring for different animals and taking responsibility for their professional and species-appropriate husbandry, care and breeding\n\n• Maintain facilities and set up appropriately\n\n• Guests inform\n\nRequirements\n• Completed vocational apprenticeship (preferably in the craft direction)\n\n• Valid Passenger Passport (Cat. B)\n\n• Sense of practical work and pleasure in physical use\n\n• robust health, no allergies, strong constitution\n\n• Acceptance of dirt work\n\n• good observation skills as well as attention in handling animals, reliability\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Per 1. August 2027 bieten wir im Tierpark Bern eine 2-jährige, verkürzte Grundausbildung an.\n\nAufgaben:\n• Futter zubereiten (dazu gehört auch das Schlachten von Futtertieren), Anlagen reinigen und Umgebung pflegen (z.B. jäten, mähen)\n\n• Unterschiedlichste Tiere betreuen und die Verantwortung für ihre fach- und artgerechte Haltung, Pflege und Zucht übernehmen\n\n• Anlagen unterhalten und artgerecht einrichten\n\n• Gäste informieren\n\nAnforderungen:\n• Abgeschlossene Berufslehre (vorzugsweise in handwerklicher Richtung)\n\n• Gültiger PW-Führerausweis (Kat. B)\n\n• Sinn für praktische Arbeit und Freude am körperlichen Einsatz\n\n• robuste Gesundheit, keine Allergien, kräftige Konstitution\n\n• Akzeptanz von Schmutzarbeiten\n\n• gute Beobachtungsgabe sowie Aufmerksamkeit im Umgang mit Tieren, Zuverlässigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Au 1er août 2027, nous offrons une formation de base de 2 ans, raccourcie, au Tierpark Bern.\n\nTâches :\n• Préparer des aliments (cela comprend l'abattage des animaux fourragers), des plantes propres et des soins à l'environnement (p. ex. désherbage, fauchage)\n\n• Prendre soin de différents animaux et assumer la responsabilité de leur élevage, soins et élevage professionnels et adaptés aux espèces\n\n• Entretien des installations et installation appropriée\n\n• Informer les clients\n\nExigences\n• Apprentissage professionnel achevé (de préférence dans la direction artisanale)\n\n• Passeport passager valide (Cat. B)\n\n• Sens du travail pratique et plaisir dans l'utilisation physique\n\n• santé robuste, pas d'allergie, constitution forte\n\n• Acceptation des travaux de saleté\n\n• bonnes compétences d'observation ainsi que l'attention dans la manipulation des animaux, fiabilité\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:10:04.850Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3005",
-      "streetAddress": "Tierparkweg 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-        ],
-        "en": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.132Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -580,85 +502,6 @@
       }
     },
     {
-      "id": "stadt-bern-cacf1e69cabb",
-      "slug": "istruzione-sociale-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "istruzione-sociale-stadt-bern-bern",
-        "en": "social-education-stadt-bern-bern",
-        "de": "sozialpadagog-in-stadt-bern-bern",
-        "fr": "education-sociale-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Sozialpädagog*in",
-      "titleByLocale": {
-        "it": "Istruzione sociale*",
-        "en": "Social education*",
-        "de": "Sozialpädagog*in",
-        "fr": "Éducation sociale*"
-      },
-      "description": "Die Wohngruppe Mega ist ein Angebot des Kompetenzzentrums Schlossmatt. Wir begleiten Kinder und Jugendliche durch herausfordernde Lebensphasen und unterstützen sie in ihrem Alltag, in Schule, Freizeit und persönlicher Entwicklung. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nAufgaben:\n• Du begleitest Kinder und Jugendliche zwischen 7 und 16 Jahren durch herausfordernde Lebensphasen und gestaltest mit ihnen einen verlässlichen, fördernden Alltag.\n\n• Du stärkst Kinder, Jugendliche und ihre Familien darin, eigene Ressourcen zu nutzen, neue Perspektiven zu entwickeln und ihre Ziele zu erreichen.\n\n• Du gestaltest gemeinsam mit den Beteiligten individuelle Unterstützungsprozesse nach der Kooperativen Prozessgestaltung.\n\n• Du arbeitest eng mit Familien, Schulen und Fachpersonen zusammen, dokumentierst die sozialpädagogische Arbeit und verfasst Berichte und Protokolle.\n\nAnforderungen:\n• Diplom einer Höheren Fachschule/Fachhochschule für Sozialpädagogik oder Sozialer Arbeit\n\n• Berufserfahrung im stationären Bereich mit Kindern und Jugendlichen\n\n• Hohe Belastbarkeit und ein sicherer Umgang mit anspruchsvollen Situationen\n\n• Flexibilität für unregelmässige Arbeitseinsätze (Nacht- und Wochenendeinsätze)\n\n• Flair für administrative Arbeiten sowie zuverlässige, selbständige Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Il Mega Living Group è un'offerta del Competence Center Schlossmatt. Accompagniamo bambini e ragazzi attraverso fasi difficili della vita e li sosteniamo nella vita di tutti i giorni, a scuola, nel tempo libero e nel loro sviluppo personale. Ulteriori informazioni sono disponibili su <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nCompiti:\n• Accompagnate bambini e ragazzi dai 7 ai 16 anni attraverso fasi difficili della vita e create con loro una quotidianità affidabile e solidale.\n\n• Consenti ai bambini, ai giovani e alle loro famiglie di utilizzare le proprie risorse, sviluppare nuove prospettive e raggiungere i propri obiettivi.\n\n• Insieme alle persone coinvolte, progettate processi di supporto individuali basati sulla progettazione di processi cooperativi.\n\n• Lavori a stretto contatto con le famiglie, le scuole e gli specialisti, documenti il ​​lavoro socio-educativo e scrivi rapporti e protocolli.\n\nRequisiti:\n• Diploma di scuola tecnica superiore/istituto tecnico di pedagogia sociale o servizio sociale\n\n• Esperienza professionale in ambito ospedaliero con bambini e adolescenti\n\n• Elevata resilienza e gestione sicura delle situazioni impegnative\n\n• Flessibilità per incarichi di lavoro irregolare (incarichi notturni e nei fine settimana)\n\n• Attitudine al lavoro amministrativo e un modo di lavorare affidabile e indipendente\n\nOffriamo:\nPer il significato e la vita cittadina\nCon noi cambi qualcosa. Contribuisci a dare forma alla vita cittadina, ti assumi la responsabilità e rendi Berna più vivibile.\n\nNella città di Berna lavorano insieme oltre 4.500 persone in cinque dipartimenti e più di 80 profili professionali. Ci impegniamo con passione e convinzione a favore delle persone che qui vivono e lavorano. Insieme diamo forma alla comunità e al futuro di questa città: visibile, evidente, sostenibile. Per la nostra città. Per Berna.",
-        "en": "The Mega living group is an offer from the Schlossmatt Competence Center. We accompany children and young people through challenging phases of life and support them in their everyday lives, at school, in their free time and in their personal development. You can find further information at <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nTasks:\n• You accompany children and young people between the ages of 7 and 16 through challenging phases of life and create a reliable, supportive everyday life with them.\n\n• You empower children, young people and their families to use their own resources, develop new perspectives and achieve their goals.\n\n• Together with those involved, you design individual support processes based on cooperative process design.\n\n• You work closely with families, schools and specialists, document social-educational work and write reports and protocols.\n\nRequirements:\n• Diploma from a higher technical school/technical college for social pedagogy or social work\n\n• Professional experience in the inpatient area with children and young people\n\n• High resilience and confident handling of demanding situations\n\n• Flexibility for irregular work assignments (night and weekend assignments)\n\n• Flair for administrative work and a reliable, independent way of working\n\nWe offer:\nFor meaning & city life\nWith us you change something. You help shape city life, bear responsibility and make Bern more livable.\n\nIn the city of Bern, over 4,500 people work together across five departments and more than 80 job profiles. We are committed with passion and conviction to the people who live here and work here. Together we shape the community and the future of this city - visible, noticeable, sustainable. For our city. For Berne.",
-        "de": "Die Wohngruppe Mega ist ein Angebot des Kompetenzzentrums Schlossmatt. Wir begleiten Kinder und Jugendliche durch herausfordernde Lebensphasen und unterstützen sie in ihrem Alltag, in Schule, Freizeit und persönlicher Entwicklung. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nAufgaben:\n• Du begleitest Kinder und Jugendliche zwischen 7 und 16 Jahren durch herausfordernde Lebensphasen und gestaltest mit ihnen einen verlässlichen, fördernden Alltag.\n\n• Du stärkst Kinder, Jugendliche und ihre Familien darin, eigene Ressourcen zu nutzen, neue Perspektiven zu entwickeln und ihre Ziele zu erreichen.\n\n• Du gestaltest gemeinsam mit den Beteiligten individuelle Unterstützungsprozesse nach der Kooperativen Prozessgestaltung.\n\n• Du arbeitest eng mit Familien, Schulen und Fachpersonen zusammen, dokumentierst die sozialpädagogische Arbeit und verfasst Berichte und Protokolle.\n\nAnforderungen:\n• Diplom einer Höheren Fachschule/Fachhochschule für Sozialpädagogik oder Sozialer Arbeit\n\n• Berufserfahrung im stationären Bereich mit Kindern und Jugendlichen\n\n• Hohe Belastbarkeit und ein sicherer Umgang mit anspruchsvollen Situationen\n\n• Flexibilität für unregelmässige Arbeitseinsätze (Nacht- und Wochenendeinsätze)\n\n• Flair für administrative Arbeiten sowie zuverlässige, selbständige Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Le groupe Mega Living est une offre du centre de compétences Schlossmatt. Nous accompagnons les enfants et les jeunes dans les phases difficiles de la vie et les soutenons dans leur vie quotidienne, à l'école, pendant leur temps libre et dans leur développement personnel. Vous trouverez de plus amples informations sur <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nTâches :\n• Vous accompagnez des enfants et des jeunes âgés de 7 à 16 ans dans des phases difficiles de la vie et créez avec eux un quotidien fiable et solidaire.\n\n• Vous donnez aux enfants, aux jeunes et à leurs familles les moyens d'utiliser leurs propres ressources, de développer de nouvelles perspectives et d'atteindre leurs objectifs.\n\n• En collaboration avec les personnes impliquées, vous concevez des processus de soutien individuels basés sur une conception de processus coopérative.\n\n• Vous travaillez en étroite collaboration avec les familles, les écoles et les spécialistes, documentez le travail socio-éducatif et rédigez des rapports et des protocoles.\n\nExigences :\n• Diplôme d'une école technique supérieure/d'une école technique en pédagogie sociale ou en travail social\n\n• Expérience professionnelle dans le domaine des soins hospitaliers auprès des enfants et des jeunes\n\n• Haute résilience et gestion confiante des situations exigeantes\n\n• Flexibilité pour les affectations de travail irrégulières (affectations de nuit et de fin de semaine)\n\n• Sens du travail administratif et méthode de travail fiable et indépendante\n\nNous proposons :\nPour le sens et la vie en ville\nAvec nous, vous changez quelque chose. Vous contribuez à façonner la vie urbaine, assumez vos responsabilités et rendez Berne plus agréable à vivre.\n\nDans la ville de Berne, plus de 4'500 personnes travaillent ensemble dans cinq départements et plus de 80 profils de poste. Nous nous engageons avec passion et conviction auprès des personnes qui vivent et travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville - visible, visible et durable. Pour notre ville. Pour Berne."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/4b91b76f-7c16-4439-a621-1229ef8b36be",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:10:04.845Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Huberstrasse 30",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-30",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/4b91b76f-7c16-4439-a621-1229ef8b36be",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sozialpadagog-in-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialpadagog-in-stadt-bern-bern"
-        ],
-        "en": [
-          "sozialpadagog-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "sozialpadagog-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T16:59:02.871Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-f7d66e2875f8",
       "slug": "cura-professionale-stadt-bern-bern-c29b39",
       "slugByLocale": {
@@ -819,84 +662,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:31:15.080Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-e375f8729775",
-      "slug": "supporto-ict-2-livello-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "supporto-ict-2-livello-stadt-bern-bern",
-        "en": "ict-supporter-in-2nd-level-stadt-bern-bern",
-        "de": "ict-supporter-in-2nd-level-stadt-bern-bern",
-        "fr": "supporteur-tic-en-2eme-niveau-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "ICT Supporter*in 2nd. Level",
-      "titleByLocale": {
-        "it": "ICT Supporter*al 2° livello",
-        "en": "ICT supporter 2nd level",
-        "de": "ICT Supporter*in 2nd. Level",
-        "fr": "Soutien aux TIC* au 2e niveau"
-      },
-      "description": "Zur Verstärkung unseres Support Center Teams (2nd. Level) suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung. Die Position ist zunächst auf 1 Jahr befristet, mit der Möglichkeit einer anschliessenden Festanstellung.\n\nAufgaben:\n• mitverantwortlich für Betrieb, Unterhalt und Weiterentwicklung des Support Center 2nd. Level\n\n• proaktives optimieren der Kundenbetreuung und Arbeitsprozesse\n\n• regelmässige Field Service Einsätze nach Einsatzplan\n\n• Unterstützen des 1st. Level Supports bei komplexen Störungen und Supportanfragen\n\n• Sichern der Schnittstellen und der Kommunikation zu anderen Fachbereichen, Mitarbeit in Projekten und Teilnahme an Gremien\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann/-frau EFZ oder vergleichbare Ausbildung\n\n• mehrjährige Berufserfahrung als ICT-Supporter/in 2nd. Level & Field Support\n\n• Hohe Einsatzbereitschaft und Flexibilität sowie kommunikative, belastbare, zuverlässige Person\n\n• Teamplayer Mentalität mit einer selbständigen, lösungs- und kundenorientierten Arbeitsweise\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team di Support Center (2° livello) cerchiamo una personalità dedicata e orientata al servizio da subito o per accordo. Se si gode il supporto clienti e si desidera lavorare in un ambiente IT dinamico, non vediamo l'ora di la vostra applicazione. La posizione è limitata a 1 anno, con la possibilità di un lavoro permanente.\n\nCompiti:\n• Co-responsabile del funzionamento, manutenzione e ulteriore sviluppo del Centro di Supporto 2° Livello\n\n• ottimizzare in modo proattivo il supporto clienti e i processi di lavoro\n\n• Affittamenti regolari di servizi sul campo secondo il piano operativo\n\n• Supporto supporto di primo livello per malfunzionamenti complessi e richieste di supporto\n\n• Garantire le interfacce e la comunicazione ad altri dipartimenti, collaborare ai progetti e partecipare ai comitati\n\nRequisiti:\n• Formazione completa come specialista in TIC EFZ o formazione comparabile\n\n• Esperienza perenne come sostenitore delle TIC/in un secondo livello di supporto e campo\n\n• Alto livello di impegno e flessibilità, nonché persona comunicativa, resiliente, affidabile\n\n• Team dell'operatore con un approccio indipendente, orientato alla soluzione e al cliente\n\n• Guida della carta categoria B\n\nOffriamo: Per la vita di città & senso Con noi si cambia qualcosa. Contribuisci alla vita di città, hai la responsabilità e rendere Berna più degna di vivere.\n\nNella città di Berna, oltre 4.500 persone lavorano insieme in cinque direzioni e più di 80 profili professionali. Siamo impegnati con passione e convinzione verso le persone che vivono qui, che lavorano qui. Insieme, formiamo la comunità e il futuro di questa città. visibile, tangibile, sostenibile. Per la nostra città. Per Berna.",
-        "en": "To strengthen our Support Center Team (2nd level) we are looking for a dedicated and service-oriented personality by immediately or by agreement. If you enjoy customer support and want to work in a dynamic IT environment, we look forward to your application. The position is limited to 1 year, with the possibility of a permanent job.\n\nTasks:\n• Co-responsible for operation, maintenance and further development of the Support Center 2nd Level\n\n• proactively optimize customer support and work processes\n\n• Regular field service assignments according to operational plan\n\n• Support 1st level support for complex malfunctions and support requests\n\n• Secure the interfaces and communication to other departments, collaborate in projects and participate in committees\n\nRequirements:\n• Completed training as an ICT specialist EFZ or comparable training\n\n• Perennial experience as an ICT supporter/in 2nd Level & Field Support\n\n• High level of commitment and flexibility as well as communicative, resilient, reliable person\n\n• Team of the operator with an independent, solution- and customer-oriented approach\n\n• Guide card category B\n\nWe offer: For sense & city life With us you change something. You contribute to the city life, bear responsibility and make Bern more worth living.\n\nIn the city of Bern, over 4,500 people work together in five directorates and more than 80 professional profiles. We are committed with passion and conviction to the people who live here, who work here. Together, we shape the community and the future of this city – visible, tangible, sustainable. For our city. For Bern.",
-        "de": "Zur Verstärkung unseres Support Center Teams (2nd. Level) suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung. Die Position ist zunächst auf 1 Jahr befristet, mit der Möglichkeit einer anschliessenden Festanstellung.\n\nAufgaben:\n• mitverantwortlich für Betrieb, Unterhalt und Weiterentwicklung des Support Center 2nd. Level\n\n• proaktives optimieren der Kundenbetreuung und Arbeitsprozesse\n\n• regelmässige Field Service Einsätze nach Einsatzplan\n\n• Unterstützen des 1st. Level Supports bei komplexen Störungen und Supportanfragen\n\n• Sichern der Schnittstellen und der Kommunikation zu anderen Fachbereichen, Mitarbeit in Projekten und Teilnahme an Gremien\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann/-frau EFZ oder vergleichbare Ausbildung\n\n• mehrjährige Berufserfahrung als ICT-Supporter/in 2nd. Level & Field Support\n\n• Hohe Einsatzbereitschaft und Flexibilität sowie kommunikative, belastbare, zuverlässige Person\n\n• Teamplayer Mentalität mit einer selbständigen, lösungs- und kundenorientierten Arbeitsweise\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Pour renforcer notre équipe de Centre de Support (2ème niveau) nous recherchons une personnalité dédiée et orientée vers le service par immédiatement ou par accord. Si vous aimez le support client et souhaitez travailler dans un environnement informatique dynamique, nous attendons avec impatience votre candidature. Le poste est limité à 1 an, avec la possibilité d'un emploi permanent.\n\nTâches:\n• Co-responsable pour le fonctionnement, la maintenance et le développement du Centre de Support 2ème Niveau\n\n• optimiser de manière proactive le soutien à la clientèle et les processus de travail\n\n• Affectations régulières de services extérieurs conformément au plan opérationnel\n\n• Support de 1er niveau pour les dysfonctionnements complexes et les demandes de soutien\n\n• Sécuriser les interfaces et la communication avec les autres départements, collaborer aux projets et participer aux comités\n\nExigences:\n• Formation complète en tant que spécialiste des TIC ou formation comparable\n\n• Expérience permanente en tant que support/en 2e niveau et appui sur le terrain\n\n• Un haut niveau d'engagement et de flexibilité ainsi que des personnes communicatives, résilientes et fiables\n\n• Équipe de l'opérateur avec une approche indépendante, orientée vers la solution et le client\n\n• Catégorie de carte de guide B\n\nNous offrons: Pour la vie de sens & ville Avec nous vous changez quelque chose. Vous contribuez à la vie de ville, portez des responsabilités et faites Berne plus digne de vivre.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils professionnels. Nous sommes engagés avec passion et conviction envers les personnes qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. Pour notre ville. Pour Berne."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/53e9fbe3-7313-43be-addd-953ec9a5a883",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:10:04.842Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-03",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/53e9fbe3-7313-43be-addd-953ec9a5a883",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ict-supporter-in-2nd-level-stadt-bern-bern",
-        "sostegno-alle-tic-in-2-livello-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-supporter-in-2nd-level-stadt-bern-bern",
-          "sostegno-alle-tic-in-2-livello-stadt-bern-bern"
-        ],
-        "fr": [
-          "ict-supporter-in-2nd-level-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T23:09:22.231Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",

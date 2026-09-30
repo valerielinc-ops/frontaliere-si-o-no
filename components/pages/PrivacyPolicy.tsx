@@ -678,6 +678,21 @@ export const PrivacyPolicy: React.FC = () => {
                 il tuo indirizzo e-mail né il tuo identificativo utente: al fornitore arriva il testo della
                 richiesta, non chi l'ha scritta.
               </li>
+              <li>
+                <strong>Candidatura assistita a pagamento</strong> (OpenAI, modello Codex; GitHub Actions di
+                Microsoft come ambiente di esecuzione): per preparare la candidatura che hai acquistato, il testo
+                del tuo CV, le tue risposte e l'annuncio vengono elaborati da un modello di OpenAI, che redige la
+                lettera di presentazione, l'email per l'azienda e le risposte per il portale. L'elaborazione
+                avviene in un processo automatico su GitHub Actions che riceve solo il numero d'ordine, maschera
+                i dati personali nei registri e ne cancella i registri al termine; le prove di ciò che è stato
+                inviato sono conservate cifrate e cancellate con il CV (90 giorni). Prima dell'invio la bozza è
+                controllata da un'operatrice e sottoposta alla tua approvazione: se non rispondi entro 12 ore
+                parte così com'è, come indicato nelle email. All'azienda comunichiamo un indirizzo email
+                dedicato alla tua candidatura (c-…@candidature.frontaliereticino.ch): i messaggi che vi
+                arrivano sono classificati automaticamente, conservati cifrati per 90 giorni e inoltrati
+                subito a te con i loro allegati, con risposta diretta al selezionatore. OpenAI e GitHub
+                possono trattare i dati anche fuori dall'UE/Svizzera.
+              </li>
             </ul>
             <p className="text-sm italic">
               Non siamo responsabili delle pratiche di privacy di siti web di terze parti.

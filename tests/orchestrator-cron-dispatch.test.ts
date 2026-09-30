@@ -13,6 +13,7 @@ import {
   schedulerRunMarker,
 } from '../functions/src/orchestratorCronDispatch.js';
 import { DEFAULT_SCHEDULE_SLOTS, SCHEDULER_RUN_MARKER_PREFIX } from '../scripts/ci/orchestrator-heartbeat.mjs';
+import { normalizeOrchestratorSlot } from '../functions/src/lib/orchestratorSlot.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const repoConfig = async () => ({ pat: 'test-token', owner: 'owner', repo: 'repo' });
@@ -75,6 +76,27 @@ describe('crawler orchestrator Cloud Scheduler dispatch', () => {
     // A Cloud Console "force run" carries the current time: no extra wave.
     expect(isOrchestratorSlot('2026-09-28T09:01:00Z')).toBe(false);
     expect(isOrchestratorSlot('2026-09-28T13:00:00Z')).toBe(false);
+  });
+
+  it('normalizes Cloud Scheduler delivery seconds before claiming and marking a slot', async () => {
+    const rawSlot = '2026-09-28T09:00:03.022Z';
+    const normalizedSlot = normalizeOrchestratorSlot(rawSlot);
+    expect(normalizedSlot.toISOString()).toBe('2026-09-28T09:00:00.000Z');
+    expect(isOrchestratorSlot(rawSlot)).toBe(true);
+
+    const github = fakeGithub();
+    const claimStore = memoryClaimStore();
+    const result = await dispatchOrchestrator({
+      scheduledAt: rawSlot,
+      fetchImpl: github.fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      claimStore,
+    });
+
+    expect(result).toMatchObject({ dispatched: true, scheduledAt: '2026-09-28T09:00:00.000Z' });
+    expect(github.runs[0].display_title).toContain(schedulerRunMarker('2026-09-28T09:00:00.000Z'));
+    expect(claimStore.docs.get(`${ORCHESTRATOR_WORKFLOW}_2026-09-28T09:00:00.000Z`)?.status)
+      .toBe('dispatched');
   });
 
   it('derives the Cloud Scheduler expression from the slots the heartbeat watches', () => {

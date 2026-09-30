@@ -291,7 +291,7 @@ function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
     lines.push('', '### Link interni non presenti nel manifest (informativi)', '', ...summary.discoveredOutOfSitemap.slice(0, maxSamples).map((url) => `- \`${url}\``));
     if (summary.discoveredOutOfSitemap.length > maxSamples) lines.push(`\n_...altre ${summary.discoveredOutOfSitemap.length - maxSamples}; verificare se sono route private, dinamiche o da aggiungere al sitemap._`);
   }
-  lines.push('', '### Regola di chiusura', '', 'Correggere gli URL azionabili oppure dichiararne il ritiro con 301/410 e rimuoverli dal sitemap. Il prossimo run deve riportare copertura completa e zero finding azionabili; i link interni fuori sitemap restano da valutare per root, privacy e route dinamiche.');
+  lines.push('', '### Regola di chiusura', '', 'Le pagine storiche non si cancellano: ogni URL storico deve restare raggiungibile con HTTP 200 e contenuto utile, self-canonical se è l\'archivio della pagina oppure full-content bridge verso il successore esatto quando esiste. Si corregge il sitemap rimuovendo solo URL non self-canonical, noindex o non serviti; questa riconciliazione modifica esclusivamente gli XML e non elimina file HTML. 301/410 sono ammessi soltanto per URL tecnici realmente non-pagina, con decisione esplicita. Il prossimo run deve riportare copertura completa e zero finding azionabili; i link interni fuori sitemap restano da valutare per root, privacy e route dinamiche.');
   return lines.join('\n');
 }
 
