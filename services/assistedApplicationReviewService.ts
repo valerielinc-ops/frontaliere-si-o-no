@@ -6,7 +6,21 @@
 
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
-export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice';
+export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'followup_send' | 'followup_skip';
+
+/** A follow-up to the employer waiting for the candidate (af1 link). */
+export interface FollowupPayload {
+  ok: true;
+  kind: 'followup';
+  n: number;
+  of: number;
+  state: 'awaiting_candidate' | 'sent' | 'stopped' | string;
+  locale: string;
+  deadlineAt: number | null;
+  body: string;
+  job: { title: string; company: string };
+  can: { send: boolean; skip: boolean };
+}
 
 export interface ReviewQuestion {
   id: string;
@@ -74,16 +88,16 @@ async function parse(response: Response): Promise<any> {
   return data;
 }
 
-export async function fetchReview(token: string): Promise<ReviewPayload> {
+export async function fetchReview(token: string): Promise<ReviewPayload | FollowupPayload> {
   const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
   url.searchParams.set('t', token);
-  return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload>;
+  return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload | FollowupPayload>;
 }
 
 export async function sendReviewAction(
   token: string,
   action: ReviewAction,
-  extra: { feedback?: string; answers?: Record<string, string> } = {},
+  extra: { feedback?: string; answers?: Record<string, string>; cvChoice?: string } = {},
 ): Promise<{ ok: true; state: string }> {
   return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
     method: 'POST',
