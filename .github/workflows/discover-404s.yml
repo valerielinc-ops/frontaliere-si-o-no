@@ -4,7 +4,9 @@ name: Discover 404s via URL Inspection
 # previous slugs, compat paths) using the GSC URL Inspection API to detect
 # 404 status changes. URLs that Google reports as NOT_FOUND/SOFT_404 are
 # appended to the sharded `data/seo-404-compat/` store so the build pipeline
-# generates a soft-landing page. URLs that recovered are dropped.
+# generates a soft-landing page. URLs that recovered are dropped. The resulting
+# data change is published through a PR so the required Vitest check runs before
+# it reaches `main`.
 #
 # This compensates for Google's lack of a Coverage-drilldown API — the only
 # programmatic way to discover unknown 404 URLs would be via the UI CSV
@@ -15,7 +17,7 @@ name: Discover 404s via URL Inspection
 # 404 sweep (discover-404s-via-cloudflare.mjs), which surfaces 404 URLs we DON'T
 # already track — every real edge hit, human + bot, locale shards included,
 # zero GSC quota. Both producers append to the same accumulator and share the
-# prune + commit steps below.
+# prune + PR publication steps below.
 
 on:
   schedule:
@@ -48,6 +50,7 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
@@ -84,7 +87,7 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      # Primary identity for the deploy dispatch below = GitHub App installation
+      # Primary identity for the PR publisher below = GitHub App installation
       # token (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and
       # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
@@ -134,88 +137,30 @@ jobs:
         # this writer only needs the compatibility-store prune.
         run: npx --no-install tsx scripts/prune-404-compat-paths.ts
 
-      - name: Commit and push
+      - name: Open pull request with 404 compatibility updates
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        id: commit
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-          # Stage only the files this workflow is responsible for.
-          # seo-404-compat is sharded across data/seo-404-compat/part-*.json (#2988).
-          git add data/seo-404-compat data/inspection-state.json || true
-
-          if git diff --cached --quiet; then
-            echo "📭 No changes to commit"
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          git commit -m "chore: discover 404s via URL Inspection sweep
-
-          Automated sweep via GSC URL Inspection API. Paths flagged as
-          NOT_FOUND/SOFT_404 are added to the seo-404-compat store so
-          the next build generates a soft-landing page at those URLs.
-          URLs that recovered are dropped from compat."
-
-          # Centralized rebase-retry helper survives concurrent pushes from
-          # other workflows. The sharded `data/seo-404-compat/` store is shared
-          # with sync-gsc-orphans.yml and a handful of slug-maintenance scripts,
-          # so a rebase conflict on a shard's `paths` is possible (run 25716042219).
-          # The in-place resolver does a 3-way set merge:
-          #   final = upstream ∪ (local − base) − (base − local)
-          # `data/inspection-state.json` is single-writer (this workflow);
-          # if it ever conflicts the resolver fails loud rather than masking
-          # a real bug.
-          bash scripts/lib/git-push-with-retry.sh \
-            --in-place-resolver-cmd "node scripts/lib/resolve-404-compat-conflict.mjs && git add -A"
-
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-
-      # Re-mint immediately before the late dispatch below: the URL Inspection
-      # sweep + Cloudflare sweep above can run up to ~64min (this job's actual
-      # observed duration), longer than the App installation token's ~1hr TTL
-      # by the time we reach this step on a slow run. The early mint (~90 lines
-      # up) can already be expired here, and the `env.APP_TOKEN || env.GITHUB_PAT`
-      # fallback below only covers unset/empty — an expired-but-non-empty
-      # APP_TOKEN short-circuits the `||` and 401s trigger-deploy.sh (#3320).
-      # Re-minting fresh here restores full TTL headroom for the dispatch.
-      - name: Re-mint App token (fresh, avoids TTL expiry after long sweep)
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        continue-on-error: true
         env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Trigger deploy if compat changed
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+          # Prefer the long-lived PAT for this potentially hour-long sweep;
+          # fall back to the App identity when the PAT is unavailable.
+          GH_TOKEN: ${{ env.GITHUB_PAT || env.APP_TOKEN }}
         run: |
-          # Only trigger a deploy if the compat store itself changed — state-
-          # file-only updates don't affect the built site.
-          COMPAT_CHANGED=$(git diff HEAD~1 --name-only -- data/seo-404-compat | wc -l)
-          if [ "$COMPAT_CHANGED" -gt 0 ]; then
-            echo "🚀 Compat file updated — triggering deploy"
-            # Hard-fail by design (no `|| true`, #6936): a failed dispatch
-            # here fails the job, caught by "Report failure to GitHub Issues"
-            # below — that GitHub issue IS this caller's recovery net
-            # (auto-triage picks it up), so silencing it would just hide a
-            # real deploy gap.
-            bash scripts/lib/trigger-deploy.sh
-          else
-            echo "📝 Only state file changed — no deploy needed"
-          fi
-        env:
-          # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
-          # with the App token when minted (primary identity), PAT otherwise (#2861
-          # item 1). GITHUB_PAT itself è caricato in $GITHUB_ENV dallo step
-          # "load-rc-env" (Firebase RC, non un Actions secret — `secrets.GH_PAT` non
-          # esiste). NON shadoware con secrets.*: altrimenti trigger-deploy.sh gira
-          # con token vuoto e il deploy non parte (cfr. #878).
-          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          body="$RUNNER_TEMP/discover-404s-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
+
+          ## Implementato
+          - La sweep URL Inspection pubblica `data/seo-404-compat` e `data/inspection-state.json` tramite il branch stabile `chore/discover-404s-url-inspection`, così il required check `vitest (unit + integration)` gira prima dell'ingresso su `main`.
+
+          ## Non implementato (ancora)
+          Nessuno — aggiornamento dati automatizzato, senza residui.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/seo-404-compat \
+            --path data/inspection-state.json \
+            --branch chore/discover-404s-url-inspection \
+            --commit-message "chore(data): refresh URL Inspection 404 compatibility" \
+            --title "chore(data): refresh URL Inspection 404 compatibility" \
+            --body-file "$body"
 
       - name: Report failure to GitHub Issues
         if: failure()
