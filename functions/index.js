@@ -2441,8 +2441,9 @@ export const sweepAssistedApplicationFollowups = onSchedule(
 // interview prep pack (career-ops modes/interview-prep.md), once per order.
 // On the write that marks an interview invitation processed (the inbound
 // trigger classifies it after the message is stored).
+// Retried on failure: prepareInterviewPack releases its claim before throwing.
 export const prepareAssistedApplicationInterview = onDocumentWritten(
-  { region: 'europe-west6', document: 'assisted_applications/{orderId}/inbox/{messageId}', memory: '512MiB', timeoutSeconds: 540 },
+  { region: 'europe-west6', document: 'assisted_applications/{orderId}/inbox/{messageId}', memory: '512MiB', timeoutSeconds: 540, retry: true },
   async (event) => {
     if (!isNewlyProcessedInterviewInvite(event.data?.before?.data(), event.data?.after?.data())) return;
     try {
@@ -2457,6 +2458,7 @@ export const prepareAssistedApplicationInterview = onDocumentWritten(
       console.log('[prepareAssistedApplicationInterview]', event.params.orderId, JSON.stringify(result));
     } catch (error) {
       console.error('[prepareAssistedApplicationInterview]', error instanceof Error ? error.message : String(error));
+      throw error;
     }
   },
 );

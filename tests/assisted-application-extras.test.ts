@@ -180,6 +180,25 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(codex).toHaveBeenCalledTimes(2);
   });
 
+  it('schedules the follow-ups once per submission: a replayed send keeps the ones already sent', async () => {
+    const store = followupStore();
+    const submission = { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 };
+    await scheduleFollowups(store.db, ORDER, submission);
+    const codex = vi.fn(async () => ({ body: GOOD_FOLLOWUP }));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+    const deps = { db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true };
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS });
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS + 13 * 60 * 60 * 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', sent: 1 });
+    const employerMails = sendCascade.mock.calls.filter(([items]: any) => items[0].payload.to[0] === 'hr@ospedale.ch').length;
+    // The runner replays the successful e-mail submission (the guard hands back its record).
+    expect(await scheduleFollowups(store.db, ORDER, submission)).toBe(followupDueAt(T0, 2));
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', sent: 1, dueAt: followupDueAt(T0, 2) });
+    // Nothing is sent again to the employer before day 14.
+    await runFollowupSweep({ ...deps, nowMs: T0 + 8 * DAY_MS });
+    expect(sendCascade.mock.calls.filter(([items]: any) => items[0].payload.to[0] === 'hr@ospedale.ch')).toHaveLength(employerMails);
+  });
+
   it('stops on any human reply of the employer, and on the candidate’s "don’t send"', async () => {
     const store = followupStore();
     await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'S', messageId: '', sentAt: T0 });
@@ -321,12 +340,59 @@ describe('interview prep (career-ops modes/interview-prep.md)', () => {
     }));
     const mails: any[] = [];
     const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{}] }; });
-    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm1', codex, sendCascade, nowMs: T0 })).toMatchObject({ ok: true, status: 'sent' });
-    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm2', codex, sendCascade, nowMs: T0 })).toMatchObject({ skipped: 'already_prepared' });
+    const on = async () => true;
+    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm1', codex, sendCascade, nowMs: T0, isEnabled: on })).toMatchObject({ ok: true, status: 'sent' });
+    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm2', codex, sendCascade, nowMs: T0, isEnabled: on })).toMatchObject({ skipped: 'already_prepared' });
     expect(codex).toHaveBeenCalledTimes(1);
     expect(mails[0].payload.to).toEqual(['maria.rossi@example.com']);
     expect(mails[0].payload.text).toContain('Mi parli di lei');
     expect(store.read(ORDER_PATH)).toMatchObject({ interviewPrep: { status: 'sent', questions: 1 } });
     expect(buildInterviewPrepEmail({ pack: { processNotes: [], likelyQuestions: [], stories: [], redFlagQuestions: [], checklist: [], questionsToAsk: [], salary: { advertised: '', script: '', hrQuestions: [] } }, locale: 'de', name: 'Maria', job: 'Pflege', company: 'Spital', jobUrl: '', orderId: ORDER }).subject).toContain('Spital');
+  });
+
+  it('prepares nothing while the automation flag is off for the order', async () => {
+    const store = followupStore();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const codex = vi.fn();
+    const sendCascade = vi.fn();
+    const isEnabled = vi.fn(async () => false);
+    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm1', codex, sendCascade, nowMs: T0, isEnabled })).toEqual({ ok: true, skipped: 'automation_off' });
+    expect(isEnabled).toHaveBeenCalledWith(ORDER);
+    expect(codex).not.toHaveBeenCalled();
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(ORDER_PATH)?.interviewPrep).toBeUndefined();
+  });
+
+  it('releases the claim when Codex or the send fails, so a retry sends exactly one pack', async () => {
+    const store = followupStore();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('m1').set({ receivedAt: T0, category: 'interview_invite', summaryCandidate: 'Colloquio', interviewWhen: '' });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const pack = {
+      processNotes: [], checklist: [], questionsToAsk: [], stories: [], redFlagQuestions: [],
+      likelyQuestions: [{ audience: 'recruiter', question: 'Mi parli di lei', why: '', suggestedAnswer: 'Ho seguito un reparto da 24 letti.' }],
+      salary: { advertised: '', script: '', hrQuestions: [] },
+    };
+    const on = async () => true;
+    const args = { db: store.db, orderId: ORDER, messageId: 'm1', nowMs: T0, isEnabled: on };
+    // Codex fails: thrown for the trigger's retry, claim released.
+    await expect(prepareInterviewPack({ ...args, codex: async () => { throw new Error('codex_down'); }, sendCascade: vi.fn() })).rejects.toThrow('codex_down');
+    expect(store.read(ORDER_PATH)?.interviewPrep).toMatchObject({ claimedAt: null, status: 'failed', attempts: 1, lastError: 'codex_down' });
+    // The send fails: same.
+    await expect(prepareInterviewPack({ ...args, codex: async () => pack, sendCascade: async () => ({ failed: [{ error: 'resend_down' }], sent: [] }) })).rejects.toThrow('send_failed');
+    expect(store.read(ORDER_PATH)?.interviewPrep).toMatchObject({ claimedAt: null, status: 'failed', attempts: 2 });
+    // The retry goes through: one pack, recorded as sent; then nothing more.
+    const mails: any[] = [];
+    const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{}] }; });
+    expect(await prepareInterviewPack({ ...args, codex: async () => pack, sendCascade })).toMatchObject({ ok: true, status: 'sent' });
+    expect(await prepareInterviewPack({ ...args, codex: async () => pack, sendCascade })).toMatchObject({ skipped: 'already_prepared' });
+    expect(mails).toHaveLength(1);
+    expect(store.read(ORDER_PATH)?.interviewPrep).toMatchObject({ status: 'sent', attempts: 3, lastError: null });
+
+    // Three failed attempts: it stops trying (no endless trigger retries).
+    const stuck = followupStore();
+    await stuck.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const failing = { db: stuck.db, orderId: ORDER, messageId: 'm1', nowMs: T0, isEnabled: on, codex: async () => { throw new Error('codex_down'); }, sendCascade: vi.fn() };
+    for (let attempt = 0; attempt < 3; attempt += 1) await expect(prepareInterviewPack(failing)).rejects.toThrow('codex_down');
+    expect(await prepareInterviewPack(failing)).toMatchObject({ skipped: 'already_prepared' });
   });
 });

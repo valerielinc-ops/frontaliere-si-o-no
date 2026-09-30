@@ -43,19 +43,36 @@ export function followupDueAt(submittedAt, n) {
  * The order mirrors the next due time (`followupDueAt`) for the sweep's query.
  */
 export async function scheduleFollowups(db, orderId, { to, subject, messageId, sentAt }) {
+  const ref = followupRefFor(db, orderId);
   const dueAt = followupDueAt(sentAt, 1);
-  await followupRefFor(db, orderId).set({
-    state: 'scheduled',
-    to: String(to || '').slice(0, 320),
-    subject: String(subject || '').slice(0, 300),
-    messageId: String(messageId || '').slice(0, 300),
-    submittedAt: sentAt,
-    sent: 0,
-    dueAt,
-    pending: null,
-    stopReason: null,
-    history: [{ at: sentAt, event: 'scheduled' }],
+  let created = false;
+  let existingDueAt = null;
+  // Once per submission: a replayed "sent" event (the submission guard hands
+  // back the record of the first send) keeps the follow-ups already running,
+  // their counter and history, and never schedules the first one again.
+  await db.runTransaction(async (transaction) => {
+    created = false;
+    existingDueAt = null;
+    const current = (await transaction.get(ref)).data();
+    if (current) {
+      existingDueAt = current.dueAt ?? null;
+      return;
+    }
+    transaction.set(ref, {
+      state: 'scheduled',
+      to: String(to || '').slice(0, 320),
+      subject: String(subject || '').slice(0, 300),
+      messageId: String(messageId || '').slice(0, 300),
+      submittedAt: sentAt,
+      sent: 0,
+      dueAt,
+      pending: null,
+      stopReason: null,
+      history: [{ at: sentAt, event: 'scheduled' }],
+    });
+    created = true;
   });
+  if (!created) return existingDueAt;
   await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).set({ followupDueAt: dueAt }, { merge: true });
   return dueAt;
 }

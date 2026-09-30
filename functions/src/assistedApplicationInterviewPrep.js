@@ -22,7 +22,7 @@
  */
 
 import { checkDraftFacts } from './assistedApplicationAiDraftCore.js';
-import { draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
+import { draftRefFor, isAutomationEnabledFor, orderRefFor } from './assistedApplicationAutomation.js';
 import {
   brandCallout,
   brandFinePrint,
@@ -311,21 +311,39 @@ export function isNewlyProcessedInterviewInvite(before, after) {
   return after?.status === 'processed' && before?.status !== 'processed' && after.category === 'interview_invite';
 }
 
+export const MAX_INTERVIEW_PREP_ATTEMPTS = 3;
+
 /**
  * The trigger's work: once per order (claimed in a transaction), Codex writes
- * the pack, the fact gate filters it, the candidate gets it by e-mail.
+ * the pack, the fact gate filters it, the candidate gets it by e-mail. Behind
+ * the automation flag of the order. A failure (Codex, the send) releases the
+ * claim and is thrown, so the trigger's retry prepares it again, up to
+ * MAX_INTERVIEW_PREP_ATTEMPTS times.
  */
-export async function prepareInterviewPack({ db, orderId, messageId, codex, sendCascade, nowMs = Date.now() }) {
+export async function prepareInterviewPack({ db, orderId, messageId, codex, sendCascade, nowMs = Date.now(), isEnabled = isAutomationEnabledFor }) {
+  if (!(await isEnabled(orderId))) return { ok: true, skipped: 'automation_off' };
   const orderRef = orderRefFor(db, orderId);
-  let claimed = false;
+  let claimed = null;
   await db.runTransaction(async (transaction) => {
-    claimed = false; // reset on every retry: a retry that finds the pack claimed must not prepare it again
+    claimed = null; // reset on every retry: a retry that finds the pack claimed must not prepare it again
     const snapshot = await transaction.get(orderRef);
-    if (!snapshot.exists || snapshot.data()?.interviewPrep?.claimedAt) return;
-    transaction.set(orderRef, { interviewPrep: { claimedAt: nowMs, messageId } }, { merge: true });
-    claimed = true;
+    const prep = snapshot.data()?.interviewPrep;
+    if (!snapshot.exists || prep?.claimedAt || Number(prep?.attempts || 0) >= MAX_INTERVIEW_PREP_ATTEMPTS) return;
+    const attempts = Number(prep?.attempts || 0) + 1;
+    transaction.set(orderRef, { interviewPrep: { claimedAt: nowMs, messageId, attempts } }, { merge: true });
+    claimed = { attempts };
   });
   if (!claimed) return { ok: true, skipped: 'already_prepared' };
+  try {
+    return await preparePack({ db, orderRef, orderId, messageId, codex, sendCascade, nowMs, attempts: claimed.attempts });
+  } catch (error) {
+    // Nothing reached the candidate: the claim is released for the retry.
+    await orderRef.set({ interviewPrep: { claimedAt: null, messageId, attempts: claimed.attempts, status: 'failed', lastError: String(error instanceof Error ? error.message : error).slice(0, 160) } }, { merge: true });
+    throw error;
+  }
+}
+
+async function preparePack({ db, orderRef, orderId, messageId, codex, sendCascade, nowMs, attempts }) {
 
   const [orderSnapshot, draftSnapshot, messageSnapshot, flowSnapshot] = await Promise.all([
     orderRef.get(),
@@ -339,7 +357,7 @@ export async function prepareInterviewPack({ db, orderId, messageId, codex, send
   const answers = flowSnapshot.data()?.answers || {};
   const to = customerEmailFor(order);
   if (!to || !draft.requirements) {
-    await orderRef.set({ interviewPrep: { claimedAt: nowMs, messageId, status: 'skipped', reason: to ? 'no_draft' : 'no_email' } }, { merge: true });
+    await orderRef.set({ interviewPrep: { claimedAt: nowMs, messageId, attempts, status: 'skipped', reason: to ? 'no_draft' : 'no_email' } }, { merge: true });
     return { ok: true, skipped: to ? 'no_draft' : 'no_email' };
   }
   const locale = resolveOrderLocale(order);
@@ -369,7 +387,7 @@ export async function prepareInterviewPack({ db, orderId, messageId, codex, send
     recipient: { email: to },
     meta: { orderId, key: 'interview_prep' },
   }], { delayMs: 0 });
-  const status = failed.length ? 'send_failed' : 'sent';
-  await orderRef.set({ interviewPrep: { claimedAt: nowMs, messageId, status, sentAt: failed.length ? null : Date.now(), dropped, questions: pack.likelyQuestions.length, stories: pack.stories.length } }, { merge: true });
-  return { ok: !failed.length, status, dropped };
+  if (failed.length) throw new Error(`send_failed: ${String(failed[0]?.error || '').slice(0, 80)}`);
+  await orderRef.set({ interviewPrep: { claimedAt: nowMs, messageId, attempts, status: 'sent', sentAt: Date.now(), lastError: null, dropped, questions: pack.likelyQuestions.length, stories: pack.stories.length } }, { merge: true });
+  return { ok: true, status: 'sent', dropped };
 }
