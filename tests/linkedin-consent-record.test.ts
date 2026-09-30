@@ -36,6 +36,23 @@ vi.mock('firebase-admin', () => {
 });
 vi.mock('firebase-admin/firestore', () => ({
   FieldValue: { serverTimestamp: () => '__ts__', delete: () => '__delete__' },
+  getFirestore: () => ({
+    collection: (name: string) => ({
+      doc: (id: string) => ({
+        get: async () => ({ exists: `${name}/${id}` in state.docs, data: () => state.docs[`${name}/${id}`] }),
+        set: async (data: Record<string, any>, options?: unknown) => {
+          state.sets.push({ path: `${name}/${id}`, data, options });
+          state.docs[`${name}/${id}`] = { ...(state.docs[`${name}/${id}`] || {}), ...data };
+        },
+        collection: (subcollection: string) => ({
+          add: async (data: Record<string, any>) => {
+            state.adds.push({ path: `${name}/${id}/${subcollection}`, data });
+            return { id: 'evt' };
+          },
+        }),
+      }),
+    }),
+  }),
 }));
 vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({ ensureAdminApp: vi.fn() }));
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));

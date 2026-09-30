@@ -358,11 +358,12 @@ async function writeJournalistAnalyticsBack(output) {
     }
     if (!itRowById.size) return;
 
-    const admin = (await import('firebase-admin')).default;
-    if (!admin.apps?.length) {
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (!getApps().length) {
+      initializeApp({ credential: applicationDefault() });
     }
-    const db = admin.firestore();
+    const db = getFirestore();
 
     const snap = await db.collection('journalist_articles').where('status', '==', 'published').get();
     const nowIso = new Date().toISOString();

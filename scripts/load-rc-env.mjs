@@ -501,7 +501,7 @@ export const RC_FETCH_TIMEOUT_MS = 30_000;
  * and a service-account-signed JWT (same technique as scripts/lib/indexing-api.mjs,
  * which is likewise dependency-free by design).
  *
- * Why this exists (issue #4837): `await import('firebase-admin')` needs an
+ * Why this exists (issue #4837): `await import('firebase-admin/app')` needs an
  * installed node_modules. The fast-publish path deliberately runs with NO
  * `npm ci` — a full dependency install is precisely the cost that workflow
  * exists to avoid — so on that path the admin import throws and, before this
@@ -576,11 +576,12 @@ async function main() {
   // 2. Init Firebase Admin (absent on no-install fast paths — see step 3)
   let admin = null;
   try {
-    const adminMod = await import('firebase-admin');
-    admin = adminMod.default || adminMod;
-    if (!admin.apps.length) {
-      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
+    const { getRemoteConfig } = await import('firebase-admin/remote-config');
+    if (!getApps().length) {
+      initializeApp({ credential: applicationDefault() });
     }
+    admin = { remoteConfig: getRemoteConfig };
   } catch (err) {
     console.warn(`ℹ️  Firebase Admin unavailable (${err.message}) — using the dependency-free REST path.`);
     admin = null;

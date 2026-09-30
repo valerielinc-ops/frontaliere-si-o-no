@@ -1,8 +1,10 @@
 #!/usr/bin/env node
-import admin from 'firebase-admin';
-if (!admin.apps?.length) admin.initializeApp({ credential: admin.credential.applicationDefault() });
-const db = admin.firestore();
-const auth = admin.auth();
+import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
+import { getAuth } from 'firebase-admin/auth';
+import { getFirestore } from 'firebase-admin/firestore';
+if (!getApps().length) initializeApp({ credential: applicationDefault() });
+const db = getFirestore();
+const auth = getAuth();
 
 const authUsers = [];
 let pageToken;

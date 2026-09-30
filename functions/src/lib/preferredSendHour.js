@@ -146,7 +146,7 @@ export function computePreferredSendHour(events, now = new Date()) {
  * wasteful.
  *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
- * @param {*} FieldValue admin.firestore.FieldValue
+ * @param {*} FieldValue FieldValue from firebase-admin/firestore
  * @returns {Promise<{ updated: boolean, hourUtc?: number|null, sampleCount?: number, strength?: number|null, churned?: boolean }>}
  */
 export async function refreshPreferredSendHour(subscriberRef, FieldValue) {

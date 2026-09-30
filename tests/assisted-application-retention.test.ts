@@ -75,8 +75,19 @@ vi.mock('firebase-admin', () => ({
 }));
 
 vi.mock('firebase-admin/firestore', () => ({
+  getFirestore: () => firestore(),
   Timestamp: firestore.Timestamp,
   FieldValue: firestore.FieldValue,
+}));
+
+vi.mock('firebase-admin/storage', () => ({
+  getStorage: () => ({
+    bucket: () => ({
+      file: (path: string) => ({
+        delete: (options: { ignoreNotFound: boolean }) => deleteFileMock(path, options),
+      }),
+    }),
+  }),
 }));
 
 async function load() {

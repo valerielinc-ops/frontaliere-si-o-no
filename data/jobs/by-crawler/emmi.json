@@ -3507,9 +3507,6 @@
         ]
       },
       "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 913,
-      "retranslationAttempts": 6,
       "firstSeenAt": "2026-07-21T23:21:56.587Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7982,8 +7979,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "emmi-9a1a8888da23",
@@ -8086,8 +8082,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

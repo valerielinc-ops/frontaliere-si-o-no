@@ -15,7 +15,6 @@
  * silently stop welcome emails from going out).
  */
 
-import admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
