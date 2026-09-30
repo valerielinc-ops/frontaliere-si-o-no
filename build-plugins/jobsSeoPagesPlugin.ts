@@ -12752,6 +12752,24 @@ ${staticAnalyticsHtml}
  de: 'Alle offenen Stellen im Tessin',
  fr: 'Toutes les offres d\'emploi au Tessin',
  };
+ // A locale-variant tracking key can point at a path claimed by an active
+ // previous-slug bridge without itself being present in bridgeSlugSet. Keep a
+ // compact copy of the archived fields for those paths before the large
+ // expired indexes are released below. If the active bridge later succeeds it
+ // overwrites this fallback; if it does not, the historical URL still gets the
+ // same useful archive content instead of a generic noindex tombstone.
+ type HistoricalArchiveFallback = {
+  title?: string;
+  company?: string;
+  location?: string;
+  canton?: string;
+  sector?: string;
+  contract?: string;
+  expiredAt?: string;
+  datePosted?: string;
+  description?: string;
+ };
+ const historicalArchiveFallbacks = new Map<string, HistoricalArchiveFallback>();
  const hashCode = (s: string) => {
  let h = 0;
  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) & 0x7fffffff;
@@ -13326,8 +13344,31 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  const relPath = paths[locale];
  if (!relPath) continue;
- // Skip paths claimed by bridge pages to avoid canonical conflicts
- if (bridgeClaimedPaths.has(relPath)) continue;
+ // Preserve a compact archive payload for locale-variant bridge paths. The
+ // normal previous-slug phase will replace this with the active job's full
+ // content when it has a readable canonical page; this snapshot is the
+ // lossless fallback for a historical URL whose active cache is unavailable.
+ if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(relPath)) {
+  const fallbackDescription = String(
+   ejData?.descriptionByLocale?.[locale]
+   || ejData?.descriptionByLocale?.it
+   || ejData?.description
+   || gscInfo?.descriptionByLocale?.[locale]
+   || gscInfo?.descriptionByLocale?.it
+   || '',
+  );
+  historicalArchiveFallbacks.set(relPath, {
+   title: String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || ''),
+   company: jobCompany,
+   location: jobLocation,
+   canton: jobCanton,
+   sector: jobSector,
+   contract: jobContract,
+   expiredAt: jobExpiredAt,
+   datePosted: jobDatePosted,
+   description: fallbackDescription,
+  });
+ }
  // Hoisted dedup pre-check: when a previous (most-recent) slug already
  // claimed this exact locale-prefixed path, skip BEFORE assembling
  // title / body / wc-robots / jsonld / shell. Run 26469566046 profiling
@@ -15148,12 +15189,133 @@ ${staticAnalyticsHtml}
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
- // or bridge pages gets a minimal redirect page pointing to the job listing.
- // This handles edge cases like locale-variant tracking keys that match a
- // currentSlug value but whose locale paths differ from the active job paths.
+ // or bridge pages gets a historical archive page. This handles edge cases
+ // like locale-variant tracking keys that match a currentSlug value but whose
+ // locale paths differ from the active job paths. Historical URLs stay 200 and
+ // self-canonical here; a later active bridge still wins when it has full
+ // current content.
  let healedCount = 0;
+ let historicalFallbackCount = 0;
+ let historicalArchiveCount = 0;
  let relocatedActiveCount = 0;
- for (const [, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {
+ const historicalArchiveCopy: Record<string, {
+  notice: string;
+  original: string;
+  details: string;
+  noDescription: string;
+  next: string;
+  nextBody: string;
+  cta: string;
+ }> = {
+  it: {
+   notice: 'Questa pagina storica conserva il contenuto disponibile dell\'annuncio originale. La posizione non è più attiva, ma l\'URL resta raggiungibile per chi arriva da un motore di ricerca o da un link salvato.',
+   original: 'Contenuto dell\'annuncio archiviato',
+   details: 'Dettagli storici',
+   noDescription: 'Il testo originale non è più disponibile nell\'archivio, ma conserviamo il riferimento della posizione, dell\'azienda e della località per non spezzare questo URL storico.',
+   next: 'Cerca opportunità aggiornate',
+   nextBody: 'Per trovare posizioni attive nella stessa area, consulta la job board aggiornata.',
+   cta: 'Vedi le offerte aggiornate',
+  },
+  en: {
+   notice: 'This historical page preserves the available content from the original listing. The position is no longer active, but the URL remains reachable for people arriving from search or a saved link.',
+   original: 'Archived listing content',
+   details: 'Historical details',
+   noDescription: 'The original text is no longer available in the archive, but we retain the role, employer and location reference so this historical URL remains useful.',
+   next: 'Find updated opportunities',
+   nextBody: 'To find active positions in the same area, browse the updated job board.',
+   cta: 'View updated listings',
+  },
+  de: {
+   notice: 'Diese historische Seite bewahrt die verfügbaren Inhalte des ursprünglichen Inserats. Die Stelle ist nicht mehr aktiv, aber die URL bleibt für Besucher aus Suchmaschinen oder gespeicherten Links erreichbar.',
+   original: 'Archivierter Inseratstext',
+   details: 'Historische Angaben',
+   noDescription: 'Der ursprüngliche Text ist im Archiv nicht mehr verfügbar. Angaben zu Position, Arbeitgeber und Ort bleiben jedoch erhalten, damit diese historische URL nützlich bleibt.',
+   next: 'Aktuelle Möglichkeiten finden',
+   nextBody: 'Für aktive Stellen in derselben Region besuchen Sie die aktualisierte Jobbörse.',
+   cta: 'Aktuelle Stellen ansehen',
+  },
+  fr: {
+   notice: 'Cette page historique conserve le contenu disponible de l\'annonce originale. Le poste n\'est plus actif, mais l\'URL reste accessible depuis un moteur de recherche ou un lien enregistré.',
+   original: 'Contenu de l\'annonce archivée',
+   details: 'Détails historiques',
+   noDescription: 'Le texte original n\'est plus disponible dans l\'archive, mais nous conservons la référence du poste, de l\'employeur et du lieu afin que cette URL historique reste utile.',
+   next: 'Trouver des opportunités à jour',
+   nextBody: 'Pour consulter les postes actifs dans la même région, ouvrez la job board mise à jour.',
+   cta: 'Voir les offres à jour',
+  },
+ };
+  const buildHistoricalArchiveHtml = (
+  slugKey: string,
+  relPath: string,
+  locale: CantonLocale,
+  archive?: HistoricalArchiveFallback,
+ ): string => {
+  const copy = historicalArchiveCopy[locale] || historicalArchiveCopy.it;
+  const slugInfo = extractInfoFromSlug(slugKey);
+  const titleRaw = stripLiteralMarkdownFromTitle(String(archive?.title || slugInfo.title || copy.original));
+  const company = String(archive?.company || slugInfo.company || '');
+  const location = String(archive?.location || slugInfo.location || '');
+  const canton = String(archive?.canton || sharedResolveJobCanton({ location }) || DEFAULT_CANTON);
+  const section = buildCantonAwareSection(locale, canton);
+  const listingPath = `${localePrefix[locale]}/${section}`.replace(/\/+/g, '/');
+  const historicalUrl = `${BASE_URL}${withSlash(relPath)}`;
+  const pageTitleRaw = composeSerpJobTitle(titleRaw, company, location, locale, {
+   measureLength: (s) => esc(s).length,
+  });
+  const pageTitle = esc(pageTitleRaw);
+  const description = stripLeadingSectionLabel(String(archive?.description || ''));
+  const descriptionHtml = description.length > 30 ? plainTextToHtml(description) : '';
+  const detailItems = [
+   company ? `<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Arbeitgeber' : 'Employeur'}:</strong> ${esc(company)}</li>` : '',
+   `<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(titleRaw)}</li>`,
+   location ? `<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(location)}</li>` : '',
+   archive?.sector ? `<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(archive.sector)}</li>` : '',
+   archive?.contract ? `<li><strong>${locale === 'it' ? 'Contratto' : locale === 'en' ? 'Contract' : locale === 'de' ? 'Vertrag' : 'Contrat'}:</strong> ${esc(archive.contract)}</li>` : '',
+   archive?.datePosted ? `<li><strong>${locale === 'it' ? 'Pubblicata' : locale === 'en' ? 'Posted' : locale === 'de' ? 'Veröffentlicht' : 'Publiée'}:</strong> ${esc(archive.datePosted.slice(0, 10))}</li>` : '',
+   archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
+  ].filter(Boolean).join('');
+  const staticBody = [
+   `<h1>${esc(titleRaw)}${company ? ` — ${esc(company)}` : ''}</h1>`,
+   `<p><strong>${copy.notice}</strong></p>`,
+   descriptionHtml
+    ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`
+    : `<section><h2>${copy.original}</h2><p>${copy.noDescription}</p></section>`,
+   `<section><h2>${copy.details}</h2><ul>${detailItems}</ul></section>`,
+   `<section><h2>${copy.next}</h2><p>${copy.nextBody} <a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
+   `<p><small>Historical slug: <code>${esc(slugKey)}</code></small></p>`,
+  ].join('\n');
+  const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${copy.notice}`);
+  const expiredPayload = inlineScriptJson({
+   slug: slugKey,
+   title: titleRaw,
+   company,
+   location,
+   descriptionByLocale: description ? { [locale]: description } : undefined,
+   expiredAt: archive?.expiredAt,
+  });
+  const breadcrumb = inlineScriptJson({
+   '@context': 'https://schema.org',
+   '@type': 'BreadcrumbList',
+   itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: `${BASE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, canton), item: `${BASE_URL}${withSlash(listingPath)}` },
+    { '@type': 'ListItem', position: 3, name: titleRaw },
+   ],
+  });
+  return buildSoftLandingHtml(
+   locale,
+   pageTitle,
+   pageDescription,
+   ROBOTS_INDEX_ENHANCED,
+   historicalUrl,
+   '',
+   `<script type="application/ld+json">${breadcrumb}</script>`,
+   expiredPayload,
+   staticBody,
+   '',
+  );
+ };
+ for (const [slug, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {
  for (const locale of localeList) {
  const relPath = paths?.[locale];
  if (!relPath) continue;
@@ -15215,26 +15377,11 @@ ${staticAnalyticsHtml}
  continue;
  }
 
- const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/');
- const listingUrl = `${BASE_URL}${withSlash(listingPath)}`;
- const localeCopy = {
- it: { title: 'Offerta di lavoro aggiornata', body: 'Questa posizione è stata aggiornata o rimossa. Consulta le offerte disponibili.', cta: 'Vedi tutte le offerte' },
- en: { title: 'Job listing updated', body: 'This position has been updated or removed. Browse available listings.', cta: 'View all listings' },
- de: { title: 'Stellenangebot aktualisiert', body: 'Diese Stelle wurde aktualisiert oder entfernt. Durchsuchen Sie die verfügbaren Angebote.', cta: 'Alle Angebote ansehen' },
- fr: { title: 'Offre d\'emploi mise à jour', body: 'Cette offre a été mise à jour ou supprimée. Consultez les offres disponibles.', cta: 'Voir toutes les offres' },
- };
- const copy = localeCopy[locale] ?? localeCopy.it;
- const html = buildCanonicalBridgePage({
- canonicalUrl: listingUrl,
- pathLabel: listingPath,
- title: `${copy.title} | Frontaliere Ticino`,
- description: copy.body,
- body: copy.body,
- ctaLabel: copy.cta,
- lang: locale,
- noindex: true,
- });
+ const archive = historicalArchiveFallbacks.get(relPath);
+ const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive);
  writeSoftLandingPage(relPath.replace(/^\//, ''), html);
+ if (archive) historicalArchiveCount++;
+ historicalFallbackCount++;
  healedCount++;
  recordEmit('self-healing', __tSelfHealing);
  }
@@ -15243,7 +15390,7 @@ ${staticAnalyticsHtml}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Relocated ${relocatedActiveCount} active cross-canton drift URLs to their live canonical page (no orphan tombstone)`);
  }
  if (healedCount > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Self-healed ${healedCount} tracking paths with no prior coverage`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Preserved ${historicalFallbackCount} historical tracking paths with full archive pages (${historicalArchiveCount} reused archived payloads)`);
  }
  // #6134: issue #5864 (run 31798646143) e' morta "right after the self-heal
  // log line" senza un [mem] a dire con quanto heap ci era arrivata. Chiude
@@ -15251,6 +15398,8 @@ ${staticAnalyticsHtml}
  // solo flush + sitemap patch + report.
  logBuildMem('jobsSeoPages: after-self-heal', collector, jobsSeoMemDetails({
   healedCount,
+  historicalFallbackCount,
+  historicalArchiveCount,
   relocatedActiveCount,
  }));
 
@@ -15260,6 +15409,7 @@ ${staticAnalyticsHtml}
  for (const key of Object.keys(tracking)) delete tracking[key];
  _writtenPaths.clear();
  activeJobDirs.clear();
+ historicalArchiveFallbacks.clear();
 
  /* ── Flush all buffered writes in parallel batches ── */
  const t0 = Date.now();
