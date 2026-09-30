@@ -40,7 +40,11 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { addPreviousSlugForLocale, detectLang } from './dedicated-crawler-common.mjs';
+import {
+  addPreviousSlugForLocale,
+  detectLang,
+  promotePreviousSlugToLegacy,
+} from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
@@ -228,7 +232,6 @@ function primaryOrder(a = {}, b = {}) {
 function addLiebherrRedirect(job, locale, slug, metrics) {
   const value = String(slug || '').trim();
   if (!value) return;
-  if (!locale) return;
   const current = new Set([
     job?.slug,
     ...Object.values(job?.slugByLocale || {}),
@@ -239,12 +242,20 @@ function addLiebherrRedirect(job, locale, slug, metrics) {
     job.previousSlugs?.includes(value)
     || Object.values(job.previousSlugsByLocale || {}).some((aliases) => Array.isArray(aliases) && aliases.includes(value)),
   );
+  const legacyKnown = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(value);
+  if (!locale) {
+    if (legacyKnown) return false;
+    const added = promotePreviousSlugToLegacy(job, value, undefined, 'liebherr-variant-merge');
+    if (added && !alreadyKnown && metrics) metrics.redirectsCreated += 1;
+    return added;
+  }
   const localeAliases = Array.isArray(job.previousSlugsByLocale?.[locale])
     ? job.previousSlugsByLocale[locale]
     : [];
   const added = !localeAliases.includes(value) || !job.previousSlugs?.includes(value);
   addPreviousSlugForLocale(job, locale, value, undefined, 'liebherr-variant-merge');
   if (added && !alreadyKnown && metrics) metrics.redirectsCreated += 1;
+  return added;
 }
 
 function mergeLiebherrVariantPair(primary, secondary, metrics, { legacy = false } = {}) {
