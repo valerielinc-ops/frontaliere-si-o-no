@@ -51,14 +51,31 @@ export class AutomationAdminError extends Error {
 
 /** Flow + draft as the owner queue shows them (no raw CV text). */
 export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
-  const [flowSnapshot, draftSnapshot] = await Promise.all([flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get()]);
+  const [flowSnapshot, draftSnapshot, inboxSnapshot] = await Promise.all([
+    flowRefFor(db, orderId).get(),
+    draftRefFor(db, orderId).get(),
+    orderRefFor(db, orderId).collection('inbox').get(),
+  ]);
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
-  if (!flow && !draft) return null;
+  const inbox = (inboxSnapshot.docs || []).map((doc) => doc.data() || {})
+    .sort((left, right) => Number(right.receivedAt || 0) - Number(left.receivedAt || 0))
+    .slice(0, 10)
+    .map((item) => ({
+      receivedAt: item.receivedAt || null,
+      from: item.from || '',
+      subject: item.subject || '',
+      category: item.category || 'other',
+      summaryIt: item.summaryIt || '',
+      interviewWhen: item.interviewWhen || '',
+      forwarded: item.forwarded?.status || null,
+    }));
+  if (!flow && !draft && !inbox.length) return null;
   const letterUrl = draft?.coverLetterPdfKey && signUrl && isAssistedApplicationCvKey(orderId, draft.coverLetterPdfKey)
     ? await signUrl(draft.coverLetterPdfKey).catch(() => null)
     : null;
   return {
+    inbox,
     flow: flow ? {
       state: flow.state || null,
       round: Number(flow.round) || 1,
