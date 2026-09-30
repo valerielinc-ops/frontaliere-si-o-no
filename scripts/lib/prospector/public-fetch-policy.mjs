@@ -396,9 +396,11 @@ export async function fetchFollowingValidatedRedirectsWithUrl(url, {
       // each other's Agent instances. Keep the caller's fetch (including test
       // doubles) as the first choice, but retry this one compatibility error
       // with the same Undici copy that created the policy Agent.
+      const dispatcherErrorMessages = [error?.message, error?.cause?.message, error?.cause?.cause?.message]
+        .filter((message) => typeof message === 'string');
       if (fetchImpl === globalThis.fetch
         && requestOptionsForHop.dispatcher
-        && error?.message === 'invalid onRequestStart method') {
+        && dispatcherErrorMessages.some((message) => message.includes('invalid onRequestStart method'))) {
         res = await undiciFetch(current, requestOptionsForHop);
       } else {
         throw error;
