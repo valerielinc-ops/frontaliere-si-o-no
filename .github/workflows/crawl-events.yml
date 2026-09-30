@@ -128,7 +128,10 @@ jobs:
                   git restore --source="refs/remotes/origin/${EVENTS_REFRESH_BRANCH}" -- "$path"
                   ;;
               esac
-            done < <(git diff --name-only --diff-filter=ACMRT "origin/main...refs/remotes/origin/${EVENTS_REFRESH_BRANCH}")
+            # Use a two-tree diff: the checkout is shallow, so the merge-base
+            # required by `...` may not be present when the stable branch was
+            # created by an earlier run.
+            done < <(git diff --name-only --diff-filter=ACMRT origin/main "refs/remotes/origin/${EVENTS_REFRESH_BRANCH}")
           else
             git checkout -B "${EVENTS_REFRESH_BRANCH}" origin/main
             echo "No pending ${EVENTS_REFRESH_BRANCH} branch; starting from origin/main."
