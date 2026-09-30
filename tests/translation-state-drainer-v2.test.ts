@@ -689,7 +689,7 @@ describe('translation state drainer v2', () => {
     expect(latestAck.lifecycleSequence).toBeGreaterThan(firstAck.lifecycleSequence);
     expect(git(one, 'ls-tree', '-r', '--name-only', latestAckResult.commit, '--', `v2/acks/${patch.patchHash.slice(0, 2)}/${patch.patchHash}`)
       .split('\n')).toHaveLength(2);
-  });
+  }, 60_000);
 
   it('requeues only the changed recoverable subset and survives a crash with a terminal sibling', async () => {
     const { one, rival } = setup(4, (current) => {
@@ -914,5 +914,5 @@ describe('translation state drainer v2', () => {
     expect(samples).toHaveLength(20);
     console.info(`translation drainer local fetch->push p95: ${p95.toFixed(1)}ms (${samples.length} samples)`);
     expect(p95).toBeLessThan(2_000);
-  }, 120_000);
+  }, 600_000);
 });

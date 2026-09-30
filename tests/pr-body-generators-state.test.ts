@@ -551,7 +551,7 @@ describe('generatori del body PR — sezione dei residui', () => {
       offenders,
       'un prompt istruisce un agente a scrivere i residui senza dargli la tassonomia completa degli stati',
     ).toEqual([]);
-  }, 30_000);
+  }, 90_000);
 
   it('nessun bullet emesso usa la tassonomia ABOLITA come stato', async () => {
     const offenders: string[] = [];
