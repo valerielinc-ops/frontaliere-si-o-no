@@ -42,8 +42,11 @@ describe('candidate edits', () => {
     expect(edited.profile).toMatchObject({ location: 'Varese', languages: [{ language: 'Italiano C2', level: '' }, { language: 'Tedesco B2', level: '' }] });
     expect(edited.answers).toEqual({ salary_expectation: 'CHF 80k' });
     expect(edited.overrides).not.toHaveProperty('unknown');
-    // A question's answer wins over the field.
-    expect(candidateWithEdits({ order, draft: draft(), flow: { ...flow, answers: { salary_expectation: 'CHF 90k' } } }).answers.salary_expectation).toBe('CHF 90k');
+    // A correction replaces an older answer; a question the draft asks again wins over it.
+    const stale = { answers: { work_permit: 'old', availability: 'old', salary_expectation: 'old' }, formOverrides: { workPermit: 'new', availability: 'soon', salary: '90000' } };
+    expect(candidateWithEdits({ order, draft: draft(), flow: stale }).answers).toEqual({ work_permit: 'new', availability: 'soon', salary_expectation: '90000' });
+    const asking = draft({ questions: [{ id: 'salary_expectation', question: 'Pretese?', type: 'text', required: true }] });
+    expect(candidateWithEdits({ order, draft: asking, flow: { ...flow, answers: { salary_expectation: 'CHF 90k' } } }).answers.salary_expectation).toBe('CHF 90k');
     const fields = Object.fromEntries(formAnswersWithEdits({ order, draft: draft(), flow }).map((field) => [field.key, field.value]));
     expect(fields).toMatchObject({ firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese', salary: 'CHF 80k', motivationShort: 'Mi motiva il reparto.' });
   });
@@ -116,5 +119,10 @@ describe('candidate edits', () => {
       body: 'Buongiorno, allego la mia candidatura.\n\nMaria Rossi\nmaria.rossi.k7p2@candidature.frontaliereticino.ch\n+41 91 000 00 00',
     });
     expect(plan({ emailSubject: 'x', emailBody: 'corto' }, email).errors).toEqual({ emailSubject: 'Il testo è troppo corto.', emailBody: 'Il testo è troppo corto.' });
+
+    // A rewritten body and a new name in the same save: the new signature still closes the e-mail.
+    const rewritten = plan({ emailBody: 'Buongiorno, vi scrivo per il posto di infermiera in reparto.', fields: { firstName: 'Maria Luisa', phone: '+41 91 000 00 00' } }, email);
+    expect(rewritten.errors).toEqual({});
+    expect(rewritten.draftPatch.applicationEmail.body).toBe('Buongiorno, vi scrivo per il posto di infermiera in reparto.\n\nMaria Luisa Rossi\nmaria.rossi.k7p2@candidature.frontaliereticino.ch\n+41 91 000 00 00');
   });
 });

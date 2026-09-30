@@ -135,8 +135,8 @@ function splitLanguages(text) {
 
 /**
  * The candidate as the application uses them: the order and the CV, then what
- * the candidate changed. A question's answer still wins over a field (permit,
- * availability, salary).
+ * the candidate changed. A corrected permit, availability or salary replaces
+ * an older answer; only a question the current draft asks again wins over it.
  * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object, answers:object, overrides:object}}
  */
 export function candidateWithEdits({ order, draft, flow }) {
@@ -159,7 +159,10 @@ export function candidateWithEdits({ order, draft, flow }) {
   if (has(overrides, 'workPermit')) profile.workPermit = overrides.workPermit;
   if (has(overrides, 'availability')) profile.availability = overrides.availability;
   const answers = { ...(flow?.answers || {}) };
-  if (has(overrides, 'salary') && !String(answers.salary_expectation ?? '').trim()) answers.salary_expectation = overrides.salary;
+  const asked = new Set((draft?.questions || []).map((question) => question.id));
+  for (const [key, spec] of Object.entries(EDITABLE_FIELDS)) {
+    if (spec.answerId && has(overrides, key) && !asked.has(spec.answerId)) answers[spec.answerId] = overrides[key];
+  }
   return { identity, profile, answers, overrides };
 }
 
@@ -303,13 +306,17 @@ export function planCandidateEdits(raw, { order, draft, flow, locale = 'it' }) {
         else { email.body = body; emailChanged = true; written.push(body); }
       }
     }
-    // A new name or phone also updates the signature we wrote under the e-mail.
+    // A new name or phone also updates the signature we wrote under the
+    // e-mail: found in the e-mail as drafted, written under the e-mail as
+    // saved, so a rewritten body never leaves without the contact details.
     const before = candidateWithEdits({ order, draft, flow }).identity;
     const after = candidateWithEdits({ order, draft, flow: { ...flow, formOverrides: { ...(flow?.formOverrides || {}), ...overrides } } }).identity;
     const oldSignature = signatureOf(before);
     const newSignature = signatureOf(after);
-    if (oldSignature !== newSignature && oldSignature && String(email.body || '').endsWith(oldSignature)) {
-      email.body = `${email.body.slice(0, -oldSignature.length)}${newSignature}`;
+    if (oldSignature !== newSignature && oldSignature && String(draft.applicationEmail?.body || '').endsWith(oldSignature)) {
+      const body = String(email.body || '');
+      if (body.endsWith(oldSignature)) email.body = `${body.slice(0, -oldSignature.length)}${newSignature}`;
+      else if (!body.endsWith(newSignature)) email.body = `${body.replace(/\s+$/, '')}\n\n${newSignature}`;
       emailChanged = true;
     }
     if (emailChanged) {
