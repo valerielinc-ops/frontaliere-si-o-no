@@ -138,6 +138,15 @@ const FIXTURE_AUTHORITATIVE_EMPTY_FORM = `<!DOCTYPE html>
   </form>
 </body></html>`;
 
+const FIXTURE_AUTHORITATIVE_EMPTY_MESSAGE = `<!DOCTYPE html>
+<html><body>
+  <h1>Candidatura per un concorso pubblicato</h1>
+  <p>Al momento non ci sono concorsi aperti.</p>
+  <form>
+    <select id="concorso" name="concorso"><option value="">—</option></select>
+  </form>
+</body></html>`;
+
 // ─── buildFartDescription — regression case ──────────────────────────────
 
 describe('buildFartDescription — Addetto al Reparto Verifica regression', () => {
@@ -275,6 +284,14 @@ describe('parseFartListingState', () => {
   it('proves the current FART empty form only when its dropdown has no vacancy', () => {
     expect(isFartAuthoritativeEmptySnapshot(FIXTURE_AUTHORITATIVE_EMPTY_FORM)).toBe(true);
     expect(parseFartListingState(FIXTURE_AUTHORITATIVE_EMPTY_FORM)).toMatchObject({
+      state: 'empty',
+      jobs: [],
+    });
+  });
+
+  it('recognizes the current explicit no-vacancy message without relying on the select label', () => {
+    expect(isFartAuthoritativeEmptySnapshot(FIXTURE_AUTHORITATIVE_EMPTY_MESSAGE)).toBe(true);
+    expect(parseFartListingState(FIXTURE_AUTHORITATIVE_EMPTY_MESSAGE)).toMatchObject({
       state: 'empty',
       jobs: [],
     });
