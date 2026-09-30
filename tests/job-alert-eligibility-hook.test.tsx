@@ -16,7 +16,7 @@ vi.mock('@/services/jobAlertEligibility', async (importOriginal) => {
 });
 
 const getEligibilityMock = vi.mocked(getJobAlertEligibility);
-const surfaces: JobAlertEligibilitySurface[] = ['sticky_banner', 'end_card', 'job_detail_button'];
+const surfaces: JobAlertEligibilitySurface[] = ['sticky_banner', 'end_card', 'job_detail_button', 'inline_card'];
 
 describe('useJobAlertEligibility', () => {
   beforeEach(() => {

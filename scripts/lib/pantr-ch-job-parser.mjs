@@ -12,8 +12,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
@@ -22,6 +22,7 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 export const PANTR_CH_KEY = 'pantr-ch';
 export const PANTR_CH_COMPANY_NAME = 'Pantr GmbH';
 export const PANTR_CH_COMPANY_DOMAIN = 'pantr.ch';
+export const PANTR_CH_SECTOR = 'Finanza / Revisione contabile e servizi fiduciari';
 
 const CAREER_URL = 'https://pantr.ch/jobs/';
 
@@ -81,7 +82,7 @@ function detectCategory(title = '') {
   if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
   if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(it\b|software\b|develop|programm)/.test(t)) return 'IT';
   if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
   if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
   if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
@@ -92,8 +93,8 @@ function detectCategory(title = '') {
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
   if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  if (/\b(junior\b|jr\b)/.test(t)) return 'junior';
+  if (/\b(senior\b|sr\b|lead\b|head\b|director\b|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
 }
 
@@ -111,6 +112,80 @@ function detectEmploymentType(text = '') {
 async function fetchJobListings() {
   const spec = loadSpec(PANTR_CH_KEY);
   return runSpecInProduction(spec);
+}
+
+/** Build one valid source-locale job from a Pantr listing without fetching. */
+export function buildPantrChJobFromListing(listing) {
+  if (!listing || typeof listing !== 'object') return null;
+
+  const title = normalizeSpace(listing.title || '');
+  if (!title || title.length < 3) return null;
+
+  const geography = resolveSourceBackedSwissGeography(listing);
+  // Required structured-data geography must come from the vacancy source.
+  // Missing, foreign or non-specific values are not replaced with an HQ.
+  if (!geography) return null;
+  const { location, canton } = geography;
+  const descriptionHtml = listing.description || '';
+  const descriptionText = stripHtml(descriptionHtml);
+  if (!descriptionText) return null;
+  // The detail URL is the vacancy identity: falling back to the listing page
+  // would give every posting the same `url`, `applyUrl` and `id` hash.
+  const publicUrl = String(listing.url || '').trim();
+  if (!publicUrl) return null;
+  const employmentType = detectEmploymentType(listing.timeType || title);
+
+  const sourceLang = detectLang(descriptionText || title, 'de');
+  const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+  const jobSlug = buildCanonicalSlug(title, PANTR_CH_COMPANY_NAME, location, urlHash);
+
+  return {
+    // ── Required fields ──
+    id: `pantr-ch-${urlHash}`,
+    slug: jobSlug,
+    slugByLocale: { [sourceLang]: jobSlug },
+    slugDisambiguator: urlHash,
+    company: PANTR_CH_COMPANY_NAME,
+    companyKey: PANTR_CH_KEY,
+    companyDomain: PANTR_CH_COMPANY_DOMAIN,
+    title,
+    titleByLocale: { [sourceLang]: title },
+    description: descriptionText,
+    descriptionByLocale: { [sourceLang]: descriptionText },
+    location,
+    canton,
+    url: publicUrl,
+    source: 'Pantr GmbH Dedicated Parser',
+    sourceLang,
+    crawledAt: new Date().toISOString(),
+
+    // ── Recommended fields ──
+    // Prospected runtime rows retain the selected structured candidate;
+    // other ATS tiers use the same fields when their client exposes them.
+    addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+    addressRegion: normalizeSpace(listing.addressRegion || canton),
+    addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+    country: normalizeSpace(listing.addressCountry || 'CH'),
+    ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+    ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+    category: detectCategory(title),
+    contract: employmentType === 'PART_TIME'
+      ? 'part-time'
+      : employmentType === 'FULL_TIME' ? 'full-time' : 'other',
+    employmentType,
+    experienceLevel: detectExperienceLevel(title),
+    // The promoted Pantr sample is consistently audit, tax and fiduciary work;
+    // use that evidence-backed sector instead of dropping these jobs into Altro.
+    sector: PANTR_CH_SECTOR,
+    currency: 'CHF',
+    featured: false,
+    // Preserve the source date; the shared merge assigns a stable first-seen
+    // date when the source does not publish one.
+    postedDate: listing.postedAt || null,
+    applyUrl: publicUrl,
+    requirements: [],
+    requirementsByLocale: { [sourceLang]: [] },
+  };
 }
 
 /**
@@ -131,80 +206,7 @@ export async function fetchAllPantrChJobs() {
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
-
-  const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
-
-    const geography = resolveSourceBackedSwissGeography(listing);
-    // Required structured-data geography must come from the vacancy source.
-    // Missing, foreign or non-specific values are not replaced with an HQ.
-    if (!geography) continue;
-    const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
-    // The detail URL is the vacancy identity: falling back to the listing page
-    // would give every posting the same `url`, `applyUrl` and `id` hash.
-    if (!listing.url) continue;
-    const publicUrl = listing.url;
-    const employmentType = detectEmploymentType(listing.timeType || title);
-
-    const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} ${location} pantr-ch ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const job = {
-      // ── Required fields ──
-      id: `pantr-ch-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
-      company: PANTR_CH_COMPANY_NAME,
-      companyKey: PANTR_CH_KEY,
-      companyDomain: PANTR_CH_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
-      location,
-      canton,
-      url: publicUrl,
-      source: 'Pantr GmbH Dedicated Parser',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
-
-      // ── Recommended fields ──
-      // Prospected runtime rows retain the selected structured candidate;
-      // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
-      category: detectCategory(title),
-      contract: employmentType === 'PART_TIME'
-        ? 'part-time'
-        : employmentType === 'FULL_TIME' ? 'full-time' : 'other',
-      employmentType,
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Altro', // TODO: Set appropriate sector
-      currency: 'CHF',
-      featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
-      applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
-  }
-
+  const jobs = listings.map(buildPantrChJobFromListing).filter(Boolean);
   console.log(`\n📋 Total Pantr GmbH jobs discovered: ${jobs.length}`);
   return jobs;
 }

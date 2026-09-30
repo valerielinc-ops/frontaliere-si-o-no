@@ -17,6 +17,7 @@ import {
   isSystemicBoilerplateFailure,
 } from '../assemble-jobs-dataset.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
 import { sourceBodyForJob } from './stored-source-body.mjs';
 
 /**
@@ -27,10 +28,15 @@ import { sourceBodyForJob } from './stored-source-body.mjs';
  *   companyLabel: string,
  *   write: (jobs: object[], options?: { housekeepingProof?: object[] }) => (unknown|Promise<unknown>),
  *   assemble?: () => (unknown|Promise<unknown>),
+ *   sourceBodyFailureJobs?: object[],
+ *   sourceBodyFailureKeyOf?: (job: object) => string,
  * }} options `prepare` repairs the stored jobs in place or returns a
  *   replacement array (the `prepareExistingJobs` contract); `write` persists
  *   the crawler's slice, with the same writer the crawler uses on a normal run;
- *   `assemble` rebuilds the assembled dataset after a successful rewrite.
+ *   `assemble` rebuilds the assembled dataset after a successful rewrite;
+ *   `sourceBodyFailureJobs` identifies stored rows whose fresh PDF/source
+ *   extraction failed, so their removal is recorded as an operational failure
+ *   rather than a thin-source quarantine.
  * @returns {Promise<boolean>} true when the slice was rewritten.
  */
 export async function rewritePreparedStoredJobs({
@@ -40,12 +46,21 @@ export async function rewritePreparedStoredJobs({
   companyLabel,
   write,
   assemble,
+  sourceBodyFailureJobs = [],
+  sourceBodyFailureKeyOf = (job) => job?.url,
 }) {
   if (typeof prepare !== 'function' || !Array.isArray(storedJobs) || storedJobs.length === 0) return false;
   const before = JSON.stringify(storedJobs);
   const prepared = prepare(storedJobs) || storedJobs;
   const publishable = prepared.filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)));
   const quarantined = prepared.filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)));
+  const sourceFailureKeys = new Set(
+    (Array.isArray(sourceBodyFailureJobs) ? sourceBodyFailureJobs : [])
+      .map(sourceBodyFailureKeyOf)
+      .filter(Boolean),
+  );
+  const failedRows = quarantined.filter((job) => sourceFailureKeys.has(sourceBodyFailureKeyOf(job)));
+  const thinRows = quarantined.filter((job) => !sourceFailureKeys.has(sourceBodyFailureKeyOf(job)));
   const preparedChanged = JSON.stringify(prepared) !== before;
   if (!preparedChanged && quarantined.length === 0) return false;
 
@@ -56,19 +71,30 @@ export async function rewritePreparedStoredJobs({
     );
     return false;
   }
-  const quarantineCount = quarantined.length;
-  if (quarantineCount > 0) {
+  if (failedRows.length > 0) {
     console.warn(
-      `  ⚠️ ${companyLabel}: quarantining ${quarantineCount} stored job(s) without a source body of at least 50 words (thin-source path).`,
+      `  ⚠️ ${companyLabel}: ${failedRows.length} stored job(s) have a failed source/PDF extraction; they are not thin-source quarantine(s).`,
     );
   }
-  const housekeepingProof = quarantined.map((job) => ({
-    job,
-    reason: 'thin-source-quarantine',
-    definitive: true,
-  }));
+  if (thinRows.length > 0) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: quarantining ${thinRows.length} stored job(s) without a source body of at least 50 words (thin-source path).`,
+    );
+  }
+  const housekeepingProof = [
+    ...thinRows.map((job) => ({
+      job,
+      reason: 'thin-source-quarantine',
+      definitive: true,
+    })),
+    ...failedRows.map((job) => ({
+      job,
+      reason: SOURCE_BODY_FAILURE_REASON,
+      definitive: true,
+    })),
+  ];
   try {
-    await write(publishable, quarantineCount > 0 ? { housekeepingProof } : {});
+    await write(publishable, housekeepingProof.length > 0 ? { housekeepingProof } : {});
   } catch (err) {
     console.warn(
       `  ⚠️ ${companyLabel}: rewrite of the stored jobs failed (${err?.message || err}); keeping the prior slice.`,
@@ -76,6 +102,6 @@ export async function rewritePreparedStoredJobs({
     return false;
   }
   if (typeof assemble === 'function') await assemble();
-  console.log(`  🧹 ${companyLabel}: stored slice rewritten without the crawler's own text (${publishable.length} job(s), ${quarantineCount} thin-source quarantine(s)).`);
+  console.log(`  🧹 ${companyLabel}: stored slice rewritten without the crawler's own text (${publishable.length} job(s), ${thinRows.length} thin-source quarantine(s), ${failedRows.length} source extraction failure(s)).`);
   return true;
 }

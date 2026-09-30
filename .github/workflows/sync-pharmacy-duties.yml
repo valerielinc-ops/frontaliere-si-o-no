@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 # NO top-level `concurrency` here, deliberately. This workflow only calls the
 # reusable sync-pharmacies-border.yml, which declares
@@ -36,5 +37,6 @@ jobs:
   sync:
     permissions:
       contents: write
+      pull-requests: write
     uses: ./.github/workflows/sync-pharmacies-border.yml
     secrets: inherit

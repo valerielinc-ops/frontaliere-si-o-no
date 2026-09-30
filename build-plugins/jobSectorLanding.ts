@@ -950,7 +950,7 @@ export function buildSectorHubSeo(
           count: safeCount > 0 ? safeCount : undefined,
         });
       }
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = (() => {
         if (sector === 'case-anziani') {
           return safeCount > 0
@@ -1019,7 +1019,7 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Browse ${safeCount} ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`
         : `Browse ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`;
@@ -1054,7 +1054,7 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Entdecke ${safeCount} Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`
         : `Entdecke Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`;
@@ -1089,7 +1089,7 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Parcourez ${safeCount} offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`
         : `Parcourez les offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`;

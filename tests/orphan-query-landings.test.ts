@@ -23,6 +23,7 @@ import { SKIP_LIVE_DATA } from './helpers/live-data';
 import {
   buildOrphanLandingHubPath,
   buildOrphanLandingHubUrl,
+  buildNursingOrphanCanonicalBridge,
   renderOrphanLandingHubHreflang,
 } from '../build-plugins/orphanQueryLandingPlugin';
 
@@ -40,6 +41,11 @@ import {
   type OrphanQueryCluster,
   type OrphanCountableJob,
 } from '../build-plugins/orphanQueryData';
+import {
+  buildNursingLandingPath,
+  resolveNursingOrphanQueryTarget,
+} from '../build-plugins/nursingLandingsData';
+import { detectLocale, tokenize } from '../scripts/lib/query-tokenizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -144,6 +150,31 @@ describe('orphanQueryData — path helpers', () => {
     expect(routes).toHaveLength(2);
     expect(routes[0].path).toBe('/ricerca/chauffeur-jobs/');
     expect(routes[1].path).toBe('/de/suche/chauffeur-jobs/');
+  });
+});
+
+describe('nursing orphan-query alignment', () => {
+  it('classifies the shared "jobs" English query as EN from its nursing signal', () => {
+    const tokens = tokenize('nursing jobs');
+    expect(detectLocale(tokens)).toBe('en');
+  });
+
+  it('resolves the historical orphan cluster to the existing EN nursing landing', () => {
+    const target = resolveNursingOrphanQueryTarget('nursing jobs', 'nursing-jobs');
+    expect(target).toEqual({
+      locale: 'en',
+      id: 'nurses',
+      path: buildNursingLandingPath('en', 'nurses'),
+    });
+  });
+
+  it('emits a noindex canonical bridge instead of a second nursing landing', () => {
+    const target = resolveNursingOrphanQueryTarget('nursing jobs', 'nursing-jobs');
+    expect(target).not.toBeNull();
+    const html = buildNursingOrphanCanonicalBridge(target!);
+    expect(html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/en/nursing-jobs-switzerland/">');
+    expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/en/nursing-jobs-switzerland/"');
   });
 });
 

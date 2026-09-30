@@ -690,8 +690,16 @@ export const PrivacyPolicy: React.FC = () => {
                 parte così com'è, come indicato nelle email. All'azienda comunichiamo un indirizzo email
                 dedicato alla tua candidatura (c-…@candidature.frontaliereticino.ch): i messaggi che vi
                 arrivano sono classificati automaticamente, conservati cifrati per 90 giorni e inoltrati
-                subito a te con i loro allegati, con risposta diretta al selezionatore. OpenAI e GitHub
-                possono trattare i dati anche fuori dall'UE/Svizzera.
+                subito a te con i loro allegati, con risposta diretta al selezionatore. Se il portale
+                dell'azienda richiede un account, lo creiamo a tuo nome con quell'indirizzo dedicato e una
+                password casuale conservata cifrata e cancellata con il resto dell'ordine; l'email di
+                conferma dell'account è letta dal processo automatico e non ti viene inoltrata. Con gli
+                stessi dati prepariamo una versione del tuo CV adattata all'annuncio (solo informazioni già
+                presenti nel tuo CV; puoi scegliere di inviare l'originale); se l'azienda non risponde a una
+                candidatura inviata per email, dopo 7 e 14 giorni le scriviamo un breve sollecito a tuo nome,
+                che ti mostriamo prima e puoi fermare; se ti invita a un colloquio, ti inviamo una
+                preparazione basata sul tuo CV e sull'annuncio. OpenAI e GitHub possono trattare i dati anche
+                fuori dall'UE/Svizzera.
               </li>
             </ul>
             <p className="text-sm italic">
