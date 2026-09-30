@@ -105,14 +105,18 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       # Codex Luna Max at effort max: the same bounded broker as the article
-      # lanes. Only the draft calls Codex; the submit of this phase does not.
+      # lanes. The draft writes with it; the submit plans each portal page.
       - id: codex
-        if: inputs.mode == 'draft'
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '3600000'
           broker_max_concurrency: '2'
+
+      # The portal runner drives Chromium (headless) for portals without an account.
+      - name: Install Chromium for the portal runner
+        if: inputs.mode == 'submit'
+        run: npx playwright install --with-deps chromium
 
       - name: Run agent
         env:
@@ -123,7 +127,7 @@ jobs:
         run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
 
       - name: Cleanup Codex auth broker
-        if: always() && inputs.mode == 'draft'
+        if: always()
         continue-on-error: true
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}

@@ -53,7 +53,11 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
-import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
+import {
+  dropStaleLocaleDescriptions,
+  resyncStoredSourceLang,
+  sourceLangOfBody,
+} from './lib/source-locale-slots.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -390,7 +394,7 @@ function jobMatchKey(job = {}) {
 // The paragraph and lines the runner used to add to a text under 50 words
 // ("Centiel is a Swiss company headquartered in Cadro…", "Apply via: …").
 // Only ever recognised, to be removed from stored records (issue 5253).
-const CENTIEL_FABRICATED_RE = /Centiel is a Swiss company headquartered in Cadro \(Lugano\), specializing|Apply via: https:\/\/www\.centiel\.com\/careers\//;
+const CENTIEL_FABRICATED_RE = /(?:^|\n)(?:Centiel is a Swiss company headquartered in Cadro \(Lugano\), specializing in the design and manufacture of uninterruptible power supply \(UPS\) systems and power protection solutions\.|(?:[^:\n]{1,40}:\s*)?https:\/\/www\.centiel\.com\/careers\/)(?=\n|$)/m;
 
 /**
  * Remove, from a stored job, the text this runner used to write itself
@@ -406,8 +410,19 @@ export function dropCentielFabricatedText(job) {
   return dropFabricatedDescription(job, CENTIEL_FABRICATED_RE);
 }
 
+/**
+ * Re-home historical Centiel source bodies before the locale-preserving merge.
+ * Fresh PDF rows already detect their language; this repairs the old rows that
+ * were written into the fixed `en` slot without touching their published slugs.
+ */
+export function prepareExistingJobs(jobs = []) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  for (const job of list.filter(isTargetJob)) resyncStoredSourceLang(job);
+  return list;
+}
+
 function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = prepareExistingJobs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS));
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const fossils = targetExisting.filter((job) => dropCentielFabricatedText(job)).length;

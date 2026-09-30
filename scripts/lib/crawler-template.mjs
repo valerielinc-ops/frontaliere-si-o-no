@@ -169,10 +169,13 @@ import { mergeJobIdentity } from './job-match-key.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   buildThinSourceHousekeepingProof,
+  buildSourceBodyFailureHousekeepingProof,
   collectThinSourceJobsForQuarantine,
+  dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './stored-source-body.mjs';
+import { hasSourceBodyFailure, sourceBodyFailureRecord } from './source-body-failure.mjs';
 import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
 import {
   RETRYABLE_STATUS,
@@ -493,7 +496,7 @@ export function stripHtml(html = '') {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<li\b[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&amp;/g, '&')
@@ -1018,6 +1021,7 @@ export async function runStandardCrawlerPipeline(config) {
     lastFetchOutcome: null,
     abortKind: null,
     detailDrop: null,
+    sourceBodyFailures: [],
   };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
@@ -1103,6 +1107,20 @@ export async function runStandardCrawlerPipeline(config) {
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
+  counts.sourceBodyFailures = (
+    Array.isArray(fetchMetadata?.sourceBodyFailures)
+      ? fetchMetadata.sourceBodyFailures
+      : (Array.isArray(parsedJobs)
+        ? parsedJobs.map(sourceBodyFailureRecord).filter(Boolean)
+        : [])
+  ).slice(0, 100);
+  if (counts.sourceBodyFailures.length > 0) {
+    console.warn(
+      `  ⚠️ ${companyLabel}: ${counts.sourceBodyFailures.length} source-body extraction failure(s) `
+      + `(${counts.sourceBodyFailures.map((failure) => failure.reason).filter(Boolean).join(', ')}) — `
+      + 'valid stored source bodies will be retained and failed rows will not be thin-source quarantined.',
+    );
+  }
   // Coop-family enrichers attach the non-fatal drop observation to the array.
   // Keep it in the mutable guard counters so early exits preserve the signal.
   counts.detailDrop = normalizeDetailDrop(parsedJobs?.detailDrop);
@@ -1176,11 +1194,26 @@ export async function runStandardCrawlerPipeline(config) {
     mergeExisting,
     sourceBodyMatchKey,
   );
+  const mergeExistingForSourceBodies = dropFailedSourceJobsWithoutValidBody(
+    mergeExisting,
+    parsedJobs,
+    sourceBodyMatchKey,
+  );
   if (!authoritativeEmptySnapshot && sourceBodyJobs.length === 0) {
-    console.warn(
-      `\n⚠️ ${companyLabel}: no parsed job has a source body of at least 50 words; `
-      + 'quarantining thin-source rows and keeping only valid stored bodies.\n',
-    );
+    const allRowsFailedExtraction = Array.isArray(parsedJobs)
+      && parsedJobs.length > 0
+      && parsedJobs.every(hasSourceBodyFailure);
+    if (allRowsFailedExtraction) {
+      console.warn(
+        `\n⚠️ ${companyLabel}: PDF/source extraction failed for every parsed job; `
+        + 'no row is published without a valid stored source body. Reason: pdf-extraction-failed.\n',
+      );
+    } else {
+      console.warn(
+        `\n⚠️ ${companyLabel}: no parsed job has a source body of at least 50 words; `
+        + 'quarantining only genuine thin-source rows and keeping valid stored bodies.\n',
+      );
+    }
     await rewritePreparedStoredJobs({
       // The hook has already run above; reuse its prepared array so a
       // no-publishable run does not invoke a mutating hook twice.
@@ -1188,6 +1221,10 @@ export async function runStandardCrawlerPipeline(config) {
       storedJobs: companyExisting,
       companyKey,
       companyLabel,
+      sourceBodyFailureJobs: Array.isArray(parsedJobs)
+        ? parsedJobs.filter(hasSourceBodyFailure)
+        : [],
+      sourceBodyFailureKeyOf: sourceBodyMatchKey,
       write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
         isTargetJob: isCompanyJob,
         preserveExistingSlugs,
@@ -1213,7 +1250,7 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  const merged = mergePreserveLocaleData(mergeExisting, sourceBodyJobs, mergeOpts);
+  const merged = mergePreserveLocaleData(mergeExistingForSourceBodies, sourceBodyJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
@@ -1327,11 +1364,20 @@ export async function runStandardCrawlerPipeline(config) {
   const durationMs = getCrawlerElapsedMs();
   const sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
-  const housekeepingProof = buildThinSourceHousekeepingProof(
+  const thinHousekeepingProof = buildThinSourceHousekeepingProof(
     diff.removedJobs,
     thinSourceJobs,
     sourceBodyMatchKey,
   );
+  const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
+    diff.removedJobs,
+    Array.isArray(parsedJobs) ? parsedJobs.filter(hasSourceBodyFailure) : [],
+    sourceBodyMatchKey,
+  );
+  const housekeepingProof = [
+    ...(thinHousekeepingProof || []),
+    ...(sourceFailureHousekeepingProof || []),
+  ];
 
   // Evidence-gated write (#5016/#5017). Identical to writeJobsCrawlerSlice
   // until the anti-shrink guard trips; then the disappearing jobs are probed
@@ -1341,7 +1387,8 @@ export async function runStandardCrawlerPipeline(config) {
   await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
-    ...(housekeepingProof ? { housekeepingProof } : {}),
+    ...(housekeepingProof.length > 0 ? { housekeepingProof } : {}),
+    ...(sourceFailureHousekeepingProof ? { verifyUnprovenHousekeeping: true } : {}),
     // The source-specific validator has already proven that every attempted
     // detail became one rich, unique published row. If the central guard trips,
     // URL probes remain weaker for WordPress archives that keep retired detail
@@ -1363,6 +1410,8 @@ export async function runStandardCrawlerPipeline(config) {
     discovered: counts.discovered,
     parsed: counts.parsed,
     lastFetchOutcome: counts.lastFetchOutcome,
+    sourceBodyFailureCount: counts.sourceBodyFailures.length,
+    sourceBodyFailures: counts.sourceBodyFailures,
     written: sliceJobs.length,
     ...detailDropSummaryFields(counts.detailDrop),
     // Per-run proof, not a per-slug guess: true only when this run's parser
