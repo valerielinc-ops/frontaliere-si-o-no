@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -9,6 +9,9 @@ import {
   parseRss2JsonItems,
   decodeHtmlEntities,
 } from '@/scripts/lib/stadt-chur-feed-parser.mjs';
+import { meetsSourceBodyFloor, sourceBodyWordCount } from '@/scripts/lib/source-body-floor.mjs';
+import { keepStoredSourceBodiesByKey } from '@/scripts/lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from '@/scripts/lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Real morss (open-source proxy) passthrough of jobs.chur.ch, captured 2026-07-12.
@@ -28,6 +31,16 @@ const ATOM = `<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom">
     <category term="healthcare"/>
   </entry>
 </feed>`;
+
+const SUMMARY_35 = Array.from({ length: 35 }, (_, index) => `Kurztext${index + 1}`).join(' ');
+const BODY_60 = Array.from({ length: 60 }, (_, index) => `Aufgabe${index + 1}`).join(' ');
+const REDUCED_FEED = `<rss><channel><title>Jobportal</title>
+  <item><title>Fixture Stelle</title>
+    <link>https://jobs.chur.ch/Fixture-Stelle-de-j1999.html</link>
+    <description>${SUMMARY_35}</description>
+    <pubDate>2026-09-30T08:00:00Z</pubDate>
+  </item>
+</channel></rss>`;
 
 describe('stadt-chur feed parser', () => {
   describe('parseRssItems (live morss RSS 2.0)', () => {
@@ -175,5 +188,68 @@ describe('stadt-chur feed parser', () => {
         'a & b <c> "d" \'e\'',
       );
     });
+  });
+
+  it('uses the shared source-body floor for a reduced feed fixture', async () => {
+    const [entry] = parseRssItems(REDUCED_FEED);
+    const thinJob = {
+      slug: 'fixture-stelle-stadt-chur-1999',
+      url: entry.link,
+      sourceLang: 'de',
+      description: entry.summary,
+      descriptionByLocale: { de: entry.summary },
+    };
+    const keyOf = (job: { url: string }) => job.url;
+
+    expect(sourceBodyWordCount(entry.summary)).toBe(35);
+    expect(meetsSourceBodyFloor(entry.summary)).toBe(false);
+    expect(keepStoredSourceBodiesByKey([thinJob], [], keyOf)).toEqual([]);
+
+    const write = vi.fn();
+    await rewritePreparedStoredJobs({
+      prepare: (jobs) => jobs,
+      storedJobs: [thinJob],
+      companyKey: 'stadt-chur-fixture',
+      companyLabel: 'Stadt Chur fixture',
+      write,
+    });
+    expect(write).toHaveBeenCalledWith([], {
+      housekeepingProof: [expect.objectContaining({
+        reason: 'thin-source-quarantine',
+        definitive: true,
+        job: expect.objectContaining({ slug: thinJob.slug }),
+      })],
+    });
+
+    const richJob = {
+      ...thinJob,
+      description: BODY_60,
+      descriptionByLocale: { de: BODY_60 },
+    };
+    expect(sourceBodyWordCount(BODY_60)).toBe(60);
+    expect(meetsSourceBodyFloor(BODY_60)).toBe(true);
+    const published = keepStoredSourceBodiesByKey([richJob], [], keyOf);
+    expect(published).toHaveLength(1);
+    expect(published[0]).toMatchObject({
+      slug: thinJob.slug,
+      url: thinJob.url,
+      description: BODY_60,
+    });
+  });
+
+  it('keeps the runner summary on the merge stats contract before assembly', () => {
+    const runner = readFileSync(
+      path.join(__dirname, '..', 'scripts', 'update-stadt-chur-jobs.mjs'),
+      'utf8',
+    );
+    const summaryCall = 'writeJobsSummary(COMPANY_KEY, stats);';
+    const summaryOffset = runner.indexOf(summaryCall);
+    const sliceSummaryOffset = runner.indexOf('writeSummaryCrawlerSlice({', summaryOffset);
+    const assemblyOffset = runner.indexOf('await assembleJobsDataset();', sliceSummaryOffset);
+
+    expect(summaryOffset).toBeGreaterThan(-1);
+    expect(runner.match(/writeJobsSummary\([^;]+\);/g)).toEqual([summaryCall]);
+    expect(summaryOffset).toBeLessThan(sliceSummaryOffset);
+    expect(sliceSummaryOffset).toBeLessThan(assemblyOffset);
   });
 });

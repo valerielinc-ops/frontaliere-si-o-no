@@ -31,12 +31,13 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
@@ -49,6 +50,11 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { parseFeed, parseRss2JsonItems } from './lib/stadt-chur-feed-parser.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import {
+  keepStoredSourceBodiesByKey,
+  sourceBodyForJob,
+} from './lib/stored-source-body.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -399,7 +405,10 @@ function buildJob(entry, detailDescription = null) {
     contractType: empType === 'internship' || empType === 'apprenticeship' ? 'stage' : empType === 'temporary' ? 'temporaneo' : 'permanent',
     description,
     titleByLocale: {},
-    descriptionByLocale: {},
+    // The source-locale slot is authoritative for the shared source-body
+    // floor. Without it, the custom merge could preserve a stale thin locale
+    // value while the fresh detail body was rich enough to publish.
+    descriptionByLocale: { [sourceLang]: description },
     slugByLocale: {},
     crawledAt: new Date().toISOString(),
   };
@@ -415,10 +424,24 @@ function mergeJobs(discoveredJobs) {
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
+  const sourceBodyJobs = keepStoredSourceBodiesByKey(
+    discoveredJobs,
+    targetExisting,
+    jobMatchKey,
+  );
+  const publishableKeys = new Set(sourceBodyJobs.map(jobMatchKey).filter(Boolean));
+  const thinSourceKeys = new Set(
+    discoveredJobs
+      .filter((job) => !publishableKeys.has(jobMatchKey(job)))
+      .filter((job) => !meetsSourceBodyFloor(sourceBodyForJob(job)))
+      .map(jobMatchKey)
+      .filter(Boolean),
+  );
+  const thinSourceJobs = targetExisting.filter((job) => thinSourceKeys.has(jobMatchKey(job)));
 
   let added = 0;
   let updated = 0;
-  const mergedTarget = discoveredJobs.map((job) => {
+  const mergedTarget = sourceBodyJobs.map((job) => {
     const prev = existingByKey.get(jobMatchKey(job));
     if (!prev) {
       added += 1;
@@ -447,7 +470,31 @@ function mergeJobs(discoveredJobs) {
   printCrawlChangeSummary(diff, COMPANY_NAME);
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
 
-  return { total: allJobs.length, added, updated, targetCount: mergedTarget.length, diff };
+  return {
+    total: allJobs.length,
+    added,
+    updated,
+    targetCount: mergedTarget.length,
+    diff,
+    targetExisting,
+    sourceBodyJobs,
+    thinSourceJobs,
+    noPublishableJobs: sourceBodyJobs.length === 0,
+  };
+}
+
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: COMPANY_KEY,
+    companyLabel: COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, {
+      isTargetJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -475,8 +522,10 @@ async function main() {
   const entries = await fetchFeed();
 
   if (entries.length === 0) {
-    console.log('ℹ️ No jobs found in feed — nothing to update.');
-    process.exit(0);
+    console.log('ℹ️ No jobs found in feed — cleaning stored thin-source rows only.');
+    const stored = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+    await rewriteStoredJobsWithoutThinSource(stored);
+    return;
   }
 
   for (const entry of entries) {
@@ -507,7 +556,21 @@ async function main() {
   console.log('Phase 3: Merge');
   console.log('═══════════════════════════════════════');
   const stats = mergeJobs(jobs);
+  if (stats.noPublishableJobs) {
+    console.warn(
+      `⚠️ ${COMPANY_NAME}: all ${jobs.length} feed job(s) are below the 50-word source-body floor; `
+      + 'quarantining thin-source rows and retaining only valid stored bodies.',
+    );
+    await rewriteStoredJobsWithoutThinSource(stats.targetExisting);
+    return;
+  }
   const diff = stats.diff;
+  if (stats.thinSourceJobs.length > 0) {
+    console.warn(
+      `⚠️ ${COMPANY_NAME}: quarantining ${stats.thinSourceJobs.length} feed job(s) whose source body `
+      + 'is below the 50-word floor and has no valid stored replacement.',
+    );
+  }
   console.log(`\n📈 Result: ${stats.targetCount} Stadt Chur jobs (${stats.added} new, ${stats.updated} updated)`);
   console.log(`   Total jobs in file: ${stats.total}`);
 
@@ -530,16 +593,32 @@ async function main() {
   });
 
   // Phase 5 — Summary
-  printPublishedJobUrls(jobs);
-  writeJobsSummary(COMPANY_KEY, stats);
-
   console.log('\n✅ Stadt Chur crawler complete.\n');
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? _sliceRaw
+      .filter(isTargetJob)
+      .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
+    : [];
+  const removedKeys = new Set((diff.removedJobs || []).map(jobMatchKey).filter(Boolean));
+  const thinQuarantineJobs = stats.thinSourceJobs.filter((job) => removedKeys.has(jobMatchKey(job)));
+  const housekeepingProof = thinQuarantineJobs.length > 0
+    && thinQuarantineJobs.length === (diff.removedJobs || []).length
+    ? thinQuarantineJobs.map((job) => ({
+      job,
+      reason: 'thin-source-quarantine',
+      definitive: true,
+    }))
+    : undefined;
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    ...(housekeepingProof ? { housekeepingProof } : {}),
+  });
+  printPublishedJobUrls(_sliceJobs, COMPANY_NAME);
+  writeJobsSummary(COMPANY_KEY, stats);
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'stadt-chur',
