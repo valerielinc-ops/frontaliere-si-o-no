@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 
 interface Props {
@@ -16,9 +16,14 @@ function formatDeltaText(delta: number, currency: string, size: 'desktop' | 'mob
 
 const InlineNetDeltaBadge: React.FC<Props> = ({ delta, currency = 'CHF', size = 'desktop' }) => {
  const [visible, setVisible] = useState(true);
+ const initialRender = useRef(true);
 
  useEffect(() => {
- setVisible(true);
+  if (initialRender.current) {
+   initialRender.current = false;
+   return;
+  }
+  setVisible(true);
  }, [delta]);
 
  if (Math.abs(delta) < 1 || !visible) return null;
