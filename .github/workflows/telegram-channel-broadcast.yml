@@ -112,7 +112,13 @@ jobs:
             echo "no ledger changes"; exit 0
           fi
           git commit -m "chore(telegram): track posted jobs/announcements [skip ci]"
-          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+          # The dataset assembly can consume ~8 minutes of this 20-minute job.
+          # Keep main-write contention bounded so the helper cannot spend its
+          # default 40-attempt retry budget until GitHub cancels the job as a
+          # timeout (which skips the failure reporter). A missed ledger push
+          # remains on the existing non-fatal path and is retried next run.
+          bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 || echo "ledger push skipped (non-fatal)"
 
       - name: Report failure to GitHub Issues
         if: failure()
