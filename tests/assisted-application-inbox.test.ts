@@ -9,6 +9,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const {
   ALIAS_DOMAIN,
   aliasLocalPart,
+  aliasNamePart,
   ensureOrderAlias,
   newAliasLocalPart,
   orderIdForAlias,
@@ -54,6 +55,30 @@ describe('order alias', () => {
     expect(aliasLocalPart(`${local}@${ALIAS_DOMAIN}`)).toBe(local);
     expect(aliasLocalPart(`${local}@frontaliereticino.ch`)).toBe('');
     expect(aliasLocalPart('valerie@candidature.frontaliereticino.ch')).toBe('');
+  });
+
+  it('carries the candidate’s name and 4 random characters, and cannot be guessed from the name alone', () => {
+    const bytes = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(newAliasLocalPart(bytes, 'Luigi Prova')).toBe('luigi.prova.bcde');
+    expect(aliasNamePart("Luigi D'Angelo-Müller")).toBe('luigi.dangelo-mueller');
+    expect(aliasNamePart('Maria De Luca')).toBe('maria.de.luca');
+    expect(aliasNamePart('François Côté')).toBe('francois.cote');
+    expect(aliasNamePart('Jean-Pierre van der Berg Dupont')).toBe('jean-pierre.dupont');
+    expect(aliasNamePart('Anna-Maria Verylongsurnamethatgoesonandonforever').length).toBeLessThanOrEqual(30);
+    // No usable name (missing, or no Latin letter): the random shape as before.
+    expect(newAliasLocalPart(bytes, '')).toMatch(/^c-[a-z2-9]{10}$/);
+    expect(newAliasLocalPart(bytes, '李 小龙')).toMatch(/^c-[a-z2-9]{10}$/);
+    // Both shapes resolve; the bare name (the guessable form) does not.
+    expect(aliasLocalPart(`luigi.prova.bcde@${ALIAS_DOMAIN}`)).toBe('luigi.prova.bcde');
+    expect(aliasLocalPart(`luigi.prova@${ALIAS_DOMAIN}`)).toBe('');
+    expect(aliasLocalPart(`luigi.prova.bcd1@${ALIAS_DOMAIN}`)).toBe('');
+  });
+
+  it('uses the applicant’s name when the order has one', async () => {
+    const store = createMemoryFirestore({ [`assisted_applications/${ORDER}`]: { paymentStatus: 'paid', applicantName: 'Luigi Prova' } });
+    const alias = await ensureOrderAlias({ db: store.db, orderId: ORDER, cf: fakeCf(), nowMs: 1 });
+    expect(alias.address).toMatch(/^luigi\.prova\.[a-z2-9]{4}@candidature\.frontaliereticino\.ch$/);
+    expect(await orderIdForAlias(store.db, alias.address)).toBe(ORDER);
   });
 
   it('is created once, activated with its routing rule, and removed by retention', async () => {
