@@ -85,11 +85,15 @@ import {
 } from './src/assistedApplicationNotifications.js';
 import {
   handleRunnerEvent,
+  isAutomationEnabled,
   maybeStartAutomation,
   runAutomationSweep,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
+import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './src/assistedApplicationCvCheck.js';
+import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/storage';
 import { resolveCvLink as resolveAssistedApplicationFileLink } from './src/publisherApplicationsCore.js';
 import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
@@ -2315,6 +2319,28 @@ export const sweepAssistedApplicationAutomation = onSchedule(
       }
     } catch (error) {
       console.error('[sweepAssistedApplicationAutomation]', error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// Fase 2: the CV the customer attaches to a reply to valerie@ — handed over
+// raw by the Cloudflare Email Worker (x-stop-secret gate, as outreachStopReply).
+export const assistedApplicationEmailCv = onRequest(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: false },
+  async (req, res) => {
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      const { status, body } = await handleAssistedApplicationEmailCv(req, {
+        db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+        secret: newsletterSecret,
+        isEnabled: () => isAutomationEnabled(),
+      });
+      if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[assistedApplicationEmailCv]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },
 );
