@@ -152,27 +152,39 @@ describe('Google Cloud tier authentication', () => {
     expect(translations.map((call) => call.headers.Authorization)).toEqual(['Bearer sa-token', 'Bearer gsc-token', 'Bearer gsc-token']);
   });
 
-  it('keeps the OAuth fallback for concurrent fields whose service-account request is rejected', async () => {
+  it('keeps the OAuth fallback for concurrent first-use fields with distinct rejected service-account tokens', async () => {
     let saRejections = 0;
+    let saExchanges = 0;
     const { ft, calls } = await loadWith({
       GOOGLE_APPLICATION_CREDENTIALS: SA_PATH,
       GSC_CLIENT_ID: 'id', GSC_CLIENT_SECRET: 'secret', GSC_REFRESH_TOKEN: 'refresh',
     }, (call) => {
       if (call.url === 'https://oauth2.googleapis.com/token') {
-        return new URLSearchParams(call.body).get('grant_type') === 'refresh_token'
-          ? { status: 200, body: { access_token: 'gsc-token', expires_in: 3600 } }
-          : { status: 200, body: { access_token: 'sa-token', expires_in: 3600 } };
+        if (new URLSearchParams(call.body).get('grant_type') === 'refresh_token') {
+          return { status: 200, body: { access_token: 'gsc-token', expires_in: 3600 } };
+        }
+        // Two first-use exchanges in flight at once: each gets its own token.
+        saExchanges += 1;
+        return { status: 200, body: { access_token: saExchanges === 1 ? 'sa-token-A' : 'sa-token-B', expires_in: 3600 } };
       }
       if (call.url.startsWith('https://translation.googleapis.com/')) {
-        return call.headers.Authorization === 'Bearer sa-token'
+        return call.headers.Authorization.startsWith('Bearer sa-token-')
           ? { status: 403, body: { error: { status: 'PERMISSION_DENIED' } } }
           : { status: 200, body: { data: { translations: [{ translatedText: 'Cook wanted' }] } } };
       }
       return { status: 404, body: {} };
     });
-    // The second service-account rejection lands after the first one dropped the cached token.
+    // Both first-use exchanges resolve on one gate, in the same tick, so the
+    // cache ends up holding only one of the two service-account tokens; the
+    // second rejection then lands after the first one dropped the cached token.
     const stubbed = globalThis.fetch;
-    globalThis.fetch = (async (url: unknown, init?: unknown) => {
+    let gate: Promise<void> | undefined;
+    globalThis.fetch = (async (url: unknown, init?: { body?: unknown }) => {
+      if (String(url) === 'https://oauth2.googleapis.com/token'
+        && new URLSearchParams(String(init?.body ?? '')).get('grant_type') !== 'refresh_token') {
+        gate ??= new Promise((resolve) => setTimeout(resolve, 10));
+        await gate;
+      }
       const response = await (stubbed as (u: unknown, i?: unknown) => Promise<{ status: number }>)(url, init);
       if (String(url).startsWith('https://translation.googleapis.com/') && response.status === 403) {
         saRejections += 1;
@@ -187,7 +199,7 @@ describe('Google Cloud tier authentication', () => {
     ]);
     expect(results).toEqual(['Cook wanted', 'Cook wanted']);
     const bearers = calls.filter((call) => call.url.startsWith('https://translation.googleapis.com/')).map((call) => call.headers.Authorization);
-    expect(bearers.filter((bearer) => bearer === 'Bearer sa-token')).toHaveLength(2);
+    expect(bearers.filter((bearer) => bearer.startsWith('Bearer sa-token-')).sort()).toEqual(['Bearer sa-token-A', 'Bearer sa-token-B']);
     expect(bearers.filter((bearer) => bearer === 'Bearer gsc-token')).toHaveLength(2);
   });
 
