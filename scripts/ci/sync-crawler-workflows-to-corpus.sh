@@ -74,14 +74,46 @@ git config user.name 'Valerie Linc'
 git config user.email 'valerielinc@gmail.com'
 
 remote_branch_exists=false
+superseded_number=''
 if git ls-remote --exit-code --heads origin "$target_branch" >/dev/null 2>&1; then
   remote_branch_exists=true
   git fetch origin "$target_branch:refs/remotes/origin/$target_branch"
   git checkout -b "$target_branch" "origin/$target_branch"
-  git merge --no-edit origin/main
+  if ! git merge --no-edit origin/main; then
+    # La consegna e' derivata: il preparatore la rigenera per intero dalle
+    # sorgenti del sito sopra main del corpus. Un conflitto con main
+    # (tipicamente `loop-sync-manifest.json`, che il corpus aggiorna da se')
+    # fermava ogni consegna successiva per sempre: `set -e` usciva qui a ogni
+    # run e la PR restava `has-conflicts` (corpus #2008, run 36798107355).
+    # Si rigenera su una branch NUOVA nata da main — mai un force-push sulla
+    # vecchia — e la PR in conflitto viene chiusa come superata prima di
+    # aprire quella nuova, cosi' resta una sola PR di trasporto aperta.
+    git merge --abort || true
+    superseded_number="$open_number"
+    superseded_branch="$target_branch"
+    target_branch="${branch_prefix}${GITHUB_SHA:0:12}"
+    if [ "$target_branch" = "$superseded_branch" ]; then
+      target_branch="${target_branch}-rebuilt"
+    fi
+    if git ls-remote --exit-code --heads origin "$target_branch" >/dev/null 2>&1; then
+      echo "::error::branch di rigenerazione $target_branch gia' presente sul corpus: niente sovrascrittura"
+      exit 1
+    fi
+    echo "::warning::branch di trasporto $superseded_branch in conflitto con main del corpus: rigenero la consegna su $target_branch da origin/main."
+    git checkout -b "$target_branch" origin/main
+    remote_branch_exists=false
+    open_number=''
+  fi
 else
   git checkout -b "$target_branch"
 fi
+
+# Chiude la PR di trasporto superata dalla rigenerazione (solo se ce n'era una).
+close_superseded_transport_pr() {
+  local reason="$1"
+  [ -n "$superseded_number" ] || return 0
+  gh pr close "$superseded_number" --repo "$target_repo" --delete-branch --comment "$reason"
+}
 
 node "$site_root/scripts/ci/prepare-crawler-workflow-corpus-sync.mjs" \
   "$site_root/.github/corpus-workflows" "$PWD"
@@ -164,6 +196,9 @@ fi
 # allineato ma un file estraneo non può sfruttare questa uscita per restare verde.
 if git diff --quiet origin/main...HEAD; then
   echo 'Crawler workflow corpus transport already in sync on main.'
+  # main contiene gia' tutto: una PR in conflitto non ha piu' niente da
+  # consegnare e resterebbe aperta per sempre.
+  close_superseded_transport_pr "♻️ Trasporto crawler gia' allineato su \`main\`: questa PR era in conflitto con main e, rigenerata, non porta piu' alcun delta. Chiusa dal sync del sito (zero-Claude)."
   exit 0
 fi
 
@@ -199,6 +234,11 @@ elif [ "$gate_status" -ne 0 ]; then
   echo "::error::crawler transport body PR non verificabile (gate exit $gate_status); branch gia' pushato, nessuna PR scritta"
   exit "$gate_status"
 fi
+
+# Prima della PR nuova: con due PR di trasporto aperte il run successivo si
+# rifiuta di proseguire («refusing to split»). Se la create fallisce, il run
+# dopo trova la branch rigenerata e la recupera come orfana.
+close_superseded_transport_pr "♻️ Superata: questa PR di trasporto era in conflitto con \`main\` del corpus. La consegna e' stata rigenerata da \`main\` su \`$target_branch\` in una PR nuova. Chiusa dal sync del sito (zero-Claude)."
 
 head_ref=$(git rev-parse --abbrev-ref HEAD)
 if [ -n "$open_number" ]; then

@@ -91,6 +91,7 @@ export const ORPHANED_LABEL = 'orphaned';
 export const AUTOFIX_LABEL = 'agent:autofix';
 export const NEEDS_HUMAN_LABEL = 'needs-human';
 export const OUT_OF_SCOPE_MARKER = '<!-- REDFLAG_OUT_OF_SCOPE -->';
+export const CONFLICT_LABEL = 'has-conflicts';
 export const CODEX_FALLBACK_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 
 const SHA_RE = /^[0-9a-f]{40}$/i;
@@ -344,6 +345,25 @@ export function classifyOrphan({
       } e nessun push da oltre 2h`,
     };
   }
+
+  // (d) `adopt-conflict`: una PR fuori scope IN CONFLITTO senza review che la
+  // faccia adottare dal ramo (b). GitHub non avvia `pull_request` su una PR in
+  // conflitto, quindi nessuna review arrivera' mai; e `pr-autorebase` passa il
+  // conflitto a issue-fix solo per una PR con LGTM o del ciclo. Misurato su
+  // #10555 (branch `fix-gh013-...`, autore owner): test rossi, nessuna
+  // review, conflitto dalle 15:37, ferma senza un attore. Adottarla le da'
+  // l'hand-off al prossimo sweep di pr-autorebase.
+  const conflicted = (pr.labels || []).includes(CONFLICT_LABEL) || pr.mergeableState === 'dirty';
+  if (conflicted) {
+    if (isAutonomousPr(pr)) return none('PR gia autonoma: il conflitto lo passa a issue-fix pr-autorebase');
+    if (pr.headRepo && pr.baseRepo && pr.headRepo !== pr.baseRepo) return none('head da fork: non adottabile');
+    if ((pr.labels || []).includes(NEEDS_HUMAN_LABEL)) return none('needs-human: veto terminale');
+    if (alreadyDone('adopt-conflict')) return none('adozione del conflitto gia eseguita su questa HEAD');
+    return {
+      action: 'adopt-conflict',
+      reason: 'PR in conflitto con main, fuori dallo scope autonomo e senza push da oltre 2h: nessun hand-off la riapplica',
+    };
+  }
   return none('nessuno stato orfano noto');
 }
 
@@ -482,6 +502,23 @@ function main() {
         '- il job `post-review (auto-merge opt-in + autorebase)` della run `tests` sulla HEAD: se lo step di opt-in ha stampato un motivo e poi e\' uscito `success`, il gate nativo ha DECLINATO — `retry-native-automerge.yml` rivaluta lo stesso predicato ogni 20 min e declinera\' identicamente;',
         '- il body della review: `native-automerge-gate.mjs` pretende un conteggio dichiarato (`Important: 0`) dentro la sezione `## Findings`, mentre il review gate conta i finding reali. Una review che chiude in prosa («nessun finding azionabile») e\' approvante per il primo gate e non per il secondo.',
       ].join('\n');
+    } else if (decision.action === 'adopt-conflict') {
+      // Solo le label: il conflitto non si risolve con il 🔴-fixer, lo passa a
+      // issue-fix l'hand-off di pr-autorebase, che da ora la vede del ciclo.
+      try {
+        gh(['label', 'create', ORPHANED_LABEL, '--repo', repo, '--color', 'B60205',
+          '--description', 'PR senza agente vivo: adottata dal custode per i fixer']);
+      } catch {
+        // Esiste gia': e' il caso normale.
+      }
+      try {
+        gh(['pr', 'edit', String(pr.number), '--repo', repo,
+          '--add-label', AUTOFIX_LABEL, '--add-label', ORPHANED_LABEL]);
+      } catch (error) {
+        ok = false;
+        console.log(`::warning::PR #${pr.number}: label di adozione non applicate (${error.message.split('\n')[0]}).`);
+      }
+      detail = `Etichettata \`${AUTOFIX_LABEL}\` + \`${ORPHANED_LABEL}\`: al prossimo giro \`pr-autorebase\` passa il conflitto a issue-fix, che riapplica il contributo della HEAD \`${pr.headSha.slice(0, 7)}\` su \`main\` in una PR nuova. Togli le label se un umano la riprende.`;
     } else {
       try {
         gh(['label', 'create', ORPHANED_LABEL, '--repo', repo, '--color', 'B60205',

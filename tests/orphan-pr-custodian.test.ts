@@ -269,6 +269,45 @@ describe('orphan-pr-custodian — adozione di un 🔴 fuori scope (sito #9221/#9
   });
 });
 
+describe('orphan-pr-custodian — adozione di un conflitto fuori scope (#10555)', () => {
+  const base = { checkRuns: [] as unknown[], reviews: [] as unknown[], comments: [] as unknown[], nowS: NOW_S };
+
+  it('adotta una PR umana in conflitto senza review: nessun hand-off la riapplicherebbe', () => {
+    expect(classifyOrphan({ ...base, pr: pr({ labels: ['has-conflicts', 'stale-review'] }) }).action)
+      .toBe('adopt-conflict');
+    expect(classifyOrphan({ ...base, pr: pr({ mergeableState: 'dirty' }) }).action).toBe('adopt-conflict');
+  });
+
+  it('lascia l\'hand-off alle PR già del ciclo, rispetta needs-human, fork e il push recente', () => {
+    const conflicted = { labels: ['has-conflicts'] };
+    expect(classifyOrphan({ ...base, pr: pr({ ...conflicted, headRef: 'fix/issue-10482' }) }).action).toBe('none');
+    expect(classifyOrphan({ ...base, pr: pr({ labels: ['has-conflicts', 'agent:autofix'] }) }).action).toBe('none');
+    expect(classifyOrphan({ ...base, pr: pr({ labels: ['has-conflicts', 'needs-human'] }) }).action).toBe('none');
+    expect(classifyOrphan({ ...base, pr: pr({ ...conflicted, headRepo: 'fork/x', baseRepo: 'o/r' }) }).action).toBe('none');
+    expect(classifyOrphan({ ...base, pr: pr({ ...conflicted, headCommittedAt: '2026-09-19T17:00:00Z' }) }).action).toBe('none');
+  });
+
+  it('una volta per HEAD', () => {
+    const done = { body: actionMarker('adopt-conflict', HEAD), user: { login: 'github-actions[bot]' } };
+    expect(classifyOrphan({ ...base, comments: [done], pr: pr({ labels: ['has-conflicts'] }) }).action).toBe('none');
+  });
+
+  it('un 🔴 sulla HEAD resta al ramo di adozione dei fixer', () => {
+    expect(classifyOrphan({ ...base, reviews: [review(IMPORTANT)], pr: pr({ labels: ['has-conflicts'] }) }).action)
+      .toBe('adopt');
+  });
+
+  it('applica solo le label di adozione, senza dispatch del 🔴-fixer', () => {
+    const source = readFileSync(new URL('../scripts/ci/orphan-pr-custodian.mjs', import.meta.url), 'utf8');
+    const branch = source.slice(
+      source.indexOf("} else if (decision.action === 'adopt-conflict') {"),
+      source.indexOf('    } else {', source.indexOf("} else if (decision.action === 'adopt-conflict') {")),
+    );
+    expect(branch).toContain("'--add-label', AUTOFIX_LABEL, '--add-label', ORPHANED_LABEL");
+    expect(branch).not.toContain('pr-redflag-fixer.yml');
+  });
+});
+
 describe('stale-pr-rescuer — cablaggio', () => {
   it('non crea nemmeno il run per i tests di main (filtro sul trigger)', () => {
     expect(WORKFLOW).toMatch(/workflow_run:\n\s+workflows: \["tests"\]\n\s+types: \[completed\]\n(?:\s+#.*\n)*\s+branches-ignore: \[main\]\n/);
@@ -403,7 +442,8 @@ describe('stale-pr-rescuer — cablaggio', () => {
   it('non manda i fixer su una PR pulita: solo `orphaned`, mai `agent:autofix`', () => {
     const src = readFileSync(new URL('../scripts/ci/orphan-pr-custodian.mjs', import.meta.url), 'utf8');
     const branch = src.slice(src.indexOf("} else if (decision.action === 'stalled-automerge') {"));
-    const body = branch.slice(0, branch.indexOf('\n    } else {'));
+    // Fino al ramo successivo, qualunque forma abbia (`else if` o `else`).
+    const body = branch.slice(0, branch.indexOf('\n    } else'));
     expect(body).toContain("'--add-label', ORPHANED_LABEL");
     expect(body).not.toContain('AUTOFIX_LABEL');
   });

@@ -65,7 +65,6 @@ import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
   isReviewerBot,
-  REVIEW_WORKFLOW_DRIFT_FILES,
 } from './lib/constants.mjs';
 import {
   latestCompletedVitestConclusion,
@@ -159,14 +158,6 @@ const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
 // riparazione resta near-merge-only.
 const MAIN_CONFLICT_MARKER = '<!-- MAIN_CONFLICT -->';
 const MAIN_CONFLICT_LABEL = 'has-conflicts';
-// `tests.yml` contiene oggi il gate di review del sito. Conserviamo anche il
-// nome storico perché una PR può essere stata aperta quando il gate viveva in
-// `pr-review-loop.yml`; in entrambi i casi il file deve essere byte-identico a
-// main prima che un run di review possa essere considerato valido.
-const REVIEW_VALIDATION_WORKFLOW_PATHS = [
-  ...REVIEW_WORKFLOW_DRIFT_FILES,
-  '.github/workflows/pr-review-loop.yml',
-];
 // One-shot per PR: `vitestFailureIsNotAttributableToPr` è pura e ri-risponderebbe
 // `true` a ogni tick finché l'head resta rosso. Il marker rende il rescue
 // irripetibile: una PR ri-testata contro main verde che torna ROSSA è rotta per
@@ -437,8 +428,7 @@ function git(args, { allowFail = false } = {}) {
 /**
  * Restituisce l'entry dell'albero per un path senza materializzare il file.
  * `null` significa che Git non ha potuto leggere il ref; `exists:false` è
- * invece un'assenza legittima (per esempio il vecchio `pr-review-loop.yml`
- * non esiste più né su head né su main).
+ * invece un'assenza legittima.
  */
 function gitTreeEntry(ref, path) {
   const raw = git(['ls-tree', '-r', ref, '--', path], { allowFail: true });
@@ -450,56 +440,32 @@ function gitTreeEntry(ref, path) {
 }
 
 /**
- * Confronto puro delle entry del workflow di review. Le mappe devono
- * contenere entrambe le chiavi, anche quando il file è assente (`exists:false`)
- * o il ref è illeggibile (`null`).
- */
-export function reviewWorkflowHasDrift(mainEntries, headEntries) {
-  for (const path of REVIEW_VALIDATION_WORKFLOW_PATHS) {
-    const mainEntry = mainEntries?.[path] ?? null;
-    const headEntry = headEntries?.[path] ?? null;
-    if (mainEntry === null || headEntry === null) return true;
-    if (mainEntry.exists !== headEntry.exists) return true;
-    if (mainEntry.exists && mainEntry.oid !== headEntry.oid) return true;
-  }
-  return false;
-}
-
-/**
- * Verifica il motivo concreto per cui il workflow di review deve essere
- * riallineato a main. È fail-closed: se un ref/path non è leggibile, il
- * chiamante mantiene il merge di main invece di ri-triggerare una review che
- * potrebbe fallire con la validazione 401.
- */
-function hasReviewWorkflowValidationDrift(headSha) {
-  const mainEntries = Object.fromEntries(
-    REVIEW_VALIDATION_WORKFLOW_PATHS.map((path) => [path, gitTreeEntry('origin/main', path)]),
-  );
-  const headEntries = Object.fromEntries(
-    REVIEW_VALIDATION_WORKFLOW_PATHS.map((path) => [path, gitTreeEntry(headSha, path)]),
-  );
-  return reviewWorkflowHasDrift(mainEntries, headEntries);
-}
-
-/**
  * Decide cosa fare con `stale-review` quando la PR è behind ma non c'è un
- * conflitto GitHub reale. La label da sola non prova il workflow-validation
- * drift: `stale-pr-rescuer` la usa anche per coda congestionata e test rossi.
+ * conflitto GitHub reale. La label non prova nulla sul branch: il rescuer la
+ * usa anche per coda congestionata, test rossi e 🔴 non ripresi.
  *
- * `rebase` conserva il percorso che deve creare un nuovo head (drift o
- * stuck-red); `retrigger` riapre la stessa head per rifare review+test senza
- * un push; `wait` lascia agire il fixer/human su una review già esistente.
+ * `rebase` resta solo per lo stuck-red, l'unico caso in cui un merge di main
+ * ripara qualcosa; `retrigger` riapre la stessa head per rifare review+test
+ * senza un push; `wait` lascia agire il fixer su una review già esistente.
+ *
+ * Il «workflow-validation drift» non è più un motivo (AGENTS.md, «MAI `git
+ * merge origin/main` per profilassi»). Il confronto byte-level di `tests.yml`
+ * fra head e main scattava su ogni PR nata prima dell'ultima modifica del
+ * workflow, cioè quasi tutte: `tests.yml` gira comunque sul merge ref, e il
+ * 401 che quel merge preveniva non esiste più dal #8200. L'effetto era una HEAD
+ * nuova a ogni giro del rescuer, e con lei un round cap del 🔴-fixer azzerato:
+ * su #10467 cinque merge di main in otto ore, lo stesso 🔴 di body rivisto e
+ * dichiarato non auto-fixabile a ogni HEAD, senza mai arrivare al cap.
  */
 export function staleReviewAction({
   staleReview,
   lgtm,
-  workflowValidationDrift,
   hasCurrentClaudeReview,
   stuckRed,
   collisionRisk,
 }) {
   if (!staleReview || lgtm || collisionRisk) return 'continue';
-  if (stuckRed || workflowValidationDrift) return 'rebase';
+  if (stuckRed) return 'rebase';
   return hasCurrentClaudeReview ? 'wait' : 'retrigger';
 }
 
@@ -805,6 +771,23 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   }
   console.log(`PR #${num}: reopen consentito — ${d.reason}`);
   return reopenToRetrigger(num);
+}
+
+/**
+ * Il rosso della HEAD e' il SOLO review gate, su una run in cui la review e'
+ * girata davvero (non saltata dal guard, non abortita), e il one-shot del
+ * reopen per il review gate non e' ancora speso? E' il caso in cui un nuovo
+ * giro sulla stessa HEAD rilegge un verdetto gia' postato (il guard salta
+ * Codex). Gli altri casi tornano al rebase di prima: un gate rosso dopo un
+ * guard-skip fallirebbe identico, e speso il one-shot il breaker lo
+ * rifiuterebbe.
+ */
+function reviewGateRedOnFreshVerdict(num, head) {
+  const steps = vitestJobSteps(head);
+  if (!vitestFailureIsReviewGate(steps)) return false;
+  if (reviewSkippedByGuard(steps) || reviewAbortedWithoutVerdict(steps)) return false;
+  const prior = parseReopenBudget(readReopenBudgetBody(num));
+  return !(prior && prior.reviewGateUsed);
 }
 
 /** Body del commento sticky del budget, o '' se non c'è. */
@@ -1401,8 +1384,10 @@ function activeFixerClaims(num, head) {
 /**
  * Decisione rebase per una PR near-merge che è behind>0 (valutata DOPO il check
  * CONFLITTO). Pura → testabile; il razionale del livelock è al call-site.
- * @param {{lgtm: boolean, collisionBlocked: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
- * @returns {'rebase'|'skip'|'heal'}
+ * @param {{lgtm: boolean, collisionBlocked: boolean, vitestConclusion: string, hasVitestCheck: boolean, reviewGateOnly?: boolean}} s
+ * @returns {'rebase'|'skip'|'heal'|'reopen'}
+ *   'reopen' = LGTM e il SOLO review gate rosso su un verdetto fresco: nuovo
+ *              giro sulla stessa HEAD (vedi il commento nel corpo).
  *   'rebase' = la PR va rebasata (collisionBlocked: il gate collisione preciso
  *              di auto-merge-eval bloccherebbe il merge, #6039 — non più la
  *              sola presenza della label, vedi collisionGateBlocks al call-site,
@@ -1414,7 +1399,14 @@ function activeFixerClaims(num, head) {
  *   'heal'   = come 'skip' MA head orfana (nessun check vitest) → dispatch tests
  *              invece di rebasare, così il vitest atterra su head stabile.
  */
-export function rebaseActionForLgtmPr({ lgtm, collisionBlocked, vitestConclusion, hasVitestCheck }) {
+export function rebaseActionForLgtmPr({ lgtm, collisionBlocked, vitestConclusion, hasVitestCheck, reviewGateOnly = false }) {
+  // LGTM sulla HEAD e il SOLO review gate rosso: il gate non ha letto un
+  // verdetto che c'era (#10580: due review LGTM alle 15:39:20 e 15:39:44, gate
+  // alle 15:39:49 «nessuna review Codex marcata sulla HEAD»). Un merge di main
+  // non ripara il gate: crea una HEAD nuova e una review nuova, che su #10580
+  // ha trovato un 🔴 e ha fermato la PR per un giorno. Un nuovo giro sulla
+  // stessa HEAD rilegge la review esistente (il re-review guard salta Codex).
+  if (lgtm && !collisionBlocked && vitestConclusion === 'failure' && reviewGateOnly) return 'reopen';
   if (!lgtm || collisionBlocked || vitestConclusion === 'failure') return 'rebase';
   return hasVitestCheck ? 'skip' : 'heal';
 }
@@ -1636,14 +1628,24 @@ export const AGENT_AUTOFIX_LABEL = 'agent:autofix';
 /** PR del ciclo che nessuna persona sta seguendo: il conflitto passa di mano
  * anche senza LGTM, in qualunque ramo lo si incontri (review 5331343431: con
  * `stale-review` o `collision-risk` la PR e' near-merge e il conflitto passa
- * dai tre hand-off dopo l'abort del merge). */
-export function isAgentOwnedPr(labels = []) {
+ * dai tre hand-off dopo l'abort del merge).
+ *
+ * La provenienza si prova come la provano rescuer, recycle, custode e fixer
+ * (`isAutonomousPr` di orphan-pr-custodian.mjs): label `agent:autofix` OPPURE
+ * branch storico del ciclo `fix/*` / `automerge-*`. Con la sola label, una PR
+ * del ciclo aperta senza label (#10608, `fix/issue-10544`, gemella di #10609)
+ * restava in conflitto senza hand-off, mentre il recycle la trattava già come
+ * autonoma: due definizioni di «del ciclo» in disaccordo sulla stessa PR. */
+export function isAgentOwnedPr(labels = [], headRefName = '') {
   const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
-  return names.includes(AGENT_AUTOFIX_LABEL) && !names.includes('needs-human');
+  if (names.includes('needs-human')) return false;
+  if (names.includes(AGENT_AUTOFIX_LABEL)) return true;
+  const ref = String(headRefName || '');
+  return ref.startsWith('fix/') || ref.startsWith('automerge-');
 }
 
-export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = [] }) {
-  return conflicted === true && !nearMerge && isAgentOwnedPr(labels);
+export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = [], headRefName = '' }) {
+  return conflicted === true && !nearMerge && isAgentOwnedPr(labels, headRefName);
 }
 
 /** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
@@ -1806,6 +1808,61 @@ function ghOk(args) {
   }
 }
 
+/**
+ * Numeri delle issue aperte con titolo ESATTAMENTE `title`, in ordine
+ * crescente, dalle righe `[number, title]` (una per riga JSON). Pura.
+ * `null` se una riga non e' leggibile: un elenco parziale non prova
+ * l'assenza di una issue gia' aperta.
+ */
+export function handoffIssueNumbers(raw, title) {
+  const numbers = [];
+  for (const line of String(raw ?? '').split('\n')) {
+    if (!line.trim()) continue;
+    let row;
+    try { row = JSON.parse(line); } catch { return null; }
+    if (!Array.isArray(row) || !Number.isSafeInteger(row[0]) || typeof row[1] !== 'string') return null;
+    if (row[1] === title) numbers.push(row[0]);
+  }
+  return [...new Set(numbers)].sort((a, b) => a - b);
+}
+
+/**
+ * Elenco CONSISTENTE delle issue aperte con quel titolo. Non usa la search API
+ * (`gh issue list --search ... in:title`): il suo indice arriva in ritardo di
+ * secondi o minuti, e proprio nella finestra in cui due sweep concorrenti
+ * decidono se creare la issue. L'elenco REST legge il database.
+ * @returns {number[]|null}
+ */
+function openIssuesTitled(title) {
+  let raw;
+  try {
+    raw = execFileSync('gh', ['api', '--paginate', `repos/${REPO}/issues?state=open&per_page=100`,
+      '--jq', '.[] | select(.pull_request == null) | [.number, .title] | @json'],
+    { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch {
+    return null;
+  }
+  return handoffIssueNumbers(raw, title);
+}
+
+/**
+ * Elegge la issue di hand-off canonica (la piu' vecchia) e chiude le altre
+ * come duplicate. Deterministico su ogni sweep: due run concorrenti eleggono
+ * la stessa. Ritorna il numero canonico.
+ * @param {number[]} numbers ordine crescente, non vuoto
+ */
+function closeDuplicateHandoffIssues(numbers) {
+  const [canonical, ...duplicates] = numbers;
+  for (const dup of duplicates) {
+    if (DRY) { console.log(`[dry] chiude la issue di hand-off duplicata #${dup} (canonica #${canonical})`); continue; }
+    gh(['issue', 'close', String(dup), '--repo', REPO, '--reason', 'not planned', '--comment',
+      `Duplicata di #${canonical}: stesso hand-off di conflitto, aperto da due sweep concorrenti di pr-autorebase. Il lavoro prosegue su #${canonical}. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+    { json: false, allowFail: true });
+    console.log(`issue di hand-off #${dup} duplicata di #${canonical} → chiusa.`);
+  }
+  return canonical;
+}
+
 function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } = {}) {
   const marker = conflictHandoffMarker(head);
   if (!shouldHandOffConflict({
@@ -1837,13 +1894,12 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
   // Il titolo e' stabile: una issue gia' aperta da un tick precedente (routing
   // fallito, marker non scritto) viene riusata invece di duplicata.
-  const existing = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--search', `"${title}" in:title`,
-    '--json', 'number,title'], { allowFail: true });
+  const existing = openIssuesTitled(title);
   if (existing === null) {
     console.log(`::warning::PR #${num}: elenco issue illeggibile → hand-off rinviato al prossimo tick.`);
     return;
   }
-  let issue = String((existing || []).find((i) => i.title === title)?.number || '');
+  let issue = existing.length ? String(closeDuplicateHandoffIssues(existing)) : '';
   if (!issue) {
     // `agent:triaged` alla creazione: il triage la manderebbe comunque in coda
     // (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva con
@@ -1851,7 +1907,20 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
     // e l'identita' di GH_TOKEN e' quella ammessa dal suo sender gate.
     const url = String(gh(['issue', 'create', '--repo', REPO, '--title', title, '--body', body,
       '--label', 'agent:triaged'], { json: false, allowFail: true }) || '').trim();
-    issue = /\/issues\/(\d+)/.exec(url)?.[1] || '';
+    const created = /\/issues\/(\d+)/.exec(url)?.[1] || '';
+    // Due sweep concorrenti (il job `post-review` di due PR diverse) leggono
+    // entrambi «nessuna issue» e ne creano una ciascuno: #10586 e #10587 per
+    // la stessa HEAD di #10569, a 5 s di distanza. La rilettura DOPO la
+    // creazione vede anche quella dell'altro: tutti e due eleggono la stessa
+    // (la piu' vecchia) e chiudono le altre prima di instradarla.
+    if (created) {
+      const after = openIssuesTitled(title);
+      if (after === null || after.length === 0) {
+        console.log(`::warning::PR #${num}: issue #${created} creata ma l'elenco non e' rileggibile → routing rinviato al prossimo tick (riusa la issue esistente).`);
+        return;
+      }
+      issue = String(closeDuplicateHandoffIssues(after));
+    }
   }
   if (!issue) {
     console.log(`::warning::PR #${num}: issue di hand-off del conflitto non creata — resta la label stale-review.`);
@@ -2036,7 +2105,7 @@ async function processPR(pr) {
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
     lgtm;
-  const agentOwned = isAgentOwnedPr(labels);
+  const agentOwned = isAgentOwnedPr(labels, branch);
 
   // ── QUARTA classe near-merge: STUCK-RED (2026-08-05) ───────────────────────
   // Le prime tre classi presuppongono che una PR bloccata abbia GIÀ un segnale:
@@ -2083,7 +2152,7 @@ async function processPR(pr) {
   }
 
   if (!nearMerge) {
-    if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels })) {
+    if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })) {
       handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
     }
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip del rebase.`);
@@ -2205,11 +2274,13 @@ async function processPR(pr) {
   // (orphan-heal esteso a behind>0, prima solo behind===0), senza rebasare: il
   // check vitest atterra su una head STABILE e auto-merge la mergia behind.
   const collisionRisk = labels.includes('collision-risk');
+  const headVitest = vitestConclusion(head);
   const action = rebaseActionForLgtmPr({
     lgtm,
     collisionBlocked: collisionRisk && collisionGateBlocks(num, head, behind),
-    vitestConclusion: vitestConclusion(head),
+    vitestConclusion: headVitest,
     hasVitestCheck: headHasVitestCheck(head),
+    reviewGateOnly: lgtm && headVitest === 'failure' && reviewGateRedOnFreshVerdict(num, head),
   });
   if (action === 'heal') {
     console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → checkpoint manuale (NO rebase, nessun dispatch trusted).`);
@@ -2220,7 +2291,7 @@ async function processPR(pr) {
     console.log(`PR #${num} LGTM + vitest non-failure sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla orfanizzerebbe l'head).`);
     return;
   }
-  console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
+  console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto ${action === 'reopen' ? 'un nuovo giro sulla stessa HEAD' : 'rebase'}.`);
 
   // Review-in-flight guard: NON rebasare mentre una review Claude è in volo
   // sull'head. Il nuovo workflow non cancella la review vecchia, ma deferire
@@ -2290,6 +2361,12 @@ async function processPR(pr) {
     }
   }
 
+  if (action === 'reopen') {
+    console.log(`PR #${num}: LGTM sulla HEAD ${head.slice(0, 8)} e il solo review gate rosso → close+reopen sulla stessa head, nessun merge di main.`);
+    if (guardedReopen(num, head)) clearStaleReviewLabel(num);
+    return;
+  }
+
   const m = await mergeableState(num);
   if (m === 'UNKNOWN' || m === '') {
     console.log(`PR #${num} mergeable=UNKNOWN dopo poll — skip questo run (riprova al prossimo tick).`);
@@ -2309,39 +2386,34 @@ async function processPR(pr) {
     return;
   }
 
-  // `stale-review` non è sinonimo di workflow-validation drift. Il rescuer la
-  // applica anche quando una review non è mai partita, quando la coda è
-  // congestionata o quando i test sono rossi. Fare in tutti questi casi
-  // `merge origin/main` crea un nuovo head e invalida il giro CI corrente.
-  //
-  // Il merge resta obbligatorio quando il confronto byte-level dimostra che il
-  // workflow di review è cambiato rispetto a main: senza quel merge il run
-  // può fallire con "401 Unauthorized — Workflow validation failed". Se non
-  // c'è drift, una PR senza review viene riaperta sulla stessa head, mentre una
-  // review già esistente resta al redflag-fixer/umano: nessuna review stale
-  // viene considerata risolta da un push di main.
+  // `stale-review` non chiede un merge di main. Il rescuer la applica quando
+  // una review non è mai partita, quando la coda è congestionata, quando i test
+  // sono rossi o quando un 🔴 non è stato ripreso: in nessuno di questi casi
+  // `merge origin/main` ripara qualcosa, e ogni HEAD nuova invalida il giro CI
+  // e azzera il round cap del 🔴-fixer (vedi `staleReviewAction`). Una PR senza
+  // review viene riaperta sulla stessa head; una review già esistente resta al
+  // redflag-fixer: nessuna review stale viene considerata risolta da un push di
+  // main. Resta il solo stuck-red, che il merge ripara davvero.
   if (labels.includes('stale-review') && !lgtm && !collisionRisk) {
-    const workflowValidationDrift = hasReviewWorkflowValidationDrift(head);
     const staleAction = staleReviewAction({
       staleReview: true,
       lgtm,
-      workflowValidationDrift,
       // Un errore API deve restare fail-closed: hasClaudeReviewOnHead() torna
       // true e quindi non apriamo/retriggeriamo alla cieca.
-      hasCurrentClaudeReview: workflowValidationDrift ? true : hasClaudeReviewOnHead(num, head),
+      hasCurrentClaudeReview: hasClaudeReviewOnHead(num, head),
       stuckRed: Boolean(stuckRedReason),
       collisionRisk,
     });
     if (staleAction === 'wait') {
-      console.log(`PR #${num}: stale-review senza drift del workflow e review già presente — nessun merge di main; attendo redflag-fixer/umano.`);
+      console.log(`PR #${num}: stale-review con review già presente sulla HEAD — nessun merge di main; attendo redflag-fixer.`);
       return;
     }
     if (staleAction === 'retrigger') {
-      console.log(`PR #${num}: stale-review senza drift del workflow e senza review — close+reopen sulla stessa head, nessun merge di main.`);
+      console.log(`PR #${num}: stale-review senza review sulla HEAD — close+reopen sulla stessa head, nessun merge di main.`);
       if (guardedReopen(num, head)) clearStaleReviewLabel(num);
       return;
     }
-    console.log(`PR #${num}: stale-review con workflow-validation drift — il merge di main resta necessario.`);
+    console.log(`PR #${num}: stale-review con stuck-red — il merge di main resta il rimedio.`);
   }
 
   // MERGEABLE → tenta il merge di origin/main nel branch.

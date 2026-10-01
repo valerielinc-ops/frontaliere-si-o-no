@@ -16,7 +16,6 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import {
   rebaseActionForLgtmPr,
-  reviewWorkflowHasDrift,
   reviewerReviewOnHead,
   staleReviewAction,
 } from '../scripts/ci/pr-autorebase.mjs';
@@ -69,6 +68,41 @@ describe('rebaseActionForLgtmPr (#2415 rebase-thrash livelock guard)', () => {
     })).toBe('rebase');
   });
 
+  it('REGRESSIONE #10580: LGTM + solo il review gate rosso su un verdetto fresco → reopen sulla stessa HEAD, non merge di main', () => {
+    expect(rebaseActionForLgtmPr({
+      lgtm: true, collisionBlocked: false, vitestConclusion: 'failure', hasVitestCheck: true, reviewGateOnly: true,
+    })).toBe('reopen');
+  });
+
+  it('reviewGateOnly non prevale su una collisione reale né su un rosso dei test', () => {
+    expect(rebaseActionForLgtmPr({
+      lgtm: true, collisionBlocked: true, vitestConclusion: 'failure', hasVitestCheck: true, reviewGateOnly: true,
+    })).toBe('rebase');
+    expect(rebaseActionForLgtmPr({
+      lgtm: true, collisionBlocked: false, vitestConclusion: 'failure', hasVitestCheck: true, reviewGateOnly: false,
+    })).toBe('rebase');
+    expect(rebaseActionForLgtmPr({
+      lgtm: false, collisionBlocked: false, vitestConclusion: 'failure', hasVitestCheck: true, reviewGateOnly: true,
+    })).toBe('rebase');
+  });
+
+  it('il reopen passa dal breaker e dalle guardie in volo prima di ogni merge', () => {
+    const processPr = AUTOREBASE_SOURCE.slice(AUTOREBASE_SOURCE.indexOf('async function processPR('));
+    const inFlight = processPr.indexOf('const inFlight = testsRunInFlightOnHead(');
+    const reopen = processPr.indexOf("if (action === 'reopen') {");
+    const merge = processPr.indexOf("git(['merge', '--no-edit', 'origin/main']", reopen);
+    expect(inFlight).toBeGreaterThan(-1);
+    expect(reopen).toBeGreaterThan(inFlight);
+    expect(merge).toBeGreaterThan(reopen);
+    expect(processPr.slice(reopen, merge)).toContain('guardedReopen(num, head)');
+    const predicate = AUTOREBASE_SOURCE.slice(
+      AUTOREBASE_SOURCE.indexOf('function reviewGateRedOnFreshVerdict('),
+      AUTOREBASE_SOURCE.indexOf('function readReopenBudgetBody('),
+    );
+    expect(predicate).toContain('reviewSkippedByGuard(steps) || reviewAbortedWithoutVerdict(steps)');
+    expect(predicate).toContain('prior.reviewGateUsed');
+  });
+
   it('non-LGTM → rebase (non near-merge-as-is)', () => {
     expect(rebaseActionForLgtmPr({
       lgtm: false, collisionBlocked: false, vitestConclusion: 'success', hasVitestCheck: true,
@@ -77,44 +111,44 @@ describe('rebaseActionForLgtmPr (#2415 rebase-thrash livelock guard)', () => {
 });
 
 describe('staleReviewAction (merge di main solo quando serve)', () => {
-  it('stale-review senza drift e senza review → retrigger sulla stessa head', () => {
+  it('stale-review senza review → retrigger sulla stessa head', () => {
     expect(staleReviewAction({
       staleReview: true,
       lgtm: false,
-      workflowValidationDrift: false,
       hasCurrentClaudeReview: false,
       stuckRed: false,
       collisionRisk: false,
     })).toBe('retrigger');
   });
 
-  it('stale-review senza drift con review esistente → attende il fixer, niente merge', () => {
+  it('stale-review con review esistente → attende il fixer, niente merge', () => {
     expect(staleReviewAction({
       staleReview: true,
       lgtm: false,
-      workflowValidationDrift: false,
       hasCurrentClaudeReview: true,
       stuckRed: false,
       collisionRisk: false,
     })).toBe('wait');
   });
 
-  it('stale-review con workflow modificato rispetto a main → rebase', () => {
+  it('REGRESSIONE #10467: un tests.yml diverso da main non è un motivo di merge (AGENTS.md «MAI merge per profilassi»)', () => {
+    // Il vecchio parametro `workflowValidationDrift` scattava su ogni PR nata
+    // prima dell'ultima modifica di tests.yml: cinque merge di main in otto
+    // ore, ogni HEAD nuova azzerava il round cap del 🔴-fixer.
     expect(staleReviewAction({
       staleReview: true,
       lgtm: false,
       workflowValidationDrift: true,
-      hasCurrentClaudeReview: false,
+      hasCurrentClaudeReview: true,
       stuckRed: false,
       collisionRisk: false,
-    })).toBe('rebase');
+    } as Parameters<typeof staleReviewAction>[0])).toBe('wait');
   });
 
-  it("stuck-red prevale sull'assenza di drift → rebase", () => {
+  it("stuck-red → rebase (l'unico caso che il merge ripara)", () => {
     expect(staleReviewAction({
       staleReview: true,
       lgtm: false,
-      workflowValidationDrift: false,
       hasCurrentClaudeReview: false,
       stuckRed: true,
       collisionRisk: false,
@@ -125,7 +159,6 @@ describe('staleReviewAction (merge di main solo quando serve)', () => {
     expect(staleReviewAction({
       staleReview: false,
       lgtm: false,
-      workflowValidationDrift: false,
       hasCurrentClaudeReview: false,
       stuckRed: false,
       collisionRisk: false,
@@ -133,43 +166,10 @@ describe('staleReviewAction (merge di main solo quando serve)', () => {
     expect(staleReviewAction({
       staleReview: true,
       lgtm: false,
-      workflowValidationDrift: false,
       hasCurrentClaudeReview: false,
       stuckRed: false,
       collisionRisk: true,
     })).toBe('continue');
-  });
-});
-
-describe('reviewWorkflowHasDrift (workflow-validation 401)', () => {
-  const same = {
-    '.github/workflows/tests.yml': { exists: true, oid: 'tests-v1' },
-    '.github/workflows/pr-review-loop.yml': { exists: false, oid: null },
-  };
-
-  it('non segnala drift per entry byte-identiche e file storico assente su entrambi i ref', () => {
-    expect(reviewWorkflowHasDrift(same, structuredClone(same))).toBe(false);
-  });
-
-  it('segnala una modifica byte-level a tests.yml', () => {
-    expect(reviewWorkflowHasDrift(same, {
-      ...same,
-      '.github/workflows/tests.yml': { exists: true, oid: 'tests-v2' },
-    })).toBe(true);
-  });
-
-  it('segnala aggiunta o rimozione del workflow storico', () => {
-    expect(reviewWorkflowHasDrift(same, {
-      ...same,
-      '.github/workflows/pr-review-loop.yml': { exists: true, oid: 'legacy-v1' },
-    })).toBe(true);
-  });
-
-  it('su entry illeggibile resta fail-closed e richiede il merge', () => {
-    expect(reviewWorkflowHasDrift(same, {
-      ...same,
-      '.github/workflows/tests.yml': null,
-    })).toBe(true);
   });
 });
 
@@ -195,14 +195,16 @@ describe('reviewerReviewOnHead (stale-review exact-head)', () => {
 });
 
 describe('integrazione stale-review → merge', () => {
-  it('chiama il detector byte-level prima del merge di origin/main', () => {
-    const detector = AUTOREBASE_SOURCE.indexOf('hasReviewWorkflowValidationDrift(head)');
+  it('non confronta più il workflow con main prima di decidere il merge', () => {
+    expect(AUTOREBASE_SOURCE).not.toContain('hasReviewWorkflowValidationDrift');
+    expect(AUTOREBASE_SOURCE).not.toContain('workflowValidationDrift');
+    const decision = AUTOREBASE_SOURCE.indexOf('const staleAction = staleReviewAction({');
     const merge = AUTOREBASE_SOURCE.indexOf(
       "git(['merge', '--no-edit', 'origin/main']",
-      detector,
+      decision,
     );
-    expect(detector).toBeGreaterThanOrEqual(0);
-    expect(merge).toBeGreaterThan(detector);
-    expect(AUTOREBASE_SOURCE).toContain('stale-review senza drift del workflow e senza review');
+    expect(decision).toBeGreaterThanOrEqual(0);
+    expect(merge).toBeGreaterThan(decision);
+    expect(AUTOREBASE_SOURCE).toContain('stale-review senza review sulla HEAD');
   });
 });

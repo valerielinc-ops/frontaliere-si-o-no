@@ -1111,6 +1111,45 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
   });
 
+  it('REGRESSIONE #10580: accetta la copia riparata col marker di una prima LGTM senza marker', async () => {
+    // Il modello posta la LGTM senza il marker Codex; lo step «Repair missing
+    // Codex review marker» la riposta identica col marker. Il compattamento
+    // «primo verdetto della HEAD» scartava la copia: gate rosso deterministico.
+    const body = `${REVIEW_INPUT_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
+    const app = { type: 'Bot', login: 'frontaliere-automation[bot]' };
+    const unmarked = { id: 5368550896, user: app, state: 'COMMENTED', body, commit_id: HEAD_SHA, submitted_at: '2026-09-30T15:39:20Z' };
+    const repaired = { id: 5368555034, user: app, state: 'COMMENTED', body: `${CODEX_REVIEW_MARKER}\n${body}`, commit_id: HEAD_SHA, submitted_at: '2026-09-30T15:39:44Z' };
+    const evidence = { provider: 'codex', model: 'gpt-5.6-luna', effort: 'max', trigger: 'runtime-429', status: 'success' };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 10580,
+      headSha: HEAD_SHA,
+      reviews: [[unmarked, repaired]],
+      reviewRevision: REVIEW_REVISION,
+      codexEvidence: evidence,
+      mutate: false,
+    });
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+
+    // Una review successiva DIVERSA resta fuori (storm #9066/#9074), anche se marcata.
+    const laterImportant = {
+      ...repaired,
+      id: 5368555999,
+      body: `${CODEX_REVIEW_MARKER}\n${REVIEW_INPUT_MARKER}\n## Findings (Important: 1, Nit: 0)\n\n\`src/changed.mjs:L12\`: 🔴 Important: rompe il contratto.\n`,
+    };
+    const storm = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 10580,
+      headSha: HEAD_SHA,
+      reviews: [[unmarked, laterImportant]],
+      reviewRevision: REVIEW_REVISION,
+      codexEvidence: evidence,
+      mutate: false,
+    });
+    expect(storm.approved).toBe(false);
+    expect(storm.reason).toMatch(/review Codex marcata/i);
+  });
+
   it('fails closed when Codex evidence is requested but the marked review is absent', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',

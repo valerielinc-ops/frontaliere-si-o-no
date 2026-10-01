@@ -6,6 +6,7 @@ import {
   shouldHandOffConflict,
   agentPrConflictNeedsHandOff,
   isAgentOwnedPr,
+  handoffIssueNumbers,
 } from '../scripts/ci/pr-autorebase.mjs';
 
 const SOURCE = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
@@ -61,7 +62,44 @@ describe('pr-autorebase — hand-off fail-closed (review #1620)', () => {
     const marker = fn.indexOf('${marker}');
     expect(routed).toBeGreaterThan(0);
     expect(marker).toBeGreaterThan(routed);
-    expect(fn).toMatch(/'issue', 'list'[\s\S]*in:title/);
+    // Elenco consistente (REST), non la search API: il suo indice in ritardo
+    // ha lasciato creare #10586 e #10587 per la stessa HEAD di #10569.
+    expect(fn).toContain('openIssuesTitled(title)');
+    expect(fn).not.toMatch(/'--search'/);
+  });
+
+  it('dopo la creazione rilegge e instrada la issue canonica, chiudendo le duplicate', () => {
+    const fn = SOURCE.slice(SOURCE.indexOf('function handOffConflictToFixer('), SOURCE.indexOf('function commentConflictOnce('));
+    const create = fn.indexOf("'issue', 'create'");
+    const reread = fn.indexOf('const after = openIssuesTitled(title);', create);
+    const dedupe = fn.indexOf('closeDuplicateHandoffIssues(after)', reread);
+    const routed = fn.indexOf("'--add-label', 'agent:fix'", dedupe);
+    expect(create).toBeGreaterThan(0);
+    expect(reread).toBeGreaterThan(create);
+    expect(dedupe).toBeGreaterThan(reread);
+    expect(routed).toBeGreaterThan(dedupe);
+    // Anche una duplicata lasciata da un tick precedente si chiude al riuso.
+    expect(fn).toContain('closeDuplicateHandoffIssues(existing)');
+  });
+});
+
+describe('handoffIssueNumbers — titolo esatto, ordine crescente, fail-closed', () => {
+  const title = 'Conflitto con main: riapplicare la PR #10569 su main';
+  const line = (n: number, t: string) => JSON.stringify([n, t]);
+
+  it('due issue con lo stesso titolo: la canonica è la più vecchia', () => {
+    expect(handoffIssueNumbers([line(10587, title), line(10586, title), line(10600, `${title} (bis)`)].join('\n'), title))
+      .toEqual([10586, 10587]);
+  });
+
+  it('nessuna issue → elenco vuoto, non null', () => {
+    expect(handoffIssueNumbers('', title)).toEqual([]);
+    expect(handoffIssueNumbers(`${line(1, 'altro')}\n`, title)).toEqual([]);
+  });
+
+  it('una riga illeggibile rende l\'elenco inaffidabile', () => {
+    expect(handoffIssueNumbers(`${line(1, title)}\n{not json`, title)).toBeNull();
+    expect(handoffIssueNumbers(JSON.stringify({ number: 1, title }), title)).toBeNull();
   });
 });
 
@@ -79,12 +117,18 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     }
     expect(isAgentOwnedPr(['agent:autofix', 'needs-human'])).toBe(false);
     expect(isAgentOwnedPr(['stale-review'])).toBe(false);
+    // Stessa provenienza di rescuer/recycle/custode: il branch storico del ciclo
+    // basta anche senza label (#10608, gemella senza `agent:autofix`).
+    expect(isAgentOwnedPr(['stale-review'], 'fix/issue-10544')).toBe(true);
+    expect(isAgentOwnedPr([], 'automerge-weather')).toBe(true);
+    expect(isAgentOwnedPr(['needs-human'], 'fix/issue-10544')).toBe(false);
+    expect(isAgentOwnedPr([], 'fix-gh013-data-refresh-triad-20260930')).toBe(false);
     // Ogni hand-off di processPR porta lo stesso `agentOwned`: nessuna chiamata lo perde.
     const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
     const calls = processPr.match(/handOffConflictToFixer\([^)]*\)/g) || [];
     expect(calls.length).toBe(4);
     for (const call of calls) expect(call).toBe('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned })');
-    expect(processPr).toContain('const agentOwned = isAgentOwnedPr(labels);');
+    expect(processPr).toContain('const agentOwned = isAgentOwnedPr(labels, branch);');
     expect(shouldHandOffConflict({ lgtm: false, agentOwned: false, alreadyHandedOff: false })).toBe(false);
   });
 
@@ -94,6 +138,7 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: [{ name: 'agent:autofix' }, { name: 'has-conflicts' }] })).toBe(true);
     expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: [...agent, 'needs-human'] })).toBe(false);
     expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: ['has-conflicts'] })).toBe(false);
+    expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: false, labels: ['has-conflicts'], headRefName: 'fix/issue-10544' })).toBe(true);
     // I rami near-merge passano già la mano dopo l'abort del merge.
     expect(agentPrConflictNeedsHandOff({ conflicted: true, nearMerge: true, labels: agent })).toBe(false);
     // `null` = merge-tree non verificabile: fail-closed.
@@ -128,6 +173,6 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     expect(scan).toBeGreaterThan(-1);
     expect(branch).toBeGreaterThan(scan);
     expect(call).toBeGreaterThan(branch);
-    expect(processPr.slice(branch, call)).toContain('agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels })');
+    expect(processPr.slice(branch, call)).toContain('agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })');
   });
 });
