@@ -29,7 +29,7 @@ function usage(message) {
 }
 
 const options = { base: '', remote: '', refresh: '', paths: [] };
-for (let i = 2; i < process.argv.length; i += 1) {
+for (let i = 2; i < process.argv.length; i += 2) {
   const flag = process.argv[i];
   if (!['--base', '--remote', '--refresh', '--path'].includes(flag)) {
     usage(`unknown argument: ${flag}`);
