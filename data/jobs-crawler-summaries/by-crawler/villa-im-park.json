@@ -1,7 +1,7 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-09-30T21:13:43.289Z",
+  "generatedAt": "2026-10-01T09:14:56.235Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,12 +12,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4531,
-  "avgDurationMs": 4531,
+  "durationMs": 3686,
+  "avgDurationMs": 3686,
   "durationHistory": [
-    4531
+    3686
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152345671-dipl-experte-expertin-anasthesiepflege-nds-hf-50-100-",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:13:32.578Z",
+      "crawledAt": "2026-10-01T09:14:47.727Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -49,7 +49,7 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152345671-dipl-experte-expertin-anasthesiepflege-nds-hf-50-100-?oga=true",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:13:36.803Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -71,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:13:32.984Z",
+      "crawledAt": "2026-10-01T09:14:48.187Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -98,49 +98,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "villa-im-park-0bae6e2706a9",
-      "slug": "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist-33f79e",
-      "company": "Privatklinik Villa im Park",
-      "companyKey": "villa-im-park",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
-      "location": "Rothrist",
-      "canton": "AG",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150399429-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
-      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-28T21:13:20.081Z",
-      "addressLocality": "Rothrist",
-      "addressRegion": "AG",
-      "streetAddress": "Rothrist",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4852",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150399429-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
-      "firstSeenAt": "2026-09-19T22:52:59.487Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
