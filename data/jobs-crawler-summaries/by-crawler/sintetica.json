@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-01T09:08:02.502Z",
-  "total": 6,
-  "newCount": 4,
-  "updatedCount": 7,
+  "generatedAt": "2026-10-01T21:09:17.709Z",
+  "total": 7,
+  "newCount": 5,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11807,
-  "avgDurationMs": 11807,
+  "durationMs": 10110,
+  "avgDurationMs": 10110,
   "durationHistory": [
-    11807
+    10110
   ],
   "newJobs": [
     {
@@ -40,11 +40,11 @@
       },
       "sourceLang": "en",
       "needsRetranslation": true,
-      "_qualityScore": 42,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 2,
+        "richness": 20,
+        "translation": 4,
         "completeness": 15
       }
     },
@@ -99,6 +99,41 @@
       "streetAddress": "Via Penate 5",
       "slug": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
       "category": "science",
+      "datePosted": "2026-10-01",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "_qualityScore": 42,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 2,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
+      "title": "Spontaneous application - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "spontaneous-application-mendrisio-site-ticino-sintetica",
+      "category": "general",
       "datePosted": "2026-10-01",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -254,7 +289,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -291,7 +325,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-91bb6fca0bd5",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-31T22:06:47.134Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -328,7 +361,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-526ef64c1466",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-31T22:06:47.134Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -365,50 +397,12 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
-      "url": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
-      "title": "Spontaneous application - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "spontaneous-application-mendrisio-site-ticino-sintetica",
-      "category": "general",
-      "datePosted": "2026-09-30",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-2161482f648c",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:08:47.306Z",
-      "_qualityScore": 50,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 10,
         "completeness": 15
       }
     }
