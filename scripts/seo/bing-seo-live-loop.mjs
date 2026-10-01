@@ -361,11 +361,15 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
       'Il loop deve enumerare il grafo sitemap, partizionare ogni URL e aggregare i report senza scraping della UI Bing.',
     ));
   }
-  if (!loopWorkflow.includes('tree-inventory:') || !loopWorkflow.includes('tree-crawl:') || !loopWorkflow.includes('tree-report:')) {
+  if (!loopWorkflow.includes('tree-inventory:')
+    || !loopWorkflow.includes('tree-crawl:')
+    || !loopWorkflow.includes('tree-discovered-inventory:')
+    || !loopWorkflow.includes('tree-discovered-crawl:')
+    || !loopWorkflow.includes('tree-report:')) {
     findings.push(sourceFinding(
       'full-tree-workflow-source',
       '.github/workflows/bing-seo-loop.yml',
-      'Il workflow deve eseguire inventario, matrix crawl completo e aggregazione con issue deduplicata.',
+      'Il workflow deve eseguire inventario sitemap, frontiera dei link interni, matrix crawl completo e aggregazione con issue deduplicata.',
     ));
   }
   if (!loopWorkflow.includes("workflows: ['Publish to GitHub Pages (deploy + validate)']")) {
