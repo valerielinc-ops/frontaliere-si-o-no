@@ -561,7 +561,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-09-28.1';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-10-01.1';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -606,6 +606,7 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // since 2026-09-27 without a row here, so the page under-reported what we
   // send; it is now listed under the jobs category.
   '2026-09-28.1': 'c2e8edf95491a55f',
+  '2026-10-01.1': '6b80754fa587c1fb',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */

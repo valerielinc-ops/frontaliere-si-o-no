@@ -156,6 +156,30 @@ describe('MediPersonal crawler parser', () => {
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
     });
 
+    it('sends direct requests through the fetch paired with the policy dispatcher', async () => {
+      // No fetchImpl: the production transport. Only a fetch that accepts the
+      // policy's npm-undici dispatcher reaches its connection-time DNS guard,
+      // which refuses the loopback answer before any socket is opened. Node's
+      // bundled fetch rejects that dispatcher under undici 8: every direct
+      // request became "fetch failed" and silently fell back to Jina.
+      const jinaCalls: string[] = [];
+      await expect(runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: ['https://med-ipersonal.ch/'], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        jinaFetchImpl: (async (input: string | URL | Request) => {
+          jinaCalls.push(String(input));
+          throw new TypeError('fetch failed');
+        }) as typeof fetch,
+        lookupImpl: async () => [{ address: '127.0.0.1', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      })).rejects.toThrow(/unsafe prospector DNS target/);
+      expect(jinaCalls).toEqual([]);
+    });
+
     it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
       const seedUrl = 'https://ipersonal-proxy-fixture.example/';
       const detailUrl = `${seedUrl}jobs/proxy-role/`;
@@ -654,6 +678,82 @@ describe('MediPersonal crawler parser', () => {
       expect(() => assertCompleteIpersonalSnapshot(evidence)).toThrow(
         /detail fetch\/parse failure/,
       );
+    });
+
+    it('reuses only the matching rich previous detail after a bounded failure', async () => {
+      const seedUrl = 'https://ipersonal-previous-detail.example/';
+      const acceptedUrl = `${seedUrl}jobs/accepted/`;
+      const failedUrl = `${seedUrl}jobs/temporarily-blocked/`;
+      const previousDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(
+            `<a href="${acceptedUrl}">Fachperson Zürich</a><a href="${failedUrl}">Temporarily blocked role</a>`,
+            { status: 200 },
+          );
+        }
+        if (url === failedUrl) return new Response('temporary upstream outage', { status: 500 });
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Fachperson Zürich',
+            url: acceptedUrl,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails"><p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'MediPersonal',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        previousJobs: [{
+          url: failedUrl,
+          title: 'Temporarily blocked role',
+          description: previousDescription,
+          descriptionByLocale: { de: previousDescription },
+          sourceLang: 'de',
+          location: 'Zürich',
+          canton: 'ZH',
+          addressLocality: 'Zürich',
+          addressRegion: 'ZH',
+          addressCountry: 'CH',
+          company: 'MediPersonal',
+        }],
+      });
+      const evidence = jobs as typeof jobs & {
+        detailFailureCount: number;
+        detailFailureUrls: string[];
+        reusedDetailCount: number;
+        reusedDetailUrls: string[];
+        previousSnapshotIdentityCollisionCount: number;
+      };
+
+      expect(jobs).toHaveLength(2);
+      expect(jobs.find((job) => job.url === failedUrl)?.description).toBe(previousDescription);
+      expect(evidence.detailFailureCount).toBe(1);
+      expect(evidence.detailFailureUrls).toEqual([failedUrl.replace(/\/$/, '')]);
+      expect(evidence.reusedDetailCount).toBe(1);
+      expect(evidence.reusedDetailUrls).toEqual(evidence.detailFailureUrls);
+      expect(evidence.previousSnapshotIdentityCollisionCount).toBe(0);
     });
 
     it('surfaces two detail aliases resolving to one response identity', async () => {

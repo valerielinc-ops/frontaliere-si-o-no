@@ -5,11 +5,4 @@ const bodyVotazioniFederaliGiugno2026: Record<string, string> = {
     'blog.article.votazioni-federali-giugno-2026.faq': '[{"q":"When will the federal votes of 2026 take place?","a":"The federal votes are scheduled for June 14, 2026, when Swiss citizens will be called to decide on two main issues: the limitation of access to civilian service and the popular initiative \\"No to a Switzerland of 10 million!\\""},{"q":"What exactly does the initiative \\"No to a Switzerland of 10 million!\\" ask,","a":"The popular initiative calls for limiting immigration from abroad so that the resident population in Switzerland does not exceed ten million inhabitants. The objective is stated simply, but the source emphasizes that implementation would be much less easy and does not specify which measures would be necessary."},{"q":"How can Swiss citizens residing abroad participate in the vote?","a":"Swiss citizens living abroad must be registered in the electoral roll. Registration is done at the competent Swiss embassy or consulate, presenting passport, proof of residence, and filling out the appropriate form. Once registered, they receive the voting material by mail or can vote in person if they return to Switzerland."}]',
 };
 
-for (const key of Object.keys(bodyVotazioniFederaliGiugno2026)) {
-    bodyVotazioniFederaliGiugno2026[key] = bodyVotazioniFederaliGiugno2026[key].replace(
-        /https:\/\/www\.swissinfo\.ch\/ita\/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera\?[^)\s]+/g,
-        'https://www.swissinfo.ch/ita/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera',
-    );
-}
-
 export default bodyVotazioniFederaliGiugno2026;

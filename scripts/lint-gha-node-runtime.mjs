@@ -122,7 +122,7 @@ function extractUses(yaml) {
 /**
  * Classify a single `uses:` reference.
  *
- * @param {string} ref e.g. "actions/checkout@v7" or "treosh/lighthouse-ci-action@v12.6.2"
+ * @param {string} ref e.g. "actions/checkout@v7" or "treosh/lighthouse-ci-action@12.6.2"
  * @returns {{ action: string, version: string|null, kind: 'first-party'|'third-party'|'local' }}
  */
 function classifyRef(ref) {

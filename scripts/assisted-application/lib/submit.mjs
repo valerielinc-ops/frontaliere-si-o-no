@@ -194,12 +194,17 @@ export async function submitApplication(ctx) {
       const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
+        // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
+        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '' },
+        skipPostingCheck: flow?.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,
+        // What each portal taught earlier confirmed submissions (knowledge.mjs).
+        knowledge: ctx.knowledge || null,
         log,
         dryRun: Boolean(ctx.dryRun),
         onBeforeSubmit: guard ? async () => { await guard.markClicked(Date.now()); clicked = true; } : null,
@@ -209,12 +214,20 @@ export async function submitApplication(ctx) {
         // Sent: on record. After the final click any other outcome (ambiguous,
         // a CAPTCHA or an error page that appeared afterwards) is left
         // "sending": the portal may have the application, so it is never
-        // re-submitted. Before the click nothing was sent: released.
+        // re-submitted. Before the click nothing was sent: released. So too when
+        // the portal said, on the same page, that it did not send (portal_refused,
+        // JOIN «Non siamo riusciti a inviare…»): Valerie's retry may claim it again.
         if (event.type === 'submit_succeeded') await guard.markSent({ channel: channel.type, finalUrl: evidence.finalUrl || null });
-        else if (!clicked && !(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
+        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await guard.release('portal_refused');
+        else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await guard.release(event.error || event.reason || event.type);
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent }, key: runKey, nowMs });
-      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
+      // What went into the form, for the interview prep and for Valerie: agent.mjs
+      // stores it with the draft, it never reaches the automation event.
+      const portalAnswers = { status: event.type, at: nowMs, answers: evidence.answers || [] };
+      // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
+      const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channel.type } } : {};
+      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type, portalAnswers } : { ...event, portalAnswers, ...stopReport };
     } catch (error) {
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.

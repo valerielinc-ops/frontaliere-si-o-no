@@ -15,11 +15,12 @@
  *   the cache also holds it for that purpose.
  */
 
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import type { FetcherResult, WeatherForecastDay, WeatherForecastHour } from './types';
 
 const ENDPOINT = 'https://api.met.no/weatherapi/locationforecast/2.0/compact';
 
-export const MET_NO_USER_AGENT = 'frontaliereticino.ch/1.0 valerielinc@gmail.com';
+export const MET_NO_USER_AGENT = `frontaliereticino.ch/1.0 ${PUBLIC_CONTACT_EMAIL}`;
 export const MET_NO_ATTRIBUTION_TEXT = 'Weather forecast from MET Norway';
 export const MET_NO_ATTRIBUTION_URL = 'https://www.met.no/';
 

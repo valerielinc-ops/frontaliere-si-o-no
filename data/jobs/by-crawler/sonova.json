@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-09-30T21:10:45.891Z",
+  "assembledAt": "2026-10-01T09:09:01.281Z",
   "jobs": [
     {
       "id": "sonova-d6013fac87f6",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.849Z",
+      "crawledAt": "2026-10-01T09:08:55.808Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.847Z",
+      "crawledAt": "2026-10-01T09:08:55.803Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.844Z",
+      "crawledAt": "2026-10-01T09:08:55.799Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:37.841Z",
+      "crawledAt": "2026-10-01T09:08:55.795Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.839Z",
+      "crawledAt": "2026-10-01T09:08:55.791Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -366,8 +366,8 @@
           "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:55:54.925Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:55:54.925Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -413,7 +413,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.836Z",
+      "crawledAt": "2026-10-01T09:08:55.787Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -447,8 +447,8 @@
         "senior-manager-sound-quality-engineering-sonova-ch",
         "senior-manager-performance-uditiva-sonova-staefa"
       ],
-      "firstSeenAt": "2026-09-26T13:55:54.917Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:55:54.917Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -459,77 +459,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-a77ade8c1fe1",
-      "slug": "power-management-ingegnere-80-100-m-f-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "power-management-ingegnere-80-100-m-f-d-sonova-staefa",
-        "en": "power-management-engineer-80-100-m-f-d-sonova-ch",
-        "de": "power-management-ingenieur-80-100-m-f-d-sonova-staefa",
-        "fr": "power-management-ingenieur-80-100-m-f-d-sonova-staefa"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Power Management Engineer (80%-100%) (m/f/d)",
-      "titleByLocale": {
-        "it": "Power Management Ingegnere (80%-100%) (m/f/d)",
-        "en": "Power Management Engineer (80%-100%) (m/f/d)",
-        "de": "Power Management Ingenieur (80%-100%) (m/f/d)",
-        "fr": "Power Management Ingénieur (80%-100%) (m/f/d)"
-      },
-      "description": "Research & Development delivers hearing solutions and services for people with hearing loss, hearing care professionals, and further related people, in the form of hearing instruments, accessories, web services, mobile applications, and PC software.\n\nAs a Power Management Engineer, you will hold a pivotal role in enabling the industry‑leading AI hearing functions that define our next‑generation products. You are the one who ensures that cutting‑edge intelligence is not only possible, but reliably powered every moment. This position sits at the crossroads of multiple technical domains: electronic design, battery innovation, and embedded software, offering a uniquely dynamic environment where your decisions directly shape performance, efficiency, and user experience. It is a role for someone who wants to be at the technological core, driving the energy systems that make advanced hearing AI truly come alive.\n\n.\n\nMore about the role\n\n• Design, develop, and optimize battery and power management systems for hearing instruments and charging solutions\n\n• Specify, integrate, and validate power management circuits for rechargeable and non-rechargeable battery systems\n\n• Evaluate, specify, integrate, and optimize Power Management ICs (PMICs) and related power conversion architectures for future hearing instruments and charging systems\n\n• Define and implement battery management algorithms and power strategies, including State of Charge and State of Health estimation, charging behavior, protection mechanisms, and energy optimization\n\n• Collaborate closely with hardware and firmware teams to ensure robust integration of battery and power management functions into the overall hearing instrument and charger architecture\n\n• Develop and validate electrical and system-level models for power consumption, load profiles, and battery behavior under different operating conditions\n\n• Analyze and debug complex power-related system issues, driving root-cause identification and resolution\n\n• Contribute to the continuous improvement of power management platforms, methods, and development processes, and stay informed about emerging technologies and trends\n\n• Evaluate emerging power management technologies and energy management concepts to support future product generations\n\nMore about you\n\n• Master’s degree or PhD in Electrical/Electronic Engineering, Microelectronics, or a related field\n\n• Proven experience in the design of power management systems for low-power embedded devices, including DC/DC conversion, load switches, charging circuits, and energy-efficient architectures\n\n• Experience with rechargeable and non-rechargeable battery technologies, as well as a strong understanding of system-level behavior, load profiling, power consumption analysis, and battery aging effects\n\n• Hands-on experience with electrical characterization, laboratory measurements, and data-driven validation of power systems\n\n• Strong programming skills in Python for data analysis, automation, and model development; MATLAB is a plus\n\n• Experience in optimizing ultra-low-power systems under strict energy and size constraints is an asset\n\n• Experience in debugging complex power-related issues in low-power applications and charging systems is an asset\n\n• Structured, proactive, and quality-conscious working style, with the ability to bring forward innovative ideas and collaborate effectively in a distributed, diverse environment\n\n• Fluent in English (spoken and written)\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\nEmployment level 80-100%.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your complete application (cover letter, CV, references, and certificates) via our online job application platform.\n\nFor this vacancy only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Research & Development offre soluzioni uditive e servizi per le persone con perdita dell'udito, professionisti dell'udito e altre persone correlate, sotto forma di strumenti acustici, accessori, servizi web, applicazioni mobili e software per PC.\n\nIn qualità di Power Management Engineer, ricoprirai un ruolo fondamentale nel consentire alle funzioni uditive AI leader del settore che definiscono i nostri prodotti di nuova generazione. Tu sei quello che assicura che l'intelligenza all'avanguardia non è solo possibile, ma affidabile ogni momento. Questa posizione si trova all'incrocio di più domini tecnici: design elettronico, innovazione della batteria e software incorporato, offrendo un ambiente unico e dinamico in cui le vostre decisioni modellano direttamente le prestazioni, l'efficienza e l'esperienza dell'utente. È un ruolo per qualcuno che vuole essere al centro tecnologico, guidando i sistemi energetici che rendono l'intelligenza artificiale uditiva avanzata veramente vivo.\n\n.\n\nUlteriori informazioni sul ruolo\n\n• Progettazione, sviluppo e ottimizzazione dei sistemi di gestione della batteria e della potenza per strumenti acustici e soluzioni di ricarica\n\n• Specificare, integrare e convalidare i circuiti di gestione della potenza per i sistemi di batteria ricaricabili e non ricaricabili\n\n• Valutare, specificare, integrare e ottimizzare gli IC di Power Management (PMIC) e le relative architetture di conversione di potenza per futuri strumenti acustici e sistemi di ricarica\n\n• Definire e implementare algoritmi di gestione della batteria e strategie di potenza, tra cui la stima di stato di carica e stato di salute, il comportamento di ricarica, i meccanismi di protezione e l'ottimizzazione dell'energia\n\n• Collabora a stretto contatto con i team hardware e firmware per garantire una solida integrazione delle funzioni di gestione della batteria e dell'alimentazione nell'architettura globale dello strumento acustico e del caricabatterie\n\n• Sviluppare e convalidare modelli elettrici e di livello di sistema per il consumo di energia, profili di carico e comportamento della batteria in diverse condizioni operative\n\n• Analizzare e debug complessi problemi di sistema legati alla potenza, guidando l'identificazione e la risoluzione di root-cause\n\n• Contribuire al miglioramento continuo delle piattaforme, dei metodi e dei processi di sviluppo di power management e rimanere informato sulle tecnologie e tendenze emergenti\n\n• Valutare le tecnologie emergenti di gestione del potere e i concetti di gestione dell'energia per supportare le future generazioni di prodotti\n\nPiù di te\n\n• Laurea magistrale o dottorato in Ingegneria Elettrica/Elettrica, Microelettronica o un campo correlato\n\n• Esperienza dimostrata nella progettazione di sistemi di gestione della potenza per dispositivi incorporati a bassa potenza, tra cui conversione DC/DC, interruttori di carico, circuiti di ricarica e architetture ad alta efficienza energetica\n\n• Esperienza con tecnologie di batteria ricaricabili e non ricaricabili, nonché una forte comprensione del comportamento a livello di sistema, della profilazione del carico, dell'analisi del consumo di energia e degli effetti di invecchiamento della batteria\n\n• Esperienza pratica con caratterizzazione elettrica, misurazioni di laboratorio e validazione dei sistemi di alimentazione\n\n• Forte capacità di programmazione in Python per l'analisi dei dati, l'automazione e lo sviluppo dei modelli; MATLAB è un plus\n\n• L'esperienza nell'ottimizzazione dei sistemi ultra-bassi sotto rigidi vincoli di energia e dimensione è un bene\n\n• L'esperienza nel debugging di problemi energetici complessi in applicazioni a bassa potenza e sistemi di ricarica è un bene\n\n• Stile di lavoro strutturato, proattivo e di qualità consapevole, con la capacità di portare avanti idee innovative e collaborare efficacemente in un ambiente distribuito e diversificato\n\n• Fluente in inglese (spoken e scritto)\n\nMaggiori informazioni su ciò che offriamo\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. Offriamo una vasta gamma di opportunità di formazione sia per il vostro sviluppo professionale che personale, e ci sono eccezionali opportunità di crescita con i piani di sviluppo individuali.\n\nLivello di occupazione 80-100%.\n\nProcesso di applicazione\n\nMagdalena Suszek, Talent Acquisition Partner, non vede l'ora di ricevere l'applicazione completa (lettera di copertura, CV, riferimenti e certificati) tramite la nostra piattaforma di applicazione del lavoro online.\n\nPer questa vacanza saranno prese in considerazione solo le applicazioni dirette.\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Research & Development delivers hearing solutions and services for people with hearing loss, hearing care professionals, and further related people, in the form of hearing instruments, accessories, web services, mobile applications, and PC software.\n\nAs a Power Management Engineer, you will hold a pivotal role in enabling the industry‑leading AI hearing functions that define our next‑generation products. You are the one who ensures that cutting‑edge intelligence is not only possible, but reliably powered every moment. This position sits at the crossroads of multiple technical domains: electronic design, battery innovation, and embedded software, offering a uniquely dynamic environment where your decisions directly shape performance, efficiency, and user experience. It is a role for someone who wants to be at the technological core, driving the energy systems that make advanced hearing AI truly come alive.\n\n.\n\nMore about the role\n\n• Design, develop, and optimize battery and power management systems for hearing instruments and charging solutions\n\n• Specify, integrate, and validate power management circuits for rechargeable and non-rechargeable battery systems\n\n• Evaluate, specify, integrate, and optimize Power Management ICs (PMICs) and related power conversion architectures for future hearing instruments and charging systems\n\n• Define and implement battery management algorithms and power strategies, including State of Charge and State of Health estimation, charging behavior, protection mechanisms, and energy optimization\n\n• Collaborate closely with hardware and firmware teams to ensure robust integration of battery and power management functions into the overall hearing instrument and charger architecture\n\n• Develop and validate electrical and system-level models for power consumption, load profiles, and battery behavior under different operating conditions\n\n• Analyze and debug complex power-related system issues, driving root-cause identification and resolution\n\n• Contribute to the continuous improvement of power management platforms, methods, and development processes, and stay informed about emerging technologies and trends\n\n• Evaluate emerging power management technologies and energy management concepts to support future product generations\n\nMore about you\n\n• Master’s degree or PhD in Electrical/Electronic Engineering, Microelectronics, or a related field\n\n• Proven experience in the design of power management systems for low-power embedded devices, including DC/DC conversion, load switches, charging circuits, and energy-efficient architectures\n\n• Experience with rechargeable and non-rechargeable battery technologies, as well as a strong understanding of system-level behavior, load profiling, power consumption analysis, and battery aging effects\n\n• Hands-on experience with electrical characterization, laboratory measurements, and data-driven validation of power systems\n\n• Strong programming skills in Python for data analysis, automation, and model development; MATLAB is a plus\n\n• Experience in optimizing ultra-low-power systems under strict energy and size constraints is an asset\n\n• Experience in debugging complex power-related issues in low-power applications and charging systems is an asset\n\n• Structured, proactive, and quality-conscious working style, with the ability to bring forward innovative ideas and collaborate effectively in a distributed, diverse environment\n\n• Fluent in English (spoken and written)\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\nEmployment level 80-100%.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your complete application (cover letter, CV, references, and certificates) via our online job application platform.\n\nFor this vacancy only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Forschung & Entwicklung liefert Hörlösungen und Dienstleistungen für Menschen mit Hörverlust, Hörakustiker und weitere verwandte Personen in Form von Hörinstrumenten, Zubehör, Webdiensten, mobilen Anwendungen und PC-Software.\n\nAls Power Management Engineer spielen Sie eine zentrale Rolle bei der Ermöglichung der branchenführenden KI-Hörfunktionen, die unsere Produkte der nächsten Generation definieren. Sie sind derjenige, der dafür sorgt, dass modernste Intelligenz nicht nur möglich ist, sondern jeden Moment zuverlässig angetrieben wird. Diese Position steht an der Kreuzung mehrerer technischer Bereiche: Elektronikdesign, Batterieinnovation und eingebettete Software und bietet eine einzigartig dynamische Umgebung, in der Ihre Entscheidungen Leistung, Effizienz und Benutzererfahrung direkt beeinflussen. Es ist eine Rolle für jemanden, der im technologischen Kern sein möchte und die Energiesysteme antreibt, die fortschrittliche Hörgeräte wirklich zum Leben erwecken.\n\n.\n\nMehr über die Rolle\n\n• Design, Entwicklung und Optimierung von Batterie- und Power-Management-Systemen für Hörgeräte und Ladelösungen\n\n• Spezifizierung, Integration und Validierung von Strommanagementschaltungen für wiederaufladbare und nicht wiederaufladbare Batteriesysteme\n\n• Evaluieren, spezifizieren, integrieren und optimieren Sie Power-Management-ICs (PMICs) und verwandte Stromwandlungsarchitekturen für zukünftige Hörgeräte und Ladesysteme\n\n• Definieren und implementieren Sie Batteriemanagementalgorithmen und Energiestrategien, einschließlich Ladezustand und Gesundheitszustandsschätzung, Ladeverhalten, Schutzmechanismen und Energieoptimierung\n\n• Enge Zusammenarbeit mit Hardware- und Firmware-Teams, um eine robuste Integration von Batterie- und Power-Management-Funktionen in die gesamte Hörinstrument- und Ladegerätearchitektur sicherzustellen\n\n• Entwicklung und Validierung elektrischer und systembasierter Modelle für Stromverbrauch, Lastprofile und Batterieverhalten unter verschiedenen Betriebsbedingungen\n\n• Analysieren und Debuggen von komplexen energiebezogenen Systemproblemen, Antreiben von Root-Ursache-Identifikation und -Auflösung\n\n• Tragen Sie zur kontinuierlichen Verbesserung von Power-Management-Plattformen, -Methoden und -Entwicklungsprozessen bei und informieren Sie sich über neue Technologien und Trends\n\n• Bewertung neuer Energiemanagement-Technologien und Energiemanagement-Konzepte zur Unterstützung zukünftiger Produktgenerationen\n\nMehr über dich\n\n• Master-Abschluss oder PhD in Elektrotechnik, Mikroelektronik oder einem verwandten Bereich\n\n• Bewährte Erfahrung im Design von Energiemanagementsystemen für eingebettete Geräte mit geringem Stromverbrauch, einschließlich DC/DC-Konvertierung, Lastschaltern, Ladeschaltungen und energieeffizienten Architekturen\n\n• Erfahrung mit wiederaufladbaren und nicht wiederaufladbaren Batterietechnologien sowie ein fundiertes Verständnis des Verhaltens auf Systemebene, der Lastprofilierung, der Stromverbrauchsanalyse und der Batteriealterungseffekte\n\n• Praxiserfahrung mit elektrischer Charakterisierung, Labormessungen und datengesteuerter Validierung von Stromsystemen\n\n• Starke Programmierkenntnisse in Python für Datenanalyse, Automatisierung und Modellentwicklung; MATLAB ist ein Plus\n\n• Erfahrung in der Optimierung von Ultra-Low-Power-Systemen unter strengen Energie- und Größenbeschränkungen ist eine Bereicherung\n\n• Erfahrung im Debuggen komplexer energiebezogener Probleme in Low-Power-Anwendungen und Ladesystemen ist eine Bereicherung\n\n• Strukturierter, proaktiver und qualitätsbewusster Arbeitsstil mit der Fähigkeit, innovative Ideen einzubringen und in einer verteilten, vielfältigen Umgebung effektiv zusammenzuarbeiten\n\n• Fließend in Englisch (gesprochen und geschrieben)\n\nMehr über das, was wir anbieten\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz engagieren wir uns für den Aufbau einer inklusiven Kultur. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. Wir bieten eine breite Palette von Ausbildungsmöglichkeiten für Ihre berufliche und persönliche Entwicklung, und es gibt außergewöhnliche Wachstumsmöglichkeiten mit individuellen Entwicklungsplänen.\n\nBeschäftigungsniveau 80-100%.\n\nAnwendungsprozess\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung (Anschreiben, Lebenslauf, Referenzen und Zertifikate) über unsere Online-Bewerbungsplattform.\n\nFür diese Stelle werden nur Direktanträge berücksichtigt.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Recherche & Développement offre des solutions et des services auditifs aux personnes ayant une déficience auditive, aux professionnels de l'ouïe et aux personnes apparentées, sous forme d'instruments auditifs, d'accessoires, de services web, d'applications mobiles et de logiciels PC.\n\nEn tant qu'ingénieur en gestion de l'énergie, vous jouerez un rôle central pour permettre à l'industrie de jouer des fonctions d'audition d'IA qui définissent nos produits de prochaine génération. Vous êtes celui qui veille à ce que l'intelligence de pointe soit non seulement possible, mais aussi alimentée de manière fiable à chaque instant. Cette position se situe au carrefour de multiples domaines techniques : la conception électronique, l'innovation en batterie et les logiciels embarqués, offrant un environnement dynamique unique où vos décisions façonnent directement les performances, l'efficacité et l'expérience utilisateur. C'est un rôle pour quelqu'un qui veut être au cœur de la technologie, en conduisant les systèmes énergétiques qui rendent l'IA auditive avancée vraiment vivante.\n\n.\n\nEn savoir plus sur le rôle\n\n• Concevoir, développer et optimiser les systèmes de gestion de la batterie et de l'énergie pour les instruments auditifs et les solutions de recharge\n\n• Spécifier, intégrer et valider les circuits de gestion de la puissance pour les systèmes de batterie rechargeables et non rechargeables\n\n• Évaluer, spécifier, intégrer et optimiser les IC de gestion de l'alimentation (PIC) et les architectures de conversion de puissance connexes pour les futurs instruments auditifs et systèmes de recharge\n\n• Définir et mettre en œuvre des algorithmes et des stratégies de gestion de la batterie, y compris l'estimation de l'état de charge et de l'état de santé, le comportement de charge, les mécanismes de protection et l'optimisation de l'énergie\n\n• Collaborer étroitement avec les équipes du matériel et du firmware pour assurer une intégration robuste des fonctions de gestion de la batterie et de l'alimentation dans l'architecture globale de l'appareil auditif et du chargeur\n\n• Développer et valider des modèles électriques et de niveau système pour la consommation d'énergie, les profils de charge et le comportement de la batterie dans différentes conditions de fonctionnement\n\n• Analyser et déboguer les problèmes complexes liés au système d'alimentation, en favorisant l'identification et la résolution des causes profondes\n\n• Contribuer à l'amélioration continue des plates-formes, des méthodes et des processus de développement de la gestion de l'énergie et rester informé des nouvelles technologies et tendances\n\n• Évaluer les nouvelles technologies de gestion de l'énergie et les concepts de gestion de l'énergie pour soutenir les générations futures de produits\n\nPlus sur vous\n\n• Maîtrise ou doctorat en génie électrique/électronique, microélectronique ou domaine connexe\n\n• Expérience éprouvée dans la conception de systèmes de gestion de l'énergie pour les dispositifs embarqués de faible puissance, y compris la conversion DC/DC, les commutateurs de charge, les circuits de recharge et les architectures économes en énergie\n\n• Expérience des technologies de piles rechargeables et non rechargeables, ainsi qu'une bonne compréhension du comportement au niveau du système, du profilage de la charge, de l'analyse de la consommation d'énergie et des effets sur le vieillissement de la batterie\n\n• Expérience pratique de la caractérisation électrique, des mesures en laboratoire et de la validation des systèmes d'alimentation par données\n\n• Fortes compétences en programmation en Python pour l'analyse de données, l'automatisation et le développement de modèles; MATLAB est un plus\n\n• L'expérience dans l'optimisation des systèmes ultra-faible puissance sous des contraintes d'énergie et de taille strictes est un atout\n\n• L'expérience du débogage des problèmes complexes liés à la puissance dans les applications de faible puissance et les systèmes de recharge est un atout\n\n• Style de travail structuré, proactif et soucieux de la qualité, capable de présenter des idées novatrices et de collaborer efficacement dans un environnement réparti et diversifié\n\n• Fluent en anglais (parlé et écrit)\n\nPlus sur ce que nous offrons\n\nEn tant que l'un des principaux fournisseurs de soins auditifs en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez concilier une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. Nous offrons un large éventail de possibilités de formation pour votre développement professionnel et personnel, et il ya des possibilités de croissance exceptionnelles avec des plans de développement individuels.\n\nNiveau d'emploi 80-100 %.\n\nProcessus de demande\n\nMagdalena Suszek, Talent Acquisition Partner, est impatiente de recevoir votre candidature complète (lettre de couverture, CV, références et certificats) via notre plateforme d'application en ligne.\n\nPour cette vacance, seules les candidatures directes seront examinées.\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.834Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1417571533/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "power-management-engineer-80-100-m-f-d-sonova-ch",
-        "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "power-management-engineer-80-100-m-f-d-sonova-ch",
-          "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:55:54.907Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
           "unitText": "YEAR"
         }
       }
@@ -565,7 +494,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:37.831Z",
+      "crawledAt": "2026-10-01T09:08:55.783Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -591,6 +520,77 @@
         ]
       },
       "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sonova-a77ade8c1fe1",
+      "slug": "power-management-ingegnere-80-100-m-f-d-sonova-staefa",
+      "slugByLocale": {
+        "it": "power-management-ingegnere-80-100-m-f-d-sonova-staefa",
+        "en": "power-management-engineer-80-100-m-f-d-sonova-ch",
+        "de": "power-management-ingenieur-80-100-m-f-d-sonova-staefa",
+        "fr": "power-management-ingenieur-80-100-m-f-d-sonova-staefa"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Power Management Engineer (80%-100%) (m/f/d)",
+      "titleByLocale": {
+        "it": "Power Management Ingegnere (80%-100%) (m/f/d)",
+        "en": "Power Management Engineer (80%-100%) (m/f/d)",
+        "de": "Power Management Ingenieur (80%-100%) (m/f/d)",
+        "fr": "Power Management Ingénieur (80%-100%) (m/f/d)"
+      },
+      "description": "Research & Development delivers hearing solutions and services for people with hearing loss, hearing care professionals, and further related people, in the form of hearing instruments, accessories, web services, mobile applications, and PC software.\n\nAs a Power Management Engineer, you will hold a pivotal role in enabling the industry‑leading AI hearing functions that define our next‑generation products. You are the one who ensures that cutting‑edge intelligence is not only possible, but reliably powered every moment. This position sits at the crossroads of multiple technical domains: electronic design, battery innovation, and embedded software, offering a uniquely dynamic environment where your decisions directly shape performance, efficiency, and user experience. It is a role for someone who wants to be at the technological core, driving the energy systems that make advanced hearing AI truly come alive.\n\n.\n\nMore about the role\n\n• Design, develop, and optimize battery and power management systems for hearing instruments and charging solutions\n\n• Specify, integrate, and validate power management circuits for rechargeable and non-rechargeable battery systems\n\n• Evaluate, specify, integrate, and optimize Power Management ICs (PMICs) and related power conversion architectures for future hearing instruments and charging systems\n\n• Define and implement battery management algorithms and power strategies, including State of Charge and State of Health estimation, charging behavior, protection mechanisms, and energy optimization\n\n• Collaborate closely with hardware and firmware teams to ensure robust integration of battery and power management functions into the overall hearing instrument and charger architecture\n\n• Develop and validate electrical and system-level models for power consumption, load profiles, and battery behavior under different operating conditions\n\n• Analyze and debug complex power-related system issues, driving root-cause identification and resolution\n\n• Contribute to the continuous improvement of power management platforms, methods, and development processes, and stay informed about emerging technologies and trends\n\n• Evaluate emerging power management technologies and energy management concepts to support future product generations\n\nMore about you\n\n• Master’s degree or PhD in Electrical/Electronic Engineering, Microelectronics, or a related field\n\n• Proven experience in the design of power management systems for low-power embedded devices, including DC/DC conversion, load switches, charging circuits, and energy-efficient architectures\n\n• Experience with rechargeable and non-rechargeable battery technologies, as well as a strong understanding of system-level behavior, load profiling, power consumption analysis, and battery aging effects\n\n• Hands-on experience with electrical characterization, laboratory measurements, and data-driven validation of power systems\n\n• Strong programming skills in Python for data analysis, automation, and model development; MATLAB is a plus\n\n• Experience in optimizing ultra-low-power systems under strict energy and size constraints is an asset\n\n• Experience in debugging complex power-related issues in low-power applications and charging systems is an asset\n\n• Structured, proactive, and quality-conscious working style, with the ability to bring forward innovative ideas and collaborate effectively in a distributed, diverse environment\n\n• Fluent in English (spoken and written)\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\nEmployment level 80-100%.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your complete application (cover letter, CV, references, and certificates) via our online job application platform.\n\nFor this vacancy only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Research & Development offre soluzioni uditive e servizi per le persone con perdita dell'udito, professionisti dell'udito e altre persone correlate, sotto forma di strumenti acustici, accessori, servizi web, applicazioni mobili e software per PC.\n\nIn qualità di Power Management Engineer, ricoprirai un ruolo fondamentale nel consentire alle funzioni uditive AI leader del settore che definiscono i nostri prodotti di nuova generazione. Tu sei quello che assicura che l'intelligenza all'avanguardia non è solo possibile, ma affidabile ogni momento. Questa posizione si trova all'incrocio di più domini tecnici: design elettronico, innovazione della batteria e software incorporato, offrendo un ambiente unico e dinamico in cui le vostre decisioni modellano direttamente le prestazioni, l'efficienza e l'esperienza dell'utente. È un ruolo per qualcuno che vuole essere al centro tecnologico, guidando i sistemi energetici che rendono l'intelligenza artificiale uditiva avanzata veramente vivo.\n\n.\n\nUlteriori informazioni sul ruolo\n\n• Progettazione, sviluppo e ottimizzazione dei sistemi di gestione della batteria e della potenza per strumenti acustici e soluzioni di ricarica\n\n• Specificare, integrare e convalidare i circuiti di gestione della potenza per i sistemi di batteria ricaricabili e non ricaricabili\n\n• Valutare, specificare, integrare e ottimizzare gli IC di Power Management (PMIC) e le relative architetture di conversione di potenza per futuri strumenti acustici e sistemi di ricarica\n\n• Definire e implementare algoritmi di gestione della batteria e strategie di potenza, tra cui la stima di stato di carica e stato di salute, il comportamento di ricarica, i meccanismi di protezione e l'ottimizzazione dell'energia\n\n• Collabora a stretto contatto con i team hardware e firmware per garantire una solida integrazione delle funzioni di gestione della batteria e dell'alimentazione nell'architettura globale dello strumento acustico e del caricabatterie\n\n• Sviluppare e convalidare modelli elettrici e di livello di sistema per il consumo di energia, profili di carico e comportamento della batteria in diverse condizioni operative\n\n• Analizzare e debug complessi problemi di sistema legati alla potenza, guidando l'identificazione e la risoluzione di root-cause\n\n• Contribuire al miglioramento continuo delle piattaforme, dei metodi e dei processi di sviluppo di power management e rimanere informato sulle tecnologie e tendenze emergenti\n\n• Valutare le tecnologie emergenti di gestione del potere e i concetti di gestione dell'energia per supportare le future generazioni di prodotti\n\nPiù di te\n\n• Laurea magistrale o dottorato in Ingegneria Elettrica/Elettrica, Microelettronica o un campo correlato\n\n• Esperienza dimostrata nella progettazione di sistemi di gestione della potenza per dispositivi incorporati a bassa potenza, tra cui conversione DC/DC, interruttori di carico, circuiti di ricarica e architetture ad alta efficienza energetica\n\n• Esperienza con tecnologie di batteria ricaricabili e non ricaricabili, nonché una forte comprensione del comportamento a livello di sistema, della profilazione del carico, dell'analisi del consumo di energia e degli effetti di invecchiamento della batteria\n\n• Esperienza pratica con caratterizzazione elettrica, misurazioni di laboratorio e validazione dei sistemi di alimentazione\n\n• Forte capacità di programmazione in Python per l'analisi dei dati, l'automazione e lo sviluppo dei modelli; MATLAB è un plus\n\n• L'esperienza nell'ottimizzazione dei sistemi ultra-bassi sotto rigidi vincoli di energia e dimensione è un bene\n\n• L'esperienza nel debugging di problemi energetici complessi in applicazioni a bassa potenza e sistemi di ricarica è un bene\n\n• Stile di lavoro strutturato, proattivo e di qualità consapevole, con la capacità di portare avanti idee innovative e collaborare efficacemente in un ambiente distribuito e diversificato\n\n• Fluente in inglese (spoken e scritto)\n\nMaggiori informazioni su ciò che offriamo\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile. Offriamo una vasta gamma di opportunità di formazione sia per il vostro sviluppo professionale che personale, e ci sono eccezionali opportunità di crescita con i piani di sviluppo individuali.\n\nLivello di occupazione 80-100%.\n\nProcesso di applicazione\n\nMagdalena Suszek, Talent Acquisition Partner, non vede l'ora di ricevere l'applicazione completa (lettera di copertura, CV, riferimenti e certificati) tramite la nostra piattaforma di applicazione del lavoro online.\n\nPer questa vacanza saranno prese in considerazione solo le applicazioni dirette.\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Research & Development delivers hearing solutions and services for people with hearing loss, hearing care professionals, and further related people, in the form of hearing instruments, accessories, web services, mobile applications, and PC software.\n\nAs a Power Management Engineer, you will hold a pivotal role in enabling the industry‑leading AI hearing functions that define our next‑generation products. You are the one who ensures that cutting‑edge intelligence is not only possible, but reliably powered every moment. This position sits at the crossroads of multiple technical domains: electronic design, battery innovation, and embedded software, offering a uniquely dynamic environment where your decisions directly shape performance, efficiency, and user experience. It is a role for someone who wants to be at the technological core, driving the energy systems that make advanced hearing AI truly come alive.\n\n.\n\nMore about the role\n\n• Design, develop, and optimize battery and power management systems for hearing instruments and charging solutions\n\n• Specify, integrate, and validate power management circuits for rechargeable and non-rechargeable battery systems\n\n• Evaluate, specify, integrate, and optimize Power Management ICs (PMICs) and related power conversion architectures for future hearing instruments and charging systems\n\n• Define and implement battery management algorithms and power strategies, including State of Charge and State of Health estimation, charging behavior, protection mechanisms, and energy optimization\n\n• Collaborate closely with hardware and firmware teams to ensure robust integration of battery and power management functions into the overall hearing instrument and charger architecture\n\n• Develop and validate electrical and system-level models for power consumption, load profiles, and battery behavior under different operating conditions\n\n• Analyze and debug complex power-related system issues, driving root-cause identification and resolution\n\n• Contribute to the continuous improvement of power management platforms, methods, and development processes, and stay informed about emerging technologies and trends\n\n• Evaluate emerging power management technologies and energy management concepts to support future product generations\n\nMore about you\n\n• Master’s degree or PhD in Electrical/Electronic Engineering, Microelectronics, or a related field\n\n• Proven experience in the design of power management systems for low-power embedded devices, including DC/DC conversion, load switches, charging circuits, and energy-efficient architectures\n\n• Experience with rechargeable and non-rechargeable battery technologies, as well as a strong understanding of system-level behavior, load profiling, power consumption analysis, and battery aging effects\n\n• Hands-on experience with electrical characterization, laboratory measurements, and data-driven validation of power systems\n\n• Strong programming skills in Python for data analysis, automation, and model development; MATLAB is a plus\n\n• Experience in optimizing ultra-low-power systems under strict energy and size constraints is an asset\n\n• Experience in debugging complex power-related issues in low-power applications and charging systems is an asset\n\n• Structured, proactive, and quality-conscious working style, with the ability to bring forward innovative ideas and collaborate effectively in a distributed, diverse environment\n\n• Fluent in English (spoken and written)\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\nEmployment level 80-100%.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your complete application (cover letter, CV, references, and certificates) via our online job application platform.\n\nFor this vacancy only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Forschung & Entwicklung liefert Hörlösungen und Dienstleistungen für Menschen mit Hörverlust, Hörakustiker und weitere verwandte Personen in Form von Hörinstrumenten, Zubehör, Webdiensten, mobilen Anwendungen und PC-Software.\n\nAls Power Management Engineer spielen Sie eine zentrale Rolle bei der Ermöglichung der branchenführenden KI-Hörfunktionen, die unsere Produkte der nächsten Generation definieren. Sie sind derjenige, der dafür sorgt, dass modernste Intelligenz nicht nur möglich ist, sondern jeden Moment zuverlässig angetrieben wird. Diese Position steht an der Kreuzung mehrerer technischer Bereiche: Elektronikdesign, Batterieinnovation und eingebettete Software und bietet eine einzigartig dynamische Umgebung, in der Ihre Entscheidungen Leistung, Effizienz und Benutzererfahrung direkt beeinflussen. Es ist eine Rolle für jemanden, der im technologischen Kern sein möchte und die Energiesysteme antreibt, die fortschrittliche Hörgeräte wirklich zum Leben erwecken.\n\n.\n\nMehr über die Rolle\n\n• Design, Entwicklung und Optimierung von Batterie- und Power-Management-Systemen für Hörgeräte und Ladelösungen\n\n• Spezifizierung, Integration und Validierung von Strommanagementschaltungen für wiederaufladbare und nicht wiederaufladbare Batteriesysteme\n\n• Evaluieren, spezifizieren, integrieren und optimieren Sie Power-Management-ICs (PMICs) und verwandte Stromwandlungsarchitekturen für zukünftige Hörgeräte und Ladesysteme\n\n• Definieren und implementieren Sie Batteriemanagementalgorithmen und Energiestrategien, einschließlich Ladezustand und Gesundheitszustandsschätzung, Ladeverhalten, Schutzmechanismen und Energieoptimierung\n\n• Enge Zusammenarbeit mit Hardware- und Firmware-Teams, um eine robuste Integration von Batterie- und Power-Management-Funktionen in die gesamte Hörinstrument- und Ladegerätearchitektur sicherzustellen\n\n• Entwicklung und Validierung elektrischer und systembasierter Modelle für Stromverbrauch, Lastprofile und Batterieverhalten unter verschiedenen Betriebsbedingungen\n\n• Analysieren und Debuggen von komplexen energiebezogenen Systemproblemen, Antreiben von Root-Ursache-Identifikation und -Auflösung\n\n• Tragen Sie zur kontinuierlichen Verbesserung von Power-Management-Plattformen, -Methoden und -Entwicklungsprozessen bei und informieren Sie sich über neue Technologien und Trends\n\n• Bewertung neuer Energiemanagement-Technologien und Energiemanagement-Konzepte zur Unterstützung zukünftiger Produktgenerationen\n\nMehr über dich\n\n• Master-Abschluss oder PhD in Elektrotechnik, Mikroelektronik oder einem verwandten Bereich\n\n• Bewährte Erfahrung im Design von Energiemanagementsystemen für eingebettete Geräte mit geringem Stromverbrauch, einschließlich DC/DC-Konvertierung, Lastschaltern, Ladeschaltungen und energieeffizienten Architekturen\n\n• Erfahrung mit wiederaufladbaren und nicht wiederaufladbaren Batterietechnologien sowie ein fundiertes Verständnis des Verhaltens auf Systemebene, der Lastprofilierung, der Stromverbrauchsanalyse und der Batteriealterungseffekte\n\n• Praxiserfahrung mit elektrischer Charakterisierung, Labormessungen und datengesteuerter Validierung von Stromsystemen\n\n• Starke Programmierkenntnisse in Python für Datenanalyse, Automatisierung und Modellentwicklung; MATLAB ist ein Plus\n\n• Erfahrung in der Optimierung von Ultra-Low-Power-Systemen unter strengen Energie- und Größenbeschränkungen ist eine Bereicherung\n\n• Erfahrung im Debuggen komplexer energiebezogener Probleme in Low-Power-Anwendungen und Ladesystemen ist eine Bereicherung\n\n• Strukturierter, proaktiver und qualitätsbewusster Arbeitsstil mit der Fähigkeit, innovative Ideen einzubringen und in einer verteilten, vielfältigen Umgebung effektiv zusammenzuarbeiten\n\n• Fließend in Englisch (gesprochen und geschrieben)\n\nMehr über das, was wir anbieten\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz engagieren wir uns für den Aufbau einer inklusiven Kultur. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können. Wir bieten eine breite Palette von Ausbildungsmöglichkeiten für Ihre berufliche und persönliche Entwicklung, und es gibt außergewöhnliche Wachstumsmöglichkeiten mit individuellen Entwicklungsplänen.\n\nBeschäftigungsniveau 80-100%.\n\nAnwendungsprozess\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung (Anschreiben, Lebenslauf, Referenzen und Zertifikate) über unsere Online-Bewerbungsplattform.\n\nFür diese Stelle werden nur Direktanträge berücksichtigt.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
+        "fr": "Recherche & Développement offre des solutions et des services auditifs aux personnes ayant une déficience auditive, aux professionnels de l'ouïe et aux personnes apparentées, sous forme d'instruments auditifs, d'accessoires, de services web, d'applications mobiles et de logiciels PC.\n\nEn tant qu'ingénieur en gestion de l'énergie, vous jouerez un rôle central pour permettre à l'industrie de jouer des fonctions d'audition d'IA qui définissent nos produits de prochaine génération. Vous êtes celui qui veille à ce que l'intelligence de pointe soit non seulement possible, mais aussi alimentée de manière fiable à chaque instant. Cette position se situe au carrefour de multiples domaines techniques : la conception électronique, l'innovation en batterie et les logiciels embarqués, offrant un environnement dynamique unique où vos décisions façonnent directement les performances, l'efficacité et l'expérience utilisateur. C'est un rôle pour quelqu'un qui veut être au cœur de la technologie, en conduisant les systèmes énergétiques qui rendent l'IA auditive avancée vraiment vivante.\n\n.\n\nEn savoir plus sur le rôle\n\n• Concevoir, développer et optimiser les systèmes de gestion de la batterie et de l'énergie pour les instruments auditifs et les solutions de recharge\n\n• Spécifier, intégrer et valider les circuits de gestion de la puissance pour les systèmes de batterie rechargeables et non rechargeables\n\n• Évaluer, spécifier, intégrer et optimiser les IC de gestion de l'alimentation (PIC) et les architectures de conversion de puissance connexes pour les futurs instruments auditifs et systèmes de recharge\n\n• Définir et mettre en œuvre des algorithmes et des stratégies de gestion de la batterie, y compris l'estimation de l'état de charge et de l'état de santé, le comportement de charge, les mécanismes de protection et l'optimisation de l'énergie\n\n• Collaborer étroitement avec les équipes du matériel et du firmware pour assurer une intégration robuste des fonctions de gestion de la batterie et de l'alimentation dans l'architecture globale de l'appareil auditif et du chargeur\n\n• Développer et valider des modèles électriques et de niveau système pour la consommation d'énergie, les profils de charge et le comportement de la batterie dans différentes conditions de fonctionnement\n\n• Analyser et déboguer les problèmes complexes liés au système d'alimentation, en favorisant l'identification et la résolution des causes profondes\n\n• Contribuer à l'amélioration continue des plates-formes, des méthodes et des processus de développement de la gestion de l'énergie et rester informé des nouvelles technologies et tendances\n\n• Évaluer les nouvelles technologies de gestion de l'énergie et les concepts de gestion de l'énergie pour soutenir les générations futures de produits\n\nPlus sur vous\n\n• Maîtrise ou doctorat en génie électrique/électronique, microélectronique ou domaine connexe\n\n• Expérience éprouvée dans la conception de systèmes de gestion de l'énergie pour les dispositifs embarqués de faible puissance, y compris la conversion DC/DC, les commutateurs de charge, les circuits de recharge et les architectures économes en énergie\n\n• Expérience des technologies de piles rechargeables et non rechargeables, ainsi qu'une bonne compréhension du comportement au niveau du système, du profilage de la charge, de l'analyse de la consommation d'énergie et des effets sur le vieillissement de la batterie\n\n• Expérience pratique de la caractérisation électrique, des mesures en laboratoire et de la validation des systèmes d'alimentation par données\n\n• Fortes compétences en programmation en Python pour l'analyse de données, l'automatisation et le développement de modèles; MATLAB est un plus\n\n• L'expérience dans l'optimisation des systèmes ultra-faible puissance sous des contraintes d'énergie et de taille strictes est un atout\n\n• L'expérience du débogage des problèmes complexes liés à la puissance dans les applications de faible puissance et les systèmes de recharge est un atout\n\n• Style de travail structuré, proactif et soucieux de la qualité, capable de présenter des idées novatrices et de collaborer efficacement dans un environnement réparti et diversifié\n\n• Fluent en anglais (parlé et écrit)\n\nPlus sur ce que nous offrons\n\nEn tant que l'un des principaux fournisseurs de soins auditifs en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez concilier une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible. Nous offrons un large éventail de possibilités de formation pour votre développement professionnel et personnel, et il ya des possibilités de croissance exceptionnelles avec des plans de développement individuels.\n\nNiveau d'emploi 80-100 %.\n\nProcessus de demande\n\nMagdalena Suszek, Talent Acquisition Partner, est impatiente de recevoir votre candidature complète (lettre de couverture, CV, références et certificats) via notre plateforme d'application en ligne.\n\nPour cette vacance, seules les candidatures directes seront examinées.\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T09:08:55.779Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1417571533/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "power-management-engineer-80-100-m-f-d-sonova-ch",
+        "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "power-management-engineer-80-100-m-f-d-sonova-ch",
+          "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:55:54.907Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -636,7 +636,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.828Z",
+      "crawledAt": "2026-10-01T09:08:55.775Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -721,7 +721,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.826Z",
+      "crawledAt": "2026-10-01T09:08:55.771Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -795,7 +795,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.823Z",
+      "crawledAt": "2026-10-01T09:08:55.766Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -874,7 +874,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.820Z",
+      "crawledAt": "2026-10-01T09:08:55.762Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -945,7 +945,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.817Z",
+      "crawledAt": "2026-10-01T09:08:55.758Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1015,7 +1015,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.813Z",
+      "crawledAt": "2026-10-01T09:08:55.754Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1057,84 +1057,6 @@
       }
     },
     {
-      "id": "sonova-755bb818c5fe",
-      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-        "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
-        "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
-        "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
-        "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-        "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
-      },
-      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:37.809Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
-        ],
-        "en": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
-        ],
-        "fr": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sonova-088c8bab41fe",
       "slug": "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
@@ -1165,7 +1087,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:37.806Z",
+      "crawledAt": "2026-10-01T09:08:55.749Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1198,8 +1120,8 @@
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:06:52.177Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.177Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1245,7 +1167,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:37.804Z",
+      "crawledAt": "2026-10-01T09:08:55.744Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1278,8 +1200,86 @@
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:06:52.194Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sonova-755bb818c5fe",
+      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+      "slugByLocale": {
+        "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+        "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
+        "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
+        "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
+        "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+        "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
+      },
+      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T09:08:55.740Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+        ],
+        "en": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        ],
+        "fr": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.246Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1325,7 +1325,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.778Z",
+      "crawledAt": "2026-10-01T09:08:55.695Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1355,8 +1355,8 @@
           "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:09:05.057Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:09:05.057Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1376,34 +1376,34 @@
       "id": "sonova-1f854815a19d",
       "slug": "quality-assurance-manager-sonova-ch",
       "slugByLocale": {
-        "en": "quality-assurance-manager-sonova-ch",
         "it": "quality-assurance-manager-sonova-ch",
-        "de": "quality-assurance-manager-sonova-ch",
-        "fr": "quality-assurance-manager-sonova-ch"
+        "en": "quality-assurance-manager-sonova-ch",
+        "de": "qualitat-assurance-manager-sonova-murten",
+        "fr": "qualite-assurance-manager-sonova-murten"
       },
       "company": "Sonova",
       "companyKey": "sonova",
       "companyDomain": "sonova.com",
       "title": "Quality Assurance Manager",
       "titleByLocale": {
+        "it": "Gestione dell'assicurazione di qualità",
         "en": "Quality Assurance Manager",
-        "it": "Quality Assurance Manager",
         "de": "Qualität Assurance Manager",
         "fr": "Qualité Assurance Manager"
       },
       "description": "Murten, Switzerland (hybrid)\n\nAt Sonova Communications, we develop advanced communication solutions that help people stay connected and active. Our portfolio includes miniaturized communication systems, assistive listening devices, hearing protection solutions, and cutting-edge wireless technology. To learn more about our products, visit: https://www.sonova-communications.com/\n\nWe are looking for an experienced Quality Assurance Manager to join our Quality Assurance and Regulatory Affairs team in Murten. You will play a key role in ensuring that our non-medical products meet the highest quality standards throughout their lifecycle.\n\nYour responsibilities\n\n• Own and continuously improve key quality processes, particularly risk management and CAPA\n\n• Act as Design Quality Assurance partner for R&D product development projects\n\n• Review and approve design and project documentation, ensuring compliance with internal processes, SOPs, and quality requirements\n\n• Ensure that verification and validation activities meet applicable quality requirements\n\n• Review and approve proposed changes to products already on the market\n\n• Support internal and external audits and contribute to maintaining compliance with ISO 9001 and ISO 13485\n\n• Promote a quality mindset through training, clear processes, KPIs, and continuous improvement activities\n\nYour profile\n\n• Engineering or scientific background, for example in electronics, mechanics, physics, or a related field\n\n• At least 5 years of experience in Design Quality Assurance and risk management\n\n• Strong practical knowledge of ISO 9001 (experience with ISO 13485 is an advantage)\n\n• Background in consumer electronics, automotive, aerospace, or a comparable product-driven industry\n\n• Good understanding of CAPA, product development, verification, and validation processes\n\n• Confident communication skills in English; German and/or French would be an advantage\n\n• Experience with electronic document or quality management systems is beneficial\n\nWhy join us\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\n• A dynamic and collaborative team working on meaningful products and advanced technologies\n\n• Broad cross-functional exposure and the opportunity to directly influence product quality, development processes, and continuous improvement across the organization #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
+        "it": "Murten, Svizzera (hybrid)\n\nIn Sonova Communications, sviluppiamo soluzioni di comunicazione avanzate che aiutano le persone a rimanere collegate e attive. Il nostro portafoglio comprende sistemi di comunicazione miniaturizzati, dispositivi di ascolto assistivi, soluzioni di protezione dell'udito e tecnologia wireless all'avanguardia. Per saperne di più sui nostri prodotti, visitare: https://www.sonova-communications.com/\n\nStiamo cercando un esperto Quality Assurance Manager per unire il nostro team di Quality Assurance and Regulatory Affairs a Murten. Si svolgerà un ruolo chiave nel garantire che i nostri prodotti non medici soddisfano i più elevati standard di qualità durante il loro ciclo di vita.\n\nLe tue responsabilità\n\n• Migliorare i processi di qualità chiave, in particolare la gestione dei rischi e CAPA\n\n• Act as Design Quality Assurance partner per progetti di sviluppo di prodotti R&D\n\n• Verificare e approvare la documentazione di progettazione e progetto, garantendo il rispetto dei processi interni, SOP e requisiti di qualità\n\n• Assicurarsi che le attività di verifica e validazione soddisfino i requisiti di qualità applicabili\n\n• Revisione e approvazione proposte modifiche ai prodotti già sul mercato\n\n• Supporto di audit interni ed esterni e contribuire a mantenere la conformità con ISO 9001 e ISO 13485\n\n• Promuovere una mentalità di qualità attraverso la formazione, processi chiari, KPI e attività di miglioramento continuo\n\nIl tuo profilo\n\n• Ingegneria o background scientifico, per esempio in elettronica, meccanica, fisica o un campo correlato\n\n• Almeno 5 anni di esperienza nel Design Quality Assurance e nella gestione dei rischi\n\n• Forte conoscenza pratica della ISO 9001 (l'esperienza con ISO 13485 è un vantaggio)\n\n• Sfondo nell'elettronica di consumo, nel settore automobilistico, aerospaziale, o in un settore simile\n\n• Buona comprensione dei processi CAPA, sviluppo del prodotto, verifica e convalida\n\n• Capacità di comunicazione fiduciosa in inglese; tedesco e/o francese sarebbe un vantaggio\n\n• Esperienza con documenti elettronici o sistemi di gestione della qualità è vantaggioso\n\nPerché unirsi a noi\n\nCome uno dei principali fornitori di servizi per l’udito con sede in Svizzera, ci impegniamo a costruire una cultura inclusiva. Vogliamo creare un ambiente in cui è possibile bilanciare una carriera di successo con i vostri impegni e interessi al di fuori del lavoro, attraverso il nostro modello di lavoro ibrido flessibile.\n\n• Un team dinamico e collaborativo che lavora su prodotti significativi e tecnologie avanzate\n\n• Ampia esposizione interfunzionale e l'opportunità di influenzare direttamente la qualità del prodotto, i processi di sviluppo e il miglioramento continuo in tutta l'organizzazione #LI-NB1\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
         "en": "Murten, Switzerland (hybrid)\n\nAt Sonova Communications, we develop advanced communication solutions that help people stay connected and active. Our portfolio includes miniaturized communication systems, assistive listening devices, hearing protection solutions, and cutting-edge wireless technology. To learn more about our products, visit: https://www.sonova-communications.com/\n\nWe are looking for an experienced Quality Assurance Manager to join our Quality Assurance and Regulatory Affairs team in Murten. You will play a key role in ensuring that our non-medical products meet the highest quality standards throughout their lifecycle.\n\nYour responsibilities\n\n• Own and continuously improve key quality processes, particularly risk management and CAPA\n\n• Act as Design Quality Assurance partner for R&D product development projects\n\n• Review and approve design and project documentation, ensuring compliance with internal processes, SOPs, and quality requirements\n\n• Ensure that verification and validation activities meet applicable quality requirements\n\n• Review and approve proposed changes to products already on the market\n\n• Support internal and external audits and contribute to maintaining compliance with ISO 9001 and ISO 13485\n\n• Promote a quality mindset through training, clear processes, KPIs, and continuous improvement activities\n\nYour profile\n\n• Engineering or scientific background, for example in electronics, mechanics, physics, or a related field\n\n• At least 5 years of experience in Design Quality Assurance and risk management\n\n• Strong practical knowledge of ISO 9001 (experience with ISO 13485 is an advantage)\n\n• Background in consumer electronics, automotive, aerospace, or a comparable product-driven industry\n\n• Good understanding of CAPA, product development, verification, and validation processes\n\n• Confident communication skills in English; German and/or French would be an advantage\n\n• Experience with electronic document or quality management systems is beneficial\n\nWhy join us\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\n• A dynamic and collaborative team working on meaningful products and advanced technologies\n\n• Broad cross-functional exposure and the opportunity to directly influence product quality, development processes, and continuous improvement across the organization #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "it": "Murten, Switzerland (hybrid)\n\nAt Sonova Communications, we develop advanced communication solutions that help people stay connected and active. Our portfolio includes miniaturized communication systems, assistive listening devices, hearing protection solutions, and cutting-edge wireless technology. To learn more about our products, visit: https://www.sonova-communications.com/\n\nWe are looking for an experienced Quality Assurance Manager to join our Quality Assurance and Regulatory Affairs team in Murten. You will play a key role in ensuring that our non-medical products meet the highest quality standards throughout their lifecycle.\n\nYour responsibilities\n\n• Own and continuously improve key quality processes, particularly risk management and CAPA\n\n• Act as Design Quality Assurance partner for R&D product development projects\n\n• Review and approve design and project documentation, ensuring compliance with internal processes, SOPs, and quality requirements\n\n• Ensure that verification and validation activities meet applicable quality requirements\n\n• Review and approve proposed changes to products already on the market\n\n• Support internal and external audits and contribute to maintaining compliance with ISO 9001 and ISO 13485\n\n• Promote a quality mindset through training, clear processes, KPIs, and continuous improvement activities\n\nYour profile\n\n• Engineering or scientific background, for example in electronics, mechanics, physics, or a related field\n\n• At least 5 years of experience in Design Quality Assurance and risk management\n\n• Strong practical knowledge of ISO 9001 (experience with ISO 13485 is an advantage)\n\n• Background in consumer electronics, automotive, aerospace, or a comparable product-driven industry\n\n• Good understanding of CAPA, product development, verification, and validation processes\n\n• Confident communication skills in English; German and/or French would be an advantage\n\n• Experience with electronic document or quality management systems is beneficial\n\nWhy join us\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\n• A dynamic and collaborative team working on meaningful products and advanced technologies\n\n• Broad cross-functional exposure and the opportunity to directly influence product quality, development processes, and continuous improvement across the organization #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Murten, Switzerland (hybrid)\n\nAt Sonova Communications, we develop advanced communication solutions that help people stay connected and active. Our portfolio includes miniaturized communication systems, assistive listening devices, hearing protection solutions, and cutting-edge wireless technology. To learn more about our products, visit: https://www.sonova-communications.com/\n\nWe are looking for an experienced Quality Assurance Manager to join our Quality Assurance and Regulatory Affairs team in Murten. You will play a key role in ensuring that our non-medical products meet the highest quality standards throughout their lifecycle.\n\nYour responsibilities\n\n• Own and continuously improve key quality processes, particularly risk management and CAPA\n\n• Act as Design Quality Assurance partner for R&D product development projects\n\n• Review and approve design and project documentation, ensuring compliance with internal processes, SOPs, and quality requirements\n\n• Ensure that verification and validation activities meet applicable quality requirements\n\n• Review and approve proposed changes to products already on the market\n\n• Support internal and external audits and contribute to maintaining compliance with ISO 9001 and ISO 13485\n\n• Promote a quality mindset through training, clear processes, KPIs, and continuous improvement activities\n\nYour profile\n\n• Engineering or scientific background, for example in electronics, mechanics, physics, or a related field\n\n• At least 5 years of experience in Design Quality Assurance and risk management\n\n• Strong practical knowledge of ISO 9001 (experience with ISO 13485 is an advantage)\n\n• Background in consumer electronics, automotive, aerospace, or a comparable product-driven industry\n\n• Good understanding of CAPA, product development, verification, and validation processes\n\n• Confident communication skills in English; German and/or French would be an advantage\n\n• Experience with electronic document or quality management systems is beneficial\n\nWhy join us\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\n• A dynamic and collaborative team working on meaningful products and advanced technologies\n\n• Broad cross-functional exposure and the opportunity to directly influence product quality, development processes, and continuous improvement across the organization #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Murten, Switzerland (hybrid)\n\nAt Sonova Communications, we develop advanced communication solutions that help people stay connected and active. Our portfolio includes miniaturized communication systems, assistive listening devices, hearing protection solutions, and cutting-edge wireless technology. To learn more about our products, visit: https://www.sonova-communications.com/\n\nWe are looking for an experienced Quality Assurance Manager to join our Quality Assurance and Regulatory Affairs team in Murten. You will play a key role in ensuring that our non-medical products meet the highest quality standards throughout their lifecycle.\n\nYour responsibilities\n\n• Own and continuously improve key quality processes, particularly risk management and CAPA\n\n• Act as Design Quality Assurance partner for R&D product development projects\n\n• Review and approve design and project documentation, ensuring compliance with internal processes, SOPs, and quality requirements\n\n• Ensure that verification and validation activities meet applicable quality requirements\n\n• Review and approve proposed changes to products already on the market\n\n• Support internal and external audits and contribute to maintaining compliance with ISO 9001 and ISO 13485\n\n• Promote a quality mindset through training, clear processes, KPIs, and continuous improvement activities\n\nYour profile\n\n• Engineering or scientific background, for example in electronics, mechanics, physics, or a related field\n\n• At least 5 years of experience in Design Quality Assurance and risk management\n\n• Strong practical knowledge of ISO 9001 (experience with ISO 13485 is an advantage)\n\n• Background in consumer electronics, automotive, aerospace, or a comparable product-driven industry\n\n• Good understanding of CAPA, product development, verification, and validation processes\n\n• Confident communication skills in English; German and/or French would be an advantage\n\n• Experience with electronic document or quality management systems is beneficial\n\nWhy join us\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\n• A dynamic and collaborative team working on meaningful products and advanced technologies\n\n• Broad cross-functional exposure and the opportunity to directly influence product quality, development processes, and continuous improvement across the organization #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
+        "de": "Murten, Schweiz (Hybrid)\n\nBei Sonova Communications entwickeln wir fortschrittliche Kommunikationslösungen, die Menschen helfen, verbunden und aktiv zu bleiben. Unser Portfolio umfasst miniaturisierte Kommunikationssysteme, unterstützende Hörgeräte, Hörschutzlösungen und modernste drahtlose Technologie. Mehr über unsere Produkte erfahren Sie unter: https://www.sonova-communications.com/\n\nWir suchen einen erfahrenen Qualitätssicherungsmanager für unser Qualitätssicherungs- und Regulierungsteam in Murten. Sie werden eine Schlüsselrolle dabei spielen, sicherzustellen, dass unsere nicht-medizinischen Produkte während ihres gesamten Lebenszyklus die höchsten Qualitätsstandards erfüllen.\n\nIhre Verantwortung\n\n• Eigene und kontinuierliche Verbesserung wichtiger Qualitätsprozesse, insbesondere Risikomanagement und CAPA\n\n• Handeln Sie als Design Quality Assurance Partner für F&E Produktentwicklungsprojekte\n\n• Überprüfung und Genehmigung der Entwurfs- und Projektdokumentation, Gewährleistung der Einhaltung interner Prozesse, SOPs und Qualitätsanforderungen\n\n• Gewährleistung, dass die Begutachtungs- und Validierungstätigkeiten die geltenden Qualitätsanforderungen erfüllen\n\n• Überprüfung und Genehmigung vorgeschlagener Änderungen an bereits auf dem Markt befindlichen Produkten\n\n• Unterstützung interner und externer Audits und Beitrag zur Einhaltung von ISO 9001 und ISO 13485\n\n• Förderung einer qualitativ hochwertigen Denkweise durch Schulungen, klare Prozesse, KPIs und kontinuierliche Verbesserungsaktivitäten\n\nDein Profil\n\n• Ingenieur- oder wissenschaftlicher Hintergrund, zum Beispiel in der Elektronik, Mechanik, Physik oder einem verwandten Bereich\n\n• Mindestens 5 Jahre Erfahrung in Design Quality Assurance und Risikomanagement\n\n• Starke praktische Kenntnisse der ISO 9001 (Erfahrung mit ISO 13485 ist ein Vorteil)\n\n• Hintergrund in Consumer Electronics, Automotive, Aerospace oder einer vergleichbaren produktgetriebenen Industrie\n\n• Gutes Verständnis der CAPA-, Produktentwicklungs-, Verifizierungs- und Validierungsprozesse\n\n• Selbstbewusste Kommunikationsfähigkeiten in Englisch; Deutsch und/oder Französisch wären von Vorteil\n\n• Erfahrung mit elektronischen Dokumenten oder Qualitätsmanagementsystemen ist von Vorteil\n\nWarum kommen Sie zu uns\n\nAls einer der weltweit führenden Hörgeräteanbieter mit Hauptsitz in der Schweiz engagieren wir uns für den Aufbau einer inklusiven Kultur. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen außerhalb der Arbeit durch unser flexibles hybrides Arbeitsmodell in Einklang bringen können.\n\n• Ein dynamisches und kooperatives Team, das an sinnvollen Produkten und fortschrittlichen Technologien arbeitet\n\n• Breite funktionsübergreifende Exposition und die Möglichkeit, die Produktqualität, Entwicklungsprozesse und kontinuierliche Verbesserung in der gesamten Organisation direkt zu beeinflussen #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
+        "fr": "Murten, Suisse (hybride)\n\nChez Sonova Communications, nous développons des solutions de communication avancées qui aident les gens à rester connectés et actifs. Notre portefeuille comprend des systèmes de communication miniaturisés, des appareils d'écoute assistée, des solutions de protection auditive et une technologie sans fil de pointe. Pour en savoir plus sur nos produits, visitez : https://www.sonova-communications.com/\n\nNous sommes à la recherche d'un gestionnaire d'assurance de la qualité expérimenté pour rejoindre notre équipe d'assurance de la qualité et des affaires réglementaires à Murten. Vous jouerez un rôle clé en s'assurant que nos produits non médicaux répondent aux normes de qualité les plus élevées tout au long de leur cycle de vie.\n\nVos responsabilités\n\n• Amélioration propre et continue des principaux processus de qualité, en particulier la gestion des risques et l'ACAP\n\n• Agir comme partenaire d'assurance de la qualité pour les projets de développement de produits de R-D\n\n• Examiner et approuver la conception et la documentation du projet, en veillant au respect des processus internes, des PON et des exigences de qualité\n\n• Veiller à ce que les activités de vérification et de validation répondent aux exigences de qualité applicables\n\n• Examiner et approuver les modifications proposées aux produits déjà sur le marché\n\n• Soutenir les audits internes et externes et contribuer au maintien de la conformité avec les normes ISO 9001 et ISO 13485\n\n• Promouvoir un état d'esprit de qualité par la formation, des processus clairs, des ICR et des activités d'amélioration continue\n\nVotre profil\n\n• Études techniques ou scientifiques, par exemple en électronique, en mécanique, en physique ou dans un domaine connexe\n\n• Au moins 5 ans d'expérience dans l'assurance qualité et la gestion des risques\n\n• Forte connaissance pratique de l'ISO 9001 (l'expérience avec l'ISO 13485 est un avantage)\n\n• Contexte dans l'électronique grand public, l'automobile, l'aérospatiale ou une industrie comparable axée sur les produits\n\n• Bonne compréhension des processus de développement, de vérification et de validation des produits\n\n• Compétences de communication confidentielles en anglais; l'allemand et/ou le français seraient un avantage\n\n• L'expérience des systèmes électroniques de gestion des documents ou de la qualité est bénéfique\n\nPourquoi nous rejoindre\n\nEn tant que l'un des principaux fournisseurs de soins auditifs en Suisse, nous sommes engagés à bâtir une culture inclusive. Nous voulons créer un environnement où vous pouvez concilier une carrière réussie avec vos engagements et vos intérêts en dehors du travail, grâce à notre modèle de travail hybride flexible.\n\n• Une équipe dynamique et collaborative travaillant sur des produits significatifs et des technologies de pointe\n\n• Une grande exposition interfonctionnelle et la possibilité d'influencer directement la qualité des produits, les processus de développement et l'amélioration continue dans l'ensemble de l'organisation #LI-NB1\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
       },
       "location": "Murten, Switzerland",
       "canton": "FR",
       "url": "https://jobs.sonova.com/job/Murten-Quality-Assurance-Manager/1442652933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:10:37.776Z",
+      "crawledAt": "2026-10-01T09:08:55.691Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1416,10 +1416,8 @@
       "postedDate": "2026-09-30",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1442652933/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-30T21:10:37.776Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1433,8 +1431,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "firstSeenAt": "2026-09-30T21:10:37.776Z"
+      "addressRegion": "FR"
     }
   ]
 }

@@ -1815,7 +1815,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  // runs in the static emit (build-plugins/htmlTemplate.ts) so the JS-rendered
  // DOM and the static HTML expose an identical, non-truncated snippet.
  // Closes SearchAtlas audit 141162 meta_desc_invalid_length (487 SSG pages).
- const clampedMetaDescription = clampMetaDescription(metaDescription);
+ const clampedMetaDescription = clampMetaDescription(metaDescription, undefined, locale);
  const metaOgDescription = clampedMetaDescription;
  const metaKeywords = jobSeo
  ? jobSeo.keywords

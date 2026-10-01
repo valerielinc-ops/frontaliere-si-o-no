@@ -175,8 +175,11 @@ rehydrate_locale() {
     # THE reachable replace this script's half of #5327 is about: the guard
     # above lets a dir-present/homepage-stripped trunk arrive here.
     trunk_replace_begin "locale-$loc" "$loc"
-    cp -r "$tmp/$loc" "dist/$loc"
-    if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
+    # A rename, not `cp -r`: $tmp is deleted below anyway and shares the
+    # runner filesystem with dist/, so the copy only held the shard on disk
+    # twice for its duration (same fix as rehydrate-section-shards.sh).
+    mv "$tmp/$loc" "dist/$loc"
+    if [ -f "$tmp/$loc.html" ]; then mv "$tmp/$loc.html" "dist/$loc.html"; fi
     echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
     trunk_replace_end "locale-$loc"
     if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
@@ -191,7 +194,10 @@ rehydrate_locale() {
   # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full
   # stat-walk of ~1.27M files just for a log line). df is instant and is
   # the metric that actually matters after rehydrating ~27G into dist/.
+  # Inodes too: one directory per job page doubles the inode count of the
+  # file count, and running out of either reads "No space left on device".
   df -h / | tail -1
+  df -i / | tail -1
 }
 
 if [ "${LOCALE_SHARDS_LIVE:-}" != "true" ]; then

@@ -2,14 +2,27 @@ name: Assisted application portal e2e
 
 # The portal runner of the assisted application (scripts/assisted-application/
 # lib/portal/) on a local fake portal: sign-in, account creation on the alias,
-# verification link, form, upload, submit. No employer, no Codex, no secrets.
+# verification link, form, upload, submit; and the owner's fill extension
+# (scripts/assisted-application/extension) on a JOIN-like wizard, up to the send
+# button it must never press. No employer, no Codex, no secrets.
 # vitest cannot cover it: tests.yml has no browser.
 on:
+  workflow_dispatch:
+    inputs:
+      probe_nopecha_free:
+        description: 'Diagnose anonymous Token API availability (key normally required; public demo only)'
+        type: boolean
+        default: false
   pull_request:
     paths:
       - 'scripts/assisted-application/lib/portal/**'
+      - 'scripts/assisted-application/lib/nopecha-probe.mjs'
       - 'scripts/assisted-application/lib/secure-run.mjs'
       - 'scripts/assisted-application/portal-e2e.mjs'
+      - 'scripts/assisted-application/extension/**'
+      - 'scripts/assisted-application/extension-e2e.mjs'
+      - 'scripts/assisted-application/nopecha-e2e.mjs'
+      - 'scripts/assisted-application/install-nopecha.sh'
       - '.github/workflows/assisted-application-portal-e2e.yml'
 
 concurrency:
@@ -62,3 +75,22 @@ jobs:
 
       - name: Portal runner on the fake portal
         run: node scripts/assisted-application/portal-e2e.mjs
+
+      - name: Fill extension on a JOIN-like wizard
+        run: node scripts/assisted-application/extension-e2e.mjs
+
+      - name: Install official NopeCHA extension
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
+
+      - name: NopeCHA browser integration
+        env:
+          NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
+        run: node scripts/assisted-application/nopecha-e2e.mjs
+
+      - name: Verify the free Token API on GitHub Actions
+        if: inputs.probe_nopecha_free
+        env:
+          NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
+        run: node scripts/assisted-application/nopecha-e2e.mjs --probe-free

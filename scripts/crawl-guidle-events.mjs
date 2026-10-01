@@ -105,7 +105,6 @@ import {
   resolveComuneNationwide,
   mirrorEventImage,
   cleanEventText,
-  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
@@ -116,6 +115,7 @@ import {
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 import {
   extractEventOfferMetadata,
+  parseEventPriceText,
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   firstEventImageUrl,
@@ -323,7 +323,7 @@ export function extractCategory(doc, locale) {
 export function extractPrice(doc, locale) {
   const acc = findAccordion(doc, PRICE_LABELS[locale]);
   if (!acc) return undefined;
-  return parsePriceText(text(acc));
+  return parseEventPriceText(text(acc));
 }
 
 /**

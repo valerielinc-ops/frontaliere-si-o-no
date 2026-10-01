@@ -20,11 +20,14 @@ import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
 import { submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
+import { extractFields } from './lib/portal/fields.mjs';
+import { applyActions } from './lib/portal/fill.mjs';
+import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], newsletter: false, pending: null, refuseNextRegistration: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -89,6 +92,38 @@ function fakePortal() {
       return send(page('Bewerbung', `${form('/widget', `<label for="v">Vorname *</label><input id="v" name="first" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><h2>Geburtsdatum *</h2><input type="hidden" id="dob" name="dob"><div role="group" aria-label="Mai 1990">${days}</div><button type="submit" id="send" disabled>Bewerbung absenden</button>`, true)}
         <script>document.querySelectorAll('[data-d]').forEach((day) => day.addEventListener('click', () => { document.getElementById('dob').value = day.dataset.d; day.setAttribute('aria-pressed', 'true'); document.getElementById('send').disabled = false; }));</script>`));
     }
+    // A summary page whose send button has an unusual name, and a dead end (self-correction).
+    if (route === 'GET /summary') {
+      return send(page('Zusammenfassung', `<h1>Ihre Bewerbung</h1><p>Bitte prüfen Sie Ihre Angaben.</p>${form('/summary', '<button type="submit">Abschliessen und übermitteln</button>')}`));
+    }
+    if (route === 'POST /summary') {
+      state.summarySubmissions += 1;
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    // The same unusual send button under a required CV: the upload counts as filled.
+    if (route === 'GET /summary-cv') {
+      return send(page('Zusammenfassung', `<h1>Ihre Bewerbung</h1>${form('/summary-cv', '<label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Abschliessen und übermitteln</button>', true)}`));
+    }
+    if (route === 'POST /summary-cv') {
+      const raw = await readBody(req);
+      state.summaryCv.push({ hasCv: /filename="CV_/.test(raw) });
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    if (route === 'GET /dead-end') return send(page('Bewerbung', '<h1>Bewerbung</h1><p>Diese Seite ist leer.</p>'));
+    // JOIN 2026-10-01: an invisible reCAPTCHA scores the browser; the send click does nothing visible.
+    if (route === 'GET /antibot') {
+      return send(page('Bewerbung', `<h1>Ihre Bewerbung</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div>${form('/antibot', '<button type="submit">Bewerbung absenden</button>').replace('<form ', '<form onsubmit="return false" ')}`));
+    }
+    // JOIN run 36846326334: the portal answers the send click with its own refusal toast.
+    if (route === 'GET /refused') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
+    }
+    // The refusal shown on an error page the portal moves to (review of #10741).
+    if (route === 'GET /refused-moved') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1>${form('/refused-moved', '<button type="submit">Conferma e applica</button>')}`));
+    }
+    if (route === 'POST /refused-moved') return redirect('/refused-moved/error');
+    if (route === 'GET /refused-moved/error') return send(page('Errore', '<p role="alert">Non siamo riusciti a inviare la tua candidatura. Riprova.</p>'));
     if (route === 'POST /widget') {
       const raw = await readBody(req);
       state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
@@ -106,10 +141,15 @@ function fakePortal() {
  * candidate data has one; without it, it is invented ("rule") and the code
  * guard must turn it into a question for the candidate.
  */
+let agentTurns = 0;
 function fakeAgent(prompt) {
+  agentTurns += 1;
   const snapshot = prompt.slice(prompt.indexOf('Page snapshot:'));
   const { agentPage } = JSON.parse(prompt.slice(prompt.indexOf('{"agentPage"'), prompt.indexOf('\n\nPage snapshot:')));
-  const turn = (status, actions = []) => ({ status, reason: '', advanceRef: '', actions, questions: [] });
+  const turn = (status, actions = [], extra = {}) => ({ status, reason: '', advanceRef: '', submitRef: '', actions, questions: [], ...extra });
+  // The last page's send button with an unusual name: named, never pressed (self-correction, level 1).
+  const send = /button "Abschliessen und übermitteln" \[ref=(\w+)\]/.exec(snapshot);
+  if (send) return turn('done', [], { submitRef: send[1] });
   if (agentPage.history.length) return turn('done');
   const day = /button "Choose 12 May 1990" \[ref=(\w+)\]/.exec(snapshot);
   const source = /"dateOfBirth":"\d/.test(prompt) ? 'profile' : 'rule';
@@ -201,6 +241,66 @@ async function main() {
     const near = await runAction(listPage, { ref: yearRef, action: 'select', value: '1990' });
     check('a select never takes a near option', near.ok === false && near.error === 'option_not_found');
     await listPage.context().browser().close();
+    // career-ops apply.md: company and role on the form match the posting, or stop.
+    const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1);
+    // career-ops "verify each selection": a click that does not take is a failure, not an answer.
+    const comboPage = await (await launchChromium({ headless: true, executablePath })).newPage();
+    await comboPage.setContent(`<label for="good">Land</label><div><input id="good" role="combobox" aria-controls="gl"><span id="gv"></span><div role="listbox" id="gl"><div role="option" onclick="document.getElementById('gv').textContent='Schweiz'; this.parentElement.remove()">Schweiz</div></div></div>
+      <label for="bad">Nationalität</label><div><input id="bad" role="combobox" aria-controls="bl"><div role="listbox" id="bl"><div role="option" onclick="document.getElementById('bad').value=''">Italien</div></div></div>
+      <label for="near">Wohnland</label><div><input id="near" role="combobox" aria-controls="nl"><span id="nv"></span><div role="listbox" id="nl"><div role="option" onclick="document.getElementById('nv').textContent='Italy'">Italy</div></div></div>`);
+    const combo = await extractFields(comboPage);
+    const byLabel = (label) => combo.fields.find((field) => field.label === label)?.id;
+    const picked = await applyActions(comboPage, combo.fields, [
+      { fieldId: byLabel('Land'), action: 'select', value: 'Schweiz' },
+      { fieldId: byLabel('Nationalität'), action: 'select', value: 'Italien' },
+      // Review of #10715: "IT" never picks the only option "Italy".
+      { fieldId: byLabel('Wohnland'), action: 'select', value: 'IT' },
+    ], {}, { pause: async () => {} });
+    check('a choice is verified on the page', picked[0]?.ok === true && picked[1]?.ok === false && picked[1]?.error === 'choice_not_registered'
+      && picked[2]?.ok === false && picked[2]?.error === 'option_not_found');
+    await comboPage.context().browser().close();
+    // Self-correction, levels 1 and 2: the agent names an unusual send button,
+    // the runner presses it behind the guard, the portal's memory learns it.
+    const portalMemory = new Map();
+    const knowledge = {
+      async load(host) { return portalMemory.get(host) || { finalButtons: [], nextButtons: [] }; },
+      async learn(host, { finalButton = null, nextButtons = [] }) {
+        const current = portalMemory.get(host) || { finalButtons: [], nextButtons: [] };
+        const clean = (button) => ({ path: button.path, label: normalizeLabel(button.label) });
+        portalMemory.set(host, {
+          finalButtons: [...(finalButton ? [clean(finalButton)] : []), ...current.finalButtons],
+          nextButtons: [...nextButtons.map(clean), ...current.nextButtons],
+        });
+      },
+    };
+    const turnsBefore = agentTurns;
+    const named = await run({ applyUrl: `${base}/summary`, knowledge });
+    check('the agent names an unusual send button and the runner presses it', named.event.type === 'submit_succeeded'
+      && named.evidence.finalButton?.by === 'agent' && state.summarySubmissions === 1 && agentTurns > turnsBefore);
+    const turnsLearned = agentTurns;
+    const taught = await run({ applyUrl: `${base}/summary`, knowledge });
+    check('the next run presses the learned button without the agent', taught.event.type === 'submit_succeeded'
+      && taught.evidence.finalButton?.by === 'runner' && state.summarySubmissions === 2 && agentTurns === turnsLearned);
+    const withCv = await run({ applyUrl: `${base}/summary-cv` });
+    check('the agent’s send button is pressed under a required CV the runner attached', withCv.event.type === 'submit_succeeded'
+      && withCv.evidence.finalButton?.by === 'agent' && state.summaryCv.length === 1 && state.summaryCv[0].hasCv);
+    // Level 3: a page the runner cannot get through leaves an anonymous stop report.
+    const dead = await run({ applyUrl: `${base}/dead-end` });
+    check('a dead end leaves a stop report for the fix issue', dead.event.type === 'submit_handoff'
+      && dead.evidence.stopReport?.path === '/dead-end' && dead.evidence.stopReport?.host === '127.0.0.1');
+    // The send click leaves the page as it was, behind an invisible reCAPTCHA: Valerie is told it most likely did not arrive.
+    const silent = await run({ applyUrl: `${base}/antibot` });
+    check('a send the portal silently drops is reported as a likely anti-bot refusal', silent.event.type === 'submit_failed'
+      && silent.event.error === 'portal_antibot_ambiguous' && silent.evidence.antibot === true);
+    // The portal says it did not send: not ambiguous, and the browser used is in the evidence.
+    const toast = await run({ applyUrl: `${base}/refused` });
+    check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
+      && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
+      && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
+    const moved = await run({ applyUrl: `${base}/refused-moved` });
+    check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
+      && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');

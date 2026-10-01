@@ -18,7 +18,11 @@ import {
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
+import { resolveGitAddPaths } from '../lib/resolve-git-add-path.mjs';
+import { readGitBlob } from '../lib/read-git-blob.mjs';
 import { mergeRefreshContent } from './open-data-refresh-merge.mjs';
+
+const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
 
 function usage(message) {
   if (message) process.stderr.write(`::error::${message}\n`);
@@ -45,12 +49,16 @@ if (!options.base || !options.remote || !options.refresh || options.paths.length
 }
 
 function git(args) {
-  return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return execFileSync('git', args, {
+    encoding: 'utf8',
+    maxBuffer: GIT_OUTPUT_MAX_BUFFER,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
 }
 
 function gitShow(ref, file) {
   try {
-    return git(['show', `${ref}:${file}`]);
+    return readGitBlob(ref, file);
   } catch (error) {
     // A missing path is a normal three-way state (add/delete). Invalid refs
     // have already been ruled out by the caller's fetch/checkout, so surface
@@ -60,8 +68,18 @@ function gitShow(ref, file) {
   }
 }
 
+// Article surfaces are published through their historical symlinked paths
+// (`services/locales/blog-body/<locale>/…` behind a symlinked directory,
+// `data/blog-articles-data.ts` as a file symlink). `git diff -- <path>` is
+// silent for an edit made through a symlink: git tracks the real blob under
+// packages/articles/content/, so the current run's article update would be
+// dropped while the stable tree is reported as merged. Resolve the pathspecs
+// the same way scripts/lib/git-add-resolved.mjs does for staging.
+const repoRoot = git(['rev-parse', '--show-toplevel']).trim();
+const diffPaths = resolveGitAddPaths(repoRoot, options.paths);
+
 function changedFiles() {
-  return git(['diff', '--name-only', options.base, options.refresh, '--', ...options.paths])
+  return git(['diff', '--name-only', options.base, options.refresh, '--', ...diffPaths])
     .split('\n')
     .map((file) => file.trim())
     .filter(Boolean);

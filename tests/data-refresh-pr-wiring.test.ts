@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -47,6 +48,20 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--force-with-lease');
     expect(helper).toContain('PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"');
     expect(helper).toContain('git ls-remote "$PUSH_URL"');
+    expect(helper).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
+    expect(helper).toContain(
+      'git fetch --no-tags "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+    );
+    expect(helper).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs"');
+    expect(helper).toContain('mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs"');
+    expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"');
+    expect(helper).toContain("trap 'cleanup_refresh_checkout || exit 1' EXIT");
+    expect(helper).toContain('git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref"');
+    expect(helper).toContain('git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"');
+    expect(helper.match(/REFRESH_COMMIT="\$\(git rev-parse HEAD\)"/g)).toHaveLength(1);
     expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
     expect(helper).toContain('--resolve-symlinks');
     expect(helper).toContain('git-add-resolved.mjs');
@@ -70,6 +85,38 @@ describe('protected data refreshes publish through pull requests', () => {
       { cwd: ROOT, encoding: 'utf8' },
     );
     expect(output).toContain('[merge-open-data-refresh] preserved stable tree');
+  });
+
+  it('keeps the current reconciler import tree runnable after a stable-branch checkout', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-reconciler-'));
+    try {
+      const copied = [
+        ['scripts/ci/merge-open-data-refresh.mjs', 'scripts/ci/merge-open-data-refresh.mjs'],
+        ['scripts/ci/open-data-refresh-merge.mjs', 'scripts/ci/open-data-refresh-merge.mjs'],
+        ['scripts/lib/resolve-git-add-path.mjs', 'scripts/lib/resolve-git-add-path.mjs'],
+        ['scripts/lib/read-git-blob.mjs', 'scripts/lib/read-git-blob.mjs'],
+      ];
+      for (const [source, target] of copied) {
+        const targetPath = path.join(temp, target);
+        fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+        fs.copyFileSync(path.join(ROOT, source), targetPath);
+      }
+
+      const output = execFileSync(
+        process.execPath,
+        [
+          path.join(temp, 'scripts/ci/merge-open-data-refresh.mjs'),
+          '--base', 'HEAD',
+          '--remote', 'HEAD',
+          '--refresh', 'HEAD',
+          '--path', 'tests/__fixtures__/refresh-merge/stable.json',
+        ],
+        { cwd: ROOT, encoding: 'utf8' },
+      );
+      expect(output).toContain('[merge-open-data-refresh] preserved stable tree');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
   });
 
   it.each([
@@ -106,7 +153,7 @@ describe('protected data refreshes publish through pull requests', () => {
     );
     expect(workflow).toContain('git ls-remote "$remote_url" "refs/heads/${branch}"');
     expect(workflow).toContain('if [ ! -s "$probe" ]; then');
-    expect(workflow).toContain('git fetch --no-tags "$remote_url"');
+    expect(workflow).toContain('git fetch --no-tags --depth=1 "$remote_url"');
     expect(workflow).not.toContain('git fetch --no-tags origin');
   });
 });

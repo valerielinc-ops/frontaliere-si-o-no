@@ -105,6 +105,40 @@ describe('Codex file IPC', () => {
       cwd: process.cwd(), workspaceRoot: process.cwd(), scratchRoot: process.cwd(), headSha: 'short',
     })).toBeNull();
   });
+  // `process.exit()` right after `process.stdout.write()` drops whatever a pipe
+  // has not taken yet. Inside the Codex sandbox every `gh`/`git` call goes
+  // through these clients: `gh issue view … --json body | jq` stopped at
+  // column 65536 (run 36782064837), and on 2026-10-01 a follow-up agent wrote
+  // back the first 65536 bytes of the 75 KB daily bucket #10433, losing its
+  // last items (post-merge-followup run 36799206433 then failed the
+  // persistence check for PR #10332, #10327, #10311, #10328).
+  it.each([
+    ['gh-bridge-client.mjs', 'CODEX_GH_SOCKET'],
+    ['git-bridge-client.mjs', 'CODEX_GIT_SOCKET'],
+  ])('%s hands a slow pipe reader its whole output, not the first 64 KiB', async (client, socketVar) => {
+    const stdout = `${'x'.repeat(199_999)}\n`;
+    const { endpoint } = setup((peer) => {
+      peer.on('data', () => {});
+      peer.on('end', () => peer.end(JSON.stringify({ code: 0, stdout, stderr: '' })));
+    });
+    const child = spawn(process.execPath, [resolve('.github/actions/claude-codex-fallback', client), 'issue', 'view', '1'], {
+      env: { CODEX_BRIDGE_TRANSPORT: 'files', [socketVar]: endpoint },
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const exited = new Promise((done) => child.once('exit', done));
+    let received = '';
+    child.stdout.setEncoding('utf8');
+    const drained = new Promise((done) => child.stdout.once('end', done));
+    // A consumer that is not reading yet (jq still starting, a busy node
+    // process): the pipe fills at 64 KiB and the rest of the write is queued.
+    child.stdout.pause();
+    child.stdout.on('data', (chunk: string) => { received += chunk; });
+    await new Promise((done) => setTimeout(done, 400));
+    child.stdout.resume();
+    const [code] = await Promise.all([exited, drained]);
+    expect(code).toBe(0);
+    expect(received.length).toBe(stdout.length);
+  });
   it('retains authenticated GH reads, auth denial, and repository scope through the real bridge', async () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-gh-files-'));
     roots.push(root);

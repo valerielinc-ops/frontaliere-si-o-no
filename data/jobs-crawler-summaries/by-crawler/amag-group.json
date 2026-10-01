@@ -1,18 +1,49 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-09-30T23:34:56.746Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-10-01T09:22:37.763Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 126781,
-  "avgDurationMs": 126781,
+  "durationMs": 138202,
+  "avgDurationMs": 138202,
   "durationHistory": [
-    126781
+    138202
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Consulente tecnico (m/f) - 100%",
+      "slug": "consulente-tecnico-m-f-100",
+      "url": "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-j23697.html",
+      "applyUrl": "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-f23697.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Giubiasco",
+      "addressLocality": "Giubiasco",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "automotive",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-10-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-12-31",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Meccatronico/a di automobili - 100%",
@@ -127,45 +158,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Carrozziere verniciatore (m/f) - Contratto determinato - 100%",
-      "slug": "carrozziere-verniciatore-m-f-contratto-determinato-100",
-      "url": "https://jobs.amag-group.ch/Carrozziere-verniciatore-mf-Contratto-determinato-100-it-j23080.html",
-      "applyUrl": "https://jobs.amag-group.ch/Carrozziere-verniciatore-mf-Contratto-determinato-100-it-f23080.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "automotive",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-09-30",
-      "id": "amag-group-6f2440ad1428",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-07-15T22:42:48.860Z",
-      "sourceIdentity": "url:https://jobs.amag-group.ch/carrozziere-verniciatore-mf-contratto-determinato-100-it-j23080.html",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",

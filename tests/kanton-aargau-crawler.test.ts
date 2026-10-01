@@ -242,8 +242,14 @@ describe('Kanton Aargau crawler parser', () => {
     };
     const isApi = (url: string) => url.includes('/io/jobs-proxy/jobs');
 
+    // Transient statuses are retried with the shared backoff; keep it instant.
+    beforeEach(() => {
+      vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    });
+
     afterEach(() => {
       vi.unstubAllGlobals();
+      vi.unstubAllEnvs();
       vi.restoreAllMocks();
     });
 
@@ -265,6 +271,56 @@ describe('Kanton Aargau crawler parser', () => {
       // A status means the source answered: the pipeline must not treat it as
       // a connection-level soft exit.
       expect(isConnectionLevelFetchError(err)).toBe(false);
+    });
+
+    it('rescues a 200 anti-bot detail page through the shared HTML transport', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const challenge = '<html><head><title>Just a moment...</title></head><body>'
+        + 'Checking your browser before accessing this site.</body></html>';
+      const fetchMock = serve((url) => {
+        if (isApi(url)) return new Response(api());
+        if (url.startsWith('https://r.jina.ai/')) return new Response(detailHtml);
+        return new Response(challenge);
+      });
+
+      const jobs = await fetchAllKantonAargauJobs();
+
+      expect(jobs).toHaveLength(2);
+      expect(fetchMock.mock.calls.some(([url]) => String(url).startsWith('https://r.jina.ai/'))).toBe(true);
+    });
+
+    it('rescues a WAF status on a vacancy page without weakening hard failures', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const fetchMock = serve((url) => {
+        if (isApi(url)) return new Response(api());
+        if (url.startsWith('https://r.jina.ai/')) return new Response(detailHtml);
+        return new Response('Forbidden', { status: 403 });
+      });
+
+      const jobs = await fetchAllKantonAargauJobs();
+
+      expect(jobs).toHaveLength(2);
+      expect(fetchMock.mock.calls.some(([url]) => String(url).startsWith('https://r.jina.ai/'))).toBe(true);
+    });
+
+    it('retries a transient 503 on a vacancy page instead of failing the board (corpus run 36778255557)', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      let unavailable = 1;
+      const fetchMock = serve((url) => {
+        if (isApi(url)) return new Response(api());
+        if (unavailable > 0) {
+          unavailable -= 1;
+          return new Response('Service Unavailable', { status: 503 });
+        }
+        return new Response(detailHtml);
+      });
+      const jobs = await fetchAllKantonAargauJobs();
+      expect(jobs).toHaveLength(2);
+      // API + 2 vacancy pages + 1 retried page.
+      expect(fetchMock).toHaveBeenCalledTimes(4);
     });
 
     it('fails when a vacancy page carries no ad body', async () => {

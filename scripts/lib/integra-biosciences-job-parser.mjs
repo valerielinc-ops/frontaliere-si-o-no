@@ -14,7 +14,20 @@
  * States", …) submitted via AJAX, so a naive `?field_job_country_value=CH`
  * query param was invalid and silently ignored (the old "CH" scaffold value).
  *
- * Detail pages at /global/en/careers/{slug} contain full job descriptions.
+ * The vacancies now come from INTEGRA's Umantis tenant: the page ships them
+ * as `drupalSettings.jobsAllData` (title, country, department, onlineSince,
+ * publicationUrl on jobs.integra-biosciences.com) and the browser renders the
+ * table from that array. The server-side table body is ALWAYS empty and is
+ * always followed by the "There are currently no job offers available."
+ * panel, also while 13 offers (8 in Switzerland) are live (verified through
+ * the Jina proxy on 2026-10-01). Reading only the table made the crawler
+ * report 0 jobs forever (`lastSuccessfulRunAt=null`, crawler-health advisory
+ * in run 36717595714). `parseJobsAllData` reads the array; the table parser
+ * remains the fallback for a server-rendered table.
+ *
+ * Detail pages are Umantis vacancy pages
+ * (jobs.integra-biosciences.com/Vacancies/{id}/Description/{n}); legacy
+ * Drupal detail pages (/global/en/careers/{slug}) are still parsed.
  *
  * Cloudflare serves a hard HTTP 403 "Just a moment…" challenge to datacenter
  * egress IPs (GitHub Actions), so a direct fetch always returns 0 — this is
@@ -41,6 +54,9 @@ import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { readMetaContent } from './html-attr.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -336,6 +352,61 @@ export function parseListingTable(html = '') {
   return jobs;
 }
 
+/**
+ * Read the vacancy array the open-positions page ships in its Drupal settings
+ * (`<script type="application/json" data-drupal-selector="drupal-settings-json">`
+ * → `jobsAllData`). It is the complete listing the page renders client-side,
+ * so an array without a Swiss row is the source's own zero.
+ *
+ * @param {string} html
+ * @returns {null | Array<{ title: string, detailUrl: string, businessArea: string, country: string, postedDate: string }>}
+ *   null when the page carries no such array (not this layout, or not read);
+ *   otherwise one card per entry with a title and a trusted https detail URL.
+ */
+export function parseJobsAllData(html = '') {
+  const match = /<script\b[^>]*data-drupal-selector\s*=\s*["']drupal-settings-json["'][^>]*>([\s\S]*?)<\/script>/i
+    .exec(String(html || ''));
+  if (!match) return null;
+  let settings;
+  try {
+    settings = JSON.parse(match[1]);
+  } catch {
+    return null;
+  }
+  const entries = settings?.jobsAllData;
+  if (!Array.isArray(entries)) return null;
+
+  const cards = [];
+  for (const entry of entries) {
+    const title = normalizeSpace(String(entry?.title || ''));
+    const detailUrl = String(entry?.publicationUrl || '').trim();
+    let trustedUrl = '';
+    try {
+      const url = new URL(detailUrl);
+      if (url.protocol === 'https:' && isTrustedDomain(url.href)) trustedUrl = url.href;
+    } catch {
+      /* no usable vacancy URL */
+    }
+    const onlineSince = Number(entry?.onlineSince);
+    cards.push({
+      title,
+      detailUrl: trustedUrl,
+      businessArea: normalizeSpace(String(entry?.department || '')),
+      country: normalizeSpace(String(entry?.country || '')),
+      postedDate: Number.isFinite(onlineSince) && onlineSince > 0
+        ? new Date(onlineSince * 1000).toISOString().slice(0, 10)
+        : '',
+    });
+  }
+  return cards;
+}
+
+/** Country column values the crawler keeps (blank = not stated, kept). */
+function isSwissCountry(country = '') {
+  const value = normalize(country);
+  return !value || value === 'switzerland' || value === 'ch';
+}
+
 /* ── HTML Parsing — Detail Page ───────────────────────────── */
 
 /**
@@ -361,6 +432,17 @@ export function parseDetailPage(html = '') {
   };
 
   if (!html || html.length < 100) return result;
+  // Commented-out markup is not the page: the Umantis template keeps the
+  // German heading of every English ad in a comment, and a `<!-- <h2>…` tag
+  // strip leaked it (plus a stray "-->") into the published text.
+  html = html.replace(/<!--[\s\S]*?-->/g, ' ');
+
+  const umantis = parseUmantisVacancyBody(html);
+  if (umantis) {
+    result.description = umantis;
+    result.datePosted = parseUmantisPublishedDate(html);
+    return result;
+  }
 
   // Try to extract JSON-LD first (most structured)
   const jsonLdMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
@@ -409,6 +491,63 @@ export function parseDetailPage(html = '') {
   return result;
 }
 
+/**
+ * The vacancy text of an INTEGRA Umantis detail page: the intro and the
+ * job-description section of `<article class="articleBody">`. The benefits
+ * carousel (client-rendered, empty in the HTML), the contact persons and the
+ * campus description that follow are page furniture shared by every ad, and
+ * the contact block carries personal names and phone numbers.
+ *
+ * @param {string} html comment-free detail page HTML
+ * @returns {string} plain text keeping headings and bullets, or '' when the
+ *   page is not this layout
+ */
+function parseUmantisVacancyBody(html) {
+  const article = /<article\b[^>]*class\s*=\s*["'][^"']*\barticleBody\b[^"']*["'][^>]*>([\s\S]*?)<\/article>/i.exec(html)?.[1];
+  if (!article) return '';
+  const intro = /<div\b[^>]*class\s*=\s*["'][^"']*\bintroText\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i.exec(article)?.[1] || '';
+  const vacancy = /<section\b[^>]*class\s*=\s*["']section-max-width["'][^>]*>([\s\S]*?)<\/section>/i.exec(article)?.[1] || '';
+  if (!vacancy) return '';
+  // Umantis spells spacing as numeric references (`&#160;`), which
+  // stripHtml leaves alone; decode them and drop lines left blank.
+  return [intro, vacancy]
+    .map((part) => decodeEntities(stripHtml(part))
+      .split('\n')
+      .map((line) => line.replace(/[\s\u00a0]+/g, ' ').trim())
+      .filter(Boolean)
+      .join('\n'))
+    .filter(Boolean)
+    .join('\n\n');
+}
+
+/**
+ * `<meta property="article:published_time" content="06.08.2026">` as an ISO
+ * date, or ''.
+ *
+ * @param {string} html
+ */
+function parseUmantisPublishedDate(html) {
+  const raw = readMetaContent(html, 'article:published_time').trim();
+  const match = /^(\d{1,2})\.(\d{1,2})\.(\d{4})$/.exec(raw);
+  if (!match) return '';
+  const [, day, month, year] = match;
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
+/**
+ * The workplace an Umantis detail page states in its header bullets
+ * (`<h5>Standort</h5><h6>Zizers</h6>`, `Location` on English ads), or ''.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function parseDetailLocation(html = '') {
+  const source = String(html || '').replace(/<!--[\s\S]*?-->/g, ' ');
+  const match = /<h5\b[^>]*>\s*(?:Location|Standort|Arbeitsort|Lieu de travail|Luogo di lavoro)\s*<\/h5>\s*<h6\b[^>]*>([\s\S]*?)<\/h6>/i
+    .exec(source);
+  return match ? normalizeSpace(stripHtml(match[1])) : '';
+}
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 /**
@@ -424,20 +563,32 @@ export function parseDetailPage(html = '') {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllIntegraBiosciencesJobs() {
+export async function fetchAllIntegraBiosciencesJobs({
+  fetchListing = fetchListingPage,
+  fetchDetail = fetchDetailPageHtml,
+} = {}) {
   console.log(`🔍 Fetching INTEGRA Biosciences jobs`);
   console.log(`   Source: ${CAREER_URL}`);
   console.log(`   Note: Site is behind Cloudflare — direct fetch falls back to the Jina clean-IP proxy.\n`);
 
-  const listingHtml = await fetchListingPage();
-  const cards = parseListingTable(listingHtml);
+  const listingHtml = await fetchListing();
+  const settingsCards = parseJobsAllData(listingHtml);
+  const cards = settingsCards ?? parseListingTable(listingHtml);
+
+  if (settingsCards && !settingsCards.some((card) => isSwissCountry(card.country))) {
+    // The complete vacancy array was read and none of it is in Switzerland:
+    // the source's own zero, not a fetch that came back empty.
+    const evidence = `jobsAllData on ${CAREER_URL}: ${settingsCards.length} offer(s), none in Switzerland`;
+    console.log(`  🧩 Source-proven zero: ${evidence}`);
+    return markAuthoritativeEmptySnapshot([], evidence);
+  }
 
   if (!cards || cards.length === 0) {
     console.warn('⚠️ No job cards found (no open positions, or the source could not be retrieved).');
     return [];
   }
 
-  console.log(`  📋 Job cards found: ${cards.length}`);
+  console.log(`  📋 Job cards found: ${cards.length}${settingsCards ? ' (jobsAllData)' : ''}`);
 
   const jobs = [];
   let withoutBody = 0;
@@ -448,22 +599,36 @@ export async function fetchAllIntegraBiosciencesJobs() {
     if (!title || title.length < 3) continue;
 
     // Only process Swiss jobs
-    const country = normalize(card.country);
-    if (country && country !== 'switzerland' && country !== 'ch') continue;
+    if (!isSwissCountry(card.country)) continue;
+    // The vacancy URL is the job identity; a Swiss offer without one cannot
+    // be published (falling back to the listing URL would merge every such
+    // offer into one id).
+    if (settingsCards && !card.detailUrl) {
+      console.warn(`  ⚠️ No trusted vacancy URL for "${title}" — not published.`);
+      continue;
+    }
 
     // Attempt to fetch detail page for richer description
     let detail = { description: '', datePosted: '' };
+    let detailLocation = '';
     if (card.detailUrl) {
       try {
-        const detailHtml = await fetchDetailPageHtml(card.detailUrl);
+        const detailHtml = await fetchDetail(card.detailUrl);
         detail = parseDetailPage(detailHtml);
+        detailLocation = parseDetailLocation(detailHtml);
         await new Promise((r) => setTimeout(r, delayMs));
       } catch (err) {
         console.warn(`  ⚠️ Failed to fetch detail for "${title}": ${err.message}`);
       }
     }
 
-    // INTEGRA HQ is in Zizers, GR — all Swiss jobs are in Zizers
+    // INTEGRA HQ is in Zizers, GR — every Swiss ad states Zizers (verified
+    // 2026-10-01). An ad naming another workplace must not be published with
+    // the HQ address stamped on it.
+    if (detailLocation && normalize(detailLocation) !== 'zizers') {
+      console.warn(`  ⚠️ "${title}" is located in ${detailLocation}, not at the Zizers HQ — not published.`);
+      continue;
+    }
     const location = 'Zizers';
     const canton = 'GR';
 
@@ -539,7 +704,7 @@ export async function fetchAllIntegraBiosciencesJobs() {
       sector: 'Scienze della Vita / Biotecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: detail.datePosted || new Date().toISOString().split('T')[0],
+      postedDate: detail.datePosted || card.postedDate || new Date().toISOString().split('T')[0],
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

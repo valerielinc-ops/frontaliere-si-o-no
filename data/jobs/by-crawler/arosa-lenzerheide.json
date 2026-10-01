@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-09-30T21:15:01.349Z",
+  "assembledAt": "2026-10-01T09:14:37.330Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:14:56.612Z",
+      "crawledAt": "2026-10-01T09:14:31.719Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -81,7 +81,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://app.reflinejobs.io/3316/0045/pub/29/index.html"
     },
     {
       "id": "arosa-lenzerheide-e395443a90d0",
@@ -115,7 +116,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:14:55.338Z",
+      "crawledAt": "2026-10-01T09:14:30.909Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -162,7 +163,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://app.reflinejobs.io/3316/0021/pub/16/index.html"
     }
   ]
 }

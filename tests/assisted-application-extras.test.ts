@@ -140,6 +140,41 @@ describe('tailored ATS CV (career-ops modes/pdf.md)', () => {
     expect(facts.ok).toBe(false);
     expect(facts.unsupported.map((item: any) => item.token)).toContain('10');
   });
+
+  it('keeps a competency only when every word of it and every tool it names are in the CV', () => {
+    const cvText = 'Luca Bianchi\nEsperienza\n2019-2024 Impiegato amministrativo, Rossi SA: gestione progetti interni, contabilità.';
+    const itProfile = {
+      headline: 'Impiegato amministrativo', location: 'Varese',
+      experience: [{ role: 'Impiegato amministrativo', employer: 'Rossi SA', location: 'Mendrisio', start: '2019', end: '2024', highlights: ['Gestione progetti interni.'] }],
+      education: [], languages: [], certifications: [],
+    };
+    // "Gestione clienti" passed before on "gestione" alone; "SAP" was never compared (three letters).
+    const input = { ...raw, competencies: ['Gestione progetti SAP', 'Gestione progetti', 'Gestione clienti'], experience: [], skills: ['SAP', 'Contabilità'] };
+    const without = sanitizeTailoredCv(input, { profile: itProfile, cvText, language: 'it' });
+    expect(without.competencies).toEqual(['Gestione progetti']);
+    expect(without.skills).toEqual(['Contabilità']);
+    expect(without.dropped).toEqual(['Gestione progetti SAP', 'Gestione clienti', 'SAP']);
+    const withSap = sanitizeTailoredCv(input, { profile: itProfile, cvText: `${cvText}\nCompetenze informatiche: SAP FI, Excel.`, language: 'it' });
+    expect(withSap.competencies).toEqual(['Gestione progetti SAP', 'Gestione progetti']);
+    expect(withSap.skills).toEqual(['SAP', 'Contabilità']);
+  });
+
+  it('falls back to the role’s own highlights when a rewritten bullet names a tool the CV does not', () => {
+    const cvText = `${CV_TEXT}\nQualitätsmanagement nach ISO 9001.`;
+    const highlights = ['Akutpflege auf einer Station mit 24 Betten.'];
+    const role = (bullet: string) => sanitizeTailoredCv({ ...raw, experience: [{ index: 0, bullets: ['Akutpflege auf einer Station mit 24 Betten.', bullet] }] }, { profile, cvText, language: 'de' });
+    for (const bullet of ['Pflegekennzahlen mit PowerBI ausgewertet.', 'Materialbestellung in SAP S/4HANA.', 'Audits nach ISO 13485 vorbereitet.']) {
+      const cv = role(bullet);
+      expect(cv.experience[0]).toMatchObject({ bullets: highlights, rewritten: false });
+      expect(cv.dropped).toContain(bullet);
+      expect(checkTailoredCvFacts(cv, { cvText, profile, answers: {} }).ok).toBe(true);
+    }
+    // Tools the CV names stay, whatever their spacing.
+    expect(role('Qualitätsmanagement nach ISO-9001 als Pflegefachfrau HF.').experience[0].rewritten).toBe(true);
+    // A plain capitalised word is not tool-shaped (nor is every noun of a German bullet): "Salesforce" is
+    // beyond a shape rule and stays; the prompt's rule, not this gate, keeps it out.
+    expect(role('Patientendaten in Salesforce gepflegt.').experience[0].rewritten).toBe(true);
+  });
 });
 
 function followupStore(extra: Record<string, any> = {}) {

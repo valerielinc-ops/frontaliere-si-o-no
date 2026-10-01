@@ -268,8 +268,10 @@ describe('submit mode', () => {
     // Died while filling the form: nothing reached the employer, the retry starts again.
     const beforeClick = createMemoryFirestore();
     await expect(submit(beforeClick.db, async () => { throw new Error('browser crashed'); })).rejects.toThrow('browser crashed');
-    const again = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
-    expect(await submit(beforeClick.db, again)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    const given = [{ question: 'Vorname', answer: 'Maria', source: 'identity' }];
+    const again = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [], answers: given } }));
+    // What went into the form travels next to the event, for the draft (agent.mjs), never inside it.
+    expect(await submit(beforeClick.db, again)).toEqual({ type: 'submit_handoff', reason: 'captcha', portalAnswers: { status: 'submit_handoff', at: expect.any(Number), answers: given } });
     expect(again).toHaveBeenCalledTimes(1);
     expect(beforeClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'captcha' } });
 
@@ -304,12 +306,20 @@ describe('submit mode', () => {
     // application, so the claim stays "sending" and no later run presses it again.
     const captchaAfterClick = createMemoryFirestore();
     const clicksThenCaptcha = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }; };
-    expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     expect(captchaAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
     expect(await submissionGuard(captchaAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'in_flight' });
     const notAgain = vi.fn();
     expect(await submit(captchaAfterClick.db, notAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
     expect(notAgain).not.toHaveBeenCalled();
+
+    // The portal said in words, after the click, that it did not send (JOIN
+    // «Non siamo riusciti a inviare…»): released, Valerie's retry claims it again.
+    const refusedAfterClick = createMemoryFirestore();
+    const clicksThenRefused = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: { steps: [], antibot: true } }; };
+    expect(await submit(refusedAfterClick.db, clicksThenRefused)).toMatchObject({ type: 'submit_failed', error: 'portal_refused' });
+    expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_refused' } });
+    expect(await submissionGuard(refusedAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
   });
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {

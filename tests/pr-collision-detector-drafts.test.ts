@@ -11,7 +11,12 @@
  */
 import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
-import { selectCollisionCandidates, computeColliders, findDuplicateHeadPrs } from '../scripts/ci/pr-collision-detector.mjs';
+import {
+  selectCollisionCandidates,
+  computeColliders,
+  findDuplicateHeadPrs,
+  isAutonomousCollisionPr,
+} from '../scripts/ci/pr-collision-detector.mjs';
 
 describe('selectCollisionCandidates', () => {
   it('tiene le open non-draft, scarta le draft', () => {
@@ -158,5 +163,27 @@ describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#106
     expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title'");
     expect(main).toContain("gh(['pr', 'close', String(dup.number), '--repo', REPO]");
     expect(main).not.toContain('--delete-branch');
+  });
+});
+
+describe('isAutonomousCollisionPr — provenienza del keeper prima della propagazione', () => {
+  it('non considera autonoma una PR umana solo perché è la keeper', () => {
+    expect(isAutonomousCollisionPr({
+      headRefName: 'seo/manual-canonical-review',
+      author: { login: 'valerielinc-ops', type: 'User' },
+      labels: [],
+    })).toBe(false);
+  });
+
+  it('riconosce i segnali autonomi già usati dal ciclo', () => {
+    expect(isAutonomousCollisionPr({ headRefName: 'fix/issue-10544', labels: [] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'manual-review', labels: [{ name: 'agent:autofix' }] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'manual-review', author: { isBot: true }, labels: [] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'fix/issue-10544', labels: [{ name: 'needs-human' }] })).toBe(false);
+  });
+
+  it('fallisce chiuso con una PR illeggibile', () => {
+    expect(isAutonomousCollisionPr(undefined)).toBe(false);
+    expect(isAutonomousCollisionPr({ labels: null })).toBe(false);
   });
 });

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-09-30T21:25:39.162Z",
+  "assembledAt": "2026-10-01T09:26:40.778Z",
   "jobs": [
     {
       "id": "bcvs-479c7c8ed449",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:25:27.908Z",
+      "crawledAt": "2026-10-01T09:26:35.083Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -82,8 +82,8 @@
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
         ]
       },
-      "firstSeenAt": "2026-09-26T14:19:00.561Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:48:06.057Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -96,7 +96,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671"
     },
     {
       "id": "bcvs-9ee203f89972",
@@ -129,7 +130,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:25:27.452Z",
+      "crawledAt": "2026-10-01T09:26:34.636Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -169,8 +170,8 @@
           "responsable-data-ia-bcvs-sion"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:29:52.591Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:29:52.591Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -183,7 +184,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691"
     },
     {
       "id": "bcvs-06cbb126f58a",
@@ -200,7 +202,7 @@
       "title": "Expert-e IA & Power Platform",
       "titleByLocale": {
         "it": "Esperto della piattaforma IA & Power",
-        "en": "AI & Power Platform Expert",
+        "en": "Expert-e IA & Power Platform",
         "de": "IA & Power Platform Experte",
         "fr": "Expert-e IA & Power Platform"
       },
@@ -216,7 +218,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:25:26.851Z",
+      "crawledAt": "2026-10-01T09:26:34.056Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -272,7 +274,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693"
     },
     {
       "id": "bcvs-a7ac7dab4c55",
@@ -305,7 +308,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:25:26.258Z",
+      "crawledAt": "2026-10-01T09:26:33.476Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -345,8 +348,8 @@
           "data-analyst-bi-expert-bcvs-sion"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:29:51.717Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:29:51.717Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -359,7 +362,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695"
     },
     {
       "id": "bcvs-9887e8d5b2a3",
@@ -392,7 +396,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:25:25.802Z",
+      "crawledAt": "2026-10-01T09:26:32.892Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -433,8 +437,8 @@
           "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:04:10.904Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:04:10.904Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -447,40 +451,41 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513"
     },
     {
       "id": "bcvs-add4d1a4e3d9",
-      "slug": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
+      "slug": "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "fr": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "it": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "en": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "de": "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        "it": "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion",
+        "en": "it-project-manager-business-analyst-banque-cantonale-du-valais-sion",
+        "de": "it-projektleiter-business-analyst-banque-cantonale-du-valais-sion",
+        "fr": "chef-fe-de-projets-it-business-analyste-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Chef-fe de projets IT & Business Analyste",
       "titleByLocale": {
-        "fr": "Chef-fe de projets IT & Business Analyste",
         "it": "Responsabile di Progetto IT e Business Analyst",
         "en": "IT Project Manager & Business Analyst",
-        "de": "IT-Projektleiter & Business Analyst"
+        "de": "IT-Projektleiter & Business Analyst",
+        "fr": "Chef-fe de projets IT & Business Analyste"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
-        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
-        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
-        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard."
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard.",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nChef-fe de projets IT & Business Analyste\n\n• Sion\n\n• 80-100%\n\nVéritable acteur-actrice du changement, si vous excellez dans la compréhension des besoins clients et dans la mise en œuvre de solutions efficaces, ce défi est fait pour vous ! Rejoignez notre équipe IT dynamique, porteuse d’un vent d’innovation et artisane de notre banque BCVS En Mouvement.\n\nConcrètement ?\n\n• En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.\n\n• Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.\n\n• Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).\n\n• Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous être au bénéfice d’une formation supérieure (EPFL, HEC, HES,, ou équivalent)..\n\n• Vous bénéficiez d’une expérience pertinente, dans la gestion complète du cycle de vie de projets complexes – une affinité avec l’univers financier (idéalement Finnova) serait un atout.\n\n• Personne ouverte, avec de l’entregent, vous savez amener un vent d’amélioration bénéfique à tous.\n\n• A l’esprit vif, vous êtes dynamique et apportez des solutions innovantes et efficaces.\n\n• Finalement, vos fortes capacités analytiques et votre orientation résultat, vous permettent d’impacter positivement votre environnement.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@WKB.ch au 23 octobre 2026 au plus tard."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:25:25.329Z",
+      "crawledAt": "2026-10-01T09:26:32.441Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -504,26 +509,39 @@
       "requirementsByLocale": {
         "fr": [
           "En collaboration active avec vos collègues, vous comprendrez, analyserez et définirez les besoins de demain.",
-          "Dans le respect des normes, vous élaborerez et porterez des projets transversaux d’importance répondant aux besoins et défis.",
-          "Orienté solutions, vous identifierez les potentiels d’amélioration et proposerez de nouveaux systèmes (applications, processus, interfaces, automatisations, etc.).",
           "Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale."
         ]
       },
       "needsRetranslation": true,
-      "salaryMin": 63000,
-      "salaryMax": 107500,
+      "firstSeenAt": "2026-09-30T21:25:25.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        ],
+        "en": [
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        ],
+        "de": [
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+      ],
+      "salaryMin": 97500,
+      "salaryMax": 165500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
+          "minValue": 97500,
+          "maxValue": 165500,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-30T21:25:25.329Z"
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701"
     }
   ]
 }

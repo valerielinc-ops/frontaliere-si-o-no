@@ -189,13 +189,15 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
    * has to be the same identity the SPA gates that panel with — otherwise the
    * dashboard reads zero and nobody finds out until someone looks.
    */
-  it('scopes the admin exception to the SPA admin allowlist', () => {
+  it('scopes the admin exception to the same stable UID the SPA uses', () => {
     const fn = matchBlock(rules, 'function isSiteAdmin()');
     expect(fn).toContain('request.auth != null');
     expect(fn).toContain('request.auth.token.email_verified == true');
-    expect(fn).toContain("request.auth.token.email.lower() == 'valerielinc@gmail.com'");
+    expect(fn).toContain("request.auth.uid == 'aAqGpXr2mUQNQlio3gCxut4bBzH3'");
     const app = readFileSync(resolve(root, 'App.tsx'), 'utf8');
-    expect(app).toContain("ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com']");
+    expect(app).toContain('isSiteAdminUid(authUser?.uid)');
+    expect(readFileSync(resolve(root, 'services/adminIdentity.ts'), 'utf8'))
+      .toContain("'aAqGpXr2mUQNQlio3gCxut4bBzH3'");
   });
 
   /**

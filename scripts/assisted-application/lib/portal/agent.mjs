@@ -16,7 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { NEXT_RE, SUBMIT_RE } from './fill.mjs';
-import { PREFER_NOT, SENSITIVE, candidateRules, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -33,8 +33,10 @@ export const AGENT_SCHEMA = OBJ({
     question: S,
     answer: S,
     source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
+    evidence: S,
   })),
   advanceRef: S,
+  submitRef: S,
   questions: LIST(OBJ({
     question: S,
     why: S,
@@ -68,7 +70,7 @@ export function agentSystemPrompt(candidateLocale) {
 
 Each turn you return actions for the snapshot you see; they run in order, then you receive a fresh snapshot and each action's result (history). Status:
 - "act": run these actions, then show me the page again.
-- "done": every question on this page is answered as the rules allow. advanceRef = the ref of the button that moves to the next step only when it has no usual name (Next, Continue, Weiter, Avanti, Continua, Suivant), else "".
+- "done": every question on this page is answered as the rules allow. advanceRef = the ref of the button that moves to the next step only when it has no usual name (Next, Continue, Weiter, Avanti, Continua, Suivant), else "". submitRef = on the LAST page (a review or summary with nothing left to answer), the ref of the button that sends the application (e.g. «Conferma e applica», «Bewerbung abschliessen»), else "": you never press it, the runner does after its checks.
 - "needs_candidate": a question only the candidate can answer: write it in questions.
 - "stuck": the page cannot be completed; say why in reason.
 
@@ -79,7 +81,8 @@ Actions:
 - select: a native select or a combobox; value = the option's label; the runner opens it, types and picks the option.
 - press: a key on a ref (Enter only inside a list or a combobox; Tab, Escape, arrows).
 - upload: a file input or an upload button; document = cv or cover_letter.
-For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing).
+For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
+Work history and education sections: add one entry per item of profile.experience and profile.education with the page's own "Add" button when there is one.
 
 Never press the button that sends the application, never Next or Continue (the runner does), never follow a link to another page, never sign in or create an account, never type a password.
 
@@ -156,11 +159,20 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     if (!question || isAnswered(question) || questions.some((other) => other.question === question)) return;
     questions.push({ why: '', options: [], ...item, question, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
-  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || ''));
+  // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
+  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '') || KNOCK_OUT.test(action.question || ''));
   for (const action of sensitive) {
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
-    const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, action.answer || action.value);
-    if (fromCandidate || declines) grounded.add(action.question);
+    const answer = action.answer || action.value;
+    // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
+    // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
+    const knockOut = !SENSITIVE.test(action.question);
+    const fromCandidate = knockOut
+      ? answeredByCandidate(candidate, action.question, answer)
+      : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
+    const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
+      && evidenceSupports(action.question, answer, action.evidence);
+    if (fromCandidate || declines || quoted || (knockOut && knownValues === null)) grounded.add(action.question);
   }
   const refused = new Set();
   for (const action of sensitive) {
@@ -183,6 +195,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     truncated: actions.length > MAX_ACTIONS,
     questions,
     advanceRef: REF_RE.test(raw.advanceRef || '') ? raw.advanceRef : '',
+    submitRef: REF_RE.test(raw.submitRef || '') ? raw.submitRef : '',
   };
 }
 
@@ -285,7 +298,8 @@ export async function runAction(page, action, files = {}) {
 // "Salva e prosegui", "Vai al passo successivo", "Nächste Seite").
 export const ADVANCE_RE = /(\bnext\b|\bcontinue\b|\bproceed\b|\bforward\b|weiter|fortfahren|nächste|avanti|continua|prosegui|procedi|successiv|suivant|continuer|poursuivre)/i;
 // …and none of going back, leaving, signing in or out.
-const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|close|schließen|chiudi|fermer|sign|log ?in|log ?out|anmeld|abmeld|accedi|esci|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
+// Whole words where a send button may contain them: «Bewerbung abschließen» is no "schließen" (close).
+export const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
 
 /**
  * The advance button the agent named, when it is safe to press as "Next":
@@ -298,7 +312,26 @@ export async function advanceLocator(page, ref) {
   const info = await describe(locator).catch(() => null);
   if (!info?.button || info.leaves || !advanceName(info.name)) return null;
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
-  return locator;
+  // The name too: after a confirmed submission the portal's memory learns it (knowledge.mjs).
+  return { locator, name: info.name };
+}
+
+/**
+ * The final button the agent named on the last page (self-correction, level
+ * 1: JOIN's «Conferma e applica» was no usual name): an enabled button whose
+ * name says sending or confirming (FINAL_RE) and nothing of going back,
+ * leaving or signing in. The runner checks the page has nothing left to
+ * answer and presses it behind the submission guard; a dry run stops before.
+ * @returns {Promise<{locator: import('playwright').Locator, name: string}|null>}
+ */
+export async function submitLocator(page, ref) {
+  if (!REF_RE.test(ref || '')) return null;
+  const locator = page.locator(`aria-ref=${ref}`);
+  const info = await describe(locator).catch(() => null);
+  if (!info?.button || !info.name || info.leaves || NOT_ADVANCE_RE.test(info.name)) return null;
+  if (!FINAL_RE.test(info.name) && !SUBMIT_RE.test(info.name)) return null;
+  if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
+  return { locator, name: info.name };
 }
 
 /** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */
@@ -317,11 +350,14 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
   const startUrl = page.url();
   // Sensitive questions an action of this page answered from the candidate's data.
   const grounded = new Set();
+  // The answers given on this page, for the runner's record of what was submitted.
+  const answers = [];
+  const end = (result) => ({ ...result, evidence, answers });
   for (let round = 1; round <= maxRounds; round += 1) {
     let raw;
     try {
       const snapshot = await aiSnapshot(page);
-      if (!snapshot) return { status: 'unavailable', calls: round - 1, evidence };
+      if (!snapshot) return end({ status: 'unavailable', calls: round - 1 });
       raw = await codex({
         prompt: codexPrompt(agentSystemPrompt(candidateLocale), agentUserText({ url: page.url(), title: await page.title().catch(() => ''), snapshot, candidate, hint, errors, history })),
         schema: AGENT_SCHEMA,
@@ -331,28 +367,29 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       // The fallback is optional: a Codex timeout ends it, never the run (review of #10707).
       const reason = `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`;
       evidence.rounds.push({ round, status: 'stuck', reason, actions: [] });
-      return { status: 'stuck', reason, calls: round, evidence };
+      return end({ status: 'stuck', reason, calls: round });
     }
     const step = guardAgentStep(raw, candidate, grounded);
     const record = { round, status: step.status, reason: step.reason, actions: [], ...(step.truncated ? { truncated: true } : {}) };
     evidence.rounds.push(record);
     log(`portal agent round ${round}: ${step.status} (${step.actions.length} actions)`);
-    if (step.status === 'needs_candidate') return { status: 'needs_candidate', questions: step.questions, calls: round, evidence };
-    if (step.status === 'stuck') return { status: 'stuck', reason: step.reason, calls: round, evidence };
-    if (step.status === 'done') return { status: 'done', advanceRef: step.advanceRef, calls: round, evidence };
+    if (step.status === 'needs_candidate') return end({ status: 'needs_candidate', questions: step.questions, calls: round });
+    if (step.status === 'stuck') return end({ status: 'stuck', reason: step.reason, calls: round });
+    if (step.status === 'done') return end({ status: 'done', advanceRef: step.advanceRef, submitRef: step.submitRef, calls: round });
     const results = [];
     for (const action of step.actions) {
       const result = await runAction(page, action, files);
-      // No values in the evidence: what was answered is in the order already.
+      // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
       record.actions.push({ ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}) });
       results.push({ ref: action.ref, action: action.action, value: action.value, question: action.question, ...result });
+      if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
       await page.waitForTimeout(400);
       // The page moved on by itself (a choice that submits its step): the runner reads the new one.
-      if (page.url() !== startUrl) return { status: 'done', moved: true, calls: round, evidence };
+      if (page.url() !== startUrl) return end({ status: 'done', moved: true, calls: round });
       // A stale ref or a refused action: the model sees the page again before going on.
       if (!result.ok) break;
     }
     history.push({ round, results });
   }
-  return { status: 'stuck', reason: 'rounds', calls: maxRounds, evidence };
+  return end({ status: 'stuck', reason: 'rounds', calls: maxRounds });
 }

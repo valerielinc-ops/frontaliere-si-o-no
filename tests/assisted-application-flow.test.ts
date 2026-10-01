@@ -291,3 +291,32 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     expect(transition({ ...failed, heldBy: ['posting_closed'] }, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 }).flow.state).toBe('owner_review');
   });
 });
+
+describe('employer acknowledgement of a submit of unknown outcome', () => {
+  // career-ops apply.md: "sent" on the success page OR the confirmation e-mail.
+  it('marks the order submitted from a running submit or one Valerie holds as ambiguous', () => {
+    for (const flow of [
+      { state: 'submitting', round: 1 },
+      { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'] },
+      // JOIN 2026-10-01: the same unknown outcome behind an invisible reCAPTCHA.
+      { state: 'owner_takeover', round: 1, heldBy: ['portal_antibot_ambiguous'] },
+      { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
+    ]) {
+      const step = transition(flow, { type: 'submit_acknowledged' }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'submitted', heldBy: [], deadlineAt: null, reminderAt: null });
+      expect(step.flow.history.at(-1)).toEqual({ at: T0, event: 'submit_acknowledged', state: 'submitted' });
+      expect(step.effects).toEqual([{ type: 'mark_submitted' }]);
+    }
+  });
+
+  it('never moves a flow that holds anything else, or is past the submit', () => {
+    for (const heldBy of [['portal:captcha'], ['owner'], ['runner_timeout'], ['posting_closed'], ['max_rounds']]) {
+      expect(transition({ state: 'owner_takeover', heldBy }, { type: 'submit_acknowledged' }, { nowMs: T0 }).ignored).toBe('not_ambiguous_submit');
+    }
+    for (const state of ['submitted', 'failed', 'candidate_review', 'candidate_handoff', 'drafting']) {
+      expect(transition({ state }, { type: 'submit_acknowledged' }, { nowMs: T0 }).ignored).toBe('not_ambiguous_submit');
+    }
+    // The runner's own success is still accepted only while it submits.
+    expect(transition({ state: 'owner_takeover', heldBy: ['portal_ambiguous'] }, { type: 'submit_succeeded' }, { nowMs: T0 }).ignored).toBe('terminal');
+  });
+});

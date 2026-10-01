@@ -33,9 +33,11 @@ import {
   normalizeSpace,
   normalizeDescriptionSpace,
   normalizeDescriptionBullets,
+  fetchHtml,
 } from './crawler-template.mjs';
 import { decodeHtmlEntities as decodeNamedEntities, decodeNumericEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -223,24 +225,53 @@ export function extractAgJobPosting(html = '') {
 
 async function fetchText(url, accept) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: accept, 'User-Agent': USER_AGENT, 'Accept-Language': 'de-CH,de;q=0.9' },
-    });
-    if (!res.ok) {
-      // Tag the status: the pipeline treats an error WITH a status as a real
-      // source break (exit non-zero), never as a connection-level soft exit.
-      const err = new Error(`HTTP ${res.status} from ${url}`);
-      err.status = res.status;
-      throw err;
+  // Every one of the ~70 vacancy pages is read in sequence and any failure
+  // aborts the whole snapshot, so a single transient 429/5xx from jobs.ag.ch
+  // (HTTP 503 in corpus runs 36632090683 and 36778255557, both pages 200 on
+  // re-read) failed the crawler. Retry transient statuses with the shared
+  // backoff; a persistent error still propagates with its status.
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: { Accept: accept, 'User-Agent': USER_AGENT, 'Accept-Language': 'de-CH,de;q=0.9' },
+      });
+      if (!res.ok) {
+        // Tag the status: the pipeline treats an error WITH a status as a real
+        // source break (exit non-zero), never as a connection-level soft exit.
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        err.retryAfter = res.headers.get('retry-after');
+        throw err;
+      }
+      return await res.text();
+    } finally {
+      clearTimeout(timer);
     }
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  }, { label: `Kanton Aargau ${url}` });
+}
+
+/**
+ * Read a vacancy page through the shared HTML transport. The listing API must
+ * stay on the JSON-only path above, but detail pages need the common
+ * challenge/WAF rescue: jobs.ag.ch can answer 200 with a bot page (or answer
+ * 403/406/415/451 from an egress-IP fence) even though the vacancy is live.
+ * A real page without JobPosting JSON-LD still reaches the all-or-nothing
+ * guard below and remains a hard failure.
+ */
+async function fetchDetailHtml(url) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'de-CH,de;q=0.9',
+    },
+  });
 }
 
 /* ── Main Fetch Function ──────────────────────────────────── */
@@ -277,7 +308,7 @@ export async function fetchAllKantonAargauJobs() {
     // (the fetch error propagates) or that carries no ad body is fatal: a
     // title-and-metadata stand-in would publish a JobPosting below the content
     // floor in place of the ad the slice already holds.
-    const detail = extractAgJobPosting(await fetchText(entry.url, 'text/html,application/xhtml+xml'));
+    const detail = extractAgJobPosting(await fetchDetailHtml(entry.url));
     if (!detail.description) {
       throw new Error(`Kanton Aargau vacancy ${entry.id} has no ad body at ${entry.url}; keeping the existing slice.`);
     }

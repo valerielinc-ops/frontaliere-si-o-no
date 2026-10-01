@@ -22,6 +22,17 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it.each([
+    ['https://www.google.com/recaptcha/api2/anchor?size=normal', 'g-recaptcha-response'],
+    ['https://newassets.hcaptcha.com/captcha/v1/test?frame=checkbox', 'h-captcha-response'],
+    ['https://challenges.cloudflare.com/turnstile/test', 'cf-turnstile-response'],
+  ])('recognizes an answered %s challenge while keeping unresolved widgets pending', (src, name) => {
+    const iframe = `<iframe src="${src}" data-size="200"></iframe>`;
+    expect(extract(`${iframe}<textarea name="${name}"></textarea>`).captcha).toBe(true);
+    expect(extract(`${iframe}<textarea name="${name}">solved-token</textarea>`).captcha).toBe(false);
+    expect(extract(`${iframe}<textarea name="${name}">solved-token</textarea><textarea name="${name}"></textarea>`).captcha).toBe(true);
+  });
+
   // Giro di prova 2026-10-01 on JOIN: the CV drop zone had no label, only "file:_r_3_:input",
   // so the planner skipped it and the run handed the application over.
   it('names an unlabelled drop zone by its heading and zone text, not by a generated id', () => {
@@ -114,6 +125,20 @@ describe('portal field extraction', () => {
     // Second review: no size at all (0 px) is still a message; a hidden template is not.
     const zero = extract('<input id="m" type="email"><div role="alert" data-size="0">Invalid email</div><div class="error" style="display:none">Old message</div>');
     expect(zero.errors).toEqual(['Invalid email']);
+  });
+
+  // career-ops counts the final answer: a limit stated in words or by a counter is a limit too.
+  it('reads a length limit the form states only in words or with a counter', () => {
+    const page = extract(`
+      <div><label for="a">Motivazione</label><div><textarea id="a" aria-describedby="a-help"></textarea><small id="a-help">Massimo 500 caratteri</small></div></div>
+      <div><label for="b">Anschreiben</label><div><textarea id="b" aria-describedby="b-count"></textarea><span id="b-count">0 / 1000</span></div></div>
+      <div><p>Schritt 1 / 12</p><label for="c">Bemerkungen</label><div><textarea id="c"></textarea></div></div>
+      <div><label for="d">Telefono</label><input id="d" maxlength="20"></div>`);
+    const limit = (id: string) => page.fields.find((field: any) => field.name === '' && field.label && field.id && document.querySelector(`[data-aa-id="${field.id}"]`)?.id === id)?.maxLength;
+    expect(limit('a')).toBe(500);
+    expect(limit('b')).toBe(1000);
+    expect(limit('c')).toBeNull();
+    expect(limit('d')).toBe(20);
   });
 
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {

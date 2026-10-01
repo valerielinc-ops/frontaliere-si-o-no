@@ -592,7 +592,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   const html = buildSeoPageHtml({
     locale,
     title: `${label} — ${SECTION_LABEL[section][locale]}`,
-    description: clampMetaDescription(topic.intro[locale]),
+    description: clampMetaDescription(topic.intro[locale], undefined, locale),
     canonicalUrl,
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: buildLocaleAlternateBlock({
@@ -650,7 +650,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   const html = buildSeoPageHtml({
     locale,
     title: `${label} — ${SECTION_LABEL[section][locale]}`,
-    description: clampMetaDescription(topic.intro[locale]),
+    description: clampMetaDescription(topic.intro[locale], undefined, locale),
     canonicalUrl: `${BASE_URL}${urlPath}`,
     ogLocale: LOCALE_OG[locale],
     robots: 'noindex,follow',
@@ -775,7 +775,7 @@ ${tiles}
   const html = buildSeoPageHtml({
     locale,
     title: `${TOPIC_INDEX_TITLE[locale]} — ${SECTION_LABEL[section][locale]}`,
-    description: clampMetaDescription(c.indexLede(listed.length, totalArticles)),
+    description: clampMetaDescription(c.indexLede(listed.length, totalArticles), undefined, locale),
     canonicalUrl,
     ogLocale: LOCALE_OG[locale],
     ...(indexable ? {} : { robots: 'noindex,follow' }),

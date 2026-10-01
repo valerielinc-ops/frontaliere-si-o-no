@@ -1,16 +1,16 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-09-30T21:27:50.068Z",
+  "generatedAt": "2026-10-01T09:27:00.734Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12068,
-  "avgDurationMs": 12068,
+  "unchangedCount": 1,
+  "durationMs": 8263,
+  "avgDurationMs": 8263,
   "durationHistory": [
-    12068
+    8263
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,41 +50,6 @@
       }
     },
     {
-      "id": "zambon-811389",
-      "url": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
-      "title": "Global Treasury Sr. Specialist",
-      "company": "Zambon Svizzera SA",
-      "companyKey": "zambon",
-      "location": "Cadempino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6814",
-      "streetAddress": "Via Industria 13",
-      "slug": "global-treasury-sr-specialist-zambon",
-      "category": "general",
-      "datePosted": "2026-09-10",
-      "source": "zambon-ncoreplat-api",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Farmaceutica",
-      "department": "Accounting, Finance & Control",
-      "seniority": "from 5 years to 10 years",
-      "sourceLang": "en",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-10T23:18:15.295Z",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 15,
-        "completeness": 15
-      }
-    },
-    {
       "id": "zambon-810317",
       "url": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
       "applyUrl": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
@@ -120,5 +85,46 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "zambon-811389",
+      "url": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
+      "title": "Global Treasury Sr. Specialist",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "slug": "global-treasury-sr-specialist-zambon",
+      "category": "general",
+      "datePosted": "2026-09-10",
+      "source": "zambon-ncoreplat-api",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "department": "Accounting, Finance & Control",
+      "seniority": "from 5 years to 10 years",
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:18:15.295Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 15,
+        "completeness": 20
+      }
+    }
+  ]
 }

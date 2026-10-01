@@ -839,9 +839,10 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @typedef {Object} CrawlerConfig
  * @property {string}   companyKey          — Unique kebab-case key (e.g. 'lonza')
  * @property {string}   companyLabel        — Display name for logs (e.g. 'Lonza')
- * @property {Function} fetchJobs           — async () => ParsedJob[] or
+ * @property {Function} fetchJobs           — async ({ existingJobs }) => ParsedJob[] or
  *                                             { jobs: ParsedJob[], ...metadata }.
- *                                             Source-locale only.
+ *                                             Source-locale only. The argument
+ *                                             is optional for legacy parsers.
  * @property {Function} isCompanyJob        — (job) => boolean. Matches this company's jobs.
  * @property {string}   [root]              — Project root (default: cwd)
  * @property {string}   [defaultSourceLang] — Fallback source language (default: 'it')
@@ -1047,7 +1048,7 @@ export async function runStandardCrawlerPipeline(config) {
   let parsedJobs;
   let fetchMetadata;
   try {
-    const fetchResult = await fetchJobs();
+    const fetchResult = await fetchJobs({ existingJobs: companyExisting });
     ({ jobs: parsedJobs, metadata: fetchMetadata } = normalizeCrawlerFetchResult(fetchResult));
   } catch (err) {
     // Connection-level fetch failure = the runner's datacenter egress could not

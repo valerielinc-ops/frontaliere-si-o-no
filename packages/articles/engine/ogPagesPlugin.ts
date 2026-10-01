@@ -206,6 +206,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  WriteCollector,
  buildTitleWithBrand,
  truncateHeadline,
+ truncateHeadlineToMeasuredBudget,
  titleBrandSuffix: TITLE_BRAND_SUFFIX,
  titleMaxChars: TITLE_MAX_CHARS,
  clampMetaDescription,
@@ -1159,15 +1160,18 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   // only path where ellipsis truncation is acceptable because the alternative
   // is dropping the (#hash) and breaking the title-uniqueness audit).
   const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
-  if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
+  if (esc(withBrandAndDisamb).length <= TITLE_MAX_CHARS) {
    htmlPageTitle = withBrandAndDisamb;
   } else {
    const headlinePlusDisamb = `${localizedTitle}${disamb}`;
-   if (headlinePlusDisamb.length <= TITLE_MAX_CHARS) {
+   if (esc(headlinePlusDisamb).length <= TITLE_MAX_CHARS) {
     htmlPageTitle = headlinePlusDisamb;
    } else {
-    const headlineBudget = TITLE_MAX_CHARS - disamb.length;
-    const truncated = truncateHeadline(localizedTitle, Math.max(1, headlineBudget));
+    const truncated = truncateHeadlineToMeasuredBudget(
+      localizedTitle,
+      TITLE_MAX_CHARS,
+      (candidate) => esc(`${candidate}${disamb}`).length,
+    );
     htmlPageTitle = `${truncated}${disamb}`;
    }
   }
@@ -1513,12 +1517,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(metaDesc))}">
+ <meta name="description" content="${esc(clampMetaDescription(metaDesc, undefined, articleLocale))}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(localizedTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">

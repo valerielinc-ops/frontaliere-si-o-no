@@ -4,7 +4,7 @@
  * per-source agenda crawler (currently scripts/crawl-ge-agenda.mjs, the pilot
  * non-TI canton). No live network — `fetchImpl` is always injected.
  */
-import { describe, it, expect, afterEach, afterAll } from 'vitest';
+import { describe, it, expect, afterEach, afterAll, vi } from 'vitest';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -64,6 +64,29 @@ describe('createAgendaCrawler — config validation', () => {
 });
 
 describe('createAgendaCrawler — crawl()', () => {
+  it('enriches each deduplicated event before writing the source slice', async () => {
+    const event = { id: 'src:priced', title: 'Workshop', startDate: '2026-08-01', url: 'https://example.test/event' };
+    const fetchImpl = async (url: string) => okResponse(url === event.url ? 'CHF 50' : '<html></html>');
+    const price = { amount: 50, currency: 'CHF', isFree: false };
+    const enrichEvent = vi.fn(async (entry, fetchHtml) => ({ ...entry, ...(await fetchHtml(entry.url) ? { price } : {}) }));
+    const crawler = createAgendaCrawler(makeConfig({ fetchImpl, parseDayHtml: () => [event], iterations: 2, enrichEvent }));
+    const result = await crawler.crawl();
+    expect(enrichEvent).toHaveBeenCalledTimes(1);
+    expect(result.events[0].price).toEqual(price);
+    expect(JSON.parse(readFileSync(slicePath, 'utf8')).events[0].price).toEqual(price);
+  });
+
+  it('preserves listing metadata if detail enrichment throws', async () => {
+    const event = { id: 'src:failed', title: 'Workshop', startDate: '2026-08-01' };
+    const crawler = createAgendaCrawler(makeConfig({
+      fetchImpl: async () => okResponse('<html></html>'), parseDayHtml: () => [event], iterations: 1,
+      enrichEvent: async () => { throw new Error('detail unavailable'); },
+    }));
+    const result = await crawler.crawl({ dryRun: true });
+    expect(result.events[0]).toMatchObject(event);
+    expect(result.written).toBe(false);
+  });
+
   it('merges events by id across iterations, extending endDate forward, and writes the slice', async () => {
     const fetchImpl = async () => okResponse('<html></html>');
     const parseDayHtml = (_html: string, i: number) => [

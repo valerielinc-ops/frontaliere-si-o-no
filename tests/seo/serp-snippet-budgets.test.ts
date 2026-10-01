@@ -7,6 +7,7 @@ import {
   clampMetaDescription,
   TITLE_MAX_CHARS,
   META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
 } from '../../build-plugins/shared/titleSuffix';
 import { buildProfessionLandingCopy } from '../../build-plugins/professionLandingsCopy';
 import { PROFESSION_IDS, PROFESSION_LOCALES } from '../../build-plugins/professionLandingsData';
@@ -46,12 +47,17 @@ import { generateFuelDailyPages } from '../../build-plugins/fuelDailyPagesPlugin
  */
 
 /**
- * True only when `clampMetaDescription` actually *drops* text.
+ * True only when `clampMetaDescription` actually *drops* source text.
  *
  * It does two things: collapse `\s+` to a single space, then word-aware
  * truncate. Comparing its output against the RAW input conflates the two — and
  * JS `\s` matches U+00A0 and U+202F, so any non-breaking space in the copy
  * reads as "truncated" even in a 94-char string with no ellipsis in sight.
+ *
+ * Short descriptions are intentionally enriched to the crawler minimum, so a
+ * plain output-vs-input comparison would now confuse additive context with a
+ * destructive truncation. The ellipsis is the unambiguous signal that source
+ * text was dropped.
  *
  * That is not hypothetical: `median.toLocaleString('fr-CH')` emits the group
  * separator chosen by the host ICU. macOS Node gives `62'000` (apostrophe),
@@ -65,8 +71,17 @@ import { generateFuelDailyPages } from '../../build-plugins/fuelDailyPagesPlugin
  * and still asserted separately.
  */
 function isTruncated(description: string): boolean {
-  const normalized = String(description).replace(/\s+/g, ' ').trim();
-  return clampMetaDescription(description) !== normalized;
+  return clampMetaDescription(description).endsWith('…');
+}
+
+function assertClampKeepsSource(description: string, clamped: string): void {
+  const normalized = description.replace(/\s+/g, ' ').trim();
+  if (clamped === normalized) return;
+  // A short source description is now enriched additively for the crawler;
+  // it must remain the complete prefix while evergreen context fills the
+  // metadata budget. This is not destructive truncation.
+  expect(clamped.startsWith(`${normalized} `)).toBe(true);
+  expect(clamped.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
 }
 
 describe('isTruncated — host-ICU independence', () => {
@@ -239,7 +254,7 @@ describe('SERP snippet budgets — employer profile intro prose (#6417)', () => 
           expect(clamped.endsWith('…')).toBe(true);
           expect(clamped).not.toMatch(/\s…$/); // no dangling space before the ellipsis
         } else {
-          expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+          assertClampKeepsSource(description, clamped);
         }
 
         // A clamp that survives should still carry substance, not just the
@@ -275,7 +290,7 @@ describe('SERP snippet budgets — weekly-employers hero copy (#6417)', () => {
       expect(clamped.endsWith('…')).toBe(true);
       expect(clamped).not.toMatch(/\s…$/);
     } else {
-      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+      assertClampKeepsSource(description, clamped);
     }
     expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
   }
@@ -327,7 +342,7 @@ describe('SERP snippet budgets — fuel station index pages (#6417 item 3)', () 
       expect(clamped.endsWith('…')).toBe(true);
       expect(clamped).not.toMatch(/\s…$/);
     } else {
-      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+      assertClampKeepsSource(description, clamped);
     }
     expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
   }

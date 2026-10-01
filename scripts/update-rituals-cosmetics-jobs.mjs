@@ -7,6 +7,7 @@
  */
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllRitualsCosmeticsJobs,
@@ -19,11 +20,15 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
+// The published slice tells the parser which reqs already own an indexed
+// route: only the others get a new slug disambiguator.
+const existingJobs = readExistingCrawlerJobs(RITUALS_COSMETICS_KEY);
+
 runStandardCrawlerPipeline({
   companyKey: RITUALS_COSMETICS_KEY,
   companyLabel: RITUALS_COSMETICS_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllRitualsCosmeticsJobs,
+  fetchJobs: () => fetchAllRitualsCosmeticsJobs({ existingJobs }),
   isCompanyJob: isRitualsCosmeticsJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
