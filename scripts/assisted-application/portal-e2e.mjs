@@ -23,7 +23,7 @@ import { submitViaPortal } from './lib/portal/portal.mjs';
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], newsletter: false, pending: null, refuseNextRegistration: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], newsletter: false, pending: null, refuseNextRegistration: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -80,14 +80,44 @@ function fakePortal() {
       state.applications.push({ hasCv: /filename="CV_/.test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
+    // A form with a custom calendar the filler cannot read (JOIN's "Quando sei
+    // nato?"): the send button stays disabled until a day is chosen.
+    if (route === 'GET /widget-job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 60%</h1><a href="/widget">Jetzt bewerben</a>'));
+    if (route === 'GET /widget') {
+      const days = ['11', '12'].map((day) => `<div role="button" tabindex="0" aria-label="Choose ${day} May 1990" data-d="1990-05-${day}">${day}</div>`).join('');
+      return send(page('Bewerbung', `${form('/widget', `<label for="v">Vorname *</label><input id="v" name="first" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><h2>Geburtsdatum *</h2><input type="hidden" id="dob" name="dob"><div role="group" aria-label="Mai 1990">${days}</div><button type="submit" id="send" disabled>Bewerbung absenden</button>`, true)}
+        <script>document.querySelectorAll('[data-d]').forEach((day) => day.addEventListener('click', () => { document.getElementById('dob').value = day.dataset.d; day.setAttribute('aria-pressed', 'true'); document.getElementById('send').disabled = false; }));</script>`));
+    }
+    if (route === 'POST /widget') {
+      const raw = await readBody(req);
+      state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
     res.writeHead(404);
     res.end();
   });
   return { server, state };
 }
 
+/**
+ * Agent stand-in (agent.mjs): clicks the birth date's day on the snapshot's
+ * ref, then says the page is done. The answer comes from the profile when the
+ * candidate data has one; without it, it is invented ("rule") and the code
+ * guard must turn it into a question for the candidate.
+ */
+function fakeAgent(prompt) {
+  const snapshot = prompt.slice(prompt.indexOf('Page snapshot:'));
+  const { agentPage } = JSON.parse(prompt.slice(prompt.indexOf('{"agentPage"'), prompt.indexOf('\n\nPage snapshot:')));
+  const turn = (status, actions = []) => ({ status, reason: '', advanceRef: '', actions, questions: [] });
+  if (agentPage.history.length) return turn('done');
+  const day = /button "Choose 12 May 1990" \[ref=(\w+)\]/.exec(snapshot);
+  const source = /"dateOfBirth":"\d/.test(prompt) ? 'profile' : 'rule';
+  return turn('act', day ? [{ ref: day[1], action: 'click', value: '', document: 'none', question: 'Geburtsdatum *', answer: '1990-05-12', source }] : []);
+}
+
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
+  if (prompt.includes('{"agentPage"')) return fakeAgent(prompt);
   const form = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly'))).form;
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
@@ -148,6 +178,16 @@ async function main() {
     check('a later run signs in with the stored account', again.event.type === 'submit_succeeded' && auth.join(',') === 'sign_in' && state.accounts.size === 1);
     check('both applications carry the CV and the name', state.applications.length === 2 && state.applications.every((item) => item.hasCv && item.first === 'Luca'));
     check('the newsletter box is left alone', !state.newsletter);
+    // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
+    const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
+    const asked = unknown.event.questions || [];
+    check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
+      && asked.length === 1 && asked[0].question === 'Geburtsdatum' && asked[0].type === 'date' && state.widgetApplications.length === 0);
+    const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    const agentSteps = widget.evidence.steps.filter((step) => step.agent);
+    check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
+      && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
+      && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
   } finally {
     server.close();
     await rm(dir, { recursive: true, force: true });

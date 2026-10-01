@@ -13,8 +13,13 @@
  * page and dispatches the submission again.
  * A click on "submit" whose outcome cannot be confirmed is never retried
  * (career-ops: an ambiguous submit is not re-submitted).
+ * A page the deterministic filler cannot move on (a calendar, option cards,
+ * a custom dropdown, fields with generated names) goes to the agentic
+ * fallback (agent.mjs): Codex on Playwright's accessibility snapshot, as
+ * career-ops drives Playwright MCP. Next and the final submit stay here.
  */
 
+import { AGENT_ROUNDS, advanceLocator, completeWithAgent } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { planPage } from './plan.mjs';
@@ -36,6 +41,14 @@ const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandid
 const OUTCOME_TIMEOUT_MS = 25_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
+// Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
+const MAX_AGENT_CALLS = 16;
+
+/** A label that is a generated name, not a question ("select-input-_r_p_", "file:_r_3_:input"). */
+export function machineLabel(label) {
+  const text = String(label || '').trim();
+  return !text || (/^[\w:.-]+$/.test(text) && /[_:\d]/.test(text));
+}
 
 export function slugId(text) {
   return String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -351,6 +364,29 @@ export async function submitViaPortal(ctx) {
     let stuckOnPage = 0;
     let authSteps = 0;
     const uploaded = new Set();
+    // The agentic fallback: once per page and reason, within the run's budget.
+    let agentCalls = 0;
+    const agentTried = new Set();
+    const runAgent = async (current, hint) => {
+      const key = `${pageSignature(page, current)}|${hint}`;
+      if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS) return null;
+      agentTried.add(key);
+      const agent = await completeWithAgent({
+        page,
+        hint,
+        errors: current.errors || [],
+        candidate: ctx.candidate,
+        candidateLocale: ctx.candidateLocale,
+        codex: ctx.codex,
+        files: ctx.files,
+        maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
+        log,
+      });
+      agentCalls += agent.calls;
+      (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
+      return agent;
+    };
+    const askCandidate = (questions) => ({ event: { type: 'submit_needs_candidate', questions: questionsFrom(questions) }, evidence });
 
     for (let step = 1; step <= maxSteps; step += 1) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
@@ -383,49 +419,85 @@ export async function submitViaPortal(ctx) {
       // authorization) is not a dead end. Nothing to fill and nowhere to go is.
       const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
         || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
-      if (!workable(snapshot)) {
-        snapshot = await awaitFields(page, snapshot);
-        if (!workable(snapshot)) return await handoff('portal_needs_candidate');
-      }
+      if (!workable(snapshot)) snapshot = await awaitFields(page, snapshot);
+      // Nothing the filler can read (a page of custom widgets): straight to the agent.
+      let agentHint = workable(snapshot) ? 'next_disabled' : 'no_form_controls';
 
-      const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-      if (plan.missingRequired.length) {
-        return { event: { type: 'submit_needs_candidate', questions: questionsFrom(plan.missingRequired) }, evidence };
-      }
-      // A file already uploaded on this page is not uploaded again when the
-      // page is planned a second time (Personio empties the input after the upload).
-      const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
-      const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
-      const plannedUrl = page.url();
-      const results = await applyActions(page, snapshot.fields, actions, ctx.files);
-      for (const result of results) {
-        if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
-      }
-      evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
-      evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+      let after = snapshot;
+      let unclearQuestions = [];
+      if (workable(snapshot)) {
+        const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        // A required field with no readable label is no question for the
+        // candidate ("select-input-_r_p_"): the agent finds its question on the page.
+        const unclear = plan.missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
+        if (plan.missingRequired.length && !unclear) return askCandidate(plan.missingRequired);
+        if (unclear) unclearQuestions = plan.missingRequired;
+        if (unclear) agentHint = 'unclear_fields';
+        // A file already uploaded on this page is not uploaded again when the
+        // page is planned a second time (Personio empties the input after the upload).
+        const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
+        const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+        const plannedUrl = page.url();
+        const results = await applyActions(page, snapshot.fields, actions, ctx.files);
+        for (const result of results) {
+          if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
+        }
+        evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
+        evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
 
-      let after = await extractFields(page, NAVIGATION);
-      // The portal moved to another page by itself (JOIN registers the e-mail
-      // and shows the CV page a moment later): plan that page, instead of
-      // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
-      if (page.url() !== plannedUrl) {
-        snapshot = await awaitFields(page, await extractFields(page));
-        continue;
-      }
-      // No usable button yet: a form re-rendering after a choice (Workday
-      // redraws the address for another country) or an uploaded CV still being
-      // processed (Workday parses it). Up to 6 s, or 60 s after an upload.
-      const buttonWaitMs = actions.some((action) => action.action === 'upload') ? 60_000 : 6_000;
-      for (let waited = 0; waited < buttonWaitMs && !findButton(after.buttons, SUBMIT_RE) && !findButton(after.buttons, NEXT_RE); waited += 2000) {
-        await page.waitForTimeout(2000);
         after = await extractFields(page, NAVIGATION);
+        // The portal moved to another page by itself (JOIN registers the e-mail
+        // and shows the CV page a moment later): plan that page, instead of
+        // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
+        if (page.url() !== plannedUrl) {
+          snapshot = await awaitFields(page, await extractFields(page));
+          continue;
+        }
+        // No usable button yet: a form re-rendering after a choice (Workday
+        // redraws the address for another country) or an uploaded CV still being
+        // processed (Workday parses it). Up to 6 s, or 60 s after an upload.
+        const buttonWaitMs = actions.some((action) => action.action === 'upload') ? 60_000 : 6_000;
+        for (let waited = 0; waited < buttonWaitMs && !findButton(after.buttons, SUBMIT_RE) && !findButton(after.buttons, NEXT_RE); waited += 2000) {
+          await page.waitForTimeout(2000);
+          after = await extractFields(page, NAVIGATION);
+        }
       }
       if (after.captcha) return await handoff('captcha');
-      const submit = findButton(after.buttons, SUBMIT_RE);
-      const next = findButton(after.buttons, NEXT_RE);
-      if (next && !submit) {
+      let submit = findButton(after.buttons, SUBMIT_RE);
+      let next = findButton(after.buttons, NEXT_RE);
+      let advance = null;
+      // The filler cannot move this page on (its Next stays disabled: JOIN's
+      // calendar of "Quando sei nato?"), or left fields it could not name:
+      // the agent completes the page, then the runner moves on as before.
+      if ((!submit && !next) || agentHint === 'unclear_fields') {
+        const agentUrl = page.url();
+        const agent = await runAgent(after, agentHint);
+        if (agent?.status === 'needs_candidate') return askCandidate(agent.questions);
+        // Required fields left unanswered: the owner looks when the agent could
+        // not answer them; without the agent, the planner's questions as before.
+        if (unclearQuestions.length && agent?.status !== 'done') {
+          return !agent || agent.status === 'unavailable' ? askCandidate(unclearQuestions) : await handoff('portal_needs_candidate');
+        }
+        if (agent?.status === 'done') {
+          if (agent.moved || page.url() !== agentUrl) {
+            snapshot = await awaitFields(page, await extractFields(page));
+            continue;
+          }
+          after = await extractFields(page, NAVIGATION);
+          for (let waited = 0; waited < 6000 && !findButton(after.buttons, SUBMIT_RE) && !findButton(after.buttons, NEXT_RE); waited += 2000) {
+            await page.waitForTimeout(2000);
+            after = await extractFields(page, NAVIGATION);
+          }
+          submit = findButton(after.buttons, SUBMIT_RE);
+          next = findButton(after.buttons, NEXT_RE);
+          // A step button with an unusual name ("Salva e prosegui"), never one that may send.
+          if (!submit && !next && agent.advanceRef) advance = await advanceLocator(page, agent.advanceRef);
+        }
+      }
+      if ((next || advance) && !submit) {
         const before = pageSignature(page, after);
-        await clickButton(page, next);
+        if (next) await clickButton(page, next);
+        else await advance.click({ timeout: 6_000 });
         await settle(page);
         snapshot = await extractFields(page);
         // A single-page form moves on after its own request (JOIN checks the
@@ -435,9 +507,15 @@ export async function submitViaPortal(ctx) {
         const labelsBefore = after.fields.map((field) => field.label).join('|');
         snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before
           || (current.fields.length > 0 && current.fields.map((field) => field.label).join('|') === labelsBefore));
-        // Still the same page: the form refused a value. Two corrections, then the owner.
+        // Still the same page: the form refused a value. A correction by the
+        // planner, one by the agent (it reads the page's own messages), then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
-        if (stuckOnPage > 2) return await handoff('portal_needs_candidate');
+        if (stuckOnPage >= 2) {
+          const agent = await runAgent(snapshot, 'refused');
+          if (agent?.status === 'needs_candidate') return askCandidate(agent.questions);
+          if (agent?.status === 'done') snapshot = await extractFields(page);
+          else if ((agent && agent.status !== 'unavailable') || stuckOnPage > 2) return await handoff('portal_needs_candidate');
+        }
         continue;
       }
       if (!submit) {
