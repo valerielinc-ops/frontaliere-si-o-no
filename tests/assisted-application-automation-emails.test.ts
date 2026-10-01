@@ -39,6 +39,30 @@ describe('automation e-mails', () => {
     expect(email.text).not.toContain('partirà automaticamente');
   });
 
+  it('reminds a candidate who has not answered, in every language, never promising an automatic send', () => {
+    const expectations: Record<string, [RegExp, RegExp]> = {
+      it: [/^Promemoria: la tua candidatura per Infermiera aspetta le tue risposte$/, /non può partire finché non rispondi/],
+      de: [/^Erinnerung: deine Bewerbung für Infermiera wartet auf deine Antworten$/, /kann aber erst raus, wenn du/],
+      fr: [/^Rappel : votre candidature pour Infermiera attend vos réponses$/, /ne peut pas partir tant que vous n’avez pas répondu/],
+      en: [/^Reminder: your application for Infermiera is waiting for your answers$/, /cannot go out until you answer/],
+    };
+    for (const [locale, [subject, lead]] of Object.entries(expectations)) {
+      const email = buildCandidateAutomationEmail('candidate_questions_reminder', { ...base, locale });
+      expect(email.subject).toMatch(subject);
+      expect(email.text).toMatch(lead);
+      expect(email.text).toContain(base.reviewUrl);
+      expect(email.html).toContain(base.reviewUrl);
+    }
+    expect(buildCandidateAutomationEmail('candidate_questions_reminder', { ...base, locale: 'it' }).text).not.toContain('automaticamente così');
+  });
+
+  it('tells Valerie when a candidate has not answered for days', () => {
+    const silent = buildOwnerAutomationEmail('owner_candidate_silent', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', days: 5, nudges: 2, candidateEmail: 'candidate@example.com' });
+    expect(silent.subject).toBe('[Candidatura] Il candidato non risponde: Infermiera — Ospedale');
+    expect(silent.text).toContain('Da 5 giorni la candidatura aspetta risposte che solo il candidato può dare, e ha già ricevuto 2 promemoria.');
+    expect(silent.text).toContain('Candidato: candidate@example.com');
+  });
+
   it('explains the portal handoff and the closed-ad refund', () => {
     const handoff = buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'de', reason: 'captcha' });
     expect(handoff.text).toContain('eine Anti-Roboter-Prüfung');

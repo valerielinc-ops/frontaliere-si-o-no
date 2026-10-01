@@ -92,6 +92,12 @@ const CANDIDATE_COPY = {
       preheader: 'Ti servono 2 minuti: è già tutto pronto.',
       lead: 'la tua candidatura per {job} presso {company} è pronta ma non è ancora stata inviata: il portale richiede il tuo passaggio finale.',
     },
+    questionsReminder: {
+      subject: 'Promemoria: la tua candidatura per {job} aspetta le tue risposte',
+      hero: 'Mancano solo le tue risposte',
+      preheader: 'Senza le tue risposte la candidatura non può partire.',
+      lead: 'la tua candidatura per {job} presso {company} è pronta, ma non può partire finché non rispondi ad alcune domande a cui solo tu puoi rispondere. Bastano pochi minuti: rispondi dalla pagina della candidatura e il resto riparte automaticamente.',
+    },
     action: {
       subject: 'Il portale di {company} chiede un’informazione in più',
       hero: 'Ci serve una tua risposta',
@@ -150,6 +156,12 @@ const CANDIDATE_COPY = {
       hero: 'Die Bewerbung ist noch nicht raus',
       preheader: 'Du brauchst 2 Minuten, alles ist bereit.',
       lead: 'deine Bewerbung für {job} bei {company} ist bereit, aber noch nicht gesendet: das Portal verlangt deinen letzten Schritt.',
+    },
+    questionsReminder: {
+      subject: 'Erinnerung: deine Bewerbung für {job} wartet auf deine Antworten',
+      hero: 'Es fehlen nur deine Antworten',
+      preheader: 'Ohne deine Antworten kann die Bewerbung nicht raus.',
+      lead: 'deine Bewerbung für {job} bei {company} ist bereit, kann aber erst raus, wenn du ein paar Fragen beantwortest, die nur du beantworten kannst. Es dauert nur wenige Minuten: Antworte auf der Seite deiner Bewerbung, der Rest läuft automatisch weiter.',
     },
     action: {
       subject: 'Das Portal von {company} braucht eine weitere Angabe',
@@ -210,6 +222,12 @@ const CANDIDATE_COPY = {
       preheader: 'Il vous faut 2 minutes, tout est prêt.',
       lead: 'votre candidature pour {job} chez {company} est prête mais pas encore envoyée : le portail demande votre dernière étape.',
     },
+    questionsReminder: {
+      subject: 'Rappel : votre candidature pour {job} attend vos réponses',
+      hero: 'Il ne manque que vos réponses',
+      preheader: 'Sans vos réponses, la candidature ne peut pas partir.',
+      lead: 'votre candidature pour {job} chez {company} est prête, mais elle ne peut pas partir tant que vous n’avez pas répondu à quelques questions auxquelles vous seul pouvez répondre. Cela ne prend que quelques minutes : répondez depuis la page de votre candidature et la suite repart automatiquement.',
+    },
     action: {
       subject: 'Le portail de {company} demande une information supplémentaire',
       hero: 'Nous avons besoin de votre réponse',
@@ -268,6 +286,12 @@ const CANDIDATE_COPY = {
       hero: 'The application has not gone out yet',
       preheader: 'It takes 2 minutes, everything is ready.',
       lead: 'your application for {job} at {company} is ready but not sent yet: the portal needs your final step.',
+    },
+    questionsReminder: {
+      subject: 'Reminder: your application for {job} is waiting for your answers',
+      hero: 'Only your answers are missing',
+      preheader: 'Without your answers the application cannot go out.',
+      lead: 'your application for {job} at {company} is ready, but it cannot go out until you answer a few questions only you can answer. It takes a few minutes: answer on your application page and the rest resumes automatically.',
     },
     action: {
       subject: 'The {company} portal needs one more answer',
@@ -380,7 +404,7 @@ export function describeTakeover({ reason, stage, attempts }) {
 
 /**
  * @param {string} kind candidate_review | candidate_reminder | candidate_handoff |
- *   candidate_handoff_reminder | candidate_action_needed | candidate_posting_closed |
+ *   candidate_handoff_reminder | candidate_action_needed | candidate_questions_reminder | candidate_posting_closed |
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, openQuestions?:number, reason?:string, price?:string, orderId:string}} vars
@@ -394,6 +418,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
     candidate_handoff: copy.handoff,
     candidate_handoff_reminder: copy.handoffReminder,
     candidate_action_needed: copy.action,
+    candidate_questions_reminder: copy.questionsReminder,
     candidate_posting_closed: copy.closed,
     candidate_followup_review: copy.followup,
   }[kind];
@@ -449,9 +474,9 @@ export function buildCandidateAutomationEmail(kind, vars) {
 }
 
 /**
- * @param {'owner_review'|'owner_takeover'} kind
+ * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'} kind
  * @param {{job:string, company:string, orderId:string, deadlineAt?:number, flags?:string[], reason?:string,
- *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string}} vars
+ *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number}} vars
  */
 export function buildOwnerAutomationEmail(kind, vars) {
   const job = clean(vars.job, 200) || '—';
@@ -491,6 +516,12 @@ export function buildOwnerAutomationEmail(kind, vars) {
       html.push(brandFinePrint(esc(`Dettaglio tecnico: ${detail}`)));
       text.push(`Dettaglio tecnico: ${detail}`);
     }
+  } else if (kind === 'owner_candidate_silent') {
+    subject = `[Candidatura] Il candidato non risponde: ${job} — ${company}`;
+    hero = 'Il candidato non ha ancora risposto';
+    const lead = `Da ${Number(vars.days) || 5} giorni la candidatura aspetta risposte che solo il candidato può dare, e ha già ricevuto ${Number(vars.nudges) || 2} promemoria. Senza quelle risposte non parte nulla: puoi scrivergli (l’indirizzo è qui sotto) o decidere dalla coda come chiudere l’ordine.`;
+    html.push(brandParagraph(esc(lead)));
+    text.push(lead);
   } else {
     throw new Error(`unknown_owner_automation_email:${kind}`);
   }
