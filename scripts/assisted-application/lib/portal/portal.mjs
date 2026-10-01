@@ -608,6 +608,7 @@ export async function submitViaPortal(ctx) {
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
     evidence.diagnostics = diagnostics.data;
+    await diagnostics.installFetchObserver().catch(() => { evidence.diagnostics.fetchObserverUnavailable = true; });
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
