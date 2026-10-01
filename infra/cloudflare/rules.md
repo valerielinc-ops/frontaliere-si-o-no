@@ -1,8 +1,9 @@
 # Cloudflare zone rules — `frontaliereticino.ch` (zone `435c32ec15993fe826d2bb5eb62d3d43`)
 
 Tracking doc for zone-level Cloudflare **Cache Rules** / **Response Header
-Transform Rules** that are applied directly via the Cloudflare API (not
-declared in a repo script, unlike `scripts/cf-locale-failover-setup.mjs`).
+Transform Rules** that are applied directly via the Cloudflare API. The CDN
+cache/header rules below remain foreign rules documented here; the apex security
+rule is managed idempotently by `scripts/cf-locale-failover-setup.mjs`.
 Added for issue #3216 item 3: two `cdn.frontaliereticino.ch/assets/early-boot.js`
 rules existed live with no in-repo record. While auditing them, a third
 rule in the same response-headers ruleset (`cdn-assets-revalidate`) was found
@@ -194,6 +195,28 @@ purpose/rollback. Rule 3 is the subject of this doc:
   Effect of rollback: `early-boot.js` falls back to the `cdn-assets-revalidate`
   10-minute browser cache — reopens (a smaller version of) the same
   stale-self-heal-script window the edge-bypass rule closes.
+
+### `apex-security-headers` (managed by `scripts/cf-locale-failover-setup.mjs`)
+
+- **Rule id:** `7fa697e157b54c11bb179ad8c8086b94` (the existing live rule is
+  migrated in place; Cloudflare may issue a new id if the ruleset is recreated)
+- **Expression:** `(http.host eq "frontaliereticino.ch")`
+- **Action:** rewrite response headers:
+  - `Content-Security-Policy: base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Strict-Transport-Security: max-age=31536000`
+  - `X-Content-Type-Options: nosniff`
+  - `X-Frame-Options: SAMEORIGIN`
+- **Purpose:** closes the live missing-CSP, missing-clickjacking-protection,
+  and short-HSTS findings without introducing a resource allowlist that would
+  break the site's analytics, consent, advertising, or CDN integrations.
+- **Migration:** the script recognizes the previous description ending in
+  `CSP/XFO deliberately excluded pending AdSense validation` and replaces it
+  in place while preserving every unrelated response-header rule.
+- **Rollback:** run the previous version of
+  `scripts/cf-locale-failover-setup.mjs`, or restore this rule's previous header
+  values through the same read-modify-write path. Do not delete the whole
+  response-header ruleset: it also owns the CDN cache-header rules above.
 
 ## Why these three matter together
 

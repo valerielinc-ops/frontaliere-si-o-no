@@ -40,10 +40,11 @@ import { classifySector } from './lib/employer-sectors.mjs';
 // outreach metric selector from this file.
 import {
   buildSequence,
-  OPTOUT_EMAIL,
   OUTREACH_METRIC_LABELS,
   formatItalianPeriodLabel,
 } from './lib/cold-email-sequence.mjs';
+
+import { OUTREACH_OPTOUT_EMAIL as OPTOUT_EMAIL } from './lib/outreachIdentity.mjs';
 
 export { buildSequence, OPTOUT_EMAIL, OUTREACH_METRIC_LABELS };
 
@@ -145,6 +146,7 @@ function run() {
       periodLabel: periodWindow,
       contactName: c.contactName,
       topRole: c.topRole,
+      optOutEmail: OPTOUT_EMAIL,
     });
     const slug = e.key || e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const lines = [

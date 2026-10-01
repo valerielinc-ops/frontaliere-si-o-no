@@ -26,7 +26,7 @@ import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { buildDormantWinbackStage1Email } from '../services/dormantWinbackStage1Email.mjs';
 import { buildDripEmail } from '../services/newsletter/onboardingDrip.mjs';
 import { makePreferencesUrl, PREFERENCES_SLUG } from '../services/newsletterUrls.mjs';
-import { DATA_CONTROLLER_EMAIL } from '../functions/src/lib/dataControllerIdentity.js';
+import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 import { buildAlertPayload } from '../functions/src/jobAlertBackfillCore.js';
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { ADVERTISING_NAMED_FROM_PAGE_VERSION } from '../services/communicationChannels';
@@ -436,11 +436,11 @@ describe('#5684 point 4 — the centre can be found', () => {
     // last step before writing to the provider's abuse desk.
     const page = read('components/pages/NewsletterPreferences.tsx');
     expect(page).toContain('invalidHelpSignIn');
-    expect(page).toContain('DATA_CONTROLLER_EMAIL');
+    expect(page).toContain('PUBLIC_CONTACT_EMAIL');
     expect(page.split('invalidHelpTitle:').length - 1).toBe(LOCALES.length + 1);
-    // The contact must be the monitored controller address, never the automated
-    // send mailbox — the distinction #5675 exists to make.
-    expect(DATA_CONTROLLER_EMAIL).not.toMatch(/^alerts@/);
+    // Public pages must use the shared mailbox, never a personal delivery
+    // mailbox or the automated send mailbox.
+    expect(PUBLIC_CONTACT_EMAIL).toBe('redazione@frontaliereticino.ch');
   });
 
   it('the authenticated profile renders the centre', () => {

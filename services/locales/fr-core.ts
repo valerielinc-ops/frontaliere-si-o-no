@@ -1,3 +1,5 @@
+import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
+
 const frCore: Record<string, string> = {
  'whatsNew.v3969.title': 'Candidature assistée : Valerie vous écrit',
  'whatsNew.v3969.assistedConcierge.title': 'Une candidature assistée plus simple',
@@ -793,7 +795,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.paidConfirmed': 'Paiement confirmé. Vous pouvez maintenant envoyer le CV et les informations nécessaires pour cette offre.',
  'jobBoard.assisted.submittedTitle': 'Candidature prise en charge',
  'jobBoard.assisted.submittedBody': 'Nous avons reçu votre CV et votre mandat spécifique. Nous préparerons et enverrons manuellement la candidature lorsque le processus de l’entreprise le permet.',
- 'jobBoard.assisted.privacyNotice': 'Responsable : Valerie Linc (valerie@frontaliereticino.ch). Le CV et les informations sont traités et transmis à l’équipe autorisée uniquement pour cette candidature et conservés jusqu’à 90 jours après l’envoi ou le remboursement, sauf obligation légale ou consentement séparé au talent pool. Pour nos e-mails sur cette candidature, nous enregistrons la remise, les ouvertures et les clics, uniquement pour savoir si vous avez vu le brouillon à approuver. Pour l’accès, la rectification ou l’effacement : valerie@frontaliereticino.ch. Nous ne promettons ni réponse, ni entretien, ni embauche ; le service n’implique aucune affiliation avec l’entreprise.',
+ 'jobBoard.assisted.privacyNotice': `Responsable : Valerie Linc (${PUBLIC_CONTACT_EMAIL}). Le CV et les informations sont traités et transmis à l’équipe autorisée uniquement pour cette candidature et conservés jusqu’à 90 jours après l’envoi ou le remboursement, sauf obligation légale ou consentement séparé au talent pool. Pour nos e-mails sur cette candidature, nous enregistrons la remise, les ouvertures et les clics, uniquement pour savoir si vous avez vu le brouillon à approuver. Pour l’accès, la rectification ou l’effacement : ${PUBLIC_CONTACT_EMAIL}. Nous ne promettons ni réponse, ni entretien, ni embauche ; le service n’implique aucune affiliation avec l’entreprise.`,
  'jobBoard.assisted.consent': "Je confie à Frontaliereticino.ch le mandat, limité au poste {jobTitle} chez {companyName}, de traiter mon CV et les informations indiquées et d’envoyer la candidature en mon nom : y compris en créant, si le portail l’exige, un compte avec une adresse e-mail dédiée et en acceptant pour moi uniquement les conditions et la politique de confidentialité nécessaires à la réception de la candidature, jamais de consentements facultatifs. Je déclare que les informations sont exactes et m’appartiennent, et avoir lu les Conditions d’utilisation et la Politique de confidentialité.",
  'jobBoard.assisted.termsLink': "Conditions d’utilisation",
  'jobBoard.assisted.privacyLink': "Politique de confidentialité",
@@ -806,11 +808,11 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.fileSelected': 'CV sélectionné — choisir un autre fichier',
  'jobBoard.assisted.fileCta': 'Téléverser le CV',
  'jobBoard.assisted.fileHint': 'Fichier privé, accessible uniquement à l’équipe autorisée.',
- 'jobBoard.assisted.emailAlternative': 'Vous préférez l’e-mail ? Je vous ai écrit depuis valerie@frontaliereticino.ch : répondez à ce message avec votre CV en pièce jointe, je m’occupe du reste.',
+ 'jobBoard.assisted.emailAlternative': `Vous préférez l’e-mail ? Écrivez à ${PUBLIC_CONTACT_EMAIL} en joignant votre CV, je m’occupe du reste.`,
  'jobBoard.assisted.uploading': 'Téléversement en cours…',
  'jobBoard.assisted.submit': 'Envoyer la candidature assistée',
  'jobBoard.assisted.formError': 'Saisissez votre nom et une adresse email valide.',
- 'jobBoard.assisted.uploadError': 'Échec du téléversement. Réessayez avec un PDF, DOC ou DOCX, ou répondez à l’e-mail de valerie@frontaliereticino.ch avec votre CV en pièce jointe.',
+ 'jobBoard.assisted.uploadError': `Échec du téléversement. Réessayez avec un PDF, DOC ou DOCX, ou écrivez à ${PUBLIC_CONTACT_EMAIL} avec votre CV en pièce jointe.`,
  'jobBoard.assisted.review.title': "Vérifiez votre candidature",
  'jobBoard.assisted.review.stale': "Ceci est une version précédente de votre candidature. Ouvrez le lien du dernier e-mail.",
  'jobBoard.assisted.review.waiting.drafting': "Je prépare votre candidature : vous recevrez un e-mail dès qu’elle est prête à être relue.",

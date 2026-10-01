@@ -108,17 +108,24 @@
  *    — 99.4% HTTP/1.1, unrecognised UA, bursty, one country — so the fix is to
  *    stop paying for the answer, not to chase a referrer (#5176).
  *
+ * 5. RESPONSE HEADERS — the apex-security-headers entry in
+ *    MANAGED_RESPONSE_HEADER_RULES. It upgrades the existing zone rule from
+ *    180-day HSTS to one year and adds a deliberately narrow CSP, clickjacking
+ *    protection, and the already-deployed baseline headers. The legacy rule is
+ *    matched by description and migrated in place; foreign response-header
+ *    rules remain untouched.
+ *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
  * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + Zone→Firewall
- * Services:Edit (WAF custom rules) + Zone→Dynamic URL Redirects:Edit + zone
- * read.
+ * Services:Edit (WAF custom rules) + Zone→Dynamic URL Redirects:Edit +
+ * Zone→Transform Rules:Edit + zone read.
  * Locally:
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/load-rc-env.mjs)" && node scripts/cf-locale-failover-setup.mjs
  *
  * Flags: --dry-run (report drift, change nothing) · --routes-only · --rule-only
  *        (cache+firewall+redirect) · --cache-only · --firewall-only ·
- *        --redirect-only
+ *        --redirect-only · --headers-only
  * Exit: 0 = converged (or already in shape), 1 = API/auth error.
  *
  * Zone-id resolution delegates to scripts/lib/cf-analytics.mjs's resolveZoneId
@@ -136,6 +143,7 @@ const WORKER_SCRIPT = 'frontaliere-locale-router';
 const CACHE_PHASE = 'http_request_cache_settings';
 const FIREWALL_PHASE = 'http_request_firewall_custom';
 const REDIRECT_PHASE = 'http_request_dynamic_redirect';
+const RESPONSE_HEADERS_PHASE = 'http_response_headers_transform';
 
 // Non-visibility crawlers blocked ZONE-WIDE (2026-07-20: widened from the
 // original /en|/de|/fr-only scope — the ticino/svizzera/zurigo IT-prefix
@@ -552,6 +560,45 @@ const MANAGED_REDIRECT_RULES = [
   },
 ];
 
+const LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION =
+  'apex-security-headers: HSTS + nosniff + Referrer-Policy on HTML responses (issue #3507; CSP/XFO deliberately excluded pending AdSense validation)';
+
+// Keep this rule intentionally narrow. `default-src`/`script-src` would turn
+// this into a CSP allowlist for the analytics, consent, AdSense, and CDN
+// surfaces and would be a separate compatibility project. These directives
+// close concrete browser attack classes without changing the resource origins
+// the application is allowed to load.
+const MANAGED_RESPONSE_HEADER_RULES = [
+  {
+    description:
+      'apex-security-headers: HSTS + CSP + X-Frame-Options + nosniff + Referrer-Policy on apex responses (managed by scripts/cf-locale-failover-setup.mjs)',
+    legacyDescriptions: [LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION],
+    expression: '(http.host eq "frontaliereticino.ch")',
+    headers: {
+      'Content-Security-Policy': {
+        operation: 'set',
+        value: "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests",
+      },
+      'Referrer-Policy': {
+        operation: 'set',
+        value: 'strict-origin-when-cross-origin',
+      },
+      'Strict-Transport-Security': {
+        operation: 'set',
+        value: 'max-age=31536000',
+      },
+      'X-Content-Type-Options': {
+        operation: 'set',
+        value: 'nosniff',
+      },
+      'X-Frame-Options': {
+        operation: 'set',
+        value: 'SAMEORIGIN',
+      },
+    },
+  },
+];
+
 const args = new Set(process.argv.slice(2));
 const DRY_RUN = args.has('--dry-run');
 // Section gating. --routes-only / --rule-only kept for back-compat (--rule-only
@@ -563,12 +610,14 @@ const ONLY =
   (args.has('--cache-only') && 'cache') ||
   (args.has('--firewall-only') && 'firewall') ||
   (args.has('--redirect-only') && 'redirect') ||
+  (args.has('--headers-only') && 'headers') ||
   (args.has('--rule-only') && 'rule') ||
   null;
 const DO_ROUTES = ONLY === null || ONLY === 'routes';
 const DO_CACHE = ONLY === null || ONLY === 'rule' || ONLY === 'cache';
 const DO_FIREWALL = ONLY === null || ONLY === 'rule' || ONLY === 'firewall';
 const DO_REDIRECT = ONLY === null || ONLY === 'rule' || ONLY === 'redirect';
+const DO_HEADERS = ONLY === null || ONLY === 'headers';
 
 function bail(msg) {
   console.error(`❌ ${msg}`);
@@ -841,9 +890,69 @@ async function assertRedirectRules(zoneId) {
   console.log('redirect rules: applied');
 }
 
+function responseHeaderRuleInShape(current, desired) {
+  if (!current || current.enabled === false) return false;
+  if (current.action !== 'rewrite') return false;
+  if (current.expression !== desired.expression) return false;
+  const currentHeaders = current.action_parameters?.headers || {};
+  return Object.entries(desired.action_parameters.headers).every(([name, want]) => {
+    const got = currentHeaders[name];
+    return got?.operation === want.operation && got?.value === want.value;
+  });
+}
+
+async function assertResponseHeaderRules(zoneId) {
+  // The entrypoint may not exist yet on a zone with no response-header rules —
+  // GET then answers 404; PUT below creates it. Existing foreign rules remain
+  // in their original order, just like the cache/firewall/redirect assertions.
+  const { status, json } = await cf('GET', `/zones/${zoneId}/rulesets/phases/${RESPONSE_HEADERS_PHASE}/entrypoint`);
+  if (status !== 404 && !json?.success) {
+    bail(`Cannot read ${RESPONSE_HEADERS_PHASE} entrypoint: ${JSON.stringify(json?.errors)}`);
+  }
+  const existing = status === 404 ? [] : (json.result.rules || []);
+  const rules = existing.map(({ id, ref, version, last_updated, ...rest }) => rest);
+  let drift = 0;
+
+  for (const spec of MANAGED_RESPONSE_HEADER_RULES) {
+    const descriptions = new Set([spec.description, ...(spec.legacyDescriptions || [])]);
+    const desired = {
+      description: spec.description,
+      expression: spec.expression,
+      action: 'rewrite',
+      action_parameters: { headers: spec.headers },
+      enabled: true,
+    };
+    const idx = rules.findIndex((r) => descriptions.has(r.description));
+    const current = idx >= 0 ? existing[idx] : null;
+    if (responseHeaderRuleInShape(current, desired)) {
+      console.log(`response-header rule "${spec.description.split(':')[0]}": already in shape`);
+      continue;
+    }
+    drift++;
+    console.log(
+      `response-header rule "${spec.description.split(':')[0]}": ${current ? 'drift — updating' : 'missing — creating'}${DRY_RUN ? ' (dry-run)' : ''}`,
+    );
+    if (idx >= 0) rules[idx] = desired;
+    else rules.push(desired);
+  }
+
+  if (drift === 0) {
+    console.log('response-header rules: all in shape');
+    return;
+  }
+  if (DRY_RUN) return;
+
+  const { json: put } = await cf('PUT', `/zones/${zoneId}/rulesets/phases/${RESPONSE_HEADERS_PHASE}/entrypoint`, {
+    rules,
+  });
+  if (!put?.success) bail(`PUT ${RESPONSE_HEADERS_PHASE} entrypoint failed: ${JSON.stringify(put?.errors)}`);
+  console.log('response-header rules: applied');
+}
+
 const zoneId = await resolveZoneId();
 if (DO_ROUTES) await assertFailOpenRoutes(zoneId);
 if (DO_CACHE) await assertCacheRules(zoneId);
 if (DO_FIREWALL) await assertFirewallRules(zoneId);
 if (DO_REDIRECT) await assertRedirectRules(zoneId);
+if (DO_HEADERS) await assertResponseHeaderRules(zoneId);
 console.log(DRY_RUN ? 'dry-run complete' : 'failover config converged');

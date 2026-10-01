@@ -2,6 +2,7 @@ import React from 'react';
 import { Shield, Lock, Database, Eye, CheckCircle2, ArrowLeft, BarChart3, ExternalLink, Key, Globe, Scale, Clock, UserCheck, Mail } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTranslation } from '@/services/i18n';
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_DENIED,
@@ -13,14 +14,11 @@ import {
   type AdsConsentValue,
 } from '@/services/adsConsent';
 
-// Titolare del trattamento (#5675) — dati forniti dal proprietario: nome +
-// contatto per l'esercizio dei diritti, deliberatamente NON `alerts@` (la
-// casella degli invii automatici, dove finivano le richieste LPD prima di
-// questa fix). Nessun indirizzo postale: scelta esplicita del proprietario,
-// non un dato mancante da dedurre — vedi issue #5675 per la valutazione
-// sulla copertura parziale dell'art. 19 nLPD che questo comporta.
+// Titolare del trattamento (#5675) — il nome resta nella disclosure legale,
+// mentre il contatto mostrato sulle pagine pubbliche è una casella editoriale
+// condivisa, non l'indirizzo personale usato dai footer email.
 const DATA_CONTROLLER_NAME = 'Valerie Linc';
-const PRIVACY_EMAIL = 'valerie@frontaliereticino.ch';
+const PRIVACY_EMAIL = PUBLIC_CONTACT_EMAIL;
 
 // ─── Gestione del consenso pubblicitario (#5893, rework CMP) ────────────
 //

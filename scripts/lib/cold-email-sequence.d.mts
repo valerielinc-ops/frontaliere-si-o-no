@@ -30,6 +30,7 @@ export interface BuildSequenceArgs {
   periodLabel: PeriodLabel;
   contactName?: string;
   topRole?: string;
+  optOutEmail?: string;
 }
 
 export function buildSequence(args: BuildSequenceArgs): ColdEmailTouch[];

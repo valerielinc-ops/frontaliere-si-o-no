@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText, Scale, AlertTriangle, Globe, ArrowLeft } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 
 export const TermsOfService: React.FC = () => {
  const nav = useNavigation();
@@ -191,7 +192,7 @@ export const TermsOfService: React.FC = () => {
   mostriamo prima. Non accettiamo mai per tuo conto consensi facoltativi (newsletter, marketing, avvisi di lavoro,
   talent pool, condivisione con altre aziende) né dichiarazioni che solo tu puoi rendere: in quei casi ti chiediamo
   di rispondere o di completare tu il passaggio. Puoi revocare il mandato fino all&apos;invio scrivendo a
-  valerie@frontaliereticino.ch.
+  <a href={`mailto:${PUBLIC_CONTACT_EMAIL}`} className="underline">{PUBLIC_CONTACT_EMAIL}</a>.
  </p>
  <p>
   <strong>6.3 I tuoi impegni.</strong> Dichiari che il CV, i documenti e i dati che ci fornisci sono veritieri,

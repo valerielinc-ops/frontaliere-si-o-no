@@ -1,3 +1,5 @@
+import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
+
 const deCore: Record<string, string> = {
  'whatsNew.v3969.title': 'Begleitete Bewerbung: Valerie schreibt dir',
  'whatsNew.v3969.assistedConcierge.title': 'Einfachere begleitete Bewerbung',
@@ -824,7 +826,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.paidConfirmed': 'Zahlung bestätigt. Du kannst jetzt den Lebenslauf und die nötigen Angaben für diese Stelle senden.',
  'jobBoard.assisted.submittedTitle': 'Bewerbung übernommen',
  'jobBoard.assisted.submittedBody': 'Wir haben deinen Lebenslauf und den konkreten Auftrag erhalten. Wir bereiten die Bewerbung vor und senden sie manuell, wenn der Prozess des Unternehmens dies zulässt.',
- 'jobBoard.assisted.privacyNotice': 'Verantwortlich: Valerie Linc (valerie@frontaliereticino.ch). Lebenslauf und Angaben werden ausschließlich für diese Bewerbung verarbeitet und an das autorisierte Team übermittelt; sie werden bis zu 90 Tage nach Einreichung oder Erstattung aufbewahrt, sofern keine gesetzliche Pflicht oder eine separate Talent-Pool-Einwilligung besteht. Bei unseren E-Mails zu dieser Bewerbung erfassen wir Zustellung, Öffnungen und Klicks, nur um zu wissen, ob du den Entwurf zur Freigabe gesehen hast. Für Auskunft, Berichtigung oder Löschung: valerie@frontaliereticino.ch. Wir versprechen keine Antwort, kein Gespräch und keine Einstellung; der Dienst bedeutet keine Verbindung zum Unternehmen.',
+ 'jobBoard.assisted.privacyNotice': `Verantwortlich: Valerie Linc (${PUBLIC_CONTACT_EMAIL}). Lebenslauf und Angaben werden ausschließlich für diese Bewerbung verarbeitet und an das autorisierte Team übermittelt; sie werden bis zu 90 Tage nach Einreichung oder Erstattung aufbewahrt, sofern keine gesetzliche Pflicht oder eine separate Talent-Pool-Einwilligung besteht. Bei unseren E-Mails zu dieser Bewerbung erfassen wir Zustellung, Öffnungen und Klicks, nur um zu wissen, ob du den Entwurf zur Freigabe gesehen hast. Für Auskunft, Berichtigung oder Löschung: ${PUBLIC_CONTACT_EMAIL}. Wir versprechen keine Antwort, kein Gespräch und keine Einstellung; der Dienst bedeutet keine Verbindung zum Unternehmen.`,
  'jobBoard.assisted.consent': "Ich erteile Frontaliereticino.ch den auf die Stelle {jobTitle} bei {companyName} beschränkten Auftrag, meinen Lebenslauf und meine Angaben zu verarbeiten und die Bewerbung in meinem Namen einzureichen: auch indem, falls das Portal es verlangt, ein Konto mit einer eigens eingerichteten E-Mail-Adresse erstellt wird und in meinem Namen nur die für den Empfang der Bewerbung nötigen Bedingungen und Datenschutzhinweise akzeptiert werden, nie freiwillige Einwilligungen. Ich bestätige, dass die Angaben wahr sind und mir gehören und dass ich die Nutzungsbedingungen und die Datenschutzerklärung gelesen habe.",
  'jobBoard.assisted.termsLink': "Nutzungsbedingungen",
  'jobBoard.assisted.privacyLink': "Datenschutzerklärung",
@@ -837,11 +839,11 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.fileSelected': 'Lebenslauf ausgewählt — andere Datei wählen',
  'jobBoard.assisted.fileCta': 'Lebenslauf hochladen',
  'jobBoard.assisted.fileHint': 'Private Datei, nur für das autorisierte Team zugänglich.',
- 'jobBoard.assisted.emailAlternative': 'Lieber per E-Mail? Ich habe dir von valerie@frontaliereticino.ch geschrieben: Antworte auf diese Nachricht mit deinem Lebenslauf im Anhang, den Rest übernehme ich.',
+ 'jobBoard.assisted.emailAlternative': `Lieber per E-Mail? Schreib an ${PUBLIC_CONTACT_EMAIL} und hänge deinen Lebenslauf an, den Rest übernehme ich.`,
  'jobBoard.assisted.uploading': 'Upload läuft…',
  'jobBoard.assisted.submit': 'Unterstützte Bewerbung senden',
  'jobBoard.assisted.formError': 'Gib deinen Namen und eine gültige E-Mail-Adresse ein.',
- 'jobBoard.assisted.uploadError': 'Upload fehlgeschlagen. Versuche es mit einer PDF-, DOC- oder DOCX-Datei erneut oder antworte auf die E-Mail von valerie@frontaliereticino.ch mit deinem Lebenslauf im Anhang.',
+ 'jobBoard.assisted.uploadError': `Upload fehlgeschlagen. Versuche es mit einer PDF-, DOC- oder DOCX-Datei erneut oder schreibe an ${PUBLIC_CONTACT_EMAIL} mit deinem Lebenslauf im Anhang.`,
  'jobBoard.assisted.review.title': "Prüfe deine Bewerbung",
  'jobBoard.assisted.review.stale': "Das ist eine frühere Version deiner Bewerbung. Öffne den Link aus der neuesten E-Mail.",
  'jobBoard.assisted.review.waiting.drafting': "Ich bereite deine Bewerbung vor: Du bekommst eine E-Mail, sobald sie zur Prüfung bereit ist.",

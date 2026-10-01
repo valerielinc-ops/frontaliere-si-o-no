@@ -25,6 +25,7 @@ on:
     branches: [main]
     paths:
       - 'infra/cloudflare-worker/**'
+      - 'scripts/cf-locale-failover-setup.mjs'
       - 'scripts/cf-purge-worker-origin-cache.mjs'
       - 'scripts/lib/cf-purge-limits.mjs'
   workflow_dispatch: {}
@@ -129,7 +130,7 @@ jobs:
       # reset routes to the fail-closed default (error 1027 on everything over
       # the free 100k/day cap). Re-assert fail-open + the zone cache rule that
       # lets the CDN serve the Worker's apex-keyed cached pages while bypassed.
-      - name: Assert fail-open routes + failover cache rule
+      - name: Assert fail-open routes + failover and security rules
         run: node scripts/cf-locale-failover-setup.mjs
 
       # Live regression check: status AND timing. The previous 30s tee-deadlock

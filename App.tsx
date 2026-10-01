@@ -284,13 +284,12 @@ import {
  Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info, Send, Gavel
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
+import { isSiteAdminUid } from '@/services/adminIdentity';
 import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
 const LazyFallback = () => <SkeletonFallback />;
-const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
-
 type CompanyFollowFollowup = {
  required: true;
  sourcePath: string | null;
@@ -1399,7 +1398,7 @@ const App: React.FC = () => {
  // an explicit form or a gate that renders the communications notice; this
  // listener only derives account state and must not write the subscriber record.
  const authEmail = useMemo(() => authUser ? getAuthEmail(authUser) : null, [authUser]);
- const isPrivilegedAdmin = useMemo(() => ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? ''), [authEmail]);
+ const isPrivilegedAdmin = useMemo(() => isSiteAdminUid(authUser?.uid), [authUser?.uid]);
  useEffect(() => {
  if (activeTab === 'admin') eagerAuth();
  }, [activeTab]);

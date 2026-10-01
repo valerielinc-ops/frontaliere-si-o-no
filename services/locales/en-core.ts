@@ -1,3 +1,5 @@
+import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
+
 const enCore: Record<string, string> = {
  'whatsNew.v3969.title': 'Assisted application: Valerie writes to you',
  'whatsNew.v3969.assistedConcierge.title': 'A simpler assisted application',
@@ -821,7 +823,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.paidConfirmed': 'Payment confirmed. You can now send the CV and details needed for this listing.',
  'jobBoard.assisted.submittedTitle': 'Application received',
  'jobBoard.assisted.submittedBody': 'We received your CV and specific mandate. We will prepare and manually send the application when the company’s process allows it.',
- 'jobBoard.assisted.privacyNotice': 'Controller: Valerie Linc (valerie@frontaliereticino.ch). The CV and details will be processed and shared with the authorised team solely for this application and kept for up to 90 days after submission or refund, unless legally required or covered by separate talent-pool consent. For our e-mails about this application we record delivery, opens and clicks, only to know whether you have seen the draft to approve. For access, correction, or deletion: valerie@frontaliereticino.ch. We do not promise a reply, interview, or hire; the service does not imply affiliation with the company.',
+ 'jobBoard.assisted.privacyNotice': `Controller: Valerie Linc (${PUBLIC_CONTACT_EMAIL}). The CV and details will be processed and shared with the authorised team solely for this application and kept for up to 90 days after submission or refund, unless legally required or covered by separate talent-pool consent. For our e-mails about this application we record delivery, opens and clicks, only to know whether you have seen the draft to approve. For access, correction, or deletion: ${PUBLIC_CONTACT_EMAIL}. We do not promise a reply, interview, or hire; the service does not imply affiliation with the company.`,
  'jobBoard.assisted.consent': "I give Frontaliereticino.ch a mandate, limited to the {jobTitle} position at {companyName}, to process my CV and the details I provided and to submit the application in my name: including, where the portal requires it, creating an account with a dedicated e-mail address and accepting on my behalf only the terms and privacy notice needed for the application to be received, never optional consents. I confirm that the details are true and mine, and that I have read the Terms of Service and the Privacy Policy.",
  'jobBoard.assisted.termsLink': "Terms of Service",
  'jobBoard.assisted.privacyLink': "Privacy Policy",
@@ -834,11 +836,11 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.fileSelected': 'CV selected — choose another file',
  'jobBoard.assisted.fileCta': 'Upload CV',
  'jobBoard.assisted.fileHint': 'Private file, accessible only to the authorised team.',
- 'jobBoard.assisted.emailAlternative': 'Prefer email? I wrote to you from valerie@frontaliereticino.ch: reply to that message with your CV attached and I’ll take it from there.',
+ 'jobBoard.assisted.emailAlternative': `Prefer email? Write to ${PUBLIC_CONTACT_EMAIL} with your CV attached and I’ll take it from there.`,
  'jobBoard.assisted.uploading': 'Uploading…',
  'jobBoard.assisted.submit': 'Submit assisted application',
  'jobBoard.assisted.formError': 'Enter your name and a valid email address.',
- 'jobBoard.assisted.uploadError': 'Upload failed. Try again with a PDF, DOC or DOCX, or reply to the email from valerie@frontaliereticino.ch with your CV attached.',
+ 'jobBoard.assisted.uploadError': `Upload failed. Try again with a PDF, DOC or DOCX, or write to ${PUBLIC_CONTACT_EMAIL} with your CV attached.`,
  'jobBoard.assisted.review.title': "Check your application",
  'jobBoard.assisted.review.stale': "This is a previous version of your application. Open the link in the most recent email.",
  'jobBoard.assisted.review.waiting.drafting': "I am preparing your application: you will get an email as soon as it is ready to check.",
