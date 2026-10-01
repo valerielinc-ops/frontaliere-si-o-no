@@ -21,6 +21,8 @@ import path from 'node:path';
 import { resolveGitAddPaths } from '../lib/resolve-git-add-path.mjs';
 import { mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
+const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
+
 function usage(message) {
   if (message) process.stderr.write(`::error::${message}\n`);
   process.stderr.write(
@@ -46,7 +48,11 @@ if (!options.base || !options.remote || !options.refresh || options.paths.length
 }
 
 function git(args) {
-  return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return execFileSync('git', args, {
+    encoding: 'utf8',
+    maxBuffer: GIT_OUTPUT_MAX_BUFFER,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
 }
 
 function gitShow(ref, file) {
