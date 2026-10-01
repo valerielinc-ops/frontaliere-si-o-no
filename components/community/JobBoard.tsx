@@ -86,10 +86,11 @@ import { compareApplicationIntentJobKeys } from '@/services/applicationIntentRan
 import {
  computePersonalScore,
  createPersonalScorer,
- scorePersonalJobs,
+ schedulePersonalJobScores,
+ type PersonalScore,
  reuseIfSameOrder,
  NO_PERSONAL_SCORE,
- computeNewJobsCount,
+ scheduleNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
  SURVEY_SECTOR_TO_CATEGORY,
@@ -2912,13 +2913,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [enablePersonalization, deferredSearchQuery]);
 
  // New jobs counter
- // computeNewJobsCount + the personal-score filter below iterate the full
- // job list — deferred so a behaviorData/jobMatchProfile update from the
- // post-mount effect doesn't block a concurrent click (see deferred* comment
- // above).
- const newJobsInfo = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return { total: 0, matching: 0 };
- return computeNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
+ // The badge can score the entire corpus for a returning visitor too.
+ // Time-slice it just like the ranking path below, cancelling stale queries.
+ const [newJobsInfo, setNewJobsInfo] = useState({ total: 0, matching: 0 });
+ useEffect(() => {
+ if (!enablePersonalization || !deferredBehaviorData) {
+ setNewJobsInfo({ total: 0, matching: 0 });
+ return;
+ }
+ return scheduleNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile,
+ count => startTransition(() => setNewJobsInfo(count)));
  }, [enablePersonalization, deferredBehaviorData, jobs, lastVisitTimestamp, deferredUserProfile, deferredJobMatchProfile]);
 
  // Trending jobs for user's location
@@ -2937,9 +2941,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // recompiled for every job — a returning user at the tracker caps froze the
  // main thread for 14 s (1x CPU) right after mount and again on every
  // deferred search keystroke (trackSearch refreshes behaviorData).
- const personalScoreByJob = useMemo(() => {
- if ((!enablePersonalization && !enableApplicationIntentRanking) || !deferredBehaviorData) return null;
- return scorePersonalJobs(jobs, createPersonalScorer(
+ const [scheduledPersonalScores, setScheduledPersonalScores] = useState<{
+ scores: Map<JobListing, PersonalScore>;
+ personalization: boolean;
+ applicationIntent: boolean;
+ } | null>(null);
+ const personalScoreByJob = (enablePersonalization || enableApplicationIntentRanking) && deferredBehaviorData
+ && scheduledPersonalScores?.personalization === enablePersonalization
+ && scheduledPersonalScores?.applicationIntent === enableApplicationIntentRanking
+ ? scheduledPersonalScores.scores
+ : null;
+ useEffect(() => {
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !deferredBehaviorData) return;
+ // A new query cancels unfinished scoring; sorting only sees complete maps.
+ return schedulePersonalJobScores(jobs, createPersonalScorer(
   deferredBehaviorData,
   deferredUserProfile ?? null,
   deferredJobMatchProfile,
@@ -2947,7 +2962,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    applicationIntentRankingEnabled: enableApplicationIntentRanking,
    personalizationEnabled: enablePersonalization,
   },
- ));
+ ), scores => startTransition(() => setScheduledPersonalScores({
+  scores, personalization: enablePersonalization, applicationIntent: enableApplicationIntentRanking,
+ })));
  }, [enablePersonalization, enableApplicationIntentRanking, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
  const matchedJobCount = useMemo(() => {
  if (!personalScoreByJob) return 0;
@@ -6557,7 +6574,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [authResolved, hasAccess, initialJobSlug, onJobRouteChange]);
 
  // Reading the public description never scrolls to or activates the auth gate.
- const openDetail = (job: JobListing, preserveJourney = false) => {
+ const openDetail = useCallback((job: JobListing, preserveJourney = false) => {
   if (!authResolved) return;
  if (!preserveJourney) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
  // Public description first; sign-in is required only to continue to application.
@@ -6571,7 +6588,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackJobMatchClick(topSignal, score);
  }
  }
- };
+ }, [authResolved, page, searchQuery, onJobRouteChange, locale, enablePersonalization, behaviorData, userProfile, jobMatchProfile]);
 
  const renderJobCard = (job: JobListing) => (
  <JobCard

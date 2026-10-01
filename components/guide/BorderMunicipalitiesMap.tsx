@@ -1,10 +1,10 @@
-import React, { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useDeferredValue, useRef } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import { rentAxisNote } from '@/services/avgRentEstimate';
 import { leviesIrpefAddizionale, compareIrpefAddizionaleWithDirection } from '@/services/irpefAddizionaleRegime';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { useTranslation } from '@/services/i18n';
+import { getLocaleTick, useTranslation } from '@/services/i18n';
 import { borderCrossings } from '@/data/borderCrossings';
 import { MUNICIPALITIES, findMunicipality, type Municipality } from '@/data/municipalities';
 import { calculateMunicipalityTaxImpact, type MunicipalityTaxResult } from '@/services/calculationService';
@@ -24,6 +24,9 @@ type ColorMode = 'irpef' | 'distance' | 'rent';
 type SortField = 'name' | 'tax' | 'addizionale' | 'distance';
 type SortDir = 'asc' | 'desc';
 
+// Bound DOM/layout work: the full dataset remains sortable and filterable.
+const MUNICIPALITIES_PER_PAGE = 24;
+
 interface MunicipalityWithTax extends Municipality {
  taxResult: MunicipalityTaxResult;
 }
@@ -42,6 +45,7 @@ interface Props {
 // ─── Component ───────────────────────────────────────────────
 const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const { t, locale } = useTranslation();
+ const localeRevision = getLocaleTick();
  const [colorMode, setColorMode] = useState<ColorMode>('irpef');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
  const [filterProvince, setFilterProvince] = useState<string>('all');
@@ -50,16 +54,11 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const [sortDir, setSortDir] = useState<SortDir>('asc');
  const [compareMunicipality, setCompareMunicipality] = useState<string>('');
  const [mobileSettingsOpen, setMobileSettingsOpen] = useState(false);
- // INP: the salary slider fires onChange on every drag tick, and the province/
- // sort/compare controls each trigger a full re-derive — calculateMunicipalityTaxImpact
- // across every municipality, a re-sort, and a re-render of both the SVG map and the
- // table. Field p75 INP on /vivere-in-ticino/comuni-di-frontiera/ was 944ms (p90 2040ms),
- // the worst surface on the site, equally bad on mobile + desktop (CPU-bound, not network).
- // Defer the inputs that feed those heavy memos so the control itself (slider thumb,
- // dropdown value, sort arrow) repaints instantly while the recompute runs in a
- // non-blocking transition. The deferred values converge within a frame, so the rendered
- // map/table is byte-identical — only the paint is unblocked. Feed these ONLY into the
- // derived memos below, never into the controlled `value=`/active-state reads.
+ const [page, setPage] = useState(1);
+ const resultsRef = useRef<HTMLDivElement>(null);
+ // Keep controlled inputs responsive while deriving tax and sort results.
+ // Deferral alone does not bound synchronous JSX, Leaflet or layout work;
+ // the stable marker layer and paged cards below address those separately.
  const deferredSalary = useDeferredValue(salary);
  const deferredFilterProvince = useDeferredValue(filterProvince);
  const deferredSortField = useDeferredValue(sortField);
@@ -170,10 +169,14 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  }, [municipalitiesWithTax]);
 
  const toggleSort = useCallback((field: SortField) => {
+ setPage(1);
  if (sortField === field) setSortDir(d => d === 'asc' ? 'desc' : 'asc');
  else { setSortField(field); setSortDir('asc'); }
  }, [sortField]);
 
+ // Salary, sorting, comparison and settings do not change a map marker.
+ // Reuse the layer JSX to avoid re-running every Leaflet effect on those inputs.
+ const markers = useMemo(() => {
  // Color functions
  const getColor = (m: Municipality): string => {
  switch (colorMode) {
@@ -206,6 +209,64 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  if (pop > 20000) return 9;
  if (pop > 10000) return 7;
  return 5;
+ };
+
+ return <>
+ {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
+ <CircleMarker
+ key={`bc-${i}`}
+ center={[bc.lat, bc.lng]}
+ radius={4}
+ pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
+ >
+ <Popup>
+ <div className="text-xs">
+ <p className="font-bold">{bc.name}</p>
+ <p>{bc.type} — {bc.hours}</p>
+ {liveMinutes !== null ? (
+ <p>
+ ⏱ {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
+ {liveAgoMinutes !== null && (
+ <span className="text-muted"> ({t('bordermap.liveUpdatedAgo', { minutes: liveAgoMinutes })})</span>
+ )}
+ </p>
+ ) : (
+ <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
+ )}
+ </div>
+ </Popup>
+ </CircleMarker>
+ ))}
+ {filtered.map((m, i) => (
+ <CircleMarker
+ key={`${m.province}-${m.name}`}
+ center={[m.lat, m.lng]}
+ radius={getRadius(m)}
+ pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
+ eventHandlers={{ click: () => setSelectedMunicipality(m) }}
+ >
+ <Popup>
+ <div className="text-xs space-y-1 min-w-[180px]">
+ <p className="font-bold text-sm">{m.name}</p>
+ <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
+ <hr />
+ <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
+ <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
+ <p>🏠 {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
+ <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
+ </div>
+ </Popup>
+ </CircleMarker>
+ ))}
+ </>;
+ }, [filtered, colorMode, borderCrossingsWithLiveWait, t, locale, localeRevision]);
+
+ const totalPages = Math.max(1, Math.ceil(sortedMunicipalities.length / MUNICIPALITIES_PER_PAGE));
+ const currentPage = Math.min(page, totalPages);
+ const visibleMunicipalities = sortedMunicipalities.slice((currentPage - 1) * MUNICIPALITIES_PER_PAGE, currentPage * MUNICIPALITIES_PER_PAGE);
+ const changePage = (next: number) => {
+ setPage(next);
+ resultsRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
  };
 
  const center: [number, number] = [46.05, 9.20];
@@ -254,7 +315,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <select
  id="province-filter-mobile"
  value={filterProvince}
- onChange={(e) => setFilterProvince(e.target.value)}
+ onChange={(e) => { setFilterProvince(e.target.value); setPage(1); }}
  className="px-2.5 py-1 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
  >
  {provinces.map(p => (
@@ -278,52 +339,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  active={isDesktopViewport === false}
  className="rounded-xl overflow-hidden border border-edge"
  >
- {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
- <CircleMarker
- key={`bc-${i}`}
- center={[bc.lat, bc.lng]}
- radius={4}
- pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
- >
- <Popup>
- <div className="text-xs">
- <p className="font-bold">{bc.name}</p>
- <p>{bc.type} — {bc.hours}</p>
- {liveMinutes !== null ? (
- <p>
- ⏱ {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
- {liveAgoMinutes !== null && (
- <span className="text-muted"> ({t('bordermap.liveUpdatedAgo', { minutes: liveAgoMinutes })})</span>
- )}
- </p>
- ) : (
- <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
- )}
- </div>
- </Popup>
- </CircleMarker>
- ))}
- {filtered.map((m, i) => (
- <CircleMarker
- key={`m-${i}`}
- center={[m.lat, m.lng]}
- radius={getRadius(m)}
- pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
- eventHandlers={{ click: () => setSelectedMunicipality(m) }}
- >
- <Popup>
- <div className="text-xs space-y-1 min-w-[180px]">
- <p className="font-bold text-sm">{m.name}</p>
- <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
- <hr />
- <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
- <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
- <p>🏠 {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
- <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
- </div>
- </Popup>
- </CircleMarker>
- ))}
+ {markers}
  </MapCanvas>
 
  {/* Selected municipality card (mobile) */}
@@ -521,7 +537,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <select
  id="province-filter"
  value={filterProvince}
- onChange={(e) => setFilterProvince(e.target.value)}
+ onChange={(e) => { setFilterProvince(e.target.value); setPage(1); }}
  className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
  >
  {provinces.map(p => (
@@ -681,52 +697,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  active={isDesktopViewport === true}
  className="rounded-xl overflow-hidden border border-edge"
  >
- {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
- <CircleMarker
- key={`bc-${i}`}
- center={[bc.lat, bc.lng]}
- radius={4}
- pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
- >
- <Popup>
- <div className="text-xs">
- <p className="font-bold">{bc.name}</p>
- <p>{bc.type} — {bc.hours}</p>
- {liveMinutes !== null ? (
- <p>
- ⏱ {t('bordermap.liveWait')}: <b>{fmtMinutes(liveMinutes)}</b>
- {liveAgoMinutes !== null && (
- <span className="text-muted"> ({t('bordermap.liveUpdatedAgo', { minutes: liveAgoMinutes })})</span>
- )}
- </p>
- ) : (
- <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
- )}
- </div>
- </Popup>
- </CircleMarker>
- ))}
- {filtered.map((m, i) => (
- <CircleMarker
- key={`m-${i}`}
- center={[m.lat, m.lng]}
- radius={getRadius(m)}
- pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
- eventHandlers={{ click: () => setSelectedMunicipality(m) }}
- >
- <Popup>
- <div className="text-xs space-y-1 min-w-[180px]">
- <p className="font-bold text-sm">{m.name}</p>
- <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
- <hr />
- <p>📊 IRPEF add.: <b><IrpefAddizionaleValue municipality={m} /></b></p>
- <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
- <p>🏠 {t('bordermap.avgRent')}: <b><AvgRentValue municipality={m} suffix="/mese" /></b></p>
- <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
- </div>
- </Popup>
- </CircleMarker>
- ))}
+ {markers}
  </MapCanvas>
 
  {/* Selected municipality detail card */}
@@ -764,7 +735,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* ─── Bottom section: full-width, 3 columns ───────── */}
 
  {/* Sort controls + count */}
- <div className="flex flex-wrap items-center justify-between gap-3">
+ <div ref={resultsRef} className="flex flex-wrap items-center justify-between gap-3 scroll-mt-24">
  <div className="flex items-center gap-2 flex-wrap">
  <ArrowUpDown className="w-4 h-4 text-muted" />
  <span className="text-sm font-bold text-subtle">{t('bordermap.sortBy')}:</span>
@@ -792,8 +763,8 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
 
  {/* Municipality cards */}
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
- {sortedMunicipalities.map(m => {
+ <div id="border-municipality-results" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+ {visibleMunicipalities.map(m => {
  const delta = compareTaxResult ? m.taxResult.finalItalianTaxEUR - compareTaxResult.finalItalianTaxEUR : null;
  const isCheapest = cheapest && m.name === cheapest.name;
  const isCampione = m.name ==="Campione d'Italia";
@@ -890,6 +861,17 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  );
  })}
  </div>
+ {totalPages > 1 && (
+ <nav aria-label={t('guide.municipalities.pagination.label')} className="flex items-center justify-center gap-4">
+ <button type="button" aria-controls="border-municipality-results" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)} className="px-4 py-2 rounded-lg bg-surface-raised text-body font-bold disabled:opacity-50">
+ {t('guide.municipalities.pagination.previous')}
+ </button>
+ <span role="status" className="text-sm text-subtle">{t('guide.municipalities.pagination.pageOf', { page: currentPage, pages: totalPages })}</span>
+ <button type="button" aria-controls="border-municipality-results" disabled={currentPage === totalPages} onClick={() => changePage(currentPage + 1)} className="px-4 py-2 rounded-lg bg-surface-raised text-body font-bold disabled:opacity-50">
+ {t('guide.municipalities.pagination.next')}
+ </button>
+ </nav>
+ )}
  </div>
  );
 };
