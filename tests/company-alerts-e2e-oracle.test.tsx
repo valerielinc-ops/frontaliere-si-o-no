@@ -162,12 +162,15 @@ async function dedupApi(): Promise<Record<string, any>> {
 
 beforeEach(() => {
   localStorage.clear();
+  sessionStorage.clear();
   vi.useRealTimers();
 });
 
 afterEach(() => {
   cleanup();
+  vi.restoreAllMocks();
   localStorage.clear();
+  sessionStorage.clear();
   vi.useRealTimers();
 });
 
@@ -232,7 +235,7 @@ describe('E oracle: public company identity and hydrated CTA', () => {
     finish(errors);
   });
 
-  it('E-POS-02: a hydrated company popup is visible before any subscription', async () => {
+  it('E-POS-02: a hydrated company popup follows reading and precedes any subscription', async () => {
     const errors: unknown[] = [];
     const module = await import('@/components/community/CompanyFollowCta');
     const Popup = (module as { CompanyFollowPopup?: ComponentType<any> }).CompanyFollowPopup;
@@ -250,6 +253,8 @@ describe('E oracle: public company identity and hydrated CTA', () => {
     const key = companyAlertKey('Acme');
 
     vi.useFakeTimers();
+    vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible');
+    Object.defineProperty(window, 'scrollY', { configurable: true, writable: true, value: 0 });
     render(
       <>
         <div data-company-follow-inline={key}>
@@ -280,13 +285,17 @@ describe('E oracle: public company identity and hydrated CTA', () => {
       screen.queryByRole('dialog') !== null, false, errors);
     check('E-POS-03-no-subscription-on-mount', subscribe.mock.calls.length, 0, errors);
     await act(async () => {
-      vi.advanceTimersByTime(899);
+      vi.advanceTimersByTime(19_999);
     });
+    Object.defineProperty(window, 'scrollY', { configurable: true, writable: true, value: 200 });
+    fireEvent.scroll(window);
+    check('E-POS-02-no-popup-before-20s-even-after-scroll',
+      screen.queryByRole('dialog') !== null, false, errors);
     check('E-NEG-11-no-subscription-before-popup-visible', subscribe.mock.calls.length, 0, errors);
     await act(async () => {
       vi.advanceTimersByTime(1);
     });
-    check('E-POS-02-popup-visible-after-delay',
+    check('E-POS-02-popup-visible-after-reading',
       screen.queryByRole('dialog') !== null, true, errors);
     check('E-POS-02-impression-after-visibility', onShown.mock.calls.length, 1, errors);
     // Oracle correction: BottomPromptShell publishes the shared slot with a

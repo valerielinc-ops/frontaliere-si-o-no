@@ -1,6 +1,7 @@
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest';
 import { act, fireEvent, render, screen, cleanup } from '@testing-library/react';
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
 import { summarizeJourneyRows, journeyReportRequest } from '../scripts/job-application-funnel-report.mjs';
 
@@ -30,7 +31,7 @@ describe('application journey cohorts', () => {
   expect(new Set(events.map((event) => event.journey_id)).size).toBe(1);
   const rows = events.map((e) => ({ dimensionValues: [e.journey_context, e.journey_device, e.employer_key].map((value) => ({ value })), metricValues: [{ value: '1' }] }));
   expect(summarizeJourneyRows(rows).segments[0].transitions['apply_click→handoff']).toEqual({ numerator: 1, denominator: 1, rate: 1 });
-  const source = readFileSync(new URL('../components/community/JobBoard.tsx', import.meta.url), 'utf8');
+  const source = readFileSync(resolve(process.cwd(), 'components/community/JobBoard.tsx'), 'utf8');
   const handler = source.slice(source.indexOf(' const handleApply ='), source.indexOf(' // Receipts of earlier rewarded grants'));
   expect(handler.indexOf("'list_select'")).toBeLessThan(handler.indexOf('trackPublisherApplySignals'));
   expect(handler.match(/openDetail\(job, true\)/g)).toHaveLength(2);
