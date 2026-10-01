@@ -376,11 +376,14 @@ export async function submitViaPortal(ctx) {
         step -= 1; // a login page is not a form page
         continue;
       }
-      if (!hasApplicationForm(snapshot) && !findButton(snapshot.buttons, SUBMIT_RE) && !findButton(snapshot.buttons, NEXT_RE)) {
+      // Inside the form, any page with a field is planned: a step with one
+      // question and its Next disabled until it is answered (JOIN's work
+      // authorization) is not a dead end. Nothing to fill and nowhere to go is.
+      const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
+        || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
+      if (!workable(snapshot)) {
         snapshot = await awaitFields(page, snapshot);
-        if (!hasApplicationForm(snapshot) && !findButton(snapshot.buttons, SUBMIT_RE) && !findButton(snapshot.buttons, NEXT_RE)) {
-          return await handoff('portal_needs_candidate');
-        }
+        if (!workable(snapshot)) return await handoff('portal_needs_candidate');
       }
 
       const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
