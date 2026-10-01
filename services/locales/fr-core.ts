@@ -896,6 +896,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.field.whyCompany': "Pourquoi cette entreprise",
  'jobBoard.assisted.submitError': 'Impossible d’enregistrer la candidature. Réessayez.',
  'jobBoard.assisted.loadError': 'Impossible de lire l’état de la commande. Réessayez.',
+ 'jobBoard.assisted.wrongAccount': "Cette commande est liée à un autre compte. Connectez-vous avec le compte utilisé pour le paiement, puis rouvrez le lien.",
  'jobBoard.assisted.retry': 'Réessayer',
  'jobBoard.assisted.jobFallback': 'Offre sélectionnée',
   'jobBoard.claimCta': 'Vous êtes l\'entreprise ? Sponsorisez cette annonce',
