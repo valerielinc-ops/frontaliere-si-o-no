@@ -55,6 +55,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(questionFromLabel('Do you have a working permit?*')).toBe('Do you have a working permit?');
   });
 
+  // Giro di prova 2026-10-01: JOIN asks "Che sesso sei?" with an "N/A" option.
+  it('reads "sesso" as a demographic question that only "N/A" may answer by rule', () => {
+    const sex = { id: 's1', kind: 'select', label: 'Che sesso sei?', required: true, options: [{ label: 'Maschio' }, { label: 'Femmina' }, { label: 'N/A' }] };
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const declined = guardPlan({ actions: [{ fieldId: 's1', action: 'select', value: 'N/A', document: 'none', source: 'rule' }], missingRequired: [] }, [sex], candidate);
+    expect(declined.actions).toHaveLength(1);
+    const guessed = guardPlan({ actions: [{ fieldId: 's1', action: 'select', value: 'Maschio', document: 'none', source: 'rule' }], missingRequired: [] }, [sex], candidate);
+    expect(guessed.actions).toEqual([]);
+    expect(guessed.missingRequired.map((item: any) => item.fieldId)).toEqual(['s1']);
+  });
+
   it('never takes an empty answer as the candidate’s: a required field stays a question', () => {
     const fields = [
       { id: 'f1', kind: 'text', label: 'Nationality', required: true },
@@ -176,7 +187,12 @@ describe('portal runner helpers', () => {
   it('recognises next, submit, confirmation and validation in four languages', () => {
     for (const text of ['Next', 'Weiter', 'Avanti', 'Suivant', 'Save and continue']) expect(NEXT_RE.test(text)).toBe(true);
     for (const text of ['Submit application', 'Bewerbung absenden', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
+    // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
+    for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
+    // JOIN says "du"/"tu".
+    for (const text of ['Grazie per esserti candidato!', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);
     expect(findButton([{ id: 'b1', text: 'Cancel' }, { id: 'b2', text: 'Weiter' }], NEXT_RE)).toEqual({ id: 'b2', text: 'Weiter' });
     // A disabled submit (required fields still empty) is not clicked, but the runner can see it.
