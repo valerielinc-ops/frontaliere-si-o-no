@@ -73,6 +73,35 @@ describe('portal field extraction', () => {
     expect(field.options.every((option: any) => /^f\d+$/.test(option.aaId))).toBe(true);
   });
 
+  // JOIN's date question is one widget: the two generated comboboxes choose
+  // year/month and the day buttons choose the value.
+  it('reads a JOIN date picker as one required date field', () => {
+    const page = extract(`
+      <h2>Quando sei nato?</h2>
+      <div data-scope="date-picker" data-part="root" data-empty="">
+        <button type="button" data-part="prev-trigger" aria-label="Switch to previous month"></button>
+        <input role="combobox" id="select-input-_r_n_" value="">
+        <input role="combobox" id="select-input-_r_o_" value="">
+        <button type="button" data-part="next-trigger" aria-label="Switch to next month"></button>
+        <table data-part="table"><tbody><tr>
+          <td role="gridcell"><div data-part="table-cell-trigger" role="button" data-value="1990-05-11">11</div></td>
+          <td role="gridcell"><div data-part="table-cell-trigger" role="button" data-value="1990-05-12">12</div></td>
+        </tr></tbody></table>
+      </div>`);
+    expect(page.fields).toHaveLength(1);
+    expect(page.fields[0]).toMatchObject({ kind: 'date', inputType: 'date', label: 'Quando sei nato?', required: true, value: '' });
+    // JSDOM does not expose innerText for the role=button day cells, but the
+    // month controls are reported exactly as they are by the browser.
+    expect(page.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining(['Switch to previous month', 'Switch to next month']));
+
+    const selected = extract(`
+      <h2>Quando sei nato?</h2>
+      <div data-scope="date-picker" data-part="root">
+        <table data-part="table"><tbody><tr><td><div data-part="table-cell-trigger" role="button" data-value="1990-05-12" data-selected="">12</div></td></tr></tbody></table>
+      </div>`);
+    expect(selected.fields[0]).toMatchObject({ kind: 'date', value: '1990-05-12' });
+  });
+
   // Review of #10698.
   it('prefers a meaningful id to a generated name, skips hidden headings and never reads a label from inside a control', () => {
     expect(extract('<input name="input-7" id="email-address">').fields[0].label).toBe('email-address');
