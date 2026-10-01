@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3970.title': 'Candidatura assistita: la prepariamo in poche ore',
+ 'whatsNew.v3970.assistedAutomation.title': 'Candidatura assistita più veloce',
+ 'whatsNew.v3970.assistedAutomation.desc': 'Quando ci invii il CV prepariamo in automatico una lettera e le risposte su misura per l’annuncio e te le mandiamo per email: puoi correggerle o approvarle. Se non rispondi entro 12 ore la candidatura parte così com’è, per email o sul portale dell’azienda, e ti avvisiamo quando è stata inviata.',
  'whatsNew.v3969.title': 'Candidatura assistita: ti scrive Valerie',
  'whatsNew.v3969.assistedConcierge.title': 'Candidatura assistita più semplice',
  'whatsNew.v3969.assistedConcierge.desc': 'Dopo il pagamento ricevi subito un’email da Valerie con tutto quello che serve: puoi rispondere allegando il CV oppure caricarlo dalla pagina dell’ordine. Ti scriviamo anche quando la candidatura è stata inviata.',
@@ -809,11 +812,11 @@ const translations: Record<string, string> = {
  'jobBoard.applicationIntentConsent': 'Selezionando «Candidati» acconsenti a registrare il tuo interesse per questo annuncio. Registriamo il click e i dati tecnici necessari; non significa che la candidatura sia stata completata.',
  'jobBoard.applicationIntentDetails': 'Informazioni sul click «Candidati»',
  'jobBoard.assisted.title': 'Vuoi delegare questa candidatura?',
- 'jobBoard.assisted.body': 'Carica il CV e i dati necessari: prepareremo e invieremo manualmente la candidatura per questo annuncio, quando il processo dell’azienda lo consente.',
+ 'jobBoard.assisted.body': 'Carica il CV e i dati necessari: prepariamo in automatico la candidatura per questo annuncio, te la mandiamo da approvare e la inviamo noi, per email o sul portale dell’azienda.',
  'jobBoard.assisted.stepsLabel': 'Come funziona',
  'jobBoard.assisted.step1': 'Ci invii il CV e i dati necessari',
  'jobBoard.assisted.step2': 'Prepariamo la candidatura per questa posizione',
- 'jobBoard.assisted.step3': 'La inviamo manualmente quando il processo lo consente',
+ 'jobBoard.assisted.step3': 'Te la mandiamo da approvare, poi la inviamo noi',
  'jobBoard.assisted.transparency': 'Non garantiamo risposta, colloquio o assunzione. Frontaliere Ticino non è affiliato all’azienda e il servizio riguarda solo questo annuncio.',
  'jobBoard.assisted.externalCta': 'Candidati da solo, gratis',
  'jobBoard.assisted.paidCta': 'Delega l’invio — 0,99 €',
@@ -861,7 +864,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.checkoutError': 'Non siamo riusciti ad avviare il pagamento. Riprova tra poco.',
  'jobBoard.assisted.paidConfirmed': 'Pagamento confermato. Ora puoi inviare il CV e i dati necessari per questo annuncio.',
  'jobBoard.assisted.submittedTitle': 'Candidatura presa in carico',
- 'jobBoard.assisted.submittedBody': 'Abbiamo ricevuto il CV e il mandato specifico. La candidatura sarà preparata e inviata manualmente quando il processo dell’azienda lo consente.',
+ 'jobBoard.assisted.submittedBody': 'Abbiamo ricevuto il CV e il mandato specifico. Prepariamo in automatico la candidatura e te la mandiamo per email da approvare: hai 12 ore per correggerla, poi la inviamo noi all’azienda, senza che tu debba fare nulla.',
  'jobBoard.assisted.privacyNotice': `Titolare: Valerie Linc (${PUBLIC_CONTACT_EMAIL}). Il CV e i dati indicati saranno trattati e trasmessi al team autorizzato esclusivamente per questa candidatura e conservati fino a 90 giorni dopo l’invio o il rimborso, salvo obblighi legali o un consenso separato al talent pool. Delle email che ti inviamo su questa candidatura registriamo consegna, aperture e clic, solo per sapere se hai visto la bozza da approvare. Per accesso, rettifica o cancellazione: ${PUBLIC_CONTACT_EMAIL}. Non promettiamo risposta, colloquio o assunzione; il servizio non implica affiliazione con l’azienda.`,
  'jobBoard.assisted.consent': "Conferisco a Frontaliereticino.ch il mandato, limitato alla posizione {jobTitle} presso {companyName}, di trattare il mio CV e i dati indicati e di inviare la candidatura a mio nome: anche creando, se il portale lo richiede, un account con un indirizzo email dedicato e accettando per mio conto solo le condizioni e l’informativa privacy necessarie a ricevere la candidatura, mai consensi facoltativi. Dichiaro che i dati sono veritieri e miei, e di aver letto Termini e Informativa privacy.",
  'jobBoard.assisted.termsLink': "Termini del servizio",
