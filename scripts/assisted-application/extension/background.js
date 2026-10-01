@@ -109,10 +109,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 // Every page load of an order's tab (the posting, then each portal page):
-// the engine, then the loop, in every frame (some portals embed the form).
+// the runner's field reading, the engine, then the loop, in every frame (some portals embed the form).
 chrome.tabs.onUpdated.addListener(async (tabId, info) => {
   if (info.status !== 'complete' || !(await entryFor(tabId))) return;
-  await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['filler.js', 'content.js'] }).catch(() => {});
+  await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['runner-fields.js', 'filler.js', 'content.js'] }).catch(() => {});
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {

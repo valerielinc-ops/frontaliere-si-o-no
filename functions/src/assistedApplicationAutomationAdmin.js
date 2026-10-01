@@ -30,6 +30,7 @@ import {
   orderRefFor,
   startAutomation,
 } from './assistedApplicationAutomation.js';
+import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
@@ -246,7 +247,18 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // The Remote Config flag gates every start, the owner's included: while
       // it is off no flow is created and no runner is dispatched.
       if (!(await (deps.isEnabled || isAutomationEnabledFor)(orderId))) throw new AutomationAdminError('automation_disabled', 409);
-      const result = await startAutomation({ db, orderId, runEffect: deps.runEffect, nowMs, reason: 'owner_request' });
+      // The order's alias first, as the Firestore trigger does after a verified
+      // CV (functions/index.js): an order Valerie starts herself (one paid
+      // before the automation was on) gets the same candidature address, its
+      // portal accounts, verification links and acknowledgements.
+      const result = await startAutomation({
+        db,
+        orderId,
+        runEffect: deps.runEffect,
+        nowMs,
+        reason: 'owner_request',
+        ensureAlias: deps.ensureAlias || ((args) => ensureOrderAlias(args)),
+      });
       if (!result.started) throw new AutomationAdminError(result.skipped || 'not_startable', 409);
       return { ok: true, state: 'drafting' };
     }
