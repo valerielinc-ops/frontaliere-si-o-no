@@ -127,6 +127,33 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'already_sent', status: 409 });
   });
 
+  // Review of #10759: a send button pressed with no confirmation may have reached the employer.
+  it('gives no kit after an unconfirmed press, unless Valerie checked the portal', async () => {
+    const submission = () => store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission');
+    await seed(takenOver);
+    await submission().set({ r1: { state: 'sending', channel: 'portal', clickedAt: T0 - 60_000 } });
+    await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
+    // She looked on the portal: nothing arrived. The round is released and the kit leaves.
+    const { kit } = await call('automationFillKit', { confirmNotReceived: true }) as any;
+    expect(kit.orderId).toBe(ORDER);
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    // A robot run that died before its click left nothing at the employer: no question asked.
+    await submission().set({ r1: { state: 'sending', channel: 'portal', clickedAt: null } });
+    expect((await call('automationFillKit') as any).kit.orderId).toBe(ORDER);
+  });
+
+  it('records Valerie’s press before the portal answers, so the browser dying after it leaves no second kit', async () => {
+    await seed(takenOver);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission').set({ r1: { state: 'failed', reason: 'portal_refused' } });
+    expect(await call('automationMarkClicked')).toEqual({ ok: true, state: 'owner_takeover', guard: 'sending' });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending', channel: 'owner_extension', clickedAt: T0 } });
+    await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
+    // The portal's confirmation then closes it as sent.
+    expect(await call('automationMarkSubmitted', { via: 'extension' })).toEqual({ ok: true, state: 'submitted' });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner_extension' } });
+  });
+
   it('marks the order as sent by Valerie, so no retry presses it again', async () => {
     await seed(takenOver);
     expect(await call('automationMarkSubmitted', { via: 'extension' })).toEqual({ ok: true, state: 'submitted' });

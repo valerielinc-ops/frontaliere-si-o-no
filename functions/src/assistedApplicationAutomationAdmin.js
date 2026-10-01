@@ -47,6 +47,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationSetAnswers',
   'automationRevealAccount',
   'automationFillKit',
+  'automationMarkClicked',
   'automationMarkSubmitted',
 ]);
 
@@ -299,7 +300,19 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       return { ok: true, host, email: entry.email || '', password };
     }
     case 'automationFillKit':
-      return { ok: true, kit: await fillKitFor(db, orderId, deps) };
+      return { ok: true, kit: await fillKitFor(db, orderId, deps, { confirmNotReceived: raw.confirmNotReceived === true, nowMs }) };
+    case 'automationMarkClicked': {
+      // Valerie pressed the highlighted send button: the extension reports it
+      // on the press, before the portal answers. From here the round may have
+      // left; no new kit is handed out until the portal confirms or she says
+      // it is not there (review of #10759).
+      const flow = (await flowRefFor(db, orderId).get()).data() || {};
+      if (!FILL_KIT_STATES.has(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+      const guard = submissionGuard(db, orderId, flow.round || 1);
+      const claim = await guard.claim('owner_extension', nowMs, { resumable: true });
+      if (claim.status === 'claimed') await guard.markClicked(nowMs);
+      return { ok: true, state: flow.state, guard: claim.status === 'already_sent' ? 'sent' : 'sending' };
+    }
     case 'automationMarkSubmitted': {
       // The fill extension saw the portal's confirmation, or Valerie says so.
       const via = raw.via === 'extension' ? 'owner_extension' : 'owner';
@@ -337,7 +350,7 @@ const FILL_KIT_STATES = new Set(['owner_takeover']);
  * links to the CV that leaves (submit.mjs chooseCv: the tailored one unless
  * the candidate chose their original) and to the cover letter.
  */
-async function fillKitFor(db, orderId, deps) {
+async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs = Date.now() } = {}) {
   const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
@@ -348,7 +361,16 @@ async function fillKitFor(db, orderId, deps) {
   const order = orderSnapshot.data() || {};
   if (!flowSnapshot.exists || !draftSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
   if (!FILL_KIT_STATES.has(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
-  if ((await submissionGuard(db, orderId, flow.round || 1).read())?.state === 'sent') throw new AutomationAdminError('already_sent', 409);
+  const guard = submissionGuard(db, orderId, flow.round || 1);
+  const record = await guard.read();
+  if (record?.state === 'sent') throw new AutomationAdminError('already_sent', 409);
+  // A send button already pressed (by the robot, or by Valerie through the
+  // extension) with no confirmation: the application may be at the employer.
+  // A kit only once she checked the portal and says it is not there.
+  if (record?.state === 'sending' && record.clickedAt) {
+    if (!confirmNotReceived) throw new AutomationAdminError('submission_unconfirmed', 409);
+    await guard.release('owner: checked on the portal, not received', nowMs);
+  }
   const sign = (key) => (key && deps.signUrl && isAssistedApplicationCvKey(orderId, key) ? deps.signUrl(key).catch(() => null) : null);
   const tailored = draft.tailoredCv?.status === 'ready' && draft.tailoredCv.pdfKey && flow.cvChoice !== 'original';
   const originalKey = String(order.cvStorageKey || '');

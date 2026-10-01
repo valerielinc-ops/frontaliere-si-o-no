@@ -212,6 +212,8 @@ function errorMessage(error: unknown, status: number): string {
     already_started_or_ineligible: 'Automazione già avviata, oppure ordine senza CV verificato.',
     no_flow: 'L’automazione non è stata avviata per questo ordine.',
     invalid_email: 'Indirizzo email non valido.',
+    already_sent: 'Questa candidatura risulta già inviata.',
+    submission_unconfirmed: 'Il pulsante d’invio è già stato premuto senza conferma del portale.',
   };
   return messages[code] || `Operazione non riuscita (${code || status}).`;
 }
@@ -231,7 +233,8 @@ async function requestAdmin(
     },
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data.ok) throw new Error(errorMessage(data.error, response.status));
+  // The code travels with the message: the queue reacts to some (submission_unconfirmed).
+  if (!response.ok || !data.ok) throw Object.assign(new Error(errorMessage(data.error, response.status)), { code: String(data.error || '') });
   return data as Record<string, unknown>;
 }
 
@@ -296,6 +299,7 @@ export type AutomationAdminAction =
   | 'automationSetAnswers'
   | 'automationRevealAccount'
   | 'automationFillKit'
+  | 'automationMarkClicked'
   | 'automationMarkSubmitted';
 
 /** One action of the automated flow (functions/src/assistedApplicationAutomationAdmin.js). */

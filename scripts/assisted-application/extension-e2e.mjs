@@ -85,7 +85,7 @@ document.addEventListener('click', (event) => {
   if (!button) return;
   if (button.id === 'google') state.google = true;
   if (button.id === 'next' && !button.disabled) go();
-  if (button.id === 'send') { state.submits += 1; document.querySelector('main').innerHTML = '<h1>Grazie per la tua candidatura!</h1>'; }
+  if (button.id === 'send') { state.submits += 1; window.location.href = '/thanks'; }
 });
 render();
 </script></body></html>`;
@@ -121,10 +121,13 @@ const check = (name, ok) => {
 async function main() {
   // The portal and the documents: a real local server.
   const pdf = Buffer.from('%PDF-1.4\n%%EOF\n');
+  let thanks = 0;
   const files = http.createServer((req, res) => {
     const { pathname } = new URL(req.url, 'http://127.0.0.1');
     if (pathname === '/cv.pdf') { res.writeHead(200, { 'content-type': 'application/pdf' }); return res.end(pdf); }
     if (pathname === '/job/1' || pathname === '/apply') { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end(pathname === '/apply' ? applyPage : postingPage); }
+    // The confirmation is a new document (review of #10759): the tab must still know it reached the send button.
+    if (pathname === '/thanks') { thanks += 1; res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end('<!doctype html><html lang="it"><body><h1>Grazie per la tua candidatura!</h1></body></html>'); }
     res.writeHead(404);
     return res.end();
   });
@@ -141,7 +144,8 @@ async function main() {
     headless: process.env.HEADED !== '1',
     ignoreDefaultArgs: ['--disable-extensions'],
     args: [`--disable-extensions-except=${EXTENSION}`, `--load-extension=${EXTENSION}`],
-  });
+  // A Chromium that does not start still releases the local server.
+  }).catch((error) => { files.close(); throw error; });
   try {
     await context.route('https://frontaliereticino.ch/**', (route) => route.fulfill({ contentType: 'text/html', body: queuePage }));
     const queue = await context.newPage();
@@ -170,7 +174,10 @@ async function main() {
     // Valerie's click.
     await portal.click('#send');
     const submitted = await queue.waitForFunction(() => window.__statuses.some((item) => item.status === 'submitted' && item.orderId === 'e2e-order'), null, { timeout: 15_000 }).then(() => true, () => false);
-    check('after her click the queue hears the portal confirmed', submitted);
+    await queue.waitForTimeout(3000);
+    const statuses = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'fill-status').map((item) => item.status));
+    check('her press is told to the queue before the portal answers', statuses.indexOf('clicked') >= 0 && statuses.indexOf('clicked') < statuses.indexOf('submitted'));
+    check('after her click the queue hears once that the portal confirmed, on its new page', submitted && thanks === 1 && statuses.filter((status) => status === 'submitted').length === 1);
   } finally {
     await context.close();
     files.close();

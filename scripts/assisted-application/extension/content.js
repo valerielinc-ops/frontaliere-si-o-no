@@ -23,6 +23,7 @@
   let timer = null;
 
   const send = (message) => chrome.runtime.sendMessage(message).catch(() => null);
+  let ticker = null;
   const report = (status, detail = '') => send({ type: 'status', status, detail: String(detail).slice(0, 300) });
 
   async function getFile(which) {
@@ -82,6 +83,26 @@
     element.scrollIntoView({ block: 'center' });
   }
 
+  /**
+   * Valerie's press on the send button, reported at once (before the portal
+   * answers): the queue records the round as possibly sent, so no second kit
+   * leaves while the outcome is unknown. Only listened to, never stopped or
+   * replayed: the click is hers.
+   */
+  function watchSend(button) {
+    if (button.dataset.compilaWatched) return;
+    button.dataset.compilaWatched = '1';
+    let told = false;
+    const tell = () => {
+      if (told) return;
+      told = true;
+      report('clicked');
+    };
+    button.addEventListener('pointerdown', tell, { capture: true });
+    button.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') tell(); }, { capture: true });
+    button.closest('form')?.addEventListener('submit', tell, { capture: true });
+  }
+
   // ---- The loop ---------------------------------------------------------------
   function schedule() {
     clearTimeout(timer);
@@ -94,9 +115,11 @@
     try {
       const page = F.pageState(document, { sawForm: state.sawForm });
       if (page.kind === 'confirmed') {
-        // A confirmation counts only after this tab reached the send button.
+        // A confirmation counts only after this tab reached the send button
+        // (in this document or an earlier one of the same tab).
         if (!state.sawFinal) return;
         state.done = true;
+        clearInterval(ticker);
         show('Candidatura inviata ✓ — la segno come inviata nella coda.', 'ok');
         await report('submitted');
         return;
@@ -115,7 +138,10 @@
         return;
       }
       const result = await F.fillPage(document, state.kit, { getFile, attempts, uploaded });
-      if (result.entries) state.sawForm = true;
+      if (result.entries && !state.sawForm) {
+        state.sawForm = true;
+        await send({ type: 'mark', sawForm: true });
+      }
       const after = F.pageState(document, { sawForm: state.sawForm });
       if (after.kind === 'final') {
         state.sawFinal = true;
@@ -125,7 +151,9 @@
           return;
         }
         highlight(after.final);
+        watchSend(after.final);
         show(`Tutto compilato. Premi «${F.textOf(after.final)}» (evidenziato) per inviare.`, 'ok');
+        await send({ type: 'mark', sawFinal: true });
         await report('ready');
         return;
       }
@@ -167,11 +195,13 @@
       return;
     }
     state.kit = entry.kit;
+    state.sawForm = Boolean(entry.sawForm);
+    state.sawFinal = Boolean(entry.sawFinal);
     if (box) box.querySelector('.job').textContent = [entry.kit.job?.title, entry.kit.job?.company].filter(Boolean).join(' — ');
     new MutationObserver(schedule).observe(document.documentElement, {
       childList: true, subtree: true, attributes: true, attributeFilter: ['disabled', 'aria-checked', 'aria-disabled', 'data-empty'],
     });
-    setInterval(schedule, 2500);
+    ticker = setInterval(schedule, 2500);
     schedule();
   })();
 })();

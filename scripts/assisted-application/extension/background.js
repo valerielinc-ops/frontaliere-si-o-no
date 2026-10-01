@@ -46,9 +46,20 @@ async function handle(message, sender) {
       if (!response.ok) return { ok: false, error: `download_${response.status}` };
       return { ok: true, base64: base64Of(await response.arrayBuffer()), fileName: document.fileName, contentType: response.headers.get('content-type') || 'application/pdf' };
     }
+    case 'mark': {
+      // What a page of this tab saw (a form, the send button): the next
+      // document of the same tab still knows it (review of #10759: a send
+      // button that loads a new confirmation page).
+      const entry = sender.tab ? await entryFor(sender.tab.id) : null;
+      if (!entry) return { ok: false };
+      await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, sawForm: entry.sawForm || Boolean(message.sawForm), sawFinal: entry.sawFinal || Boolean(message.sawFinal) } });
+      return { ok: true };
+    }
     case 'status': {
       const entry = sender.tab ? await entryFor(sender.tab.id) : null;
       if (!entry) return { ok: false };
+      // Told to the queue once per order tab.
+      if (message.status === 'submitted' && entry.state === 'submitted') return { ok: true, duplicate: true };
       if (message.status === 'submitted') {
         await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, state: 'submitted' } });
       }

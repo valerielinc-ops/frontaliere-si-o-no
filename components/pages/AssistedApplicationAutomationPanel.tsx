@@ -159,6 +159,9 @@ export default function AssistedApplicationAutomationPanel({
       } else if (data.type === 'fill-status' && data.status === 'submitted' && !markedByExtension.current) {
         markedByExtension.current = true;
         void act('automationMarkSubmitted', { via: 'extension' }, 'Il portale ha confermato l’invio: candidatura segnata come inviata, il cliente riceve la conferma.');
+      } else if (data.type === 'fill-status' && data.status === 'clicked') {
+        // Before the portal answers: the round is on record as possibly sent.
+        void runAutomationAdminAction(user, order.orderId, 'automationMarkClicked').catch(() => {});
       } else if (data.type === 'fill-status' && data.status === 'ready') {
         void onChanged({ ok: true, text: 'Tutto compilato: sul portale premi il pulsante d’invio evidenziato.' });
       } else if (data.type === 'fill-status' && ['needs', 'stuck', 'refused'].includes(data.status || '')) {
@@ -173,7 +176,16 @@ export default function AssistedApplicationAutomationPanel({
     if (busy) return;
     setBusy('automationFillKit');
     try {
-      const result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit');
+      let result: Record<string, unknown>;
+      try {
+        result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit');
+      } catch (error) {
+        // The send button was already pressed with no confirmation: a kit only
+        // after Valerie checked the portal (a second application could leave).
+        if ((error as { code?: string })?.code !== 'submission_unconfirmed'
+          || !window.confirm('Il pulsante d’invio è già stato premuto senza conferma del portale. Hai controllato sul portale che la candidatura NON sia arrivata?')) throw error;
+        result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit', { confirmNotReceived: true });
+      }
       markedByExtension.current = false;
       window.postMessage({ source: 'frontaliere-queue', type: 'fill-order', kit: result.kit }, window.location.origin);
       await onChanged({ ok: true, text: 'Portale aperto in una nuova scheda: l’estensione compila e si ferma sul pulsante d’invio, che premi tu.' });
