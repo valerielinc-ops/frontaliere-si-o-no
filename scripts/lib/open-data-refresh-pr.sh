@@ -13,7 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
-#     [--force] [--resolve-symlinks] \
+#     [--force] [--resolve-symlinks] [--reconcile-main] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -28,6 +28,7 @@ BODY_FILE=""
 FORCE_ADD=false
 RECONCILE_COMPAT=false
 RESOLVE_SYMLINKS=false
+RECONCILE_MAIN=false
 PATHS=()
 
 while [ "$#" -gt 0 ]; do
@@ -68,6 +69,10 @@ while [ "$#" -gt 0 ]; do
       ;;
     --resolve-symlinks)
       RESOLVE_SYMLINKS=true
+      shift
+      ;;
+    --reconcile-main)
+      RECONCILE_MAIN=true
       shift
       ;;
     *)
@@ -148,6 +153,10 @@ if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
   git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
+  if [ "$RECONCILE_MAIN" = true ]; then
+    git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
+      > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
+  fi
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.
@@ -170,17 +179,20 @@ stage_paths() {
 }
 
 stage_paths
-if git diff --cached --quiet; then
-  echo "No refresh changes to publish."
-  exit 0
-fi
-
 # Data-refresh commits belong to the installed site automation identity, not a
 # personal account. Keep the author stable across scheduled PRs.
 git config user.name "frontaliere-automation[bot]"
 git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
-git commit -m "$COMMIT_MESSAGE"
-REFRESH_COMMIT="$(git rev-parse HEAD)"
+if git diff --cached --quiet; then
+  if [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; then
+    echo "No refresh changes to publish."
+    exit 0
+  fi
+  echo "No refresh changes; reconciling the pending PR with main."
+else
+  git commit -m "$COMMIT_MESSAGE"
+  REFRESH_COMMIT="$(git rev-parse HEAD)"
+fi
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
 # of opening an unbounded queue of equivalent data PRs. Start from the remote
@@ -202,13 +214,19 @@ if [ -n "$REMOTE_HEAD" ]; then
     # crawlers/helpers; selecting it in the workflow checkout would change the
     # code used by every later step, including after a best-effort failure.
     PUBLISH_PATHS=()
-    while IFS= read -r -d '' refresh_path; do
-      PUBLISH_PATHS+=("$refresh_path")
-    done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+    if [ -n "$REFRESH_COMMIT" ]; then
+      while IFS= read -r -d '' refresh_path; do
+        PUBLISH_PATHS+=("$refresh_path")
+      done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+    fi
     REFRESH_PUBLISH_WORKTREE="$MERGE_REFRESH_SCRIPT_DIR/publish"
     git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
     cd "$REFRESH_PUBLISH_WORKTREE"
-    printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+    if [ "${#PUBLISH_PATHS[@]}" -gt 0 ]; then
+      printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+    else
+      git sparse-checkout set --no-cone --stdin </dev/null
+    fi
     git checkout --quiet
     # These are the real committed paths, already resolved through symlinks
     # by the initial stage. The sparse checkout need not include alias paths.
@@ -247,7 +265,7 @@ if [ "$RECONCILE_COMPAT" = true ]; then
     merge_refresh_ref "$REFRESH_COMMIT"
   fi
   merge_refresh_ref origin/main
-elif [ -n "$REMOTE_HEAD" ]; then
+elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
   # The current refresh was committed from the workflow checkout before the
   # isolated stable-branch checkout was created. Reconcile with path-aware rules:
   # JSONL histories and Telegram ledgers union both runs, while complete
@@ -264,9 +282,26 @@ elif [ -n "$REMOTE_HEAD" ]; then
   stage_paths
   if git diff --cached --quiet; then
     echo "No new refresh changes after stable-branch reconciliation."
-    exit 0
+    if [ "$RECONCILE_MAIN" = false ]; then exit 0; fi
+  else
+    git commit -m "$COMMIT_MESSAGE"
   fi
-  git commit -m "$COMMIT_MESSAGE"
+fi
+
+if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
+  git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
+  MAIN_HEAD="$(git rev-parse refs/remotes/refresh/main)"
+  # GitHub knows the common ancestor even when the runner has only branch
+  # tips. Fetch that single tree, rather than all historical image blobs.
+  MAIN_BASE="$(gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
+  [ -n "$MAIN_BASE" ] && [ "$MAIN_BASE" != null ] || { echo "::error::Missing refresh/main merge base"; exit 1; }
+  if [ "$MAIN_BASE" != "$MAIN_HEAD" ]; then
+    if ! git cat-file -e "${MAIN_BASE}^{commit}" 2>/dev/null; then
+      git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
+    fi
+    node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
+      --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
+  fi
 fi
 
 # A stable branch is intentionally shared by concurrent refreshes. The first

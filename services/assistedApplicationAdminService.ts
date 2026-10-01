@@ -300,7 +300,8 @@ export type AutomationAdminAction =
   | 'automationRevealAccount'
   | 'automationFillKit'
   | 'automationMarkClicked'
-  | 'automationMarkSubmitted';
+  | 'automationMarkSubmitted'
+  | 'automationVerificationLink';
 
 /** One action of the automated flow (functions/src/assistedApplicationAutomationAdmin.js). */
 export async function runAutomationAdminAction(
