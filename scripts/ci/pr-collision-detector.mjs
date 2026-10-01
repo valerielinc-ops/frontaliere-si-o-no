@@ -61,6 +61,31 @@ const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const AUTOFIX_LABEL = 'agent:autofix';
 
+function labelNames(pr) {
+  if (!Array.isArray(pr?.labels)) return [];
+  return pr.labels
+    .map((label) => (typeof label === 'string' ? label : label?.name))
+    .filter((label) => typeof label === 'string');
+}
+
+/**
+ * Provenienza autonoma della PR, nella stessa forma usata dagli altri custodi
+ * del ciclo: branch convenzionale, autore bot o label esplicita. Serve prima
+ * di propagare `agent:autofix` da una PR duplicata al keeper: una label sulla
+ * duplicata non dimostra che il keeper sia stato aperto dall'automazione.
+ * Pura → testabile.
+ */
+export function isAutonomousCollisionPr(pr) {
+  if (!pr || typeof pr !== 'object') return false;
+  const labels = labelNames(pr);
+  if (labels.includes('needs-human')) return false;
+  const ref = String(pr.headRefName || pr.headRef || '');
+  if (ref.startsWith('fix/') || ref.startsWith('automerge-')) return true;
+  if (pr.authorType === 'Bot') return true;
+  if (pr.author?.type === 'Bot' || pr.author?.isBot === true || pr.author?.is_bot === true) return true;
+  return labels.includes(AUTOFIX_LABEL);
+}
+
 // Glob funnel-critical → predicate. Manteniamo i pattern espliciti e ristretti:
 // allargarli genererebbe falsi positivi (ogni PR collide con ogni PR).
 const FUNNEL_PREDICATES = [
@@ -235,7 +260,10 @@ function main() {
   const closedDuplicates = new Set();
   for (const dup of duplicates) {
     console.log(`PR #${dup.number}: gemella di #${dup.keeper} (stesso head ref) → chiusa come duplicata.`);
-    if (dup.labels.includes(AUTOFIX_LABEL)) addLabel(dup.keeper, AUTOFIX_LABEL);
+    const keeper = prs.find((pr) => pr.number === dup.keeper);
+    if (dup.labels.includes(AUTOFIX_LABEL) && isAutonomousCollisionPr(keeper)) {
+      addLabel(dup.keeper, AUTOFIX_LABEL);
+    }
     commentOnce(dup.number, `<!-- DUPLICATE_HEAD_OF:${dup.keeper} -->`,
       `♻️ **duplicata**: questa PR e la PR #${dup.keeper} hanno lo stesso head branch, quindi gli stessi commit. ` +
       `Resta aperta #${dup.keeper} (la più vecchia); questa viene chiusa senza toccare il branch. ` +

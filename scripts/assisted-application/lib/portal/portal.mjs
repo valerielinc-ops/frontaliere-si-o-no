@@ -41,7 +41,7 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = 5;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
-const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
+export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
 const OUTCOME_TIMEOUT_MS = 25_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
@@ -225,7 +225,7 @@ async function clickButton(page, button) {
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
 // otherwise accept (the runner's own browser session, no candidate data).
-const COOKIE_REJECT_RE = /^(ablehnen|alle ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?|decline( all)?|only necessary|rifiuta( tutti| tutto)?|solo necessari|refuser( tout)?|tout refuser|continuer sans accepter)$/i;
+export const COOKIE_REJECT_RE = /^(ablehnen|alle ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?|decline( all)?|only necessary|rifiuta( tutti| tutto)?|solo necessari|refuser( tout)?|tout refuser|continuer sans accepter)$/i;
 const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle akzeptieren|akzeptieren|accept( all)?( cookies)?|accetta( tutti)?|tout accepter|accepter|ok)$/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
