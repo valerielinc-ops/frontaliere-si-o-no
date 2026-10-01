@@ -2455,7 +2455,8 @@ describe('production spec runtime', () => {
       expect(
         source.includes('if (!descriptionText) continue;')
           || /if\s*\(\s*!descriptionText\s*\)\s*\{[^{}]*\bcontinue;\s*\}/.test(source)
-          || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;'),
+          || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;')
+          || source.includes('meetsSourceBodyFloor(descriptionText)'),
         `${name}: description guard`,
       ).toBe(true);
       expect(source, name).not.toMatch(/description(?:ByLocale)?:.*descriptionText\s*\|\|/);
