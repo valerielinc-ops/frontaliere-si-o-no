@@ -53,6 +53,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 concurrency:
@@ -76,6 +77,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          persist-credentials: false
           # Minimal fetch here — deepened to just the scan window by "Deepen
           # checkout to scan window" below (#5996). Full-history fetch-depth:0
           # was the actual cost: scan-prev-slug-losses.mjs's buildFileCommitsIndex()
@@ -131,10 +133,14 @@ jobs:
         timeout-minutes: 5
         env:
           SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
+          CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
           SHALLOW_SINCE=$(date -u -d "$SINCE - 1 day" +%Y-%m-%d)
-          git fetch --shallow-since="$SHALLOW_SINCE" origin main
+          remote_url="https://x-access-token:${CHECKOUT_TOKEN}@github.com/${REPOSITORY}.git"
+          git fetch --shallow-since="$SHALLOW_SINCE" "$remote_url" \
+            "main:refs/remotes/origin/main"
 
       - name: 'Fallback: unshallow checkout'
         # Only runs when the shallow-since attempt above failed (network
@@ -148,7 +154,13 @@ jobs:
         # pipeline.
         if: steps.deepen.outcome == 'failure'
         timeout-minutes: 21
-        run: git fetch --unshallow origin main
+        env:
+          CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          remote_url="https://x-access-token:${CHECKOUT_TOKEN}@github.com/${REPOSITORY}.git"
+          git fetch --unshallow "$remote_url" "main:refs/remotes/origin/main"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -159,13 +171,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Prepare Firebase credentials for push auth
+      - name: Prepare Firebase credentials for PR publishing
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load credentials for the recovery PR"
             exit 1
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
@@ -174,6 +186,55 @@ jobs:
       - name: Load push credentials from Remote Config
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
+
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # A previous recovery PR may still be waiting for the required test and
+      # review gates. Carry its slice tree into this run before scanning, so a
+      # fresh scheduled checkout cannot overwrite pending recovered history.
+      - name: Carry forward pending previousSlugs recovery PR
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          branch='chore/recover-prev-slugs'
+          [ -n "$GH_TOKEN" ] || {
+            echo "::error::No authenticated refresh token is available to carry forward the recovery PR"
+            exit 1
+          }
+          remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          probe="$RUNNER_TEMP/recover-prev-slugs-remote-head"
+          if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+            echo "::error::Unable to authenticate or probe the stable previousSlugs recovery branch"
+            exit 1
+          fi
+          if [ ! -s "$probe" ]; then
+            echo "No in-flight previousSlugs recovery PR branch found."
+            exit 0
+          fi
+          if ! git fetch --no-tags --depth=1 "$remote_url" \
+            "refs/heads/${branch}:refs/remotes/origin/${branch}" >/dev/null 2>&1; then
+            echo "::error::Unable to fetch the stable previousSlugs recovery branch"
+            exit 1
+          fi
+          for path in \
+            data/jobs/by-crawler/ \
+            data/jobs/expired/by-crawler/ \
+            data/jobs-crawler-summaries/by-crawler/; do
+            if git cat-file -e "refs/remotes/origin/${branch}:${path}" 2>/dev/null; then
+              git restore --source="refs/remotes/origin/${branch}" -- "$path"
+            fi
+          done
 
       # #5348 residuo genuino: due record con lo STESSO `.id` (dedicated-crawler
       # stable id) possono coesistere in una slice — es. banca-cler.json teneva
@@ -291,13 +352,34 @@ jobs:
       - name: Commit and push restored slices
         if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
+          set -euo pipefail
+          body="$RUNNER_TEMP/recover-prev-slugs-refresh-pr-body.md"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          {
+            printf 'Auto-generated by [workflow run %s](%s).\n\n' \
+              "$GITHUB_RUN_ID" "$run_url"
+            cat <<'EOF'
+          ## Implementato
+          - La recovery ripristina gli slice `previousSlugs` e li propone tramite il branch stabile `chore/recover-prev-slugs`, così il required check `vitest (unit + integration)` valida i dati prima dell'ingresso su `main`.
+
+          ## Non implementato (ancora)
+          Nessuno — recovery automatizzata senza residui.
+          EOF
+          } > "$body"
           COMMIT_MSG="🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"
           if [ "${{ steps.reconcile.outputs.reconciled_dropped }}" != "0" ]; then
             COMMIT_MSG="$COMMIT_MSG + reconciled ${{ steps.reconcile.outputs.reconciled_dropped }} duplicate-id record(s)"
           fi
-          bash scripts/lib/git-commit-data.sh --slice-only "$COMMIT_MSG"
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/jobs/by-crawler/ \
+            --path data/jobs/expired/by-crawler/ \
+            --path data/jobs-crawler-summaries/by-crawler/ \
+            --branch chore/recover-prev-slugs \
+            --commit-message "$COMMIT_MSG" \
+            --title "chore(data): recover lost previousSlugs" \
+            --body-file "$body"
 
       # Il tripwire deve misurare il residuo DOPO il recupero, e fino al 2026-08-08
       # misurava quello prima (#5348). Questo step ri-esegue lo STESSO scanner sul

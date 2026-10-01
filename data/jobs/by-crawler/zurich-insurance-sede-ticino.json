@@ -142,12 +142,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1373590457",
-      "slug": "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich",
+      "slug": "risk-manager-rischi-non-finanziari-100-zurich-insurance-zurich-1373590457",
       "slugByLocale": {
-        "it": "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich",
+        "it": "risk-manager-rischi-non-finanziari-100-zurich-insurance-zurich-1373590457",
         "en": "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich",
-        "de": "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich",
-        "fr": "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich"
+        "de": "risikomanager-nichtfinanzielle-risiken-100-zurich-insurance-zurich-1373590457",
+        "fr": "gestionnaire-des-risques-risques-non-financiers-100-zurich-insurance-zurich-1373590457"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -204,16 +204,30 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "de": [
+          "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "risk-manager-non-financial-risks-100-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1373536257",
-      "slug": "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "esperto-di-eccellenza-di-processo-m-f-d-zurich-insurance-zurich-1373536257",
       "slugByLocale": {
-        "it": "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "esperto-di-eccellenza-di-processo-m-f-d-zurich-insurance-zurich-1373536257",
         "en": "process-excellence-expert-m-w-d-zurich-insurance-zurich-1373536257",
         "de": "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "expert-en-excellence-des-processus-h-f-d-zurich-insurance-zurich-1373536257"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -270,7 +284,18 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1373560757",
@@ -279,7 +304,7 @@
         "it": "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich",
         "en": "senior-process-excellence-expert-m-w-d-zurich-insurance-zurich-1373560757",
         "de": "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "expert-principal-en-excellence-des-processus-h-f-d-zurich-insurance-zurich-1373560757"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -3303,8 +3328,8 @@
       "slugByLocale": {
         "de": "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino",
         "it": "organisations-e-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich",
-        "en": "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino",
-        "fr": "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557"
+        "en": "organizational-and-language-talent-in-damage-sos-24-7-m-f-d-zurich-insurance-zurich-1373613557",
+        "fr": "talent-organisationnel-et-linguistique-en-dommages-sos-24-7-h-f-d-zurich-insurance-zurich-1373613557"
       },
       "slugDisambiguator": "1373613557",
       "company": "Zurich Insurance",
@@ -3354,10 +3379,17 @@
       "previousSlugsByLocale": {
         "it": [
           "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino"
+        ],
+        "en": [
+          "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino"
+        ],
+        "fr": [
+          "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557"
         ]
       },
       "previousSlugs": [
-        "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino"
+        "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino",
+        "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
