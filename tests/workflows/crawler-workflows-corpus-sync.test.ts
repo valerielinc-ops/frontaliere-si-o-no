@@ -332,4 +332,106 @@ fi
       fs.rmSync(tmp, { recursive: true, force: true });
     }
   }, 30_000);
+  it('REGRESSIONE corpus #2008: una branch di trasporto in conflitto con main viene rigenerata, non lascia il trasporto fermo', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-conflict-'));
+    try {
+      const seed = path.join(tmp, 'seed');
+      const remote = path.join(tmp, 'corpus.git');
+      const bin = path.join(tmp, 'bin');
+      const calls = path.join(tmp, 'gh-calls');
+      const manifestPath = path.join(seed, 'scripts/ci/loop-sync-manifest.json');
+      const manifest = (reason: string) => JSON.stringify({
+        files: [{ path: 'generator/data/corpus-owned.json', mode: 'corpus-only', reason }],
+      });
+      fs.mkdirSync(path.join(seed, 'scripts/ci'), { recursive: true });
+      fs.mkdirSync(bin, { recursive: true });
+      fs.writeFileSync(manifestPath, manifest('fixture owned only by corpus'));
+      const git = (args: string[], cwd = seed) => execFileSync('git', args, { cwd, stdio: 'pipe', encoding: 'utf8' });
+      git(['init', '-b', 'main']);
+      git(['config', 'user.name', 'test']);
+      git(['config', 'user.email', 'test@example.com']);
+      git(['add', '.']);
+      git(['commit', '-m', 'seed']);
+      execFileSync('git', ['clone', '--bare', seed, remote], { stdio: 'pipe' });
+
+      const ghStub = path.join(bin, 'gh');
+      fs.writeFileSync(ghStub, `#!/usr/bin/env bash
+set -euo pipefail
+printf '%s\\n' "$*" >> "$GH_STUB_CALLS"
+if [ "$1 $2" = "api user" ]; then
+  printf '%s\\n' 'valerielinc-ops'
+elif [ "$1 $2" = "pr list" ]; then
+  printf '%s\\n' "$GH_STUB_LIST_JSON"
+elif [ "$1 $2" = "pr create" ]; then
+  printf '%s\\n' 'https://example.test/pull/1'
+elif [ "$1 $2" = "pr close" ]; then
+  exit 0
+else
+  exit 2
+fi
+`);
+      fs.chmodSync(ghStub, 0o700);
+      const branch = 'crawler-workflows-lockstep-0123456789ab';
+      const rebuiltBranch = `${branch}-rebuilt`;
+      const env = {
+        ...process.env,
+        PATH: `${bin}:${process.env.PATH}`,
+        ARTICLES_REPO_PAT: 'test-token-not-a-secret',
+        GITHUB_SHA: '0123456789abcdef0123456789abcdef01234567',
+        GITHUB_WORKSPACE: ROOT,
+        CRAWLER_SYNC_TARGET_URL: remote,
+        GH_STUB_CALLS: calls,
+        GH_STUB_LIST_JSON: '[]',
+        GIT_CONFIG_GLOBAL: '/dev/null',
+        GIT_CONFIG_NOSYSTEM: '1',
+      };
+      // Prima consegna: branch + PR aperta.
+      execFileSync('bash', [scriptPath], { cwd: ROOT, env, stdio: 'pipe' });
+      const delivered = execFileSync('git', ['--git-dir', remote, 'rev-parse', branch], { encoding: 'utf8' }).trim();
+
+      // main del corpus cambia la stessa riga del manifest: il merge della
+      // branch di trasporto con main va in conflitto.
+      fs.writeFileSync(manifestPath, manifest('reason updated on corpus main'));
+      git(['add', '.']);
+      git(['commit', '-m', 'corpus main moves the manifest']);
+      git(['push', remote, 'main']);
+      const mainTip = git(['rev-parse', 'HEAD']).trim();
+
+      const openPr = JSON.stringify([{
+        number: 2008,
+        headRefName: branch,
+        baseRefName: 'main',
+        headRepositoryOwner: { login: 'nanakokyobashi-rgb' },
+        headRepository: { name: 'frontaliere-articles' },
+        author: { login: 'valerielinc-ops' },
+        isCrossRepository: false,
+      }]);
+      expect(() => execFileSync('bash', [scriptPath], {
+        cwd: ROOT,
+        env: { ...env, GH_STUB_LIST_JSON: openPr },
+        stdio: 'pipe',
+      })).not.toThrow();
+
+      // La vecchia branch non viene riscritta (niente force-push)…
+      expect(execFileSync('git', ['--git-dir', remote, 'rev-parse', branch], { encoding: 'utf8' }).trim()).toBe(delivered);
+      // …la consegna rinasce su una branch nuova figlia di main, senza merge…
+      expect(execFileSync('git', ['--git-dir', remote, 'rev-parse', `${rebuiltBranch}^`], { encoding: 'utf8' }).trim()).toBe(mainTip);
+      expect(Number(execFileSync('git', ['--git-dir', remote, 'rev-list', '--count', '--merges', `${mainTip}..${rebuiltBranch}`], { encoding: 'utf8' }).trim())).toBe(0);
+      // …conserva la riga di main e riporta il trasporto.
+      const transported = JSON.parse(execFileSync('git', ['--git-dir', remote, 'show', `${rebuiltBranch}:scripts/ci/loop-sync-manifest.json`], { encoding: 'utf8' }));
+      expect(transported.files.find((entry: { path: string }) => entry.path === 'generator/data/corpus-owned.json').reason)
+        .toBe('reason updated on corpus main');
+      expect(transported.files.some((entry: { sitePath?: string }) => entry.sitePath?.startsWith('.github/corpus-workflows/'))).toBe(true);
+      // La PR in conflitto viene chiusa PRIMA di aprire la nuova: resta una sola PR di trasporto.
+      const ghCalls = fs.readFileSync(calls, 'utf8').split('\n');
+      const close = ghCalls.findIndex((line) => line.startsWith('pr close 2008') && line.includes('--delete-branch'));
+      const creates = ghCalls.map((line, i) => (line.startsWith('pr create') ? i : -1)).filter((i) => i >= 0);
+      expect(close).toBeGreaterThan(-1);
+      expect(creates).toHaveLength(2);
+      expect(creates[1]).toBeGreaterThan(close);
+      expect(ghCalls[creates[1]]).toContain(`--head ${rebuiltBranch}`);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  }, 30_000);
 });
