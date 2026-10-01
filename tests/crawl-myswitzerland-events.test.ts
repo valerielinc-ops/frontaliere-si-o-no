@@ -10,6 +10,7 @@ import {
   extractDateInfo,
   humanizeCategory,
   extractPrice,
+  extractIndexedEventPrice,
   extractDetailTableValue,
   extractAddress,
   extractDetailAddress,
@@ -106,7 +107,78 @@ describe('humanizeCategory', () => {
   });
 });
 
+describe('extractIndexedEventPrice', () => {
+  it.each([
+    'Una fiera di quattro secoli.Gratuito\n',
+    'A public exhibition. Free entrance\n',
+    'Admission: free',
+    'Entry:free',
+    'Entrance : free.',
+    'Schedules: 2:30-6pm,Prices : Free entrance\n',
+    'Eine Ausstellung. Eintritt frei.',
+    'Eintritt kostenlos',
+    'Eintritt: gratis',
+    'Ingresso libero.',
+    'Entrata libera',
+    'Une exposition. Entrée libre\n',
+  ])('recovers a terminal admission tariff from indexed content: %s', (content) => {
+    expect(extractIndexedEventPrice(content)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it.each([
+    'Il parcheggio è gratuito.',
+    'Parking, free',
+    'Drinks, gratis',
+    'Ingresso gratuito per bambini sotto i 12 anni.',
+    'Free drinks with your CHF 25 ticket.',
+    'Children under 12 have free entrance.',
+    "Children's prices: Free entrance.",
+    'Free entrance. Adult tickets CHF 20.',
+    'Un evento nato nel 1980 per bambini da 12 anni.',
+  ])('keeps ambiguous or qualified admission unknown: %s', (content) => {
+    expect(extractIndexedEventPrice(content)).toBeUndefined();
+  });
+});
+
 describe('extractPrice', () => {
+  it('returns no price when a tariff cannot be interpreted', () => {
+    expect(extractPrice({}, '<table><tr><th>Price</th><td>su richiesta</td></tr></table>')).toBeUndefined();
+  });
+
+  it('does not interpret the minimum participant age as an admission price', () => {
+    const html = '<table><tr><th>Preis</th><td>Erwachsene und Kinder kostenlos. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
+    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('keeps the ticket price while excluding a minimum participant age', () => {
+    const html = '<table><tr><th>Preis</th><td>CHF 25. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
+    expect(extractPrice({}, html)).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+  });
+
+  it('preserves source ticket metadata when the admission price lives in the detail table', () => {
+    const html = '<table><tr><th>Preis</th><td>Erwachsene und Kinder kostenlos. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
+    expect(extractPrice({ offers: {
+      '@type': 'Offer', availability: 'InStock', validFrom: '2026-06-01T09:00:00+02:00', url: '/booking/tour',
+    } }, html, 'https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/tour/')).toEqual({
+      amount: 0, currency: 'CHF', isFree: true,
+      availability: 'https://schema.org/InStock', validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://www.myswitzerland.com/booking/tour',
+    });
+  });
+
+  it('selects an unpriced offer with a usable booking URL instead of an empty first offer', () => {
+    expect(extractEventOfferMetadata([
+      { price: '', name: 'A' },
+      { price: '', url: 'javascript:alert(1)' },
+      { price: '', url: '/book', availability: 'InStock' },
+    ], 'https://www.myswitzerland.com/event')).toEqual({
+      url: 'https://www.myswitzerland.com/book', availability: 'https://schema.org/InStock',
+    });
+    expect(extractPrice({ offers: [{ price: '', name: 'A' }, { price: '', url: '/book' }] },
+      '<table><tr><th>Price</th><td>CHF 25</td></tr></table>', 'https://www.myswitzerland.com/event'))
+      .toMatchObject({ amount: 25, url: 'https://www.myswitzerland.com/book' });
+  });
+
   it('returns undefined when there is no offers/isAccessibleForFree info', () => {
     expect(extractPrice({})).toBeUndefined();
     expect(extractPrice(undefined)).toBeUndefined();
@@ -473,6 +545,33 @@ describe('mapEventRecord', () => {
       it: 'Un grande festival di musica dal vivo.',
       en: 'A great live music festival.',
     });
+  });
+
+  it('recovers an indexed admission tariff when the detail page is unavailable', () => {
+    const indexedHit = { ...hitIt, content: 'Una fiera di quattro secoli.Gratuito\n' };
+    expect(mapEventRecord('abc123', { it: indexedHit })?.event.price).toEqual({
+      amount: 0, currency: 'CHF', isFree: true,
+    });
+    expect(mapEventRecord('abc123', { it: indexedHit }, {
+      detailLd: { offers: { price: '25', priceCurrency: 'CHF' } },
+    })?.event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+  });
+
+  it('uses indexed admission when the detail tariff is unknown and keeps booking metadata', () => {
+    const indexedHit = { ...hitIt, content: 'Una fiera di quattro secoli.Gratuito\n' };
+    expect(mapEventRecord('abc123', { it: indexedHit }, {
+      detailHtml: '<table><tr><th>Price</th><td>su richiesta</td></tr></table>',
+      detailLd: { offers: { url: '/booking/', availability: 'InStock' } },
+    })?.event.price).toEqual({
+      amount: 0, currency: 'CHF', isFree: true,
+      url: 'https://www.myswitzerland.com/booking/', availability: 'https://schema.org/InStock',
+    });
+  });
+
+  it('keeps a booking link without inventing an amount when both price sources are unknown', () => {
+    expect(mapEventRecord('abc123', { it: hitIt }, {
+      detailLd: { offers: { url: '/booking/' } },
+    })?.event.price).toEqual({ url: 'https://www.myswitzerland.com/booking/' });
   });
 
   it('enriches category/price/address/venue from detail-page JSON-LD when available', () => {

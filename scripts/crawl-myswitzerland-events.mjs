@@ -71,13 +71,13 @@ import {
   resolveItalianFrontierComuni,
   mirrorEventImage,
   cleanEventText,
-  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
   loadGeocodeCache,
   saveGeocodeCache,
   enrichEventsWithGeoComune,
+  hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 import {
@@ -86,6 +86,7 @@ import {
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   extractEventOfferMetadata,
+  parseEventPriceText,
   eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
@@ -371,10 +372,27 @@ export function extractPrice(ld, detailHtml, detailUrl) {
       ...(extractEventOfferMetadata(cheapest.offer, detailUrl || SITE_ORIGIN) || {}),
     };
   }
-  if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
+  const offerMetadata = extractEventOfferMetadata(offersRaw, detailUrl || SITE_ORIGIN) || {};
+  if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true, ...offerMetadata };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
-  if (tablePrice) return parsePriceText(tablePrice);
+  if (tablePrice) {
+    const price = parseEventPriceText(tablePrice);
+    if (hasConfidentPrice(price)) return { ...price, ...offerMetadata };
+  }
   return undefined;
+}
+
+/**
+ * The public search index appends some admission tariffs to event content.
+ * Recover only an unqualified, standalone free-admission statement at the
+ * end: a free drink, child ticket, parking space or unrelated number elsewhere
+ * in the description is not evidence that admission is free.
+ */
+export function extractIndexedEventPrice(content) {
+  if (typeof content !== 'string') return undefined;
+  const freeTariff = /(?:^|[.!?\n])\s*(?:gratuit[oea]?|kostenlos|gratis|free)\s*[.!]?\s*$/iu.test(content)
+    || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)(?:\s*:\s*|\s+(?:is\s+)?)free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|liber[oa]|libre|gratuit[oea]?|kostenlos|gratis))\s*[.!]?\s*$/iu.test(content);
+  return freeTariff ? { amount: 0, currency: 'CHF', isFree: true } : undefined;
 }
 
 /**
@@ -583,6 +601,12 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN)
     || detailImageSourceUrl
     || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
+  const price = [
+    extractPrice(detailLd, detailHtml, detailUrl),
+    detailPrice,
+    ...LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)),
+  ].find(hasConfidentPrice);
+  const offerMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
 
   return {
     event: fillEventPeopleDefaults({
@@ -601,7 +625,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml, detailUrl) || detailPrice,
+      price: price || offerMetadata ? { ...offerMetadata, ...price } : undefined,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,

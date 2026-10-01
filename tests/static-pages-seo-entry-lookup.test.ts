@@ -208,18 +208,26 @@ describe('seo source files parse contract (real files)', () => {
     }
   });
 
-  it('keeps public-holiday Event markup free of unsupported commercial and attribution fields', () => {
+  it('describes civil holidays as dated schedules with no unsupported ticket or performer metadata', () => {
     for (const key of ['holidays', 'holidaysDe']) {
       const metadata = SEO_PAGES_METADATA[key] as { structuredData?: Record<string, any>[] };
       const itemList = metadata.structuredData?.find((schema) => schema['@type'] === 'ItemList');
-      const events = itemList?.itemListElement?.map((entry) => entry.item) ?? [];
+      const schedules = itemList?.itemListElement?.map((entry) => entry.item) ?? [];
       // cron-count-ok: le 15 festivita' ticinesi scritte a mano in services/seo/seo-pages.ts; il dato del cron (tasso di cambio) tocca altre voci dello stesso oggetto.
-      expect(events, `missing holiday Event list for ${key}`).toHaveLength(15);
-      for (const event of events) {
-        expect(event.image).toBeUndefined();
-        expect(event.organizer).toBeUndefined();
-        expect(event.performer).toBeUndefined();
-        expect(event.offers).toBeUndefined();
+      expect(schedules, `missing holiday calendar for ${key}`).toHaveLength(15);
+      for (const schedule of schedules) {
+        expect(schedule['@type']).toBe('Schedule');
+        expect(schedule.startDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        expect(schedule.endDate).toBe(schedule.startDate);
+        expect(schedule.repeatFrequency).toBe('P1Y');
+        expect(schedule.repeatCount).toBe(1);
+        expect(schedule.scheduleTimezone).toBe('Europe/Zurich');
+        expect(schedule.name).toBeTruthy();
+        expect(schedule.url).toMatch(/^https:\/\/frontaliereticino\.ch\/.+#\d+$/);
+        expect(schedule.image).toBeUndefined();
+        expect(schedule.organizer).toBeUndefined();
+        expect(schedule.performer).toBeUndefined();
+        expect(schedule.offers).toBeUndefined();
       }
     }
   });

@@ -48,7 +48,6 @@ import {
   resolveComune,
   loadCantonComuni,
   mirrorEventImage,
-  parsePriceText,
   normalizeText,
   geocodeVenue,
   loadGeocodeCache,
@@ -59,6 +58,7 @@ import {
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
 import {
   extractEventPeopleFromText,
+  parseEventPriceText,
   extractEventPeopleFromTitle,
   fillEventPeopleDefaults,
   normalizeEventPeople,
@@ -228,16 +228,16 @@ export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
 
 /**
  * Parse an event detail page's "Prezzo:" label into `{amount, currency,
- * isFree}` via the shared `parsePriceText` (same parser guidle's price
+ * isFree}` via the shared `parseEventPriceText` (same parser guidle's price
  * accordion uses). tio.ch renders the label unconditionally but leaves it
- * empty when no price is on file — `parsePriceText('')` correctly returns
+ * empty when no price is on file — `parseEventPriceText('')` correctly returns
  * `undefined` for that case, so no price signal never becomes a fabricated
  * one. Returns `undefined` when the label itself is missing (page shape
  * changed, or fetch returned something unexpected).
  */
 export function extractTioPrice(html) {
   const m = /<strong>\s*Prezzo:\s*<\/strong>\s*([^<]*)/i.exec(html || '');
-  const inline = m ? parsePriceText(m[1]) : undefined;
+  const inline = m ? parseEventPriceText(m[1]) : undefined;
   if (inline) return inline;
 
   // Some detail pages render the label as a plain paragraph, while the
@@ -249,7 +249,7 @@ export function extractTioPrice(html) {
     const value = text(paragraph);
     const labelled = /^Prezzo:\s*(.+)$/i.exec(value);
     if (!labelled) continue;
-    const parsed = parsePriceText(labelled[1]);
+    const parsed = parseEventPriceText(labelled[1]);
     if (parsed) return parsed;
   }
   return undefined;
@@ -291,7 +291,7 @@ export function extractTioDetailMetadata(html) {
   }
 
   const price = extractTioPrice(html) || (/(?:entrata libera|ingresso libero|gratuit[oa])/i.test(descriptionText)
-    ? parsePriceText('entrata libera')
+    ? parseEventPriceText('entrata libera')
     : undefined);
   const sourcePeople = extractEventPeopleFromText(descriptionText, { includePerformer: 'explicit' });
   const titlePeople = extractEventPeopleFromTitle(titleText);
