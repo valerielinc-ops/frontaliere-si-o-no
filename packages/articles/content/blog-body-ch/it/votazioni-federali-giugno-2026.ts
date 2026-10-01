@@ -5,4 +5,11 @@ const bodyVotazioniFederaliGiugno2026: Record<string, string> = {
     'blog.article.votazioni-federali-giugno-2026.faq': '[{"q":"Quando si terranno le votazioni federali del 2026?","a":"Le votazioni federali sono previste per il 14 giugno 2026, data in cui gli svizzeri saranno chiamati a decidere su due oggetti principali: la limitazione dell’accesso al servizio civile e l’iniziativa popolare \\"No a una Svizzera da 10 milioni!\\"."},{"q":"Cosa chiede esattamente l’iniziativa \\"No a una Svizzera da 10 milioni!\\",","a":"L’iniziativa popolare chiede di limitare l’immigrazione dall’estero affinché la popolazione residente in Svizzera non superi i dieci milioni di abitanti. L’obiettivo è dichiarato semplice, ma la fonte sottolinea che l’attuazione sarebbe molto meno facile e non specifica quali misure sarebbero necessarie."},{"q":"Come possono gli svizzeri residenti all’estero partecipare al voto?","a":"Gli svizzeri che vivono all’estero devono essere iscritti nel registro elettorale. L’iscrizione si fa presso l’ambasciata o il consolato svizzero competente, presentando passaporto, prova di residenza e compilando l’apposito modulo. Una volta iscritti, ricevono il materiale elettorale per corrispondenza o possono votare di persona se rientrano in Svizzera."}]',
 };
 
+for (const key of Object.keys(bodyVotazioniFederaliGiugno2026)) {
+    bodyVotazioniFederaliGiugno2026[key] = bodyVotazioniFederaliGiugno2026[key].replace(
+        /https:\/\/www\.swissinfo\.ch\/ita\/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera\?[^)\s]+/g,
+        'https://www.swissinfo.ch/ita/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera',
+    );
+}
+
 export default bodyVotazioniFederaliGiugno2026;
