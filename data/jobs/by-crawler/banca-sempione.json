@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-10-01T09:16:39.466Z",
+  "assembledAt": "2026-10-01T21:21:02.185Z",
   "jobs": [
     {
       "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
@@ -57,8 +57,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano"
+      "applyUrl": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/"
     },
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
@@ -96,6 +95,7 @@
       "id": "banca-sempione-00a6adcf50af",
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 45000,
       "salaryMax": 76500,
       "currency": "CHF",
@@ -115,8 +115,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano"
+      "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/"
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -142,7 +141,7 @@
         "it": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "en": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "de": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
-        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich"
+        "fr": "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Zurigo)",
@@ -155,6 +154,7 @@
       "previousSlugs": [
         "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
         "globales-vermogensmanagement-privatbanker-zurigo-banca-del-sempione-zurich",
+        "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich",
         "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       ],
       "previousSlugsByLocale": {
@@ -165,6 +165,7 @@
           "globales-vermogensmanagement-privatbanker-zurigo-banca-del-sempione-zurich"
         ],
         "fr": [
+          "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich",
           "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
         ]
       },
@@ -188,8 +189,7 @@
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2"
+      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/"
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -215,7 +215,7 @@
         "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "en": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano",
         "de": "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano"
+        "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Lugano)",
@@ -234,6 +234,7 @@
         "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano-ommoy5",
         "global-wealth-management-privatbanker-banca-del-sempione-lugano",
         "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
+        "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano",
         "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       ],
       "previousSlugsByLocale": {
@@ -252,6 +253,7 @@
         ],
         "fr": [
           "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
+          "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano",
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
@@ -277,8 +279,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker"
+      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/"
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
@@ -319,14 +320,16 @@
         "gestione-della-ricchezza-globale-assistente-bancario-privato-zurigo-banca-del-sempione-zurich",
         "gestione-patrimoniale-globale-assistente-di-private-banking-zurigo-banca-del-sempione-zurich",
         "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich",
-        "banca-del-sempione-private-banking-assistant"
+        "banca-del-sempione-private-banking-assistant",
+        "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-wealth-management-assistente-bancario-privato-zurigo-banca-del-sempione-zurich",
           "gestione-della-ricchezza-globale-assistente-bancario-privato-zurigo-banca-del-sempione-zurich",
           "gestione-patrimoniale-globale-assistente-di-private-banking-zurigo-banca-del-sempione-zurich",
-          "banca-del-sempione-private-banking-assistant"
+          "banca-del-sempione-private-banking-assistant",
+          "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich"
         ],
         "fr": [
           "gestion-de-patrimoine-mondial-assistant-de-banque-privee-zurich-banca-del-sempione-zurich",
@@ -335,6 +338,7 @@
       },
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -352,8 +356,7 @@
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/",
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/private-banking-assistant"
+      "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/"
     }
   ]
 }
