@@ -22255,6 +22255,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'fisioterapisti-petizioni-tariffe-cantoni',
+    category: 'novita',
+    date: '2026-10-01T22:31:50.277Z',
+    image: '/images/blog/fisioterapisti-petizioni-tariffe-cantoni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
