@@ -45299,7 +45299,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-09-24T00:00:00+02:00",
+      "dateModified": "2026-10-01T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -97569,6 +97569,279 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conti-ticino-disavanzo-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rovellasca-vita-transfrontaliera': {
+    title: 'Vivere a Rovellasca e lavorare in Ticino da frontaliere',
+    description: 'Vivere a Rovellasca e lavorare in Ticino: accordo frontalieri, imposta alla fonte, franchigie, contributi AVS e controlli pratici prima del trasferimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, rovellasca, lavorare, accordo',
+    ogTitle: 'Vivere a Rovellasca e lavorare in Ticino da frontaliere',
+    ogDescription: 'La scelta di Rovellasca per lavorare in Ticino richiede di distinguere vecchi e nuovi frontalieri, leggere trattenute AVS, LPP e LAMal e applicare correttamente il credito d\'imposta italiano, senza doppia imposizione.',
+    canonicalPath: '/articoli-frontaliere/rovellasca-vita-transfrontaliera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Rovellasca e lavorare in Ticino da frontaliere",
+      "description": "Vivere a Rovellasca e lavorare in Ticino: accordo frontalieri, imposta alla fonte, franchigie, contributi AVS e controlli pratici prima del trasferimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rovellasca-vita-transfrontaliera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolare transfrontaliero verso il Ticino su una strada di confine"
+      },
+      "datePublished": "2026-09-30T21:58:11+00:00",
+      "dateModified": "2026-09-30T21:58:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rovellasca-vita-transfrontaliera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caronno-ticino-fiscalita': {
+    title: 'Vivere a Caronno Varesino: lavorare in Ticino da frontaliere',
+    description: 'Vivere a Caronno Varesino e lavorare in Ticino: accordo frontalieri, imposta alla fonte, franchigie, AVS, LPP e LAMal da considerare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, caronno, varesino, lavorare',
+    ogTitle: 'Vivere a Caronno Varesino: lavorare in Ticino da frontaliere',
+    ogDescription: 'Una guida pratica per chi valuta Caronno Varesino come base e un lavoro in Ticino: date del Nuovo Accordo Frontalieri, franchigie per vecchi e nuovi frontalieri, trattenute svizzere e contributi da leggere.',
+    canonicalPath: '/articoli-frontaliere/caronno-ticino-fiscalita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Caronno Varesino: lavorare in Ticino da frontaliere",
+      "description": "Vivere a Caronno Varesino e lavorare in Ticino: accordo frontalieri, imposta alla fonte, franchigie, AVS, LPP e LAMal da considerare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caronno-ticino-fiscalita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio ticinese con una strada frequentata da lavoratori frontalieri"
+      },
+      "datePublished": "2026-10-01T04:37:45+00:00",
+      "dateModified": "2026-10-01T04:37:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caronno-ticino-fiscalita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-snl-locarno-magadino-garanzie': {
+    title: 'SNL: 5 posti a rischio, chieste garanzie FART | Frontaliere Ticino',
+    description: 'Assemblea SNL a Locarno il 29/09/2026: 5 dipendenti minacciati da disdetta o stagionalità. Sindacati chiedono transizione ordinata alle FART. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, posti, rischio, chieste, garanzie',
+    ogTitle: 'SNL: 5 posti a rischio, chieste garanzie FART',
+    ogDescription: 'Il 29 settembre 2026 a Locarno, il personale SNL ha approvato una risoluzione contro le misure di disdetta o stagionalità prospettate a 5 collaboratori. SEV, UNIA e OCST chiedono garanzie e una transizione ordinata verso le FART per il servizio',
+    canonicalPath: '/articoli-frontaliere/snl-locarno-magadino-garanzie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SNL: 5 posti a rischio, chieste garanzie FART",
+      "description": "Assemblea SNL a Locarno il 29/09/2026: 5 dipendenti minacciati da disdetta o stagionalità. Sindacati chiedono transizione ordinata alle FART. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/snl-locarno-magadino-garanzie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traghetti SNL ormeggiati al porto di Locarno sul Lago Maggiore."
+      },
+      "datePublished": "2026-10-01T08:23:52+00:00",
+      "dateModified": "2026-10-01T08:23:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/snl-locarno-magadino-garanzie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-01': {
+    title: 'Bollettino del frontaliere – 1 ottobre 2026: a Stühlingen – Schleitheim 36 minuti di coda',
+    description: 'Bollettino frontalieri del 1 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 1 ottobre 2026: a Stühlingen – Schleitheim 36 minuti di coda',
+    ogDescription: 'I numeri del 1 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-01',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 1 ottobre 2026: a Stühlingen – Schleitheim 36 minuti di coda",
+      "description": "Bollettino frontalieri del 1 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-01.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 1 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-01T11:28:29+00:00",
+      "dateModified": "2026-10-01T11:28:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-01/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-deputazione-ticinese-doppia-imposizione': {
+    title: 'Doppia imposizione e trasporti: deputazione ticinese interroga',
+    description: 'La deputazione ticinese interroga il Consiglio federale su doppia imposizione (15% dividendi), A2-A13, linea di Luino e gestione del Lago Maggiore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, doppia, imposizione, trasporti, deputazione',
+    ogTitle: 'Doppia imposizione e trasporti: la mossa ticinese',
+    ogDescription: 'Palmi Panimi e i deputati ticinesi chiedono chiarimenti su fisco e infrastrutture: aliquota dividendi al 15%, rischio rinvio A2-A13 oltre il 2050 e regime ridotto linea Luino.',
+    canonicalPath: '/articoli-frontaliere/deputazione-ticinese-doppia-imposizione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Doppia imposizione e trasporti: deputazione ticinese interroga",
+      "description": "La deputazione ticinese interroga il Consiglio federale su doppia imposizione (15% dividendi), A2-A13, linea di Luino e gestione del Lago Maggiore.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deputazione-ticinese-doppia-imposizione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del distretto di Bellinzona con le torri medievali in primo piano"
+      },
+      "datePublished": "2026-10-01T11:45:47+00:00",
+      "dateModified": "2026-10-01T11:45:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deputazione-ticinese-doppia-imposizione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-estradizione-arresto-como': {
+    title: 'Estradato dalla Svizzera, arrestato a Ponte Chiasso',
+    description: 'Ponte Chiasso: il 18 settembre un 28enne nigeriano è stato consegnato dalla Svizzera e arrestato. Deve scontare quattro anni, nove mesi e 18 giorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, estradato, dalla, arrestato, ponte',
+    ogTitle: 'Estradato dalla Svizzera, arrestato a Ponte Chiasso',
+    ogDescription: 'A Ponte Chiasso la Polizia di frontiera ha arrestato il 18 settembre un cittadino nigeriano di 28 anni, consegnato dalle autorità svizzere a quelle italiane. Il mandato europeo riguarda fatti commessi a Torino e in altre città dal 2017.',
+    canonicalPath: '/articoli-frontaliere/estradizione-arresto-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Estradato dalla Svizzera, arrestato a Ponte Chiasso",
+      "description": "Ponte Chiasso: il 18 settembre un 28enne nigeriano è stato consegnato dalla Svizzera e arrestato. Deve scontare quattro anni, nove mesi e 18 giorni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/estradizione-arresto-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ponte Chiasso, arresto dopo la consegna del cittadino nigeriano dalle autorità svizzere"
+      },
+      "datePublished": "2026-10-01T12:10:19+00:00",
+      "dateModified": "2026-10-01T12:10:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estradizione-arresto-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-m5s-vco-frontalieri-incertezze': {
+    title: 'M5S: ritardi e incertezze per frontalieri dopo tre anni',
+    description: 'Il M5S Vco segnala ritardi e incertezze tre anni dopo l\'accordo Italia-Svizzera: decreto sul Fondo firmato 17 settembre, risorse 1,66 mln (2025) e 21,16 mln',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritardi, incertezze, dopo, anni',
+    ogTitle: 'M5S: ritardi e incertezze per frontalieri dopo tre anni',
+    ogDescription: 'Il Movimento 5 Stelle del Vco evidenzia i ritardi e le incertezze che persistono tre anni dopo l\'accordo Italia-Svizzera sui frontalieri. Tra i temi: il decreto sul Fondo con risorse di 1,66 milioni per il 2025 e 21,16 milioni per il 2026, la mancata',
+    canonicalPath: '/articoli-frontaliere/m5s-vco-frontalieri-incertezze',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "M5S: ritardi e incertezze per frontalieri dopo tre anni",
+      "description": "Il M5S Vco segnala ritardi e incertezze tre anni dopo l'accordo Italia-Svizzera: decreto sul Fondo firmato 17 settembre, risorse 1,66 mln (2025) e 21,16 mln",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/m5s-vco-frontalieri-incertezze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista reale del lago di Lugano con frontalieri che attraversano il confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-10-01T17:04:58+00:00",
+      "dateModified": "2026-10-01T17:04:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/m5s-vco-frontalieri-incertezze/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
