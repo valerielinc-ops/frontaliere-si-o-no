@@ -436,7 +436,7 @@ export async function fetchGa4ClsFallback({
   if (!token) return null;
   const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
   const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
-  if (hasSignificantOtherBucket(rows)) return null;
+  if (hasSignificantOtherBucket(rows) || (rows.coverage?.truncated || rows.coverage?.distributionIncomplete)) return null;
   const byDevice = new Map([
     ['mobile', []],
     ['desktop', []],

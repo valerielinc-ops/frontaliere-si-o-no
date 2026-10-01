@@ -59,12 +59,18 @@ export const TARGET_PAGES = [
   { key: 'simulazione_tasse_nuovi_frontalieri', path: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/', cls: 0.25 },
   { key: 'cerca_lavoro_svizzera', path: '/cerca-lavoro-svizzera/', inp: 500 },
   { key: 'comuni_di_frontiera', path: '/vivere-in-ticino/comuni-di-frontiera/', inp: 500 },
-  { key: 'cerca_lavoro_ticino', path: '/cerca-lavoro-ticino/', cls: 0.1 },
-  { key: 'home', path: '/', cls: 0.1 },
+  { key: 'cerca_lavoro_ticino', path: '/cerca-lavoro-ticino/', cls: 0.1, inp: 200 },
+  { key: 'home', path: '/', cls: 0.1, inp: 200 },
 ];
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_HISTORY_FILE = 'data/cwv-monitor-history.json';
+export const MIN_SAMPLES_PER_METRIC = 30;
+const DEVICES = ['mobile', 'desktop', 'tablet', 'unknown'];
+const normalizeDevice = (value) => {
+  const device = String(value || '').toLowerCase();
+  return DEVICES.includes(device) ? device : 'unknown';
+};
 
 /**
  * Single query per page pulling both metrics at once (halves the API calls
@@ -73,17 +79,20 @@ const DEFAULT_HISTORY_FILE = 'data/cwv-monitor-history.json';
  * of the two `properties.$web_vitals_*_value` columns; ClickHouse's
  * quantile()/count() aggregates ignore the NULL rows for the other column.
  */
-function buildQuery(path, windowDays) {
+export function buildQuery(path, window) {
   return `
     SELECT
       quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS cls_p75,
       countIf(properties.$web_vitals_CLS_value IS NOT NULL) AS cls_n,
       quantile(0.75)(toFloat(properties.$web_vitals_INP_value)) AS inp_p75,
-      countIf(properties.$web_vitals_INP_value IS NOT NULL) AS inp_n
+      countIf(properties.$web_vitals_INP_value IS NOT NULL) AS inp_n,
+      lower(coalesce(properties.$device_type, 'unknown')) AS device
     FROM events
     WHERE event = '$web_vitals'
-      AND timestamp > now() - INTERVAL ${windowDays} DAY
+      AND timestamp >= toDateTime('${window.startDate} 00:00:00', 'UTC')
+      AND timestamp < toDateTime('${window.endDate} 00:00:00', 'UTC') + INTERVAL 1 DAY
       AND properties.$pathname = '${path.replace(/'/g, "\\'")}'
+    GROUP BY device
   `.trim();
 }
 
@@ -161,19 +170,31 @@ function sourceUnavailableResult({ history, file, date, reason, dryRun, liveness
 
 /**
  * Regression = the metric's field p75 was ABOVE `threshold` on the last two
- * recorded weeks (not necessarily consecutive calendar weeks — a run that
- * failed to query is simply never recorded, so "last two" is "last two
- * successful snapshots"). A single bad week is noise; two straight is a
+ * recorded, comparable windows. Missing or under-sampled observations break
+ * the chain; source changes, overlaps and different durations cannot be paired.
+ * A single bad week is noise; two straight is a
  * signal worth a human look. Returns the two data points on regression, or
  * null otherwise.
  */
-export function evaluateConsecutiveRegression(weeks, metricField, threshold) {
-  if (threshold == null) return null;
-  const withValue = weeks.filter((w) => typeof w[metricField] === 'number' && Number.isFinite(w[metricField]));
-  if (withValue.length < 2) return null;
-  const [previous, current] = withValue.slice(-2);
+export function evaluateConsecutiveRegression(weeks, metricField, threshold, device = 'all') {
+  if (threshold == null || weeks.length < 2) return null;
+  // A missing/low-sample week breaks the chain. Never bridge an outage or
+  // compare legacy pooled snapshots with a newly segmented source.
+  const [previous, current] = weeks.slice(-2).map((week) => ({
+    ...week, ...(device === 'all' ? {} : (week.devices?.[device] || { cls_p75: null, cls_n: 0, inp_p75: null, inp_n: 0 })),
+  }));
+  const countField = metricField.replace('_p75', '_n');
+  const valid = (row) => Number.isFinite(row[metricField])
+    && row[countField] >= MIN_SAMPLES_PER_METRIC && !row.sourceUnavailable;
+  if (!valid(previous) || !valid(current)) return null;
+  if (!previous.source || previous.source !== current.source
+      || previous.window?.days !== current.window?.days
+      || previous.window?.lagDays !== current.window?.lagDays
+      || previous.window?.timezone !== current.window?.timezone
+      || !previous.window?.endDate || !current.window?.startDate
+      || previous.window.endDate >= current.window.startDate) return null;
   if (current[metricField] > threshold && previous[metricField] > threshold) {
-    return { previous, current };
+    return { previous, current, device };
   }
   return null;
 }
@@ -185,10 +206,12 @@ const fmtMs = (n) => (typeof n === 'number' ? `${Math.round(n)}ms` : 'n/a');
 export function buildIssueBody(e) {
   return [
       `**Page:** ${e.path}`,
+      `**Device:** ${e.device || 'all'}`,
       `**Metric:** field p75 ${e.metric} (target: ${e.metric === 'CLS' ? `< ${e.threshold}` : `< ${e.threshold}ms`})`,
       `**Last 2 weekly snapshots (both over target):**`,
-      `- ${e.previous.date}: ${e.fmt(e.previous[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])}`,
-      `- ${e.current.date}: ${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])}`,
+      `- ${e.previous.date}: ${e.fmt(e.previous[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} (n=${e.previous[e.metric === 'CLS' ? 'cls_n' : 'inp_n'] ?? 'unknown'})`,
+      `- ${e.current.date}: ${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} (n=${e.current[e.metric === 'CLS' ? 'cls_n' : 'inp_n'] ?? 'unknown'})`,
+      `**Window:** ${e.current.window?.startDate || 'unknown'} — ${e.current.window?.endDate || 'unknown'}; ${e.current.window?.timezone || 'unknown'}`,
       '',
       `_Source: ${e.sourceLabel || 'PostHog `$web_vitals` real-user events'}, scripts/cwv-monitor-check.mjs weekly regression check. History: data/cwv-monitor-history.json._`,
       '',
@@ -223,8 +246,8 @@ export function buildIssueBody(e) {
   ].join('\n');
 }
 
-export function ga4CwvSnapshot(rows, pagePath) {
-  const scoped = rows.filter((row) => row.path === pagePath);
+export function ga4CwvSnapshot(rows, pagePath, device) {
+  const scoped = rows.filter((row) => row.path === pagePath && (!device || normalizeDevice(row.device) === device));
   const metric = (name) => {
     const observations = scoped
       .filter((row) => row.metric === name)
@@ -250,20 +273,24 @@ export async function fetchGa4CwvFallback({
     : await getTokenImpl([GA4_READONLY_SCOPE]);
   if (!token) return null;
   const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
-  const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
-  return hasSignificantOtherBucket(rows) ? null : rows;
+  const rows = await fetchGa4WebVitals({ token, startDate, endDate, paths: TARGET_PAGES.map((page) => page.path), fetchImpl });
+  return hasSignificantOtherBucket(rows) || (rows.coverage?.truncated || rows.coverage?.distributionIncomplete) ? null : rows;
 }
 
 export async function main({
   ga4FallbackImpl = fetchGa4CwvFallback,
   checkLivenessImpl = checkPostHogLiveness,
   runHogQLImpl = runHogQL,
+  now = new Date(),
 } = {}) {
   const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
   const PID = process.env.POSTHOG_PROJECT_ID;
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
-  const WINDOW_DAYS = process.env.CWV_MONITOR_WINDOW_DAYS || '7';
-const MIN_SAMPLES_PER_METRIC = 30;
+  const WINDOW_DAYS = Number(process.env.CWV_MONITOR_WINDOW_DAYS || 7);
+  if (!Number.isInteger(WINDOW_DAYS) || WINDOW_DAYS < 1 || WINDOW_DAYS > 90) {
+    throw new Error('CWV_MONITOR_WINDOW_DAYS must be an integer from 1 to 90');
+  }
+  const dateRange = ga4DateRange(WINDOW_DAYS, 2, now);
   // Stessa classe dell'override di cluster-orphan-queries.mjs: il default e'
   // un file TRACCIATO e la variabile esiste per i test, quindi il percorso
   // risolto va sempre a log e in CI l'override vuole un opt-in esplicito.
@@ -274,7 +301,7 @@ const MIN_SAMPLES_PER_METRIC = 30;
     root: ROOT,
   });
   const history = loadHistory(HISTORY_FILE);
-  const today = new Date().toISOString().slice(0, 10);
+  const today = now.toISOString().slice(0, 10);
   const dryRun = process.argv.includes('--dry-run');
 
   // Vitality guard (scripts/lib/source-liveness.mjs). MIN_SAMPLES_PER_METRIC
@@ -283,12 +310,14 @@ const MIN_SAMPLES_PER_METRIC = 30;
   // of green runs recording n=0. A dead source is not "no regression", it is
   // no measurement. GA4 receives the same `web_vitals` event through
   // Analytics.log(), so it is a faithful alternate source for this monitor.
-  const liveness = await checkLivenessImpl({ windowDays: Number(WINDOW_DAYS) });
+  // The liveness helper evaluates complete UTC days ending yesterday.
+  // Shift its reference by one day so it judges exactly our lag-2 range.
+  const liveness = await checkLivenessImpl({ windowDays: WINDOW_DAYS, now: new Date(now.getTime() - 86400000) });
   let source = 'posthog';
   let ga4Rows = null;
   if (!liveness.alive) {
     try {
-      ga4Rows = await ga4FallbackImpl({ windowDays: Number(WINDOW_DAYS) });
+      ga4Rows = await ga4FallbackImpl({ windowDays: WINDOW_DAYS, now });
       const hasTargetObservation = ga4Rows?.some((row) =>
         TARGET_PAGES.some((page) => page.path === row.path && (row.metric === 'CLS' || row.metric === 'INP')),
       );
@@ -308,6 +337,13 @@ const MIN_SAMPLES_PER_METRIC = 30;
     }
   }
 
+  const measurement = {
+    source,
+    window: { ...dateRange, days: WINDOW_DAYS, lagDays: 2, timezone: source === 'posthog' ? 'UTC' : ga4Rows.coverage?.timeZone || 'unknown' },
+    monitorBuild: process.env.GITHUB_SHA || null,
+    deployedBuild: process.env.CWV_DEPLOYED_BUILD || null,
+    minimumSamples: MIN_SAMPLES_PER_METRIC,
+  };
   const regressions = [];
   let queryFailures = 0;
   const unavailablePages = [];
@@ -316,16 +352,23 @@ const MIN_SAMPLES_PER_METRIC = 30;
     let snapshot;
     try {
       if (source === 'ga4') {
-        snapshot = ga4CwvSnapshot(ga4Rows, page.path);
+        snapshot = { ...ga4CwvSnapshot(ga4Rows, page.path), devices: Object.fromEntries(DEVICES.map((device) => [device, ga4CwvSnapshot(ga4Rows, page.path, device)])) };
       } else {
-        const result = await runHogQLImpl(buildQuery(page.path, WINDOW_DAYS), { apiKey: KEY, projectId: PID, host: HOST });
-        const row = result.results?.[0] || [null, 0, null, 0];
-        snapshot = { cls_p75: row[0], cls_n: row[1], inp_p75: row[2], inp_n: row[3] };
+        const result = await runHogQLImpl(buildQuery(page.path, dateRange), { apiKey: KEY, projectId: PID, host: HOST });
+        const devices = Object.fromEntries((result.results || []).map((row) => [normalizeDevice(row[4]), {
+          cls_p75: row[0], cls_n: Number(row[1]), inp_p75: row[2], inp_n: Number(row[3]),
+        }]));
+        // Quantiles cannot be averaged across devices. Keep legacy pooled
+        // fields null; counts remain useful and devices hold the real p75.
+        snapshot = { cls_p75: null, inp_p75: null,
+          cls_n: Object.values(devices).reduce((n, row) => n + row.cls_n, 0),
+          inp_n: Object.values(devices).reduce((n, row) => n + row.inp_n, 0), devices };
       }
     } catch (e) {
       console.error(`[cwv-monitor-check] ${page.key} (${page.path}) query failed: ${e.message}`);
       queryFailures += 1;
       recordSnapshot(history, page.key, page.path, today, {
+        ...measurement,
         cls_p75: null,
         cls_n: 0,
         inp_p75: null,
@@ -341,10 +384,12 @@ const MIN_SAMPLES_PER_METRIC = 30;
     const hasMetricObservation = (value, count) =>
       value != null && Number.isFinite(Number(value)) && Number(count ?? 0) > 0;
     const hasTargetObservation =
-      (page.cls != null && hasMetricObservation(snapshot.cls_p75, snapshot.cls_n))
-      || (page.inp != null && hasMetricObservation(snapshot.inp_p75, snapshot.inp_n));
+      Object.values(snapshot.devices).some((row) =>
+        (page.cls != null && hasMetricObservation(row.cls_p75, row.cls_n))
+        || (page.inp != null && hasMetricObservation(row.inp_p75, row.inp_n)));
     if (!hasTargetObservation) {
       recordSnapshot(history, page.key, page.path, today, {
+        ...measurement,
         cls_p75: null,
         cls_n: 0,
         inp_p75: null,
@@ -356,27 +401,24 @@ const MIN_SAMPLES_PER_METRIC = 30;
       continue;
     }
 
+    Object.assign(snapshot, measurement);
+    for (const row of Object.values(snapshot.devices)) {
+      row.cls_status = hasMetricObservation(row.cls_p75, row.cls_n) && row.cls_n >= MIN_SAMPLES_PER_METRIC ? 'measured' : 'insufficient-samples';
+      row.inp_status = hasMetricObservation(row.inp_p75, row.inp_n) && row.inp_n >= MIN_SAMPLES_PER_METRIC ? 'measured' : 'insufficient-samples';
+    }
     recordSnapshot(history, page.key, page.path, today, snapshot);
     const weeks = history.pages[page.key].weeks;
 
-    // Sample floor (review PR #4324): a p75 computed on a handful of events
-    // is noise — do not call a regression (nor open an issue) on it.
-    const clsSampled = (snapshot.cls_n ?? 0) >= MIN_SAMPLES_PER_METRIC;
-    const inpSampled = (snapshot.inp_n ?? 0) >= MIN_SAMPLES_PER_METRIC;
-
-    const clsReg = clsSampled ? evaluateConsecutiveRegression(weeks, 'cls_p75', page.cls) : null;
-    if (clsReg) {
-      regressions.push({
-        key: page.key, path: page.path, metric: 'CLS', unit: '',
-        fmt: fmtCls, threshold: page.cls, ...clsReg,
-      });
-    }
-    const inpReg = inpSampled ? evaluateConsecutiveRegression(weeks, 'inp_p75', page.inp) : null;
-    if (inpReg) {
-      regressions.push({
-        key: page.key, path: page.path, metric: 'INP', unit: 'ms',
-        fmt: fmtMs, threshold: page.inp, ...inpReg,
-      });
+    for (const device of DEVICES) {
+      for (const [metric, field, threshold, fmt, unit] of [
+        ['CLS', 'cls_p75', page.cls, fmtCls, ''],
+        ['INP', 'inp_p75', page.inp, fmtMs, 'ms'],
+      ]) {
+        const regression = evaluateConsecutiveRegression(weeks, field, threshold, device);
+        if (regression) regressions.push({
+          key: `${page.key}:${device}`, path: page.path, metric, unit, fmt, threshold, ...regression,
+        });
+      }
     }
   }
 
@@ -420,7 +462,7 @@ const MIN_SAMPLES_PER_METRIC = 30;
     // Title is stable across weeks (no values/dates) so a still-unresolved
     // regression dedupes onto the SAME issue via createGithubIssue's
     // title-prefix match instead of opening a fresh one every week.
-    titleFor: (e) => `CWV Regression (${e.metric}): ${e.path}`,
+    titleFor: (e) => `CWV Regression (${e.metric}, ${e.device}): ${e.path}`,
     bodyFor: (entry) => buildIssueBody({ ...entry, sourceLabel: source === 'ga4' ? 'GA4 `web_vitals` real-user events (fallback — PostHog non misurabile)' : undefined }),
   });
   return { status: 'ok', date: today, source, regressions, synced };
@@ -429,7 +471,7 @@ const MIN_SAMPLES_PER_METRIC = 30;
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main()/TARGET_PAGES/etc. here never fires a real PostHog/gh
 // call — same guard as scripts/posthog-error-issue-sync.mjs / dmarc-monitor.mjs.
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = await main();
   if (result?.synced) {
     console.log(`[cwv-monitor-check] synced ${result.synced.filter(Boolean).length}/${result.synced.length} issue(s)`);

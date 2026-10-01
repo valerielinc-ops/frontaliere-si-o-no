@@ -30,6 +30,8 @@ const {
   recordSourceUnavailableSnapshots,
   evaluateConsecutiveRegression,
   main,
+  buildQuery,
+  ga4CwvSnapshot,
 } = await import('../scripts/cwv-monitor-check.mjs');
 
 describe('TARGET_PAGES', () => {
@@ -56,56 +58,46 @@ describe('TARGET_PAGES', () => {
 });
 
 describe('evaluateConsecutiveRegression', () => {
-  it('returns null when threshold is undefined for that metric', () => {
-    const weeks = [{ date: '2026-07-01', cls_p75: 2 }, { date: '2026-07-08', cls_p75: 2 }];
-    expect(evaluateConsecutiveRegression(weeks, 'cls_p75', undefined)).toBeNull();
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - 2);
+  const day = (ago: number) => new Date(end.getTime() - ago * 86400000).toISOString().slice(0, 10);
+  const week = (ago: number, value: number | null = 0.5, count = 40) => ({
+    date: day(ago), source: 'posthog', cls_p75: value, cls_n: count,
+    window: { startDate: day(ago + 6), endDate: day(ago), days: 7, lagDays: 2, timezone: 'UTC' },
+    devices: { mobile: { cls_p75: value, cls_n: count } },
   });
 
-  it('returns null with fewer than 2 recorded weeks', () => {
-    const weeks = [{ date: '2026-07-08', cls_p75: 2 }];
-    expect(evaluateConsecutiveRegression(weeks, 'cls_p75', 0.25)).toBeNull();
+  it('requires two sampled observations above an explicit target', () => {
+    expect(evaluateConsecutiveRegression([week(7), week(0)], 'cls_p75', undefined)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(0)], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(7, 0.1), week(0)], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(7), week(0, 0.1)], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(7), week(0)], 'cls_p75', 0.25, 'mobile')).toMatchObject({ device: 'mobile' });
   });
 
-  it('returns null when only the latest week is over threshold (one bad week is noise)', () => {
-    const weeks = [
-      { date: '2026-07-01', cls_p75: 0.1 },
-      { date: '2026-07-08', cls_p75: 0.5 },
+  it('never bridges an outage, low-sample period or unknown legacy provenance', () => {
+    expect(evaluateConsecutiveRegression([week(14), week(7, null), week(0)], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(7, 0.5, 29), week(0)], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([{ cls_p75: 1, cls_n: 40 }, week(0)], 'cls_p75', 0.25)).toBeNull();
+  });
+
+  it('rejects source changes, different window lengths and overlapping reruns', () => {
+    expect(evaluateConsecutiveRegression([week(7), { ...week(0), source: 'ga4' }], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(7), { ...week(0), window: { ...week(0).window, days: 30 } }], 'cls_p75', 0.25)).toBeNull();
+    expect(evaluateConsecutiveRegression([week(3), week(0)], 'cls_p75', 0.25)).toBeNull();
+  });
+
+  it('does not let healthy desktop samples mask mobile', () => {
+    const rows = [
+      { path: '/', device: 'mobile', metric: 'INP', value: 1500, count: 30 },
+      { path: '/', device: 'desktop', metric: 'INP', value: 100, count: 1000 },
     ];
-    expect(evaluateConsecutiveRegression(weeks, 'cls_p75', 0.25)).toBeNull();
-  });
-
-  it('returns the two data points when the last two recorded weeks are BOTH over threshold', () => {
-    const weeks = [
-      { date: '2026-06-24', cls_p75: 0.1 }, // ignored — only the last two matter
-      { date: '2026-07-01', cls_p75: 0.4 },
-      { date: '2026-07-08', cls_p75: 0.5 },
-    ];
-    const result = evaluateConsecutiveRegression(weeks, 'cls_p75', 0.25);
-    expect(result).not.toBeNull();
-    expect(result!.previous.date).toBe('2026-07-01');
-    expect(result!.current.date).toBe('2026-07-08');
-  });
-
-  it('skips weeks where the metric failed to record (null) when picking the "last two"', () => {
-    const weeks = [
-      { date: '2026-07-01', cls_p75: 0.4 },
-      { date: '2026-07-08', cls_p75: null },
-      { date: '2026-07-15', cls_p75: 0.5 },
-    ];
-    // Only two real data points exist (0.4, 0.5) — both over 0.25 → regression.
-    const result = evaluateConsecutiveRegression(weeks, 'cls_p75', 0.25);
-    expect(result).not.toBeNull();
-    expect(result!.previous.date).toBe('2026-07-01');
-    expect(result!.current.date).toBe('2026-07-15');
-  });
-
-  it('recovers (no regression) once the latest week drops back under threshold', () => {
-    const weeks = [
-      { date: '2026-07-01', cls_p75: 0.5 },
-      { date: '2026-07-08', cls_p75: 0.5 },
-      { date: '2026-07-15', cls_p75: 0.1 },
-    ];
-    expect(evaluateConsecutiveRegression(weeks, 'cls_p75', 0.25)).toBeNull();
+    expect(ga4CwvSnapshot(rows, '/', 'mobile')).toMatchObject({ inp_p75: 1500, inp_n: 30 });
+    expect(ga4CwvSnapshot(rows, '/', 'desktop')).toMatchObject({ inp_p75: 100, inp_n: 1000 });
+    const query = buildQuery('/', { startDate: day(6), endDate: day(0) });
+    expect(query).toContain('GROUP BY device');
+    expect(query).toContain(day(6));
+    expect(query).not.toContain('now()');
   });
 });
 
@@ -193,7 +185,14 @@ describe('main()', () => {
       ok: true,
       json: async () => ({ results: [[1.5, 50, 100, 40]] }), // cls_p75=1.5 (way over every threshold)
     });
-    await main({ ga4FallbackImpl: async () => [] });
+    const now = new Date();
+    const checkLivenessImpl = vi.fn(async () => ({ alive: true }));
+    const result = await main({ now, checkLivenessImpl, ga4FallbackImpl: async () => [] });
+    expect(checkLivenessImpl).toHaveBeenCalledWith({ windowDays: 7, now: new Date(now.getTime() - 86400000) });
+    expect(result.status).toBe('ok');
+    const snapshot = loadHistory('/tmp/cwv-monitor-check-test-history.json').pages.home.weeks.at(-1);
+    expect(snapshot).toMatchObject({ source: 'posthog', minimumSamples: 30, window: { days: 7, lagDays: 2, timezone: 'UTC' } });
+    expect(snapshot.devices.unknown).toMatchObject({ cls_n: 50, cls_status: 'measured' });
     expect(execFileSync).not.toHaveBeenCalled();
   });
 
