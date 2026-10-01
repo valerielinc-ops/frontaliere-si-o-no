@@ -13,18 +13,10 @@
  * portal asks). The documents travel as signed links the extension downloads.
  */
 
+import { LETTER_FILE_LABEL, safeFileStem } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
-
-/** "Maria Luisa Rossi" → "Maria_Luisa_Rossi", for the file names the employer sees. */
-export function fileStem(name) {
-  return text(name, 120).normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'Candidato';
-}
-
-// The cover letter's file name in the application's language (as the runner names it).
-const LETTER_FILE_LABEL = { it: 'Lettera_di_presentazione', de: 'Anschreiben', fr: 'Lettre_de_motivation', en: 'Cover_letter' };
 
 /**
  * @param {{orderId:string, order?:object, draft?:object, flow?:object,
@@ -50,7 +42,8 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     })
     .slice(0, 60);
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field?.key, field?.value]));
-  const stem = fileStem(identity.name);
+  // The file names the runner gives them (lib/submit.mjs).
+  const stem = safeFileStem(identity.name);
   const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
   return {
     version: 1,
@@ -89,7 +82,7 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     },
     documents: {
       cv: documents.cv?.url ? { url: documents.cv.url, fileName: `CV_${stem}.${documents.cv.extension || 'pdf'}` } : null,
-      coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: `${LETTER_FILE_LABEL[language]}_${stem}.pdf` } : null,
+      coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: `${safeFileStem(LETTER_FILE_LABEL[language])}_${stem}.pdf` } : null,
     },
   };
 }

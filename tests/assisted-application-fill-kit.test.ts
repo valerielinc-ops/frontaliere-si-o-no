@@ -6,7 +6,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { buildFillKit, fileStem } = await import('../functions/src/assistedApplicationFillKit.js');
+const { buildFillKit } = await import('../functions/src/assistedApplicationFillKit.js');
 const { handleAutomationAdminAction, recordOwnerSubmission } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { transition } = await import('../functions/src/assistedApplicationFlow.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
@@ -75,9 +75,9 @@ describe('fill kit', () => {
     expect(kit.texts).toMatchObject({ coverLetter: 'Sehr geehrte Damen und Herren', motivationShort: 'Motiviert' });
     expect(kit.documents).toEqual({
       cv: { url: 'https://signed/cv', fileName: 'CV_Maria_Luisa_Rossi.pdf' },
-      coverLetter: { url: 'https://signed/letter', fileName: 'Anschreiben_Maria_Luisa_Rossi.pdf' },
+      // The names the runner gives them (lib/submit.mjs): in German the letter is a «Motivationsschreiben».
+      coverLetter: { url: 'https://signed/letter', fileName: 'Motivationsschreiben_Maria_Luisa_Rossi.pdf' },
     });
-    expect(fileStem('Zoë Müller-Brändli')).toBe('Zoe_Muller_Brandli');
   });
 });
 
