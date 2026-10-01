@@ -40,6 +40,7 @@ describe('AdSense network slot × device report', () => {
   });
   it('rejects truncated, wrong-domain and currency-less results', () => {
     expect(() => parseManualSlotReport({ ...fixture(), totalMatchedRows: '2' }, options)).toThrow(/truncated/);
+    expect(() => parseManualSlotReport({ ...fixture(), totalMatchedRows: undefined }, options)).toThrow(/completeness unknown/);
     expect(() => parseManualSlotReport(fixture({ DOMAIN_NAME: 'other.example' }), options)).toThrow(/another domain/);
     const report = fixture(); report.headers.forEach((header) => { delete header.currencyCode; });
     expect(() => parseManualSlotReport(report, options)).toThrow(/currency/);

@@ -12,22 +12,14 @@
 //        meaningful diagnostic (e.g. 30 days × N channels = ~30..500 rows
 //        instead of the previous "= number of active channels" misleader).
 //     2. Lets future code surface daily revenue trends without re-querying.
-//     3. Triggers the API's pagination path (nextPageToken) which we now
-//        exhaust with a defensive cap.
+//     3. Checks the response against totalMatchedRows so a truncated report
+//        cannot masquerade as a complete population.
 //   The orchestrator still distributes `totalRevenue` per article URL via
 //   GA4/PostHog/GSC pageview share — that's the only mechanism AdSense's
 //   reporting model permits.
 
 import { windowDates } from './safe.mjs';
-
-// Defensive cap — AdSense in practice returns far fewer rows than this for
-// our window/dimensions, but we never want an infinite loop on a malformed
-// nextPageToken from the API.
-const MAX_ROWS = 100_000;
-
-// Page size hint to the API. AdSense honours up to 50,000 per call but
-// we keep this low-ish for predictable memory + clearer logging at scale.
-const PAGE_SIZE = 5000;
+import { ADSENSE_REPORT_MAX_ROWS, adsenseReportCoverage } from '../adsense-report-coverage.mjs';
 
 // Default no-op logger; tests inject a vi.fn() to assert log shape, and the
 // production caller picks up the real console.log via the default below.
@@ -48,11 +40,8 @@ async function refreshAccessToken({ clientId, clientSecret, refreshToken, fetchI
   return (await res.json()).access_token;
 }
 
-/**
- * Fetch one page of the AdSense report. Returns the raw JSON body so the
- * caller can inspect both `rows` and `nextPageToken`.
- */
-async function fetchReportPage({ acct, params, token, fetchImpl }) {
+/** Fetch the single reports.generate response, including totalMatchedRows. */
+async function fetchReport({ acct, params, token, fetchImpl }) {
   const url = `https://adsense.googleapis.com/v2/${acct}/reports:generate?${params}`;
   const res = await fetchImpl(url, { headers: { Authorization: `Bearer ${token}` } });
   if (!res.ok) throw new Error(`adsense report ${res.status}: ${await res.text()}`);
@@ -73,16 +62,16 @@ function buildBaseParams({ start, end }) {
   // so each (day, channel) pair is a distinct row.
   params.append('dimensions', 'DATE');
   params.append('dimensions', 'URL_CHANNEL_NAME');
-  params.append('limit', String(PAGE_SIZE));
+  params.append('limit', String(ADSENSE_REPORT_MAX_ROWS));
   return params;
 }
 
 /**
- * Pull the URL-channel breakdown for the article cluster, paginated.
+ * Pull the URL-channel breakdown for the article cluster in one report.
  * Returns a stable object shape that the orchestrator and tests rely on:
  *   {
- *     rows: number,                  // actual row count returned (post-pagination)
- *     pages: number,                 // how many API pages we walked
+ *     rows: number,                  // actual row count returned
+ *     pages: number,                 // number of report responses (one)
  *     totalRevenue: number,          // hint-matched revenue (or all-channels fallback)
  *     hintMatchedRevenue: number,
  *     totalAcrossAllChannels: number,
@@ -120,48 +109,14 @@ export async function fetchAdsenseChannelRevenue({
   const { start, end } = windowDates(windowDays);
   log(`[adsense] querying ${acct} window=${start}..${end} (${windowDays}d) dims=DATE,URL_CHANNEL_NAME`);
 
-  // Walk every page of results until nextPageToken is empty or we hit MAX_ROWS.
-  /** @type {Array<{ cells?: Array<{ value?: string }> }>} */
-  const allRows = [];
-  let pages = 0;
-  let nextPageToken = '';
-  let truncated = false;
-  const currencies = new Set();
-  let missingCurrency = false;
-  const warnings = new Set();
-
-  // Defensive: bound the loop by an explicit page cap that mirrors MAX_ROWS,
-  // so a buggy server that always returns the same token can't spin forever.
-  const MAX_PAGES = Math.ceil(MAX_ROWS / PAGE_SIZE) + 5;
-
-  while (pages < MAX_PAGES) {
-    const params = buildBaseParams({ start, end });
-    if (nextPageToken) params.append('pageToken', nextPageToken);
-    const data = await fetchReportPage({ acct, params, token, fetchImpl });
-    pages += 1;
-    const currency = data?.headers?.find((header) => header.name === 'ESTIMATED_EARNINGS')?.currencyCode;
-    if (currency) currencies.add(currency); else missingCurrency = true;
-    if (currencies.size > 1) throw new Error('adsense report contains inconsistent currencies across pages');
-    for (const warning of data.warnings || []) warnings.add(warning);
-    const pageRows = Array.isArray(data?.rows) ? data.rows : [];
-    if (allRows.length + pageRows.length > MAX_ROWS) {
-      // Take only the slice that fits, then stop.
-      const remaining = MAX_ROWS - allRows.length;
-      if (remaining > 0) allRows.push(...pageRows.slice(0, remaining));
-      truncated = true;
-      log(`[adsense] page ${pages}: ${pageRows.length} rows (truncated at MAX_ROWS=${MAX_ROWS})`);
-      break;
-    }
-    allRows.push(...pageRows);
-    log(`[adsense] page ${pages}: ${pageRows.length} rows (total so far: ${allRows.length})`);
-    nextPageToken = typeof data?.nextPageToken === 'string' ? data.nextPageToken : '';
-    if (!nextPageToken) break;
-  }
-
-  if (pages === MAX_PAGES && nextPageToken) {
-    truncated = true;
-    log(`[adsense] WARN — reached MAX_PAGES=${MAX_PAGES} with token still present; truncating`);
-  }
+  const data = await fetchReport({ acct, params: buildBaseParams({ start, end }), token, fetchImpl });
+  const allRows = Array.isArray(data?.rows) ? data.rows : [];
+  const pages = 1; // Retained for existing report consumers.
+  const coverage = adsenseReportCoverage(data);
+  const { truncated } = coverage;
+  const currencyCode = data?.headers?.find((header) => header.name === 'ESTIMATED_EARNINGS')?.currencyCode || null;
+  const warnings = Array.isArray(data?.warnings) ? data.warnings.map(String) : [];
+  if (!coverage.complete) log(`[adsense] incomplete report: ${coverage.returnedRows}/${coverage.totalMatchedRows ?? 'unknown'} rows`);
 
   // Aggregate: per-channel revenue (summed across all DATE rows).
   /** @type {Map<string, number>} */
@@ -203,8 +158,6 @@ export async function fetchAdsenseChannelRevenue({
   const matchedHints = matchedChannelNames.length > 0 && hintMatchedRevenue > 0;
   const totalRevenue = matchedHints ? hintMatchedRevenue : totalAcrossAllChannels;
 
-  const currencyCode = missingCurrency ? null : [...currencies][0] || null;
-
   log(
     `[adsense] aggregated ${allRows.length} rows in ${pages} page(s); ` +
       `${perChannel.size} channels; matched=${matchedChannelNames.length} ` +
@@ -216,9 +169,9 @@ export async function fetchAdsenseChannelRevenue({
     rows: allRows.length,
     pages,
     currencyCode,
-    warnings: [...warnings],
+    warnings,
     revenueScope: matchedHints ? 'matched_url_channels' : 'all_url_channels_fallback',
-    coverage: { complete: !truncated && droppedMalformed === 0, returnedRows: allRows.length },
+    coverage: { ...coverage, complete: coverage.complete && droppedMalformed === 0 },
     truncated,
     droppedMalformed,
     totalRevenue: Number(totalRevenue.toFixed(2)),

@@ -149,7 +149,7 @@ jobs:
           # The script's own exit-code contract (see its header comment):
           # 0 ok, 3 partial (one or more feeds — posthog/ga4/gsc —
           # incomplete, observed promotions still written to disk), 2 fatal
-          # (all three errored without any observations). Capture rc without `set -e` aborting the
+          # (all three errored, even if partial observations were saved). Capture rc without `set -e` aborting the
           # step (same pattern as cf-otto-route-monitor.yml), because a
           # single feed's transient network blip (issue #5568: "gsc error:
           # page: fetch failed") is expected hourly noise, not a workflow

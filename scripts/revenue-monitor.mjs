@@ -45,6 +45,7 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
 import { fetchManualSlotReport, renderManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
+import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
 import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
@@ -244,6 +245,7 @@ async function fetchAdSenseReport(token) {
   let authGateImpressions = null;
   if (auRes.ok) {
     const au = await auRes.json();
+    requireCompleteAdsenseReport(au, 'AdSense ad-unit report');
     const gateRow = (au.rows || []).find((r) => {
       const name = r.cells?.[0]?.value?.toLowerCase() || '';
       return name.includes('authgate') || name.includes('auth_gate') || name.includes('jobdetail_auth');

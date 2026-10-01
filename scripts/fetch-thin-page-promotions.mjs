@@ -41,7 +41,7 @@
 //   0  ok, no-op (no hits, files untouched)
 //   0  ok, urls promoted (active.json updated)
 //   3  partial — feeds incomplete (observed promotions still committed)
-//   2  all three feeds errored with no observations available
+//   2  all three feeds errored (any partial observations are saved first)
 // Incomplete feeds never expire previously promoted URLs.
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -217,7 +217,7 @@ export function rollupActive(prev, freshUrls, activeWindowDays, complete = true)
 
 // ─── Main ────────────────────────────────────────────────────────────
 
-async function main() {
+export async function main() {
   const args = parseArgs(process.argv.slice(2));
   console.log(`[thin-promotions] window=${args.windowHours}h active=${args.activeWindowDays}d`);
 
@@ -243,7 +243,7 @@ async function main() {
   const fresh = new Set([...ph, ...ga, ...gsc]);
   if (errors.length === 3 && fresh.size === 0) {
     console.error('[thin-promotions] all three feeds errored — leaving active.json unchanged');
-    process.exit(2);
+    return 2;
   }
 
   const prev = await readActive();
@@ -292,9 +292,11 @@ async function main() {
     console.log(`[thin-promotions] active.json unchanged (${urls.length} URLs)`);
   }
 
-  if (errors.length > 0) process.exit(3);
+  // Saving useful observations does not downgrade an all-feeds failure.
+  if (errors.length === 3) return 2;
+  return errors.length > 0 ? 3 : 0;
 }
 
 if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
-  main().catch((e) => { console.error('[thin-promotions] fatal:', e); process.exit(2); });
+  main().then((code) => { process.exitCode = code; }).catch((e) => { console.error('[thin-promotions] fatal:', e); process.exitCode = 2; });
 }

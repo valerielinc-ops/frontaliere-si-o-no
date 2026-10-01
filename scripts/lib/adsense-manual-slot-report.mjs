@@ -2,13 +2,13 @@
  * per-template revenue estimates must never be mixed into this population.
  * Reference: https://developers.google.com/adsense/management/reference/rest/v2/Metric */
 import { isSettledDate } from './analytics-settled-window.mjs';
+import { ADSENSE_REPORT_MAX_ROWS, requireCompleteAdsenseReport } from './adsense-report-coverage.mjs';
 import { AD_SLOTS } from '../../services/adsenseSlots.ts';
 
 export const MANUAL_SLOT_DIMENSIONS = ['AD_UNIT_ID', 'AD_UNIT_NAME', 'PLATFORM_TYPE_CODE', 'DOMAIN_NAME'];
 export const MANUAL_SLOT_METRICS = ['AD_REQUESTS', 'MATCHED_AD_REQUESTS', 'IMPRESSIONS', 'ACTIVE_VIEW_MEASURABILITY', 'ACTIVE_VIEW_VIEWABILITY', 'ESTIMATED_EARNINGS'];
 export const MANUAL_SLOT_SOURCE = 'Google AdSense Management API v2 accounts.reports.generate';
 const METRIC_DOC = 'https://developers.google.com/adsense/management/reference/rest/v2/Metric';
-const MAX_ROWS = 100_000;
 
 function isoDate(value) {
   if (Number.isNaN(Date.parse(`${value}T00:00:00Z`))) return false;
@@ -17,7 +17,7 @@ function isoDate(value) {
 export function manualSlotReportParams({ start, end, domain = 'frontaliereticino.ch' }) {
   if (!isoDate(start) || !isoDate(end) || start > end) throw new Error('Invalid AdSense report date window');
   if (!/^[a-z0-9.-]+$/.test(domain)) throw new Error('Invalid AdSense report domain');
-  const params = new URLSearchParams({ dateRange: 'CUSTOM', reportingTimeZone: 'ACCOUNT_TIME_ZONE', languageCode: 'en', limit: String(MAX_ROWS) });
+  const params = new URLSearchParams({ dateRange: 'CUSTOM', reportingTimeZone: 'ACCOUNT_TIME_ZONE', languageCode: 'en', limit: String(ADSENSE_REPORT_MAX_ROWS) });
   for (const [prefix, date] of [['startDate', start], ['endDate', end]]) {
     const [year, month, day] = date.split('-');
     params.set(`${prefix}.year`, year); params.set(`${prefix}.month`, String(Number(month))); params.set(`${prefix}.day`, String(Number(day)));
@@ -59,8 +59,7 @@ export function parseManualSlotReport(report, { account, start, end, domain = 'f
   const currencyCode = headers.find((header) => header.name === 'ESTIMATED_EARNINGS')?.currencyCode || report.currencyCode || null;
   if (!currencyCode) throw new Error('AdSense manual report missing earnings currency');
   const rawRows = report.rows || [];
-  const matchedRows = numeric(report.totalMatchedRows);
-  if (matchedRows === null || matchedRows !== rawRows.length || rawRows.length >= MAX_ROWS) throw new Error('AdSense manual report truncated or completeness unknown');
+  const { totalMatchedRows: matchedRows } = requireCompleteAdsenseReport(report, 'AdSense manual report');
   const aliases = slotAliases(registry);
   const rows = rawRows.map((row) => {
     const read = (name) => row.cells?.[indices.get(name)]?.value;

@@ -41,7 +41,7 @@ function makeFetchSequence(reportPages: any[]) {
     if (url.includes('reports:generate')) {
       const page = reportPages[i++];
       if (!page) throw new Error(`unexpected extra report call (i=${i})`);
-      return jsonRes(page);
+      return jsonRes({ totalMatchedRows: String(page.rows?.length || 0), ...page });
     }
     throw new Error(`unexpected fetch ${url}`);
   });
@@ -73,7 +73,6 @@ describe('fetchAdsenseChannelRevenue', () => {
           row('2026-04-11', 'articoli-frontaliere', '2.25'),
           row('2026-04-10', 'home-banner', '0.80'),
         ],
-        // no nextPageToken => single page
       },
     ]);
 
@@ -83,6 +82,7 @@ describe('fetchAdsenseChannelRevenue', () => {
     expect(result.rows).toBe(3);
     expect(result.pages).toBe(1);
     expect(result.truncated).toBe(false);
+    expect(result.coverage).toMatchObject({ complete: true, returnedRows: 3, totalMatchedRows: 3 });
     expect(result.droppedMalformed).toBe(0);
     // matchedHints fires because 'articoli-frontaliere' contains 'articoli'
     expect(result.matchedHints).toBe(true);
@@ -100,39 +100,27 @@ describe('fetchAdsenseChannelRevenue', () => {
     expect(allLogs).toContain('[adsense]');
   });
 
-  it('exhausts nextPageToken across multiple pages', async () => {
-    const { fetchImpl, calls } = makeFetchSequence([
-      {
-        rows: [row('2026-04-10', 'articoli', '1.00')],
-        nextPageToken: 'tok-2',
-      },
-      {
-        rows: [row('2026-04-11', 'articoli', '2.00')],
-        nextPageToken: 'tok-3',
-      },
-      {
-        rows: [row('2026-04-12', 'articoli', '3.00')],
-        // no nextPageToken => stop
-      },
-    ]);
-
-    const result = await fetchAdsenseChannelRevenue({
-      windowDays: 30,
-      fetchImpl,
-      log: () => {},
+  it('detects truncation from totalMatchedRows without inventing token pagination', async () => {
+    const { fetchImpl, calls } = makeFetchSequence([{
+      totalMatchedRows: '2',
+      rows: [row('2026-04-10', 'articoli', '1.00')],
+    }]);
+    const result = await fetchAdsenseChannelRevenue({ windowDays: 30, fetchImpl, log: () => {} });
+    expect(result).toMatchObject({
+      rows: 1, pages: 1, truncated: true, totalRevenue: 1,
+      coverage: { complete: false, returnedRows: 1, totalMatchedRows: 2 },
     });
+    const reportCalls = calls.filter((call) => call.url.includes('reports:generate'));
+    expect(reportCalls).toHaveLength(1);
+    const params = new URL(reportCalls[0].url).searchParams;
+    expect(params.get('limit')).toBe('100000');
+    expect(params.has('pageToken')).toBe(false);
+  });
 
-    expect(result.pages).toBe(3);
-    expect(result.rows).toBe(3);
-    expect(result.totalAcrossAllChannels).toBe(6);
-    expect(result.perChannel).toEqual({ articoli: 6 });
-
-    // Verify the second + third report calls included pageToken=...
-    const reportCalls = calls.filter((c) => c.url.includes('reports:generate'));
-    expect(reportCalls).toHaveLength(3);
-    expect(reportCalls[0]!.url).not.toContain('pageToken=');
-    expect(reportCalls[1]!.url).toContain('pageToken=tok-2');
-    expect(reportCalls[2]!.url).toContain('pageToken=tok-3');
+  it.each([undefined, '', 'unknown', '-1', '1.5', '9007199254740993'])('keeps unknown or invalid totalMatchedRows %s incomplete', async (totalMatchedRows) => {
+    const { fetchImpl } = makeFetchSequence([{ totalMatchedRows, rows: [row('2026-04-10', 'blog', '2.00')] }]);
+    const result = await fetchAdsenseChannelRevenue({ fetchImpl, log: () => {} });
+    expect(result.coverage).toMatchObject({ complete: false, returnedRows: 1, totalMatchedRows: null });
   });
 
   it('handles an empty response gracefully', async () => {
@@ -177,8 +165,9 @@ describe('fetchAdsenseChannelRevenue', () => {
       log: () => {},
     });
 
-    expect(result.rows).toBe(5); // raw row count (post-pagination)
+    expect(result.rows).toBe(5); // raw row count
     expect(result.droppedMalformed).toBe(3);
+    expect(result.coverage.complete).toBe(false);
     expect(result.totalAcrossAllChannels).toBe(4);
     expect(result.perChannel).toEqual({ articoli: 4 });
   });
