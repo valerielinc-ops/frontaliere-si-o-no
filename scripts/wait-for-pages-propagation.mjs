@@ -115,7 +115,10 @@ function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-async function fetchLiveBuildId(url) {
+// Shared with the post-deploy side-effect guard. Both callers must use the
+// same cache-busted GET semantics so a fresh identity check cannot accidentally
+// read an edge-cached marker while the propagation gate reads the origin.
+export async function fetchLiveBuildId(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), PER_REQUEST_TIMEOUT_MS);
   const cacheBustUrl = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
