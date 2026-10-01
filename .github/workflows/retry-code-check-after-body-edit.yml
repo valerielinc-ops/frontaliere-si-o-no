@@ -92,7 +92,9 @@ jobs:
             const nativeRevokeCapabilityAvailable = () => trustedMutationToken().length > 0;
             async function dispatchNativeAutoMerge(number) {
               if (!trustedMutationToken()) {
-                throw new Error('token trusted per il dispatch del native auto-merge assente');
+                core.warning(`Token trusted per il dispatch del native auto-merge assente per PR #${number}; `
+                  + 'marker completato conservato in attesa del reconciler schedulato.');
+                return false;
               }
               await github.rest.actions.createWorkflowDispatch({
                 ...repo,
@@ -101,6 +103,7 @@ jobs:
                 inputs: { pr_number: String(number) },
               });
               core.info(`Native auto-merge rivalutazione dispatchata per PR #${number}.`);
+              return true;
             }
             const trustedAutomationAuthor = (user) => (user?.type === 'Bot'
               && TRUSTED_AUTOMATION_BOT_RE.test(String(user.login || '')))
@@ -276,7 +279,7 @@ jobs:
                 nativeMergeStatus: 'pending',
               };
               const completed = await persistMarker(number, completedState, existing);
-              await dispatchNativeAutoMerge(number);
+              if (!await dispatchNativeAutoMerge(number)) return;
               await persistMarker(number, {
                 ...completedState,
                 nativeMergeStatus: 'dispatched',
@@ -743,7 +746,7 @@ jobs:
                 if (existing.state.status === 'completed'
                     && existing.state.nativeMergeStatus !== 'dispatched') {
                   try {
-                    await dispatchNativeAutoMerge(number);
+                    if (!await dispatchNativeAutoMerge(number)) continue;
                     await persistMarker(number, {
                       ...existing.state,
                       nativeMergeStatus: 'dispatched',
