@@ -19,6 +19,22 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  // Giro di prova 2026-10-01 on JOIN: the CV drop zone had no label, only "file:_r_3_:input",
+  // so the planner skipped it and the run handed the application over.
+  it('names an unlabelled drop zone by its heading and zone text, not by a generated id', () => {
+    const page = extract(`
+      <h1>Carica il tuo CV</h1>
+      <div class="dropzone"><div><span>Carica file</span><p>Fare clic per sfogliare o trascinare qui un file.</p>
+        <input type="file" id="file:_r_3_:input" accept=".pdf"></div></div>
+      <label for="city">Località</label><input id="city" name="city">
+      <input name="nickname">`);
+    const file = page.fields.find((field: any) => field.kind === 'file');
+    expect(file.label).toBe('Carica il tuo CV · Carica file');
+    // A real label or a meaningful name is kept as before.
+    expect(page.fields.find((field: any) => field.name === 'city').label).toBe('Località');
+    expect(page.fields.find((field: any) => field.name === 'nickname').label).toBe('nickname');
+  });
+
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {
     const page = extract(`
       <fieldset>

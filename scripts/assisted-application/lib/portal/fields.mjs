@@ -15,6 +15,9 @@ export function extractFieldsInPage() {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
+  // Ids a framework generates, which say nothing to the planner: React's
+  // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
+  const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
   const visible = (element) => {
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
@@ -49,7 +52,36 @@ export function extractFieldsInPage() {
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
     const text = container ? clean((container.innerText || '').split('\n')[0]) : '';
-    return text || clean(element.getAttribute('name') || element.id);
+    if (text) return text;
+    const technical = clean(element.getAttribute('name') || element.id);
+    if (technical && !GENERATED_ID_RE.test(technical)) return technical;
+    // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
+    // the heading the control sits under and the text of its zone say what it
+    // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
+    return [headingBefore(element), zoneText(element)].filter(Boolean).join(' · ') || technical;
+  };
+  // Node.DOCUMENT_POSITION_FOLLOWING, without relying on the global Node.
+  const FOLLOWING = 4;
+  const headingBefore = (element) => {
+    let found = '';
+    for (const heading of document.querySelectorAll('h1, h2, h3, h4, legend')) {
+      // eslint-disable-next-line no-bitwise
+      if (heading.compareDocumentPosition(element) & FOLLOWING) found = clean(heading.innerText || heading.textContent);
+    }
+    return found;
+  };
+  // The first words of the control's zone: its first non-empty text node
+  // (NodeFilter.SHOW_TEXT = 4), whatever the layout.
+  const zoneText = (element) => {
+    let node = element.parentElement;
+    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+      const walker = document.createTreeWalker(node, 4);
+      for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+        const value = clean(text.textContent);
+        if (value) return value.slice(0, 80);
+      }
+    }
+    return '';
   };
   const groupQuestion = (element) => {
     const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
