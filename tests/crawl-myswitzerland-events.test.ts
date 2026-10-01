@@ -138,6 +138,7 @@ describe('extractIndexedEventPrice', () => {
     ['Preis: CHF 10 für Erwachsene und Kinder.', 10, 'CHF'],
     ['Prix: CHF 10 pour les adultes et les enfants.', 10, 'CHF'],
     ['Prezzo: CHF 10 per adulti e bambini.', 10, 'CHF'],
+    ['Price: CHF 10, adults and children.', 10, 'CHF'],
   ])('recovers an explicit indexed monetary tariff without ancillary amounts: %s', (content, amount, currency) => {
     expect(extractIndexedEventPrice(content)).toEqual({ amount, currency, isFree: false });
   });
@@ -165,6 +166,12 @@ describe('extractIndexedEventPrice', () => {
     'Preis: CHF 59 für die Erwachsenen',
     'Prix: CHF 59 pour les adultes',
     'Prezzo: CHF 59 per gli adulti',
+    'Price: CHF 59.00, adults',
+    'Preis: CHF 59; Erwachsene',
+    'Prix: CHF 59 — adultes',
+    'Prezzo: CHF 59: adulti',
+    'Price: CHF 59 "for adults"',
+    'Price: CHF 59 [adults]',
     'Price: CHF 10 for adults and children + admission fee',
     'Price: CHF 10 for adults and children CHF 5',
     'Price: CHF 10 deposit; total price is available on request.',

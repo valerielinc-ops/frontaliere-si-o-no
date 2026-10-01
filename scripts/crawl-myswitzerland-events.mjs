@@ -401,6 +401,7 @@ export function extractIndexedEventPrice(content) {
   if (tariffs.length !== 1) return undefined;
   const tariff = tariffs[0];
   const qualifier = content.slice(tariff.index + tariff[0].length)
+    .replace(/^[\s,;:.!?–—\-"'“”‘’«»\[\]{}]+/u, '')
     .replace(/^\s*(?:(?:for\s+)?(?:the\s+)?adults?\s+and\s+(?:the\s+)?children|(?:für\s+)?(?:die\s+)?erwachsenen?\s+und\s+(?:die\s+)?kinder|(?:pour\s+)?(?:les\s+)?adultes\s+et\s+(?:les\s+)?enfants|(?:per\s+)?(?:(?:gli|i)\s+)?adulti\s+e\s+(?:i\s+)?bambini)\b/iu, '');
   if (/^\s*(?:[+/%(]|(?:CHF|EUR|€)\s*\d|(?:deposit|supplement|surcharge|anzahlung|zuschlag|acompte|caparra)\b|(?:(?:for|für|pour|per)\s+(?:(?:the|les|le|gli|i|die|den)\s+)?)?(?:members?|adults?|adult[ei]|adultes?|erwachsenen?|children|kids|students?|kinder|mitglieder|bambini|soci|enfants|membres|reduced|discounted|ermässigt|ridotto|réduit)\b|(?:mit|avec|con)\s+(?:gästekarte|carte|carta)\b)/iu.test(qualifier)) return undefined;
   const price = parseEventPriceText(tariff[1]);
