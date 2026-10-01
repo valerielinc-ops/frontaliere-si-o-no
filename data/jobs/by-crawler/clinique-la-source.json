@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-la-source",
-  "assembledAt": "2026-09-30T23:33:36.053Z",
+  "assembledAt": "2026-10-01T09:12:51.165Z",
   "jobs": [
     {
       "id": "clinique-la-source-71b89c53db19",
@@ -34,7 +34,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:30.445Z",
+      "crawledAt": "2026-10-01T09:12:43.215Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=783",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:29.926Z",
+      "crawledAt": "2026-10-01T09:12:42.661Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=779",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:29.395Z",
+      "crawledAt": "2026-10-01T09:12:42.121Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=789",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:28.828Z",
+      "crawledAt": "2026-10-01T09:12:41.606Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=781",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:28.309Z",
+      "crawledAt": "2026-10-01T09:12:41.074Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:27.796Z",
+      "crawledAt": "2026-10-01T09:12:40.540Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -529,7 +529,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:27.286Z",
+      "crawledAt": "2026-10-01T09:12:39.992Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -594,7 +594,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=782",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:26.774Z",
+      "crawledAt": "2026-10-01T09:12:39.456Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -672,7 +672,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=788",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:26.260Z",
+      "crawledAt": "2026-10-01T09:12:38.914Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -737,7 +737,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=780",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T23:33:25.742Z",
+      "crawledAt": "2026-10-01T09:12:38.353Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -857,83 +857,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:53:50.738Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "clinique-la-source-dc6deef237e2",
-      "slug": "assistente-di-governo-clinique-de-la-source-lausanne",
-      "slugByLocale": {
-        "it": "assistente-di-governo-clinique-de-la-source-lausanne",
-        "en": "governing-assistant-clinique-de-la-source-lausanne",
-        "de": "assistent-e-gouvernant-e-clinique-de-la-source-lausanne",
-        "fr": "assistant-e-gouvernant-e-clinique-la-source-lausanne"
-      },
-      "company": "Clinique de La Source",
-      "companyKey": "clinique-la-source",
-      "companyDomain": "lasource.ch",
-      "title": "Assistant·e Gouvernant·e",
-      "titleByLocale": {
-        "it": "Assistente Governante",
-        "en": "Assistant Housekeeper",
-        "de": "Assistent/in Hauswirtschaft",
-        "fr": "Assistant·e Gouvernant·e"
-      },
-      "description": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n Nous recherchons un·e\nAssistant·e Gouvernant·e à 90%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.778 / Type de contrat : Contrat à Durée Indéterminée à 90% / Horaires : 2 horaires selon planning 6h45-15h39 et 8h00-16h55 + un week-end sur deux / Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nAprès 14 années d’engagement au sein de notre institution, notre Assistante gouvernante quittera prochainement ses fonctions. Afin d’assurer la continuité du Service maison, nous recherchons un·e Assistant·e gouvernant·e pour rejoindre notre équipe. En binôme avec une seconde Assistante gouvernante et sous la responsabilité de la Gouvernante générale, vous contribuez au confort des patient·es en veillant à la propreté, à l’harmonie et à la qualité des chambres et des espaces publics.\n\nQue serez-vous amené·e à faire ?\n\n• Organiser, coordonner et superviser les activités quotidiennes du Service maison, notamment les ouvertures et fermetures du service\n\n• Planifier et suivre les activités de nettoyage journalières, mensuelles et annuelles\n\n• Contrôler quotidiennement la propreté, la présentation et l’aménagement des chambres, des espaces publics et des locaux de la Clinique\n\n• Encadrer, accompagner, former et motiver les équipes afin de garantir une qualité de service irréprochable\n\n• Veiller au respect des procédures internes ainsi que des normes d’hygiène, de sécurité et de qualité\n\n• Anticiper et superviser les besoins en produits d’entretien, linge et produits d’accueil\n\n• Identifier et signaler les anomalies ou dysfonctionnements aux services concernés et assurer le suivi des interventions nécessaires\n\n• Gérer les objets trouvés et assurer les démarches auprès des patient·es et des collaborateur·trices concerné·es\n\n• Participer à la mise en œuvre de projets et contribuer à l’amélioration continue du fonctionnement du service\n\n• Collaborer avec les différents partenaires internes, notamment pour les travaux de couture, l’entretien des équipements et la décoration des espaces de la Clinique\n\n• Assurer un rôle de relais auprès de la Gouvernante générale et la remplacer lors de ses absences, en prenant en charge les responsabilités qui lui sont confiées\n\nAvec qui allez-vous travailler ?\n\nLe Service maison de la Clinique compte 60 collaborateur·trices multiculturel·les, dynamiques et polyvalent·es qui sont aux petits soins pour les patient·es. La qualité du service et surtout l’empathie font toute la différence. Le mot d’ordre de l’équipe : tout est dans le détail !\n\nA ce poste vous rapporterez à Nathalie Sauder, Gouvernante générale depuis 24 ans. Elle attache une importance toute particulière à encadrer et motiver ses équipes avec l'objectif qu'elles s'épanouissent dans leur travail et puissent donner le meilleur d’elles-mêmes auprès des patient·es.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• CFC de spécialiste en hôtellerie ou titre jugé équivalent\n\n• Expérience d’au moins 3 ans dans une fonction similaire, idéalement avec des responsabilités d’encadrement\n\n• Expérience dans l’accompagnement, la formation et la motivation d’une équipe\n\n• Aisance avec les outils informatiques usuels\n\n• Excellent sens de l’organisation et rigueur dans la gestion des priorités\n\n• Sens du détail et exigence constante en matière de qualité et de service\n\n• Leadership bienveillant, avec une capacité à fédérer et maintenir les équipes engagées, attentives et motivées au quotidien\n\n• Autonomie, dynamisme et esprit d’initiative\n\n• Diplomatie, aisance relationnelle et capacité à gérer des situations variées avec tact\n\n• Excellente présentation et sens aigu du service\n\nVos atouts :\n\n• Connaissance du secteur médico-social ou d’un environnement de soins\n\n• Diplôme d’une école hôtelière\n\n• Connaissance du logiciel PolyPoint\n\n• Sensibilité pour la décoration et intérêt pour la mise en valeur des espaces, notamment lors des événements saisonniers\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud\n\n• Un service attentif aux souhaits des patient·es et des méthodes et outils de nettoyage modernes\n\n• L’ambiance d’une Clinique à dimension humaine avec les défis d’une institution de santé aux activités variées orientée vers le futur\n\n• Des conditions d’engagement et des prestations sociales attractives\n\n• Parce que nos valeurs définissent qui nous sommes : Unique - Respectueuse - Innovatrice - Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous avez encore des questions sur le poste ? N’hésitez pas à contacter Madame Nathalie Sauder, Gouvernante générale au 021 641 34 52.\n\n• Vous vous reconnaissez dans cette offre ?  Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nLes dossiers reçus par email et par courrier ne seront pas traités. Les candidatures aux offres d'emploi se font exclusivement via notre plateforme en ligne. Si vous rencontrez des difficultés techniques lors de votre postulation, n'hésitez pas à appeler au 021 641 35 74 ; nous nous ferons un plaisir de vous aider.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne.",
-      "descriptionByLocale": {
-        "it": "Descrizione La Clinique de La Source è una struttura di cura acuta multidisciplinare unica nel suo genere . È di proprietà della Fondazione La Source , un'istituzione indipendente e privata senza scopo di lucro che gestisce anche l’Institut et Haute École de la Santé La Source. L’indipendenza conferitagli da questo status gli consente di investire continuamente in termini umani e tecnologici per garantire ai suoi pazienti la migliore assistenza possibile.\n• Cerchiamo un/a Assistente/a Governante al 90% Informazioni chiave sulla posizione - Riferimento: CLS/RH/2026.778 - Tipo di contratto: Contratto a tempo indeterminato al 90% - Orari: 2 orari secondo il programma 6:45 - 15:39 e 8:00 - 16:55 + un fine settimana su due - Data di ingresso: non appena troviamo la persona giusta - Posizione: nel cuore di Losanna (M2 fermata \"Riponne\" o Bus 2, 3 o 21 fermata \"Beaulieu-Jomini\") Perché abbiamo bisogno di te? Dopo 14 anni di impegno all'interno della nostra istituzione, la nostra assistente governante lascerà presto le sue funzioni. Al fine di garantire la continuità del Servizio Domestico, stiamo cercando un/a Assistente governante per entrare a far parte del nostro team. In coppia con una seconda assistente governante e sotto la responsabilità della Governante generale, contribuisci al comfort dei pazienti garantendo la pulizia, l’armonia e la qualità delle camere e degli spazi pubblici. Che - L’atmosfera di una Clinica a dimensione umana con le sfide di un'istituzione sanitaria dalle varie attività orientata al futuro - Condizioni di impegno e prestazioni sociali attraenti - Perché i nostri valori definiscono chi siamo: Unico - Rispettoso - Innovativo - Responsabile Scopri l’universo Source - Scopri il nostro video: Il Segreto della Source Quali sono i prossimi passi? - Hai ancora domande sul lavoro? Non esitate a contattare la Signora Nathalie Sauder, Governante generale al numero 021 641 34 52. - Ti riconosci in questa offerta? Sabine Sadowski , Specialista HR Recruitment, è lieta di ricevere la tua candidatura completa (lettera di presentazione, CV, certificati e diplomi) - La posizione non è adatta a te ma sei interessato a un'altra opportunità presso la Clinica? Clicca su Applica per iscriverti alla nostra piattaforma per ricevere le nostre prossime offerte via e-mail. Informazioni importanti! Le pratiche ricevute via e-mail e posta non verranno elaborate. Le candidature alle offerte di lavoro vengono effettuate esclusivamente tramite la nostra piattaforma online. In caso di difficoltà tecniche durante la candidatura, non esitare a chiamare il numero 021 641 35 74; saremo lieti di aiutarti. Applicare Clinique de La Source — La più grande clinica privata del Canton Vaud, Losanna.",
-        "en": "Description The La Source Clinic is a unique, multidisciplinary acute care facility. It belongs to the La Source Foundation, an independent, private, non-profit institution that also oversees the La Source Institute and the High School of Health. L, independence that this status confers on it, allows it to invest continuously in human and technological aspects to ensure that its patients are given the best possible care.\n\nWe are looking for 90% of our assistant staff.\n\nKey job information - Reference : CLS/RH/2026.778 - Contract type : Contract with Indeterminate duration 90% - Schedule : 2 hours according to plan 6:45-15h39 and 8:00-16h55 + one weekend on two - Date of entry : as soon as we find the right person - Location : in the heart of Lausanne (M2 stop \"Riponne\" or Bus 2, 3 or 21 stop \"Beaulieu-Jomini\")\n\nAfter 14 years of engagement with our institution, our Assistant Governor will soon be leaving the office. In order to ensure continuity of the Service House, we are looking for a Governing Assistant to join our team. In a binôme with a second Assistant Governor and under the responsibility of the General Gov'ernment, you contribute to the comfort of the patients by ensuring the cleanliness, harmony and quality of the rooms and public spaces.\n\nWhat will you be required to do?\n\n- Organize, coordinate and supervise the daily activities of the Home Service, including the openings and closures of the service - Plan and monitor daily, monthly and annual cleaning activities - Monitor daily the cleanliness, presentation and layout of the rooms, public spaces and the premises of the Clinic - Supervise, accompany, train and motivate the teams to ensure an unimpaired quality of service - Ensure compliance with internal procedures, hygiene, safety and quality standards - Anticipate and supervise the\n\n- To assist in the implementation of projects and contribute to the continuous improvement of the operation of the service - To collaborate with the various internal partners, in particular for sewing, maintenance of equipment and decoration of the areas of the Clinic - To ensure that the services concerned are properly equipped with the necessary equipment, equipment and equipment, and to ensure that the necessary equipment is kept in place.\n\nthe General Government and replace it during its absences, taking over the responsibilities entrusted to it\n\nWho are you going to work with? The Clinic's Home Service has 60 multicultural, dynamic and versatile collaborators who are in the care of patients. The quality of the service and, above all, empathy make all the difference. The word, order of the team: everything is in detail!\n\nIn this position you will bring back Nathalie Sauder, Go vuvantante generale for 24 years. She attaches a special importance to mentor and motivate her teams with the objective that they will flourish in their work and can give the best of themselves to the patients.\n\nWhat, are we expecting you?\n\nThe essentials: - SWC of hotel specialist or title deemed equivalent - Experience of,at least 3 years in a similar function, ideally with responsibilities of, supervision - Experience in, accompaniment, training and motivation of, a team - Ability with the usual IT tools - Excellent sense of, organization and rigour in the management of priorities - Meaning of detail and constant requirement in terms of quality and service - Benevolent leadership, with a capacity to federate and maintain committed, attentive and motivated teams in daily life -\n\nAuto-Sieve, dynamism and spirit of initiative - directness, relational ease and ability to manage diverse situations with tact - excellent presentation and high sense of service\n\nYour assets: - Knowledge of the medical-social sector or a care environment - Diploma from,a hotel school - Knowledge of the PolyPoint software - Sensitivity to decoration and interest in the presentation of spaces, especially during seasonal events\n\nWhy choose the Clinic of La Source? - Join the largest private clinic in the canton of Vaud - A service attentive to the wishes of patients and modern cleaning methods and tools - L, atmosphere of a Clinic with a human dimension with the challenges of a health institution with varied activities oriented towards the future - Conditions of, engagement and social benefits - Because our values define who we are:\n\nDiscover the universe Source - Discover our video: The Secret of The Source\n\nWhat are the next steps? - Do you still have any questions about the position? Please do not hesitate to contact Ms Nathalie Sauder, Go general informant at 021 641 34. - Do you recognise yourself in this offer? Sabine Sadowski, HR Specialist Recruitment, is looking forward to receiving your complete application (motivation letter, CV, certificates and diplomas) - The position does not match you but you are interested in another opportunity at the Clinic? Click Apply to register on our platform to receive our next offers by email.\n\nImportant information! The files received by email and mail will not be processed. Applications for job offers are made exclusively via our online platform. If you encounter technical difficulties during your application, do not hesitate to call 021 641 35 74; we will be happy to help you.\n\nApply\n\nClinique de La Source — The largest private clinic in the canton of Vaud, Lausanne.",
-        "de": "Beschreibung Die La Source Clinic ist eine einzigartige, multidisziplinäre Akutpflegeeinrichtung. Sie gehört der La Source Foundation an, einer unabhängigen, privaten, gemeinnützigen Einrichtung, die auch das La Source Institute und die High School of Health betreut. L, Unabhängigkeit, die ihr dieser Status verleiht, ermöglicht es ihr, kontinuierlich in menschliche und technologische Aspekte zu investieren, um sicherzustellen, dass ihre Patienten bestmöglich versorgt werden.\n\nWir suchen 90% unserer Mitarbeiter.\n\nHauptjobinformationen - Referenz : CLS/RH/2026.778 - Vertragstyp : Vertrag mit Indeterminate Dauer 90% - Zeitplan : 2 Stunden nach Plan 6:45-15h39 und 8:00-16h55 + ein Wochenende an zwei - Datum des Eintrags : sobald wir die richtige Person finden - Ort : im Herzen von Lausanne (M2 Haltestelle \"Riponne\" oder Bus 2, 3 oder 21 Haltestelle \"Beaulieu-Jomini\")\n\nNach 14 Jahren des Engagements mit unserer Institution wird unser stellvertretender Gouverneur bald das Amt verlassen. Um die Kontinuität des Service House zu gewährleisten, suchen wir einen leitenden Assistenten, der sich unserem Team anschließt. In einem Binôme mit einem zweiten stellvertretenden Gouverneur und unter der Verantwortung des Generals Gov'ernment tragen Sie zum Komfort der Patienten bei, indem Sie die Sauberkeit, Harmonie und Qualität der Zimmer und öffentlichen Räume sicherstellen.\n\nWas werden Sie tun müssen?\n\n- Organisation, Koordinierung und Überwachung der täglichen Aktivitäten des Home Service, einschließlich der Öffnungen und Schließungen des Dienstes - Planen und überwachen Sie die täglichen, monatlichen und jährlichen Reinigungsaktivitäten - Überwachung der Sauberkeit, Präsentation und Layout der Zimmer, öffentlichen Räume und die Räumlichkeiten der Klinik - Überwachung, begleiten, trainieren und motivieren die Teams, um eine ungelöste Qualität der Dienstleistung sicherzustellen - Gewährleistung der Einhaltung der internen Verfahren, Hygiene, Sicherheit und Qualitätsstandards - Antizipieren und überwachen die\n\n- Unterstützung bei der Durchführung der Projekte und Beitrag zur kontinuierlichen Verbesserung des Betriebs des Dienstes - Zusammenarbeit mit den verschiedenen internen Partnern, insbesondere für das Nähen, Wartung der Ausrüstung und Dekoration der Bereiche der Klinik - Gewährleistung, dass die betreffenden Dienstleistungen ordnungsgemäß mit den erforderlichen Ausrüstung, Ausrüstung und Ausrüstung ausgestattet sind, und um sicherzustellen, dass die notwendige Ausrüstung vorhanden ist.\n\ndie Regierung und ersetzt sie während ihrer Abwesenheit, indem sie die ihr übertragenen Aufgaben übernimmt\n\nMit wem arbeiten Sie zusammen? Der Home Service der Klinik hat 60 multikulturelle, dynamische und vielseitige Mitarbeiter, die sich in der Patientenbetreuung befinden. Die Qualität des Dienstes und vor allem die Einfühlungskraft machen den Unterschied. Das Wort, die Ordnung des Teams: Alles ist im Detail!\n\nIn dieser Position bringen Sie Nathalie Sauder, Go vuvantante generale, 24 Jahre lang zurück. Sie legt besonderen Wert auf Mentorin und motiviert ihre Teams mit dem Ziel, dass sie in ihrer Arbeit florieren und den Patienten das Beste aus sich geben können.\n\nWas, erwarten wir Sie?\n\nDas Wesentliche: - SWC des Hotelspezialisten oder Titels als gleichwertig angesehen - Erfahrung von mindestens 3 Jahren in einer ähnlichen Funktion, idealerweise mit Verantwortlichkeiten von, Aufsicht - Erfahrung in, Begleitung, Ausbildung und Motivation von, einem Team - Fähigkeit mit den üblichen IT-Tools - Ausgezeichnetes Gefühl, Organisation und Strenge in der Verwaltung von Prioritäten - Bedeutung von Detail und konstanten Anforderungen in Bezug auf Qualität und Service - Wohlwollende Führung, mit der Fähigkeit, engagierte, aufmerksame und motivierte Teams im täglichen Leben zu bündeln und zu halten -\n\nAuto-Sieve, Dynamik und Eigeninitiative - Direktheit, relationale Leichtigkeit und Fähigkeit, vielfältige Situationen mit Takt zu bewältigen - ausgezeichnete Präsentation und hohes Servicegefühl\n\nIhr Vermögen: - Kenntnisse des medizinisch-sozialen Sektors oder einer Pflegeumgebung - Diplom von, einer Hotelschule - Kenntnisse der PolyPoint Software - Sensitivität zur Dekoration und Interesse an der Präsentation von Räumen, insbesondere während saisonaler Veranstaltungen\n\nWarum die Klinik von La Source wählen? - Nehmen Sie teil an der größten Privatklinik des Kantons Waadt - Ein Service, der auf die Wünsche der Patienten und moderne Reinigungsmethoden und Werkzeuge aufmerksam ist - L, Atmosphäre einer Klinik mit menschlicher Dimension mit den Herausforderungen einer Gesundheitseinrichtung mit vielfältigen Aktivitäten ausgerichtet auf die Zukunft - Bedingungen, Engagement und soziale Vorteile - Weil unsere Werte definieren, wer wir sind:\n\nEntdecken Sie das Universum Quelle - Entdecken Sie unser Video: Das Geheimnis der Quelle\n\nWas sind die nächsten Schritte? - Haben Sie noch Fragen zu der Stelle? Bitte zögern Sie nicht, Frau Nathalie Sauder, Generalinformantin unter 021 641 34, zu kontaktieren. - Erkennen Sie sich in diesem Angebot wieder? Sabine Sadowski, Personalreferentin Recruitment, freut sich auf Ihre vollständige Bewerbung (Motivationsschreiben, Lebenslauf, Zeugnisse und Diplome) - Die Stelle passt nicht zu Ihnen, aber Sie interessieren sich für eine weitere Möglichkeit in der Klinik? Klicken Sie auf Melden Sie sich auf unserer Plattform an, um unsere nächsten Angebote per E-Mail zu erhalten.\n\nWichtiger Hinweis! Die per E-Mail und Post erhaltenen Dateien werden nicht bearbeitet. Bewerbungen für Stellenangebote erfolgen ausschließlich über unsere Online-Plattform. Sollten Sie während Ihrer Bewerbung technische Schwierigkeiten haben, rufen Sie bitte 021 641 35 74 an; wir helfen Ihnen gerne weiter.\n\nAnwenden\n\nClinique de La Source — Die größte Privatklinik im Kanton Waadt, Lausanne.",
-        "fr": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\nNous recherchons un·e\nAssistant·e Gouvernant·e à 90%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.778 / Type de contrat : Contrat à Durée Indéterminée à 90% / Horaires : 2 horaires selon planning 6h45-15h39 et 8h00-16h55 + un week-end sur deux / Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nAprès 14 années d’engagement au sein de notre institution, notre Assistante gouvernante quittera prochainement ses fonctions. Afin d’assurer la continuité du Service maison, nous recherchons un·e Assistant·e gouvernant·e pour rejoindre notre équipe. En binôme avec une seconde Assistante gouvernante et sous la responsabilité de la Gouvernante générale, vous contribuez au confort des patient·es en veillant à la propreté, à l’harmonie et à la qualité des chambres et des espaces publics.\n\nQue serez-vous amené·e à faire ?\n\n• Organiser, coordonner et superviser les activités quotidiennes du Service maison, notamment les ouvertures et fermetures du service\n\n• Planifier et suivre les activités de nettoyage journalières, mensuelles et annuelles\n\n• Contrôler quotidiennement la propreté, la présentation et l’aménagement des chambres, des espaces publics et des locaux de la Clinique\n\n• Encadrer, accompagner, former et motiver les équipes afin de garantir une qualité de service irréprochable\n\n• Veiller au respect des procédures internes ainsi que des normes d’hygiène, de sécurité et de qualité\n\n• Anticiper et superviser les besoins en produits d’entretien, linge et produits d’accueil\n\n• Identifier et signaler les anomalies ou dysfonctionnements aux services concernés et assurer le suivi des interventions nécessaires\n\n• Gérer les objets trouvés et assurer les démarches auprès des patient·es et des collaborateur·trices concerné·es\n\n• Participer à la mise en œuvre de projets et contribuer à l’amélioration continue du fonctionnement du service\n\n• Collaborer avec les différents partenaires internes, notamment pour les travaux de couture, l’entretien des équipements et la décoration des espaces de la Clinique\n\n• Assurer un rôle de relais auprès de la Gouvernante générale et la remplacer lors de ses absences, en prenant en charge les responsabilités qui lui sont confiées\n\nAvec qui allez-vous travailler ?\n\nLe Service maison de la Clinique compte 60 collaborateur·trices multiculturel·les, dynamiques et polyvalent·es qui sont aux petits soins pour les patient·es. La qualité du service et surtout l’empathie font toute la différence. Le mot d’ordre de l’équipe : tout est dans le détail !\n\nA ce poste vous rapporterez à Nathalie Sauder, Gouvernante générale depuis 24 ans. Elle attache une importance toute particulière à encadrer et motiver ses équipes avec l'objectif qu'elles s'épanouissent dans leur travail et puissent donner le meilleur d’elles-mêmes auprès des patient·es.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• CFC de spécialiste en hôtellerie ou titre jugé équivalent\n\n• Expérience d’au moins 3 ans dans une fonction similaire, idéalement avec des responsabilités d’encadrement\n\n• Expérience dans l’accompagnement, la formation et la motivation d’une équipe\n\n• Aisance avec les outils informatiques usuels\n\n• Excellent sens de l’organisation et rigueur dans la gestion des priorités\n\n• Sens du détail et exigence constante en matière de qualité et de service\n\n• Leadership bienveillant, avec une capacité à fédérer et maintenir les équipes engagées, attentives et motivées au quotidien\n\n• Autonomie, dynamisme et esprit d’initiative\n\n• Diplomatie, aisance relationnelle et capacité à gérer des situations variées avec tact\n\n• Excellente présentation et sens aigu du service\n\nVos atouts :\n\n• Connaissance du secteur médico-social ou d’un environnement de soins\n\n• Diplôme d’une école hôtelière\n\n• Connaissance du logiciel PolyPoint\n\n• Sensibilité pour la décoration et intérêt pour la mise en valeur des espaces, notamment lors des événements saisonniers\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud\n\n• Un service attentif aux souhaits des patient·es et des méthodes et outils de nettoyage modernes\n\n• L’ambiance d’une Clinique à dimension humaine avec les défis d’une institution de santé aux activités variées orientée vers le futur\n\n• Des conditions d’engagement et des prestations sociales attractives\n\n• Parce que nos valeurs définissent qui nous sommes : Unique - Respectueuse - Innovatrice - Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous avez encore des questions sur le poste ? N’hésitez pas à contacter Madame Nathalie Sauder, Gouvernante générale au 021 641 34 52.\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nLes dossiers reçus par email et par courrier ne seront pas traités. Les candidatures aux offres d'emploi se font exclusivement via notre plateforme en ligne. Si vous rencontrez des difficultés techniques lors de votre postulation, n'hésitez pas à appeler au 021 641 35 74 ; nous nous ferons un plaisir de vous aider.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://emploi.lasource.ch/?page=advertisement_display&id=778",
-      "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:43.920Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1004",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://emploi.lasource.ch/?page=advertisement_display&id=778",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "careerSiteUrl": "https://emploi.lasource.ch/",
-      "previousSlugs": [
-        "assistant-e-gouvernant-e-clinique-la-source-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-gouvernant-e-clinique-la-source-lausanne"
-        ],
-        "en": [
-          "assistant-e-gouvernant-e-clinique-la-source-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:32:50.781Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
