@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Thu, 01 Oct 2026 22:31:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:55:16 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,89 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>KillSec: drei Festnahmen und 110 Terabyte gestohlene Daten</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/killsec-ransomware-daten/</link>
+      <description><![CDATA[Drei Festnahmen, acht Durchsuchungen und fünf beschlagnahmte Server: Die Operation gegen KillSec sicherte mindestens 110 Terabyte gestohlener Daten.]]></description>
+      <content:encoded><![CDATA[## Kurz gesagt
+- Drei Festnahmen und acht Durchsuchungen in vier Ländern
+- Mindestens 110 Terabyte gestohlener Daten wiederhergestellt
+- Angriffe auf Schweizer Unternehmen zwischen Oktober 2023 und Juni 2025
+
+## Wichtige Fakten
+- Gruppe → KillSec (oder KillSecurity)
+- Betrieb → Demontage einer IT-Struktur
+- Festnahmen → drei
+- Durchsuchungen → acht
+- Länder → Spanien, Griechenland, das Vereinigte Königreich und Rumänien
+- Beschlagnahmte Server → fünf
+- Daten, die → mindestens 110 Terabyte wiederhergestellt werden
+- → Angriffe auf mehrere Schweizer Unternehmen zwischen Oktober 2023 und Juni 2025
+
+Am Mittwoch ermöglichte eine große internationale Operation es, die IT-Struktur der KillSec-Ransomware-Gruppe, auch bekannt als KillSecurity, zu demontieren. Zu den Zahlen zählen drei Festnahmen, acht Durchsuchungen in Spanien, Griechenland, dem Vereinigten Königreich und Rumänien, die Beschlagnahmung von fünf Servern sowie die Bergung von mindestens 110 Terabyte gestohlener Daten.
+
+### Die Schweizer Umfrage
+
+Dies wurde vom Bundesamt für Polizei (fedpol) und dem Generalstaatsanwalt der Schweiz (OAG) bekanntgegeben. Seit dem Sommer 2025 führen die beiden Behörden eine Untersuchung einer Reihe von Angriffen auf verschiedene Schweizer Unternehmen durch, die zwischen Oktober 2023 und Juni 2025 stattfanden. Die Strafverfahren betreffen Datendiebstahl, missbräuchlichen Zugriff auf ein Computersystem, Datenschäden und Erpressung.
+
+### Wie Ransomware funktioniert
+
+Der in der Quelle beschriebene Mechanismus folgt einer präzisen Abfolge. Die Täter dringen unsachgemäß in das Computersystem des Opfers ein, kopieren und extrahieren die Daten und verschlüsseln dann die Server. Erst dann fordern sie ein Lösegeld im Austausch für den Entschlüsselungsschlüssel; die Anfrage erfolgt oft in Kryptowährungen.
+
+### Doppelte Erpressung
+
+KillSec praktiziert die sogenannte doppelte Erpressung. Nach der Verschlüsselung der Server drohen die Autoren, wenn das Unternehmen nicht zahlt, mit der Veröffentlichung der Daten im Darknet. Die Weigerung kann beispielsweise von einem vor dem Diebstahl erstellten Backup abhängen: Die Wiederherstellung der Daten beseitigt, gemäß den beschriebenen Dynamiken, nicht die Gefahr, die bereits kopierte Informationen zu verbreiten.
+
+Fedpol und die OAG beteiligten sich an den von Europol und Eurojust koordinierten Untersuchungen zusammen mit sieben weiteren Ländern. Die am Donnerstag veröffentlichte Mitteilung unterstreicht die Notwendigkeit der Zusammenarbeit zwischen nationalen und internationalen Partnern: "Angesichts der internationalen Natur der Cyberkriminalität ist eine enge Zusammenarbeit zwischen den verschiedenen Partnern, sowohl national als auch international, unerlässlich", heißt es in einer am Donnerstag veröffentlichten Erklärung.
+## Das Risiko endet nicht mit der Verschlüsselung
+
+Für ein Schweizer Unternehmen trennt die beschriebene Reihenfolge zwei Probleme. Serververschlüsselung bezieht sich auf den Zugriff auf Systeme; zuerst wird kopiert und extrahiert und die Androhung einer Veröffentlichung geschaffen. Das von der Quelle zitierte Backup kann daher die Lösegeldverweigerung erklären, löscht aber nicht automatisch den zweiten Hebel der Gruppe. Es ist der Unterschied zwischen der Wiederherstellung eigener Systeme und der Verhinderung der Verbreitung bereits gestohlener Daten.
+
+| Schritt | Was die Quelle anzeigt | Druck auf das Opfer |
+|---|---|---|
+| Zugriff | Unbefugter Zutritt ins Computersystem | Der Angriff startet |
+| Extraktion | Kopierung von interessanten Daten | Daten werden gestohlen |
+| Verschlüsselung | Verschlüsselte Server | Entschlüsselungsschlüssel wird gefragt |
+| Backup | Kann Lösegeldablehnung motivieren | Darknet-Bedrohung bleibt bestehen |
+| Zahlung | Lösegeld wird häufig in Kryptowährungen gefordert | Die Forderung nimmt eine wirtschaftliche Form an |
+
+### Eine Bilanz, die ohne Überinterpretation gelesen werden muss
+
+Der Verweis auf mindestens 110 Terabyte bezieht sich auf das bei der Operation geborgene Material. Die Quelle schreibt dieses Volumen keinem einzigen Schweizer Unternehmen zu, nennt nicht die Identität der beteiligten Unternehmen und meldet keine Zahlungen. Sich an diese Daten zu halten, verhindert, dass die Bilanz der Operation in eine Schätzung des Schadens für jedes Opfer umgewandelt wird.
+
+Auch die Geografie sollte ohne Vereinfachung gelesen werden. Die Untersuchung basiert auf Angriffen auf Schweizer Unternehmen, während die Operation vier Länder betraf und Server beschlagnahmt wurde. Die Beteiligung von Fedpol und der OAG zusammen mit Europol, Eurojust und sieben weiteren Ländern zeigt eine Ermittlungskette, die sich allein über das Schweizer Hoheitsgebiet hinaus erstreckt.
+
+Der Text gibt die beteiligten Sektoren nicht an. Der Verweis bleibt daher auf mehrere Schweizer Unternehmen beschränkt; wer ein klares Bild des produktiven Gewebes sucht, kann den aziende che assumono konsultieren.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
+## Ein Leseverfahren für Unternehmen
+
+Um die Nachrichten korrekt zu analysieren, können diejenigen, die in einem Schweizer Unternehmen arbeiten, eine Dokumentarsequenz verfolgen, ohne unbestätigte Elemente hinzuzufügen.
+
+### Vier Prüfungen, bevor man Schlüsse zieht
+
+1. **Getrennte Daten.** Die in der Untersuchung angegebenen Angriffe stammen aus dem Zeitraum von Oktober 2023 bis Juni 2025. Die Schweizer Untersuchung wird seit Sommer 2025 durchgeführt. Die Demontage fand am Mittwoch statt, während die Kommunikation am Donnerstag veröffentlicht wurde.
+
+2. Unterscheide die Orte. Die Quelle verbindet die Angriffe mit verschiedenen Schweizer Unternehmen und weist auf acht Durchsuchungen in Spanien, Griechenland, Großbritannien und Rumänien hin. Die Liste der Länder der Operation sollte nicht in eine Liste der Standorte der Opfer umgewandelt werden.
+
+3. Trennen Sie die Zahlen. Fünf Server werden beschlagnahmt; mindestens 110 Terabyte sind die wiedergewonnenen Daten. Der Text weist das Volumen nicht einem einzigen Unternehmen zu und quantifiziert keinen individuellen Schaden.
+
+4. Verwenden Sie die Bedingungen des Verfahrens. Der Fall betrifft Datendiebstahl, missbräuchlichen Zugriff auf ein Computersystem, Datenschädigung und Erpressung. Das Lösegeld wird auch als häufig in Kryptowährungen gefordert beschrieben, nicht als bereits geleistete Zahlung.
+
+Dieses Grid vermeidet außerdem eine Verwechslung einer Bedrohung mit einem bereits stattgefundenen Ereignis. Die Quelle berichtet, dass KillSec im Falle einer Weigerung droht, die Daten im Darknet zu veröffentlichen; es berichtet nicht, dass die Daten tatsächlich veröffentlicht wurden. Ebenso ist die Wiederherstellung der Server und Daten das kommunizierte Ergebnis der Operation und kein Maß für die erlittenen Schäden jedes Unternehmens.
+
+Für andere Indikatoren des Schweizer Wirtschaftslebens ist der costo della vita in Svizzera ein separater Weg. Für einen tieferen Blick auf das persönliche Einkommen verwenden Sie den calcolatore stipendio.
+
+Vergleichen Sie den CHF/EUR-Wechselkurs in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.
+
+*Quelle: [rsi.ch](https://www.rsi.ch/s/4127529)*]]></content:encoded>
+      <pubDate>Thu, 01 Oct 2026 22:55:16 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/operazione-ransomware-dati-sottratti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/operazione-ransomware-dati-sottratti.webp" medium="image"/>
+    </item>
     <item>
       <title>Physiotherapeuten: 112k Stimmen für höhere Tarife, Kantone</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/physiotherapeuten-petitionen-tarife-kantone/</link>
@@ -3686,78 +3769,6 @@ Um sich mit den Tools der Website vertraut zu machen, konsultieren Sie bitte auc
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/extramuro-soccorso-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/extramuro-soccorso-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Tessin: Im LAC in Lugano wurden die Herausforderungen des Wohnens diskutiert</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/tessin-zukunft-wohnen-lugano/</link>
-      <description><![CDATA[HOMEspace, die Sonderveranstaltung von INFOpmi im LAC, wurde vorgestellt: Architektur, Finanzwesen und Institutionen diskutieren über die Zukunft des Tessins in den nächsten 20 Jahren.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- HOMEspace im LAC Lugano Arte e Cultura vorgestellt
-- Podiumsdiskussion über das Tessin der nächsten zwanzig Jahre
-- Die Debatte brachte Architektur, Finanzwelt und Institutionen zusammen
-- Schwerpunkt auf Qualität, Nachhaltigkeit und Zugang zum Wohnen
-
-## Wichtigste Fakten
-- Veranstaltung → „Oltre l’abitare“ – Visionen und Chancen für ein immer attraktiveres Tessin
-- Ort → LAC Lugano Arte e Cultura
-- Veranstalter → Grafica Set Group, unter der Schirmherrschaft der Stadt Lugano
-- Publikation → HOMEspace, Sonderausgabe von INFOpmi
-- Teilnehmer → Filippo Lombardi, Massimo Nicora, Marzio Grassi, Elena Guglielmin, David Dalsass, Riccardo Blumer und Enrico Sassi
-
-Im LAC Lugano Arte e Cultura stellte die Grafica Set Group „HOMEspace“ vor, die neue Sonderausgabe von INFOpmi, die sich dem Wohnen, der Architektur und dem Bauwesen widmet. Im Mittelpunkt des unter der Schirmherrschaft der Stadt Lugano organisierten Abends stand eine konkrete Frage: Ist das Tessin bereit, die Chancen zu ergreifen und sich den Herausforderungen der nächsten zwanzig Jahre zu stellen?
-
-Ausgangspunkt des Abends war der Wandel der Beziehung zum Territorium. Das Tessin und, allgemeiner gesagt, die Schweiz wurden als Anziehungspunkte für Menschen, Familien und Unternehmer beschrieben, die auf der Suche nach Sicherheit und einer besseren Lebensqualität sind. Dementsprechend ändern sich auch die Erwartungen an den Lebensraum: Luxus wird nicht mehr nur mit Prahlerei und Exklusivität assoziiert, sondern mit Wohlbefinden, Nachhaltigkeit, Dienstleistungen, gesunden Materialien, Technologie und Harmonie mit der Region.
-
-Sacha Cattelan, CEO der Grafica Set Group SA, eröffnete die Veranstaltung und erläuterte den redaktionellen Ursprung des Projekts:
-> „Aus dem Wunsch heraus, die Welt des Wohnens auf übergreifende Weise zu beleuchten – eine Branche, die im Tessin wirtschaftlich eine große Rolle spielt und eng mit der Entwicklung und Identität der Region verbunden ist.“
-
-Anschließend verband er das Thema Wohnen mit einer umfassenderen Frage: Nicht nur, wie viel gebaut werden soll, sondern auch wie und was gebaut werden soll und welche Zukunftsvision für die Region angestrebt wird.
-
-### Die Debatte über Stadt, Vorschriften und Finanzen
-
-Der Journalist und Fernsehmoderator Gianfranco De Santis moderierte die Diskussion, an der auch Enrico Sassi teilnahm. Filippo Lombardi, Leiter des Departements für Raumentwicklung der Stadt Lugano, verwies auf das Gleichgewicht zwischen Einwohnern, Kapital, städtischer Identität, Nachhaltigkeit, Vorschriften, Einsprüchen und dem Verhältnis zwischen Zentrum und Peripherie, mit dem Ziel zu verhindern, dass Wohnen zu einem Privileg für wenige wird.
-
-Massimo Nicora befasste sich mit der Baubürokratie zwischen Landschaftsschutz und möglicher Entwicklungsbremse und verwies dabei auf rechtliche Unsicherheiten, langwierige Verfahren und Vereinfachungsbedarf. Marzio Grassi, Regionalleiter Corporate & Real Estate Ticino bei der UBS, brachte die Perspektive des internationalen Kapitals, der Vermögenssicherheit und der Risikobewertung bei modernen und traditionellen Immobilien anhand von Nachhaltigkeitskriterien ein. Elena Guglielmin, Senior Credit Analyst bei der UBS, ergänzte dies um die Standards für Wohnbaukredite, die Kluft zwischen Angebot und Nachfrage bei zukunftssicheren Immobilien sowie den Zugang jüngerer Menschen zu Hypothekarkrediten.
-
-David Dalsass sprach über die Nachfrage nach Qualität, den Wert des Projekts für das Stadtviertel und das Verhältnis zwischen Regulierung und Großprojekten. Das Kapitel zur Projektplanung wurde vom Architekten und Designer Riccardo Blumer eröffnet.
-Der in Lugano aufgeworfene praktische Knackpunkt betrifft die Definition des Wohnens an sich. In der Diskussion wird Wohnen nicht als bloße Summe von Quadratmetern betrachtet, sondern es werden die Qualität der Immobilie, die städtische Identität, Nachhaltigkeit, Finanzierung und die Fähigkeit zur Umsetzung von Projekten miteinander verknüpft. Für diejenigen, die in der Schweiz leben oder arbeiten, verlagert diese Sichtweise den Fokus von der reinen Verfügbarkeit einer Wohnung hin zu den Bedingungen, die ein Projekt mit dem Territorium in Einklang bringen.
-
-### Qualität und Zugang sind nicht dasselbe
-
-Die Quelle verwendet den Begriff „Luxus“ in einem anderen Sinne als dem der Zurschaustellung. Wohlbefinden, Dienstleistungen, gesunde Materialien, Technologie und Harmonie mit der Umgebung werden zu Qualitätsindikatoren. Der Begriff „zukunftssicher“ taucht im Zusammenhang mit dem Vergleich von Angebot und Nachfrage bei hochwertigen Immobilien auf. Nachhaltigkeit fließt zudem in die Risikobewertung sowohl moderner als auch traditioneller Immobilien ein. Ein Projekt wird somit anhand der Merkmale, die es bietet, und der Beziehung, die es zur Umgebung aufbaut, beurteilt – nicht nur aufgrund seiner Exklusivität.
-
-Der zweite Schwerpunkt ist die Erreichbarkeit. Lombardi wies auf das Verhältnis zwischen Zentrum und Peripherie hin und betonte, dass Wohnen kein Privileg für wenige werden darf. Guglielmin fügte den Zugang zu Hypothekarkrediten für junge Menschen hinzu. Für eine Familie oder einen neuen Einwohner betrifft die Bewertung somit sowohl die Qualität des Angebots als auch die von den Banken geforderten Standards.
-
-Der dritte Punkt betrifft Fristen und Vorschriften. Nicora beschrieb die Baubürokratie als Gleichgewicht zwischen Schutz und möglicher Bremse für die Entwicklung. Rechtliche Unsicherheiten und langwierige Verfahren können Investoren abschrecken; Lombardi wies zudem auf die Belastung durch Vorschriften und Einsprüche in der Planung hin. Dalsass stellte einen Zusammenhang zwischen der Regulierung und der Fähigkeit her, Großprojekte zu realisieren.
-
-Der vierte Aspekt ist finanzieller Natur. Grassi nannte Vermögenssicherheit und Projekte mit hohem Mehrwert als Faktoren, die von internationalem Kapital gesucht werden. Dalsass lenkte die Aufmerksamkeit erneut auf den Wert, den ein Projekt für das gesamte Stadtviertel schafft. Für den Bankensektor stehen die conti bancari in Svizzera zur Verfügung; um das Thema mit den täglichen Ausgaben zu verknüpfen, die costo della vita in Svizzera.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-Wer sich bei einem Wohnbauprojekt orientieren muss, kann die aufgeworfenen Themen in eine Abfolge von Prüfschritten umwandeln. Dabei handelt es sich nicht um ein Verwaltungsverfahren, sondern um einen Bewertungsrahmen, um Qualität, Standort, Vorschriften und Finanzierung voneinander abzugrenzen.
-
-### Fünf Schritte zur Bewertung eines Projekts
-
-1. Die gewünschte Qualität definieren. Wohlbefinden, Dienstleistungen, gesunde Materialien, Technologie, Nachhaltigkeit und Harmonie mit dem Standort in eine Reihe bringen. Dies sind die Elemente, die mit dem neuen Luxuskonzept verbunden sind und dabei helfen, zu beschreiben, wonach man sucht, ohne sich auf Exklusivität zu beschränken.
-
-2. Die Beziehung zum Stadtteil analysieren. Prüfen, wie sich das Projekt in das Stadtzentrum oder in die Peripherie einfügt und welchen Mehrwert es für den gesamten Stadtteil schaffen kann. Die Frage betrifft nicht nur die Wohneinheit selbst, sondern auch das Gebiet, in dem sie steht.
-
-3. Den behördlichen Prozess herausarbeiten. Erfragen, welche Vorschriften, Einspruchsfristen, Unsicherheiten und Verfahren die Planung beeinflussen. Die Quelle verbindet die Bürokratie sowohl mit dem Schutz als auch mit einer möglichen Bremse für die Entwicklung; bei Großprojekten verweist Dalsass auf die Umsetzungsfähigkeit.
-
-4. Risiko und Nachhaltigkeit gegeneinander abwägen. Bei der Bewertung einer modernen oder traditionellen Immobilie ist zu berücksichtigen, wie das finanzielle Risiko geprüft wird und welches Gewicht den Nachhaltigkeitskriterien zukommt. Der Vergleich zwischen den beiden Typologien war eines der Themen, die der finanziellen Perspektive zugeordnet wurden.
-
-5. Die Kreditseite prüfen. Wer einen Kredit für ein hochkarätiges Wohnbauprojekt sucht, muss die von der Bankenwelt vorgegebenen Qualitätsstandards berücksichtigen. Für jüngere Menschen ist der Zugang zu Hypothekarkrediten ein zentraler Diskussionspunkt; bei Einheimischen und neuen internationalen Einwohnern wurden Unterschiede in der Kundschaft hervorgehoben.
-
-Das Befolgen dieser Reihenfolge hilft dabei, verschiedene Ebenen nicht zu vermischen: Eine angestrebte Qualität ist nicht automatisch gleichbedeutend mit Nachhaltigkeit, eine gute Projektidee macht die Verfahren nicht überflüssig und finanzielle Attraktivität allein löst nicht das Problem des Zugangs zu Wohnraum. Genau diese Zusammenhänge sind es, die laut der Diskussion im LAC das Tessin von morgen prägen.
-
-Um die Bewertung des Wohnens in Ihre Bilanz zu übertragen, verwenden Sie den Code calcolatore stipendio/imposte
-
-*Quelle: [tio.ch](https://www.tio.ch/rubriche/aziende-ticinesi-informano/1953866/ticino-territorio-qualita-architettura-lugano-lac)*]]></content:encoded>
-      <pubDate>Wed, 30 Sep 2026 23:49:04 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/ticino-futuro-abitare-lugano</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/ticino-futuro-abitare-lugano.webp" medium="image"/>
     </item>
   </channel>
 </rss>

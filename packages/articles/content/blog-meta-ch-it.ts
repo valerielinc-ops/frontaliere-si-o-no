@@ -7412,6 +7412,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.title': 'Fisioterapisti: 112mila firme per tariffe più alte, petizioni ai cantoni',
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.excerpt': 'Physioswiss consegna 26 petizioni cantonali a ottobre: chiesto aumento minimo 30% per coprire costi studi e garantire accesso cure',
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.imageAlt': 'Studio di fisioterapia in Svizzera con terapista al lavoro',
+    'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec: tre arresti e 110 terabyte di dati rubati',
+    'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Tre arresti, otto perquisizioni e cinque server sequestrati: l\'operazione contro KillSec ha recuperato almeno 110 terabyte di dati rubati.',
+    'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Schermi informatici e mappa svizzera per l\'inchiesta sul ransomware KillSec',
 };
 
 export default blogMetaChIt;

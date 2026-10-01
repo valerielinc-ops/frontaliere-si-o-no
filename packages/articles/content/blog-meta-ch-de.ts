@@ -7412,6 +7412,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.title': 'Physiotherapeuten: 112k Stimmen für höhere Tarife, Kantone',
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.excerpt': 'Physioswiss reicht im Oktober 26 kantonale Anträge ein: eine Mindesterhöhung von 30 % wird beantragt, um die Studienkosten zu decken und den Zugang zur Versorgung zu gewährleisten',
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.imageAlt': 'Physiotherapiepraxis in der Schweiz mit Therapeut bei der Arbeit',
+    'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec: drei Festnahmen und 110 Terabyte gestohlene Daten',
+    'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Drei Festnahmen, acht Durchsuchungen und fünf beschlagnahmte Server: Die Operation gegen KillSec sicherte mindestens 110 Terabyte gestohlener Daten.',
+    'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Computermonitore und Schweizer Karte zur Untersuchung gegen die Ransomware-Gruppe KillSec',
 };
 
 export default blogMetaChDe;

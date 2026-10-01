@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Oct 2026 22:31:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:55:16 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,87 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>KillSec: three arrests and 110 terabytes of stolen data</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/killsec-ransomware-data-recovered/</link>
+      <description><![CDATA[Three arrests, eight searches and five servers seized: the operation against KillSec recovered at least 110 terabytes of stolen data.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Three arrests and eight searches in four countries
+- Recovered at least 110 terabytes of stolen data
+- Attacks on Swiss companies between October 2023 and June 2025
+
+## Key Facts
+- Group → KillSec (or KillSecurity)
+- Operation → dismantling of an IT structure
+- Arrests → three
+- Searches → eight
+- Countries → Spain, Greece, the United Kingdom and Romania
+- Servers seized → five
+- Data recovered → at least 110 terabytes
+- → attacks against several Swiss companies, between October 2023 and June 2025
+
+On Wednesday, a large international operation made it possible to dismantle the IT structure used by the KillSec ransomware group, also known as KillSecurity. The toll includes three arrests, eight searches in Spain, Greece, the United Kingdom and Romania, the seizure of five servers and the recovery of at least 110 terabytes of stolen data.
+
+### The Swiss survey
+
+This was announced by the Federal Office of Police (fedpol) and the Office of the Attorney General of Switzerland (OAG). Since the summer of 2025, the two agencies have been conducting an investigation into a series of attacks against various Swiss companies, which took place between October 2023 and June 2025. The criminal proceedings concern data theft, abusive access to a computer system, data damage and extortion.
+
+### How ransomware works
+
+The mechanism described in the source follows a precise sequence. The perpetrators improperly enter the victim's computer system, copy and extract the data of interest, then encrypt the servers. Only then do they demand a ransom in exchange for the decryption key; the request is often made in cryptocurrency.
+
+### Double extortion
+
+KillSec practices the so-called double extortion. After the encryption of the servers, if the company refuses to pay, the authors threaten to publish the data on the darknet. The refusal may depend, for example, on a backup made before the theft: the restoration of the data does not eliminate, according to the dynamics described, the threat of dissemination of the information already copied.
+
+Fedpol and the OAG participated in the investigations coordinated by Europol and Eurojust together with seven other countries. The communication released on Thursday underlines the need for cooperation between national and international partners: "Given the international nature of cybercrime, close cooperation between the different partners, both nationally and internationally, is essential," reads a statement released on Thursday.
+## The risk does not end with encryption
+
+For a Swiss company, the sequence described separates two problems. Server encryption is about access to systems; copying and extraction happen first and feed the threat of publication. The backup cited by the source can therefore explain the ransom refusal, but it does not automatically delete the second lever used by the group. It is the difference between recovering one's own systems and preventing the data already stolen from being disseminated.
+
+| Step | What the source indicates | Pressure on the victim |
+|---|---|---|
+| Access | Unauthorized entry into the computer system | The attack starts |
+| Extraction | Copying data of interest | Data is stolen |
+| Encryption | Encrypted servers | Decryption key is asked |
+| Backup | Can Motivate Ransom Rejection | Darknet Threat Remains |
+| Payment | Ransom is often demanded in cryptocurrency | The demand takes an economic form |
+
+### A balance sheet to be read without overinterpretation
+
+The reference to at least 110 terabytes refers to the material recovered in the operation. The source does not attribute that volume to a single Swiss company, does not indicate the identity of the companies involved and does not report any payments. Sticking to this data avoids turning the balance sheet of the operation into an estimate of the damage for each victim.
+
+The geography should also be read without simplification. The investigation stems from attacks against Swiss companies, while the operation involved four countries and involved the seizure of servers. The participation of fedpol and the OAG, together with Europol, Eurojust and seven other countries, shows a chain of investigation spread beyond Swiss territory alone.
+
+The text does not indicate the sectors involved. The reference therefore remains limited to several Swiss companies; those looking for a distinct picture of the productive fabric can consult the aziende che assumono.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
+## A reading procedure for companies
+
+To examine the news correctly, those who work in a Swiss company can follow a documentary sequence without adding unconfirmed elements.
+
+### Four checks before drawing conclusions
+
+1. **Separate dates.** The attacks indicated in the investigation date back to the period between October 2023 and June 2025. The Swiss investigation has been conducted since the summer of 2025. The dismantling operation took place on Wednesday, while the communication was released on Thursday.
+
+2. Distinguish the locations. The source links the attacks to different Swiss companies and indicates eight searches in Spain, Greece, the United Kingdom and Romania. The list of countries of the operation should not be transformed into a list of victims' locations.
+
+3. Separate the numbers. Five servers are seized; at least 110 terabytes are the data recovered. The text does not assign the volume to a single company and does not quantify individual damage.
+
+4. Use the terms of the procedure. The case concerns data theft, abusive access to a computer system, data damage and extortion. The ransom is also described as often requested in cryptocurrency, not as a payment already made.
+
+This grid also avoids confusing a threat with an event that has already taken place. The source reports that, in the event of a refusal, KillSec threatens to publish the data on the darknet; it does not report that the data has actually been published. Similarly, the recovery of the servers and data is the communicated result of the operation, not a measure of the damages suffered by each company.
+
+For other indicators of Swiss economic life, the costo della vita in Svizzera is a separate path. For a more in-depth look at personal income, use the calcolatore stipendio.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4127529)*]]></content:encoded>
+      <pubDate>Thu, 01 Oct 2026 22:55:16 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/operazione-ransomware-dati-sottratti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/operazione-ransomware-dati-sottratti.webp" medium="image"/>
+    </item>
     <item>
       <title>Physiotherapists: 112k signatures for higher rates, cantonal petitions</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/physiotherapists-petitions-tariffs-cantons/</link>
@@ -3654,78 +3735,6 @@ To fully navigate the site’s tools, also refer to calcolatore stipendio.
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/extramuro-soccorso-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/extramuro-soccorso-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Ticino, housing challenges discussed at Lugano’s LAC</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/ticino-future-living-lugano/</link>
-      <description><![CDATA[HOMEspace, INFOpmi’s special event at the LAC, was presented: architecture, finance, and institutions came together to discuss the future of the Ticino region over the next 20 years.]]></description>
-      <content:encoded><![CDATA[## At a Glance
-- HOMEspace presented at LAC Lugano Arte e Cultura
-- Roundtable discussion on Ticino over the next twenty years
-- The debate brought together architecture, finance, and institutions
-- Focus on quality, sustainability, and access to housing
-
-## Key Facts
-- Event → Beyond Housing: Visions and Opportunities for an Increasingly Attractive Ticino
-- Location → LAC Lugano Arte e Cultura
-- Organizer → Grafica Set Group, with the support of the City of Lugano
-- Publication → HOMEspace, an INFOpmi special edition
-- Participants → Filippo Lombardi, Massimo Nicora, Marzio Grassi, Elena Guglielmin, David Dalsass, Riccardo Blumer, and Enrico Sassi
-
-At LAC Lugano Arte e Cultura, Grafica Set Group presented HOMEspace, the new INFOpmi special issue dedicated to housing, architecture, and construction. The event, sponsored by the City of Lugano, focused on a specific question: Is Ticino ready to seize the opportunities and tackle the challenges of the next twenty years?
-
-The starting point for the evening was the transformation of the relationship with the local area. Ticino—and, more broadly, Switzerland—have been described as magnets for individuals, families, and entrepreneurs seeking security and a better quality of life. Consequently, expectations regarding living spaces are also changing: luxury is no longer associated solely with ostentation and exclusivity, but with well-being, sustainability, services, healthy materials, technology, and harmony with the local environment.
-
-Sacha Cattelan, CEO of Grafica Set Group SA, opened the proceedings by explaining the project’s editorial origins:
-> “It stems from a desire to offer a comprehensive exploration of the world of housing—a sector that plays a major economic role in Ticino and is closely linked to the region’s development and identity.”
-
-He then linked the theme of the home to a broader question: not just how much to build, but how and what to build, and what kind of region to envision for the future.
-
-### The Dialogue on Cities, Regulations, and Finance
-
-Journalist and TV host Gianfranco De Santis moderated the discussion, which also included Enrico Sassi. Filippo Lombardi, head of the Department of Territorial Development for the City of Lugano, emphasized the need to strike a balance between residents, capital, urban identity, sustainability, regulations, appeals, and the relationship between the city center and the suburbs—with the goal of preventing housing from becoming a privilege reserved for the few.
-
-Massimo Nicora addressed building regulations, exploring the tension between land protection and potential barriers to development, citing regulatory uncertainties, lengthy procedures, and the need for simplification. Marzio Grassi, Regional Head of Corporate & Real Estate for Ticino at UBS, offered the perspective of international capital, asset security, and risk assessment for modern and traditional properties through the lens of sustainability criteria. Elena Guglielmin, Senior Credit Analyst at UBS, discussed residential lending standards, the gap between supply and demand for future-proof properties, and young people’s access to mortgage loans.
-
-David Dalsass spoke about the demand for quality, the value of a project for the neighborhood, and the relationship between regulation and large-scale developments. The design segment was opened by architect and designer Riccardo Blumer.
-The practical issue that emerged in Lugano concerns the very definition of “living.” The discussion does not treat it as a simple sum of square meters: it brings together the quality of the property, urban identity, sustainability, financing, and the ability to carry out projects. For those who live or work in Switzerland, this perspective shifts the focus from merely having a home to the conditions that make a project consistent with the local context.
-
-### Quality and Access Are Not the Same Thing
-
-The source uses the term “luxury” in a sense distinct from ostentation. Well-being, amenities, healthy materials, technology, and harmony with the local area become indicators of quality. The term “future-proof” appears in the comparison between supply and demand for quality real estate. Sustainability also plays a role in risk assessment for both modern and traditional properties. A project is thus evaluated based on the features it offers and the relationship it builds with the local area, not merely on its exclusivity.
-
-The second key issue is access. Lombardi highlighted the relationship between the city center and the suburbs and the need to ensure that housing does not become a privilege for the few. Guglielmin added the issue of access to mortgage credit for younger people. For a family or a new resident, the assessment thus concerns both the quality of the housing supply and the standards required by the banking sector.
-
-The third issue concerns timelines and regulations. Nicora described building bureaucracy as a balance between protection and a potential obstacle to development. Regulatory uncertainties and lengthy procedures can discourage investors; Lombardi also highlighted the burden of regulations and appeals in the planning process. Dalsass linked regulation to the ability to carry out large-scale projects.
-
-The fourth factor is financial. Grassi pointed to financial security and projects with high added value as elements sought after by international capital. Dalsass refocused attention on the value a project generates for the entire neighborhood. For the banking sector, use conti bancari in Svizzera; to relate the topic to everyday expenses, use costo della vita in Svizzera.
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
-Anyone trying to navigate a housing project can transform the issues that have emerged into a series of checks. This is not an administrative procedure: it is a framework for analyzing and distinguishing between quality, the local area, regulations, and financing.
-
-### Five Steps to Evaluate a Project
-
-1. Define the desired quality. Prioritize well-being, amenities, healthy materials, technology, sustainability, and harmony with the local area. These are the elements associated with the new concept of luxury and help describe what you’re looking for, without limiting yourself to exclusivity.
-
-2. Examine the relationship with the neighborhood. Assess how the project fits into the city center or the suburbs and what value it can generate for the entire neighborhood. The question concerns not only the residential unit itself but also the local area that hosts it.
-
-3. Identify the regulatory process. Inquire about which regulations, appeal timelines, uncertainties, and procedures affect planning. The source links bureaucracy both to protection and to potential obstacles to development; for large-scale projects, Dalsass emphasizes the capacity for implementation.
-
-4. Weigh risk against sustainability. When evaluating a modern or traditional property, consider how financial risk is assessed and the weight given to sustainability criteria. The comparison between these two types was one of the topics addressed from a financial perspective.
-
-5. Assess the credit side. Those seeking financing for a high-profile residential project must consider the quality standards set by the banking sector. For younger people, access to mortgage financing is a specific point of debate; differences in clientele have been highlighted between local residents and new international residents.
-
-Following this sequence helps avoid mixing different considerations: a desired quality does not automatically equate to sustainability; a good design concept does not eliminate procedural requirements; and financial attractiveness alone does not resolve access to housing. According to the discussion at the LAC, it is precisely these connections that will define the Ticino of tomorrow.
-
-To incorporate the housing assessment into your budget, use calcolatore stipendio/imposte
-
-*Source: [tio.ch](https://www.tio.ch/rubriche/aziende-ticinesi-informano/1953866/ticino-territorio-qualita-architettura-lugano-lac)*]]></content:encoded>
-      <pubDate>Wed, 30 Sep 2026 23:49:04 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/ticino-futuro-abitare-lugano</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/ticino-futuro-abitare-lugano.webp" medium="image"/>
     </item>
   </channel>
 </rss>

@@ -96116,6 +96116,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-operazione-ransomware-dati-sottratti': {
+    title: 'KillSec: tre arresti e 110 terabyte di dati rubati',
+    description: 'Tre arresti, otto perquisizioni e cinque server sequestrati contro KillSec: recuperati almeno 110 terabyte di dati rubati. L\'inchiesta riguarda società',
+    keywords: 'frontalieri, ticino, svizzera, italia, killsec, arresti, terabyte, dati',
+    ogTitle: 'KillSec: tre arresti e 110 terabyte rubati',
+    ogDescription: 'L\'operazione internazionale ha smantellato la struttura informatica di KillSec: tre arresti, otto perquisizioni, cinque server sequestrati e almeno 110 terabyte recuperati. Fedpol e MPC indagano su attacchi a diverse società svizzere tra ottobre 2023',
+    canonicalPath: '/articoli-svizzera/operazione-ransomware-dati-sottratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "KillSec: tre arresti e 110 terabyte di dati rubati",
+      "description": "Tre arresti, otto perquisizioni e cinque server sequestrati contro KillSec: recuperati almeno 110 terabyte di dati rubati. L'inchiesta riguarda società",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/operazione-ransomware-dati-sottratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schermi informatici e mappa svizzera per l'inchiesta sul ransomware KillSec"
+      },
+      "datePublished": "2026-10-01T22:55:16+00:00",
+      "dateModified": "2026-10-01T22:55:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/operazione-ransomware-dati-sottratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

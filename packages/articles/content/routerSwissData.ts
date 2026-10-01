@@ -2493,6 +2493,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'infomaniak-debutto-six': { it: 'infomaniak-debutto-six', en: 'infomaniak-swiss-stock-debut', de: 'infomaniak-boersenstart-six', fr: 'infomaniak-debut-bourse-suisse' },
  'killsec-server-dati-svizzeri': { it: 'killsec-server-dati-svizzeri', en: 'killsec-hacker-network-switzerland', de: 'killsec-hacker-netzwerk-schweiz', fr: 'killsec-reseau-hacker-suisse' },
  'fisioterapisti-petizioni-tariffe-cantoni': { it: 'fisioterapisti-petizioni-tariffe-cantoni', en: 'physiotherapists-petitions-tariffs-cantons', de: 'physiotherapeuten-petitionen-tarife-kantone', fr: 'physiotherapeutes-petitions-tarifs-cantons' },
+ 'operazione-ransomware-dati-sottratti': { it: 'operazione-ransomware-dati-sottratti', en: 'killsec-ransomware-data-recovered', de: 'killsec-ransomware-daten', fr: 'killsec-ransomware-donnees' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
