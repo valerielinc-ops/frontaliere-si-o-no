@@ -63,6 +63,7 @@
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
+import { classifyCfErrorUrl, SURFACES } from './lib/cf-error-surface.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
@@ -87,7 +88,7 @@ const MAX_AGE_HOURS = Number(process.env.CF_5XX_MAX_AGE_HOURS ?? 2);
  *
  * @param {Array<{url:string,hour:string,count:number}>} rows
  * @param {Date} [now]
- * @returns {Map<string,{lastHour:string,hoursSinceLast:number,activeHours:number,total:number,peakHour:string,peakCount:number,peakShare:number}>}
+ * @returns {Map<string,{lastHour:string,hoursSinceLast:number,activeHours:number,total:number,peakHour:string,peakCount:number,peakShare:number,endpointEvidence:Array<{edgeStatus:string,originStatus:string,cacheStatus:string,count:number}>}>}
  */
 export function summarizeBursts(rows, now = new Date()) {
   const byUrl = new Map();
@@ -97,9 +98,22 @@ export function summarizeBursts(rows, now = new Date()) {
     const url = String(r?.url ?? '');
     const hour = String(r?.hour ?? '');
     if (!url || !hour || Number.isNaN(Date.parse(hour))) continue;
-    const b = byUrl.get(url) || { hours: new Map(), total: 0 };
+    const b = byUrl.get(url) || { hours: new Map(), total: 0, endpointEvidence: new Map() };
     b.hours.set(hour, (b.hours.get(hour) || 0) + n);
     b.total += n;
+    const evidenceKey = [
+      `edge=${r.status == null ? 'unknown' : String(r.status)}`,
+      `origin=${r.originResponseStatus == null ? 'unknown' : String(r.originResponseStatus)}`,
+      `cache=${r.cacheStatus == null ? 'unknown' : String(r.cacheStatus)}`,
+    ].join('|');
+    const evidence = b.endpointEvidence.get(evidenceKey) || {
+      edgeStatus: r.status == null ? 'unknown' : String(r.status),
+      originStatus: r.originResponseStatus == null ? 'unknown' : String(r.originResponseStatus),
+      cacheStatus: r.cacheStatus == null ? 'unknown' : String(r.cacheStatus),
+      count: 0,
+    };
+    evidence.count += n;
+    b.endpointEvidence.set(evidenceKey, evidence);
     byUrl.set(url, b);
   }
 
@@ -117,6 +131,7 @@ export function summarizeBursts(rows, now = new Date()) {
       peakHour,
       peakCount,
       peakShare: b.total ? peakCount / b.total : 0,
+      endpointEvidence: [...b.endpointEvidence.values()].sort((a, z) => z.count - a.count),
     });
   }
   return out;
@@ -144,6 +159,17 @@ function describeBurst(shape, hours) {
   ].join('\n');
 }
 
+/** Endpoint-correlated fields; unlike host totals, these stay attached to this URL. */
+function describeEndpointEvidence(shape) {
+  if (!shape) return '**Endpoint diagnostics:** unavailable (no complete hourly endpoint rows)';
+  const evidence = shape.endpointEvidence || [];
+  if (!evidence.length) return '**Endpoint diagnostics:** unavailable (no endpoint rows)';
+  const summary = evidence
+    .map((r) => `edge=${r.edgeStatus}/origin=${r.originStatus}/cache=${r.cacheStatus} (${r.count})`)
+    .join('; ');
+  return `**Endpoint diagnostics:** ${summary}`;
+}
+
 /**
  * Il corpo della issue, scheda inclusa.
  *
@@ -164,22 +190,26 @@ function describeBurst(shape, hours) {
  */
 export function buildIssueBody(e, hours = HOURS) {
   const url = sanitizeUrlLikeText(e.url);
+  const surfaceKey = classifyCfErrorUrl(url);
+  const surfaceOrigin = SURFACES[surfaceKey]?.origin || 'unknown';
+  const recencyCause = e.shape
+    ? `The complete hourly report places the last sampled 5xx at ${e.shape.lastHour} (${e.shape.hoursSinceLast.toFixed(1)}h ago); this is recency evidence, not proof of which component returned it.`
+    : 'Complete hourly endpoint rows are unavailable. The URL was retained because its window total met the reporting threshold; a current failure is unverified.';
   return [
     `**Status:** ${e.status}`,
     `**URL:** ${url}`,
     `**5xx responses (last ${hours}h):** ${e.count}`,
     describeBurst(e.shape, hours),
+    describeEndpointEvidence(e.shape),
     '',
     '_Source: Cloudflare GraphQL Analytics (`httpRequestsAdaptiveGroups`), zone-wide eyeball 5xx — see scripts/cf-status-report.mjs._',
     '',
     buildScheda({
       causa: [
-        "(ipotesi, da confermare.) Questo URL sta rispondendo 5xx adesso, non in un burst gia'",
-        "finito: il gate di recency lo ha tenuto. Su quale delle tre superfici stia — CDN,",
-        'shard per-locale, apex — decide il rimedio e NON si assume: la partizione e il triage',
-        'stanno in `docs/CF-5XX-TRIAGE.md`. Se lo stato di origine e\' zero, l\'origine non ha',
-        "risposto affatto e l'errore lo sintetizza l'edge; se e' un codice vero, lo ha",
-        'restituito l\'origine, e i due rimedi sono opposti.',
+        `(ipotesi, da confermare.) Host/path classification: \`${surfaceKey}\` (${surfaceOrigin}).`,
+        'Questa classificazione identifica il percorso atteso, non attribuisce il 5xx al tunnel,',
+        'al Worker, alla pagina shard o all\'edge. I campi origin/cache nel report valgono solo',
+        `per questo URL quando sono presenti. ${recencyCause}`,
       ],
       fix: [
         'Dipende dalla superficie; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
@@ -190,8 +220,8 @@ export function buildIssueBody(e, hours = HOURS) {
       comando: `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots 7`,
       note: [
         'Il comando legge `data/cf-5xx-history.jsonl` e non tocca la rete: exit 0 solo se',
-        "l'URL e' assente dai path 5xx degli ultimi 7 snapshot PRESENTI, con la serie fresca.",
-        'Serie corta o ferma = exit 1 con la ragione, mai un verde per assenza di dati.',
+        "l'URL e' assente dall'elenco COMPLETO dei path 5xx negli ultimi 7 snapshot freschi.",
+        'Top-50, storia incompleta o query satura = exit 1: assenza di dati non prova zero 5xx.',
       ],
       osservatore: [
         '`.github/workflows/cf-5xx-monitor.yml`, che ogni giorno alle 03:50 UTC riconia questa',
@@ -234,14 +264,15 @@ export async function main() {
   // Recency gate. See the docblock: without it a 60-second blip from yesterday
   // afternoon is indistinguishable from an outage happening right now.
   const hourly = data.detailByHour;
-  if (!Array.isArray(hourly)) {
+  const hourlyComplete = Array.isArray(hourly) && data.detailByHourComplete === true;
+  if (!hourlyComplete) {
     console.log(
-      '::warning title=cf-5xx recency gate inactive::cf-status-report.mjs returned no `detailByHour` ' +
-        '(is --by-hour still wired?) — filing on the flat 23h total, so a burst that already ended ' +
-        'can be reported as a live defect. This is the #5231/#5232 failure mode.',
+      '::warning title=cf-5xx recency gate inactive::cf-status-report.mjs returned no complete `detailByHour` ' +
+        '(missing rows, row cap reached, or older report version) — entries stay open on the flat window total; ' +
+        'current failure and endpoint origin are unverified.',
     );
   }
-  const shapes = Array.isArray(hourly) ? summarizeBursts(hourly) : new Map();
+  const shapes = hourlyComplete ? summarizeBursts(hourly) : new Map();
 
   const entries = [];
   for (const e of overThreshold) {

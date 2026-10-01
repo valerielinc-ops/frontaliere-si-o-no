@@ -201,7 +201,14 @@ describe('buildScheda — l\'invariante e\' eseguibile, non un commento', () => 
  * ogni suo ramo che risponde «si'» senza averlo verificato e' un verde permanente.
  */
 describe('checkUrlClean — nessun verde per assenza di dati', () => {
-  const snap = (ts: string, urls: string[], topN = 50) => ({ ts, topN, topPaths: urls.map((url) => ({ url, count: 1 })) });
+  const snap = (ts: string, urls: string[], topN = 50) => ({
+    ts,
+    topN,
+    topPaths: urls.map((url) => ({ url, count: 1 })),
+    ...(topN === 50
+      ? { errorPaths: urls.map((url) => ({ url, count: 1 })), errorPathsComplete: true }
+      : {}),
+  });
   const NOW = Date.parse('2026-09-07T00:00:00Z');
   const sette = (urlsPerSnap: string[][]) =>
     urlsPerSnap.map((u, i) => snap(`2026-09-0${i + 1}T00:00:00Z`, u));
@@ -225,7 +232,7 @@ describe('checkUrlClean — nessun verde per assenza di dati', () => {
     const h = sette([['a/x.js'], ['a/x.js'], [], [], [], [], []]);
     const r = checkUrlClean(h, 'a/MAI-VISTO.js', { snapshots: 3, now: Date.parse('2026-09-07T12:00:00Z') });
     expect(r.ok).toBe(false);
-    expect(r.reason).toMatch(/mai visto/);
+    expect(r.reason).toMatch(/mai osservato/);
   });
 
   it('serie ferma: fail-closed, non verde', () => {
@@ -251,7 +258,7 @@ describe('checkUrlClean — nessun verde per assenza di dati', () => {
     ];
     const r = checkUrlClean(h, 'a/x.js', { snapshots: 3, now: Date.parse('2026-09-04T12:00:00Z') });
     expect(r.ok).toBe(false);
-    expect(r.reason).toMatch(/mai visto/);
+    expect(r.reason).toMatch(/mai osservato/);
   });
 });
 

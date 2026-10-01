@@ -14,15 +14,19 @@
  * taken to mitigate #5082 too — which is a 503 on the apex and could never be touched by it.
  * Closing it "because the 5xx went down" would have filed away a defect nobody diagnosed.
  *
- * The partition is not invented: it mirrors one-to-one the cache rules that
- * `scripts/cf-locale-failover-setup.mjs` owns on the zone, which are what actually decides
- * edge behaviour per path. If those change, this must change with them.
+ * The site-path partition mirrors one-to-one the cache rules that
+ * `scripts/cf-locale-failover-setup.mjs` owns on the zone. The two GitHub webhook hosts are
+ * separate Cloudflare Tunnel ingress surfaces; their receiver ports come from the workspace
+ * tunnel configuration, and status codes alone do not attribute a failure to a tunnel hop.
  */
 
 /** R2 CDN host. Also used by cf-5xx-snapshot.mjs for per-surface reporting. */
 export const CDN_HOST = 'cdn.frontaliereticino.ch';
 /** Apex host. */
 export const APEX_HOST = 'frontaliereticino.ch';
+/** Cloudflare Tunnel hostnames for the two local GitHub webhook receivers. */
+export const GH_DEFAULT_TUNNEL_HOST = 'gh-default.frontaliereticino.ch';
+export const GH_NANAKO_TUNNEL_HOST = 'gh-nanako.frontaliereticino.ch';
 
 /**
  * Path prefixes served by the `frontaliere-locale-router` Worker to the per-locale Pages
@@ -54,11 +58,21 @@ export const SURFACES = {
     cacheRule: 'it-apex-html-cache',
     serveStale: false,
   },
+  'github-webhook-default': {
+    origin: 'Cloudflare Tunnel -> default GitHub webhook receiver (localhost:18787)',
+    cacheRule: null,
+    serveStale: false,
+  },
+  'github-webhook-nanako': {
+    origin: 'Cloudflare Tunnel -> nanako GitHub webhook receiver (localhost:18788)',
+    cacheRule: null,
+    serveStale: false,
+  },
   'www-redirect': { origin: 'www -> apex redirect', cacheRule: null, serveStale: false },
   other: { origin: 'unknown', cacheRule: null, serveStale: false },
 };
 
-/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'www-redirect'|'other'} SurfaceKey */
+/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'github-webhook-default'|'github-webhook-nanako'|'www-redirect'|'other'} SurfaceKey */
 
 /**
  * Classify a request into the surface that served it.
@@ -79,6 +93,8 @@ export function classifySurface(row) {
   const host = String(row?.host ?? '').toLowerCase().trim();
   if (!host) return 'other';
   if (host === CDN_HOST) return 'cdn-r2';
+  if (host === GH_DEFAULT_TUNNEL_HOST) return 'github-webhook-default';
+  if (host === GH_NANAKO_TUNNEL_HOST) return 'github-webhook-nanako';
   if (host.startsWith('www.')) return 'www-redirect';
   if (host !== APEX_HOST) return 'other';
 
@@ -87,6 +103,18 @@ export function classifySurface(row) {
   if (LOCALE_SHARD_EXACT.has(path)) return 'worker-shard';
   if (LOCALE_SHARD_PREFIXES.some((p) => path.startsWith(p))) return 'worker-shard';
   return 'apex-pages';
+}
+
+/** Classify a reported URL using the same host/path table as snapshot rows. */
+export function classifyCfErrorUrl(url) {
+  const raw = String(url ?? '').trim();
+  if (!raw) return 'other';
+  try {
+    const parsed = new URL(/^[a-z][a-z\d+.-]*:\/\//i.test(raw) ? raw : `https://${raw}`);
+    return classifySurface({ host: parsed.hostname, path: parsed.pathname });
+  } catch {
+    return 'other';
+  }
 }
 
 /**
