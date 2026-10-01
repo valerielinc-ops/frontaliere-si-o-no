@@ -4,6 +4,10 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
+import deCore from '../services/locales/de-core';
+import enCore from '../services/locales/en-core';
+import frCore from '../services/locales/fr-core';
+import itCore from '../services/locales/it-core';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PERSONAL_ADDRESSES = ['valerie@frontaliereticino.ch', 'valerie@frontaliere.ch', 'valerielinc@gmail.com'];
@@ -15,10 +19,6 @@ const PUBLIC_SOURCES = [
   'components/pages/NewsletterPreferences.tsx',
   'components/pages/PrivacyPolicy.tsx',
   'components/pages/TermsOfService.tsx',
-  'services/locales/de-core.ts',
-  'services/locales/en-core.ts',
-  'services/locales/fr-core.ts',
-  'services/locales/it-core.ts',
   'services/adminIdentity.ts',
   'services/newsletter-template.mjs',
   'services/weather/metNoFetcher.ts',
@@ -27,11 +27,25 @@ const PUBLIC_SOURCES = [
   'hooks/useUserState.ts',
 ];
 
+const PUBLIC_LOCALE_BUNDLES = {
+  de: deCore,
+  en: enCore,
+  fr: frCore,
+  it: itCore,
+};
+
 describe('public contact mailbox', () => {
   it.each(PUBLIC_SOURCES)('$s does not bundle a personal contact address', (relativePath) => {
     const source = readFileSync(resolve(ROOT, relativePath), 'utf8').toLowerCase();
     for (const address of PERSONAL_ADDRESSES) {
       expect(source, `${relativePath} still exposes ${address}`).not.toContain(address);
+    }
+  });
+
+  it.each(Object.entries(PUBLIC_LOCALE_BUNDLES))('$s locale does not expose a personal contact address', (_locale, translations) => {
+    const source = JSON.stringify(translations).toLowerCase();
+    for (const address of PERSONAL_ADDRESSES) {
+      expect(source, `${_locale} locale still exposes ${address}`).not.toContain(address);
     }
   });
 

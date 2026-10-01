@@ -180,7 +180,7 @@ describe('brand shell', () => {
         expect(html).toContain(BADGES[locale].replace(/'/g, '&#39;'));
         expect(html).toContain('Infermiere/a cure acute — Clinica Esempio');
         expect(html).toContain('order-1');
-        expect(html).toContain('valerie@frontaliereticino.ch'); // data-controller line in the footer
+        expect(html).toContain('redazione@frontaliereticino.ch'); // public data-controller line in the footer
         expect(html).not.toMatch(/undefined|\[object/);
         heroes.add(html.match(/<title>([^<]+) — Frontaliere Ticino<\/title>/)?.[1] || '');
       }
