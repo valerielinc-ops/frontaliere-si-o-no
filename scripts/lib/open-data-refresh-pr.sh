@@ -107,6 +107,19 @@ PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 REFRESH_BASE="$(git rev-parse HEAD)"
 
+# The stable branch may have been created by an older workflow revision. Keep
+# the reconciler from the current workflow checkout before switching to that
+# branch, otherwise a stale copy can reintroduce a fixed parser or merge rule.
+MERGE_REFRESH_SCRIPT_DIR=""
+if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
+  MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
+  trap 'rm -rf -- "$MERGE_REFRESH_SCRIPT_DIR"' EXIT
+  git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/merge-open-data-refresh.mjs"
+  git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/open-data-refresh-merge.mjs"
+fi
+
 # Validate the exact PR contract before creating a commit or remote branch.
 node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
 
@@ -144,8 +157,16 @@ REFRESH_COMMIT="$(git rev-parse HEAD)"
 # tree when it exists, then apply this run's commit on top of it. This keeps
 # earlier append-only/state records in an unmerged PR.
 if [ -n "$REMOTE_HEAD" ]; then
-  git fetch --no-tags "$PUSH_URL" \
-    "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+  # The workflow checkout is intentionally shallow. Fetch only the stable
+  # branch tip for the non-compat reconciler; the compat path performs real
+  # Git merges and therefore needs the branch history and merge-base.
+  if [ "$RECONCILE_COMPAT" = true ]; then
+    git fetch --no-tags "$PUSH_URL" \
+      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+  else
+    git fetch --no-tags --depth=1 "$PUSH_URL" \
+      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+  fi
   git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
 fi
 
@@ -192,7 +213,7 @@ elif [ -n "$REMOTE_HEAD" ]; then
   for refresh_path in "${PATHS[@]}"; do
     MERGE_ARGS+=(--path "$refresh_path")
   done
-  node scripts/ci/merge-open-data-refresh.mjs "${MERGE_ARGS[@]}"
+  node "$MERGE_REFRESH_SCRIPT_DIR/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
   stage_paths
   if git diff --cached --quiet; then
     echo "No new refresh changes after stable-branch reconciliation."
