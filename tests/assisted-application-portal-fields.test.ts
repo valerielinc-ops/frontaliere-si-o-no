@@ -19,6 +19,60 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  // Giro di prova 2026-10-01 on JOIN: the CV drop zone had no label, only "file:_r_3_:input",
+  // so the planner skipped it and the run handed the application over.
+  it('names an unlabelled drop zone by its heading and zone text, not by a generated id', () => {
+    const page = extract(`
+      <h1>Carica il tuo CV</h1>
+      <div class="dropzone"><div><span>Carica file</span><p>Fare clic per sfogliare o trascinare qui un file.</p>
+        <input type="file" id="file:_r_3_:input" accept=".pdf"></div></div>
+      <label for="city">Località</label><input id="city" name="city">
+      <input name="nickname">`);
+    const file = page.fields.find((field: any) => field.kind === 'file');
+    // The heading names the step; the zone adds the text nearest before the input.
+    expect(file.label).toBe('Carica il tuo CV · Fare clic per sfogliare o trascinare qui un file.');
+    // A real label or a meaningful name is kept as before.
+    expect(page.fields.find((field: any) => field.name === 'city').label).toBe('Località');
+    expect(page.fields.find((field: any) => field.name === 'nickname').label).toBe('nickname');
+  });
+
+  // Giro di prova 2026-10-01 on JOIN: option cards are ARIA radios with no native input.
+  it('reads an ARIA radio group as one question with its options, and the chosen one', () => {
+    const card = (letter: string, title: string, text: string, checked = false) => `
+      <div><div role="radio" aria-checked="${checked}" tabindex="0"><div><p>${letter}</p></div>
+        <div><p>${title}</p><p>${text}</p></div></div></div>`;
+    const page = extract(`
+      <div><h2>Qual è il suo stato di autorizzazione al lavoro per Svizzera?</h2><div><div>
+        ${card('a', 'Posso lavorare qui senza alcuna restrizione', 'Ho la cittadinanza.')}
+        ${card('b', 'Posso lavorare qui, ma solo per un periodo limitato', 'Fino alla scadenza.', true)}
+        ${card('d', 'Non posso ancora lavorare qui', 'Serve un permesso.')}
+      </div></div></div>`);
+    expect(page.fields).toHaveLength(1);
+    const [field] = page.fields;
+    expect(field).toMatchObject({ kind: 'radio', label: 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?' });
+    expect(field.options.map((option: any) => option.label)).toEqual([
+      'Posso lavorare qui senza alcuna restrizione — Ho la cittadinanza.',
+      'Posso lavorare qui, ma solo per un periodo limitato — Fino alla scadenza.',
+      'Non posso ancora lavorare qui — Serve un permesso.',
+    ]);
+    expect(field.value).toBe('Posso lavorare qui, ma solo per un periodo limitato — Fino alla scadenza.');
+    expect(field.options.every((option: any) => /^f\d+$/.test(option.aaId))).toBe(true);
+  });
+
+  // Review of #10698.
+  it('prefers a meaningful id to a generated name, skips hidden headings and never reads a label from inside a control', () => {
+    expect(extract('<input name="input-7" id="email-address">').fields[0].label).toBe('email-address');
+    const steps = extract('<h2>Current step</h2><h2 hidden>Inactive step</h2><div><input id="input-7"></div>');
+    expect(steps.fields[0].label).toContain('Current step');
+    expect(steps.fields[0].label).not.toContain('Inactive step');
+    const country = extract('<h2>Paese</h2><div><select id="input-7"><option>Italia</option><option>Svizzera</option></select></div>');
+    expect(country.fields[0].label).toBe('Paese');
+    // Second round: another section's heading, and a sibling field's question, name nothing here.
+    expect(extract('<section><h2>Inactive step</h2></section><section><div><input id="input-7"></div></section>').fields[0].label).not.toContain('Inactive step');
+    const pair = extract('<div><span>First question</span><input id="input-7"><span>Second question</span><input id="input-8"></div>');
+    expect(pair.fields.map((field: any) => field.label)).toEqual(['First question', 'Second question']);
+  });
+
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {
     const page = extract(`
       <fieldset>
