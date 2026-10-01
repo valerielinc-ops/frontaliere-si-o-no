@@ -58,13 +58,43 @@ export function eventOfferPriceAmount(value) {
   return Number.isFinite(amount) ? amount : NaN;
 }
 
-/** Parse an admission tariff without mistaking contact numbers or age limits for prices. */
+const TARIFF_AMOUNT = String.raw`(?:\d{1,3}(?:['’\u00a0\u202f ]\d{3})+|\d+)(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?`;
+const TARIFF_CURRENCY = String.raw`(?:CHF|EUR|€|S?Fr\.|francs?|franchi|franken)(?!\p{L})`;
+const TARIFF_MONEY_RE = new RegExp(
+  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(?:(?<prefix>${TARIFF_CURRENCY})\s*(?<after>${TARIFF_AMOUNT})|(?<before>${TARIFF_AMOUNT})\s*(?<suffix>${TARIFF_CURRENCY}))(?![\p{N}'’]|[.,]\d)`,
+  'giu',
+);
+const TARIFF_CURRENCY_RE = new RegExp(TARIFF_CURRENCY, 'iu');
+const BARE_TARIFF_RE = new RegExp(
+  String.raw`^${TARIFF_AMOUNT}(?:\s*[-–]\s*${TARIFF_AMOUNT})?(?:\s*(?:pro Person|per person|par personne|per persona))?\s*[.!]?$`,
+  'iu',
+);
+
+/** Parse an admission tariff without treating categories, quantities or contact numbers as prices. */
 export function parseEventPriceText(value) {
   if (typeof value !== 'string') return undefined;
   const tariff = value
     .replace(/\b(?:t[ée]l(?:efon|ephone|[ée]phone|efono)?\.?|phone|au|al|at)\s*:?\s*\+?\d[\d\s().-]{5,}/gi, ' ')
     .replace(/(?<![\p{L}\p{N}])(?:ab|under|below|over|from|(?:a partire )?da[il]?|fino a|d[èe]s|[àa] partir de|jusqu['’][àa])\s*\d+(?:\s*[-–]\s*\d+)?\s*(?:jahren?|years?|anni|ans)\b/giu, ' ')
     .replace(/\bgratuita\b/gi, 'gratuito');
+  const money = [...tariff.matchAll(TARIFF_MONEY_RE)].map(({ groups }) => ({
+    amount: Number.parseFloat((groups.after || groups.before).replace(/['’\s]/g, '').replace(',', '.')),
+    currency: /EUR|€/iu.test(groups.prefix || groups.suffix) ? 'EUR' : 'CHF',
+  })).filter(({ amount }) => Number.isFinite(amount));
+  const unknown = { amount: null, currency: 'CHF', isFree: false };
+  if (money.length) {
+    // Different currencies are not comparable without an exchange rate.
+    if (new Set(money.map(({ currency }) => currency)).size > 1) return unknown;
+    const cheapest = money.reduce((best, candidate) => candidate.amount < best.amount ? candidate : best);
+    return { ...cheapest, isFree: cheapest.amount === 0 };
+  }
+  // A currency marker with an invalid amount must not fall through to the
+  // legacy numeric parser (e.g. a partial match inside "CHF 1,000").
+  if (TARIFF_CURRENCY_RE.test(tariff)) return unknown;
+  if (/\d/u.test(tariff) && !BARE_TARIFF_RE.test(tariff.trim())) return unknown;
+  if (BARE_TARIFF_RE.test(tariff.trim())) {
+    return parsePriceText(tariff.replace(/['’\u00a0\u202f]/g, '').replace(/(?<=\d) (?=\d)/g, ''));
+  }
   return parsePriceText(tariff);
 }
 

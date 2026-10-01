@@ -29,6 +29,7 @@ import {
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
   mergeEventOfferMetadata,
+  parseEventPriceText,
 } from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
@@ -242,6 +243,32 @@ describe('recoverExistingIndexedPrices', () => {
 });
 
 describe('extractPrice', () => {
+  it('takes a published ticket amount instead of a category number in a real tariff table', () => {
+    const tariff = 'EHC-K Lounge: 158,90 CHF Kategorie 1: 81,80 CHF Kategorie 2: 63,60 CHF Kategorie 3: 40,80 CHF Kategorie 4 Family: 40,80 CHF Kids: 5,30 CHF Stehplatz Gast: 31,50 CHF Stehplatz Heim: 31,50 CHF';
+    expect(extractPrice({}, `<table><tr><th>Prezzo</th><td>${tariff}</td></tr></table>`))
+      .toEqual({ amount: 5.3, currency: 'CHF', isFree: false });
+  });
+
+  it.each([
+    ['CHF 40.– pour les 8 séances de la saison', 40, 'CHF'],
+    ['Fr. 25.–, catégorie 1, salle 2', 25, 'CHF'],
+    ['1\'000.50 CHF pour 3 personnes', 1000.5, 'CHF'],
+    ['CHF 1’000.– pour 3 personnes', 1000, 'CHF'],
+    ['CHF 1 000.50 pour 3 personnes', 1000.5, 'CHF'],
+    ['1\u202f000 CHF pour 3 personnes', 1000, 'CHF'],
+    ['Prezzo: 20 franchi, categoria 1', 20, 'CHF'],
+    ['EUR 12,50 pour 2 personnes', 12.5, 'EUR'],
+    ['25.–', 25, 'CHF'],
+    ['25 pro Person', 25, 'CHF'],
+  ])('parses monetary tariffs without including unrelated quantities: %s', (tariff, amount, currency) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount, currency, isFree: false });
+  });
+
+  it.each(['Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20'])
+    ('keeps absent or ambiguous monetary amounts unknown: %s', (tariff) => {
+      expect(parseEventPriceText(tariff)).toEqual({ amount: null, currency: 'CHF', isFree: false });
+    });
+
   it('returns no price when a tariff cannot be interpreted', () => {
     expect(extractPrice({}, '<table><tr><th>Price</th><td>su richiesta</td></tr></table>')).toBeUndefined();
   });
