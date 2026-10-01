@@ -2590,7 +2590,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
  // with ricerca-/search-/suche-/recherche- (measured on prod 2026-08-07) and
  // would otherwise seed the search box, filtering the listing on a job URL.
- const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl());
+ const isSeededExpiredDetail = Boolean(initialJobSlug && seededJobMatchesSlug(initialJobSlug));
+ const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() || isSeededExpiredDetail ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
  // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
  // natively in the DOM with zero React involvement, so typing never waits on this
@@ -3160,16 +3161,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // an expired job page — not a company filter page. This catches expired jobs whose
   // company name starts with "azienda-" etc. The slug-specific match prevents stale
   // window globals from a previous SPA navigation triggering a false positive.
-  if (initialJobSlug && seededJobMatchesSlug(initialJobSlug)) return null;
+  if (isSeededExpiredDetail) return null;
   return filter;
- }, [initialJobSlug, jobs, isBridgePage]);
+ }, [initialJobSlug, jobs, isBridgePage, isSeededExpiredDetail]);
  const locationSlugFilter = useMemo(
- () => (isBridgePage ? null : parseLocationSlugFilter(initialJobSlug)),
- [initialJobSlug, isBridgePage],
+ () => (isBridgePage || isSeededExpiredDetail ? null : parseLocationSlugFilter(initialJobSlug)),
+ [initialJobSlug, isBridgePage, isSeededExpiredDetail],
  );
  const searchSlugFilter = useMemo(
- () => (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)),
- [initialJobSlug, isBridgePage],
+ () => (isBridgePage || isSeededExpiredDetail ? null : parseSearchSlugFilter(initialJobSlug)),
+ [initialJobSlug, isBridgePage, isSeededExpiredDetail],
  );
  // Title-cased search keyword for the search-landing H1 (e.g. "verkaufsberater
  // in tessin" → "Verkaufsberater In Tessin"). Keeps the keyword in the H1 after
@@ -3184,7 +3185,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Same bridge-page guard as `searchSlugFilter` above (the third call site of
  // parseSearchSlugFilter): on a job bridge page the URL segment is a job's old
  // slug, not a search keyword, so it must not become the search query.
- const next = (isBridgePage ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
+ const next = (isBridgePage || isSeededExpiredDetail ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
  const nextPage = readPageFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
  setPage(nextPage);
@@ -3198,7 +3199,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  window.addEventListener('popstate', syncFromUrl);
  return () => window.removeEventListener('popstate', syncFromUrl);
- }, [initialJobSlug, isBridgePage, page, searchQuery]);
+ }, [initialJobSlug, isBridgePage, isSeededExpiredDetail, page, searchQuery]);
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
@@ -5865,6 +5866,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const selectedJobTitle = selectedJob ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title) : '';
 
  useEffect(() => {
+ // Archived job slugs can share a search/location prefix. Preserve their
+ // static schema, but do not let a stale seed protect the next listing route.
+ if (isSeededExpiredDetail) return;
  if (!selectedJob) {
   const isListing = !initialJobSlug || searchSlugFilter || companySlugFilter || locationSlugFilter || editorialLandingDescriptor;
   if (!isListing) return; // Preserve a detail's static schema while its data loads.
@@ -6018,7 +6022,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const el = document.getElementById('jobposting-structured-data');
  if (el) el.remove();
  };
- }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob, bridgeTargetSlug]);
+ }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob, bridgeTargetSlug, isSeededExpiredDetail]);
 
  // ── ItemList JSON-LD (docs/seo-action-plan-apr2026.md) ───────────────────
  // Emit a Schema.org ItemList pointing at the currently filtered job list.

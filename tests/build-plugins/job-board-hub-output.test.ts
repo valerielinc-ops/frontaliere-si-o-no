@@ -31,6 +31,32 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
   url: `https://example.test/careers/${i}/`,
 }));
 
+
+const archiveDates = { posted: daysAgo(10), crawled: daysAgo(5), expired: daysAgo(2), future: daysAgo(-2) };
+const archiveRecord = (slug: string, overrides: Record<string, unknown> = {}) => ({
+  ...jobs[7], id: slug, slug, datePosted: archiveDates.posted, postedDate: archiveDates.posted,
+  crawledAt: archiveDates.crawled, expiredAt: archiveDates.expired, ...overrides,
+});
+const noPostingDates = { datePosted: undefined, postedDate: undefined, crawledAt: undefined, expiredAt: undefined };
+const archivedJobs = [
+  archiveRecord('archived-audit-position'),
+  archiveRecord('archived-crawl-only', { ...noPostingDates, crawledAt: archiveDates.crawled }),
+  archiveRecord('archived-posted-only', { ...noPostingDates, postedDate: archiveDates.posted }),
+  archiveRecord('archived-expiry-only', { ...noPostingDates, expiredAt: archiveDates.expired }),
+  archiveRecord('archived-future-expiry', { expiredAt: archiveDates.future }),
+  archiveRecord('archived-late-posting', { datePosted: archiveDates.future, postedDate: archiveDates.future }),
+  archiveRecord('archived-sparse', { ...noPostingDates, crawledAt: archiveDates.crawled,
+    description: '', descriptionByLocale: {}, salaryMin: undefined, salaryMax: undefined, contract: undefined }),
+  archiveRecord('archived-short-description', { description: 'Reparto dati.', descriptionByLocale: {} }),
+  archiveRecord('archived-medium-description', { description: 'Esperienza in analisi dati e report.', descriptionByLocale: {} }),
+  archiveRecord('archived-markup-short', { description: '<div class="source-role-description"><strong>Reparto dati.</strong></div>', descriptionByLocale: {} }),
+  archiveRecord('archived-no-dates', noPostingDates),
+  archiveRecord('archived-invalid-dates', { datePosted: 'not-a-date', postedDate: 'not-a-date', crawledAt: 'not-a-date', expiredAt: 'not-a-date' }),
+  archiveRecord('archived-future-only', { datePosted: archiveDates.future, postedDate: archiveDates.future, crawledAt: archiveDates.future, expiredAt: archiveDates.future }),
+  archiveRecord('archived-no-employer', { company: '', companyKey: '' }),
+  archiveRecord('archived-no-title', { title: '', titleByLocale: {} }),
+];
+
 beforeAll(async () => {
   root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-board-hub-output-'));
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
@@ -51,9 +77,10 @@ beforeAll(async () => {
     ...Array.from({ length: 80 }, (_, i) => ({ slug: `snapshot-zh-${i}`, role: `Ruolo ${i}`, employer: 'Audit Example SA', employerKey: 'audit-example', canton: 'ZH', city: 'Zürich' })),
     ...Array.from({ length: 120 }, (_, i) => ({ slug: `snapshot-sg-${i}`, role: `Ruolo ${i}`, employer: 'Audit Example SA', employerKey: 'audit-example', canton: 'SG', city: 'St. Gallen' })),
   ] }));
-  const expiredSlug = 'archived-audit-position';
-  writeAllKnownJobSlugs({ [expiredSlug]: Object.fromEntries(locales.map((locale) => [locale, `${hubPath(locale, 'TI')}${expiredSlug}`])) }, root);
-  fs.writeFileSync(path.join(root, 'data/expired-jobs.json'), JSON.stringify([{ ...jobs[7], id: 'archived-audit', slug: expiredSlug, expiredAt: daysAgo(1) }]));
+  writeAllKnownJobSlugs(Object.fromEntries(archivedJobs.map(({ slug }) => [slug,
+    Object.fromEntries(locales.map((locale) => [locale, `${hubPath(locale, 'TI')}${slug}`])),
+  ])), root);
+  fs.writeFileSync(path.join(root, 'data/expired-jobs.json'), JSON.stringify(archivedJobs));
   await (employerProfilePagesPlugin(root).closeBundle as () => Promise<void>)();
   (localeJobsSplitPlugin(root).closeBundle as () => void)();
   await (jobsSeoPagesPlugin(root).closeBundle as () => Promise<void>)();
@@ -138,12 +165,55 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it('keeps archived pages useful without presenting closed positions as JobPosting', () => {
+  it.each([
+    ['archived-audit-position', archiveDates.posted, archiveDates.expired],
+    ['archived-crawl-only', archiveDates.crawled, archiveDates.crawled],
+    ['archived-posted-only', archiveDates.posted, archiveDates.posted],
+    ['archived-expiry-only', archiveDates.expired, archiveDates.expired],
+    ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
+    ['archived-late-posting', archiveDates.crawled, archiveDates.expired],
+    ['archived-sparse', archiveDates.crawled, archiveDates.crawled],
+    ['archived-short-description', archiveDates.posted, archiveDates.expired],
+    ['archived-medium-description', archiveDates.posted, archiveDates.expired],
+    ['archived-markup-short', archiveDates.posted, archiveDates.expired],
+  ])('keeps complete expired schema using only observed past dates for %s', (slug, datePosted, validThrough) => {
     for (const locale of locales) {
-      const document = htmlDoc(`${hubPath(locale, 'TI')}archived-audit-position/`);
-      expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
-      expect(structured(document).flatMap(allTypes)).toContain('WebPage');
+      const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
+      const entries = structured(document);
+      const postings = entries.filter((entry) => entry['@type'] === 'JobPosting');
+      expect(postings).toHaveLength(1);
+      const posting = postings[0];
+      for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
+      expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
+      if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
+      if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
+      if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
+        const unavailable = { it: 'non è più disponibile', en: 'no longer available', de: 'nicht mehr verfügbar', fr: "n'est plus disponible" };
+        expect(posting.description).toContain(unavailable[locale]);
+      }
+      expect(posting.description).not.toMatch(/Candidatura diretta|Apply directly through|Direkte Bewerbung|Candidature directe/);
+      expect(posting.description).not.toContain('source-role-description');
+      expect(posting.hiringOrganization.name).toBe('Audit Example SA');
+      expect(posting.jobLocation.address.postalCode).toBeTruthy();
+      expect(posting.jobLocation.address.streetAddress).toBeTruthy();
+      expect(posting.baseSalary.value.minValue).toBeGreaterThan(0);
+      expect(posting.datePosted).toBe(datePosted);
+      expect(posting.validThrough).toBe(validThrough);
+      expect(posting.directApply).toBe(false);
+      expect(Date.parse(posting.validThrough)).toBeLessThan(Date.now());
+      expect(Date.parse(posting.datePosted)).toBeLessThanOrEqual(Date.parse(posting.validThrough));
+      expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
       expect(document.querySelector('h1')).toBeTruthy();
     }
   });
+
+  it.each(['archived-no-dates', 'archived-invalid-dates', 'archived-future-only', 'archived-no-employer', 'archived-no-title'])(
+    'keeps only archive metadata when real identity or past dates are unavailable: %s', (slug) => {
+      for (const locale of locales) {
+        const entries = structured(htmlDoc(`${hubPath(locale, 'TI')}${slug}/`));
+        expect(entries.flatMap(allTypes)).not.toContain('JobPosting');
+        expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
+      }
+    },
+  );
 });

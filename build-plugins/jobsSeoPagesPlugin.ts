@@ -13832,7 +13832,7 @@ ${staticAnalyticsHtml}
  ],
  })}</script>`;
 
- // Archived vacancies remain useful pages, but are no longer open JobPostings.
+ // Keep archive metadata alongside any verifiable, explicitly expired JobPosting.
  const archivePageLd = `<script type="application/ld+json">${inlineScriptJson({
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -13841,7 +13841,75 @@ ${staticAnalyticsHtml}
   url: selfUrl,
   inLanguage: locale,
  })}</script>`;
- const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd;
+ const jobPostingLd = (() => {
+ // Keep the complete historical identity, but never advertise an archive as
+ // open: only real past timestamps may supply its explicit validThrough.
+ const realTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title
+ || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '').trim();
+ const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
+ const archiveNowMs = Date.now();
+ const realValidThrough = [ejData?.expiredAt, ejData?.crawledAt, ejData?.datePosted, ejData?.postedDate]
+ .map(safeIsoDate)
+ .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
+ if (!realTitle || !realValidThrough || !realCompany) return '';
+ // Reuse the builder's publication/crawl fallback contract without inventing
+ // an earlier posting date. With one observed timestamp both dates coincide.
+ const expiredDatePosted = [ejData?.datePosted, ejData?.postedDate, ejData?.crawledAt, realValidThrough]
+ .map(safeIsoDate)
+ .find((date): date is string => date !== null && Date.parse(date) <= Date.parse(realValidThrough)) || realValidThrough;
+ // Match the builder's 50-character guarantee after visible-text normalization,
+ // so short historical copy never falls back to an active application prompt.
+ const archivedDescription = capJsonLdDescription(jobDescription);
+ const finalDescription = archivedDescription.length >= 50 ? archivedDescription : capJsonLdDescription((() => {
+ const parts: string[] = [];
+ if (archivedDescription) parts.push(`<p>${esc(archivedDescription)}</p>`);
+ parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+ if (locale === 'it') {
+ parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
+ } else if (locale === 'en') {
+ parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
+ } else if (locale === 'de') {
+ parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
+ } else {
+ parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
+ }
+ parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
+ if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
+ return parts.join('');
+ })());
+ // Build the canonical JobPosting schema via the shared builder. The
+ // explicit past deadline bypasses the active-posting future-date fallback.
+ const expiredInput: JobInput = {
+ id: ejData?.id,
+ slug,
+ title: realTitle,
+ description: finalDescription,
+ company: realCompany,
+ companyKey: ejData?.companyKey || slugInfo?.companyKey,
+ addressLocality: jobLocation || undefined,
+ addressRegion: jobCanton || undefined,
+ postalCode: ejData?.postalCode || slugInfo?.postalCode,
+ streetAddress: ejData?.streetAddress,
+ datePosted: expiredDatePosted,
+ validThrough: realValidThrough,
+ contract: ejData?.contract,
+ salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
+ salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
+ salaryCurrency: ejData?.salaryCurrency,
+ category: ejData?.category,
+ sector: ejData?.category,
+ url: undefined,
+ };
+ const expiredSchema = buildJobPostingSchema(expiredInput, {
+ locale,
+ url: selfUrl,
+ baseUrl: BASE_URL,
+ });
+
+ return `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`;
+ })();
+
+ const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
  // Tier decision FIRST. It reads only `__slCandidatePaths` (hoisted above the
