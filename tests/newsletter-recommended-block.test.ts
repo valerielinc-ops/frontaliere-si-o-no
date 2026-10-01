@@ -26,6 +26,11 @@ afterEach(() => {
 });
 
 describe('recommendedBlock selection', () => {
+  it('labels existing referral links without claiming an active commercial partnership', () => {
+    const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
+    expect(rec?.disclosure).toContain('nessun accordo di affiliazione attivo');
+    expect(rec?.disclosure).not.toContain('In collaborazione');
+  });
   it('picks an enabled affiliate partner and never an empty box', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       for (const interest of ['general', 'jobs', 'utility', 'articles']) {

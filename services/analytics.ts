@@ -122,6 +122,7 @@ export interface AffiliateTelemetry {
  campaign?: string;
  variant?: string;
  attributionId?: string;
+ commercialActive?: boolean;
 }
 
 function affiliateTelemetry(partnerId: string, context: string, attribution: AffiliateTelemetry) {
@@ -132,7 +133,7 @@ function affiliateTelemetry(partnerId: string, context: string, attribution: Aff
  const variant = safeAffiliateToken(attribution.variant, 'control');
  const attribution_id = sanitizeAffiliatePubref(attribution.attributionId || buildAffiliatePubref({ partnerId: partner_id, surface, position, campaign, variant }));
  return { partner_id, context: safeAffiliateToken(context, 'unknown'), surface, position, campaign, variant,
-  attribution_id, content_type: 'affiliate', item_id: attribution_id };
+  attribution_id, commercial_active: attribution.commercialActive === true, content_type: 'affiliate', item_id: attribution_id };
 }
 
 export interface AnalyticsPageViewIdentity {
@@ -1262,7 +1263,7 @@ export const Analytics = {
  return resolvedPageViewEmissionId;
  },
 
- /** A visible paid CTA; Firebase is the unsampled source of truth. */
+ /** A visible referral CTA; Firebase is the unsampled source of truth. */
  trackAffiliateImpression: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
   logFirebaseOnly('affiliate_impression', affiliateTelemetry(partnerId, context, attribution));
  },

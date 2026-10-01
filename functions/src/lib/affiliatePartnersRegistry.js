@@ -17,6 +17,8 @@
  *
  * Plain ESM (no TS types) so it loads in every runtime without a bundler.
  *
+ * `enabled` publishes an existing resource; it does not establish an agreement.
+ * `sponsored` marks a referral URL independently of commercial activation.
  * The gate that MUST NOT drift — `enabled`, `sponsored`, and the /go/{id}/
  * redirect path — lives here once. Email presentation copy is separate
  * (functions/src/lib/recommendedBlock.js) and is email-specific, not a
@@ -50,6 +52,7 @@ export const PARTNERS_REGISTRY = [
  priority: 10,
  enabled: true,
  sponsored: true,
+ commercialActive: false,
  },
 
  // ─── Banking ───
@@ -66,6 +69,7 @@ export const PARTNERS_REGISTRY = [
  priority: 9,
  enabled: true,
  sponsored: true,
+ commercialActive: false,
  },
  {
  id: 'creditagricole',
@@ -80,6 +84,7 @@ export const PARTNERS_REGISTRY = [
  priority: 8,
  enabled: true,
  sponsored: true,
+ commercialActive: false,
  },
  {
  id: 'revolut',
@@ -93,6 +98,7 @@ export const PARTNERS_REGISTRY = [
  priority: 6,
  enabled: true,
  sponsored: true,
+ commercialActive: false,
  },
  {
  id: 'cambiavalute',
@@ -106,6 +112,7 @@ export const PARTNERS_REGISTRY = [
  priority: 7,
  enabled: true,
  sponsored: true,
+ commercialActive: false,
  },
  // ─── Health / LAMal ───
  {
@@ -124,6 +131,7 @@ export const PARTNERS_REGISTRY = [
  // signed. NOT sponsored — plain rel, no commission claim.
  enabled: true,
  sponsored: false,
+ commercialActive: false,
  },
  {
  id: 'comparis',
@@ -142,6 +150,7 @@ export const PARTNERS_REGISTRY = [
  // surface renders it.
  enabled: false,
  sponsored: true,
+ commercialActive: false,
  },
  // ─── Mobile ───
  {
@@ -156,6 +165,7 @@ export const PARTNERS_REGISTRY = [
  priority: 5,
  enabled: true,
  sponsored: true,
+ commercialActive: false,
  },];
 
 /** Site-relative /go/{id}/ redirect path (trailing slash by construction). */

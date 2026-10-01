@@ -15,30 +15,30 @@ export default function AffiliateLink({ partnerId, context = 'unknown', attribut
  const partner = PARTNERS.find(p => p.id === partnerId && p.enabled);
  const href = partner && attribution ? buildAffiliateLinkHref(partner, attribution) : fallback;
  const attributionId = partner && attribution && href ? new URL(href).searchParams.get('pos') || '' : '';
- const paid = Boolean(partner?.sponsored && attributionId);
- const telemetry = { ...attribution, attributionId };
+ const referral = Boolean(partner?.sponsored && attributionId);
+ const telemetry = { ...attribution, attributionId, commercialActive: partner?.commercialActive === true };
 
  useEffect(() => {
   const link = ref.current;
-  if (!paid || !link || !partner || seen.current.has(attributionId) || typeof IntersectionObserver === 'undefined') return;
+  if (!referral || !link || !partner || seen.current.has(attributionId) || typeof IntersectionObserver === 'undefined') return;
   const observer = new IntersectionObserver(entries => {
    if (!entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.1)) return;
    if (!seen.current.has(attributionId)) {
     seen.current.add(attributionId);
-    Analytics.trackAffiliateImpression(partner.id, context, { ...attribution, attributionId });
+    Analytics.trackAffiliateImpression(partner.id, context, { ...attribution, attributionId, commercialActive: partner.commercialActive === true });
    }
    observer.disconnect();
   }, { threshold: 0.1 });
   observer.observe(link);
   return () => observer.disconnect();
- }, [paid, partner?.id, context, attributionId]);
+ }, [referral, partner?.id, context, attributionId]);
 
  const trackClick = () => {
-  if (paid && partner) Analytics.trackAffiliateClick(partner.id, context, telemetry);
+  if (referral && partner) Analytics.trackAffiliateClick(partner.id, context, telemetry);
  };
  return <a {...props} ref={ref} href={href}
   rel={[...new Set(`${rel || ''} ${partnerRelAttr({ sponsored: Boolean(partner?.sponsored) })}`.trim().split(/\s+/))].join(' ')}
-  data-affiliate-id={paid ? attributionId : undefined}
+  data-affiliate-id={referral ? attributionId : undefined}
   onClick={event => { onClick?.(event); if (!event.defaultPrevented) trackClick(); }}
   onAuxClick={event => { onAuxClick?.(event); if (event.button === 1 && !event.defaultPrevented) trackClick(); }}
  />;

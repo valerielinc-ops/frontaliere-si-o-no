@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { describe, expect, it, vi } from 'vitest';
 import { exportL8Ga4Attribution } from '../scripts/ci/export-l8-affiliate-outcomes.mjs';
 import { reconcileAffiliateTransactions } from '../scripts/lib/affiliateRevenue.mjs';
@@ -11,6 +12,26 @@ function scratch() { return fs.mkdtempSync(path.join(os.tmpdir(), 'affiliate-ga4
 const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOString();
 
 describe('live affiliate attribution source and money', () => {
+ it('loads the live exporter from only the workflow sparse checkout without node_modules', () => {
+  const dir = scratch();
+  try {
+   const root = path.resolve(__dirname, '..');
+   const yaml = fs.readFileSync(path.join(root, '.github/workflows/loop-l8-revenue-attribution.yml'), 'utf8');
+   const listed = yaml.split('sparse-checkout: |')[1].split('sparse-checkout-cone-mode:')[0]
+    .trim().split('\n').map(line => line.trim().replace(/^\//, ''));
+   for (const source of listed) {
+    const original = path.join(root, source);
+    if (!fs.existsSync(original)) continue;
+    const dest = path.join(dir, source);
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.copyFileSync(original, dest);
+   }
+   const result = spawnSync(process.execPath, ['scripts/ci/export-l8-affiliate-outcomes.mjs', '--unavailable', '--out', path.join(dir, 'out.json')], { cwd: dir, encoding: 'utf8' });
+   expect(result.status, result.stderr).toBe(0);
+   expect(JSON.parse(fs.readFileSync(path.join(dir, 'out.json'), 'utf8')).attribution.source).toBe('ga4');
+  } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+ });
+
  it('reads unsampled GA4 event totals and never invents email exposure or approved money', async () => {
   const dir = scratch();
   try {

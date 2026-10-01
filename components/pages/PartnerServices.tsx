@@ -10,7 +10,7 @@ import AffiliateLink from '@/components/shared/AffiliateLink';
 import React, { useMemo } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getAllPartners, buildAffiliateLinkHref, type AffiliatePartner } from '@/services/affiliateService';
+import { getAllPartners, buildAffiliateLinkHref, partnerDisclosureKey, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 const CATEGORIES = [
@@ -117,9 +117,9 @@ const PartnerServices: React.FC = () => {
 
  {/* Disclosure */}
  <div className="text-center">
- <p className="text-xs text-muted max-w-md mx-auto">
- {t('affiliate.disclosure')}
- </p>
+ {Array.from(new Set(allPartners.map(p => partnerDisclosureKey(p.id)).filter(Boolean))).map(key => (
+ <p key={key} className="text-xs text-muted max-w-md mx-auto">{t(key!)}</p>
+ ))}
  </div>
  </div>
  );

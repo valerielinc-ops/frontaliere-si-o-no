@@ -370,6 +370,7 @@ const translations: Record<string, string> = {
 
  // Stats View
  'affiliate.sectionTitle': 'Strumenti consigliati',
+ 'affiliate.referralDisclosure': "Alcuni link contengono codici di invito o referral. Al momento non abbiamo accordi di affiliazione attivi.",
  'affiliate.disclosure': 'Alcuni link possono generare una commissione che ci aiuta a mantenere il servizio gratuito.',
  "affiliate.cta.check": "Verifica costo e condizioni →",
  "affiliate.conditions.exchange": "Stima per l’importo selezionato. Tasso, commissioni e tempi definitivi sono confermati dal fornitore prima dell’operazione.",

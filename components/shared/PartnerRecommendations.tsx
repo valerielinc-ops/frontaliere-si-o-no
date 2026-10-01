@@ -10,7 +10,7 @@ import React from 'react';
 import AffiliateLink from './AffiliateLink';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getPartnersForContext, buildAffiliateLinkHref, type ComparatorContext, type AffiliatePartner } from '@/services/affiliateService';
+import { getPartnersForContext, buildAffiliateLinkHref, partnerDisclosureKey, type ComparatorContext, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 interface PartnerRecommendationsProps {
@@ -111,9 +111,9 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({
  />
  ))}
  </div>
- <p className="text-sm text-muted mt-2 text-center">
- {t('affiliate.disclosure')}
- </p>
+ {Array.from(new Set(partners.map(p => partnerDisclosureKey(p.id)).filter(Boolean))).map(key => (
+ <p key={key} className="text-sm text-muted mt-2 text-center">{t(key!)}</p>
+ ))}
  </div>
  );
 };

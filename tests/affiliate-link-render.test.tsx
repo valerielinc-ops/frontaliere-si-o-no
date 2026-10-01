@@ -34,7 +34,7 @@ function showLink(link: Element) {
  act(() => observer.callback([{ target: link, isIntersecting: true, intersectionRatio: 0.5 } as IntersectionObserverEntry], {} as IntersectionObserver));
 }
 
-describe('paid CTA rendered contract', () => {
+describe('referral CTA rendered contract', () => {
  it('records visible impressions once and keeps the network id on keyboard and middle clicks', async () => {
   const user = userEvent.setup();
   render(<AffiliateLink partnerId="wise" context="exchange" attribution={attribution} target="_blank">Check offer</AffiliateLink>);
@@ -43,14 +43,14 @@ describe('paid CTA rendered contract', () => {
   expect(Analytics.trackAffiliateImpression).not.toHaveBeenCalled();
   showLink(link); showLink(link);
   const id = new URL(link.getAttribute('href')!).searchParams.get('pos');
-  expect(Analytics.trackAffiliateImpression).toHaveBeenCalledExactlyOnceWith('wise', 'exchange', { ...attribution, attributionId: id });
+  expect(Analytics.trackAffiliateImpression).toHaveBeenCalledExactlyOnceWith('wise', 'exchange', { ...attribution, attributionId: id, commercialActive: false });
   await user.tab(); await user.keyboard('{Enter}');
   await user.pointer({ target: link, keys: '[MouseMiddle]' });
   expect(Analytics.trackAffiliateClick).toHaveBeenCalledTimes(2);
-  expect(Analytics.trackAffiliateClick).toHaveBeenLastCalledWith('wise', 'exchange', { ...attribution, attributionId: id });
+  expect(Analytics.trackAffiliateClick).toHaveBeenLastCalledWith('wise', 'exchange', { ...attribution, attributionId: id, commercialActive: false });
  });
 
- it('keeps institutional and disabled links outside the paid funnel', async () => {
+ it('keeps institutional and disabled links outside the referral funnel', async () => {
   const user = userEvent.setup();
   render(<><AffiliateLink partnerId="priminfo" attribution={attribution}>Official comparator</AffiliateLink><AffiliateLink partnerId="comparis" attribution={attribution} href="https://example.test/">Disabled</AffiliateLink></>);
   for (const link of screen.getAllByRole('link')) {
@@ -89,15 +89,16 @@ describe('paid CTA rendered contract', () => {
   expect(screen.getByRole('heading', { name: 'Wise' }).closest('a')?.rel).toContain('sponsored');
  });
 
- it('routes Fastweb through its enabled partner and retains cost conditions', async () => {
+ it('keeps the Fastweb comparison editorial without activating a referral', async () => {
   const user = userEvent.setup();
   render(<MobileOperators />);
   const link = screen.getByRole('heading', { name: 'Fastweb Mobile' }).closest('a')!;
-  expect(new URL(link.href).pathname).toBe('/go/fastweb/');
-  expect(link.rel).toContain('sponsored');
+  expect(link.href).toBe('https://www.fastweb.it/adsl-fibra-ottica/fastweb-mobile-start/');
+  expect(link.rel).not.toContain('sponsored');
   expect(link.textContent).toContain('affiliate.conditions.mobile');
   expect(link.textContent).toContain('10.00');
   await user.click(link);
-  expect(Analytics.trackAffiliateClick).toHaveBeenCalledWith('fastweb', 'mobile', expect.objectContaining({ attributionId: link.dataset.affiliateId }));
+  expect(Analytics.trackAffiliateClick).not.toHaveBeenCalled();
+  expect(Analytics.trackMobileOperator).toHaveBeenCalledWith('link_click', 'Fastweb Mobile', 'IT');
  });
 });

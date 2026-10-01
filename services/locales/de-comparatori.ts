@@ -356,6 +356,7 @@ const deComparatori: Record<string, string> = {
  'mobile.hiddenCost2': 'Anrufe zu CH-Nummern von italienischer SIM können 1-2€/Minute kosten, auch im Roaming',
  'mobile.hiddenCost3': 'Einige Anbieter begrenzen Roaming auf max. 2 aufeinanderfolgende Monate',
  'affiliate.sectionTitle': 'Empfohlene Tools',
+ 'affiliate.referralDisclosure': "Einige Links enthalten Einladungs- oder Empfehlungscodes. Derzeit haben wir keine aktiven Affiliate-Vereinbarungen.",
  'affiliate.disclosure': 'Einige Links können eine Provision generieren, die uns hilft, den Service kostenlos zu halten.',
  "affiliate.cta.check": "Kosten und Bedingungen prüfen →",
  "affiliate.conditions.exchange": "Schätzung für den gewählten Betrag. Der Anbieter bestätigt Kurs, Gebühren und Dauer vor der Transaktion.",

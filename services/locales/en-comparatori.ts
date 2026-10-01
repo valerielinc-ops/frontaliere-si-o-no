@@ -356,6 +356,7 @@ const enComparatori: Record<string, string> = {
  'mobile.hiddenCost2': 'Calling Swiss numbers from an Italian SIM can cost €1-2/minute even in roaming',
  'mobile.hiddenCost3': 'Some operators limit roaming to max 2 consecutive months',
  'affiliate.sectionTitle': 'Recommended tools',
+ 'affiliate.referralDisclosure': "Some links contain invitation or referral codes. We currently have no active affiliate agreements.",
  'affiliate.disclosure': 'Some links may generate a commission that helps us keep the service free.',
  "affiliate.cta.check": "Check costs and terms →",
  "affiliate.conditions.exchange": "Estimate for the selected amount. The provider confirms the final rate, fees and timing before the transaction.",

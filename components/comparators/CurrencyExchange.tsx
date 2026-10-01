@@ -18,7 +18,7 @@ import {
  FINECO_REFERRAL_URL,
  CREDIT_AGRICOLE_IT_REFERRAL_URL,
 } from '@/services/exchangePartners';
-import { resolveGoHref, type AffiliateLinkAttribution } from '@/services/affiliateService';
+import { resolveGoHref, partnerDisclosureKey, type AffiliateLinkAttribution } from '@/services/affiliateService';
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = lazyRetry(() =>
@@ -631,7 +631,7 @@ const CurrencyExchange: React.FC = () => {
  <div className="text-xs sm:text-sm text-subtle">
  {t('currency.total_cost')}: CHF {topAffiliate.totalCost.toFixed(2)} ({topAffiliate.costPercent.toFixed(2)}%)
  <p>{t('affiliate.conditions.exchange')}</p>
- <p>{t('affiliate.disclosure')}</p>
+ {partnerDisclosureKey(topAffiliate.provider.goId) && <p>{t(partnerDisclosureKey(topAffiliate.provider.goId)!)}</p>}
  </div>
  </div>
  </div>

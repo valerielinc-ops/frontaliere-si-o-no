@@ -2880,7 +2880,7 @@ function BlogArticles({
  </div>
 
  <p className="text-sm text-muted leading-tight">
- {t('affiliate.disclosure')}
+ {t(PARTNERS.some(p => p.enabled && p.commercialActive) ? 'affiliate.disclosure' : 'affiliate.referralDisclosure')}
  </p>
  </div>
  {/* Full-length half-page rail-ad chain — compact 160px creatives from

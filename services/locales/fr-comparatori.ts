@@ -356,6 +356,7 @@ const frComparatori: Record<string, string> = {
  'mobile.hiddenCost2': 'Les appels vers des numéros CH depuis une SIM italienne peuvent coûter 1-2€/minute, même en roaming',
  'mobile.hiddenCost3': 'Certains opérateurs limitent le roaming à max. 2 mois consécutifs',
  'affiliate.sectionTitle': 'Outils recommandés',
+ 'affiliate.referralDisclosure': "Certains liens contiennent des codes d’invitation ou de parrainage. Nous n’avons actuellement aucun accord d’affiliation actif.",
  'affiliate.disclosure': 'Certains liens peuvent générer une commission qui nous aide à maintenir le service gratuit.',
  "affiliate.cta.check": "Vérifier les coûts et conditions →",
  "affiliate.conditions.exchange": "Estimation pour le montant choisi. Le prestataire confirme le taux, les frais et les délais définitifs avant l’opération.",

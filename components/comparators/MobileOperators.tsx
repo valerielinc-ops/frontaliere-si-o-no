@@ -42,7 +42,6 @@ interface MobileOperator {
  setupCost: number;
  contractType: 'prepagato' | 'abbonamento';
  website?: string;
- goId?: string;
 }
 
 const operators: MobileOperator[] = [
@@ -168,7 +167,6 @@ const operators: MobileOperator[] = [
  {
  name: 'Fastweb Mobile',
  slug: 'fastweb-mobile',
- goId: 'fastweb',
  country: 'IT',
  monthlyCost: 9.95,
  dataGB: 150,
@@ -591,7 +589,7 @@ const MobileOperators: React.FC = () => {
  
  const CardWrapper = operator.website ? AffiliateLink : 'div';
  const cardProps = operator.website ? {
- partnerId: operator.goId, context: 'mobile',
+ context: 'mobile',
  attribution: { surface: 'web', position: `mobile-comparison-${index + 1}`, campaign: 'g4-contextual', variant: 'control' },
  href: operator.website,
  target: '_blank',
@@ -763,7 +761,6 @@ const MobileOperators: React.FC = () => {
  </div>
  <p className="text-sm text-muted mb-2">{t('affiliate.conditions.mobile')}</p>
  <span className="inline-flex items-center min-h-[44px] text-sm font-semibold text-link">{t('affiliate.cta.check')}</span>
- {operator.goId && <p className="text-xs text-muted">{t('affiliate.disclosure')}</p>}
  </CardWrapper>
  );
  })}

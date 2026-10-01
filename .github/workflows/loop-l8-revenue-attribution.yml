@@ -15,6 +15,8 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
       - 'scripts/lib/google-service-account-token.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -32,6 +34,8 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
       - 'scripts/lib/google-service-account-token.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -73,6 +77,8 @@ jobs:
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/affiliateRevenue.mjs
             /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/analytics-settled-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
@@ -108,7 +114,7 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           if [ -z "${GOOGLE_APPLICATION_CREDENTIALS:-}" ]; then
-            echo 'L8 Remote Config unavailable; PostHog export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
+            echo 'L8 Remote Config unavailable; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           set +e
@@ -116,7 +122,7 @@ jobs:
           rc_code=$?
           set -e
           if [ "$rc_code" -ne 0 ]; then
-            echo 'L8 Remote Config load failed; PostHog export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
+            echo 'L8 Remote Config load failed; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
           fi
       - name: Export fresh L8 attribution outcome
         if: github.event_name != 'pull_request'
@@ -139,7 +145,7 @@ jobs:
           export_code=$?
           set -e
           if [ "$export_code" -ne 0 ]; then
-            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --commercial "$commercial_path" --reason 'live PostHog or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
+            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --commercial "$commercial_path" --reason 'live GA4 or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
             echo 'L8 live attribution export failed; continuing with an explicitly unavailable outcome.' | tee -a "$GITHUB_STEP_SUMMARY"
           fi
       - name: Build unavailable L8 attribution input for pull requests

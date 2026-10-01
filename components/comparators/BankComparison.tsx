@@ -6,7 +6,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import AffiliateLink from '@/components/shared/AffiliateLink';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-import { resolveGoHref, type AffiliateLinkAttribution } from '@/services/affiliateService';
+import { resolveGoHref, partnerDisclosureKey, type AffiliateLinkAttribution } from '@/services/affiliateService';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -356,7 +356,7 @@ const BankComparison: React.FC = () => {
  </div>
  <p className="text-sm text-muted mb-2">{t('affiliate.conditions.banks')}</p>
  <span className="inline-flex items-center min-h-[44px] text-sm font-semibold text-link">{t('affiliate.cta.check')}</span>
- {bank.goId && <p className="text-xs text-muted">{t('affiliate.disclosure')}</p>}
+ {partnerDisclosureKey(bank.goId) && <p className="text-xs text-muted">{t(partnerDisclosureKey(bank.goId)!)}</p>}
  </CardWrapper>
  );
  })}

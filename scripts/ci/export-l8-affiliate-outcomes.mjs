@@ -14,7 +14,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { runHogQL } from '../lib/posthog-client.mjs';
-import { getServiceAccountToken, GA4_READONLY_SCOPE, ga4DateRange, runGa4Report } from '../lib/ga4-service-account.mjs';
+import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
+import { GA4_READONLY_SCOPE, ga4DateRange, runGa4Report } from '../lib/ga4-service-account.mjs';
 
 export const LOOP_ID = 'L8';
 export const DEFAULT_DAYS = 8;
@@ -279,10 +280,19 @@ export async function exportL8Attribution({
   return outcome;
 }
 
+/** The sparse L8 runner has no node_modules: reuse the shared dependency-free OAuth signer. */
+async function getGa4AttributionToken() {
+ const raw = process.env.GOOGLE_APPLICATION_CREDENTIALS
+  ? fs.readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, 'utf8')
+  : process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+ if (!raw) throw new Error('L8 GA4 read-only service-account credentials are unavailable');
+ return getServiceAccountAccessToken(JSON.parse(raw), GA4_READONLY_SCOPE);
+}
+
 /** The live pipeline uses Firebase/GA4; PostHog product events are quota-suppressed. */
 export async function exportL8Ga4Attribution({
  outputPath = null, now = new Date(), days = DEFAULT_DAYS, commercialPath = null,
- ga4Runner = runGa4Report, tokenProvider = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
+ ga4Runner = runGa4Report, tokenProvider = getGa4AttributionToken,
 } = {}) {
  if (!text(outputPath)) throw new Error('L8 attribution outputPath is required');
  const range = ga4DateRange(days, 2, now);
@@ -327,8 +337,8 @@ export async function exportL8Ga4Attribution({
  if (!commercial) outcome.evidence.commercialLedger = 'not_configured';
  outcome.evidence.sourceRefs = [...new Set([...(commercial?.evidence?.sourceRefs || []), 'ga4.affiliate_impression', 'ga4.affiliate_click'])];
  outcome.evidence.eventContract = {
-  exposure: 'affiliate_impression: paid CTA visible at least 10%, once per mounted placement',
-  click: 'affiliate_click: primary, keyboard or middle click on a paid CTA',
+  exposure: 'affiliate_impression: referral CTA visible at least 10%, once per mounted placement',
+  click: 'affiliate_click: primary, keyboard or middle click on a referral CTA; not proof of an active commercial agreement',
   attribution: 'attribution_id equals the /go/ pos and network pubref; categorical placement, not person identity',
   identity: 'no person, email, URL or account fields selected',
  };
