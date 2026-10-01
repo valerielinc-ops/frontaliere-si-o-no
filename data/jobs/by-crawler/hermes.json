@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-responsable-mecanique-h-f-hermes-ch",
-        "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland"
+        "cdi-responsable-mecanique-h-f-hermes-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-responsable-mecanique-h-f-hermes-ch",
-          "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland"
+          "cdi-responsable-mecanique-h-f-hermes-ch"
         ],
         "en": [
           "cdi-responsable-mecanique-h-f-hermes-ch"
@@ -128,13 +126,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch",
-        "cdi-meccanico-m-f-staple-maker-hermes-le-noirmont-jura-switzerland"
+        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch",
-          "cdi-meccanico-m-f-staple-maker-hermes-le-noirmont-jura-switzerland"
+          "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
         ],
         "en": [
           "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
@@ -160,11 +156,11 @@
     },
     {
       "id": "hermes-4cca3ac90e60",
-      "slug": "stage-developpement-durable-f-h-hermes-ch",
+      "slug": "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland",
       "slugByLocale": {
-        "it": "stage-developpement-durable-f-h-hermes-ch",
-        "en": "stage-developpement-durable-f-h-hermes-ch",
-        "de": "stage-developpement-durable-f-h-hermes-ch",
+        "it": "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland",
+        "en": "internship-sustainable-development-m-f-hermes-geneve-geneva-switzerland",
+        "de": "praktikum-nachhaltige-entwicklung-m-w-hermes-geneve-geneva-switzerland",
         "fr": "stage-developpement-durable-f-h-hermes-ch"
       },
       "company": "Hermès",
@@ -219,15 +215,29 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ],
+        "en": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ],
+        "de": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stage-developpement-durable-f-h-hermes-ch"
+      ]
     },
     {
       "id": "hermes-f368fe61a72d",
-      "slug": "stage-offre-produit-f-h-hermes-ch",
+      "slug": "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
       "slugByLocale": {
-        "it": "stage-offre-produit-f-h-hermes-ch",
-        "en": "stage-offre-produit-f-h-hermes-ch",
-        "de": "stage-offre-produit-f-h-hermes-ch",
+        "it": "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
+        "en": "internship-product-offer-m-f-hermes-geneve-geneva-switzerland",
+        "de": "praktikum-produktangebot-m-w-hermes-geneve-geneva-switzerland",
         "fr": "stage-offre-produit-f-h-hermes-ch"
       },
       "company": "Hermès",
@@ -283,7 +293,21 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-offre-produit-f-h-hermes-ch"
+        ],
+        "en": [
+          "stage-offre-produit-f-h-hermes-ch"
+        ],
+        "de": [
+          "stage-offre-produit-f-h-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stage-offre-produit-f-h-hermes-ch"
+      ]
     },
     {
       "id": "hermes-72295ebf73a5",
@@ -350,14 +374,12 @@
       },
       "previousSlugs": [
         "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch",
-        "cdi-verkaufsberater-experte-uhren-e-schmuck-zurich-m-w-d-hermes-zurich-switzerland",
-        "cdi-sales-advisor-orologi-e-gioielli-esperti-zurigo-m-f-hermes-zurich-switzerland"
+        "cdi-verkaufsberater-experte-uhren-e-schmuck-zurich-m-w-d-hermes-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch",
-          "cdi-verkaufsberater-experte-uhren-e-schmuck-zurich-m-w-d-hermes-zurich-switzerland",
-          "cdi-sales-advisor-orologi-e-gioielli-esperti-zurigo-m-f-hermes-zurich-switzerland"
+          "cdi-verkaufsberater-experte-uhren-e-schmuck-zurich-m-w-d-hermes-zurich-switzerland"
         ],
         "en": [
           "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch"

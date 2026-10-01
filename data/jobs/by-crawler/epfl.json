@@ -4932,12 +4932,12 @@
     },
     {
       "id": "epfl-619f4bf196b3",
-      "slug": "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne",
+      "slug": "phd-posizione-nell-ecofisiologia-forestale-e-nel-rilevamento-remoto-epfl-lausanne",
       "slugByLocale": {
         "en": "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne",
-        "it": "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne",
+        "it": "phd-posizione-nell-ecofisiologia-forestale-e-nel-rilevamento-remoto-epfl-lausanne",
         "de": "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne",
-        "fr": "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+        "fr": "poste-de-doctorat-en-ecophysiologie-forestiere-et-teledetection-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4993,7 +4993,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+        ],
+        "fr": [
+          "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-609fc624da57",
