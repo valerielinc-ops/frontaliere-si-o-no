@@ -392,6 +392,7 @@ export default function AssistedApplicationAutomationPanel({
       )}
 
       {flow && (
+        <>
         {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && Boolean(draft?.portalAnswers?.answers?.length) && (
           <details className="rounded-lg border border-edge p-3 text-sm">
             <summary className="cursor-pointer font-medium">Già inserito nel portale ({draft?.portalAnswers?.answers.length} risposte)</summary>
@@ -436,6 +437,7 @@ export default function AssistedApplicationAutomationPanel({
             </button>
           )}
         </div>
+        </>
       )}
     </div>
   );
