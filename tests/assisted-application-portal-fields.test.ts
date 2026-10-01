@@ -3,10 +3,13 @@ import { JSDOM } from 'jsdom';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
-/** Runs the in-page extractor on `html` as Playwright would, with every element laid out. */
+/** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string) {
   const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url: 'https://jobs.example/apply' });
-  window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) }) as DOMRect;
+  window.Element.prototype.getBoundingClientRect = function rect(this: Element) {
+    const size = Number(this.getAttribute('data-size') || 20);
+    return { width: size, height: size, top: 0, left: 0, right: size, bottom: size, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
+  };
   vi.stubGlobal('window', window);
   vi.stubGlobal('document', window.document);
   vi.stubGlobal('location', window.location);
@@ -96,6 +99,21 @@ describe('portal field extraction', () => {
     const guarded = guardPlan({ actions: [{ fieldId: gender.id, action: 'select', source: 'rule', value: 'Weiblich' }], missingRequired: [] }, page.fields, candidate);
     expect(guarded.actions).toEqual([]);
     expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: gender.id, question: 'Geschlecht', type: 'choice', options: ['Weiblich', 'Männlich'] })]);
+  });
+
+  // Giro di prova 2026-10-01 on JOIN: every step reported the page title as a form error.
+  it('reads the form’s own messages, not a route announcer only screen readers get', () => {
+    const page = extract(`
+      <p id="__next-route-announcer__" role="alert" aria-live="assertive" data-size="1">Frontaliere Ticino (Stabio): Infermiere/a</p>
+      <label for="mail">E-Mail</label><input id="mail" type="email">
+      <div role="alert">Inserisci un indirizzo e-mail valido</div>`);
+    expect(page.errors).toEqual(['Inserisci un indirizzo e-mail valido']);
+    // Review of #10707: a visually hidden validation message is still the form's own.
+    const hidden = extract('<label for="m">E-Mail</label><input id="m" type="email"><div role="alert" data-size="1">Invalid email</div>');
+    expect(hidden.errors).toEqual(['Invalid email']);
+    // Second review: no size at all (0 px) is still a message; a hidden template is not.
+    const zero = extract('<input id="m" type="email"><div role="alert" data-size="0">Invalid email</div><div class="error" style="display:none">Old message</div>');
+    expect(zero.errors).toEqual(['Invalid email']);
   });
 
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {

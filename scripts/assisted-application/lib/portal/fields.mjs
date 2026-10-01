@@ -256,8 +256,17 @@ export function extractFieldsInPage() {
   });
   const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
   // The form's own validation messages, read back to the planner when a page does not advance.
+  // A framework's route announcer is no message on the form: Next.js reads the
+  // page title as role="alert" (JOIN, 2026-10-01). Only the announcer itself is
+  // left out: a visually hidden validation message still counts (review of #10707).
+  const ROUTE_ANNOUNCER = '#__next-route-announcer__, next-route-announcer, #gatsby-announcer, [id*="route-announcer" i]';
+  // Rendered, whatever its size: a message styled for screen readers only
+  // (1 px, or 0) is still the form's reason (second review of #10707).
+  const rendered = (element) => (typeof element.checkVisibility === 'function'
+    ? element.checkVisibility({ visibilityProperty: true })
+    : window.getComputedStyle(element).display !== 'none' && window.getComputedStyle(element).visibility !== 'hidden');
   const errors = [...new Set([...document.querySelectorAll('[role="alert"], [data-automation-id*="error" i], [class*="error-message" i], [class*="errorMessage"], .error, .invalid-feedback')]
-    .filter((element) => visible(element))
+    .filter((element) => rendered(element) && !element.closest(ROUTE_ANNOUNCER))
     .map((element) => clean(element.innerText || element.textContent).slice(0, 160))
     .filter(Boolean))].slice(0, 8);
   return {
