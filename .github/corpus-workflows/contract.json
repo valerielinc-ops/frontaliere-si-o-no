@@ -4,11 +4,11 @@
   "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "22f61b8bebf2f8cebfdfb2837711f3c3512d600e",
+  "sourceCommit": "50959b9a6aab28e78856eaf1dacb706674db0320",
   "artifactObservation": {
     "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
     "sourceRef": "main",
-    "sourceCommit": "22f61b8bebf2f8cebfdfb2837711f3c3512d600e"
+    "sourceCommit": "50959b9a6aab28e78856eaf1dacb706674db0320"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:9b6aafbbe0496fc515ddb6308cb0e940ebe315841496708d82f560cbc9a3de0a",
+    "rosterDigest": "sha256:2dbb0cd78f2ac8487e04b89f96218c108b2871420ed3c3547001e33d806169ad",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -921,8 +921,8 @@
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "f56f4835882f1a2666f7a02a61bedc240714c5bc9e87621aaaf210267b8cc054",
-      "artifactSha256": "8a98b34c8bdafe0c66da86fa5521a4adc5ac0263463ff6ccd3931ec43b75700d",
+      "sourceSha256": "916375046bc603e7aad605096610c4213d1235e465aead78d62cc3c8cf190fc3",
+      "artifactSha256": "2c296a2537a0584d37afd2c84409a9220ae33a8d05f56b684dedb71fa6473606",
       "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
       "members": [
         "solina",
@@ -952,7 +952,8 @@
         "air-zermatt",
         "benu",
         "bitfinex",
-        "sunrise"
+        "sunrise",
+        "lwphr"
       ]
     },
     {
@@ -1295,8 +1296,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "a2dc23c80b94ef220496ca10e4b387afdbb44843a44b77afc6828271ce21ed26",
-      "artifactSha256": "5ff2a055b65fe14911340465a229d03482339256039f96563710981c92ed3518",
+      "sourceSha256": "52a64de4fb30fb9a8b1724bd3c5671cd4711ac4e0c7f2df43272fe94728a655a",
+      "artifactSha256": "be541dd242003b4bf8173548ac5851a4c64fe648832e8d9de0eac753018e5ecd",
       "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
       "members": [
         "migros",
@@ -1325,7 +1326,8 @@
         "bucher-suter",
         "alpiq",
         "vereinaklosters",
-        "unibe"
+        "unibe",
+        "convit"
       ]
     },
     {
@@ -1442,8 +1444,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "e98d02b8c27f1f447a387c942946232e57e4f1e6663be92f2923e089b303e238",
-      "artifactSha256": "36eb2ab41437b9d07e28140f84cbec75dc00e78e0889d34f09e3ca4e70004d2d",
+      "sourceSha256": "556eb449b1448e3c48a4ba47df7470f454e18c56cb38ef331328c2372695e81a",
+      "artifactSha256": "c2d3265ff88a8f20c19227db10dad138a295d4a8b74e4e4b04ae7785178e84df",
       "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
       "members": [
         "albergo-gardenia",
@@ -1467,20 +1469,18 @@
         "anicura",
         "fisba",
         "postauto",
-        "pantr-ch"
+        "pantr-ch",
+        "confederazione"
       ]
     },
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "e335e6e874ae2abae8c3c6b1f1f84b3bfe424d205f8b20dbaead4f4910f242b4",
-      "artifactSha256": "b0c8d020d6d729b45e577cb9c36580fffe1ab5f59f2e76c662032500848ed1aa",
+      "sourceSha256": "581f36bee69b43b372e853ffa3338fbb754d51ff5deeed62af3e1cacb2388416",
+      "artifactSha256": "6e79ff052c0093aa939b927f67eab9b561b2407388bdcaef882947eb2055cf64",
       "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
       "members": [
-        "confederazione",
-        "protectas",
-        "lwphr",
-        "convit"
+        "protectas"
       ]
     },
     {
