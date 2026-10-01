@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clariant",
-  "assembledAt": "2026-09-30T21:13:52.410Z",
+  "assembledAt": "2026-10-01T09:14:48.169Z",
   "jobs": [
     {
       "id": "clariant-e621ca88dbc5",
@@ -33,7 +33,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:13:47.246Z",
+      "crawledAt": "2026-10-01T09:14:43.285Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -61,8 +61,8 @@
           "senior-responsabile-governance-nazionale-fiscale-e-fiscale-clariant-pratteln"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:16:31.933Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:16:31.933Z",
       "salaryMin": 178000,
       "salaryMax": 313000,
       "salarySource": "estimated",
@@ -108,7 +108,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:13:46.459Z",
+      "crawledAt": "2026-10-01T09:14:42.693Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -126,10 +126,14 @@
       "jobReqId": "41889",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:14:00.480Z",
+      "previousSlugs": [
+        "intern-ai-for-sustainability-reporting-clariant-pratteln",
+        "tirocinante-ai-for-sustainability-reporting-clariant-pratteln"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-ai-for-sustainability-reporting-clariant-pratteln"
+          "intern-ai-for-sustainability-reporting-clariant-pratteln",
+          "tirocinante-ai-for-sustainability-reporting-clariant-pratteln"
         ],
         "de": [
           "intern-ai-for-sustainability-reporting-clariant-pratteln"
@@ -138,9 +142,7 @@
           "intern-ai-for-sustainability-reporting-clariant-pratteln"
         ]
       },
-      "previousSlugs": [
-        "intern-ai-for-sustainability-reporting-clariant-pratteln"
-      ],
+      "firstSeenAt": "2026-09-29T21:14:00.480Z",
       "salaryMin": 74500,
       "salaryMax": 131000,
       "salarySource": "estimated",

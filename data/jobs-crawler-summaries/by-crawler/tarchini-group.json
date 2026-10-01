@@ -1,18 +1,50 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-09-30T21:12:37.793Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-10-01T09:14:38.701Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2683,
-  "avgDurationMs": 2683,
+  "durationMs": 4004,
+  "avgDurationMs": 4004,
   "durationHistory": [
-    2683
+    4004
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Analista investimenti e strategia",
+      "slug": "analista-investimenti-e-strategia-tarchini-group-mendrisio",
+      "url": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
+      "applyUrl": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
+      "applicationEmail": "info@tarchinigroup.com",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-10-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Manager",
@@ -32,7 +64,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -72,7 +104,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
