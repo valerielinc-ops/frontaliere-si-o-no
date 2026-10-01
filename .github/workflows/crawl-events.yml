@@ -191,6 +191,7 @@ jobs:
           - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
             --path data/events-geocode-cache.json \
             --path data/events-translation-cache.json \
             --branch chore/crawl-events-refresh \
@@ -255,6 +256,7 @@ jobs:
           - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
             --path data/events/checkpoints/ \
             --path data/events/by-source/guidle.json \
             --path data/events/by-source/myswitzerland.json \
@@ -374,6 +376,7 @@ jobs:
             paths+=(--path data/events/by-source/ge-agenda.json)
           fi
           bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
             --resolve-symlinks \
             "${paths[@]}" \
             --branch chore/crawl-events-refresh \
