@@ -1506,6 +1506,12 @@ const translations: Record<string, string> = {
 
  // --- InputCard ---
  'dataFreshness.updated': 'Aggiornato',
+ 'dataFreshness.observed': 'Osservazione dei dati',
+ 'dataFreshness.fetched': 'Dati acquisiti',
+ 'dataFreshness.reviewed': 'Revisione editoriale',
+ 'dataFreshness.missing': 'data non documentata',
+ 'dataFreshness.referenceYear': 'Anno dei premi',
+ 'dataFreshness.outdatedYear': 'Premi di un anno precedente',
  'dataFreshness.source': 'Fonte',
  'freshness.source.cantonTicino': 'Canton Ticino DFE — Divisione delle Contribuzioni',
  'freshness.source.bfs': 'BFS — Ufficio federale di statistica',
