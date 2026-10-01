@@ -11919,7 +11919,7 @@ ${staticAnalyticsHtml}
            inLanguage: entry.locale,
            isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
            about: { '@type': 'Thing', name: display },
-           provider: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+           provider: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
            mainEntity: {
              '@type': 'ItemList',
              numberOfItems: collectionListTotal ?? totalJobs,
