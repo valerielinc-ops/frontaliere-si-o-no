@@ -719,7 +719,6 @@ export function readBucketIssue(bucket, run = ghBucketRead, repos = BUCKET_REPOS
     const raw = run(
       ['issue', 'view', String(bucket), '--repo', repo, '--json', 'number,title,body'],
       bucketRepoToken(repo),
-      true,
     );
     if (raw === false) continue;
     if (raw === null || raw === undefined) { unreadable = true; continue; }
