@@ -57,6 +57,7 @@ import {
   type HealthFacilityLocale,
   type HealthFacilityRecord,
 } from './healthFacilitiesData';
+import { TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import {
   aggregateHealthFacilityJobs,
   type FacilitySnapshot,
@@ -78,6 +79,31 @@ import {
 import { resolveHealthFacilitiesFlushed, type EmittedFacility } from './shared/buildSignals';
 
 const SITEMAP_FILE = 'sitemap-health-facilities.xml';
+
+/**
+ * Keep facility identity in the SERP title without changing the full H1 or
+ * page copy. Long registry names often include a parenthetical legal name;
+ * removing that suffix is preferable to cutting the facility name mid-word.
+ */
+function compactFacilityTitle(
+  name: string,
+  locale: HealthFacilityLocale,
+  generatedTitle: string,
+): string {
+  const headline = String(generatedTitle || '').trim();
+  if (headline.length <= TITLE_MAX_CHARS) return headline;
+  const shortName = String(name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const suffix = {
+    it: ': offerte sanitarie',
+    en: ' jobs',
+    de: ' Jobs',
+    fr: ' emplois',
+  }[locale];
+  const compact = `${shortName}${suffix}`.trim();
+  if (compact.length <= TITLE_MAX_CHARS) return compact;
+  if (shortName.length <= TITLE_MAX_CHARS) return shortName;
+  return truncateHeadline(shortName, TITLE_MAX_CHARS);
+}
 
 /** Italian province code → display name (from commuterOrigins). */
 const PROVINCE_NAME: Record<string, string> = {
@@ -373,7 +399,7 @@ export function renderFacilityPage(
 
   const html = buildSeoPageHtml({
     locale,
-    title: copy.metaTitle,
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),
@@ -429,7 +455,7 @@ function renderBelowFloorBridge(
 
   return buildSeoPageHtml({
     locale,
-    title: copy.metaTitle,
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),

@@ -11,13 +11,22 @@ import { describe, it, expect } from 'vitest';
 import {
   clampMetaDescription,
   META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
 } from '../build-plugins/shared/titleSuffix';
 
 describe('clampMetaDescription', () => {
-  it('leaves descriptions within budget untouched', () => {
+  it('enriches non-empty descriptions below the minimum without touching page copy', () => {
     const short = 'Guida completa al frontaliere 2026: permesso G, tasse e netto.';
     expect(short.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
-    expect(clampMetaDescription(short)).toBe(short);
+    const out = clampMetaDescription(short, undefined, 'it');
+    expect(out.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+    expect(out).toContain(short);
+  });
+
+  it('uses the explicit locale for short translated descriptions', () => {
+    const out = clampMetaDescription('Privacy policy of Frontaliere Ticino', undefined, 'en');
+    expect(out.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+    expect(out).toContain('cross-border workers');
   });
 
   it('clamps over-budget descriptions to ≤160 char (word-aware, with …)', () => {
@@ -36,7 +45,8 @@ describe('clampMetaDescription', () => {
   it('collapses internal whitespace before measuring', () => {
     const messy = '  Spaziatura   irregolare\n\tcon   tab  e  newline  ';
     const out = clampMetaDescription(messy);
-    expect(out).toBe('Spaziatura irregolare con tab e newline');
+    expect(out).toContain('Spaziatura irregolare con tab e newline');
+    expect(out.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
   });
 
   it('does not leave a dangling separator before the ellipsis', () => {

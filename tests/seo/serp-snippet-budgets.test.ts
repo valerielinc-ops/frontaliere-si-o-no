@@ -46,12 +46,17 @@ import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyDat
  */
 
 /**
- * True only when `clampMetaDescription` actually *drops* text.
+ * True only when `clampMetaDescription` actually *drops* source text.
  *
  * It does two things: collapse `\s+` to a single space, then word-aware
  * truncate. Comparing its output against the RAW input conflates the two — and
  * JS `\s` matches U+00A0 and U+202F, so any non-breaking space in the copy
  * reads as "truncated" even in a 94-char string with no ellipsis in sight.
+ *
+ * Short descriptions are intentionally enriched to the crawler minimum, so a
+ * plain output-vs-input comparison would now confuse additive context with a
+ * destructive truncation. The ellipsis is the unambiguous signal that source
+ * text was dropped.
  *
  * That is not hypothetical: `median.toLocaleString('fr-CH')` emits the group
  * separator chosen by the host ICU. macOS Node gives `62'000` (apostrophe),
@@ -65,8 +70,7 @@ import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyDat
  * and still asserted separately.
  */
 function isTruncated(description: string): boolean {
-  const normalized = String(description).replace(/\s+/g, ' ').trim();
-  return clampMetaDescription(description) !== normalized;
+  return clampMetaDescription(description).endsWith('…');
 }
 
 describe('isTruncated — host-ICU independence', () => {

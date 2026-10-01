@@ -487,13 +487,13 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(guide.title)} | Frontaliere Ticino</title>
-<meta name="description" content="${esc(clampMetaDescription(guide.subtitle))}">
+<meta name="description" content="${esc(clampMetaDescription(guide.subtitle, undefined, 'it'))}">
 <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
 <link rel="canonical" href="${canonical}">
 ${hreflangLinks}
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(guide.title)}">
-<meta property="og:description" content="${esc(clampMetaDescription(guide.subtitle))}">
+<meta property="og:description" content="${esc(clampMetaDescription(guide.subtitle, undefined, 'it'))}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Frontaliere Ticino">
 <!-- Was /icons/icon-512x512.png: a 512x512 square app icon, below the 1200-wide

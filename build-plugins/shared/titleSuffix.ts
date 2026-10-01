@@ -287,13 +287,70 @@ export function truncateTitleAtClauseBoundary(s: string, maxLen: number): string
 export const META_DESCRIPTION_MAX_CHARS = 160;
 
 /**
+ * Minimum useful description length used by the full-tree Bing-compatible
+ * crawler. Short source copy is enriched at render time so old pages do not
+ * need a destructive corpus rewrite just to acquire a complete SERP snippet.
+ */
+export const META_DESCRIPTION_MIN_CHARS = 120;
+
+export type MetaDescriptionLocale = 'it' | 'en' | 'de' | 'fr';
+
+const META_DESCRIPTION_CONTEXT: Record<MetaDescriptionLocale, string> = {
+  it: 'Scopri guide pratiche, dati aggiornati e strumenti utili per vivere e lavorare tra Italia e Svizzera, con informazioni chiare per i lavoratori frontalieri.',
+  en: 'Explore practical guides, current data and useful tools for living and working between Italy and Switzerland, with clear information for cross-border workers.',
+  de: 'Entdecke praktische Ratgeber, aktuelle Daten und nützliche Tools für das Leben und Arbeiten zwischen Italien und der Schweiz, mit klaren Informationen für Grenzgänger.',
+  fr: 'Découvrez des guides pratiques, des données à jour et des outils utiles pour vivre et travailler entre l’Italie et la Suisse, avec des informations claires pour les frontaliers.',
+};
+
+const META_DESCRIPTION_LOCALE_MARKERS: Record<Exclude<MetaDescriptionLocale, 'it'>, RegExp> = {
+  en: /\b(the|and|with|for|find|guide|jobs?|cross-border|switzerland|italy)\b/i,
+  de: /\b(der|die|das|und|mit|für|fuer|finden|ratgeber|stellen|schweiz|italien|grenzgänger|grenzgaenger)\b/i,
+  fr: /\b(les|des|avec|pour|trouvez?|guide|offres?|frontaliers?|suisse|italie)\b/i,
+};
+
+function inferMetaDescriptionLocale(description: string): MetaDescriptionLocale {
+  const matches = (Object.entries(META_DESCRIPTION_LOCALE_MARKERS) as Array<[Exclude<MetaDescriptionLocale, 'it'>, RegExp]>)
+    .filter(([, marker]) => marker.test(description));
+  if (matches.length === 1) return matches[0][0];
+  if (matches.length > 1) {
+    // Prefer the language with the highest number of marker hits when a
+    // bilingual title or company name happens to contain one foreign word.
+    const ranked = matches
+      .map(([locale, marker]) => [locale, description.match(new RegExp(marker.source, `${marker.flags}g`))?.length ?? 0] as const)
+      .sort((a, b) => b[1] - a[1]);
+    return ranked[0][0];
+  }
+  return 'it';
+}
+
+function enrichShortMetaDescription(
+  description: string,
+  locale: MetaDescriptionLocale,
+  minimum: number,
+  max: number,
+): string {
+  if (description.length >= minimum) return description;
+  let enriched = description;
+  for (const word of META_DESCRIPTION_CONTEXT[locale].split(/\s+/)) {
+    const candidate = `${enriched} ${word}`;
+    if (candidate.length > max) break;
+    enriched = candidate;
+    const lastWord = /(\S+)$/.exec(enriched)?.[1]?.toLowerCase() ?? '';
+    if (enriched.length >= minimum && !TRAILING_STOPWORDS.has(lastWord)) break;
+  }
+  return enriched;
+}
+
+/**
  * Clamp a `<meta name="description">` / `og:description` string to the SERP
- * snippet budget. Collapses internal whitespace, then word-aware truncates
- * with "…" via {@link truncateHeadline}. Applied at BOTH render layers (static
- * SSG emit in `htmlTemplate.ts` and the runtime head update in `seoService.ts`)
- * so a crawler — whether it reads the static HTML or the JS-rendered DOM — sees
- * a complete, non-truncated snippet. Only the META TAGS are clamped: JSON-LD
- * `description` keeps the full text (schema has no length cap).
+ * snippet budget. Collapses internal whitespace, enriches non-empty copy below
+ * {@link META_DESCRIPTION_MIN_CHARS} with an evergreen locale-aware context,
+ * then word-aware truncates with "…" via {@link truncateHeadline}. Applied at
+ * BOTH render layers (static SSG emit in `htmlTemplate.ts` and the runtime head
+ * update in `seoService.ts`) so a crawler — whether it reads the static HTML
+ * or the JS-rendered DOM — sees a complete snippet. Only the META TAGS are
+ * enriched/clamped: JSON-LD `description` keeps the full source text (schema
+ * has no length cap), and the visible page copy is never rewritten.
  *
  * Closes the SearchAtlas audit 141162 `meta_desc_invalid_length` gap (487 SSG
  * pages, e.g. career landings emitting 253-char descriptions).
@@ -301,9 +358,16 @@ export const META_DESCRIPTION_MAX_CHARS = 160;
 export function clampMetaDescription(
   description: string,
   max = META_DESCRIPTION_MAX_CHARS,
+  locale?: MetaDescriptionLocale | string,
 ): string {
   const normalized = String(description || '').replace(/\s+/g, ' ').trim();
-  return truncateHeadline(normalized, max);
+  if (!normalized) return '';
+  const minimum = Math.min(META_DESCRIPTION_MIN_CHARS, max);
+  const resolvedLocale = locale === 'en' || locale === 'de' || locale === 'fr' || locale === 'it'
+    ? locale
+    : inferMetaDescriptionLocale(normalized);
+  const enriched = enrichShortMetaDescription(normalized, resolvedLocale, minimum, max);
+  return truncateHeadline(enriched, max);
 }
 
 /**

@@ -43,7 +43,7 @@ export const TRAILING_STOPWORDS = new Set([
   'come', 'quanto', 'quando', 'dove', 'cosa', 'se', 'non', 'senza', 'verso',
   // en
   'and', 'or', 'the', 'an', 'of', 'to', 'on', 'at', 'for', 'with', 'by',
-  'from', 'how', 'what', 'which', 'when', 'where', 'why', 'is', 'are',
+  'from', 'between', 'how', 'what', 'which', 'when', 'where', 'why', 'is', 'are',
   'your', 'without',
   // de
   'und', 'oder', 'der', 'die', 'das', 'ein', 'eine', 'einem', 'einen',
