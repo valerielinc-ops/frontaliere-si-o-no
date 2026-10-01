@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-504fea46d5c5",
-      "slug": "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern",
+      "slug": "specialista-della-salute-regione-di-thun-ipersonal-ag-thun-bern",
       "slugByLocale": {
         "de": "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern",
-        "it": "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern",
-        "en": "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern",
-        "fr": "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern"
+        "it": "specialista-della-salute-regione-di-thun-ipersonal-ag-thun-bern",
+        "en": "health-specialist-thun-region-ipersonal-ag-thun-bern",
+        "fr": "specialiste-de-la-sante-region-de-thun-ipersonal-ag-thun-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -61,16 +61,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:31.295Z"
+      "firstSeenAt": "2026-10-01T09:31:31.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern"
+        ],
+        "en": [
+          "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern"
+        ],
+        "fr": [
+          "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-gesundheit-region-thun-ipersonal-ag-thun-bern"
+      ]
     },
     {
       "id": "med-ipersonal-23acbb722b93",
-      "slug": "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn",
+      "slug": "ufficiale-treuhand-regione-derendingen-ipersonal-ag-derendingen-solothurn",
       "slugByLocale": {
         "de": "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn",
-        "it": "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn",
-        "en": "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn",
-        "fr": "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn"
+        "it": "ufficiale-treuhand-regione-derendingen-ipersonal-ag-derendingen-solothurn",
+        "en": "officer-treuhand-derendingen-region-ipersonal-ag-derendingen-solothurn",
+        "fr": "officier-treuhand-region-de-derenden-ipersonal-ag-derendingen-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -122,7 +136,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:30.994Z"
+      "firstSeenAt": "2026-10-01T09:31:30.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-region-derendingen-ipersonal-ag-derendingen-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-d24838e52ec7",
@@ -130,8 +158,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-berg-tg-ipersonal-ag-berg-tg-thurgau",
         "it": "installatore-trice-elettrico-a-region-berg-tg-ipersonal-ag-berg-tg-thurgau",
-        "en": "elektroinstallateur-region-berg-tg-ipersonal-ag-berg-tg-thurgau",
-        "fr": "elektroinstallateur-region-berg-tg-ipersonal-ag-berg-tg-thurgau"
+        "en": "electrical-installer-region-berg-tg-ipersonal-ag-berg-tg-thurgau",
+        "fr": "installation-electrique-region-berg-tg-ipersonal-ag-berg-tg-thurgau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -174,6 +202,12 @@
         "it": [
           "elektroinstallateur-region-berg-tg-ipersonal-ag-berg-tg-thurgau",
           "installatore-trice-elettrico-a-region-berg-tg-ipersonal-ag-berg-tg"
+        ],
+        "en": [
+          "elektroinstallateur-region-berg-tg-ipersonal-ag-berg-tg-thurgau"
+        ],
+        "fr": [
+          "elektroinstallateur-region-berg-tg-ipersonal-ag-berg-tg-thurgau"
         ]
       },
       "previousSlugs": [
@@ -201,8 +235,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-andelfingen-ipersonal-ag-andelfingen-zurich",
         "it": "installatore-trice-elettrico-a-region-andelfingen-ipersonal-ag-andelfingen-zurich",
-        "en": "elektroinstallateur-region-andelfingen-ipersonal-ag-andelfingen-zurich",
-        "fr": "elektroinstallateur-region-andelfingen-ipersonal-ag-andelfingen-zurich"
+        "en": "electrical-installer-region-andelfingen-ipersonal-ag-andelfingen-zurich",
+        "fr": "installation-electrique-region-andelfingen-ipersonal-ag-andelfingen-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -245,6 +279,12 @@
         "it": [
           "elektroinstallateur-region-andelfingen-ipersonal-ag-andelfingen-zurich",
           "installatore-trice-elettrico-a-region-andelfingen-ipersonal-ag-andelfingen"
+        ],
+        "en": [
+          "elektroinstallateur-region-andelfingen-ipersonal-ag-andelfingen-zurich"
+        ],
+        "fr": [
+          "elektroinstallateur-region-andelfingen-ipersonal-ag-andelfingen-zurich"
         ]
       },
       "previousSlugs": [
@@ -272,8 +312,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
         "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+        "en": "electrical-installer-new-and-renovation-bottighofen-region-ipersonal-ag-bottighofen-thurgau",
+        "fr": "installation-electrique-nouveau-et-renovation-region-de-bottighofen-ipersonal-ag-bottighofen-thurgau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -316,6 +356,12 @@
         "it": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau",
           "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-bottighofen-ipersonal-ag-bottighofen"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
+        ],
+        "fr": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-bottighofen-ipersonal-ag-bottighofen-thurgau"
         ]
       },
       "previousSlugs": [
@@ -339,12 +385,12 @@
     },
     {
       "id": "med-ipersonal-806cb7df137e",
-      "slug": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich",
+      "slug": "impianti-di-produzione-di-dolcificanti-m-f-d-regione-di-obfelden-ipersonal-ag-obfelden-zurich",
       "slugByLocale": {
         "de": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich",
-        "it": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich",
-        "en": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich",
-        "fr": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich"
+        "it": "impianti-di-produzione-di-dolcificanti-m-f-d-regione-di-obfelden-ipersonal-ag-obfelden-zurich",
+        "en": "plant-manager-sweetener-production-m-f-d-obfelden-region-ipersonal-ag-obfelden-zurich",
+        "fr": "responsable-de-la-production-d-edulcorants-h-f-d-obfelden-ipersonal-ag-obfelden-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -396,16 +442,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:29.788Z"
+      "firstSeenAt": "2026-10-01T09:31:29.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich"
+        ],
+        "en": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich"
+        ],
+        "fr": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-sussmittel-produktion-w-m-d-region-obfelden-ipersonal-ag-obfelden-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-6bdc48e4c718",
-      "slug": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau",
+      "slug": "direttore-vegetale-dolcificante-produzione-m-f-d-regione-di-oftringen-ipersonal-ag-oftringen-aargau",
       "slugByLocale": {
         "de": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau",
-        "it": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau",
-        "en": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau",
-        "fr": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau"
+        "it": "direttore-vegetale-dolcificante-produzione-m-f-d-regione-di-oftringen-ipersonal-ag-oftringen-aargau",
+        "en": "plant-manager-sweetener-production-m-f-d-oftringen-region-ipersonal-ag-oftringen-aargau",
+        "fr": "directeur-de-la-plante-production-d-edulcorants-h-f-d-region-d-ostringen-ipersonal-ag-oftringen-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -457,7 +517,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:29.487Z"
+      "firstSeenAt": "2026-10-01T09:31:29.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau"
+        ],
+        "en": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau"
+        ],
+        "fr": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-sussmittel-produktion-w-m-d-region-oftringen-ipersonal-ag-oftringen-aargau"
+      ]
     },
     {
       "id": "med-ipersonal-7e372a8a75a4",
@@ -465,8 +539,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-hochdorf-ipersonal-ag-hochdorf-luzern",
         "it": "installatore-trice-elettrico-a-region-hochdorf-ipersonal-ag-hochdorf-luzern",
-        "en": "elektroinstallateur-region-hochdorf-ipersonal-ag-hochdorf-luzern",
-        "fr": "elektroinstallateur-region-hochdorf-ipersonal-ag-hochdorf-luzern"
+        "en": "electrical-installer-hochdorf-region-ipersonal-ag-hochdorf-luzern",
+        "fr": "installation-electrique-region-de-hochdorf-ipersonal-ag-hochdorf-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -509,6 +583,12 @@
         "it": [
           "elektroinstallateur-region-hochdorf-ipersonal-ag-hochdorf-luzern",
           "installatore-trice-elettrico-a-region-hochdorf-ipersonal-ag-hochdorf"
+        ],
+        "en": [
+          "elektroinstallateur-region-hochdorf-ipersonal-ag-hochdorf-luzern"
+        ],
+        "fr": [
+          "elektroinstallateur-region-hochdorf-ipersonal-ag-hochdorf-luzern"
         ]
       },
       "previousSlugs": [
@@ -532,12 +612,12 @@
     },
     {
       "id": "med-ipersonal-ddefa4cb1f55",
-      "slug": "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern",
+      "slug": "logistica-logistica-materiali-di-costruzione-regione-della-pioggia-ipersonal-ag-rain-luzern",
       "slugByLocale": {
         "de": "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern",
-        "it": "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern",
-        "en": "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern",
-        "fr": "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern"
+        "it": "logistica-logistica-materiali-di-costruzione-regione-della-pioggia-ipersonal-ag-rain-luzern",
+        "en": "logistics-logistics-construction-materials-rain-region-ipersonal-ag-rain-luzern",
+        "fr": "logistique-logistique-materiaux-de-construction-region-de-pluie-ipersonal-ag-rain-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -578,11 +658,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/logistiker-logistiker-baumaterial-100-brunnen-100-in-der-region-rain-offene-stelle/",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-baumaterial-region-rain-ipersonal-ag-rain"
+          "logistiker-baumaterial-region-rain-ipersonal-ag-rain",
+          "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern"
+        ],
+        "en": [
+          "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern"
+        ],
+        "fr": [
+          "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern"
         ]
       },
       "previousSlugs": [
-        "logistiker-baumaterial-region-rain-ipersonal-ag-rain"
+        "logistiker-baumaterial-region-rain-ipersonal-ag-rain",
+        "logistiker-logistiker-baumaterial-region-rain-ipersonal-ag-rain-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -601,12 +689,12 @@
     },
     {
       "id": "med-ipersonal-6eca0a6b60a7",
-      "slug": "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern",
+      "slug": "specialista-della-salute-regione-interlaken-ipersonal-ag-interlaken-bern",
       "slugByLocale": {
         "de": "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern",
-        "it": "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern",
-        "en": "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern",
-        "fr": "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern"
+        "it": "specialista-della-salute-regione-interlaken-ipersonal-ag-interlaken-bern",
+        "en": "health-specialist-region-interlaken-ipersonal-ag-interlaken-bern",
+        "fr": "specialiste-de-la-sante-region-interlaken-ipersonal-ag-interlaken-bern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -658,16 +746,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:28.583Z"
+      "firstSeenAt": "2026-10-01T09:31:28.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern"
+        ],
+        "en": [
+          "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern"
+        ],
+        "fr": [
+          "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-gesundheit-region-interlaken-ipersonal-ag-interlaken-bern"
+      ]
     },
     {
       "id": "med-ipersonal-28b66bdad98b",
-      "slug": "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern",
+      "slug": "riscaldamento-installatore-regione-ettiswil-ipersonal-ag-ettiswil-luzern",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern",
-        "it": "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern",
-        "en": "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern",
-        "fr": "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern"
+        "it": "riscaldamento-installatore-regione-ettiswil-ipersonal-ag-ettiswil-luzern",
+        "en": "heating-installer-ettiswil-region-ipersonal-ag-ettiswil-luzern",
+        "fr": "installateur-de-chauffage-region-d-ettiswil-ipersonal-ag-ettiswil-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -719,16 +821,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:28.280Z"
+      "firstSeenAt": "2026-10-01T09:31:28.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern"
+        ],
+        "en": [
+          "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-ettiswil-ipersonal-ag-ettiswil-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-01eaad372787",
-      "slug": "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern",
+      "slug": "fitter-automatico-regione-di-triengen-ipersonal-ag-triengen-luzern",
       "slugByLocale": {
         "de": "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern",
-        "it": "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern",
-        "en": "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern",
-        "fr": "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern"
+        "it": "fitter-automatico-regione-di-triengen-ipersonal-ag-triengen-luzern",
+        "en": "automatic-fitter-triengen-region-ipersonal-ag-triengen-luzern",
+        "fr": "installation-automatique-region-de-triengen-ipersonal-ag-triengen-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -780,7 +896,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:31:27.979Z"
+      "firstSeenAt": "2026-10-01T09:31:27.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern"
+        ],
+        "en": [
+          "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern"
+        ],
+        "fr": [
+          "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "automatikmonteur-region-triengen-ipersonal-ag-triengen-luzern"
+      ]
     }
   ]
 }

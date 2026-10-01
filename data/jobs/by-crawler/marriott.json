@@ -253,12 +253,12 @@
     },
     {
       "id": "marriott-07c73149bdc9",
-      "slug": "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier",
+      "slug": "agente-di-benvenuto-receptionist-giorno-e-notte-lungo-termine-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier",
-        "it": "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier",
-        "de": "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier",
-        "fr": "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier"
+        "it": "agente-di-benvenuto-receptionist-giorno-e-notte-lungo-termine-w-verbier-marriott-international-verbier",
+        "de": "welcome-agent-receptionist-tag-nacht-langfristig-w-verbier-marriott-international-verbier",
+        "fr": "agent-de-bienvenue-receptionniste-jour-et-nuit-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -324,7 +324,21 @@
         }
       },
       "addressRegion": "WALLI",
-      "firstSeenAt": "2026-10-01T09:29:37.064Z"
+      "firstSeenAt": "2026-10-01T09:29:37.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "welcome-agent-receptionist-day-night-long-term-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-30d4872bc4e6",

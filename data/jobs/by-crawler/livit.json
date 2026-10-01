@@ -922,11 +922,11 @@
     },
     {
       "id": "livit-ff169e2711d4",
-      "slug": "gerant-e-d-immeubles-livit-ag-geneve",
+      "slug": "direttore-della-costruzione-livit-ag-geneve-81fa7c",
       "slugByLocale": {
-        "it": "gerant-e-d-immeubles-livit-ag-geneve",
-        "en": "gerant-e-d-immeubles-livit-geneve",
-        "de": "gerant-e-d-immeubles-livit-geneve",
+        "it": "direttore-della-costruzione-livit-ag-geneve-81fa7c",
+        "en": "building-manager-livit-ag-geneve-81fa7c",
+        "de": "gebaudeverwalter-livit-ag-geneve-81fa7c",
         "fr": "gerant-e-d-immeubles-livit-geneve"
       },
       "company": "Livit AG",
@@ -970,10 +970,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gerant-e-d-immeubles-livit-geneve"
+        "gerant-e-d-immeubles-livit-geneve",
+        "gerant-e-d-immeubles-livit-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-livit-geneve",
+          "gerant-e-d-immeubles-livit-ag-geneve"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-livit-geneve"
+        ],
+        "de": [
           "gerant-e-d-immeubles-livit-geneve"
         ]
       },
@@ -1280,8 +1288,8 @@
       "slugByLocale": {
         "de": "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-oder-hms-livit-basel",
         "it": "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-o-hms-livit-ag-basel",
-        "en": "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-oder-hms-livit-basel",
-        "fr": "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-oder-hms-livit-basel"
+        "en": "commercial-internship-real-estate-management-summer-2027-wms-or-hms-livit-ag-basel",
+        "fr": "stages-commerciaux-gestion-immobiliere-ete-2027-sge-ou-sge-livit-ag-basel"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1328,6 +1336,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-oder-hms-livit-basel"
+        ],
+        "en": [
+          "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-oder-hms-livit-basel"
+        ],
+        "fr": [
           "kaufmannisches-praktikum-immobilienbewirtschaftung-sommer-2027-wms-oder-hms-livit-basel"
         ]
       },

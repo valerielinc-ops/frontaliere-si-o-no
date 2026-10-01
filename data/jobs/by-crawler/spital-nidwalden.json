@@ -850,8 +850,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans",
         "it": "collaboratore-trice-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans",
-        "en": "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans",
-        "fr": "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
+        "en": "employee-housekeeping-employee-80-spital-nidwalden-stans",
+        "fr": "employe-employe-de-menage-80-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -898,6 +898,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
+        ],
+        "fr": [
           "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
         ]
       },

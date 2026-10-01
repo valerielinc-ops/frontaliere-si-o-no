@@ -12485,12 +12485,12 @@
     },
     {
       "id": "raiffeisen-fcb31fa3713a",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-derendingen",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-derendingen",
       "slugByLocale": {
         "de": "firmenkundenberater-w-m-d-raiffeisen-derendingen",
-        "it": "firmenkundenberater-w-m-d-raiffeisen-derendingen",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-derendingen",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-derendingen"
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-derendingen",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-derendingen",
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-derendingen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12546,7 +12546,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-derendingen"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-derendingen"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-derendingen"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-derendingen"
+      ]
     },
     {
       "id": "raiffeisen-3d2828d2d6f9",
@@ -12554,8 +12568,8 @@
       "slugByLocale": {
         "de": "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen",
         "it": "consulente-strategie-e-spezialthemen-m-w-d-raiffeisen-st-gallen",
-        "en": "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen",
-        "fr": "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
+        "en": "consultant-strategy-and-special-topics-m-f-d-raiffeisen-st-gallen",
+        "fr": "strategie-de-consultant-et-sujets-speciaux-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12602,6 +12616,12 @@
       "previousSlugsByLocale": {
         "it": [
           "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -12628,8 +12648,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-services-4-tage-woche-38-h-bei-100-lohn-w-m-d-raiffeisen-schotz",
         "it": "collaboratore-trice-services-4-tage-woche-38-h-bei-100-lohn-m-w-d-raiffeisen-schotz",
-        "en": "mitarbeiter-services-4-tage-woche-38-h-bei-100-lohn-w-m-d-raiffeisen-schotz",
-        "fr": "mitarbeiter-services-4-tage-woche-38-h-bei-100-lohn-w-m-d-raiffeisen-schotz"
+        "en": "employee-services-4-day-week-38-h-at-100-wage-m-f-d-raiffeisen-schotz",
+        "fr": "services-aux-employes-4-jours-de-semaine-38-h-a-100-de-salaire-h-f-d-raiffeisen-schotz"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12677,6 +12697,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-services-4-tage-woche-38-h-bei-100-lohn-w-m-d-raiffeisen-schotz"
+        ],
+        "en": [
+          "mitarbeiter-services-4-tage-woche-38-h-bei-100-lohn-w-m-d-raiffeisen-schotz"
+        ],
+        "fr": [
+          "mitarbeiter-services-4-tage-woche-38-h-bei-100-lohn-w-m-d-raiffeisen-schotz"
         ]
       },
       "previousSlugs": [
@@ -12699,12 +12725,12 @@
     },
     {
       "id": "raiffeisen-0215cada6eed",
-      "slug": "leiter-firmenkundenberatung-m-w-d-raiffeisen-teufen",
+      "slug": "responsabile-corporate-client-consulting-m-f-d-raiffeisen-teufen",
       "slugByLocale": {
         "de": "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen",
-        "it": "leiter-firmenkundenberatung-m-w-d-raiffeisen-teufen",
-        "en": "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen",
-        "fr": "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen"
+        "it": "responsabile-corporate-client-consulting-m-f-d-raiffeisen-teufen",
+        "en": "head-of-corporate-client-consulting-m-f-d-raiffeisen-teufen",
+        "fr": "responsable-du-conseil-client-d-entreprise-h-f-d-raiffeisen-teufen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12750,11 +12776,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen",
+          "leiter-firmenkundenberatung-m-w-d-raiffeisen-teufen"
+        ],
+        "en": [
+          "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen"
+        ],
+        "fr": [
           "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen"
         ]
       },
       "previousSlugs": [
-        "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen"
+        "leiter-firmenkundenberatung-w-m-d-raiffeisen-teufen",
+        "leiter-firmenkundenberatung-m-w-d-raiffeisen-teufen"
       ],
       "salaryMin": 109000,
       "salaryMax": 152500,

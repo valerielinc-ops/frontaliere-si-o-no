@@ -1220,12 +1220,12 @@
     },
     {
       "id": "unispital-basel-3a74ce8f15b1",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+      "slug": "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel-2f3e22",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
+        "it": "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel-2f3e22",
+        "en": "dipl-nursing-professional-hf-fh-universitatsspital-basel-basel-2f3e22",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel-2f3e22"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1269,12 +1269,20 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-6pj87o"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-6pj87o",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
@@ -10359,12 +10367,12 @@
     },
     {
       "id": "unispital-basel-5557eca90d79",
-      "slug": "studentische-aushilfe-unispital-basel-ch",
+      "slug": "assistenza-agli-studenti-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "studentische-aushilfe-unispital-basel-ch",
-        "en": "studentische-aushilfe-unispital-basel-ch",
+        "it": "assistenza-agli-studenti-universitatsspital-basel-basel",
+        "en": "student-assistance-universitatsspital-basel-basel",
         "de": "studentische-aushilfe-unispital-basel-ch",
-        "fr": "studentische-aushilfe-unispital-basel-ch"
+        "fr": "aide-aux-etudiants-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10417,7 +10425,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "en": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "fr": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-aushilfe-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-ba6673caad15",
@@ -10569,12 +10591,12 @@
     },
     {
       "id": "unispital-basel-7b36eeae72da",
-      "slug": "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
+      "slug": "coder-medico-coder-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizincodiererin-medizincodierer-unispital-basel-ch",
-        "it": "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
-        "en": "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
-        "fr": "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
+        "it": "coder-medico-coder-medico-universitatsspital-basel-basel",
+        "en": "medical-coder-medical-coder-universitatsspital-basel-basel",
+        "fr": "codeur-medical-codeur-medical-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10619,11 +10641,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizincodiererin-medizincodierer-unispital-basel-ch"
+          "medizincodiererin-medizincodierer-unispital-basel-ch",
+          "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "medizincodiererin-medizincodierer-unispital-basel-ch"
+        "medizincodiererin-medizincodierer-unispital-basel-ch",
+        "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
