@@ -7388,6 +7388,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 unifies electric mobility in Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Since October 1, Joya has brought together four activities: over 25,000 charging points, more than 150,000 active users and a plan of around 150 million by 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Public electric-car charging station in a Swiss city',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'The citizen always pays for the full tank',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'In August 2026, monthly inflation is +0.4% and annual inflation +0.8%; the tax on petrol is 76.82 cents/litre, on diesel 79.57 cents/litre; in 2025, the revenue was 4.367 billion francs.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Fuel pump nozzle with a Swiss franc coin and the Alps in the background',
 };
 
 export default blogMetaChEn;

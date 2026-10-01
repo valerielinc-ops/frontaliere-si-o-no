@@ -7388,6 +7388,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 unifie la mobilité électrique à Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Depuis le 1er octobre, Joya a réuni quatre activités : plus de 25 000 points de recharge, plus de 150 000 utilisateurs actifs et un plan d’environ 150 millions d’ici 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Borne publique de recharge pour voitures électriques dans une ville suisse',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'Le citoyen paie toujours le réservoir plein',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'En août 2026, l’inflation mensuelle est de +0,4 % et l’inflation annuelle de +0,8 % ; la taxe sur l’essence est de 76,82 cents/litre, celle sur le diesel de 79,57 cents/litre ; en 2025, le chiffre d’affaires s’élevait à 4,367 milliards de francs.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Pistolet de pompe à essence avec une pièce de franc suisse et les Alpes en arrière-plan',
 };
 
 export default blogMetaChFr;
