@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AlertTriangle, Bot, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud } from 'lucide-react';
+import { AlertTriangle, Bot, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck } from 'lucide-react';
 import {
   runAutomationAdminAction,
   uploadAssistedApplicationCv,
@@ -79,8 +79,17 @@ function formatMs(ms: number | null | undefined): string {
   return new Date(ms).toLocaleString('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' });
 }
 
+const PORTAL_STOP_LABELS: Record<string, string> = {
+  captcha: 'CAPTCHA sul portale: completa tu l’invio',
+  account: 'account sul portale da creare o verificare',
+  rejected: 'il portale ha rifiutato l’invio automatico',
+  portal_needs_candidate: 'una pagina del portale non completata dal robot',
+};
+
 function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
+  if (reason.startsWith('portal:')) return PORTAL_STOP_LABELS[reason.slice(7)] || PORTAL_STOP_LABELS.portal_needs_candidate;
+  if (reason === 'owner_handoff') return 'affidata al candidato per l’ultimo passaggio';
   return HELD_LABELS[reason] || reason;
 }
 
@@ -391,6 +400,16 @@ export default function AssistedApplicationAutomationPanel({
           {['owner_review', 'owner_takeover', 'candidate_review'].includes(flow.state || '') && (
             <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationRegenerate', {}, 'Nuova bozza richiesta.'); }}>
               {spinner('automationRegenerate') || <RefreshCw size={14} aria-hidden="true" />} Rigenera
+            </button>
+          )}
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && (
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
+              {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
+            </button>
+          )}
+          {flow.state === 'owner_takeover' && draft?.round === flow.round && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { if (window.confirm('Il candidato riceverà un’email per completare lui l’invio sul portale. Procedere?')) void act('automationHandoff', {}, 'Affidata al candidato: riceve link, risposte e documenti.'); }}>
+              {spinner('automationHandoff') || <UserCheck size={14} aria-hidden="true" />} Affida al candidato
             </button>
           )}
           {flow.state === 'owner_takeover' ? (

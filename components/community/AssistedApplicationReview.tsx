@@ -333,7 +333,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     const followupLocale = followup.locale || locale || 'it';
     return (
       <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
-        <section className="space-y-5 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
+        <section ref={top} className="scroll-mt-4 space-y-5 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.assisted.pageEyebrow')}</p>
             <h1 className="mt-1 text-2xl font-bold font-display text-heading">{t('jobBoard.assisted.followup.title')}</h1>
