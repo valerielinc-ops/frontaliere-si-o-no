@@ -60,9 +60,10 @@ export function eventOfferPriceAmount(value) {
 
 const TARIFF_NUMBER = String.raw`(?:\d{1,3}(?:['’\u00a0\u202f ]\d{3})+|\d+)(?:[.,]\d{1,2})?`;
 const TARIFF_AMOUNT = String.raw`${TARIFF_NUMBER}(?:[.,][-–—]{1,2})?`;
+const TARIFF_RANGE = String.raw`${TARIFF_AMOUNT}(?:\s*[-–—]\s*${TARIFF_AMOUNT})?`;
 const TARIFF_CURRENCY = String.raw`(?:CHF|EUR|€|S?Fr\.|francs?|franchi|franken)(?!\p{L})`;
 const TARIFF_MONEY_RE = new RegExp(
-  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(?:(?<prefix>${TARIFF_CURRENCY})\s*¤?\s*(?<after>${TARIFF_AMOUNT})|(?<before>${TARIFF_AMOUNT})\s*(?<suffix>${TARIFF_CURRENCY}))(?![\p{N}'’]|[.,]\d)`,
+  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(?:(?<prefix>${TARIFF_CURRENCY})\s*¤?\s*(?<after>${TARIFF_RANGE})|(?<before>${TARIFF_RANGE})\s*(?<suffix>${TARIFF_CURRENCY}))(?![\p{N}'’]|[.,]\d)`,
   'giu',
 );
 const SWISS_MARKED_TARIFF_RE = new RegExp(
@@ -84,7 +85,8 @@ export function parseEventPriceText(value) {
     .replace(/\bgratuita\b/gi, 'gratuito');
   const amountFromText = text => Number.parseFloat(text.replace(/['’\s]/g, '').replace(',', '.'));
   const money = [...tariff.matchAll(TARIFF_MONEY_RE)].map(({ groups }) => ({
-    amount: amountFromText(groups.after || groups.before),
+    amount: Math.min(...[...(groups.after || groups.before).matchAll(new RegExp(TARIFF_NUMBER, 'gu'))]
+      .map(match => amountFromText(match[0]))),
     currency: /EUR|€/iu.test(groups.prefix || groups.suffix) ? 'EUR' : 'CHF',
   })).filter(({ amount }) => Number.isFinite(amount));
   const unknown = { amount: null, currency: 'CHF', isFree: false };
@@ -104,6 +106,16 @@ export function parseEventPriceText(value) {
   // A currency marker with an invalid amount must not fall through to the
   // legacy numeric parser (e.g. a partial match inside "CHF 1,000").
   if (TARIFF_CURRENCY_RE.test(tariff)) return unknown;
+  // A leading free tariff is authoritative even when dates or opening hours
+  // follow it. Do not promote a conditional "Children free, adults 20".
+  const leadingWords = tariff.trim().match(/^([\p{L}]+)(?:[\s:]+([\p{L}]+))?/u);
+  if (leadingWords) {
+    const freeWord = parsePriceText(leadingWords[1]);
+    const admissionLabel = /^(?:admission|entry|entrance|eintritt|entr[ée]e|ingresso|entrata|prices?|preis|prix|prezzo)$/iu;
+    const freeAdmission = admissionLabel.test(leadingWords[1]) && leadingWords[2]
+      ? parsePriceText(`${leadingWords[1]} ${leadingWords[2]}`) : undefined;
+    if (freeWord?.isFree || freeAdmission?.isFree) return { amount: 0, currency: 'CHF', isFree: true };
+  }
   if (/\d/u.test(tariff) && !BARE_TARIFF_RE.test(tariff.trim())) return unknown;
   if (BARE_TARIFF_RE.test(tariff.trim())) {
     return parsePriceText(tariff.replace(/['’\u00a0\u202f]/g, '').replace(/(?<=\d) (?=\d)/g, ''));

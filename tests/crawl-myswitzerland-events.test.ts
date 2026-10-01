@@ -260,6 +260,10 @@ describe('extractPrice', () => {
     ['Team of 2 people : CHF ¤140.00, Team of 3 people : CHF ¤160.00', 140, 'CHF'],
     ['Einzeleintritt 30.- Schüler und Studenten 15.- Jahresabonnement, 4 Konzerte 80.-', 15, 'CHF'],
     ['CHF 30.- Erwachsene 30.- Kinder 15.-', 15, 'CHF'],
+    ['5–10 CHF', 5, 'CHF'],
+    ['10-5 CHF', 5, 'CHF'],
+    ['CHF 10–5', 5, 'CHF'],
+    ['12,50–20 EUR', 12.5, 'EUR'],
     ['Prezzo: 20 franchi, categoria 1', 20, 'CHF'],
     ['EUR 12,50 pour 2 personnes', 12.5, 'EUR'],
     ['25.–', 25, 'CHF'],
@@ -268,10 +272,20 @@ describe('extractPrice', () => {
     expect(parseEventPriceText(tariff)).toEqual({ amount, currency, isFree: false });
   });
 
-  it.each(['Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20'])
+  it.each(['Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20', 'Children free, adults 20'])
     ('keeps absent or ambiguous monetary amounts unknown: %s', (tariff) => {
       expect(parseEventPriceText(tariff)).toEqual({ amount: null, currency: 'CHF', isFree: false });
     });
+
+  it.each([
+    'gratuito, valido fino al 31.12.2026',
+    'Free entrance until 31.12.2026',
+    'Eintritt frei bis 31.12.2026',
+    'Entrée libre, valable jusqu’au 31.12.2026',
+    'Gratis 8 séances',
+  ])('keeps an explicit free tariff despite ancillary dates or quantities: %s', (tariff) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
 
   it('returns no price when a tariff cannot be interpreted', () => {
     expect(extractPrice({}, '<table><tr><th>Price</th><td>su richiesta</td></tr></table>')).toBeUndefined();
