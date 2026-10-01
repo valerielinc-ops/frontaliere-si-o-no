@@ -25,8 +25,8 @@
  * (which is what the audit script reads via BFS). We assert:
  *
  *   1. The 3 index page kinds exist for every locale × applicable fuel.
- *   2. Each index emits one `<a href>` per synthetic leaf input (= every
- *      sitemap-listed page is linked from its index).
+ *   2. Each index links every indexable leaf emitted from the synthetic
+ *      dataset; Swiss stations without any observed price are not leaves.
  *   3. The hub-links block emitted into each daily-fuel page contains:
  *        - a link to each of the 3 indexes (or 2 for diesel: the IT-station
  *          index is benzina-only)
@@ -50,9 +50,11 @@ import {
   FUEL_TYPES,
   FUEL_ZONES,
   FUEL_ITALIAN_CITIES,
+  buildFuelStationPath,
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
+import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
 import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
 
 // ── Synthetic leaves ──────────────────────────────────────────────
@@ -136,7 +138,24 @@ describe('fuel-station orphans — index pages exist for every locale × fuel', 
   }
 });
 
-describe('fuel-station orphans — every synthetic leaf is linked from its index', () => {
+describe('fuel-station orphans — every emitted leaf is linked from its index', () => {
+  const swissStationPages = generateFuelStationPages({
+    today: TODAY,
+    dataset: {
+      municipalities: [{
+        swiss: {
+          nearbyStations: SYNTHETIC_SWISS.map((station) => ({
+            id: station.slug,
+            name: station.name,
+            brand: station.brand,
+            address: station.address,
+            sp95PriceChf: station.benzinaPriceChf,
+            dieselPriceChf: station.dieselPriceChf,
+          })),
+        },
+      }],
+    },
+  });
   const pages = generateFuelIndexPages({
     today: TODAY,
     swissStations: SYNTHETIC_SWISS,
@@ -144,11 +163,21 @@ describe('fuel-station orphans — every synthetic leaf is linked from its index
   });
 
   for (const fuel of FUEL_TYPES) {
-    it(`Swiss-stations index (it/${fuel}) links every Swiss station leaf`, () => {
-      const html = pages[buildFuelIndexPath('it', fuel, 'swissStations')]!;
-      for (const leaf of SYNTHETIC_SWISS) {
-        // The full per-station path embeds zone + slug; both are unique.
-        expect(countAnchors(html, `/${leaf.zone}/stazioni/${leaf.slug}/`)).toBeGreaterThanOrEqual(1);
+    it(`Swiss-stations indexes (${fuel}) link every emitted Swiss station leaf in all locales`, () => {
+      for (const locale of FUEL_DAILY_LOCALES) {
+        const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;
+        const emittedPaths = SYNTHETIC_SWISS
+          .map((station) => buildFuelStationPath(locale, fuel, station.zone, station.slug))
+          .filter((path) => swissStationPages[path] && !swissStationPages[path].includes('noindex,follow'));
+        // Both priced stations are real emitted leaves. The unpriced fixture
+        // never enters the emitter's station contexts and has no indexable URL.
+        expect(emittedPaths).toHaveLength(2);
+        for (const path of emittedPaths) {
+          expect(countAnchors(html, path), `orphaned leaf: ${path}`).toBeGreaterThanOrEqual(1);
+        }
+        const unpricedPath = buildFuelStationPath(locale, fuel, SYNTHETIC_SWISS[2].zone, SYNTHETIC_SWISS[2].slug);
+        expect(swissStationPages[unpricedPath]).toBeUndefined();
+        expect(countAnchors(html, unpricedPath)).toBe(0);
       }
     });
     it(`Italian-cities index (it/${fuel}) is leaf-driven: links only cities with an emitted station leaf`, () => {

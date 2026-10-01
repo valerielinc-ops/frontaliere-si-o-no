@@ -463,9 +463,11 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toMatch(/Recensione editoriale della stazione/);
   });
 
-  it('uses the stated 6 L/100 km commute assumption for monthly context', () => {
+  it('labels monthly consumption as hypothetical and calculates the stated assumptions exactly', () => {
     const sample = pages['/prezzi-benzina/chiasso/stazioni/eni-via-compolongo/'];
-    expect(sample).toContain('106 litri');
+    expect(sample).toContain('Esempio ipotetico di consumo: 80 km al giorno, 6 litri per 100 km e 22 giorni');
+    expect(sample).toContain('105,6 litri al mese');
+    expect(sample).toContain('Questi valori sono ipotesi, non una distanza o un consumo tipico misurato dei frontalieri');
     expect(sample).not.toContain('200 litri');
     expect(sample).not.toContain('4 pieni × prezzo');
   });
