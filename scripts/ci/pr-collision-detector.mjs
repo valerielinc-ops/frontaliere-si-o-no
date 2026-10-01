@@ -86,6 +86,15 @@ export function isAutonomousCollisionPr(pr) {
   return labels.includes(AUTOFIX_LABEL);
 }
 
+/**
+ * Una duplicata esce dal grafo solo dopo una chiusura osservata. In dry-run
+ * la chiusura e' intenzionalmente simulata; in produzione lo stato GitHub deve
+ * essere esplicitamente `CLOSED`. Pura → testabile.
+ */
+export function duplicateClosureConfirmed({ dryRun = false, state = '' } = {}) {
+  return dryRun === true || String(state).toUpperCase() === 'CLOSED';
+}
+
 // Glob funnel-critical → predicate. Manteniamo i pattern espliciti e ristretti:
 // allargarli genererebbe falsi positivi (ogni PR collide con ogni PR).
 const FUNNEL_PREDICATES = [
@@ -117,6 +126,20 @@ function addLabel(num, label) {
 function removeLabel(num, label) {
   if (DRY) { console.log(`[dry] -label ${label} #${num}`); return; }
   gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', label], { json: false, allowFail: true });
+}
+
+function closeDuplicateAndConfirm(num) {
+  if (DRY) {
+    console.log(`[dry] close #${num}`);
+    return duplicateClosureConfirmed({ dryRun: true });
+  }
+  gh(['pr', 'close', String(num), '--repo', REPO], { json: false, allowFail: true });
+  const current = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state'], { allowFail: true });
+  const confirmed = duplicateClosureConfirmed({ state: current?.state });
+  if (!confirmed) {
+    console.log(`PR #${num}: chiusura non confermata — resta nel grafo per questo run.`);
+  }
+  return confirmed;
 }
 
 function commentOnce(num, marker, body) {
@@ -264,13 +287,13 @@ function main() {
     if (dup.labels.includes(AUTOFIX_LABEL) && isAutonomousCollisionPr(keeper)) {
       addLabel(dup.keeper, AUTOFIX_LABEL);
     }
-    commentOnce(dup.number, `<!-- DUPLICATE_HEAD_OF:${dup.keeper} -->`,
-      `♻️ **duplicata**: questa PR e la PR #${dup.keeper} hanno lo stesso head branch, quindi gli stessi commit. ` +
-      `Resta aperta #${dup.keeper} (la più vecchia); questa viene chiusa senza toccare il branch. ` +
-      `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
-    if (DRY) { console.log(`[dry] close #${dup.number}`); }
-    else gh(['pr', 'close', String(dup.number), '--repo', REPO], { json: false, allowFail: true });
-    closedDuplicates.add(dup.number);
+    if (closeDuplicateAndConfirm(dup.number)) {
+      commentOnce(dup.number, `<!-- DUPLICATE_HEAD_OF:${dup.keeper} -->`,
+        `♻️ **duplicata**: questa PR e la PR #${dup.keeper} hanno lo stesso head branch, quindi gli stessi commit. ` +
+        `Resta aperta #${dup.keeper} (la più vecchia); questa viene chiusa senza toccare il branch. ` +
+        `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
+      closedDuplicates.add(dup.number);
+    }
   }
   if (closedDuplicates.size) prs = prs.filter((p) => !closedDuplicates.has(p.number));
 
