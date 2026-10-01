@@ -183,13 +183,23 @@ chrome.runtime.onStartup.addListener(() => {
 
 // Installed or just reloaded: these files are the loaded ones, and a queue tab
 // already open gets the bridge (the one it had belongs to the previous load,
-// cut off from this service worker).
-chrome.runtime.onInstalled.addListener(async () => {
-  await chrome.storage.session.set({ loadedFingerprint: await fingerprint() });
-  const [{ matches, js }] = chrome.runtime.getManifest().content_scripts;
-  for (const tab of await chrome.tabs.query({ url: matches })) {
-    const target = { tabId: tab.id };
-    const [probe] = await chrome.scripting.executeScript({ target, func: () => Boolean(globalThis.compilaCandidaturaBridgeAlive?.()) }).catch(() => []);
-    if (!probe?.result) await chrome.scripting.executeScript({ target, files: js }).catch(() => {});
-  }
+// cut off from this service worker). Once per worker, whichever comes first:
+// onInstalled, or the worker's first run after a load (a reload empties the
+// session storage), so an open queue never keeps a cut-off bridge, nor gets two.
+let loadSettled = null;
+function settleLoad() {
+  loadSettled = loadSettled || (async () => {
+    await chrome.storage.session.set({ loadedFingerprint: await fingerprint() });
+    const [{ matches, js }] = chrome.runtime.getManifest().content_scripts;
+    for (const tab of await chrome.tabs.query({ url: matches })) {
+      const target = { tabId: tab.id };
+      const [probe] = await chrome.scripting.executeScript({ target, func: () => Boolean(globalThis.compilaCandidaturaBridgeAlive?.()) }).catch(() => []);
+      if (!probe?.result) await chrome.scripting.executeScript({ target, files: js }).catch(() => {});
+    }
+  })();
+  return loadSettled;
+}
+chrome.runtime.onInstalled.addListener(() => {
+  settleLoad().catch(() => {});
 });
+chrome.storage.session.get('loadedFingerprint').then(({ loadedFingerprint }) => (loadedFingerprint ? null : settleLoad())).catch(() => {});

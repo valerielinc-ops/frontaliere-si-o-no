@@ -40,7 +40,11 @@ sync_once() {
     rm -f "$STATE_DIR/extension-sync.sh.next"
   fi
   local tree
-  tree="$(git --git-dir="$git_dir" rev-parse "origin/main:$EXTENSION_PATH")"
+  # No origin/main yet (first run offline): the folder stays as it is until a fetch works.
+  if ! tree="$(git --git-dir="$git_dir" rev-parse --verify --quiet "origin/main:$EXTENSION_PATH")"; then
+    log "no origin/main to copy yet, $dest left as it is"
+    return 1
+  fi
   if [ -f "$STATE_DIR/synced-tree" ] && [ "$(cat "$STATE_DIR/synced-tree")" = "$tree" ] && [ -f "$dest/manifest.json" ]; then
     return 0
   fi
@@ -65,6 +69,8 @@ xml_escape() { printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>
 
 install() {
   local dest="${1:-$HOME/Library/Application Support/Frontaliere/compila-candidatura}"
+  # launchd has no working directory of ours: a relative folder becomes absolute now.
+  case "$dest" in /*) ;; *) dest="$PWD/$dest" ;; esac
   case "$dest" in
     "$HOME/Documents"|"$HOME/Documents/"*|"$HOME/Desktop"|"$HOME/Desktop/"*|"$HOME/Downloads"|"$HOME/Downloads/"*)
       echo "$dest is in a folder macOS protects from launch agents (Documents, Desktop, Downloads): choose another one." >&2
