@@ -53,7 +53,7 @@ describe('rerender article hubs workflow', () => {
 
     expect(publishAt).toBeGreaterThan(-1);
     expect(publishAt).toBeLessThan(pushAt);
-    expect(hubDriver).toContain('scripts/publish-article-chunks.mjs');
+    expect(hubDriver).toContain("path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs')");
     expect(hubDriver).toContain("args.push('--strict', '--no-ticker')");
     expect(hubDriver).toContain('assertArticleChunkLease();\n  await publishClientChunks');
     expect(hubDriver).toContain('await publishClientChunks(sections, args.dryRun);\n\n  if (args.dryRun)');
