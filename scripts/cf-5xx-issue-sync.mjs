@@ -280,7 +280,7 @@ export async function main() {
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main() never triggers a live CF/gh call — same guard as
 // scripts/dmarc-monitor.mjs.
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const results = await main();
   if (results) {
     console.log(`[cf-5xx-issue-sync] synced ${results.filter(Boolean).length}/${results.length} issue(s)`);
