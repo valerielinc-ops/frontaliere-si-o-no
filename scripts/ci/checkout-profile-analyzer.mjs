@@ -485,6 +485,13 @@ export function bucketsReferencedBy(text) {
   return hit;
 }
 
+// `git-commit-data.sh` contains the legacy shared-data path as well as the
+// isolated `--extra-only` path. A monitor that passes `--extra-only` owns only
+// its explicit extra path; counting the helper's dormant legacy branches as
+// runtime reads would keep the checkout full and recreate the timeout that
+// this mode is meant to avoid.
+const EXTRA_ONLY_DATA_COMMIT = /\b(?:bash|sh)\s+scripts\/lib\/git-commit-data\.sh\s+(?:\\\s+)*--extra-only\b/;
+
 /** Analizza un singolo job. */
 function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const exec = textOfSteps(job?.steps) + '\n' + workflowEnvText + '\n' +
@@ -494,7 +501,11 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const entries = checkoutEntryPoints(exec, npmScripts);
   const inlineEntries = inlineModuleEntryPoints(exec);
   const resolved = transitiveClosure(entries);
-  const corpus = exec + '\n' + resolved.map((r) => r.src).join('\n');
+  const extraOnlyDataCommit = EXTRA_ONLY_DATA_COMMIT.test(exec);
+  const bucketResolved = extraOnlyDataCommit
+    ? resolved.filter((r) => r.rel !== 'scripts/lib/git-commit-data.sh')
+    : resolved;
+  const corpus = exec + '\n' + bucketResolved.map((r) => r.src).join('\n');
   const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
   if (needs.has('public/images/')) needs.add('public/data/');
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
@@ -505,6 +516,7 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
     return {
       jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
       opaqueBy, entries, inlineEntries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
+      extraOnlyDataCommit,
       needs: [...needs].sort(), exclude: [], aboveCrossover: true,
       savedMb: 0, savedFiles: 0, checkoutMb: TREE_MB,
     };
@@ -513,6 +525,7 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   return {
     jobId, hasCheckout, opaqueBy, entries, inlineEntries, filesFollowed: resolved.length,
     closure: resolved.map((r) => r.rel),
+    extraOnlyDataCommit,
     needs: [...needs].sort(),
     exclude: exclude.map((b) => b.id),
     aboveCrossover: false,
