@@ -29,6 +29,7 @@ import {
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
   mergeEventOfferMetadata,
+  parseEventPriceText,
 } from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
@@ -242,6 +243,56 @@ describe('recoverExistingIndexedPrices', () => {
 });
 
 describe('extractPrice', () => {
+  it('takes a published ticket amount instead of a category number in a real tariff table', () => {
+    const tariff = 'EHC-K Lounge: 158,90 CHF Kategorie 1: 81,80 CHF Kategorie 2: 63,60 CHF Kategorie 3: 40,80 CHF Kategorie 4 Family: 40,80 CHF Kids: 5,30 CHF Stehplatz Gast: 31,50 CHF Stehplatz Heim: 31,50 CHF';
+    expect(extractPrice({}, `<table><tr><th>Prezzo</th><td>${tariff}</td></tr></table>`))
+      .toEqual({ amount: 5.3, currency: 'CHF', isFree: false });
+  });
+
+  it.each([
+    ['CHF 40.– pour les 8 séances de la saison', 40, 'CHF'],
+    ['Fr. 25.–, catégorie 1, salle 2', 25, 'CHF'],
+    ['1\'000.50 CHF pour 3 personnes', 1000.5, 'CHF'],
+    ['CHF 1’000.– pour 3 personnes', 1000, 'CHF'],
+    ['CHF 1 000.50 pour 3 personnes', 1000.5, 'CHF'],
+    ['1\u202f000 CHF pour 3 personnes', 1000, 'CHF'],
+    ['Tarif : Adulte : CHF ¤13.00, Enfants : CHF ¤11.00', 11, 'CHF'],
+    ['Team of 2 people : CHF ¤140.00, Team of 3 people : CHF ¤160.00', 140, 'CHF'],
+    ['Einzeleintritt 30.- Schüler und Studenten 15.- Jahresabonnement, 4 Konzerte 80.-', 15, 'CHF'],
+    ['CHF 30.- Erwachsene 30.- Kinder 15.-', 15, 'CHF'],
+    ['5–10 CHF', 5, 'CHF'],
+    ['10-5 CHF', 5, 'CHF'],
+    ['CHF 10–5', 5, 'CHF'],
+    ['12,50–20 EUR', 12.5, 'EUR'],
+    ['Prezzo: 20 franchi, categoria 1', 20, 'CHF'],
+    ['EUR 12,50 pour 2 personnes', 12.5, 'EUR'],
+    ['EUR 15.–', 15, 'EUR'],
+    ['25.–', 25, 'CHF'],
+    ['25 pro Person', 25, 'CHF'],
+  ])('parses monetary tariffs without including unrelated quantities: %s', (tariff, amount, currency) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount, currency, isFree: false });
+  });
+
+  it.each([
+    'Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20', 'Children free, adults 20',
+    'EUR 20 / 15.–', 'Children 15.– / adults EUR 20',
+    'Free for children, adults 20', 'Free admission for children, adults 20', 'Admission: free for children',
+    'Gratuit pour les enfants, adultes 20', 'Gratis per bambini, adulti 20', 'Eintritt frei für Kinder, Erwachsene 20',
+  ])
+    ('keeps absent or ambiguous monetary amounts unknown: %s', (tariff) => {
+      expect(parseEventPriceText(tariff)).toEqual({ amount: null, currency: 'CHF', isFree: false });
+    });
+
+  it.each([
+    'gratuito, valido fino al 31.12.2026',
+    'Free entrance until 31.12.2026',
+    'Eintritt frei bis 31.12.2026',
+    'Entrée libre, valable jusqu’au 31.12.2026',
+    'Gratis 8 séances',
+  ])('keeps an explicit free tariff despite ancillary dates or quantities: %s', (tariff) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
   it('returns no price when a tariff cannot be interpreted', () => {
     expect(extractPrice({}, '<table><tr><th>Price</th><td>su richiesta</td></tr></table>')).toBeUndefined();
   });

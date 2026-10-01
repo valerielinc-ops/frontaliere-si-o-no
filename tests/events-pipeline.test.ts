@@ -684,6 +684,17 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     expect(extractTioPrice('')).toBeUndefined();
   });
 
+  it('keeps looking for a confident tariff after an unknown inline value', () => {
+    const html = '<p><strong>Prezzo:</strong> Kategorie 1</p><p>Prezzo: CHF 20</p>';
+    expect(extractTioPrice(html)).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+  });
+
+  it('keeps looking past unknown labelled paragraphs', () => {
+    const html = '<p>Prezzo: Kategorie 1</p><p>Prezzo: CHF 20</p>';
+    expect(extractTioPrice(html)).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(extractTioPrice('<p>Prezzo: Kategorie 1</p>')).toBeUndefined();
+  });
+
   it('extracts source description, address, venue and explicit free admission', () => {
     const html = '<div class="col-12 col-xl-8"><h1>E tu chi sei?</h1><p>E TU CHI SEI? Uno spettacolo di e con Isabella Giampaolo.</p><p>Con curiosità, empatia e un pizzico di salvifica ironia, lo spettacolo racconta una storia.</p><p>Entrata libera con prenotazione gradita.</p></div><div class="address"><p>Indirizzo</p><p>Tertianum Cornaredo</p><p>Via Chiosso 9</p><p>6948, Porza</p></div>';
     expect(extractTioDetailMetadata(html)).toEqual({
