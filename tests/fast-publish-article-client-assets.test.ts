@@ -16,6 +16,12 @@ const hubDriver = readFileSync(
   resolve(__dirname, '..', 'scripts/rerender-article-hubs.mjs'),
   'utf-8',
 );
+const articleLockWorkflows = [
+  '.github/workflows/fast-publish-article.yml',
+  '.github/workflows/resync-cdn-article-chunks.yml',
+  '.github/workflows/rerender-article-hubs.yml',
+  '.github/workflows/sync-articles-sitemaps.yml',
+];
 
 /**
  * #5819 — the fast-publish HTML hub and the client registry must move in a
@@ -151,5 +157,17 @@ describe('rerender article hubs workflow', () => {
     expect(hubWorkflow).toContain('ARTICLE_CHUNK_LOCK_ENFORCE=true');
     expect(hubWorkflow).toContain('ARTICLE_CHUNK_LOCK_FAILURE_FILE');
     expect(hubWorkflow).toContain("if: always() && steps.acquire_chunk_lock.outcome == 'success'");
+  });
+
+  it('keeps the renewer pid attached to the live process in every article publisher', () => {
+    for (const workflowPath of articleLockWorkflows) {
+      const source = readFileSync(resolve(__dirname, '..', workflowPath), 'utf-8');
+      expect(source, workflowPath).toContain(
+        'env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew',
+      );
+      expect(source, workflowPath).not.toContain(
+        'env -u RUNNER_TRACKING_ID nohup setsid node scripts/lib/r2-section-lock.mjs renew',
+      );
+    }
   });
 });
