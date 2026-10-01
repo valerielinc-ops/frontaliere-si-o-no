@@ -21,6 +21,7 @@ import {
   AutomationAdminError,
   handleAutomationAdminAction,
   loadAutomationForAdmin,
+  recordOwnerSubmission,
 } from './assistedApplicationAutomationAdmin.js';
 import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from './assistedApplicationCvCheck.js';
@@ -333,11 +334,13 @@ async function handleTransition(db, raw, adminEmail) {
   }
 
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  let automated = false;
   try {
     await db.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(orderRef);
       if (!snapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
       const current = snapshot.data() || {};
+      automated = Boolean(current.automationState);
       const fromStatus = statusFor(current);
       if (current.paymentStatus !== 'paid') {
         throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
@@ -356,6 +359,12 @@ async function handleTransition(db, raw, adminEmail) {
     });
   } catch (error) {
     return transitionErrorResponse(error);
+  }
+  // An automated order Valerie marks sent from the queue closes its flow too
+  // (owner_submitted), so the automation box agrees with the queue. Only a
+  // flow the robot left to her moves; anything else is ignored.
+  if (toStatus === 'submitted' && automated) {
+    await recordOwnerSubmission({ db, orderId, adminEmail, via: 'owner', runEffect: runAutomationEffect }).catch((error) => console.error('[manageAssistedApplicationAdmin] flow not closed', orderId, error instanceof Error ? error.message : String(error)));
   }
   return { status: 200, body: { ok: true, orderId, submissionStatus: toStatus } };
 }
@@ -619,6 +628,9 @@ async function handleMutate(db, req, adminEmail) {
         bucket: getStorage().bucket(STORAGE_BUCKET),
         // Read only by automationRevealAccount (portal accounts on the alias).
         runKey: () => getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        // Read only by automationFillKit: the documents the fill extension attaches.
+        signUrl: resolveCvLink,
+        originalCvUrl: cvUrlForOrder,
       });
       return { status: 200, body };
     } catch (error) {

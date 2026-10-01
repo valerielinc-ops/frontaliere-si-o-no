@@ -299,7 +299,7 @@ export async function runAction(page, action, files = {}) {
 export const ADVANCE_RE = /(\bnext\b|\bcontinue\b|\bproceed\b|\bforward\b|weiter|fortfahren|nächste|avanti|continua|prosegui|procedi|successiv|suivant|continuer|poursuivre)/i;
 // …and none of going back, leaving, signing in or out.
 // Whole words where a send button may contain them: «Bewerbung abschließen» is no "schließen" (close).
-const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
+export const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
 
 /**
  * The advance button the agent named, when it is safe to press as "Next":
