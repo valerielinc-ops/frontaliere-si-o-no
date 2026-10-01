@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-30T21:22:43.556Z",
-  "total": 6,
+  "generatedAt": "2026-10-01T09:16:42.311Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4790,
-  "avgDurationMs": 4790,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4982,
+  "avgDurationMs": 4982,
   "durationHistory": [
-    4790
+    4982
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,6 +55,7 @@
       "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
       "sourceLang": "it",
       "id": "banca-sempione-00a6adcf50af",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
@@ -81,15 +82,15 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
-      "_qualityScore": 81,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -108,15 +109,15 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:11:04.811Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
-      "_qualityScore": 81,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -134,6 +135,7 @@
       "slug": "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich",
       "sourceLang": "en",
       "id": "banca-sempione-f45acac33926",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/",
@@ -146,8 +148,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
       "company": "Banca del Sempione",
@@ -176,6 +177,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -184,5 +186,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
