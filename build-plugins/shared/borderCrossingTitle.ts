@@ -76,5 +76,7 @@ export function buildBorderCrossingTitle(label: string): string {
 export function buildBorderCrossingDescription(label: string): string {
   return clampMetaDescription(
     `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`,
+    undefined,
+    'it',
   );
 }

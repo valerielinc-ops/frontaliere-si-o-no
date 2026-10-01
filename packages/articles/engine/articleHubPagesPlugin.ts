@@ -949,13 +949,13 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(description))}">
+    <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(pageTitle)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(description))}">
+    <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
