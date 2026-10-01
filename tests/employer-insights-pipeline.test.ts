@@ -9,7 +9,9 @@ import {
   buildGa4EventQueryBody,
   buildInsightsDocuments,
   collapseTechnicalDuplicates,
+  findFirstCompleteGa4IdentityAt,
   loadApplicationRecords,
+  queryGa4EmissionEvidence,
   queryGa4EventRows,
   queryEventRows,
   resolveEventIdentity,
@@ -1075,6 +1077,69 @@ describe('employer insights technical deduplication', () => {
       emissionIdRows: 1,
       emissionIdObserved: 4,
       emissionIdMissingObserved: 0,
+      firstCompleteIdentityAt: ga4Window.from,
+    });
+  });
+
+  it('finds the first complete forward-only GA4 identity suffix without hiding a later gap', () => {
+    const ga4Window = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-13T00:00:00+02:00',
+      kind: 'ga4-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    const rows = [
+      { timestamp: '2026-09-09T00:00:00.000Z', observed: 10, emissionId: '' },
+      { timestamp: '2026-09-10T00:00:00.000Z', observed: 4, emissionId: 'emission-10' },
+      { timestamp: '2026-09-11T00:00:00.000Z', observed: 5, emissionId: 'emission-11' },
+    ];
+
+    expect(findFirstCompleteGa4IdentityAt(rows, ga4Window)).toBe('2026-09-10T00:00:00.000Z');
+    expect(findFirstCompleteGa4IdentityAt([
+      ...rows,
+      { timestamp: '2026-09-12T00:00:00.000Z', observed: 1, emissionId: '' },
+    ], ga4Window)).toBeNull();
+  });
+
+  it('re-queries the complete suffix instead of slicing a mixed GA4 report', async () => {
+    const ga4Window = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-13T00:00:00+02:00',
+      kind: 'ga4-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    const row = (date: string, emissionId: string, eventCount: number) => ({
+      dimensionValues: [date, 'page_view', 'acme', 'role-it', '/role-it/', emissionId || '(not set)'],
+      metricValues: [{ value: String(eventCount) }, { value: '1' }, { value: '1' }],
+    });
+    const calls: string[] = [];
+    const report = async ({ body }: { body: Record<string, any> }) => {
+      const startDate = body.dateRanges[0].startDate;
+      calls.push(startDate);
+      if (startDate === '2026-09-10') {
+        return {
+          rowCount: 2,
+          rows: [row('20260910', 'emission-10', 4), row('20260911', 'emission-11', 5)],
+        };
+      }
+      return {
+        rowCount: 3,
+        rows: [row('20260909', '', 10), row('20260910', 'emission-10', 4), row('20260911', 'emission-11', 5)],
+      };
+    };
+
+    const evidence = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report,
+    });
+
+    expect(calls).toEqual(['2026-09-09', '2026-09-10']);
+    expect(evidence.window.from).toBe('2026-09-10T00:00:00.000Z');
+    expect(evidence.result.coverage).toMatchObject({
+      returned: 9,
+      emissionIdMissingObserved: 0,
+      firstCompleteIdentityAt: evidence.window.from,
     });
   });
 
