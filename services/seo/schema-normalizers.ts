@@ -5,7 +5,7 @@ const ARTICLE_SCHEMA_TYPES = new Set(['Article', 'NewsArticle', 'BlogPosting']);
 const DEFAULT_ARTICLE_IMAGE = 'https://frontaliereticino.ch/og-image.png';
 
 const DEFAULT_ARTICLE_AUTHOR = {
- '@type': 'Organization',
+ '@type': 'NewsMediaOrganization',
  '@id': ORGANIZATION_ID,
  name: ORGANIZATION_LD.name,
  url: ORGANIZATION_LD.url,
@@ -102,7 +102,11 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
  if (
   record['@type'] === 'Organization'
   && record.name === ORGANIZATION_LD.name
-  && (record.url === undefined || record.url === ORGANIZATION_LD.url)
+  && (
+    record.url === undefined
+    || record.url === ORGANIZATION_LD.url
+    || record.url === ORGANIZATION_LD.url.replace(/\/$/, '')
+  )
  ) {
   record['@type'] = ORGANIZATION_LD['@type'];
   record['@id'] ??= ORGANIZATION_ID;

@@ -346,7 +346,8 @@ export function renderFacilityPage(
     url: canonicalUrl,
     dateModified: dateStamp,
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),

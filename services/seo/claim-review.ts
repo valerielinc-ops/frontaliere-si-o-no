@@ -74,7 +74,8 @@ export interface ClaimReviewSchema {
   url: string;
   claimReviewed: string;
   author: {
-    '@type': 'Organization';
+    '@type': 'NewsMediaOrganization';
+    '@id'?: string;
     name: 'Frontaliere Ticino';
     url: string;
   };
@@ -120,7 +121,8 @@ export function buildClaimReview(input: Readonly<ClaimReviewInput>): ClaimReview
     url: input.pageUrl,
     claimReviewed: input.claimReviewed,
     author: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
