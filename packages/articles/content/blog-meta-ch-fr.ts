@@ -7382,6 +7382,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spese-canton-berna-2026.title': 'Coût de la vie en Suisse 2026 : Canton de Berne en comparaison',
     'blog.article.spese-canton-berna-2026.excerpt': 'Loyers, fiscalité, KVG et contributions : guide 2026 du coût de la vie dans le canton de Berne, avec règles et comparaisons valides en Suisse.',
     'blog.article.spese-canton-berna-2026.imageAlt': 'Canton de Berne: budget du ménage entre loyer, achats et assurance',
+    'blog.article.occhiali-meta-sunrise.title': 'Sunrise apporte les lunettes intelligentes Meta en Suisse',
+    'blog.article.occhiali-meta-sunrise.excerpt': 'Sunrise propose des lunettes intelligentes Meta en Suisse : des prix allant de 269 à 559 francs et des tests dans les Sunrise Shops dans les semaines à venir.',
+    'blog.article.occhiali-meta-sunrise.imageAlt': 'Lunettes intelligentes Meta dans une boutique Sunrise en Suisse',
 };
 
 export default blogMetaChFr;

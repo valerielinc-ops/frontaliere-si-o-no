@@ -2483,6 +2483,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'operazione-internazionale-contro-killsec': { it: 'operazione-internazionale-contro-killsec', en: 'killsec-dismantled-110-tb-of-data-seized', de: 'killsec-deaktiviert-110-tb-daten-beschlagnahmt', fr: 'killsec-demantele-110-to-de-donnees-saisies' },
  'consiglio-stati-accordo-sanita-ue': { it: 'consiglio-stati-accordo-sanita-ue', en: 'council-states-health-agreement-eu', de: 'staenderat-gesundheit-abkommen-eu', fr: 'conseil-etats-acord-sante-ue' },
  'spese-canton-berna-2026': { it: 'spese-canton-berna-2026', en: 'swiss-cost-of-living-bern-2026', de: 'lebenshaltung-schweiz-bern-2026', fr: 'cout-vie-suisse-berne-2026' },
+ 'occhiali-meta-sunrise': { it: 'occhiali-meta-sunrise', en: 'sunrise-meta-smart-glasses', de: 'sunrise-meta-smartbrillen', fr: 'lunettes-meta-sunrise' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

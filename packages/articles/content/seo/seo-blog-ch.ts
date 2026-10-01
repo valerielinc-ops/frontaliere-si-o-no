@@ -95726,6 +95726,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-occhiali-meta-sunrise': {
+    title: 'Sunrise porta in Svizzera gli smart glasses Meta',
+    description: 'Sunrise propone in Svizzera gli smart glasses Meta, Ray-Ban Meta e Oakley Meta: prezzi da 269 a 559 franchi e prove nei Sunrise Shop nelle prossime settimane.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sunrise, porta, smart, glasses',
+    ogTitle: 'Sunrise, smart glasses Meta da 269 franchi in Svizzera',
+    ogDescription: 'L\'operatore Sunrise entra nel mercato degli occhiali intelligenti in Svizzera con modelli Meta, Ray-Ban Meta e Oakley Meta. Fotocamera, chiamate, musica e IA convivono con un LED per le riprese: la responsabilità della privacy resta agli utenti.',
+    canonicalPath: '/articoli-svizzera/occhiali-meta-sunrise/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sunrise porta in Svizzera gli smart glasses Meta",
+      "description": "Sunrise propone in Svizzera gli smart glasses Meta, Ray-Ban Meta e Oakley Meta: prezzi da 269 a 559 franchi e prove nei Sunrise Shop nelle prossime settimane.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/occhiali-meta-sunrise.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Occhiali smart Meta in esposizione in un negozio Sunrise svizzero"
+      },
+      "datePublished": "2026-10-01T18:39:42+00:00",
+      "dateModified": "2026-10-01T18:39:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/occhiali-meta-sunrise/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

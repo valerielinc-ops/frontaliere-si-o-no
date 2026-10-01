@@ -7382,6 +7382,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spese-canton-berna-2026.title': 'Schweizer Lebenshaltungskosten 2026: Kanton Bern im Vergleich',
     'blog.article.spese-canton-berna-2026.excerpt': 'Mieten, Besteuerung, KVG und Beiträge: Leitfaden 2026 zu den Lebenshaltungskosten im Kanton Bern, mit Regeln und Vergleichen, die in der Schweiz gelten.',
     'blog.article.spese-canton-berna-2026.imageAlt': 'Kanton Bern: Haushaltsbudget mit Miete, Einkauf und Versicherung',
+    'blog.article.occhiali-meta-sunrise.title': 'Sunrise bringt Meta-Smartbrillen in die Schweiz',
+    'blog.article.occhiali-meta-sunrise.excerpt': 'Sunrise bietet Meta-Smartbrillen in der Schweiz an: Preise von 269 bis 559 Francs und Tests in den kommenden Wochen in Sunrise Shops.',
+    'blog.article.occhiali-meta-sunrise.imageAlt': 'Meta-Smartglasses in einem Schweizer Sunrise-Shop',
 };
 
 export default blogMetaChDe;

@@ -7382,6 +7382,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spese-canton-berna-2026.title': 'Swiss cost of living 2026: Canton of Bern in comparison',
     'blog.article.spese-canton-berna-2026.excerpt': 'Rents, taxation, KVG and contributions: 2026 guide to the cost of living in the canton of Bern, with rules and comparisons valid in Switzerland.',
     'blog.article.spese-canton-berna-2026.imageAlt': 'Canton Bern: household budget with rent, groceries and insurance',
+    'blog.article.occhiali-meta-sunrise.title': 'Sunrise brings Meta smart glasses to Switzerland',
+    'blog.article.occhiali-meta-sunrise.excerpt': 'Sunrise offers Meta smart glasses in Switzerland: prices from 269 to 559 francs and tests in Sunrise Shops in the coming weeks.',
+    'blog.article.occhiali-meta-sunrise.imageAlt': 'Meta smart glasses displayed in a Swiss Sunrise shop',
 };
 
 export default blogMetaChEn;
