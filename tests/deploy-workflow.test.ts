@@ -392,18 +392,25 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // and section rehydrate into scripts/lib/rehydrate-section-shards.sh
     // (section shared with the 4 seed-baseline workflows too, AGENTS.md #6
     // dedupe) — the guarded invariant is unchanged, only its file moved.
-    const sources = [
-      { label: 'locale-dist-\\$loc', text: REHYDRATE_LOCALE_SCRIPT },
-      { label: '\\$section-dist-\\$loc', text: REHYDRATE_SECTION_SCRIPT },
-    ];
-    for (const { label, text } of sources) {
-      const re = new RegExp(
-        `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
-        `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
-        `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
-      );
-      expect(text, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
-    }
+    const localeRe = new RegExp(
+      `expected_n=\\$\\(tar -tf "\\$dl/locale-dist-\\$loc\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+      `tar -C dist -xf "\\$dl/locale-dist-\\$loc\\.tar" \\|\\| true[\\s\\S]*?` +
+      `if \\[ -d "dist/\\$loc" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    );
+    expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(localeRe);
+    // The section loop no longer has a tar FILE (2026-10-01, deploy-publish
+    // run 36810296662 out of disk): both passes stream `$section-dist-$loc.tar`
+    // out of the batch zip. Same gate — listing first, exact count after —
+    // plus unzip's CRC verdict, which the two passes cannot replace: a corrupt
+    // stream is listed and extracted identically, so only the CRC tells.
+    const sectionRe = new RegExp(
+      `member="\\$section-dist-\\$loc\\.tar"[\\s\\S]*?` +
+      `expected_n=\\$\\(unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" 2>/dev/null \\| tar -tf - 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+      `unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" \\| tar -C dist -xf -\\n[\\s\\S]*?` +
+      `unzip_rc="\\$\\{PIPESTATUS\\[0\\]\\}"[\\s\\S]*?` +
+      `if \\[ "\\\$\\{unzip_rc:-2\\}" -le 1 \\] && \\[ -d "dist/\\$sub" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    );
+    expect(REHYDRATE_SECTION_SCRIPT, 'section rehydrate loop missing completeness gate (expected_n/actual_n/unzip_rc)').toMatch(sectionRe);
     // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
     // pattern from before the fix must not remain anywhere in the tar
     // extraction branches, in either file.
