@@ -1,18 +1,47 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-10-01T09:18:46.331Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-10-01T21:24:52.086Z",
+  "total": 13,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 38227,
-  "avgDurationMs": 38227,
+  "durationMs": 26849,
+  "avgDurationMs": 26849,
   "durationHistory": [
-    38227
+    26849
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Leiter Technischer Einkauf (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/leiter-technischer-einkauf-m-w-d/56d90e8c-ea03-49f4-9449-0fda3fa4d7c4",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "source": "company-website",
+      "slug": "leiter-technischer-einkauf-m-w-d-100-ems-chemie-domat-ems",
+      "applyUrl": "https://jobs.ems-group.com/offene-stellen/leiter-technischer-einkauf-m-w-d/56d90e8c-ea03-49f4-9449-0fda3fa4d7c4",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Mitarbeiter Kommunikation & Events (m/w/d) 100%",
@@ -190,7 +219,6 @@
       "firstSeenAt": "2026-09-08T13:40:15.681Z",
       "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/3a3724b6-107c-44ed-ae6a-2bafbed774ff",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/3a3724b6-107c-44ed-ae6a-2bafbed774ff",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

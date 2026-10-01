@@ -8,12 +8,15 @@
  * (the portal and the documents come from a local server: a tab the extension
  * opens is not routed by Playwright).
  * Then the test presses it, as Valerie does, and the queue must hear that the
- * portal confirmed. No employer, no secret: the portal is served by the test.
+ * portal confirmed. Last, an update of the extension's folder: held back while
+ * the order is being filled, then the extension reloads itself and the open
+ * queue tab gets a working bridge. No employer, no secret: the portal is
+ * served by the test, the extension is loaded from a copy the test may change.
  *
  *   node scripts/assisted-application/extension-e2e.mjs
  */
 import http from 'node:http';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { appendFile, cp, mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,9 +25,19 @@ import { chromium } from 'playwright';
 const EXTENSION = fileURLToPath(new URL('./extension/', import.meta.url));
 const QUEUE = 'https://frontaliereticino.ch/gestione-contenuti-xk9mp2q/';
 
+// The owner queue stand-in: records what the extension reports and, like the panel, answers the
+// portal's «verify your e-mail» with the link the alias received (here: the local portal's /verify).
 const queuePage = `<!doctype html><html><body><h1>Coda</h1><script>
   window.__statuses = [];
-  window.addEventListener('message', (event) => { if (event.data && event.data.source === 'compila-candidatura') window.__statuses.push(event.data); });
+  window.addEventListener('message', (event) => {
+    if (!event.data || event.data.source !== 'compila-candidatura') return;
+    window.__statuses.push(event.data);
+    if (event.data.type === 'fill-status' && event.data.status === 'verify-email') {
+      // First a link of another site (refused, the queue must hear it), then the portal's own.
+      window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: event.data.orderId, url: 'https://elsewhere.example/verify?token=e2e' }, window.location.origin);
+      window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: event.data.orderId, url: window.__verifyUrl }, window.location.origin);
+    }
+  });
 </script></body></html>`;
 
 const postingPage = '<!doctype html><html lang="it"><body><main><h1>Infermiere/a diplomato/a</h1><p>Frontaliere Ticino</p><a href="/apply">Candidarsi</a></main></body></html>';
@@ -85,7 +98,7 @@ document.addEventListener('click', (event) => {
   if (!button) return;
   if (button.id === 'google') state.google = true;
   if (button.id === 'next' && !button.disabled) go();
-  if (button.id === 'send') { state.submits += 1; window.location.href = '/thanks'; }
+  if (button.id === 'send') { state.submits += 1; window.location.href = '/verify-pending'; }
 });
 render();
 </script></body></html>`;
@@ -122,12 +135,17 @@ async function main() {
   // The portal and the documents: a real local server.
   const pdf = Buffer.from('%PDF-1.4\n%%EOF\n');
   let thanks = 0;
+  let verified = 0;
   const files = http.createServer((req, res) => {
     const { pathname } = new URL(req.url, 'http://127.0.0.1');
     if (pathname === '/cv.pdf') { res.writeHead(200, { 'content-type': 'application/pdf' }); return res.end(pdf); }
     if (pathname === '/job/1' || pathname === '/apply') { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end(pathname === '/apply' ? applyPage : postingPage); }
+    // JOIN, giro di prova 2026-10-01: after the send click the portal asks to verify the address.
+    if (pathname === '/verify-pending') { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end('<!doctype html><html lang="it"><body><main><p>Completare la domanda</p><h1>Verificare l\'indirizzo e-mail</h1><button type="button">Reinvio della mail di verifica</button></main></body></html>'); }
+    // The verification link the alias received, opened by the extension: the confirmation page.
+    if (pathname === '/verify') { verified += 1; }
     // The confirmation is a new document (review of #10759): the tab must still know it reached the send button.
-    if (pathname === '/thanks') { thanks += 1; res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end('<!doctype html><html lang="it"><body><h1>Grazie per la tua candidatura!</h1></body></html>'); }
+    if (pathname === '/thanks' || pathname === '/verify') { thanks += 1; res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); return res.end('<!doctype html><html lang="it"><body><h1>Grazie per la tua candidatura!</h1></body></html>'); }
     res.writeHead(404);
     return res.end();
   });
@@ -136,6 +154,9 @@ async function main() {
   kit.applyUrl = `${base}/job/1`;
   kit.documents.cv = { url: `${base}/cv.pdf`, fileName: 'CV_Luigi_Prova.pdf' };
   const profile = await mkdtemp(path.join(tmpdir(), 'aa-extension-e2e-'));
+  // The folder Chrome loads, as the owner's Mac has it: a copy the update scenario changes.
+  const folder = await mkdtemp(path.join(tmpdir(), 'aa-extension-folder-'));
+  await cp(EXTENSION, folder, { recursive: true });
   // The full Chromium in its new headless mode loads extensions (the headless shell does not).
   const context = await chromium.launchPersistentContext(profile, {
     channel: 'chromium',
@@ -143,16 +164,26 @@ async function main() {
     executablePath: process.env.PLAYWRIGHT_CHROMIUM_FULL_PATH || undefined,
     headless: process.env.HEADED !== '1',
     ignoreDefaultArgs: ['--disable-extensions'],
-    args: [`--disable-extensions-except=${EXTENSION}`, `--load-extension=${EXTENSION}`],
+    args: [`--disable-extensions-except=${folder}`, `--load-extension=${folder}`],
   // A Chromium that does not start still releases the local server.
   }).catch((error) => { files.close(); throw error; });
   try {
+    const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker', { timeout: 15_000 });
+    // Developer mode, as on Valerie's Chrome (loading an unpacked extension needs it):
+    // without it Chrome turns the extension off the moment it reloads itself.
+    const extensionsPage = await context.newPage();
+    await extensionsPage.goto('chrome://extensions');
+    const devMode = extensionsPage.locator('#devMode');
+    if ((await devMode.getAttribute('aria-pressed')) !== 'true') await devMode.click();
+    check('developer mode is on, as on the owner\'s Chrome', (await devMode.getAttribute('aria-pressed')) === 'true');
+    await extensionsPage.close();
     await context.route('https://frontaliereticino.ch/**', (route) => route.fulfill({ contentType: 'text/html', body: queuePage }));
     const queue = await context.newPage();
     await queue.goto(QUEUE);
     const installed = await queue.waitForFunction(() => document.documentElement.dataset.compilaCandidatura, null, { timeout: 15_000 }).then(() => true, () => false);
     check('the queue page sees the installed extension', installed);
     if (!installed) return;
+    await queue.evaluate((url) => { window.__verifyUrl = url; }, `${kit.applyUrl.replace('/job/1', '')}/verify?token=e2e`);
     const opened = context.waitForEvent('page', { timeout: 15_000 });
     await queue.evaluate((data) => window.postMessage({ source: 'frontaliere-queue', type: 'fill-order', kit: data }, window.location.origin), kit);
     const portal = await opened;
@@ -171,17 +202,39 @@ async function main() {
     check('it never presses the send button', state.submits === 0);
     const ready = await queue.waitForFunction(() => window.__statuses.some((item) => item.status === 'ready'), null, { timeout: 10_000 }).then(() => true, () => false);
     check('the queue hears that everything is filled', ready);
+    // The sync brings a new version while the order waits for her click: the fill is not cut off.
+    await appendFile(path.join(folder, 'content.js'), '\n// e2e: a newer version of the folder\n');
+    const held = await worker.evaluate(() => checkForUpdate());
+    check('an update waits while an order is being filled', held.changed === true && held.reloading === false && held.reason === 'filling');
     // Valerie's click.
     await portal.click('#send');
     const submitted = await queue.waitForFunction(() => window.__statuses.some((item) => item.status === 'submitted' && item.orderId === 'e2e-order'), null, { timeout: 15_000 }).then(() => true, () => false);
     await queue.waitForTimeout(3000);
     const statuses = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'fill-status').map((item) => item.status));
     check('her press is told to the queue before the portal answers', statuses.indexOf('clicked') >= 0 && statuses.indexOf('clicked') < statuses.indexOf('submitted'));
-    check('after her click the queue hears once that the portal confirmed, on its new page', submitted && thanks === 1 && statuses.filter((status) => status === 'submitted').length === 1);
+    const openedLinks = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'verification-opened').map((item) => (item.ok ? 'ok' : item.error)));
+    check('the portal asks to verify the alias and the extension opens the link the queue found', statuses.includes('verify-email') && verified === 1 && openedLinks.includes('ok'));
+    check('a link of another site is refused and the queue hears it', openedLinks.includes('other_site'));
+    check('after her click the queue hears once that the portal confirmed, on the verification page', submitted && thanks === 1 && statuses.filter((status) => status === 'submitted').length === 1);
+    // The order is sent: the extension reloads itself with the new files.
+    await queue.evaluate(() => { delete document.documentElement.dataset.compilaCandidatura; window.__statuses = []; });
+    const reloaded = context.waitForEvent('serviceworker', { timeout: 15_000 });
+    const update = await worker.evaluate(() => checkForUpdate());
+    const fresh = await reloaded.catch(() => null);
+    check('once the order is sent the extension reloads itself', update.reloading === true && Boolean(fresh));
+    const bridged = await queue.waitForFunction(() => document.documentElement.dataset.compilaCandidatura, null, { timeout: 15_000 }).then(() => true, () => false);
+    // The order's tabs were the previous load's: the new service worker answers that it has none, once.
+    await queue.evaluate(() => window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: 'e2e-order', url: 'https://elsewhere.example/verify' }, window.location.origin));
+    await queue.waitForTimeout(2000);
+    const answers = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'verification-opened').map((item) => item.error));
+    check('the open queue tab gets a bridge of the new load, and only one answers', bridged && answers.length === 1 && answers[0] === 'no_order_tab');
+    const settled = fresh ? await fresh.evaluate(() => checkForUpdate()) : null;
+    check('the reloaded extension takes its files as the loaded ones (no reload loop)', settled?.changed === false);
   } finally {
     await context.close();
     files.close();
     await rm(profile, { recursive: true, force: true });
+    await rm(folder, { recursive: true, force: true });
   }
 }
 

@@ -57,6 +57,7 @@ import {
   buildD18RunEvidence,
   deriveD18Windows,
   isWithinD18Window,
+  localDayKey,
   listD18Days,
   metricFromObservation,
   metricValue,
@@ -2805,6 +2806,51 @@ export function normalizeGa4EventRows(rows = [], { includeEmissionId = false } =
   });
 }
 
+function nextGa4CalendarDay(day) {
+  const [year, month, date] = String(day).split('-').map(Number);
+  if (![year, month, date].every(Number.isInteger)) return null;
+  return new Date(Date.UTC(year, month - 1, date) + DAY_MS).toISOString().slice(0, 10);
+}
+
+/**
+ * Find the first calendar day of a complete forward-only emission_id suffix.
+ * GA4 custom dimensions are not backfilled: an incomplete historical day is
+ * therefore removable only as a whole. Missing identity after the frontier
+ * remains a real blocker and returns null instead of being silently trimmed.
+ */
+export function findFirstCompleteGa4IdentityAt(rows = [], window) {
+  const windowFrom = Date.parse(window?.from || '');
+  const windowTo = Date.parse(window?.to || '');
+  if (!Number.isFinite(windowFrom) || !Number.isFinite(windowTo) || windowFrom >= windowTo) return null;
+
+  const byDay = new Map();
+  for (const row of rows) {
+    const timestamp = Date.parse(row?.timestamp || '');
+    const observed = Math.max(0, numberOr(row?.observed, 0));
+    if (!Number.isFinite(timestamp) || timestamp < windowFrom || timestamp >= windowTo || observed <= 0) continue;
+    const day = ga4DateForValue(row.timestamp, 'row.timestamp');
+    const bucket = byDay.get(day) || { observed: 0, missing: 0 };
+    bucket.observed += observed;
+    if (!normalizeText(row?.emissionId)) bucket.missing += observed;
+    byDay.set(day, bucket);
+  }
+
+  const observedDays = [...byDay.keys()].sort();
+  if (!observedDays.length) return null;
+  const incompleteDays = observedDays.filter((day) => byDay.get(day).missing > 0);
+  if (!incompleteDays.length) return new Date(windowFrom).toISOString();
+
+  const frontierDay = nextGa4CalendarDay(incompleteDays.at(-1));
+  if (!frontierDay) return null;
+  const frontierTime = Date.parse(`${frontierDay}T00:00:00.000Z`);
+  if (!Number.isFinite(frontierTime) || frontierTime >= windowTo) return null;
+
+  const suffixDays = observedDays.filter((day) => day >= frontierDay);
+  const suffixObserved = suffixDays.reduce((sum, day) => sum + byDay.get(day).observed, 0);
+  if (!suffixObserved || suffixDays.some((day) => byDay.get(day).missing > 0)) return null;
+  return new Date(Math.max(windowFrom, frontierTime)).toISOString();
+}
+
 /**
  * Read the complete selected GA4 event set. GA4 paginates with offset rather
  * than the PostHog keyset used above; rowCount and the data-loss marker are
@@ -2863,6 +2909,9 @@ export async function queryGa4EventRows(
   const identityObserved = identityRows.reduce((sum, row) => sum + row.observed, 0);
   const emissionRows = rows.filter((row) => row.emissionId);
   const emissionIdObserved = emissionRows.reduce((sum, row) => sum + row.observed, 0);
+  const firstCompleteIdentityAt = includeEmissionId
+    ? findFirstCompleteGa4IdentityAt(rows, window)
+    : undefined;
   return {
     rows,
     coverage: {
@@ -2883,11 +2932,38 @@ export async function queryGa4EventRows(
       emissionIdObserved,
       emissionIdMissingRows: Math.max(0, rows.length - emissionRows.length),
       emissionIdMissingObserved: Math.max(0, returned - emissionIdObserved),
+      ...(includeEmissionId ? { firstCompleteIdentityAt } : {}),
       queryHash,
       snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
       sourceObserved: returned,
     },
   };
+}
+
+/**
+ * Probe GA4 emission identity and, when necessary, re-query only the first
+ * complete forward-only suffix. The narrowed query is authoritative: it
+ * rechecks pagination and emission coverage instead of slicing a mixed report
+ * in memory.
+ */
+export async function queryGa4EmissionEvidence(window, options = {}) {
+  const queryOptions = { ...options, includeEmissionId: true };
+  const initial = await queryGa4EventRows(window, queryOptions);
+  const firstCompleteIdentityAt = initial.coverage?.firstCompleteIdentityAt;
+  const firstCompleteTime = Date.parse(firstCompleteIdentityAt || '');
+  const requestedFrom = Date.parse(window?.from || '');
+  if (!Number.isFinite(firstCompleteTime) || !Number.isFinite(requestedFrom) || firstCompleteTime <= requestedFrom) {
+    return { result: initial, window };
+  }
+
+  const narrowedWindow = d18ReportWindow({
+    from: firstCompleteIdentityAt,
+    to: window.to,
+    timezone: D18_TIMEZONE,
+    inclusive: '[from,to)',
+  });
+  const narrowed = await queryGa4EventRows(narrowedWindow, queryOptions);
+  return { result: narrowed, window: narrowedWindow };
 }
 
 function d18ReportWindow(window) {
@@ -2962,6 +3038,12 @@ export function d18SourceMetadataFromQuery(source, window, result) {
   const queryHash = String(coverage.queryHash || d18Sha256(d18StableJson({ source, window, query: coverage })));
   const status = truncated ? 'parziale' : 'observed';
   const identityObserved = Number(coverage.identityObserved);
+  const hasExplicitFirstCompleteIdentity = Object.prototype.hasOwnProperty.call(coverage, 'firstCompleteIdentityAt');
+  const firstCompleteIdentityAt = source === 'ga4'
+    ? Number.isFinite(identityObserved) && identityObserved > 0
+      ? hasExplicitFirstCompleteIdentity ? coverage.firstCompleteIdentityAt : D18_J0
+      : null
+    : window.from;
   const identityAvailable = source !== 'ga4' || Number.isFinite(identityObserved) && identityObserved > 0;
   return {
     source,
@@ -2983,12 +3065,12 @@ export function d18SourceMetadataFromQuery(source, window, result) {
     identityCoverage: source === 'ga4'
       ? {
         eligibleFrom: D18_J0,
-        firstCompleteIdentityAt: identityAvailable ? D18_J0 : null,
-        coverageStart: D18_J0,
+        firstCompleteIdentityAt,
+        coverageStart: firstCompleteIdentityAt || D18_J0,
         coverageEnd: window.to,
-        completeThrough: identityAvailable && !truncated ? window.to : null,
+        completeThrough: identityAvailable && firstCompleteIdentityAt && !truncated ? window.to : null,
         queried: true,
-        status: identityAvailable && !truncated ? 'complete' : 'parziale',
+        status: identityAvailable && firstCompleteIdentityAt && !truncated ? 'complete' : 'parziale',
       }
       : {
         eligibleFrom: window.from,
@@ -3010,20 +3092,72 @@ export function d18SourceMetadataFromQuery(source, window, result) {
 }
 
 export function buildD18DailyCoverage(window, sources = {}) {
-  const sourceState = (meta) => {
-    const coverage = meta?.sourceCoverage;
-    if (!coverage || coverage.queried === false || meta?.status === 'sorgente non disponibile') {
+  const sourceState = (meta, day) => {
+    const coverage = meta?.sourceCoverage || meta?.coverage;
+    if (!coverage
+      || coverage.queried === false
+      || coverage.status === 'sorgente non disponibile'
+      || meta?.status === 'sorgente non disponibile') {
       return { queried: false, available: false, partial: false };
     }
-    const partial = coverage.truncated === true
-      || coverage.status === 'parziale'
-      || meta.status === 'parziale'
-      || !coverage.completeThrough;
-    return { queried: true, available: true, partial };
+
+    const dayKey = (value) => {
+      if (typeof value !== 'string' || !Number.isFinite(Date.parse(value))) return null;
+      try {
+        return localDayKey(value);
+      } catch {
+        return null;
+      }
+    };
+    const exactDayKey = (value) => (
+      typeof value === 'string' && value.length === 10 ? dayKey(value) : null
+    );
+    const coverageStart = dayKey(coverage.coverageStart);
+    const coverageEnd = dayKey(coverage.coverageEnd || coverage.completeThrough);
+    const completeThrough = dayKey(coverage.completeThrough);
+    if (!coverageStart || !coverageEnd || coverageStart >= coverageEnd) {
+      return { queried: false, available: false, partial: false };
+    }
+
+    const inCoverage = day >= coverageStart && day < coverageEnd;
+    if (!inCoverage) return { queried: true, available: false, partial: false };
+
+    const gapState = (gap) => {
+      if (typeof gap === 'string') {
+        const exactDay = exactDayKey(gap);
+        if (exactDay) return exactDay === day ? 'full' : 'none';
+        return 'unknown';
+      }
+      if (!gap || typeof gap !== 'object' || Array.isArray(gap)) return 'unknown';
+      const exactDay = exactDayKey(gap.day ?? gap.date);
+      if (exactDay) return exactDay === day ? 'full' : 'none';
+      const gapStart = exactDayKey(gap.from ?? gap.start);
+      const gapEnd = exactDayKey(gap.to ?? gap.end);
+      if (gapStart && gapEnd && gapStart < gapEnd) {
+        return day >= gapStart && day < gapEnd ? 'full' : 'none';
+      }
+      if (gapStart && gapEnd && gapStart === gapEnd) {
+        return gapStart === day ? 'partial' : 'none';
+      }
+      return 'unknown';
+    };
+    const gapStates = (Array.isArray(coverage.gaps) ? coverage.gaps : []).map(gapState);
+    const fullGap = gapStates.includes('full');
+    const uncertainGap = gapStates.some((state) => state === 'partial' || state === 'unknown');
+    const complete = completeThrough
+      && day < completeThrough
+      && coverage.truncated !== true
+      && coverage.status !== 'parziale'
+      && meta?.status !== 'parziale'
+      && !uncertainGap
+      && !fullGap;
+    return { queried: true, available: !fullGap, partial: !complete };
   };
-  const ga4 = sourceState(sources.ga4);
-  const posthog = sourceState(sources.posthog);
-  return listD18Days(window).map((day) => ({ day, ga4, posthog }));
+  return listD18Days(window).map((day) => ({
+    day,
+    ga4: sourceState(sources.ga4, day),
+    posthog: sourceState(sources.posthog, day),
+  }));
 }
 
 export function buildD18PayloadFromQuerySnapshots({
@@ -3498,7 +3632,7 @@ async function main() {
 
   if (d18JsonOutputPath) {
     const d18Window = d18ReportWindow(primary.window);
-    const d18EvidenceWindow = replay?.measurementWindow
+    let d18EvidenceWindow = replay?.measurementWindow
       || d18CurrentEvidenceWindow(d18Window)
       || d18Window;
     let d18Ga4Result = replay ? replay.sources.ga4 || null : null;
@@ -3513,11 +3647,11 @@ async function main() {
       try {
         // The legacy GA4 query intentionally remains unchanged. This separate
         // probe is the observable first-run check for the registered
-        // emission_id dimension and never gets silently replaced by PostHog.
-        d18Ga4Result = await queryGa4EventRows(d18EvidenceWindow, {
-          ...d18Ga4Options,
-          includeEmissionId: true,
-        });
+        // emission_id dimension and narrows only past a proven incomplete
+        // forward-only prefix; an incomplete suffix still fails closed.
+        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, d18Ga4Options);
+        d18Ga4Result = evidence.result;
+        d18EvidenceWindow = evidence.window;
       } catch (error) {
         d18Ga4Result = null;
         ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
@@ -3538,10 +3672,9 @@ async function main() {
       ga4UnavailableReason = 'credenziali o proprietà GA4 non disponibili nel refresh';
     } else {
       try {
-        d18Ga4Result = await queryGa4EventRows(d18EvidenceWindow, {
-          ...d18Ga4Options,
-          includeEmissionId: true,
-        });
+        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, d18Ga4Options);
+        d18Ga4Result = evidence.result;
+        d18EvidenceWindow = evidence.window;
       } catch (error) {
         d18Ga4Result = null;
         ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';

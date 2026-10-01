@@ -28,14 +28,24 @@ import { parse } from 'yaml';
 
 const WORKFLOW = new URL('../.github/workflows/recover-prev-slugs.yml', import.meta.url);
 
-type Step = { name?: string; id?: string; if?: string; env?: Record<string, string>; run?: string };
+type Step = {
+  name?: string;
+  id?: string;
+  if?: string;
+  env?: Record<string, string>;
+  run?: string;
+  uses?: string;
+  with?: Record<string, unknown>;
+};
 let steps: Step[];
 let reconcile: Step;
 let scan: Step;
 let commit: Step;
+let workflow: { permissions?: Record<string, string> };
 
 beforeAll(() => {
   const doc = parse(readFileSync(WORKFLOW, 'utf8'));
+  workflow = doc as { permissions?: Record<string, string> };
   steps = doc.jobs.recover.steps as Step[];
   reconcile = steps.find((s) => s.id === 'reconcile')!;
   scan = steps.find((s) => s.id === 'scan')!;
@@ -64,6 +74,34 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
   it('il commit gate include anche il residuo del reconcile, non solo quello dello scan', () => {
     expect(commit.if).toContain('steps.scan.outputs.recoverable_slugs');
     expect(commit.if).toContain('steps.reconcile.outputs.reconciled_dropped');
+  });
+
+  it('pubblica i dati tramite la PR stabile, non con un push diretto su main', () => {
+    expect(commit.run).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(commit.run).not.toContain('scripts/lib/git-commit-data.sh');
+    expect(commit.run).toContain('--branch chore/recover-prev-slugs');
+    expect(commit.run).toContain('--path data/jobs/by-crawler/');
+    expect(commit.run).toContain('## Non implementato (ancora)');
+    expect(commit.env?.GH_TOKEN).toContain('APP_TOKEN_DATA_REFRESH');
+    expect(commit.env?.GH_TOKEN).toContain('GITHUB_PAT');
+    expect(commit.run).toContain("cat <<'EOF'");
+    expect(commit.run).not.toContain('cat > "$body" <<EOF');
+  });
+
+  it('porta avanti il branch di recovery prima di riconciliare e scansionare', () => {
+    const carry = steps.find((step) => step.name === 'Carry forward pending previousSlugs recovery PR');
+    expect(carry?.run).toContain("branch='chore/recover-prev-slugs'");
+    expect(carry?.run).toContain('git ls-remote "$remote_url"');
+    expect(carry?.run).toContain('git restore --source="refs/remotes/origin/${branch}"');
+    expect(carry?.run).toContain('data/jobs/by-crawler/');
+    expect(steps.indexOf(carry!)).toBeLessThan(steps.indexOf(reconcile));
+  });
+
+  it('abilita la pubblicazione PR e non conserva le credenziali checkout', () => {
+    const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
+    expect(workflow.permissions?.['pull-requests']).toBe('write');
+    expect(checkout?.with?.['persist-credentials']).toBe(false);
+    expect(steps.some((step) => step.run === 'node scripts/ci/mint-app-token.mjs')).toBe(true);
   });
 });
 

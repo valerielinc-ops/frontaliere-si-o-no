@@ -1,25 +1,64 @@
 {
   "key": "sygnum",
   "label": "Sygnum Bank",
-  "generatedAt": "2026-10-01T09:25:06.130Z",
+  "generatedAt": "2026-10-01T21:25:41.939Z",
   "total": 10,
   "discovered": null,
-  "parsed": 8,
+  "parsed": 9,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 10,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 14900,
-  "avgDurationMs": 14900,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 14385,
+  "avgDurationMs": 14385,
   "durationHistory": [
-    14900
+    14385
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "sygnum-8bd22c417d4f",
+      "slug": "assistant-relationship-manager-private-banking-80-100-sygnum-zurich",
+      "company": "Sygnum Bank",
+      "companyKey": "sygnum",
+      "companyDomain": "sygnum.com",
+      "title": "Assistant Relationship Manager, Private Banking (80-100%)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
+      "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T21:25:22.819Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "streetAddress": "Uetlibergstrasse 134A",
+      "postalCode": "8045",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banche digitali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
+      "jobReqId": "VN288",
+      "needsRetranslation": true,
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "sygnum-c51df66f4523",
@@ -33,7 +72,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:52.583Z",
+      "crawledAt": "2026-10-01T21:25:24.332Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -50,7 +89,6 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "jobReqId": "VN287",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-18T23:20:07.341Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -72,7 +110,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:54.608Z",
+      "crawledAt": "2026-10-01T21:25:25.757Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -110,7 +148,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN269",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:53.655Z",
+      "crawledAt": "2026-10-01T21:25:25.020Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -148,7 +186,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN268",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:55.776Z",
+      "crawledAt": "2026-10-01T21:25:27.311Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -186,7 +224,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:50.837Z",
+      "crawledAt": "2026-10-01T21:25:22.148Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -203,7 +241,6 @@
       "postedDate": "2026-04-14",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "jobReqId": "VN240",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T10:30:03.444Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -225,7 +262,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:49.544Z",
+      "crawledAt": "2026-10-01T21:25:21.323Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -242,7 +279,6 @@
       "postedDate": "2026-04-01",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "jobReqId": "VN233",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-11T10:24:35.636Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -264,7 +300,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:55.205Z",
+      "crawledAt": "2026-10-01T21:25:26.527Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -281,7 +317,6 @@
       "postedDate": "2026-03-10",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "jobReqId": "VN217",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-23T23:50:29.915Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -303,7 +338,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:24:48.654Z",
+      "crawledAt": "2026-10-01T21:25:20.654Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -330,8 +365,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "sygnum-c621ed980829",
       "slug": "responsabile-operational-risk-resilience-sygnum-bank-zurich",
@@ -373,7 +407,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "sygnum-10f16600957d",
       "slug": "responsabile-corporate-clients-sygnum-bank-zurich",
@@ -407,7 +443,7 @@
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,4 +1,4 @@
-# Triage dei 5xx di zona
+# Triage dei 5xx di zona e dei receiver webhook
 
 Guida per diagnosticare la famiglia `cloudflare-5xx` senza rifare gli errori del 2026-08-05.
 
@@ -6,27 +6,33 @@ Guida per diagnosticare la famiglia `cloudflare-5xx` senza rifare gli errori del
 
 Per settimane i 5xx sono stati letti come un difetto solo — «R2 non risponde e Cloudflare
 sintetizza il 502». Misurando la zona con `originResponseStatus` e `cacheStatus` sono emerse
-**tre superfici con origin diversi**, che una sola etichetta nascondeva:
+**tre superfici del sito con origin diversi**; i due host webhook sono invece ingressi
+Cloudflare Tunnel distinti:
 
 | superficie | dove | origin | cache rule |
 |---|---|---|---|
 | `cdn-r2` | `cdn.frontaliereticino.ch/assets`, `/data` | R2 | `cdn-r2-passthrough-cache` |
 | `worker-shard` | `frontaliereticino.ch/{en,de,fr}/…` | Worker → shard Pages per-locale | `locale-shard-failover-cache` |
 | `apex-pages` | `frontaliereticino.ch/commit-hash.txt`, `/fonts/`, `/favicon.svg` | GitHub Pages | `it-apex-html-cache` |
+| `github-webhook-default` | `gh-default.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver locale `18787` | nessuna cache rule del sito |
+| `github-webhook-nanako` | `gh-nanako.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver locale `18788` | nessuna cache rule del sito |
 
 **Il costo di confonderle è concreto.** `serve_stale` è stato applicato alla sola rule del CDN
 e dato per mitigante anche di #5082 — che è un `503` sull'apex e non poteva toccare. Chiuderla
 «perché i 5xx sono scesi» avrebbe archiviato un difetto mai diagnosticato.
 
-La partizione vive in `scripts/lib/cf-error-surface.mjs` e rispecchia una a una le cache rule
-possedute da `scripts/cf-locale-failover-setup.mjs`. Se cambiano quelle, va cambiata lì —
-in un posto solo.
+La partizione vive in `scripts/lib/cf-error-surface.mjs`. Le tre superfici del sito rispecchiano
+le cache rule possedute da `scripts/cf-locale-failover-setup.mjs`; i due ingressi webhook sono
+classificati dagli hostname configurati per i tunnel. `classifySurface()` descrive il percorso
+atteso: da sola non prova quale hop abbia restituito un 5xx.
 
 ## I dati
 
 `cf-5xx-monitor.yml` gira ogni giorno alle 03:50 UTC e appende uno snapshot classificato a
-`data/cf-5xx-history.jsonl`. **Esiste perché la retention del piano free è ~3 giorni**: senza
-questo file, «è meglio della settimana scorsa?» non è una domanda a cui si possa rispondere,
+`data/cf-5xx-history.jsonl`. Lo snapshot conserva `topPaths` (campione per il report) e
+`errorPaths` (tutte le righe ricevute dalla query, fino al limite Cloudflare di 10.000), con
+`errorPathsComplete` falso quando la query raggiunge quel limite. **Esiste perché la retention
+del piano free è ~3 giorni**: senza questo file, «è meglio della settimana scorsa?» non è una domanda a cui si possa rispondere,
 e la retention dell'API — piano free, ~3 giorni, query cappate a ~1 giorno per chiamata —
 non è più il vincolo che era.
 
@@ -39,7 +45,7 @@ giorno mancante** (2026-09-01), 26 giorni consecutivi senza buchi, `total5xx` sc
 14. Rimisurala con `git show origin/main:data/cf-5xx-history.jsonl | wc -l` (il checkout è
 sparse: si legge da git, non dal disco).
 
-Due conseguenze pratiche. La prima: N si esprime in **snapshot consecutivi**, non in
+Due conseguenze pratiche. La prima: N si esprime in **snapshot**, non in
 «finestre di deploy» — la serie è giornaliera a finestra fissa di 23 ore e il deploy non
 compare nel file. La seconda: il criterio si conta su N snapshot **presenti**, non su N
 giorni di calendario, perché un giorno mancante è un fatto sul monitor e non sulla zona; la
@@ -47,8 +53,13 @@ freschezza della serie è un requisito separato e fail-closed. Il codice che lo 
 `checkUrlClean()` in `scripts/ci/cf-5xx-snapshot.mjs`, che documenta la scelta e il suo
 prezzo:
 
+Per chiudere una issue, tutti gli N snapshot devono contenere una lista URL completa. L'assenza
+da `topPaths` non significa zero: è solo assenza dal campione. Le righe storiche senza
+`errorPathsComplete` restano non verificabili; servono sette snapshot completi e freschi prima
+che il comando possa dare exit 0. Una query satura o una lista mancante resta exit 1.
+
 ```bash
-# «questo URL ha smesso?» — exit 0 solo se pulito negli ultimi 7 snapshot
+# «questo URL ha smesso?» — exit 0 solo dopo 7 snapshot completi e freschi senza il path
 node scripts/ci/cf-5xx-snapshot.mjs --check-url 'cdn.frontaliereticino.ch/assets/x.js' --snapshots 7
 ```
 
@@ -59,7 +70,7 @@ che conia, quindi l'esenzione permanente dal criterio di chiusura non serve più
 # andamento su tutti gli snapshot + istogramma orario dell'ultimo
 node scripts/ci/cf-5xx-snapshot.mjs --report
 
-# fotografia live, adesso (non scrive niente)
+# fotografia live; --by-hour correla path, edge/origin e cache quando la query è completa
 source bin/rc-env.sh
 node scripts/cf-status-report.mjs --hours=23 --class=5 --limit=40
 ```
@@ -197,6 +208,19 @@ Nota utile: `byCacheStatus` ora riporta `stale: 3`. Per il criterio della §2 qu
 segno **conclusivo** che `serve_stale` scatta davvero — la prima volta da quando esiste.
 
 ## Trappole note
+
+- **I due host webhook non sono CDN, shard locale o apex Pages.** `gh-default` termina sul
+  receiver del coordinator default (`localhost:18787`); `gh-nanako` sul receiver nanako
+  (`localhost:18788`). Il codice edge e il totale da soli non distinguono tunnel, receiver e
+  origine del payload. `--by-hour` correla `originResponseStatus` e `cacheStatus` alle righe
+  del singolo URL quando la query è completa; per attribuire il tratto tunnel vs receiver
+  servono comunque i log di quei componenti. Non dedurre un rimedio CDN o Pages da questi host.
+- **Un burst senza righe orarie non è un guasto attuale verificato.** Il feeder mantiene la
+  issue per prudenza se le righe mancano o la query tocca il limite, ma il body deve dire che
+  recency e origine sono sconosciute. L'assenza di righe non è un verde né una diagnosi.
+- **Il close-check non usa `topPaths` come prova di completezza.** Se il path è assente dal
+  campione ma il set completo degli URL non è disponibile, il risultato è sconosciuto e l'exit
+  resta non-zero.
 
 - **`curl -I` non misura la cache: manda `HEAD`, e Cloudflare non serve mai una
   `HEAD` dalla cache.** Ogni path risponde `cf-cache-status: DYNAMIC` e sembra che

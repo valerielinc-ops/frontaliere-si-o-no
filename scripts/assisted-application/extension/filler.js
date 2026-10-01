@@ -28,6 +28,9 @@
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?|decline( all)?|only necessary|rifiuta( tutti| tutto)?|solo necessari|refuser( tout)?|tout refuser|continuer sans accepter)$/i;
+  // The portal waits for the address to be verified (JOIN after the send
+  // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
+  const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
   // «Continua con Google»: a sign-in, never the next step.
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
@@ -48,7 +51,7 @@
     ['linkedin', /\blinkedin\b/],
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
-  const PLACE_RE = /(luogo|geburtsort|lieu de|place of)/;
+  const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
@@ -68,7 +71,7 @@
     const parts = [];
     const walker = element.ownerDocument.createTreeWalker(element, 4);
     for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-      if (!node.parentElement?.closest('script, style, svg, [aria-hidden="true"]')) parts.push(node.textContent);
+      if (!node.parentElement?.closest('script, style, svg, [aria-hidden="true"], select, textarea')) parts.push(node.textContent);
     }
     return parts.join(' ').replace(/\s+/g, ' ').trim();
   }
@@ -130,13 +133,79 @@
     }
     const wrapping = element.closest('label');
     if (wrapping && textOf(wrapping)) return textOf(wrapping);
-    if (element.getAttribute('aria-label')) return element.getAttribute('aria-label');
+    // Lever names its custom questions for itself («[Default] Comment»):
+    // the question the candidate reads, right before the field, comes first.
+    const aria = element.getAttribute('aria-label') || '';
+    if (aria && !INTERNAL_NAME_RE.test(aria)) return aria;
+    if (aria) {
+      const nearby = nearbyText(element);
+      if (nearby) return nearby;
+    }
     // A field group (Zag/Ark, fieldset): its own label or legend.
     const group = element.closest('[role="group"], fieldset');
     const legend = group?.querySelector('label, legend');
     if (legend && !legend.contains(element) && textOf(legend)) return textOf(legend);
-    return questionOf(element) || element.getAttribute('placeholder') || element.getAttribute('name') || '';
+    return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
+
+  // «[Default] Comment», «[General] Salary Expectations»: a form's own name for a field.
+  const INTERNAL_NAME_RE = /^\[[^\]]*\]/;
+
+  /**
+   * The text right before the control's box (Lever: `.application-label`
+   * before `.application-field`), up to three levels up, stopping at
+   * another control.
+   */
+  function nearbyText(element) {
+    for (let node = element, depth = 0; node && depth < 3; node = node.parentElement, depth += 1) {
+      for (let sibling = node.previousElementSibling; sibling; sibling = sibling.previousElementSibling) {
+        if (sibling.matches('input, select, textarea, button') || sibling.querySelector('input, select, textarea, button')) break;
+        const text = textOf(sibling);
+        if (text) return text;
+      }
+    }
+    return '';
+  }
+
+  /** «candidate.firstName», «first_name», «applicant[phone]» → words. */
+  function humanize(value) {
+    return String(value || '').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[\W_]+/g, ' ').trim();
+  }
+
+  /**
+   * Every name the control goes by, the runner's own first (runner-fields.js:
+   * the portal runner's field reading, so its recorded questions match on any
+   * portal), then this page's: label, the text before the box, aria, the
+   * description, the section heading, title, placeholder, name and id in words.
+   */
+  function labelsOf(element, label, runnerLabel = '') {
+    const doc = element.ownerDocument;
+    const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ');
+    const names = [runnerLabel, label, nearbyText(element), element.getAttribute('aria-label'), described, questionOf(element),
+      element.getAttribute('title'), element.getAttribute('placeholder'), humanize(element.getAttribute('name')), humanize(element.id)];
+    return [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
+  }
+
+  /**
+   * The runner's names for this page's controls, by the `data-aa-id` its
+   * reading puts on each (radio options carry their own). Empty without
+   * runner-fields.js or when the reading fails: the page's own names remain.
+   */
+  function runnerLabels() {
+    const read = root.CompilaRunnerFields;
+    const byId = new Map();
+    if (typeof read !== 'function') return byId;
+    try {
+      for (const field of read().fields || []) {
+        if (field.id) byId.set(field.id, field.label || '');
+        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
+      }
+    } catch {
+      // A page the runner's reading does not understand: the engine's own names only.
+    }
+    return byId;
+  }
+  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
 
   /** The heading a control sits under (JOIN asks one question per step, in an h2). */
   function questionOf(element) {
@@ -157,6 +226,7 @@
    */
   function collect(doc) {
     const entries = [];
+    const runner = runnerLabels();
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
@@ -165,7 +235,10 @@
     const radiosByName = new Map();
     for (const element of controls) {
       const type = (element.getAttribute('type') || 'text').toLowerCase();
-      if (['hidden', 'submit', 'button', 'image', 'reset', 'search', 'password'].includes(type)) continue;
+      if (['hidden', 'submit', 'button', 'image', 'reset', 'password'].includes(type)) continue;
+      // The site's own search box is no question; Workday's «selectinput» (a search that picks an option) is.
+      const searchSelect = element.getAttribute('data-uxi-widget-type') === 'selectinput';
+      if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
       if (type !== 'file' && !isShown(element)) continue;
       const required = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
@@ -175,14 +248,41 @@
         radiosByName.get(key).push(element);
         continue;
       }
-      const kind = type === 'file' ? 'file' : type === 'checkbox' ? 'checkbox'
+      const kind = searchSelect ? 'search-select' : type === 'file' ? 'file' : type === 'checkbox' ? 'checkbox'
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
-      entries.push({ kind, element, label: labelOf(element), required, type });
+      const label = labelOf(element);
+      entries.push({ kind, element, label, labels: labelsOf(element, label, runnerLabelOf(runner, element)), required, type });
+    }
+    // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
+    for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
+      if (button.disabled || !isShown(button) || inPicker(button)) continue;
+      const own = labelOf(button);
+      const label = own === textOf(button) ? questionOf(button) || nearbyText(button) || own : own;
+      // The site's own language menu is not part of the application.
+      if (/language.?selector|sprachauswahl/i.test(`${label} ${button.getAttribute('data-automation-id') || ''}`)) continue;
+      entries.push({
+        kind: 'listbox',
+        element: button,
+        label,
+        labels: labelsOf(button, label, runnerLabelOf(runner, button)),
+        required: button.getAttribute('aria-required') === 'true' || /\*/.test(label),
+        type: 'listbox',
+      });
     }
     for (const radios of radiosByName.values()) {
-      entries.push({ kind: 'radio', element: radios[0], options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })), label: questionOf(radios[0]), required: radios.some((radio) => radio.required) });
+      const question = questionOf(radios[0]);
+      const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
+      const legend = group ? textOf(group.querySelector('legend, [role="heading"], label')) : '';
+      entries.push({
+        kind: 'radio',
+        element: radios[0],
+        options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })),
+        label: legend || question,
+        labels: [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))],
+        required: radios.some((radio) => radio.required),
+      });
     }
     // ARIA radios (div role="radio"), grouped under the question they answer.
     const ariaGroups = new Map();
@@ -195,11 +295,13 @@
     }
     for (const radios of ariaGroups.values()) {
       const group = radios[0].closest('[role="radiogroup"]');
+      const ariaLabel = (group && group.getAttribute('aria-label')) || questionOf(radios[0]);
       entries.push({
         kind: 'aria-radio',
         element: radios[0],
         options: radios.map((radio) => ({ element: radio, label: textOf(radio) })),
-        label: (group && group.getAttribute('aria-label')) || questionOf(radios[0]),
+        label: ariaLabel,
+        labels: [...new Set([runnerLabelOf(runner, radios[0]), ariaLabel, questionOf(radios[0]), nearbyText(group || radios[0].parentElement || radios[0])].filter(Boolean))],
         required: true,
       });
     }
@@ -212,6 +314,8 @@
     if (entry.kind === 'file') return !(element.files && element.files.length);
     if (entry.kind === 'radio') return !entry.options.some((option) => option.element.checked);
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
+    if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
+    if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
       if (String(element.value || '').trim()) return false;
@@ -223,36 +327,68 @@
     return !String(element.value || '').trim();
   }
 
+  const LISTBOX_PLACEHOLDER_RE = /^(select|select one|seleziona|scegli|auswahlen|bitte wahlen|choisir|selectionner|choose)( one| an option| un elemento)?$/;
+
+  /** Workday shows a search-select's choice as a pill tied by `data-uxi-multiselect-id`. */
+  function chosenPills(input) {
+    const id = input.getAttribute('data-uxi-multiselect-id');
+    if (!id) return [];
+    const quoted = id.replace(/["\\]/g, (match) => `\\${match}`);
+    return [...input.ownerDocument.querySelectorAll(`[data-uxi-widget-type="selectinputlistitem"][data-uxi-multiselect-id="${quoted}"]`)]
+      .map((pill) => textOf(pill)).filter(Boolean);
+  }
+
+  /** The options of the listbox a control just opened (Workday renders it at the end of the page). */
+  function openOptions(doc) {
+    return [...doc.querySelectorAll('[role="listbox"] [role="option"], [role="option"]')].filter(isShown)
+      .map((element) => ({ element, label: textOf(element) }));
+  }
+
   function comboBox(input) {
     return input.closest('[data-testid*="Select"], [data-testid="CityName"], [class*="control"], [role="group"]') || input.parentElement?.parentElement || null;
   }
 
   // ---- What to answer ---------------------------------------------------------
 
-  /** The kit answer whose question is this label (the runner's own wording first). */
-  function kitAnswer(label, kit) {
-    const wanted = normalize(label);
-    if (!wanted) return null;
+  /**
+   * The kit answer whose question is one of the control's names (the
+   * runner's own wording first): an exact match on any name, then a prefix.
+   */
+  function kitAnswer(labels, kit) {
+    const wanted = (Array.isArray(labels) ? labels : [labels]).map(normalize).filter(Boolean);
+    if (!wanted.length) return null;
     const answers = kit.answers || [];
-    const exact = answers.find((item) => normalize(item.question) === wanted);
+    const exact = answers.find((item) => wanted.includes(normalize(item.question)));
     if (exact) return exact;
     // «Carica il tuo CV · Carica file»: the runner joins a heading and a label.
     return answers.find((item) => {
       const question = normalize(item.question);
-      return question.length >= 6 && wanted.length >= 6 && (question.startsWith(wanted) || wanted.startsWith(question) || question.includes(` ${wanted}`));
+      return question.length >= 6 && wanted.some((name) => name.length >= 6 && (question.startsWith(name) || name.startsWith(question) || question.includes(` ${name}`)));
     }) || null;
   }
 
+  // HTML autocomplete tokens (the last token: «section-x shipping postal-code»).
+  const AUTOCOMPLETE = {
+    email: 'email', tel: 'phone', 'tel-national': 'phone', name: 'fullName', 'given-name': 'firstName', 'family-name': 'lastName',
+    'postal-code': 'postalCode', 'address-level2': 'city', 'street-address': 'street', 'address-line1': 'street',
+    country: 'country', 'country-name': 'country', bday: 'birthDate',
+  };
+
   function familyOf(entry) {
-    const label = normalize(entry.label);
-    if (entry.type === 'email' || entry.element.getAttribute('autocomplete') === 'email') return 'email';
-    if (entry.type === 'tel' || entry.element.getAttribute('autocomplete') === 'tel') return 'phone';
-    const auto = entry.element.getAttribute('autocomplete') || '';
-    if (auto === 'given-name') return 'firstName';
-    if (auto === 'family-name') return 'lastName';
-    if (NOT_PERSON_RE.test(label)) return null;
-    const family = FAMILIES.find(([, pattern]) => pattern.test(label))?.[0] || null;
-    return family === 'birthDate' && PLACE_RE.test(label) ? null : family;
+    if (entry.type === 'email') return 'email';
+    if (entry.type === 'tel') return 'phone';
+    const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
+    if (AUTOCOMPLETE[auto]) return AUTOCOMPLETE[auto];
+    // The strongest name decides; a sign that it is no personal field («Name
+    // des Unternehmens», «Luogo di nascita») is never overruled by a weaker one.
+    for (const name of entry.labels || [entry.label]) {
+      const label = normalize(name);
+      if (!label) continue;
+      if (NOT_PERSON_RE.test(label) || PLACE_RE.test(label)) return null;
+      const family = FAMILIES.find(([, pattern]) => pattern.test(label))?.[0] || null;
+      if (family) return family;
+    }
+    return null;
   }
 
   function identityValue(family, kit) {
@@ -277,7 +413,7 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
-    const fromKit = kitAnswer(entry.label, kit);
+    const fromKit = kitAnswer(entry.labels || [entry.label], kit);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
@@ -292,7 +428,7 @@
       return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
     }
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
-    const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date'].includes(entry.kind) ? familyOf(entry) : null;
+    const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     const value = family ? identityValue(family, kit) : '';
     if (value) return { value, family };
     if (entry.kind === 'textarea' && LETTER_RE.test(normalize(entry.label)) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
@@ -465,6 +601,35 @@
       }
       case 'combobox':
         return chooseInCombobox(element, answer.value);
+      case 'listbox': {
+        // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
+        press(element);
+        const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value));
+        if (!option) {
+          fire(element, 'keydown', { key: 'Escape' });
+          return false;
+        }
+        press(option.element);
+        await sleep(config.stepMs * 2);
+        return !isEmpty(entry);
+      }
+      case 'search-select': {
+        // Type, search with Enter, pick the option the answer names, else the one that contains it.
+        setValue(element, String(answer.value).slice(0, 60));
+        fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+        const wanted = normalize(answer.value);
+        const option = await waitFor(() => {
+          const options = openOptions(element.ownerDocument);
+          const named = bestOption(options, answer.value);
+          if (named) return named;
+          const containing = options.filter((item) => normalize(item.label).includes(wanted));
+          return containing.length === 1 ? containing[0] : null;
+        });
+        if (!option) return false;
+        press(option.element);
+        await sleep(config.stepMs * 2);
+        return !isEmpty(entry);
+      }
       case 'date':
         return chooseDate(element, answer.value);
       default: {
@@ -542,6 +707,7 @@
     if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
     if (REFUSED_RE.test(text)) return { kind: 'refused' };
     const next = nextButton(doc);
+    if (VERIFY_RE.test(text) && !collect(doc).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
     const required = collect(doc).filter((entry) => entry.required).length;
     if (!sawForm && !next && !required) {
       const start = buttons(doc).find((button) => APPLY_RE.test(button.text) && !SOCIAL_RE.test(button.text)
@@ -565,7 +731,7 @@
   }
 
   root.CompilaCandidatura = {
-    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE,
+    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,

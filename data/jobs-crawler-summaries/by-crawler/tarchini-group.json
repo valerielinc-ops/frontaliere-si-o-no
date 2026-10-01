@@ -1,50 +1,18 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-01T09:14:38.701Z",
+  "generatedAt": "2026-10-01T21:16:43.325Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4004,
-  "avgDurationMs": 4004,
+  "unchangedCount": 1,
+  "durationMs": 4351,
+  "avgDurationMs": 4351,
   "durationHistory": [
-    4004
+    4351
   ],
-  "newJobs": [
-    {
-      "title": "Analista investimenti e strategia",
-      "slug": "analista-investimenti-e-strategia-tarchini-group-mendrisio",
-      "url": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
-      "applyUrl": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
-      "applicationEmail": "info@tarchinigroup.com",
-      "company": "Tarchini Group",
-      "companyKey": "tarchini-group",
-      "companyDomain": "tarchinigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Immobiliare",
-      "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-10-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 69,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Sales Manager",
@@ -124,5 +92,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Analista investimenti e strategia",
+      "slug": "analista-investimenti-e-strategia-tarchini-group-mendrisio",
+      "url": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
+      "applyUrl": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
+      "applicationEmail": "info@tarchinigroup.com",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-10-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "tarchini-group-7f87bacd9060",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-01T09:14:30.664Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ]
 }

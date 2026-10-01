@@ -3,7 +3,7 @@
  * only — no live network calls here (see scripts/crawl-myswitzerland-events.mjs
  * header for the live Algolia + detail-page research this is built from).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   parseCompactUtc,
   zurichParts,
@@ -12,6 +12,7 @@ import {
   extractPrice,
   extractIndexedEventPrice,
   recoverExistingIndexedPrices,
+  recoverExistingBookingPrices,
   extractDetailTableValue,
   extractAddress,
   extractDetailAddress,
@@ -19,6 +20,9 @@ import {
   mergeDetailEventMetadata,
   detailEnrichmentReady,
   mapEventRecord,
+  parseMySwitzerlandArgs,
+  selectMySwitzerlandRecords,
+  targetedMySwitzerlandResumeIndex,
 } from '../scripts/crawl-myswitzerland-events.mjs';
 import {
   extractDetailContactName,
@@ -29,6 +33,7 @@ import {
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
   mergeEventOfferMetadata,
+  parseEventPriceText,
 } from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
@@ -41,6 +46,61 @@ describe('parseCompactUtc', () => {
     expect(parseCompactUtc('')).toBeNull();
     expect(parseCompactUtc(undefined)).toBeNull();
     expect(parseCompactUtc('2026-07-04')).toBeNull();
+  });
+});
+
+describe('targeted MySwitzerland refresh', () => {
+  const first = 'a'.repeat(32);
+  const second = 'b'.repeat(32);
+  const other = 'c'.repeat(32);
+  const records = [
+    { objectID: other, perLocaleHits: {} },
+    { objectID: second, perLocaleHits: { de: { title: 'Second event' } } },
+    { objectID: first, perLocaleHits: { it: { title: 'First event' } } },
+  ];
+
+  it('leaves the normal catalog order and arguments unchanged', () => {
+    expect(parseMySwitzerlandArgs([])).toEqual({ dryRun: false, limit: undefined, ids: undefined });
+    expect(selectMySwitzerlandRecords(records, undefined)).toEqual({ records, selectionKey: null });
+  });
+
+  it('accepts raw or namespaced IDs, normalizes case and removes duplicates', () => {
+    expect(parseMySwitzerlandArgs(['--ids', ` ${second.toUpperCase()},myswitzerland:${first},${second} `, '--dry-run']).ids)
+      .toEqual([first, second]);
+    expect(parseMySwitzerlandArgs([`--ids=${first}`, '--limit=1']).limit).toBe(1);
+  });
+
+  it.each(['', 'guidle:AGwng3C', 'not-an-object-id', `${first},`, '--limit=5'])
+    ('rejects invalid or empty targeting instead of falling back to the whole catalog: %s', value => {
+      expect(() => parseMySwitzerlandArgs(['--ids', value])).toThrow('--ids requires');
+    });
+
+  it('rejects missing or duplicated targeting arguments', () => {
+    expect(() => parseMySwitzerlandArgs(['--ids'])).toThrow('--ids requires');
+    expect(() => parseMySwitzerlandArgs([`--ids=${first}`, '--ids', second])).toThrow('only once');
+  });
+
+  it('selects only requested records in stable order, retaining their locale metadata', () => {
+    const result = selectMySwitzerlandRecords(records, [first, second]);
+    expect(result.records).toEqual([records[2], records[1]]);
+    expect(records.map(record => record.objectID)).toEqual([other, second, first]);
+    expect(selectMySwitzerlandRecords([...records].reverse(), [first, second]).selectionKey).toBe(result.selectionKey);
+    expect(selectMySwitzerlandRecords(records, [first]).selectionKey).not.toBe(result.selectionKey);
+  });
+
+  it('resets a cursor if requested records disappear or reappear in the catalog', () => {
+    const full = selectMySwitzerlandRecords(records, [first, second]);
+    const missing = selectMySwitzerlandRecords(records.filter(record => record.objectID !== first), [first, second]);
+    expect(missing.selectionKey).not.toBe(full.selectionKey);
+    expect(targetedMySwitzerlandResumeIndex({ selectionKey: full.selectionKey, nextIndex: 1 }, missing.selectionKey)).toBe(0);
+  });
+
+  it('resumes only a valid cursor for the same selection', () => {
+    const { selectionKey } = selectMySwitzerlandRecords(records, [first, second]);
+    expect(targetedMySwitzerlandResumeIndex({ selectionKey, nextIndex: 1 }, selectionKey)).toBe(1);
+    for (const checkpoint of [null, {}, { selectionKey, nextIndex: -1 }, { selectionKey, nextIndex: 1.5 }]) {
+      expect(targetedMySwitzerlandResumeIndex(checkpoint, selectionKey)).toBe(0);
+    }
   });
 });
 
@@ -241,7 +301,95 @@ describe('recoverExistingIndexedPrices', () => {
   });
 });
 
+describe('recoverExistingBookingPrices', () => {
+  const record = (objectID = 'booking', from = '20260704T170000Z') => ({
+    objectID, perLocaleHits: { it: { applicableDates: { rules: [{ conditions: { from } }] } } },
+  });
+  const existing = () => ({
+    id: 'myswitzerland:booking', startDate: '2026-07-04', venue: 'Example hall',
+    imageUrl: '/images/event.webp', previousRoutes: [{ canton: 'SO', comune: 'Example', slug: 'old-route' }],
+    price: { url: 'https://www.ticketino.com/de/event/123', validFrom: '2026-01-01' },
+  });
+
+  it('recovers a retained source booking price without changing other metadata or the original event', async () => {
+    const event = existing();
+    const fetchFn = vi.fn().mockResolvedValue({ amount: 10, currency: 'CHF', isFree: false });
+    expect(await recoverExistingBookingPrices([event], [record()], { fetchFn })).toEqual([{
+      ...event, price: { ...event.price, amount: 10, currency: 'CHF', isFree: false },
+    }]);
+    expect(fetchFn).toHaveBeenCalledWith(event, event.price.url);
+    expect(event.price).not.toHaveProperty('amount');
+  });
+
+  it('preserves known prices and skips unselected IDs, changed dates and unsupported hosts before fetching', async () => {
+    const fetchFn = vi.fn(); const event = existing();
+    expect(await recoverExistingBookingPrices([{ ...event, price: { ...event.price, amount: 17, currency: 'CHF', isFree: false } }], [record()], { fetchFn })).toEqual([]);
+    expect(await recoverExistingBookingPrices([event], [record('other')], { fetchFn })).toEqual([]);
+    expect(await recoverExistingBookingPrices([event], [record('booking', '20260705T170000Z')], { fetchFn })).toEqual([]);
+    expect(await recoverExistingBookingPrices([{ ...event, price: { url: 'https://127.0.0.1/' } }], [record()], { fetchFn })).toEqual([]);
+    expect(fetchFn).not.toHaveBeenCalled();
+  });
+
+  it('bounds enrichment and keeps unknown on a missing price or network error', async () => {
+    const event = existing(); const fetchFn = vi.fn().mockResolvedValue(undefined);
+    expect(await recoverExistingBookingPrices([event], [record()], { deadline: 0, fetchFn })).toEqual([]);
+    expect(fetchFn).not.toHaveBeenCalled();
+    expect(await recoverExistingBookingPrices([event], [record()], { fetchFn })).toEqual([]);
+    expect(await recoverExistingBookingPrices([event], [record()], { fetchFn: vi.fn().mockRejectedValue(new Error('offline')) })).toEqual([]);
+  });
+});
+
 describe('extractPrice', () => {
+  it('takes a published ticket amount instead of a category number in a real tariff table', () => {
+    const tariff = 'EHC-K Lounge: 158,90 CHF Kategorie 1: 81,80 CHF Kategorie 2: 63,60 CHF Kategorie 3: 40,80 CHF Kategorie 4 Family: 40,80 CHF Kids: 5,30 CHF Stehplatz Gast: 31,50 CHF Stehplatz Heim: 31,50 CHF';
+    expect(extractPrice({}, `<table><tr><th>Prezzo</th><td>${tariff}</td></tr></table>`))
+      .toEqual({ amount: 5.3, currency: 'CHF', isFree: false });
+  });
+
+  it.each([
+    ['CHF 40.– pour les 8 séances de la saison', 40, 'CHF'],
+    ['Fr. 25.–, catégorie 1, salle 2', 25, 'CHF'],
+    ['1\'000.50 CHF pour 3 personnes', 1000.5, 'CHF'],
+    ['CHF 1’000.– pour 3 personnes', 1000, 'CHF'],
+    ['CHF 1 000.50 pour 3 personnes', 1000.5, 'CHF'],
+    ['1\u202f000 CHF pour 3 personnes', 1000, 'CHF'],
+    ['Tarif : Adulte : CHF ¤13.00, Enfants : CHF ¤11.00', 11, 'CHF'],
+    ['Team of 2 people : CHF ¤140.00, Team of 3 people : CHF ¤160.00', 140, 'CHF'],
+    ['Einzeleintritt 30.- Schüler und Studenten 15.- Jahresabonnement, 4 Konzerte 80.-', 15, 'CHF'],
+    ['CHF 30.- Erwachsene 30.- Kinder 15.-', 15, 'CHF'],
+    ['5–10 CHF', 5, 'CHF'],
+    ['10-5 CHF', 5, 'CHF'],
+    ['CHF 10–5', 5, 'CHF'],
+    ['12,50–20 EUR', 12.5, 'EUR'],
+    ['Prezzo: 20 franchi, categoria 1', 20, 'CHF'],
+    ['EUR 12,50 pour 2 personnes', 12.5, 'EUR'],
+    ['EUR 15.–', 15, 'EUR'],
+    ['25.–', 25, 'CHF'],
+    ['25 pro Person', 25, 'CHF'],
+  ])('parses monetary tariffs without including unrelated quantities: %s', (tariff, amount, currency) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount, currency, isFree: false });
+  });
+
+  it.each([
+    'Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20', 'Children free, adults 20',
+    'EUR 20 / 15.–', 'Children 15.– / adults EUR 20',
+    'Free for children, adults 20', 'Free admission for children, adults 20', 'Admission: free for children',
+    'Gratuit pour les enfants, adultes 20', 'Gratis per bambini, adulti 20', 'Eintritt frei für Kinder, Erwachsene 20',
+  ])
+    ('keeps absent or ambiguous monetary amounts unknown: %s', (tariff) => {
+      expect(parseEventPriceText(tariff)).toEqual({ amount: null, currency: 'CHF', isFree: false });
+    });
+
+  it.each([
+    'gratuito, valido fino al 31.12.2026',
+    'Free entrance until 31.12.2026',
+    'Eintritt frei bis 31.12.2026',
+    'Entrée libre, valable jusqu’au 31.12.2026',
+    'Gratis 8 séances',
+  ])('keeps an explicit free tariff despite ancillary dates or quantities: %s', (tariff) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
   it('returns no price when a tariff cannot be interpreted', () => {
     expect(extractPrice({}, '<table><tr><th>Price</th><td>su richiesta</td></tr></table>')).toBeUndefined();
   });

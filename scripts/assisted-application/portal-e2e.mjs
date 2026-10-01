@@ -114,9 +114,32 @@ function fakePortal() {
     if (route === 'GET /antibot') {
       return send(page('Bewerbung', `<h1>Ihre Bewerbung</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div>${form('/antibot', '<button type="submit">Bewerbung absenden</button>').replace('<form ', '<form onsubmit="return false" ')}`));
     }
+    // Lever, TSMG 2026-10-01: the send click serves an hCaptcha challenge nobody passes; the form stays as it was.
+    if (route === 'GET /hchallenge') {
+      return send(page('Application', `<h1>Submit your application</h1>${form('/hchallenge', '<button type="submit">Submit application</button>').replace('<form ', '<form onsubmit="fetch(\'https://api.hcaptcha.com/getcaptcha/e2e-site\', { method: \'POST\' }).catch(() => {}); return false" ')}`));
+    }
     // JOIN run 36846326334: the portal answers the send click with its own refusal toast.
     if (route === 'GET /refused') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
+    }
+    // Client validation and a JSON error with HTTP 200 were invisible to the old diagnostics.
+    if (route === 'GET /diagnostic-refused') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><input id="profile" type="url" aria-label="LinkedIn" hidden><div id="toast" role="status"></div><button onclick="submitTest()">Conferma e applica</button><script>
+        async function submitTest() {
+          document.getElementById('profile').value = 'invalid-url';
+          const result = await fetch('/diagnostic-error', {method:'POST'}).then(response => response.json());
+          console.error(result.errors[0].message + ' token=private-test-token');
+          setTimeout(() => { throw new Error('client_submit_validation'); }, 0);
+          document.getElementById('toast').textContent = 'Non siamo riusciti a inviare la tua candidatura. Riprova.';
+        }
+      </script>`));
+    }
+    if (route === 'POST /diagnostic-error') {
+      const body = JSON.stringify({ errors: [{ field: 'linkedin', code: 'INVALID_URL', message: 'Profile URL invalid' }] });
+      // JOIN returns chunked GraphQL errors: no declared Content-Length.
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.flushHeaders();
+      return res.end(body);
     }
     // The refusal shown on an error page the portal moves to (review of #10741).
     if (route === 'GET /refused-moved') {
@@ -202,6 +225,18 @@ async function main() {
     ...extra,
   });
 
+  // hCaptcha's own host answered locally: the test never calls the real service.
+  const launchWithLocalHcaptcha = async () => {
+    const browser = await launchChromium({ headless: true, executablePath });
+    const newContext = browser.newContext.bind(browser);
+    browser.newContext = async (options) => {
+      const context = await newContext(options);
+      await context.route('https://api.hcaptcha.com/**', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{"success":false}' }));
+      return context;
+    };
+    return browser;
+  };
+
   const checks = [];
   const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
   try {
@@ -241,6 +276,66 @@ async function main() {
     const near = await runAction(listPage, { ref: yearRef, action: 'select', value: '1990' });
     check('a select never takes a near option', near.ok === false && near.error === 'option_not_found');
     await listPage.context().browser().close();
+    // Review of #10822: visible unrelated year/month lists must not shift JOIN's
+    // selections away from the popups controlled by the date comboboxes.
+    const dateBrowser = await launchChromium({ headless: true, executablePath });
+    const datePage = await dateBrowser.newPage();
+    const unrelatedOptions = Array.from({ length: 12 }, (_, index) => `<div role="option">Unrelated ${index + 1}</div>`).join('');
+    const unrelatedYearOptions = '<div role="option">2025</div>';
+    const monthOptions = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      .map((label, index) => `<div role="option" data-month="${index + 1}">${label}</div>`).join('');
+    await datePage.setContent(`<div data-scope="date-picker" data-part="root" aria-label="Birth date">
+      <input id="date-year" role="combobox" aria-controls="date-years" value="">
+      <input id="date-month" role="combobox" aria-controls="date-months" value="">
+      <div role="listbox" id="unrelated-options">${unrelatedOptions}</div>
+      <div role="listbox" id="date-years"><div role="option">2025</div></div>
+      <div role="listbox" id="unrelated-years">${unrelatedYearOptions}</div>
+      <div role="listbox" id="date-months" style="display:none">${monthOptions}</div>
+      <div role="listbox" id="unrelated-months">${monthOptions}</div>
+      <div data-part="table"><div data-part="table-cell-trigger" role="button" data-value="2025-05-12" style="display:none">12</div></div>
+    </div><script>
+      const year = document.getElementById('date-year');
+      const month = document.getElementById('date-month');
+      const months = document.getElementById('date-months');
+      const day = document.querySelector('[data-value="2025-05-12"]');
+      month.addEventListener('keydown', (event) => { if (event.key === 'ArrowDown') months.style.display = ''; });
+      document.querySelector('#date-years [role="option"]').addEventListener('click', () => { year.value = '2025'; });
+      months.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => { month.value = option.dataset.month; day.style.display = ''; }));
+      day.addEventListener('click', () => day.setAttribute('data-selected', ''));
+    </script>`);
+    const dateSnapshot = await extractFields(datePage);
+    const dateField = dateSnapshot.fields.find((field) => field.kind === 'date');
+    const dateResult = await applyActions(datePage, dateSnapshot.fields, [
+      { fieldId: dateField?.id, action: 'fill', value: '2025-05-12' },
+    ], {}, { pause: async () => {} });
+    const pickedDate = await datePage.locator('[data-part="table-cell-trigger"][data-selected]').getAttribute('data-value').catch(() => '');
+    const pickedYear = await datePage.locator('#date-year').inputValue();
+    const pickedMonth = await datePage.locator('#date-month').inputValue();
+    check('unrelated visible year and month lists cannot shift the JOIN picker', dateResult[0]?.ok === true
+      && pickedDate === '2025-05-12' && pickedYear === '2025' && pickedMonth === '5');
+    await dateBrowser.close();
+
+    const unownedBrowser = await launchChromium({ headless: true, executablePath });
+    const unownedPage = await unownedBrowser.newPage();
+    await unownedPage.setContent(`<div data-scope="date-picker" data-part="root" aria-label="Birth date">
+      <input id="unowned-year" role="combobox" value="">
+      <input id="unowned-month" role="combobox" value="">
+      <div role="listbox" id="unrelated-years"><div role="option">2025</div></div>
+      <div role="listbox" id="unrelated-months">${monthOptions}</div>
+      <div data-part="table"><div data-part="table-cell-trigger" role="button" data-value="2025-05-12" style="display:none">12</div></div>
+    </div><script>
+      window.unrelatedClicks = 0;
+      document.querySelectorAll('#unrelated-years [role="option"], #unrelated-months [role="option"]')
+        .forEach((option) => option.addEventListener('click', () => { window.unrelatedClicks += 1; }));
+    </script>`);
+    const unownedSnapshot = await extractFields(unownedPage);
+    const unownedField = unownedSnapshot.fields.find((field) => field.kind === 'date');
+    const unownedResult = await applyActions(unownedPage, unownedSnapshot.fields, [
+      { fieldId: unownedField?.id, action: 'fill', value: '2025-05-12' },
+    ], {}, { pause: async () => {} });
+    const unrelatedClicks = await unownedPage.evaluate(() => window.unrelatedClicks);
+    check('an unowned JOIN popup fails closed without clicking an unrelated list', unownedResult[0]?.ok === false && unrelatedClicks === 0);
+    await unownedBrowser.close();
     // career-ops apply.md: company and role on the form match the posting, or stop.
     const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
     check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1);
@@ -293,11 +388,23 @@ async function main() {
     const silent = await run({ applyUrl: `${base}/antibot` });
     check('a send the portal silently drops is reported as a likely anti-bot refusal', silent.event.type === 'submit_failed'
       && silent.event.error === 'portal_antibot_ambiguous' && silent.evidence.antibot === true);
+    // A challenge served after the click and never passed: the application never left, Valerie completes it.
+    const challenged = await run({ applyUrl: `${base}/hchallenge`, launch: launchWithLocalHcaptcha });
+    check('a CAPTCHA served after the send click and never passed is a CAPTCHA stop, not an unknown outcome', challenged.event.type === 'submit_handoff'
+      && challenged.event.reason === 'captcha' && challenged.evidence.challengeAfterClick === true);
     // The portal says it did not send: not ambiguous, and the browser used is in the evidence.
     const toast = await run({ applyUrl: `${base}/refused` });
     check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
       && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
       && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
+    const diagnosticRefusal = await run({ applyUrl: `${base}/diagnostic-refused` });
+    const diagnostics = diagnosticRefusal.evidence.diagnostics;
+    check('a refused submit records console and uncaught browser errors privately', diagnosticRefusal.event.error === 'portal_refused'
+      && diagnostics.console.some((entry) => entry.text.includes('Profile URL invalid'))
+      && diagnostics.pageErrors.some((entry) => entry.message === 'client_submit_validation')
+      && !JSON.stringify(diagnostics).includes('private-test-token'));
+    check('chunked HTTP 200 application errors and native field validation are captured', diagnostics.responses.some((entry) => entry.source === 'browser_stream' && entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'))
+      && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));

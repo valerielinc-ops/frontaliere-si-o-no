@@ -618,10 +618,11 @@ export function hasFalsifiableAcceptance(itemText) {
 /**
  * Heading riconosciuti per gli item. Il primo ramo è il formato stabile dei bucket
  * giornalieri; il secondo mantiene la compatibilità con le follow-up già pubblicate.
- * La regex è intenzionalmente ancorata a `###` e a inizio riga: un heading citato dentro
- * un blocco fenced resta materia per il controllo lossless del mint gate.
+ * H3 resta il formato canonico del contratto; gli ID FU stabili sono accettati anche
+ * a H2 per leggere i bucket storici. Gli item numerati legacy restano limitati a H3.
+ * I candidati devono essere heading completi a inizio riga e non protetti da quote/fence.
  */
-const FOLLOWUP_ITEM_HEADING_LINE_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
+const FOLLOWUP_ITEM_HEADING_LINE_RE = /^(#{2,3})\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
 
 /**
  * Split Markdown into lines while marking fenced/quoted lines as protected.
@@ -749,7 +750,8 @@ export function parseFollowupItems(body) {
   for (const record of markdownRecords(source)) {
     if (record.protected) continue;
     const match = FOLLOWUP_ITEM_HEADING_LINE_RE.exec(record.line);
-    if (match) matches.push({ ...match, index: record.start });
+    // Only stable IDs widen to H2. A generic H2 numbered section is not a follow-up item.
+    if (match && (match[1] === '###' || match[2])) matches.push({ ...match, index: record.start });
   }
   const parsed = matches.map((match, index) => {
     const heading = match[0];
@@ -758,13 +760,13 @@ export function parseFollowupItems(body) {
     // Legacy callers historically received the suffix immediately after `### N.`
     // (including its leading space). Stable headings own the short title, so their
     // text starts after the complete heading line.
-    const contentStart = match[3]
+    const contentStart = match[4]
       ? start + heading.indexOf('.') + 1
       : start + heading.length;
     const text = source.slice(contentStart, end);
-    const id = match[1] || null;
-    const number = match[3] ? Number(match[3]) : null;
-    const title = (match[2] ?? match[4] ?? '').trim();
+    const id = match[2] || null;
+    const number = match[4] ? Number(match[4]) : null;
+    const title = (match[3] ?? match[5] ?? '').trim();
     return {
       id,
       number,

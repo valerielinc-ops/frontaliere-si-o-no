@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-10-01T09:21:14.593Z",
+  "generatedAt": "2026-10-01T21:24:56.183Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 18621,
-  "avgDurationMs": 18621,
+  "durationMs": 18177,
+  "avgDurationMs": 18177,
   "durationHistory": [
-    18621
+    18177
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -84,6 +84,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,6 +121,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4288",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
