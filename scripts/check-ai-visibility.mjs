@@ -203,7 +203,7 @@ async function queryPerplexity(query) {
 
     if (!res) return null;
 
-  const data = await readJsonResponse('Perplexity', res);
+  const data = await readJsonResponse('Perplexity', res, hasChatCompletionEnvelope);
   if (!data) return null;
   const content = data.choices?.[0]?.message?.content || '';
   const citations = data.citations || [];
@@ -242,7 +242,7 @@ async function queryGemini(query) {
 
   if (!res) return null;
 
-  const data = await readJsonResponse('Gemini', res);
+  const data = await readJsonResponse('Gemini', res, hasGeminiEnvelope);
   if (!data) return null;
   const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
   const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
@@ -285,7 +285,7 @@ async function queryGitHubModels(query) {
 
   if (!res) return null;
 
-  const data = await readJsonResponse('GitHub Models', res);
+  const data = await readJsonResponse('GitHub Models', res, hasChatCompletionEnvelope);
   if (!data) return null;
   const content = data.choices?.[0]?.message?.content || '';
   return { content, citations: [], raw: data };
@@ -420,20 +420,47 @@ function resetRunBudgets() {
 }
 
 /**
- * Parse a successful provider response without allowing an upstream brownout
- * page or plain-text health response to abort the whole visibility run.
- * Providers are expected to return JSON, but a 2xx response does not prove
- * that contract (GitHub Models returned `OK` during its retirement brownout).
+ * Parse and validate a successful provider response without allowing an
+ * upstream brownout page, health response, or unrelated JSON payload to abort
+ * the whole visibility run. A 2xx response does not prove the provider
+ * contract (GitHub Models returned plain-text `OK` during its retirement
+ * brownout).
  */
-async function readJsonResponse(label, res) {
+function isRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasChatCompletionEnvelope(data) {
+  const message = data.choices?.[0]?.message;
+  return Array.isArray(data.choices)
+    && isRecord(message)
+    && typeof message.content === 'string'
+    && message.content.trim().length > 0;
+}
+
+function hasGeminiEnvelope(data) {
+  const parts = data.candidates?.[0]?.content?.parts;
+  return Array.isArray(data.candidates)
+    && Array.isArray(parts)
+    && parts.some(part => isRecord(part) && typeof part.text === 'string' && part.text.trim().length > 0);
+}
+
+async function readJsonResponse(label, res, isExpectedEnvelope = isRecord) {
   const body = await res.text();
+  let data;
   try {
-    return JSON.parse(body);
+    data = JSON.parse(body);
   } catch {
     const preview = body.replace(/\s+/g, ' ').trim().slice(0, 200) || '<empty body>';
     console.warn(`  ⚠ ${label} API returned invalid JSON: ${preview}`);
     return null;
   }
+
+  if (!isRecord(data) || !isExpectedEnvelope(data)) {
+    console.warn(`  ⚠ ${label} API returned JSON with an unexpected response envelope`);
+    return null;
+  }
+  return data;
 }
 
 /**
@@ -1080,6 +1107,8 @@ export {
   findCompetitorMentions,
   generateMarkdown,
   loadPreviousReport,
+  queryGemini,
+  queryPerplexity,
   queryGitHubModels,
   runCheck,
   queryOpenRouter,

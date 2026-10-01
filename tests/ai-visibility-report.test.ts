@@ -15,6 +15,8 @@ import {
   generateMarkdown,
   listAvailablePlatforms,
   openRouterWebEngine,
+  queryGemini,
+  queryPerplexity,
   queryGitHubModels,
   queryOpenRouter,
   resetOpenRouterBudget,
@@ -189,6 +191,51 @@ describe('provider response parsing', () => {
 
     await expect(queryGitHubModels('costo vita Ticino')).resolves.toBeNull();
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['"OK"', '[]', '{}'])('treats HTTP 200 JSON %s without a Perplexity answer envelope as unavailable', async body => {
+    vi.stubEnv('PERPLEXITY_API_KEY', 'pplx-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(body, { status: 200 }));
+
+    await expect(queryPerplexity('costo vita Ticino')).resolves.toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['"OK"', '[]', '{}'])('treats HTTP 200 JSON %s without a Gemini answer envelope as unavailable', async body => {
+    vi.stubEnv('GEMINI_API_KEY', 'gemini-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(body, { status: 200 }));
+
+    await expect(queryGemini('costo vita Ticino')).resolves.toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['"OK"', '[]', '{}'])('treats HTTP 200 JSON %s without a GitHub Models answer envelope as unavailable', async body => {
+    vi.stubEnv('GH_MODELS_PAT', 'ghp-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(body, { status: 200 }));
+
+    await expect(queryGitHubModels('costo vita Ticino')).resolves.toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('accepts the valid answer envelopes for all three providers', async () => {
+    vi.stubEnv('PERPLEXITY_API_KEY', 'pplx-test');
+    vi.stubEnv('GEMINI_API_KEY', 'gemini-test');
+    vi.stubEnv('GH_MODELS_PAT', 'ghp-test');
+    const responseBodies = [
+      JSON.stringify({ choices: [{ message: { content: 'Perplexity answer' } }], citations: [] }),
+      JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Gemini answer' }] } }] }),
+      JSON.stringify({ choices: [{ message: { content: 'GitHub Models answer' } }] }),
+    ];
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => new Response(responseBodies.shift()!, { status: 200 }));
+
+    await expect(queryPerplexity('costo vita Ticino')).resolves.toMatchObject({ content: 'Perplexity answer' });
+    await expect(queryGemini('costo vita Ticino')).resolves.toMatchObject({ content: 'Gemini answer' });
+    await expect(queryGitHubModels('costo vita Ticino')).resolves.toMatchObject({ content: 'GitHub Models answer' });
+    expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 });
 
