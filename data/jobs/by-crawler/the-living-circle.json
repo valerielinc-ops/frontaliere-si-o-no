@@ -1,6 +1,6 @@
 {
   "crawlerKey": "the-living-circle",
-  "assembledAt": "2026-09-30T21:12:42.601Z",
+  "assembledAt": "2026-10-01T09:16:11.362Z",
   "jobs": [
     {
       "title": "Aushilfe Servicemitarbeiter (all genders)",
@@ -2196,8 +2196,10 @@
         "fr": "commis-de-rang-soi-28-by-stefan-heilemann-80-100-all-genders-the-living-circle-zurich"
       },
       "id": "the-living-circle-6c8ec4da57ed",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T21:16:31.084Z",
+      "previousSlugs": [
+        "commis-de-rang-soi-28-by-stefan-heilemann-80-100-all-genders-the-living-circle-zurich",
+        "commission-de-rang-soi-28-par-stefan-heilemann-80-100-tous-les-sexes-the-living-circle-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "commis-de-rang-soi-28-by-stefan-heilemann-80-100-all-genders-the-living-circle-zurich"
@@ -2206,10 +2208,8 @@
           "commission-de-rang-soi-28-par-stefan-heilemann-80-100-tous-les-sexes-the-living-circle-zurich"
         ]
       },
-      "previousSlugs": [
-        "commis-de-rang-soi-28-by-stefan-heilemann-80-100-all-genders-the-living-circle-zurich",
-        "commission-de-rang-soi-28-par-stefan-heilemann-80-100-tous-les-sexes-the-living-circle-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:16:31.084Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
