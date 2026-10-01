@@ -58,11 +58,16 @@ export function eventOfferPriceAmount(value) {
   return Number.isFinite(amount) ? amount : NaN;
 }
 
-const TARIFF_AMOUNT = String.raw`(?:\d{1,3}(?:['’\u00a0\u202f ]\d{3})+|\d+)(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?`;
+const TARIFF_NUMBER = String.raw`(?:\d{1,3}(?:['’\u00a0\u202f ]\d{3})+|\d+)(?:[.,]\d{1,2})?`;
+const TARIFF_AMOUNT = String.raw`${TARIFF_NUMBER}(?:[.,][-–—]{1,2})?`;
 const TARIFF_CURRENCY = String.raw`(?:CHF|EUR|€|S?Fr\.|francs?|franchi|franken)(?!\p{L})`;
 const TARIFF_MONEY_RE = new RegExp(
-  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(?:(?<prefix>${TARIFF_CURRENCY})\s*(?<after>${TARIFF_AMOUNT})|(?<before>${TARIFF_AMOUNT})\s*(?<suffix>${TARIFF_CURRENCY}))(?![\p{N}'’]|[.,]\d)`,
+  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(?:(?<prefix>${TARIFF_CURRENCY})\s*¤?\s*(?<after>${TARIFF_AMOUNT})|(?<before>${TARIFF_AMOUNT})\s*(?<suffix>${TARIFF_CURRENCY}))(?![\p{N}'’]|[.,]\d)`,
   'giu',
+);
+const SWISS_MARKED_TARIFF_RE = new RegExp(
+  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(${TARIFF_NUMBER})[.,][-–—]{1,2}(?!\p{N})`,
+  'gu',
 );
 const TARIFF_CURRENCY_RE = new RegExp(TARIFF_CURRENCY, 'iu');
 const BARE_TARIFF_RE = new RegExp(
@@ -77,14 +82,22 @@ export function parseEventPriceText(value) {
     .replace(/\b(?:t[ée]l(?:efon|ephone|[ée]phone|efono)?\.?|phone|au|al|at)\s*:?\s*\+?\d[\d\s().-]{5,}/gi, ' ')
     .replace(/(?<![\p{L}\p{N}])(?:ab|under|below|over|from|(?:a partire )?da[il]?|fino a|d[èe]s|[àa] partir de|jusqu['’][àa])\s*\d+(?:\s*[-–]\s*\d+)?\s*(?:jahren?|years?|anni|ans)\b/giu, ' ')
     .replace(/\bgratuita\b/gi, 'gratuito');
+  const amountFromText = text => Number.parseFloat(text.replace(/['’\s]/g, '').replace(',', '.'));
   const money = [...tariff.matchAll(TARIFF_MONEY_RE)].map(({ groups }) => ({
-    amount: Number.parseFloat((groups.after || groups.before).replace(/['’\s]/g, '').replace(',', '.')),
+    amount: amountFromText(groups.after || groups.before),
     currency: /EUR|€/iu.test(groups.prefix || groups.suffix) ? 'EUR' : 'CHF',
   })).filter(({ amount }) => Number.isFinite(amount));
   const unknown = { amount: null, currency: 'CHF', isFree: false };
+  const currencies = new Set(money.map(({ currency }) => currency));
+  if (currencies.size > 1) return unknown;
+  // Swiss trailing-dash prices are monetary markers too, unlike a category or
+  // quantity. Reuse an explicit currency in the same tariff, otherwise CHF.
+  const marked = [...tariff.matchAll(SWISS_MARKED_TARIFF_RE)]
+    .map(match => amountFromText(match[1])).filter(Number.isFinite);
+  if (!money.length && TARIFF_CURRENCY_RE.test(tariff)) return unknown;
+  for (const amount of marked) money.push({ amount, currency: money[0]?.currency || 'CHF' });
   if (money.length) {
     // Different currencies are not comparable without an exchange rate.
-    if (new Set(money.map(({ currency }) => currency)).size > 1) return unknown;
     const cheapest = money.reduce((best, candidate) => candidate.amount < best.amount ? candidate : best);
     return { ...cheapest, isFree: cheapest.amount === 0 };
   }
