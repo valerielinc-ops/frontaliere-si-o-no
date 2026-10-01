@@ -474,6 +474,9 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/whats-new-localization-guard.test.ts", roots: [], since: "2026-09-19", movedFromFullExclusion: true },
   { file: "tests/all-known-job-slugs-store.test.ts", roots: ["data/all-known-job-slugs/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog/svizzera-section-routing.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // #10686: il caso sui creator ImageObject legge i template SEO statici del
+  // corpus pubblicato; gli altri verificano codice del sito e restano nel gate.
+  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
   { file: "tests/cf-hot-404-bridge.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/cippatrasporti-crawler.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/crawler-brand-domain-pairing.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
