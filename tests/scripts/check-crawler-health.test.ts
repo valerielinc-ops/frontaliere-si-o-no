@@ -1066,6 +1066,25 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
     expect(state._authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('keeps the Locarno empty-source allowance only for a complete, source-proven zero', () => {
+    const { status, reason, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      {
+        ...obsWithProof(0, true),
+        slug: 'citta-di-locarno',
+        earlyExit: false,
+        exitCode: null,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state._lastObservedEmptyOk).toBe(true);
+    expect(state._authoritativeEmptySnapshot).toBe(true);
+  });
+
   it('still flags broken when the same zero run carries no proof', () => {
     const { status, state } = nextCrawlerState(
       brokenEligiblePrev,
@@ -1156,6 +1175,34 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     );
     expect(status).toBe('broken');
     expect(state._abortedRun).toBe(true);
+  });
+
+  it('does not let the Locarno empty-source allowance bless an empty abort receipt', () => {
+    const { status, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), slug: 'citta-di-locarno' },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    expect(state._lastObservedEmptyOk).toBe(false);
+    expect(state._abortedRun).toBe(true);
+  });
+
+  it('prioritizes parser-positive evidence in a truncated allowlisted receipt', () => {
+    const { status, reason, state } = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...abortedObs(0), slug: 'citta-di-locarno', parsed: 5 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    expect(state._lastObservedEmptyOk).toBe(false);
+    expect(state._pipelineDroppedAll).toBe(true);
+    expect(reason).toContain('post-parser pipeline drop or truncated receipt');
+    expect(reason).toContain('the source was observed');
   });
 
   it('does not claim the source returned 0 jobs when the run never published', () => {
