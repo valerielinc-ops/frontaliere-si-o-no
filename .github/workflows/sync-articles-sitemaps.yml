@@ -946,6 +946,17 @@ jobs:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
 
+      # A refresh PR has a second delivery boundary: the publisher has already
+      # committed the pulled snapshot to the stable branch, while the merged
+      # main tree is checked by replay-after-article-sync. Keep a final,
+      # non-optional residue check for every non-preview run so this job cannot
+      # become green merely because the main-delivery assertion was deferred.
+      - name: Assert the refresh snapshot was committed
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
+        run: node scripts/ci/assert-articles-sync-delivered.mjs
+
   # The stable refresh PR deliberately skips every live side effect until its
   # required check has passed. This push job is the other half of that contract:
   # it reads the merged main tree and replays every surface that the PR path
