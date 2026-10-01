@@ -58,13 +58,70 @@ export function eventOfferPriceAmount(value) {
   return Number.isFinite(amount) ? amount : NaN;
 }
 
-/** Parse an admission tariff without mistaking contact numbers or age limits for prices. */
+const TARIFF_NUMBER = String.raw`(?:\d{1,3}(?:['’\u00a0\u202f ]\d{3})+|\d+)(?:[.,]\d{1,2})?`;
+const TARIFF_AMOUNT = String.raw`${TARIFF_NUMBER}(?:[.,][-–—]{1,2})?`;
+const TARIFF_RANGE = String.raw`${TARIFF_AMOUNT}(?:\s*[-–—]\s*${TARIFF_AMOUNT})?`;
+const TARIFF_CURRENCY = String.raw`(?:CHF|EUR|€|S?Fr\.|francs?|franchi|franken)(?!\p{L})`;
+const TARIFF_MONEY_RE = new RegExp(
+  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(?:(?<prefix>${TARIFF_CURRENCY})\s*¤?\s*(?<after>${TARIFF_RANGE})|(?<before>${TARIFF_RANGE})\s*(?<suffix>${TARIFF_CURRENCY}))(?![\p{N}'’]|[.,]\d)`,
+  'giu',
+);
+const SWISS_MARKED_TARIFF_RE = new RegExp(
+  String.raw`(?<![\p{L}\p{N}.,'’+\-–—])(${TARIFF_NUMBER})[.,][-–—]{1,2}(?!\p{N})`,
+  'gu',
+);
+const TARIFF_CURRENCY_RE = new RegExp(TARIFF_CURRENCY, 'iu');
+const BARE_TARIFF_RE = new RegExp(
+  String.raw`^${TARIFF_AMOUNT}(?:\s*[-–]\s*${TARIFF_AMOUNT})?(?:\s*(?:pro Person|per person|par personne|per persona))?\s*[.!]?$`,
+  'iu',
+);
+
+/** Parse an admission tariff without treating categories, quantities or contact numbers as prices. */
 export function parseEventPriceText(value) {
   if (typeof value !== 'string') return undefined;
   const tariff = value
     .replace(/\b(?:t[ée]l(?:efon|ephone|[ée]phone|efono)?\.?|phone|au|al|at)\s*:?\s*\+?\d[\d\s().-]{5,}/gi, ' ')
     .replace(/(?<![\p{L}\p{N}])(?:ab|under|below|over|from|(?:a partire )?da[il]?|fino a|d[èe]s|[àa] partir de|jusqu['’][àa])\s*\d+(?:\s*[-–]\s*\d+)?\s*(?:jahren?|years?|anni|ans)\b/giu, ' ')
     .replace(/\bgratuita\b/gi, 'gratuito');
+  const amountFromText = text => Number.parseFloat(text.replace(/['’\s]/g, '').replace(',', '.'));
+  const money = [...tariff.matchAll(TARIFF_MONEY_RE)].map(({ groups }) => ({
+    amount: Math.min(...[...(groups.after || groups.before).matchAll(new RegExp(TARIFF_NUMBER, 'gu'))]
+      .map(match => amountFromText(match[0]))),
+    currency: /EUR|€/iu.test(groups.prefix || groups.suffix) ? 'EUR' : 'CHF',
+  })).filter(({ amount }) => Number.isFinite(amount));
+  const unknown = { amount: null, currency: 'CHF', isFree: false };
+  // Swiss trailing-dash prices are monetary markers too, unlike a category or
+  // quantity. A standalone marker means CHF; an explicitly labelled amount
+  // such as EUR 15.– was already parsed with its own currency above.
+  const marked = [...tariff.replace(TARIFF_MONEY_RE, ' ').matchAll(SWISS_MARKED_TARIFF_RE)]
+    .map(match => amountFromText(match[1])).filter(Number.isFinite);
+  if (!money.length && TARIFF_CURRENCY_RE.test(tariff)) return unknown;
+  for (const amount of marked) money.push({ amount, currency: 'CHF' });
+  const currencies = new Set(money.map(({ currency }) => currency));
+  if (currencies.size > 1) return unknown;
+  if (money.length) {
+    // Different currencies are not comparable without an exchange rate.
+    const cheapest = money.reduce((best, candidate) => candidate.amount < best.amount ? candidate : best);
+    return { ...cheapest, isFree: cheapest.amount === 0 };
+  }
+  // A currency marker with an invalid amount must not fall through to the
+  // legacy numeric parser (e.g. a partial match inside "CHF 1,000").
+  if (TARIFF_CURRENCY_RE.test(tariff)) return unknown;
+  // A leading free tariff is authoritative even when dates or opening hours
+  // follow it. Do not promote a conditional "Children free, adults 20".
+  if (/\b(?:free|gratuit[oa]?|gratis|kostenlos|frei|libre)(?:\s+(?:entrance|entry|admission))?\s+(?:for|pour|per|für|nur|solo|soltanto|seulement|under|below|children|kids|bambini|enfants|kinder)\b/iu.test(tariff)) return unknown;
+  const leadingWords = tariff.trim().match(/^([\p{L}]+)(?:[\s:]+([\p{L}]+))?/u);
+  if (leadingWords) {
+    const freeWord = parsePriceText(leadingWords[1]);
+    const admissionLabel = /^(?:admission|entry|entrance|eintritt|entr[ée]e|ingresso|entrata|prices?|preis|prix|prezzo)$/iu;
+    const freeAdmission = admissionLabel.test(leadingWords[1]) && leadingWords[2]
+      ? parsePriceText(`${leadingWords[1]} ${leadingWords[2]}`) : undefined;
+    if (freeWord?.isFree || freeAdmission?.isFree) return { amount: 0, currency: 'CHF', isFree: true };
+  }
+  if (/\d/u.test(tariff) && !BARE_TARIFF_RE.test(tariff.trim())) return unknown;
+  if (BARE_TARIFF_RE.test(tariff.trim())) {
+    return parsePriceText(tariff.replace(/['’\u00a0\u202f]/g, '').replace(/(?<=\d) (?=\d)/g, ''));
+  }
   return parsePriceText(tariff);
 }
 
