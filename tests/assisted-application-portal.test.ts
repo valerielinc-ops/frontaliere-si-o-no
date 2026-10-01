@@ -190,6 +190,9 @@ describe('portal runner helpers', () => {
     // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
     for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro']) expect(SUBMIT_RE.test(text)).toBe(false);
+    // Review of #10725: the whole label, so a filter control is never the submission.
+    for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
+    for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
     // JOIN says "du"/"tu".
     for (const text of ['Grazie per esserti candidato!', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
