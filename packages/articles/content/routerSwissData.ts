@@ -2482,6 +2482,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cyber-security-month-oversharing-2026': { it: 'cyber-security-month-oversharing-2026', en: 'oversharing-and-ai-at-work-cyber-security-month-2026-guide', de: 'oversharing-und-ki-bei-der-arbeit-leitfaden-zum-cyber-security-month-2026', fr: 'surpartage-et-ia-a-l-uvre-guide-du-mois-de-la-cybersecurite-2026' },
  'operazione-internazionale-contro-killsec': { it: 'operazione-internazionale-contro-killsec', en: 'killsec-dismantled-110-tb-of-data-seized', de: 'killsec-deaktiviert-110-tb-daten-beschlagnahmt', fr: 'killsec-demantele-110-to-de-donnees-saisies' },
  'consiglio-stati-accordo-sanita-ue': { it: 'consiglio-stati-accordo-sanita-ue', en: 'council-states-health-agreement-eu', de: 'staenderat-gesundheit-abkommen-eu', fr: 'conseil-etats-acord-sante-ue' },
+ 'spese-canton-berna-2026': { it: 'spese-canton-berna-2026', en: 'swiss-cost-of-living-bern-2026', de: 'lebenshaltung-schweiz-bern-2026', fr: 'cout-vie-suisse-berne-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

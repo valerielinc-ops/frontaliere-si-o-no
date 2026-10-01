@@ -7379,6 +7379,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Staatenrat: Ja zum EU-Gesundheitsabkommen',
     'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 Ja, 11 Nein: Gesundheitsdekret verabschiedet. Fakultatives Referendum gewählt. Strom macht Pause.',
     'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'Der Bundespalast in Bern während der Sitzung des Ständerates',
+    'blog.article.spese-canton-berna-2026.title': 'Schweizer Lebenshaltungskosten 2026: Kanton Bern im Vergleich',
+    'blog.article.spese-canton-berna-2026.excerpt': 'Mieten, Besteuerung, KVG und Beiträge: Leitfaden 2026 zu den Lebenshaltungskosten im Kanton Bern, mit Regeln und Vergleichen, die in der Schweiz gelten.',
+    'blog.article.spese-canton-berna-2026.imageAlt': 'Kanton Bern: Haushaltsbudget mit Miete, Einkauf und Versicherung',
 };
 
 export default blogMetaChDe;

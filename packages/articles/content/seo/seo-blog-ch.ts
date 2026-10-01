@@ -95687,6 +95687,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spese-canton-berna-2026': {
+    title: 'Costo della vita svizzera 2026: canton Berna a confronto',
+    description: 'Guida 2026 al costo della vita in Svizzera e nel canton Berna: affitti, LAMal, fiscalità, contributi sul salario, confronto tra cantoni e regole nazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, vita, canton, berna',
+    ogTitle: 'Costo vita 2026: confronto sul canton Berna',
+    ogDescription: 'Affitti, spesa alimentare, trasporti, premi LAMal e imposte incidono sul budget. L\'analisi 2026 dal canton Berna distingue regole federali, cantonali e comunali e spiega come leggere salario, locazione, previdenza e permessi.',
+    canonicalPath: '/articoli-svizzera/spese-canton-berna-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo della vita svizzera 2026: canton Berna a confronto",
+      "description": "Guida 2026 al costo della vita in Svizzera e nel canton Berna: affitti, LAMal, fiscalità, contributi sul salario, confronto tra cantoni e regole nazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spese-canton-berna-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Canton Berna: budget familiare tra affitto, spesa e assicurazione"
+      },
+      "datePublished": "2026-10-01T18:03:14+00:00",
+      "dateModified": "2026-10-01T18:03:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/spese-canton-berna-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

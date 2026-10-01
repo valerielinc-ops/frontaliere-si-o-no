@@ -7379,6 +7379,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Consiglio degli Stati: sì all’accordo sanità UE',
     'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 sì, 11 no: approvato il decreto sanitario. Referendum facoltativo scelto. Elettricità in pausa.',
     'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'Il Palazzo federale di Berna durante la sessione del Consiglio degli Stati',
+    'blog.article.spese-canton-berna-2026.title': 'Costo della vita svizzera 2026: canton Berna a confronto',
+    'blog.article.spese-canton-berna-2026.excerpt': 'Affitti, fiscalità, LAMal e contributi: guida 2026 al costo della vita nel canton Berna, con regole e confronti validi in Svizzera.',
+    'blog.article.spese-canton-berna-2026.imageAlt': 'Canton Berna: budget familiare tra affitto, spesa e assicurazione',
 };
 
 export default blogMetaChIt;
