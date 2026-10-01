@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-01T07:52:25.880Z",
+  "updatedAt": "2026-10-01T07:52:44.301Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -649338,7 +649338,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-09-30T13:53:50.405Z",
+      "updatedAt": "2026-10-01T07:52:44.272Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -649412,7 +649412,8 @@
         }
       ],
       "promotionPr": "10549",
-      "promotionBranch": "prospector/promote-2026-09-30"
+      "promotionBranch": "prospector/promote-2026-09-30",
+      "reason": "PR 10549 chiusa senza merge, ricandidato"
     },
     "paola-bajada@celerina-schlarigna": {
       "key": "paola-bajada@celerina-schlarigna",
