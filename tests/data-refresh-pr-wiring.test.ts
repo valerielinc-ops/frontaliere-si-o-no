@@ -56,6 +56,7 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain('mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs"');
     expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain("trap 'cleanup_refresh_checkout || exit 1' EXIT");
     expect(helper).toContain('git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref"');
@@ -93,6 +94,7 @@ describe('protected data refreshes publish through pull requests', () => {
         ['scripts/ci/merge-open-data-refresh.mjs', 'scripts/ci/merge-open-data-refresh.mjs'],
         ['scripts/ci/open-data-refresh-merge.mjs', 'scripts/ci/open-data-refresh-merge.mjs'],
         ['scripts/lib/resolve-git-add-path.mjs', 'scripts/lib/resolve-git-add-path.mjs'],
+        ['scripts/lib/read-git-blob.mjs', 'scripts/lib/read-git-blob.mjs'],
       ];
       for (const [source, target] of copied) {
         const targetPath = path.join(temp, target);

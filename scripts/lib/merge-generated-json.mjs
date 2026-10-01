@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { readGitBlob } from './read-git-blob.mjs';
 
 function canonical(value) {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
@@ -45,7 +45,7 @@ export function mergeAppendOnlyDocument(current, incoming, arrayField) {
 }
 
 function gitJson(commit, relativePath) {
-  return JSON.parse(execFileSync('git', ['show', `${commit}:${relativePath}`], { encoding: 'utf8' }));
+  return JSON.parse(readGitBlob(commit, relativePath));
 }
 
 function readCurrent(relativePath, fallback) {

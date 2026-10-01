@@ -146,6 +146,8 @@ if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
   git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
+  git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.

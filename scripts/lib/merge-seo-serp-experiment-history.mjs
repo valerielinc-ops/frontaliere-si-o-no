@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readGitBlob } from './read-git-blob.mjs';
 
 export const MAX_SERP_HISTORY_SNAPSHOTS = 260;
 
@@ -35,7 +35,7 @@ export function mergeSeoSerpHistory(current, incoming) {
 }
 
 function readGitFile(ref, file) {
-  return JSON.parse(execFileSync('git', ['show', `${ref}:${file}`], { encoding: 'utf8' }));
+  return JSON.parse(readGitBlob(ref, file));
 }
 
 if (process.argv[1] && process.argv[1].endsWith('merge-seo-serp-experiment-history.mjs')) {
