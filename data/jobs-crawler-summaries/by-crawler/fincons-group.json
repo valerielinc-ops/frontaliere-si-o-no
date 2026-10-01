@@ -1,7 +1,7 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-10-01T09:13:40.638Z",
+  "generatedAt": "2026-10-01T21:19:03.123Z",
   "total": 29,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 28,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8095,
-  "avgDurationMs": 8095,
+  "durationMs": 7622,
+  "avgDurationMs": 7622,
   "durationHistory": [
-    8095
+    7622
   ],
   "newJobs": [
     {
@@ -1015,17 +1015,16 @@
         "listingDepartment": ""
       },
       "id": "fincons-group-a326ba8cd451",
-      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 96000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-30T21:11:59.483Z",
-      "_qualityScore": 89,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1109,7 +1108,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,

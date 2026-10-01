@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migrolino",
-  "assembledAt": "2026-10-01T09:17:07.720Z",
+  "assembledAt": "2026-10-01T21:20:22.221Z",
   "jobs": [
     {
       "id": "migrolino-77dac9efc4b8",
@@ -33,7 +33,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0d97542a-6458-4e32-bf80-653e5e365c13",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:17:02.313Z",
+      "crawledAt": "2026-10-01T21:20:16.861Z",
       "addressLocality": "Brügg",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 8",
@@ -52,14 +52,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsmitarbeiter-in-migrolino-brugg"
+          "verkaufsmitarbeiter-in-migrolino-brugg",
+          "verkaufsmitarbeiter-in-migrolino-wilderswil"
         ],
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-brugg"
+          "verkaufsmitarbeiter-in-migrolino-brugg",
+          "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-brugg"
+        "verkaufsmitarbeiter-in-migrolino-brugg",
+        "verkaufsmitarbeiter-in-migrolino-wilderswil",
+        "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz"
       ],
       "firstSeenAt": "2026-08-13T10:23:52.270Z",
       "salaryMin": 62000,
@@ -107,7 +111,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/46da289d-1644-43c3-ae8c-2340924a0b9d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:17:01.810Z",
+      "crawledAt": "2026-10-01T21:20:16.260Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Winkelriedstrasse 10",
@@ -126,18 +130,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schichtleiter-in-migrolino-bern",
-        "schichtleiter-in-migrolino-bern-34e0lc"
+        "schichtleiter-in-migrolino-bern-34e0lc",
+        "capo-turno-in-migrolino-bern-34e0lc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-in-migrolino-bern"
+          "schichtleiter-in-migrolino-bern",
+          "capo-turno-in-migrolino-bern-34e0lc"
         ],
         "de": [
           "schichtleiter-in-migrolino-bern-34e0lc"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:13:40.484Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:13:40.484Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -183,7 +189,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1eb4e3ed-5d04-432f-bc43-5f42a04c48fd",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:17:01.306Z",
+      "crawledAt": "2026-10-01T21:20:15.639Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "Gsteigstrasse 6",
@@ -210,7 +216,8 @@
         "sales-staff-migrolino-wilderswil-e929cd",
         "personnel-de-vente-migrolino-wilderswil-e929cd",
         "personale-di-vendita-migrolino-wilderswil-e929cd",
-        "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv"
+        "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv",
+        "personale-di-vendita-migrolino-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -223,7 +230,8 @@
           "sales-staff-migrolino-wilderswil-e929cd",
           "personnel-de-vente-migrolino-wilderswil-e929cd",
           "personale-di-vendita-migrolino-wilderswil-e929cd",
-          "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv"
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv",
+          "personale-di-vendita-migrolino-wilderswil"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-wilderswil",
@@ -258,10 +266,10 @@
       "id": "migrolino-fa41171abbf1",
       "slug": "assistente-alle-vendite-migrolino-dietikon",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-dietikon",
+        "it": "assistente-alle-vendite-migrolino-dietikon",
         "en": "sales-staff-migrolino-dietikon",
         "de": "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "fr": "personnel-de-vente-migrolino-dietikon"
+        "fr": "assistant-aux-ventes-migrolino-dietikon"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -285,7 +293,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7726d43f-a023-4c4f-a74b-e7e93e4359d9",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:17:00.785Z",
+      "crawledAt": "2026-10-01T21:20:15.025Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofplatz 8",
@@ -305,12 +313,17 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
         "verkaufsmitarbeiter-in-migrolino-dietikon",
+        "personale-di-vendita-migrolino-dietikon",
+        "personnel-de-vente-migrolino-dietikon",
+        "assistente-alle-vendite-migrolino-dietikon",
         "assistant-aux-ventes-migrolino-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "verkaufsmitarbeiter-in-migrolino-dietikon"
+          "verkaufsmitarbeiter-in-migrolino-dietikon",
+          "personale-di-vendita-migrolino-dietikon",
+          "assistente-alle-vendite-migrolino-dietikon"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
@@ -322,6 +335,7 @@
         "fr": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
           "verkaufsmitarbeiter-in-migrolino-dietikon",
+          "personnel-de-vente-migrolino-dietikon",
           "assistant-aux-ventes-migrolino-dietikon"
         ]
       },
@@ -371,7 +385,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/car-wash-beraterin/0c1a54fe-a115-43b0-a03c-718932e715da",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:17:00.277Z",
+      "crawledAt": "2026-10-01T21:20:14.382Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 20a",
@@ -389,11 +403,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "car-wash-berater-in-migrolino-volketswil"
+        "car-wash-berater-in-migrolino-volketswil",
+        "consulente-di-lavaggio-auto-migrolino-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "car-wash-berater-in-migrolino-volketswil"
+          "car-wash-berater-in-migrolino-volketswil",
+          "consulente-di-lavaggio-auto-migrolino-volketswil"
         ],
         "en": [
           "car-wash-berater-in-migrolino-volketswil"
@@ -449,7 +465,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2591c09a-83a5-4ce4-a9d8-0fd2f35b52be",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:59.557Z",
+      "crawledAt": "2026-10-01T21:20:13.484Z",
       "addressLocality": "Thayngen",
       "addressRegion": "SH",
       "streetAddress": "Grenzstrasse 72",
@@ -467,11 +483,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-thayngen"
+        "verkaufsmitarbeiter-in-migrolino-thayngen",
+        "personale-commerciale-migrolino-thayngen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-thayngen"
+          "verkaufsmitarbeiter-in-migrolino-thayngen",
+          "personale-commerciale-migrolino-thayngen"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-thayngen"
@@ -526,7 +544,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/18f8831e-9f75-41af-a842-88dc7d75b4f0",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:58.307Z",
+      "crawledAt": "2026-10-01T21:20:12.044Z",
       "addressLocality": "Ipsach",
       "addressRegion": "BE",
       "streetAddress": "Hauptstrasse 87",
@@ -544,11 +562,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-ipsach"
+        "verkaufsmitarbeiter-in-migrolino-ipsach",
+        "personale-commerciale-migrolino-ipsach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-ipsach"
+          "verkaufsmitarbeiter-in-migrolino-ipsach",
+          "personale-commerciale-migrolino-ipsach"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-ipsach"
@@ -603,7 +623,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin-im-stundenlohn/54131c29-9149-4732-82ad-bdfbe97cf913",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:57.879Z",
+      "crawledAt": "2026-10-01T21:20:11.577Z",
       "addressLocality": "Ipsach",
       "addressRegion": "BE",
       "streetAddress": "Hauptstrasse 87",
@@ -621,11 +641,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-im-stundenlohn-migrolino-ipsach"
+        "verkaufsmitarbeiter-in-im-stundenlohn-migrolino-ipsach",
+        "dipendenti-di-vendita-su-base-oraria-migrolino-ipsach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-im-stundenlohn-migrolino-ipsach"
+          "verkaufsmitarbeiter-in-im-stundenlohn-migrolino-ipsach",
+          "dipendenti-di-vendita-su-base-oraria-migrolino-ipsach"
         ],
         "en": [
           "verkaufsmitarbeiter-in-im-stundenlohn-migrolino-ipsach"
@@ -680,7 +702,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-fur-migrolino-shop-tankstelle-der-region-winterthur/7e29bac6-a502-4eff-a039-f0ec170f2bce",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:57.461Z",
+      "crawledAt": "2026-10-01T21:20:11.108Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
@@ -758,7 +780,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/4d8a716d-679f-4c45-a7c2-dd39da73312f",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:56.916Z",
+      "crawledAt": "2026-10-01T21:20:10.486Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Lindenallee 98",
@@ -822,7 +844,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/14d265d1-a23e-41b5-9482-06fc092a05b2",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:56.373Z",
+      "crawledAt": "2026-10-01T21:20:09.883Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Bahnhofstrasse 2",
@@ -886,7 +908,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-fur-migrolino-shop-lugano/7d058826-a381-4151-8b65-e19c6e67e0fb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:55.790Z",
+      "crawledAt": "2026-10-01T21:20:09.262Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazzale della Stazione",
@@ -931,9 +953,9 @@
       "id": "migrolino-1885e3187a77",
       "slug": "verkaufsmitarbeiter-in-migrolino-zurich",
       "slugByLocale": {
-        "de": "verkaufsmitarbeiter-in-migrolino-zurich",
         "it": "verkaufsmitarbeiter-in-migrolino-zurich",
         "en": "verkaufsmitarbeiter-in-migrolino-zurich",
+        "de": "verkaufsmitarbeiter-in-migrolino-zurich",
         "fr": "verkaufsmitarbeiter-in-migrolino-zurich"
       },
       "company": "migrolino",
@@ -941,24 +963,24 @@
       "companyDomain": "migrolino.ch",
       "title": "Verkaufsmitarbeiter*in",
       "titleByLocale": {
-        "de": "Verkaufsmitarbeiter*in",
         "it": "Verkaufsmitarbeiter*in",
         "en": "Verkaufsmitarbeiter*in",
+        "de": "Verkaufsmitarbeiter*in",
         "fr": "Verkaufsmitarbeiter*in"
       },
       "description": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%",
       "descriptionByLocale": {
+        "it": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ##\n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%",
+        "en": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ##\n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%",
         "de": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%",
-        "it": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%",
-        "en": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%",
-        "fr": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%"
+        "fr": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Hofwiesenstrasse 369, 8050 Zürich ## Wichtige Hinweise Dein Kontakt: Vijolca Krasniqi, vijolca.krasniqi@migrolino.com ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ##\n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 20-100%"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/dff799cb-4396-47ff-badb-481627862e74",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:55.181Z",
+      "crawledAt": "2026-10-01T21:20:08.632Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hofwiesenstrasse 369",
@@ -974,9 +996,7 @@
       "postedDate": "2026-09-30",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/dff799cb-4396-47ff-badb-481627862e74",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -998,7 +1018,7 @@
       "slugByLocale": {
         "it": "personale-di-vendita-migrolino-interlaken-b79dd7",
         "en": "sales-staff-migrolino-interlaken-b79dd7",
-        "de": "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk",
+        "de": "verkaufsmitarbeiter-in-migrolino-interlaken",
         "fr": "personnel-de-vente-migrolino-interlaken-b79dd7"
       },
       "company": "migrolino",
@@ -1042,6 +1062,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
+          "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk",
           "verkaufsmitarbeiter-in-migrolino-interlaken"
         ],
         "it": [
@@ -1081,7 +1102,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "migrolino-cd61b4461710",
@@ -1188,7 +1209,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
