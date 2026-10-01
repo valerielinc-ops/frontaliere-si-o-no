@@ -179,6 +179,7 @@ describe('isAutonomousCollisionPr — provenienza del keeper prima della propaga
     expect(isAutonomousCollisionPr({ headRefName: 'fix/issue-10544', labels: [] })).toBe(true);
     expect(isAutonomousCollisionPr({ headRefName: 'manual-review', labels: [{ name: 'agent:autofix' }] })).toBe(true);
     expect(isAutonomousCollisionPr({ headRefName: 'manual-review', author: { isBot: true }, labels: [] })).toBe(true);
+    expect(isAutonomousCollisionPr({ headRefName: 'fix/issue-10544', labels: [{ name: 'needs-human' }] })).toBe(false);
   });
 
   it('fallisce chiuso con una PR illeggibile', () => {

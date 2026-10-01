@@ -77,11 +77,13 @@ function labelNames(pr) {
  */
 export function isAutonomousCollisionPr(pr) {
   if (!pr || typeof pr !== 'object') return false;
+  const labels = labelNames(pr);
+  if (labels.includes('needs-human')) return false;
   const ref = String(pr.headRefName || pr.headRef || '');
   if (ref.startsWith('fix/') || ref.startsWith('automerge-')) return true;
   if (pr.authorType === 'Bot') return true;
   if (pr.author?.type === 'Bot' || pr.author?.isBot === true || pr.author?.is_bot === true) return true;
-  return labelNames(pr).includes(AUTOFIX_LABEL);
+  return labels.includes(AUTOFIX_LABEL);
 }
 
 // Glob funnel-critical → predicate. Manteniamo i pattern espliciti e ristretti:
