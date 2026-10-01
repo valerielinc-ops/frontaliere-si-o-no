@@ -398,13 +398,14 @@ async function main() {
   let fatal = false;
 
   // The hub HTML and the client registry are two representations of the same
-  // article snapshot. Publish companions and registries before rendering any
-  // hub: renderHubsAndOffload includes the CDN offload, so a hub must never
-  // become servable before its matching client assets exist. Strict mode also
-  // requires every upload and purge to succeed. On the armed workflow this
-  // runs inside the shared section lease.
-  assertArticleChunkLease({ required: leaseRequired });
-  await publishClientChunks(sections, args.dryRun);
+  // article snapshot. Render and validate every target section before
+  // publishing any client chunk: the corpus-freshness guard needs the rendered
+  // item count, and a stale checkout must not upload a registry only to fail
+  // before its matching hub can be pushed. Once every section has passed its
+  // local and freshness gates, strict companion/registry publication happens
+  // before the shard push so a hub never becomes servable before its matching
+  // client assets exist. On the armed workflow this all runs inside the shared
+  // section lease.
 
   for (const section of sections) {
     // A scratch dist PER SECTION. Not an optimisation — the CDN offload is a
@@ -485,6 +486,13 @@ async function main() {
     console.error(`${LOG} validation failed — nothing pushed`);
     process.exit(1);
   }
+
+  // No external client asset may move until every rendered section has passed
+  // the freshness check above. Strict mode requires every upload and purge to
+  // succeed; the lease is rechecked after the render, which may be long enough
+  // for the watcher to report a loss.
+  assertArticleChunkLease({ required: leaseRequired });
+  await publishClientChunks(sections, args.dryRun);
 
   if (args.dryRun) {
     console.log(`${LOG} --dry-run set — rendered and validated, pushed nothing`);
