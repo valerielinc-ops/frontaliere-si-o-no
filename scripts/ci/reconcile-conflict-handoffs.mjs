@@ -22,13 +22,15 @@
  *      `completed` (riapplicazione mergiata, keyword non eseguita da GitHub);
  *   3. la PR di origine e' MERGED → chiusa `completed`;
  *   4. la PR di origine e' OPEN, il conflitto e' rientrato (`handoffResolution`,
- *      la stessa regola del pre-flight) e nessuna PR la sta riapplicando →
- *      chiusa `completed`;
+ *      la stessa regola del pre-flight: mergeable E `has-conflicts` tolta da
+ *      pr-autorebase dopo l'apertura dell'hand-off, cioe' merge-tree pulito) e
+ *      nessuna PR la sta riapplicando → chiusa `completed`;
  *   altrimenti resta aperta: c'e' ancora un contributo da riapplicare.
- * Solo segnali deterministici: stato GitHub della PR, label `has-conflicts`
- * scritta da merge-tree, keyword di una PR mergiata. Mai un match di contenuto.
- * Un hand-off con `agent:in-progress` non si tocca (il fixer ci sta lavorando:
- * decide il tick dopo). Qualunque lettura fallita → la issue resta com'e'.
+ * Solo segnali deterministici: stato GitHub della PR, eventi della label
+ * `has-conflicts` scritta da merge-tree, keyword di una PR mergiata. Mai un
+ * match di contenuto. Un hand-off con `agent:in-progress` non si tocca (il
+ * fixer ci sta lavorando: decide il tick dopo), e la label si rilegge dal vivo
+ * subito prima di chiudere. Qualunque lettura fallita → la issue resta com'e'.
  *
  * Uso:  node scripts/ci/reconcile-conflict-handoffs.mjs
  * Env:  GH_TOKEN (issues: write, pull-requests: read), GH_REPO o
@@ -40,10 +42,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  conflictClearedAfter,
   conflictHandoffExpectedHead,
   conflictHandoffOriginPr,
+  conflictLabelEventsArgs,
   handoffResolution,
+  parseConflictLabelEvents,
 } from './check-issue-already-resolved.mjs';
+import { closedIssueRefs } from './followup-resolution-match.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { CLAIM_LABEL } from './stale-claim-detector.mjs';
 
@@ -83,11 +89,16 @@ function ghJson(args) {
 
 const numberRef = (n) => `#${Number(n)}(?!\\d)`;
 
-/** Una PR (body) dichiara di chiudere la issue? Una keyword per issue, come GitHub. Pura. */
-export function declaresClosing(body, issueNumber) {
-  return new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\s*:?\\s+${numberRef(issueNumber)}`, 'i')
-    .test(String(body || ''));
+/**
+ * Una PR (titolo + body) dichiara di chiudere la issue? Stesso parser del
+ * segnale «PR mergiata con keyword» del pre-flight (`closedIssueRefs`), che
+ * legge anche `Closes #a #b` e il titolo. Pura.
+ */
+export function declaresClosing(text, issueNumber) {
+  return closedIssueRefs(String(text || '')).includes(Number(issueNumber));
 }
+
+const prText = (pr) => `${pr?.title || ''}\n${pr?.body || ''}`;
 
 /** Una PR (body) dichiara di sostituire la PR di origine? Pura. */
 export function declaresSupersede(body, originNumber) {
@@ -102,8 +113,8 @@ export function declaresSupersede(body, originNumber) {
 export function reapplyInFlight(openPrs, { issueNumber, originNumber }) {
   return (openPrs || []).find((pr) => Number(pr?.number) !== Number(originNumber) && (
     new RegExp(`(^|/)issue-${Number(issueNumber)}$`).test(String(pr?.headRefName || ''))
-    || declaresClosing(pr?.body, issueNumber)
-    || declaresSupersede(pr?.body, originNumber)
+    || declaresClosing(prText(pr), issueNumber)
+    || declaresSupersede(prText(pr), originNumber)
   )) || null;
 }
 
@@ -146,18 +157,19 @@ export function groupHandoffs(issues, openPrs = []) {
  * @param {object} p
  * @param {{number:number, title:string, body:string, labels:any[]}} p.issue
  * @param {object|null} p.origin  `gh pr view --json state,mergedAt,mergeable,mergeStateStatus,headRefOid,labels`
- * @param {Array<{number:number, body:string}>|null} p.mergedPrs
- * @param {Array<{number:number, headRefName:string, body:string}>|null} p.openPrs
+ * @param {Array<{number:number, title?:string, body:string}>|null} p.mergedPrs
+ * @param {Array<{number:number, headRefName:string, title?:string, body:string}>|null} p.openPrs
+ * @param {Array<object>|null} [p.conflictEvents]  eventi `has-conflicts` della PR di origine (`parseConflictLabelEvents`)
  * @returns {{ action: 'close'|'keep', reason: string, pr?: number }}
  */
-export function decideHandoff({ issue, origin, mergedPrs, openPrs }) {
+export function decideHandoff({ issue, origin, mergedPrs, openPrs, conflictEvents = null }) {
   const originNumber = conflictHandoffOriginPr(issue?.title);
   if (originNumber === null) return { action: 'keep', reason: 'not-a-handoff' };
   if (labelNames(issue).includes(CLAIM_LABEL)) return { action: 'keep', reason: 'claim-active' };
 
   if (Array.isArray(mergedPrs)) {
     const replacement = mergedPrs.find((pr) => Number(pr?.number) !== originNumber && (
-      declaresClosing(pr?.body, issue.number) || declaresSupersede(pr?.body, originNumber)
+      declaresClosing(prText(pr), issue.number) || declaresSupersede(prText(pr), originNumber)
     ));
     if (replacement) return { action: 'close', reason: 'reapplied', pr: Number(replacement.number) };
   }
@@ -173,7 +185,10 @@ export function decideHandoff({ issue, origin, mergedPrs, openPrs }) {
   const inFlight = reapplyInFlight(openPrs, { issueNumber: issue.number, originNumber });
   if (inFlight) return { action: 'keep', reason: 'reapply-in-flight', pr: Number(inFlight.number) };
 
-  const verdict = handoffResolution(origin, { expectedHead: conflictHandoffExpectedHead(issue.body) });
+  const verdict = handoffResolution(origin, {
+    expectedHead: conflictHandoffExpectedHead(issue.body),
+    conflictClearedAfterOpen: conflictClearedAfter(conflictEvents, issue.created_at ?? issue.createdAt),
+  });
   if (verdict.resolved) return { action: 'close', reason: verdict.reason, pr: originNumber };
   return { action: 'keep', reason: verdict.reason };
 }
@@ -184,8 +199,8 @@ export function closingComment({ reason, pr, originNumber, keeper }) {
     duplicate: `è un duplicato di #${keeper}: stesso hand-off della PR #${originNumber}, aperto da una seconda run concorrente di \`pr-autorebase\`. Il lavoro prosegue su #${keeper}.`,
     reapplied: `la PR **#${pr}**, già mergiata, riapplica la PR #${originNumber} (\`Closes\`/\`Supersedes\`), ma GitHub non ha chiuso questa issue.`,
     'origin-merged': `la PR di origine **#${originNumber}** è stata mergiata: il conflitto è stato risolto sul suo branch e il contributo è su \`main\`. Una riapplicazione sarebbe un duplicato.`,
-    'conflict-resolved': `la PR di origine **#${originNumber}** è di nuovo mergeable sulla stessa HEAD: il conflitto è rientrato e la PR prosegue nel proprio ciclo di review e merge.`,
-    'conflict-resolved-new-head': `la PR di origine **#${originNumber}** ha una HEAD nuova, mergeable e senza \`has-conflicts\` (merge-tree pulito): il conflitto è stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge.`,
+    'conflict-resolved': `la PR di origine **#${originNumber}** è di nuovo mergeable sulla stessa HEAD e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è rientrato e la PR prosegue nel proprio ciclo di review e merge.`,
+    'conflict-resolved-new-head': `la PR di origine **#${originNumber}** ha una HEAD nuova, mergeable, e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge.`,
   }[reason];
   return [
     RECONCILE_MARKER,
@@ -225,7 +240,26 @@ function readOrigin(num) {
     '--json', 'state,mergedAt,mergeable,mergeStateStatus,headRefOid,labels']);
 }
 
+function readConflictEvents(num) {
+  return parseConflictLabelEvents(gh(conflictLabelEventsArgs(REPO, num)));
+}
+
+/**
+ * Stato dal vivo subito prima della chiusura: tra la lista letta a inizio run e
+ * questo momento il fixer puo' aver preso il claim, o qualcuno averla chiusa.
+ * Lettura fallita → non chiudere. Pura sull'oggetto letto.
+ */
+export function stillClosable(live) {
+  return String(live?.state || '').toUpperCase() === 'OPEN'
+    && Array.isArray(live?.labels)
+    && !labelNames(live).includes(CLAIM_LABEL);
+}
+
 function closeIssue(number, { reason, comment, keeper }) {
+  if (!stillClosable(ghJson(['issue', 'view', String(number), '--repo', REPO, '--json', 'state,labels']))) {
+    console.log(`#${number}: claim preso, gia' chiusa o stato illeggibile subito prima della chiusura → resta com'e'.`);
+    return false;
+  }
   if (gh(['issue', 'comment', String(number), '--repo', REPO, '--body', comment]) === null) return false;
   if (reason === 'duplicate') {
     // `--duplicate-of` dove il `gh` del runner lo conosce, altrimenti «not
@@ -252,9 +286,9 @@ function main() {
     return;
   }
   const openPrs = ghJson(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '300',
-    '--json', 'number,headRefName,body']);
+    '--json', 'number,headRefName,title,body']);
   const mergedPrs = ghJson(['pr', 'list', '--repo', REPO, '--state', 'merged',
-    '--limit', String(MERGED_PR_WINDOW), '--json', 'number,body']);
+    '--limit', String(MERGED_PR_WINDOW), '--json', 'number,title,body']);
 
   const budget = runBudgetFromEnv();
   const actions = [];
@@ -269,7 +303,10 @@ function main() {
       actions.push({ issue: dup, reason: 'duplicate', originNumber: origin, keeper: keeper.number });
     }
     if (!budget.take(`#${keeper.number}`, 2_000)) continue;
-    const decision = decideHandoff({ issue: keeper, origin: readOrigin(origin), mergedPrs, openPrs });
+    const originPr = readOrigin(origin);
+    // Gli eventi servono solo a una PR di origine aperta (prova da merge-tree).
+    const conflictEvents = String(originPr?.state || '').toUpperCase() === 'OPEN' ? readConflictEvents(origin) : null;
+    const decision = decideHandoff({ issue: keeper, origin: originPr, mergedPrs, openPrs, conflictEvents });
     console.log(`#${keeper.number} (PR di origine #${origin}): ${decision.action} — ${decision.reason}${decision.pr ? ` (#${decision.pr})` : ''}`);
     if (decision.action === 'close') {
       actions.push({ issue: keeper, reason: decision.reason, pr: decision.pr, originNumber: origin });

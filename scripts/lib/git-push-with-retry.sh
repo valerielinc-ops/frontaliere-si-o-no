@@ -22,6 +22,9 @@
 #     with linear backoff (capped at 12s) + random jitter added after the cap
 #     (min(attempt * 2, 12) + random[0..attempt] s) to desynchronise
 #     concurrent retrying workflows (thundering-herd guard).
+#   - A push declined by a repository ruleset or protected branch (GH013 /
+#     GH006, see scripts/lib/git-push-rejection.sh) is not retried: exit 1 at
+#     once, also under --soft-fail-exhausted.
 #   - Uses an explicit non-thin pack with delta search disabled. GitHub Actions
 #     checkouts are shallow by default, so the default thin-pack delta search
 #     can spend most of the job looking for unavailable history (#10319).
@@ -152,6 +155,9 @@ done
 # github-actions[bot]. Fail closed instead. Origin URLs that are not
 # github.com (local helper tests) are left alone by the configure script.
 bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
+
+# shellcheck source=scripts/lib/git-push-rejection.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/git-push-rejection.sh"
 
 run_regenerate_with_retry() {
   local regenerate_attempt=1
@@ -334,7 +340,28 @@ attempt=1
 # Actions checkouts are shallow. A complete pack with no delta-window search
 # keeps generated-data pushes bounded instead of making Git walk history that
 # is not present locally (issue #10319).
-until git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}"; do
+#
+# git's stderr (the push transcript) is kept in a file so a declined push can
+# be classified, then re-emitted on stderr: callers keep reading it from the
+# same stream as before.
+PUSH_STDERR_FILE="$(mktemp)"
+trap 'rm -f -- "$PUSH_STDERR_FILE"' EXIT
+push_head() {
+  local status=0
+  git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
+    2>"$PUSH_STDERR_FILE" || status=$?
+  cat -- "$PUSH_STDERR_FILE" >&2
+  return "$status"
+}
+until push_head; do
+  # A ruleset / protected-branch decline is not a ref race: the rebase below
+  # cannot change the verdict, and --soft-fail-exhausted does not apply (it
+  # covers a lost race whose delta the next run recaptures, while a declined
+  # identity is declined on every run).
+  if git_push_rejection_is_permanent "$(cat -- "$PUSH_STDERR_FILE")"; then
+    echo "::error::Push to ${BRANCH} declined by a repository rule (GH013/GH006): not a ref race, rebasing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+    exit 1
+  fi
   if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
     if [ -n "$SOFT_FAIL_EXHAUSTED" ]; then
       echo "::warning::Failed to push after $MAX_ATTEMPTS attempts (soft-fail: this run's delta will be recaptured by the next invocation)"

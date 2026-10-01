@@ -35,7 +35,11 @@ function timestampMillis(value) {
 
 function documentData(snapshot) {
   const value = snapshot?.data;
-  return typeof value === 'function' ? value() || {} : value || {};
+  // Firestore's QueryDocumentSnapshot.data() reads its internal fields through
+  // `this`: called detached it throws "Cannot read properties of undefined
+  // (reading '_fieldsProto')" (saved-jobs digest, run 36446412369). Keep the
+  // receiver, as scripts/lib/applicationIntentReminder.mjs#snapshotData does.
+  return typeof value === 'function' ? value.call(snapshot) || {} : value || {};
 }
 
 function documentKey(snapshot) {

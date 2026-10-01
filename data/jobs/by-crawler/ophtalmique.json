@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ophtalmique",
-  "assembledAt": "2026-09-30T21:27:28.078Z",
+  "assembledAt": "2026-10-01T09:25:06.919Z",
   "jobs": [
     {
       "id": "ophtalmique-2728ce96d6d5",
@@ -34,7 +34,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1913",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:27:22.458Z",
+      "crawledAt": "2026-10-01T09:25:00.629Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,6 +66,87 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:28:36.058Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ophtalmique-337e33db4129",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+      "slugByLocale": {
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "en": "community-health-and-care-assistant-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "de": "assistent-e-en-soins-et-sante-communautaire-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+      },
+      "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
+      "companyKey": "ophtalmique",
+      "companyDomain": "ophtalmique.ch",
+      "title": "Assistant-e en soins et santé communautaire",
+      "titleByLocale": {
+        "it": "Assistente per la salute e la cura della Comunità",
+        "en": "Community Health and Care Assistant",
+        "de": "Assistent-e en soins et santé communautaire",
+        "fr": "Assistant-e en soins et santé communautaire"
+      },
+      "description": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 650 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe, nous recherchons un-e\n\nAssistant-e en soins et santé communautaire\n\nVotre mission\n\n• Assurer le bien-être du résident au travers des activités de la vie quotidienne et proposer des adaptations d'offre en soins issues de votre analyse.\n\n• Etre partie prenante de l'accompagnement social et récréatif du résident.\n\n• Effectuer des actes médico-délégués.\n\nVos atouts\n\n• CFC d'assistant/e en soins et santé communautaire\n\n• Maîtrise de la langue française parlée et écrite\n\n• Maîtrise des outils informatiques usuels\n\n• Intérêt pour le travail en gériatrie et/ou expérience dans ce domaine\n\n• Connaissances et/ou formation à la philosophie Humanitude ® un réel atout\n\n• Aptitude à prodiguer des soins de base personnalisés\n\n• Sens aigu de l'interdisciplinarité et de la pluridisciplinarité\n\n• Capacité de réflexion et d'analyse\n\n• Respect et valorisation du travail en équipe\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\n Taux d'activité: 80-100%\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction: A convenir\nLieu de travail: EMS Clair-Soleil, Ecublens\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD).",
+      "descriptionByLocale": {
+        "it": "Fondata a Losanna nel 1843, l'Asylum Foundation for the Blind comprende il Jules-Gonin Ophthalmic Hospital, un dipartimento universitario di oftalmologia, un centro di ricerca, il Centre pédagogique pour épupils handicapés de la vue (CPHV), il servizio sociale, la riabilitazione e la visione bassa e lo stabilimento medico-sociale Clair-Soleil.\n\nPiù di 650 dipendenti lavorano ogni giorno al servizio della salute visiva per offrire servizi di diagnostica, trattamento e accompagnamento a persone con visione.\n\nPer completare il nostro team, stiamo cercando un\n\nAssistente per la salute e la cura della Comunità\n\nLa tua missione\n\n• Per garantire il benessere del residente attraverso le attività della vita quotidiana e proporre adattamenti di cura offerti dalla vostra analisi.\n\n• Partecipa al sostegno sociale e ricreativo del residente.\n\n• Eseguire atti medico-delegati.\n\nI vostri beni\n\n• SWC Community Health and Care Assistant\n\n• Mastery della lingua francese parlata e scritta\n\n• Mastery di strumenti informatici comuni\n\n• Interessi e/o esperienza nel lavoro geriatrico\n\n• Conoscenza e/o formazione filosofia Humanitude ® un vero bene\n\n• Capacità di fornire cure di base personalizzate\n\n• Senso di interdisciplinarità e multidisciplinarità\n\n• Riflessione e capacità analitiche\n\n• Rispetto e valore del lavoro di squadra\n\nVi offriamo\n\nUn'attività arricchente all'interno di un ambiente dinamico dove è possibile mostrare i vostri talenti, formazione specifica per la nostra missione, condizioni di stipendio relative alle vostre abilità.\nTasso di attività: 80-100%\nNatura del contratto: Contratto di durata indefinita\nEntrata in ufficio: da concordare\nLuogo di lavoro: EMS Clair-Soleil, Ecublens\n\nApplicare\n\nFondazione di asilo per il cieco — Ospedale oftalmico Jules Gonin, Losanna (VD).",
+        "en": "Founded in Lausanne in 1843, the Asylum Foundation for the Blind includes the Jules-Gonin Ophthalmic Hospital, a university department of ophthalmology, a research centre, the Centre pédagogique pour épupils handicapés de la vue (CPHV), the social service, rehabilitation and low vision and the medical-social establishment Clair-Soleil.\n\nMore than 650 employees work every day in the service of visual health to offer diagnostic, treatment and accompaniment services to people with vision.\n\nTo complement our team, we are looking for a\n\nCommunity Health and Care Assistant\n\nYour Mission\n\n• To ensure the well-being of the resident through the activities of daily life and to propose adaptations of care offered from your analysis.\n\n• Be part of the social and recreational support of the resident.\n\n• Perform medico-delegated acts.\n\nYour assets\n\n• SWC Community Health and Care Assistant\n\n• Mastery of the French language spoken and written\n\n• Mastery of common computer tools\n\n• Interest and/or experience in geriatrics work\n\n• Knowledge and/or philosophy training Humanitude ® a real asset\n\n• Ability to provide personalized basic care\n\n• Acute sense of interdisciplinarity and multidisciplinarity\n\n• Reflection and analytical capacity\n\n• Respect and value of teamwork\n\nWe offer you\n\nAn enriching activity within a dynamic environment where you can showcase your talents, specific training for our mission, salary conditions related to your skills.\nActivity rate: 80-100%\nNature of contract: Contract of indefinite duration\nEntry into office: To be agreed\nPlace of work: EMS Clair-Soleil, Ecublens\n\nApply\n\nAsylum Foundation for the Blind — Jules Gonin Ophthalmic Hospital, Lausanne (VD).",
+        "de": "Die 1843 in Lausanne gegründete Asylstiftung für Blinde umfasst das Augenkrankenhaus Jules-Gonin, eine Universitätsabteilung für Augenheilkunde, ein Forschungszentrum, das Centre pédagogique pour épupils handicapés de la vue (CPHV), den Sozialdienst, die Rehabilitation und das Sehvermögen sowie die medizinisch-soziale Einrichtung Clair-Soleil.\n\nMehr als 650 Mitarbeiter arbeiten täglich im Dienste der visuellen Gesundheit, um Diagnostik, Behandlung und Begleitung für Menschen mit Sehvermögen anzubieten.\n\nUm unser Team zu ergänzen, suchen wir eine\n\nCommunity Health und Care Assistant\n\nDeine Mission\n\n• Um das Wohlbefinden des Bewohners durch die Aktivitäten des täglichen Lebens zu gewährleisten und aus Ihrer Analyse angebotene Anpassungen der Pflege vorzuschlagen.\n\n• Seien Sie Teil der sozialen und Freizeitunterstützung des Bewohners.\n\n• Führen Sie medizinisch delegierte Handlungen durch.\n\nIhre Vermögenswerte\n\n• SWC Community Health und Care Assistant\n\n• Beherrschung der französischen Sprache gesprochen und geschrieben\n\n• Beherrschung gemeinsamer Computer-Tools\n\n• Interesse und / oder Erfahrung in der Geriatrie Arbeit\n\n• Wissen und / oder Philosophie Ausbildung Humanitude ® ein echtes Kapital\n\n• Fähigkeit zur personalisierten Grundversorgung\n\n• Akuter Sinn für Interdisziplinarität und Multidisziplinarität\n\n• Reflexions- und Analysefähigkeit\n\n• Respekt und Wert der Teamarbeit\n\nWir bieten Ihnen\n\nEine bereichernde Aktivität in einem dynamischen Umfeld, in dem Sie Ihre Talente, spezifische Schulungen für unsere Mission und Gehaltsbedingungen in Bezug auf Ihre Fähigkeiten präsentieren können.\nAktivitätsrate: 80-100%\nArt des Vertrags: unbefristeter Vertrag\nAmtsantritt: noch zu vereinbaren\nArbeitsort: EMS Clair-Soleil, Ecublens\n\nBeantragen\n\nAsylstiftung für Blinde — Krankenhaus Jules Gonin, Lausanne (VD).",
+        "fr": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 650 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe, nous recherchons un-e\n\nAssistant-e en soins et santé communautaire\n\nVotre mission\n\n• Assurer le bien-être du résident au travers des activités de la vie quotidienne et proposer des adaptations d'offre en soins issues de votre analyse.\n\n• Etre partie prenante de l'accompagnement social et récréatif du résident.\n\n• Effectuer des actes médico-délégués.\n\nVos atouts\n\n• CFC d'assistant/e en soins et santé communautaire\n\n• Maîtrise de la langue française parlée et écrite\n\n• Maîtrise des outils informatiques usuels\n\n• Intérêt pour le travail en gériatrie et/ou expérience dans ce domaine\n\n• Connaissances et/ou formation à la philosophie Humanitude ® un réel atout\n\n• Aptitude à prodiguer des soins de base personnalisés\n\n• Sens aigu de l'interdisciplinarité et de la pluridisciplinarité\n\n• Capacité de réflexion et d'analyse\n\n• Respect et valorisation du travail en équipe\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\nTaux d'activité: 80-100%\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction: A convenir\nLieu de travail: EMS Clair-Soleil, Ecublens\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD)."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
+      "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-01T09:25:00.101Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1004",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-11",
+      "applyUrl": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "careerSiteUrl": "https://emploi.ophtalmique.ch/",
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
+        "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
+          "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+        ],
+        "de": [
+          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-08-11T22:12:19.023Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -161,88 +242,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "ophtalmique-337e33db4129",
-      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-      "slugByLocale": {
-        "it": "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "en": "community-health-and-care-assistant-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "de": "assistent-e-en-soins-et-sante-communautaire-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "fr": "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
       },
-      "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-      "companyKey": "ophtalmique",
-      "companyDomain": "ophtalmique.ch",
-      "title": "Assistant-e en soins et santé communautaire",
-      "titleByLocale": {
-        "it": "Assistente per la salute e la cura della Comunità",
-        "en": "Community Health and Care Assistant",
-        "de": "Assistent-e en soins et santé communautaire",
-        "fr": "Assistant-e en soins et santé communautaire"
-      },
-      "description": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 650 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe, nous recherchons un-e\n\nAssistant-e en soins et santé communautaire\n\nVotre mission\n\n• Assurer le bien-être du résident au travers des activités de la vie quotidienne et proposer des adaptations d'offre en soins issues de votre analyse.\n\n• Etre partie prenante de l'accompagnement social et récréatif du résident.\n\n• Effectuer des actes médico-délégués.\n\nVos atouts\n\n• CFC d'assistant/e en soins et santé communautaire\n\n• Maîtrise de la langue française parlée et écrite\n\n• Maîtrise des outils informatiques usuels\n\n• Intérêt pour le travail en gériatrie et/ou expérience dans ce domaine\n\n• Connaissances et/ou formation à la philosophie Humanitude ® un réel atout\n\n• Aptitude à prodiguer des soins de base personnalisés\n\n• Sens aigu de l'interdisciplinarité et de la pluridisciplinarité\n\n• Capacité de réflexion et d'analyse\n\n• Respect et valorisation du travail en équipe\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\n Taux d'activité: 80-100%\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction: A convenir\nLieu de travail: EMS Clair-Soleil, Ecublens\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD).",
-      "descriptionByLocale": {
-        "it": "Fondata a Losanna nel 1843, l'Asylum Foundation for the Blind comprende il Jules-Gonin Ophthalmic Hospital, un dipartimento universitario di oftalmologia, un centro di ricerca, il Centre pédagogique pour épupils handicapés de la vue (CPHV), il servizio sociale, la riabilitazione e la visione bassa e lo stabilimento medico-sociale Clair-Soleil.\n\nPiù di 650 dipendenti lavorano ogni giorno al servizio della salute visiva per offrire servizi di diagnostica, trattamento e accompagnamento a persone con visione.\n\nPer completare il nostro team, stiamo cercando un\n\nAssistente per la salute e la cura della Comunità\n\nLa tua missione\n\n• Per garantire il benessere del residente attraverso le attività della vita quotidiana e proporre adattamenti di cura offerti dalla vostra analisi.\n\n• Partecipa al sostegno sociale e ricreativo del residente.\n\n• Eseguire atti medico-delegati.\n\nI vostri beni\n\n• SWC Community Health and Care Assistant\n\n• Mastery della lingua francese parlata e scritta\n\n• Mastery di strumenti informatici comuni\n\n• Interessi e/o esperienza nel lavoro geriatrico\n\n• Conoscenza e/o formazione filosofia Humanitude ® un vero bene\n\n• Capacità di fornire cure di base personalizzate\n\n• Senso di interdisciplinarità e multidisciplinarità\n\n• Riflessione e capacità analitiche\n\n• Rispetto e valore del lavoro di squadra\n\nVi offriamo\n\nUn'attività arricchente all'interno di un ambiente dinamico dove è possibile mostrare i vostri talenti, formazione specifica per la nostra missione, condizioni di stipendio relative alle vostre abilità.\nTasso di attività: 80-100%\nNatura del contratto: Contratto di durata indefinita\nEntrata in ufficio: da concordare\nLuogo di lavoro: EMS Clair-Soleil, Ecublens\n\nApplicare\n\nFondazione di asilo per il cieco — Ospedale oftalmico Jules Gonin, Losanna (VD).",
-        "en": "Founded in Lausanne in 1843, the Asylum Foundation for the Blind includes the Jules-Gonin Ophthalmic Hospital, a university department of ophthalmology, a research centre, the Centre pédagogique pour épupils handicapés de la vue (CPHV), the social service, rehabilitation and low vision and the medical-social establishment Clair-Soleil.\n\nMore than 650 employees work every day in the service of visual health to offer diagnostic, treatment and accompaniment services to people with vision.\n\nTo complement our team, we are looking for a\n\nCommunity Health and Care Assistant\n\nYour Mission\n\n• To ensure the well-being of the resident through the activities of daily life and to propose adaptations of care offered from your analysis.\n\n• Be part of the social and recreational support of the resident.\n\n• Perform medico-delegated acts.\n\nYour assets\n\n• SWC Community Health and Care Assistant\n\n• Mastery of the French language spoken and written\n\n• Mastery of common computer tools\n\n• Interest and/or experience in geriatrics work\n\n• Knowledge and/or philosophy training Humanitude ® a real asset\n\n• Ability to provide personalized basic care\n\n• Acute sense of interdisciplinarity and multidisciplinarity\n\n• Reflection and analytical capacity\n\n• Respect and value of teamwork\n\nWe offer you\n\nAn enriching activity within a dynamic environment where you can showcase your talents, specific training for our mission, salary conditions related to your skills.\nActivity rate: 80-100%\nNature of contract: Contract of indefinite duration\nEntry into office: To be agreed\nPlace of work: EMS Clair-Soleil, Ecublens\n\nApply\n\nAsylum Foundation for the Blind — Jules Gonin Ophthalmic Hospital, Lausanne (VD).",
-        "de": "Die 1843 in Lausanne gegründete Asylstiftung für Blinde umfasst das Augenkrankenhaus Jules-Gonin, eine Universitätsabteilung für Augenheilkunde, ein Forschungszentrum, das Centre pédagogique pour épupils handicapés de la vue (CPHV), den Sozialdienst, die Rehabilitation und das Sehvermögen sowie die medizinisch-soziale Einrichtung Clair-Soleil.\n\nMehr als 650 Mitarbeiter arbeiten täglich im Dienste der visuellen Gesundheit, um Diagnostik, Behandlung und Begleitung für Menschen mit Sehvermögen anzubieten.\n\nUm unser Team zu ergänzen, suchen wir eine\n\nCommunity Health und Care Assistant\n\nDeine Mission\n\n• Um das Wohlbefinden des Bewohners durch die Aktivitäten des täglichen Lebens zu gewährleisten und aus Ihrer Analyse angebotene Anpassungen der Pflege vorzuschlagen.\n\n• Seien Sie Teil der sozialen und Freizeitunterstützung des Bewohners.\n\n• Führen Sie medizinisch delegierte Handlungen durch.\n\nIhre Vermögenswerte\n\n• SWC Community Health und Care Assistant\n\n• Beherrschung der französischen Sprache gesprochen und geschrieben\n\n• Beherrschung gemeinsamer Computer-Tools\n\n• Interesse und / oder Erfahrung in der Geriatrie Arbeit\n\n• Wissen und / oder Philosophie Ausbildung Humanitude ® ein echtes Kapital\n\n• Fähigkeit zur personalisierten Grundversorgung\n\n• Akuter Sinn für Interdisziplinarität und Multidisziplinarität\n\n• Reflexions- und Analysefähigkeit\n\n• Respekt und Wert der Teamarbeit\n\nWir bieten Ihnen\n\nEine bereichernde Aktivität in einem dynamischen Umfeld, in dem Sie Ihre Talente, spezifische Schulungen für unsere Mission und Gehaltsbedingungen in Bezug auf Ihre Fähigkeiten präsentieren können.\nAktivitätsrate: 80-100%\nArt des Vertrags: unbefristeter Vertrag\nAmtsantritt: noch zu vereinbaren\nArbeitsort: EMS Clair-Soleil, Ecublens\n\nBeantragen\n\nAsylstiftung für Blinde — Krankenhaus Jules Gonin, Lausanne (VD).",
-        "fr": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 650 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe, nous recherchons un-e\n\nAssistant-e en soins et santé communautaire\n\nVotre mission\n\n• Assurer le bien-être du résident au travers des activités de la vie quotidienne et proposer des adaptations d'offre en soins issues de votre analyse.\n\n• Etre partie prenante de l'accompagnement social et récréatif du résident.\n\n• Effectuer des actes médico-délégués.\n\nVos atouts\n\n• CFC d'assistant/e en soins et santé communautaire\n\n• Maîtrise de la langue française parlée et écrite\n\n• Maîtrise des outils informatiques usuels\n\n• Intérêt pour le travail en gériatrie et/ou expérience dans ce domaine\n\n• Connaissances et/ou formation à la philosophie Humanitude ® un réel atout\n\n• Aptitude à prodiguer des soins de base personnalisés\n\n• Sens aigu de l'interdisciplinarité et de la pluridisciplinarité\n\n• Capacité de réflexion et d'analyse\n\n• Respect et valorisation du travail en équipe\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\nTaux d'activité: 80-100%\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction: A convenir\nLieu de travail: EMS Clair-Soleil, Ecublens\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD)."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
-      "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:27:21.612Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1004",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-11",
-      "applyUrl": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "careerSiteUrl": "https://emploi.ophtalmique.ch/",
-      "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
-        "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
-          "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
-        ],
-        "en": [
-          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
-        ],
-        "de": [
-          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-08-11T22:12:19.023Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     },
     {
       "id": "ophtalmique-873336799c3e",
@@ -362,7 +363,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

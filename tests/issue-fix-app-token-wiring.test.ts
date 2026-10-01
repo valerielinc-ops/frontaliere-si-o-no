@@ -100,8 +100,10 @@ describe('issue-fix.yml — App token wiring', () => {
     // Trap #2 is LATER and was missed for weeks: claude-code-action rewrites this same
     // remote when it starts. It is pinned by the `github_token` block further down — this
     // step alone does NOT make the App token survive to `git push`.
-    expect(git).toContain('--unset-all');
-    expect(git).toContain('http.https://github.com/.extraheader');
+    // Since actions/checkout v6 (v7 here) the header is no longer in .git/config but
+    // in an includeIf'd `git-credentials-*.config`, which `--unset-all` never sees:
+    // the step must go through the shared helper that removes both shapes.
+    expect(git).toContain('bash scripts/lib/clear-checkout-git-credentials.sh');
     // And it must stay conditional: with no token, rewriting the remote to
     // `x-access-token:@github.com` would break pushes that work today.
     expect(git).toMatch(/if \[ -n "\$\{APP_TOKEN:-\}" \]/);

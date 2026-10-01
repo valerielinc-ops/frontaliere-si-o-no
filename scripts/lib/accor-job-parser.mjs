@@ -22,6 +22,7 @@ import {
 } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
+import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { createSpecUrlPolicy, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -265,7 +266,7 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings({ fetchImpl = fetch } = {}) {
+async function fetchJobListings({ fetchImpl } = {}) {
   const spec = loadSpec(ACCOR_KEY);
   const seedUrl = spec.seedUrls?.[0];
   if (!seedUrl || spec.seedUrls.length !== 1) {
@@ -292,7 +293,10 @@ async function fetchJobListings({ fetchImpl = fetch } = {}) {
     return runSpecInProduction({ ...spec, seedUrls }, {
       headers: ACCOR_REQUEST_HEADERS,
       detailExtractor: extractAccorDetailFields,
-      fetchImpl: createAccorSnapshotFetch(pageSnapshots, fetchImpl),
+      // Detail pages miss the snapshot and go out with the spec policy's
+      // npm-undici dispatcher, which Node's bundled fetch rejects under
+      // undici 8: fall back to the paired fetch, not the global one.
+      fetchImpl: createAccorSnapshotFetch(pageSnapshots, resolveProspectorFetch(fetchImpl)),
     });
   } finally {
     await urlPolicy.dispatcher.close();

@@ -214,30 +214,6 @@ jobs:
     env:
       NODE_OPTIONS: '--max-old-space-size=8192'
     steps:
-      # Free ~25-30 GB before dist/ lands. This gate no longer BUILDS dist
-      # (issue #5169 — see the replay steps below), but it still materialises
-      # the whole logical site: the github-pages tarball plus every locale and
-      # section shard, which the rehydrate scripts will `git clone` when a run's
-      # artifacts have expired. ubuntu-latest ships ~14 GB free on /, so the
-      # cleanup is still load-bearing — it just guards the download now, not a
-      # Vite emit. Deletes only toolchains this repo never uses.
-      - name: Free disk space (remove unused toolchains)
-        shell: bash
-        run: |
-          echo "::group::Disk usage BEFORE cleanup"
-          df -h /
-          echo "::endgroup::"
-          sudo rm -rf /usr/local/lib/android &
-          sudo rm -rf /usr/share/dotnet &
-          sudo rm -rf /opt/ghc &
-          sudo rm -rf /usr/local/share/boost &
-          sudo rm -rf /opt/hostedtoolcache/CodeQL &
-          sudo rm -rf /usr/share/swift &
-          wait
-          echo "::group::Disk usage AFTER cleanup"
-          df -h /
-          echo "::endgroup::"
-
       - name: Checkout
         uses: actions/checkout@v7
         with:
@@ -267,6 +243,20 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
+
+      # Free disk before dist/ lands. This gate no longer BUILDS dist
+      # (issue #5169 — see the replay steps below), but it still materialises
+      # the whole logical site: the github-pages tarball plus every locale and
+      # section shard, which the rehydrate scripts will `git clone` when a run's
+      # artifacts have expired. That site ends the rehydrate at 134 of the
+      # runner's 145 GB (green run 36539937034: "/dev/root 145G 134G 12G"), so
+      # the cleanup is load-bearing. It runs right AFTER the sparse checkout
+      # because the one list now lives in the repo, shared with every other
+      # job that rehydrates the logical dist; it deletes only toolchains this
+      # job never uses and prints df (blocks AND inodes) before/after.
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: bash scripts/ci/free-runner-disk.sh
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

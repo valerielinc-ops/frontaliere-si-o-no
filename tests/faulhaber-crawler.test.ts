@@ -9,6 +9,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/faulhaber-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 const LISTING_DATA_URL = 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/Joboffers/GetJoboffersData';
 const DETAIL_URL = 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura';
@@ -121,6 +122,65 @@ describe('Faulhaber crawler parser', () => {
       expect(job.sourceLang).toBe('it');
       expect(Object.keys(job.descriptionByLocale)).toEqual(['it']);
       expect(Object.keys(job.titleByLocale)).toEqual(['it']);
+    });
+  });
+
+  describe('spontaneous-application entry (corpus run 36790878741)', () => {
+    // Live feed 2026-10-01: 19 offers, the only `CH - Croglio` row is the
+    // standing "Candidatura spontanea" (IsUnsolicitedApps=false), whose short
+    // body failed the run as "no detail page with a source body of 50 words".
+    const spontaneousListing = JSON.stringify({
+      JoboffersCount: 2,
+      Joboffers: [
+        {
+          Id: 23370,
+          JobofferName: 'Candidatura spontanea',
+          LocationName: 'CH - Croglio',
+          IsUnsolicitedApps: false,
+          JobofferUrl: '/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea',
+        },
+        {
+          Id: 57001,
+          JobofferName: 'Area Sales Manager (m/w/d)',
+          LocationName: 'DE - Schönaich',
+          IsUnsolicitedApps: false,
+          JobofferUrl: '/HPv3.Jobs/faulhaber/stellenangebot/57001/Area-Sales-Manager',
+        },
+      ],
+    });
+
+    it('publishes the complete feed without a Swiss vacancy as a proven zero', async () => {
+      const fetchHtmlImpl = vi.fn(async (url: string) => {
+        if (url === LISTING_DATA_URL) return spontaneousListing;
+        throw new Error(`Unexpected detail fetch ${url}`);
+      });
+
+      const jobs = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl: vi.fn() });
+
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+      expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toContain('2 offer(s)');
+      expect(fetchHtmlImpl).toHaveBeenCalledTimes(1);
+    });
+
+    it('keeps a failed listing fetch unproven instead of claiming a zero', async () => {
+      const fetchHtmlImpl = vi.fn(async () => { throw httpError(500); });
+      const fetchJinaImpl = vi.fn(async () => null);
+
+      await expect(fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl })).rejects.toThrow(/listing data/);
+    });
+
+    it('still publishes a real Croglio vacancy next to the spontaneous entry', async () => {
+      const mixed = JSON.stringify({
+        JoboffersCount: 2,
+        Joboffers: [JSON.parse(spontaneousListing).Joboffers[0], JSON.parse(LISTING_JSON).Joboffers[0]],
+      });
+      const fetchHtmlImpl = vi.fn(async (url: string) => (url === LISTING_DATA_URL ? mixed : DETAIL_HTML));
+
+      const jobs = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl: vi.fn() });
+
+      expect(jobs.map((job: { title: string }) => job.title)).toEqual(['Tecnico di misura']);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     });
   });
 
