@@ -7376,6 +7376,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.operazione-internazionale-contro-killsec.title': 'KillSec deaktiviert: 110 TB Daten beschlagnahmt',
     'blog.article.operazione-internazionale-contro-killsec.excerpt': 'Eine internationale Operation am 30. September 2026 zerlegte das Netzwerk von KillSec, verhaftete drei Personen, führte acht Durchsuchungen in Spanien, Griechenland, Großbritannien und Rumänien durch und beschlagnahmte fünf Server.',
     'blog.article.operazione-internazionale-contro-killsec.imageAlt': 'Moderne Schweizer Datenzentrum mit Schweizer Flagge, Symbol für Cybersicherheit',
+    'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Staatenrat: Ja zum EU-Gesundheitsabkommen',
+    'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 Ja, 11 Nein: Gesundheitsdekret verabschiedet. Fakultatives Referendum gewählt. Strom macht Pause.',
+    'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'Der Bundespalast in Bern während der Sitzung des Ständerates',
 };
 
 export default blogMetaChDe;

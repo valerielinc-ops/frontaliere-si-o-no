@@ -22156,6 +22156,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'consiglio-stati-accordo-sanita-ue',
+    category: 'novita',
+    date: '2026-10-01T17:38:48.635Z',
+    image: '/images/blog/consiglio-stati-accordo-sanita-ue.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -95648,6 +95648,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-stati-accordo-sanita-ue': {
+    title: 'Consiglio degli Stati: sì all’accordo sanità UE',
+    description: 'Il Consiglio degli Stati approva l’accordo sanitario con l’UE (31-11). Referendum facoltativo. L’accordo elettricità resta in sospeso per la sessione invernale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, stati, accordo, sanità',
+    ogTitle: 'Consiglio degli Stati: sì all’accordo sanità UE',
+    ogDescription: 'Approvato l’accordo sanitario con l’UE al Consiglio degli Stati con 31 voti a favore. Scelto il referendum facoltativo. Il dossier elettricità resta aperto in attesa della sessione invernale. Ecco i dettagli.',
+    canonicalPath: '/articoli-svizzera/consiglio-stati-accordo-sanita-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio degli Stati: sì all’accordo sanità UE",
+      "description": "Il Consiglio degli Stati approva l’accordo sanitario con l’UE (31-11). Referendum facoltativo. L’accordo elettricità resta in sospeso per la sessione invernale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-stati-accordo-sanita-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale di Berna durante la sessione del Consiglio degli Stati"
+      },
+      "datePublished": "2026-10-01T17:38:48+00:00",
+      "dateModified": "2026-10-01T17:38:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-stati-accordo-sanita-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
