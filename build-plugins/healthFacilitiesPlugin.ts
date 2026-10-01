@@ -58,6 +58,11 @@ import {
   type HealthFacilityRecord,
 } from './healthFacilitiesData';
 import {
+  stableTitleToken,
+  TITLE_MAX_CHARS,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
+import {
   aggregateHealthFacilityJobs,
   type FacilitySnapshot,
   type FacilityFeaturedJob,
@@ -78,6 +83,38 @@ import {
 import { resolveHealthFacilitiesFlushed, type EmittedFacility } from './shared/buildSignals';
 
 const SITEMAP_FILE = 'sitemap-health-facilities.xml';
+
+/**
+ * Keep facility identity in the SERP title without changing the full H1 or
+ * page copy. Long registry names often include a parenthetical legal name;
+ * removing that suffix is preferable to cutting the facility name mid-word.
+ */
+function compactFacilityTitle(
+  name: string,
+  locale: HealthFacilityLocale,
+  generatedTitle: string,
+  facilityKey: string,
+): string {
+  const headline = String(generatedTitle || '').trim();
+  const escapedLength = (value: string): number => esc(value).length;
+  if (headline.length <= TITLE_MAX_CHARS && escapedLength(headline) <= TITLE_MAX_CHARS) return headline;
+  const shortName = String(name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const suffix = {
+    it: ': offerte sanitarie',
+    en: ' jobs',
+    de: ' Jobs',
+    fr: ' emplois',
+  }[locale];
+  const compact = `${shortName}${suffix}`.trim();
+  const token = ` · ${stableTitleToken(facilityKey || name)}`;
+  const base = compact.length + token.length <= TITLE_MAX_CHARS ? compact : shortName;
+  const cappedBase = truncateHeadlineToMeasuredBudget(
+    base,
+    TITLE_MAX_CHARS,
+    (candidate) => escapedLength(`${candidate}${token}`),
+  );
+  return `${cappedBase}${token}`;
+}
 
 /** Italian province code → display name (from commuterOrigins). */
 const PROVINCE_NAME: Record<string, string> = {
@@ -373,7 +410,7 @@ export function renderFacilityPage(
 
   const html = buildSeoPageHtml({
     locale,
-    title: copy.metaTitle,
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle, facility.slug),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),
@@ -429,7 +466,7 @@ function renderBelowFloorBridge(
 
   return buildSeoPageHtml({
     locale,
-    title: copy.metaTitle,
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle, facility.slug),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),

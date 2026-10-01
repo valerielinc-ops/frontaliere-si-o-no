@@ -105,9 +105,17 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJobsHub';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
-// Universal rule: headline VERBATIM, brand suffix appended only when total
-// stays within TITLE_MAX_CHARS (66). See build-plugins/shared/titleSuffix.ts.
-import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix';
+// Universal rule: keep the source headline in page content; the SERP title is
+// capped at TITLE_MAX_CHARS (66) when a static metadata path needs it. See
+// build-plugins/shared/titleSuffix.ts.
+import {
+  buildTitleWithBrand,
+  clampMetaDescription,
+  stableTitleToken,
+  TITLE_BRAND_SUFFIX,
+  TITLE_MAX_CHARS,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 // Border-crossing <title> cascade + its slug→label transform. Leaf module so
 // the #4828 regression suite can assert the 66-char cap over every id in
 // ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
@@ -129,10 +137,22 @@ import {
 import { forceGc } from './shared/forceGc';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
-function capTitle70(s: string): string {
+export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
  const headline = s.replace(SUFFIX_STRIP_RE, '').trim();
- return buildTitleWithBrand(headline);
+ const escapedLength = (value: string): number => esc(value).length;
+ // Keep the full source headline in the page H1/body, but cap only the SERP
+ // title. Static SEO pages historically bypassed the shared shell's title
+ // normaliser, so a few dynamic headlines could still ship over 66 chars.
+ const branded = buildTitleWithBrand(headline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, escapedLength);
+ if (escapedLength(branded) <= TITLE_MAX_CHARS) return branded;
+ const token = routeKey ? ` · ${stableTitleToken(routeKey)}` : '';
+ const cappedHeadline = truncateHeadlineToMeasuredBudget(
+   headline,
+   TITLE_MAX_CHARS,
+   (candidate) => escapedLength(`${candidate}${token}`),
+ );
+ return `${cappedHeadline}${token}`;
 }
 
 // ── FAQ page dedicated pre-rendering ──────────────────────────────────
@@ -5379,14 +5399,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
  <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD, undefined, locale))}">
  <meta property="og:image" content="${ogImageUrl}">
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
@@ -5523,14 +5543,14 @@ ${hubChromeSplit.bodyHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD, undefined, locale))}">
  <meta property="og:image" content="${ogImageUrl}">
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
@@ -5564,14 +5584,14 @@ ${hrefTags}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD, undefined, locale))}">
  <meta property="og:image" content="${ogImageUrl}">
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">

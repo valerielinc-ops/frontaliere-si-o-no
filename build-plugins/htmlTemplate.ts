@@ -335,7 +335,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // budget (word-aware, ≤160 char). JSON-LD `description` in jsonLdScripts is
  // untouched. Mirrors the runtime clamp in services/seoService.ts so the
  // static HTML and the JS-rendered DOM expose the same complete snippet.
- const metaDescription = clampMetaDescription(description);
+ const metaDescription = clampMetaDescription(description, undefined, locale);
  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
  // Escape `<` in each (already-serialized) JSON-LD string so a "</script>" in
  // arbitrary content (titles, names) can't break out of the inline tag and

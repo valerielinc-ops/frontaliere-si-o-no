@@ -89,6 +89,14 @@ describe('Bing-compatible full-tree crawler', () => {
       'meta-description-too-short',
     ]));
 
+    const newsHeadline = 'Un titolo storico molto lungo che resta identico nel NewsArticle per preservare la sua elegibilità editoriale';
+    const newsInvariant = classifyDocument({
+      url: `${BASE}/articoli-frontaliere/storico/`,
+      status: 200,
+      html: `<title>${newsHeadline}</title><link rel="canonical" href="${BASE}/articoli-frontaliere/storico/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina storica nel controllo SEO completo e mantenere il contratto di crawling."><script type="application/ld+json">${JSON.stringify({ '@type': 'NewsArticle', headline: newsHeadline })}</script>`,
+    });
+    expect(newsInvariant.findings.map((item) => item.code)).not.toContain('title-too-long');
+
     const pdf = classifyDocument({
       url: `${BASE}/guide.pdf`,
       status: 200,

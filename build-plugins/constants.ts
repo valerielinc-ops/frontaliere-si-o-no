@@ -401,7 +401,7 @@ export function buildCanonicalBridgePage(options: {
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
- <meta name="description" content="${clampMetaDescription(description)}">
+ <meta name="description" content="${clampMetaDescription(description, undefined, lang)}">
  <meta name="robots" content="${robotsContent}">
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
  ${ANALYTICS_SNIPPET}
@@ -443,7 +443,7 @@ export function buildFlatRedirect(
  // (e.g. "&am…"). The SERP budget applies to both the <meta description> and the
  // og:description below. This bridge is always noindex, but clamping keeps the
  // emit path consistent with every other generator (the deferred #2230 sibling).
- const desc = og ? esc(clampMetaDescription(og.description)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
+ const desc = og ? esc(clampMetaDescription(og.description, undefined, lang)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
  const ogTags = og
  ? `
  <meta property="og:type" content="article">
