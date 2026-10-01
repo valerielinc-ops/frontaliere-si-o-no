@@ -135,7 +135,7 @@ jobs:
             echo "No in-flight events refresh PR branch found."
             exit 0
           fi
-          if ! git fetch --no-tags "$remote_url" \
+          if ! git fetch --no-tags --depth=1 "$remote_url" \
             "refs/heads/${branch}:refs/remotes/origin/${branch}" \
             >/dev/null 2>&1; then
             echo "::error::Unable to fetch the stable events refresh branch"
