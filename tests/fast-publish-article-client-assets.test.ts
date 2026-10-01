@@ -55,13 +55,18 @@ describe('fast-publish article workflow', () => {
 });
 
 describe('rerender article hubs workflow', () => {
-  it('publishes the matching client chunks before render/offload and shard fan-out', () => {
+  it('preflights every rendered section before publishing client chunks, then pushes hubs', () => {
     const publishAt = hubDriver.indexOf('await publishClientChunks(sections, args.dryRun);');
     const renderAt = hubDriver.indexOf('await renderHubsAndOffload({');
+    const freshnessAt = hubDriver.indexOf('const freshness = await checkCorpusFreshness(section, itemCount);');
     const pushAt = hubDriver.indexOf('// ── Push: ONE invocation per (section, locale)');
+    const fatalExitAt = hubDriver.indexOf("console.error(`${LOG} validation failed — nothing pushed`);");
 
     expect(publishAt).toBeGreaterThan(-1);
-    expect(publishAt).toBeLessThan(renderAt);
+    expect(renderAt).toBeGreaterThan(-1);
+    expect(freshnessAt).toBeGreaterThan(renderAt);
+    expect(fatalExitAt).toBeGreaterThan(freshnessAt);
+    expect(publishAt).toBeGreaterThan(fatalExitAt);
     expect(publishAt).toBeLessThan(pushAt);
     expect(hubDriver).toContain("path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs')");
     expect(hubDriver).toContain("args.push('--strict', '--no-ticker')");
