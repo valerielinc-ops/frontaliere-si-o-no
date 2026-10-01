@@ -290,6 +290,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // ══════════════════════════════════════════════════════════════════════
   { file: "tests/apleona-schweiz-ag-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/article-author-source-parity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // The organization-entity regression also inspects generated static blog
+  // SEO modules. Its corpus reads are intentional, but the runtime/source
+  // inventory must keep it out of the blocking PR partition.
+  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
   { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog-slugs-sitemap-sync.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
