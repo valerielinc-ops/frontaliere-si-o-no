@@ -88,6 +88,22 @@ describe('the surfaces that print a description verbatim use the shared rule', (
     expect(src).not.toContain('const previewCharLimit = 220');
   });
 
+  it('keeps the settled empty-description slot reserved after enrichment finishes', () => {
+    const src = read('components/community/JobBoard.tsx');
+    const publicDescription = src.slice(src.indexOf('const publicDescription ='), src.indexOf('/* Auth gate — embedded inline'));
+    const emptyDescriptionBranch = publicDescription.slice(
+      publicDescription.indexOf('{publicDescription ?'),
+      publicDescription.indexOf('{publicRequirements.length > 0'),
+    );
+    const reserve = emptyDescriptionBranch.indexOf('className="min-h-[160px]"');
+    const pending = emptyDescriptionBranch.indexOf('descriptionPending');
+    const settledFallback = emptyDescriptionBranch.indexOf("t('jobBoard.gate.descriptionUnavailable')");
+
+    expect(reserve).toBeGreaterThanOrEqual(0);
+    expect(pending).toBeGreaterThan(reserve);
+    expect(settledFallback).toBeGreaterThan(reserve);
+  });
+
   it('the expired-job teaser, a byte-identical twin, strips markdown too', () => {
     // JobExpiredView carried the same `.replace` chain as the gate teaser,
     // copied literally. The sibling gate surfaced it; fixing one and not the

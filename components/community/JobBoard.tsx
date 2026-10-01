@@ -9385,9 +9385,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
  {/* Full source description is readable before any sign-in or follow action. */}
  <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description">
-  {publicDescription ? renderFormattedDescription(publicDescription) : descriptionPending ? (
-   <div className="min-h-[160px] space-y-3" aria-busy="true"><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /></div>
-  ) : <p className="text-sm text-subtle">{t('jobBoard.gate.descriptionUnavailable')}</p>}
+  {publicDescription ? renderFormattedDescription(publicDescription) : (
+   // Keep the empty-description slot stable when enrichment settles without a
+   // public description. Otherwise the settled fallback collapses the space
+   // reserved by the loading skeleton and shifts the auth gate upward.
+   <div className="min-h-[160px]">
+    {descriptionPending ? (
+     <div className="space-y-3" aria-busy="true"><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /></div>
+    ) : <p className="text-sm text-subtle">{t('jobBoard.gate.descriptionUnavailable')}</p>}
+   </div>
+  )}
   {publicRequirements.length > 0 && <><h2 className="text-lg font-semibold text-heading">{t('jobBoard.requirementsHeading')}</h2><ul className="list-disc pl-5 space-y-1 text-sm text-body">{publicRequirements.map((requirement, index) => <li key={index}>{requirement}</li>)}</ul></>}
  </section>
 
