@@ -52,6 +52,7 @@ export function candidateRules(candidateLocale) {
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (diplomas, references, certificates) are not available: skip them, or put them in missingRequired when required.
 - select and radio: value must be exactly one of the field's option labels.
+- Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
 - Text: respect maxLength; for motivation, cover-letter or "why us" text areas use the texts provided (shorten at a sentence boundary if needed). Name, e-mail, phone and address fields come from identity.
 - Always fill the contact fields from identity: full/first/last name, e-mail, phone (split country code and number when the form asks them separately; a phone-type question is "mobile" for a mobile number such as +41 7x or +39 3xx). Street, postal code, city and country come from identity.address, city and country also from identity.location; date of birth and nationality from profile. A country is chosen as the option that names it in the form's language (Italia = Italien = Italy = Italie). What the data does not state is missing.
 - "How did you hear about us / Wie haben Sie von uns erfahren / Come hai saputo": the true answer is the job board frontaliereticino.ch — choose the option meaning online job board / internet / other website (or "other"), or write "frontaliereticino.ch" in a text field.
@@ -194,7 +195,7 @@ export function guardPlan(plan, fields, candidate = null) {
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {
@@ -255,6 +256,7 @@ export function holdsValue(field) {
   if (field.kind === 'file') return false;
   const value = String(field.value || '').trim();
   if (!value) return false;
+  if (field.kind === 'date') return /^\d{4}-\d{1,2}-\d{1,2}$/.test(value);
   if (field.kind === 'select') {
     const chosen = (field.options || []).find((option) => option.value === field.value);
     return !(chosen && PLACEHOLDER.test(chosen.label));

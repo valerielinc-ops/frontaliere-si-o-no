@@ -276,6 +276,66 @@ async function main() {
     const near = await runAction(listPage, { ref: yearRef, action: 'select', value: '1990' });
     check('a select never takes a near option', near.ok === false && near.error === 'option_not_found');
     await listPage.context().browser().close();
+    // Review of #10822: visible unrelated year/month lists must not shift JOIN's
+    // selections away from the popups controlled by the date comboboxes.
+    const dateBrowser = await launchChromium({ headless: true, executablePath });
+    const datePage = await dateBrowser.newPage();
+    const unrelatedOptions = Array.from({ length: 12 }, (_, index) => `<div role="option">Unrelated ${index + 1}</div>`).join('');
+    const unrelatedYearOptions = '<div role="option">2025</div>';
+    const monthOptions = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      .map((label, index) => `<div role="option" data-month="${index + 1}">${label}</div>`).join('');
+    await datePage.setContent(`<div data-scope="date-picker" data-part="root" aria-label="Birth date">
+      <input id="date-year" role="combobox" aria-controls="date-years" value="">
+      <input id="date-month" role="combobox" aria-controls="date-months" value="">
+      <div role="listbox" id="unrelated-options">${unrelatedOptions}</div>
+      <div role="listbox" id="date-years"><div role="option">2025</div></div>
+      <div role="listbox" id="unrelated-years">${unrelatedYearOptions}</div>
+      <div role="listbox" id="date-months" style="display:none">${monthOptions}</div>
+      <div role="listbox" id="unrelated-months">${monthOptions}</div>
+      <div data-part="table"><div data-part="table-cell-trigger" role="button" data-value="2025-05-12" style="display:none">12</div></div>
+    </div><script>
+      const year = document.getElementById('date-year');
+      const month = document.getElementById('date-month');
+      const months = document.getElementById('date-months');
+      const day = document.querySelector('[data-value="2025-05-12"]');
+      month.addEventListener('keydown', (event) => { if (event.key === 'ArrowDown') months.style.display = ''; });
+      document.querySelector('#date-years [role="option"]').addEventListener('click', () => { year.value = '2025'; });
+      months.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => { month.value = option.dataset.month; day.style.display = ''; }));
+      day.addEventListener('click', () => day.setAttribute('data-selected', ''));
+    </script>`);
+    const dateSnapshot = await extractFields(datePage);
+    const dateField = dateSnapshot.fields.find((field) => field.kind === 'date');
+    const dateResult = await applyActions(datePage, dateSnapshot.fields, [
+      { fieldId: dateField?.id, action: 'fill', value: '2025-05-12' },
+    ], {}, { pause: async () => {} });
+    const pickedDate = await datePage.locator('[data-part="table-cell-trigger"][data-selected]').getAttribute('data-value').catch(() => '');
+    const pickedYear = await datePage.locator('#date-year').inputValue();
+    const pickedMonth = await datePage.locator('#date-month').inputValue();
+    check('unrelated visible year and month lists cannot shift the JOIN picker', dateResult[0]?.ok === true
+      && pickedDate === '2025-05-12' && pickedYear === '2025' && pickedMonth === '5');
+    await dateBrowser.close();
+
+    const unownedBrowser = await launchChromium({ headless: true, executablePath });
+    const unownedPage = await unownedBrowser.newPage();
+    await unownedPage.setContent(`<div data-scope="date-picker" data-part="root" aria-label="Birth date">
+      <input id="unowned-year" role="combobox" value="">
+      <input id="unowned-month" role="combobox" value="">
+      <div role="listbox" id="unrelated-years"><div role="option">2025</div></div>
+      <div role="listbox" id="unrelated-months">${monthOptions}</div>
+      <div data-part="table"><div data-part="table-cell-trigger" role="button" data-value="2025-05-12" style="display:none">12</div></div>
+    </div><script>
+      window.unrelatedClicks = 0;
+      document.querySelectorAll('#unrelated-years [role="option"], #unrelated-months [role="option"]')
+        .forEach((option) => option.addEventListener('click', () => { window.unrelatedClicks += 1; }));
+    </script>`);
+    const unownedSnapshot = await extractFields(unownedPage);
+    const unownedField = unownedSnapshot.fields.find((field) => field.kind === 'date');
+    const unownedResult = await applyActions(unownedPage, unownedSnapshot.fields, [
+      { fieldId: unownedField?.id, action: 'fill', value: '2025-05-12' },
+    ], {}, { pause: async () => {} });
+    const unrelatedClicks = await unownedPage.evaluate(() => window.unrelatedClicks);
+    check('an unowned JOIN popup fails closed without clicking an unrelated list', unownedResult[0]?.ok === false && unrelatedClicks === 0);
+    await unownedBrowser.close();
     // career-ops apply.md: company and role on the form match the posting, or stop.
     const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
     check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1);
