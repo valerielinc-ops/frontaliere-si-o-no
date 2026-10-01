@@ -702,7 +702,10 @@ export const PrivacyPolicy: React.FC = () => {
                 candidatura il fornitore d'invio ci comunica consegna, aperture e clic sui link (senza i
                 codici personali contenuti nei link): li usiamo solo per sapere se hai visto la bozza da
                 approvare, sono visibili solo nella scheda del tuo ordine e vengono cancellati con il CV.
-                OpenAI e GitHub possono trattare i dati anche fuori dall'UE/Svizzera.
+                Se il portale dell'azienda lo richiede per ricevere la candidatura, accettiamo per tuo conto
+                le sue condizioni e la sua informativa privacy, mai consensi facoltativi (vedi i Termini, sezione 6):
+                dopo l'invio l'azienda e il portale che usa trattano i tuoi dati come titolari autonomi, secondo la
+                loro informativa. OpenAI e GitHub possono trattare i dati anche fuori dall'UE/Svizzera.
               </li>
             </ul>
             <p className="text-sm italic">

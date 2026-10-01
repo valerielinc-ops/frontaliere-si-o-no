@@ -25,7 +25,7 @@ service firebase.storage {
       allow create: if request.auth != null
         && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.userId == request.auth.uid
         && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.paymentStatus == 'paid'
-        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentVersion == 'assisted-application-v1'
+        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']
         && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentedAt is timestamp
         && request.resource.size < 5 * 1024 * 1024
         && request.resource.contentType.matches('^(application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document)$');

@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { CheckCircle2, FileText, Loader2, LockKeyhole, Shield, UploadCloud } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -134,8 +136,8 @@ export default function AssistedApplicationUpload({
       setName((value) => value || data.applicantName || '');
       setEmail((value) => value || data.applicantEmail || '');
       setCvStorageKey(data.cvStorageKey || null);
-      const hasPersistedConsent = data.consentVersion === ASSISTED_APPLICATION_CONSENT_VERSION
-        && data.consentedAt != null;
+      // A mandate given under v1 still counts: the rules keep the stored version immutable.
+      const hasPersistedConsent = hasAssistedApplicationConsent(data);
       setConsent(hasPersistedConsent);
       setConsentPersisted(hasPersistedConsent);
       if (data.submissionStatus === 'ready_for_manual_submission') {
@@ -385,6 +387,7 @@ export default function AssistedApplicationUpload({
                   />
                   <span>{t('jobBoard.assisted.consent', { jobTitle, companyName: order.companyName || '' })}</span>
                 </label>
+                <AssistedApplicationLegalLinks className="-mt-3 block px-4 text-xs text-muted" />
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="text-sm font-medium text-body">

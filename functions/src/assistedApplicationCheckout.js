@@ -20,7 +20,8 @@ import { localeFromSiteUrl } from './assistedApplicationNotifications.js';
 export const ASSISTED_APPLICATION_PRODUCT = 'assisted_application';
 export const ASSISTED_APPLICATION_PRICE_CENTS = ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 export const ASSISTED_APPLICATION_CURRENCY = 'eur';
-export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
+// v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
+export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
 
 const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_checkout_requests';
 // `offerwall_fallback`: the paid offer opened because the job-board Offerwall

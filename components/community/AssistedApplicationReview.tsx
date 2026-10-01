@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
   fetchReview,
@@ -639,6 +640,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
 
         {data && data.state === 'candidate_review' && !data.stale && (
           <div className="space-y-3 border-t border-edge pt-4">
+            <p className="text-xs leading-relaxed text-muted">
+              {t('jobBoard.assisted.review.approveLegal')} <AssistedApplicationLegalLinks />
+            </p>
             <button
               type="button"
               onClick={() => { void run('approve'); }}
